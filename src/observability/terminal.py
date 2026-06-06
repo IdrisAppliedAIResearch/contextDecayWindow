@@ -1,6 +1,12 @@
 from src.observability.turn_record import TurnRecord
 
 
+def _format_rule_detected(record: TurnRecord) -> str:
+    if record.contains_rule and record.rule_summary:
+        return f'Yes — "{record.rule_summary}"'
+    return "No"
+
+
 class TerminalPrinter:
 
     def print_turn(self, record: TurnRecord) -> None:
@@ -24,6 +30,9 @@ class TerminalPrinter:
         k_count = record.k_count
         n_count = record.n_count
         print(f"[RETRIEVAL] K={k_count} above 0.70 | N={n_count} total episodes")
+
+        rule_detected_str = _format_rule_detected(record)
+        print(f"[RULE STORE] {record.rule_store_count} rules pinned | Rule detected this turn: {rule_detected_str}")
 
         for ep in record.k_episodes:
             ep_id = self._truncate_id(ep.get("id", ""))
