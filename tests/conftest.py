@@ -20,6 +20,8 @@ class MockInferenceResult:
     tokens_per_second: float
     time_to_first_token: float
     output_tokens: int
+    contains_rule: bool = False
+    rule_summary: str = None
 
 
 class MockInferenceProvider:
@@ -29,4 +31,6 @@ class MockInferenceProvider:
             tokens_per_second=50.0,
             time_to_first_token=0.02,
             output_tokens=4,
+            contains_rule=False,
+            rule_summary=None,
         )
