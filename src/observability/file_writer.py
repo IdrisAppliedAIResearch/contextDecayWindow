@@ -47,6 +47,7 @@ class FileWriter:
             "N_values.csv": ["turn", "n_count", "episode_id", "decay_score", "topic_label"],
             "topic_events.csv": ["turn", "event_type", "topic_label", "centroid_drift"],
             "retrieval_events.csv": ["turn", "episode_id", "similarity_score", "decay_score", "retrieval_type"],
+            "rule_detection.csv": ["turn_number", "contains_rule_detected", "rule_summary", "parse_error", "ground_truth", "true_positive", "false_positive"],
         }
 
         for fname, headers in csv_files.items():
@@ -66,6 +67,7 @@ class FileWriter:
         self._write_n_values_csv(record)
         self._write_topic_events_csv(record)
         self._write_retrieval_events_csv(record)
+        self._write_rule_detection_csv(record)
         self._write_snapshot(record)
         self._write_constructed_prompt(record)
 
@@ -219,6 +221,20 @@ class FileWriter:
                         label,
                         drift,
                     ])
+
+    def _write_rule_detection_csv(self, record: TurnRecord) -> None:
+        fpath = os.path.join(self.config.output_dir, "metrics", "rule_detection.csv")
+        with open(fpath, "a", newline="", encoding="utf-8") as f:
+            writer = csv.writer(f)
+            writer.writerow([
+                record.turn_number,
+                record.contains_rule,
+                record.rule_summary or "",
+                "",
+                "",
+                "",
+                "",
+            ])
 
     def _write_retrieval_events_csv(self, record: TurnRecord) -> None:
         fpath = os.path.join(self.config.output_dir, "metrics", "retrieval_events.csv")
