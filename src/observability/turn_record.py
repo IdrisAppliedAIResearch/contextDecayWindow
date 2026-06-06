@@ -51,6 +51,12 @@ class TurnRecord:
     compaction_turn: Union[int, None] = None
     history_tokens_before_compaction: Union[int, None] = None
 
+    # Rule detection (populated by InferenceProvider + RetrievalEngine)
+    contains_rule: bool = False
+    rule_summary: Optional[str] = None
+    rule_store_count: int = 0
+    rule_token_estimate: int = 0
+
     # Computed at flush time
     previous_context_window: Optional[str] = None
     constructed_prompt: str = ""
