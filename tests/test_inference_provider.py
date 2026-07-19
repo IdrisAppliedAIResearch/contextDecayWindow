@@ -92,6 +92,7 @@ class TestInferenceProviderEnvCheck:
 
         assert response["content"] == "ok"
         assert captured["payload"]["reasoning_format"] == "none"
+        assert captured["payload"]["prompt"].endswith("<think>\n</think>\n")
 
     def test_server_url_bypasses_local_model_path_requirement(self):
         saved_url = os.environ.get("CDW_INFERENCE_SERVER_URL")

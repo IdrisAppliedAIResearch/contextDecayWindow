@@ -119,8 +119,12 @@ class InferenceProvider:
         )
 
     def _complete_server(self, prompt: str) -> dict:
+        # Qwen's raw completion mode otherwise spends the response budget on a
+        # visible reasoning trace. Prefilling a closed think block requests a
+        # direct answer while retaining the existing prompt format.
+        direct_answer_prompt = f"{prompt}\n<think>\n</think>\n"
         payload = json.dumps({
-            "prompt": prompt,
+            "prompt": direct_answer_prompt,
             "n_predict": 1024,
             "reasoning_format": "none",
             "stream": False,
