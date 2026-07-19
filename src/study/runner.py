@@ -27,9 +27,9 @@ class StudyRunner:
     RUBRIC_TURN_END = 32
     RUBRIC_TURNS = list(range(112, 121))
 
-    def __init__(self, script_path: str, study_dir: str, run_id: str = "run_001"):
+    def __init__(self, script_path: str, study_dir: str, run_id: str = "run_001", minimum_turns: int = 30):
         self._check_env_vars()
-        self.script = load_script(script_path)
+        self.script = load_script(script_path, minimum_turns=minimum_turns)
         self.system_prompt = self.script["system_prompt"]
         self.turns = self.script["turns"]
         self.study_dir = study_dir
