@@ -101,7 +101,7 @@ class TerminalPrinter:
             return
 
         if result.pairs_merged == 0:
-            print(f"[CONSOLIDATION] Episode {result.triggered_at_episode} trigger | No pairs above 0.60 | Topics unchanged: {result.topics_after}")
+            print(f"[CONSOLIDATION] Episode {result.triggered_at_episode} trigger | No pairs above 0.45 | Topics unchanged: {result.topics_after}")
         else:
             print(f"[CONSOLIDATION] Topics: {result.topics_before} \u2192 {result.topics_after} | Merged: {result.pairs_merged} pairs")
             for entry in result.merge_log:

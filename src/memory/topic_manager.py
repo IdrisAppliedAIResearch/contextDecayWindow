@@ -14,7 +14,8 @@ class TopicManager:
 
     TOPIC_SIMILARITY_THRESHOLD = 0.50
     CONSOLIDATION_INTERVAL = 10
-    CONSOLIDATION_MERGE_THRESHOLD = 0.60
+    # Study 003: lowered from 0.60 after Study 002 produced no merges.
+    CONSOLIDATION_MERGE_THRESHOLD = 0.45
 
     def __init__(self, conn: sqlite3.Connection):
         self._conn = conn
