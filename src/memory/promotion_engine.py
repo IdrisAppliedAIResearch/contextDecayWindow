@@ -51,6 +51,8 @@ class PromotionSummary:
 class PromotionEngine:
     """Evaluate the outgoing canonical topic after each genuine transition."""
 
+    MINIMUM_OUTGOING_EPISODES = 3
+
     def __init__(self, conn, inference_client):
         self._conn = conn
         self._inference_client = inference_client
@@ -76,6 +78,8 @@ class PromotionEngine:
             raise ValueError("Outgoing canonical topic is missing")
         topic_label = topic_row["label"]
         outgoing_episodes = get_episodes_by_topic(self._conn, previous["topic_id"])
+        if len(outgoing_episodes) < self.MINIMUM_OUTGOING_EPISODES:
+            return None
 
         # Snapshot exactly once so all episodes in this batch share the same LTM reference.
         ltm_centroid = get_ltm_centroid(self._conn)
