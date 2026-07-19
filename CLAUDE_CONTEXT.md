@@ -32,9 +32,9 @@ New component: LTM retrieval read path. Fixes from Study 003: broad-query domain
 
 ## Key files
 
-- Final report: `experiments/study_003/study_003_report.md`
-- LTM analysis: `experiments/study_003/runs/study_003_full_002/iterative/ltm_analysis/analysis_report.md`
-- Rubric scores: `experiments/study_003/runs/study_003_full_002/iterative/rubric/scores.md`
+- Final report: `experiments/study_003/README.md`
+- LTM analysis: `experiments/study_003/runs/run_001/ltm_analysis/analysis_report.md`
+- Rubric scores: `experiments/study_003/runs/run_001/condition_c/rubric/scores.md`
 - Consolidation decision: `experiments/study_003/decisions/DECISION_consolidation_threshold_study003.md`
 
 **Last updated:** July 19, 2026

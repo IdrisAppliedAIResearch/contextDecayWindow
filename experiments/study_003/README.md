@@ -173,10 +173,12 @@ Study 004 has not yet been pre-registered.
 - Sprint plan: `sprint-specs/study_003_sprint_plan.md`
 - Script: `experiments/study_003/script.json`
 - Authoritative rubric: `experiments/study_002/rubric_filled.md`
-- Accepted rubric responses: `experiments/study_003/runs/study_003_full_002/iterative/rubric/responses.md`
-- Accepted rubric scores: `experiments/study_003/runs/study_003_full_002/iterative/rubric/scores.md`
-- Success bars: `experiments/study_003/runs/study_003_full_002/iterative/rubric/success_bars.md`
-- LTM observational report: `experiments/study_003/runs/study_003_full_002/iterative/ltm_analysis/analysis_report.md`
+- Accepted rubric responses: `experiments/study_003/runs/run_001/condition_c/rubric/responses.md`
+- Accepted rubric scores: `experiments/study_003/runs/run_001/condition_c/rubric/scores.md`
+- Success bars: `experiments/study_003/runs/run_001/condition_c/rubric/success_bars.md`
+- LTM observational report: `experiments/study_003/runs/run_001/ltm_analysis/analysis_report.md`
+- Canonical run notes: `experiments/study_003/runs/run_001/run_notes.md`
+- Condition C metrics: `experiments/study_003/runs/run_001/condition_c/metrics/`
 - Ablation report: `experiments/study_003/ablation/ablation_report.md`
 - Invalid-run deviation: `experiments/study_003/protocol_deviation_full_001.md`
 - Runtime deviation: `experiments/study_003/protocol_deviation_nvfp4_server.md`
