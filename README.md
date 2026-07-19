@@ -43,4 +43,4 @@ See `experiments/` for pre-registrations, run data, rubrics, and analysis report
 |---|---|---|
 | Study 001 | Complete | `experiments/study_001/README.md` |
 | Study 002 | PARTIAL | `experiments/study_002/README.md` |
-| Study 003 | PARTIAL (2/3 bars) | `experiments/study_003/study_003_report.md` |
+| Study 003 | PARTIAL (2/3 bars) | `experiments/study_003/README.md` |
