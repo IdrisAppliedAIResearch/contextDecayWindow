@@ -34,6 +34,8 @@ class TestInitDb:
             assert "topics" in tables
             assert "retrieval_events" in tables
             assert "rule_store" in tables
+            assert "ltm_episodes" in tables
+            assert "ltm_promotion_log" in tables
             conn.close()
         finally:
             os.unlink(db_path)
@@ -49,7 +51,14 @@ class TestInitDb:
                 "SELECT name FROM sqlite_master WHERE type='table' ORDER BY name"
             )
             tables = [row[0] for row in cursor.fetchall()]
-            assert len(tables) == 4
+            assert {
+                "episodes",
+                "topics",
+                "retrieval_events",
+                "rule_store",
+                "ltm_episodes",
+                "ltm_promotion_log",
+            }.issubset(tables)
             conn2.close()
         finally:
             os.unlink(db_path)
