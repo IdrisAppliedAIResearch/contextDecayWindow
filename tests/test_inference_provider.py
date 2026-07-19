@@ -66,6 +66,24 @@ class TestInferenceResult:
 
 class TestInferenceProviderEnvCheck:
 
+    def test_server_url_bypasses_local_model_path_requirement(self):
+        saved_url = os.environ.get("CDW_INFERENCE_SERVER_URL")
+        saved_path = os.environ.pop("CDW_INFERENCE_MODEL_PATH", None)
+        os.environ["CDW_INFERENCE_SERVER_URL"] = "http://127.0.0.1:8000"
+        from src.inference.provider import InferenceProvider
+        InferenceProvider._instance = None
+        try:
+            provider = InferenceProvider()
+            assert provider._server_url == "http://127.0.0.1:8000"
+        finally:
+            if saved_path is not None:
+                os.environ["CDW_INFERENCE_MODEL_PATH"] = saved_path
+            if saved_url is None:
+                os.environ.pop("CDW_INFERENCE_SERVER_URL", None)
+            else:
+                os.environ["CDW_INFERENCE_SERVER_URL"] = saved_url
+            InferenceProvider._instance = None
+
     def test_raises_when_model_path_not_set(self):
         saved = os.environ.pop("CDW_INFERENCE_MODEL_PATH", None)
         try:

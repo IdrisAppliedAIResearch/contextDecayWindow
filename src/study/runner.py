@@ -36,9 +36,10 @@ class StudyRunner:
 
     def _check_env_vars(self):
         required = [
-            "CDW_INFERENCE_MODEL_PATH",
             "CDW_EMBEDDING_MODEL_PATH",
         ]
+        if not os.environ.get("CDW_INFERENCE_SERVER_URL"):
+            required.append("CDW_INFERENCE_MODEL_PATH")
         missing = [v for v in required if not os.environ.get(v)]
         if missing:
             raise EnvironmentError(
