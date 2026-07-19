@@ -225,6 +225,13 @@ class TestIterativeConditionMock:
         assert len(rules) == 1
         assert rules[0]["turn_number"] == 1
 
+    def test_rubric_probe_turns_are_outside_promotion_window(self):
+        from src.study.runner import StudyRunner
+
+        assert StudyRunner.PROMOTION_TURN_END == 111
+        assert max(turn for turn in range(1, 121) if turn <= StudyRunner.PROMOTION_TURN_END) == 111
+        assert all(turn > StudyRunner.PROMOTION_TURN_END for turn in StudyRunner.RUBRIC_TURNS)
+
     def test_all_rules_ordered_by_turn(self):
         self.provider = MockInferenceProvider()
 

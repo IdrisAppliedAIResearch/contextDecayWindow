@@ -22,6 +22,28 @@ rule if contains_rule is true, otherwise null."""
 RULE_DETECTION_PATTERN = r"<rule_detection>(.*?)</rule_detection>"
 
 
+def detect_explicit_persistent_rule(user_message: str) -> Optional[str]:
+    """Return explicit persistent instructions when the model omits its tag.
+
+    This is deliberately conservative: all three signal classes must be present.
+    The original message is retained so a fallback never paraphrases away a rule.
+    """
+    normalized = " ".join(user_message.split())
+    lowered = normalized.lower()
+    has_rule_language = any(token in lowered for token in ("rule", "requirement", "constraint"))
+    has_persistence = any(
+        token in lowered
+        for token in ("throughout", "from now on", "all future", "entire conversation")
+    )
+    has_directive = any(
+        token in lowered
+        for token in ("must", "always", "without exception")
+    )
+    if has_rule_language and has_persistence and has_directive:
+        return normalized
+    return None
+
+
 @dataclass
 class InferenceResult:
     assistant_message: str

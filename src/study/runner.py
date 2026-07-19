@@ -5,7 +5,7 @@ import numpy as np
 
 from src.db.schema import init_db
 from src.embeddings.provider import embed
-from src.inference.provider import InferenceProvider
+from src.inference.provider import InferenceProvider, detect_explicit_persistent_rule
 from src.db.episode import get_episode_by_id
 from src.memory.promotion_engine import PromotionEngine
 from src.memory.retrieval_engine import RetrievalEngine
@@ -26,6 +26,7 @@ class StudyRunner:
     RUBRIC_TURN_START = 25
     RUBRIC_TURN_END = 32
     RUBRIC_TURNS = list(range(112, 121))
+    PROMOTION_TURN_END = 111
 
     def __init__(self, script_path: str, study_dir: str, run_id: str = "run_001", minimum_turns: int = 30, max_turns: int | None = None):
         self._check_env_vars()
@@ -97,6 +98,11 @@ class StudyRunner:
             record.total_turns = len(self.turns)
 
             result = self._inference_provider.complete(full_prompt)
+            if condition == "iterative" and not result.contains_rule:
+                fallback_rule = detect_explicit_persistent_rule(user_message)
+                if fallback_rule:
+                    result.contains_rule = True
+                    result.rule_summary = fallback_rule
             assistant_message = result.assistant_message
 
             record.tokens_per_second = result.tokens_per_second
@@ -142,7 +148,11 @@ class StudyRunner:
                 record.episode_count = runner._topic_manager.topic_count
                 record.consolidation_occurred = assignment.consolidation is not None
                 record.consolidation_result = assignment.consolidation
-                if promotion_engine and assignment.stored_episode_id:
+                if (
+                    promotion_engine
+                    and assignment.stored_episode_id
+                    and turn_number <= self.PROMOTION_TURN_END
+                ):
                     summary = promotion_engine.process_transition(
                         previous_episode_id, assignment.stored_episode_id, turn_number
                     )
