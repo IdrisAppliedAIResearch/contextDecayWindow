@@ -18,6 +18,7 @@ class AssignmentResult:
     is_new_topic: bool
     centroid_drift: float
     consolidation: Optional[ConsolidationResult] = None
+    stored_episode_id: Optional[str] = None
 
 
 @dataclass
