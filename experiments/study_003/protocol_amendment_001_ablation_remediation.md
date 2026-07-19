@@ -16,3 +16,7 @@ The four filter definitions, weights, weighted threshold, all-or-nothing thresho
 ## Required re-verification
 
 Run a fresh 35-turn iterative ablation. A GO decision requires: no duplicate LTM episode IDs, no promotion before the first genuine cross-domain transition, promotion at the turn-31 transition, rule persistence, consolidation logs, and no observed cross-domain merge.
+
+## Re-verification outcome
+
+The fresh run `ablation_35_amendment_001` confirmed idempotent writes: 9 LTM rows had 9 distinct STM episode IDs. It did not meet the transition-stability criterion. The 0.45 threshold still fragmented the civil-engineering opening and produced nonzero promotions before turn 31. This amendment therefore remains insufficient; Study 003 remains NO-GO pending a separately specified transition-stability redesign.
