@@ -52,6 +52,23 @@ def get_episode_by_id(conn: sqlite3.Connection, episode_id: str):
     return dict(zip(columns, row))
 
 
+def get_episodes_by_topic(conn: sqlite3.Connection, topic_id: str) -> list[dict]:
+    """Return a topic's episodes in their original conversation order."""
+    cursor = conn.execute(
+        "SELECT id, topic_id, user_message, assistant_message, "
+        "embedding, turn_number, created_at, last_retrieved_at, "
+        "retrieval_count FROM episodes WHERE topic_id = ? "
+        "ORDER BY turn_number, created_at",
+        (topic_id,),
+    )
+    columns = [
+        "id", "topic_id", "user_message", "assistant_message",
+        "embedding", "turn_number", "created_at", "last_retrieved_at",
+        "retrieval_count",
+    ]
+    return [dict(zip(columns, row)) for row in cursor.fetchall()]
+
+
 def update_episode_topic(conn: sqlite3.Connection, episode_id: str, topic_id: str) -> None:
     conn.execute(
         "UPDATE episodes SET topic_id = ? WHERE id = ?",

@@ -34,6 +34,19 @@ def get_all_topics(conn: sqlite3.Connection) -> list[dict]:
     return [dict(zip(columns, row)) for row in rows]
 
 
+def get_topic_by_id(conn: sqlite3.Connection, topic_id: str) -> dict | None:
+    cursor = conn.execute(
+        "SELECT id, label, centroid, episode_count, created_at, last_updated_at "
+        "FROM topics WHERE id = ?",
+        (topic_id,),
+    )
+    row = cursor.fetchone()
+    if row is None:
+        return None
+    columns = ["id", "label", "centroid", "episode_count", "created_at", "last_updated_at"]
+    return dict(zip(columns, row))
+
+
 def get_all_topics_with_centroids(conn: sqlite3.Connection) -> list[dict]:
     cursor = conn.execute(
         "SELECT id, label, centroid, episode_count, created_at, last_updated_at "

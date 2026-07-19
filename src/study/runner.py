@@ -6,9 +6,12 @@ import numpy as np
 from src.db.schema import init_db
 from src.embeddings.provider import embed
 from src.inference.provider import InferenceProvider
+from src.db.episode import get_episode_by_id
+from src.memory.promotion_engine import PromotionEngine
 from src.memory.retrieval_engine import RetrievalEngine
 from src.memory.topic_manager import TopicManager
 from src.observability.observer import Observer
+from src.observability.ltm_analysis_writer import LtmAnalysisWriter
 from src.observability.run_config import RunConfig
 from src.observability.turn_record import TurnRecord
 from src.runners.compaction_runner import CompactionRunner
@@ -64,7 +67,13 @@ class StudyRunner:
         observer.init_run()
 
         runner = self._create_runner(condition, run_config, observer)
+        promotion_engine = None
+        ltm_writer = None
+        if condition == "iterative" and hasattr(runner, "_conn"):
+            promotion_engine = PromotionEngine(runner._conn, self._inference_provider)
+            ltm_writer = LtmAnalysisWriter(output_dir)
         previous_prompt = None
+        previous_episode_id = None
         rubric_responses = []
         condition_start = time.perf_counter()
         peak_tokens = 0
@@ -109,6 +118,10 @@ class StudyRunner:
                 })
 
             if condition == "iterative":
+                previous_topic_before = None
+                if previous_episode_id is not None:
+                    previous_episode = get_episode_by_id(runner._conn, previous_episode_id)
+                    previous_topic_before = previous_episode["topic_id"] if previous_episode else None
                 pair_text = f"User: {user_message}\nAssistant: {assistant_message}"
                 embedding = embed(pair_text)
                 assignment = runner.on_turn_complete(
@@ -118,7 +131,7 @@ class StudyRunner:
                     embedding=embedding,
                     inference_result=result,
                 )
-                record.stored_episode_id = assignment.topic_id
+                record.stored_episode_id = assignment.stored_episode_id
                 record.stored_topic_label = assignment.topic_label
                 record.new_topic_created = assignment.is_new_topic
                 record.new_topic_label = assignment.topic_label if assignment.is_new_topic else None
@@ -127,6 +140,21 @@ class StudyRunner:
                 record.episode_count = runner._topic_manager.topic_count
                 record.consolidation_occurred = assignment.consolidation is not None
                 record.consolidation_result = assignment.consolidation
+                if promotion_engine and assignment.stored_episode_id:
+                    summary = promotion_engine.process_transition(
+                        previous_episode_id, assignment.stored_episode_id, turn_number
+                    )
+                    if summary:
+                        ltm_writer.write_promotion(summary)
+                    elif previous_episode_id is not None and assignment.consolidation:
+                        previous_after = get_episode_by_id(runner._conn, previous_episode_id)
+                        current_after = get_episode_by_id(runner._conn, assignment.stored_episode_id)
+                        if previous_after and current_after and previous_topic_before != previous_after["topic_id"] and previous_after["topic_id"] == current_after["topic_id"]:
+                            ltm_writer.write_merge_relabel(
+                                turn_number, previous_episode_id, assignment.stored_episode_id,
+                                previous_topic_before, previous_after["topic_id"], current_after["topic_id"],
+                            )
+                previous_episode_id = assignment.stored_episode_id
             else:
                 runner.on_turn_complete(user_message, assistant_message, turn_number)
 
