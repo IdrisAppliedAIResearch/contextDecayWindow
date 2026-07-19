@@ -4,7 +4,12 @@ import sys
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
-from src.inference.provider import InferenceResult, RULE_DETECTION_INSTRUCTION, RULE_DETECTION_PATTERN
+from src.inference.provider import (
+    InferenceResult,
+    RULE_DETECTION_INSTRUCTION,
+    RULE_DETECTION_PATTERN,
+    detect_explicit_persistent_rule,
+)
 
 
 class TestInferenceResultFields:
@@ -159,3 +164,18 @@ class TestRuleDetectionPattern:
         text = "Normal response with no tag."
         match = re.search(RULE_DETECTION_PATTERN, text, re.DOTALL)
         assert match is None
+
+
+class TestExplicitPersistentRuleFallback:
+    def test_detects_explicit_conversation_wide_rules(self):
+        message = (
+            "I am establishing two rules you must follow throughout our entire "
+            "conversation without exception. Always use numbered lists."
+        )
+        assert detect_explicit_persistent_rule(message) == message
+
+    def test_does_not_treat_one_off_formatting_request_as_persistent(self):
+        assert detect_explicit_persistent_rule("Use a numbered list for this answer.") is None
+
+    def test_does_not_treat_rule_discussion_as_a_directive(self):
+        assert detect_explicit_persistent_rule("Explain the rules of bridge design.") is None
