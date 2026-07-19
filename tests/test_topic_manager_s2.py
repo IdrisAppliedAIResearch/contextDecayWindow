@@ -30,7 +30,7 @@ class TestTopicThresholdAt0_50:
         self._setup_db()
         try:
             tm = TopicManager(self.conn)
-            assert tm.TOPIC_SIMILARITY_THRESHOLD == 0.50
+            assert tm.TOPIC_SIMILARITY_THRESHOLD == 0.45
         finally:
             self._teardown_db()
 

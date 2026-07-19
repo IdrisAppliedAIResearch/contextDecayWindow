@@ -10,6 +10,7 @@ from src.db.topic import get_topic_by_id
 from src.memory.ltm_store import (
     get_ltm_centroid,
     get_ltm_episode_count,
+    is_episode_promoted,
     log_promotion_event,
     promote_episode,
 )
@@ -82,6 +83,8 @@ class PromotionEngine:
         results = []
         promoted = 0
         for episode in outgoing_episodes:
+            if is_episode_promoted(self._conn, episode["id"]):
+                continue
             embedding = np.frombuffer(episode["embedding"], dtype=np.float32)
             content = (
                 f"User: {episode['user_message']}\n"

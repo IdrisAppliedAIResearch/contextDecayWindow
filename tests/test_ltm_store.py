@@ -54,6 +54,21 @@ class TestStudy003LtmStore:
         assert np.array_equal(np.frombuffer(row[3], dtype=np.float32), embedding)
         assert get_ltm_episode_count(self.conn) == 1
 
+    def test_promote_episode_is_idempotent_by_stm_episode_id(self):
+        embedding = np.ones(1024, dtype=np.float32)
+        first_id = promote_episode(
+            self.conn, "episode-1", 31, "topic_1", "weighted_threshold", None,
+            0.8, 0.4, 0.2, 0.1, 0.475, "first", embedding,
+        )
+        duplicate_id = promote_episode(
+            self.conn, "episode-1", 32, "topic_1", "weighted_threshold", None,
+            0.8, 0.4, 0.2, 0.1, 0.475, "duplicate", embedding,
+        )
+
+        assert first_id is not None
+        assert duplicate_id is None
+        assert get_ltm_episode_count(self.conn) == 1
+
     def test_centroid_and_promotion_log_are_computed_correctly(self):
         promote_episode(
             self.conn, "episode-1", 31, "topic_1", "all_or_nothing", "novelty",
