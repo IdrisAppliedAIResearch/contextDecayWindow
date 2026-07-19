@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="590" viewBox="0 0 1200 590" role="img" aria-labelledby="figure-title figure-description">
+  <title id="figure-title">Rubric and pre-registered success-bar outcomes</title>
+  <desc id="figure-description">Four rubric categories achieved full credit. Topic bleed achieved two of three points because Q11 failed, producing an overall score of 12 of 13. The middle-position and final-topic-count success bars passed; the overall-score bar failed, so the confirmatory result was partial.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#5D6975"/>
+    </marker>
+    <pattern id="probe-hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="8" stroke="#C85A16" stroke-width="2" opacity="0.25"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="590" fill="#FFFFFF"/>
+  <g font-family="Inter, Segoe UI, Arial, sans-serif" shape-rendering="geometricPrecision">
+  <text x="40" y="42" font-size="18" font-weight="500" fill="#17212B" text-anchor="start">A</text>
+  <text x="70" y="42" font-size="18" font-weight="500" fill="#17212B" text-anchor="start">Rubric score by category</text>
+  <text x="650" y="42" font-size="18" font-weight="500" fill="#17212B" text-anchor="start">B</text>
+  <text x="680" y="42" font-size="18" font-weight="500" fill="#17212B" text-anchor="start">Pre-registered success bars</text>
+  <text x="70" y="110" font-size="14" font-weight="400" fill="#17212B" text-anchor="start">C1  Early plant survival</text>
+  <rect x="245" y="90" width="330" height="28" rx="4" fill="#E5EAEE"/>
+  <rect x="245" y="90" width="330.0" height="28" rx="4" fill="#2474A6"/>
+  <text x="591" y="110" font-size="15" font-weight="500" fill="#17212B" text-anchor="start">3/3</text>
+  <text x="70" y="182" font-size="14" font-weight="400" fill="#17212B" text-anchor="start">C2  Middle plant survival</text>
+  <rect x="245" y="162" width="330" height="28" rx="4" fill="#E5EAEE"/>
+  <rect x="245" y="162" width="330.0" height="28" rx="4" fill="#2474A6"/>
+  <text x="591" y="182" font-size="15" font-weight="500" fill="#17212B" text-anchor="start">3/3</text>
+  <text x="70" y="254" font-size="14" font-weight="400" fill="#17212B" text-anchor="start">C3  Late plant survival</text>
+  <rect x="245" y="234" width="330" height="28" rx="4" fill="#E5EAEE"/>
+  <rect x="245" y="234" width="330.0" height="28" rx="4" fill="#2474A6"/>
+  <text x="591" y="254" font-size="15" font-weight="500" fill="#17212B" text-anchor="start">2/2</text>
+  <text x="70" y="326" font-size="14" font-weight="400" fill="#17212B" text-anchor="start">C4  Topic bleed</text>
+  <rect x="245" y="306" width="330" height="28" rx="4" fill="#E5EAEE"/>
+  <rect x="245" y="306" width="220.0" height="28" rx="4" fill="#C85A16"/>
+  <text x="591" y="326" font-size="15" font-weight="500" fill="#C85A16" text-anchor="start">2/3</text>
+  <text x="249" y="358" font-size="12" font-weight="400" fill="#C85A16" text-anchor="start">Q11: incomplete four-domain enumeration</text>
+  <text x="70" y="398" font-size="14" font-weight="400" fill="#17212B" text-anchor="start">C5  Rule pinning</text>
+  <rect x="245" y="378" width="330" height="28" rx="4" fill="#E5EAEE"/>
+  <rect x="245" y="378" width="330.0" height="28" rx="4" fill="#2474A6"/>
+  <text x="591" y="398" font-size="15" font-weight="500" fill="#17212B" text-anchor="start">2/2</text>
+  <line x1="620" y1="65" x2="620" y2="475" stroke="#D8E0E6" stroke-width="1"/>
+  <circle cx="690" cy="114" r="20" fill="#18835D"/>
+  <text x="690" y="121" font-size="26" font-weight="500" fill="#FFFFFF" text-anchor="middle">✓</text>
+  <text x="730" y="99" font-size="13" font-weight="400" fill="#5D6975" text-anchor="start">Bar 1</text>
+  <text x="730" y="123" font-size="16" font-weight="500" fill="#17212B" text-anchor="start">Middle-position score</text>
+  <text x="730" y="149" font-size="14" font-weight="400" fill="#5D6975" text-anchor="start">observed 3/3 · required 3/3</text>
+  <text x="1090" y="123" font-size="15" font-weight="500" fill="#18835D" text-anchor="end">PASS</text>
+  <circle cx="690" cy="240" r="20" fill="#C85A16"/>
+  <text x="690" y="247" font-size="26" font-weight="500" fill="#FFFFFF" text-anchor="middle">×</text>
+  <text x="730" y="225" font-size="13" font-weight="400" fill="#5D6975" text-anchor="start">Bar 2</text>
+  <text x="730" y="249" font-size="16" font-weight="500" fill="#17212B" text-anchor="start">Overall rubric score</text>
+  <text x="730" y="275" font-size="14" font-weight="400" fill="#5D6975" text-anchor="start">observed 12/13 · required 13/13</text>
+  <text x="1090" y="249" font-size="15" font-weight="500" fill="#C85A16" text-anchor="end">FAIL</text>
+  <circle cx="690" cy="366" r="20" fill="#18835D"/>
+  <text x="690" y="373" font-size="26" font-weight="500" fill="#FFFFFF" text-anchor="middle">✓</text>
+  <text x="730" y="351" font-size="13" font-weight="400" fill="#5D6975" text-anchor="start">Bar 3</text>
+  <text x="730" y="375" font-size="16" font-weight="500" fill="#17212B" text-anchor="start">Final topic count</text>
+  <text x="730" y="401" font-size="14" font-weight="400" fill="#5D6975" text-anchor="start">observed 1 · required ≤ 20</text>
+  <text x="1090" y="375" font-size="15" font-weight="500" fill="#18835D" text-anchor="end">PASS</text>
+  <rect x="70" y="505" width="1060" height="48" rx="6" fill="#F8E4D7"/>
+  <text x="600" y="536" font-size="18" font-weight="500" fill="#C85A16" text-anchor="middle">Confirmatory outcome: PARTIAL — 2 of 3 pre-registered bars passed</text>
+  </g>
+</svg>

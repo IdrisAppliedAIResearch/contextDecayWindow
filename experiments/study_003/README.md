@@ -16,6 +16,10 @@ The accepted run, `study_003_full_002`, was conducted after a model/runtime devi
 
 **Keywords:** long-context language models; retrieval-augmented generation; episodic memory; memory consolidation; short-term memory; long-term memory; conversational agents; topic clustering
 
+![Study 003 design and principal outcomes: a 120-turn four-domain conversation produced three LTM events, a 12-of-13 rubric score, two of three passed success bars, 21 promotions from 90 evaluated episodes, and a terminal five-to-one topic collapse.](figures/study-overview.svg)
+
+*Figure 1. Study design and principal outcome flow. The hatched interval marks rubric probes, during which promotion event emission was disabled. The terminal topic count met the numerical success bar, but the five-to-one collapse reflected cross-domain over-consolidation rather than ideal clustering.*
+
 ## 1. Introduction
 
 Increasing a language model's nominal context capacity does not ensure that it will use all positions equally well. Controlled experiments have found position-dependent degradation when relevant evidence appears in the middle of long inputs [1]. Retrieval-augmented generation addresses a related systems problem by coupling generation to explicit non-parametric memory rather than requiring every potentially useful item to remain in the active prompt [2]. Later agent architectures have extended this pattern to persistent experience streams, reflection, and tiered context management [3, 4].
@@ -125,6 +129,10 @@ An episode was promoted when \(S \ge 0.60\). When LTM was non-empty, any individ
 
 These filters should be interpreted strictly as engineered selection features. Although novelty, repeated retrieval, integration with prior representations, and emotional arousal have counterparts in memory research [5–8], the implementation does not instantiate or test their biological mechanisms.
 
+![Study 003 iterative memory architecture: STM supplies bounded N-plus-K context and topic metadata, while eligible topic transitions score outgoing episodes before writing selected episodes to a write-only LTM store.](figures/memory-architecture.svg)
+
+*Figure 2. Iterative memory architecture used in Study 003. The active-context loop influenced model responses; the transition-triggered LTM path did not, because LTM was write-only. Promoted episodes also remained resident in STM.*
+
 ### 4.5 Procedure
 
 The study proceeded in the following order:
@@ -201,6 +209,10 @@ Q1–Q10 and Q12–Q13 received full credit. Q11 received 0.0 because the turn-1
 
 **Confirmatory outcome: PARTIAL (2 of 3 bars passed).**
 
+![Rubric scores by category and pre-registered success-bar outcomes: four categories received full credit, topic bleed received two of three, and the overall-score success bar failed.](figures/confirmatory-outcomes.svg)
+
+*Figure 3. Confirmatory outcomes. Q11 was the only failed rubric item, reducing Category 4 to 2/3 and the overall score to 12/13. The middle-position and topic-count bars passed; the overall-score bar did not.*
+
 ### 6.4 Topic consolidation
 
 Topic growth followed the four scripted domains until the final probe:
@@ -216,6 +228,10 @@ Topic growth followed the four scripted domains until the final probe:
 
 The final count of 1 passes the upper-bound fragmentation criterion. It is not evidence of ideal clustering: the comprehensive turn-120 query caused cross-domain over-consolidation. The accepted [threshold decision](decisions/DECISION_consolidation_threshold_study003.md) therefore retains 0.45 only as the value tested in Study 003, not as a general default.
 
+![Topic-count and estimated-context trajectories across 120 turns: topics tracked domain changes until a mixed query created a fifth topic and turn-120 consolidation collapsed the count to one; context peaked at 9,189 estimated tokens on turn 80.](figures/topic-context-trajectories.svg)
+
+*Figure 4. Topic and constructed-context trajectories. Phase shading follows the scripted domains; hatching marks turns 112–120. The final topic-count value conceals a turn-120 cross-domain collapse. Estimated context remained far below the model's nominal 262,144-token capacity and peaked at 9,189 tokens on turn 80.*
+
 ### 6.5 LTM promotion outcomes
 
 | Outgoing scripted domain | Event turn | Evaluated | Promoted | Promotion rate | Route composition |
@@ -227,6 +243,10 @@ The final count of 1 passes the upper-bound fragmentation criterion. It is not e
 | **Total** | — | **90** | **21** | **23.33%** | **12 weighted; 9 all-or-nothing** |
 
 The LTM store ended with **21 rows representing 21 distinct STM episode IDs** and no duplicate promoted IDs. Promotion therefore selected **21/90 evaluated episodes (23.33%)** and **21/120 total STM episodes (17.50%)**.
+
+![LTM promotion volume by outgoing domain and route: 12 of 30 civil-engineering, 7 of 30 Renaissance-art, and 2 of 30 monetary-policy episodes were promoted; marine biology was not evaluated.](figures/ltm-promotion-outcomes.svg)
+
+*Figure 5. Observed LTM promotion volume and route composition. Each evaluated transition contributed 30 candidate episodes. Marine biology had no outgoing transition and therefore no promotion denominator. Rates are descriptive observations from one run, not estimates of domain effects.*
 
 | Trigger route or filter | Count | Share |
 |---|---:|---:|
@@ -246,6 +266,10 @@ All 90 evaluated episodes contributed to the score summaries:
 | Association | 0.0000 | 0.3459 | 0.1293 | 0.1586 |
 | Emotional valence | 0.0000 | 0.2000 | 0.0728 | 0.1000 |
 | Weighted score | 0.3655 | 0.6650 | 0.4489 | 0.4100 |
+
+![Promotion-filter score distributions for 90 evaluated episodes, showing individual points, interquartile boxes, medians, minima and maxima, means, and decision thresholds.](figures/filter-score-distributions.svg)
+
+*Figure 6. Filter-score distributions across all 90 evaluated episodes. Boxes span the first to third quartiles, center lines show medians, whiskers show observed minima and maxima, and diamonds show means. Orange and blue points distinguish promoted and non-promoted episodes. Thresholds represent alternative promotion routes: the 0.90 individual-filter bypass was suspended for the empty-LTM first batch, while later all-or-nothing promotions can have weighted scores below 0.60.*
 
 No merge-relabel guard event was logged, and no promotion event occurred during turns 112–120. The complete descriptive record appears in the [LTM observational analysis](runs/run_001/ltm_analysis/analysis_report.md).
 
@@ -288,6 +312,15 @@ The repository contains the locked protocol, amendments, accepted lightweight ar
 
 Reproduction requires the model server and embedding artifact described in the runtime deviation. The canonical launcher is `scripts/run_study_003_full.py`, and the study definition is `experiments/study_003/script.json`. A fresh run must use an unused run ID; replaying the accepted ID would not constitute an independent replication.
 
+The six SVG figures are generated directly from the accepted CSV metrics and rubric score sheet using only the Python standard library:
+
+```powershell
+.\.venv\Scripts\python.exe scripts\generate_study_003_figures.py
+.\.venv\Scripts\python.exe scripts\generate_study_003_figures.py --check
+```
+
+The second command fails if a committed figure differs from a fresh generation. Figure definitions, source-artifact mappings, and interpretive cautions are documented in [`figures/README.md`](figures/README.md).
+
 No source code or data artifact is altered by this paper. The pre-registration, amendments, deviations, scores, and analysis reports remain the authoritative audit trail for chronology and measurements.
 
 ## 10. Conclusion
@@ -328,6 +361,8 @@ The evidence supports a narrow conclusion: under one scripted run, the amended i
 | Consolidation-threshold decision | [DECISION_consolidation_threshold_study003.md](decisions/DECISION_consolidation_threshold_study003.md) |
 | Accepted lightweight metrics | [condition_c/metrics](runs/run_001/condition_c/metrics/) |
 | Accepted LTM CSVs | [ltm_analysis](runs/run_001/ltm_analysis/) |
+| Publication figures and provenance | [figures/README.md](figures/README.md) |
+| Figure-generation script | [generate_study_003_figures.py](../../scripts/generate_study_003_figures.py) |
 
 ## Appendix B. Run Disposition Summary
 

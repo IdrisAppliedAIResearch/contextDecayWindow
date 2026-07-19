@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="590" viewBox="0 0 1200 590" role="img" aria-labelledby="figure-title figure-description">
+  <title id="figure-title">Study 003 iterative memory architecture</title>
+  <desc id="figure-description">Each conversation turn produces an STM episode. N plus K retrieval and pinned rules construct bounded context for the next model call. User-message embeddings support topic assignment and consolidation. At an eligible canonical topic transition, outgoing episodes are scored by novelty, repetition, association, and emotional valence; promoted episodes are written to an LTM store that is not read during Study 003.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#5D6975"/>
+    </marker>
+    <pattern id="probe-hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="8" stroke="#C85A16" stroke-width="2" opacity="0.25"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="590" fill="#FFFFFF"/>
+  <g font-family="Inter, Segoe UI, Arial, sans-serif" shape-rendering="geometricPrecision">
+  <text x="40" y="38" font-size="18" font-weight="500" fill="#17212B" text-anchor="start">A</text>
+  <text x="70" y="38" font-size="18" font-weight="500" fill="#17212B" text-anchor="start">Active-context loop</text>
+  <rect x="55" y="85" width="165" height="80" rx="8" fill="#DCECF5" stroke="#D8E0E6" stroke-width="1.5"/>
+  <rect x="55" y="85" width="7" height="80" rx="4" fill="#2474A6"/>
+  <text x="137.5" y="120.0" font-size="15" font-weight="400" fill="#17212B" text-anchor="middle"><tspan x="137.5" dy="0">User message</tspan><tspan x="137.5" dy="20">+ model response</tspan></text>
+  <rect x="280" y="75" width="205" height="100" rx="8" fill="#EEF2F5" stroke="#D8E0E6" stroke-width="1.5"/>
+  <rect x="280" y="75" width="7" height="100" rx="4" fill="#2474A6"/>
+  <text x="382.5" y="110.0" font-size="15" font-weight="400" fill="#17212B" text-anchor="middle"><tspan x="382.5" dy="0">STM episode</tspan><tspan x="382.5" dy="20">full episode embedding</tspan><tspan x="382.5" dy="20">user-message embedding</tspan></text>
+  <rect x="555" y="75" width="190" height="100" rx="8" fill="#DCEFE7" stroke="#D8E0E6" stroke-width="1.5"/>
+  <rect x="555" y="75" width="7" height="100" rx="4" fill="#18835D"/>
+  <text x="650.0" y="110.0" font-size="15" font-weight="400" fill="#17212B" text-anchor="middle"><tspan x="650.0" dy="0">N + K retrieval</tspan><tspan x="650.0" dy="20">N ≤ 10 decay-ranked</tspan><tspan x="650.0" dy="20">+ similarity matches</tspan></text>
+  <rect x="815" y="85" width="150" height="80" rx="8" fill="#EEF2F5" stroke="#D8E0E6" stroke-width="1.5"/>
+  <rect x="815" y="85" width="7" height="80" rx="4" fill="#18835D"/>
+  <text x="890.0" y="120.0" font-size="15" font-weight="400" fill="#17212B" text-anchor="middle"><tspan x="890.0" dy="0">Bounded</tspan><tspan x="890.0" dy="20">active context</tspan></text>
+  <rect x="1030" y="85" width="120" height="80" rx="8" fill="#DCECF5" stroke="#D8E0E6" stroke-width="1.5"/>
+  <rect x="1030" y="85" width="7" height="80" rx="4" fill="#2474A6"/>
+  <text x="1090.0" y="120.0" font-size="15" font-weight="400" fill="#17212B" text-anchor="middle"><tspan x="1090.0" dy="0">Next model</tspan><tspan x="1090.0" dy="20">turn</tspan></text>
+  <line x1="220" y1="125" x2="280" y2="125" stroke="#5D6975" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="485" y1="125" x2="555" y2="125" stroke="#5D6975" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="745" y1="125" x2="815" y2="125" stroke="#5D6975" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="965" y1="125" x2="1030" y2="125" stroke="#5D6975" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M 1090 165 C 1090 220, 135 220, 135 165" fill="none" stroke="#5D6975" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="690" y="220" width="155" height="58" rx="8" fill="#EAE3F3" stroke="#D8E0E6" stroke-width="1.5"/>
+  <rect x="690" y="220" width="7" height="58" rx="4" fill="#7656A8"/>
+  <text x="767.5" y="254.0" font-size="15" font-weight="500" fill="#17212B" text-anchor="middle"><tspan x="767.5" dy="0">Pinned rules</tspan></text>
+  <line x1="768" y1="220" x2="845" y2="165" stroke="#5D6975" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="40" y1="312" x2="1160" y2="312" stroke="#D8E0E6" stroke-width="1"/>
+  <text x="40" y="352" font-size="18" font-weight="500" fill="#17212B" text-anchor="start">B</text>
+  <text x="70" y="352" font-size="18" font-weight="500" fill="#17212B" text-anchor="start">Transition-triggered LTM write path</text>
+  <rect x="55" y="400" width="170" height="90" rx="8" fill="#EEF2F5" stroke="#D8E0E6" stroke-width="1.5"/>
+  <rect x="55" y="400" width="7" height="90" rx="4" fill="#7656A8"/>
+  <text x="140.0" y="430.0" font-size="15" font-weight="400" fill="#17212B" text-anchor="middle"><tspan x="140.0" dy="0">User-message</tspan><tspan x="140.0" dy="20">topic assignment</tspan><tspan x="140.0" dy="20">and consolidation</tspan></text>
+  <rect x="275" y="400" width="175" height="90" rx="8" fill="#F8E4D7" stroke="#D8E0E6" stroke-width="1.5"/>
+  <rect x="275" y="400" width="7" height="90" rx="4" fill="#C85A16"/>
+  <text x="362.5" y="430.0" font-size="15" font-weight="400" fill="#17212B" text-anchor="middle"><tspan x="362.5" dy="0">Eligible canonical</tspan><tspan x="362.5" dy="20">topic transition</tspan><tspan x="362.5" dy="20">outgoing topic ≥ 3</tspan></text>
+  <rect x="500" y="382" width="235" height="126" rx="8" fill="#EEF2F5" stroke="#D8E0E6" stroke-width="1.5"/>
+  <rect x="500" y="382" width="7" height="126" rx="4" fill="#2474A6"/>
+  <text x="617.5" y="410.0" font-size="14" font-weight="400" fill="#17212B" text-anchor="middle"><tspan x="617.5" dy="0">Score outgoing episodes</tspan><tspan x="617.5" dy="20">Novelty · 0.35</tspan><tspan x="617.5" dy="20">Repetition · 0.30</tspan><tspan x="617.5" dy="20">Association · 0.20</tspan><tspan x="617.5" dy="20">Emotional valence · 0.15</tspan></text>
+  <rect x="785" y="392" width="180" height="106" rx="8" fill="#DCEFE7" stroke="#D8E0E6" stroke-width="1.5"/>
+  <rect x="785" y="392" width="7" height="106" rx="4" fill="#18835D"/>
+  <text x="875.0" y="430.0" font-size="14" font-weight="400" fill="#17212B" text-anchor="middle"><tspan x="875.0" dy="0">Promote if</tspan><tspan x="875.0" dy="20">weighted score ≥ 0.60</tspan><tspan x="875.0" dy="20">or any filter ≥ 0.90*</tspan></text>
+  <rect x="1015" y="400" width="140" height="90" rx="8" fill="#DCECF5" stroke="#D8E0E6" stroke-width="1.5"/>
+  <rect x="1015" y="400" width="7" height="90" rx="4" fill="#2474A6"/>
+  <text x="1085.0" y="430.0" font-size="15" font-weight="400" fill="#17212B" text-anchor="middle"><tspan x="1085.0" dy="0">LTM store</tspan><tspan x="1085.0" dy="20">write only in</tspan><tspan x="1085.0" dy="20">Study 003</tspan></text>
+  <line x1="225" y1="445" x2="275" y2="445" stroke="#5D6975" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="450" y1="445" x2="500" y2="445" stroke="#5D6975" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="735" y1="445" x2="785" y2="445" stroke="#5D6975" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="965" y1="445" x2="1015" y2="445" stroke="#5D6975" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M 382 175 L 382 365 C 382 390, 140 365, 140 400" fill="none" stroke="#7656A8" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#arrow)"/>
+  <text x="397" y="286" font-size="13" font-weight="400" fill="#7656A8" text-anchor="start">user-message embedding</text>
+  <text x="785" y="538" font-size="13" font-weight="400" fill="#5D6975" text-anchor="start">* All-or-nothing bypass suspended while LTM is empty</text>
+  <text x="55" y="538" font-size="13" font-weight="400" fill="#5D6975" text-anchor="start">Promoted episodes remain resident in STM.</text>
+  </g>
+</svg>
