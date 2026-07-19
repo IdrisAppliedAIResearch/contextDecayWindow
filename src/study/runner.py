@@ -124,11 +124,13 @@ class StudyRunner:
                     previous_topic_before = previous_episode["topic_id"] if previous_episode else None
                 pair_text = f"User: {user_message}\nAssistant: {assistant_message}"
                 embedding = embed(pair_text)
+                topic_embedding = embed(user_message)
                 assignment = runner.on_turn_complete(
                     user_message=user_message,
                     assistant_message=assistant_message,
                     turn_number=turn_number,
                     embedding=embedding,
+                    topic_embedding=topic_embedding,
                     inference_result=result,
                 )
                 record.stored_episode_id = assignment.stored_episode_id
