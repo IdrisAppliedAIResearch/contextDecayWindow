@@ -122,6 +122,7 @@ class InferenceProvider:
         payload = json.dumps({
             "prompt": prompt,
             "n_predict": 1024,
+            "reasoning_format": "none",
             "stream": False,
         }).encode("utf-8")
         request = Request(
