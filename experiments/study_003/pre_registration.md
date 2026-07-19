@@ -2,7 +2,7 @@
 ## contextDecayWindow
 **Idris Applied AI Research**
 **Date:** July 2026
-**Status:** Pre-registered — commit SHA pending
+**Status:** Pre-registered — commit SHA: 4c90031
 **Study 002 SHA:** 0a87fb1
 **Preceding decision record:** DECISION_consolidation_threshold_study003.md
 **Revision note:** v2 — pre-commit review revisions (trigger sequencing corrected, merge-relabel guard added, boundary conditions aligned). No design changes to filters, weights, bars, or scope.
