@@ -96,8 +96,8 @@ class IterativeRunner(BaseRunner):
         assistant_message: str,
         turn_number: int,
         embedding: np.ndarray = None,
-        topic_embedding: np.ndarray = None,
         inference_result: InferenceResult = None,
+        topic_embedding: np.ndarray = None,
     ) -> AssignmentResult:
         if embedding is None:
             pair_text = f"User: {user_message}\nAssistant: {assistant_message}"
