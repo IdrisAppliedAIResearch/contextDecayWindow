@@ -96,6 +96,7 @@ class IterativeRunner(BaseRunner):
         assistant_message: str,
         turn_number: int,
         embedding: np.ndarray = None,
+        topic_embedding: np.ndarray = None,
         inference_result: InferenceResult = None,
     ) -> AssignmentResult:
         if embedding is None:
@@ -118,7 +119,9 @@ class IterativeRunner(BaseRunner):
                 turn_number,
             )
 
-        assignment = self._topic_manager.assign(episode_id, embedding)
+        assignment = self._topic_manager.assign(
+            episode_id, topic_embedding if topic_embedding is not None else embedding
+        )
 
         return assignment
 
