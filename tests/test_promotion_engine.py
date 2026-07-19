@@ -33,20 +33,39 @@ def test_promotes_outgoing_topic_at_genuine_transition(tmp_path):
     second_embedding = np.zeros(1024, dtype=np.float32)
     second_embedding[1] = 1.0
     first_topic, first_episode = _store_topic_and_episode(conn, "topic_1", first_embedding, 1)
-    _, second_episode = _store_topic_and_episode(conn, "topic_2", second_embedding, 2)
-    conn.execute("UPDATE episodes SET retrieval_count = 5 WHERE id = ?", (first_episode,))
+    _, second_outgoing_episode = _store_topic_and_episode(conn, "topic_1", first_embedding, 2)
+    update_episode_topic(conn, second_outgoing_episode, first_topic)
+    _, third_outgoing_episode = _store_topic_and_episode(conn, "topic_1", first_embedding, 3)
+    update_episode_topic(conn, third_outgoing_episode, first_topic)
+    _, second_episode = _store_topic_and_episode(conn, "topic_2", second_embedding, 4)
+    conn.execute("UPDATE episodes SET retrieval_count = 5 WHERE topic_id = ?", (first_topic,))
     conn.commit()
 
     summary = PromotionEngine(conn, FakeInferenceClient()).process_transition(
-        first_episode, second_episode, 2
+        first_episode, second_episode, 4
     )
 
     assert summary is not None
     assert summary.topic == "topic_1"
-    assert summary.evaluated == 1
-    assert summary.promoted == 1
-    assert conn.execute("SELECT COUNT(*) FROM ltm_episodes").fetchone()[0] == 1
+    assert summary.evaluated == 3
+    assert summary.promoted == 3
+    assert conn.execute("SELECT COUNT(*) FROM ltm_episodes").fetchone()[0] == 3
     assert conn.execute("SELECT topic FROM ltm_promotion_log").fetchone()[0] == "topic_1"
+
+
+def test_transient_outgoing_topic_does_not_emit_promotion_event(tmp_path):
+    conn = init_db(str(tmp_path / "study.db"))
+    embedding = np.zeros(1024, dtype=np.float32)
+    embedding[0] = 1.0
+    _, first_episode = _store_topic_and_episode(conn, "topic_1", embedding, 1)
+    second_embedding = np.zeros(1024, dtype=np.float32)
+    second_embedding[1] = 1.0
+    _, second_episode = _store_topic_and_episode(conn, "topic_2", second_embedding, 2)
+
+    assert PromotionEngine(conn, FakeInferenceClient()).process_transition(
+        first_episode, second_episode, 2
+    ) is None
+    assert conn.execute("SELECT COUNT(*) FROM ltm_promotion_log").fetchone()[0] == 0
 
 
 def test_canonical_same_topic_does_not_trigger_promotion(tmp_path):
