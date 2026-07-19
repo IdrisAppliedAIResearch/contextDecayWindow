@@ -12,7 +12,8 @@ from src.observability.turn_record import AssignmentResult, ConsolidationResult
 
 class TopicManager:
 
-    TOPIC_SIMILARITY_THRESHOLD = 0.50
+    # Amendment 001: keep a coherent domain from fragmenting into promotion triggers.
+    TOPIC_SIMILARITY_THRESHOLD = 0.45
     CONSOLIDATION_INTERVAL = 10
     # Study 003: lowered from 0.60 after Study 002 produced no merges.
     CONSOLIDATION_MERGE_THRESHOLD = 0.45

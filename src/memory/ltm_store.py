@@ -21,11 +21,11 @@ def promote_episode(
     weighted_score: float,
     content: str,
     embedding: np.ndarray,
-) -> int:
-    """Write one promoted STM episode and return its LTM row id."""
+) -> int | None:
+    """Write one promoted STM episode and return its LTM row id, if newly promoted."""
     cursor = conn.execute(
         """
-        INSERT INTO ltm_episodes (
+        INSERT OR IGNORE INTO ltm_episodes (
             episode_id, promoted_at_turn, topic, trigger_type, triggered_filter,
             novelty_score, repetition_score, association_score, emotional_score,
             weighted_score, content, embedding, promoted_at
@@ -48,7 +48,14 @@ def promote_episode(
         ),
     )
     conn.commit()
-    return int(cursor.lastrowid)
+    return int(cursor.lastrowid) if cursor.rowcount else None
+
+
+def is_episode_promoted(conn: sqlite3.Connection, episode_id: str) -> bool:
+    """Return whether an STM episode has already been durably promoted."""
+    return conn.execute(
+        "SELECT 1 FROM ltm_episodes WHERE episode_id = ?", (episode_id,)
+    ).fetchone() is not None
 
 
 def log_promotion_event(

@@ -35,6 +35,9 @@ def apply_migration(conn: sqlite3.Connection) -> None:
             promotion_rate      REAL NOT NULL,
             logged_at           TEXT NOT NULL
         );
+
+        CREATE UNIQUE INDEX IF NOT EXISTS idx_ltm_episodes_episode_id
+        ON ltm_episodes(episode_id);
     """)
     conn.commit()
 
