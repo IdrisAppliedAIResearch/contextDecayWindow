@@ -206,3 +206,28 @@ class TestIterativeRunnerRuleStoreIntegration:
         episode = get_episode_by_id(self.conn, episode_id)
         assert episode is not None
         assert episode["user_message"] == "Rule message"
+
+    def test_stored_rule_is_pinned_in_the_next_context(self):
+        embedding = self.embedding_provider.embed("User: Rule message\nAssistant: OK")
+        inference_result = MockInferenceResult(
+            assistant_message="OK",
+            tokens_per_second=50.0,
+            time_to_first_token=0.02,
+            output_tokens=1,
+            contains_rule=True,
+            rule_summary="Always respond in numbered lists.",
+        )
+        self.runner.on_turn_complete(
+            "Always respond in numbered lists.",
+            "OK",
+            1,
+            embedding,
+            inference_result,
+        )
+
+        prompt, record = self.runner.build_context("What should I do next?", 2)
+
+        assert "--- PINNED RULES ---" in prompt
+        assert "Always respond in numbered lists." in prompt
+        assert record.rule_store_count == 1
+        assert record.rule_token_estimate > 0
