@@ -27,11 +27,11 @@ class StudyRunner:
     RUBRIC_TURN_END = 32
     RUBRIC_TURNS = list(range(112, 121))
 
-    def __init__(self, script_path: str, study_dir: str, run_id: str = "run_001", minimum_turns: int = 30):
+    def __init__(self, script_path: str, study_dir: str, run_id: str = "run_001", minimum_turns: int = 30, max_turns: int | None = None):
         self._check_env_vars()
         self.script = load_script(script_path, minimum_turns=minimum_turns)
         self.system_prompt = self.script["system_prompt"]
-        self.turns = self.script["turns"]
+        self.turns = self.script["turns"][:max_turns] if max_turns else self.script["turns"]
         self.study_dir = study_dir
         self.run_id = run_id
         self._inference_provider = InferenceProvider()
@@ -185,7 +185,7 @@ class StudyRunner:
     def _print_condition_start_banner(self, condition: str) -> None:
         bar_w = 50
         cond_padded = f"  STARTING CONDITION: {condition}".ljust(bar_w)
-        run_info = f"  Run: {self.run_id} | Script: {len(self.turns)} turns | Study: 002".ljust(bar_w)
+        run_info = f"  Run: {self.run_id} | Script: {len(self.turns)} turns | Study: 003".ljust(bar_w)
         print()
         print("\u2554" + "\u2550" * (bar_w - 2) + "\u2557")
         print("\u2551" + cond_padded + "\u2551")
