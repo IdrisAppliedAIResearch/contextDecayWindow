@@ -1,3 +1,5 @@
+import csv
+import json
 import os
 import sys
 import tempfile
@@ -13,7 +15,7 @@ from src.memory.retrieval_engine import RetrievalEngine
 from src.runners.full_context_runner import FullContextRunner
 from src.runners.compaction_runner import CompactionRunner
 from src.runners.iterative_runner import IterativeRunner
-from src.observability.turn_record import TurnRecord
+from src.observability.turn_record import AssignmentResult, ConsolidationResult, TurnRecord
 from tests.conftest import MockInferenceProvider, MockInferenceResult
 
 
@@ -250,6 +252,66 @@ class TestIterativeConditionMock:
 
 
 class TestAllConditionsIntegration:
+
+    def test_iterative_run_records_consolidation_result(self, monkeypatch):
+        class FakeTopicManager:
+            topic_count = 1
+
+        class FakeIterativeRunner:
+            condition = "iterative"
+            _topic_manager = FakeTopicManager()
+
+            def build_context(self, user_message, turn_number):
+                return "You are a helpful assistant.", TurnRecord(
+                    turn_number=turn_number,
+                    condition=self.condition,
+                    user_message=user_message,
+                )
+
+            def on_turn_complete(self, **kwargs):
+                return AssignmentResult(
+                    topic_id="topic-id",
+                    topic_label="topic_1",
+                    is_new_topic=True,
+                    centroid_drift=0.0,
+                    consolidation=ConsolidationResult(
+                        triggered_at_episode=10,
+                        topics_before=3,
+                        topics_after=2,
+                        pairs_merged=1,
+                        merge_log=[],
+                    ),
+                )
+
+        tmpdir = tempfile.mkdtemp()
+        try:
+            study_runner = object.__new__(__import__("src.study.runner", fromlist=["StudyRunner"]).StudyRunner)
+            study_runner.turns = [{"turn": 1, "user": "Test consolidation propagation."}]
+            study_runner.study_dir = tmpdir
+            study_runner.run_id = "run_001"
+            study_runner._inference_provider = MockInferenceProvider()
+            study_runner._create_runner = lambda *args: FakeIterativeRunner()
+            study_runner._print_condition_start_banner = lambda *args: None
+            study_runner._print_condition_complete_banner = lambda *args: None
+            study_runner._write_rubric_responses = lambda *args: None
+
+            monkeypatch.setattr("src.study.runner.embed", lambda _: np.zeros(1024, dtype=np.float32))
+            study_runner._run_condition("iterative")
+
+            metrics_path = os.path.join(tmpdir, "run_001", "iterative", "metrics", "consolidation_events.csv")
+            with open(metrics_path, encoding="utf-8") as f:
+                rows = list(csv.reader(f))
+            assert len(rows) == 2
+            assert rows[1][2:5] == ["3", "2", "1"]
+
+            turns_path = os.path.join(tmpdir, "run_001", "iterative", "logs", "turns.jsonl")
+            with open(turns_path, encoding="utf-8") as f:
+                turn = json.loads(f.read())
+            assert turn["consolidation_occurred"] is True
+            assert turn["consolidation_result"]["triggered_at_episode"] == 10
+        finally:
+            import shutil
+            shutil.rmtree(tmpdir, ignore_errors=True)
 
     def test_all_three_conditions_run_without_error(self):
         tmpdir = tempfile.mkdtemp()

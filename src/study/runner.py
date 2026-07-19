@@ -124,6 +124,8 @@ class StudyRunner:
                 record.centroid_drift = {assignment.topic_label: assignment.centroid_drift}
                 record.topic_count = runner._topic_manager.topic_count
                 record.episode_count = runner._topic_manager.topic_count
+                record.consolidation_occurred = assignment.consolidation is not None
+                record.consolidation_result = assignment.consolidation
             else:
                 runner.on_turn_complete(user_message, assistant_message, turn_number)
 
