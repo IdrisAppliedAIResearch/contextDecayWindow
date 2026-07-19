@@ -13,3 +13,7 @@ An outgoing canonical topic must contain at least **three episodes** before it m
 ## Required re-verification
 
 Run a fresh 35-turn iterative ablation. `promotion_events.csv` must have no rows before turn 31 and one turn-31 row evaluating the 30 civil-engineering episodes.
+
+## Re-verification outcome
+
+The fresh run `ablation_35_amendment_003` met the transition criterion. `promotion_events.csv` contains exactly one row: turn 31, 30 episodes evaluated, and 15 promoted. No event occurred before turn 31. The run also retained unique LTM episode IDs and a stable 30-turn civil-engineering / 5-turn Renaissance-art topic split.
