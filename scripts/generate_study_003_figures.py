@@ -781,7 +781,11 @@ def check_committed() -> int:
         for filename in GENERATORS:
             committed = DEFAULT_OUTPUT / filename
             generated = temporary / filename
-            if not committed.exists() or committed.read_bytes() != generated.read_bytes():
+            # Text-mode comparison normalizes platform line endings while still
+            # requiring every SVG element and attribute to match exactly.
+            if not committed.exists() or committed.read_text(
+                encoding="utf-8"
+            ) != generated.read_text(encoding="utf-8"):
                 mismatches.append(filename)
         if mismatches:
             print("Study 003 figures are stale or missing:")

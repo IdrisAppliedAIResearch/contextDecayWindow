@@ -44,3 +44,10 @@ See `experiments/` for pre-registrations, run data, rubrics, and analysis report
 | Study 001 | Complete | `experiments/study_001/README.md` |
 | Study 002 | PARTIAL | `experiments/study_002/README.md` |
 | Study 003 | PARTIAL (2/3 bars) | `experiments/study_003/README.md` |
+
+## Interactive Demo
+
+[`demo/`](demo/) contains **Memory Observatory**, a self-contained autoplay replay
+of the accepted 120-turn Study 003 conversation. It presents the real transcript,
+active N+K context, topic state, pinned rules, consolidation events, and LTM writes
+without requiring the local model or an API key.
