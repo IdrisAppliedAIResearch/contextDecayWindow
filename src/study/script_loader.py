@@ -1,7 +1,7 @@
 import json
 
 
-def load_script(path: str) -> dict:
+def load_script(path: str, minimum_turns: int = 30) -> dict:
     with open(path, "r") as f:
         script = json.load(f)
 
@@ -13,8 +13,8 @@ def load_script(path: str) -> dict:
 
     turns = script["turns"]
 
-    if len(turns) < 30:
-        raise ValueError(f"Script must have at least 30 turns, found {len(turns)}.")
+    if len(turns) < minimum_turns:
+        raise ValueError(f"Script must have at least {minimum_turns} turns, found {len(turns)}.")
 
     for i, turn in enumerate(turns):
         if "turn" not in turn:

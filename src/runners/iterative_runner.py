@@ -5,7 +5,7 @@ from src.db.episode import store_episode
 from src.db.rule_store import store_rule
 from src.memory.retrieval_engine import RetrievalEngine
 from src.memory.topic_manager import TopicManager
-from src.memory.context_builder import build_prompt, estimate_tokens
+from src.memory.context_builder import estimate_tokens
 from src.inference.provider import InferenceResult
 from src.observability.turn_record import TurnRecord, AssignmentResult
 from src.runners.base_runner import BaseRunner
@@ -32,16 +32,7 @@ class IterativeRunner(BaseRunner):
     def build_context(self, user_message: str, turn_number: int) -> tuple[str, TurnRecord]:
         retrieval_result = self._retrieval_engine.retrieve(user_message, turn_number)
 
-        episodes_for_prompt = []
-        for ep in retrieval_result.episodes:
-            episodes_for_prompt.append({
-                "turn_number": ep["turn_number"],
-                "user_message": ep["user_message"],
-                "assistant_message": ep["assistant_message"],
-            })
-
-        system_prompt = "You are a helpful assistant."
-        constructed_prompt = build_prompt(episodes_for_prompt, system_prompt)
+        constructed_prompt = retrieval_result.constructed_prompt
 
         k_episodes = []
         n_episodes = []
@@ -92,6 +83,8 @@ class IterativeRunner(BaseRunner):
             n_token_estimate=n_token_estimate,
             topic_count=self._topic_manager.topic_count,
             episode_count=retrieval_result.total_episodes_in_context,
+            rule_store_count=len(retrieval_result.rule_episodes),
+            rule_token_estimate=retrieval_result.rule_token_estimate,
             constructed_prompt=constructed_prompt,
         )
 
@@ -104,6 +97,7 @@ class IterativeRunner(BaseRunner):
         turn_number: int,
         embedding: np.ndarray = None,
         inference_result: InferenceResult = None,
+        topic_embedding: np.ndarray = None,
     ) -> AssignmentResult:
         if embedding is None:
             pair_text = f"User: {user_message}\nAssistant: {assistant_message}"
@@ -125,7 +119,9 @@ class IterativeRunner(BaseRunner):
                 turn_number,
             )
 
-        assignment = self._topic_manager.assign(episode_id, embedding)
+        assignment = self._topic_manager.assign(
+            episode_id, topic_embedding if topic_embedding is not None else embedding
+        )
 
         return assignment
 

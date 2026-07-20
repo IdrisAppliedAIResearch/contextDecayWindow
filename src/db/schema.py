@@ -1,6 +1,8 @@
 import sqlite3
 import sqlite_vec
 
+from migrations.study_003_ltm_init import apply_migration
+
 
 def init_db(db_path: str) -> sqlite3.Connection:
     conn = sqlite3.connect(db_path)
@@ -49,5 +51,6 @@ def init_db(db_path: str) -> sqlite3.Connection:
         );
     """)
 
+    apply_migration(conn)
     conn.commit()
     return conn

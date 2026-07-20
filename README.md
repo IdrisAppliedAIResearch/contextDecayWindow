@@ -23,17 +23,24 @@ Can a retrieval-based context window — where relevance, not recency or compres
 - **Episode Layer:** Stores user-assistant response pairs with embeddings (Qwen3-Embedding-0.6B, 1024-dim)
 - **Topic Layer:** Hierarchical topic nodes with running centroid embeddings, auto-assigned by cosine similarity
 - **Retrieval:** Dual mechanism — similarity threshold (K) + decay score (N) — assembled chronologically
+- **Long-Term Memory:** Four-filter STM-to-LTM promotion write path; retrieval read path planned for Study 004
 - **Database:** SQLite + sqlite-vec, local, single file
 
 ## Model
 
 | Parameter | Value |
 |-----------|-------|
-| Inference | Qwen3.6 27B Q6_K via llama.cpp / Ollama |
+| Inference | Qwen3.6 27B NVFP4 via local llama.cpp server |
 | Embedding | Qwen3-Embedding-0.6B, 1024-dim |
-| Context cap | 147,000 tokens |
+| Context cap | 262,144 tokens |
 | Hardware | RTX 5090 32GB VRAM |
 
 ## Studies
 
 See `experiments/` for pre-registrations, run data, rubrics, and analysis reports. Each study includes a tamper-evident SHA timestamp.
+
+| Study | Result | Report |
+|---|---|---|
+| Study 001 | Complete | `experiments/study_001/README.md` |
+| Study 002 | PARTIAL | `experiments/study_002/README.md` |
+| Study 003 | PARTIAL (2/3 bars) | `experiments/study_003/README.md` |

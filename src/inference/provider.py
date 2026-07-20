@@ -4,6 +4,8 @@ import re
 import time
 from dataclasses import dataclass
 from typing import Optional
+from urllib.error import URLError
+from urllib.request import Request, urlopen
 
 from llama_cpp import Llama, llama_cpp
 
@@ -18,6 +20,28 @@ apply to all future responses. Set rule_summary to a concise description of the
 rule if contains_rule is true, otherwise null."""
 
 RULE_DETECTION_PATTERN = r"<rule_detection>(.*?)</rule_detection>"
+
+
+def detect_explicit_persistent_rule(user_message: str) -> Optional[str]:
+    """Return explicit persistent instructions when the model omits its tag.
+
+    This is deliberately conservative: all three signal classes must be present.
+    The original message is retained so a fallback never paraphrases away a rule.
+    """
+    normalized = " ".join(user_message.split())
+    lowered = normalized.lower()
+    has_rule_language = any(token in lowered for token in ("rule", "requirement", "constraint"))
+    has_persistence = any(
+        token in lowered
+        for token in ("throughout", "from now on", "all future", "entire conversation")
+    )
+    has_directive = any(
+        token in lowered
+        for token in ("must", "always", "without exception")
+    )
+    if has_rule_language and has_persistence and has_directive:
+        return normalized
+    return None
 
 
 @dataclass
@@ -44,11 +68,17 @@ class InferenceProvider:
         if self._initialized:
             return
 
+        self._server_url = os.environ.get("CDW_INFERENCE_SERVER_URL", "").rstrip("/")
+        if self._server_url:
+            self._llm = None
+            self._initialized = True
+            return
+
         model_path = os.environ.get("CDW_INFERENCE_MODEL_PATH")
         if not model_path:
             raise EnvironmentError(
-                "CDW_INFERENCE_MODEL_PATH environment variable is not set. "
-                "Set it to the absolute path of your Qwen3.6 27B Q6_K GGUF file."
+                "Set CDW_INFERENCE_SERVER_URL for a llama.cpp server or "
+                "CDW_INFERENCE_MODEL_PATH for a local GGUF file."
             )
 
         if not os.path.isfile(model_path):
@@ -74,16 +104,23 @@ class InferenceProvider:
         augmented_prompt = self._inject_rule_detection(prompt)
 
         start = time.perf_counter()
-        response = self._llm(
-            augmented_prompt,
-            max_tokens=1024,
-            echo=False,
-            stream=False,
-        )
+        if self._server_url:
+            response = self._complete_server(augmented_prompt)
+        else:
+            response = self._llm(
+                augmented_prompt,
+                max_tokens=1024,
+                echo=False,
+                stream=False,
+            )
         elapsed = time.perf_counter() - start
 
-        raw_message = response["choices"][0]["text"]
-        output_tokens = response["usage"]["completion_tokens"]
+        if self._server_url:
+            raw_message = response["content"]
+            output_tokens = int(response.get("tokens_predicted", 0))
+        else:
+            raw_message = response["choices"][0]["text"]
+            output_tokens = response["usage"]["completion_tokens"]
         tokens_per_second = output_tokens / elapsed if elapsed > 0 else 0.0
         time_to_first_token = elapsed / output_tokens if output_tokens > 0 else elapsed
 
@@ -102,6 +139,31 @@ class InferenceProvider:
             contains_rule=contains_rule,
             rule_summary=rule_summary,
         )
+
+    def _complete_server(self, prompt: str) -> dict:
+        # Qwen's raw completion mode otherwise spends the response budget on a
+        # visible reasoning trace. Prefilling a closed think block requests a
+        # direct answer while retaining the existing prompt format.
+        direct_answer_prompt = f"{prompt}\n<think>\n</think>\n"
+        payload = json.dumps({
+            "prompt": direct_answer_prompt,
+            "n_predict": 1024,
+            "reasoning_format": "none",
+            "stream": False,
+        }).encode("utf-8")
+        request = Request(
+            f"{self._server_url}/completion",
+            data=payload,
+            headers={"Content-Type": "application/json"},
+            method="POST",
+        )
+        try:
+            with urlopen(request, timeout=600) as response:
+                return json.loads(response.read().decode("utf-8"))
+        except URLError as exc:
+            raise ConnectionError(
+                f"Unable to reach inference server at {self._server_url}"
+            ) from exc
 
     def _inject_rule_detection(self, prompt: str) -> str:
         if RULE_DETECTION_INSTRUCTION in prompt:

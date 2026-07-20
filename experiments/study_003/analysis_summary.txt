@@ -1,0 +1,42 @@
+STUDY 003 ANALYSIS SUMMARY
+=======================================================
+
+Accepted run: study_003_full_002
+Canonical archive: experiments/study_003/runs/run_001/
+Result: PARTIAL (2 of 3 pre-registered bars passed)
+
+RUBRIC:
+  Cat 1 (early plant):   3.0/3.0
+  Cat 2 (middle plant):  3.0/3.0
+  Cat 3 (late plant):    2.0/2.0
+  Cat 4 (topic bleed):   2.0/3.0
+  Cat 5 (rule pinning):  2.0/2.0
+  Overall:               12.0/13.0
+
+SUCCESS BARS:
+  Bar 1 (Cat 2 >= 3.0):       PASS
+  Bar 2 (Overall >= 13.0):    FAIL
+  Bar 3 (Topics <= 20):       PASS (1 final topic)
+
+LTM PROMOTION:
+  Promotion events:       3 (turns 31, 61, 91)
+  Episodes evaluated:     90
+  Episodes promoted:      21
+  Overall promotion rate: 23.33%
+  Unique LTM rows:         21
+  STM-to-LTM ratio:        17.50% (21/120)
+  Weighted promotions:     12
+  All-or-nothing:           9 (novelty 7, repetition 2)
+
+TOPIC CONSOLIDATION:
+  Study 002 final topics: 52
+  Study 003 final topics:  1
+  Caveat: turn-120 cross-domain probe merged five topics to one
+
+PRIMARY FAILURE:
+  Q11 full enumeration omitted Renaissance art and monetary policy.
+  Turn 120 retrieved no planting episodes from either omitted domain.
+
+STUDY 004 PRIORITY:
+  Add the LTM retrieval read path with broad-query domain coverage,
+  STM/LTM deduplication, topic-purity checks, and final-topic promotion.
