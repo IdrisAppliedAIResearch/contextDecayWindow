@@ -52,8 +52,14 @@ class TestRuleStoreTable:
                 "SELECT name FROM sqlite_master WHERE type='table' ORDER BY name"
             )
             tables = [row[0] for row in cursor.fetchall()]
-            assert len(tables) == 4
-            assert "rule_store" in tables
+            assert {
+                "episodes",
+                "topics",
+                "retrieval_events",
+                "rule_store",
+                "ltm_episodes",
+                "ltm_promotion_log",
+            }.issubset(tables)
             conn2.close()
         finally:
             if os.path.isfile(db_path):

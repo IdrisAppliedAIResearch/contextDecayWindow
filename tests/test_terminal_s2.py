@@ -245,7 +245,7 @@ class TestTerminalConditionC:
         printer.print_turn(record)
         out = capsys.readouterr().out
         assert "[CONSOLIDATION]" in out
-        assert "No pairs above 0.60" in out
+        assert "No pairs above 0.45" in out
 
 
 class TestTerminalConditionA:

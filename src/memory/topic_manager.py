@@ -4,7 +4,7 @@ from itertools import combinations
 
 import numpy as np
 
-from src.db.episode import update_episode_topic
+from src.db.episode import get_episode_by_id, update_episode_topic
 from src.db.topic import store_topic, get_all_topics, update_topic_centroid, merge_topics, reassign_episodes
 from src.embeddings.provider import cosine_similarity
 from src.observability.turn_record import AssignmentResult, ConsolidationResult
@@ -12,9 +12,11 @@ from src.observability.turn_record import AssignmentResult, ConsolidationResult
 
 class TopicManager:
 
-    TOPIC_SIMILARITY_THRESHOLD = 0.50
+    # Amendment 001: keep a coherent domain from fragmenting into promotion triggers.
+    TOPIC_SIMILARITY_THRESHOLD = 0.45
     CONSOLIDATION_INTERVAL = 10
-    CONSOLIDATION_MERGE_THRESHOLD = 0.60
+    # Study 003: lowered from 0.60 after Study 002 produced no merges.
+    CONSOLIDATION_MERGE_THRESHOLD = 0.45
 
     def __init__(self, conn: sqlite3.Connection):
         self._conn = conn
@@ -59,6 +61,9 @@ class TopicManager:
         if self._episode_count % self.CONSOLIDATION_INTERVAL == 0:
             consolidation = self._run_consolidation_pass()
 
+        # Consolidation can merge the topic selected above. Resolve the stored
+        # episode to its canonical surviving topic before returning the result.
+        topic_id = get_episode_by_id(self._conn, episode_id)["topic_id"]
         topic = self._topics[topic_id]
         return AssignmentResult(
             topic_id=topic_id,
@@ -66,6 +71,7 @@ class TopicManager:
             is_new_topic=is_new,
             centroid_drift=centroid_drift,
             consolidation=consolidation,
+            stored_episode_id=episode_id,
         )
 
     def _find_best_match(self, embedding: np.ndarray) -> tuple[str | None, float]:

@@ -1,6 +1,7 @@
 import os
 import sys
 import tempfile
+import math
 import numpy as np
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
@@ -24,7 +25,7 @@ def _create_two_topics_with_similarity(conn, target_sim, count_a=5, count_b=5):
     tm = TopicManager(conn)
     dim = 1024
     unique = 100
-    overlap = int(target_sim * unique / (1 - target_sim))
+    overlap = math.ceil(target_sim * unique / (1 - target_sim))
 
     c1 = np.zeros(dim, dtype=np.float32)
     c1[:overlap + unique] = 1.0
@@ -174,7 +175,7 @@ class TestMergeLogic:
         if os.path.isfile(self.db_path):
             os.unlink(self.db_path)
 
-    def test_pairs_above_0_60_are_merged(self):
+    def test_pairs_above_0_45_are_merged(self):
         self._setup_db()
         try:
             tm, t1, t2 = _create_two_topics_with_similarity(self.conn, 0.70)
@@ -186,15 +187,27 @@ class TestMergeLogic:
         finally:
             self._teardown_db()
 
-    def test_pairs_below_0_60_are_not_merged(self):
+    def test_pairs_below_0_45_are_not_merged(self):
         self._setup_db()
         try:
-            tm, t1, t2 = _create_two_topics_with_similarity(self.conn, 0.50)
+            tm, t1, t2 = _create_two_topics_with_similarity(self.conn, 0.40)
             assert tm.topic_count == 2
 
             consolidation = tm._run_consolidation_pass()
             assert consolidation.pairs_merged == 0
             assert consolidation.topics_after == consolidation.topics_before
+        finally:
+            self._teardown_db()
+
+    def test_pairs_at_0_45_are_merged(self):
+        self._setup_db()
+        try:
+            tm, _, _ = _create_two_topics_with_similarity(self.conn, 0.45)
+
+            consolidation = tm._run_consolidation_pass()
+
+            assert consolidation.pairs_merged == 1
+            assert consolidation.topics_after == 1
         finally:
             self._teardown_db()
 

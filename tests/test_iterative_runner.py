@@ -8,6 +8,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 import numpy as np
 
 from src.db.schema import init_db
+from src.db.topic import get_all_topics_with_centroids
 from src.memory.topic_manager import TopicManager
 from src.memory.retrieval_engine import RetrievalEngine
 from src.runners.iterative_runner import IterativeRunner
@@ -110,6 +111,19 @@ class TestIterativeRunnerOnTurnComplete:
         embedding = self.embedding_provider.embed("User: Q\nAssistant: A")
         self.runner.on_turn_complete("Q", "A", 1, embedding)
         assert self.runner._topic_manager.topic_count >= 1
+
+    def test_uses_explicit_user_only_embedding_for_topic_assignment(self):
+        episode_embedding = np.zeros(1024, dtype=np.float32)
+        episode_embedding[0] = 1.0
+        topic_embedding = np.zeros(1024, dtype=np.float32)
+        topic_embedding[1] = 1.0
+
+        self.runner.on_turn_complete(
+            "Hello", "Hi", 1, episode_embedding, topic_embedding=topic_embedding
+        )
+
+        centroid = get_all_topics_with_centroids(self.conn)[0]["centroid"]
+        assert np.array_equal(centroid, topic_embedding)
 
 
 class TestIterativeRunnerIntegration:

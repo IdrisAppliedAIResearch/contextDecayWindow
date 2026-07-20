@@ -243,7 +243,7 @@ class TestConsolidationTerminalOutput:
         printer.print_turn(record)
         out = capsys.readouterr().out
         assert "[CONSOLIDATION]" in out
-        assert "No pairs above 0.60" in out
+        assert "No pairs above 0.45" in out
         assert "Topics unchanged: 2" in out
 
     def test_no_consolidation_line_when_not_occurred(self, capsys):

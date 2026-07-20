@@ -5,10 +5,13 @@ import numpy as np
 
 from src.db.schema import init_db
 from src.embeddings.provider import embed
-from src.inference.provider import InferenceProvider
+from src.inference.provider import InferenceProvider, detect_explicit_persistent_rule
+from src.db.episode import get_episode_by_id
+from src.memory.promotion_engine import PromotionEngine
 from src.memory.retrieval_engine import RetrievalEngine
 from src.memory.topic_manager import TopicManager
 from src.observability.observer import Observer
+from src.observability.ltm_analysis_writer import LtmAnalysisWriter
 from src.observability.run_config import RunConfig
 from src.observability.turn_record import TurnRecord
 from src.runners.compaction_runner import CompactionRunner
@@ -23,12 +26,13 @@ class StudyRunner:
     RUBRIC_TURN_START = 25
     RUBRIC_TURN_END = 32
     RUBRIC_TURNS = list(range(112, 121))
+    PROMOTION_TURN_END = 111
 
-    def __init__(self, script_path: str, study_dir: str, run_id: str = "run_001"):
+    def __init__(self, script_path: str, study_dir: str, run_id: str = "run_001", minimum_turns: int = 30, max_turns: int | None = None):
         self._check_env_vars()
-        self.script = load_script(script_path)
+        self.script = load_script(script_path, minimum_turns=minimum_turns)
         self.system_prompt = self.script["system_prompt"]
-        self.turns = self.script["turns"]
+        self.turns = self.script["turns"][:max_turns] if max_turns else self.script["turns"]
         self.study_dir = study_dir
         self.run_id = run_id
         self._inference_provider = InferenceProvider()
@@ -36,9 +40,10 @@ class StudyRunner:
 
     def _check_env_vars(self):
         required = [
-            "CDW_INFERENCE_MODEL_PATH",
             "CDW_EMBEDDING_MODEL_PATH",
         ]
+        if not os.environ.get("CDW_INFERENCE_SERVER_URL"):
+            required.append("CDW_INFERENCE_MODEL_PATH")
         missing = [v for v in required if not os.environ.get(v)]
         if missing:
             raise EnvironmentError(
@@ -63,7 +68,13 @@ class StudyRunner:
         observer.init_run()
 
         runner = self._create_runner(condition, run_config, observer)
+        promotion_engine = None
+        ltm_writer = None
+        if condition == "iterative" and hasattr(runner, "_conn"):
+            promotion_engine = PromotionEngine(runner._conn, self._inference_provider)
+            ltm_writer = LtmAnalysisWriter(output_dir)
         previous_prompt = None
+        previous_episode_id = None
         rubric_responses = []
         condition_start = time.perf_counter()
         peak_tokens = 0
@@ -87,6 +98,11 @@ class StudyRunner:
             record.total_turns = len(self.turns)
 
             result = self._inference_provider.complete(full_prompt)
+            if condition == "iterative" and not result.contains_rule:
+                fallback_rule = detect_explicit_persistent_rule(user_message)
+                if fallback_rule:
+                    result.contains_rule = True
+                    result.rule_summary = fallback_rule
             assistant_message = result.assistant_message
 
             record.tokens_per_second = result.tokens_per_second
@@ -108,22 +124,49 @@ class StudyRunner:
                 })
 
             if condition == "iterative":
+                previous_topic_before = None
+                if previous_episode_id is not None:
+                    previous_episode = get_episode_by_id(runner._conn, previous_episode_id)
+                    previous_topic_before = previous_episode["topic_id"] if previous_episode else None
                 pair_text = f"User: {user_message}\nAssistant: {assistant_message}"
                 embedding = embed(pair_text)
+                topic_embedding = embed(user_message)
                 assignment = runner.on_turn_complete(
                     user_message=user_message,
                     assistant_message=assistant_message,
                     turn_number=turn_number,
                     embedding=embedding,
+                    topic_embedding=topic_embedding,
                     inference_result=result,
                 )
-                record.stored_episode_id = assignment.topic_id
+                record.stored_episode_id = assignment.stored_episode_id
                 record.stored_topic_label = assignment.topic_label
                 record.new_topic_created = assignment.is_new_topic
                 record.new_topic_label = assignment.topic_label if assignment.is_new_topic else None
                 record.centroid_drift = {assignment.topic_label: assignment.centroid_drift}
                 record.topic_count = runner._topic_manager.topic_count
                 record.episode_count = runner._topic_manager.topic_count
+                record.consolidation_occurred = assignment.consolidation is not None
+                record.consolidation_result = assignment.consolidation
+                if (
+                    promotion_engine
+                    and assignment.stored_episode_id
+                    and turn_number <= self.PROMOTION_TURN_END
+                ):
+                    summary = promotion_engine.process_transition(
+                        previous_episode_id, assignment.stored_episode_id, turn_number
+                    )
+                    if summary:
+                        ltm_writer.write_promotion(summary)
+                    elif previous_episode_id is not None and assignment.consolidation:
+                        previous_after = get_episode_by_id(runner._conn, previous_episode_id)
+                        current_after = get_episode_by_id(runner._conn, assignment.stored_episode_id)
+                        if previous_after and current_after and previous_topic_before != previous_after["topic_id"] and previous_after["topic_id"] == current_after["topic_id"]:
+                            ltm_writer.write_merge_relabel(
+                                turn_number, previous_episode_id, assignment.stored_episode_id,
+                                previous_topic_before, previous_after["topic_id"], current_after["topic_id"],
+                            )
+                previous_episode_id = assignment.stored_episode_id
             else:
                 runner.on_turn_complete(user_message, assistant_message, turn_number)
 
@@ -154,7 +197,7 @@ class StudyRunner:
     def _print_condition_start_banner(self, condition: str) -> None:
         bar_w = 50
         cond_padded = f"  STARTING CONDITION: {condition}".ljust(bar_w)
-        run_info = f"  Run: {self.run_id} | Script: {len(self.turns)} turns | Study: 002".ljust(bar_w)
+        run_info = f"  Run: {self.run_id} | Script: {len(self.turns)} turns | Study: 003".ljust(bar_w)
         print()
         print("\u2554" + "\u2550" * (bar_w - 2) + "\u2557")
         print("\u2551" + cond_padded + "\u2551")

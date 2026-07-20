@@ -37,8 +37,6 @@ def read_scores(scores_path: str) -> dict:
 
     table_lines = table_match.group(1).strip().split("\n")
 
-    all_questions = [f"Q{i}" for i in range(1, 14)]
-
     scores = {}
     notes = {}
 
@@ -50,14 +48,14 @@ def read_scores(scores_path: str) -> dict:
         score_str = parts[2]
         note = parts[3] if len(parts) > 3 else ""
 
-        for qkey in all_questions:
-            if qkey in question:
-                try:
-                    scores[qkey] = float(score_str)
-                except ValueError:
-                    scores[qkey] = 0.0
-                notes[qkey] = note.strip()
-                break
+        question_match = re.search(r"\bQ(1[0-3]|[1-9])\b", question)
+        if question_match:
+            qkey = question_match.group(0)
+            try:
+                scores[qkey] = float(score_str)
+            except ValueError:
+                scores[qkey] = 0.0
+            notes[qkey] = note.strip()
 
     cat_matches = {}
     for cat_label, pattern in [
