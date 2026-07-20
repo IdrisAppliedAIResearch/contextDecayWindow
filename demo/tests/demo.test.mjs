@@ -86,6 +86,9 @@ test("keeps the demo self-contained and keyboard-operable", async () => {
   assert.match(page, /<MemoryObservatory \/>/);
   assert.match(app, /event\.code === "Space"/);
   assert.match(app, /event\.code === "ArrowRight"/);
+  assert.match(app, /const TURN_DURATION_MS = 5_000/);
+  assert.match(app, /5s \/ turn/);
+  assert.doesNotMatch(app, /0\.5×|1×|2×|speed-control/);
   assert.match(app, /aria-label="Active context window"/);
   assert.match(app, /aria-label="Replay controls"/);
   assert.doesNotMatch(app, /fetch\(|OpenAI|api[_-]?key/i);

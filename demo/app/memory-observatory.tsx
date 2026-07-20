@@ -14,13 +14,9 @@ import replay from "./data/study-003-replay.json";
 type PlaybackStage = "user" | "assistant";
 type ReplayTurn = (typeof replay.turns)[number];
 
-const SPEEDS = [
-  { value: 0.5, label: "0.5×", title: "Inspect · about 2½ minutes" },
-  { value: 1, label: "1×", title: "Demo · about 80 seconds" },
-  { value: 2, label: "2×", title: "Fast · about 39 seconds" },
-] as const;
-
-const KEY_TURNS = new Set([1, 3, 31, 61, 91, 112, 120]);
+const TURN_DURATION_MS = 5_000;
+const USER_STAGE_MS = 1_000;
+const ASSISTANT_STAGE_MS = TURN_DURATION_MS - USER_STAGE_MS;
 const BOOKMARKS = [
   { turn: 3, label: "Plant facts" },
   { turn: 31, label: "LTM write 01" },
@@ -400,7 +396,7 @@ function IntroCard({ onStart }: { onStart: () => void }) {
       <button className="primary-demo-button" type="button" onClick={onStart} data-testid="start-demo">
         <span className="play-glyph" aria-hidden="true" />
         Replay Study 003
-        <small>~80 seconds</small>
+        <small>5 seconds per turn</small>
       </button>
       <div className="intro-proof">
         <span>
@@ -611,21 +607,17 @@ function PlaybackDock({
   playing,
   complete,
   currentTurn,
-  speed,
   onToggle,
   onReset,
   onSeek,
-  onSpeed,
 }: {
   started: boolean;
   playing: boolean;
   complete: boolean;
   currentTurn: number;
-  speed: number;
   onToggle: () => void;
   onReset: () => void;
   onSeek: (turn: number) => void;
-  onSpeed: (speed: number) => void;
 }) {
   return (
     <footer className="playback-dock" aria-label="Replay controls">
@@ -661,19 +653,7 @@ function PlaybackDock({
         </div>
       </div>
 
-      <div className="speed-control" aria-label="Replay speed">
-        {SPEEDS.map((item) => (
-          <button
-            className={speed === item.value ? "is-active" : ""}
-            key={item.value}
-            type="button"
-            title={item.title}
-            onClick={() => onSpeed(item.value)}
-          >
-            {item.label}
-          </button>
-        ))}
-      </div>
+      <span className="turn-pacing" aria-label="Replay pacing">5s / turn</span>
     </footer>
   );
 }
@@ -684,7 +664,6 @@ export function MemoryObservatory() {
   const [complete, setComplete] = useState(false);
   const [cursor, setCursor] = useState(0);
   const [stage, setStage] = useState<PlaybackStage>("user");
-  const [speed, setSpeed] = useState<number>(1);
   const [expandedTurns, setExpandedTurns] = useState<Set<number>>(() => new Set());
   const chatRef = useRef<HTMLDivElement>(null);
 
@@ -730,16 +709,7 @@ export function MemoryObservatory() {
   useEffect(() => {
     if (!playing || !started || complete) return;
 
-    const turn = replay.turns[cursor];
-    const userDelay = 210 / speed;
-    const regularAssistantDelay = 380 / speed;
-    const keyAssistantDelay = (turn.turn === 120 ? 2800 : 1380) / speed;
-    const delay =
-      stage === "user"
-        ? userDelay
-        : KEY_TURNS.has(turn.turn)
-          ? keyAssistantDelay
-          : regularAssistantDelay;
+    const delay = stage === "user" ? USER_STAGE_MS : ASSISTANT_STAGE_MS;
 
     const timer = window.setTimeout(() => {
       if (stage === "user") {
@@ -758,7 +728,7 @@ export function MemoryObservatory() {
     }, delay);
 
     return () => window.clearTimeout(timer);
-  }, [complete, cursor, playing, speed, stage, started]);
+  }, [complete, cursor, playing, stage, started]);
 
   useEffect(() => {
     if (!started || !chatRef.current) return;
@@ -866,11 +836,9 @@ export function MemoryObservatory() {
           playing={playing}
           complete={complete}
           currentTurn={currentTurn}
-          speed={speed}
           onToggle={togglePlayback}
           onReset={start}
           onSeek={seek}
-          onSpeed={setSpeed}
         />
       </section>
 

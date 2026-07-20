@@ -5,9 +5,10 @@ Memory Observatory is the interactive demonstration surface for
 while exposing the bounded context, topic state, pinned rules, consolidation
 events, and STM-to-LTM writes that were otherwise visible only in logs and CSVs.
 
-The default autoplay is approximately 80 seconds, leaving room in a three-minute
-presentation to establish the problem, explain the architecture, and discuss the
-result. It requires no model server, API key, database, or user account.
+The autoplay holds each turn for five seconds: one second for the user prompt
+and four seconds for the recorded response. Presenters can pause, scrub, or use
+the key-moment bookmarks when showing only part of the run. It requires no model
+server, API key, database, or user account.
 
 ## What the demo shows
 

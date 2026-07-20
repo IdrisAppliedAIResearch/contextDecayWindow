@@ -1487,33 +1487,20 @@ input:focus-visible {
   opacity: 0.55;
 }
 
-.speed-control {
-  display: flex;
-  padding: 2px;
+.turn-pacing {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 72px;
+  padding: 7px 9px;
   border: 1px solid var(--line);
   border-radius: 7px;
+  color: var(--cyan-bright);
   background: #0e151d;
-}
-
-.speed-control button {
-  min-width: 31px;
-  padding: 5px 6px;
-  border: 0;
-  border-radius: 5px;
-  color: #63717c;
-  background: transparent;
   font-family: var(--font-mono);
   font-size: 7px;
-  cursor: pointer;
-}
-
-.speed-control button:hover {
-  color: var(--text-soft);
-}
-
-.speed-control button.is-active {
-  color: var(--cyan-bright);
-  background: rgb(88 223 208 / 0.09);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .evidence-rail {
@@ -2013,7 +2000,7 @@ input:focus-visible {
     grid-template-columns: 38px 1fr;
   }
 
-  .speed-control {
+  .turn-pacing {
     display: none;
   }
 }
