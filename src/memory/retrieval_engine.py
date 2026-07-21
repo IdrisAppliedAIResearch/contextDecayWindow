@@ -96,7 +96,6 @@ class RetrievalEngine:
         ) = stm_result
 
         n_set = set(n_episode_ids)
-        k_set = set(k_episode_ids)
         by_id = {
             episode["id"]: self._clean_stm_episode(episode)
             for episode in deserialized_episodes
@@ -111,12 +110,6 @@ class RetrievalEngine:
             for episode_id in k_episode_ids
             if episode_id in by_id and episode_id not in n_set
         ]
-        # Recency placement already supplies these episodes, so they do not
-        # enter arbitration or receive a duplicate LTM placement.
-        ltm_candidates = [
-            candidate for candidate in ltm_candidates
-            if candidate["id"] not in n_set
-        ]
         arbitration = arbitrate_candidates(
             stm_candidates,
             ltm_candidates,
@@ -130,6 +123,16 @@ class RetrievalEngine:
         retrieved_ltm_episodes = [
             episode for episode in arbitration.episodes
             if episode["provenance"] in {"ltm", "both"}
+        ]
+        # The registered recency-precedence rule applies to N∩K within STM.
+        # An LTM survivor must retain its provenance and tagged placement, so
+        # remove it from N instead of suppressing it from arbitration.
+        arbitration_ids = {
+            episode["id"] for episode in arbitration.episodes
+        }
+        recent_episodes = [
+            episode for episode in recent_episodes
+            if episode["id"] not in arbitration_ids
         ]
         clean_episodes = [*recent_episodes, *arbitration.episodes]
 

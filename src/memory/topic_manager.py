@@ -26,14 +26,21 @@ class TopicManager:
         self._conn = conn
         self._topics: dict[str, dict] = {}
         self._episode_count: int = 0
+        self._next_topic_number: int = 1
         self._load_topics()
 
     def _load_topics(self):
         rows = get_all_topics(self._conn)
         for row in rows:
+            label = row["label"]
+            suffix = label.removeprefix("topic_")
+            if label.startswith("topic_") and suffix.isdigit():
+                self._next_topic_number = max(
+                    self._next_topic_number, int(suffix) + 1
+                )
             centroid = np.frombuffer(row["centroid"], dtype=np.float32)
             self._topics[row["id"]] = {
-                "label": row["label"],
+                "label": label,
                 "centroid": centroid,
                 "episode_count": row["episode_count"],
                 "created_at": row["created_at"],
@@ -97,7 +104,8 @@ class TopicManager:
         return best_id, best_score
 
     def _create_topic(self, embedding: np.ndarray) -> str:
-        topic_num = len(self._topics) + 1
+        topic_num = self._next_topic_number
+        self._next_topic_number += 1
         label = f"topic_{topic_num}"
         created_at = datetime.now(timezone.utc).isoformat()
         topic_id = store_topic(self._conn, label, embedding, created_at)

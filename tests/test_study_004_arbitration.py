@@ -202,3 +202,23 @@ def test_real_retrieval_places_both_provenance_once_in_ltm_block(tmp_path):
     assert "<retrieved_ltm>" in result.constructed_prompt
     assert 'promoted_at_turn="31"' in result.constructed_prompt
     assert result.total_episodes_in_context == 11
+
+
+def test_ltm_candidate_is_not_suppressed_when_also_in_recency_set(tmp_path):
+    conn = init_db(str(tmp_path / "study.db"))
+    query = np.zeros(1024, dtype=np.float32)
+    query[0] = 1.0
+    promoted_id = _store_promoted_episode(conn, 0, query)
+    engine = RetrievalEngine(conn, embedding_provider=lambda _: query)
+
+    result = engine.retrieve("matching query", 2)
+
+    assert result.n_episode_ids == [promoted_id]
+    assert result.recent_episodes == []
+    assert result.arbitration.ltm_candidates == 1
+    assert result.arbitration.final_set_size == 1
+    assert result.retrieved_ltm_episodes[0]["id"] == promoted_id
+    assert result.constructed_prompt.count("promoted user 0") == 1
+    assert "<recent_context/>" in result.constructed_prompt
+    assert "<retrieved_ltm>" in result.constructed_prompt
+    assert result.total_episodes_in_context == 1
