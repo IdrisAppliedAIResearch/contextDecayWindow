@@ -48,6 +48,40 @@ class FileWriter:
                 "probe_turns",
             ])
 
+        with open(
+            os.path.join(logs_dir, "arbitration_events.csv"),
+            "w",
+            newline="",
+            encoding="utf-8",
+        ) as handle:
+            csv.writer(handle).writerow([
+                "turn",
+                "stm_candidates",
+                "ltm_candidates",
+                "duplicates_removed",
+                "final_set_size",
+                "ltm_episodes_in_final_set",
+                "provenance_list",
+            ])
+
+        with open(
+            os.path.join(logs_dir, "ltm_context_episodes.csv"),
+            "w",
+            newline="",
+            encoding="utf-8",
+        ) as handle:
+            csv.writer(handle).writerow([
+                "turn",
+                "episode_id",
+                "episode_turn",
+                "topic",
+                "similarity",
+                "provenance",
+                "promoted_at_turn",
+                "trigger_type",
+                "triggered_filter",
+            ])
+
         self._create_csv_headers(metrics_dir)
 
         with open(os.path.join(rubric_dir, "responses.md"), "w", encoding="utf-8") as f:
@@ -85,6 +119,8 @@ class FileWriter:
         self._write_n_values_csv(record)
         self._write_topic_events_csv(record)
         self._write_retrieval_events_csv(record)
+        self._write_arbitration_events_csv(record)
+        self._write_ltm_context_episodes_csv(record)
         self._write_rule_detection_csv(record)
         self._write_consolidation_events_csv(record)
         self._write_consolidation_purity_csv(record)
@@ -104,6 +140,15 @@ class FileWriter:
             "total_in_context": record.total_in_context,
             "k_episodes": record.k_episodes,
             "n_episodes": record.n_episodes,
+            "ltm_context_episodes": record.ltm_context_episodes,
+            "arbitration": {
+                "stm_candidates": record.arbitration_stm_candidates,
+                "ltm_candidates": record.arbitration_ltm_candidates,
+                "duplicates_removed": record.arbitration_duplicates_removed,
+                "final_set_size": record.arbitration_final_set_size,
+                "ltm_episodes_in_final_set": record.arbitration_ltm_in_final_set,
+                "provenance_list": record.arbitration_provenance_list,
+            },
             "estimated_tokens": record.estimated_tokens,
             "k_token_estimate": record.k_token_estimate,
             "n_token_estimate": record.n_token_estimate,
@@ -335,6 +380,44 @@ class FileWriter:
                     ep.get("sim_score", 0.0),
                     ep.get("decay_score", 0.0),
                     ep.get("retrieval_type", "K"),
+                ])
+
+    def _write_arbitration_events_csv(self, record: TurnRecord) -> None:
+        if record.condition != "iterative":
+            return
+        fpath = os.path.join(
+            self.config.output_dir, "logs", "arbitration_events.csv"
+        )
+        with open(fpath, "a", newline="", encoding="utf-8") as handle:
+            csv.writer(handle).writerow([
+                record.turn_number,
+                record.arbitration_stm_candidates,
+                record.arbitration_ltm_candidates,
+                record.arbitration_duplicates_removed,
+                record.arbitration_final_set_size,
+                record.arbitration_ltm_in_final_set,
+                json.dumps(record.arbitration_provenance_list, separators=(",", ":")),
+            ])
+
+    def _write_ltm_context_episodes_csv(self, record: TurnRecord) -> None:
+        if record.condition != "iterative":
+            return
+        fpath = os.path.join(
+            self.config.output_dir, "logs", "ltm_context_episodes.csv"
+        )
+        with open(fpath, "a", newline="", encoding="utf-8") as handle:
+            writer = csv.writer(handle)
+            for episode in record.ltm_context_episodes:
+                writer.writerow([
+                    record.turn_number,
+                    episode["id"],
+                    episode["turn_number"],
+                    episode["topic_label"],
+                    episode["similarity"],
+                    episode["provenance"],
+                    episode["promoted_at_turn"],
+                    episode["trigger_type"],
+                    episode.get("triggered_filter") or "",
                 ])
 
     def _write_snapshot(self, record: TurnRecord) -> None:
