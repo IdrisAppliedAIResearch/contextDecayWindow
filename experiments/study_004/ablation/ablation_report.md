@@ -87,3 +87,61 @@ The retry confirms both attempt-1 fixes without introducing a parameter or ranki
 The repository-wide post-remediation suite passed **476 tests**. The raw ablation directory remains an ignored execution artifact; this report is the committed gate record.
 
 DECISION: GO — all applicable checks passed; synthetic verification (S4_006) covered flush/guard/decoupling/Q14. Full 120-turn run authorized.
+
+---
+
+## Attempt 3 (A005): `ablation_35_a005_001`
+
+**Date:** July 21, 2026
+**Code under test:** `9220576` (`Apply Study 004 A005 response budget`)
+**Amendment:** A005, locked at `9fbf4f9`
+**Status:** GO
+
+This fresh run repeated the mandatory 35-turn gate after A005 changed the
+generation configuration from a 1,024-token response budget to 2,048 tokens.
+It started from a new database and completed all 35 iterative turns. Every
+applicable S4_007 check passed, and no response reached the amended ceiling.
+
+| Check | Expected | Actual | Pass? |
+|---|---|---|---|
+| A005 response budget | 2,048 tokens; no consecutive truncation | Maximum output 1,357 tokens (691-token margin); zero cap events and zero empty responses | Yes |
+| GPU speed (UD-Q6_K_XL) | > 30 tok/s | 35.62 minimum; 38.84 average tok/s | Yes |
+| Consolidation fires | At least once | Fired at turns 10, 20, and 30; one same-domain pair merged at turn 20 | Yes |
+| Topic count at turn 35 | Trending toward the [3,10] band pace | Two canonical topics after two of four domains began, with distinct labels `topic_2` and `topic_3` | Yes |
+| Cross-domain merges | Zero (`consolidation_purity.csv`) | Zero | Yes |
+| First LTM promotion | At approximately turn 31 | Turn 31: 30 episodes evaluated, 9 promoted; no earlier event | Yes |
+| Decoupled Association computed | Max-per-topic Association logged | The frozen first-batch snapshot was empty, so all 30 Association and counterfactual global-Association values were 0.0, as pre-registered | Yes |
+| Parallel retrieval active | Both tiers queried from approximately turn 32 | Concurrent tier path active; five LTM candidates returned on every turn 32-35 | Yes |
+| LTM episode reaches context | At least 1 post-31 LTM-provenance episode | Five per turn on turns 32-35; 20 individually logged rows with promotion metadata | Yes |
+| Dedup correct | No episode ID twice; sane duplicate count | All 35 final sets matched logged sizes and contained unique IDs. `duplicates_removed=0` is sane because K_stm was empty on turns 32-35; S4_006 covers nonzero overlap | Yes |
+| Degenerate fallback | Low-STM turn or S4-T-010 re-run | On turns 32-35, STM K was empty and the arbitration output order exactly matched the LTM-only order | Yes |
+| Tagged blocks | All five each turn; empties self-closing | All five sections occurred exactly once in all 35 prompts; no malformed block; turns 32-35 rendered LTM promotion metadata | Yes |
+| `arbitration_events.csv` | Populated, all fields | Exact registered header plus 35 rows; all final-size and LTM-count cross-checks matched | Yes |
+| No promotion during any probe | N/A below turn 112 | No probe turns in range and no post-31 promotion event | N/A |
+
+### A005 generation check
+
+The pre-commit 4,096-ceiling replay had measured natural completion at 1,225,
+1,277, and 1,050 tokens for the three prompts that triggered the failed
+1,024-token run. This fresh stochastic gate independently stayed below 1,357
+tokens across all 35 turns. The larger response ceiling did not reduce runtime
+below the registered speed floor or push constructed context above the 20,000
+token monitoring threshold; peak estimated context was 9,235 tokens.
+
+### Carried Study 003 checks
+
+| Check | Actual | Result |
+|---|---|---|
+| Rule detection and persistence | Turn-1 rule detected; one `rule_store` row points to the turn-1 episode | PASS |
+| Promotion idempotency | 9 LTM rows, 9 distinct episode IDs | PASS |
+| LTM schema population | No null required score/provenance fields; every embedding is 4,096 bytes (1,024 float32 values) | PASS |
+| Transition stability | Exactly one promotion event at turn 31; none on turns 1-30 | PASS |
+| Consolidation observability | Three consolidation rows at turns 10, 20, and 30, matching topic metrics | PASS |
+| Analysis outputs | 30 episode-score rows, 9 filter-trigger rows, and one promotion-summary row | PASS |
+| Archive completeness | 35 responses, 35 context-size rows, 35 turn rows, and 35 arbitration rows | PASS |
+
+The repository-wide A005 suite passed **481 tests** before this run. The raw
+ablation directory remains an ignored execution artifact; this report is the
+committed gate record.
+
+DECISION: GO - all applicable A005 35-turn checks passed. The same-settings v3 control run is authorized as the next binding step; no fresh v4 full run is authorized until the control is scored and its amended breadth gate is evaluated.
