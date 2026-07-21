@@ -101,7 +101,7 @@ class StudyRunner:
             constructed_prompt, record = runner.build_context(user_message, turn_number)
 
             if condition == "iterative":
-                full_prompt = f"{constructed_prompt}\n\nUser: {user_message}\nAssistant:"
+                full_prompt = f"{constructed_prompt}\n\nAssistant:"
             else:
                 full_prompt = constructed_prompt
 
@@ -225,7 +225,11 @@ class StudyRunner:
             db_path = os.path.join(run_config.output_dir, "study.db")
             conn = init_db(db_path)
             topic_manager = TopicManager(conn)
-            retrieval_engine = RetrievalEngine(conn)
+            retrieval_engine = RetrievalEngine(
+                conn,
+                embedding_provider=embed,
+                system_prompt=self.system_prompt,
+            )
             return IterativeRunner(conn, embed, topic_manager, retrieval_engine, observer)
         else:
             raise ValueError(f"Unknown condition: {condition}")

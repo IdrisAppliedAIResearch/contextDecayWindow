@@ -12,7 +12,11 @@ from src.db.retrieval import (
 )
 from src.db.rule_store import get_all_rules
 from src.db.episode import get_episode_by_id
-from src.memory.context_builder import build_prompt, estimate_tokens, _build_rule_block_text
+from src.memory.context_builder import (
+    build_pinned_rules_block,
+    build_tagged_context,
+    estimate_tokens,
+)
 
 
 DECAY_RATE = 0.1
@@ -44,18 +48,23 @@ class RetrievalResult:
     total_episodes_in_context: int = 0
     rule_episodes: list = field(default_factory=list)
     rule_token_estimate: int = 0
+    recent_episodes: list = field(default_factory=list)
+    retrieved_stm_episodes: list = field(default_factory=list)
+    retrieved_ltm_episodes: list = field(default_factory=list)
 
 
 class RetrievalEngine:
 
-    def __init__(self, conn, embedding_provider=None):
+    def __init__(self, conn, embedding_provider=None, system_prompt=None):
         self.conn = conn
+        self._embedding_provider = embedding_provider or embed
+        self._system_prompt = system_prompt or "You are a helpful assistant."
 
     def retrieve(self, user_message: str, turn_number: int) -> RetrievalResult:
         rule_rows = get_all_rules(self.conn)
         rule_episodes = self._fetch_rule_episodes(rule_rows)
 
-        query_embedding = embed(user_message)
+        query_embedding = self._embedding_provider(user_message)
         all_episodes = get_all_episodes_with_embeddings(self.conn)
 
         deserialized_episodes = []
@@ -104,6 +113,7 @@ class RetrievalEngine:
             ep_clean = {
                 "id": ep["id"],
                 "topic_id": ep["topic_id"],
+                "topic_label": ep.get("topic_label") or ep.get("topic_id") or "",
                 "user_message": ep["user_message"],
                 "assistant_message": ep["assistant_message"],
                 "turn_number": ep["turn_number"],
@@ -113,10 +123,31 @@ class RetrievalEngine:
             }
             clean_episodes.append(ep_clean)
 
-        system_prompt = "You are a helpful assistant."
-        rule_block_text = _build_rule_block_text(rule_episodes)
-        rule_token_estimate = estimate_tokens(rule_block_text) if rule_block_text else 0
-        constructed_prompt = build_prompt(clean_episodes, system_prompt, rule_episodes if rule_episodes else None)
+        n_set = set(n_episode_ids)
+        k_set = set(k_episode_ids)
+        recent_episodes = [
+            episode for episode in clean_episodes if episode["id"] in n_set
+        ]
+        retrieved_stm_episodes = []
+        for episode in clean_episodes:
+            if episode["id"] in k_set and episode["id"] not in n_set:
+                retrieved_stm_episodes.append({
+                    **episode,
+                    "similarity": k_scores[episode["id"]],
+                })
+
+        rule_block_text = build_pinned_rules_block(rule_episodes)
+        rule_token_estimate = (
+            estimate_tokens(rule_block_text) if rule_episodes else 0
+        )
+        constructed_prompt = build_tagged_context(
+            system_prompt=self._system_prompt,
+            current_user_message=user_message,
+            rule_episodes=rule_episodes,
+            recent_episodes=recent_episodes,
+            stm_episodes=retrieved_stm_episodes,
+            ltm_episodes=[],
+        )
         estimated_tokens = estimate_tokens(constructed_prompt)
 
         return RetrievalResult(
@@ -133,6 +164,9 @@ class RetrievalEngine:
             total_episodes_in_context=len(clean_episodes),
             rule_episodes=rule_episodes,
             rule_token_estimate=rule_token_estimate,
+            recent_episodes=recent_episodes,
+            retrieved_stm_episodes=retrieved_stm_episodes,
+            retrieved_ltm_episodes=[],
         )
 
     def _k_retrieve(
@@ -181,6 +215,9 @@ class RetrievalEngine:
             if ep is not None:
                 rule_episodes.append({
                     "id": ep["id"],
+                    "rule_id": rule_row["id"],
+                    "rule_summary": rule_row["rule_summary"],
+                    "set_at_turn": rule_row["turn_number"],
                     "turn_number": ep["turn_number"],
                     "user_message": ep["user_message"],
                     "assistant_message": ep["assistant_message"],
