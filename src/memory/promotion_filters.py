@@ -2,6 +2,7 @@
 
 import logging
 import re
+from collections.abc import Iterable, Mapping
 from typing import Optional
 
 import numpy as np
@@ -52,12 +53,21 @@ def score_repetition(retrieval_count: int, max_count: int = 5) -> float:
 
 def score_association(
     episode_embedding: np.ndarray,
-    ltm_centroid: Optional[np.ndarray],
+    ltm_topic_centroids: Mapping[str, np.ndarray] | Iterable[np.ndarray] | None,
 ) -> float:
-    """Return similarity to the LTM centroid, defaulting to 0.0 when empty."""
-    if ltm_centroid is None:
+    """Return max similarity across canonical LTM topic centroids."""
+    if ltm_topic_centroids is None:
         return 0.0
-    return _clamp(cosine_similarity(episode_embedding, ltm_centroid))
+    if isinstance(ltm_topic_centroids, Mapping):
+        centroids = list(ltm_topic_centroids.values())
+    else:
+        centroids = list(ltm_topic_centroids)
+    if not centroids:
+        return 0.0
+    return max(
+        _clamp(cosine_similarity(episode_embedding, centroid))
+        for centroid in centroids
+    )
 
 
 def score_emotional_valence(episode_content: str, inference_client) -> float:
@@ -101,7 +111,8 @@ def evaluate_promotion(
         "emotional": _clamp(emotional),
     }
     if not ltm_is_empty:
-        for filter_name, score in scores.items():
+        for filter_name in ("novelty", "repetition", "emotional"):
+            score = scores[filter_name]
             if score >= ALL_OR_NOTHING_THRESHOLD:
                 return True, "all_or_nothing", filter_name
 

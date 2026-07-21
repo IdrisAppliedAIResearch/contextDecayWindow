@@ -98,6 +98,7 @@ class IterativeRunner(BaseRunner):
         embedding: np.ndarray = None,
         inference_result: InferenceResult = None,
         topic_embedding: np.ndarray = None,
+        ground_truth_domain: str | None = None,
     ) -> AssignmentResult:
         if embedding is None:
             pair_text = f"User: {user_message}\nAssistant: {assistant_message}"
@@ -109,6 +110,7 @@ class IterativeRunner(BaseRunner):
             assistant_message,
             embedding,
             turn_number,
+            ground_truth_domain,
         )
 
         if inference_result and inference_result.contains_rule and inference_result.rule_summary:

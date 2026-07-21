@@ -18,6 +18,11 @@ from src.runners.compaction_runner import CompactionRunner
 from src.runners.full_context_runner import FullContextRunner
 from src.runners.iterative_runner import IterativeRunner
 from src.study.script_loader import load_script
+from src.study.domain_labels import (
+    PROBE_TURN_END,
+    PROBE_TURN_START,
+    ground_truth_domain_for_turn,
+)
 
 
 class StudyRunner:
@@ -27,6 +32,8 @@ class StudyRunner:
     RUBRIC_TURN_END = 32
     RUBRIC_TURNS = list(range(112, 121))
     PROMOTION_TURN_END = 111
+    PROBE_TURN_START = PROBE_TURN_START
+    PROBE_TURN_END = PROBE_TURN_END
 
     def __init__(self, script_path: str, study_dir: str, run_id: str = "run_001", minimum_turns: int = 30, max_turns: int | None = None):
         self._check_env_vars()
@@ -79,12 +86,17 @@ class StudyRunner:
         condition_start = time.perf_counter()
         peak_tokens = 0
         turn_count = 0
+        flush_completed = False
 
         self._print_condition_start_banner(condition)
 
         for turn_data in self.turns:
             turn_number = turn_data["turn"]
             user_message = turn_data["user"]
+            if condition == "iterative" and promotion_engine:
+                self._assert_flush_completed_before_turn(
+                    turn_number, flush_completed
+                )
 
             constructed_prompt, record = runner.build_context(user_message, turn_number)
 
@@ -138,6 +150,10 @@ class StudyRunner:
                     embedding=embedding,
                     topic_embedding=topic_embedding,
                     inference_result=result,
+                    ground_truth_domain=turn_data.get(
+                        "ground_truth_domain",
+                        ground_truth_domain_for_turn(turn_number),
+                    ),
                 )
                 record.stored_episode_id = assignment.stored_episode_id
                 record.stored_topic_label = assignment.topic_label
@@ -151,7 +167,7 @@ class StudyRunner:
                 if (
                     promotion_engine
                     and assignment.stored_episode_id
-                    and turn_number <= self.PROMOTION_TURN_END
+                    and self._promotion_emission_allowed(turn_number)
                 ):
                     summary = promotion_engine.process_transition(
                         previous_episode_id, assignment.stored_episode_id, turn_number
@@ -166,6 +182,13 @@ class StudyRunner:
                                 turn_number, previous_episode_id, assignment.stored_episode_id,
                                 previous_topic_before, previous_after["topic_id"], current_after["topic_id"],
                             )
+                    if turn_number == self.PROMOTION_TURN_END:
+                        flush_summary = promotion_engine.process_flush(
+                            assignment.stored_episode_id, turn_number
+                        )
+                        if flush_summary:
+                            ltm_writer.write_promotion(flush_summary)
+                        flush_completed = True
                 previous_episode_id = assignment.stored_episode_id
             else:
                 runner.on_turn_complete(user_message, assistant_message, turn_number)
@@ -179,6 +202,19 @@ class StudyRunner:
 
         if rubric_responses:
             self._write_rubric_responses(condition, rubric_responses)
+
+    @classmethod
+    def _promotion_emission_allowed(cls, turn_number: int) -> bool:
+        return turn_number <= cls.PROMOTION_TURN_END
+
+    @classmethod
+    def _assert_flush_completed_before_turn(
+        cls, turn_number: int, flush_completed: bool
+    ) -> None:
+        if turn_number >= cls.PROBE_TURN_START and not flush_completed:
+            raise RuntimeError(
+                "Turn 111 promotion flush must complete before the probe block"
+            )
 
     def _create_runner(self, condition: str, run_config: RunConfig, observer) -> object:
         if condition == "full_context":

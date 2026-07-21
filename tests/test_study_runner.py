@@ -193,6 +193,7 @@ class TestStudyRunnerEnvCheck:
 
     def test_raises_when_inference_model_not_set(self):
         saved = os.environ.pop("CDW_INFERENCE_MODEL_PATH", None)
+        saved_url = os.environ.pop("CDW_INFERENCE_SERVER_URL", None)
         try:
             try:
                 from src.study.runner import StudyRunner
@@ -208,3 +209,5 @@ class TestStudyRunnerEnvCheck:
         finally:
             if saved is not None:
                 os.environ["CDW_INFERENCE_MODEL_PATH"] = saved
+            if saved_url is not None:
+                os.environ["CDW_INFERENCE_SERVER_URL"] = saved_url

@@ -8,6 +8,10 @@ from src.db.episode import get_episode_by_id, update_episode_topic
 from src.db.topic import store_topic, get_all_topics, update_topic_centroid, merge_topics, reassign_episodes
 from src.embeddings.provider import cosine_similarity
 from src.observability.turn_record import AssignmentResult, ConsolidationResult
+from src.study.domain_labels import (
+    ground_truth_domain_for_turn,
+    is_probe_turn,
+)
 
 
 class TopicManager:
@@ -59,7 +63,10 @@ class TopicManager:
 
         consolidation = None
         if self._episode_count % self.CONSOLIDATION_INTERVAL == 0:
-            consolidation = self._run_consolidation_pass()
+            episode = get_episode_by_id(self._conn, episode_id)
+            consolidation = self._run_consolidation_pass(
+                current_turn=episode["turn_number"] if episode else self._episode_count
+            )
 
         # Consolidation can merge the topic selected above. Resolve the stored
         # episode to its canonical surviving topic before returning the result.
@@ -124,15 +131,65 @@ class TopicManager:
 
         return drift
 
-    def _run_consolidation_pass(self) -> ConsolidationResult:
+    def _run_consolidation_pass(
+        self, current_turn: int | None = None
+    ) -> ConsolidationResult:
         topics_before = len(self._topics)
         merge_log: list[dict] = []
+        purity_events: list[dict] = []
+        blocked_pairs: set[tuple[str, str]] = set()
+        event_turn = current_turn if current_turn is not None else self._episode_count
 
         while True:
             pairs = self._find_merge_pairs()
             if not pairs:
                 break
-            id_a, id_b, similarity = pairs[0]
+            selected_pair = None
+            selected_domains = None
+            for id_a, id_b, similarity in pairs:
+                pair_key = tuple(sorted((id_a, id_b)))
+                if pair_key in blocked_pairs:
+                    continue
+
+                profile_a = self._topic_domain_profile(id_a)
+                profile_b = self._topic_domain_profile(id_b)
+                probe_turns = sorted(
+                    set(profile_a["probe_turns"] + profile_b["probe_turns"])
+                )
+                if probe_turns:
+                    purity_events.append(self._purity_event(
+                        "probe_bridge_blocked",
+                        event_turn,
+                        id_a,
+                        id_b,
+                        profile_a["domains"],
+                        profile_b["domains"],
+                        similarity,
+                        probe_turns,
+                    ))
+                    blocked_pairs.add(pair_key)
+                    continue
+
+                selected_pair = (id_a, id_b, similarity)
+                selected_domains = (profile_a["domains"], profile_b["domains"])
+                break
+
+            if selected_pair is None:
+                break
+
+            id_a, id_b, similarity = selected_pair
+            domains_a, domains_b = selected_domains
+            if domains_a and domains_b and domains_a != domains_b:
+                purity_events.append(self._purity_event(
+                    "cross_domain_merge",
+                    event_turn,
+                    id_a,
+                    id_b,
+                    domains_a,
+                    domains_b,
+                    similarity,
+                    [],
+                ))
             surviving_id, merged_id = self._determine_merge_direction(id_a, id_b)
             merge_info = self._merge_pair(surviving_id, merged_id, similarity)
             merge_log.append(merge_info)
@@ -145,7 +202,44 @@ class TopicManager:
             topics_after=topics_after,
             pairs_merged=len(merge_log),
             merge_log=merge_log,
+            purity_events=purity_events,
         )
+
+    def _topic_domain_profile(self, topic_id: str) -> dict:
+        rows = self._conn.execute(
+            "SELECT turn_number, ground_truth_domain FROM episodes WHERE topic_id = ?",
+            (topic_id,),
+        ).fetchall()
+        domains: set[str] = set()
+        probe_turns: list[int] = []
+        for turn_number, stored_domain in rows:
+            domain = stored_domain or ground_truth_domain_for_turn(turn_number)
+            domains.add(domain)
+            if is_probe_turn(turn_number, domain):
+                probe_turns.append(turn_number)
+        return {"domains": domains, "probe_turns": probe_turns}
+
+    def _purity_event(
+        self,
+        event_type: str,
+        turn: int,
+        topic_a_id: str,
+        topic_b_id: str,
+        domains_a: set[str],
+        domains_b: set[str],
+        similarity: float,
+        probe_turns: list[int],
+    ) -> dict:
+        return {
+            "event_type": event_type,
+            "turn": turn,
+            "topic_a": self._topics[topic_a_id]["label"],
+            "topic_b": self._topics[topic_b_id]["label"],
+            "domains_a": sorted(domains_a),
+            "domains_b": sorted(domains_b),
+            "similarity": similarity,
+            "probe_turns": probe_turns,
+        }
 
     def _find_merge_pairs(self) -> list[tuple[str, str, float]]:
         topic_ids = list(self._topics.keys())

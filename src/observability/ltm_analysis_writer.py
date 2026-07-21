@@ -8,7 +8,7 @@ class LtmAnalysisWriter:
     def __init__(self, output_dir: str):
         self._directory = os.path.join(output_dir, "ltm_analysis")
         os.makedirs(self._directory, exist_ok=True)
-        self._initialize("promotion_events.csv", ["turn", "topic", "episodes_evaluated", "episodes_promoted", "promotion_rate"])
+        self._initialize("promotion_events.csv", ["turn", "topic", "episodes_evaluated", "episodes_promoted", "promotion_rate", "event_type"])
         self._initialize("episode_scores.csv", ["turn", "episode_id", "episode_turn", "topic", "novelty", "repetition", "association", "emotional", "weighted_score", "promoted", "trigger_type", "triggered_filter"])
         self._initialize("filter_triggers.csv", ["turn", "episode_id", "topic", "trigger_type", "triggered_filter"])
         self._initialize("merge_relabel_events.csv", ["turn", "previous_episode_id", "current_episode_id", "previous_topic_before", "previous_topic_after", "current_topic_after", "reason"])
@@ -21,7 +21,7 @@ class LtmAnalysisWriter:
 
     def write_promotion(self, summary) -> None:
         with open(os.path.join(self._directory, "promotion_events.csv"), "a", newline="", encoding="utf-8") as handle:
-            csv.writer(handle).writerow([summary.turn, summary.topic, summary.evaluated, summary.promoted, summary.promoted / summary.evaluated if summary.evaluated else 0.0])
+            csv.writer(handle).writerow([summary.turn, summary.topic, summary.evaluated, summary.promoted, summary.promoted / summary.evaluated if summary.evaluated else 0.0, summary.event_type])
         with open(os.path.join(self._directory, "episode_scores.csv"), "a", newline="", encoding="utf-8") as handle:
             writer = csv.writer(handle)
             for result in summary.episode_results:
