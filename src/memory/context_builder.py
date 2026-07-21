@@ -62,20 +62,20 @@ def build_tagged_context(
 ) -> str:
     """Render the five ordered Study 004 context blocks.
 
-    Placement is defensive as well as presentational: recency takes precedence
-    over retrieval, and LTM takes precedence over STM for a post-arbitration
+    Placement is defensive as well as presentational: LTM provenance takes
+    precedence over recency, while recency takes precedence over STM K-only
+    retrieval. LTM also takes precedence over STM for a post-arbitration
     episode that has both provenances.
     """
     rules = list(rule_episodes or [])
-    recent = _unique_episodes(recent_episodes or [])
-    recent_ids = {episode.get("id") for episode in recent}
-
-    ltm = [
-        episode
-        for episode in _unique_episodes(ltm_episodes or [])
-        if episode.get("id") not in recent_ids
-    ]
+    ltm = _unique_episodes(ltm_episodes or [])
     ltm_ids = {episode.get("id") for episode in ltm}
+    recent = [
+        episode
+        for episode in _unique_episodes(recent_episodes or [])
+        if episode.get("id") not in ltm_ids
+    ]
+    recent_ids = {episode.get("id") for episode in recent}
     stm = [
         episode
         for episode in _unique_episodes(stm_episodes or [])

@@ -13,6 +13,29 @@ from src.memory.topic_manager import TopicManager
 from src.observability.turn_record import AssignmentResult, ConsolidationResult
 
 
+def test_new_topic_label_is_not_reused_after_consolidation(tmp_path):
+    conn = init_db(str(tmp_path / "study.db"))
+    manager = TopicManager(conn)
+    first_embedding = np.zeros(1024, dtype=np.float32)
+    first_embedding[0] = 1.0
+    second_embedding = np.zeros(1024, dtype=np.float32)
+    second_embedding[1] = 1.0
+    third_embedding = np.zeros(1024, dtype=np.float32)
+    third_embedding[2] = 1.0
+
+    first_id = manager._create_topic(first_embedding)
+    second_id = manager._create_topic(second_embedding)
+    manager._topics[first_id]["episode_count"] = 1
+    manager._topics[second_id]["episode_count"] = 2
+    manager._merge_pair(second_id, first_id, 0.50)
+
+    third_id = manager._create_topic(third_embedding)
+
+    assert manager._topics[second_id]["label"] == "topic_2"
+    assert manager._topics[third_id]["label"] == "topic_3"
+    assert len({topic["label"] for topic in manager._topics.values()}) == 2
+
+
 def _make_embedding(value: float = 1.0) -> np.ndarray:
     return np.full(1024, value, dtype=np.float32)
 

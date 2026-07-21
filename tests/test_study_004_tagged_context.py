@@ -110,3 +110,29 @@ def test_ltm_placement_wins_over_stm_for_same_episode():
     assert "<retrieved_stm/>" in prompt
     assert 'promoted_at_turn="31"' in prompt
     assert 'trigger_type="weighted_threshold"' in prompt
+
+
+def test_ltm_placement_preserves_provenance_when_episode_is_also_recent():
+    common = {
+        "id": "recent-and-ltm",
+        "turn_number": 7,
+        "topic_label": "topic_a",
+        "user_message": "Promoted recent user",
+        "assistant_message": "Promoted recent assistant",
+    }
+    prompt = build_tagged_context(
+        system_prompt="System",
+        current_user_message="Question",
+        recent_episodes=[common],
+        ltm_episodes=[{
+            **common,
+            "similarity": 0.61,
+            "promoted_at_turn": 31,
+            "trigger_type": "weighted_threshold",
+        }],
+    )
+
+    assert prompt.count("Promoted recent user") == 1
+    assert "<recent_context/>" in prompt
+    assert "<retrieved_ltm>" in prompt
+    assert 'promoted_at_turn="31"' in prompt
