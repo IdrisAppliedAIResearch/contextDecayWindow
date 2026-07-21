@@ -93,7 +93,7 @@ class TestFileWriterInitRun:
         try:
             self.writer.init_run()
             for fname in [
-                "model_performance.csv", "memory_store.csv", "K_values.csv",
+                "model_performance.csv", "context_sizes.csv", "memory_store.csv", "K_values.csv",
                 "N_values.csv", "topic_events.csv", "retrieval_events.csv",
             ]:
                 assert os.path.isfile(os.path.join(self.output_dir, "metrics", fname))
@@ -121,6 +121,24 @@ class TestFileWriterInitRun:
                 reader = csv.reader(f)
                 headers = next(reader)
                 assert headers == ["turn", "topic_count", "episode_count", "new_topic_created", "new_topic_label", "compaction_occurred", "compaction_turn"]
+        finally:
+            self._teardown()
+
+    def test_csv_context_sizes_headers(self):
+        self._setup()
+        try:
+            self.writer.init_run()
+            fpath = os.path.join(self.output_dir, "metrics", "context_sizes.csv")
+            with open(fpath) as f:
+                headers = next(csv.reader(f))
+            assert headers == [
+                "turn",
+                "estimated_tokens",
+                "rule_token_estimate",
+                "k_token_estimate",
+                "n_token_estimate",
+                "total_episodes_in_context",
+            ]
         finally:
             self._teardown()
 
@@ -181,6 +199,19 @@ class TestFileWriterInitRun:
             with open(fpath) as f:
                 content = f.read()
             assert "# Responses" in content
+        finally:
+            self._teardown()
+
+    def test_creates_full_responses_md(self):
+        self._setup()
+        try:
+            self.writer.init_run()
+            fpath = os.path.join(self.output_dir, "responses.md")
+            assert os.path.isfile(fpath)
+            with open(fpath, encoding="utf-8") as f:
+                content = f.read()
+            assert "# Full Responses — iterative" in content
+            assert "**Run:** run_001" in content
         finally:
             self._teardown()
 
@@ -392,6 +423,38 @@ class TestFileWriterWriteTurn:
             assert row[2] == "5"
             assert row[5] == "False"
             assert row[6] == "---"
+        finally:
+            self._teardown()
+
+    def test_full_response_and_context_size_written_per_turn(self):
+        self._setup()
+        try:
+            record = self._make_record()
+            self.writer.write_turn(record)
+
+            with open(
+                os.path.join(self.output_dir, "responses.md"),
+                encoding="utf-8",
+            ) as handle:
+                responses = handle.read()
+            assert responses.count("## Turn 001") == 1
+            assert "**User:**\nTest message" in responses
+            assert "**Assistant:**\nResponse text" in responses
+
+            with open(
+                os.path.join(self.output_dir, "metrics", "context_sizes.csv"),
+                newline="",
+                encoding="utf-8",
+            ) as handle:
+                context_rows = list(csv.DictReader(handle))
+            assert context_rows == [{
+                "turn": "1",
+                "estimated_tokens": "500",
+                "rule_token_estimate": "0",
+                "k_token_estimate": "200",
+                "n_token_estimate": "300",
+                "total_episodes_in_context": "3",
+            }]
         finally:
             self._teardown()
 
