@@ -1,4 +1,6 @@
+import asyncio
 import math
+import sqlite3
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 
@@ -12,11 +14,13 @@ from src.db.retrieval import (
 )
 from src.db.rule_store import get_all_rules
 from src.db.episode import get_episode_by_id
+from src.memory.arbitration import ArbitrationResult, arbitrate_candidates
 from src.memory.context_builder import (
     build_pinned_rules_block,
     build_tagged_context,
     estimate_tokens,
 )
+from src.memory.ltm_store import get_ltm_retrieval_rows
 
 
 DECAY_RATE = 0.1
@@ -51,90 +55,101 @@ class RetrievalResult:
     recent_episodes: list = field(default_factory=list)
     retrieved_stm_episodes: list = field(default_factory=list)
     retrieved_ltm_episodes: list = field(default_factory=list)
+    arbitration: ArbitrationResult = field(default_factory=ArbitrationResult)
 
 
 class RetrievalEngine:
+
+    LTM_TOP_M = 5
 
     def __init__(self, conn, embedding_provider=None, system_prompt=None):
         self.conn = conn
         self._embedding_provider = embedding_provider or embed
         self._system_prompt = system_prompt or "You are a helpful assistant."
+        database_row = conn.execute("PRAGMA database_list").fetchone()
+        self._database_path = database_row[2] if database_row else ""
 
     def retrieve(self, user_message: str, turn_number: int) -> RetrievalResult:
+        """Synchronous boundary used by the existing study runner."""
+        try:
+            asyncio.get_running_loop()
+        except RuntimeError:
+            return asyncio.run(self.retrieve_async(user_message, turn_number))
+        raise RuntimeError("Use await retrieve_async() from an active event loop")
+
+    async def retrieve_async(
+        self, user_message: str, turn_number: int
+    ) -> RetrievalResult:
         rule_rows = get_all_rules(self.conn)
         rule_episodes = self._fetch_rule_episodes(rule_rows)
 
         query_embedding = self._embedding_provider(user_message)
-        all_episodes = get_all_episodes_with_embeddings(self.conn)
-
-        deserialized_episodes = []
-        for ep in all_episodes:
-            ep_copy = dict(ep)
-            if ep_copy["embedding"] is not None:
-                ep_copy["embedding"] = np.frombuffer(ep_copy["embedding"], dtype=np.float32)
-            deserialized_episodes.append(ep_copy)
-
-        k_episode_ids, k_scores = self._k_retrieve(query_embedding, deserialized_episodes)
-        n_episode_ids, n_scores = self._n_retrieve(deserialized_episodes)
-
-        included_ids = set(k_episode_ids) | set(n_episode_ids)
-        final_episodes = self._deduplicate_and_sort(deserialized_episodes, included_ids)
-
-        retrieved_at = datetime.now(timezone.utc).isoformat()
-        final_ids = [ep["id"] for ep in final_episodes]
-
-        if final_ids:
-            update_retrieval_metadata(self.conn, final_ids, retrieved_at)
-
-            events = []
-            k_set = set(k_episode_ids)
-            n_set = set(n_episode_ids)
-            for ep in final_episodes:
-                eid = ep["id"]
-                sim = k_scores.get(eid, 0.0)
-                decay = n_scores.get(eid, 0.0)
-                if eid in k_set and eid in n_set:
-                    rtype = "KN"
-                elif eid in k_set:
-                    rtype = "K"
-                else:
-                    rtype = "N"
-                events.append({
-                    "turn_number": turn_number,
-                    "episode_id": eid,
-                    "similarity_score": sim,
-                    "decay_score": decay,
-                    "retrieval_type": rtype,
-                })
-            log_retrieval_events_batch(self.conn, events)
-
-        clean_episodes = []
-        for ep in final_episodes:
-            ep_clean = {
-                "id": ep["id"],
-                "topic_id": ep["topic_id"],
-                "topic_label": ep.get("topic_label") or ep.get("topic_id") or "",
-                "user_message": ep["user_message"],
-                "assistant_message": ep["assistant_message"],
-                "turn_number": ep["turn_number"],
-                "created_at": ep["created_at"],
-                "last_retrieved_at": ep["last_retrieved_at"],
-                "retrieval_count": ep["retrieval_count"],
-            }
-            clean_episodes.append(ep_clean)
+        stm_result, ltm_candidates = await self._retrieve_tiers_parallel(
+            query_embedding
+        )
+        (
+            deserialized_episodes,
+            k_episode_ids,
+            k_scores,
+            n_episode_ids,
+            n_scores,
+        ) = stm_result
 
         n_set = set(n_episode_ids)
         k_set = set(k_episode_ids)
+        by_id = {
+            episode["id"]: self._clean_stm_episode(episode)
+            for episode in deserialized_episodes
+        }
         recent_episodes = [
-            episode for episode in clean_episodes if episode["id"] in n_set
+            by_id[episode_id]
+            for episode_id in n_episode_ids
+            if episode_id in by_id
         ]
-        retrieved_stm_episodes = []
-        for episode in clean_episodes:
-            if episode["id"] in k_set and episode["id"] not in n_set:
-                retrieved_stm_episodes.append({
-                    **episode,
-                    "similarity": k_scores[episode["id"]],
-                })
+        stm_candidates = [
+            {**by_id[episode_id], "similarity": k_scores[episode_id]}
+            for episode_id in k_episode_ids
+            if episode_id in by_id and episode_id not in n_set
+        ]
+        # Recency placement already supplies these episodes, so they do not
+        # enter arbitration or receive a duplicate LTM placement.
+        ltm_candidates = [
+            candidate for candidate in ltm_candidates
+            if candidate["id"] not in n_set
+        ]
+        arbitration = arbitrate_candidates(
+            stm_candidates,
+            ltm_candidates,
+            k_stm=len(stm_candidates),
+            ltm_top_m=self.LTM_TOP_M,
+        )
+        retrieved_stm_episodes = [
+            episode for episode in arbitration.episodes
+            if episode["provenance"] == "stm"
+        ]
+        retrieved_ltm_episodes = [
+            episode for episode in arbitration.episodes
+            if episode["provenance"] in {"ltm", "both"}
+        ]
+        clean_episodes = [*recent_episodes, *arbitration.episodes]
+
+        final_ids = list(dict.fromkeys(
+            episode["id"] for episode in clean_episodes
+        ))
+        if final_ids:
+            update_retrieval_metadata(
+                self.conn,
+                final_ids,
+                datetime.now(timezone.utc).isoformat(),
+            )
+        self._log_stm_retrieval_events(
+            turn_number,
+            deserialized_episodes,
+            k_episode_ids,
+            k_scores,
+            n_episode_ids,
+            n_scores,
+        )
 
         rule_block_text = build_pinned_rules_block(rule_episodes)
         rule_token_estimate = (
@@ -146,7 +161,7 @@ class RetrievalEngine:
             rule_episodes=rule_episodes,
             recent_episodes=recent_episodes,
             stm_episodes=retrieved_stm_episodes,
-            ltm_episodes=[],
+            ltm_episodes=retrieved_ltm_episodes,
         )
         estimated_tokens = estimate_tokens(constructed_prompt)
 
@@ -166,8 +181,128 @@ class RetrievalEngine:
             rule_token_estimate=rule_token_estimate,
             recent_episodes=recent_episodes,
             retrieved_stm_episodes=retrieved_stm_episodes,
-            retrieved_ltm_episodes=[],
+            retrieved_ltm_episodes=retrieved_ltm_episodes,
+            arbitration=arbitration,
         )
+
+    async def _retrieve_tiers_parallel(
+        self, query_embedding: np.ndarray
+    ) -> tuple[tuple, list[dict]]:
+        """Issue STM and LTM reads concurrently and await them jointly."""
+        if self._database_path:
+            return tuple(await asyncio.gather(
+                asyncio.to_thread(self._query_stm_tier, query_embedding),
+                asyncio.to_thread(self._query_ltm_tier, query_embedding),
+            ))
+
+        # In-memory SQLite databases cannot be reopened in worker threads.
+        # Snapshot both stores on the owning thread, then score concurrently.
+        stm_rows = get_all_episodes_with_embeddings(self.conn)
+        ltm_rows = get_ltm_retrieval_rows(self.conn)
+        return tuple(await asyncio.gather(
+            asyncio.to_thread(self._score_stm_rows, query_embedding, stm_rows),
+            asyncio.to_thread(self._score_ltm_rows, query_embedding, ltm_rows),
+        ))
+
+    def _query_stm_tier(self, query_embedding: np.ndarray) -> tuple:
+        with sqlite3.connect(self._database_path) as conn:
+            rows = get_all_episodes_with_embeddings(conn)
+        return self._score_stm_rows(query_embedding, rows)
+
+    def _query_ltm_tier(self, query_embedding: np.ndarray) -> list[dict]:
+        with sqlite3.connect(self._database_path) as conn:
+            rows = get_ltm_retrieval_rows(conn)
+        return self._score_ltm_rows(query_embedding, rows)
+
+    def _score_stm_rows(
+        self, query_embedding: np.ndarray, rows: list[dict]
+    ) -> tuple:
+        deserialized = []
+        for episode in rows:
+            item = dict(episode)
+            if item["embedding"] is not None:
+                item["embedding"] = np.frombuffer(
+                    item["embedding"], dtype=np.float32
+                )
+            deserialized.append(item)
+        k_episode_ids, k_scores = self._k_retrieve(
+            query_embedding, deserialized
+        )
+        n_episode_ids, n_scores = self._n_retrieve(deserialized)
+        return deserialized, k_episode_ids, k_scores, n_episode_ids, n_scores
+
+    def _score_ltm_rows(
+        self, query_embedding: np.ndarray, rows: list[dict]
+    ) -> list[dict]:
+        candidates = []
+        for row in rows:
+            embedding = np.frombuffer(row["embedding"], dtype=np.float32)
+            candidates.append({
+                "id": row["id"],
+                "turn_number": row["turn_number"],
+                "topic_id": row["topic_id"],
+                "topic_label": row["topic_label"],
+                "user_message": row["user_message"],
+                "assistant_message": row["assistant_message"],
+                "similarity": cosine_similarity(query_embedding, embedding),
+                "promoted_at_turn": row["promoted_at_turn"],
+                "trigger_type": row["trigger_type"],
+                "triggered_filter": row["triggered_filter"],
+            })
+        candidates.sort(
+            key=lambda item: (-float(item["similarity"]), str(item["id"]))
+        )
+        return candidates[:self.LTM_TOP_M]
+
+    @staticmethod
+    def _clean_stm_episode(episode: dict) -> dict:
+        return {
+            "id": episode["id"],
+            "topic_id": episode["topic_id"],
+            "topic_label": (
+                episode.get("topic_label")
+                or episode.get("topic_id")
+                or ""
+            ),
+            "user_message": episode["user_message"],
+            "assistant_message": episode["assistant_message"],
+            "turn_number": episode["turn_number"],
+            "created_at": episode["created_at"],
+            "last_retrieved_at": episode["last_retrieved_at"],
+            "retrieval_count": episode["retrieval_count"],
+        }
+
+    def _log_stm_retrieval_events(
+        self,
+        turn_number: int,
+        all_episodes: list[dict],
+        k_episode_ids: list[str],
+        k_scores: dict,
+        n_episode_ids: list[str],
+        n_scores: dict,
+    ) -> None:
+        included_ids = set(k_episode_ids) | set(n_episode_ids)
+        if not included_ids:
+            return
+        k_set = set(k_episode_ids)
+        n_set = set(n_episode_ids)
+        events = []
+        for episode in self._deduplicate_and_sort(all_episodes, included_ids):
+            episode_id = episode["id"]
+            if episode_id in k_set and episode_id in n_set:
+                retrieval_type = "KN"
+            elif episode_id in k_set:
+                retrieval_type = "K"
+            else:
+                retrieval_type = "N"
+            events.append({
+                "turn_number": turn_number,
+                "episode_id": episode_id,
+                "similarity_score": k_scores.get(episode_id, 0.0),
+                "decay_score": n_scores.get(episode_id, 0.0),
+                "retrieval_type": retrieval_type,
+            })
+        log_retrieval_events_batch(self.conn, events)
 
     def _k_retrieve(
         self, query_embedding: np.ndarray, all_episodes: list
