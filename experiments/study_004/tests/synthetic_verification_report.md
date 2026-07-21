@@ -2,25 +2,27 @@
 
 **Date:** July 21, 2026
 **Status:** PASS
-**Accepted run:** `synthetic_verification_004`
+**Accepted run:** `synthetic_verification_005`
 **Condition:** `iterative`
 **Fixture:** `synthetic_study004_script.json` (fixture-only; not Study 004 run data)
 **Study 004 pre-registration SHA:** `1b9eb204e32b6b7cb32dfce4cb647cfc7f0e4d0f`
 
 ## Result
 
-The 22-turn synthetic script completed through the full Study 004 architecture with real Qwen3-Embedding-0.6B embeddings, real consolidation, real Qwen3.6-27B-UD-Q6_K_XL emotional scoring and generation, and real STM ∥ LTM arbitration. All S4_006 checks passed. This result closes S4_006 and authorizes the S4_007 35-turn ablation; it does not authorize the full 120-turn run.
+The 22-turn synthetic script completed through the full Study 004 architecture with real Qwen3-Embedding-0.6B embeddings, real consolidation, real Qwen3.6-27B-UD-Q6_K_XL emotional scoring and generation, and real STM ∥ LTM arbitration. All S4_006 checks passed. This result restores the S4_006 gate after the first S4_007 ablation exposed recency-overlap starvation; it authorizes a fresh S4_007 retry, not the full 120-turn run.
 
 The accepted run produced four canonical topics. Promotion batches ran at turns 5, 9, and 13, followed by the designated end-of-session flush at turn 18. Before the flush batch, LTM contained episodes from two distinct topics. Turns 19–22 formed the probe block, with consolidation firing at turn 20.
+
+`synthetic_verification_005` ran after remediation commit `0b1f989`. Unlike the superseded run, it explicitly exercised LTM-over-N placement: promoted episodes began reaching arbitration at turn 6, and 34 individual LTM-context rows were emitted without duplication. This directly verifies the integration path that failed in `ablation_35_001`.
 
 ## Verification
 
 | Check | Evidence | Result |
 |---|---|---|
 | Parallel retrieval | The file-backed path used the jointly awaited STM and LTM tier queries. Both tiers returned arbitration candidates together on turns 15–18 and 21–22; the concurrency barrier regression test also passed. | PASS |
-| Dedup | Turn 21 received six STM and three LTM candidates, removed three duplicates, and emitted six unique episodes. Three survivors carried `both` provenance and each appeared once. | PASS |
-| Provenance in context | Turn 15 rendered STM-only episodes under `<retrieved_stm>` and promoted episodes under `<retrieved_ltm>` with `promoted_at_turn` and `trigger_type`. The 22 individual LTM-context rows exactly equal the sum reported by the per-turn arbitration log. | PASS |
-| Degenerate fallback | At turn 14, `stm_candidates=0` and `ltm_candidates=2`. The final episode-ID order exactly matched the direct LTM-only similarity ranking. No STM-empty branch exists in arbitration. | PASS |
+| Dedup | Turn 21 received seven STM and three LTM candidates, removed one duplicate, and emitted nine unique episodes. The survivor carried `both` provenance and appeared once. | PASS |
+| Provenance in context | Turn 15 rendered STM-only episodes under `<retrieved_stm>` and promoted episodes under `<retrieved_ltm>` with `promoted_at_turn` and `trigger_type`. The 34 individual LTM-context rows exactly equal the sum reported by the per-turn arbitration log. | PASS |
+| Degenerate fallback | At turn 6, `stm_candidates=0` and `ltm_candidates=1`. The final episode-ID order exactly matched the direct LTM-only similarity ranking. No STM-empty branch exists in arbitration. | PASS |
 | Association decoupling | The turn-18 frozen snapshot contained two LTM topic centroids. For all six evaluated episodes, logged Association exactly matched an independent max-over-topic-centroids recomputation and differed from global-centroid Association. Maximum recomputation error was `0.00e+00`. | PASS |
 | Bypass exclusion | No promotion or filter-trigger row attributed an all-or-nothing event to Association. Observed all-or-nothing triggers were Novelty or Repetition only. | PASS |
 | Turn-111-equivalent flush | At turn 18, `topic_4` evaluated six episodes and promoted one through the shared `end_of_session_flush` path. No promotion event occurred during turns 19–22. | PASS |
@@ -31,16 +33,16 @@ The accepted run produced four canonical topics. Promotion batches ran at turns 
 
 ## Association recomputation detail
 
-The batch snapshot used for the turn-18 flush contained promoted episodes from `topic_2` and `topic_3`. The diagnostic `global_association` column records the counterfactual Study 003 score without influencing any promotion decision.
+The batch snapshot used for the turn-18 flush contained promoted episodes from `topic_1` and `topic_2`. The diagnostic `global_association` column records the counterfactual Study 003 score without influencing any promotion decision.
 
 | Episode turn | Per-topic max A | Global-centroid A | Unequal? |
 |---:|---:|---:|---|
-| 13 | 0.382145 | 0.351478 | Yes |
-| 14 | 0.344979 | 0.314325 | Yes |
-| 15 | 0.364393 | 0.351158 | Yes |
-| 16 | 0.354506 | 0.263341 | Yes |
-| 17 | 0.369660 | 0.355947 | Yes |
-| 18 | 0.351992 | 0.344842 | Yes |
+| 13 | 0.316921 | 0.401561 | Yes |
+| 14 | 0.372522 | 0.395555 | Yes |
+| 15 | 0.339301 | 0.416267 | Yes |
+| 16 | 0.421405 | 0.382531 | Yes |
+| 17 | 0.307902 | 0.406377 | Yes |
+| 18 | 0.290955 | 0.387748 | Yes |
 
 This confirms that the multi-topic case was exercised rather than the documented single-topic complement degeneracy.
 
@@ -59,13 +61,14 @@ This is an observability check for the synthetic gate, not a substitute for the 
 
 ## Test evidence
 
-The focused Study 004 suite completed with **36 passed**. It includes the concurrency barrier, direct LTM-only equality, no-double-vote retrieval path, tagged-context snapshots, frozen Association snapshot, bypass exclusion, flush ordering, probe-bridge rejection, and clean/mixed-domain purity tests. The repository-wide suite is recorded in the S4_006 commit handoff.
+The remediation-focused retrieval, tagged-context, consolidation, and topic-manager suite completed with **58 passed**. The repository-wide suite completed with **476 passed**. Coverage includes the concurrency barrier, direct LTM-only equality, no-double-vote retrieval path, LTM-over-N provenance retention, tagged-context snapshots, monotonic topic labels, frozen Association snapshot, bypass exclusion, flush ordering, probe-bridge rejection, and clean/mixed-domain purity tests.
 
 ## Attempt disposition
 
 - `synthetic_verification_001` failed before turn 1 because the Windows console used a non-UTF-8 output encoding. It produced no study observations and is excluded.
 - `synthetic_verification_002` and `synthetic_verification_003` were partial launch-orchestration attempts that overlapped on the single-slot inference server. Both process trees were stopped and both attempts are excluded.
-- `synthetic_verification_004` was launched alone with UTF-8 I/O, completed all 22 turns in 1 minute 55 seconds, and is the sole accepted synthetic run.
+- `synthetic_verification_004` completed all 22 turns and originally closed S4_006. It is superseded because the later real-script ablation exposed an LTM-over-N integration case that run 004 did not catch.
+- `synthetic_verification_005` ran alone on remediation commit `0b1f989`, completed all 22 turns in 1 minute 58 seconds, and is the sole accepted synthetic run for the current architecture.
 
 Synthetic run directories remain ignored test artifacts. The fixture, runner entry point, implementation changes, tests, and this report are committed; no synthetic output is treated as Study 004 run data.
 
