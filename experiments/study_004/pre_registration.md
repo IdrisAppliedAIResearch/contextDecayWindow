@@ -3,6 +3,7 @@
 **Idris Applied AI Research**
 **Date:** July 2026
 **Status:** LOCKED. Q14 authored; Study 003 SHA verified; all design decisions resolved.
+**Study 004 pre-registration SHA:** 1b9eb204e32b6b7cb32dfce4cb647cfc7f0e4d0f
 **Study 003 pre-registration SHA:** 4c9003176d0130540ae1f257d5140c9daa919415
 **Study 003 accepted run:** study_003_full_002 (12.0/13.0, PARTIAL — 2 of 3 bars)
 **Study 003 paper:** experiments/study_003/README.md
@@ -297,6 +298,7 @@ Carried forward: single run, single rater, self-comparison baseline variance, sc
 
 ## Appendix
 
+- Study 004 pre-registration SHA: 1b9eb204e32b6b7cb32dfce4cb647cfc7f0e4d0f
 - Study 003 paper: `experiments/study_003/README.md`
 - Study 003 pre-registration SHA: 4c9003176d0130540ae1f257d5140c9daa919415
 - Study 003 LTM analysis: `experiments/study_003/runs/run_001/ltm_analysis/analysis_report.md`
