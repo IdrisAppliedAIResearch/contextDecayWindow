@@ -151,3 +151,48 @@ def get_ltm_snapshot(conn: sqlite3.Connection) -> LtmSnapshot:
 def get_ltm_episode_count(conn: sqlite3.Connection) -> int:
     """Return the number of promoted LTM episodes."""
     return int(conn.execute("SELECT COUNT(*) FROM ltm_episodes").fetchone()[0])
+
+
+def get_ltm_retrieval_rows(conn: sqlite3.Connection) -> list[dict]:
+    """Return LTM rows with current canonical topic and source episode content."""
+    rows = conn.execute(
+        """
+        SELECT
+            ltm.episode_id,
+            ltm.promoted_at_turn,
+            ltm.topic,
+            ltm.trigger_type,
+            ltm.triggered_filter,
+            ltm.embedding,
+            episodes.turn_number,
+            episodes.user_message,
+            episodes.assistant_message,
+            episodes.topic_id,
+            topics.label
+        FROM ltm_episodes AS ltm
+        LEFT JOIN episodes ON episodes.id = ltm.episode_id
+        LEFT JOIN topics ON topics.id = episodes.topic_id
+        ORDER BY ltm.id
+        """
+    ).fetchall()
+    columns = [
+        "id",
+        "promoted_at_turn",
+        "stored_topic",
+        "trigger_type",
+        "triggered_filter",
+        "embedding",
+        "turn_number",
+        "user_message",
+        "assistant_message",
+        "topic_id",
+        "topic_label",
+    ]
+    result = []
+    for row in rows:
+        item = dict(zip(columns, row))
+        item["topic_label"] = item["topic_label"] or item["stored_topic"]
+        item["user_message"] = item["user_message"] or ""
+        item["assistant_message"] = item["assistant_message"] or ""
+        result.append(item)
+    return result
