@@ -37,3 +37,53 @@ The run also exposed a separate deterministic labeling defect. Consolidation mer
 3. Add regression tests for both failures, re-run the S4_006 synthetic verification because the read path changes, then re-run this 35-turn ablation from scratch under a new run ID.
 
 **DECISION: NO-GO — LTM-context integration failed. Reason: recency overlap starved every promoted episode before arbitration. Fix required before proceeding.**
+
+---
+
+## Attempt 2: `ablation_35_002`
+
+**Date:** July 21, 2026
+**Code under test:** `b848ec1` (`Revalidate Study 004 synthetic gate after remediation`)
+**Status:** GO
+
+The retry ran from a fresh database after remediation commit `0b1f989` and the accepted post-remediation synthetic run `synthetic_verification_005`. It completed all 35 iterative turns. Every applicable S4_007 check passed, including the previously failing real-script LTM placement path.
+
+| Check | Expected | Actual | Pass? |
+|---|---|---|---|
+| GPU speed (UD-Q6_K_XL) | > 30 tok/s | 36.14 minimum; 38.81 average tok/s | Yes |
+| Consolidation fires | At least once | Fired at turns 10, 20, and 30; one same-domain pair merged at turn 20 | Yes |
+| Topic count at turn 35 | Trending toward the [3,10] band pace | Two canonical topics after two of four domains began, pacing to four; distinct labels `topic_2` and `topic_3` | Yes |
+| Cross-domain merges | Zero (`consolidation_purity.csv`) | Zero | Yes |
+| First LTM promotion | At ≈ turn 31 | Turn 31: 30 episodes evaluated, 9 promoted; no earlier event | Yes |
+| Decoupled Association computed | Max-per-topic Association logged | The first batch used the pre-registered empty-LTM case: all 30 A and counterfactual global-A values were 0.0. S4_006 independently verified the multi-topic max and the unit suite verifies the single-topic case. | Yes |
+| Parallel retrieval active | Both tiers queried from ≈ turn 32 | Concurrent tier path active; five LTM candidates returned on every turn 32–35 | Yes |
+| LTM episode reaches context | ≥ 1 post-31 LTM-provenance episode | Five per turn on turns 32–35; 20 individually logged rows with promotion metadata | Yes |
+| Dedup correct | No episode ID twice; sane duplicate count | Every final set unique. `duplicates_removed=0` is sane because K_stm was empty on turns 32–35; the accepted synthetic run exercised a nonzero overlap. | Yes |
+| Degenerate fallback | Low-STM turn or S4-T-010 re-run | On each turn 32–35, K_stm was empty and final ordering exactly equaled direct LTM-only similarity rank | Yes |
+| Tagged blocks | All five each turn; empties self-closing | All five on all 35 prompts; LTM metadata rendered on turns 32–35 | Yes |
+| `arbitration_events.csv` | Populated, all fields | Exact registered header plus 35 rows | Yes |
+| No promotion during any probe | N/A below turn 112 | No probe turns in range and no post-31 promotion event | N/A |
+
+The sprint plan's parenthetical expectation of a single-topic LTM snapshot on the turn-31 batch is impossible on the first-ever promotion batch: the pre-registration requires a frozen batch-start snapshot, which is empty before those writes. The higher-authority pre-registration therefore yields A = 0.0 at turn 31. The accepted synthetic run covers the required ≥2-topic case, and the unit suite covers the single-topic complement case.
+
+### Carried Study 003 checks
+
+| Check | Actual | Result |
+|---|---|---|
+| Rule detection and persistence | Turn-1 rule detected; one `rule_store` row points to the turn-1 episode | PASS |
+| Promotion idempotency | 9 LTM rows, 9 distinct episode IDs | PASS |
+| LTM schema population | No null required score/provenance fields; all embeddings are 4,096 bytes (1,024 float32 values) | PASS |
+| Transition stability | Exactly one promotion event at turn 31; none on turns 1–30 | PASS |
+| Consolidation observability | Three `consolidation_events.csv` rows and matching topic metrics | PASS |
+| Analysis outputs | 30 episode-score rows, 9 filter-trigger rows, and one promotion-summary row | PASS |
+
+### Remediation confirmation
+
+The retry confirms both attempt-1 fixes without introducing a parameter or ranking change:
+
+1. LTM-selected episodes retain LTM provenance and placement when they also qualify for N. N∩K recency precedence remains unchanged for intra-STM overlap.
+2. Topic labels advance monotonically within the run. The post-consolidation Renaissance topic was created as `topic_3`, not a second `topic_2`.
+
+The repository-wide post-remediation suite passed **476 tests**. The raw ablation directory remains an ignored execution artifact; this report is the committed gate record.
+
+DECISION: GO — all applicable checks passed; synthetic verification (S4_006) covered flush/guard/decoupling/Q14. Full 120-turn run authorized.
