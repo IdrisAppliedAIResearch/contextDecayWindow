@@ -211,3 +211,15 @@ class TestStudyRunnerEnvCheck:
                 os.environ["CDW_INFERENCE_MODEL_PATH"] = saved
             if saved_url is not None:
                 os.environ["CDW_INFERENCE_SERVER_URL"] = saved_url
+
+
+class TestStudyRunnerOutputNaming:
+
+    def test_condition_output_name_can_be_mapped(self):
+        from src.study.runner import StudyRunner
+
+        runner = object.__new__(StudyRunner)
+        runner.CONDITION_OUTPUT_NAMES = {"iterative": "condition_c"}
+
+        assert runner._condition_output_name("iterative") == "condition_c"
+        assert runner._condition_output_name("full_context") == "full_context"

@@ -28,6 +28,7 @@ from src.study.domain_labels import (
 class StudyRunner:
 
     CONDITION_ORDER = ["full_context", "compaction", "iterative"]
+    CONDITION_OUTPUT_NAMES: dict[str, str] = {}
     RUBRIC_TURN_START = 25
     RUBRIC_TURN_END = 32
     RUBRIC_TURNS = list(range(112, 122))
@@ -76,7 +77,8 @@ class StudyRunner:
             self._run_condition(condition)
 
     def _run_condition(self, condition: str) -> None:
-        output_dir = os.path.join(self.study_dir, self.run_id, condition)
+        output_name = self._condition_output_name(condition)
+        output_dir = os.path.join(self.study_dir, self.run_id, output_name)
         run_config = RunConfig(
             condition=condition,
             run_id=self.run_id,
@@ -264,6 +266,10 @@ class StudyRunner:
         else:
             raise ValueError(f"Unknown condition: {condition}")
 
+    def _condition_output_name(self, condition: str) -> str:
+        output_names = getattr(self, "CONDITION_OUTPUT_NAMES", {})
+        return output_names.get(condition, condition)
+
     def _print_condition_start_banner(self, condition: str) -> None:
         bar_w = 50
         cond_padded = f"  STARTING CONDITION: {condition}".ljust(bar_w)
@@ -288,7 +294,10 @@ class StudyRunner:
         print()
 
     def _write_rubric_responses(self, condition: str, rubric_responses: list) -> None:
-        rubric_dir = os.path.join(self.study_dir, self.run_id, condition, "rubric")
+        output_name = self._condition_output_name(condition)
+        rubric_dir = os.path.join(
+            self.study_dir, self.run_id, output_name, "rubric"
+        )
         os.makedirs(rubric_dir, exist_ok=True)
 
         rubric_path = os.path.join(rubric_dir, "responses.md")

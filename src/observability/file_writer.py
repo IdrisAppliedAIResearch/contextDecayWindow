@@ -84,6 +84,16 @@ class FileWriter:
 
         self._create_csv_headers(metrics_dir)
 
+        with open(
+            os.path.join(self.config.output_dir, "responses.md"),
+            "w",
+            encoding="utf-8",
+        ) as handle:
+            handle.write(
+                f"# Full Responses — {self.config.condition}\n\n"
+                f"**Run:** {self.config.run_id}\n\n"
+            )
+
         with open(os.path.join(rubric_dir, "responses.md"), "w", encoding="utf-8") as f:
             f.write("# Responses\n\n")
 
@@ -93,6 +103,7 @@ class FileWriter:
     def _create_csv_headers(self, metrics_dir: str) -> None:
         csv_files = {
             "model_performance.csv": ["turn", "tokens_per_second", "time_to_first_token", "output_tokens", "estimated_tokens"],
+            "context_sizes.csv": ["turn", "estimated_tokens", "rule_token_estimate", "k_token_estimate", "n_token_estimate", "total_episodes_in_context"],
             "memory_store.csv": ["turn", "topic_count", "episode_count", "new_topic_created", "new_topic_label", "compaction_occurred", "compaction_turn"],
             "K_values.csv": ["turn", "k_count", "episode_id", "similarity_score", "topic_label", "k_only"],
             "N_values.csv": ["turn", "n_count", "episode_id", "decay_score", "topic_label", "n_total_in_store"],
@@ -113,7 +124,9 @@ class FileWriter:
         self._write_retrieval_jsonl(record)
         self._write_context_windows_jsonl(record)
         self._write_context_diffs_jsonl(record)
+        self._write_response_markdown(record)
         self._write_model_performance_csv(record)
+        self._write_context_sizes_csv(record)
         self._write_memory_store_csv(record)
         self._write_k_values_csv(record)
         self._write_n_values_csv(record)
@@ -126,6 +139,30 @@ class FileWriter:
         self._write_consolidation_purity_csv(record)
         self._write_snapshot(record)
         self._write_constructed_prompt(record)
+
+    def _write_response_markdown(self, record: TurnRecord) -> None:
+        fpath = os.path.join(self.config.output_dir, "responses.md")
+        with open(fpath, "a", encoding="utf-8") as handle:
+            handle.write(
+                f"## Turn {record.turn_number:03d}\n\n"
+                f"**User:**\n{record.user_message}\n\n"
+                f"**Assistant:**\n{record.assistant_message or ''}\n\n"
+                "---\n\n"
+            )
+
+    def _write_context_sizes_csv(self, record: TurnRecord) -> None:
+        fpath = os.path.join(
+            self.config.output_dir, "metrics", "context_sizes.csv"
+        )
+        with open(fpath, "a", newline="", encoding="utf-8") as handle:
+            csv.writer(handle).writerow([
+                record.turn_number,
+                record.estimated_tokens,
+                record.rule_token_estimate,
+                record.k_token_estimate,
+                record.n_token_estimate,
+                record.total_in_context,
+            ])
 
     def _write_turns_jsonl(self, record: TurnRecord) -> None:
         fpath = os.path.join(self.config.output_dir, "logs", "turns.jsonl")
