@@ -30,7 +30,7 @@ class StudyRunner:
     CONDITION_ORDER = ["full_context", "compaction", "iterative"]
     RUBRIC_TURN_START = 25
     RUBRIC_TURN_END = 32
-    RUBRIC_TURNS = list(range(112, 121))
+    RUBRIC_TURNS = list(range(112, 122))
     PROMOTION_TURN_END = 111
     PROBE_TURN_START = PROBE_TURN_START
     PROBE_TURN_END = PROBE_TURN_END
@@ -279,6 +279,7 @@ class StudyRunner:
                 118: "Q19: Researcher Identity",
                 119: "Q22: All Numerical Values",
                 120: "Q25: Final Comprehensive Check",
+                121: "Q14: Second Breadth Probe",
             }
 
             for resp in rubric_responses:
