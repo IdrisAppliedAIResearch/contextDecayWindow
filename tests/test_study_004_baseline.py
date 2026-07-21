@@ -11,6 +11,7 @@ from src.memory.ltm_store import get_ltm_snapshot, promote_episode
 from src.memory.promotion_engine import PromotionEngine
 from src.memory.topic_manager import TopicManager
 from src.observability.file_writer import FileWriter
+from src.observability.ltm_analysis_writer import LtmAnalysisWriter
 from src.observability.run_config import RunConfig
 from src.observability.turn_record import TurnRecord
 from src.study.runner import StudyRunner
@@ -141,6 +142,63 @@ def test_promotion_batch_freezes_topic_centroids_before_mid_batch_writes(tmp_pat
     assert [result.association for result in summary.episode_results] == pytest.approx(
         [0.0, 0.0, 0.0]
     )
+
+
+def test_promotion_logs_per_topic_and_global_association_diagnostics(tmp_path):
+    conn = init_db(str(tmp_path / "study.db"))
+    first_ltm_embedding = _unit_vector(0)
+    second_ltm_embedding = _unit_vector(1)
+    current_embedding = _unit_vector(2)
+
+    for turn, label, embedding in (
+        (1, "ltm_a", first_ltm_embedding),
+        (2, "ltm_b", second_ltm_embedding),
+    ):
+        topic_id = _topic(conn, label, embedding)
+        episode_id = _episode(
+            conn, topic_id, embedding, turn, "civil_engineering"
+        )
+        _promote_fixture(conn, episode_id, label, embedding)
+
+    outgoing_topic = _topic(conn, "outgoing", first_ltm_embedding)
+    outgoing_episodes = [
+        _episode(
+            conn,
+            outgoing_topic,
+            first_ltm_embedding,
+            turn,
+            "renaissance_art",
+        )
+        for turn in (10, 11, 12)
+    ]
+    current_topic = _topic(conn, "current", current_embedding)
+    current_episode = _episode(
+        conn, current_topic, current_embedding, 13, "monetary_policy"
+    )
+
+    summary = PromotionEngine(
+        conn, ZeroEmotionalInference()
+    ).process_transition(outgoing_episodes[-1], current_episode, 13)
+
+    assert summary is not None
+    assert [result.association for result in summary.episode_results] == pytest.approx(
+        [1.0, 1.0, 1.0]
+    )
+    assert [
+        result.global_association for result in summary.episode_results
+    ] == pytest.approx([2 ** -0.5] * 3)
+
+    output_dir = tmp_path / "output"
+    LtmAnalysisWriter(str(output_dir)).write_promotion(summary)
+    with open(
+        output_dir / "ltm_analysis" / "episode_scores.csv",
+        newline="",
+        encoding="utf-8",
+    ) as handle:
+        rows = list(csv.DictReader(handle))
+    assert len(rows) == 3
+    assert float(rows[0]["association"]) == pytest.approx(1.0)
+    assert float(rows[0]["global_association"]) == pytest.approx(2 ** -0.5)
 
 
 def test_turn_111_flush_uses_standard_path_and_records_event_type(tmp_path):

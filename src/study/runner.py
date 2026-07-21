@@ -40,6 +40,19 @@ class StudyRunner:
         self.script = load_script(script_path, minimum_turns=minimum_turns)
         self.system_prompt = self.script["system_prompt"]
         self.turns = self.script["turns"][:max_turns] if max_turns else self.script["turns"]
+        self.study_name = self.script.get("study", "study_003")
+        self._promotion_flush_turn = int(
+            self.script.get("promotion_flush_turn", self.PROMOTION_TURN_END)
+        )
+        self._probe_turn_start = int(
+            self.script.get("probe_turn_start", self.PROBE_TURN_START)
+        )
+        self._probe_turn_end = int(
+            self.script.get("probe_turn_end", self.PROBE_TURN_END)
+        )
+        self._rubric_turns = set(
+            self.script.get("rubric_turns", self.RUBRIC_TURNS)
+        )
         self.study_dir = study_dir
         self.run_id = run_id
         self._inference_provider = InferenceProvider()
@@ -87,6 +100,13 @@ class StudyRunner:
         peak_tokens = 0
         turn_count = 0
         flush_completed = False
+        promotion_flush_turn = getattr(
+            self, "_promotion_flush_turn", self.PROMOTION_TURN_END
+        )
+        probe_turn_start = getattr(
+            self, "_probe_turn_start", self.PROBE_TURN_START
+        )
+        rubric_turns = getattr(self, "_rubric_turns", set(self.RUBRIC_TURNS))
 
         self._print_condition_start_banner(condition)
 
@@ -95,7 +115,9 @@ class StudyRunner:
             user_message = turn_data["user"]
             if condition == "iterative" and promotion_engine:
                 self._assert_flush_completed_before_turn(
-                    turn_number, flush_completed
+                    turn_number,
+                    flush_completed,
+                    probe_turn_start=probe_turn_start,
                 )
 
             constructed_prompt, record = runner.build_context(user_message, turn_number)
@@ -128,7 +150,7 @@ class StudyRunner:
                 peak_tokens = record.estimated_tokens
             turn_count += 1
 
-            if turn_number in self.RUBRIC_TURNS:
+            if turn_number in rubric_turns:
                 rubric_responses.append({
                     "turn_number": turn_number,
                     "user_message": user_message,
@@ -167,7 +189,7 @@ class StudyRunner:
                 if (
                     promotion_engine
                     and assignment.stored_episode_id
-                    and self._promotion_emission_allowed(turn_number)
+                    and turn_number <= promotion_flush_turn
                 ):
                     summary = promotion_engine.process_transition(
                         previous_episode_id, assignment.stored_episode_id, turn_number
@@ -182,9 +204,11 @@ class StudyRunner:
                                 turn_number, previous_episode_id, assignment.stored_episode_id,
                                 previous_topic_before, previous_after["topic_id"], current_after["topic_id"],
                             )
-                    if turn_number == self.PROMOTION_TURN_END:
+                    if turn_number == promotion_flush_turn:
                         flush_summary = promotion_engine.process_flush(
-                            assignment.stored_episode_id, turn_number
+                            assignment.stored_episode_id,
+                            turn_number,
+                            expected_flush_turn=promotion_flush_turn,
                         )
                         if flush_summary:
                             ltm_writer.write_promotion(flush_summary)
@@ -209,9 +233,15 @@ class StudyRunner:
 
     @classmethod
     def _assert_flush_completed_before_turn(
-        cls, turn_number: int, flush_completed: bool
+        cls,
+        turn_number: int,
+        flush_completed: bool,
+        probe_turn_start: int | None = None,
     ) -> None:
-        if turn_number >= cls.PROBE_TURN_START and not flush_completed:
+        first_probe = (
+            cls.PROBE_TURN_START if probe_turn_start is None else probe_turn_start
+        )
+        if turn_number >= first_probe and not flush_completed:
             raise RuntimeError(
                 "Turn 111 promotion flush must complete before the probe block"
             )
@@ -237,7 +267,7 @@ class StudyRunner:
     def _print_condition_start_banner(self, condition: str) -> None:
         bar_w = 50
         cond_padded = f"  STARTING CONDITION: {condition}".ljust(bar_w)
-        run_info = f"  Run: {self.run_id} | Script: {len(self.turns)} turns | Study: 003".ljust(bar_w)
+        run_info = f"  Run: {self.run_id} | Script: {len(self.turns)} turns | Study: {self.study_name}".ljust(bar_w)
         print()
         print("\u2554" + "\u2550" * (bar_w - 2) + "\u2557")
         print("\u2551" + cond_padded + "\u2551")

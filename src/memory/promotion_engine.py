@@ -31,6 +31,7 @@ class EpisodePromotionResult:
     novelty: float
     repetition: float
     association: float
+    global_association: float
     emotional: float
     weighted_score: float
     promoted: bool
@@ -82,12 +83,13 @@ class PromotionEngine:
         self,
         active_episode_id: str,
         current_turn: int,
+        expected_flush_turn: int = END_OF_SESSION_FLUSH_TURN,
     ) -> Optional[PromotionSummary]:
         """Evaluate the final active topic before the probe block begins."""
-        if current_turn != self.END_OF_SESSION_FLUSH_TURN:
+        if current_turn != expected_flush_turn:
             raise ValueError(
                 f"End-of-session promotion flush must run at turn "
-                f"{self.END_OF_SESSION_FLUSH_TURN}, got {current_turn}"
+                f"{expected_flush_turn}, got {current_turn}"
             )
         active = get_episode_by_id(self._conn, active_episode_id)
         if active is None:
@@ -129,6 +131,12 @@ class PromotionEngine:
             association = score_association(
                 embedding, ltm_snapshot.topic_centroids
             )
+            global_association = score_association(
+                embedding,
+                []
+                if ltm_snapshot.global_centroid is None
+                else [ltm_snapshot.global_centroid],
+            )
             emotional = score_emotional_valence(content, self._inference_client)
             weighted = calculate_weighted_score(novelty, repetition, association, emotional)
             should_promote, trigger_type, triggered_filter = evaluate_promotion(
@@ -144,6 +152,7 @@ class PromotionEngine:
             results.append(EpisodePromotionResult(
                 episode_id=episode["id"], turn_number=episode["turn_number"], topic=topic_label,
                 novelty=novelty, repetition=repetition, association=association,
+                global_association=global_association,
                 emotional=emotional, weighted_score=weighted, promoted=should_promote,
                 trigger_type=trigger_type, triggered_filter=triggered_filter,
             ))
