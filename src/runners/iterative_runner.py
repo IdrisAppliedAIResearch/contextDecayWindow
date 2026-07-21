@@ -56,10 +56,10 @@ class IterativeRunner(BaseRunner):
                 "retrieval_type": "KN" if (ep_id in k_set and ep_id in n_set) else ("K" if ep_id in k_set else "N"),
             }
 
-            if ep_id in k_set:
-                k_episodes.append(ep_dict)
-            if ep_id in n_set and ep_id not in k_set:
+            if ep_id in n_set:
                 n_episodes.append(ep_dict)
+            elif ep_id in k_set:
+                k_episodes.append(ep_dict)
 
         k_token_estimate = 0
         n_token_estimate = 0
@@ -74,6 +74,7 @@ class IterativeRunner(BaseRunner):
             user_message=user_message,
             k_count=retrieval_result.k_count,
             n_count=retrieval_result.n_count,
+            k_only_count=len(k_episodes),
             n_total_in_store=retrieval_result.n_total_in_store,
             total_in_context=retrieval_result.total_episodes_in_context,
             k_episodes=k_episodes,
