@@ -1,0 +1,122 @@
+{
+  "study": "study_004_synthetic_fixture",
+  "fixture_only": true,
+  "condition_note": "Synthetic verification only. Never use as Study 004 run data.",
+  "promotion_flush_turn": 18,
+  "probe_turn_start": 19,
+  "probe_turn_end": 22,
+  "rubric_turns": [19, 22],
+  "system_prompt": "You are a precise research assistant. Preserve every named code, person, and numerical value across topic changes.",
+  "turns": [
+    {
+      "turn": 1,
+      "ground_truth_domain": "pulsar_timing",
+      "user": "Begin pulsar-timing file AX-17. Dr. Livia Noor measured its pulse period as exactly 43.7 milliseconds at Cedar Observatory. Repeat the code, researcher, value, and site."
+    },
+    {
+      "turn": 2,
+      "ground_truth_domain": "pulsar_timing",
+      "user": "For pulsar AX-17 at Cedar Observatory, explain why Dr. Livia Noor's exact 43.7 millisecond pulse period is useful for timing calibration."
+    },
+    {
+      "turn": 3,
+      "ground_truth_domain": "pulsar_timing",
+      "user": "Restate the complete AX-17 timing record—Dr. Livia Noor, Cedar Observatory, and 43.7 milliseconds—before discussing one likely source of measurement drift."
+    },
+    {
+      "turn": 4,
+      "ground_truth_domain": "pulsar_timing",
+      "user": "Close the pulsar file by confirming that AX-17's planted period is 43.7 milliseconds and that Dr. Livia Noor made the Cedar Observatory measurement."
+    },
+    {
+      "turn": 5,
+      "ground_truth_domain": "sourdough_fermentation",
+      "user": "Open sourdough batch BX-29 at Saffron Bakery. Baker Tomas Ilyin fixed hydration at exactly 68 percent and fermentation at 19 degrees Celsius. Repeat those specifics."
+    },
+    {
+      "turn": 6,
+      "ground_truth_domain": "sourdough_fermentation",
+      "user": "Explain how the 68 percent hydration affects gluten development in Saffron Bakery batch BX-29 while Tomas Ilyin holds fermentation at 19 degrees Celsius."
+    },
+    {
+      "turn": 7,
+      "ground_truth_domain": "sourdough_fermentation",
+      "user": "Restate BX-29, Tomas Ilyin, Saffron Bakery, 68 percent hydration, and 19 degrees Celsius, then identify one fermentation risk."
+    },
+    {
+      "turn": 8,
+      "ground_truth_domain": "sourdough_fermentation",
+      "user": "Close the bread file with the exact planted hydration and temperature for batch BX-29 and the baker responsible."
+    },
+    {
+      "turn": 9,
+      "ground_truth_domain": "maritime_treaty",
+      "user": "Open maritime treaty file CY-41. Counsel Amara Voss set a 14-day escrow release under the Pelagos Accord in Port Meridian. Repeat every specific."
+    },
+    {
+      "turn": 10,
+      "ground_truth_domain": "maritime_treaty",
+      "user": "Explain the legal purpose of the exact 14-day escrow release in treaty file CY-41 under the Pelagos Accord drafted by Amara Voss."
+    },
+    {
+      "turn": 11,
+      "ground_truth_domain": "maritime_treaty",
+      "user": "Restate CY-41, Amara Voss, the Pelagos Accord, Port Meridian, and the 14-day escrow term before noting one enforcement risk."
+    },
+    {
+      "turn": 12,
+      "ground_truth_domain": "maritime_treaty",
+      "user": "Close the maritime file by confirming its exact code, counsel, accord, port, and escrow duration."
+    },
+    {
+      "turn": 13,
+      "ground_truth_domain": "orchid_germination",
+      "user": "Open orchid trial DZ-53. Botanist Ren Ito recorded first germination at exactly 17.2 degrees Celsius in the Glassfern Conservatory. Repeat the record."
+    },
+    {
+      "turn": 14,
+      "ground_truth_domain": "orchid_germination",
+      "user": "Explain why 17.2 degrees Celsius matters for orchid trial DZ-53 and how Ren Ito should control the Glassfern Conservatory environment."
+    },
+    {
+      "turn": 15,
+      "ground_truth_domain": "orchid_germination",
+      "user": "Restate DZ-53, Ren Ito, Glassfern Conservatory, and 17.2 degrees Celsius, then describe one germination confound."
+    },
+    {
+      "turn": 16,
+      "ground_truth_domain": "orchid_germination",
+      "user": "Compare humidity control options for the DZ-53 orchid trial without changing its planted 17.2 degree Celsius germination value."
+    },
+    {
+      "turn": 17,
+      "ground_truth_domain": "orchid_germination",
+      "user": "Confirm that Ren Ito—not any earlier researcher—owns trial DZ-53 at Glassfern Conservatory and recorded 17.2 degrees Celsius."
+    },
+    {
+      "turn": 18,
+      "ground_truth_domain": "orchid_germination",
+      "user": "End the active orchid topic with a final exact recap of DZ-53, Ren Ito, Glassfern Conservatory, and 17.2 degrees Celsius."
+    },
+    {
+      "turn": 19,
+      "ground_truth_domain": "probe",
+      "user": "Breadth check: give one exact planted code and numerical fact from each of the four distinct files—pulsar timing, sourdough fermentation, maritime treaty, and orchid germination."
+    },
+    {
+      "turn": 20,
+      "ground_truth_domain": "probe",
+      "user": "Bridge probe combining earlier files: relate AX-17 at 43.7 milliseconds from Cedar Observatory to BX-29 at 68 percent hydration from Saffron Bakery, while explicitly retaining both Dr. Livia Noor and Tomas Ilyin."
+    },
+    {
+      "turn": 21,
+      "ground_truth_domain": "probe",
+      "user": "Second bridge probe: compare CY-41's 14-day Pelagos Accord escrow in Port Meridian with DZ-53's 17.2 degree Celsius germination at Glassfern Conservatory."
+    },
+    {
+      "turn": 22,
+      "ground_truth_domain": "probe",
+      "user": "Final breadth check: list the four file codes AX-17, BX-29, CY-41, and DZ-53 with each file's planted number and responsible named person."
+    }
+  ]
+}
