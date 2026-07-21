@@ -9,6 +9,7 @@ class ConsolidationResult:
     topics_after: int
     pairs_merged: int
     merge_log: list[dict]
+    purity_events: list[dict] = field(default_factory=list)
 
 
 @dataclass

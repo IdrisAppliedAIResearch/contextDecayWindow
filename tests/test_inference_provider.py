@@ -114,6 +114,7 @@ class TestInferenceProviderEnvCheck:
 
     def test_raises_when_model_path_not_set(self):
         saved = os.environ.pop("CDW_INFERENCE_MODEL_PATH", None)
+        saved_url = os.environ.pop("CDW_INFERENCE_SERVER_URL", None)
         try:
             from src.inference.provider import InferenceProvider
             InferenceProvider._instance = None
@@ -125,9 +126,12 @@ class TestInferenceProviderEnvCheck:
         finally:
             if saved is not None:
                 os.environ["CDW_INFERENCE_MODEL_PATH"] = saved
+            if saved_url is not None:
+                os.environ["CDW_INFERENCE_SERVER_URL"] = saved_url
             InferenceProvider._instance = None
 
     def test_raises_when_model_path_not_a_file(self):
+        saved_url = os.environ.pop("CDW_INFERENCE_SERVER_URL", None)
         os.environ["CDW_INFERENCE_MODEL_PATH"] = "/nonexistent/path/to/model.gguf"
         from src.inference.provider import InferenceProvider
         InferenceProvider._instance = None
@@ -137,4 +141,6 @@ class TestInferenceProviderEnvCheck:
         except FileNotFoundError as e:
             assert "Inference model not found" in str(e)
         finally:
+            if saved_url is not None:
+                os.environ["CDW_INFERENCE_SERVER_URL"] = saved_url
             InferenceProvider._instance = None

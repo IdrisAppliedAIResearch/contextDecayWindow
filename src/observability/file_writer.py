@@ -31,6 +31,23 @@ class FileWriter:
         for fname in ["turns.jsonl", "retrieval.jsonl", "context_windows.jsonl", "context_diffs.jsonl"]:
             open(os.path.join(logs_dir, fname), "w", encoding="utf-8").close()
 
+        with open(
+            os.path.join(logs_dir, "consolidation_purity.csv"),
+            "w",
+            newline="",
+            encoding="utf-8",
+        ) as handle:
+            csv.writer(handle).writerow([
+                "event_type",
+                "turn",
+                "topic_a",
+                "topic_b",
+                "domains_a",
+                "domains_b",
+                "connecting_similarity",
+                "probe_turns",
+            ])
+
         self._create_csv_headers(metrics_dir)
 
         with open(os.path.join(rubric_dir, "responses.md"), "w", encoding="utf-8") as f:
@@ -70,6 +87,7 @@ class FileWriter:
         self._write_retrieval_events_csv(record)
         self._write_rule_detection_csv(record)
         self._write_consolidation_events_csv(record)
+        self._write_consolidation_purity_csv(record)
         self._write_snapshot(record)
         self._write_constructed_prompt(record)
 
@@ -118,6 +136,7 @@ class FileWriter:
                 "topics_after": res.topics_after,
                 "pairs_merged": res.pairs_merged,
                 "merge_log": res.merge_log,
+                "purity_events": res.purity_events,
             }
         with open(fpath, "a", encoding="utf-8") as f:
             f.write(json.dumps(data) + "\n")
@@ -280,6 +299,30 @@ class FileWriter:
                 similarities,
                 episodes_reassigned,
             ])
+
+    def _write_consolidation_purity_csv(self, record: TurnRecord) -> None:
+        if record.consolidation_result is None:
+            return
+        events = record.consolidation_result.purity_events
+        if not events:
+            return
+
+        fpath = os.path.join(
+            self.config.output_dir, "logs", "consolidation_purity.csv"
+        )
+        with open(fpath, "a", newline="", encoding="utf-8") as handle:
+            writer = csv.writer(handle)
+            for event in events:
+                writer.writerow([
+                    event["event_type"],
+                    event["turn"],
+                    event["topic_a"],
+                    event["topic_b"],
+                    ";".join(event["domains_a"]),
+                    ";".join(event["domains_b"]),
+                    event["similarity"],
+                    ";".join(str(turn) for turn in event["probe_turns"]),
+                ])
 
     def _write_retrieval_events_csv(self, record: TurnRecord) -> None:
         fpath = os.path.join(self.config.output_dir, "metrics", "retrieval_events.csv")
