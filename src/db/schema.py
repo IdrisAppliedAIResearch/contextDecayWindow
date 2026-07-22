@@ -3,6 +3,7 @@ import sqlite_vec
 
 from migrations.study_003_ltm_init import apply_migration as apply_study_003_migration
 from migrations.study_004_baseline_init import apply_migration as apply_study_004_migration
+from migrations.study_005_dreaming_init import apply_migration as apply_study_005_migration
 
 
 def init_db(db_path: str) -> sqlite3.Connection:
@@ -55,5 +56,6 @@ def init_db(db_path: str) -> sqlite3.Connection:
 
     apply_study_003_migration(conn)
     apply_study_004_migration(conn)
+    apply_study_005_migration(conn)
     conn.commit()
     return conn
