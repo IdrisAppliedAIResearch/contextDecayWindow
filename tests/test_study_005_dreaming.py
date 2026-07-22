@@ -1,4 +1,5 @@
 from datetime import datetime, timezone
+import uuid
 
 import numpy as np
 import pytest
@@ -378,6 +379,7 @@ def test_retrieval_reads_distilled_ltm_and_renders_provenance(tmp_path):
     retrieved = result.retrieved_ltm_episodes[0]
     assert retrieved["id"] == active_id
     assert retrieved["distilled_id"]
+    assert uuid.UUID(retrieved["distilled_id"]).version == 5
     assert retrieved["dream_event"] == 111
     assert retrieved["source_turns"] == [1]
     assert 'distilled_id="' in result.constructed_prompt
