@@ -31,13 +31,29 @@ class TestPromotionScores:
     def test_empty_ltm_defaults(self):
         embedding = np.ones(1024, dtype=np.float32)
         assert score_novelty(embedding, None) == 1.0
-        assert score_association(embedding, None) == 0.0
+        assert score_association(embedding, {}) == 0.0
 
-    def test_novelty_and_association_are_complementary_for_positive_similarity(self):
+    def test_single_topic_ltm_preserves_registered_complement_case(self):
         embedding = np.ones(1024, dtype=np.float32)
         centroid = np.ones(1024, dtype=np.float32)
         assert score_novelty(embedding, centroid) == pytest.approx(0.0)
-        assert score_association(embedding, centroid) == pytest.approx(1.0)
+        assert score_association(embedding, {"topic_1": centroid}) == pytest.approx(1.0)
+
+    def test_two_topic_association_is_maximum_not_mean(self):
+        embedding = np.zeros(1024, dtype=np.float32)
+        embedding[0] = 1.0
+        high = np.zeros(1024, dtype=np.float32)
+        high[0] = 0.8
+        high[1] = 0.6
+        low = np.zeros(1024, dtype=np.float32)
+        low[1] = 1.0
+
+        score = score_association(
+            embedding, {"topic_high": high, "topic_low": low}
+        )
+
+        assert score == pytest.approx(0.8)
+        assert score != pytest.approx(0.4)
 
     def test_repetition_is_capped(self):
         assert score_repetition(0) == 0.0
@@ -86,5 +102,11 @@ class TestPromotionDecision:
         score = calculate_weighted_score(0.70, 0.60, 0.50, 0.40)
         assert score == pytest.approx(0.585)
         assert evaluate_promotion(0.70, 0.60, 0.50, 0.40) == (
+            False, "", None
+        )
+
+    def test_association_is_excluded_from_all_or_nothing_bypass(self):
+        assert calculate_weighted_score(0.0, 0.0, 0.95, 0.0) == pytest.approx(0.19)
+        assert evaluate_promotion(0.0, 0.0, 0.95, 0.0) == (
             False, "", None
         )

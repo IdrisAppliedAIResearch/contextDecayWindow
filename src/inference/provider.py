@@ -20,6 +20,7 @@ apply to all future responses. Set rule_summary to a concise description of the
 rule if contains_rule is true, otherwise null."""
 
 RULE_DETECTION_PATTERN = r"<rule_detection>(.*?)</rule_detection>"
+RESPONSE_BUDGET = 2048
 
 
 def detect_explicit_persistent_rule(user_message: str) -> Optional[str]:
@@ -109,7 +110,7 @@ class InferenceProvider:
         else:
             response = self._llm(
                 augmented_prompt,
-                max_tokens=1024,
+                max_tokens=RESPONSE_BUDGET,
                 echo=False,
                 stream=False,
             )
@@ -147,7 +148,7 @@ class InferenceProvider:
         direct_answer_prompt = f"{prompt}\n<think>\n</think>\n"
         payload = json.dumps({
             "prompt": direct_answer_prompt,
-            "n_predict": 1024,
+            "n_predict": RESPONSE_BUDGET,
             "reasoning_format": "none",
             "stream": False,
         }).encode("utf-8")

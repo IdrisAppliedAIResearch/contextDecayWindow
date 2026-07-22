@@ -359,7 +359,7 @@ class TestAllConditionsIntegration:
 
     def test_rubric_turns_constant_correct(self):
         from src.study.runner import StudyRunner
-        assert StudyRunner.RUBRIC_TURNS == list(range(112, 121))
+        assert StudyRunner.RUBRIC_TURNS == list(range(112, 122))
 
     def test_terminal_header_includes_total(self):
         record = TurnRecord(

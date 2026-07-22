@@ -9,6 +9,7 @@ class ConsolidationResult:
     topics_after: int
     pairs_merged: int
     merge_log: list[dict]
+    purity_events: list[dict] = field(default_factory=list)
 
 
 @dataclass
@@ -39,6 +40,13 @@ class TurnRecord:
     total_in_context: int = 0
     k_episodes: list[dict] = field(default_factory=list)
     n_episodes: list[dict] = field(default_factory=list)
+    ltm_context_episodes: list[dict] = field(default_factory=list)
+    arbitration_stm_candidates: int = 0
+    arbitration_ltm_candidates: int = 0
+    arbitration_duplicates_removed: int = 0
+    arbitration_final_set_size: int = 0
+    arbitration_ltm_in_final_set: int = 0
+    arbitration_provenance_list: list[dict] = field(default_factory=list)
     estimated_tokens: int = 0
     k_token_estimate: int = 0
     n_token_estimate: int = 0

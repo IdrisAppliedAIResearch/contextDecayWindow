@@ -6,7 +6,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
 from dataclasses import dataclass
 
-from src.inference.provider import InferenceProvider, InferenceResult
+from src.inference.provider import InferenceProvider, InferenceResult, RESPONSE_BUDGET
 
 
 @dataclass
@@ -91,8 +91,30 @@ class TestInferenceProviderEnvCheck:
         response = provider._complete_server("Test prompt")
 
         assert response["content"] == "ok"
+        assert RESPONSE_BUDGET == 2048
+        assert captured["payload"]["n_predict"] == RESPONSE_BUDGET
         assert captured["payload"]["reasoning_format"] == "none"
         assert captured["payload"]["prompt"].endswith("<think>\n</think>\n")
+
+    def test_local_request_uses_registered_response_budget(self):
+        captured = {}
+
+        def fake_llm(prompt, **kwargs):
+            captured["prompt"] = prompt
+            captured.update(kwargs)
+            return {
+                "choices": [{"text": "ok"}],
+                "usage": {"completion_tokens": 1},
+            }
+
+        provider = object.__new__(InferenceProvider)
+        provider._server_url = ""
+        provider._llm = fake_llm
+
+        result = provider.complete("Test prompt", suppress_rule_detection=True)
+
+        assert result.assistant_message == "ok"
+        assert captured["max_tokens"] == RESPONSE_BUDGET
 
     def test_server_url_bypasses_local_model_path_requirement(self):
         saved_url = os.environ.get("CDW_INFERENCE_SERVER_URL")
@@ -114,6 +136,7 @@ class TestInferenceProviderEnvCheck:
 
     def test_raises_when_model_path_not_set(self):
         saved = os.environ.pop("CDW_INFERENCE_MODEL_PATH", None)
+        saved_url = os.environ.pop("CDW_INFERENCE_SERVER_URL", None)
         try:
             from src.inference.provider import InferenceProvider
             InferenceProvider._instance = None
@@ -125,9 +148,12 @@ class TestInferenceProviderEnvCheck:
         finally:
             if saved is not None:
                 os.environ["CDW_INFERENCE_MODEL_PATH"] = saved
+            if saved_url is not None:
+                os.environ["CDW_INFERENCE_SERVER_URL"] = saved_url
             InferenceProvider._instance = None
 
     def test_raises_when_model_path_not_a_file(self):
+        saved_url = os.environ.pop("CDW_INFERENCE_SERVER_URL", None)
         os.environ["CDW_INFERENCE_MODEL_PATH"] = "/nonexistent/path/to/model.gguf"
         from src.inference.provider import InferenceProvider
         InferenceProvider._instance = None
@@ -137,4 +163,6 @@ class TestInferenceProviderEnvCheck:
         except FileNotFoundError as e:
             assert "Inference model not found" in str(e)
         finally:
+            if saved_url is not None:
+                os.environ["CDW_INFERENCE_SERVER_URL"] = saved_url
             InferenceProvider._instance = None

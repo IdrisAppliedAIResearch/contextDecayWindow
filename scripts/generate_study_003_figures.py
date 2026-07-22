@@ -781,7 +781,10 @@ def check_committed() -> int:
         for filename in GENERATORS:
             committed = DEFAULT_OUTPUT / filename
             generated = temporary / filename
-            if not committed.exists() or committed.read_bytes() != generated.read_bytes():
+            if not committed.exists() or (
+                committed.read_text(encoding="utf-8").replace("\r\n", "\n")
+                != generated.read_text(encoding="utf-8").replace("\r\n", "\n")
+            ):
                 mismatches.append(filename)
         if mismatches:
             print("Study 003 figures are stale or missing:")
