@@ -30,9 +30,9 @@ Can a retrieval-based context window — where relevance, not recency or compres
 
 | Parameter | Value |
 |-----------|-------|
-| Inference | Qwen3.6 27B NVFP4 via local llama.cpp server |
+| Inference | Qwen 3.6 27B MTP UD-6bit-XL via local llama.cpp server |
 | Embedding | Qwen3-Embedding-0.6B, 1024-dim |
-| Context cap | 262,144 tokens |
+| Context cap | 100,000 tokens |
 | Hardware | RTX 5090 32GB VRAM |
 
 ## Studies
