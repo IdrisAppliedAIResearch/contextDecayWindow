@@ -1,21 +1,21 @@
 # Study 004 A005 - Same-Settings v3 Control Plan
 
-**Status:** code-discipline verification complete; execution authorized by
-A005 and the committed 35-turn GO at `cc45f05`
+**Status:** hardened retry authorized after invalid import-resolution attempt;
+execution authorized by A005 and the committed 35-turn GO at `cc45f05`
 
 ## Locked inputs
 
 - Study 003 v3 base commit:
   `c4120a40ab19912a6c5d04826d11385d59cbc272`
 - Dedicated control-adapter commit:
-  `5adf0ea9de7d3d16346b8d498419eb2cdc695d0e`
+  `a78fa2b` (response budget, launcher, and fail-closed import provenance)
 - Control branch: `codex/study-004-a005-v3-control`
 - Locked 121-turn script: `experiments/study_004/script.json`
 - Script SHA-256:
   `97C42E0FF612245C7CDAB3B6F6F3C1D4BD9DE5AAD14FD4519C63E37D63F93F0E`
-- Execution ID: `v3_control_001`
+- Execution ID: `v3_control_002`
 - Canonical control output:
-  `experiments/study_004/controls/v3_same_settings/v3_control_001/`
+  `experiments/study_004/controls/v3_same_settings/v3_control_002/`
 
 ## Same-settings configuration
 
@@ -38,7 +38,10 @@ files:
    `n_predict` literals change from 1,024 to 2,048.
 2. `scripts/run_study_004_a005_v3_control.py`: points the pinned v3 runner to
    the locked external script and output directory and includes turn 121 in
-   rubric capture.
+   rubric capture. It prepends the v3 worktree root to `sys.path`, fails closed
+   unless the runner and context builder resolve inside that worktree, rejects
+   an XML-tagged context builder, and writes a runtime provenance manifest
+   before inference.
 
 Pre-run review found:
 
@@ -51,9 +54,24 @@ Pre-run review found:
   Study 003 publication-figure byte-check failing in the fresh Windows
   worktree. No architecture or runtime test failed.
 
-No other control-worktree change is permitted after this record. A dirty
+No other control-worktree change is permitted after adapter commit `a78fa2b`.
+A dirty
 worktree, unexpected diff, model mismatch, or script-hash mismatch invalidates
 the launch.
+
+## Invalid first launch
+
+`v3_control_001` completed 121 turns but was invalidated before scoring. The
+main virtual environment's editable installation resolved `src` from the v4
+workspace when the launcher was executed by file path. XML prompts,
+`arbitration_events.csv`, and a turn-111 end-of-session flush proved that v4,
+not pinned v3, had executed. The untouched archive is retained as
+`v3_control_001_invalid_import_resolution`; its deviation record is
+`control_protocol_deviation_001_import_resolution.md`.
+
+The retry uses the hardened adapter and a new execution ID. Its runtime
+manifest must show both source modules under the separate v3 worktree before
+turn 1. The invalid attempt's rubric was never opened or scored.
 
 ## Evaluation sequence
 
