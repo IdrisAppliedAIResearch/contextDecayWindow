@@ -9,7 +9,12 @@ def store_rule(
     rule_summary: str,
     turn_number: int,
 ) -> str:
-    rule_id = str(uuid.uuid4())
+    rule_id = str(
+        uuid.uuid5(
+            uuid.NAMESPACE_URL,
+            f"contextDecayWindow/rule/{turn_number}/{rule_summary}",
+        )
+    )
     created_at = datetime.now(timezone.utc).isoformat()
 
     conn.execute(

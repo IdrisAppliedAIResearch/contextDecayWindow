@@ -12,6 +12,31 @@ CONTENT_STATUS = "content"
 NO_SALIENT_FACT_STATUS = "present_no_salient_fact"
 
 
+def _stable_distilled_id(
+    *,
+    topic_label: str,
+    source_turns: list[int],
+    source_text: str,
+    dream_event: int,
+    event_type: str,
+    status: str,
+) -> str:
+    identity = json.dumps(
+        {
+            "dream_event": dream_event,
+            "event_type": event_type,
+            "source_text": source_text,
+            "source_turns": source_turns,
+            "status": status,
+            "topic_label": topic_label,
+        },
+        ensure_ascii=True,
+        separators=(",", ":"),
+        sort_keys=True,
+    )
+    return str(uuid.uuid5(uuid.NAMESPACE_URL, identity))
+
+
 def get_undreamed_episodes_by_topic(
     conn: sqlite3.Connection,
     topic_id: str,
@@ -55,8 +80,15 @@ def write_distilled_record(
     dream_event: int,
     event_type: str,
 ) -> str:
-    distilled_id = str(uuid.uuid4())
     text = source_episode["text"]
+    distilled_id = _stable_distilled_id(
+        topic_label=topic_label,
+        source_turns=source_turns,
+        source_text=text,
+        dream_event=dream_event,
+        event_type=event_type,
+        status=CONTENT_STATUS,
+    )
     embedding = np.frombuffer(
         source_episode["embedding"], dtype=np.float32
     ).tobytes()
@@ -98,7 +130,15 @@ def write_no_salient_fact_marker(
     dream_event: int,
     event_type: str,
 ) -> str:
-    distilled_id = str(uuid.uuid4())
+    source_turns = [source_episode["turn_number"]]
+    distilled_id = _stable_distilled_id(
+        topic_label=topic_label,
+        source_turns=source_turns,
+        source_text=source_episode["text"],
+        dream_event=dream_event,
+        event_type=event_type,
+        status=NO_SALIENT_FACT_STATUS,
+    )
     conn.execute(
         """
         INSERT INTO distilled_ltm (
@@ -113,7 +153,7 @@ def write_no_salient_fact_marker(
             topic_id,
             topic_label,
             json.dumps([source_episode["id"]], separators=(",", ":")),
-            json.dumps([source_episode["turn_number"]], separators=(",", ":")),
+            json.dumps(source_turns, separators=(",", ":")),
             "[]",
             salience,
             dream_event,
