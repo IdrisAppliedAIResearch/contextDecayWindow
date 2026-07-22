@@ -59,16 +59,16 @@ def test_synthetic_fixture_covers_registered_mechanisms():
     script = json.loads(SYNTHETIC_SCRIPT.read_text(encoding="utf-8"))
     turns = script["turns"]
     sparse_turns = turns[5:9]
-    probe_turns = turns[20:]
+    probe_turns = turns[19:]
 
     assert script["fixture_only"] is True
-    assert len(turns) == 30
-    assert script["promotion_flush_turn"] == 20
-    assert script["probe_turn_start"] == 21
-    assert script["probe_turn_end"] == 30
-    assert script["rubric_turns"][-1] == 30
+    assert len(turns) == 24
+    assert script["promotion_flush_turn"] == 19
+    assert script["probe_turn_start"] == 20
+    assert script["probe_turn_end"] == 24
+    assert script["rubric_turns"][-1] == 24
     assert {
-        turn["ground_truth_domain"] for turn in turns[:20]
+        turn["ground_truth_domain"] for turn in turns[:19]
     } == {
         "pulsar_timing",
         "acknowledgments",
@@ -79,6 +79,7 @@ def test_synthetic_fixture_covers_registered_mechanisms():
         calculate_salience(turn["user"])[0] == 0
         for turn in sparse_turns
     )
+    assert turns[0]["user"] == turns[1]["user"]
     assert "AX-17" in turns[1]["user"] and "AX-17" in turns[2]["user"]
     assert "Breadth check" in probe_turns[0]["user"]
     assert "AX-17" in probe_turns[1]["user"]
