@@ -227,7 +227,10 @@ class TestIterativeRunnerRuleStoreIntegration:
 
         prompt, record = self.runner.build_context("What should I do next?", 2)
 
-        assert "--- PINNED RULES ---" in prompt
-        assert "Always respond in numbered lists." in prompt
+        assert "<pinned_rules>" in prompt
+        assert (
+            '<rule id="' in prompt
+            and 'set_at_turn="1">Always respond in numbered lists.</rule>' in prompt
+        )
         assert record.rule_store_count == 1
         assert record.rule_token_estimate > 0

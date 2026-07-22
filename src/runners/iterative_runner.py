@@ -40,26 +40,44 @@ class IterativeRunner(BaseRunner):
         k_set = set(retrieval_result.k_episode_ids)
         n_set = set(retrieval_result.n_episode_ids)
 
-        for ep in retrieval_result.episodes:
+        for ep in retrieval_result.recent_episodes:
             ep_id = ep["id"]
             sim_score = retrieval_result.k_scores.get(ep_id, 0.0)
             decay_score = retrieval_result.n_scores.get(ep_id, 0.0)
-
-            ep_dict = {
+            n_episodes.append({
                 "id": ep_id,
                 "turn_number": ep["turn_number"],
                 "user_message": ep["user_message"],
                 "assistant_message": ep["assistant_message"],
                 "sim_score": sim_score,
                 "decay_score": decay_score,
-                "topic_label": ep.get("topic_id", ""),
+                "topic_label": ep.get("topic_label", ep.get("topic_id", "")),
                 "retrieval_type": "KN" if (ep_id in k_set and ep_id in n_set) else ("K" if ep_id in k_set else "N"),
-            }
+            })
 
-            if ep_id in k_set:
-                k_episodes.append(ep_dict)
-            if ep_id in n_set and ep_id not in k_set:
-                n_episodes.append(ep_dict)
+        for ep in retrieval_result.retrieved_stm_episodes:
+            k_episodes.append({
+                "id": ep["id"],
+                "turn_number": ep["turn_number"],
+                "user_message": ep["user_message"],
+                "assistant_message": ep["assistant_message"],
+                "sim_score": ep["similarity"],
+                "decay_score": retrieval_result.n_scores.get(ep["id"], 0.0),
+                "topic_label": ep.get("topic_label", ep.get("topic_id", "")),
+                "retrieval_type": "K",
+            })
+
+        ltm_context_episodes = [{
+            "id": ep["id"],
+            "turn_number": ep["turn_number"],
+            "topic_label": ep.get("topic_label", ep.get("topic_id", "")),
+            "similarity": ep["similarity"],
+            "provenance": ep["provenance"],
+            "promoted_at_turn": ep["promoted_at_turn"],
+            "trigger_type": ep["trigger_type"],
+            "triggered_filter": ep.get("triggered_filter"),
+        } for ep in retrieval_result.retrieved_ltm_episodes]
+        arbitration = retrieval_result.arbitration
 
         k_token_estimate = 0
         n_token_estimate = 0
@@ -74,10 +92,21 @@ class IterativeRunner(BaseRunner):
             user_message=user_message,
             k_count=retrieval_result.k_count,
             n_count=retrieval_result.n_count,
+            k_only_count=len(k_episodes),
             n_total_in_store=retrieval_result.n_total_in_store,
             total_in_context=retrieval_result.total_episodes_in_context,
             k_episodes=k_episodes,
             n_episodes=n_episodes,
+            ltm_context_episodes=ltm_context_episodes,
+            arbitration_stm_candidates=arbitration.stm_candidates,
+            arbitration_ltm_candidates=arbitration.ltm_candidates,
+            arbitration_duplicates_removed=arbitration.duplicates_removed,
+            arbitration_final_set_size=arbitration.final_set_size,
+            arbitration_ltm_in_final_set=arbitration.ltm_episodes_in_final_set,
+            arbitration_provenance_list=[{
+                "episode_id": episode["id"],
+                "provenance": episode["provenance"],
+            } for episode in arbitration.episodes],
             estimated_tokens=retrieval_result.estimated_tokens,
             k_token_estimate=k_token_estimate,
             n_token_estimate=n_token_estimate,
@@ -98,6 +127,7 @@ class IterativeRunner(BaseRunner):
         embedding: np.ndarray = None,
         inference_result: InferenceResult = None,
         topic_embedding: np.ndarray = None,
+        ground_truth_domain: str | None = None,
     ) -> AssignmentResult:
         if embedding is None:
             pair_text = f"User: {user_message}\nAssistant: {assistant_message}"
@@ -109,6 +139,7 @@ class IterativeRunner(BaseRunner):
             assistant_message,
             embedding,
             turn_number,
+            ground_truth_domain,
         )
 
         if inference_result and inference_result.contains_rule and inference_result.rule_summary:

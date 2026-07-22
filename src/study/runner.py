@@ -18,21 +18,42 @@ from src.runners.compaction_runner import CompactionRunner
 from src.runners.full_context_runner import FullContextRunner
 from src.runners.iterative_runner import IterativeRunner
 from src.study.script_loader import load_script
+from src.study.domain_labels import (
+    PROBE_TURN_END,
+    PROBE_TURN_START,
+    ground_truth_domain_for_turn,
+)
 
 
 class StudyRunner:
 
     CONDITION_ORDER = ["full_context", "compaction", "iterative"]
+    CONDITION_OUTPUT_NAMES: dict[str, str] = {}
     RUBRIC_TURN_START = 25
     RUBRIC_TURN_END = 32
-    RUBRIC_TURNS = list(range(112, 121))
+    RUBRIC_TURNS = list(range(112, 122))
     PROMOTION_TURN_END = 111
+    PROBE_TURN_START = PROBE_TURN_START
+    PROBE_TURN_END = PROBE_TURN_END
 
     def __init__(self, script_path: str, study_dir: str, run_id: str = "run_001", minimum_turns: int = 30, max_turns: int | None = None):
         self._check_env_vars()
         self.script = load_script(script_path, minimum_turns=minimum_turns)
         self.system_prompt = self.script["system_prompt"]
         self.turns = self.script["turns"][:max_turns] if max_turns else self.script["turns"]
+        self.study_name = self.script.get("study", "study_003")
+        self._promotion_flush_turn = int(
+            self.script.get("promotion_flush_turn", self.PROMOTION_TURN_END)
+        )
+        self._probe_turn_start = int(
+            self.script.get("probe_turn_start", self.PROBE_TURN_START)
+        )
+        self._probe_turn_end = int(
+            self.script.get("probe_turn_end", self.PROBE_TURN_END)
+        )
+        self._rubric_turns = set(
+            self.script.get("rubric_turns", self.RUBRIC_TURNS)
+        )
         self.study_dir = study_dir
         self.run_id = run_id
         self._inference_provider = InferenceProvider()
@@ -56,7 +77,8 @@ class StudyRunner:
             self._run_condition(condition)
 
     def _run_condition(self, condition: str) -> None:
-        output_dir = os.path.join(self.study_dir, self.run_id, condition)
+        output_name = self._condition_output_name(condition)
+        output_dir = os.path.join(self.study_dir, self.run_id, output_name)
         run_config = RunConfig(
             condition=condition,
             run_id=self.run_id,
@@ -79,17 +101,31 @@ class StudyRunner:
         condition_start = time.perf_counter()
         peak_tokens = 0
         turn_count = 0
+        flush_completed = False
+        promotion_flush_turn = getattr(
+            self, "_promotion_flush_turn", self.PROMOTION_TURN_END
+        )
+        probe_turn_start = getattr(
+            self, "_probe_turn_start", self.PROBE_TURN_START
+        )
+        rubric_turns = getattr(self, "_rubric_turns", set(self.RUBRIC_TURNS))
 
         self._print_condition_start_banner(condition)
 
         for turn_data in self.turns:
             turn_number = turn_data["turn"]
             user_message = turn_data["user"]
+            if condition == "iterative" and promotion_engine:
+                self._assert_flush_completed_before_turn(
+                    turn_number,
+                    flush_completed,
+                    probe_turn_start=probe_turn_start,
+                )
 
             constructed_prompt, record = runner.build_context(user_message, turn_number)
 
             if condition == "iterative":
-                full_prompt = f"{constructed_prompt}\n\nUser: {user_message}\nAssistant:"
+                full_prompt = f"{constructed_prompt}\n\nAssistant:"
             else:
                 full_prompt = constructed_prompt
 
@@ -116,7 +152,7 @@ class StudyRunner:
                 peak_tokens = record.estimated_tokens
             turn_count += 1
 
-            if turn_number in self.RUBRIC_TURNS:
+            if turn_number in rubric_turns:
                 rubric_responses.append({
                     "turn_number": turn_number,
                     "user_message": user_message,
@@ -138,6 +174,10 @@ class StudyRunner:
                     embedding=embedding,
                     topic_embedding=topic_embedding,
                     inference_result=result,
+                    ground_truth_domain=turn_data.get(
+                        "ground_truth_domain",
+                        ground_truth_domain_for_turn(turn_number),
+                    ),
                 )
                 record.stored_episode_id = assignment.stored_episode_id
                 record.stored_topic_label = assignment.topic_label
@@ -151,7 +191,7 @@ class StudyRunner:
                 if (
                     promotion_engine
                     and assignment.stored_episode_id
-                    and turn_number <= self.PROMOTION_TURN_END
+                    and turn_number <= promotion_flush_turn
                 ):
                     summary = promotion_engine.process_transition(
                         previous_episode_id, assignment.stored_episode_id, turn_number
@@ -166,6 +206,15 @@ class StudyRunner:
                                 turn_number, previous_episode_id, assignment.stored_episode_id,
                                 previous_topic_before, previous_after["topic_id"], current_after["topic_id"],
                             )
+                    if turn_number == promotion_flush_turn:
+                        flush_summary = promotion_engine.process_flush(
+                            assignment.stored_episode_id,
+                            turn_number,
+                            expected_flush_turn=promotion_flush_turn,
+                        )
+                        if flush_summary:
+                            ltm_writer.write_promotion(flush_summary)
+                        flush_completed = True
                 previous_episode_id = assignment.stored_episode_id
             else:
                 runner.on_turn_complete(user_message, assistant_message, turn_number)
@@ -180,6 +229,25 @@ class StudyRunner:
         if rubric_responses:
             self._write_rubric_responses(condition, rubric_responses)
 
+    @classmethod
+    def _promotion_emission_allowed(cls, turn_number: int) -> bool:
+        return turn_number <= cls.PROMOTION_TURN_END
+
+    @classmethod
+    def _assert_flush_completed_before_turn(
+        cls,
+        turn_number: int,
+        flush_completed: bool,
+        probe_turn_start: int | None = None,
+    ) -> None:
+        first_probe = (
+            cls.PROBE_TURN_START if probe_turn_start is None else probe_turn_start
+        )
+        if turn_number >= first_probe and not flush_completed:
+            raise RuntimeError(
+                "Turn 111 promotion flush must complete before the probe block"
+            )
+
     def _create_runner(self, condition: str, run_config: RunConfig, observer) -> object:
         if condition == "full_context":
             return FullContextRunner(self.system_prompt)
@@ -189,15 +257,23 @@ class StudyRunner:
             db_path = os.path.join(run_config.output_dir, "study.db")
             conn = init_db(db_path)
             topic_manager = TopicManager(conn)
-            retrieval_engine = RetrievalEngine(conn)
+            retrieval_engine = RetrievalEngine(
+                conn,
+                embedding_provider=embed,
+                system_prompt=self.system_prompt,
+            )
             return IterativeRunner(conn, embed, topic_manager, retrieval_engine, observer)
         else:
             raise ValueError(f"Unknown condition: {condition}")
 
+    def _condition_output_name(self, condition: str) -> str:
+        output_names = getattr(self, "CONDITION_OUTPUT_NAMES", {})
+        return output_names.get(condition, condition)
+
     def _print_condition_start_banner(self, condition: str) -> None:
         bar_w = 50
         cond_padded = f"  STARTING CONDITION: {condition}".ljust(bar_w)
-        run_info = f"  Run: {self.run_id} | Script: {len(self.turns)} turns | Study: 003".ljust(bar_w)
+        run_info = f"  Run: {self.run_id} | Script: {len(self.turns)} turns | Study: {self.study_name}".ljust(bar_w)
         print()
         print("\u2554" + "\u2550" * (bar_w - 2) + "\u2557")
         print("\u2551" + cond_padded + "\u2551")
@@ -218,7 +294,10 @@ class StudyRunner:
         print()
 
     def _write_rubric_responses(self, condition: str, rubric_responses: list) -> None:
-        rubric_dir = os.path.join(self.study_dir, self.run_id, condition, "rubric")
+        output_name = self._condition_output_name(condition)
+        rubric_dir = os.path.join(
+            self.study_dir, self.run_id, output_name, "rubric"
+        )
         os.makedirs(rubric_dir, exist_ok=True)
 
         rubric_path = os.path.join(rubric_dir, "responses.md")
@@ -239,6 +318,7 @@ class StudyRunner:
                 118: "Q19: Researcher Identity",
                 119: "Q22: All Numerical Values",
                 120: "Q25: Final Comprehensive Check",
+                121: "Q14: Second Breadth Probe",
             }
 
             for resp in rubric_responses:

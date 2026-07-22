@@ -31,7 +31,68 @@ class FileWriter:
         for fname in ["turns.jsonl", "retrieval.jsonl", "context_windows.jsonl", "context_diffs.jsonl"]:
             open(os.path.join(logs_dir, fname), "w", encoding="utf-8").close()
 
+        with open(
+            os.path.join(logs_dir, "consolidation_purity.csv"),
+            "w",
+            newline="",
+            encoding="utf-8",
+        ) as handle:
+            csv.writer(handle).writerow([
+                "event_type",
+                "turn",
+                "topic_a",
+                "topic_b",
+                "domains_a",
+                "domains_b",
+                "connecting_similarity",
+                "probe_turns",
+            ])
+
+        with open(
+            os.path.join(logs_dir, "arbitration_events.csv"),
+            "w",
+            newline="",
+            encoding="utf-8",
+        ) as handle:
+            csv.writer(handle).writerow([
+                "turn",
+                "stm_candidates",
+                "ltm_candidates",
+                "duplicates_removed",
+                "final_set_size",
+                "ltm_episodes_in_final_set",
+                "provenance_list",
+            ])
+
+        with open(
+            os.path.join(logs_dir, "ltm_context_episodes.csv"),
+            "w",
+            newline="",
+            encoding="utf-8",
+        ) as handle:
+            csv.writer(handle).writerow([
+                "turn",
+                "episode_id",
+                "episode_turn",
+                "topic",
+                "similarity",
+                "provenance",
+                "promoted_at_turn",
+                "trigger_type",
+                "triggered_filter",
+            ])
+
         self._create_csv_headers(metrics_dir)
+
+        with open(
+            os.path.join(self.config.output_dir, "responses.md"),
+            "w",
+            encoding="utf-8",
+        ) as handle:
+            handle.write(
+                f"# Full Responses — {self.config.condition}\n\n"
+                f"**Run:** {self.config.run_id}\n\n"
+            )
 
         with open(os.path.join(rubric_dir, "responses.md"), "w", encoding="utf-8") as f:
             f.write("# Responses\n\n")
@@ -42,6 +103,7 @@ class FileWriter:
     def _create_csv_headers(self, metrics_dir: str) -> None:
         csv_files = {
             "model_performance.csv": ["turn", "tokens_per_second", "time_to_first_token", "output_tokens", "estimated_tokens"],
+            "context_sizes.csv": ["turn", "estimated_tokens", "rule_token_estimate", "k_token_estimate", "n_token_estimate", "total_episodes_in_context"],
             "memory_store.csv": ["turn", "topic_count", "episode_count", "new_topic_created", "new_topic_label", "compaction_occurred", "compaction_turn"],
             "K_values.csv": ["turn", "k_count", "episode_id", "similarity_score", "topic_label", "k_only"],
             "N_values.csv": ["turn", "n_count", "episode_id", "decay_score", "topic_label", "n_total_in_store"],
@@ -62,16 +124,45 @@ class FileWriter:
         self._write_retrieval_jsonl(record)
         self._write_context_windows_jsonl(record)
         self._write_context_diffs_jsonl(record)
+        self._write_response_markdown(record)
         self._write_model_performance_csv(record)
+        self._write_context_sizes_csv(record)
         self._write_memory_store_csv(record)
         self._write_k_values_csv(record)
         self._write_n_values_csv(record)
         self._write_topic_events_csv(record)
         self._write_retrieval_events_csv(record)
+        self._write_arbitration_events_csv(record)
+        self._write_ltm_context_episodes_csv(record)
         self._write_rule_detection_csv(record)
         self._write_consolidation_events_csv(record)
+        self._write_consolidation_purity_csv(record)
         self._write_snapshot(record)
         self._write_constructed_prompt(record)
+
+    def _write_response_markdown(self, record: TurnRecord) -> None:
+        fpath = os.path.join(self.config.output_dir, "responses.md")
+        with open(fpath, "a", encoding="utf-8") as handle:
+            handle.write(
+                f"## Turn {record.turn_number:03d}\n\n"
+                f"**User:**\n{record.user_message}\n\n"
+                f"**Assistant:**\n{record.assistant_message or ''}\n\n"
+                "---\n\n"
+            )
+
+    def _write_context_sizes_csv(self, record: TurnRecord) -> None:
+        fpath = os.path.join(
+            self.config.output_dir, "metrics", "context_sizes.csv"
+        )
+        with open(fpath, "a", newline="", encoding="utf-8") as handle:
+            csv.writer(handle).writerow([
+                record.turn_number,
+                record.estimated_tokens,
+                record.rule_token_estimate,
+                record.k_token_estimate,
+                record.n_token_estimate,
+                record.total_in_context,
+            ])
 
     def _write_turns_jsonl(self, record: TurnRecord) -> None:
         fpath = os.path.join(self.config.output_dir, "logs", "turns.jsonl")
@@ -86,6 +177,15 @@ class FileWriter:
             "total_in_context": record.total_in_context,
             "k_episodes": record.k_episodes,
             "n_episodes": record.n_episodes,
+            "ltm_context_episodes": record.ltm_context_episodes,
+            "arbitration": {
+                "stm_candidates": record.arbitration_stm_candidates,
+                "ltm_candidates": record.arbitration_ltm_candidates,
+                "duplicates_removed": record.arbitration_duplicates_removed,
+                "final_set_size": record.arbitration_final_set_size,
+                "ltm_episodes_in_final_set": record.arbitration_ltm_in_final_set,
+                "provenance_list": record.arbitration_provenance_list,
+            },
             "estimated_tokens": record.estimated_tokens,
             "k_token_estimate": record.k_token_estimate,
             "n_token_estimate": record.n_token_estimate,
@@ -118,6 +218,7 @@ class FileWriter:
                 "topics_after": res.topics_after,
                 "pairs_merged": res.pairs_merged,
                 "merge_log": res.merge_log,
+                "purity_events": res.purity_events,
             }
         with open(fpath, "a", encoding="utf-8") as f:
             f.write(json.dumps(data) + "\n")
@@ -281,6 +382,30 @@ class FileWriter:
                 episodes_reassigned,
             ])
 
+    def _write_consolidation_purity_csv(self, record: TurnRecord) -> None:
+        if record.consolidation_result is None:
+            return
+        events = record.consolidation_result.purity_events
+        if not events:
+            return
+
+        fpath = os.path.join(
+            self.config.output_dir, "logs", "consolidation_purity.csv"
+        )
+        with open(fpath, "a", newline="", encoding="utf-8") as handle:
+            writer = csv.writer(handle)
+            for event in events:
+                writer.writerow([
+                    event["event_type"],
+                    event["turn"],
+                    event["topic_a"],
+                    event["topic_b"],
+                    ";".join(event["domains_a"]),
+                    ";".join(event["domains_b"]),
+                    event["similarity"],
+                    ";".join(str(turn) for turn in event["probe_turns"]),
+                ])
+
     def _write_retrieval_events_csv(self, record: TurnRecord) -> None:
         fpath = os.path.join(self.config.output_dir, "metrics", "retrieval_events.csv")
         with open(fpath, "a", newline="", encoding="utf-8") as f:
@@ -292,6 +417,44 @@ class FileWriter:
                     ep.get("sim_score", 0.0),
                     ep.get("decay_score", 0.0),
                     ep.get("retrieval_type", "K"),
+                ])
+
+    def _write_arbitration_events_csv(self, record: TurnRecord) -> None:
+        if record.condition != "iterative":
+            return
+        fpath = os.path.join(
+            self.config.output_dir, "logs", "arbitration_events.csv"
+        )
+        with open(fpath, "a", newline="", encoding="utf-8") as handle:
+            csv.writer(handle).writerow([
+                record.turn_number,
+                record.arbitration_stm_candidates,
+                record.arbitration_ltm_candidates,
+                record.arbitration_duplicates_removed,
+                record.arbitration_final_set_size,
+                record.arbitration_ltm_in_final_set,
+                json.dumps(record.arbitration_provenance_list, separators=(",", ":")),
+            ])
+
+    def _write_ltm_context_episodes_csv(self, record: TurnRecord) -> None:
+        if record.condition != "iterative":
+            return
+        fpath = os.path.join(
+            self.config.output_dir, "logs", "ltm_context_episodes.csv"
+        )
+        with open(fpath, "a", newline="", encoding="utf-8") as handle:
+            writer = csv.writer(handle)
+            for episode in record.ltm_context_episodes:
+                writer.writerow([
+                    record.turn_number,
+                    episode["id"],
+                    episode["turn_number"],
+                    episode["topic_label"],
+                    episode["similarity"],
+                    episode["provenance"],
+                    episode["promoted_at_turn"],
+                    episode["trigger_type"],
+                    episode.get("triggered_filter") or "",
                 ])
 
     def _write_snapshot(self, record: TurnRecord) -> None:

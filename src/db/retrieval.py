@@ -5,12 +5,15 @@ from datetime import datetime, timezone
 
 def get_all_episodes_with_embeddings(conn: sqlite3.Connection) -> list:
     cursor = conn.execute(
-        "SELECT id, topic_id, user_message, assistant_message, "
-        "embedding, turn_number, created_at, last_retrieved_at, "
-        "retrieval_count FROM episodes ORDER BY turn_number ASC"
+        "SELECT episodes.id, episodes.topic_id, topics.label, "
+        "episodes.user_message, episodes.assistant_message, "
+        "episodes.embedding, episodes.turn_number, episodes.created_at, "
+        "episodes.last_retrieved_at, episodes.retrieval_count "
+        "FROM episodes LEFT JOIN topics ON topics.id = episodes.topic_id "
+        "ORDER BY episodes.turn_number ASC"
     )
     columns = [
-        "id", "topic_id", "user_message", "assistant_message",
+        "id", "topic_id", "topic_label", "user_message", "assistant_message",
         "embedding", "turn_number", "created_at", "last_retrieved_at",
         "retrieval_count",
     ]
