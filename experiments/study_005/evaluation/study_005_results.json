@@ -1,0 +1,783 @@
+{
+  "study": "study_005",
+  "status": "complete",
+  "scores_locked_at_commit": "1bbfad7",
+  "confirmatory": {
+    "bar_1": {
+      "status": "FAIL",
+      "pass": false
+    },
+    "bar_2": {
+      "status": "NOT EVALUABLE",
+      "pass": null,
+      "probe_distilled_ltm": {
+        "Q11": true,
+        "Q14": true
+      }
+    },
+    "bar_3": {
+      "status": "FAIL",
+      "pass": false,
+      "treatment_q1_q13": 11.0,
+      "control_q1_q13": 12.0,
+      "categories_held": false,
+      "treatment_categories": {
+        "cat_1": 3.0,
+        "cat_2": 2.5,
+        "cat_3": 1.5,
+        "cat_4": 2.0,
+        "cat_5": 2.0
+      },
+      "control_categories": {
+        "cat_1": 3.0,
+        "cat_2": 3.0,
+        "cat_3": 2.0,
+        "cat_4": 2.0,
+        "cat_5": 2.0
+      }
+    },
+    "confirmatory_outcome": "PARTIAL"
+  },
+  "formation": {
+    "extractor": "capitalized_sequence_fallback",
+    "domains_present": 2,
+    "all_four_domains_present": false,
+    "per_domain": {
+      "civil engineering": {
+        "present": true,
+        "targets": [
+          {
+            "domain": "civil engineering",
+            "fact_id": "civil_span",
+            "required_terms": [
+              "Halcyon Crossing",
+              "847"
+            ],
+            "source_turns": [
+              3
+            ],
+            "present": false,
+            "matching_distilled_ids": []
+          },
+          {
+            "domain": "civil engineering",
+            "fact_id": "civil_engineer",
+            "required_terms": [
+              "Dr. Anara Bekova"
+            ],
+            "source_turns": [
+              3
+            ],
+            "present": false,
+            "matching_distilled_ids": []
+          },
+          {
+            "domain": "civil engineering",
+            "fact_id": "civil_steel",
+            "required_terms": [
+              "S460ML"
+            ],
+            "source_turns": [
+              4
+            ],
+            "present": true,
+            "matching_distilled_ids": [
+              "6f46fccc-2e5a-5140-9f93-5c9d061c4f0d"
+            ]
+          },
+          {
+            "domain": "civil engineering",
+            "fact_id": "civil_load",
+            "required_terms": [
+              "92.4",
+              "metric tons per axle"
+            ],
+            "source_turns": [
+              4
+            ],
+            "present": true,
+            "matching_distilled_ids": [
+              "6f46fccc-2e5a-5140-9f93-5c9d061c4f0d"
+            ]
+          }
+        ]
+      },
+      "marine biology": {
+        "present": false,
+        "targets": [
+          {
+            "domain": "marine biology",
+            "fact_id": "marine_identity",
+            "required_terms": [
+              "Vampyroteuthis infernalis",
+              "Dr. Kenji Watanabe",
+              "600",
+              "900"
+            ],
+            "source_turns": [
+              100
+            ],
+            "present": false,
+            "matching_distilled_ids": []
+          },
+          {
+            "domain": "marine biology",
+            "fact_id": "marine_photophores",
+            "required_terms": [
+              "photophores",
+              "mantle margin"
+            ],
+            "source_turns": [
+              101
+            ],
+            "present": false,
+            "matching_distilled_ids": []
+          },
+          {
+            "domain": "marine biology",
+            "fact_id": "marine_feeding",
+            "required_terms": [
+              "marine snow particle aggregation"
+            ],
+            "source_turns": [
+              102
+            ],
+            "present": false,
+            "matching_distilled_ids": []
+          }
+        ]
+      },
+      "monetary policy": {
+        "present": true,
+        "targets": [
+          {
+            "domain": "monetary policy",
+            "fact_id": "monetary_taylor",
+            "required_terms": [
+              "Taylor Rule",
+              "1993"
+            ],
+            "source_turns": [
+              61
+            ],
+            "present": true,
+            "matching_distilled_ids": [
+              "739c8586-5346-59f2-82b4-2e9198e0e835"
+            ]
+          },
+          {
+            "domain": "monetary policy",
+            "fact_id": "monetary_fed",
+            "required_terms": [
+              "Federal Reserve",
+              "dual mandate"
+            ],
+            "source_turns": [
+              62
+            ],
+            "present": false,
+            "matching_distilled_ids": []
+          },
+          {
+            "domain": "monetary policy",
+            "fact_id": "monetary_threshold",
+            "required_terms": [
+              "Dr. Priya Mehta",
+              "reverse repurchase",
+              "2.3%",
+              "2%"
+            ],
+            "source_turns": [
+              65
+            ],
+            "present": false,
+            "matching_distilled_ids": []
+          }
+        ]
+      },
+      "renaissance art": {
+        "present": false,
+        "targets": [
+          {
+            "domain": "renaissance art",
+            "fact_id": "art_identity",
+            "required_terms": [
+              "The Annunciation of Forl\u00ec",
+              "Melozzo da Forl\u00ec",
+              "Cardinal Giuliano della Rovere",
+              "1483"
+            ],
+            "source_turns": [
+              55
+            ],
+            "present": false,
+            "matching_distilled_ids": []
+          },
+          {
+            "domain": "renaissance art",
+            "fact_id": "art_pigment",
+            "required_terms": [
+              "lead white ground",
+              "ultramarine glaze"
+            ],
+            "source_turns": [
+              56
+            ],
+            "present": false,
+            "matching_distilled_ids": []
+          },
+          {
+            "domain": "renaissance art",
+            "fact_id": "art_patron_role",
+            "required_terms": [
+              "Cardinal Giuliano della Rovere",
+              "Pope Julius II"
+            ],
+            "source_turns": [
+              60
+            ],
+            "present": false,
+            "matching_distilled_ids": []
+          }
+        ]
+      }
+    },
+    "faithful_records": 12,
+    "content_records": 12,
+    "faithfulness": 1.0,
+    "non_content_count": 0,
+    "non_content_distilled_ids": [],
+    "marker_count": 0,
+    "records": [
+      {
+        "distilled_id": "da300d1e-a6fa-5c5d-b1f0-c3b9a949ce32",
+        "source_episode_id": "a0cb417b-d06a-48f0-b990-047ade4c6b56",
+        "source_turns": [
+          20
+        ],
+        "salience": 93,
+        "faithful": true,
+        "non_content": false
+      },
+      {
+        "distilled_id": "dd270365-0438-5f56-9af9-e63a5f6902c9",
+        "source_episode_id": "846a9c8f-b011-4e30-a6c8-1a0d6822dec1",
+        "source_turns": [
+          17
+        ],
+        "salience": 86,
+        "faithful": true,
+        "non_content": false
+      },
+      {
+        "distilled_id": "6f46fccc-2e5a-5140-9f93-5c9d061c4f0d",
+        "source_episode_id": "117074b1-91e9-4b7a-8265-ce6804b4d5ea",
+        "source_turns": [
+          4
+        ],
+        "salience": 67,
+        "faithful": true,
+        "non_content": false
+      },
+      {
+        "distilled_id": "52b08261-a19a-5855-b407-6b6a54390b4e",
+        "source_episode_id": "f2ccd12b-b2d5-4cdb-86aa-6c4ff9523a30",
+        "source_turns": [
+          41
+        ],
+        "salience": 69,
+        "faithful": true,
+        "non_content": false
+      },
+      {
+        "distilled_id": "fa3a00bc-c9fd-5cde-bba5-67b785a0d245",
+        "source_episode_id": "5f8f7556-7815-4af3-aa05-46aa32d98e54",
+        "source_turns": [
+          31
+        ],
+        "salience": 57,
+        "faithful": true,
+        "non_content": false
+      },
+      {
+        "distilled_id": "9d938ec4-f9c7-51a4-9ed3-7f9821af6dd6",
+        "source_episode_id": "2a912d15-c413-4332-8266-e5e523f0afda",
+        "source_turns": [
+          40
+        ],
+        "salience": 55,
+        "faithful": true,
+        "non_content": false
+      },
+      {
+        "distilled_id": "739c8586-5346-59f2-82b4-2e9198e0e835",
+        "source_episode_id": "855b3772-1e26-4be3-9e21-febd4e174214",
+        "source_turns": [
+          61
+        ],
+        "salience": 87,
+        "faithful": true,
+        "non_content": false
+      },
+      {
+        "distilled_id": "ea500f72-c416-5d1e-858b-26945d82e8ec",
+        "source_episode_id": "c693dc9c-e103-41e8-8272-3001ed8fb018",
+        "source_turns": [
+          84
+        ],
+        "salience": 69,
+        "faithful": true,
+        "non_content": false
+      },
+      {
+        "distilled_id": "ef50c308-0691-5cd4-98c8-d91907148d7a",
+        "source_episode_id": "4261c6d3-a8e7-4a04-a3d2-abaa0fb99e16",
+        "source_turns": [
+          69
+        ],
+        "salience": 67,
+        "faithful": true,
+        "non_content": false
+      },
+      {
+        "distilled_id": "59fc739c-7490-5b27-beb9-3db9f455c2f4",
+        "source_episode_id": "7e553517-378b-403f-890e-b8352b118fdc",
+        "source_turns": [
+          92
+        ],
+        "salience": 45,
+        "faithful": true,
+        "non_content": false
+      },
+      {
+        "distilled_id": "9f4fb8c6-6d26-53db-a329-b5c60b58303e",
+        "source_episode_id": "94ffb595-e498-4456-a278-38c469925f62",
+        "source_turns": [
+          108
+        ],
+        "salience": 39,
+        "faithful": true,
+        "non_content": false
+      },
+      {
+        "distilled_id": "3dea8c3e-8ec2-5f33-8032-93ffaf886653",
+        "source_episode_id": "f96a1d89-90ba-441d-907a-43c07427f6bc",
+        "source_turns": [
+          105
+        ],
+        "salience": 34,
+        "faithful": true,
+        "non_content": false
+      }
+    ],
+    "bar_1_pass": false
+  },
+  "same_seed_prefix": {
+    "turns_checked": 30,
+    "prompt_matches": 30,
+    "response_matches": 30,
+    "prompt_mismatch_turns": [],
+    "response_mismatch_turns": [],
+    "pass": true
+  },
+  "dreaming": {
+    "event_count": 4,
+    "event_turns": [
+      31,
+      61,
+      91,
+      111
+    ],
+    "records_written": 12,
+    "inference_calls": 0,
+    "duplicates_collapsed": 0,
+    "selected_source_turns": [
+      4,
+      17,
+      20,
+      31,
+      40,
+      41,
+      61,
+      69,
+      84,
+      92,
+      105,
+      108
+    ],
+    "selected_records": [
+      {
+        "dream_event": 31,
+        "topic": "topic_2",
+        "source_turn": 4,
+        "salience": 67,
+        "named_entities": 15,
+        "numeric_tokens": 26
+      },
+      {
+        "dream_event": 31,
+        "topic": "topic_2",
+        "source_turn": 17,
+        "salience": 86,
+        "named_entities": 18,
+        "numeric_tokens": 34
+      },
+      {
+        "dream_event": 31,
+        "topic": "topic_2",
+        "source_turn": 20,
+        "salience": 93,
+        "named_entities": 35,
+        "numeric_tokens": 29
+      },
+      {
+        "dream_event": 61,
+        "topic": "topic_3",
+        "source_turn": 31,
+        "salience": 57,
+        "named_entities": 29,
+        "numeric_tokens": 14
+      },
+      {
+        "dream_event": 61,
+        "topic": "topic_3",
+        "source_turn": 40,
+        "salience": 55,
+        "named_entities": 23,
+        "numeric_tokens": 16
+      },
+      {
+        "dream_event": 61,
+        "topic": "topic_3",
+        "source_turn": 41,
+        "salience": 69,
+        "named_entities": 45,
+        "numeric_tokens": 12
+      },
+      {
+        "dream_event": 91,
+        "topic": "topic_4",
+        "source_turn": 61,
+        "salience": 87,
+        "named_entities": 33,
+        "numeric_tokens": 27
+      },
+      {
+        "dream_event": 91,
+        "topic": "topic_4",
+        "source_turn": 69,
+        "salience": 67,
+        "named_entities": 21,
+        "numeric_tokens": 23
+      },
+      {
+        "dream_event": 91,
+        "topic": "topic_4",
+        "source_turn": 84,
+        "salience": 69,
+        "named_entities": 27,
+        "numeric_tokens": 21
+      },
+      {
+        "dream_event": 111,
+        "topic": "topic_5",
+        "source_turn": 92,
+        "salience": 45,
+        "named_entities": 9,
+        "numeric_tokens": 18
+      },
+      {
+        "dream_event": 111,
+        "topic": "topic_5",
+        "source_turn": 105,
+        "salience": 34,
+        "named_entities": 12,
+        "numeric_tokens": 11
+      },
+      {
+        "dream_event": 111,
+        "topic": "topic_5",
+        "source_turn": 108,
+        "salience": 39,
+        "named_entities": 15,
+        "numeric_tokens": 12
+      }
+    ],
+    "rubric_fact_source_ranks": [
+      {
+        "domain": "civil engineering",
+        "fact_id": "civil_span",
+        "source_turn": 3,
+        "dream_event": 31,
+        "salience": 13,
+        "rank": 28,
+        "selected": false
+      },
+      {
+        "domain": "civil engineering",
+        "fact_id": "civil_engineer",
+        "source_turn": 3,
+        "dream_event": 31,
+        "salience": 13,
+        "rank": 28,
+        "selected": false
+      },
+      {
+        "domain": "civil engineering",
+        "fact_id": "civil_steel",
+        "source_turn": 4,
+        "dream_event": 31,
+        "salience": 67,
+        "rank": 3,
+        "selected": true
+      },
+      {
+        "domain": "civil engineering",
+        "fact_id": "civil_load",
+        "source_turn": 4,
+        "dream_event": 31,
+        "salience": 67,
+        "rank": 3,
+        "selected": true
+      },
+      {
+        "domain": "renaissance art",
+        "fact_id": "art_identity",
+        "source_turn": 55,
+        "dream_event": 61,
+        "salience": 22,
+        "rank": 18,
+        "selected": false
+      },
+      {
+        "domain": "renaissance art",
+        "fact_id": "art_pigment",
+        "source_turn": 56,
+        "dream_event": 61,
+        "salience": 14,
+        "rank": 30,
+        "selected": false
+      },
+      {
+        "domain": "renaissance art",
+        "fact_id": "art_patron_role",
+        "source_turn": 60,
+        "dream_event": 61,
+        "salience": 21,
+        "rank": 19,
+        "selected": false
+      },
+      {
+        "domain": "monetary policy",
+        "fact_id": "monetary_taylor",
+        "source_turn": 61,
+        "dream_event": 91,
+        "salience": 87,
+        "rank": 1,
+        "selected": true
+      },
+      {
+        "domain": "monetary policy",
+        "fact_id": "monetary_fed",
+        "source_turn": 62,
+        "dream_event": 91,
+        "salience": 59,
+        "rank": 5,
+        "selected": false
+      },
+      {
+        "domain": "monetary policy",
+        "fact_id": "monetary_threshold",
+        "source_turn": 65,
+        "dream_event": 91,
+        "salience": 55,
+        "rank": 6,
+        "selected": false
+      },
+      {
+        "domain": "marine biology",
+        "fact_id": "marine_identity",
+        "source_turn": 100,
+        "dream_event": 111,
+        "salience": 26,
+        "rank": 11,
+        "selected": false
+      },
+      {
+        "domain": "marine biology",
+        "fact_id": "marine_photophores",
+        "source_turn": 101,
+        "dream_event": 111,
+        "salience": 18,
+        "rank": 15,
+        "selected": false
+      },
+      {
+        "domain": "marine biology",
+        "fact_id": "marine_feeding",
+        "source_turn": 102,
+        "dream_event": 111,
+        "salience": 17,
+        "rank": 18,
+        "selected": false
+      }
+    ]
+  },
+  "probe_retrieval": {
+    "Q11": {
+      "turn": 120,
+      "stm_candidates": 0,
+      "ltm_candidates": 5,
+      "final_set_size": 5,
+      "ltm_records_in_final_set": 5,
+      "ltm_source_turns": [
+        4,
+        41,
+        61,
+        17,
+        92
+      ],
+      "dream_events": [
+        31,
+        61,
+        91,
+        31,
+        111
+      ]
+    },
+    "Q14": {
+      "turn": 121,
+      "stm_candidates": 0,
+      "ltm_candidates": 5,
+      "final_set_size": 5,
+      "ltm_records_in_final_set": 5,
+      "ltm_source_turns": [
+        4,
+        61,
+        84,
+        105,
+        17
+      ],
+      "dream_events": [
+        31,
+        91,
+        91,
+        111,
+        31
+      ]
+    }
+  },
+  "control_promoted_store": {
+    "record_count": 14,
+    "source_turns": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      14,
+      46,
+      48,
+      55,
+      100
+    ],
+    "domains_present": 3,
+    "per_domain": {
+      "civil engineering": {
+        "present": true,
+        "fact_ids": [
+          "civil_span",
+          "civil_engineer",
+          "civil_steel",
+          "civil_load"
+        ]
+      },
+      "marine biology": {
+        "present": true,
+        "fact_ids": [
+          "marine_identity"
+        ]
+      },
+      "monetary policy": {
+        "present": false,
+        "fact_ids": []
+      },
+      "renaissance art": {
+        "present": true,
+        "fact_ids": [
+          "art_identity"
+        ]
+      }
+    }
+  },
+  "compression": {
+    "raw_episode_count": 121,
+    "dreamed_episode_count": 111,
+    "distilled_content_records": 12,
+    "distilled_to_dreamed_ratio": 0.10810810810810811,
+    "distilled_to_full_run_ratio": 0.09917355371900827
+  },
+  "consolidation": {
+    "final_topic_count": 5,
+    "purity_event_count": 0,
+    "probe_bridge_guard_exercised": false
+  },
+  "runtime": {
+    "control": {
+      "turns": 121,
+      "peak_context_tokens": 10006,
+      "peak_context_fraction_of_50000": 0.20012,
+      "minimum_tokens_per_second": 12.756543195483141,
+      "average_tokens_per_second": 37.31753782462698,
+      "output_tokens": 83377
+    },
+    "treatment": {
+      "turns": 121,
+      "peak_context_tokens": 16171,
+      "peak_context_fraction_of_50000": 0.32342,
+      "minimum_tokens_per_second": 9.572272946369845,
+      "average_tokens_per_second": 36.02210740013991,
+      "output_tokens": 88885
+    },
+    "context_monitor_ceiling_tokens": 40000,
+    "strict_monitor_abort": false
+  },
+  "scores": {
+    "control": {
+      "Q1": 1.0,
+      "Q2": 1.0,
+      "Q3": 1.0,
+      "Q4": 1.0,
+      "Q5": 1.0,
+      "Q6": 1.0,
+      "Q7": 1.0,
+      "Q8": 1.0,
+      "Q9": 1.0,
+      "Q10": 1.0,
+      "Q11": 0.0,
+      "Q12": 1.0,
+      "Q13": 1.0,
+      "Q14": 0.0
+    },
+    "treatment": {
+      "Q1": 1.0,
+      "Q2": 1.0,
+      "Q3": 1.0,
+      "Q4": 1.0,
+      "Q5": 0.5,
+      "Q6": 1.0,
+      "Q7": 1.0,
+      "Q8": 0.5,
+      "Q9": 1.0,
+      "Q10": 1.0,
+      "Q11": 0.0,
+      "Q12": 1.0,
+      "Q13": 1.0,
+      "Q14": 0.5
+    }
+  }
+}
