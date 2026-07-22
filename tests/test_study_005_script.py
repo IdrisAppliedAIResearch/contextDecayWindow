@@ -62,6 +62,7 @@ def test_synthetic_fixture_covers_registered_mechanisms():
     probe_turns = turns[19:]
 
     assert script["fixture_only"] is True
+    assert script["consolidation_interval"] == 20
     assert len(turns) == 24
     assert script["promotion_flush_turn"] == 19
     assert script["probe_turn_start"] == 20
