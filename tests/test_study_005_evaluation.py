@@ -68,6 +68,8 @@ def test_fact_key_loads_all_four_domains():
 def test_formation_harness_reports_present_and_withheld_fact(tmp_path):
     conn = init_db(str(tmp_path / "study.db"))
     topic_id = _topic(conn)
+    _store(conn, topic_id, 1, "okay")
+    _store(conn, topic_id, 2, "thanks")
     source_id = _store(
         conn,
         topic_id,
@@ -114,6 +116,8 @@ def test_non_content_record_flips_zero_non_content_clause(tmp_path):
 def test_faithfulness_harness_flags_mangled_record(tmp_path):
     conn = init_db(str(tmp_path / "study.db"))
     topic_id = _topic(conn)
+    _store(conn, topic_id, 1, "okay")
+    _store(conn, topic_id, 2, "thanks")
     source_id = _store(
         conn,
         topic_id,

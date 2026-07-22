@@ -175,6 +175,14 @@ def test_sparse_topic_writes_marker_without_forcing_junk(tmp_path):
         assistant="sure",
         embedding=_unit_vector(2),
     )
+    _episode(
+        conn,
+        topic_id,
+        turn=3,
+        user="understood",
+        assistant="noted",
+        embedding=_unit_vector(3),
+    )
 
     summary = DreamEngine(conn).process_flush(active_id, current_turn=111)
     records = get_distilled_records(conn)
@@ -198,6 +206,20 @@ def test_extractive_assertion_passes_then_trips_on_mangled_text(tmp_path):
         user="Halcyon Crossing spans 847 meters.",
         embedding=_unit_vector(1),
     )
+    _episode(
+        conn,
+        topic_id,
+        turn=2,
+        user="okay",
+        embedding=_unit_vector(2),
+    )
+    _episode(
+        conn,
+        topic_id,
+        turn=3,
+        user="thanks",
+        embedding=_unit_vector(3),
+    )
     summary = DreamEngine(conn).process_flush(active_id, current_turn=111)
     distilled_id = summary.distilled_ids[0]
 
@@ -220,6 +242,20 @@ def test_dream_pass_asserts_when_inference_counter_changes(tmp_path):
         turn=1,
         user="Halcyon Crossing spans 847 meters.",
         embedding=_unit_vector(1),
+    )
+    _episode(
+        conn,
+        topic_id,
+        turn=2,
+        user="okay",
+        embedding=_unit_vector(2),
+    )
+    _episode(
+        conn,
+        topic_id,
+        turn=3,
+        user="thanks",
+        embedding=_unit_vector(3),
     )
     counts = iter([10, 11])
     engine = DreamEngine(conn, inference_call_count=lambda: next(counts))
@@ -245,20 +281,63 @@ def test_transition_and_flush_cadence_guards(tmp_path):
         user="Halcyon Crossing spans 847 meters.",
         embedding=_unit_vector(1),
     )
+    _episode(
+        conn,
+        first_topic,
+        turn=2,
+        user="Halcyon Crossing opened in 1957.",
+        embedding=_unit_vector(3),
+    )
+    previous_id = _episode(
+        conn,
+        first_topic,
+        turn=3,
+        user="Halcyon Crossing carries Route 19.",
+        embedding=_unit_vector(4),
+    )
     current_id = _episode(
         conn,
         second_topic,
-        turn=2,
+        turn=4,
         user="The Annunciation of Forli dates to 1483.",
         embedding=_unit_vector(2),
     )
     engine = DreamEngine(conn)
 
-    transition = engine.process_transition(previous_id, current_id, 2)
+    transition = engine.process_transition(previous_id, current_id, 4)
     assert transition.event_type == "transition"
-    assert transition.turn == 2
+    assert transition.turn == 4
     with pytest.raises(ValueError, match="must run at turn 111"):
         engine.process_flush(current_id, current_turn=110)
+
+
+def test_transition_skips_subminimum_topic_like_study_004(tmp_path):
+    conn = init_db(str(tmp_path / "study.db"))
+    first_topic = _topic(conn, "topic_1")
+    second_topic = _topic(conn, "topic_2")
+    previous_id = _episode(
+        conn,
+        first_topic,
+        turn=1,
+        user="Read the response rules carefully.",
+        embedding=_unit_vector(1),
+    )
+    current_id = _episode(
+        conn,
+        second_topic,
+        turn=2,
+        user="Halcyon Crossing spans 847 meters.",
+        embedding=_unit_vector(2),
+    )
+
+    summary = DreamEngine(conn).process_transition(previous_id, current_id, 2)
+
+    assert summary is None
+    assert get_distilled_records(conn) == []
+    assert conn.execute(
+        "SELECT dreamed FROM episodes WHERE id = ?",
+        (previous_id,),
+    ).fetchone()[0] == 0
 
 
 def test_retrieval_reads_distilled_ltm_and_renders_provenance(tmp_path):
@@ -270,6 +349,20 @@ def test_retrieval_reads_distilled_ltm_and_renders_provenance(tmp_path):
         turn=1,
         user="Halcyon Crossing spans 847 meters.",
         embedding=_unit_vector(1),
+    )
+    _episode(
+        conn,
+        topic_id,
+        turn=2,
+        user="okay",
+        embedding=_unit_vector(2),
+    )
+    _episode(
+        conn,
+        topic_id,
+        turn=3,
+        user="thanks",
+        embedding=_unit_vector(3),
     )
     DreamEngine(conn).process_flush(active_id, current_turn=111)
     engine = RetrievalEngine(

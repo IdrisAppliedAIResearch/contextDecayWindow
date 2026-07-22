@@ -6,7 +6,7 @@ from typing import Callable
 
 import numpy as np
 
-from src.db.episode import get_episode_by_id
+from src.db.episode import get_episode_by_id, get_episodes_by_topic
 from src.db.topic import get_topic_by_id
 from src.embeddings.provider import cosine_similarity
 from src.memory.distilled_ltm_store import (
@@ -97,6 +97,7 @@ def calculate_salience(text: str) -> tuple[int, int, int]:
 class DreamEngine:
     """Select verbatim topic records without invoking the inference model."""
 
+    MINIMUM_OUTGOING_EPISODES = 3
     DEDUP_THRESHOLD = 0.95
     PER_TOPIC_CAP = 3
     SALIENCE_FLOOR = 2
@@ -136,7 +137,7 @@ class DreamEngine:
         active_episode_id: str,
         current_turn: int,
         expected_flush_turn: int = END_OF_SESSION_FLUSH_TURN,
-    ) -> DreamSummary:
+    ) -> DreamSummary | None:
         if current_turn != expected_flush_turn:
             raise ValueError(
                 f"End-of-session dream flush must run at turn "
@@ -156,10 +157,15 @@ class DreamEngine:
         topic_id: str,
         current_turn: int,
         event_type: str,
-    ) -> DreamSummary:
+    ) -> DreamSummary | None:
         topic = get_topic_by_id(self._conn, topic_id)
         if topic is None:
             raise ValueError("Canonical dream topic is missing")
+        if (
+            len(get_episodes_by_topic(self._conn, topic_id))
+            < self.MINIMUM_OUTGOING_EPISODES
+        ):
+            return None
         snapshot = get_undreamed_episodes_by_topic(self._conn, topic_id)
         calls_before = self._inference_call_count()
         candidates = [self._score_episode(episode) for episode in snapshot]
