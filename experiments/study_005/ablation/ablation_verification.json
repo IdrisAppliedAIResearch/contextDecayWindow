@@ -1,0 +1,52 @@
+{
+  "status": "PASS",
+  "decision": "GO",
+  "run": "experiments\\study_005\\ablation\\runs\\study_005_ablation_001\\condition_c",
+  "checks": {
+    "speed_floor": true,
+    "determinism_gate": true,
+    "raw_store_append_only": true,
+    "promotion_absent": true,
+    "first_dream_pass": true,
+    "distilled_records_written": true,
+    "extractive_assertion": true,
+    "zero_dream_inference_calls": true,
+    "read_path_from_distilled_ltm": true,
+    "civil_fact_present": true,
+    "zero_non_content_records": true,
+    "arbitration_intact": true,
+    "purity": true,
+    "art_topic_not_dreamed": true,
+    "context_ceiling": true
+  },
+  "failed_checks": [],
+  "raw_episode_count": 35,
+  "dream_event_turns": [
+    31
+  ],
+  "distilled_record_count": 3,
+  "distilled_source_turns": [
+    4,
+    17,
+    20
+  ],
+  "faithfulness": 1.0,
+  "non_content_count": 0,
+  "civil_fact_present": true,
+  "post_event_ltm_turns": [
+    32,
+    33,
+    34,
+    35
+  ],
+  "ltm_final_turns": [
+    32,
+    33,
+    34,
+    35
+  ],
+  "purity_event_count": 0,
+  "minimum_tokens_per_second": 33.77215694715087,
+  "average_tokens_per_second": 39.4072468973085,
+  "peak_context_tokens": 9423
+}
