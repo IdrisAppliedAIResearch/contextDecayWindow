@@ -1,0 +1,132 @@
+{
+  "study": "study_005_synthetic_fixture",
+  "fixture_only": true,
+  "condition_note": "Synthetic verification only. Never use as Study 005 confirmatory run data.",
+  "promotion_flush_turn": 20,
+  "probe_turn_start": 21,
+  "probe_turn_end": 24,
+  "rubric_turns": [21, 24],
+  "system_prompt": "You are a precise research assistant. Preserve named codes and numerical values. When explicitly told to reply with only a phrase, emit exactly that phrase.",
+  "turns": [
+    {
+      "turn": 1,
+      "ground_truth_domain": "pulsar_timing",
+      "user": "Open pulsar file AX-17. Dr. Livia Noor measured a pulse period of exactly 43.7 milliseconds at Cedar Observatory. Repeat the complete record."
+    },
+    {
+      "turn": 2,
+      "ground_truth_domain": "pulsar_timing",
+      "user": "For AX-17, restate Dr. Livia Noor's 43.7 millisecond measurement at Cedar Observatory and explain one timing use."
+    },
+    {
+      "turn": 3,
+      "ground_truth_domain": "pulsar_timing",
+      "user": "Restate the AX-17 record: Dr. Livia Noor measured 43.7 milliseconds at Cedar Observatory. Then identify one source of drift."
+    },
+    {
+      "turn": 4,
+      "ground_truth_domain": "pulsar_timing",
+      "user": "Compare two calibration methods for pulsar timing without changing the AX-17 planted value."
+    },
+    {
+      "turn": 5,
+      "ground_truth_domain": "pulsar_timing",
+      "user": "Close AX-17 with its exact researcher, observatory, and 43.7 millisecond period."
+    },
+    {
+      "turn": 6,
+      "ground_truth_domain": "acknowledgments",
+      "user": "Completely different subject. Reply with only: got it"
+    },
+    {
+      "turn": 7,
+      "ground_truth_domain": "acknowledgments",
+      "user": "Reply with only: okay"
+    },
+    {
+      "turn": 8,
+      "ground_truth_domain": "acknowledgments",
+      "user": "Reply with only: understood"
+    },
+    {
+      "turn": 9,
+      "ground_truth_domain": "acknowledgments",
+      "user": "Reply with only: thanks"
+    },
+    {
+      "turn": 10,
+      "ground_truth_domain": "orchid_germination",
+      "user": "Completely different subject. Open orchid trial DZ-53. Botanist Ren Ito recorded germination at exactly 17.2 degrees Celsius in Glassfern Conservatory. Repeat the record."
+    },
+    {
+      "turn": 11,
+      "ground_truth_domain": "orchid_germination",
+      "user": "Explain why 17.2 degrees Celsius matters for DZ-53 while Ren Ito controls Glassfern Conservatory."
+    },
+    {
+      "turn": 12,
+      "ground_truth_domain": "orchid_germination",
+      "user": "Restate DZ-53, Ren Ito, Glassfern Conservatory, and 17.2 degrees Celsius before naming one confound."
+    },
+    {
+      "turn": 13,
+      "ground_truth_domain": "orchid_germination",
+      "user": "Compare humidity controls for DZ-53 without changing its planted germination temperature."
+    },
+    {
+      "turn": 14,
+      "ground_truth_domain": "orchid_germination",
+      "user": "Close the orchid file with the exact trial, botanist, site, and temperature."
+    },
+    {
+      "turn": 15,
+      "ground_truth_domain": "maritime_treaty",
+      "user": "Completely different subject. Open treaty file CY-41. Counsel Amara Voss set a 14-day escrow release under the Pelagos Accord in Port Meridian. Repeat every specific."
+    },
+    {
+      "turn": 16,
+      "ground_truth_domain": "maritime_treaty",
+      "user": "Explain the purpose of CY-41's 14-day escrow release under the Pelagos Accord."
+    },
+    {
+      "turn": 17,
+      "ground_truth_domain": "maritime_treaty",
+      "user": "Restate CY-41, Amara Voss, Port Meridian, the Pelagos Accord, and the 14-day term."
+    },
+    {
+      "turn": 18,
+      "ground_truth_domain": "maritime_treaty",
+      "user": "Compare two enforcement options for CY-41 without changing the planted escrow duration."
+    },
+    {
+      "turn": 19,
+      "ground_truth_domain": "maritime_treaty",
+      "user": "Confirm that Amara Voss owns CY-41 and that Port Meridian uses a 14-day release."
+    },
+    {
+      "turn": 20,
+      "ground_truth_domain": "maritime_treaty",
+      "user": "End the active treaty topic with a final exact recap of CY-41, Amara Voss, the Pelagos Accord, Port Meridian, and 14 days."
+    },
+    {
+      "turn": 21,
+      "ground_truth_domain": "probe",
+      "user": "Breadth check: give the exact planted code and numerical fact from pulsar timing, orchid germination, and the maritime treaty."
+    },
+    {
+      "turn": 22,
+      "ground_truth_domain": "probe",
+      "user": "Bridge probe: compare AX-17 at 43.7 milliseconds from Cedar Observatory with DZ-53 at 17.2 degrees Celsius in Glassfern Conservatory."
+    },
+    {
+      "turn": 23,
+      "ground_truth_domain": "probe",
+      "user": "Second bridge probe: relate DZ-53 and CY-41 while retaining Ren Ito, Amara Voss, 17.2 degrees Celsius, and 14 days."
+    },
+    {
+      "turn": 24,
+      "ground_truth_domain": "probe",
+      "user": "Final breadth check: list AX-17, DZ-53, and CY-41 with each planted number and responsible named person."
+    }
+  ]
+}
