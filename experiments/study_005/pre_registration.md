@@ -3,6 +3,7 @@
 **Idris Applied AI Research**
 **Date:** July 2026
 **Status:** LOCKED. All design decisions resolved; fixed seed selected before implementation or inference.
+**Study 005 pre-registration SHA:** 20aa7707e780543ccbe462efadf3bb1263b3813e
 **Study 004 paper:** `experiments/study_004/study_004_report.md` (COMPLETE, PARTIAL — 1 of 3 bars)
 **Study 004 accepted v4 run:** `study_004_full_002` (7.0/13.0, Q14 0.0)
 **Study 004 v3 control:** `v3_control_002` (11.0/13.0)
@@ -289,6 +290,7 @@ Single scripted run per arm, single rater. Salience heuristic (entity+2×number,
 
 ## Appendix
 
+- Study 005 pre-registration SHA: `20aa7707e780543ccbe462efadf3bb1263b3813e`
 - Study 004 paper: `experiments/study_004/study_004_report.md`
 - Study 004 pre-registration: `experiments/study_004/pre_registration.md`
 - Amendment A005: `experiments/study_004/protocol_amendment_005_response_budget_and_v3_control.md`
