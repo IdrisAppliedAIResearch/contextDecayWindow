@@ -62,10 +62,11 @@ def test_synthetic_fixture_covers_registered_mechanisms():
     probe_turns = turns[20:]
 
     assert script["fixture_only"] is True
-    assert len(turns) == 24
+    assert len(turns) == 30
     assert script["promotion_flush_turn"] == 20
     assert script["probe_turn_start"] == 21
-    assert script["probe_turn_end"] == 24
+    assert script["probe_turn_end"] == 30
+    assert script["rubric_turns"][-1] == 30
     assert {
         turn["ground_truth_domain"] for turn in turns[:20]
     } == {

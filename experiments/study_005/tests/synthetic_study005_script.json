@@ -4,8 +4,8 @@
   "condition_note": "Synthetic verification only. Never use as Study 005 confirmatory run data.",
   "promotion_flush_turn": 20,
   "probe_turn_start": 21,
-  "probe_turn_end": 24,
-  "rubric_turns": [21, 24],
+  "probe_turn_end": 30,
+  "rubric_turns": [21, 24, 30],
   "system_prompt": "You are a precise research assistant. Preserve named codes and numerical values. When explicitly told to reply with only a phrase, emit exactly that phrase.",
   "turns": [
     {
@@ -127,6 +127,36 @@
       "turn": 24,
       "ground_truth_domain": "probe",
       "user": "Final breadth check: list AX-17, DZ-53, and CY-41 with each planted number and responsible named person."
+    },
+    {
+      "turn": 25,
+      "ground_truth_domain": "probe",
+      "user": "Bridge probe: compare how AX-17 at Cedar Observatory and DZ-53 at Glassfern Conservatory preserve their exact 43.7 millisecond and 17.2 degree measurements."
+    },
+    {
+      "turn": 26,
+      "ground_truth_domain": "probe",
+      "user": "Bridge probe: relate DZ-53 under Ren Ito to CY-41 under Amara Voss while preserving 17.2 degrees Celsius and the 14-day release."
+    },
+    {
+      "turn": 27,
+      "ground_truth_domain": "probe",
+      "user": "Bridge probe: place AX-17, DZ-53, and CY-41 in one comparison with Cedar Observatory, Glassfern Conservatory, and Port Meridian."
+    },
+    {
+      "turn": 28,
+      "ground_truth_domain": "probe",
+      "user": "Bridge probe: contrast Dr. Livia Noor's 43.7 millisecond timing record with Amara Voss's 14-day Pelagos Accord release."
+    },
+    {
+      "turn": 29,
+      "ground_truth_domain": "probe",
+      "user": "Bridge probe: connect all three files without changing AX-17 at 43.7 milliseconds, DZ-53 at 17.2 degrees Celsius, or CY-41 at 14 days."
+    },
+    {
+      "turn": 30,
+      "ground_truth_domain": "probe",
+      "user": "Final bridge probe: compare AX-17, DZ-53, and CY-41 across their people, sites, and exact numerical facts."
     }
   ]
 }
