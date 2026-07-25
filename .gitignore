@@ -65,3 +65,12 @@ experiments/study_003/runs/ablation_*/
 experiments/study_003/runs/rule_*/
 experiments/study_003/runs/study_003_full_*/
 experiments/study_003/runs/synthetic_trigger*/
+
+# Study 006 raw execution artifacts (curated runtime/replay reports are tracked)
+experiments/study_006/runtime/determinism_prefix_*/
+*.pid
+experiments/study_006/tests/runs/
+experiments/study_006/ablation/runs/
+experiments/study_006/replay/runs/
+experiments/study_006/controls/whole_turn_seeded/run_001/
+experiments/study_006/runs/study_006_full_001/
