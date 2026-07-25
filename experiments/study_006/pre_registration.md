@@ -3,7 +3,7 @@
 **Idris Applied AI Research**
 **Date:** July 2026
 **Status:** LOCKED — 2026-07-25. Commit SHA recorded below.
-**Pre-registration SHA:** `<recorded in the follow-up commit; see S6-T-001>`
+**Pre-registration SHA:** `5def302`
 **Plant key:** `experiments/study_006/q_facts_key.md` (carried from Study 005, one amendment — see that file's *Diff from Study 005*)
 **Segmenter (locked):** spaCy `en_core_web_sm` 3.8.0 sentencizer (spaCy 3.8.14, Python 3.13.13)
 **NER extractor (locked):** spaCy `en_core_web_sm` 3.8.0
