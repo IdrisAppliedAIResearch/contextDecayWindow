@@ -184,6 +184,50 @@ mechanism works as designed, and is then swamped by the volume of terse
 model-generated spans that real output contains. The fixture was necessary and is
 not sufficient — which is itself a finding worth carrying into the report.
 
+## Candidate revisions tested (analysis only — none adopted)
+
+To establish whether the gate is reachable at all, four families of revision were
+evaluated against the same replay data. **None reaches 4 of 4.** The ceiling is
+3 of 4, and `renaissance_art` fails under every variant tested.
+
+| Revision | Gate | civil | art | monetary | marine |
+|---|---|---:|---:|---:|---:|
+| **Pre-registered** — `base/words × weight`, C=3 | **0/4** | 6 | 29 | 36 | 8 |
+| Cap only, C=6 | 1/4 | 6 | 29 | 36 | 8 |
+| Cap only, C=10 | 2/4 | 6 | 29 | 36 | 8 |
+| Cap only, C=20 | 2/4 | 6 | 29 | 36 | 8 |
+| Cap only, C=34 | 3/4 | 6 | 29 | 36 | 8 |
+| `base/√words × weight`, C=3 | 1/4 | 1 | 25 | 17 | 8 |
+| `base/log₂(1+words) × weight`, C=3 | 1/4 | 1 | 26 | 10 | 8 |
+| `base/√words × weight`, C=10 | 2/4 | 1 | 25 | 17 | 8 |
+| User spans only, `base/words`, C=3 | 3/4 | 1 | 11 | 3 | 2 |
+| User spans only, `base/√words`, C=3 | 3/4 | 1 | 12 | 3 | 2 |
+
+Three observations follow.
+
+**Softening the normalization exponent works where the failure is length bias.**
+`√words` moves civil from 6th to 1st and monetary from 36th to 17th — the
+short-span bias is real and this addresses it. It does not rescue art.
+
+**Restricting candidacy to user spans is the strongest single change and is also
+the least trustworthy.** It reaches 3/4 by removing ~90% of the candidate pool.
+The decision record already carries this limitation verbatim: on *this* script the
+planted facts are user-authored, so the change is "conveniently aligned with the
+answer key". It would not generalize to a script with model-authored target facts.
+
+**`renaissance_art` is the binding constraint under every variant.** Its best
+plant rank is 11th even with the entire assistant pool removed. `art_pigment`
+(rank 288) and `art_patron_role` (rank 205) are effectively unreachable. This is
+the same domain whose formation failure drove Study 005's PARTIAL outcome, and the
+risk was recorded at lock: *"Bar 1 may reach 4/4 while Bar 3 fails for the same
+reason as Study 005."* The observed failure is worse than the recorded risk — art
+does not form at all.
+
+Note that 3 of 4 is precisely the outcome Study 005's control produced, and the
+pre-registration raised the bar to 4 of 4 specifically because 3 of 4 is logically
+insufficient to enable Bar 2. Reaching 3/4 by revision would not satisfy the study
+as designed.
+
 ## Status
 
 - S6-T-011 harness: **complete**, read-only compliance verified.
