@@ -165,6 +165,190 @@ def write_no_salient_fact_marker(
     return distilled_id
 
 
+def write_distilled_span_record(
+    conn: sqlite3.Connection,
+    *,
+    span_text: str,
+    source_episode: dict,
+    topic_id: str,
+    topic_label: str,
+    role: str,
+    span_start: int,
+    span_end: int,
+    word_count: int,
+    named_entities: int,
+    numeric_tokens: int,
+    base: int,
+    density: float,
+    salience_score: float,
+    segmenter: str,
+    embedding: np.ndarray,
+    source_episode_ids: list[str],
+    source_turns: list[int],
+    collapsed_episode_ids: list[str],
+    dream_event: int,
+    event_type: str,
+) -> str:
+    """Persist one selected span with full span-level provenance.
+
+    ``salience`` keeps Study 005's meaning (absolute base count) so the column is
+    comparable across studies; the density-scaled score Study 006 ranks on is
+    stored in ``salience_score``.
+    """
+    distilled_id = _stable_distilled_id(
+        topic_label=topic_label,
+        source_turns=source_turns,
+        source_text=f"{span_start}:{span_end}:{role}:{span_text}",
+        dream_event=dream_event,
+        event_type=event_type,
+        status=CONTENT_STATUS,
+    )
+    conn.execute(
+        """
+        INSERT INTO distilled_ltm (
+            id, source_episode_id, topic_id, topic_label, text, embedding,
+            source_episode_ids, source_turns, collapsed_episode_ids,
+            salience, dream_event, event_type, status, created_at,
+            role, span_start, span_end, word_count, named_entities,
+            numeric_tokens, base, density, salience_score, segmenter
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
+                  ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        """,
+        (
+            distilled_id,
+            source_episode["id"],
+            topic_id,
+            topic_label,
+            span_text,
+            np.asarray(embedding, dtype=np.float32).tobytes(),
+            json.dumps(source_episode_ids, separators=(",", ":")),
+            json.dumps(source_turns, separators=(",", ":")),
+            json.dumps(collapsed_episode_ids, separators=(",", ":")),
+            base,
+            dream_event,
+            event_type,
+            CONTENT_STATUS,
+            datetime.now(timezone.utc).isoformat(),
+            role,
+            span_start,
+            span_end,
+            word_count,
+            named_entities,
+            numeric_tokens,
+            base,
+            density,
+            salience_score,
+            segmenter,
+        ),
+    )
+    return distilled_id
+
+
+def get_span_record(conn: sqlite3.Connection, distilled_id: str) -> dict | None:
+    row = conn.execute(
+        """
+        SELECT id, source_episode_id, text, status, role, span_start, span_end
+        FROM distilled_ltm WHERE id = ?
+        """,
+        (distilled_id,),
+    ).fetchone()
+    if row is None:
+        return None
+    columns = [
+        "id",
+        "source_episode_id",
+        "text",
+        "status",
+        "role",
+        "span_start",
+        "span_end",
+    ]
+    return dict(zip(columns, row))
+
+
+def assert_span_record_faithful(
+    conn: sqlite3.Connection,
+    distilled_id: str,
+) -> None:
+    """Assert the record reproduces its source *at the recorded offsets*.
+
+    Stronger than the Study 005 substring check: a record whose text appears
+    somewhere in the source but not at its own recorded offsets is a failure,
+    because the offsets are what the provenance claim rests on.
+    """
+    record = get_span_record(conn, distilled_id)
+    if record is None:
+        raise ValueError(f"Unknown distilled record: {distilled_id}")
+    if record["status"] != CONTENT_STATUS:
+        return
+    if record["span_start"] is None or record["span_end"] is None:
+        raise AssertionError(
+            "Span record is missing the character offsets its provenance "
+            "claim depends on"
+        )
+    sources = get_source_texts(conn, [record["source_episode_id"]])
+    source_text = sources.get(record["source_episode_id"])
+    if source_text is None:
+        raise AssertionError(
+            "Span record references a source episode that is not in the "
+            "raw store"
+        )
+    excerpt = source_text[record["span_start"]:record["span_end"]]
+    if excerpt != record["text"]:
+        raise AssertionError(
+            "Distilled span text does not match its source at the recorded "
+            "character offsets"
+        )
+
+
+def log_span_inventory(
+    conn: sqlite3.Connection,
+    *,
+    dream_event: int,
+    topic_id: str,
+    topic_label: str,
+    rows: list[dict],
+) -> None:
+    if not rows:
+        return
+    logged_at = datetime.now(timezone.utc).isoformat()
+    conn.executemany(
+        """
+        INSERT INTO span_inventory (
+            dream_event, topic_id, topic_label, episode_id, turn_number,
+            role, span_start, span_end, text, word_count, named_entities,
+            numeric_tokens, base, density, salience_score, eligible,
+            rejection_reason, selected, collapsed_into, logged_at
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        """,
+        [
+            (
+                dream_event,
+                topic_id,
+                topic_label,
+                row["episode_id"],
+                row["turn_number"],
+                row["role"],
+                row["span_start"],
+                row["span_end"],
+                row["text"],
+                row["word_count"],
+                row["named_entities"],
+                row["numeric_tokens"],
+                row["base"],
+                row["density"],
+                row["salience_score"],
+                int(row["eligible"]),
+                row["rejection_reason"],
+                int(row["selected"]),
+                row.get("collapsed_into"),
+                logged_at,
+            )
+            for row in rows
+        ],
+    )
+
+
 def mark_episodes_dreamed(
     conn: sqlite3.Connection,
     episode_ids: list[str],
@@ -191,14 +375,19 @@ def log_dream_event(
     marker_written: bool,
     duplicates_collapsed: int,
     inference_calls: int,
+    segmenter: str | None = None,
+    spans_evaluated: int | None = None,
+    spans_eligible: int | None = None,
+    salience_floor: float | None = None,
 ) -> None:
     conn.execute(
         """
         INSERT INTO dream_events (
             turn, topic_id, topic_label, event_type, extractor,
             episodes_evaluated, survivors, records_written, marker_written,
-            duplicates_collapsed, inference_calls, logged_at
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            duplicates_collapsed, inference_calls, logged_at,
+            segmenter, spans_evaluated, spans_eligible, salience_floor
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """,
         (
             turn,
@@ -213,6 +402,10 @@ def log_dream_event(
             duplicates_collapsed,
             inference_calls,
             datetime.now(timezone.utc).isoformat(),
+            segmenter,
+            spans_evaluated,
+            spans_eligible,
+            salience_floor,
         ),
     )
 
