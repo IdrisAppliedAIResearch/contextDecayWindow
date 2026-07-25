@@ -177,21 +177,47 @@ def test_distinct_spans_do_not_collapse():
     assert len(engine.deduplicate([first, second])) == 2
 
 
-def test_cap_limits_selection_to_three():
-    engine = SpanDreamEngine(conn=None)
+def test_cap_limits_selection():
+    """Amendment 001 raised C from 3 to 50; the cap must still bind."""
+    engine = SpanDreamEngine(conn=None, salience_floor=0.0)
     candidates = [
         candidate_from(
             make_span(
                 word_count=6,
-                named_entities=index,
+                named_entities=1 + index % 5,
                 numeric_tokens=1,
                 start=index * 100,
             )
         )
-        for index in range(1, 6)
+        for index in range(engine.PER_TOPIC_CAP + 12)
     ]
 
     assert len(engine.select(candidates)) == engine.PER_TOPIC_CAP
+
+
+def test_floor_is_applied_per_span_not_only_to_the_top_span():
+    """Amendment 001. At C=50 a top-span-only floor would admit sub-floor junk."""
+    engine = SpanDreamEngine(conn=None, salience_floor=0.15)
+    strong = candidate_from(
+        make_span(word_count=6, named_entities=1, numeric_tokens=1, start=0)
+    )
+    weak = candidate_from(
+        make_span(
+            role=ROLE_ASSISTANT,
+            word_count=60,
+            named_entities=1,
+            numeric_tokens=0,
+            start=500,
+        )
+    )
+
+    assert strong.salience >= 0.15
+    assert weak.salience < 0.15
+
+    selected = engine.select([strong, weak])
+
+    assert strong in selected
+    assert weak not in selected
 
 
 def test_all_sub_floor_topic_selects_nothing():
