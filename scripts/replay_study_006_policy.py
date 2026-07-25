@@ -293,9 +293,10 @@ def evaluate(result: dict, floor: float) -> dict:
     domain_hits: dict[str, list] = {}
     for event in result["events"]:
         ranked = event["ranked"]
-        clears = bool(ranked) and ranked[0]["salience"] >= floor
-        selected = ranked[: result["cap"]] if clears else []
-        marker = not clears
+        # Amendment 001: the floor applies per span, then the cap binds.
+        clearing = [span for span in ranked if span["salience"] >= floor]
+        selected = clearing[: result["cap"]]
+        marker = not clearing
 
         hits = []
         for plant in plants:
@@ -366,10 +367,14 @@ def evaluate(result: dict, floor: float) -> dict:
                 s for s in event["ranked"] if s["turn_number"] == source_turn
             ]
             best = min(spans, key=lambda s: s["rank"]) if spans else None
+            clearing_ranks = [
+                span["rank"]
+                for span in event["ranked"]
+                if span["salience"] >= floor
+            ]
             selected_now = bool(
                 best
-                and best["rank"] <= result["cap"]
-                and event["ranked"][0]["salience"] >= floor
+                and best["rank"] in clearing_ranks[: result["cap"]]
             )
             near_misses.append(
                 {

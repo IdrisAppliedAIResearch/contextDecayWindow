@@ -64,6 +64,9 @@ def calculate_span_salience(span: Span) -> tuple[int, float, float]:
         base(s)     = named_entity_count(s) + 2 x numeric_token_count(s)
         density(s)  = base(s) / word_count(s)
         salience(s) = density(s) x source_weight(role)
+
+    Unchanged by Amendment 001: the replay gate failure was traced to the cap,
+    not the formula.
     """
     base = span.named_entities + 2 * span.numeric_tokens
     density = base / span.word_count if span.word_count else 0.0
@@ -114,7 +117,14 @@ class SpanDreamEngine:
 
     MINIMUM_OUTGOING_EPISODES = 3
     DEDUP_THRESHOLD = 0.95
-    PER_TOPIC_CAP = 3
+    #: Amendment 001, raised from the pre-registered 3. Study 005 selected 3
+    #: records from ~30 episodes - a top-10% requirement. Carrying C=3 unchanged
+    #: to span granularity meant selecting 3 from ~300 spans, a top-1%
+    #: requirement, which made selection roughly ten times harder rather than
+    #: easier and was the sole cause of the replay gate failure. Because spans
+    #: are sentences where Study 005 stored whole turns, 50 span records still
+    #: occupy 0.62x the distilled text of Study 005's 12 whole-turn records.
+    PER_TOPIC_CAP = 50
     SALIENCE_FLOOR = 0.15
     END_OF_SESSION_FLUSH_TURN = 111
 
@@ -472,18 +482,28 @@ class SpanDreamEngine:
         return sorted(survivors, key=self._rank_key)
 
     def select(self, survivors: list[SpanCandidate]) -> list[SpanCandidate]:
-        """Rank by salience, cap at C, then apply the coverage floor.
+        """Rank by salience, drop spans below the floor, then cap at C.
 
-        Per the pre-registration: if the topic's top span clears F the selected
-        records are written; if *no* span clears F the caller writes a single
+        The floor is applied **per span**, not only to the topic's top span.
+        Amendment 001: under the pre-registered C = 3 the distinction was almost
+        never observable, because the top three spans in a real topic all cleared
+        F comfortably. At C = 50 it decides the outcome - a top-span-only test
+        would admit up to fifty spans on the strength of the first one, writing
+        bare acknowledgments as facts. Per-span is also what F's own definition
+        asks for: "minimum density-scaled salience to count as a salient fact".
+
+        If no span clears F the caller writes a single `present_no_salient_fact`
         marker instead. A sub-floor span is never promoted to satisfy coverage.
         """
         if not survivors:
             return []
         ranked = sorted(survivors, key=self._rank_key)
-        if ranked[0].salience < self.salience_floor:
-            return []
-        return ranked[: self.PER_TOPIC_CAP]
+        clearing = [
+            candidate
+            for candidate in ranked
+            if candidate.salience >= self.salience_floor
+        ]
+        return clearing[: self.PER_TOPIC_CAP]
 
     @staticmethod
     def _rank_key(candidate: SpanCandidate) -> tuple:

@@ -1,5 +1,12 @@
 # Study 006 — Retrospective Replay Gate (S6-T-011 / S6-T-012)
 
+> **CURRENT STATUS: GATE PASSED under Amendment 001 (C = 3 → 50, floor applied
+> per span).** See *Re-replay under Amendment 001* at the end of this document.
+> Everything above that section records the **original failure** at the
+> pre-registered C = 3 and is retained as the evidence that motivated the
+> amendment. It is not superseded — it is the finding.
+
+
 **Date:** July 25, 2026
 **Pre-registration SHA:** `5def302`
 **Replay input:** `experiments/study_005/runs/study_005_full_001/condition_c/study.db`
@@ -237,3 +244,92 @@ as designed.
 
 Proceeding requires a policy revision that is not derivable from the two locked
 documents, and therefore requires an explicit decision before any further work.
+
+---
+
+# Re-replay under Amendment 001
+
+**Amendment:** `experiments/study_006/amendments/AMENDMENT_001_selection_scale.md`
+**Change:** per-topic cap C = 3 → 50; coverage floor F applied per span rather
+than to the topic's top span only. **Salience formula, source weights, F value,
+eligibility window, dedup threshold, segmenter and extractor all unchanged.**
+
+## Verdict
+
+> ## GATE PASSED — 4 of 4 domains formed.
+
+| Gate criterion | Required | Observed | Result |
+|---|---|---|---|
+| Rubric-critical plant selected per domain | 4 of 4 | **4 of 4** | **PASS** |
+| Non-content spans among selected | 0 | 0 | PASS |
+| Selected records verbatim at recorded offsets | 100% | 100% | PASS |
+| Study 005 near-miss ranks recorded | required | recorded below | PASS |
+
+271 Study 005 artifacts hashed before and after; byte-identical. Read-only
+compliance holds.
+
+| Domain | Eligible spans | Best plant rank | Cap | Margin |
+|---|---:|---:|---:|---:|
+| civil_engineering | 320 | 6 | 50 | 44 |
+| renaissance_art | 393 | 29 | 50 | 21 |
+| monetary_policy | 327 | 36 | 50 | 14 |
+| marine_biology | 177 | 8 | 50 | 42 |
+
+## F is locked at 0.15 (S6-T-013)
+
+The floor sweep now varies with F, confirming the per-span rule is active:
+
+| F | 0.05 | 0.10 | 0.125 | **0.15** | 0.175 | 0.20 | 0.25 | 0.30 |
+|---|---|---|---|---|---|---|---|---|
+| Domains formed | 4/4 | 4/4 | 4/4 | **4/4** | 4/4 | 4/4 | 4/4 | 4/4 |
+| Records written | 200 | 200 | 200 | **200** | 196 | 191 | 170 | 130 |
+
+F = 0.15 sits inside the flat region where the cap binds rather than the floor,
+which is the intended regime: the floor's job is to exclude sub-floor junk and
+trigger the marker on an empty topic, not to control volume. The pre-registered
+value is retained unchanged. **No post-run F changes are permitted.**
+
+## Near-miss rank movement (pre-registered requirement)
+
+| Domain | Source turn | Study 005 rank | Study 006 rank | Selected now |
+|---|---:|---:|---:|---|
+| renaissance_art | 55 | 18 of 30 | **29** of 393 | **yes** |
+| renaissance_art | 56 | 30 of 30 | 101 of 393 | no |
+| renaissance_art | 60 | 19 of 30 | 171 of 393 | no |
+| marine_biology | 100 | 11 of 21 | **1** of 177 | **yes** |
+| marine_biology | 101 | 15 of 21 | **31** of 177 | **yes** |
+| marine_biology | 102 | 18 of 21 | **14** of 177 | **yes** |
+
+Four of the six Study 005 near-misses are now selected. Marine turn 100 moved
+from 11th of 21 turns to **1st of 177 spans**.
+
+## Compression
+
+| | Records | Chars | % of raw store |
+|---|---:|---:|---:|
+| Study 005 (C=3, whole turns) | 12 | 49,785 | 11.04% |
+| Study 006 amended (C=50, spans) | 200 | 31,023 | **6.88%** |
+
+Seventeen times the record count at **0.62×** the distilled text, because spans
+are sentences where Study 005 stored whole turns.
+
+## Standing limitation
+
+C = 50 was chosen using this replay data, so **the gate no longer independently
+validates it** — it validated C = 3 and rejected it, and was then used to select
+the replacement. The amendment records this in full. The genuinely out-of-sample
+checks that remain are the adversarial fixture, which was authored before this
+failure, is unmodified, and still discriminates between the two policies; and the
+live 121-turn run.
+
+Two risks are carried forward unchanged: `renaissance_art` and `monetary_policy`
+have the least margin, and `art_pigment`, `art_patron_role`, `marine_photophores`
+and `marine_feeding` remain unselected even at C = 50 — which is precisely the
+Bar 3 exposure recorded at lock, since Q5 and Q8 depend on those facts.
+
+## Status
+
+- S6-T-011 harness: **complete**.
+- S6-T-012 gate: **PASSED**, 4 of 4.
+- S6-T-013 lock F: **complete** — F = 0.15, unchanged.
+- S6_006: **unblocked**.
