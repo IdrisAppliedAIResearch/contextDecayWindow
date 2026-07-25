@@ -69,6 +69,7 @@ class InferenceProvider:
         if self._initialized:
             return
 
+        self._completion_count = 0
         self._server_url = os.environ.get("CDW_INFERENCE_SERVER_URL", "").rstrip("/")
         if self._server_url:
             self._llm = None
@@ -102,6 +103,7 @@ class InferenceProvider:
         self._initialized = True
 
     def complete(self, prompt: str, suppress_rule_detection: bool = False) -> InferenceResult:
+        self._completion_count = getattr(self, "_completion_count", 0) + 1
         augmented_prompt = self._inject_rule_detection(prompt)
 
         start = time.perf_counter()
@@ -140,6 +142,10 @@ class InferenceProvider:
             contains_rule=contains_rule,
             rule_summary=rule_summary,
         )
+
+    @property
+    def completion_count(self) -> int:
+        return getattr(self, "_completion_count", 0)
 
     def _complete_server(self, prompt: str) -> dict:
         # Qwen's raw completion mode otherwise spends the response budget on a

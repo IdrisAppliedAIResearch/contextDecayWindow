@@ -20,6 +20,7 @@ from src.memory.context_builder import (
     build_tagged_context,
     estimate_tokens,
 )
+from src.memory.distilled_ltm_store import get_distilled_retrieval_rows
 from src.memory.ltm_store import get_ltm_retrieval_rows
 
 
@@ -62,10 +63,19 @@ class RetrievalEngine:
 
     LTM_TOP_M = 5
 
-    def __init__(self, conn, embedding_provider=None, system_prompt=None):
+    def __init__(
+        self,
+        conn,
+        embedding_provider=None,
+        system_prompt=None,
+        ltm_source: str = "promoted",
+    ):
+        if ltm_source not in {"promoted", "distilled"}:
+            raise ValueError(f"Unsupported LTM source: {ltm_source}")
         self.conn = conn
         self._embedding_provider = embedding_provider or embed
         self._system_prompt = system_prompt or "You are a helpful assistant."
+        self._ltm_source = ltm_source
         database_row = conn.execute("PRAGMA database_list").fetchone()
         self._database_path = database_row[2] if database_row else ""
 
@@ -201,7 +211,7 @@ class RetrievalEngine:
         # In-memory SQLite databases cannot be reopened in worker threads.
         # Snapshot both stores on the owning thread, then score concurrently.
         stm_rows = get_all_episodes_with_embeddings(self.conn)
-        ltm_rows = get_ltm_retrieval_rows(self.conn)
+        ltm_rows = self._get_ltm_rows(self.conn)
         return tuple(await asyncio.gather(
             asyncio.to_thread(self._score_stm_rows, query_embedding, stm_rows),
             asyncio.to_thread(self._score_ltm_rows, query_embedding, ltm_rows),
@@ -214,8 +224,13 @@ class RetrievalEngine:
 
     def _query_ltm_tier(self, query_embedding: np.ndarray) -> list[dict]:
         with sqlite3.connect(self._database_path) as conn:
-            rows = get_ltm_retrieval_rows(conn)
+            rows = self._get_ltm_rows(conn)
         return self._score_ltm_rows(query_embedding, rows)
+
+    def _get_ltm_rows(self, conn: sqlite3.Connection) -> list[dict]:
+        if self._ltm_source == "distilled":
+            return get_distilled_retrieval_rows(conn)
+        return get_ltm_retrieval_rows(conn)
 
     def _score_stm_rows(
         self, query_embedding: np.ndarray, rows: list[dict]
@@ -242,15 +257,21 @@ class RetrievalEngine:
             embedding = np.frombuffer(row["embedding"], dtype=np.float32)
             candidates.append({
                 "id": row["id"],
+                "distilled_id": row.get("distilled_id"),
                 "turn_number": row["turn_number"],
                 "topic_id": row["topic_id"],
                 "topic_label": row["topic_label"],
                 "user_message": row["user_message"],
                 "assistant_message": row["assistant_message"],
                 "similarity": cosine_similarity(query_embedding, embedding),
-                "promoted_at_turn": row["promoted_at_turn"],
-                "trigger_type": row["trigger_type"],
-                "triggered_filter": row["triggered_filter"],
+                "promoted_at_turn": row.get("promoted_at_turn"),
+                "trigger_type": row.get("trigger_type"),
+                "triggered_filter": row.get("triggered_filter"),
+                "dream_event": row.get("dream_event"),
+                "event_type": row.get("event_type"),
+                "source_episode_ids": row.get("source_episode_ids", []),
+                "source_turns": row.get("source_turns", []),
+                "salience": row.get("salience"),
             })
         candidates.sort(
             key=lambda item: (-float(item["similarity"]), str(item["id"]))

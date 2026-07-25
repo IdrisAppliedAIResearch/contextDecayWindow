@@ -1,0 +1,57 @@
+{
+  "status": "locked_before_mechanism_log_analysis",
+  "date": "2026-07-22",
+  "inputs": {
+    "script_sha256": "D8BA73FD02BFD41BEC156904FB6A3328BBED3D0DA8BFF05E4667D2E450752F01",
+    "fact_key_sha256": "FD8EEFD59C7A5EFA1FB3D80140B4498433153D9AB80A15C504FB11F86C834D82",
+    "treatment_database_sha256": "C98EECAFCB4D579F671694C4BB28481E0D24D6D48D6D6A81BC66200F312AF04C",
+    "control_manifest_sha256": "5CA2CC65E29ACE297DB05E207202E3C2A6975FBDED3B3FEFCC65B1A78397628D",
+    "control_responses_sha256": "F569736814C4E524EE5C6F327A10A11205F49D85E2AFC81A540998A73215D560",
+    "treatment_responses_sha256": "585FC42B157470395CC6E93CB740E971A901BDCAD173791E1B72880FE6CB0A68"
+  },
+  "run_completeness": {
+    "control_turns": 121,
+    "treatment_turns": 121,
+    "control_peak_context_tokens": 10006,
+    "treatment_peak_context_tokens": 16171,
+    "context_ceiling_tokens": 40000,
+    "strict_monitor_abort": false
+  },
+  "same_seed_prefix": {
+    "turns_checked": 30,
+    "constructed_prompt_byte_matches": 30,
+    "assistant_response_byte_matches": 30,
+    "pass": true
+  },
+  "formation": {
+    "extractor": "capitalized_sequence_fallback",
+    "domains_present": 2,
+    "required_domains": 3,
+    "all_four_domains_present": false,
+    "domain_presence": {
+      "civil engineering": true,
+      "renaissance art": false,
+      "monetary policy": true,
+      "marine biology": false
+    },
+    "present_fact_ids": {
+      "civil engineering": ["civil_steel", "civil_load"],
+      "renaissance art": [],
+      "monetary policy": ["monetary_taylor"],
+      "marine biology": []
+    },
+    "content_records": 12,
+    "faithful_records": 12,
+    "faithfulness": 1.0,
+    "non_content_records": 0,
+    "marker_records": 0,
+    "bar_1_pass": false
+  },
+  "scores": {
+    "control_q1_q13": 12.0,
+    "control_q14": 0.0,
+    "treatment_q1_q13": 11.0,
+    "treatment_q11": 0.0,
+    "treatment_q14": 0.5
+  }
+}

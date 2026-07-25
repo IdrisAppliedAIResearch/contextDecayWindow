@@ -76,7 +76,7 @@ class TestStoreRule:
         if os.path.isfile(self.db_path):
             os.unlink(self.db_path)
 
-    def test_returns_valid_uuid(self):
+    def test_returns_deterministic_uuid(self):
         self._setup_db()
         try:
             embedding = np.zeros(1024, dtype=np.float32)
@@ -84,7 +84,13 @@ class TestStoreRule:
                 self.conn, "always use bullet points", "Yes, I will.", embedding, 1
             )
             rule_id = store_rule(self.conn, episode_id, "Always use bullet points", 1)
-            uuid_mod.UUID(rule_id, version=4)
+            assert uuid_mod.UUID(rule_id).version == 5
+            assert rule_id == str(
+                uuid_mod.uuid5(
+                    uuid_mod.NAMESPACE_URL,
+                    "contextDecayWindow/rule/1/Always use bullet points",
+                )
+            )
         finally:
             self._teardown_db()
 
