@@ -34,4 +34,27 @@
 - Next target: dream-cleaning/factual-salience and domain-diversity promotion, plus a tagged/read-off ablation
 - Active LTM retrieval is implemented but not validated as beneficial
 
-**Last updated:** July 21, 2026
+### Study 005 - Complete (PARTIAL)
+
+- Accepted treatment: `study_005_full_001`; seeded Study 004 control:
+  `promotion_seeded_001`
+- Rubric: treatment 11.0 / 13.0 and Q14 0.5; control 12.0 / 13.0 and
+  Q14 0.0
+- Bars: formation failed; breadth not evaluable; targeted non-regression
+  failed
+- Determinism: 30/30 treatment/control prefix prompts and responses matched
+  byte-for-byte under seed 5005
+- Dreaming: four events at turns 31, 61, 91, and 111; 12 distilled records;
+  100% faithful; zero non-content; zero inference calls
+- Formation coverage: 2/4 locked domains, civil and monetary; art and marine
+  plants were excluded by the top-three salience cap
+- Compression: 12/111 dreamed episodes retained (10.81%)
+- Primary failure: whole user/assistant episode scoring rewarded long,
+  number-rich generated answers over concise user-planted facts
+- Next target: atomic extractive spans with role-aware or length-normalized
+  factual selection; retrieval diversity remains deferred until formation
+  passes
+- Active LTM retrieval remains mechanically implemented but not functionally
+  validated
+
+**Last updated:** July 22, 2026

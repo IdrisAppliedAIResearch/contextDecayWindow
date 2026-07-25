@@ -69,13 +69,19 @@ class IterativeRunner(BaseRunner):
 
         ltm_context_episodes = [{
             "id": ep["id"],
+            "distilled_id": ep.get("distilled_id"),
             "turn_number": ep["turn_number"],
             "topic_label": ep.get("topic_label", ep.get("topic_id", "")),
             "similarity": ep["similarity"],
             "provenance": ep["provenance"],
-            "promoted_at_turn": ep["promoted_at_turn"],
-            "trigger_type": ep["trigger_type"],
+            "promoted_at_turn": ep.get("promoted_at_turn"),
+            "trigger_type": ep.get("trigger_type"),
             "triggered_filter": ep.get("triggered_filter"),
+            "dream_event": ep.get("dream_event"),
+            "event_type": ep.get("event_type"),
+            "source_episode_ids": ep.get("source_episode_ids", []),
+            "source_turns": ep.get("source_turns", []),
+            "salience": ep.get("salience"),
         } for ep in retrieval_result.retrieved_ltm_episodes]
         arbitration = retrieval_result.arbitration
 

@@ -5,11 +5,17 @@ import numpy as np
 
 from src.db.schema import init_db
 from src.embeddings.provider import embed
-from src.inference.provider import InferenceProvider, detect_explicit_persistent_rule
+from src.inference.provider import (
+    RESPONSE_BUDGET,
+    InferenceProvider,
+    detect_explicit_persistent_rule,
+)
 from src.db.episode import get_episode_by_id
+from src.memory.dream_engine import DreamEngine
 from src.memory.promotion_engine import PromotionEngine
 from src.memory.retrieval_engine import RetrievalEngine
 from src.memory.topic_manager import TopicManager
+from src.observability.dream_analysis_writer import DreamAnalysisWriter
 from src.observability.observer import Observer
 from src.observability.ltm_analysis_writer import LtmAnalysisWriter
 from src.observability.run_config import RunConfig
@@ -36,7 +42,21 @@ class StudyRunner:
     PROBE_TURN_START = PROBE_TURN_START
     PROBE_TURN_END = PROBE_TURN_END
 
-    def __init__(self, script_path: str, study_dir: str, run_id: str = "run_001", minimum_turns: int = 30, max_turns: int | None = None):
+    def __init__(
+        self,
+        script_path: str,
+        study_dir: str,
+        run_id: str = "run_001",
+        minimum_turns: int = 30,
+        max_turns: int | None = None,
+        memory_formation: str = "promotion",
+        context_capacity: int | None = None,
+        strict_monitoring: bool = False,
+    ):
+        if memory_formation not in {"promotion", "dreaming"}:
+            raise ValueError(
+                f"Unsupported memory formation mode: {memory_formation}"
+            )
         self._check_env_vars()
         self.script = load_script(script_path, minimum_turns=minimum_turns)
         self.system_prompt = self.script["system_prompt"]
@@ -56,6 +76,9 @@ class StudyRunner:
         )
         self.study_dir = study_dir
         self.run_id = run_id
+        self.memory_formation = memory_formation
+        self.context_capacity = context_capacity
+        self.strict_monitoring = strict_monitoring
         self._inference_provider = InferenceProvider()
         self._rubric_data = {}
 
@@ -90,11 +113,23 @@ class StudyRunner:
         observer.init_run()
 
         runner = self._create_runner(condition, run_config, observer)
-        promotion_engine = None
-        ltm_writer = None
+        formation_engine = None
+        formation_writer = None
         if condition == "iterative" and hasattr(runner, "_conn"):
-            promotion_engine = PromotionEngine(runner._conn, self._inference_provider)
-            ltm_writer = LtmAnalysisWriter(output_dir)
+            if getattr(self, "memory_formation", "promotion") == "dreaming":
+                formation_engine = DreamEngine(
+                    runner._conn,
+                    inference_call_count=lambda: (
+                        self._inference_provider.completion_count
+                    ),
+                )
+                formation_writer = DreamAnalysisWriter(output_dir)
+            else:
+                formation_engine = PromotionEngine(
+                    runner._conn,
+                    self._inference_provider,
+                )
+                formation_writer = LtmAnalysisWriter(output_dir)
         previous_prompt = None
         previous_episode_id = None
         rubric_responses = []
@@ -102,6 +137,7 @@ class StudyRunner:
         peak_tokens = 0
         turn_count = 0
         flush_completed = False
+        consecutive_invalid_responses = 0
         promotion_flush_turn = getattr(
             self, "_promotion_flush_turn", self.PROMOTION_TURN_END
         )
@@ -115,7 +151,7 @@ class StudyRunner:
         for turn_data in self.turns:
             turn_number = turn_data["turn"]
             user_message = turn_data["user"]
-            if condition == "iterative" and promotion_engine:
+            if condition == "iterative" and formation_engine:
                 self._assert_flush_completed_before_turn(
                     turn_number,
                     flush_completed,
@@ -123,6 +159,16 @@ class StudyRunner:
                 )
 
             constructed_prompt, record = runner.build_context(user_message, turn_number)
+            context_capacity = getattr(self, "context_capacity", None)
+            if (
+                context_capacity
+                and record.estimated_tokens > int(context_capacity * 0.8)
+            ):
+                raise RuntimeError(
+                    f"Turn {turn_number} estimated context "
+                    f"{record.estimated_tokens} exceeds 80% of "
+                    f"{context_capacity}"
+                )
 
             if condition == "iterative":
                 full_prompt = f"{constructed_prompt}\n\nAssistant:"
@@ -140,6 +186,23 @@ class StudyRunner:
                     result.contains_rule = True
                     result.rule_summary = fallback_rule
             assistant_message = result.assistant_message
+            invalid_response = (
+                not assistant_message.strip()
+                or (result.output_tokens or 0) >= RESPONSE_BUDGET
+            )
+            consecutive_invalid_responses = (
+                consecutive_invalid_responses + 1
+                if invalid_response
+                else 0
+            )
+            if (
+                getattr(self, "strict_monitoring", False)
+                and consecutive_invalid_responses >= 3
+            ):
+                raise RuntimeError(
+                    "Three consecutive responses were empty or reached the "
+                    "registered response budget"
+                )
 
             record.tokens_per_second = result.tokens_per_second
             record.time_to_first_token = result.time_to_first_token
@@ -189,31 +252,44 @@ class StudyRunner:
                 record.consolidation_occurred = assignment.consolidation is not None
                 record.consolidation_result = assignment.consolidation
                 if (
-                    promotion_engine
+                    formation_engine
                     and assignment.stored_episode_id
                     and turn_number <= promotion_flush_turn
                 ):
-                    summary = promotion_engine.process_transition(
+                    summary = formation_engine.process_transition(
                         previous_episode_id, assignment.stored_episode_id, turn_number
                     )
                     if summary:
-                        ltm_writer.write_promotion(summary)
-                    elif previous_episode_id is not None and assignment.consolidation:
+                        self._write_formation_summary(
+                            formation_writer,
+                            summary,
+                            runner._conn,
+                        )
+                    elif (
+                        getattr(self, "memory_formation", "promotion")
+                        == "promotion"
+                        and previous_episode_id is not None
+                        and assignment.consolidation
+                    ):
                         previous_after = get_episode_by_id(runner._conn, previous_episode_id)
                         current_after = get_episode_by_id(runner._conn, assignment.stored_episode_id)
                         if previous_after and current_after and previous_topic_before != previous_after["topic_id"] and previous_after["topic_id"] == current_after["topic_id"]:
-                            ltm_writer.write_merge_relabel(
+                            formation_writer.write_merge_relabel(
                                 turn_number, previous_episode_id, assignment.stored_episode_id,
                                 previous_topic_before, previous_after["topic_id"], current_after["topic_id"],
                             )
                     if turn_number == promotion_flush_turn:
-                        flush_summary = promotion_engine.process_flush(
+                        flush_summary = formation_engine.process_flush(
                             assignment.stored_episode_id,
                             turn_number,
                             expected_flush_turn=promotion_flush_turn,
                         )
                         if flush_summary:
-                            ltm_writer.write_promotion(flush_summary)
+                            self._write_formation_summary(
+                                formation_writer,
+                                flush_summary,
+                                runner._conn,
+                            )
                         flush_completed = True
                 previous_episode_id = assignment.stored_episode_id
             else:
@@ -245,7 +321,7 @@ class StudyRunner:
         )
         if turn_number >= first_probe and not flush_completed:
             raise RuntimeError(
-                "Turn 111 promotion flush must complete before the probe block"
+                "Turn 111 memory-formation flush must complete before the probe block"
             )
 
     def _create_runner(self, condition: str, run_config: RunConfig, observer) -> object:
@@ -261,10 +337,22 @@ class StudyRunner:
                 conn,
                 embedding_provider=embed,
                 system_prompt=self.system_prompt,
+                ltm_source=(
+                    "distilled"
+                    if getattr(self, "memory_formation", "promotion")
+                    == "dreaming"
+                    else "promoted"
+                ),
             )
             return IterativeRunner(conn, embed, topic_manager, retrieval_engine, observer)
         else:
             raise ValueError(f"Unknown condition: {condition}")
+
+    def _write_formation_summary(self, writer, summary, conn) -> None:
+        if getattr(self, "memory_formation", "promotion") == "dreaming":
+            writer.write_dream(summary, conn)
+        else:
+            writer.write_promotion(summary)
 
     def _condition_output_name(self, condition: str) -> str:
         output_names = getattr(self, "CONDITION_OUTPUT_NAMES", {})

@@ -148,6 +148,25 @@ def _render_episode_block(name: str, episodes: list, tier: str) -> str:
                 attributes.append(
                     f'trigger_type="{_attribute(episode["trigger_type"])}"'
                 )
+            if episode.get("distilled_id"):
+                attributes.append(
+                    f'distilled_id="{_attribute(episode["distilled_id"])}"'
+                )
+            if episode.get("dream_event") is not None:
+                attributes.append(
+                    f'dream_event="{_attribute(episode["dream_event"])}"'
+                )
+            if episode.get("event_type"):
+                attributes.append(
+                    f'event_type="{_attribute(episode["event_type"])}"'
+                )
+            if episode.get("source_turns"):
+                source_turns = ",".join(
+                    str(turn) for turn in episode["source_turns"]
+                )
+                attributes.append(
+                    f'source_turns="{_attribute(source_turns)}"'
+                )
         lines.append(f"  <episode {' '.join(attributes)}>")
         lines.append(
             f"    <user_message>{_text(episode.get('user_message', ''))}</user_message>"

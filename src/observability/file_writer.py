@@ -80,6 +80,12 @@ class FileWriter:
                 "promoted_at_turn",
                 "trigger_type",
                 "triggered_filter",
+                "distilled_id",
+                "dream_event",
+                "event_type",
+                "source_episode_ids",
+                "source_turns",
+                "salience",
             ])
 
         self._create_csv_headers(metrics_dir)
@@ -452,9 +458,25 @@ class FileWriter:
                     episode["topic_label"],
                     episode["similarity"],
                     episode["provenance"],
-                    episode["promoted_at_turn"],
-                    episode["trigger_type"],
+                    episode.get("promoted_at_turn") or "",
+                    episode.get("trigger_type") or "",
                     episode.get("triggered_filter") or "",
+                    episode.get("distilled_id") or "",
+                    episode.get("dream_event")
+                    if episode.get("dream_event") is not None
+                    else "",
+                    episode.get("event_type") or "",
+                    json.dumps(
+                        episode.get("source_episode_ids", []),
+                        separators=(",", ":"),
+                    ),
+                    json.dumps(
+                        episode.get("source_turns", []),
+                        separators=(",", ":"),
+                    ),
+                    episode.get("salience")
+                    if episode.get("salience") is not None
+                    else "",
                 ])
 
     def _write_snapshot(self, record: TurnRecord) -> None:
