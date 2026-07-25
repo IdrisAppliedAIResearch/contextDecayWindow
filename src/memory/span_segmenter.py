@@ -59,6 +59,10 @@ _BOUNDARY = re.compile(r"(?<=[.!?])[\"')\]]*\s+(?=[\"'(\[]*[A-Z0-9])")
 _TRAILING_WORD = re.compile(r"([A-Za-z][A-Za-z.]*)[\"')\]]*\s*$")
 _WORD = re.compile(r"[0-9A-Za-zÀ-ÖØ-öø-ÿ][\w'’-]*")
 
+# Leading list scaffolding: "1.", "2)", "-", "*", bullet. Stripped from the front
+# of a block by advancing the offset, never by rewriting text.
+_LEADING_LIST_MARKER = re.compile(r"[ \t]*(?:\d+[.)]|[-*•])[ \t]+")
+
 
 @dataclass(frozen=True)
 class Span:
@@ -158,6 +162,35 @@ def _trim(text: str, start: int, end: int) -> tuple[int, int] | None:
     while end > start and text[end - 1].isspace():
         end -= 1
     return (start, end) if end > start else None
+
+
+def content_blocks(text: str, start: int, end: int) -> list[tuple[int, int]]:
+    """Split a region into line-level blocks with list scaffolding removed.
+
+    Sentence segmenters treat a numbered-list ordinal as terminal punctuation, so
+    on list-formatted output the ordinal of item *n+1* is absorbed into the span
+    for item *n*. That produced spans like ``"Tensile Strength: 620-780 MPa\\n
+    3."`` - not a sentence, and carrying a borrowed numeral that inflated its
+    salience.
+
+    The study's own conversational rule requires the assistant to answer in
+    numbered lists, so this shape is guaranteed rather than incidental. Splitting
+    on line breaks first, then dropping any leading marker, keeps each list item
+    a self-contained unit. Only offsets move; the text is never rewritten, so
+    span offsets remain exact into the source.
+    """
+    blocks = []
+    cursor = start
+    while cursor < end:
+        newline = text.find("\n", cursor, end)
+        line_end = end if newline == -1 else newline
+        marker = _LEADING_LIST_MARKER.match(text, cursor, line_end)
+        line_start = marker.end() if marker else cursor
+        trimmed = _trim(text, line_start, line_end)
+        if trimmed is not None:
+            blocks.append(trimmed)
+        cursor = line_end + 1
+    return blocks
 
 
 def _regex_sentence_bounds(text: str) -> list[tuple[int, int]]:
@@ -271,32 +304,37 @@ def segment_episode(episode: dict) -> list[Span]:
     text = episode["text"]
     spans: list[Span] = []
     for role, segment_start, segment_end in role_segments(episode):
-        segment_text = text[segment_start:segment_end]
-        for local_start, local_end in _SEGMENTER.sentence_bounds(segment_text):
-            start = segment_start + local_start
-            end = segment_start + local_end
-            span_text = text[start:end]
-            word_count = _SEGMENTER.count_words(span_text)
-            named_entities = _SEGMENTER.count_entities(span_text)
-            numeric_tokens = count_numeric_tokens(span_text)
-            eligible, reason = evaluate_eligibility(
-                word_count, named_entities, numeric_tokens
-            )
-            spans.append(
-                Span(
-                    text=span_text,
-                    start=start,
-                    end=end,
-                    episode_id=episode["id"],
-                    turn_number=episode["turn_number"],
-                    role=role,
-                    word_count=word_count,
-                    named_entities=named_entities,
-                    numeric_tokens=numeric_tokens,
-                    eligible=eligible,
-                    rejection_reason=reason,
+        for block_start, block_end in content_blocks(
+            text, segment_start, segment_end
+        ):
+            block_text = text[block_start:block_end]
+            for local_start, local_end in _SEGMENTER.sentence_bounds(
+                block_text
+            ):
+                start = block_start + local_start
+                end = block_start + local_end
+                span_text = text[start:end]
+                word_count = _SEGMENTER.count_words(span_text)
+                named_entities = _SEGMENTER.count_entities(span_text)
+                numeric_tokens = count_numeric_tokens(span_text)
+                eligible, reason = evaluate_eligibility(
+                    word_count, named_entities, numeric_tokens
                 )
-            )
+                spans.append(
+                    Span(
+                        text=span_text,
+                        start=start,
+                        end=end,
+                        episode_id=episode["id"],
+                        turn_number=episode["turn_number"],
+                        role=role,
+                        word_count=word_count,
+                        named_entities=named_entities,
+                        numeric_tokens=numeric_tokens,
+                        eligible=eligible,
+                        rejection_reason=reason,
+                    )
+                )
     return spans
 
 
