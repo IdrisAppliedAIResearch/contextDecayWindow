@@ -19,9 +19,11 @@ from src.runners.iterative_runner import IterativeRunner
 
 
 HEADER = [
-    "turn", "b_ltm", "k_min", "topics_present", "topic_count",
+    "turn", "b_ltm", "k_min", "floor_ranking", "fill_cap", "render_mode",
+    "topics_present", "topic_count",
     "floor_selected_per_topic", "floor_selected", "fill_selected",
-    "containment_drops", "refills", "collapsed_to_episode", "ltm_chars_used",
+    "fill_selected_per_topic", "fill_cap_skips", "containment_drops",
+    "refills", "collapsed_to_episode", "ltm_chars_used",
     "ltm_records_used", "budget_utilization", "chars_per_topic", "selection",
 ]
 

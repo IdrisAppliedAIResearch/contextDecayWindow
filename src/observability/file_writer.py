@@ -76,11 +76,16 @@ class FileWriter:
                 "turn",
                 "b_ltm",
                 "k_min",
+                "floor_ranking",
+                "fill_cap",
+                "render_mode",
                 "topics_present",
                 "topic_count",
                 "floor_selected_per_topic",
                 "floor_selected",
                 "fill_selected",
+                "fill_selected_per_topic",
+                "fill_cap_skips",
                 "containment_drops",
                 "refills",
                 "collapsed_to_episode",
@@ -113,6 +118,11 @@ class FileWriter:
                 "source_episode_ids",
                 "source_turns",
                 "salience",
+                "render_mode",
+                "role",
+                "span_start",
+                "span_end",
+                "rendered_density",
             ])
 
         self._create_csv_headers(metrics_dir)
@@ -482,11 +492,20 @@ class FileWriter:
                 record.turn_number,
                 record.budget_b_ltm,
                 record.budget_k_min,
+                record.budget_floor_ranking,
+                (
+                    record.budget_fill_cap
+                    if record.budget_fill_cap is not None
+                    else ""
+                ),
+                record.budget_render_mode,
                 json.dumps(record.budget_topics_present, separators=compact),
                 len(record.budget_topics_present),
                 json.dumps(record.budget_floor_per_topic, separators=compact),
                 sum(record.budget_floor_per_topic.values()),
                 record.budget_fill_selected,
+                json.dumps(record.budget_fill_per_topic, separators=compact),
+                record.budget_cap_skips,
                 record.budget_containment_drops,
                 record.budget_refills,
                 record.budget_collapsed_to_episode,
@@ -532,6 +551,23 @@ class FileWriter:
                     episode.get("salience")
                     if episode.get("salience") is not None
                     else "",
+                    episode.get("render_mode", "episode"),
+                    episode.get("role") or "",
+                    (
+                        episode.get("span_start")
+                        if episode.get("span_start") is not None
+                        else ""
+                    ),
+                    (
+                        episode.get("span_end")
+                        if episode.get("span_end") is not None
+                        else ""
+                    ),
+                    (
+                        episode.get("rendered_density")
+                        if episode.get("rendered_density") is not None
+                        else ""
+                    ),
                 ])
 
     def _write_snapshot(self, record: TurnRecord) -> None:

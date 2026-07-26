@@ -13,10 +13,12 @@ while STM continued emitting whole episodes. STM's path is unchanged.
 from dataclasses import dataclass, field
 
 from src.memory.retrieval_budget import (
-    PHASE_FLOOR,
+    FLOOR_SIMILARITY,
+    RENDER_EPISODE,
+    RENDER_SPAN,
     BudgetSelection,
     episode_key,
-    rendered_cost,
+    selection_key,
     select_within_budget,
 )
 
@@ -42,6 +44,9 @@ def arbitrate_budgeted(
     stm_block_episode_ids: set[str],
     ltm_budget: int,
     ltm_k_min: int,
+    floor_ranking: str = FLOOR_SIMILARITY,
+    fill_cap: int | None = None,
+    render_mode: str = RENDER_EPISODE,
 ) -> ArbitrationResult:
     """Study 007 tier-budgeted assembly.
 
@@ -64,6 +69,21 @@ def arbitrate_budgeted(
 
     STM is untouched: it contributes exactly the candidates it was given.
     """
+    if render_mode == RENDER_SPAN:
+        missing = [
+            candidate.get("distilled_id")
+            for candidate in ltm_candidates
+            if candidate.get("span_text") is None
+            or candidate.get("span_start") is None
+            or candidate.get("span_end") is None
+            or not candidate.get("role")
+        ]
+        if missing:
+            raise ValueError(
+                "Span rendering requires text, role, and recorded offsets "
+                f"for every candidate; invalid records: {missing[:5]}"
+            )
+
     dropped = [
         candidate
         for candidate in ltm_candidates
@@ -76,26 +96,44 @@ def arbitrate_budgeted(
         budget=ltm_budget,
         k_min=ltm_k_min,
         excluded_episode_ids=stm_block_episode_ids,
+        floor_ranking=floor_ranking,
+        fill_cap=fill_cap,
+        render_mode=render_mode,
     )
 
     # What the containment drop bought: selections admitted that a budget spent
     # on duplicated STM text could not have afforded.
     unconstrained = select_within_budget(
-        ltm_candidates, budget=ltm_budget, k_min=ltm_k_min
+        ltm_candidates,
+        budget=ltm_budget,
+        k_min=ltm_k_min,
+        floor_ranking=floor_ranking,
+        fill_cap=fill_cap,
+        render_mode=render_mode,
     )
     refills = max(0, len(selection.selected) - len(unconstrained.selected))
 
     merged: dict[str, dict] = {}
     provenance: dict[str, set[str]] = {}
     for candidate in stm_candidates:
-        key = episode_key(candidate)
+        key = f"episode:{episode_key(candidate)}"
         merged.setdefault(key, dict(candidate))
         provenance.setdefault(key, set()).add("stm")
     for candidate in selection.selected:
-        key = episode_key(candidate)
+        unit_key = selection_key(candidate, render_mode)
+        key = (
+            f"episode:{unit_key}"
+            if render_mode == RENDER_EPISODE
+            else f"span:{unit_key}"
+        )
         existing = merged.get(key)
         # LTM carries the provenance metadata the tagged renderer needs.
-        merged[key] = {**existing, **candidate} if existing else dict(candidate)
+        ltm_candidate = {**candidate, "render_mode": render_mode}
+        merged[key] = (
+            {**existing, **ltm_candidate}
+            if existing
+            else ltm_candidate
+        )
         provenance.setdefault(key, set()).add("ltm")
 
     final = []
@@ -105,9 +143,17 @@ def arbitrate_budgeted(
             "both" if sources == {"stm", "ltm"} else next(iter(sources))
         )
         final.append(candidate)
-    final.sort(key=lambda item: (-float(item["similarity"]), str(item["id"])))
+    final.sort(
+        key=lambda item: (
+            -float(item["similarity"]),
+            selection_key(item, item.get("render_mode", RENDER_EPISODE)),
+        )
+    )
 
-    final_ids = [episode["id"] for episode in final]
+    final_ids = [
+        selection_key(episode, episode.get("render_mode", RENDER_EPISODE))
+        for episode in final
+    ]
     assert len(final_ids) == len(set(final_ids)), (
         "Arbitration emitted a duplicate episode_id"
     )
@@ -116,7 +162,10 @@ def arbitrate_budgeted(
     assert not evicted_floor, (
         f"Floor selections were evicted from the final set: {sorted(evicted_floor)}"
     )
-    assert not (containment_episodes & selection.floor_ids), (
+    assert not any(
+        episode_key(candidate) in containment_episodes
+        for candidate in selection.selected
+    ), (
         "A containment-dropped episode was admitted as a floor selection"
     )
 

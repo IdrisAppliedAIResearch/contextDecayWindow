@@ -108,10 +108,29 @@ and explicitly accepted. The audit is
 
 ## 7. Stage-interface re-derivation
 
-The downstream-consumer re-derivation required by S8-T-010 is appended here
-after Factor R is implemented and before Gate 3. It must cover renderer,
-budgeting, containment, logs, context projections, and ceiling monitoring for
-both rendering units.
+Factor R changes one stage interface from "selected distilled records resolve to
+source episodes" to "selected distilled records may render independently as
+spans." Every downstream consumer is re-derived below.
+
+| # | Consumer | Episode arms A/B | Span arms C/D | Resolution |
+|---:|---|---|---|---|
+| 1 | Distilled retrieval query | Source episode text and span embedding | Also needs distilled text, role, offsets, counts, and density | Query is additive; carried fields and ordering remain intact. |
+| 2 | Selection identity | Source episode ID; multiple spans collapse | Distilled ID; spans from one episode remain independent | `selection_key` is rendering-aware and is the authority for dedup, phases, and floor protection. |
+| 3 | Floor density | Recomputed over delivered user + assistant episode text | Uses formation's persisted span density | Both call the shared `density_score`; similarity remains the tiebreaker. |
+| 4 | Character cost | User-message plus assistant-message characters | Verbatim span characters | `rendered_cost` dispatches on rendering mode; all arms retain `B_ltm = 32,000`. |
+| 5 | Containment | Drop an LTM episode already in STM by source episode ID | Drop every span whose recorded source episode is already in STM; offsets, role, and text are mandatory | Filtering occurs before floor/fill so replacement follows the same phase and topic rules. |
+| 6 | Arbitration merge | STM and LTM can merge as `both` on episode identity | Span identity is disjoint from STM episode identity; containment prevents redundant source overlap | Final uniqueness and floor-protection assertions use rendered-unit identity. |
+| 7 | Tagged renderer | Existing `<episode>` with user and assistant children | `<span>` with verbatim text and distilled/source/turn/role/topic/dream-event/offset provenance | The five outer context blocks and their order are unchanged. |
+| 8 | Budget utilization | Usually a small number of large units | Usually many small units | Utilization is measured in content characters in both modes; item count is observational, not a cap. |
+| 9 | Context-size projection | 32,000 content characters plus episode tag overhead | 32,000 content characters plus more per-span provenance overhead | Gate 2 records actual rendered prompt sizes; the carried live monitor still aborts above 80% of 50,000 tokens. |
+| 10 | Retrieval logs | Episode ID is the rendered unit | Distilled ID is the rendered unit; source episode remains provenance | Logs now record rendered-unit ID, mode, density, role, offsets, fill allocation, cap skips, and unchanged source IDs. |
+| 11 | Retrieval metadata | Update the source episode's retrieval timestamp | Also update each selected span's source episode | Runtime database updates continue to receive raw source episode IDs, deduplicated after context assembly. |
+| 12 | Formation | Produces the locked span records | Identical | No formation code path depends on rendering mode; only the shared density formula was extracted without changing its arithmetic. |
+
+**Result:** no downstream consumer uses source-episode identity or episode text
+unconditionally for an LTM unit. STM, topic assignment, consolidation,
+formation thresholds, salience weighting, `C = 50`, and the inference path are
+unchanged.
 
 ## 8. Authorization
 

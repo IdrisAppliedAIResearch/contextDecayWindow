@@ -33,6 +33,7 @@ from src.memory.distilled_ltm_store import (
     write_distilled_span_record,
     write_no_salient_fact_marker,
 )
+from src.memory.informativeness import density_score
 from src.memory.span_segmenter import (
     ROLE_ASSISTANT,
     ROLE_USER,
@@ -69,7 +70,11 @@ def calculate_span_salience(span: Span) -> tuple[int, float, float]:
     not the formula.
     """
     base = span.named_entities + 2 * span.numeric_tokens
-    density = base / span.word_count if span.word_count else 0.0
+    density = density_score(
+        span.named_entities,
+        span.numeric_tokens,
+        span.word_count,
+    )
     return base, density, density * source_weight(span.role)
 
 
