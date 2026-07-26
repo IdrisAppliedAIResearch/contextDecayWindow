@@ -61,3 +61,9 @@ before mapping unseal or full-run mechanism-log inspection.
 The registered bars and Bar 1 thresholds are unchanged. Digest G3 is not
 applicable because digest carry is false. This amendment does not replace live
 inference with replay or reduce the 1,000-turn count.
+
+## Lock Hash Correction
+
+Before calibration, the lock was corrected from raw working-tree bytes to
+UTF-8 decoded, LF-normalized SHA-256. This is the cross-platform rule already
+used by the study runners. No script, rubric, or plant-key content changed.

@@ -1,0 +1,998 @@
+{
+  "g1_retrieval": {
+    "passed": true,
+    "threshold": 0.5,
+    "episode_count": 986,
+    "embedding_cache_entries": 151,
+    "latency_ms_mean": 52.11179166023309,
+    "latency_ms_max": 59.08360000466928,
+    "peak_estimated_k_tokens": 8055,
+    "probes": {
+      "Q1": {
+        "target_domain": "structural",
+        "selected_count": 87,
+        "selected_chars": 23875,
+        "estimated_k_tokens": 5968,
+        "target_plant_turns": [
+          1,
+          40
+        ],
+        "target_fact_source_recovered": true
+      },
+      "Q2": {
+        "target_domain": "epidemiology",
+        "selected_count": 92,
+        "selected_chars": 24975,
+        "estimated_k_tokens": 6243,
+        "target_plant_turns": [
+          83,
+          122
+        ],
+        "target_fact_source_recovered": true
+      },
+      "Q3": {
+        "target_domain": "archives",
+        "selected_count": 119,
+        "selected_chars": 32220,
+        "estimated_k_tokens": 8055,
+        "target_plant_turns": [
+          164,
+          203
+        ],
+        "target_fact_source_recovered": true
+      },
+      "Q4": {
+        "target_domain": "battery",
+        "selected_count": 91,
+        "selected_chars": 24014,
+        "estimated_k_tokens": 6003,
+        "target_plant_turns": [
+          246,
+          288
+        ],
+        "target_fact_source_recovered": true
+      },
+      "Q5": {
+        "target_domain": "monetary",
+        "selected_count": 92,
+        "selected_chars": 24195,
+        "estimated_k_tokens": 6048,
+        "target_plant_turns": [
+          330,
+          369
+        ],
+        "target_fact_source_recovered": true
+      },
+      "Q6": {
+        "target_domain": "astronomy",
+        "selected_count": 97,
+        "selected_chars": 26295,
+        "estimated_k_tokens": 6573,
+        "target_plant_turns": [
+          412,
+          451
+        ],
+        "target_fact_source_recovered": true
+      },
+      "Q7": {
+        "target_domain": "ecology",
+        "selected_count": 90,
+        "selected_chars": 23435,
+        "estimated_k_tokens": 5858,
+        "target_plant_turns": [
+          493,
+          535
+        ],
+        "target_fact_source_recovered": true
+      },
+      "Q8": {
+        "target_domain": "cryptography",
+        "selected_count": 95,
+        "selected_chars": 25737,
+        "estimated_k_tokens": 6434,
+        "target_plant_turns": [
+          577,
+          616
+        ],
+        "target_fact_source_recovered": true
+      },
+      "Q9": {
+        "target_domain": "geophysics",
+        "selected_count": 96,
+        "selected_chars": 25670,
+        "estimated_k_tokens": 6417,
+        "target_plant_turns": [
+          659,
+          698
+        ],
+        "target_fact_source_recovered": true
+      },
+      "Q10": {
+        "target_domain": "linguistics",
+        "selected_count": 103,
+        "selected_chars": 27809,
+        "estimated_k_tokens": 6952,
+        "target_plant_turns": [
+          740,
+          782
+        ],
+        "target_fact_source_recovered": true
+      },
+      "Q11": {
+        "target_domain": "robotics",
+        "selected_count": 87,
+        "selected_chars": 22495,
+        "estimated_k_tokens": 5623,
+        "target_plant_turns": [
+          825,
+          864
+        ],
+        "target_fact_source_recovered": true
+      },
+      "Q12": {
+        "target_domain": "conservation",
+        "selected_count": 98,
+        "selected_chars": 26873,
+        "estimated_k_tokens": 6718,
+        "target_plant_turns": [
+          906,
+          945
+        ],
+        "target_fact_source_recovered": true
+      }
+    }
+  },
+  "g2_consolidation": {
+    "passed": false,
+    "chosen": null,
+    "sweep": [
+      {
+        "assignment_threshold": 0.45,
+        "merge_threshold": 0.45,
+        "final_topic_count": 2,
+        "cross_domain_topics": 2,
+        "passed": false
+      },
+      {
+        "assignment_threshold": 0.5,
+        "merge_threshold": 0.75,
+        "final_topic_count": 6,
+        "cross_domain_topics": 5,
+        "passed": false
+      },
+      {
+        "assignment_threshold": 0.55,
+        "merge_threshold": 0.75,
+        "final_topic_count": 19,
+        "cross_domain_topics": 8,
+        "passed": false
+      },
+      {
+        "assignment_threshold": 0.6,
+        "merge_threshold": 0.75,
+        "final_topic_count": 24,
+        "cross_domain_topics": 3,
+        "passed": false
+      },
+      {
+        "assignment_threshold": 0.65,
+        "merge_threshold": 0.8,
+        "final_topic_count": 29,
+        "cross_domain_topics": 6,
+        "passed": false
+      },
+      {
+        "assignment_threshold": 0.7,
+        "merge_threshold": 0.85,
+        "final_topic_count": 40,
+        "cross_domain_topics": 8,
+        "passed": false
+      },
+      {
+        "assignment_threshold": 0.75,
+        "merge_threshold": 0.9,
+        "final_topic_count": 56,
+        "cross_domain_topics": 11,
+        "passed": false
+      },
+      {
+        "assignment_threshold": 0.8,
+        "merge_threshold": 0.95,
+        "final_topic_count": 104,
+        "cross_domain_topics": 9,
+        "passed": false
+      }
+    ],
+    "final_topic_count": 104,
+    "topic_trajectory": [
+      {
+        "turn": 100,
+        "topics": 19
+      },
+      {
+        "turn": 200,
+        "topics": 28
+      },
+      {
+        "turn": 300,
+        "topics": 41
+      },
+      {
+        "turn": 400,
+        "topics": 50
+      },
+      {
+        "turn": 500,
+        "topics": 63
+      },
+      {
+        "turn": 600,
+        "topics": 74
+      },
+      {
+        "turn": 700,
+        "topics": 82
+      },
+      {
+        "turn": 800,
+        "topics": 87
+      },
+      {
+        "turn": 900,
+        "topics": 96
+      }
+    ],
+    "topic_profiles": [
+      {
+        "topic": "topic_1",
+        "domains": [
+          "structural"
+        ]
+      },
+      {
+        "topic": "topic_2",
+        "domains": [
+          "structural"
+        ]
+      },
+      {
+        "topic": "topic_3",
+        "domains": [
+          "structural"
+        ]
+      },
+      {
+        "topic": "topic_4",
+        "domains": [
+          "structural"
+        ]
+      },
+      {
+        "topic": "topic_5",
+        "domains": [
+          "structural"
+        ]
+      },
+      {
+        "topic": "topic_6",
+        "domains": [
+          "structural"
+        ]
+      },
+      {
+        "topic": "topic_7",
+        "domains": [
+          "archives",
+          "astronomy",
+          "battery",
+          "conservation",
+          "cryptography",
+          "ecology",
+          "geophysics",
+          "linguistics",
+          "monetary",
+          "robotics",
+          "structural"
+        ]
+      },
+      {
+        "topic": "topic_8",
+        "domains": [
+          "archives",
+          "astronomy",
+          "battery",
+          "conservation",
+          "cryptography",
+          "ecology",
+          "epidemiology",
+          "geophysics",
+          "linguistics",
+          "monetary",
+          "robotics",
+          "structural"
+        ]
+      },
+      {
+        "topic": "topic_9",
+        "domains": [
+          "structural"
+        ]
+      },
+      {
+        "topic": "topic_10",
+        "domains": [
+          "structural"
+        ]
+      },
+      {
+        "topic": "topic_11",
+        "domains": [
+          "structural"
+        ]
+      },
+      {
+        "topic": "topic_12",
+        "domains": [
+          "epidemiology"
+        ]
+      },
+      {
+        "topic": "topic_13",
+        "domains": [
+          "epidemiology"
+        ]
+      },
+      {
+        "topic": "topic_14",
+        "domains": [
+          "epidemiology"
+        ]
+      },
+      {
+        "topic": "topic_15",
+        "domains": [
+          "epidemiology"
+        ]
+      },
+      {
+        "topic": "topic_16",
+        "domains": [
+          "epidemiology"
+        ]
+      },
+      {
+        "topic": "topic_17",
+        "domains": [
+          "epidemiology"
+        ]
+      },
+      {
+        "topic": "topic_18",
+        "domains": [
+          "epidemiology"
+        ]
+      },
+      {
+        "topic": "topic_19",
+        "domains": [
+          "epidemiology"
+        ]
+      },
+      {
+        "topic": "topic_20",
+        "domains": [
+          "epidemiology"
+        ]
+      },
+      {
+        "topic": "topic_21",
+        "domains": [
+          "epidemiology"
+        ]
+      },
+      {
+        "topic": "topic_22",
+        "domains": [
+          "archives"
+        ]
+      },
+      {
+        "topic": "topic_23",
+        "domains": [
+          "archives",
+          "linguistics"
+        ]
+      },
+      {
+        "topic": "topic_24",
+        "domains": [
+          "archives",
+          "linguistics"
+        ]
+      },
+      {
+        "topic": "topic_25",
+        "domains": [
+          "archives",
+          "linguistics"
+        ]
+      },
+      {
+        "topic": "topic_26",
+        "domains": [
+          "archives",
+          "linguistics"
+        ]
+      },
+      {
+        "topic": "topic_27",
+        "domains": [
+          "archives",
+          "linguistics"
+        ]
+      },
+      {
+        "topic": "topic_28",
+        "domains": [
+          "archives"
+        ]
+      },
+      {
+        "topic": "topic_29",
+        "domains": [
+          "archives"
+        ]
+      },
+      {
+        "topic": "topic_30",
+        "domains": [
+          "archives"
+        ]
+      },
+      {
+        "topic": "topic_31",
+        "domains": [
+          "battery"
+        ]
+      },
+      {
+        "topic": "topic_32",
+        "domains": [
+          "battery"
+        ]
+      },
+      {
+        "topic": "topic_33",
+        "domains": [
+          "battery"
+        ]
+      },
+      {
+        "topic": "topic_34",
+        "domains": [
+          "battery"
+        ]
+      },
+      {
+        "topic": "topic_35",
+        "domains": []
+      },
+      {
+        "topic": "topic_36",
+        "domains": []
+      },
+      {
+        "topic": "topic_37",
+        "domains": []
+      },
+      {
+        "topic": "topic_38",
+        "domains": [
+          "battery"
+        ]
+      },
+      {
+        "topic": "topic_39",
+        "domains": [
+          "battery"
+        ]
+      },
+      {
+        "topic": "topic_40",
+        "domains": [
+          "battery"
+        ]
+      },
+      {
+        "topic": "topic_41",
+        "domains": [
+          "battery"
+        ]
+      },
+      {
+        "topic": "topic_42",
+        "domains": [
+          "battery"
+        ]
+      },
+      {
+        "topic": "topic_43",
+        "domains": [
+          "monetary"
+        ]
+      },
+      {
+        "topic": "topic_44",
+        "domains": [
+          "monetary"
+        ]
+      },
+      {
+        "topic": "topic_45",
+        "domains": [
+          "monetary"
+        ]
+      },
+      {
+        "topic": "topic_46",
+        "domains": [
+          "monetary"
+        ]
+      },
+      {
+        "topic": "topic_47",
+        "domains": [
+          "astronomy",
+          "conservation",
+          "ecology",
+          "geophysics",
+          "monetary"
+        ]
+      },
+      {
+        "topic": "topic_48",
+        "domains": [
+          "monetary"
+        ]
+      },
+      {
+        "topic": "topic_49",
+        "domains": [
+          "monetary"
+        ]
+      },
+      {
+        "topic": "topic_50",
+        "domains": [
+          "monetary"
+        ]
+      },
+      {
+        "topic": "topic_51",
+        "domains": [
+          "monetary"
+        ]
+      },
+      {
+        "topic": "topic_52",
+        "domains": [
+          "astronomy"
+        ]
+      },
+      {
+        "topic": "topic_53",
+        "domains": [
+          "astronomy"
+        ]
+      },
+      {
+        "topic": "topic_54",
+        "domains": [
+          "astronomy"
+        ]
+      },
+      {
+        "topic": "topic_55",
+        "domains": [
+          "astronomy"
+        ]
+      },
+      {
+        "topic": "topic_56",
+        "domains": [
+          "astronomy"
+        ]
+      },
+      {
+        "topic": "topic_57",
+        "domains": [
+          "astronomy"
+        ]
+      },
+      {
+        "topic": "topic_58",
+        "domains": [
+          "astronomy",
+          "geophysics",
+          "robotics"
+        ]
+      },
+      {
+        "topic": "topic_59",
+        "domains": [
+          "astronomy"
+        ]
+      },
+      {
+        "topic": "topic_60",
+        "domains": [
+          "ecology"
+        ]
+      },
+      {
+        "topic": "topic_61",
+        "domains": [
+          "ecology"
+        ]
+      },
+      {
+        "topic": "topic_62",
+        "domains": [
+          "ecology"
+        ]
+      },
+      {
+        "topic": "topic_63",
+        "domains": [
+          "ecology"
+        ]
+      },
+      {
+        "topic": "topic_64",
+        "domains": []
+      },
+      {
+        "topic": "topic_65",
+        "domains": [
+          "ecology"
+        ]
+      },
+      {
+        "topic": "topic_66",
+        "domains": [
+          "ecology"
+        ]
+      },
+      {
+        "topic": "topic_67",
+        "domains": [
+          "ecology"
+        ]
+      },
+      {
+        "topic": "topic_68",
+        "domains": [
+          "cryptography"
+        ]
+      },
+      {
+        "topic": "topic_69",
+        "domains": [
+          "cryptography"
+        ]
+      },
+      {
+        "topic": "topic_70",
+        "domains": [
+          "cryptography"
+        ]
+      },
+      {
+        "topic": "topic_71",
+        "domains": [
+          "cryptography"
+        ]
+      },
+      {
+        "topic": "topic_72",
+        "domains": [
+          "cryptography"
+        ]
+      },
+      {
+        "topic": "topic_73",
+        "domains": [
+          "cryptography"
+        ]
+      },
+      {
+        "topic": "topic_74",
+        "domains": [
+          "cryptography"
+        ]
+      },
+      {
+        "topic": "topic_75",
+        "domains": [
+          "cryptography"
+        ]
+      },
+      {
+        "topic": "topic_76",
+        "domains": [
+          "cryptography"
+        ]
+      },
+      {
+        "topic": "topic_77",
+        "domains": [
+          "geophysics"
+        ]
+      },
+      {
+        "topic": "topic_78",
+        "domains": [
+          "geophysics"
+        ]
+      },
+      {
+        "topic": "topic_79",
+        "domains": [
+          "geophysics"
+        ]
+      },
+      {
+        "topic": "topic_80",
+        "domains": [
+          "geophysics"
+        ]
+      },
+      {
+        "topic": "topic_81",
+        "domains": [
+          "geophysics"
+        ]
+      },
+      {
+        "topic": "topic_82",
+        "domains": [
+          "geophysics"
+        ]
+      },
+      {
+        "topic": "topic_83",
+        "domains": [
+          "geophysics"
+        ]
+      },
+      {
+        "topic": "topic_84",
+        "domains": [
+          "linguistics"
+        ]
+      },
+      {
+        "topic": "topic_85",
+        "domains": [
+          "linguistics"
+        ]
+      },
+      {
+        "topic": "topic_86",
+        "domains": []
+      },
+      {
+        "topic": "topic_87",
+        "domains": [
+          "linguistics"
+        ]
+      },
+      {
+        "topic": "topic_88",
+        "domains": [
+          "linguistics"
+        ]
+      },
+      {
+        "topic": "topic_89",
+        "domains": [
+          "robotics"
+        ]
+      },
+      {
+        "topic": "topic_90",
+        "domains": [
+          "robotics"
+        ]
+      },
+      {
+        "topic": "topic_91",
+        "domains": [
+          "robotics"
+        ]
+      },
+      {
+        "topic": "topic_92",
+        "domains": [
+          "robotics"
+        ]
+      },
+      {
+        "topic": "topic_93",
+        "domains": [
+          "robotics"
+        ]
+      },
+      {
+        "topic": "topic_94",
+        "domains": [
+          "robotics"
+        ]
+      },
+      {
+        "topic": "topic_95",
+        "domains": [
+          "robotics"
+        ]
+      },
+      {
+        "topic": "topic_96",
+        "domains": [
+          "robotics"
+        ]
+      },
+      {
+        "topic": "topic_97",
+        "domains": [
+          "conservation"
+        ]
+      },
+      {
+        "topic": "topic_98",
+        "domains": [
+          "conservation"
+        ]
+      },
+      {
+        "topic": "topic_99",
+        "domains": [
+          "conservation"
+        ]
+      },
+      {
+        "topic": "topic_100",
+        "domains": [
+          "conservation"
+        ]
+      },
+      {
+        "topic": "topic_101",
+        "domains": [
+          "conservation"
+        ]
+      },
+      {
+        "topic": "topic_102",
+        "domains": [
+          "conservation"
+        ]
+      },
+      {
+        "topic": "topic_103",
+        "domains": [
+          "conservation"
+        ]
+      },
+      {
+        "topic": "topic_104",
+        "domains": [
+          "conservation"
+        ]
+      }
+    ],
+    "cross_domain_topics": [
+      {
+        "topic": "topic_7",
+        "domains": [
+          "archives",
+          "astronomy",
+          "battery",
+          "conservation",
+          "cryptography",
+          "ecology",
+          "geophysics",
+          "linguistics",
+          "monetary",
+          "robotics",
+          "structural"
+        ]
+      },
+      {
+        "topic": "topic_8",
+        "domains": [
+          "archives",
+          "astronomy",
+          "battery",
+          "conservation",
+          "cryptography",
+          "ecology",
+          "epidemiology",
+          "geophysics",
+          "linguistics",
+          "monetary",
+          "robotics",
+          "structural"
+        ]
+      },
+      {
+        "topic": "topic_23",
+        "domains": [
+          "archives",
+          "linguistics"
+        ]
+      },
+      {
+        "topic": "topic_24",
+        "domains": [
+          "archives",
+          "linguistics"
+        ]
+      },
+      {
+        "topic": "topic_25",
+        "domains": [
+          "archives",
+          "linguistics"
+        ]
+      },
+      {
+        "topic": "topic_26",
+        "domains": [
+          "archives",
+          "linguistics"
+        ]
+      },
+      {
+        "topic": "topic_27",
+        "domains": [
+          "archives",
+          "linguistics"
+        ]
+      },
+      {
+        "topic": "topic_47",
+        "domains": [
+          "astronomy",
+          "conservation",
+          "ecology",
+          "geophysics",
+          "monetary"
+        ]
+      },
+      {
+        "topic": "topic_58",
+        "domains": [
+          "astronomy",
+          "geophysics",
+          "robotics"
+        ]
+      }
+    ],
+    "purity_event_count": 0
+  },
+  "g3_digest": {
+    "applicable": false,
+    "passed": null
+  },
+  "g4_resume": {
+    "passed": true,
+    "exit_code": 0,
+    "output": "..                                                                       [100%]\n2 passed in 0.04s"
+  },
+  "leakage": {
+    "passed": true,
+    "scanned_files": 25,
+    "violations": []
+  },
+  "passed": false
+}

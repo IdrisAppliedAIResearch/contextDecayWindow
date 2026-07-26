@@ -6,6 +6,13 @@
 
 **Contract:** the pre-registration wins; stop and flag on divergence. Scope: no new architecture — this is a scale test of Study 009's Arm S composition vs the accepted Study 007 treatment (branch-resolved). The script/rubric/plant-key triple is the study's long pole and its quality ceiling; it is authored and hash-locked before any calibration so no gate can tune the script.
 
+**Final disposition:** S10_001-S10_003 completed under Amendment 001.
+S10_004 passed G1, G4, and leakage; G3 was not applicable. G2 failed after
+three documented script-coherence attempts and an eight-pair threshold sweep.
+The binding stop occurred before S10_005, so rehearsal, live execution,
+scoring, bars, and degradation curves are not evaluable. See
+`decisions/DECISION_gate_stop_study010.md`.
+
 **Parallelism note:** S10_001 (script authorship) has **no Study 009 dependency** and starts immediately. S10_002's branch resolution waits for 009's verdict. Everything else follows the diagram.
 
 ---

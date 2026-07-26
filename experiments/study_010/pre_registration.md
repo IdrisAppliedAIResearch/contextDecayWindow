@@ -2,7 +2,7 @@
 ## contextDecayWindow
 **Idris Applied AI Research**
 **Date:** July 2026
-**Status:** LOCKED UNDER AMENDMENT 001
+**Status:** STOPPED AT G2 UNDER AMENDMENTS 001-002
 **Deferred since:** Study 003 ("stress-test the study where retrieval is active"), re-deferred at 004, 005, 008.
 
 **Pre-lock review:** the original STOP is superseded by author-authorized
