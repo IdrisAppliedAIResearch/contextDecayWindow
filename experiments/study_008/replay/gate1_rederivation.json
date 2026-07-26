@@ -1,0 +1,4006 @@
+{
+  "study_007_artifacts_hashed": 271,
+  "study_007_artifacts_unchanged": true,
+  "plant_key_sha256": "9bb20255152370b0444af84e7b6d32268496ca872ee0eb596af60874f179fcfa",
+  "candidate_count": 200,
+  "fact_rows": 14,
+  "p1_confirmed": true,
+  "locked_budget_viable_k_min": [],
+  "amendment_002_floor_inertness_survives": false,
+  "frontier": [
+    {
+      "b_ltm": 16000,
+      "k_min": 0,
+      "four_domain_both": false,
+      "probes": {
+        "120": {
+          "domains": [
+            "art",
+            "civil"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_engineer",
+              "civil_steel"
+            ],
+            "art": [
+              "art_identity",
+              "art_patron_role"
+            ],
+            "monetary": [],
+            "marine": []
+          },
+          "source_turns": [
+            20,
+            28,
+            31,
+            55
+          ],
+          "chars": 15185,
+          "records": 4,
+          "floor_per_topic": {},
+          "fill_selected": 4,
+          "containment_drops": 5
+        },
+        "121": {
+          "domains": [
+            "art",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [],
+            "art": [
+              "art_identity",
+              "art_patron_role"
+            ],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            31,
+            55,
+            69,
+            105
+          ],
+          "chars": 15942,
+          "records": 4,
+          "floor_per_topic": {},
+          "fill_selected": 4,
+          "containment_drops": 5
+        }
+      }
+    },
+    {
+      "b_ltm": 16000,
+      "k_min": 1,
+      "four_domain_both": false,
+      "probes": {
+        "120": {
+          "domains": [
+            "civil",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_steel"
+            ],
+            "art": [],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": []
+          },
+          "source_turns": [
+            20,
+            31,
+            69
+          ],
+          "chars": 15150,
+          "records": 3,
+          "floor_per_topic": {
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 1,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 1,
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 1
+          },
+          "fill_selected": 0,
+          "containment_drops": 5
+        },
+        "121": {
+          "domains": [
+            "art",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [],
+            "art": [
+              "art_identity",
+              "art_patron_role"
+            ],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            31,
+            55,
+            69,
+            105
+          ],
+          "chars": 15942,
+          "records": 4,
+          "floor_per_topic": {
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 1,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 1,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 1
+          },
+          "fill_selected": 1,
+          "containment_drops": 5
+        }
+      }
+    },
+    {
+      "b_ltm": 16000,
+      "k_min": 2,
+      "four_domain_both": false,
+      "probes": {
+        "120": {
+          "domains": [
+            "civil",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_steel"
+            ],
+            "art": [],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": []
+          },
+          "source_turns": [
+            20,
+            31,
+            69
+          ],
+          "chars": 15150,
+          "records": 3,
+          "floor_per_topic": {
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 1,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 1,
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 1
+          },
+          "fill_selected": 0,
+          "containment_drops": 5
+        },
+        "121": {
+          "domains": [
+            "art",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [],
+            "art": [
+              "art_identity",
+              "art_patron_role"
+            ],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            31,
+            55,
+            69,
+            105
+          ],
+          "chars": 15942,
+          "records": 4,
+          "floor_per_topic": {
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 1,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 1,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 1
+          },
+          "fill_selected": 1,
+          "containment_drops": 5
+        }
+      }
+    },
+    {
+      "b_ltm": 16000,
+      "k_min": 3,
+      "four_domain_both": false,
+      "probes": {
+        "120": {
+          "domains": [
+            "civil",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_steel"
+            ],
+            "art": [],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": []
+          },
+          "source_turns": [
+            20,
+            31,
+            69
+          ],
+          "chars": 15150,
+          "records": 3,
+          "floor_per_topic": {
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 1,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 1,
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 1
+          },
+          "fill_selected": 0,
+          "containment_drops": 5
+        },
+        "121": {
+          "domains": [
+            "art",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [],
+            "art": [
+              "art_identity",
+              "art_patron_role"
+            ],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            31,
+            55,
+            69,
+            105
+          ],
+          "chars": 15942,
+          "records": 4,
+          "floor_per_topic": {
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 1,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 1,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 1
+          },
+          "fill_selected": 1,
+          "containment_drops": 5
+        }
+      }
+    },
+    {
+      "b_ltm": 16000,
+      "k_min": 4,
+      "four_domain_both": false,
+      "probes": {
+        "120": {
+          "domains": [
+            "civil",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_steel"
+            ],
+            "art": [],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": []
+          },
+          "source_turns": [
+            20,
+            31,
+            69
+          ],
+          "chars": 15150,
+          "records": 3,
+          "floor_per_topic": {
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 1,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 1,
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 1
+          },
+          "fill_selected": 0,
+          "containment_drops": 5
+        },
+        "121": {
+          "domains": [
+            "art",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [],
+            "art": [
+              "art_identity",
+              "art_patron_role"
+            ],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            31,
+            55,
+            69,
+            105
+          ],
+          "chars": 15942,
+          "records": 4,
+          "floor_per_topic": {
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 1,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 1,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 1
+          },
+          "fill_selected": 1,
+          "containment_drops": 5
+        }
+      }
+    },
+    {
+      "b_ltm": 20000,
+      "k_min": 0,
+      "four_domain_both": false,
+      "probes": {
+        "120": {
+          "domains": [
+            "civil",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_engineer",
+              "civil_steel"
+            ],
+            "art": [],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": []
+          },
+          "source_turns": [
+            20,
+            28,
+            31,
+            69
+          ],
+          "chars": 19765,
+          "records": 4,
+          "floor_per_topic": {},
+          "fill_selected": 4,
+          "containment_drops": 5
+        },
+        "121": {
+          "domains": [
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_steel"
+            ],
+            "art": [],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            20,
+            31,
+            69,
+            105
+          ],
+          "chars": 19077,
+          "records": 4,
+          "floor_per_topic": {},
+          "fill_selected": 4,
+          "containment_drops": 5
+        }
+      }
+    },
+    {
+      "b_ltm": 20000,
+      "k_min": 1,
+      "four_domain_both": false,
+      "probes": {
+        "120": {
+          "domains": [
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_steel"
+            ],
+            "art": [],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            20,
+            31,
+            69,
+            105
+          ],
+          "chars": 19077,
+          "records": 4,
+          "floor_per_topic": {
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 1,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 1,
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 1,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 1
+          },
+          "fill_selected": 0,
+          "containment_drops": 5
+        },
+        "121": {
+          "domains": [
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_steel"
+            ],
+            "art": [],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            20,
+            31,
+            69,
+            105
+          ],
+          "chars": 19077,
+          "records": 4,
+          "floor_per_topic": {
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 1,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 1,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 1,
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 1
+          },
+          "fill_selected": 0,
+          "containment_drops": 5
+        }
+      }
+    },
+    {
+      "b_ltm": 20000,
+      "k_min": 2,
+      "four_domain_both": false,
+      "probes": {
+        "120": {
+          "domains": [
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_steel"
+            ],
+            "art": [],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            20,
+            31,
+            69,
+            105
+          ],
+          "chars": 19077,
+          "records": 4,
+          "floor_per_topic": {
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 1,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 1,
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 1,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 1
+          },
+          "fill_selected": 0,
+          "containment_drops": 5
+        },
+        "121": {
+          "domains": [
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_steel"
+            ],
+            "art": [],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            20,
+            31,
+            69,
+            105
+          ],
+          "chars": 19077,
+          "records": 4,
+          "floor_per_topic": {
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 1,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 1,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 1,
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 1
+          },
+          "fill_selected": 0,
+          "containment_drops": 5
+        }
+      }
+    },
+    {
+      "b_ltm": 20000,
+      "k_min": 3,
+      "four_domain_both": false,
+      "probes": {
+        "120": {
+          "domains": [
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_steel"
+            ],
+            "art": [],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            20,
+            31,
+            69,
+            105
+          ],
+          "chars": 19077,
+          "records": 4,
+          "floor_per_topic": {
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 1,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 1,
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 1,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 1
+          },
+          "fill_selected": 0,
+          "containment_drops": 5
+        },
+        "121": {
+          "domains": [
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_steel"
+            ],
+            "art": [],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            20,
+            31,
+            69,
+            105
+          ],
+          "chars": 19077,
+          "records": 4,
+          "floor_per_topic": {
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 1,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 1,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 1,
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 1
+          },
+          "fill_selected": 0,
+          "containment_drops": 5
+        }
+      }
+    },
+    {
+      "b_ltm": 20000,
+      "k_min": 4,
+      "four_domain_both": false,
+      "probes": {
+        "120": {
+          "domains": [
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_steel"
+            ],
+            "art": [],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            20,
+            31,
+            69,
+            105
+          ],
+          "chars": 19077,
+          "records": 4,
+          "floor_per_topic": {
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 1,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 1,
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 1,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 1
+          },
+          "fill_selected": 0,
+          "containment_drops": 5
+        },
+        "121": {
+          "domains": [
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_steel"
+            ],
+            "art": [],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            20,
+            31,
+            69,
+            105
+          ],
+          "chars": 19077,
+          "records": 4,
+          "floor_per_topic": {
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 1,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 1,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 1,
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 1
+          },
+          "fill_selected": 0,
+          "containment_drops": 5
+        }
+      }
+    },
+    {
+      "b_ltm": 24000,
+      "k_min": 0,
+      "four_domain_both": false,
+      "probes": {
+        "120": {
+          "domains": [
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_engineer",
+              "civil_steel"
+            ],
+            "art": [],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            20,
+            28,
+            31,
+            69,
+            105
+          ],
+          "chars": 23692,
+          "records": 5,
+          "floor_per_topic": {},
+          "fill_selected": 5,
+          "containment_drops": 5
+        },
+        "121": {
+          "domains": [
+            "art",
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_engineer",
+              "civil_steel"
+            ],
+            "art": [
+              "art_identity",
+              "art_patron_role"
+            ],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            20,
+            24,
+            31,
+            55,
+            69,
+            105
+          ],
+          "chars": 23828,
+          "records": 6,
+          "floor_per_topic": {},
+          "fill_selected": 6,
+          "containment_drops": 5
+        }
+      }
+    },
+    {
+      "b_ltm": 24000,
+      "k_min": 1,
+      "four_domain_both": false,
+      "probes": {
+        "120": {
+          "domains": [
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_engineer",
+              "civil_steel"
+            ],
+            "art": [],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            20,
+            28,
+            31,
+            69,
+            105
+          ],
+          "chars": 23692,
+          "records": 5,
+          "floor_per_topic": {
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 1,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 1,
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 1,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 1
+          },
+          "fill_selected": 1,
+          "containment_drops": 5
+        },
+        "121": {
+          "domains": [
+            "art",
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_engineer",
+              "civil_steel"
+            ],
+            "art": [
+              "art_identity",
+              "art_patron_role"
+            ],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            20,
+            24,
+            31,
+            55,
+            69,
+            105
+          ],
+          "chars": 23828,
+          "records": 6,
+          "floor_per_topic": {
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 1,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 1,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 1,
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 1
+          },
+          "fill_selected": 2,
+          "containment_drops": 5
+        }
+      }
+    },
+    {
+      "b_ltm": 24000,
+      "k_min": 2,
+      "four_domain_both": false,
+      "probes": {
+        "120": {
+          "domains": [
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_engineer",
+              "civil_steel"
+            ],
+            "art": [],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            20,
+            28,
+            31,
+            69,
+            105
+          ],
+          "chars": 23692,
+          "records": 5,
+          "floor_per_topic": {
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 2,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 1,
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 1,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 1
+          },
+          "fill_selected": 0,
+          "containment_drops": 5
+        },
+        "121": {
+          "domains": [
+            "art",
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_steel"
+            ],
+            "art": [
+              "art_identity",
+              "art_patron_role"
+            ],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            20,
+            31,
+            55,
+            58,
+            69,
+            105
+          ],
+          "chars": 23342,
+          "records": 6,
+          "floor_per_topic": {
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 1,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 2,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 1,
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 1
+          },
+          "fill_selected": 1,
+          "containment_drops": 5
+        }
+      }
+    },
+    {
+      "b_ltm": 24000,
+      "k_min": 3,
+      "four_domain_both": false,
+      "probes": {
+        "120": {
+          "domains": [
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_engineer",
+              "civil_steel"
+            ],
+            "art": [],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            20,
+            28,
+            31,
+            69,
+            105
+          ],
+          "chars": 23692,
+          "records": 5,
+          "floor_per_topic": {
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 2,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 1,
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 1,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 1
+          },
+          "fill_selected": 0,
+          "containment_drops": 5
+        },
+        "121": {
+          "domains": [
+            "art",
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_steel"
+            ],
+            "art": [
+              "art_identity",
+              "art_patron_role"
+            ],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            20,
+            31,
+            55,
+            58,
+            69,
+            105
+          ],
+          "chars": 23342,
+          "records": 6,
+          "floor_per_topic": {
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 1,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 2,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 1,
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 1
+          },
+          "fill_selected": 1,
+          "containment_drops": 5
+        }
+      }
+    },
+    {
+      "b_ltm": 24000,
+      "k_min": 4,
+      "four_domain_both": false,
+      "probes": {
+        "120": {
+          "domains": [
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_engineer",
+              "civil_steel"
+            ],
+            "art": [],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            20,
+            28,
+            31,
+            69,
+            105
+          ],
+          "chars": 23692,
+          "records": 5,
+          "floor_per_topic": {
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 2,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 1,
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 1,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 1
+          },
+          "fill_selected": 0,
+          "containment_drops": 5
+        },
+        "121": {
+          "domains": [
+            "art",
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_steel"
+            ],
+            "art": [
+              "art_identity",
+              "art_patron_role"
+            ],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            20,
+            31,
+            55,
+            58,
+            69,
+            105
+          ],
+          "chars": 23342,
+          "records": 6,
+          "floor_per_topic": {
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 1,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 2,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 1,
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 1
+          },
+          "fill_selected": 1,
+          "containment_drops": 5
+        }
+      }
+    },
+    {
+      "b_ltm": 28000,
+      "k_min": 0,
+      "four_domain_both": false,
+      "probes": {
+        "120": {
+          "domains": [
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_engineer",
+              "civil_steel"
+            ],
+            "art": [],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            17,
+            20,
+            28,
+            31,
+            69,
+            105
+          ],
+          "chars": 27431,
+          "records": 6,
+          "floor_per_topic": {},
+          "fill_selected": 6,
+          "containment_drops": 5
+        },
+        "121": {
+          "domains": [
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_engineer",
+              "civil_steel"
+            ],
+            "art": [],
+            "monetary": [
+              "monetary_taylor",
+              "monetary_fed",
+              "monetary_threshold"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            20,
+            24,
+            31,
+            58,
+            69,
+            90,
+            105
+          ],
+          "chars": 27810,
+          "records": 7,
+          "floor_per_topic": {},
+          "fill_selected": 7,
+          "containment_drops": 5
+        }
+      }
+    },
+    {
+      "b_ltm": 28000,
+      "k_min": 1,
+      "four_domain_both": false,
+      "probes": {
+        "120": {
+          "domains": [
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_engineer",
+              "civil_steel"
+            ],
+            "art": [],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            17,
+            20,
+            28,
+            31,
+            69,
+            105
+          ],
+          "chars": 27431,
+          "records": 6,
+          "floor_per_topic": {
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 1,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 1,
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 1,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 1
+          },
+          "fill_selected": 2,
+          "containment_drops": 5
+        },
+        "121": {
+          "domains": [
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_engineer",
+              "civil_steel"
+            ],
+            "art": [],
+            "monetary": [
+              "monetary_taylor",
+              "monetary_fed",
+              "monetary_threshold"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            20,
+            24,
+            31,
+            58,
+            69,
+            90,
+            105
+          ],
+          "chars": 27810,
+          "records": 7,
+          "floor_per_topic": {
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 1,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 1,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 1,
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 1
+          },
+          "fill_selected": 3,
+          "containment_drops": 5
+        }
+      }
+    },
+    {
+      "b_ltm": 28000,
+      "k_min": 2,
+      "four_domain_both": false,
+      "probes": {
+        "120": {
+          "domains": [
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_engineer",
+              "civil_steel"
+            ],
+            "art": [],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            20,
+            28,
+            31,
+            33,
+            69,
+            105
+          ],
+          "chars": 27342,
+          "records": 6,
+          "floor_per_topic": {
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 2,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 2,
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 1,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 1
+          },
+          "fill_selected": 0,
+          "containment_drops": 5
+        },
+        "121": {
+          "domains": [
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_steel"
+            ],
+            "art": [],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            20,
+            31,
+            58,
+            69,
+            71,
+            105
+          ],
+          "chars": 27584,
+          "records": 6,
+          "floor_per_topic": {
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 2,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 2,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 1,
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 1
+          },
+          "fill_selected": 0,
+          "containment_drops": 5
+        }
+      }
+    },
+    {
+      "b_ltm": 28000,
+      "k_min": 3,
+      "four_domain_both": false,
+      "probes": {
+        "120": {
+          "domains": [
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_engineer",
+              "civil_steel"
+            ],
+            "art": [],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            20,
+            28,
+            31,
+            33,
+            69,
+            105
+          ],
+          "chars": 27342,
+          "records": 6,
+          "floor_per_topic": {
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 2,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 2,
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 1,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 1
+          },
+          "fill_selected": 0,
+          "containment_drops": 5
+        },
+        "121": {
+          "domains": [
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_steel"
+            ],
+            "art": [],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            20,
+            31,
+            58,
+            69,
+            71,
+            105
+          ],
+          "chars": 27584,
+          "records": 6,
+          "floor_per_topic": {
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 2,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 2,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 1,
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 1
+          },
+          "fill_selected": 0,
+          "containment_drops": 5
+        }
+      }
+    },
+    {
+      "b_ltm": 28000,
+      "k_min": 4,
+      "four_domain_both": false,
+      "probes": {
+        "120": {
+          "domains": [
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_engineer",
+              "civil_steel"
+            ],
+            "art": [],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            20,
+            28,
+            31,
+            33,
+            69,
+            105
+          ],
+          "chars": 27342,
+          "records": 6,
+          "floor_per_topic": {
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 2,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 2,
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 1,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 1
+          },
+          "fill_selected": 0,
+          "containment_drops": 5
+        },
+        "121": {
+          "domains": [
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_steel"
+            ],
+            "art": [],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            20,
+            31,
+            58,
+            69,
+            71,
+            105
+          ],
+          "chars": 27584,
+          "records": 6,
+          "floor_per_topic": {
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 2,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 2,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 1,
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 1
+          },
+          "fill_selected": 0,
+          "containment_drops": 5
+        }
+      }
+    },
+    {
+      "b_ltm": 32000,
+      "k_min": 0,
+      "four_domain_both": false,
+      "probes": {
+        "120": {
+          "domains": [
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_engineer",
+              "civil_steel",
+              "civil_load"
+            ],
+            "art": [],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            14,
+            17,
+            20,
+            28,
+            31,
+            69,
+            105
+          ],
+          "chars": 31518,
+          "records": 7,
+          "floor_per_topic": {},
+          "fill_selected": 7,
+          "containment_drops": 5
+        },
+        "121": {
+          "domains": [
+            "art",
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_engineer",
+              "civil_steel"
+            ],
+            "art": [
+              "art_identity",
+              "art_patron_role"
+            ],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity",
+              "marine_feeding"
+            ]
+          },
+          "source_turns": [
+            20,
+            24,
+            31,
+            58,
+            59,
+            69,
+            102,
+            105
+          ],
+          "chars": 31888,
+          "records": 8,
+          "floor_per_topic": {},
+          "fill_selected": 8,
+          "containment_drops": 5
+        }
+      }
+    },
+    {
+      "b_ltm": 32000,
+      "k_min": 1,
+      "four_domain_both": false,
+      "probes": {
+        "120": {
+          "domains": [
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_engineer",
+              "civil_steel",
+              "civil_load"
+            ],
+            "art": [],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            14,
+            17,
+            20,
+            28,
+            31,
+            69,
+            105
+          ],
+          "chars": 31518,
+          "records": 7,
+          "floor_per_topic": {
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 1,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 1,
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 1,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 1
+          },
+          "fill_selected": 3,
+          "containment_drops": 5
+        },
+        "121": {
+          "domains": [
+            "art",
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_engineer",
+              "civil_steel"
+            ],
+            "art": [
+              "art_identity",
+              "art_patron_role"
+            ],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity",
+              "marine_feeding"
+            ]
+          },
+          "source_turns": [
+            20,
+            24,
+            31,
+            58,
+            59,
+            69,
+            102,
+            105
+          ],
+          "chars": 31888,
+          "records": 8,
+          "floor_per_topic": {
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 1,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 1,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 1,
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 1
+          },
+          "fill_selected": 4,
+          "containment_drops": 5
+        }
+      }
+    },
+    {
+      "b_ltm": 32000,
+      "k_min": 2,
+      "four_domain_both": false,
+      "probes": {
+        "120": {
+          "domains": [
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_engineer",
+              "civil_steel"
+            ],
+            "art": [],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            17,
+            20,
+            28,
+            31,
+            33,
+            69,
+            105
+          ],
+          "chars": 31081,
+          "records": 7,
+          "floor_per_topic": {
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 2,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 2,
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 1,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 1
+          },
+          "fill_selected": 1,
+          "containment_drops": 5
+        },
+        "121": {
+          "domains": [
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_engineer",
+              "civil_steel"
+            ],
+            "art": [],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            20,
+            24,
+            31,
+            58,
+            69,
+            71,
+            105
+          ],
+          "chars": 30932,
+          "records": 7,
+          "floor_per_topic": {
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 2,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 2,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 1,
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 2
+          },
+          "fill_selected": 0,
+          "containment_drops": 5
+        }
+      }
+    },
+    {
+      "b_ltm": 32000,
+      "k_min": 3,
+      "four_domain_both": false,
+      "probes": {
+        "120": {
+          "domains": [
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_engineer",
+              "civil_steel"
+            ],
+            "art": [],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            17,
+            20,
+            28,
+            31,
+            33,
+            69,
+            105
+          ],
+          "chars": 31081,
+          "records": 7,
+          "floor_per_topic": {
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 3,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 2,
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 1,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 1
+          },
+          "fill_selected": 0,
+          "containment_drops": 5
+        },
+        "121": {
+          "domains": [
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_engineer",
+              "civil_steel"
+            ],
+            "art": [],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            20,
+            24,
+            31,
+            58,
+            69,
+            71,
+            105
+          ],
+          "chars": 30932,
+          "records": 7,
+          "floor_per_topic": {
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 2,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 2,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 1,
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 2
+          },
+          "fill_selected": 0,
+          "containment_drops": 5
+        }
+      }
+    },
+    {
+      "b_ltm": 32000,
+      "k_min": 4,
+      "four_domain_both": false,
+      "probes": {
+        "120": {
+          "domains": [
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_engineer",
+              "civil_steel"
+            ],
+            "art": [],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            17,
+            20,
+            28,
+            31,
+            33,
+            69,
+            105
+          ],
+          "chars": 31081,
+          "records": 7,
+          "floor_per_topic": {
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 3,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 2,
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 1,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 1
+          },
+          "fill_selected": 0,
+          "containment_drops": 5
+        },
+        "121": {
+          "domains": [
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_engineer",
+              "civil_steel"
+            ],
+            "art": [],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            20,
+            24,
+            31,
+            58,
+            69,
+            71,
+            105
+          ],
+          "chars": 30932,
+          "records": 7,
+          "floor_per_topic": {
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 2,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 2,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 1,
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 2
+          },
+          "fill_selected": 0,
+          "containment_drops": 5
+        }
+      }
+    },
+    {
+      "b_ltm": 36000,
+      "k_min": 0,
+      "four_domain_both": false,
+      "probes": {
+        "120": {
+          "domains": [
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_engineer",
+              "civil_steel",
+              "civil_load"
+            ],
+            "art": [],
+            "monetary": [
+              "monetary_fed",
+              "monetary_threshold"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            14,
+            17,
+            20,
+            28,
+            31,
+            65,
+            69,
+            105
+          ],
+          "chars": 35695,
+          "records": 8,
+          "floor_per_topic": {},
+          "fill_selected": 8,
+          "containment_drops": 5
+        },
+        "121": {
+          "domains": [
+            "art",
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_engineer",
+              "civil_steel"
+            ],
+            "art": [
+              "art_identity",
+              "art_patron_role"
+            ],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            20,
+            24,
+            31,
+            55,
+            58,
+            59,
+            69,
+            71,
+            105
+          ],
+          "chars": 35383,
+          "records": 9,
+          "floor_per_topic": {},
+          "fill_selected": 9,
+          "containment_drops": 5
+        }
+      }
+    },
+    {
+      "b_ltm": 36000,
+      "k_min": 1,
+      "four_domain_both": false,
+      "probes": {
+        "120": {
+          "domains": [
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_engineer",
+              "civil_steel",
+              "civil_load"
+            ],
+            "art": [],
+            "monetary": [
+              "monetary_fed",
+              "monetary_threshold"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            14,
+            17,
+            20,
+            28,
+            31,
+            65,
+            69,
+            105
+          ],
+          "chars": 35695,
+          "records": 8,
+          "floor_per_topic": {
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 1,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 1,
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 1,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 1
+          },
+          "fill_selected": 4,
+          "containment_drops": 5
+        },
+        "121": {
+          "domains": [
+            "art",
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_engineer",
+              "civil_steel"
+            ],
+            "art": [
+              "art_identity",
+              "art_patron_role"
+            ],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            20,
+            24,
+            31,
+            55,
+            58,
+            59,
+            69,
+            71,
+            105
+          ],
+          "chars": 35383,
+          "records": 9,
+          "floor_per_topic": {
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 1,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 1,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 1,
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 1
+          },
+          "fill_selected": 5,
+          "containment_drops": 5
+        }
+      }
+    },
+    {
+      "b_ltm": 36000,
+      "k_min": 2,
+      "four_domain_both": false,
+      "probes": {
+        "120": {
+          "domains": [
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_engineer",
+              "civil_steel"
+            ],
+            "art": [],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            20,
+            28,
+            31,
+            33,
+            58,
+            69,
+            81,
+            105
+          ],
+          "chars": 35516,
+          "records": 8,
+          "floor_per_topic": {
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 2,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 2,
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 2,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 1
+          },
+          "fill_selected": 1,
+          "containment_drops": 5
+        },
+        "121": {
+          "domains": [
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_steel"
+            ],
+            "art": [],
+            "monetary": [
+              "monetary_taylor",
+              "monetary_fed",
+              "monetary_threshold"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            20,
+            31,
+            58,
+            69,
+            71,
+            90,
+            98,
+            105
+          ],
+          "chars": 35849,
+          "records": 8,
+          "floor_per_topic": {
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 2,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 2,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 2,
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 1
+          },
+          "fill_selected": 1,
+          "containment_drops": 5
+        }
+      }
+    },
+    {
+      "b_ltm": 36000,
+      "k_min": 3,
+      "four_domain_both": false,
+      "probes": {
+        "120": {
+          "domains": [
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_engineer",
+              "civil_steel"
+            ],
+            "art": [],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            20,
+            28,
+            31,
+            33,
+            58,
+            69,
+            81,
+            105
+          ],
+          "chars": 35516,
+          "records": 8,
+          "floor_per_topic": {
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 2,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 3,
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 2,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 1
+          },
+          "fill_selected": 0,
+          "containment_drops": 5
+        },
+        "121": {
+          "domains": [
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_steel"
+            ],
+            "art": [],
+            "monetary": [
+              "monetary_taylor",
+              "monetary_fed",
+              "monetary_threshold"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            20,
+            31,
+            58,
+            69,
+            71,
+            90,
+            98,
+            105
+          ],
+          "chars": 35849,
+          "records": 8,
+          "floor_per_topic": {
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 2,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 2,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 2,
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 1
+          },
+          "fill_selected": 1,
+          "containment_drops": 5
+        }
+      }
+    },
+    {
+      "b_ltm": 36000,
+      "k_min": 4,
+      "four_domain_both": false,
+      "probes": {
+        "120": {
+          "domains": [
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_engineer",
+              "civil_steel"
+            ],
+            "art": [],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            20,
+            28,
+            31,
+            33,
+            58,
+            69,
+            81,
+            105
+          ],
+          "chars": 35516,
+          "records": 8,
+          "floor_per_topic": {
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 2,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 3,
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 2,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 1
+          },
+          "fill_selected": 0,
+          "containment_drops": 5
+        },
+        "121": {
+          "domains": [
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_steel"
+            ],
+            "art": [],
+            "monetary": [
+              "monetary_taylor",
+              "monetary_fed",
+              "monetary_threshold"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            20,
+            31,
+            58,
+            69,
+            71,
+            90,
+            98,
+            105
+          ],
+          "chars": 35849,
+          "records": 8,
+          "floor_per_topic": {
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 2,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 2,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 2,
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 1
+          },
+          "fill_selected": 1,
+          "containment_drops": 5
+        }
+      }
+    },
+    {
+      "b_ltm": 40000,
+      "k_min": 0,
+      "four_domain_both": false,
+      "probes": {
+        "120": {
+          "domains": [
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_engineer",
+              "civil_steel",
+              "civil_load"
+            ],
+            "art": [],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            14,
+            17,
+            20,
+            28,
+            31,
+            69,
+            98,
+            100,
+            105
+          ],
+          "chars": 39874,
+          "records": 9,
+          "floor_per_topic": {},
+          "fill_selected": 9,
+          "containment_drops": 5
+        },
+        "121": {
+          "domains": [
+            "art",
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_engineer",
+              "civil_steel"
+            ],
+            "art": [
+              "art_identity",
+              "art_patron_role"
+            ],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            20,
+            24,
+            31,
+            55,
+            58,
+            59,
+            66,
+            69,
+            71,
+            105
+          ],
+          "chars": 39118,
+          "records": 10,
+          "floor_per_topic": {},
+          "fill_selected": 10,
+          "containment_drops": 5
+        }
+      }
+    },
+    {
+      "b_ltm": 40000,
+      "k_min": 1,
+      "four_domain_both": false,
+      "probes": {
+        "120": {
+          "domains": [
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_engineer",
+              "civil_steel",
+              "civil_load"
+            ],
+            "art": [],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            14,
+            17,
+            20,
+            28,
+            31,
+            69,
+            98,
+            100,
+            105
+          ],
+          "chars": 39874,
+          "records": 9,
+          "floor_per_topic": {
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 1,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 1,
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 1,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 1
+          },
+          "fill_selected": 5,
+          "containment_drops": 5
+        },
+        "121": {
+          "domains": [
+            "art",
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_engineer",
+              "civil_steel"
+            ],
+            "art": [
+              "art_identity",
+              "art_patron_role"
+            ],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            20,
+            24,
+            31,
+            55,
+            58,
+            59,
+            66,
+            69,
+            71,
+            105
+          ],
+          "chars": 39118,
+          "records": 10,
+          "floor_per_topic": {
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 1,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 1,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 1,
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 1
+          },
+          "fill_selected": 6,
+          "containment_drops": 5
+        }
+      }
+    },
+    {
+      "b_ltm": 40000,
+      "k_min": 2,
+      "four_domain_both": true,
+      "probes": {
+        "120": {
+          "domains": [
+            "art",
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_engineer",
+              "civil_steel"
+            ],
+            "art": [
+              "art_identity",
+              "art_patron_role"
+            ],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            20,
+            28,
+            31,
+            33,
+            55,
+            69,
+            81,
+            98,
+            105
+          ],
+          "chars": 39799,
+          "records": 9,
+          "floor_per_topic": {
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 2,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 2,
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 2,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 2
+          },
+          "fill_selected": 1,
+          "containment_drops": 5
+        },
+        "121": {
+          "domains": [
+            "art",
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_engineer",
+              "civil_steel"
+            ],
+            "art": [
+              "art_identity",
+              "art_patron_role"
+            ],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            20,
+            24,
+            31,
+            58,
+            59,
+            69,
+            71,
+            98,
+            105
+          ],
+          "chars": 39722,
+          "records": 9,
+          "floor_per_topic": {
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 2,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 2,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 2,
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 2
+          },
+          "fill_selected": 1,
+          "containment_drops": 5
+        }
+      }
+    },
+    {
+      "b_ltm": 40000,
+      "k_min": 3,
+      "four_domain_both": true,
+      "probes": {
+        "120": {
+          "domains": [
+            "art",
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_engineer",
+              "civil_steel"
+            ],
+            "art": [
+              "art_identity",
+              "art_patron_role"
+            ],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            20,
+            28,
+            31,
+            33,
+            55,
+            69,
+            81,
+            98,
+            105
+          ],
+          "chars": 39799,
+          "records": 9,
+          "floor_per_topic": {
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 2,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 2,
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 2,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 2
+          },
+          "fill_selected": 1,
+          "containment_drops": 5
+        },
+        "121": {
+          "domains": [
+            "art",
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_engineer",
+              "civil_steel"
+            ],
+            "art": [
+              "art_identity",
+              "art_patron_role"
+            ],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            20,
+            24,
+            31,
+            58,
+            59,
+            69,
+            71,
+            98,
+            105
+          ],
+          "chars": 39722,
+          "records": 9,
+          "floor_per_topic": {
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 2,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 3,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 2,
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 2
+          },
+          "fill_selected": 0,
+          "containment_drops": 5
+        }
+      }
+    },
+    {
+      "b_ltm": 40000,
+      "k_min": 4,
+      "four_domain_both": true,
+      "probes": {
+        "120": {
+          "domains": [
+            "art",
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_engineer",
+              "civil_steel"
+            ],
+            "art": [
+              "art_identity",
+              "art_patron_role"
+            ],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            20,
+            28,
+            31,
+            33,
+            55,
+            69,
+            81,
+            98,
+            105
+          ],
+          "chars": 39799,
+          "records": 9,
+          "floor_per_topic": {
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 2,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 2,
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 2,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 2
+          },
+          "fill_selected": 1,
+          "containment_drops": 5
+        },
+        "121": {
+          "domains": [
+            "art",
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_engineer",
+              "civil_steel"
+            ],
+            "art": [
+              "art_identity",
+              "art_patron_role"
+            ],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            20,
+            24,
+            31,
+            58,
+            59,
+            69,
+            71,
+            98,
+            105
+          ],
+          "chars": 39722,
+          "records": 9,
+          "floor_per_topic": {
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 2,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 3,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 2,
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 2
+          },
+          "fill_selected": 0,
+          "containment_drops": 5
+        }
+      }
+    },
+    {
+      "b_ltm": 48000,
+      "k_min": 0,
+      "four_domain_both": false,
+      "probes": {
+        "120": {
+          "domains": [
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_engineer",
+              "civil_steel",
+              "civil_load"
+            ],
+            "art": [],
+            "monetary": [
+              "monetary_fed",
+              "monetary_threshold"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            14,
+            17,
+            20,
+            28,
+            31,
+            65,
+            69,
+            81,
+            98,
+            105
+          ],
+          "chars": 46749,
+          "records": 10,
+          "floor_per_topic": {},
+          "fill_selected": 10,
+          "containment_drops": 5
+        },
+        "121": {
+          "domains": [
+            "art",
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_engineer",
+              "civil_steel"
+            ],
+            "art": [
+              "art_identity",
+              "art_patron_role"
+            ],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            17,
+            20,
+            24,
+            28,
+            31,
+            55,
+            58,
+            59,
+            66,
+            69,
+            71,
+            105
+          ],
+          "chars": 47472,
+          "records": 12,
+          "floor_per_topic": {},
+          "fill_selected": 12,
+          "containment_drops": 5
+        }
+      }
+    },
+    {
+      "b_ltm": 48000,
+      "k_min": 1,
+      "four_domain_both": false,
+      "probes": {
+        "120": {
+          "domains": [
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_engineer",
+              "civil_steel",
+              "civil_load"
+            ],
+            "art": [],
+            "monetary": [
+              "monetary_fed",
+              "monetary_threshold"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            14,
+            17,
+            20,
+            28,
+            31,
+            65,
+            69,
+            81,
+            98,
+            105
+          ],
+          "chars": 46749,
+          "records": 10,
+          "floor_per_topic": {
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 1,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 1,
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 1,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 1
+          },
+          "fill_selected": 6,
+          "containment_drops": 5
+        },
+        "121": {
+          "domains": [
+            "art",
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_engineer",
+              "civil_steel"
+            ],
+            "art": [
+              "art_identity",
+              "art_patron_role"
+            ],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            17,
+            20,
+            24,
+            28,
+            31,
+            55,
+            58,
+            59,
+            66,
+            69,
+            71,
+            105
+          ],
+          "chars": 47472,
+          "records": 12,
+          "floor_per_topic": {
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 1,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 1,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 1,
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 1
+          },
+          "fill_selected": 8,
+          "containment_drops": 5
+        }
+      }
+    },
+    {
+      "b_ltm": 48000,
+      "k_min": 2,
+      "four_domain_both": true,
+      "probes": {
+        "120": {
+          "domains": [
+            "art",
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_engineer",
+              "civil_steel",
+              "civil_load"
+            ],
+            "art": [
+              "art_identity",
+              "art_patron_role"
+            ],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            14,
+            17,
+            20,
+            28,
+            31,
+            33,
+            55,
+            69,
+            81,
+            98,
+            105
+          ],
+          "chars": 47625,
+          "records": 11,
+          "floor_per_topic": {
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 2,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 2,
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 2,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 2
+          },
+          "fill_selected": 3,
+          "containment_drops": 5
+        },
+        "121": {
+          "domains": [
+            "art",
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_engineer",
+              "civil_steel"
+            ],
+            "art": [
+              "art_identity",
+              "art_patron_role"
+            ],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            17,
+            20,
+            24,
+            31,
+            58,
+            59,
+            66,
+            69,
+            71,
+            98,
+            105
+          ],
+          "chars": 47196,
+          "records": 11,
+          "floor_per_topic": {
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 2,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 2,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 2,
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 2
+          },
+          "fill_selected": 3,
+          "containment_drops": 5
+        }
+      }
+    },
+    {
+      "b_ltm": 48000,
+      "k_min": 3,
+      "four_domain_both": false,
+      "probes": {
+        "120": {
+          "domains": [
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_engineer",
+              "civil_steel"
+            ],
+            "art": [],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            17,
+            20,
+            28,
+            31,
+            33,
+            58,
+            69,
+            81,
+            98,
+            100,
+            105
+          ],
+          "chars": 47611,
+          "records": 11,
+          "floor_per_topic": {
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 3,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 3,
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 2,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 2
+          },
+          "fill_selected": 1,
+          "containment_drops": 5
+        },
+        "121": {
+          "domains": [
+            "art",
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_engineer",
+              "civil_steel"
+            ],
+            "art": [
+              "art_identity",
+              "art_patron_role"
+            ],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            20,
+            24,
+            31,
+            58,
+            59,
+            66,
+            69,
+            71,
+            98,
+            105,
+            111
+          ],
+          "chars": 47281,
+          "records": 11,
+          "floor_per_topic": {
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 3,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 3,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 3,
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 2
+          },
+          "fill_selected": 0,
+          "containment_drops": 5
+        }
+      }
+    },
+    {
+      "b_ltm": 48000,
+      "k_min": 4,
+      "four_domain_both": false,
+      "probes": {
+        "120": {
+          "domains": [
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_engineer",
+              "civil_steel"
+            ],
+            "art": [],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            17,
+            20,
+            28,
+            31,
+            33,
+            58,
+            69,
+            81,
+            98,
+            100,
+            105
+          ],
+          "chars": 47611,
+          "records": 11,
+          "floor_per_topic": {
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 3,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 3,
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 2,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 2
+          },
+          "fill_selected": 1,
+          "containment_drops": 5
+        },
+        "121": {
+          "domains": [
+            "art",
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_engineer",
+              "civil_steel"
+            ],
+            "art": [
+              "art_identity",
+              "art_patron_role"
+            ],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            20,
+            24,
+            31,
+            58,
+            59,
+            66,
+            69,
+            71,
+            98,
+            105,
+            111
+          ],
+          "chars": 47281,
+          "records": 11,
+          "floor_per_topic": {
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 3,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 3,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 3,
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 2
+          },
+          "fill_selected": 0,
+          "containment_drops": 5
+        }
+      }
+    },
+    {
+      "b_ltm": 64000,
+      "k_min": 0,
+      "four_domain_both": false,
+      "probes": {
+        "120": {
+          "domains": [
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_engineer",
+              "civil_steel",
+              "civil_load"
+            ],
+            "art": [],
+            "monetary": [
+              "monetary_fed",
+              "monetary_threshold"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            14,
+            17,
+            20,
+            28,
+            31,
+            33,
+            58,
+            63,
+            65,
+            66,
+            69,
+            81,
+            98,
+            105
+          ],
+          "chars": 63728,
+          "records": 14,
+          "floor_per_topic": {},
+          "fill_selected": 14,
+          "containment_drops": 5
+        },
+        "121": {
+          "domains": [
+            "art",
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_engineer",
+              "civil_steel",
+              "civil_load"
+            ],
+            "art": [
+              "art_identity",
+              "art_patron_role"
+            ],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            14,
+            17,
+            20,
+            24,
+            28,
+            31,
+            58,
+            59,
+            63,
+            66,
+            69,
+            71,
+            98,
+            105
+          ],
+          "chars": 62630,
+          "records": 14,
+          "floor_per_topic": {},
+          "fill_selected": 14,
+          "containment_drops": 5
+        }
+      }
+    },
+    {
+      "b_ltm": 64000,
+      "k_min": 1,
+      "four_domain_both": false,
+      "probes": {
+        "120": {
+          "domains": [
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_engineer",
+              "civil_steel",
+              "civil_load"
+            ],
+            "art": [],
+            "monetary": [
+              "monetary_fed",
+              "monetary_threshold"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            14,
+            17,
+            20,
+            28,
+            31,
+            33,
+            58,
+            63,
+            65,
+            66,
+            69,
+            81,
+            98,
+            105
+          ],
+          "chars": 63728,
+          "records": 14,
+          "floor_per_topic": {
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 1,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 1,
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 1,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 1
+          },
+          "fill_selected": 10,
+          "containment_drops": 5
+        },
+        "121": {
+          "domains": [
+            "art",
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_engineer",
+              "civil_steel",
+              "civil_load"
+            ],
+            "art": [
+              "art_identity",
+              "art_patron_role"
+            ],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            14,
+            17,
+            20,
+            24,
+            28,
+            31,
+            58,
+            59,
+            63,
+            66,
+            69,
+            71,
+            98,
+            105
+          ],
+          "chars": 62630,
+          "records": 14,
+          "floor_per_topic": {
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 1,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 1,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 1,
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 1
+          },
+          "fill_selected": 10,
+          "containment_drops": 5
+        }
+      }
+    },
+    {
+      "b_ltm": 64000,
+      "k_min": 2,
+      "four_domain_both": false,
+      "probes": {
+        "120": {
+          "domains": [
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_engineer",
+              "civil_steel",
+              "civil_load"
+            ],
+            "art": [],
+            "monetary": [
+              "monetary_fed",
+              "monetary_threshold"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            14,
+            17,
+            20,
+            28,
+            31,
+            33,
+            58,
+            63,
+            65,
+            66,
+            69,
+            81,
+            98,
+            105
+          ],
+          "chars": 63728,
+          "records": 14,
+          "floor_per_topic": {
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 2,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 2,
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 2,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 2
+          },
+          "fill_selected": 6,
+          "containment_drops": 5
+        },
+        "121": {
+          "domains": [
+            "art",
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_engineer",
+              "civil_steel",
+              "civil_load"
+            ],
+            "art": [
+              "art_identity",
+              "art_patron_role"
+            ],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            14,
+            17,
+            20,
+            24,
+            28,
+            31,
+            58,
+            59,
+            63,
+            66,
+            69,
+            71,
+            98,
+            105
+          ],
+          "chars": 62630,
+          "records": 14,
+          "floor_per_topic": {
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 2,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 2,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 2,
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 2
+          },
+          "fill_selected": 6,
+          "containment_drops": 5
+        }
+      }
+    },
+    {
+      "b_ltm": 64000,
+      "k_min": 3,
+      "four_domain_both": true,
+      "probes": {
+        "120": {
+          "domains": [
+            "art",
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_engineer",
+              "civil_steel",
+              "civil_load"
+            ],
+            "art": [
+              "art_identity",
+              "art_patron_role"
+            ],
+            "monetary": [
+              "monetary_fed",
+              "monetary_threshold"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            14,
+            17,
+            20,
+            28,
+            31,
+            33,
+            55,
+            58,
+            65,
+            69,
+            81,
+            84,
+            98,
+            105,
+            108
+          ],
+          "chars": 63440,
+          "records": 15,
+          "floor_per_topic": {
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 3,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 3,
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 3,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 3
+          },
+          "fill_selected": 3,
+          "containment_drops": 5
+        },
+        "121": {
+          "domains": [
+            "art",
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_engineer",
+              "civil_steel"
+            ],
+            "art": [
+              "art_identity",
+              "art_patron_role"
+            ],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            17,
+            20,
+            24,
+            28,
+            31,
+            55,
+            58,
+            59,
+            63,
+            66,
+            69,
+            71,
+            98,
+            105,
+            111
+          ],
+          "chars": 63770,
+          "records": 15,
+          "floor_per_topic": {
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 3,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 3,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 3,
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 3
+          },
+          "fill_selected": 3,
+          "containment_drops": 5
+        }
+      }
+    },
+    {
+      "b_ltm": 64000,
+      "k_min": 4,
+      "four_domain_both": true,
+      "probes": {
+        "120": {
+          "domains": [
+            "art",
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_engineer",
+              "civil_steel",
+              "civil_load"
+            ],
+            "art": [
+              "art_identity",
+              "art_patron_role"
+            ],
+            "monetary": [
+              "monetary_fed",
+              "monetary_threshold"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            14,
+            17,
+            20,
+            28,
+            31,
+            33,
+            58,
+            59,
+            65,
+            69,
+            81,
+            98,
+            100,
+            105,
+            108
+          ],
+          "chars": 63255,
+          "records": 15,
+          "floor_per_topic": {
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 4,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 4,
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 3,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 3
+          },
+          "fill_selected": 1,
+          "containment_drops": 5
+        },
+        "121": {
+          "domains": [
+            "art",
+            "civil",
+            "marine",
+            "monetary"
+          ],
+          "matched_facts": {
+            "civil": [
+              "civil_project",
+              "civil_engineer",
+              "civil_steel"
+            ],
+            "art": [
+              "art_identity",
+              "art_patron_role"
+            ],
+            "monetary": [
+              "monetary_fed"
+            ],
+            "marine": [
+              "marine_identity"
+            ]
+          },
+          "source_turns": [
+            17,
+            20,
+            24,
+            31,
+            40,
+            55,
+            58,
+            59,
+            63,
+            66,
+            69,
+            71,
+            98,
+            105,
+            111
+          ],
+          "chars": 63789,
+          "records": 15,
+          "floor_per_topic": {
+            "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 4,
+            "b667bd37-ef6f-4a8b-8511-9a02581b120c": 4,
+            "ad30fb43-1a11-4647-802d-63a1307decc5": 3,
+            "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 3
+          },
+          "fill_selected": 1,
+          "containment_drops": 5
+        }
+      }
+    }
+  ]
+}

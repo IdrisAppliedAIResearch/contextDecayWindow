@@ -155,6 +155,15 @@ class _Segmenter:
 _SEGMENTER = _Segmenter()
 
 
+def count_text_features(text: str) -> tuple[int, int, int]:
+    """Return entity, numeric-token, and word counts using formation's tools."""
+    return (
+        _SEGMENTER.count_entities(text),
+        count_numeric_tokens(text),
+        _SEGMENTER.count_words(text),
+    )
+
+
 def _trim(text: str, start: int, end: int) -> tuple[int, int] | None:
     """Shrink (start, end) past surrounding whitespace, or drop it if empty."""
     while start < end and text[start].isspace():

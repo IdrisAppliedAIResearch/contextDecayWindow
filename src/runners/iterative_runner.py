@@ -6,7 +6,7 @@ from src.db.rule_store import store_rule
 from src.memory.retrieval_engine import RetrievalEngine
 from src.memory.topic_manager import TopicManager
 from src.memory.context_builder import estimate_tokens
-from src.memory.retrieval_budget import rendered_cost
+from src.memory.retrieval_budget import rendered_cost, selection_key
 from src.inference.provider import InferenceResult
 from src.observability.turn_record import TurnRecord, AssignmentResult
 from src.runners.base_runner import BaseRunner
@@ -83,6 +83,12 @@ class IterativeRunner(BaseRunner):
             "source_episode_ids": ep.get("source_episode_ids", []),
             "source_turns": ep.get("source_turns", []),
             "salience": ep.get("salience"),
+            "render_mode": ep.get("render_mode", "episode"),
+            "span_text": ep.get("span_text"),
+            "role": ep.get("role"),
+            "span_start": ep.get("span_start"),
+            "span_end": ep.get("span_end"),
+            "rendered_density": ep.get("rendered_density"),
         } for ep in retrieval_result.retrieved_ltm_episodes]
         arbitration = retrieval_result.arbitration
 
@@ -137,9 +143,14 @@ class IterativeRunner(BaseRunner):
             "budget_active": True,
             "budget_b_ltm": selection.budget,
             "budget_k_min": selection.k_min,
+            "budget_floor_ranking": selection.floor_ranking,
+            "budget_fill_cap": selection.fill_cap,
+            "budget_render_mode": selection.render_mode,
             "budget_topics_present": list(selection.topics_present),
             "budget_floor_per_topic": dict(selection.floor_per_topic),
             "budget_fill_selected": selection.fill_selected,
+            "budget_fill_per_topic": dict(selection.fill_per_topic),
+            "budget_cap_skips": selection.cap_skips,
             "budget_containment_drops": arbitration.containment_drops,
             "budget_refills": arbitration.refills,
             "budget_chars_used": selection.chars_used,
@@ -151,14 +162,33 @@ class IterativeRunner(BaseRunner):
                 {
                     "episode_id": str(candidate["id"]),
                     "distilled_id": candidate.get("distilled_id"),
+                    "rendered_unit_id": selection_key(
+                        candidate,
+                        selection.render_mode,
+                    ),
                     "topic": str(
                         candidate.get("topic_id")
                         or candidate.get("topic_label")
                         or ""
                     ),
                     "similarity": round(float(candidate["similarity"]), 6),
-                    "chars": rendered_cost(candidate),
-                    "phase": selection.phases[str(candidate["id"])],
+                    "density": (
+                        round(float(candidate["rendered_density"]), 6)
+                        if candidate.get("rendered_density") is not None
+                        else None
+                    ),
+                    "chars": rendered_cost(
+                        candidate,
+                        selection.render_mode,
+                    ),
+                    "phase": selection.phases[
+                        selection_key(candidate, selection.render_mode)
+                    ],
+                    "render_mode": selection.render_mode,
+                    "source_turn": candidate.get("turn_number"),
+                    "role": candidate.get("role"),
+                    "span_start": candidate.get("span_start"),
+                    "span_end": candidate.get("span_end"),
                 }
                 for candidate in selection.selected
             ],

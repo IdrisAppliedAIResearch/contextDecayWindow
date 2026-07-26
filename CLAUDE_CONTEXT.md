@@ -2,16 +2,18 @@
 
 ## Current state
 
-Study 005 is complete with a PARTIAL result. The accepted treatment is
-`experiments/study_005/runs/study_005_full_001/condition_c`; the seeded
-promotion control is
-`experiments/study_005/controls/promotion_seeded/promotion_seeded_001/condition_c`.
-Treatment scored 11.0/13.0 with Q14 = 0.5; control scored 12.0/13.0 with
-Q14 = 0.0. Bar 1 failed, Bar 2 was not evaluable, and Bar 3 failed. The
-pre-registration lock is `20aa7707e780543ccbe462efadf3bb1263b3813e`, and the
-score/structural lock is `1bbfad7`.
+Study 008 is complete as **STOPPED AT PRE-RUN GATES**. The registered 2x2
+retrieval factorial was not run because no `c_fill` from 1 through 50 passed
+fact-aware breadth replay and targeted-retrieval preservation jointly at
+`B_ltm = 32,000`, `k_min = 1`. Registration is `0a20ef0`; the binding gate STOP
+is `4a29540`.
 
-## Architecture after Study 005
+Gate 1 confirmed P1: no episode-rendered `k_min` from 0 through 4 reaches
+fact-aware four-domain coverage at 32,000 characters. Arm A's replay reproduced
+Study 007's Q11 and Q14 LTM blocks byte-for-byte. No ablation, live inference
+run, scoring, or Bars 0–3 evaluation occurred.
+
+## Architecture after Study 008
 
 - Iterative STM retrieval with soft N cap and K similarity retrieval
 - User-message embeddings for topic assignment and centroids
@@ -19,13 +21,18 @@ score/structural lock is `1bbfad7`.
 - Pinned rule store with deterministic UUIDv5 model-visible rule identifiers
 - Permissive append-only raw conversation store; every user/assistant turn is
   retained and marked for dreaming
-- Extractive dreaming at topic transitions and the turn-111 flush
-- Salience `named_entities + 2 * numeric_tokens`, cosine dedup at 0.95,
-  per-topic cap 3, and salience floor 2
-- Verbatim distilled records with source IDs/turns, salience, event, and
-  collapsed-source provenance
-- Asynchronous STM/distilled-LTM retrieval, tier-neutral arbitration,
-  episode-ID deduplication, and XML-tagged context tiers
+- Extractive span dreaming at topic transitions and the turn-111 flush
+- Shared density score `(named_entities + 2 * numeric_tokens) / word_count`,
+  source weighting in formation, cosine dedup at 0.95, and per-topic cap 50
+- Verbatim distilled spans with source IDs/turns, role, offsets, density,
+  event, and collapsed-source provenance
+- Study 007 character-budgeted LTM retrieval with protected per-topic floor,
+  containment dedup, and XML-tagged context tiers
+- Study 008 factor implementation available behind explicit configuration:
+  density or similarity floor, optional per-topic fill cap, episode or span
+  rendering, rendering-aware identity/cost/containment, and expanded logs
+- Exact serialized span-element charging under Study 008 Amendment 001
+- Structural leakage audit over literal references and retrieval import closure
 - Fixed seed 5005, single-slot llama.cpp serving, deterministic IDs, and no
   speculative decoding
 - Formation, faithfulness, non-content, conditional breadth, and comparative
@@ -63,36 +70,61 @@ score/structural lock is `1bbfad7`.
 - Active LTM retrieval remains mechanically sound but not functionally
   validated
 
+## Study 006 result
+
+- Span formation reached 4/4 domains with 200 offset-verbatim records, zero
+  non-content, and zero formation inference calls
+- Breadth probes remained 0.0/0.0 because fixed-count retrieval delivered
+  insufficient domain breadth
+- Targeted score was 10.5 versus Study 005's 11.0; overall PARTIAL
+
+## Study 007 result and binding correction
+
+- Formation remained 4/4; targeted recall passed at 12.0 versus 10.5
+- Breadth scored Q11 0.0 and Q14 0.5
+- The original report's context-use diagnosis is void
+- Binding correction `fd78018`: Q11 used all 10 of 10 delivered atomic facts,
+  invented none, and lacked seven of 17 required items
+- Retrieval picked art/monetary overviews and assigned all fill to civil;
+  the bottleneck remained retrieval
+
+## Study 008 result
+
+- Gate 1: P1 confirmed; first swept episode-rendering 4/4 point was 40,000
+  characters with `k_min = 2`
+- Gate 2: Arm A probe blocks reproduced Study 007 byte-for-byte
+- Amendment 001: content-only charging admitted an 83,106-character span block
+  under a nominal 32,000 budget; span arms now charge exact serialized elements
+- Joint gates: B reached breadth only at `c_fill = 1`, where targeted allocation
+  failed; targeted preservation began at 5, where breadth failed
+- At `c_fill = 50`, all targeted fixtures passed but no arm reached fact-aware
+  4/4 at both probes
+- Binding outcome: STOP before ablation; P2–P5 and Bars 0–3 not evaluated
+
 ## Next research target
 
-- Keep dreaming extractive and change selection granularity from whole
-  conversation episodes to atomic factual source spans
-- Separate or weight user-provided facts against generated answer text, and
-  test length-normalized factual salience
-- Add an adversarial synthetic fixture where verbose numeric answers compete
-  with concise planted facts
+- Register a new retrieval design that can pass both fact-aware breadth and
+  targeted-allocation gates before spending inference
+- Leading option: selected span plus minimal surrounding context, with exact
+  serialized-unit charging
+- Alternative: query-adaptive fill allocation with a pre-registered targeted
+  lower bound
+- Escalate to formation-side per-domain fact guarantees only if corrected
+  rendering/allocation still cannot expose the locked facts
 - Preserve fixed-seed, single-slot, deterministic-ID, score-before-log protocol
-- Do not build retrieval diversity yet; its registered trigger requires
-  successful formation followed by breadth failure
-- Defer abstractive dreaming until extractive selection passes, since
-  abstraction would introduce a new faithfulness problem prematurely
+- Preserve fact-aware complete-row gates and the structural leakage audit
+- Keep the 1,000-turn endurance study deferred until breadth recovery passes
 
 ## Key files
 
-- Study 005 final report: `experiments/study_005/study_005_report.md`
-- Machine-readable results:
-  `experiments/study_005/evaluation/study_005_results.json`
-- Score and structural lock: `experiments/study_005/evaluation/score_lock.md`
-- Treatment mechanism analysis:
-  `experiments/study_005/runs/study_005_full_001/condition_c/ltm_analysis/analysis_report.md`
-- Treatment scores:
-  `experiments/study_005/runs/study_005_full_001/condition_c/rubric/scores.md`
-- Seeded control scores:
-  `experiments/study_005/controls/promotion_seeded/promotion_seeded_001/condition_c/rubric/scores.md`
-- Runtime verification:
-  `experiments/study_005/runtime/s5_001_runtime_verification.md`
-- Synthetic verification:
-  `experiments/study_005/tests/synthetic_verification_report.md`
-- Ablation report: `experiments/study_005/ablation/ablation_report.md`
+- Study 008 report: `experiments/study_008/study_008_report.md`
+- Gate 1: `experiments/study_008/replay/gate1_rederivation_report.md`
+- Joint gates: `experiments/study_008/replay/gate2_report.md`
+- Targeted fixture: `experiments/study_008/tests/targeted_fixture_report.md`
+- Gate STOP: `experiments/study_008/decisions/DECISION_gate_stop_study008.md`
+- Amendment 001:
+  `experiments/study_008/amendments/AMENDMENT_001_span_rendered_cost.md`
+- Study 007 correction:
+  `experiments/study_007/evaluation/position_and_grounding_analysis.md`
 
-**Last updated:** July 22, 2026
+**Last updated:** July 26, 2026
