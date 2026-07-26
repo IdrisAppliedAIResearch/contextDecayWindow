@@ -1,6 +1,6 @@
 # Decision: Stop Study 009 at the Arm S Ablation
 
-**Status:** BINDING STOP
+**Status:** SUPERSEDED by author-authorized Amendment 001
 **Registration anchor:** `37fff74`
 **Gate commit:** `f901bda`
 **Trigger:** Cross-arm prefix requirement is incompatible with structural Arm S
@@ -10,6 +10,10 @@
 Study 009 stops after the completed 35-turn Arm S ablation. No full Arm S or
 Arm L run, blinded scoring, fact matrix, null-test verdict, or mechanism
 analysis is performed.
+
+This was the binding decision under the original registration. Amendment 001
+repairs the contradictory parity unit and authorizes resumption; this file is
+retained as the audit record of why amendment was required.
 
 ## Reason
 

@@ -2,7 +2,8 @@
 
 ## Current state
 
-Study 009 is complete as **STOPPED AT THE 35-TURN ARM S ABLATION**.
+Study 009 was stopped at the 35-turn Arm S ablation and is now **RESUMED UNDER
+AUTHOR-AUTHORIZED AMENDMENT 001**.
 Registration is `37fff74`; the implementation and offline gates are `f901bda`.
 The topic digest failed fact-aware G1 even through `d = 50` and
 `B_digest = 50,000`, so the registered contingency dropped S+D. G2 reproduced
@@ -16,8 +17,12 @@ required to be byte-identical through the empty-store prefix. Raw prompts
 differed at turn 1 and seeded responses at turn 3. No full run, human scoring,
 null-test verdict, or mechanism analysis occurred.
 
-Study 010 inputs from 009: digest carry is false; Study 007 remains the last
-accepted LTM configuration, but Study 009 supplied no STM-versus-LTM verdict.
+Amendment 001 replaces impossible cross-arm byte identity with shared
+input/runtime parity and within-arm determinism, authorizes reuse of the
+byte-verified Study 007 artifact as Arm L, and permits blinded agent scoring
+with scores committed before full-run mechanism logs are opened. Digest carry
+remains false. The Study 009 null-test verdict is pending the resumed Arm S run
+and scoring.
 
 Study 008 is complete as **STOPPED AT PRE-RUN GATES**. The registered 2x2
 retrieval factorial was not run because no `c_fill` from 1 through 50 passed
