@@ -259,8 +259,10 @@ The 1,000-turn endurance study remains deferred until end-to-end recall works.
 
 ## Verification
 
-- 619 tests pass; 61 new across budgeting, floor/fill, containment dedup,
-  arbitration assembly, budget logging, and the encoding correction.
+- **629 tests pass**; 71 new against Study 006's 558 baseline, across character
+  budgeting, floor/fill selection, containment dedup and refill, arbitration
+  assembly and floor protection, budget logging, bar evaluation, and the
+  encoding correction.
 - **Correction 1 is real, not declared**: reading the script under `-X utf8=0`
   without an explicit encoding digests to `5eb93a82…`, which the new assertion
   rejects against the recorded `d8ba73fd…`. Correctness no longer depends on
