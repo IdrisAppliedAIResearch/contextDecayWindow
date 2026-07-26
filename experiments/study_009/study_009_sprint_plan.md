@@ -6,6 +6,14 @@
 
 **Contract:** the pre-registration wins over this plan; stop and flag on any divergence. Scope: the null-test arm compositions and the digest. Nothing touches formation, the rubric, the budget values of Arm L, or the runtime. The leakage audit is a standing tripwire in every sprint.
 
+**Final disposition (Amendment 001):** S9_001-S9_004 completed; the original
+S9_005 parity rule stopped as registered and was superseded before full
+execution. The accepted Study 007 artifact was reused as Arm L, Arm S completed
+121 turns, two arms were blindly scored, and S9_006-S9_007 completed. S+D was
+dropped at G1, so its live run, 14 scores, and digest Bars 1-2 are not
+evaluable. Final null-test result: L 12.0 versus S 10.5; LTM retirement
+cancelled.
+
 ---
 
 ## Dependency overview
