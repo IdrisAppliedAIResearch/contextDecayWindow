@@ -3,6 +3,16 @@
 ## contextDecayWindow · Idris Applied AI Research
 
 **Status:** COMPLETE — **PARTIAL**
+> **CORRECTION — read this first.** The diagnosis in *The finding* below is
+> **wrong** and is superseded by
+> `evaluation/position_and_grounding_analysis.md`. This report claimed the model
+> had all four domains' facts and substituted background knowledge. Item-level
+> checking of the committed logs shows the opposite: at Q11 the model used **10
+> of the 10** rubric-critical items in its context, invented none, and the
+> "background knowledge" it was accused of substituting was itself retrieved.
+> The block carried only 10 of 17 rubric items. **The bottleneck is still
+> retrieval, not the model's use of context**, and Study 008 should target the
+> diversity floor rather than prompting. The corrected sections are marked below.
 **Pre-registration:** `experiments/study_007/pre_registration.md` (locked at `d920fd8`)
 **Amendments:** 001 (delivered information), 002 (floor-cost criterion), 003 (rater protocol)
 **Treatment:** `runs/study_007_full_001` · **Control:** `controls/count_budget_seeded/run_001`
@@ -125,31 +135,67 @@ log. The failure is backed by it too:
 
 ---
 
-## The finding
+## The finding — **SUPERSEDED, see `evaluation/position_and_grounding_analysis.md`**
 
-The treatment's Q11 answer named all four subject areas and populated them. For
+> The claim in this section did not survive item-level checking. It is preserved
+> as written, struck through in substance, because the correction is part of the
+> record. The corrected finding follows immediately after.
+
+~~The treatment's Q11 answer named all four subject areas and populated them. For
 civil engineering and marine biology it used the planted facts. For the other two
-it used **the model's own background knowledge**: Renaissance art became
-`1450–1510` with Cosimo de' Medici and Ghirlandaio; monetary policy became the
-ECB, the Bank of Japan, and a 2024 BOJ rate hike — none of which occurred in this
-conversation.
+it used **the model's own background knowledge** — none of which occurred in this
+conversation... The store contains the facts. The retrieval delivers the facts.
+The model does not use them.~~
 
-Meanwhile `The Annunciation of Forlì`, `Melozzo da Forlì`, `1483`, `Taylor Rule`
-and `Dr. Priya Mehta` were in its context window, inside the `<retrieved_ltm>`
-block, at that turn.
+**Why it was wrong.** The claim rested on a coverage check that counted a domain
+as present if *any* planted term appeared in the block. Under that definition art
+was "covered" by `Julius II` alone and monetary by `Federal Reserve` alone. Under
+the definition the rubric actually scores — the domain's rubric-critical facts
+are present — the Q11 block covered **two** domains, not four.
 
-This is a different failure from Study 006's, and the difference is the result.
+## The corrected finding
 
-- **Study 006** could not have answered Q11. Two domains reached the model; it
-  correctly reported that it had material for two domains.
-- **Study 007** could have answered Q11. Four domains reached the model. It
-  substituted plausible general knowledge for two of them and did not flag that
-  it had done so.
+At Q11 the model used **10 of the 10** rubric-critical items in its context,
+added none that were absent, and contradicted nothing:
 
-Three studies of memory-architecture work — selection policy, formation
-granularity, retrieval budget — have moved the bottleneck to a place none of them
-can reach. The store contains the facts. The retrieval delivers the facts. The
-model does not use them.
+| Turn 120 (Q11) | Count |
+|---|---:|
+| Rubric items in the LTM block | 10 / 17 |
+| Rubric items in the answer | 10 / 17 |
+| In block but unused | **0** |
+| In answer but not in block | **0** |
+
+`1483`, `Annunciation`, `Melozzo`, `della Rovere`, `Taylor Rule`, `Priya Mehta`
+and `2.3%` were **absent from the context window**. The model could not have
+named them.
+
+The "background knowledge" it was accused of substituting — Cosimo de' Medici,
+Ghirlandaio, the ECB, the Bank of Japan, FAIT — is **all present in the turn-120
+block**. It is real conversation content, just not rubric-critical content. The
+model fabricated nothing.
+
+**Cause.** `k_min = 1` gives each topic exactly one episode, chosen by similarity
+to the query. For a "list everything" query that winner is a topic *overview*:
+art got turn 31 (patronage survey) while its facts live in turns 55/56/60;
+monetary got turn 69 while its facts live in 61/62/65. All three fill slots then
+went to civil, because fill is uncapped global similarity and civil had the most
+episodes. The floor guaranteed **topic presence, not fact presence**.
+
+- **Study 006** could not have answered Q11 — two domains reached the model.
+- **Study 007** also could not have answered Q11 — four *topics* reached the
+  model but only two topics' *facts*.
+
+The bottleneck has not left the memory architecture. It moved from formation to
+retrieval, and it is still in retrieval.
+
+**Bar 1's attribution branch was mis-triggered.** The pre-registered failure
+table routes "Bar 1 fails *with* four-domain coverage" to a context-use finding
+and "Bar 1 fails *without* it" to "budget or floor insufficient — compare live
+retrieval to the replay prediction." The second row is correct. There was no
+divergence from the replay because **the replay gate used the same permissive
+coverage criterion**: it too passes on `Julius II`. That is a fifth instance of
+this study's recurring failure class — a criterion checking that a unit is
+present while what matters is what the unit contains.
 
 **Why the earlier diagnosis was wrong, and how that was caught.** The
 pre-registration attributed Study 006's failure to a collapse in delivered
@@ -233,27 +279,31 @@ study's finding.
 
 ---
 
-## Next study
+## Next study — **CORRECTED**
 
-The pre-registered trigger has fired. **Bar 1 failed with four-domain coverage in
-the log**, so the next study targets **context presentation and prompting, not
-memory.**
+The original proposal here was a prompting study. **That is the wrong target.**
+Prompting a model that already used 10 of 10 available items cannot supply the 7
+items that were absent from its context.
 
-Specifically, the treatment had the facts in context and substituted background
-knowledge for two domains without signalling it. Candidate mechanisms, in the
-order the evidence supports:
+Ranked by what the evidence supports:
 
-1. **Make provenance legible to the model.** The `<retrieved_ltm>` block already
-   carries `distilled_id`, `dream_event` and `source_turns` attributes that the
-   model is never told how to use. An instruction to prefer retrieved content over
-   background knowledge, and to say when a domain is thin, is the smallest
-   intervention that addresses the observed failure.
-2. **Resolve the span-versus-episode rendering divergence deliberately**, as its
-   own study. It currently helps (Q5) by accident.
-3. **Do not revisit formation or the retrieval budget.** Formation is solved and
-   the budget delivers. Neither is the bottleneck.
+1. **Make the diversity floor fact-aware, or raise it.** `k_min = 1` is the
+   direct cause: one episode per topic, chosen by similarity to a query that
+   favours summaries over specifics. Either raise `k_min` — the sweep showed
+   `k_min = 2` at `B_ltm` 24k–28k makes the floor causal, at a targeted-recall
+   cost that must be re-measured — or select the floor episode by expected
+   information content rather than by query similarity alone.
+2. **Cap fill per topic, or reserve a fill quota.** Three of three fill slots
+   went to civil at Q11. The no-cap rule was a deliberate pre-registered choice;
+   this is the first evidence it costs breadth.
+3. **Strengthen both gate criteria** to require a domain's rubric-critical facts
+   rather than any planted term. The replay gate currently passes on `Julius II`.
+4. **Ordering is worth one cheap test, but is not the lead hypothesis.** See the
+   position analysis: a clean null at Q11, a confounded signal at Q14.
+5. **Resolve the span-versus-episode rendering divergence** as its own study. It
+   currently helps (Q5) by accident.
 
-The 1,000-turn endurance study remains deferred until end-to-end recall works.
+Do not revisit formation. The 1,000-turn endurance study remains deferred.
 
 ---
 
