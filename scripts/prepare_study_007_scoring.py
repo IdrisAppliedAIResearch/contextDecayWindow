@@ -31,7 +31,29 @@ OUT = Path("experiments/study_007/evaluation")
 # Turns the rubric scores. Q1-Q13 are the probe turns; Q14 is turn 121.
 RUBRIC_TURNS = list(range(112, 122))
 
-ARM_HEADER = re.compile(r"^## Turn (\d+)", re.M)
+# Which locked-rubric questions each turn answers. Several questions share a
+# turn's response (Q6/Q9 both read turn 117, Q7/Q10 both read turn 118, Q3/Q12
+# both read turn 114) and Q13 is judged across turns 112-120.
+#
+# The `## Turn NNN — Qn: ...` labels carried in `rubric/responses.md` are stale:
+# they name questions from an earlier study's set ("CRISPR Cell Line"), not the
+# locked rubric. They are stripped rather than shown, so the rater is not
+# primed with a wrong question. The labels are identical in both arms, so this
+# is an accuracy fix, not a blinding one.
+TURN_QUESTIONS = {
+    112: ["Q1"],
+    113: ["Q2"],
+    114: ["Q3", "Q12"],
+    115: ["Q4"],
+    116: ["Q5"],
+    117: ["Q6", "Q9"],
+    118: ["Q7", "Q10"],
+    119: ["Q8"],
+    120: ["Q11"],
+    121: ["Q14"],
+}
+
+ARM_HEADER = re.compile(r"^## Turn (\d+)[^\n]*", re.M)
 
 
 def load_rubric_responses(run_dir: Path) -> str:
@@ -51,9 +73,14 @@ def load_rubric_responses(run_dir: Path) -> str:
     for turn in RUBRIC_TURNS:
         if turn not in blocks:
             continue
-        lines.append(f"## Turn {turn}\n")
+        questions = ", ".join(TURN_QUESTIONS.get(turn, []))
+        lines.append(f"## Turn {turn} — scores {questions}\n")
         lines.append(blocks[turn].strip())
         lines.append("\n---\n")
+    lines.append(
+        "\nQ13 (rule compliance) is judged across turns 112-120, not from a "
+        "single turn.\n"
+    )
     return "\n".join(lines)
 
 
