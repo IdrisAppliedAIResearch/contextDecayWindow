@@ -92,6 +92,17 @@ def rendered_cost(
     two cannot drift apart; block scaffolding (tags, attributes) is excluded
     because it is a fixed per-element overhead, not information.
     """
+    if render_mode == RENDER_SPAN:
+        # Amendment 001: provenance scaffolding scales with the number of span
+        # units and is part of what the model receives. Use the production
+        # serializer as the authority so selection and rendering cannot drift.
+        from src.memory.context_builder import render_ltm_span_element
+
+        return len(
+            render_ltm_span_element(
+                {**candidate, "render_mode": RENDER_SPAN}
+            )
+        )
     return len(rendered_text(candidate, render_mode))
 
 

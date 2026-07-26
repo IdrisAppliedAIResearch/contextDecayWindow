@@ -1,0 +1,55 @@
+{
+  "study": "008",
+  "task": "S8-T-011",
+  "carried_from": "tests/targeted_retrieval_fixture.json",
+  "store": "experiments/study_007/runs/study_007_full_001/condition_c/study.db",
+  "budget_unit": "rendered content characters",
+  "coverage": "complete rubric-critical fact rows from experiments/study_008/q_facts_key.md",
+  "gate_criteria": {
+    "majority_own_domain": "the queried domain receives more than half the characters admitted",
+    "top_item_present": "the queried domain's top-density item in B/D or top-similarity item in A/C is selected",
+    "bounded_cost": "own-domain character loss versus floor-and-cap-disabled similarity fill is no greater than other-domain delivered characters plus one admissible record of packing slack"
+  },
+  "queries": [
+    {
+      "id": "civil_targeted_1",
+      "domain": "civil",
+      "query": "What is the total main span of the Halcyon Crossing bridge, and which grade of steel was specified for its deck plate?"
+    },
+    {
+      "id": "civil_targeted_2",
+      "domain": "civil",
+      "query": "Who is the lead structural engineer on the bridge project, and what axle load did the design account for?"
+    },
+    {
+      "id": "art_targeted_1",
+      "domain": "art",
+      "query": "Which Renaissance painting did we discuss, who painted it, and in what year was it commissioned?"
+    },
+    {
+      "id": "art_targeted_2",
+      "domain": "art",
+      "query": "Describe the pigment layering and ground preparation used in the fifteenth-century altarpiece we examined."
+    },
+    {
+      "id": "monetary_targeted_1",
+      "domain": "monetary",
+      "query": "What threshold did the economist give for the reverse repurchase facility rate, and how did it relate to the inflation target?"
+    },
+    {
+      "id": "monetary_targeted_2",
+      "domain": "monetary",
+      "query": "Explain the Taylor Rule and the Federal Reserve's dual mandate as we discussed them."
+    },
+    {
+      "id": "marine_targeted_1",
+      "domain": "marine",
+      "query": "What is the depth range of the vampire squid, and which researcher's work did we cite on it?"
+    },
+    {
+      "id": "marine_targeted_2",
+      "domain": "marine",
+      "query": "How does the vampire squid feed, and where on its body are the photophores located?"
+    }
+  ]
+}

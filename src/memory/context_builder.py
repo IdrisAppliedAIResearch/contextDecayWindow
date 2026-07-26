@@ -98,6 +98,15 @@ def build_pinned_rules_block(rule_episodes: list | None) -> str:
     return _render_rules_block(list(rule_episodes or []))
 
 
+def render_ltm_block(ltm_episodes: list | None) -> str:
+    """Expose the exact LTM renderer for budget replay and fidelity checks."""
+    return _render_episode_block(
+        "retrieved_ltm",
+        _unique_episodes(ltm_episodes or []),
+        "ltm",
+    )
+
+
 def _unique_episodes(episodes: list) -> list:
     seen: set[str] = set()
     unique = []
@@ -140,7 +149,7 @@ def _render_episode_block(name: str, episodes: list, tier: str) -> str:
     lines = [f"<{name}>"]
     for episode in episodes:
         if tier == "ltm" and episode.get("render_mode") == "span":
-            lines.append(_render_ltm_span(episode))
+            lines.append(render_ltm_span_element(episode))
             continue
         attributes = [
             f'turn="{_attribute(episode.get("turn_number", ""))}"',
@@ -190,7 +199,8 @@ def _render_episode_block(name: str, episodes: list, tier: str) -> str:
     return "\n".join(lines)
 
 
-def _render_ltm_span(episode: dict) -> str:
+def render_ltm_span_element(episode: dict) -> str:
+    """Serialize one span exactly as it appears inside retrieved_ltm."""
     source_turn = episode.get("turn_number", "")
     if episode.get("source_turns"):
         source_turn = episode["source_turns"][0]

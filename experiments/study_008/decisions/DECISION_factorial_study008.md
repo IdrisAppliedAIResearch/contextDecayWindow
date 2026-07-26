@@ -59,11 +59,12 @@ recorded span offsets within STM episodes for C/D.
 
 ### Character parity
 
-Every arm receives the same 32,000-character LTM content budget, charged against
-the text that arm actually renders. Equal record counts would not be comparable:
-episode and span units differ by roughly an order of magnitude. Character parity
-holds delivered text volume fixed while allowing the rendering factor to change
-how many independently selectable units fit.
+Every arm receives the same 32,000-character LTM budget. Episode arms retain
+Study 007's accepted content-character accounting. Under Amendment 001, span
+arms charge each exact serialized span element because Factor R's per-span
+provenance overhead scales with item count and is part of what the model
+receives. Equal record counts would not be comparable: episode and span units
+differ by roughly an order of magnitude.
 
 ## 3. Why a factorial
 
@@ -117,7 +118,7 @@ spans." Every downstream consumer is re-derived below.
 | 1 | Distilled retrieval query | Source episode text and span embedding | Also needs distilled text, role, offsets, counts, and density | Query is additive; carried fields and ordering remain intact. |
 | 2 | Selection identity | Source episode ID; multiple spans collapse | Distilled ID; spans from one episode remain independent | `selection_key` is rendering-aware and is the authority for dedup, phases, and floor protection. |
 | 3 | Floor density | Recomputed over delivered user + assistant episode text | Uses formation's persisted span density | Both call the shared `density_score`; similarity remains the tiebreaker. |
-| 4 | Character cost | User-message plus assistant-message characters | Verbatim span characters | `rendered_cost` dispatches on rendering mode; all arms retain `B_ltm = 32,000`. |
+| 4 | Character cost | User-message plus assistant-message characters (accepted Study 007 definition) | Exact serialized `<span>` element, including provenance and escaping (Amendment 001) | `rendered_cost` dispatches on rendering mode and calls the production span serializer; all arms retain `B_ltm = 32,000`. |
 | 5 | Containment | Drop an LTM episode already in STM by source episode ID | Drop every span whose recorded source episode is already in STM; offsets, role, and text are mandatory | Filtering occurs before floor/fill so replacement follows the same phase and topic rules. |
 | 6 | Arbitration merge | STM and LTM can merge as `both` on episode identity | Span identity is disjoint from STM episode identity; containment prevents redundant source overlap | Final uniqueness and floor-protection assertions use rendered-unit identity. |
 | 7 | Tagged renderer | Existing `<episode>` with user and assistant children | `<span>` with verbatim text and distilled/source/turn/role/topic/dream-event/offset provenance | The five outer context blocks and their order are unchanged. |

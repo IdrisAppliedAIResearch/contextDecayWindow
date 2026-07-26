@@ -1,5 +1,7 @@
 """Shared general-purpose informativeness score."""
 
+from functools import lru_cache
+
 from src.memory.span_segmenter import count_text_features
 
 
@@ -13,6 +15,7 @@ def density_score(
     return base / word_count if word_count else 0.0
 
 
+@lru_cache(maxsize=4096)
 def text_density(text: str) -> float:
     named_entities, numeric_tokens, word_count = count_text_features(text)
     return density_score(named_entities, numeric_tokens, word_count)
