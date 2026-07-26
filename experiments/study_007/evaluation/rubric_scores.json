@@ -1,0 +1,208 @@
+{
+  "study": "007",
+  "task": "S7-T-023",
+  "rubric": "experiments/study_002/rubric_filled.md (Q1-Q13, locked S2_007)",
+  "q14_criteria": "experiments/study_004/q14_criteria.md (locked)",
+  "rater": "agent (Claude Opus 5) - see amendments/AMENDMENT_003_rater_protocol.md",
+  "blinded": true,
+  "scored_from": [
+    "experiments/study_007/evaluation/arm_A/responses.md",
+    "experiments/study_007/evaluation/arm_B/responses.md"
+  ],
+  "mechanism_logs_opened_before_scoring": false,
+  "disclosure": "During run-integrity verification of the control arm (turn count, empty responses, dream-event turns) the rater observed the control's distilled record count (200) and character total (29,214). Those are formation VOLUME figures, not fact coverage. No facts-in-LTM, retrieval, arbitration or per-arm formation analysis was run for either arm before these scores were committed. Recorded because Correction 2 is about what the rater has seen.",
+  "dual_scoring_note": "Correction 3 requires any answer whose credit depends on a hedged or alternative-offering formulation to be scored twice. No such answer occurs in either arm: every credited fact is asserted directly. Primary and strict scores are therefore identical throughout. This is a cleaner outcome than Study 006, where the control's 'likely included azurite or early ultramarine' was exactly this pattern and decided a bar.",
+  "arm_A": {
+    "Q1": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "847 meters and S460ML both stated correctly."
+    },
+    "Q2": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Dr. Anara Bekova and 92.4 metric tons per axle both correct."
+    },
+    "Q3": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Both rules stated precisely: numbered lists for technical specifications, and (Risk: X) on engineering recommendations."
+    },
+    "Q4": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "All four: The Annunciation of Forli, Melozzo da Forli, Cardinal Giuliano della Rovere, 1483."
+    },
+    "Q5": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Ground = 'lead white ground' (exact planted term). Glaze = oil glazing 'specifically using ultramarine pigment'. Both planted terms present and committed to, not offered as alternatives."
+    },
+    "Q6": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Patron of the Annunciation identified, and his later accession as Julius II given. No monetary or marine content in the response - clean Renaissance retrieval."
+    },
+    "Q7": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "All four: Vampyroteuthis infernalis, Dr. Kenji Watanabe named explicitly, 600-900 meters, marine snow feeding."
+    },
+    "Q8": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Organ = photophores, location = 'concentrated along the margin of the mantle', restated in the summary as 'Mantle Margin'. Both organ type and location correct. The hedging present ('believed to serve as') attaches to function, which the rubric does not score."
+    },
+    "Q9": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Turn 117 response contains no Taylor Rule, Priya Mehta, inflation, Vampyroteuthis or Watanabe. No contamination from Topics C or D."
+    },
+    "Q10": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Watanabe attributed to Vampyroteuthis infernalis. No conflation with Bekova or Mehta."
+    },
+    "Q11": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "All four domains are named and populated, but with model-general knowledge rather than planted content for two of them. Values present: 847, S460ML, 92.4, 600-900, 2% (5 of 7); missing 1483 and 2.3%. Entities present: Halcyon Crossing, Bekova, Federal Reserve, Vampyroteuthis, Watanabe (5 of 10); missing The Annunciation of Forli, Melozzo, della Rovere by name, Taylor Rule, Priya Mehta. 10 of 17 = 58.8%, below the 80% threshold. The art section lists 1450-1510 and generic Renaissance patrons/artists; the monetary section lists ECB and BOJ policy that was never in this conversation."
+    },
+    "Q12": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Both rules recalled correctly at turn 114."
+    },
+    "Q13": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Numbered lists present in all nine late turns; (Risk: X) present in eight. Well above the 5-of-9 threshold."
+    },
+    "Q14": {
+      "primary": 0.5,
+      "strict": 0.5,
+      "rationale": "All four subject areas named, and no area is asserted to be absent. Bridge hit (847 meters), monetary hit (Federal Reserve with the 2% target - both are planted terms in monetary_threshold), marine hit (600-900 meters, Watanabe). Renaissance art is named but its specific, '1450-1510', is the topic's framing rather than a planted rubric fact - the plant key's art facts are the Annunciation identity, the pigment technique, and the patron role. Exactly one named-only lapse, which the locked criteria score as 0.5."
+    },
+    "Q1_Q13_total": 12.0,
+    "category_totals": {
+      "cat1_Q1_Q3": 3.0,
+      "cat2_Q4_Q6": 3.0,
+      "cat3_Q7_Q8": 2.0,
+      "cat4_Q9_Q11": 2.0,
+      "cat5_Q12_Q13": 2.0
+    }
+  },
+  "arm_B": {
+    "Q1": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "847 meters and S460ML both correct."
+    },
+    "Q2": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Dr. Anara Bekova and 92.4 metric tons per axle both correct."
+    },
+    "Q3": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Both rules stated precisely."
+    },
+    "Q4": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "All four: The Annunciation (of Forli), Melozzo da Forli, Cardinal Giuliano della Rovere, 1483."
+    },
+    "Q5": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Ground given as 'white gesso layer (gesso duro)' - not the planted lead white ground. Glaze given as generic 'velatura' oil glazing with no pigment named; ultramarine is absent. Neither planted term present. Not a hedge - it is a confident wrong answer, so strict scoring does not change it."
+    },
+    "Q6": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Patron identified and Julius II accession given. No cross-topic contamination."
+    },
+    "Q7": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Organism, depth range and marine-snow feeding all correct. The researcher is not restated in the answer, but is named in the question and is not contradicted or misattributed. JUDGMENT CALL - see sensitivity note; scoring this 0.5 by the letter of 'name the researcher' does not change any bar verdict."
+    },
+    "Q8": {
+      "primary": 0.5,
+      "strict": 0.5,
+      "rationale": "Organ correct (photophores). Location given as 'the entire margin of the large web connecting the eight arms' - the web margin, not the planted mantle margin. One of two correct."
+    },
+    "Q9": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Clean Renaissance retrieval at turn 117; no Topic C or D contamination."
+    },
+    "Q10": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "No researcher conflation; Vampyroteuthis work is not misattributed to Bekova or Mehta."
+    },
+    "Q11": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "The response explicitly states that the provided context contains no episodes discussing Renaissance art or monetary policy, and marks both sections absent. Values present: 847, S460ML, 92.4 (3 of 7). Entities present: Halcyon Crossing, Bekova, Vampyroteuthis (3 of 10). 6 of 17 = 35%, far below the 80% threshold, with two domains asserted absent."
+    },
+    "Q12": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Both rules recalled correctly."
+    },
+    "Q13": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Numbered lists in all nine late turns; (Risk: X) present in eight. Above the 5-of-9 threshold."
+    },
+    "Q14": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Automatic 0.0 under the locked criteria: monetary policy is asserted to have no details established in the conversation. Renaissance art is additionally named-only, given a generic statement about patronage rather than a planted specific. Two lapses, one of them an assertion of absence - either alone caps the score at 0.0."
+    },
+    "Q1_Q13_total": 10.5,
+    "category_totals": {
+      "cat1_Q1_Q3": 3.0,
+      "cat2_Q4_Q6": 2.0,
+      "cat3_Q7_Q8": 1.5,
+      "cat4_Q9_Q11": 2.0,
+      "cat5_Q12_Q13": 2.0
+    }
+  },
+  "sensitivity": [
+    {
+      "item": "arm_B Q7",
+      "issue": "The rubric says 'name the organism, researcher, depth range, and feeding behavior'. Arm B names three and adopts the researcher from the question without restating or misattributing.",
+      "primary": 1.0,
+      "alternative": 0.5,
+      "material": false,
+      "effect": "Under the alternative, arm_B Q1-Q13 falls from 10.5 to 10.0 and cat3 from 1.5 to 1.0. Arm A leads on both totals and on every category under either reading, so no bar verdict changes."
+    },
+    {
+      "item": "arm_A Q14 Renaissance specific",
+      "issue": "'1450-1510' is script content but is not one of the plant key's art facts (art_identity, art_pigment, art_patron_role). Crediting it as a planted specific would make Q14 a four-hit answer.",
+      "primary": 0.5,
+      "alternative": 1.0,
+      "material": true,
+      "effect": "Under the alternative, arm_A Q14 = 1.0, and Q11 + Q14 = 1.0, still short of the 1.5 sum Bar 1 requires because Q11 = 0.0. Bar 1 fails either way. The alternative was rejected because the locked Q14 criteria require a specific that 'matches the script's planted content', and the date range is the topic's framing rather than a planted fact."
+    }
+  ],
+  "totals": {
+    "arm_A": {
+      "Q1_Q13": 12.0,
+      "Q11": 0.0,
+      "Q14": 0.5,
+      "Q11_plus_Q14": 0.5
+    },
+    "arm_B": {
+      "Q1_Q13": 10.5,
+      "Q11": 0.0,
+      "Q14": 0.0,
+      "Q11_plus_Q14": 0.0
+    }
+  },
+  "arithmetic_correction": "The arm_B Q1_Q13_total field initially read 11.5, an addition error in the summary field only. The 13 per-question scores and their rationales were unchanged and sum to 10.5, which is the figure every bar uses. Corrected before the bar results were committed; the effect is to widen Bar 2's margin from 1.5 to a treatment lead of 1.5 over 10.5 rather than 0.5 over 11.5."
+}

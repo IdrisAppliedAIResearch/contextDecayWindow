@@ -14,7 +14,12 @@ from src.db.retrieval import (
 )
 from src.db.rule_store import get_all_rules
 from src.db.episode import get_episode_by_id
-from src.memory.arbitration import ArbitrationResult, arbitrate_candidates
+from src.memory.arbitration import (
+    ArbitrationResult,
+    arbitrate_budgeted,
+    arbitrate_candidates,
+)
+from src.memory.retrieval_budget import DEFAULT_K_MIN
 from src.memory.context_builder import (
     build_pinned_rules_block,
     build_tagged_context,
@@ -69,9 +74,17 @@ class RetrievalEngine:
         embedding_provider=None,
         system_prompt=None,
         ltm_source: str = "promoted",
+        ltm_budget: int | None = None,
+        ltm_k_min: int = DEFAULT_K_MIN,
     ):
         if ltm_source not in {"promoted", "distilled"}:
             raise ValueError(f"Unsupported LTM source: {ltm_source}")
+        # Study 007. `ltm_budget=None` keeps the carried count-based policy
+        # (top-M, tier-neutral arbitration) so Studies 003-006 and every carried
+        # test are unaffected. Setting it switches to information-expressed,
+        # diversity-floored selection.
+        self._ltm_budget = ltm_budget
+        self._ltm_k_min = ltm_k_min
         self.conn = conn
         self._embedding_provider = embedding_provider or embed
         self._system_prompt = system_prompt or "You are a helpful assistant."
@@ -120,12 +133,26 @@ class RetrievalEngine:
             for episode_id in k_episode_ids
             if episode_id in by_id and episode_id not in n_set
         ]
-        arbitration = arbitrate_candidates(
-            stm_candidates,
-            ltm_candidates,
-            k_stm=len(stm_candidates),
-            ltm_top_m=self.LTM_TOP_M,
-        )
+        if self._ltm_budget is None:
+            arbitration = arbitrate_candidates(
+                stm_candidates,
+                ltm_candidates,
+                k_stm=len(stm_candidates),
+                ltm_top_m=self.LTM_TOP_M,
+            )
+        else:
+            # Containment dedup is measured against the STM block as the model
+            # will see it: the recent episodes plus the K-only STM candidates.
+            arbitration = arbitrate_budgeted(
+                stm_candidates,
+                ltm_candidates,
+                stm_block_episode_ids={
+                    str(episode["id"])
+                    for episode in (*recent_episodes, *stm_candidates)
+                },
+                ltm_budget=self._ltm_budget,
+                ltm_k_min=self._ltm_k_min,
+            )
         retrieved_stm_episodes = [
             episode for episode in arbitration.episodes
             if episode["provenance"] == "stm"
@@ -276,7 +303,12 @@ class RetrievalEngine:
         candidates.sort(
             key=lambda item: (-float(item["similarity"]), str(item["id"]))
         )
-        return candidates[:self.LTM_TOP_M]
+        if self._ltm_budget is None:
+            return candidates[:self.LTM_TOP_M]
+        # Study 007: return every scored candidate. The diversity floor has to
+        # be able to reach a topic that ranks below the global top-M; truncating
+        # here would leave it looking implemented while guaranteeing nothing.
+        return candidates
 
     @staticmethod
     def _clean_stm_episode(episode: dict) -> dict:

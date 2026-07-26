@@ -6,6 +6,7 @@ from src.db.rule_store import store_rule
 from src.memory.retrieval_engine import RetrievalEngine
 from src.memory.topic_manager import TopicManager
 from src.memory.context_builder import estimate_tokens
+from src.memory.retrieval_budget import rendered_cost
 from src.inference.provider import InferenceResult
 from src.observability.turn_record import TurnRecord, AssignmentResult
 from src.runners.base_runner import BaseRunner
@@ -113,6 +114,7 @@ class IterativeRunner(BaseRunner):
                 "episode_id": episode["id"],
                 "provenance": episode["provenance"],
             } for episode in arbitration.episodes],
+            **self._budget_fields(arbitration),
             estimated_tokens=retrieval_result.estimated_tokens,
             k_token_estimate=k_token_estimate,
             n_token_estimate=n_token_estimate,
@@ -124,6 +126,43 @@ class IterativeRunner(BaseRunner):
         )
 
         return (constructed_prompt, record)
+
+    @staticmethod
+    def _budget_fields(arbitration) -> dict:
+        """Study 007 retrieval-budget accounting, empty under the count policy."""
+        selection = arbitration.budget
+        if selection is None:
+            return {}
+        return {
+            "budget_active": True,
+            "budget_b_ltm": selection.budget,
+            "budget_k_min": selection.k_min,
+            "budget_topics_present": list(selection.topics_present),
+            "budget_floor_per_topic": dict(selection.floor_per_topic),
+            "budget_fill_selected": selection.fill_selected,
+            "budget_containment_drops": arbitration.containment_drops,
+            "budget_refills": arbitration.refills,
+            "budget_chars_used": selection.chars_used,
+            "budget_records_used": len(selection.selected),
+            "budget_utilization": selection.utilization,
+            "budget_chars_per_topic": dict(selection.chars_per_topic),
+            "budget_collapsed_to_episode": selection.collapsed_to_episode,
+            "budget_selection": [
+                {
+                    "episode_id": str(candidate["id"]),
+                    "distilled_id": candidate.get("distilled_id"),
+                    "topic": str(
+                        candidate.get("topic_id")
+                        or candidate.get("topic_label")
+                        or ""
+                    ),
+                    "similarity": round(float(candidate["similarity"]), 6),
+                    "chars": rendered_cost(candidate),
+                    "phase": selection.phases[str(candidate["id"])],
+                }
+                for candidate in selection.selected
+            ],
+        }
 
     def on_turn_complete(
         self,
