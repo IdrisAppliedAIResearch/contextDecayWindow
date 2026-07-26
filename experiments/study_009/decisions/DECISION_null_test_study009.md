@@ -1,7 +1,7 @@
 # Decision: Restore the Pure-STM Null Baseline
 
 **Study:** 009
-**Status:** Author-authorized by the end-to-end Study 009 execution request
+**Status:** EXECUTED under Amendment 001
 **Registration anchor:** `37fff74`
 
 ## Finding
@@ -62,6 +62,13 @@ changing the criteria.
 
 ## Rater Constraint
 
-The registered human-rater requirement remains binding. Implementation, gates,
-ablations, and sealed live execution may proceed autonomously, but scoring must
-wait if a human rater is unavailable; an agent score may not be substituted.
+The original human-rater constraint was superseded by author-authorized
+Amendment 001 before the full run and scoring. A blinded Codex agent score was
+committed before the mapping or mechanism logs were opened.
+
+## Outcome
+
+Arm L scored 12.0/13.0 on Q1-Q13 and Arm S scored 10.5/13.0. S trails by 1.5,
+meeting the registered evidence threshold. LTM retirement is cancelled,
+Prediction P1 is refuted, and the Study 007 accepted treatment carries to
+Study 010. The digest failed G1 and does not carry.
