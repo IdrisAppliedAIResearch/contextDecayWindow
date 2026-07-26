@@ -98,16 +98,31 @@ def build_pinned_rules_block(rule_episodes: list | None) -> str:
     return _render_rules_block(list(rule_episodes or []))
 
 
+def render_ltm_block(ltm_episodes: list | None) -> str:
+    """Expose the exact LTM renderer for budget replay and fidelity checks."""
+    return _render_episode_block(
+        "retrieved_ltm",
+        _unique_episodes(ltm_episodes or []),
+        "ltm",
+    )
+
+
 def _unique_episodes(episodes: list) -> list:
     seen: set[str] = set()
     unique = []
     for episode in episodes:
-        episode_id = episode.get("id")
-        if episode_id in seen:
+        identity = _context_identity(episode)
+        if identity in seen:
             continue
-        seen.add(episode_id)
+        seen.add(identity)
         unique.append(episode)
     return unique
+
+
+def _context_identity(episode: dict) -> str:
+    if episode.get("render_mode") == "span" and episode.get("distilled_id"):
+        return f"span:{episode['distilled_id']}"
+    return f"episode:{episode.get('id')}"
 
 
 def _render_rules_block(rules: list) -> str:
@@ -133,6 +148,9 @@ def _render_episode_block(name: str, episodes: list, tier: str) -> str:
         return f"<{name}/>"
     lines = [f"<{name}>"]
     for episode in episodes:
+        if tier == "ltm" and episode.get("render_mode") == "span":
+            lines.append(render_ltm_span_element(episode))
+            continue
         attributes = [
             f'turn="{_attribute(episode.get("turn_number", ""))}"',
             f'topic="{_attribute(episode.get("topic_label", episode.get("topic_id", "")))}"',
@@ -179,6 +197,35 @@ def _render_episode_block(name: str, episodes: list, tier: str) -> str:
         lines.append("  </episode>")
     lines.append(f"</{name}>")
     return "\n".join(lines)
+
+
+def render_ltm_span_element(episode: dict) -> str:
+    """Serialize one span exactly as it appears inside retrieved_ltm."""
+    source_turn = episode.get("turn_number", "")
+    if episode.get("source_turns"):
+        source_turn = episode["source_turns"][0]
+    attributes = [
+        f'distilled_id="{_attribute(episode.get("distilled_id", ""))}"',
+        f'source_episode_id="{_attribute(episode.get("id", ""))}"',
+        f'source_turn="{_attribute(source_turn)}"',
+        f'role="{_attribute(episode.get("role", ""))}"',
+        f'topic="{_attribute(episode.get("topic_label", episode.get("topic_id", "")))}"',
+        f'dream_event="{_attribute(episode.get("dream_event", ""))}"',
+        f'span_start="{_attribute(episode.get("span_start", ""))}"',
+        f'span_end="{_attribute(episode.get("span_end", ""))}"',
+    ]
+    if episode.get("event_type"):
+        attributes.append(
+            f'event_type="{_attribute(episode["event_type"])}"'
+        )
+    if episode.get("similarity") is not None:
+        attributes.append(
+            f'similarity="{float(episode["similarity"]):.6f}"'
+        )
+    return (
+        f"  <span {' '.join(attributes)}>"
+        f"{_text(episode.get('span_text', ''))}</span>"
+    )
 
 
 def _render_current_turn(user_message: str) -> str:

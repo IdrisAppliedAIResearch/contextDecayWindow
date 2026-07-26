@@ -26,7 +26,16 @@ from src.memory.context_builder import (
     estimate_tokens,
 )
 from src.memory.distilled_ltm_store import get_distilled_retrieval_rows
+from src.memory.informativeness import text_density
 from src.memory.ltm_store import get_ltm_retrieval_rows
+from src.memory.retrieval_budget import (
+    FLOOR_DENSITY,
+    FLOOR_RANKINGS,
+    FLOOR_SIMILARITY,
+    RENDER_EPISODE,
+    RENDER_MODES,
+    RENDER_SPAN,
+)
 
 
 DECAY_RATE = 0.1
@@ -76,6 +85,9 @@ class RetrievalEngine:
         ltm_source: str = "promoted",
         ltm_budget: int | None = None,
         ltm_k_min: int = DEFAULT_K_MIN,
+        ltm_floor_ranking: str = FLOOR_SIMILARITY,
+        ltm_fill_cap: int | None = None,
+        ltm_render_mode: str = RENDER_EPISODE,
     ):
         if ltm_source not in {"promoted", "distilled"}:
             raise ValueError(f"Unsupported LTM source: {ltm_source}")
@@ -85,6 +97,29 @@ class RetrievalEngine:
         # diversity-floored selection.
         self._ltm_budget = ltm_budget
         self._ltm_k_min = ltm_k_min
+        if ltm_floor_ranking not in FLOOR_RANKINGS:
+            raise ValueError(
+                f"Unsupported LTM floor ranking: {ltm_floor_ranking}"
+            )
+        if ltm_render_mode not in RENDER_MODES:
+            raise ValueError(
+                f"Unsupported LTM rendering mode: {ltm_render_mode}"
+            )
+        if ltm_fill_cap is not None and ltm_fill_cap < 0:
+            raise ValueError(
+                f"LTM fill cap must be non-negative: {ltm_fill_cap}"
+            )
+        if ltm_budget is None and (
+            ltm_floor_ranking != FLOOR_SIMILARITY
+            or ltm_fill_cap is not None
+            or ltm_render_mode != RENDER_EPISODE
+        ):
+            raise ValueError(
+                "Study 008 LTM factors require an active character budget"
+            )
+        self._ltm_floor_ranking = ltm_floor_ranking
+        self._ltm_fill_cap = ltm_fill_cap
+        self._ltm_render_mode = ltm_render_mode
         self.conn = conn
         self._embedding_provider = embedding_provider or embed
         self._system_prompt = system_prompt or "You are a helpful assistant."
@@ -152,6 +187,9 @@ class RetrievalEngine:
                 },
                 ltm_budget=self._ltm_budget,
                 ltm_k_min=self._ltm_k_min,
+                floor_ranking=self._ltm_floor_ranking,
+                fill_cap=self._ltm_fill_cap,
+                render_mode=self._ltm_render_mode,
             )
         retrieved_stm_episodes = [
             episode for episode in arbitration.episodes
@@ -280,8 +318,25 @@ class RetrievalEngine:
         self, query_embedding: np.ndarray, rows: list[dict]
     ) -> list[dict]:
         candidates = []
+        episode_density: dict[str, float] = {}
         for row in rows:
             embedding = np.frombuffer(row["embedding"], dtype=np.float32)
+            rendered_density = None
+            if self._ltm_floor_ranking == FLOOR_DENSITY:
+                if self._ltm_render_mode == RENDER_SPAN:
+                    rendered_density = row.get("density")
+                    if rendered_density is None:
+                        rendered_density = text_density(
+                            row.get("span_text") or ""
+                        )
+                else:
+                    episode_id = str(row["id"])
+                    if episode_id not in episode_density:
+                        episode_density[episode_id] = text_density(
+                            f"{row.get('user_message') or ''}\n"
+                            f"{row.get('assistant_message') or ''}"
+                        )
+                    rendered_density = episode_density[episode_id]
             candidates.append({
                 "id": row["id"],
                 "distilled_id": row.get("distilled_id"),
@@ -299,6 +354,16 @@ class RetrievalEngine:
                 "source_episode_ids": row.get("source_episode_ids", []),
                 "source_turns": row.get("source_turns", []),
                 "salience": row.get("salience"),
+                "span_text": row.get("span_text"),
+                "role": row.get("role"),
+                "span_start": row.get("span_start"),
+                "span_end": row.get("span_end"),
+                "word_count": row.get("word_count"),
+                "named_entities": row.get("named_entities"),
+                "numeric_tokens": row.get("numeric_tokens"),
+                "density": row.get("density"),
+                "rendered_density": rendered_density,
+                "render_mode": self._ltm_render_mode,
             })
         candidates.sort(
             key=lambda item: (-float(item["similarity"]), str(item["id"]))

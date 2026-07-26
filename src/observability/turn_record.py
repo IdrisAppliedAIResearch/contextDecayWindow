@@ -54,9 +54,14 @@ class TurnRecord:
     budget_active: bool = False
     budget_b_ltm: int = 0
     budget_k_min: int = 0
+    budget_floor_ranking: str = "similarity"
+    budget_fill_cap: Optional[int] = None
+    budget_render_mode: str = "episode"
     budget_topics_present: list[str] = field(default_factory=list)
     budget_floor_per_topic: dict[str, int] = field(default_factory=dict)
     budget_fill_selected: int = 0
+    budget_fill_per_topic: dict[str, int] = field(default_factory=dict)
+    budget_cap_skips: int = 0
     budget_containment_drops: int = 0
     budget_refills: int = 0
     budget_chars_used: int = 0

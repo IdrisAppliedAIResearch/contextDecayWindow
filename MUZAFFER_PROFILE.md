@@ -57,4 +57,32 @@
 - Active LTM retrieval remains mechanically implemented but not functionally
   validated
 
-**Last updated:** July 22, 2026
+### Study 006 — Complete (PARTIAL)
+
+- Atomic span formation reached 4/4 domains with 200 offset-verbatim records
+- Zero non-content records and zero inference calls in formation
+- Breadth probes remained 0.0/0.0; targeted score 10.5 versus 11.0 control
+- Primary finding: formation succeeded and fixed-count retrieval lost breadth
+
+### Study 007 — Complete (PARTIAL, corrected)
+
+- Character-budgeted, diversity-floored retrieval at 32,000 characters
+- Formation 4/4; targeted recall 12.0 versus 10.5; Q11 0.0 and Q14 0.5
+- Binding correction `fd78018`: model used 10/10 delivered Q11 atomic facts,
+  invented none, and lacked seven of 17 required items
+- Primary failure: similarity floor selected overviews and uncapped fill went
+  entirely to civil; retrieval, not context use, remained the bottleneck
+
+### Study 008 — Complete (STOPPED AT PRE-RUN GATES)
+
+- Registered factorial: density floor/fill cap x episode/span rendering
+- Gate 1 confirmed no episode-rendered `k_min` solved fact-aware 4/4 at 32,000
+- Arm A replay reproduced Study 007 Q11/Q14 blocks byte-for-byte
+- Amendment 001 corrected span accounting after a nominal 28,498-character
+  targeted selection rendered as an 83,106-character LTM block
+- No `c_fill` from 1 through 50 passed breadth and targeted gates jointly
+- No ablation, live run, human scoring, or bar evaluation was performed
+- Next target: a newly registered rendering/allocation design that passes both
+  gates; endurance remains deferred
+
+**Last updated:** July 26, 2026
