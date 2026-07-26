@@ -1,0 +1,28 @@
+{
+  "run": "study_009_ablation_001",
+  "arm": "S",
+  "turns": 35,
+  "duration_seconds": 530.8443702000077,
+  "speed_tokens_per_second": {
+    "minimum": 33.703502107087196,
+    "mean": 41.18974431734826,
+    "maximum": 46.369149794852525
+  },
+  "peak_estimated_tokens": 9960,
+  "context_ceiling_tokens": 40000,
+  "forbidden_modules_loaded": [],
+  "ltm_tag_occurrences": 0,
+  "digest_tag_occurrences": 0,
+  "prefix": {
+    "turns_checked": 30,
+    "raw_prompt_equal": 0,
+    "first_raw_prompt_difference": 1,
+    "empty_ltm_normalized_prompt_equal": 3,
+    "first_normalized_prompt_difference": 4,
+    "response_equal": 2,
+    "first_response_difference": 3
+  },
+  "runtime_passed": true,
+  "prefix_passed": false,
+  "decision": "STOP"
+}
