@@ -28,12 +28,17 @@ LTM_BLOCK = re.compile(r"<retrieved_ltm>.*?</retrieved_ltm>", re.S)
 EPISODE_HEAD = re.compile(r'<episode turn="(\d+)" topic="([^"]+)"')
 
 PROBE_TURNS = (120, 121)
+# From the locked rubric, experiments/study_002/rubric_filled.md.
+# Bar 2 reads Cat 1-3 (plant survival); Cat 4 is bleed detection and Cat 5 is
+# rule compliance, both scored but outside Bar 2's per-category condition.
 CATEGORY_QUESTIONS = {
     "cat_1": ["Q1", "Q2", "Q3"],
     "cat_2": ["Q4", "Q5", "Q6"],
-    "cat_3": ["Q7", "Q8", "Q9", "Q10"],
-    "cat_4": ["Q11", "Q12", "Q13"],
+    "cat_3": ["Q7", "Q8"],
+    "cat_4": ["Q9", "Q10", "Q11"],
+    "cat_5": ["Q12", "Q13"],
 }
+BAR2_CATEGORIES = ("cat_1", "cat_2", "cat_3")
 
 
 def rendered_block(run_dir: Path, turn: int) -> str:
@@ -195,7 +200,7 @@ def evaluate_bars(
                 "control": q_total("control", scoring, questions),
             }
             for name, questions in CATEGORY_QUESTIONS.items()
-            if name != "cat_4"
+            if name in BAR2_CATEGORIES
         }
         bar2[scoring] = {
             "treatment_q1_13": treatment_total,
