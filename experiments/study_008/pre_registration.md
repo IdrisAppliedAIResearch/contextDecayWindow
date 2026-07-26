@@ -4,6 +4,7 @@
 **Date:** July 2026
 **Status:** LOCKED at registration commit; `c_fill` remains the single gate-calibrated parameter and must be locked before ablation.
 **Amendments:** `experiments/study_008/amendments/` — blocker-driven amendments registered before affected work are binding.
+- `AMENDMENT_001_span_rendered_cost.md` — span arms charge exact serialized span elements after Gate 3 exposed 50k+ characters of uncharged per-span provenance overhead.
 **Study 007 report:** `experiments/study_007/study_007_report.md` (COMPLETE, PARTIAL, with post-run correction `fd78018`)
 **Study 007 pre-registration SHA:** `d920fd8` (+ Amendments 001–003)
 **Study 007 accepted treatment:** `runs/study_007_full_001` (Bar 3 PASS · Bar 1 FAIL 0.0/0.5 · Bar 2 PASS 12.0 vs 10.5)
