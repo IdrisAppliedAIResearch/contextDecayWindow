@@ -2,6 +2,15 @@
 
 ## Current state
 
+Study 010 is complete as **STOPPED BEFORE LOCK**. Its source documents are
+committed at `ead2f66`. Branch resolution carries no digest and retains the
+Study 007 LTM treatment, but the draft requires a Study 009 verdict that does
+not exist and repeats the structurally absent Arm S / byte-identical S-L prefix
+contradiction already falsified in Study 009. No 1,000-turn script, calibration,
+checkpoint implementation, rehearsal, live run, or scoring occurred. A new
+author-approved registration must resolve the prefix parity unit and replace
+the missing-verdict lock condition before work resumes.
+
 Study 009 is complete as **STOPPED AT THE 35-TURN ARM S ABLATION**.
 Registration is `37fff74`; the implementation and offline gates are `f901bda`.
 The topic digest failed fact-aware G1 even through `d = 50` and

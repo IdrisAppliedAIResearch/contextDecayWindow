@@ -5,6 +5,11 @@
 **Status:** DRAFT — locks only after Study 009's verdict resolves the two pre-registered branches below.
 **Deferred since:** Study 003 ("stress-test the study where retrieval is active"), re-deferred at 004, 005, 008.
 
+**Pre-lock review:** STOPPED before script authorship. Study 009 produced no
+null-test verdict and demonstrated that the inherited combination of structural
+Arm S with byte-identical S/L prefix requirements is unsatisfiable. See
+`decisions/DECISION_prelock_stop_study010.md`.
+
 ---
 
 ## Summary
