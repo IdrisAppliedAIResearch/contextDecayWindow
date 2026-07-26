@@ -1,0 +1,497 @@
+{
+  "bar3_formation": {
+    "domains_formed": 4,
+    "records_content": 200,
+    "records_non_content": 0,
+    "unfaithful": 0,
+    "inference_calls": 0,
+    "pass": true
+  },
+  "bar1_breadth": {
+    "evaluable": true,
+    "q11": 0.0,
+    "q14": 0.5,
+    "sum": 0.5,
+    "four_domain_in_block": true,
+    "per_probe": {
+      "120": {
+        "treatment_domains": [
+          "art",
+          "civil",
+          "marine",
+          "monetary"
+        ],
+        "control_domains": [
+          "civil"
+        ]
+      },
+      "121": {
+        "treatment_domains": [
+          "art",
+          "civil",
+          "marine",
+          "monetary"
+        ],
+        "control_domains": [
+          "art",
+          "civil",
+          "marine"
+        ]
+      }
+    },
+    "pass": false,
+    "attribution": "four-domain coverage confirmed in the probe-turn block"
+  },
+  "bar2_targeted": {
+    "primary": {
+      "treatment_q1_13": 12.0,
+      "control_q1_13": 10.5,
+      "categories": {
+        "cat_1": {
+          "treatment": 3.0,
+          "control": 3.0
+        },
+        "cat_2": {
+          "treatment": 3.0,
+          "control": 2.0
+        },
+        "cat_3": {
+          "treatment": 2.0,
+          "control": 1.5
+        }
+      },
+      "categories_not_below": true,
+      "pass": true
+    },
+    "strict": {
+      "treatment_q1_13": 12.0,
+      "control_q1_13": 10.5,
+      "categories": {
+        "cat_1": {
+          "treatment": 3.0,
+          "control": 3.0
+        },
+        "cat_2": {
+          "treatment": 3.0,
+          "control": 2.0
+        },
+        "cat_3": {
+          "treatment": 2.0,
+          "control": 1.5
+        }
+      },
+      "categories_not_below": true,
+      "pass": true
+    }
+  },
+  "coverage": {
+    "120": {
+      "rendered": {
+        "turn": 120,
+        "block_chars": 33406,
+        "episodes": 7,
+        "topics": [
+          "topic_2",
+          "topic_3",
+          "topic_4",
+          "topic_5"
+        ],
+        "topic_count": 4,
+        "domains_covered": [
+          "art",
+          "civil",
+          "marine",
+          "monetary"
+        ],
+        "four_domain": true,
+        "terms_found": {
+          "civil": [
+            "Halcyon Crossing",
+            "847",
+            "S460ML",
+            "Anara Bekova",
+            "92.4"
+          ],
+          "art": [
+            "Julius II"
+          ],
+          "monetary": [
+            "Federal Reserve",
+            "dual mandate"
+          ],
+          "marine": [
+            "Vampyroteuthis",
+            "Kenji Watanabe",
+            "marine snow"
+          ]
+        }
+      },
+      "logged": {
+        "turn": 120,
+        "topic_count": 4,
+        "topics_present": [
+          "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0",
+          "ad30fb43-1a11-4647-802d-63a1307decc5",
+          "b667bd37-ef6f-4a8b-8511-9a02581b120c",
+          "f2d154ee-1364-4de7-8f5f-2c7ae3b92341"
+        ],
+        "chars_used": 31518,
+        "records_used": 7,
+        "floor_per_topic": {
+          "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 1,
+          "b667bd37-ef6f-4a8b-8511-9a02581b120c": 1,
+          "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 1,
+          "ad30fb43-1a11-4647-802d-63a1307decc5": 1
+        },
+        "fill_selected": 3,
+        "containment_drops": 5,
+        "utilization": 0.9849,
+        "chars_per_topic": {
+          "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 16979,
+          "b667bd37-ef6f-4a8b-8511-9a02581b120c": 4629,
+          "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 5983,
+          "ad30fb43-1a11-4647-802d-63a1307decc5": 3927
+        }
+      },
+      "control_rendered": {
+        "turn": 120,
+        "block_chars": 13130,
+        "episodes": 4,
+        "topics": [
+          "topic_2",
+          "topic_5"
+        ],
+        "topic_count": 2,
+        "domains_covered": [
+          "civil"
+        ],
+        "four_domain": false,
+        "terms_found": {
+          "civil": [
+            "Halcyon Crossing",
+            "847",
+            "S460ML",
+            "Anara Bekova",
+            "92.4"
+          ],
+          "art": [],
+          "monetary": [],
+          "marine": []
+        }
+      }
+    },
+    "121": {
+      "rendered": {
+        "turn": 121,
+        "block_chars": 34051,
+        "episodes": 8,
+        "topics": [
+          "topic_2",
+          "topic_3",
+          "topic_4",
+          "topic_5"
+        ],
+        "topic_count": 4,
+        "domains_covered": [
+          "art",
+          "civil",
+          "marine",
+          "monetary"
+        ],
+        "four_domain": true,
+        "terms_found": {
+          "civil": [
+            "Halcyon Crossing",
+            "847",
+            "S460ML",
+            "Anara Bekova",
+            "92.4"
+          ],
+          "art": [
+            "Annunciation",
+            "Melozzo",
+            "della Rovere",
+            "1483",
+            "Julius II"
+          ],
+          "monetary": [
+            "Federal Reserve",
+            "dual mandate"
+          ],
+          "marine": [
+            "Vampyroteuthis",
+            "Kenji Watanabe",
+            "marine snow"
+          ]
+        }
+      },
+      "logged": {
+        "turn": 121,
+        "topic_count": 4,
+        "topics_present": [
+          "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0",
+          "ad30fb43-1a11-4647-802d-63a1307decc5",
+          "b667bd37-ef6f-4a8b-8511-9a02581b120c",
+          "f2d154ee-1364-4de7-8f5f-2c7ae3b92341"
+        ],
+        "chars_used": 31888,
+        "records_used": 8,
+        "floor_per_topic": {
+          "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 1,
+          "b667bd37-ef6f-4a8b-8511-9a02581b120c": 1,
+          "ad30fb43-1a11-4647-802d-63a1307decc5": 1,
+          "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 1
+        },
+        "fill_selected": 4,
+        "containment_drops": 5,
+        "utilization": 0.9965,
+        "chars_per_topic": {
+          "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0": 5983,
+          "b667bd37-ef6f-4a8b-8511-9a02581b120c": 10539,
+          "ad30fb43-1a11-4647-802d-63a1307decc5": 7480,
+          "f2d154ee-1364-4de7-8f5f-2c7ae3b92341": 7886
+        }
+      },
+      "control_rendered": {
+        "turn": 121,
+        "block_chars": 16027,
+        "episodes": 4,
+        "topics": [
+          "topic_2",
+          "topic_3",
+          "topic_5"
+        ],
+        "topic_count": 3,
+        "domains_covered": [
+          "art",
+          "civil",
+          "marine"
+        ],
+        "four_domain": false,
+        "terms_found": {
+          "civil": [
+            "Halcyon Crossing",
+            "847",
+            "S460ML",
+            "Anara Bekova",
+            "92.4"
+          ],
+          "art": [
+            "Julius II"
+          ],
+          "monetary": [],
+          "marine": [
+            "Vampyroteuthis",
+            "Kenji Watanabe",
+            "photophore",
+            "marine snow"
+          ]
+        }
+      }
+    }
+  },
+  "observations": {
+    "raw_chars": 472783,
+    "distilled_chars": 28498,
+    "compression_pct": 6.027712502353088,
+    "records": 200,
+    "records_by_role": {
+      "assistant": 164,
+      "user": 36
+    },
+    "median_density": 0.3157894736842105,
+    "median_word_count": 21,
+    "span_inventory": {
+      "no_named_entity_or_numeric_token": 1414,
+      "word_count_above_maximum": 3,
+      "word_count_below_minimum": 528,
+      "eligible": 1323
+    },
+    "spans_logged": 3268,
+    "dream_events": [
+      {
+        "turn": 31,
+        "topic_label": "topic_2",
+        "event_type": "transition",
+        "episodes_evaluated": 30,
+        "spans_evaluated": 798,
+        "spans_eligible": 320,
+        "survivors": 319,
+        "records_written": 50,
+        "marker_written": 0,
+        "duplicates_collapsed": 1,
+        "inference_calls": 0
+      },
+      {
+        "turn": 61,
+        "topic_label": "topic_3",
+        "event_type": "transition",
+        "episodes_evaluated": 30,
+        "spans_evaluated": 844,
+        "spans_eligible": 417,
+        "survivors": 417,
+        "records_written": 50,
+        "marker_written": 0,
+        "duplicates_collapsed": 0,
+        "inference_calls": 0
+      },
+      {
+        "turn": 91,
+        "topic_label": "topic_4",
+        "event_type": "transition",
+        "episodes_evaluated": 30,
+        "spans_evaluated": 1002,
+        "spans_eligible": 404,
+        "survivors": 404,
+        "records_written": 50,
+        "marker_written": 0,
+        "duplicates_collapsed": 0,
+        "inference_calls": 0
+      },
+      {
+        "turn": 111,
+        "topic_label": "topic_5",
+        "event_type": "end_of_session_flush",
+        "episodes_evaluated": 21,
+        "spans_evaluated": 624,
+        "spans_eligible": 182,
+        "survivors": 182,
+        "records_written": 50,
+        "marker_written": 0,
+        "duplicates_collapsed": 0,
+        "inference_calls": 0
+      }
+    ],
+    "inference_calls_total": 0
+  },
+  "verdict": "PARTIAL",
+  "overall": "PARTIAL",
+  "delivered_information": {
+    "per_turn": {
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0,
+      "13": 0,
+      "14": 0,
+      "15": 0,
+      "16": 0,
+      "17": 0,
+      "18": 0,
+      "19": 0,
+      "20": 0,
+      "21": 0,
+      "22": 0,
+      "23": 0,
+      "24": 0,
+      "25": 0,
+      "26": 0,
+      "27": 0,
+      "28": 0,
+      "29": 0,
+      "30": 0,
+      "31": 0,
+      "32": 30625,
+      "33": 33519,
+      "34": 30819,
+      "35": 33519,
+      "36": 33519,
+      "37": 33887,
+      "38": 31139,
+      "39": 31719,
+      "40": 30625,
+      "41": 33697,
+      "42": 31644,
+      "43": 33519,
+      "44": 32778,
+      "45": 32778,
+      "46": 30819,
+      "47": 33519,
+      "48": 31336,
+      "49": 33898,
+      "50": 31719,
+      "51": 30428,
+      "52": 33519,
+      "53": 33697,
+      "54": 30625,
+      "55": 33495,
+      "56": 33492,
+      "57": 31130,
+      "58": 30391,
+      "59": 33890,
+      "60": 30819,
+      "61": 32778,
+      "62": 32611,
+      "63": 34007,
+      "64": 33325,
+      "65": 34041,
+      "66": 33648,
+      "67": 34107,
+      "68": 33600,
+      "69": 33765,
+      "70": 33348,
+      "71": 33875,
+      "72": 32511,
+      "73": 33553,
+      "74": 33765,
+      "75": 32812,
+      "76": 32634,
+      "77": 33974,
+      "78": 32671,
+      "79": 33728,
+      "80": 33193,
+      "81": 33270,
+      "82": 33951,
+      "83": 32858,
+      "84": 32858,
+      "85": 33797,
+      "86": 34102,
+      "87": 33262,
+      "88": 34063,
+      "89": 33837,
+      "90": 34057,
+      "91": 33389,
+      "92": 33545,
+      "93": 33896,
+      "94": 33974,
+      "95": 33115,
+      "96": 33314,
+      "97": 33685,
+      "98": 33112,
+      "99": 33274,
+      "100": 32884,
+      "101": 34112,
+      "102": 32617,
+      "103": 34000,
+      "104": 33670,
+      "105": 33122,
+      "106": 33967,
+      "107": 33533,
+      "108": 33657,
+      "109": 33746,
+      "110": 33707,
+      "111": 32617,
+      "112": 33382,
+      "113": 33799,
+      "114": 33689,
+      "115": 32067,
+      "116": 31624,
+      "117": 33660,
+      "118": 33124,
+      "119": 33386,
+      "120": 33406,
+      "121": 34051
+    },
+    "turns_with_ltm": 90,
+    "mean_chars_when_non_empty": 33063.21111111111,
+    "max_chars": 34112
+  }
+}
