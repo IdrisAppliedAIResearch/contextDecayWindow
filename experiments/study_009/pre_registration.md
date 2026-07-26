@@ -2,9 +2,16 @@
 ## contextDecayWindow
 **Idris Applied AI Research**
 **Date:** July 2026
-**Status:** DRAFT — not yet locked.
+**Status:** LOCKED at registration anchor `37fff74`; Gate 1 contingency invoked before ablation.
 **Study 008:** STOPPED AT PRE-RUN GATES (`0a20ef0` / STOP `4a29540`)
 **Study 007 accepted treatment:** 12.0/13.0 (best LTM configuration to date)
+
+**Gate-lock note:** Offline digest replay found no fact-aware 4/4 setting
+through `d = 50` and `B_digest = 50,000` exact serialized characters. The
+pre-registered contingency therefore applies: S+D is dropped and the live
+study reduces to the S-versus-L null test. G2 Arm L byte fidelity and G3 Arm S
+sanity passed. Human-rater availability remains a hard pre-scoring dependency;
+the study waits rather than substituting an agent rater.
 
 ---
 
@@ -110,10 +117,10 @@ One seed, one script, one rater; n = 1 per arm. The null test is scoped to 120 t
 
 ## Open Decisions Before Lock
 
-1. **`d` and `B_digest`** — proposed 2 spans/topic, 2,500 chars; calibrated smallest-sufficient by G1. [DECISION]
-2. **Digest placement** — proposed after `<pinned_rules>`, before `<recent_context>`. [DECISION]
-3. **Arm S composition review** — confirm the minimal-composition build (not flag-off) is acceptable as the null baseline. [DECISION]
-4. **Rater availability for 42 blinded scorings.** [DECISION]
+1. **`d` and `B_digest`** — no sufficient setting through `d = 50`, 50,000 chars; registered contingency invoked and S+D dropped. [LOCKED]
+2. **Digest placement** — after `<pinned_rules>`, before `<recent_context>`; implemented and gate-tested, but not carried to the live run after G1. [LOCKED]
+3. **Arm S composition review** — minimal composition accepted; G3 import closure and N + K fixture pass. [LOCKED]
+4. **Rater availability for the remaining 28 blinded scorings.** Not yet confirmed; scoring must wait. [LOCKED CONSTRAINT]
 
 ---
 
