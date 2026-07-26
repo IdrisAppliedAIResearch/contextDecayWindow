@@ -1,0 +1,14 @@
+{
+  "sealed": true,
+  "do_not_open": "Open only after evaluation/rubric_scores.json is committed. Git history is the audit trail.",
+  "mapping": {
+    "arm_A": "treatment_v7",
+    "arm_B": "control_count_budget"
+  },
+  "assignment_source": "sha256 of the two response files, so the assignment is deterministic and chosen by no one",
+  "response_sha256": {
+    "treatment_v7": "29214cd038683010fd1eef2c1ffed9f88f0d672962b44f337b7bf6e22b32a388",
+    "control_count_budget": "c0f66add6e241aad7daa8ff3456929c732419947f0b4f02dbd7aac2d1e24b3f3"
+  },
+  "combined_sha256": "1c33fdea1c5d123071ebceab60ed7514550496920263bde9004f22ac3964b3ca"
+}
