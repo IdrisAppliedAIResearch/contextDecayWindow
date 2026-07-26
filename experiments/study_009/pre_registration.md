@@ -2,7 +2,7 @@
 ## contextDecayWindow
 **Idris Applied AI Research**
 **Date:** July 2026
-**Status:** LOCKED at registration anchor `37fff74`; Gate 1 contingency invoked before ablation.
+**Status:** LOCKED at registration anchor `37fff74`; resumed under Amendment 001 after author-authorized protocol repair.
 **Study 008:** STOPPED AT PRE-RUN GATES (`0a20ef0` / STOP `4a29540`)
 **Study 007 accepted treatment:** 12.0/13.0 (best LTM configuration to date)
 
@@ -12,6 +12,11 @@ pre-registered contingency therefore applies: S+D is dropped and the live
 study reduces to the S-versus-L null test. G2 Arm L byte fidelity and G3 Arm S
 sanity passed. Human-rater availability remains a hard pre-scoring dependency;
 the study waits rather than substituting an agent rater.
+
+**Amendment 001:** Cross-arm byte identity is replaced by shared-input/runtime
+parity plus within-arm determinism; the preserved byte-verified Study 007 run is
+reused as Arm L; blinded agent scoring is authorized with scores committed
+before any full-run mechanism log is opened.
 
 ---
 
