@@ -26,7 +26,11 @@ from src.observability.run_config import RunConfig
 from src.observability.turn_record import TurnRecord
 from src.runners.compaction_runner import CompactionRunner
 from src.runners.full_context_runner import FullContextRunner
-from src.memory.retrieval_budget import DEFAULT_K_MIN
+from src.memory.retrieval_budget import (
+    DEFAULT_K_MIN,
+    FLOOR_SIMILARITY,
+    RENDER_EPISODE,
+)
 from src.runners.iterative_runner import IterativeRunner
 from src.study.script_loader import load_script
 from src.study.domain_labels import (
@@ -60,9 +64,15 @@ class StudyRunner:
         expected_script_digest: str | None = None,
         ltm_budget: int | None = None,
         ltm_k_min: int = DEFAULT_K_MIN,
+        ltm_floor_ranking: str = FLOOR_SIMILARITY,
+        ltm_fill_cap: int | None = None,
+        ltm_render_mode: str = RENDER_EPISODE,
     ):
         self.ltm_budget = ltm_budget
         self.ltm_k_min = ltm_k_min
+        self.ltm_floor_ranking = ltm_floor_ranking
+        self.ltm_fill_cap = ltm_fill_cap
+        self.ltm_render_mode = ltm_render_mode
         if memory_formation not in {"promotion", "dreaming", "span_dreaming"}:
             raise ValueError(
                 f"Unsupported memory formation mode: {memory_formation}"
@@ -374,6 +384,9 @@ class StudyRunner:
                 # prior study and the control arm are unaffected.
                 ltm_budget=self.ltm_budget,
                 ltm_k_min=self.ltm_k_min,
+                ltm_floor_ranking=self.ltm_floor_ranking,
+                ltm_fill_cap=self.ltm_fill_cap,
+                ltm_render_mode=self.ltm_render_mode,
             )
             return IterativeRunner(conn, embed, topic_manager, retrieval_engine, observer)
         else:

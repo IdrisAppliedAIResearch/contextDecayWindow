@@ -44,8 +44,47 @@ DEFAULT_K_MIN = 3
 PHASE_FLOOR = "floor"
 PHASE_FILL = "fill"
 
+FLOOR_SIMILARITY = "similarity"
+FLOOR_DENSITY = "density"
+FLOOR_RANKINGS = {FLOOR_SIMILARITY, FLOOR_DENSITY}
 
-def rendered_cost(candidate: dict) -> int:
+RENDER_EPISODE = "episode"
+RENDER_SPAN = "span"
+RENDER_MODES = {RENDER_EPISODE, RENDER_SPAN}
+
+
+def selection_key(
+    candidate: dict,
+    render_mode: str = RENDER_EPISODE,
+) -> str:
+    """Identity of one independently rendered LTM unit."""
+    if render_mode == RENDER_SPAN:
+        distilled_id = candidate.get("distilled_id")
+        if not distilled_id:
+            raise ValueError("Span rendering requires a distilled_id")
+        return str(distilled_id)
+    return episode_key(candidate)
+
+
+def rendered_text(
+    candidate: dict,
+    render_mode: str = RENDER_EPISODE,
+) -> str:
+    if render_mode == RENDER_SPAN:
+        text = candidate.get("span_text")
+        if text is None:
+            raise ValueError("Span rendering requires span_text")
+        return str(text)
+    return (
+        f"{candidate.get('user_message') or ''}"
+        f"{candidate.get('assistant_message') or ''}"
+    )
+
+
+def rendered_cost(
+    candidate: dict,
+    render_mode: str = RENDER_EPISODE,
+) -> int:
     """Characters this candidate contributes to the rendered LTM block.
 
     Mirrors what `context_builder._render_episode_block` emits as element text.
@@ -53,9 +92,7 @@ def rendered_cost(candidate: dict) -> int:
     two cannot drift apart; block scaffolding (tags, attributes) is excluded
     because it is a fixed per-element overhead, not information.
     """
-    return len(candidate.get("user_message") or "") + len(
-        candidate.get("assistant_message") or ""
-    )
+    return len(rendered_text(candidate, render_mode))
 
 
 def episode_key(candidate: dict) -> str:
@@ -83,9 +120,14 @@ class BudgetSelection:
     chars_used: int = 0
     budget: int = DEFAULT_B_LTM
     k_min: int = DEFAULT_K_MIN
+    floor_ranking: str = FLOOR_SIMILARITY
+    fill_cap: int | None = None
+    render_mode: str = RENDER_EPISODE
     topics_present: list[str] = field(default_factory=list)
     floor_per_topic: dict[str, int] = field(default_factory=dict)
     fill_selected: int = 0
+    fill_per_topic: dict[str, int] = field(default_factory=dict)
+    cap_skips: int = 0
     chars_per_topic: dict[str, int] = field(default_factory=dict)
     collapsed_to_episode: int = 0
     skipped_oversized: int = 0
@@ -103,27 +145,61 @@ class BudgetSelection:
         }
 
 
-def _rank_key(candidate: dict) -> tuple:
+def _rank_key(
+    candidate: dict,
+    render_mode: str = RENDER_EPISODE,
+) -> tuple:
     """Similarity descending, episode id ascending as a deterministic tie-break."""
-    return (-float(candidate["similarity"]), episode_key(candidate))
+    return (
+        -float(candidate["similarity"]),
+        selection_key(candidate, render_mode),
+    )
 
 
-def collapse_by_episode(candidates: list[dict]) -> tuple[list[dict], int]:
-    """Keep the highest-similarity record per source episode.
+def _floor_rank_key(
+    candidate: dict,
+    floor_ranking: str,
+    render_mode: str,
+) -> tuple:
+    if floor_ranking == FLOOR_DENSITY:
+        return (
+            -float(candidate.get("rendered_density") or 0.0),
+            -float(candidate["similarity"]),
+            selection_key(candidate, render_mode),
+        )
+    return _rank_key(candidate, render_mode)
+
+
+def collapse_by_rendered_unit(
+    candidates: list[dict],
+    render_mode: str = RENDER_EPISODE,
+) -> tuple[list[dict], int]:
+    """Keep the highest-similarity record per independently rendered unit.
 
     Distinct spans sharing a source episode render as one element, so they must
-    become one budget item. The survivor keeps its own provenance metadata; the
-    others are counted and dropped.
+    become one budget item under episode rendering. Under span rendering each
+    distilled record is independently selectable.
     """
     best: dict[str, dict] = {}
     collapsed = 0
-    for candidate in sorted(candidates, key=_rank_key):
-        key = episode_key(candidate)
+    for candidate in sorted(
+        candidates,
+        key=lambda item: _rank_key(item, render_mode),
+    ):
+        key = selection_key(candidate, render_mode)
         if key in best:
             collapsed += 1
             continue
         best[key] = candidate
-    return sorted(best.values(), key=_rank_key), collapsed
+    return (
+        sorted(best.values(), key=lambda item: _rank_key(item, render_mode)),
+        collapsed,
+    )
+
+
+def collapse_by_episode(candidates: list[dict]) -> tuple[list[dict], int]:
+    """Compatibility wrapper for Study 007 episode rendering."""
+    return collapse_by_rendered_unit(candidates, RENDER_EPISODE)
 
 
 def select_within_budget(
@@ -131,6 +207,9 @@ def select_within_budget(
     budget: int = DEFAULT_B_LTM,
     k_min: int = DEFAULT_K_MIN,
     excluded_episode_ids: set[str] | None = None,
+    floor_ranking: str = FLOOR_SIMILARITY,
+    fill_cap: int | None = None,
+    render_mode: str = RENDER_EPISODE,
 ) -> BudgetSelection:
     """Select LTM records under a character budget with a per-topic floor.
 
@@ -146,12 +225,24 @@ def select_within_budget(
         raise ValueError(f"B_ltm must be non-negative, got {budget}")
     if k_min < 0:
         raise ValueError(f"k_min must be non-negative, got {k_min}")
+    if floor_ranking not in FLOOR_RANKINGS:
+        raise ValueError(f"Unsupported floor ranking: {floor_ranking}")
+    if render_mode not in RENDER_MODES:
+        raise ValueError(f"Unsupported rendering mode: {render_mode}")
+    if fill_cap is not None and fill_cap < 0:
+        raise ValueError(f"c_fill must be non-negative, got {fill_cap}")
 
     excluded = excluded_episode_ids or set()
     eligible = [c for c in candidates if episode_key(c) not in excluded]
-    pool, collapsed = collapse_by_episode(eligible)
+    pool, collapsed = collapse_by_rendered_unit(eligible, render_mode)
 
-    selection = BudgetSelection(budget=budget, k_min=k_min)
+    selection = BudgetSelection(
+        budget=budget,
+        k_min=k_min,
+        floor_ranking=floor_ranking,
+        fill_cap=fill_cap,
+        render_mode=render_mode,
+    )
     selection.collapsed_to_episode = collapsed
     selection.topics_present = sorted({topic_key(c) for c in pool})
 
@@ -167,15 +258,23 @@ def select_within_budget(
     by_topic: dict[str, list[dict]] = {}
     for candidate in pool:
         by_topic.setdefault(topic_key(candidate), []).append(candidate)
+    for bucket in by_topic.values():
+        bucket.sort(
+            key=lambda item: _floor_rank_key(
+                item,
+                floor_ranking,
+                render_mode,
+            )
+        )
     floor_order = list(by_topic)
 
     chosen: dict[str, dict] = {}
 
     def admit(candidate: dict, phase: str) -> bool:
-        cost = rendered_cost(candidate)
+        cost = rendered_cost(candidate, render_mode)
         if selection.chars_used + cost > budget:
             return False
-        key = episode_key(candidate)
+        key = selection_key(candidate, render_mode)
         chosen[key] = candidate
         selection.phases[key] = phase
         selection.chars_used += cost
@@ -205,14 +304,28 @@ def select_within_budget(
     # than terminating the loop, so a single oversized episode cannot strand
     # budget that smaller candidates could still use.
     for candidate in pool:
-        if episode_key(candidate) in chosen:
+        key = selection_key(candidate, render_mode)
+        if key in chosen:
+            continue
+        topic = topic_key(candidate)
+        if (
+            fill_cap is not None
+            and selection.fill_per_topic.get(topic, 0) >= fill_cap
+        ):
+            selection.cap_skips += 1
             continue
         if admit(candidate, PHASE_FILL):
             selection.fill_selected += 1
+            selection.fill_per_topic[topic] = (
+                selection.fill_per_topic.get(topic, 0) + 1
+            )
         else:
             selection.skipped_oversized += 1
 
-    selection.selected = sorted(chosen.values(), key=_rank_key)
+    selection.selected = sorted(
+        chosen.values(),
+        key=lambda item: _rank_key(item, render_mode),
+    )
     assert selection.chars_used <= budget, (
         f"LTM budget exceeded: {selection.chars_used} > {budget}"
     )
