@@ -26,14 +26,15 @@ def parse_args() -> argparse.Namespace:
 
 
 def assert_server(server_props: dict) -> None:
-    settings = server_props["default_generation_settings"]["params"]
+    generation = server_props["default_generation_settings"]
+    settings = generation["params"]
     failures = []
     if int(settings["seed"]) != 5005:
         failures.append(f"seed={settings['seed']}")
     if int(server_props["total_slots"]) != 1:
         failures.append(f"total_slots={server_props['total_slots']}")
-    if int(settings["n_ctx"]) < 50000:
-        failures.append(f"n_ctx={settings['n_ctx']}")
+    if int(generation["n_ctx"]) < 50000:
+        failures.append(f"n_ctx={generation['n_ctx']}")
     if settings.get("speculative.types") != "none":
         failures.append(
             f"speculative.types={settings.get('speculative.types')}"
@@ -50,7 +51,10 @@ def main() -> None:
     args = parse_args()
     if script_digest(SCRIPT_PATH.read_text(encoding="utf-8")) != SCRIPT_DIGEST:
         raise RuntimeError("Post-decode script hash does not match registration")
-    server_url = os.environ["CDW_INFERENCE_SERVER_URL"].rstrip("/")
+    server_url = os.environ.get(
+        "CDW_INFERENCE_SERVER_URL", "http://127.0.0.1:8080"
+    ).rstrip("/")
+    os.environ["CDW_INFERENCE_SERVER_URL"] = server_url
     with urlopen(f"{server_url}/props", timeout=30) as response:
         server_props = json.loads(response.read().decode("utf-8"))
     assert_server(server_props)
