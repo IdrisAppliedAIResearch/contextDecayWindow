@@ -5,6 +5,7 @@
 **Status:** LOCKED at commit — SHA recorded in a follow-up commit, as in Studies 005 and 006.
 **Amendments:** `experiments/study_007/amendments/` — registered amendments are binding and are listed here as they are made.
 - `AMENDMENT_001_delivered_information.md` — corrects the delivered-information premise in *Summary* and §1, and re-derives `B_ltm` against measured rendered output.
+- `AMENDMENT_002_floor_cost_criterion.md` — re-derives the Targeted-Retrieval Fixture's criterion 3 in characters; locks `B_ltm = 32,000` and `k_min = 1`; records the pre-run finding that the floor is **not** what delivers four-domain coverage at these parameters.
 **Study 006 report:** `experiments/study_006/study_006_report.md` (COMPLETE, PARTIAL)
 **Study 006 pre-registration SHA:** `5def302` (+ `amendments/AMENDMENT_001_selection_scale.md`)
 **Study 006 accepted treatment:** `runs/study_006_full_001` (Bar 1 PASS 4/4 · Bar 2 FAIL 0.0/0.0 · Bar 3 FAIL 10.5 vs 11.0)
@@ -208,8 +209,9 @@ This log is what makes Bar 1's attribution checkable.
 
 | Parameter | Value | Note |
 |---|---|---|
-| `B_ltm` | 4,000 chars (proposed) | **calibrated by replay before lock** |
-| `k_min` | 3 per topic (proposed) | **calibrated by replay before lock** |
+| `B_ltm` | **32,000 chars — LOCKED (S7-T-017)** | proposed 4,000; withdrawn by Amendment 001, calibrated by replay |
+| `k_min` | **1 per topic — LOCKED (S7-T-017)** | proposed 3; reduced after raising `B_ltm` failed to satisfy the targeted fixture |
+| Budget charged at | rendered cost, after identifier dedup | Amendment 001 §4.1 |
 | Fill rule | pure global similarity, no topic cap | new |
 | Floor protection | floor selections not evictable | new |
 | Containment dedup | drop span if source episode in STM block | new |

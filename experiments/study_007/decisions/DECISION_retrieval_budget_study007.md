@@ -139,8 +139,8 @@ class, found by the same check, before it was written.
 
 | Parameter | Value | Status |
 |---|---|---|
-| `B_ltm` | swept 16,000–40,000 chars | calibrated by S7-T-016; anchors from Amendment 001 §4.2 |
-| `k_min` | proposed 3, swept | calibrated by S7-T-016 |
+| `B_ltm` | **32,000 chars** | **LOCKED** at S7-T-017; smallest sufficient over a 16,000–64,000 sweep |
+| `k_min` | **1 per topic** | **LOCKED** at S7-T-017; reduced only after raising `B_ltm` to 140,000 failed the targeted fixture at `k_min = 2` |
 | Fill rule | pure global similarity, no topic cap | locked |
 | Floor protection | floor selections not evictable | locked |
 | Containment dedup | drop LTM entry, keep STM episode | locked |
@@ -149,6 +149,15 @@ class, found by the same check, before it was written.
 
 Final calibrated values are recorded in `replay/replay_report.md` and in §5 of
 the pre-registration before the ablation runs. No post-run changes.
+
+**Recorded before the run (Amendment 002 §6):** at the locked parameters the
+diversity floor is *not* what produces four-domain coverage at the probes — the
+budget alone produces it, and `k_min = 0` reaches 4/4 at `B_ltm = 32,000`. The
+floor is causal only at 24,000–28,000 with `k_min = 2`, where the targeted
+fixture fails at an own-domain share of 0.215. A Bar 1 pass is therefore
+attributable to the component and specifically to the information-expressed
+budget, and the report may not credit the floor with it. The floor's exam is
+Bar 2.
 
 ## 6. Correction 1 — UTF-8 in code (S7-T-003)
 
