@@ -17,8 +17,19 @@ from src.analysis.study_007_replay import (
     stm_block_ids,
 )
 from src.memory.arbitration import arbitrate_budgeted
+from src.memory.context_builder import render_ltm_block
 from src.memory.distilled_ltm_store import get_distilled_retrieval_rows
-from src.memory.retrieval_budget import BudgetSelection, topic_key
+from src.memory.informativeness import text_density
+from src.memory.retrieval_budget import (
+    FLOOR_DENSITY,
+    FLOOR_SIMILARITY,
+    RENDER_EPISODE,
+    RENDER_SPAN,
+    BudgetSelection,
+    rendered_text,
+    selection_key,
+    topic_key,
+)
 
 
 REPO = Path(__file__).resolve().parents[2]
@@ -50,6 +61,7 @@ class FactAwareProbe:
     matched_facts: dict[str, list[str]] = field(default_factory=dict)
     source_turns: list[int] = field(default_factory=list)
     containment_drops: int = 0
+    rendered_block: str = ""
 
     @property
     def domains_covered(self) -> list[str]:
@@ -111,6 +123,13 @@ def rendered_episode_text(selected: list[dict]) -> str:
     )
 
 
+def rendered_selection_text(
+    selected: list[dict],
+    render_mode: str,
+) -> str:
+    return "\n".join(rendered_text(item, render_mode) for item in selected)
+
+
 def match_facts(text: str, fact_rows: list[FactRow]) -> dict[str, list[str]]:
     lowered = text.casefold()
     matched = {domain: [] for domain in DOMAIN_BY_HEADING.values()}
@@ -167,3 +186,117 @@ def scored_probes(
         turn: score(candidates, queries[turn])
         for turn in PROBE_TURNS
     }
+
+
+@dataclass(frozen=True)
+class ArmConfig:
+    arm: str
+    floor_ranking: str
+    fill_cap: int | None
+    render_mode: str
+
+
+def arm_configs(c_fill: int) -> dict[str, ArmConfig]:
+    return {
+        "A": ArmConfig(
+            "A", FLOOR_SIMILARITY, None, RENDER_EPISODE
+        ),
+        "B": ArmConfig(
+            "B", FLOOR_DENSITY, c_fill, RENDER_EPISODE
+        ),
+        "C": ArmConfig(
+            "C", FLOOR_SIMILARITY, None, RENDER_SPAN
+        ),
+        "D": ArmConfig(
+            "D", FLOOR_DENSITY, c_fill, RENDER_SPAN
+        ),
+    }
+
+
+def configure_candidates(
+    scored_candidates: list[dict],
+    config: ArmConfig,
+) -> list[dict]:
+    episode_densities: dict[str, float] = {}
+    configured = []
+    for candidate in scored_candidates:
+        rendered_density = None
+        if config.floor_ranking == FLOOR_DENSITY:
+            if config.render_mode == RENDER_SPAN:
+                rendered_density = candidate.get("density")
+                if rendered_density is None:
+                    rendered_density = text_density(
+                        candidate.get("span_text") or ""
+                    )
+            else:
+                episode_id = str(candidate["id"])
+                if episode_id not in episode_densities:
+                    episode_densities[episode_id] = text_density(
+                        f"{candidate.get('user_message') or ''}\n"
+                        f"{candidate.get('assistant_message') or ''}"
+                    )
+                rendered_density = episode_densities[episode_id]
+        configured.append(
+            {
+                **candidate,
+                "rendered_density": rendered_density,
+                "render_mode": config.render_mode,
+            }
+        )
+    return configured
+
+
+def replay_arm_probe(
+    turn: int,
+    scored_candidates: list[dict],
+    *,
+    config: ArmConfig,
+    fact_rows: list[FactRow],
+    run_dir: Path = STUDY_007_RUN,
+    b_ltm: int = 32000,
+    k_min: int = 1,
+) -> FactAwareProbe:
+    candidates = configure_candidates(scored_candidates, config)
+    arbitration = arbitrate_budgeted(
+        stm_candidates=[],
+        ltm_candidates=candidates,
+        stm_block_episode_ids=stm_block_ids(turn, run_dir),
+        ltm_budget=b_ltm,
+        ltm_k_min=k_min,
+        floor_ranking=config.floor_ranking,
+        fill_cap=config.fill_cap,
+        render_mode=config.render_mode,
+    )
+    selected = arbitration.budget.selected
+    return FactAwareProbe(
+        turn=turn,
+        selection=arbitration.budget,
+        matched_facts=match_facts(
+            rendered_selection_text(selected, config.render_mode),
+            fact_rows,
+        ),
+        source_turns=sorted(
+            {int(candidate["turn_number"]) for candidate in selected}
+        ),
+        containment_drops=arbitration.containment_drops,
+        rendered_block=render_ltm_block(arbitration.episodes),
+    )
+
+
+def extract_ltm_block(prompt: str) -> str:
+    match = re.search(
+        r"<retrieved_ltm(?:>.*?</retrieved_ltm>|/>)",
+        prompt,
+        flags=re.DOTALL,
+    )
+    if not match:
+        raise ValueError("Constructed prompt has no retrieved_ltm block")
+    return match.group(0)
+
+
+def actual_probe_block(
+    turn: int,
+    run_dir: Path = STUDY_007_RUN,
+) -> str:
+    path = run_dir / "constructed_prompts" / f"turn_{turn:03d}.txt"
+    return extract_ltm_block(path.read_text(encoding="utf-8"))

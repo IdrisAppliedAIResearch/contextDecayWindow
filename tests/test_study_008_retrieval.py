@@ -3,7 +3,10 @@
 import pytest
 
 from src.memory.arbitration import arbitrate_budgeted
-from src.memory.context_builder import build_tagged_context
+from src.memory.context_builder import (
+    build_tagged_context,
+    render_ltm_span_element,
+)
 from src.memory.informativeness import density_score
 from src.memory.retrieval_budget import (
     FLOOR_DENSITY,
@@ -219,7 +222,7 @@ def test_span_renderer_snapshot_is_verbatim_with_provenance():
     assert "u" * 100 not in rendered
 
 
-def test_span_budget_charges_span_text_not_episode_text():
+def test_span_budget_charges_exact_serialized_element_not_episode_text():
     item = candidate(
         "episode",
         "span",
@@ -229,7 +232,10 @@ def test_span_budget_charges_span_text_not_episode_text():
         span_text="847 meters",
     )
     assert rendered_cost(item, RENDER_EPISODE) == 4000
-    assert rendered_cost(item, RENDER_SPAN) == len("847 meters")
+    assert rendered_cost(item, RENDER_SPAN) == len(
+        render_ltm_span_element({**item, "render_mode": RENDER_SPAN})
+    )
+    assert rendered_cost(item, RENDER_SPAN) > len("847 meters")
 
 
 def test_span_containment_drops_by_source_episode_and_refills_floor():
@@ -257,7 +263,7 @@ def test_span_containment_drops_by_source_episode_and_refills_floor():
     assert result.containment_drops == 1
 
 
-def test_character_budget_parity_uses_each_arms_rendered_unit():
+def test_character_budget_uses_each_arms_registered_cost():
     episode = candidate(
         "episode",
         "episode-span",
@@ -281,8 +287,10 @@ def test_character_budget_parity_uses_each_arms_rendered_unit():
     )
     span_selection = select_within_budget(
         [span],
-        budget=1000,
+        budget=2000,
         k_min=1,
         render_mode=RENDER_SPAN,
     )
-    assert episode_selection.chars_used == span_selection.chars_used == 1000
+    assert episode_selection.chars_used == 1000
+    assert span_selection.chars_used == rendered_cost(span, RENDER_SPAN)
+    assert span_selection.chars_used <= 2000
