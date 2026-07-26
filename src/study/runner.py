@@ -26,6 +26,7 @@ from src.observability.run_config import RunConfig
 from src.observability.turn_record import TurnRecord
 from src.runners.compaction_runner import CompactionRunner
 from src.runners.full_context_runner import FullContextRunner
+from src.memory.retrieval_budget import DEFAULT_K_MIN
 from src.runners.iterative_runner import IterativeRunner
 from src.study.script_loader import load_script
 from src.study.domain_labels import (
@@ -57,7 +58,11 @@ class StudyRunner:
         context_capacity: int | None = None,
         strict_monitoring: bool = False,
         expected_script_digest: str | None = None,
+        ltm_budget: int | None = None,
+        ltm_k_min: int = DEFAULT_K_MIN,
     ):
+        self.ltm_budget = ltm_budget
+        self.ltm_k_min = ltm_k_min
         if memory_formation not in {"promotion", "dreaming", "span_dreaming"}:
             raise ValueError(
                 f"Unsupported memory formation mode: {memory_formation}"
@@ -365,6 +370,10 @@ class StudyRunner:
                     in {"dreaming", "span_dreaming"}
                     else "promoted"
                 ),
+                # Study 007. None keeps the carried count-based policy, so every
+                # prior study and the control arm are unaffected.
+                ltm_budget=self.ltm_budget,
+                ltm_k_min=self.ltm_k_min,
             )
             return IterativeRunner(conn, embed, topic_manager, retrieval_engine, observer)
         else:

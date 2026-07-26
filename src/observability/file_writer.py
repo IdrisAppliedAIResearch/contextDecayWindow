@@ -64,6 +64,33 @@ class FileWriter:
                 "provenance_list",
             ])
 
+        # Study 007. Carried logs are unchanged for cross-study comparability;
+        # this one is additive and is what makes Bar 1's attribution checkable.
+        with open(
+            os.path.join(logs_dir, "retrieval_budget.csv"),
+            "w",
+            newline="",
+            encoding="utf-8",
+        ) as handle:
+            csv.writer(handle).writerow([
+                "turn",
+                "b_ltm",
+                "k_min",
+                "topics_present",
+                "topic_count",
+                "floor_selected_per_topic",
+                "floor_selected",
+                "fill_selected",
+                "containment_drops",
+                "refills",
+                "collapsed_to_episode",
+                "ltm_chars_used",
+                "ltm_records_used",
+                "budget_utilization",
+                "chars_per_topic",
+                "selection",
+            ])
+
         with open(
             os.path.join(logs_dir, "ltm_context_episodes.csv"),
             "w",
@@ -139,6 +166,7 @@ class FileWriter:
         self._write_topic_events_csv(record)
         self._write_retrieval_events_csv(record)
         self._write_arbitration_events_csv(record)
+        self._write_retrieval_budget_csv(record)
         self._write_ltm_context_episodes_csv(record)
         self._write_rule_detection_csv(record)
         self._write_consolidation_events_csv(record)
@@ -440,6 +468,33 @@ class FileWriter:
                 record.arbitration_final_set_size,
                 record.arbitration_ltm_in_final_set,
                 json.dumps(record.arbitration_provenance_list, separators=(",", ":")),
+            ])
+
+    def _write_retrieval_budget_csv(self, record: TurnRecord) -> None:
+        if record.condition != "iterative" or not record.budget_active:
+            return
+        fpath = os.path.join(
+            self.config.output_dir, "logs", "retrieval_budget.csv"
+        )
+        compact = (",", ":")
+        with open(fpath, "a", newline="", encoding="utf-8") as handle:
+            csv.writer(handle).writerow([
+                record.turn_number,
+                record.budget_b_ltm,
+                record.budget_k_min,
+                json.dumps(record.budget_topics_present, separators=compact),
+                len(record.budget_topics_present),
+                json.dumps(record.budget_floor_per_topic, separators=compact),
+                sum(record.budget_floor_per_topic.values()),
+                record.budget_fill_selected,
+                record.budget_containment_drops,
+                record.budget_refills,
+                record.budget_collapsed_to_episode,
+                record.budget_chars_used,
+                record.budget_records_used,
+                f"{record.budget_utilization:.4f}",
+                json.dumps(record.budget_chars_per_topic, separators=compact),
+                json.dumps(record.budget_selection, separators=compact),
             ])
 
     def _write_ltm_context_episodes_csv(self, record: TurnRecord) -> None:
