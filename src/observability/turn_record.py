@@ -47,6 +47,25 @@ class TurnRecord:
     arbitration_final_set_size: int = 0
     arbitration_ltm_in_final_set: int = 0
     arbitration_provenance_list: list[dict] = field(default_factory=list)
+
+    # Study 007 retrieval budget. Populated only when the information-expressed
+    # budget is active; the control arm leaves these at their defaults and
+    # writes no retrieval_budget.csv rows.
+    budget_active: bool = False
+    budget_b_ltm: int = 0
+    budget_k_min: int = 0
+    budget_topics_present: list[str] = field(default_factory=list)
+    budget_floor_per_topic: dict[str, int] = field(default_factory=dict)
+    budget_fill_selected: int = 0
+    budget_containment_drops: int = 0
+    budget_refills: int = 0
+    budget_chars_used: int = 0
+    budget_records_used: int = 0
+    budget_utilization: float = 0.0
+    budget_chars_per_topic: dict[str, int] = field(default_factory=dict)
+    budget_collapsed_to_episode: int = 0
+    budget_selection: list[dict] = field(default_factory=list)
+
     estimated_tokens: int = 0
     k_token_estimate: int = 0
     n_token_estimate: int = 0

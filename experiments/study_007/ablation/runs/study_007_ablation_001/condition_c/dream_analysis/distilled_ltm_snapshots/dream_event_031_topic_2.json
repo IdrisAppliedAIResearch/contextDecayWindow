@@ -1,0 +1,1013 @@
+{
+  "turn": 31,
+  "topic": "topic_2",
+  "event_type": "transition",
+  "segmenter": "spacy:en_core_web_sm:3.8.0:sentencizer",
+  "extractor": "spacy:en_core_web_sm:3.8.0:ner",
+  "records": [
+    {
+      "id": "f75775c9-737e-5949-8bda-af8f1e559d83",
+      "source_episode_id": "fc56e139-eaf1-46f7-aa6a-1385b17249dc",
+      "topic_id": "b0c57e9f-418e-46e2-b424-9ce080f84647",
+      "topic_label": "topic_2",
+      "text": "**Coefficient of Thermal Expansion and Total Movement:** S460ML steel has a coefficient of thermal expansion (CTE) of approximately $12 \\times 10^{-6} / ^\\circ\\text{C}$. For an 847-meter main span, a realistic operational temperature range (e.g., -20°C to +40°C, a 60°C delta) results in a total thermal expansion/contraction of roughly 61 centimeters.",
+      "source_episode_ids": [
+        "fc56e139-eaf1-46f7-aa6a-1385b17249dc"
+      ],
+      "source_turns": [
+        13
+      ],
+      "collapsed_episode_ids": [],
+      "salience": 24,
+      "dream_event": 31,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-26T01:17:30.697205+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "9404e66b-7dea-58b4-9049-4f55b2e9b2af",
+      "source_episode_id": "ac6aed73-d15b-418c-b028-5c57e4bc746b",
+      "topic_id": "b0c57e9f-418e-46e2-b424-9ce080f84647",
+      "topic_label": "topic_2",
+      "text": "**Structural Fire Resistance and Steel Degradation:** For Halcyon Crossing, the S460ML steel specification requires rigorous fire protection because structural steel loses significant strength at elevated temperatures (typically retaining only 50-60% of yield strength at 500°C and failing rapidly above 600°C).",
+      "source_episode_ids": [
+        "ac6aed73-d15b-418c-b028-5c57e4bc746b"
+      ],
+      "source_turns": [
+        29
+      ],
+      "collapsed_episode_ids": [],
+      "salience": 15,
+      "dream_event": 31,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-26T01:17:30.697703+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "0c36ce08-05f2-52c7-b5f2-aa9da621b064",
+      "source_episode_id": "d8a08467-0e6c-4271-98ab-06b11e5e2a6f",
+      "topic_id": "b0c57e9f-418e-46e2-b424-9ce080f84647",
+      "topic_label": "topic_2",
+      "text": "**Eurocode 1 (EN 1991-2) Traffic Load Model 1 (LM1):** Under Eurocode standards, LM1 consists of a tandem axle system representing a heavy goods vehicle combined with a distributed lane load.",
+      "source_episode_ids": [
+        "d8a08467-0e6c-4271-98ab-06b11e5e2a6f"
+      ],
+      "source_turns": [
+        17
+      ],
+      "collapsed_episode_ids": [],
+      "salience": 15,
+      "dream_event": 31,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-26T01:17:30.697111+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "78c33d21-9765-5d5a-b53b-cb4777615697",
+      "source_episode_id": "d8a08467-0e6c-4271-98ab-06b11e5e2a6f",
+      "topic_id": "b0c57e9f-418e-46e2-b424-9ce080f84647",
+      "topic_label": "topic_2",
+      "text": "The standard tandem has a lead axle of 300 kN, a middle axle of 2x300 kN, and a rear axle of 2x300 kN. For Halcyon Crossing, this model is applied to simulate general traffic congestion and distributed live loads.",
+      "source_episode_ids": [
+        "d8a08467-0e6c-4271-98ab-06b11e5e2a6f"
+      ],
+      "source_turns": [
+        17
+      ],
+      "collapsed_episode_ids": [],
+      "salience": 14,
+      "dream_event": 31,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-26T01:17:30.697475+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "af4550cd-4e27-5916-8147-e885f39ec147",
+      "source_episode_id": "cf650025-d9be-4309-9cdc-1c4fa92ebeef",
+      "topic_id": "b0c57e9f-418e-46e2-b424-9ce080f84647",
+      "topic_label": "topic_2",
+      "text": "**Long-Term Maintenance Considerations:** The orthotropic steel deck requires the most intensive maintenance, including periodic grinding to remove fatigue cracks, repainting every 10–15 years, and potential replacement of wearing surfaces every 15–20 years under heavy 92.4-ton axle loads.",
+      "source_episode_ids": [
+        "cf650025-d9be-4309-9cdc-1c4fa92ebeef"
+      ],
+      "source_turns": [
+        18
+      ],
+      "collapsed_episode_ids": [],
+      "salience": 13,
+      "dream_event": 31,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-26T01:17:30.697602+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "36f7d801-9c33-5b9b-b5f0-883818a2af2f",
+      "source_episode_id": "0047125e-95c7-403b-9432-4fff76a504e7",
+      "topic_id": "b0c57e9f-418e-46e2-b424-9ce080f84647",
+      "topic_label": "topic_2",
+      "text": "**Surface Preparation and Blasting Standards:** For S460ML steel in a marine or coastal environment, the steel surface must undergo high-pressure abrasive blasting to achieve at least ISO 8501-1 Sa 2.5 (very thorough) or Sa 3 (white metal) cleanliness.",
+      "source_episode_ids": [
+        "0047125e-95c7-403b-9432-4fff76a504e7"
+      ],
+      "source_turns": [
+        10
+      ],
+      "collapsed_episode_ids": [],
+      "salience": 12,
+      "dream_event": 31,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-26T01:17:30.697815+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "942ff87f-a06d-53e0-a131-ce246488d540",
+      "source_episode_id": "454deaa5-f194-461b-a561-9239bc7650e1",
+      "topic_id": "b0c57e9f-418e-46e2-b424-9ce080f84647",
+      "topic_label": "topic_2",
+      "text": "**Advanced Phase (Years 26–50):** Annual inspections with 100% UT testing of all cables every 10 years.",
+      "source_episode_ids": [
+        "454deaa5-f194-461b-a561-9239bc7650e1"
+      ],
+      "source_turns": [
+        8
+      ],
+      "collapsed_episode_ids": [],
+      "salience": 12,
+      "dream_event": 31,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-26T01:17:30.696869+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "5bbdc389-7e1d-589a-bced-a04a83c6b003",
+      "source_episode_id": "d4e53f8d-2c03-431b-9188-0ec8c67ac98d",
+      "topic_id": "b0c57e9f-418e-46e2-b424-9ce080f84647",
+      "topic_label": "topic_2",
+      "text": "This involves verifying mill certificates against the specified S460ML thresholds (yield strength ≥ 460 MPa, CEV ≤ 0.45%) and performing physical checks for surface defects, dimensional tolerances, and flatness.",
+      "source_episode_ids": [
+        "d4e53f8d-2c03-431b-9188-0ec8c67ac98d"
+      ],
+      "source_turns": [
+        24
+      ],
+      "collapsed_episode_ids": [],
+      "salience": 10,
+      "dream_event": 31,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-26T01:17:30.697576+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "b7b080a9-9e95-5d27-bccb-3aa55fb9f2a9",
+      "source_episode_id": "f62487d4-2a32-48fd-b7e5-96a930a564e1",
+      "topic_id": "b0c57e9f-418e-46e2-b424-9ce080f84647",
+      "topic_label": "topic_2",
+      "text": "**EN 1993 (Design of Steel Structures):** Specifically Part 1-1 for general rules and Part 2 for steel bridges.",
+      "source_episode_ids": [
+        "f62487d4-2a32-48fd-b7e5-96a930a564e1"
+      ],
+      "source_turns": [
+        20
+      ],
+      "collapsed_episode_ids": [],
+      "salience": 10,
+      "dream_event": 31,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-26T01:17:30.697065+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "6d381bc6-6b50-5815-98d0-0d69ac9707a9",
+      "source_episode_id": "f62487d4-2a32-48fd-b7e5-96a930a564e1",
+      "topic_id": "b0c57e9f-418e-46e2-b424-9ce080f84647",
+      "topic_label": "topic_2",
+      "text": "**Eurocode Series (EN 1990–1999):** As Halcyon Crossing utilizes S460ML steel and metric load ratings, the European Eurocodes are the primary framework.",
+      "source_episode_ids": [
+        "f62487d4-2a32-48fd-b7e5-96a930a564e1"
+      ],
+      "source_turns": [
+        20
+      ],
+      "collapsed_episode_ids": [],
+      "salience": 10,
+      "dream_event": 31,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-26T01:17:30.697134+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "0d58845a-6ff3-52b6-8e5b-4d9107f251d5",
+      "source_episode_id": "f62487d4-2a32-48fd-b7e5-96a930a564e1",
+      "topic_id": "b0c57e9f-418e-46e2-b424-9ce080f84647",
+      "topic_label": "topic_2",
+      "text": "What are all the international standards and codes that apply to a cable-stayed bridge of Halcyon Crossing's specification — 847-meter span, S460ML steel, 92.4 metric ton axle load — and how do they interact when requirements conflict?",
+      "source_episode_ids": [
+        "f62487d4-2a32-48fd-b7e5-96a930a564e1"
+      ],
+      "source_turns": [
+        20
+      ],
+      "collapsed_episode_ids": [],
+      "salience": 10,
+      "dream_event": 31,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-26T01:17:30.697272+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "1baff095-406c-5bb4-be17-2367933cb792",
+      "source_episode_id": "d8a08467-0e6c-4271-98ab-06b11e5e2a6f",
+      "topic_id": "b0c57e9f-418e-46e2-b424-9ce080f84647",
+      "topic_label": "topic_2",
+      "text": "The Design Truck has axles of 25 kips, 35 kips, and 35 kips.",
+      "source_episode_ids": [
+        "d8a08467-0e6c-4271-98ab-06b11e5e2a6f"
+      ],
+      "source_turns": [
+        17
+      ],
+      "collapsed_episode_ids": [],
+      "salience": 9,
+      "dream_event": 31,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-26T01:17:30.696926+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "001fc89e-358a-5f96-89c6-88dbc3540335",
+      "source_episode_id": "f62487d4-2a32-48fd-b7e5-96a930a564e1",
+      "topic_id": "b0c57e9f-418e-46e2-b424-9ce080f84647",
+      "topic_label": "topic_2",
+      "text": "**EN 1991 (Actions on Structures):** Defines traffic loads (Vehicle Load Model 1 and 2), wind loads, and thermal actions.",
+      "source_episode_ids": [
+        "f62487d4-2a32-48fd-b7e5-96a930a564e1"
+      ],
+      "source_turns": [
+        20
+      ],
+      "collapsed_episode_ids": [],
+      "salience": 9,
+      "dream_event": 31,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-26T01:17:30.697156+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "7a2d30dd-2438-50b7-b85c-3f6d5c04149f",
+      "source_episode_id": "0047125e-95c7-403b-9432-4fff76a504e7",
+      "topic_id": "b0c57e9f-418e-46e2-b424-9ce080f84647",
+      "topic_label": "topic_2",
+      "text": "Coating renewal is typically required every 15–20 years in severe marine zones, involving surface re-preparation and recoating to maintain the integrity of the S460ML steel. (",
+      "source_episode_ids": [
+        "0047125e-95c7-403b-9432-4fff76a504e7"
+      ],
+      "source_turns": [
+        10
+      ],
+      "collapsed_episode_ids": [],
+      "salience": 8,
+      "dream_event": 31,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-26T01:17:30.697792+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "0b75fc29-2e46-5ad8-9523-832797dfbd57",
+      "source_episode_id": "2c44d362-361f-4f19-842d-26702e524a90",
+      "topic_id": "b0c57e9f-418e-46e2-b424-9ce080f84647",
+      "topic_label": "topic_2",
+      "text": "The primary objective is to determine static aerodynamic forces (drag, lift, and moment coefficients) and aeroelastic derivatives (flutter derivatives like $H_1^*, A_2^*, P_1^*, A_3^*$).",
+      "source_episode_ids": [
+        "2c44d362-361f-4f19-842d-26702e524a90"
+      ],
+      "source_turns": [
+        16
+      ],
+      "collapsed_episode_ids": [],
+      "salience": 8,
+      "dream_event": 31,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-26T01:17:30.697750+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "11751190-dba4-5315-85e2-1f1a513a5159",
+      "source_episode_id": "7efdb6f3-c190-4be3-a866-13eff0a24102",
+      "topic_id": "b0c57e9f-418e-46e2-b424-9ce080f84647",
+      "topic_label": "topic_2",
+      "text": "Elongation at Break: ≥ 21% (for plates ≤ 40mm thick)",
+      "source_episode_ids": [
+        "7efdb6f3-c190-4be3-a866-13eff0a24102"
+      ],
+      "source_turns": [
+        4
+      ],
+      "collapsed_episode_ids": [],
+      "salience": 8,
+      "dream_event": 31,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-26T01:17:30.696900+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "2bfe84a9-389a-51a3-ab5a-e9453f1f5634",
+      "source_episode_id": "cb1aa801-6985-4320-861c-ab001289c8fc",
+      "topic_id": "b0c57e9f-418e-46e2-b424-9ce080f84647",
+      "topic_label": "topic_2",
+      "text": "Given the 847-meter span and 92.4 metric ton axle load rating for Halcyon Crossing, what are the primary structural failure modes Dr. Anara Bekova's team needs to model across the full lifecycle of the bridge?",
+      "source_episode_ids": [
+        "cb1aa801-6985-4320-861c-ab001289c8fc"
+      ],
+      "source_turns": [
+        5
+      ],
+      "collapsed_episode_ids": [],
+      "salience": 8,
+      "dream_event": 31,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-26T01:17:30.697727+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "1683df3e-44b6-5121-9803-fe84cca977d4",
+      "source_episode_id": "f62487d4-2a32-48fd-b7e5-96a930a564e1",
+      "topic_id": "b0c57e9f-418e-46e2-b424-9ce080f84647",
+      "topic_label": "topic_2",
+      "text": "The 92.4 metric ton axle load exceeds standard HL-93 or standard Eurocode truck models, requiring a specific \"Special Vehicle Load\" assessment per national annexes or project specifications.",
+      "source_episode_ids": [
+        "f62487d4-2a32-48fd-b7e5-96a930a564e1"
+      ],
+      "source_turns": [
+        20
+      ],
+      "collapsed_episode_ids": [],
+      "salience": 8,
+      "dream_event": 31,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-26T01:17:30.697874+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "26f03771-6de9-5839-bb7a-62f015264b73",
+      "source_episode_id": "a35e9ed4-e159-4bcd-a289-6b0767048a9c",
+      "topic_id": "b0c57e9f-418e-46e2-b424-9ce080f84647",
+      "topic_label": "topic_2",
+      "text": "Designers target a flutter critical speed ($V_{cr}$) typically 1.3 to 1.5 times the maximum expected wind speed.",
+      "source_episode_ids": [
+        "a35e9ed4-e159-4bcd-a289-6b0767048a9c"
+      ],
+      "source_turns": [
+        6
+      ],
+      "collapsed_episode_ids": [],
+      "salience": 7,
+      "dream_event": 31,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-26T01:17:30.697294+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "94c70852-f29d-5576-a6f7-f408c0e43861",
+      "source_episode_id": "ac6aed73-d15b-418c-b028-5c57e4bc746b",
+      "topic_id": "b0c57e9f-418e-46e2-b424-9ce080f84647",
+      "topic_label": "topic_2",
+      "text": "What are the full fire safety and emergency response design requirements for Halcyon Crossing, and how do these interact with the structural steel specification of S460ML at the 92.4 metric ton load rating?",
+      "source_episode_ids": [
+        "ac6aed73-d15b-418c-b028-5c57e4bc746b"
+      ],
+      "source_turns": [
+        29
+      ],
+      "collapsed_episode_ids": [],
+      "salience": 7,
+      "dream_event": 31,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-26T01:17:30.697773+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "bd93acdb-ae18-5187-874f-4c7231b3d08c",
+      "source_episode_id": "0047125e-95c7-403b-9432-4fff76a504e7",
+      "topic_id": "b0c57e9f-418e-46e2-b424-9ce080f84647",
+      "topic_label": "topic_2",
+      "text": "The total dry film thickness (DFT) should range between 350–450 microns, providing a barrier against chloride ion penetration from salt spray. (",
+      "source_episode_ids": [
+        "0047125e-95c7-403b-9432-4fff76a504e7"
+      ],
+      "source_turns": [
+        10
+      ],
+      "collapsed_episode_ids": [],
+      "salience": 6,
+      "dream_event": 31,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-26T01:17:30.697893+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "0b42ddd5-b4e5-5bed-93a3-1c5874433596",
+      "source_episode_id": "454deaa5-f194-461b-a561-9239bc7650e1",
+      "topic_id": "b0c57e9f-418e-46e2-b424-9ce080f84647",
+      "topic_label": "topic_2",
+      "text": "Full UT sampling of 20% of cables every 5 years.",
+      "source_episode_ids": [
+        "454deaa5-f194-461b-a561-9239bc7650e1"
+      ],
+      "source_turns": [
+        8
+      ],
+      "collapsed_episode_ids": [],
+      "salience": 6,
+      "dream_event": 31,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-26T01:17:30.697018+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "4981f62a-bf19-5867-835b-3498ca3ea343",
+      "source_episode_id": "f62487d4-2a32-48fd-b7e5-96a930a564e1",
+      "topic_id": "b0c57e9f-418e-46e2-b424-9ce080f84647",
+      "topic_label": "topic_2",
+      "text": "It has specific provisions for cable-stayed bridges (Chapter 5) and seismic design (Chapter 3).",
+      "source_episode_ids": [
+        "f62487d4-2a32-48fd-b7e5-96a930a564e1"
+      ],
+      "source_turns": [
+        20
+      ],
+      "collapsed_episode_ids": [],
+      "salience": 6,
+      "dream_event": 31,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-26T01:17:30.697230+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "737707a1-a068-5826-9cf2-7a484caa02d4",
+      "source_episode_id": "fc56e139-eaf1-46f7-aa6a-1385b17249dc",
+      "topic_id": "b0c57e9f-418e-46e2-b424-9ce080f84647",
+      "topic_label": "topic_2",
+      "text": "Analyze in detail how thermal expansion and contraction affects the structural behavior of a cable-stayed bridge with 847 meters of main span under S460ML specifications.",
+      "source_episode_ids": [
+        "fc56e139-eaf1-46f7-aa6a-1385b17249dc"
+      ],
+      "source_turns": [
+        13
+      ],
+      "collapsed_episode_ids": [],
+      "salience": 6,
+      "dream_event": 31,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-26T01:17:30.697536+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "5a833feb-6144-5fe0-b6e6-b8bb09480a43",
+      "source_episode_id": "454deaa5-f194-461b-a561-9239bc7650e1",
+      "topic_id": "b0c57e9f-418e-46e2-b424-9ce080f84647",
+      "topic_label": "topic_2",
+      "text": "**Initial Phase (Years 0–5):** Annual visual inspections of anchorage areas and protective sheaths.",
+      "source_episode_ids": [
+        "454deaa5-f194-461b-a561-9239bc7650e1"
+      ],
+      "source_turns": [
+        8
+      ],
+      "collapsed_episode_ids": [],
+      "salience": 5,
+      "dream_event": 31,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-26T01:17:30.697336+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "ddcfe616-aac5-53a7-8cbc-f3669ee0cb08",
+      "source_episode_id": "7efdb6f3-c190-4be3-a866-13eff0a24102",
+      "topic_id": "b0c57e9f-418e-46e2-b424-9ce080f84647",
+      "topic_label": "topic_2",
+      "text": "Tensile Strength: 620–780 MPa",
+      "source_episode_ids": [
+        "7efdb6f3-c190-4be3-a866-13eff0a24102"
+      ],
+      "source_turns": [
+        4
+      ],
+      "collapsed_episode_ids": [],
+      "salience": 5,
+      "dream_event": 31,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-26T01:17:30.693851+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "fce7044c-e2e1-5cc3-bfb8-0f0d416645ec",
+      "source_episode_id": "7efdb6f3-c190-4be3-a866-13eff0a24102",
+      "topic_id": "b0c57e9f-418e-46e2-b424-9ce080f84647",
+      "topic_label": "topic_2",
+      "text": "Carbon Equivalent (CEV): ≤ 0.45% (to ensure weldability)",
+      "source_episode_ids": [
+        "7efdb6f3-c190-4be3-a866-13eff0a24102"
+      ],
+      "source_turns": [
+        4
+      ],
+      "collapsed_episode_ids": [],
+      "salience": 5,
+      "dream_event": 31,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-26T01:17:30.696975+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "ef885fef-be3f-59d9-b34f-6a8cff3b05bc",
+      "source_episode_id": "7efdb6f3-c190-4be3-a866-13eff0a24102",
+      "topic_id": "b0c57e9f-418e-46e2-b424-9ce080f84647",
+      "topic_label": "topic_2",
+      "text": "Impact Energy (Charpy V-Notch): ≥ 27 Joules at the specified low temperature",
+      "source_episode_ids": [
+        "7efdb6f3-c190-4be3-a866-13eff0a24102"
+      ],
+      "source_turns": [
+        4
+      ],
+      "collapsed_episode_ids": [],
+      "salience": 5,
+      "dream_event": 31,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-26T01:17:30.697316+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "7188a7bd-b8dc-5e14-87e4-8106c4d50bbe",
+      "source_episode_id": "cf650025-d9be-4309-9cdc-1c4fa92ebeef",
+      "topic_id": "b0c57e9f-418e-46e2-b424-9ce080f84647",
+      "topic_label": "topic_2",
+      "text": "The weight penalty often makes this option structurally inefficient for spans exceeding 600–700 meters. (",
+      "source_episode_ids": [
+        "cf650025-d9be-4309-9cdc-1c4fa92ebeef"
+      ],
+      "source_turns": [
+        18
+      ],
+      "collapsed_episode_ids": [],
+      "salience": 5,
+      "dream_event": 31,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-26T01:17:30.697496+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "71579f66-35e0-58db-bd2d-b5092b1c21d0",
+      "source_episode_id": "d99e89cd-952f-475a-8217-17f140810bdd",
+      "topic_id": "b0c57e9f-418e-46e2-b424-9ce080f84647",
+      "topic_label": "topic_2",
+      "text": "This actively maintains a low humidity environment (typically below 30-40% RH).",
+      "source_episode_ids": [
+        "d99e89cd-952f-475a-8217-17f140810bdd"
+      ],
+      "source_turns": [
+        28
+      ],
+      "collapsed_episode_ids": [],
+      "salience": 5,
+      "dream_event": 31,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-26T01:17:30.697178+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "d4443668-5e8c-56e7-a9f4-e154ae6d2525",
+      "source_episode_id": "d99e89cd-952f-475a-8217-17f140810bdd",
+      "topic_id": "b0c57e9f-418e-46e2-b424-9ce080f84647",
+      "topic_label": "topic_2",
+      "text": "**Scale of Components:** The length of the longest cables can exceed 400-500 meters.",
+      "source_episode_ids": [
+        "d99e89cd-952f-475a-8217-17f140810bdd"
+      ],
+      "source_turns": [
+        28
+      ],
+      "collapsed_episode_ids": [],
+      "salience": 5,
+      "dream_event": 31,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-26T01:17:30.697517+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "aaceb80b-4956-50a1-9e8a-b2017408393f",
+      "source_episode_id": "7efdb6f3-c190-4be3-a866-13eff0a24102",
+      "topic_id": "b0c57e9f-418e-46e2-b424-9ce080f84647",
+      "topic_label": "topic_2",
+      "text": "Yield Strength: ≥ 460 MPa",
+      "source_episode_ids": [
+        "7efdb6f3-c190-4be3-a866-13eff0a24102"
+      ],
+      "source_turns": [
+        4
+      ],
+      "collapsed_episode_ids": [],
+      "salience": 4,
+      "dream_event": 31,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-26T01:17:30.696817+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "f0f01aaf-e61a-53ac-afd9-2d074c921005",
+      "source_episode_id": "7efdb6f3-c190-4be3-a866-13eff0a24102",
+      "topic_id": "b0c57e9f-418e-46e2-b424-9ce080f84647",
+      "topic_label": "topic_2",
+      "text": "The steel specification for Halcyon Crossing's primary structural members has been set at grade S460ML.",
+      "source_episode_ids": [
+        "7efdb6f3-c190-4be3-a866-13eff0a24102"
+      ],
+      "source_turns": [
+        4
+      ],
+      "collapsed_episode_ids": [],
+      "salience": 4,
+      "dream_event": 31,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-26T01:17:30.697356+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "a304ec85-04d0-504e-886f-6c5b46d29f76",
+      "source_episode_id": "d8a08467-0e6c-4271-98ab-06b11e5e2a6f",
+      "topic_id": "b0c57e9f-418e-46e2-b424-9ce080f84647",
+      "topic_label": "topic_2",
+      "text": "204 kips) axle rating significantly surpasses the AASHTO Design Truck axles.",
+      "source_episode_ids": [
+        "d8a08467-0e6c-4271-98ab-06b11e5e2a6f"
+      ],
+      "source_turns": [
+        17
+      ],
+      "collapsed_episode_ids": [],
+      "salience": 4,
+      "dream_event": 31,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-26T01:17:30.697455+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "9a448704-637c-543d-b083-444cdbfba374",
+      "source_episode_id": "f62487d4-2a32-48fd-b7e5-96a930a564e1",
+      "topic_id": "b0c57e9f-418e-46e2-b424-9ce080f84647",
+      "topic_label": "topic_2",
+      "text": "Standard codes (like Eurocode's 12.5t axle) are insufficient.",
+      "source_episode_ids": [
+        "f62487d4-2a32-48fd-b7e5-96a930a564e1"
+      ],
+      "source_turns": [
+        20
+      ],
+      "collapsed_episode_ids": [],
+      "salience": 4,
+      "dream_event": 31,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-26T01:17:30.697250+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "cf1eaab2-e600-5df8-b882-783f53dd7836",
+      "source_episode_id": "f62487d4-2a32-48fd-b7e5-96a930a564e1",
+      "topic_id": "b0c57e9f-418e-46e2-b424-9ce080f84647",
+      "topic_label": "topic_2",
+      "text": "**EN 1990 (Basis of Design):** Establishes limit state principles and load combinations.",
+      "source_episode_ids": [
+        "f62487d4-2a32-48fd-b7e5-96a930a564e1"
+      ],
+      "source_turns": [
+        20
+      ],
+      "collapsed_episode_ids": [],
+      "salience": 4,
+      "dream_event": 31,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-26T01:17:30.697624+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "8814a869-2733-5081-9f57-66b5994ee2e1",
+      "source_episode_id": "060e1648-0ec6-44e7-bd86-0ca4bebb586a",
+      "topic_id": "b0c57e9f-418e-46e2-b424-9ce080f84647",
+      "topic_label": "topic_2",
+      "text": "The total main span is 847 meters.",
+      "source_episode_ids": [
+        "060e1648-0ec6-44e7-bd86-0ca4bebb586a"
+      ],
+      "source_turns": [
+        3
+      ],
+      "collapsed_episode_ids": [],
+      "salience": 3,
+      "dream_event": 31,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-26T01:17:30.696950+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "2e036f79-85e5-5426-9e39-6e9e3e165d3d",
+      "source_episode_id": "060e1648-0ec6-44e7-bd86-0ca4bebb586a",
+      "topic_id": "b0c57e9f-418e-46e2-b424-9ce080f84647",
+      "topic_label": "topic_2",
+      "text": "Total Main Span: 847 meters",
+      "source_episode_ids": [
+        "060e1648-0ec6-44e7-bd86-0ca4bebb586a"
+      ],
+      "source_turns": [
+        3
+      ],
+      "collapsed_episode_ids": [],
+      "salience": 3,
+      "dream_event": 31,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-26T01:17:30.696998+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "3b29a88a-81ee-58f2-bee2-707ffaa414db",
+      "source_episode_id": "79c79f84-4946-4449-af5c-a6d87d5614f8",
+      "topic_id": "b0c57e9f-418e-46e2-b424-9ce080f84647",
+      "topic_label": "topic_2",
+      "text": "What does the 92.4 metric ton load rating imply for the choice?",
+      "source_episode_ids": [
+        "79c79f84-4946-4449-af5c-a6d87d5614f8"
+      ],
+      "source_turns": [
+        22
+      ],
+      "collapsed_episode_ids": [],
+      "salience": 3,
+      "dream_event": 31,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-26T01:17:30.697433+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "4c886e71-7a08-5ff9-a745-f50f7b6dbe81",
+      "source_episode_id": "79c79f84-4946-4449-af5c-a6d87d5614f8",
+      "topic_id": "b0c57e9f-418e-46e2-b424-9ce080f84647",
+      "topic_label": "topic_2",
+      "text": "**Impact of the 92.4 Metric Ton Axle Load Rating:**",
+      "source_episode_ids": [
+        "79c79f84-4946-4449-af5c-a6d87d5614f8"
+      ],
+      "source_turns": [
+        22
+      ],
+      "collapsed_episode_ids": [],
+      "salience": 3,
+      "dream_event": 31,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-26T01:17:30.697663+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "fbeaeb75-f073-5902-9779-1721fff9ccfd",
+      "source_episode_id": "79c79f84-4946-4449-af5c-a6d87d5614f8",
+      "topic_id": "b0c57e9f-418e-46e2-b424-9ce080f84647",
+      "topic_label": "topic_2",
+      "text": "For an 847-meter span, reducing dead load is advantageous.",
+      "source_episode_ids": [
+        "79c79f84-4946-4449-af5c-a6d87d5614f8"
+      ],
+      "source_turns": [
+        22
+      ],
+      "collapsed_episode_ids": [],
+      "salience": 3,
+      "dream_event": 31,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-26T01:17:30.697855+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "be266ebb-7c9c-52fc-975d-91c8adfe101c",
+      "source_episode_id": "7efdb6f3-c190-4be3-a866-13eff0a24102",
+      "topic_id": "b0c57e9f-418e-46e2-b424-9ce080f84647",
+      "topic_label": "topic_2",
+      "text": "The bridge's maximum load rating is 92.4 metric tons per axle.",
+      "source_episode_ids": [
+        "7efdb6f3-c190-4be3-a866-13eff0a24102"
+      ],
+      "source_turns": [
+        4
+      ],
+      "collapsed_episode_ids": [],
+      "salience": 3,
+      "dream_event": 31,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-26T01:17:30.697376+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "3e8f73a0-ff72-53ee-96ce-6e0aafd755b9",
+      "source_episode_id": "a7c9cbfe-bbe9-41f0-94b5-5316b96c36f1",
+      "topic_id": "b0c57e9f-418e-46e2-b424-9ce080f84647",
+      "topic_label": "topic_2",
+      "text": "What does the 92.4 metric ton axle rating imply for bearing selection?",
+      "source_episode_ids": [
+        "a7c9cbfe-bbe9-41f0-94b5-5316b96c36f1"
+      ],
+      "source_turns": [
+        14
+      ],
+      "collapsed_episode_ids": [],
+      "salience": 3,
+      "dream_event": 31,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-26T01:17:30.697395+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "26f8281d-5722-5732-9ef5-0bf249640e0b",
+      "source_episode_id": "a7c9cbfe-bbe9-41f0-94b5-5316b96c36f1",
+      "topic_id": "b0c57e9f-418e-46e2-b424-9ce080f84647",
+      "topic_label": "topic_2",
+      "text": "**Implications of the 92.4 Metric Ton Axle Rating:**",
+      "source_episode_ids": [
+        "a7c9cbfe-bbe9-41f0-94b5-5316b96c36f1"
+      ],
+      "source_turns": [
+        14
+      ],
+      "collapsed_episode_ids": [],
+      "salience": 3,
+      "dream_event": 31,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-26T01:17:30.697414+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "4f00dc36-cb90-58af-a7a3-52f4de38d1aa",
+      "source_episode_id": "d8a08467-0e6c-4271-98ab-06b11e5e2a6f",
+      "topic_id": "b0c57e9f-418e-46e2-b424-9ce080f84647",
+      "topic_label": "topic_2",
+      "text": "The 92.4 metric ton (approx.",
+      "source_episode_ids": [
+        "d8a08467-0e6c-4271-98ab-06b11e5e2a6f",
+        "d8a08467-0e6c-4271-98ab-06b11e5e2a6f"
+      ],
+      "source_turns": [
+        17,
+        17
+      ],
+      "collapsed_episode_ids": [
+        "d8a08467-0e6c-4271-98ab-06b11e5e2a6f"
+      ],
+      "salience": 3,
+      "dream_event": 31,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-26T01:17:30.697042+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "39d11edb-b481-51f0-b8b7-b99a16479c8d",
+      "source_episode_id": "d99e89cd-952f-475a-8217-17f140810bdd",
+      "topic_id": "b0c57e9f-418e-46e2-b424-9ce080f84647",
+      "topic_label": "topic_2",
+      "text": "What does an 847-meter span imply for system design and energy requirements?",
+      "source_episode_ids": [
+        "d99e89cd-952f-475a-8217-17f140810bdd"
+      ],
+      "source_turns": [
+        28
+      ],
+      "collapsed_episode_ids": [],
+      "salience": 3,
+      "dream_event": 31,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-26T01:17:30.697556+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "d30d3093-bc62-5ba2-ad83-b75aa4e699a3",
+      "source_episode_id": "d99e89cd-952f-475a-8217-17f140810bdd",
+      "topic_id": "b0c57e9f-418e-46e2-b424-9ce080f84647",
+      "topic_label": "topic_2",
+      "text": "**Implications of an 847-Meter Span for System Design:**",
+      "source_episode_ids": [
+        "d99e89cd-952f-475a-8217-17f140810bdd"
+      ],
+      "source_turns": [
+        28
+      ],
+      "collapsed_episode_ids": [],
+      "salience": 3,
+      "dream_event": 31,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-26T01:17:30.697682+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "86577cc7-21ec-5f4d-970e-ee94a1679081",
+      "source_episode_id": "f62487d4-2a32-48fd-b7e5-96a930a564e1",
+      "topic_id": "b0c57e9f-418e-46e2-b424-9ce080f84647",
+      "topic_label": "topic_2",
+      "text": "**ISO 15630:** Welding consumables for high-tensile strength steels.",
+      "source_episode_ids": [
+        "f62487d4-2a32-48fd-b7e5-96a930a564e1"
+      ],
+      "source_turns": [
+        20
+      ],
+      "collapsed_episode_ids": [],
+      "salience": 3,
+      "dream_event": 31,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-26T01:17:30.697644+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "8beeff18-1ca1-5644-a60b-df91a6ce097f",
+      "source_episode_id": "f62487d4-2a32-48fd-b7e5-96a930a564e1",
+      "topic_id": "b0c57e9f-418e-46e2-b424-9ce080f84647",
+      "topic_label": "topic_2",
+      "text": "These ensure the S460ML material properties are maintained during fabrication.",
+      "source_episode_ids": [
+        "f62487d4-2a32-48fd-b7e5-96a930a564e1"
+      ],
+      "source_turns": [
+        20
+      ],
+      "collapsed_episode_ids": [],
+      "salience": 3,
+      "dream_event": 31,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-26T01:17:30.697836+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "eb45a521-6b35-5cb8-bb40-a640416663a0",
+      "source_episode_id": "060e1648-0ec6-44e7-bd86-0ca4bebb586a",
+      "topic_id": "b0c57e9f-418e-46e2-b424-9ce080f84647",
+      "topic_label": "topic_2",
+      "text": "Project Name: Halcyon Crossing",
+      "source_episode_ids": [
+        "060e1648-0ec6-44e7-bd86-0ca4bebb586a"
+      ],
+      "source_turns": [
+        3
+      ],
+      "collapsed_episode_ids": [],
+      "salience": 2,
+      "dream_event": 31,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-26T01:17:30.697091+00:00",
+      "embedding_dimensions": 1024
+    }
+  ]
+}

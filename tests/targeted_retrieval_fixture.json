@@ -1,0 +1,62 @@
+{
+  "study": "007",
+  "task": "S7-T-012",
+  "purpose": "The diversity floor's risk is the mirror image of the breadth failure: budget reserved for other domains is budget not spent on the asked-about one. These queries are narrowly targeted at a single domain and are phrased like the targeted rubric questions (Cat 1-3 of experiments/study_002/rubric_filled.md), not like the breadth probes at turns 120-121.",
+  "store": "experiments/study_006/runs/study_006_full_001/condition_c/study.db",
+  "authored_before": "the B_ltm / k_min calibration sweep, so the fixture constrains the parameters rather than the reverse",
+  "gate_criteria": {
+    "majority_own_domain": "the queried domain receives more than half the characters admitted (floor + fill combined)",
+    "top_span_present": "the queried domain's own highest-similarity candidate is in the block",
+    "bounded_floor_cost": "versus a floor-disabled variant at the same B_ltm, the targeted domain loses at most k_min * (|T| - 1) slots"
+  },
+  "queries": [
+    {
+      "id": "civil_targeted_1",
+      "domain": "civil",
+      "query": "What is the total main span of the Halcyon Crossing bridge, and which grade of steel was specified for its deck plate?",
+      "intent": "Q1-style: two specific civil-engineering specifications, no cross-domain wording."
+    },
+    {
+      "id": "civil_targeted_2",
+      "domain": "civil",
+      "query": "Who is the lead structural engineer on the bridge project, and what axle load did the design account for?",
+      "intent": "Q2-style: named entity plus numeric value, single domain."
+    },
+    {
+      "id": "art_targeted_1",
+      "domain": "art",
+      "query": "Which Renaissance painting did we discuss, who painted it, and in what year was it commissioned?",
+      "intent": "Q4-style: identity of the artwork, artist, and date."
+    },
+    {
+      "id": "art_targeted_2",
+      "domain": "art",
+      "query": "Describe the pigment layering and ground preparation used in the fifteenth-century altarpiece we examined.",
+      "intent": "Q5-style: technique detail. Targets a plant known to be unformed, so it also tests behaviour when the queried domain is thin."
+    },
+    {
+      "id": "monetary_targeted_1",
+      "domain": "monetary",
+      "query": "What threshold did the economist give for the reverse repurchase facility rate, and how did it relate to the inflation target?",
+      "intent": "Q10-style: numeric threshold within monetary policy."
+    },
+    {
+      "id": "monetary_targeted_2",
+      "domain": "monetary",
+      "query": "Explain the Taylor Rule and the Federal Reserve's dual mandate as we discussed them.",
+      "intent": "Q-style conceptual monetary question, no other domain referenced."
+    },
+    {
+      "id": "marine_targeted_1",
+      "domain": "marine",
+      "query": "What is the depth range of the vampire squid, and which researcher's work did we cite on it?",
+      "intent": "Q7-style: species depth range plus named researcher."
+    },
+    {
+      "id": "marine_targeted_2",
+      "domain": "marine",
+      "query": "How does the vampire squid feed, and where on its body are the photophores located?",
+      "intent": "Q8-style: feeding mechanism and anatomy."
+    }
+  ]
+}
