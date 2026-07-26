@@ -2,41 +2,43 @@
 
 ## What Worked
 
-- Registration artifacts were committed before implementation.
-- Arm S is genuinely minimal: its runtime closure contains no LTM, dream,
-  promotion, or digest module.
-- N + K behavior matches a hand-derived fixture.
-- Digest charging uses the production serialization as its sole cost authority.
-- G2 preserved Study 007 probe fidelity byte-for-byte.
-- The 35-turn Arm S run cleared speed, context, logging, leakage, and structural
-  checks.
-- The study stopped before expensive full runs and scoring when the protocol
-  became internally unsatisfiable.
+- Registration, implementation, gates, amendment, run artifacts, blinded
+  inputs, and scores landed in auditable git order.
+- Arm S is structurally minimal and loaded no LTM, dream, promotion, or digest
+  module.
+- The 35-turn ablation and full run matched byte-for-byte across fresh server
+  lifecycles.
+- Blinded scoring occurred before the mapping or full-run mechanism logs were
+  opened.
+- The null test produced a decisive result: L beat S by 1.5 points, localized
+  to Q5 and Q8.
+- The 17-item matrix linked the breadth difference to prompt delivery without
+  counting any answer-only lucky hits.
 
 ## What Failed
 
 The digest's density surrogate selected information-rich decoys rather than
-rubric-critical facts. Expanding both span count and budget did not restore all
-four domains.
+rubric-critical facts. Increasing both span count and budget never restored
+all four domains, so S+D was correctly dropped.
 
-More importantly, registration combined structural subtraction with byte-level
-prefix parity. An absent tier changes prompt bytes even when the corresponding
-store is empty. With seeded sampling, the difference became observable at turn
-3 and propagated through the raw store.
+The original registration also combined structural subtraction with cross-arm
+byte parity. An absent tier necessarily changes prompt bytes when L renders an
+empty `<retrieved_ltm/>` frame. The original protocol stopped correctly, but
+the contradiction should have been caught before the ablation.
 
-## Prevention
+Arm L still failed Q11 and earned only 0.5 on Q14. LTM proved useful relative
+to pure STM, but it did not solve breadth recall.
 
-Future subtraction controls must choose their parity unit before lock:
+## Repair and Prevention
 
-- behavioral architecture parity, allowing prompt-byte differences caused by
-  structural absence; or
-- prompt-shape parity, using an explicitly registered inert placeholder.
+Amendment 001 selected architecture-aware parity: same script, runtime, seed,
+and shared components, while allowing the registered treatment to change
+prompt structure. Within-arm fresh-lifecycle determinism replaced impossible
+cross-arm response identity.
 
-They cannot claim both structural absence and byte identity against an arm that
-renders the empty tier.
+Future subtraction studies must lock one coherent parity unit before
+implementation. Component ranking gates must also prove target-fact recovery
+on a small adversarial fixture before broad replay calibration.
 
-Future component gates should also require the proposed ranking surrogate to
-surface at least one complete target fact in a tiny frozen fixture before the
-component is fully implemented. The fact-aware replay remains the binding
-check, but an earlier adversarial fixture would expose the density mismatch
-more cheaply.
+Study 010 should retain the accepted LTM configuration, reject the digest, and
+avoid interpreting L's relative win as breadth success.

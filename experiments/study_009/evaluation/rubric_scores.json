@@ -1,0 +1,175 @@
+{
+  "study": "009",
+  "protocol": "AMENDMENT_001_protocol_repair.md",
+  "rubric": "experiments/study_002/rubric_filled.md (Q1-Q13, locked)",
+  "q14_criteria": "experiments/study_004/q14_criteria.md (locked)",
+  "rater": "Codex agent",
+  "blinded": true,
+  "scored_from": [
+    "experiments/study_009/evaluation/arm_A/responses.md",
+    "experiments/study_009/evaluation/arm_B/responses.md"
+  ],
+  "mapping_opened_before_scoring": false,
+  "mechanism_logs_opened_before_scoring": false,
+  "dual_scoring_note": "Primary and strict scores are identical. No awarded credit depends on a planted term presented only as one of several alternatives.",
+  "arm_A": {
+    "Q1": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Both 847 meters and S460ML are stated exactly."
+    },
+    "Q2": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Dr. Anara Bekova and 92.4 metric tons per axle are both correct."
+    },
+    "Q3": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Both formatting rules are recalled precisely."
+    },
+    "Q4": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Painting, artist, patron, and 1483 completion year are all correct."
+    },
+    "Q5": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Lead white ground and an ultramarine oil glaze are both stated directly."
+    },
+    "Q6": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Della Rovere is identified as patron and later Pope Julius II, without topic bleed."
+    },
+    "Q7": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Species, Watanabe, 600-900 meters, and marine-snow feeding are all present."
+    },
+    "Q8": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Photophores and their mantle-margin location are both stated."
+    },
+    "Q9": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "The Renaissance response contains no monetary or marine contamination."
+    },
+    "Q10": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Dr. Kenji Watanabe is correctly attributed to Vampyroteuthis infernalis."
+    },
+    "Q11": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Only 10 of 17 locked values/entities are present: five values and five entities (58.8%), below the 80% threshold. The art and monetary sections substitute extensive unplanted material."
+    },
+    "Q12": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Both behavioral rules are recalled correctly."
+    },
+    "Q13": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Numbered lists appear throughout turns 112-120 and risk labels are consistently supplied."
+    },
+    "Q14": {
+      "primary": 0.5,
+      "strict": 0.5,
+      "rationale": "All four domains are named. Bridge, monetary policy, and marine biology have planted specifics; art gives only the unplanted 1450-1510 framing, so exactly one domain is named-only."
+    },
+    "Q1_Q13_total": 12.0,
+    "category_totals": {
+      "cat1_Q1_Q3": 3.0,
+      "cat2_Q4_Q6": 3.0,
+      "cat3_Q7_Q8": 2.0,
+      "cat4_Q9_Q11": 2.0,
+      "cat5_Q12_Q13": 2.0
+    }
+  },
+  "arm_B": {
+    "Q1": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Both 847 meters and S460ML are stated exactly."
+    },
+    "Q2": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Dr. Anara Bekova and 92.4 metric tons per axle are both correct."
+    },
+    "Q3": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Both formatting rules are recalled precisely."
+    },
+    "Q4": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Painting, artist, patron, and 1483 completion year are all correct."
+    },
+    "Q5": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "The response gives gesso and generic oil glazing, but neither the planted lead white ground nor ultramarine glaze."
+    },
+    "Q6": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Della Rovere is identified as patron and later Pope Julius II, without topic bleed."
+    },
+    "Q7": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Species, Watanabe, 600-900 meters, and marine-snow feeding are all present."
+    },
+    "Q8": {
+      "primary": 0.5,
+      "strict": 0.5,
+      "rationale": "Photophores are correct, but the response locates them on ventral head-region fins rather than the mantle margin."
+    },
+    "Q9": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "The Renaissance response contains no monetary or marine contamination."
+    },
+    "Q10": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Dr. Kenji Watanabe is correctly attributed to Vampyroteuthis infernalis."
+    },
+    "Q11": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "The response asserts that Renaissance art and monetary policy were not discussed, an automatic breadth failure, and omits their locked facts."
+    },
+    "Q12": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Both behavioral rules are recalled correctly."
+    },
+    "Q13": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Applicable numbered-list formatting is honored in at least five of nine late turns."
+    },
+    "Q14": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "The response omits art and monetary-policy hits and explicitly asserts those domains were not discussed, which is an automatic zero."
+    },
+    "Q1_Q13_total": 10.5,
+    "category_totals": {
+      "cat1_Q1_Q3": 3.0,
+      "cat2_Q4_Q6": 2.0,
+      "cat3_Q7_Q8": 1.5,
+      "cat4_Q9_Q11": 2.0,
+      "cat5_Q12_Q13": 2.0
+    }
+  }
+}
