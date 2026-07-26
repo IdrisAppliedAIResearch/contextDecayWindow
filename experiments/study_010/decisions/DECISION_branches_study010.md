@@ -1,7 +1,7 @@
 # Decision: Resolve Study 010 Branch Inputs
 
-**Source:** Study 009 final report and binding STOP
-**Study 009 close commit:** `842fe67`
+**Source:** Study 009 amended final report
+**Study 009 close commit:** `e533011`
 **Study 010 registration commit:** `ead2f66`
 
 ## Branch 1: Digest Carry
@@ -17,9 +17,10 @@ registered Study 009 contingency dropped S+D before ablation.
 
 **Resolved: accepted Study 007 treatment, unchanged.**
 
-Study 009 produced no S-versus-L verdict or mechanism analysis that could
-motivate a pre-lock amendment. Study 007 therefore remains the last accepted
-LTM configuration:
+Study 009 found LTM value at 120 turns: accepted Study 007 Arm L scored
+12.0/13.0 versus pure-STM Arm S at 10.5/13.0. Its mechanism analysis does not
+motivate a configuration change, so Study 007 remains the accepted LTM
+configuration:
 
 - span dreaming formation;
 - `B_ltm = 32,000` exact rendered characters;
@@ -29,8 +30,8 @@ LTM configuration:
 - episode rendering;
 - containment dedup with STM precedence.
 
-## Missing Input
+## Study 009 Input
 
-Study 009's null-test verdict is unavailable because it stopped at the Arm S
-ablation. This does not alter Branch 2's mechanical configuration, but it means
-Study 010 cannot claim that Study 009 resolved the 120-turn null question.
+The null-test verdict is available and decisive under Study 009 Amendment 001:
+LTM retirement at 120 turns is cancelled. Study 010 tests whether that
+advantage persists or grows at 1,000 episodes.

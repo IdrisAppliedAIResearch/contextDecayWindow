@@ -2,13 +2,13 @@
 ## contextDecayWindow
 **Idris Applied AI Research**
 **Date:** July 2026
-**Status:** DRAFT — locks only after Study 009's verdict resolves the two pre-registered branches below.
+**Status:** LOCKED UNDER AMENDMENT 001
 **Deferred since:** Study 003 ("stress-test the study where retrieval is active"), re-deferred at 004, 005, 008.
 
-**Pre-lock review:** STOPPED before script authorship. Study 009 produced no
-null-test verdict and demonstrated that the inherited combination of structural
-Arm S with byte-identical S/L prefix requirements is unsatisfiable. See
-`decisions/DECISION_prelock_stop_study010.md`.
+**Pre-lock review:** the original STOP is superseded by author-authorized
+`amendments/AMENDMENT_001_executable_endurance_protocol.md`. Study 009 now
+supplies a decisive verdict, digest carry is false, and architecture-aware
+parity replaces the impossible byte-identical prefix rule.
 
 ---
 
@@ -76,7 +76,10 @@ The 120-turn script cannot be stretched; a new script is authored under these bi
 - **G4 — Checkpoint/resume correctness:** kill and resume a seeded prefix run at a checkpoint; the resumed run must be turn-identical to an unkilled reference.
 - **G5 — Wall-clock rehearsal:** a 200-turn timed run per arm validating the 6–8 hour projection and the monitoring protocol.
 
-**Evaluation.** Human rater, blinded across two arms, on the new locked rubric (terminal + interim probes; projected ~2× (14 + 9) ≈ 46 scorings), dual scoring carried, **scores before any mechanism log** (git-verified). Fact-delivery matrices per probe checkpoint per arm, carried method.
+**Evaluation.** Blinded agent rater across two arms on the new locked rubric
+(terminal + interim probes; 46 arm-question scores), dual scoring carried,
+**scores before any mechanism log** (git-verified). Fact-delivery matrices per
+probe checkpoint per arm, carried method. See Amendment 001.
 
 ---
 

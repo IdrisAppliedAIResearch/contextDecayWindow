@@ -1,6 +1,6 @@
 # Decision: Stop Study 010 Before Lock and Script Authorship
 
-**Status:** BINDING PRE-LOCK STOP
+**Status:** SUPERSEDED by author-authorized Amendment 001
 **Study 010 source-document commit:** `ead2f66`
 **Inherited Study 009 evidence:** `842fe67`
 
@@ -50,3 +50,10 @@ that resolves both issues before script authorship:
 
 No 1,000-turn script, rubric, plant key, calibration, checkpoint
 infrastructure, rehearsal, live inference, or scoring was produced.
+
+## Supersession
+
+Study 009 later completed under its author-authorized repair and supplied the
+missing verdict. Study 010 Amendment 001 adopts the same coherent parity unit
+and authorizes resumed work. This file remains the audit record of the original
+draft's valid stop.
