@@ -43,15 +43,29 @@ DOMAINS = [
     for row in DOMAIN_ROWS
 ]
 FILLERS = [
-    "Give a concise two-sentence overview of the main analytical tradeoff in {name}.",
-    "In no more than three sentences, identify one common measurement error in {name} and its consequence.",
-    "Briefly compare two validation strategies used in {name}; keep the answer under 120 words.",
-    "State one practical quality-control check for {name} and explain it in two sentences.",
-    "Give a short example of how uncertainty should be reported in {name}.",
-    "In three concise sentences, explain one failure mode practitioners in {name} should monitor.",
-    "Briefly describe how a team would document provenance for a {name} result.",
-    "Name one useful sensitivity analysis in {name} and explain its purpose in under 100 words.",
+    "Stay within the {name} thread and do not connect it to other subjects. Explain {facet} in two concise sentences.",
+    "Stay within the {name} thread and do not connect it to other subjects. Identify one measurement error affecting {facet} and its consequence.",
+    "Stay within the {name} thread and do not connect it to other subjects. Briefly compare two validation strategies for {facet}.",
+    "Stay within the {name} thread and do not connect it to other subjects. State one practical quality-control check for {facet}.",
+    "Stay within the {name} thread and do not connect it to other subjects. Give a short example of uncertainty reporting for {facet}.",
+    "Stay within the {name} thread and do not connect it to other subjects. Explain one failure mode involving {facet}.",
+    "Stay within the {name} thread and do not connect it to other subjects. Briefly describe provenance documentation for {facet}.",
+    "Stay within the {name} thread and do not connect it to other subjects. Name one sensitivity analysis for {facet} and its purpose.",
 ]
+FACETS = {
+    "structural": ["aeroelastic flutter", "cable fatigue", "seismic isolation", "deck torsion", "bearing creep", "wind-tunnel scaling", "load combinations", "corrosion monitoring"],
+    "epidemiology": ["immortal-time bias", "loss to follow-up", "propensity overlap", "competing risks", "outcome adjudication", "missing covariates", "cluster effects", "negative controls"],
+    "archives": ["quire reconstruction", "watermark dating", "scribal hands", "ink corrosion", "provenance gaps", "folio collation", "seal impressions", "marginal annotations"],
+    "battery": ["lithium plating", "electrolyte oxidation", "particle cracking", "thermal runaway", "impedance growth", "formation cycling", "state estimation", "gas evolution"],
+    "monetary": ["output-gap uncertainty", "policy transmission", "expectation anchoring", "term premia", "balance-sheet effects", "forward guidance", "liquidity traps", "exchange-rate pass-through"],
+    "astronomy": ["spectral calibration", "parallax bias", "radio interference", "adaptive optics", "proper motion", "beam synthesis", "flux standards", "atmospheric seeing"],
+    "ecology": ["peat accretion", "water-table drawdown", "methane flux", "vegetation quadrats", "nutrient loading", "hydrologic connectivity", "seed-bank recovery", "invasive reeds"],
+    "cryptography": ["side-channel leakage", "key encapsulation", "nonce reuse", "certificate rotation", "timing variance", "hybrid negotiation", "entropy sources", "downgrade resistance"],
+    "geophysics": ["seismic refraction", "bathymetric correction", "sediment velocity", "magnetic anomalies", "streamer feathering", "navigation drift", "fault inversion", "crustal spreading"],
+    "linguistics": ["sound correspondence", "lexical borrowing", "morphological leveling", "isogloss overlap", "dated inscriptions", "semantic shift", "contact zones", "phoneme reconstruction"],
+    "robotics": ["visual odometry", "terrain slip", "loop closure", "power budgeting", "sensor fusion", "path replanning", "dust occlusion", "actuator backlash"],
+    "conservation": ["salt crystallization", "mortar compatibility", "tessera adhesion", "moisture gradients", "pigment fading", "surface cleaning", "microcracking", "environmental logging"],
+}
 
 
 def plant_prompt(domain: dict, stage: str) -> str:
@@ -173,7 +187,11 @@ def build() -> tuple[dict, list[dict], dict[str, dict[str, int]]]:
             user = plant_prompt(domain, stage)
             domain_plants[stage] = turn
         else:
-            user = FILLERS[position % len(FILLERS)].format(name=domain["name"])
+            index = position % len(FILLERS)
+            user = FILLERS[index].format(
+                name=domain["name"],
+                facet=FACETS[domain["id"]][index],
+            )
         turns.append(
             {
                 "turn": turn,
@@ -282,7 +300,9 @@ def write_rubric(probes: list[dict]) -> None:
 
 
 def sha(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest()
+    text = path.read_text(encoding="utf-8")
+    normalized = text.replace("\r\n", "\n").replace("\r", "\n")
+    return hashlib.sha256(normalized.encode("utf-8")).hexdigest()
 
 
 def main() -> None:
@@ -296,6 +316,7 @@ def main() -> None:
     write_rubric(probes)
     lock = {
         "status": "LOCKED_BEFORE_CALIBRATION",
+        "hash_mode": "SHA-256 of UTF-8 decoded text normalized to LF",
         "artifacts": {
             name: sha(OUT / name)
             for name in (

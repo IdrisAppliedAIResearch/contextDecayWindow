@@ -2,13 +2,14 @@
 
 ## Current state
 
-Study 010's source documents are committed at `ead2f66`. Its original
-pre-lock STOP at `f2debf8` is superseded for resumed work by the author's
-authorization to make documented repairs. Study 009 now supplies the missing
-null-test verdict and its parity amendment supplies the coherent comparison
-rule. Study 010 carries no digest and retains the accepted Study 007 LTM
-treatment. The 1,000-turn protocol still requires an explicit amendment before
-live execution.
+Study 010 is **STOPPED AT G2 BEFORE LIVE INFERENCE**. Amendment 001 repaired
+the missing Study 009 input, parity rule, checkpoint scope, and blinded-rater
+dependency. A locked 1,000-turn script with 12 domains, 36 plants, and 23
+probes was produced. G1 retrieval-at-scale, G4 checkpoint/restore, and leakage
+passed, but the accepted TopicManager failed G2: no swept threshold pair
+recovered approximately 12 pure domains. Low thresholds merged domains and
+high thresholds fragmented them. No rehearsal, live 1,000-turn run, score, or
+Bar 1 verdict exists.
 
 Study 009 is complete as **PARTIAL WITH A DECISIVE NULL TEST**. Registration is
 `37fff74`; Amendment 001 is `5fa1700`; final analysis is `e533011`. Accepted

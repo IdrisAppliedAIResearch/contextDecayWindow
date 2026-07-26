@@ -1,0 +1,1076 @@
+{
+  "g1_retrieval": {
+    "passed": true,
+    "threshold": 0.5,
+    "episode_count": 986,
+    "embedding_cache_entries": 151,
+    "latency_ms_mean": 52.247341668892965,
+    "latency_ms_max": 58.599599986337125,
+    "peak_estimated_k_tokens": 7696,
+    "probes": {
+      "Q1": {
+        "target_domain": "structural",
+        "selected_count": 28,
+        "selected_chars": 8742,
+        "estimated_k_tokens": 2185,
+        "target_plant_turns": [
+          1,
+          40
+        ],
+        "target_fact_source_recovered": true
+      },
+      "Q2": {
+        "target_domain": "epidemiology",
+        "selected_count": 92,
+        "selected_chars": 28890,
+        "estimated_k_tokens": 7222,
+        "target_plant_turns": [
+          83,
+          122
+        ],
+        "target_fact_source_recovered": true
+      },
+      "Q3": {
+        "target_domain": "archives",
+        "selected_count": 71,
+        "selected_chars": 21955,
+        "estimated_k_tokens": 5488,
+        "target_plant_turns": [
+          164,
+          203
+        ],
+        "target_fact_source_recovered": true
+      },
+      "Q4": {
+        "target_domain": "battery",
+        "selected_count": 91,
+        "selected_chars": 27854,
+        "estimated_k_tokens": 6963,
+        "target_plant_turns": [
+          246,
+          288
+        ],
+        "target_fact_source_recovered": true
+      },
+      "Q5": {
+        "target_domain": "monetary",
+        "selected_count": 82,
+        "selected_chars": 25229,
+        "estimated_k_tokens": 6307,
+        "target_plant_turns": [
+          330,
+          369
+        ],
+        "target_fact_source_recovered": true
+      },
+      "Q6": {
+        "target_domain": "astronomy",
+        "selected_count": 78,
+        "selected_chars": 24013,
+        "estimated_k_tokens": 6003,
+        "target_plant_turns": [
+          412,
+          451
+        ],
+        "target_fact_source_recovered": true
+      },
+      "Q7": {
+        "target_domain": "ecology",
+        "selected_count": 80,
+        "selected_chars": 24299,
+        "estimated_k_tokens": 6074,
+        "target_plant_turns": [
+          493,
+          535
+        ],
+        "target_fact_source_recovered": true
+      },
+      "Q8": {
+        "target_domain": "cryptography",
+        "selected_count": 76,
+        "selected_chars": 23762,
+        "estimated_k_tokens": 5940,
+        "target_plant_turns": [
+          577,
+          616
+        ],
+        "target_fact_source_recovered": true
+      },
+      "Q9": {
+        "target_domain": "geophysics",
+        "selected_count": 76,
+        "selected_chars": 23286,
+        "estimated_k_tokens": 5821,
+        "target_plant_turns": [
+          659,
+          698
+        ],
+        "target_fact_source_recovered": true
+      },
+      "Q10": {
+        "target_domain": "linguistics",
+        "selected_count": 94,
+        "selected_chars": 29464,
+        "estimated_k_tokens": 7366,
+        "target_plant_turns": [
+          740,
+          782
+        ],
+        "target_fact_source_recovered": true
+      },
+      "Q11": {
+        "target_domain": "robotics",
+        "selected_count": 58,
+        "selected_chars": 17704,
+        "estimated_k_tokens": 4426,
+        "target_plant_turns": [
+          825,
+          864
+        ],
+        "target_fact_source_recovered": true
+      },
+      "Q12": {
+        "target_domain": "conservation",
+        "selected_count": 98,
+        "selected_chars": 30786,
+        "estimated_k_tokens": 7696,
+        "target_plant_turns": [
+          906,
+          945
+        ],
+        "target_fact_source_recovered": true
+      }
+    }
+  },
+  "g2_consolidation": {
+    "passed": false,
+    "chosen": null,
+    "sweep": [
+      {
+        "assignment_threshold": 0.45,
+        "merge_threshold": 0.45,
+        "final_topic_count": 2,
+        "cross_domain_topics": 2,
+        "passed": false
+      },
+      {
+        "assignment_threshold": 0.5,
+        "merge_threshold": 0.75,
+        "final_topic_count": 6,
+        "cross_domain_topics": 4,
+        "passed": false
+      },
+      {
+        "assignment_threshold": 0.55,
+        "merge_threshold": 0.75,
+        "final_topic_count": 14,
+        "cross_domain_topics": 8,
+        "passed": false
+      },
+      {
+        "assignment_threshold": 0.6,
+        "merge_threshold": 0.75,
+        "final_topic_count": 20,
+        "cross_domain_topics": 4,
+        "passed": false
+      },
+      {
+        "assignment_threshold": 0.65,
+        "merge_threshold": 0.8,
+        "final_topic_count": 43,
+        "cross_domain_topics": 7,
+        "passed": false
+      },
+      {
+        "assignment_threshold": 0.7,
+        "merge_threshold": 0.85,
+        "final_topic_count": 83,
+        "cross_domain_topics": 4,
+        "passed": false
+      },
+      {
+        "assignment_threshold": 0.75,
+        "merge_threshold": 0.9,
+        "final_topic_count": 122,
+        "cross_domain_topics": 3,
+        "passed": false
+      },
+      {
+        "assignment_threshold": 0.8,
+        "merge_threshold": 0.95,
+        "final_topic_count": 135,
+        "cross_domain_topics": 1,
+        "passed": false
+      }
+    ],
+    "final_topic_count": 135,
+    "topic_trajectory": [
+      {
+        "turn": 100,
+        "topics": 20
+      },
+      {
+        "turn": 200,
+        "topics": 31
+      },
+      {
+        "turn": 300,
+        "topics": 46
+      },
+      {
+        "turn": 400,
+        "topics": 57
+      },
+      {
+        "turn": 500,
+        "topics": 76
+      },
+      {
+        "turn": 600,
+        "topics": 90
+      },
+      {
+        "turn": 700,
+        "topics": 101
+      },
+      {
+        "turn": 800,
+        "topics": 113
+      },
+      {
+        "turn": 900,
+        "topics": 124
+      }
+    ],
+    "topic_profiles": [
+      {
+        "topic": "topic_1",
+        "domains": [
+          "structural"
+        ]
+      },
+      {
+        "topic": "topic_2",
+        "domains": [
+          "structural"
+        ]
+      },
+      {
+        "topic": "topic_3",
+        "domains": [
+          "structural"
+        ]
+      },
+      {
+        "topic": "topic_4",
+        "domains": [
+          "structural"
+        ]
+      },
+      {
+        "topic": "topic_5",
+        "domains": [
+          "structural"
+        ]
+      },
+      {
+        "topic": "topic_6",
+        "domains": [
+          "structural"
+        ]
+      },
+      {
+        "topic": "topic_7",
+        "domains": [
+          "structural"
+        ]
+      },
+      {
+        "topic": "topic_8",
+        "domains": [
+          "structural"
+        ]
+      },
+      {
+        "topic": "topic_9",
+        "domains": [
+          "structural"
+        ]
+      },
+      {
+        "topic": "topic_10",
+        "domains": [
+          "structural"
+        ]
+      },
+      {
+        "topic": "topic_11",
+        "domains": [
+          "structural"
+        ]
+      },
+      {
+        "topic": "topic_12",
+        "domains": [
+          "epidemiology"
+        ]
+      },
+      {
+        "topic": "topic_13",
+        "domains": [
+          "epidemiology"
+        ]
+      },
+      {
+        "topic": "topic_14",
+        "domains": [
+          "epidemiology"
+        ]
+      },
+      {
+        "topic": "topic_15",
+        "domains": [
+          "epidemiology"
+        ]
+      },
+      {
+        "topic": "topic_16",
+        "domains": [
+          "epidemiology"
+        ]
+      },
+      {
+        "topic": "topic_17",
+        "domains": [
+          "epidemiology"
+        ]
+      },
+      {
+        "topic": "topic_18",
+        "domains": [
+          "epidemiology"
+        ]
+      },
+      {
+        "topic": "topic_19",
+        "domains": [
+          "epidemiology"
+        ]
+      },
+      {
+        "topic": "topic_20",
+        "domains": [
+          "epidemiology"
+        ]
+      },
+      {
+        "topic": "topic_21",
+        "domains": [
+          "epidemiology"
+        ]
+      },
+      {
+        "topic": "topic_22",
+        "domains": [
+          "epidemiology"
+        ]
+      },
+      {
+        "topic": "topic_23",
+        "domains": [
+          "archives"
+        ]
+      },
+      {
+        "topic": "topic_24",
+        "domains": [
+          "archives"
+        ]
+      },
+      {
+        "topic": "topic_25",
+        "domains": [
+          "archives"
+        ]
+      },
+      {
+        "topic": "topic_26",
+        "domains": [
+          "archives"
+        ]
+      },
+      {
+        "topic": "topic_27",
+        "domains": [
+          "archives"
+        ]
+      },
+      {
+        "topic": "topic_28",
+        "domains": [
+          "archives"
+        ]
+      },
+      {
+        "topic": "topic_29",
+        "domains": [
+          "archives"
+        ]
+      },
+      {
+        "topic": "topic_30",
+        "domains": [
+          "archives"
+        ]
+      },
+      {
+        "topic": "topic_31",
+        "domains": [
+          "archives"
+        ]
+      },
+      {
+        "topic": "topic_32",
+        "domains": [
+          "archives"
+        ]
+      },
+      {
+        "topic": "topic_33",
+        "domains": [
+          "archives"
+        ]
+      },
+      {
+        "topic": "topic_34",
+        "domains": [
+          "battery"
+        ]
+      },
+      {
+        "topic": "topic_35",
+        "domains": [
+          "battery"
+        ]
+      },
+      {
+        "topic": "topic_36",
+        "domains": [
+          "battery"
+        ]
+      },
+      {
+        "topic": "topic_37",
+        "domains": [
+          "battery"
+        ]
+      },
+      {
+        "topic": "topic_38",
+        "domains": []
+      },
+      {
+        "topic": "topic_39",
+        "domains": []
+      },
+      {
+        "topic": "topic_40",
+        "domains": []
+      },
+      {
+        "topic": "topic_41",
+        "domains": [
+          "battery"
+        ]
+      },
+      {
+        "topic": "topic_42",
+        "domains": [
+          "battery"
+        ]
+      },
+      {
+        "topic": "topic_43",
+        "domains": [
+          "battery"
+        ]
+      },
+      {
+        "topic": "topic_44",
+        "domains": [
+          "battery"
+        ]
+      },
+      {
+        "topic": "topic_45",
+        "domains": [
+          "battery"
+        ]
+      },
+      {
+        "topic": "topic_46",
+        "domains": [
+          "battery"
+        ]
+      },
+      {
+        "topic": "topic_47",
+        "domains": [
+          "battery"
+        ]
+      },
+      {
+        "topic": "topic_48",
+        "domains": [
+          "monetary"
+        ]
+      },
+      {
+        "topic": "topic_49",
+        "domains": [
+          "monetary"
+        ]
+      },
+      {
+        "topic": "topic_50",
+        "domains": [
+          "monetary"
+        ]
+      },
+      {
+        "topic": "topic_51",
+        "domains": [
+          "monetary"
+        ]
+      },
+      {
+        "topic": "topic_52",
+        "domains": [
+          "monetary"
+        ]
+      },
+      {
+        "topic": "topic_53",
+        "domains": [
+          "monetary"
+        ]
+      },
+      {
+        "topic": "topic_54",
+        "domains": [
+          "monetary"
+        ]
+      },
+      {
+        "topic": "topic_55",
+        "domains": [
+          "monetary"
+        ]
+      },
+      {
+        "topic": "topic_56",
+        "domains": [
+          "monetary"
+        ]
+      },
+      {
+        "topic": "topic_57",
+        "domains": [
+          "monetary"
+        ]
+      },
+      {
+        "topic": "topic_58",
+        "domains": [
+          "monetary"
+        ]
+      },
+      {
+        "topic": "topic_59",
+        "domains": [
+          "astronomy"
+        ]
+      },
+      {
+        "topic": "topic_60",
+        "domains": [
+          "astronomy"
+        ]
+      },
+      {
+        "topic": "topic_61",
+        "domains": [
+          "astronomy"
+        ]
+      },
+      {
+        "topic": "topic_62",
+        "domains": [
+          "astronomy"
+        ]
+      },
+      {
+        "topic": "topic_63",
+        "domains": [
+          "astronomy"
+        ]
+      },
+      {
+        "topic": "topic_64",
+        "domains": [
+          "astronomy"
+        ]
+      },
+      {
+        "topic": "topic_65",
+        "domains": [
+          "astronomy"
+        ]
+      },
+      {
+        "topic": "topic_66",
+        "domains": [
+          "astronomy"
+        ]
+      },
+      {
+        "topic": "topic_67",
+        "domains": [
+          "astronomy"
+        ]
+      },
+      {
+        "topic": "topic_68",
+        "domains": [
+          "astronomy",
+          "geophysics",
+          "robotics"
+        ]
+      },
+      {
+        "topic": "topic_69",
+        "domains": [
+          "astronomy"
+        ]
+      },
+      {
+        "topic": "topic_70",
+        "domains": [
+          "ecology"
+        ]
+      },
+      {
+        "topic": "topic_71",
+        "domains": [
+          "ecology"
+        ]
+      },
+      {
+        "topic": "topic_72",
+        "domains": [
+          "ecology"
+        ]
+      },
+      {
+        "topic": "topic_73",
+        "domains": [
+          "ecology"
+        ]
+      },
+      {
+        "topic": "topic_74",
+        "domains": [
+          "ecology"
+        ]
+      },
+      {
+        "topic": "topic_75",
+        "domains": [
+          "ecology"
+        ]
+      },
+      {
+        "topic": "topic_76",
+        "domains": [
+          "ecology"
+        ]
+      },
+      {
+        "topic": "topic_77",
+        "domains": []
+      },
+      {
+        "topic": "topic_78",
+        "domains": [
+          "ecology"
+        ]
+      },
+      {
+        "topic": "topic_79",
+        "domains": [
+          "ecology"
+        ]
+      },
+      {
+        "topic": "topic_80",
+        "domains": [
+          "ecology"
+        ]
+      },
+      {
+        "topic": "topic_81",
+        "domains": [
+          "ecology"
+        ]
+      },
+      {
+        "topic": "topic_82",
+        "domains": [
+          "cryptography"
+        ]
+      },
+      {
+        "topic": "topic_83",
+        "domains": [
+          "cryptography"
+        ]
+      },
+      {
+        "topic": "topic_84",
+        "domains": [
+          "cryptography"
+        ]
+      },
+      {
+        "topic": "topic_85",
+        "domains": [
+          "cryptography"
+        ]
+      },
+      {
+        "topic": "topic_86",
+        "domains": [
+          "cryptography"
+        ]
+      },
+      {
+        "topic": "topic_87",
+        "domains": [
+          "cryptography"
+        ]
+      },
+      {
+        "topic": "topic_88",
+        "domains": [
+          "cryptography"
+        ]
+      },
+      {
+        "topic": "topic_89",
+        "domains": [
+          "cryptography"
+        ]
+      },
+      {
+        "topic": "topic_90",
+        "domains": [
+          "cryptography"
+        ]
+      },
+      {
+        "topic": "topic_91",
+        "domains": [
+          "cryptography"
+        ]
+      },
+      {
+        "topic": "topic_92",
+        "domains": [
+          "cryptography"
+        ]
+      },
+      {
+        "topic": "topic_93",
+        "domains": [
+          "geophysics"
+        ]
+      },
+      {
+        "topic": "topic_94",
+        "domains": [
+          "geophysics"
+        ]
+      },
+      {
+        "topic": "topic_95",
+        "domains": [
+          "geophysics"
+        ]
+      },
+      {
+        "topic": "topic_96",
+        "domains": [
+          "geophysics"
+        ]
+      },
+      {
+        "topic": "topic_97",
+        "domains": [
+          "geophysics"
+        ]
+      },
+      {
+        "topic": "topic_98",
+        "domains": [
+          "geophysics"
+        ]
+      },
+      {
+        "topic": "topic_99",
+        "domains": [
+          "geophysics"
+        ]
+      },
+      {
+        "topic": "topic_100",
+        "domains": [
+          "geophysics"
+        ]
+      },
+      {
+        "topic": "topic_101",
+        "domains": [
+          "geophysics"
+        ]
+      },
+      {
+        "topic": "topic_102",
+        "domains": [
+          "geophysics"
+        ]
+      },
+      {
+        "topic": "topic_103",
+        "domains": [
+          "linguistics"
+        ]
+      },
+      {
+        "topic": "topic_104",
+        "domains": [
+          "linguistics"
+        ]
+      },
+      {
+        "topic": "topic_105",
+        "domains": [
+          "linguistics"
+        ]
+      },
+      {
+        "topic": "topic_106",
+        "domains": [
+          "linguistics"
+        ]
+      },
+      {
+        "topic": "topic_107",
+        "domains": [
+          "linguistics"
+        ]
+      },
+      {
+        "topic": "topic_108",
+        "domains": [
+          "linguistics"
+        ]
+      },
+      {
+        "topic": "topic_109",
+        "domains": [
+          "linguistics"
+        ]
+      },
+      {
+        "topic": "topic_110",
+        "domains": [
+          "linguistics"
+        ]
+      },
+      {
+        "topic": "topic_111",
+        "domains": [
+          "linguistics"
+        ]
+      },
+      {
+        "topic": "topic_112",
+        "domains": []
+      },
+      {
+        "topic": "topic_113",
+        "domains": [
+          "linguistics"
+        ]
+      },
+      {
+        "topic": "topic_114",
+        "domains": [
+          "linguistics"
+        ]
+      },
+      {
+        "topic": "topic_115",
+        "domains": [
+          "robotics"
+        ]
+      },
+      {
+        "topic": "topic_116",
+        "domains": [
+          "robotics"
+        ]
+      },
+      {
+        "topic": "topic_117",
+        "domains": [
+          "robotics"
+        ]
+      },
+      {
+        "topic": "topic_118",
+        "domains": [
+          "robotics"
+        ]
+      },
+      {
+        "topic": "topic_119",
+        "domains": [
+          "robotics"
+        ]
+      },
+      {
+        "topic": "topic_120",
+        "domains": [
+          "robotics"
+        ]
+      },
+      {
+        "topic": "topic_121",
+        "domains": [
+          "robotics"
+        ]
+      },
+      {
+        "topic": "topic_122",
+        "domains": [
+          "robotics"
+        ]
+      },
+      {
+        "topic": "topic_123",
+        "domains": [
+          "robotics"
+        ]
+      },
+      {
+        "topic": "topic_124",
+        "domains": [
+          "robotics"
+        ]
+      },
+      {
+        "topic": "topic_125",
+        "domains": [
+          "conservation"
+        ]
+      },
+      {
+        "topic": "topic_126",
+        "domains": [
+          "conservation"
+        ]
+      },
+      {
+        "topic": "topic_127",
+        "domains": [
+          "conservation"
+        ]
+      },
+      {
+        "topic": "topic_128",
+        "domains": [
+          "conservation"
+        ]
+      },
+      {
+        "topic": "topic_129",
+        "domains": [
+          "conservation"
+        ]
+      },
+      {
+        "topic": "topic_130",
+        "domains": [
+          "conservation"
+        ]
+      },
+      {
+        "topic": "topic_131",
+        "domains": [
+          "conservation"
+        ]
+      },
+      {
+        "topic": "topic_132",
+        "domains": [
+          "conservation"
+        ]
+      },
+      {
+        "topic": "topic_133",
+        "domains": [
+          "conservation"
+        ]
+      },
+      {
+        "topic": "topic_134",
+        "domains": [
+          "conservation"
+        ]
+      },
+      {
+        "topic": "topic_135",
+        "domains": [
+          "conservation"
+        ]
+      }
+    ],
+    "cross_domain_topics": [
+      {
+        "topic": "topic_68",
+        "domains": [
+          "astronomy",
+          "geophysics",
+          "robotics"
+        ]
+      }
+    ],
+    "purity_event_count": 0
+  },
+  "g3_digest": {
+    "applicable": false,
+    "passed": null
+  },
+  "g4_resume": {
+    "passed": true,
+    "exit_code": 0,
+    "output": "..                                                                       [100%]\n2 passed in 0.04s"
+  },
+  "leakage": {
+    "passed": true,
+    "scanned_files": 25,
+    "violations": []
+  },
+  "passed": false
+}
