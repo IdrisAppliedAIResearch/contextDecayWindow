@@ -12,10 +12,14 @@ from src.inference.provider import (
 )
 from src.db.episode import get_episode_by_id
 from src.memory.dream_engine import DreamEngine
+from src.memory.span_dream_engine import SpanDreamEngine
 from src.memory.promotion_engine import PromotionEngine
 from src.memory.retrieval_engine import RetrievalEngine
 from src.memory.topic_manager import TopicManager
-from src.observability.dream_analysis_writer import DreamAnalysisWriter
+from src.observability.dream_analysis_writer import (
+    DreamAnalysisWriter,
+    SpanDreamAnalysisWriter,
+)
 from src.observability.observer import Observer
 from src.observability.ltm_analysis_writer import LtmAnalysisWriter
 from src.observability.run_config import RunConfig
@@ -53,7 +57,7 @@ class StudyRunner:
         context_capacity: int | None = None,
         strict_monitoring: bool = False,
     ):
-        if memory_formation not in {"promotion", "dreaming"}:
+        if memory_formation not in {"promotion", "dreaming", "span_dreaming"}:
             raise ValueError(
                 f"Unsupported memory formation mode: {memory_formation}"
             )
@@ -116,7 +120,16 @@ class StudyRunner:
         formation_engine = None
         formation_writer = None
         if condition == "iterative" and hasattr(runner, "_conn"):
-            if getattr(self, "memory_formation", "promotion") == "dreaming":
+            formation_mode = getattr(self, "memory_formation", "promotion")
+            if formation_mode == "span_dreaming":
+                formation_engine = SpanDreamEngine(
+                    runner._conn,
+                    inference_call_count=lambda: (
+                        self._inference_provider.completion_count
+                    ),
+                )
+                formation_writer = SpanDreamAnalysisWriter(output_dir)
+            elif formation_mode == "dreaming":
                 formation_engine = DreamEngine(
                     runner._conn,
                     inference_call_count=lambda: (
@@ -340,7 +353,7 @@ class StudyRunner:
                 ltm_source=(
                     "distilled"
                     if getattr(self, "memory_formation", "promotion")
-                    == "dreaming"
+                    in {"dreaming", "span_dreaming"}
                     else "promoted"
                 ),
             )
@@ -349,7 +362,10 @@ class StudyRunner:
             raise ValueError(f"Unknown condition: {condition}")
 
     def _write_formation_summary(self, writer, summary, conn) -> None:
-        if getattr(self, "memory_formation", "promotion") == "dreaming":
+        if getattr(self, "memory_formation", "promotion") in {
+            "dreaming",
+            "span_dreaming",
+        }:
             writer.write_dream(summary, conn)
         else:
             writer.write_promotion(summary)

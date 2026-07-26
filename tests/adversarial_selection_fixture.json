@@ -1,0 +1,53 @@
+{
+  "description": "S6-T-009 adversarial selection fixture. Reproduces the Study 005 failure shape in miniature: within one topic, several long generated-style assistant spans each carry a strictly HIGHER absolute entity+numeric count than a short user-planted fact, while the plant has the strictly HIGHER density. Study 005's absolute-count ranking over whole turns must bury the plant; Study 006's density-normalized ranking must select it. The plant must win on density alone, before the 1.5x source weight is applied - otherwise the fixture would only be testing source weighting. A fixture that passes under both policies does not test the change and must be rewritten.",
+  "topic": {
+    "id": "topic-adversarial",
+    "label": "structural analysis"
+  },
+  "episodes": [
+    {
+      "id": "episode-plant",
+      "turn_number": 12,
+      "kind": "plant",
+      "user_message": "The calibration constant for the Meridian array is 0.0473.",
+      "assistant_message": "Understood.",
+      "plant_span": "The calibration constant for the Meridian array is 0.0473."
+    },
+    {
+      "id": "episode-decoy-1",
+      "turn_number": 13,
+      "kind": "decoy",
+      "user_message": "Walk me through the thermal behaviour of the deck.",
+      "assistant_message": "Thermal expansion across the Halcyon Crossing deck reaches 23.4 millimetres at the peak summer temperature of 40 degrees, which sits comfortably within the 68.2 millimetre allowance that the bearing design already provides. The measured expansion coefficient of 12.5 microstrain per degree governs movement along the entire 847 metre main span, and it has remained stable across the 14 monitoring cycles completed so far."
+    },
+    {
+      "id": "episode-decoy-2",
+      "turn_number": 14,
+      "kind": "decoy",
+      "user_message": "And the fatigue picture over the design life?",
+      "assistant_message": "Fatigue cycles at the Halcyon Crossing anchorage are projected to total 2100000 over the 120 year design life, assuming the traffic growth rate of 1.8 percent that the client originally supplied. Stress ranges of 84.6 megapascals stay below the 91.3 megapascal endurance limit across all 47 instrumented locations, so no additional detailing is required at this stage of the assessment."
+    },
+    {
+      "id": "episode-decoy-3",
+      "turn_number": 15,
+      "kind": "decoy",
+      "user_message": "Summarise the wind loading assumptions you used.",
+      "assistant_message": "Design wind speed at the Halcyon Crossing site is 46.8 metres per second, and the Coastal Wind Institute records gust factors averaging 1.42 across the 31.7 kilometres of exposed approach. Vortex shedding near 0.19 hertz drives roughly 15.6 millimetres of amplitude at deck level, which the 22 installed dampers reduce to a value the serviceability criteria accept without further work."
+    },
+    {
+      "id": "episode-decoy-4",
+      "turn_number": 16,
+      "kind": "decoy",
+      "user_message": "What about the cable tension distribution?",
+      "assistant_message": "Stay cable tensions at the Halcyon Crossing pylon range from 4.82 meganewtons up to 7.31 meganewtons, and the Tension Monitoring Array samples 128 separate channels continuously throughout each working day. Relaxation losses of 3.4 percent are expected to accrue across the 50 year service window, based on the 19 laboratory specimens tested during the qualification programme last year."
+    },
+    {
+      "id": "episode-acknowledgment",
+      "turn_number": 17,
+      "kind": "acknowledgment",
+      "user_message": "Please keep applying that convention from here on.",
+      "assistant_message": "I have noted your instruction and will continue to follow the Meridian convention exactly as you have described it throughout the remainder of our discussion together.",
+      "acknowledgment_span": "I have noted your instruction and will continue to follow the Meridian convention exactly as you have described it throughout the remainder of our discussion together."
+    }
+  ]
+}

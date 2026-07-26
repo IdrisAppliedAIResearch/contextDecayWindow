@@ -1,0 +1,61 @@
+{
+  "rater": "Claude Opus 5 (agent)",
+  "scored_at": "2026-07-25",
+  "note": "PROTOCOL DEVIATION - see study_006_report.md. The pre-registration specifies manual scoring by a single human rater, with scores committed before any dreaming, retrieval or arbitration log is opened. Neither condition was met exactly: the rater is an agent rather than a human, and the rater had already computed Bar 1 formation (which facts reached the store) before scoring the responses. Scoring was performed from each arm's rubric/responses.md text alone, against the locked criteria in study_002/rubric_filled.md and study_004/q14_criteria.md, with a written rationale recorded per question so a human rater can audit or replace these scores. Bar 3 turns on a single 0.5 judgment (Q5) - see sensitivity note.",
+  "rubric_sources": {
+    "Q1-Q13": "experiments/study_002/rubric_filled.md",
+    "Q14": "experiments/study_004/q14_criteria.md"
+  },
+  "treatment": {
+    "Q1": 1.0,
+    "Q2": 1.0,
+    "Q3": 1.0,
+    "Q4": 1.0,
+    "Q5": 0.0,
+    "Q6": 1.0,
+    "Q7": 1.0,
+    "Q8": 0.5,
+    "Q9": 1.0,
+    "Q10": 1.0,
+    "Q11": 0.0,
+    "Q12": 1.0,
+    "Q13": 1.0,
+    "Q14": 0.0
+  },
+  "control": {
+    "Q1": 1.0,
+    "Q2": 1.0,
+    "Q3": 1.0,
+    "Q4": 1.0,
+    "Q5": 0.5,
+    "Q6": 1.0,
+    "Q7": 1.0,
+    "Q8": 0.5,
+    "Q9": 1.0,
+    "Q10": 1.0,
+    "Q11": 0.0,
+    "Q12": 1.0,
+    "Q13": 1.0,
+    "Q14": 0.5
+  },
+  "rationale": {
+    "Q1": "Both arms: '847 meters' and 'S460ML' both correct. 1.0 / 1.0.",
+    "Q2": "Both arms: 'Dr. Anara Bekova' and '92.4 metric tons per axle' both correct. 1.0 / 1.0.",
+    "Q3": "Both arms state the numbered-list rule and the risk-classification rule precisely. 1.0 / 1.0.",
+    "Q4": "Both arms give all four: The Annunciation of Forli, Melozzo da Forli, Cardinal Giuliano della Rovere, 1483. 1.0 / 1.0.",
+    "Q5": "Expected 'lead white ground' and 'ultramarine glaze'. TREATMENT gives 'white gesso layer (gesso duro)' and 'transparent glazes (velatura)' - neither planted term appears, both substituted with plausible generic technique. 0.0. CONTROL gives gypsum/lime gesso for the ground (wrong) but states 'Specific pigments likely included azurite or early ultramarine for blues' - 'ultramarine' surfaces, hedged and among a speculative list rather than asserted as the glaze technique. Scored 0.5 for one of two terms recovered. THIS IS THE SOFTEST CALL IN THE RUBRIC AND BAR 3 TURNS ON IT.",
+    "Q6": "Both arms: patron/commissioner role correct, later became Pope Julius II correct, no cross-topic contamination. 1.0 / 1.0.",
+    "Q7": "Both arms: Vampyroteuthis infernalis, 600-900 meters, marine snow / detritus feeding, Watanabe attribution. All correct. 1.0 / 1.0.",
+    "Q8": "Expected 'photophores' along the 'mantle margin'. Both arms name photophores correctly but locate them on the margin of the arm web ('the large web connecting the eight arms' / 'margins of its large, web-like fin'), not the mantle margin. Organ type correct, location not the planted one. 0.5 / 0.5 - identical failure in both arms.",
+    "Q9": "Both arms return clean Renaissance content at turn 117 with no Taylor Rule, Priya Mehta, or Vampyroteuthis bleed. 1.0 / 1.0.",
+    "Q10": "Both arms attribute Vampyroteuthis infernalis to Dr. Kenji Watanabe with no conflation of the three researchers. 1.0 / 1.0.",
+    "Q11": "Requires >=80% of the listed planted values and entities with correct attribution. TREATMENT explicitly states 'the provided context does not contain episodes discussing Renaissance art or monetary policy' and returns those sections as absent - the automatic-zero condition. 0.0. CONTROL names all four domains but supplies the wrong content for two: its Renaissance section is about Sixtus IV and the Sistine Chapel rather than The Annunciation of Forli, and its monetary section is generic Taylor Rule background with no Dr. Priya Mehta and no 2.3% threshold. Planted values recovered 5/7, planted entities 4/10, roughly 53% overall, below the 80% bar. 0.0. Both arms fail, for different reasons.",
+    "Q12": "Both arms state both rules correctly at turn 114. 1.0 / 1.0.",
+    "Q13": "Both arms apply numbered lists throughout the probe block and append (Risk: X) in well over 5 of the 9 late turns. 1.0 / 1.0.",
+    "Q14": "TREATMENT names all four areas but gives Renaissance art only a generic gloss on patronage 1450-1510 with no planted specific, and states for monetary policy that 'No specific factual details or figures were established' - asserting a domain was not discussed, which the locked criteria make an automatic 0.0. CONTROL names all four and supplies a correct planted specific for three of them (847m/S460ML, Taylor 1993 and 2%, 600-900m); its Renaissance specific (Renovatio Romanorum under Sixtus IV) is not a planted fact, which is exactly one lapse. 0.5."
+  },
+  "sensitivity": {
+    "bar3_hinges_on": "Q5",
+    "detail": "Bar 3 compares Q1-Q13 totals: treatment 10.5 vs control 11.0, a deficit of exactly 0.5, and the only per-question regression is Q5. Had the control's hedged mention of 'early ultramarine' been scored 0.0 rather than 0.5, the two arms would tie at 10.5 and Bar 3 would pass on the >= criterion. The pre-registration anticipates precisely this: 'Q5 and Q8 partial credit are the softest calls in the rubric. Where a Bar 3 verdict turns on a single 0.5, the report must state the verdict's sensitivity to that judgment rather than presenting it as a clean margin.' The Bar 3 failure is therefore reported as marginal and judgment-dependent, not as a clean regression."
+  }
+}
