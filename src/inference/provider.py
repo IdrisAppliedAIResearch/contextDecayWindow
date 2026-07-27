@@ -104,7 +104,11 @@ class InferenceProvider:
 
     def complete(self, prompt: str, suppress_rule_detection: bool = False) -> InferenceResult:
         self._completion_count = getattr(self, "_completion_count", 0) + 1
-        augmented_prompt = self._inject_rule_detection(prompt)
+        augmented_prompt = (
+            prompt
+            if suppress_rule_detection
+            else self._inject_rule_detection(prompt)
+        )
 
         start = time.perf_counter()
         if self._server_url:
