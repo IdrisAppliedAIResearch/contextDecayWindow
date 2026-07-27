@@ -1,8 +1,9 @@
 # Study 010 Report: Endurance Study Stopped at Scale Gate
 
+**Pre-registration commit:** `ead2f663c3a149307a91eab3ab1c62ffafdc38a9`
 **Study 009 dependency merge:** `8520bfe`
 **Initial artifact lock:** `52f05e7`
-**Final status:** STOPPED AT G2 BEFORE LIVE INFERENCE
+**Final status:** STOPPED AT G2; POST-STOP EXPLORATORY CONTINUATION COMPLETE
 
 ## Result
 
@@ -74,3 +75,61 @@ Accordingly, Study 010 is a proposed scale extension of an advantage already
 observed at 120 turns, not the first fair STM-versus-LTM comparison. These
 interpretive corrections do not affect the independent G2 failure or reopen
 the study.
+
+## Authorized Exploratory Continuation
+
+Amendment 004 records the author's authorization to run the locked experiment
+after the stop while preserving G2 as failed and the confirmatory outcome as
+stopped. The carried TopicManager and registered thresholds were unchanged.
+G1, G4, and leakage passed again; G2 failed again. A two-arm 200-turn
+rehearsal passed after Amendments 005-006 prevented the inapplicable rule
+classifier from persisting false rules without changing decoded conversation
+answers.
+
+Both full arms then completed 1,000 turns. Arm L resumed from its verified
+turn-500 checkpoint after the initial process was reaped during turn 597; Arm
+S completed in one process. Both produced all ten checkpoints and all 23
+registered probe answers.
+
+### Exploratory Scores
+
+Three clean-context blind rating passes completed the standing calibration
+gate. Six strict-score disagreements were independently adjudicated before
+the mapping was opened. The score artifact was committed at `32ffed4a`.
+
+| Arm | Interim / 9 | Terminal / 14 | All probes / 23 |
+|---|---:|---:|---:|
+| L | 7.5 | 14.0 | 21.5 |
+| S | 4.5 | 12.0 | 16.5 |
+
+L's 2.0-point terminal advantage clears the registered 1.5-point Bar 1
+threshold. The post-stop exploratory consequence is **RETAIN LTM**.
+
+The gap is entirely breadth. Both arms scored 12.0/12.0 on terminal targeted
+questions. L answered both breadth probes perfectly; S scored zero on both.
+At Q13 and Q14, L's LTM block delivered all 12 required pairs. S's prompt
+delivered only two and one respectively.
+
+### Exploratory Bars
+
+| Registered measure | Post-stop result |
+|---|---|
+| Bar 1 decision | RETAIN LTM: L - S = 2.0 terminal |
+| Bar 2 endurance integrity | PASS |
+| Bar 3 degradation curves | PASS |
+
+These are explicitly exploratory computations. They do not make the original
+confirmatory study VALIDATED.
+
+Arm L peaked at 27,154 estimated context tokens and Arm S at 17,541, both
+below the 40,000-token monitor. L formed 290 offset-verbatim content records
+across 63 dream events with zero non-content records and zero dream inference
+calls. Both arms persisted zero rules.
+
+The topic failure remained visible: both live arms ended with two topics, and
+neither had a K hit at a terminal targeted probe. The result supports LTM's
+cross-domain breadth value under the failed carried topic layer; it does not
+validate that layer or isolate a healthy 12-topic architecture.
+
+Complete scoring, fact delivery, curves, integrity checks, and mechanism
+analysis are under `experiments/study_010/evaluation/`.

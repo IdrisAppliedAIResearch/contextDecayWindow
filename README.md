@@ -4,7 +4,7 @@
 
 Ten pre-registered studies test that question, each adding one memory component and fixing the prior study's documented failures. Every result is published as found.
 
-> **Status:** Study 010 stopped at its G2 scale gate before live inference | scoring record corrected 2026-07-26 | README current as of 2026-07-26
+> **Status:** Study 010 stopped at G2; authorized post-stop exploratory continuation complete | scoring record corrected 2026-07-26 | README current as of 2026-07-27
 
 ## The Problem
 
@@ -29,7 +29,7 @@ Runs use a scripted 120-turn conversation with facts planted at known positions 
 | 007 | Information-sized retrieval budget | PARTIAL (2/3) | Best score; the model used every delivered fact |
 | 008 | Rendering by selection factorial | STOPPED AT GATES | No jointly feasible operating point existed |
 | 009 | Pure-STM null test and topic digest | PARTIAL; null decisive | LTM beat STM by 3.0; digest failed its offline gate |
-| 010 | 1,000-turn endurance | STOPPED AT G2 | Topic consolidation could not recover 12 domains without merging or fragmentation |
+| 010 | 1,000-turn endurance | STOPPED AT G2; EXPLORATORY CONTINUATION COMPLETE | Confirmatory G2 failed; exploratory L 14.0/14 vs S 12.0/14 retained LTM at scale |
 
 Full reports live under `experiments/study_NNN/`.
 
