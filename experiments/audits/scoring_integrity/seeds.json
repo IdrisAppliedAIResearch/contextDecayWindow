@@ -1,0 +1,8 @@
+{
+  "control_sample_rate": 0.15,
+  "control_sample_seed": "sia-control-2026-07-26-v1",
+  "h5_sample_rate": 0.10,
+  "h5_sample_seed": "sia-h5-2026-07-26-v1",
+  "selection": "Sort SHA-256(seed + ':' + stable_item_id) ascending; take ceil(rate * eligible_count)."
+}
+
