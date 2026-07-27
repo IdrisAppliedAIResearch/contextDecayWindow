@@ -16,7 +16,10 @@ from src.study.study_009_runner import Study009Runner
 SCRIPT = Path("experiments/study_010/script_1000.json")
 SCRIPT_DIGEST = "2d186e1b7f4c89d7095d01d7ac267d981abb0996c60c922a35f78cf2c6d38521"
 OUTPUT = Path("experiments/study_010/runs")
-AMENDMENT = "AMENDMENT_004_authorized_exploratory_restart.md"
+AMENDMENTS = [
+    "AMENDMENT_004_authorized_exploratory_restart.md",
+    "AMENDMENT_005_disable_inapplicable_rule_extraction.md",
+]
 
 
 def parse_args() -> argparse.Namespace:
@@ -78,7 +81,10 @@ def main() -> None:
     manifest = {
         "study": "010",
         "evidence_status": "post_stop_exploratory",
-        "governing_amendment": f"experiments/study_010/amendments/{AMENDMENT}",
+        "governing_amendments": [
+            f"experiments/study_010/amendments/{name}"
+            for name in AMENDMENTS
+        ],
         "phase": args.phase,
         "arm": args.arm,
         "run_id": args.run_id,
@@ -91,6 +97,7 @@ def main() -> None:
         "response_budget": RESPONSE_BUDGET,
         "max_turns": args.max_turns,
         "resume_checkpoint": args.resume_checkpoint,
+        "suppress_rule_detection": True,
         "checkpoint_interval": 100,
         "server_props": props,
         "python": os.sys.executable,
@@ -125,6 +132,7 @@ def main() -> None:
         "expected_script_digest": SCRIPT_DIGEST,
         "checkpoint_interval": 100,
         "resume_checkpoint": args.resume_checkpoint,
+        "suppress_rule_detection": True,
     }
     if args.arm == "S":
         Study009Runner(composition="S", **common).run()
