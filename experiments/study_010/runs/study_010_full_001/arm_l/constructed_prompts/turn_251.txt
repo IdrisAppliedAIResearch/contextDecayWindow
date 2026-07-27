@@ -1,0 +1,239 @@
+You are a concise technical research assistant. Preserve exact user-supplied project facts across long conversations. Keep non-probe answers brief.
+
+<pinned_rules/>
+
+<recent_context>
+  <episode turn="250" topic="topic_2">
+    <user_message>For structural engineering, name the project and lead, then state the primary value, technical specification, and decision threshold exactly.</user_message>
+    <assistant_message>1. Project: Aster Viaduct
+2. Lead: Dr. Leena Ortiz
+3. Primary Value: 1,126 meters
+4. Technical Specification: HPS 70W steel
+5. Decision Threshold: 118.6 metric tons per axle</assistant_message>
+  </episode>
+  <episode turn="1" topic="topic_2">
+    <user_message>For our structural engineering case, lock these facts: the project is Aster Viaduct, led by Dr. Leena Ortiz, with the primary value 1,126 meters. Acknowledge the three facts in a concise numbered list.</user_message>
+    <assistant_message>1. Project: Aster Viaduct
+2. Lead: Dr. Leena Ortiz
+3. Primary Value: 1,126 meters</assistant_message>
+  </episode>
+  <episode turn="2" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Identify one measurement error affecting cable fatigue and its consequence.</user_message>
+    <assistant_message>1. **Error:** Misalignment in cable clamping torque (±5% deviation)
+2. **Consequence:** Premature micro-fracture initiation reducing fatigue life by 40%</assistant_message>
+  </episode>
+  <episode turn="3" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Briefly compare two validation strategies for seismic isolation.</user_message>
+    <assistant_message>1. **Experimental Shaking Table:** Validates full-system nonlinear dynamic response and hysteretic behavior under realistic ground motions but is limited by scale effects and high costs.
+2. **Numerical FEM Modeling:** Allows extensive parametric studies and precise component-level analysis but relies heavily on accurate material constitutive models and boundary condition assumptions.</assistant_message>
+  </episode>
+  <episode turn="4" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. State one practical quality-control check for deck torsion.</user_message>
+    <assistant_message>1. **Check:** Verify symmetry of deflection profiles during load tests to detect unintended torsional response.</assistant_message>
+  </episode>
+  <episode turn="5" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Give a short example of uncertainty reporting for bearing creep.</user_message>
+    <assistant_message>Report: Creep deformation = 12.4 ± 1.8 mm (95% CI).</assistant_message>
+  </episode>
+  <episode turn="6" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Explain one failure mode involving wind-tunnel scaling.</user_message>
+    <assistant_message>1. **Failure Mode:** Incorrect scaling of Reynolds number due to insufficient tunnel pressure, leading to inaccurate prediction of vortex shedding frequency and potential resonance risks not captured in scaled tests.</assistant_message>
+  </episode>
+  <episode turn="7" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Briefly describe provenance documentation for load combinations.</user_message>
+    <assistant_message>1.  **Provenance Documentation:** Record the specific load code references (e.g., AASHTO, Eurocode), source of environmental data, and calculation methodology used for each load combination case to ensure traceability and auditability.</assistant_message>
+  </episode>
+  <episode turn="8" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Name one sensitivity analysis for corrosion monitoring and its purpose.</user_message>
+    <assistant_message>1. **Analysis:** Parametric variation of chloride ingress rate in the predictive model
+2. **Purpose:** To quantify the impact of environmental uncertainty on the remaining service life and optimize inspection intervals.</assistant_message>
+  </episode>
+  <episode turn="9" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Explain aeroelastic flutter in two concise sentences.</user_message>
+    <assistant_message>Aeroelastic flutter is a self-excited, divergent oscillation arising from the coupling between aerodynamic, elastic, and inertial forces. It occurs when structural energy dissipation is negative, causing vibrations to amplify and potentially lead to catastrophic failure.</assistant_message>
+  </episode>
+</recent_context>
+
+<retrieved_stm>
+  <episode turn="246" topic="topic_3" similarity="0.663321">
+    <user_message>For our battery chemistry case, lock these facts: the project is Northstar Cell, led by Dr. Pavel Nwosu, with the primary value 4.35 volts. Acknowledge the three facts in a concise numbered list.</user_message>
+    <assistant_message>1. Project: Northstar Cell
+2. Lead: Dr. Pavel Nwosu
+3. Primary Value: 4.35 volts</assistant_message>
+  </episode>
+  <episode turn="203" topic="topic_3" similarity="0.515680">
+    <user_message>Add two locked facts for Vellum Harbor Ledger: the technical specification is iron-gall ink, and the decision threshold is folio 184. Restate only those two facts.</user_message>
+    <assistant_message>1. Technical Specification: iron-gall ink
+2. Decision Threshold: folio 184</assistant_message>
+  </episode>
+  <episode turn="247" topic="topic_2" similarity="0.502696">
+    <user_message>Stay within the battery chemistry thread and do not connect it to other subjects. Identify one measurement error affecting electrolyte oxidation and its consequence.</user_message>
+    <assistant_message>1. **Error:** Imprecise control of the electrochemical potential window (+/-50 mV deviation)
+2. **Consequence:** Triggering premature oxidative decomposition of anolyte components, generating acidic byproducts that corrode current collectors.</assistant_message>
+  </episode>
+</retrieved_stm>
+
+<retrieved_ltm>
+  <episode turn="40" topic="topic_2" similarity="0.562365" distilled_id="95f5e610-8ad3-59e4-aef0-d848190f3d60" dream_event="83" event_type="transition" source_turns="40">
+    <user_message>Add two locked facts for Aster Viaduct: the technical specification is HPS 70W steel, and the decision threshold is 118.6 metric tons per axle. Restate only those two facts.</user_message>
+    <assistant_message>1. Technical Specification: HPS 70W steel
+2. Decision Threshold: 118.6 metric tons per axle</assistant_message>
+  </episode>
+  <episode turn="164" topic="topic_3" similarity="0.547456" distilled_id="938c0b78-c992-544f-960c-96062a548873" dream_event="239" event_type="transition" source_turns="164">
+    <user_message>For our archival history case, lock these facts: the project is Vellum Harbor Ledger, led by Professor Amira Solano, with the primary value 1572. Acknowledge the three facts in a concise numbered list.</user_message>
+    <assistant_message>1. Project: Vellum Harbor Ledger
+2. Lead: Professor Amira Solano
+3. Primary Value: 1572</assistant_message>
+  </episode>
+  <episode turn="162" topic="topic_2" similarity="0.537929" distilled_id="60b4cf19-4c01-56d0-a155-be18564494bf" dream_event="164" event_type="transition" source_turns="162">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Name one sensitivity analysis for negative controls and its purpose.</user_message>
+    <assistant_message>1. **Analysis:** Varying the strength of the negative control exposure-outcome association.
+2. **Purpose:** To quantify the robustness of the primary causal estimate against residual confounding or bias mechanisms that the negative control is designed to capture.</assistant_message>
+  </episode>
+  <episode turn="130" topic="topic_2" similarity="0.537929" distilled_id="16f60939-5905-58d4-b3da-bc0427573147" dream_event="157" event_type="transition" source_turns="130,138,146,154">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Name one sensitivity analysis for negative controls and its purpose.</user_message>
+    <assistant_message>1. **Analysis:** Varying the strength of the negative control exposure-outcome association.
+2. **Purpose:** To quantify the robustness of the primary causal estimate against residual confounding or bias mechanisms that the negative control is designed to capture.</assistant_message>
+  </episode>
+  <episode turn="90" topic="topic_2" similarity="0.537929" distilled_id="14e98615-d551-52ee-b924-6d1ec9947e1b" dream_event="122" event_type="transition" source_turns="90,98,106,114">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Name one sensitivity analysis for negative controls and its purpose.</user_message>
+    <assistant_message>1. **Analysis:** Varying the strength of the negative control exposure-outcome association.
+2. **Purpose:** To quantify the robustness of the primary causal estimate against residual confounding or bias mechanisms that the negative control is designed to capture.</assistant_message>
+  </episode>
+  <episode turn="83" topic="topic_3" similarity="0.528782" distilled_id="fd9648ac-03b1-5e1e-8799-75f43157989a" dream_event="158" event_type="transition" source_turns="83">
+    <user_message>For our clinical epidemiology case, lock these facts: the project is MERIDIAN-4 cohort, led by Dr. Tomas Ilyin, with the primary value 6,240 participants. Acknowledge the three facts in a concise numbered list.</user_message>
+    <assistant_message>1. Project: MERIDIAN-4 cohort
+2. Lead: Dr. Tomas Ilyin
+3. Primary Value: 6,240 participants</assistant_message>
+  </episode>
+  <episode turn="243" topic="topic_2" similarity="0.521702" distilled_id="ba44f530-374a-5da7-8a29-f57d9c63c1be" dream_event="246" event_type="transition" source_turns="243">
+    <user_message>Stay within the archival history thread and do not connect it to other subjects. Name one sensitivity analysis for marginal annotations and its purpose.</user_message>
+    <assistant_message>1. **Analysis:** Varying the assumed scribal hand or date range for marginal additions.
+2. **Purpose:** To assess how changes in authorship or chronology interpretation affect the document's contextual meaning, authenticity assessment, and hierarchical relationship to the main text.</assistant_message>
+  </episode>
+  <episode turn="211" topic="topic_2" similarity="0.521702" distilled_id="51da55a4-55ca-56d5-885d-afbfef4bb2df" dream_event="238" event_type="transition" source_turns="211,219,227,235">
+    <user_message>Stay within the archival history thread and do not connect it to other subjects. Name one sensitivity analysis for marginal annotations and its purpose.</user_message>
+    <assistant_message>1. **Analysis:** Varying the assumed scribal hand or date range for marginal additions.
+2. **Purpose:** To assess how changes in authorship or chronology interpretation affect the document's contextual meaning, authenticity assessment, and hierarchical relationship to the main text.</assistant_message>
+  </episode>
+  <episode turn="171" topic="topic_2" similarity="0.521702" distilled_id="975dfbae-195f-586f-80b9-9cd0a185c042" dream_event="203" event_type="transition" source_turns="171,179,187,195">
+    <user_message>Stay within the archival history thread and do not connect it to other subjects. Name one sensitivity analysis for marginal annotations and its purpose.</user_message>
+    <assistant_message>1. **Analysis:** Varying the assumed scribal hand or date range for marginal additions.
+2. **Purpose:** To assess how changes in authorship or chronology interpretation affect the document's contextual meaning, authenticity assessment, and hierarchical relationship to the main text.</assistant_message>
+  </episode>
+  <episode turn="157" topic="topic_3" similarity="0.503018" distilled_id="6d9fb2ff-f04f-5016-a91d-a3822ff4fa81" dream_event="158" event_type="transition" source_turns="157">
+    <user_message>Without repeating the values, explain in two sentences why the recorded specification and threshold matter to MERIDIAN-4 cohort.</user_message>
+    <assistant_message>The inverse-probability weighting specification ensures that the cohort analysis appropriately accounts for selection bias, yielding unbiased estimates of treatment effects or associations. The decision threshold provides a critical benchmark for interpreting statistical significance, guiding whether observed incidence rates warrant clinical or public health interventions.</assistant_message>
+  </episode>
+  <episode turn="206" topic="topic_2" similarity="0.486159" distilled_id="6ef8910f-5d4f-59e0-b4dc-a73225e05244" dream_event="238" event_type="transition" source_turns="206,214,222,230">
+    <user_message>Stay within the archival history thread and do not connect it to other subjects. Briefly compare two validation strategies for scribal hands.</user_message>
+    <assistant_message>1. **Comparative Paleography:** Relies on expert visual analysis of letterforms and ligatures to establish stylistic consistency but is subjective and may misattribute variations due to aging or copying errors.
+2. **Digital Multispectral Imaging:** Uses spectral analysis to detect hidden strokes or corrections for objective comparison but requires high-resolution equipment and may struggle with faded or chemically altered inks.</assistant_message>
+  </episode>
+  <episode turn="166" topic="topic_2" similarity="0.486159" distilled_id="4fc74cf1-6625-58cc-841c-b321973b5b09" dream_event="203" event_type="transition" source_turns="166,174,182,190,198">
+    <user_message>Stay within the archival history thread and do not connect it to other subjects. Briefly compare two validation strategies for scribal hands.</user_message>
+    <assistant_message>1. **Comparative Paleography:** Relies on expert visual analysis of letterforms and ligatures to establish stylistic consistency but is subjective and may misattribute variations due to aging or copying errors.
+2. **Digital Multispectral Imaging:** Uses spectral analysis to detect hidden strokes or corrections for objective comparison but requires high-resolution equipment and may struggle with faded or chemically altered inks.</assistant_message>
+  </episode>
+  <episode turn="122" topic="topic_3" similarity="0.483309" distilled_id="41d51ee4-2153-5e2d-a25b-5cd117c02efc" dream_event="158" event_type="transition" source_turns="122">
+    <user_message>Add two locked facts for MERIDIAN-4 cohort: the technical specification is inverse-probability weighting, and the decision threshold is 1.7% annual incidence. Restate only those two facts.</user_message>
+    <assistant_message>1. Technical Specification: inverse-probability weighting
+2. Decision Threshold: 1.7% annual incidence</assistant_message>
+  </episode>
+  <episode turn="238" topic="topic_3" similarity="0.473967" distilled_id="e9e541bb-0fb0-5fd0-8c20-5913cf9d99fe" dream_event="239" event_type="transition" source_turns="238">
+    <user_message>Without repeating the values, explain in two sentences why the recorded specification and threshold matter to Vellum Harbor Ledger.</user_message>
+    <assistant_message>The iron-gall ink specification is critical for assessing the document's chemical stability and potential acid degradation over time. The folio threshold provides a precise boundary for chronological or thematic analysis within the ledger, ensuring accurate data segmentation.</assistant_message>
+  </episode>
+  <episode turn="85" topic="topic_2" similarity="0.466177" distilled_id="27f30750-bf13-5c53-ab5b-f0b1eb6b58e7" dream_event="122" event_type="transition" source_turns="85,93,101,109,117">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Briefly compare two validation strategies for propensity overlap.</user_message>
+    <assistant_message>1. **Covariate Balance Assessment:** Examines standardized mean differences and variance ratios to ensure distributional similarity between treatment groups.
+2. **Common Support Verification:** Confirms sufficient overlap in the propensity score density to exclude units with extreme scores lacking comparable controls.</assistant_message>
+  </episode>
+  <episode turn="125" topic="topic_2" similarity="0.466177" distilled_id="072556b6-49ca-587e-95c0-c3d609e2ba36" dream_event="157" event_type="transition" source_turns="125,133,141,149">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Briefly compare two validation strategies for propensity overlap.</user_message>
+    <assistant_message>1. **Covariate Balance Assessment:** Examines standardized mean differences and variance ratios to ensure distributional similarity between treatment groups.
+2. **Common Support Verification:** Confirms sufficient overlap in the propensity score density to exclude units with extreme scores lacking comparable controls.</assistant_message>
+  </episode>
+  <episode turn="75" topic="topic_2" similarity="0.465721" distilled_id="578973d2-b2d6-56dc-9c39-a93bc454c18b" dream_event="83" event_type="transition" source_turns="75">
+    <user_message>Without repeating the values, explain in two sentences why the recorded specification and threshold matter to Aster Viaduct.</user_message>
+    <assistant_message>The steel specification ensures the deck possesses the required strength and ductility to withstand dynamic loads over the viaduct's long service life. The axle load threshold defines the strict limit for operational safety, ensuring that structural stress remains within the calculated capacity to prevent fatigue or yield failure.</assistant_message>
+  </episode>
+  <episode turn="208" topic="topic_2" similarity="0.437106" distilled_id="9bf0eaf2-bba2-5114-aceb-2c3c2c5fcd7b" dream_event="238" event_type="transition" source_turns="208,216,224,232">
+    <user_message>Stay within the archival history thread and do not connect it to other subjects. Give a short example of uncertainty reporting for provenance gaps.</user_message>
+    <assistant_message>Report: Provenance confidence = 85% (missing dates: n=12, 19th C).</assistant_message>
+  </episode>
+  <episode turn="240" topic="topic_2" similarity="0.437106" distilled_id="8521817d-c555-51e4-8b05-19332f16fb56" dream_event="246" event_type="transition" source_turns="240">
+    <user_message>Stay within the archival history thread and do not connect it to other subjects. Give a short example of uncertainty reporting for provenance gaps.</user_message>
+    <assistant_message>Report: Provenance confidence = 85% (missing dates: n=12, 19th C).</assistant_message>
+  </episode>
+  <episode turn="168" topic="topic_2" similarity="0.437106" distilled_id="118cbf4c-dab1-5ed3-bed3-e9328778c3ae" dream_event="203" event_type="transition" source_turns="168,176,184,192,200">
+    <user_message>Stay within the archival history thread and do not connect it to other subjects. Give a short example of uncertainty reporting for provenance gaps.</user_message>
+    <assistant_message>Report: Provenance confidence = 85% (missing dates: n=12, 19th C).</assistant_message>
+  </episode>
+  <episode turn="241" topic="topic_2" similarity="0.422592" distilled_id="c759ad4a-cae2-5e79-9976-d2bdfe653df1" dream_event="246" event_type="transition" source_turns="241">
+    <user_message>Stay within the archival history thread and do not connect it to other subjects. Explain one failure mode involving folio collation.</user_message>
+    <assistant_message>1. **Failure Mode:** Incorrect sequence reconstruction due to missing or misordered gatherings, causing narrative discontinuity and loss of textual context within the manuscript.</assistant_message>
+  </episode>
+  <episode turn="169" topic="topic_2" similarity="0.422592" distilled_id="db3d3041-8801-51e9-86b1-c979d117043c" dream_event="203" event_type="transition" source_turns="169,177,185,193,201">
+    <user_message>Stay within the archival history thread and do not connect it to other subjects. Explain one failure mode involving folio collation.</user_message>
+    <assistant_message>1. **Failure Mode:** Incorrect sequence reconstruction due to missing or misordered gatherings, causing narrative discontinuity and loss of textual context within the manuscript.</assistant_message>
+  </episode>
+  <episode turn="209" topic="topic_2" similarity="0.422592" distilled_id="ecf6aa2c-d33c-57ca-8d91-1dc93e9eb198" dream_event="238" event_type="transition" source_turns="209,217,225,233">
+    <user_message>Stay within the archival history thread and do not connect it to other subjects. Explain one failure mode involving folio collation.</user_message>
+    <assistant_message>1. **Failure Mode:** Incorrect sequence reconstruction due to missing or misordered gatherings, causing narrative discontinuity and loss of textual context within the manuscript.</assistant_message>
+  </episode>
+  <episode turn="128" topic="topic_2" similarity="0.406359" distilled_id="5d625435-e5d3-5217-8af7-cc2d75ad7d53" dream_event="157" event_type="transition" source_turns="128,136,144,152">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Explain one failure mode involving missing covariates.</user_message>
+    <assistant_message>1. **Failure Mode:** Omitted variable bias occurs when a covariate influencing both exposure and outcome is excluded, resulting in distorted association estimates and invalid causal inference.</assistant_message>
+  </episode>
+  <episode turn="160" topic="topic_2" similarity="0.406359" distilled_id="c45a4a96-8027-54f7-8ab6-8181103ea1bf" dream_event="164" event_type="transition" source_turns="160">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Explain one failure mode involving missing covariates.</user_message>
+    <assistant_message>1. **Failure Mode:** Omitted variable bias occurs when a covariate influencing both exposure and outcome is excluded, resulting in distorted association estimates and invalid causal inference.</assistant_message>
+  </episode>
+  <episode turn="88" topic="topic_2" similarity="0.406359" distilled_id="55f840ec-4f27-5c8c-9e60-b4ba0660b242" dream_event="122" event_type="transition" source_turns="88,96,104,112,120">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Explain one failure mode involving missing covariates.</user_message>
+    <assistant_message>1. **Failure Mode:** Omitted confounders (e.g., socioeconomic status or comorbidity indices) induce residual confounding, leading to biased effect estimates where the exposure-outcome relationship is distorted by unmeasured associations.</assistant_message>
+  </episode>
+  <episode turn="159" topic="topic_2" similarity="0.362950" distilled_id="d543786b-e2ea-58d1-9aa4-dba637a46708" dream_event="164" event_type="transition" source_turns="159">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Give a short example of uncertainty reporting for outcome adjudication.</user_message>
+    <assistant_message>Report: Outcome adjudication agreement = 0.85 ICC (95% CI: 0.72–0.93).</assistant_message>
+  </episode>
+  <episode turn="87" topic="topic_2" similarity="0.362950" distilled_id="1ba6a3c4-4c5b-52cf-96c8-1b9d2950a74e" dream_event="122" event_type="transition" source_turns="87,95,103,111,119">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Give a short example of uncertainty reporting for outcome adjudication.</user_message>
+    <assistant_message>Report: Outcome adjudication agreement = 0.85 ICC (95% CI: 0.72–0.93).</assistant_message>
+  </episode>
+  <episode turn="127" topic="topic_2" similarity="0.362950" distilled_id="c1c39828-82e2-501d-b39a-81d18d89cd5e" dream_event="157" event_type="transition" source_turns="127,135,143,151">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Give a short example of uncertainty reporting for outcome adjudication.</user_message>
+    <assistant_message>Report: Outcome adjudication agreement = 0.85 ICC (95% CI: 0.72–0.93).</assistant_message>
+  </episode>
+  <episode turn="163" topic="topic_2" similarity="0.344446" distilled_id="0447e61f-d315-5e9f-bfb5-145ca498baab" dream_event="164" event_type="transition" source_turns="163">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Explain immortal-time bias in two concise sentences.</user_message>
+    <assistant_message>Immortal-time bias occurs when a period of follow-up during which the outcome cannot occur is misclassified as risk time, often due to time-dependent exposure definitions. This systematically distorts the comparison groups, typically leading to an overestimation of the protective effect of an exposure or treatment.</assistant_message>
+  </episode>
+  <episode turn="91" topic="topic_2" similarity="0.344446" distilled_id="f29fbcd6-4463-5d03-bece-8c5509692286" dream_event="122" event_type="transition" source_turns="91,99,107,115">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Explain immortal-time bias in two concise sentences.</user_message>
+    <assistant_message>Immortal-time bias occurs when a period of follow-up during which the outcome cannot occur is misclassified as risk time, often due to time-dependent exposure definitions. This systematically distorts the comparison groups, typically leading to an overestimation of the protective effect of an exposure or treatment.</assistant_message>
+  </episode>
+  <episode turn="123" topic="topic_2" similarity="0.344446" distilled_id="97d2fe95-2c8a-547c-b25f-ad8129a29608" dream_event="157" event_type="transition" source_turns="123,131,139,147,155">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Explain immortal-time bias in two concise sentences.</user_message>
+    <assistant_message>Immortal-time bias occurs when a period of follow-up during which the outcome cannot occur is misclassified as risk time, often due to time-dependent exposure definitions. This systematically distorts the comparison groups, typically leading to an overestimation of the protective effect of an exposure or treatment.</assistant_message>
+  </episode>
+  <episode turn="204" topic="topic_2" similarity="0.341530" distilled_id="94db3bf6-145d-5d14-baed-88864624e5cf" dream_event="238" event_type="transition" source_turns="204,212,220,228,236">
+    <user_message>Stay within the archival history thread and do not connect it to other subjects. Explain quire reconstruction in two concise sentences.</user_message>
+    <assistant_message>Quire reconstruction involves analyzing physical characteristics such as paper fibers and watermarks to logically reassemble disordered manuscript gatherings. This process restores the original textual sequence and structural integrity of the codex for accurate archival analysis.</assistant_message>
+  </episode>
+  <episode turn="172" topic="topic_2" similarity="0.341530" distilled_id="47d16840-9e12-517a-a05c-da945566c893" dream_event="203" event_type="transition" source_turns="172,180,188,196">
+    <user_message>Stay within the archival history thread and do not connect it to other subjects. Explain quire reconstruction in two concise sentences.</user_message>
+    <assistant_message>Quire reconstruction involves analyzing physical characteristics such as paper fibers and watermarks to logically reassemble disordered manuscript gatherings. This process restores the original textual sequence and structural integrity of the codex for accurate archival analysis.</assistant_message>
+  </episode>
+  <episode turn="244" topic="topic_2" similarity="0.341530" distilled_id="90586baf-2f3b-5a04-9f05-d25fe3a08cdf" dream_event="246" event_type="transition" source_turns="244">
+    <user_message>Stay within the archival history thread and do not connect it to other subjects. Explain quire reconstruction in two concise sentences.</user_message>
+    <assistant_message>Quire reconstruction involves analyzing physical characteristics such as paper fibers and watermarks to logically reassemble disordered manuscript gatherings. This process restores the original textual sequence and structural integrity of the codex for accurate archival analysis.</assistant_message>
+  </episode>
+</retrieved_ltm>
+
+<current_turn>
+  <user_message>For battery chemistry, name the project and lead, then state the primary value, technical specification, and decision threshold exactly.</user_message>
+</current_turn>
+
+Assistant:
