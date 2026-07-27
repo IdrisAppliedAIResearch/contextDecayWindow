@@ -59,3 +59,16 @@ responses contained a literal `<rule_detection>` tag. Arm S was not started.
 This is an implementation defect in the suppression API, not a study parameter
 failure. A true suppression path must omit the instruction as well as parsing,
 pass focused tests, and be committed before another fresh two-arm rehearsal.
+
+## Amendment 005 Attempt 004
+
+Arm L attempt `study_010_rehearsal_004` was terminated during turn 1 before
+any response was accepted or stored. After true prompt-level suppression
+removed the classifier suffix, raw completion did not emit a practical stop
+and continued toward the registered 2,048-token safety ceiling.
+
+The attempt demonstrates that the classifier suffix also acts as a response
+delimiter for this runtime. The valid repair is therefore to retain normal
+classifier prompting and parsing, strip the tag as before, and ignore only the
+parsed persistence decision in Study 010. A superseding amendment and
+implementation commit are required before the next rehearsal.
