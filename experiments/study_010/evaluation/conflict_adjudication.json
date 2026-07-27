@@ -1,0 +1,128 @@
+{
+  "study": "010",
+  "adjudication_scope": [
+    "arm_A I2",
+    "arm_A I5",
+    "arm_A I8",
+    "arm_B I2",
+    "arm_B I5",
+    "arm_B I8"
+  ],
+  "calibration": {
+    "performed_before_opening_anonymous_responses": true,
+    "first_pass_scores": {
+      "C1": 0.0,
+      "C2": 0.5,
+      "C3": 1.0
+    },
+    "answer_key_scores": {
+      "C1": 0.0,
+      "C2": 0.5,
+      "C3": 1.0
+    },
+    "result": "PASS",
+    "rationale": "All three first-pass scores matched the calibration answer key, including scoring the reasoning-only NO_ANSWER as 0.0."
+  },
+  "blindness_attestation": {
+    "arm_identity_masked": true,
+    "statement": "I adjudicated only from AGENTS.md, the standing scoring-integrity protocol, the Study 010 calibration, the locked Study 010 rubric and scoring protocol, and the anonymous arm_A and arm_B response files.",
+    "not_read": [
+      "sealed_mapping.json",
+      "run directories",
+      "q_facts_key",
+      "study reports",
+      "mechanism logs",
+      "rater_pass files"
+    ]
+  },
+  "strict_score_basis": {
+    "registered_basis_to_lower_three_of_five_to_zero": false,
+    "determination": "The locked targeted rubric expressly assigns 0.5 when three or four of five expected items are present. The blinded scoring protocol requires both primary and strict score fields but defines no separate strict threshold or override. Therefore strict has no registered basis to lower an otherwise correct three-of-five targeted response from 0.5 to 0.0."
+  },
+  "adjudications": [
+    {
+      "arm": "arm_A",
+      "item": "I2",
+      "turn": 251,
+      "type": "targeted",
+      "found_facts": [
+        "Northstar Cell",
+        "Dr. Pavel Nwosu",
+        "4.35 volts"
+      ],
+      "final_primary_score": 0.5,
+      "final_strict_score": 0.5,
+      "rationale": "Exactly three of the five locked battery items are present. NMC811 cathode and 92% retention at 1,200 cycles are not supplied. The locked targeted rubric scores three or four present items as 0.5, and there is no cross-domain attribution."
+    },
+    {
+      "arm": "arm_A",
+      "item": "I5",
+      "turn": 501,
+      "type": "targeted",
+      "found_facts": [
+        "Marrowfen Survey",
+        "Dr. Nia Okafor",
+        "38 hectares"
+      ],
+      "final_primary_score": 0.5,
+      "final_strict_score": 0.5,
+      "rationale": "Exactly three of the five locked ecology items are present. Sphagnum palustre and 6.2 millimeters per year are not supplied. The locked targeted rubric scores three or four present items as 0.5, and there is no cross-domain attribution."
+    },
+    {
+      "arm": "arm_A",
+      "item": "I8",
+      "turn": 751,
+      "type": "targeted",
+      "found_facts": [
+        "Sable Isogloss Atlas",
+        "Professor Idris Chen",
+        "43 dialect sites"
+      ],
+      "final_primary_score": 0.5,
+      "final_strict_score": 0.5,
+      "rationale": "Exactly three of the five locked linguistics items are present. Retroflex lateral marker and AD 1180 divergence are not supplied. The locked targeted rubric scores three or four present items as 0.5, and there is no cross-domain attribution."
+    },
+    {
+      "arm": "arm_B",
+      "item": "I2",
+      "turn": 251,
+      "type": "targeted",
+      "found_facts": [
+        "Northstar Cell",
+        "Dr. Pavel Nwosu",
+        "4.35 volts"
+      ],
+      "final_primary_score": 0.5,
+      "final_strict_score": 0.5,
+      "rationale": "Exactly three of the five locked battery items are present. NMC811 cathode and 92% retention at 1,200 cycles are not supplied. The locked targeted rubric scores three or four present items as 0.5, and there is no cross-domain attribution."
+    },
+    {
+      "arm": "arm_B",
+      "item": "I5",
+      "turn": 501,
+      "type": "targeted",
+      "found_facts": [
+        "Marrowfen Survey",
+        "Dr. Nia Okafor",
+        "38 hectares"
+      ],
+      "final_primary_score": 0.5,
+      "final_strict_score": 0.5,
+      "rationale": "Exactly three of the five locked ecology items are present. Sphagnum palustre and 6.2 millimeters per year are not supplied. The locked targeted rubric scores three or four present items as 0.5, and there is no cross-domain attribution."
+    },
+    {
+      "arm": "arm_B",
+      "item": "I8",
+      "turn": 751,
+      "type": "targeted",
+      "found_facts": [
+        "Sable Isogloss Atlas",
+        "Professor Idris Chen",
+        "43 dialect sites"
+      ],
+      "final_primary_score": 0.5,
+      "final_strict_score": 0.5,
+      "rationale": "Exactly three of the five locked linguistics items are present. Retroflex lateral marker and AD 1180 divergence are not supplied. The locked targeted rubric scores three or four present items as 0.5, and there is no cross-domain attribution."
+    }
+  ]
+}
