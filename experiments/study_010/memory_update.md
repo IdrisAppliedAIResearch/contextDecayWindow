@@ -32,5 +32,12 @@
   rendered candidate stores at 1x, 2x, 5x, and 10x budget. Study 010's floor
   selected only two merged topics; its breadth win may be compact-store
   dependent.
+- Two carried subsystems failed at scale. TopicManager collapsed 12 domains
+  into two topics. The rule detector pinned 118 false rules by rehearsal turn
+  200 and caused refusals; Amendments 005-006 disabled persistence, so the
+  final zero-rule stores are a bypass, not validation.
+- Standing pre-run policy now requires a mechanical pre-lock proof that every
+  required fact is planted before its probe. The retrospective check fails
+  exactly I2, I5, and I8.
 - A future study should construct and pre-register a topic architecture and
   temporally validate every probe against plant availability.
