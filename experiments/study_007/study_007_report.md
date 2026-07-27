@@ -1,3 +1,5 @@
+> **CORRECTION (2026-07-26):** Treatment remains 12.0; control corrects 10.5 -> **10.0**. The PARTIAL 2/3 verdict is unchanged. Original claims remain below. See `../audits/scoring_integrity/audit_report.md`.
+
 # Study 007 — Information-Expressed, Diversity-Floored Retrieval
 
 ## contextDecayWindow · Idris Applied AI Research
