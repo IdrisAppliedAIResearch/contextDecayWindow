@@ -72,3 +72,28 @@ delimiter for this runtime. The valid repair is therefore to retain normal
 classifier prompting and parsing, strip the tag as before, and ignore only the
 parsed persistence decision in Study 010. A superseding amendment and
 implementation commit are required before the next rehearsal.
+
+## Amendments 005-006 Attempt 005
+
+**Result:** PASS - full exploratory runs authorized
+
+Both arms completed 200 turns from fresh state at execution commit `0c606a9`.
+The locked script digest matched
+`2d186e1b7f4c89d7095d01d7ac267d981abb0996c60c922a35f78cf2c6d38521`.
+
+| Check | Arm L | Arm S |
+|---|---:|---:|
+| Completed turns | 200 | 200 |
+| Literal rule tags in responses | 0 | 0 |
+| Detected or pinned rules | 0 | 0 |
+| Prior-domain scope refusals | 0 | 0 |
+| Checkpoints | 100, 200 | 100, 200 |
+| Peak estimated context | 9,219 | 8,240 |
+
+Both peaks are below the 40,000-token monitor. Runtime manifests show the same
+model, seed, sampling, context capacity, response budget, script digest, and
+`parse_tag_but_do_not_persist` rule policy. The server guards and previously
+rerun G1, G4, and leakage checks remain satisfied.
+
+Under Amendments 004-006, this passing two-arm rehearsal authorizes the
+post-stop exploratory 1,000-turn runs in fixed order: Arm L, then Arm S.
