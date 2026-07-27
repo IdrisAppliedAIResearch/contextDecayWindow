@@ -143,6 +143,9 @@ def split_questions(text: str) -> dict[str, str]:
 
 
 def scoreable_surface(raw: str) -> tuple[str, bool, bool]:
+    transcript_assistant = list(re.finditer(r"(?mi)^\*\*Assistant:\*\*\s*", raw))
+    if transcript_assistant:
+        raw = raw[transcript_assistant[-1].end():]
     opens = len(re.findall(r"<think(?:\s[^>]*)?>", raw, flags=re.I))
     closes = len(re.findall(r"</think>", raw, flags=re.I))
     unclosed = opens > closes
@@ -152,6 +155,10 @@ def scoreable_surface(raw: str) -> tuple[str, bool, bool]:
         if first:
             surface = surface[:first.start()]
     surface = re.sub(r"</?response>|<memory_update>.*?</memory_update>", "", surface, flags=re.I | re.S)
+    surface = re.split(r"(?mi)^--- END (?:RECENT|HISTORY|SUMMARY) ---\s*$", surface, maxsplit=1)[0]
+    surface = re.split(r"(?mi)^(?:\*\*)?User:(?:\*\*)?\s*", surface, maxsplit=1)[0]
+    surface = re.sub(r"</?think>", "", surface, flags=re.I)
+    surface = re.sub(r"<rule_detection>.*?</rule_detection>", "", surface, flags=re.I | re.S)
     surface = re.split(r"(?mi)^\*\*(?:Score|Notes):\*\*", surface, maxsplit=1)[0]
     surface = re.sub(r"(?m)^\s*---+\s*$", "", surface)
     return surface.strip(), unclosed, opens > 0
