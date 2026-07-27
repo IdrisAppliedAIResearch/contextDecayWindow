@@ -26,8 +26,11 @@
 - The live topic failure persisted: both arms ended with two topics. Arm S had
   203 K retrieval events across terminal Q1-Q12, and STM delivered all 60
   required targeted facts. The LTM advantage is breadth-specific.
-- The degradation curve is construct-invalid: I2, I5, and I8 ask for two
-  facts before they are planted, capping each at 0.5. Checkpoint scoring is
-  complete, but interim-to-terminal fractions cannot measure degradation.
+- Bar 3 is NOT EVALUABLE. I2, I5, and I8 ask for two facts before they are
+  planted, so complete degradation curves were not delivered.
+- Forward bakeoff T1.2 must test breadth at fixed 32k retrieval budget with
+  rendered candidate stores at 1x, 2x, 5x, and 10x budget. Study 010's floor
+  selected only two merged topics; its breadth win may be compact-store
+  dependent.
 - A future study should construct and pre-register a topic architecture and
   temporally validate every probe against plant availability.

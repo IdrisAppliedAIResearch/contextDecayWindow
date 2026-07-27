@@ -32,7 +32,7 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **009 - Null test.** Pure STM versus best LTM at one seed, plus topic digest. PARTIAL; null decisive. S 9.0 versus L 12.0: the memory tier beat plain retrieval by 3.0 at 120 turns. The digest failed every offline setting through d=50/50,000 chars and was dropped pre-run.
 
-**010 - Endurance.** Confirmatory STOPPED AT G2. Post-stop 1,000-turn continuation: L 14.0/14 vs S 12.0; all 2.0 points came from breadth, while targeted recall tied through K. LTM is retained exploratorily for breadth. Interim probes asked for unplanted facts, invalidating the degradation curve.
+**010 - Endurance.** Confirmatory STOPPED AT G2. Post-stop: L 14.0/14 vs S 12.0; the gap was breadth-only and targeted recall tied. Bar 3 NOT EVALUABLE because probes asked for unplanted facts. LTM is retained exploratorily, but its breadth win may be compact-store dependent; forward T1.2 must stress fixed-budget retrieval.
 
 **Scoring integrity audit (2026-07-26).** Re-scored 222 items across 001-009 after a truncated Study 002 reasoning block had been credited as complete. Nineteen scores changed; Study 002 C fell 13.0 to 8.5 and Study 001 lost VALIDATED. Corrected arc: 8.5, 11.5, 6.5, 11.0, 9.0, 12.0, 12.0. See `ERRATA.md`.
 

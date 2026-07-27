@@ -54,9 +54,10 @@ questions occur after their complete five-fact plants.
 
 The apparent rise from interim to terminal performance is consequently a
 probe-construction artifact, compounded by a composition change from three
-questions per interim checkpoint to fourteen terminal questions. The files
-remain a complete set of scored checkpoints, so Bar 3's literal completeness
-criterion is met, but they do not support a degradation trajectory claim.
+questions per interim checkpoint to fourteen terminal questions. Although all
+checkpoints were scored, three construct-invalid probes mean the complete
+degradation curves required by Bar 3 were not delivered. Bar 3 is therefore
+`NOT EVALUABLE`, not `PASS`.
 
 ## Corrected Interpretation
 
@@ -64,7 +65,6 @@ criterion is met, but they do not support a degradation trajectory claim.
 - Exploratory Bar 1 arithmetic remains L 14.0 versus S 12.0 terminal and still
   triggers the registered `RETAIN LTM` consequence.
 - The evidence is specific to breadth: targeted recall tied; breadth favored L.
-- Exploratory Bar 3 is nominally complete but construct-invalid as a
-  degradation measurement.
+- Exploratory Bar 3 is `NOT EVALUABLE`.
 - No conclusion should compare interim and terminal score fractions as a
   temporal improvement or decline.
