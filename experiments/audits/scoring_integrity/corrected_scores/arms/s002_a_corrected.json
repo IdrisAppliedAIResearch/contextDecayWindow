@@ -1,0 +1,99 @@
+{
+  "arm_id": "s002_a",
+  "study": 2,
+  "arm": "A_full_context",
+  "provenance": "Scoring Integrity Audit; originals preserved unchanged",
+  "items": {
+    "Q1": {
+      "original": 0.0,
+      "corrected": 0.0,
+      "strict": 0.0,
+      "basis": "original_unselected",
+      "rationale": "Response truncated in capture; no visible output. Thinking block shows model reasoning about values but output not recorded."
+    },
+    "Q2": {
+      "original": 0.0,
+      "corrected": 0.0,
+      "strict": 0.0,
+      "basis": "ai_consensus",
+      "rationale": "Three-pass blind consensus; see pass files."
+    },
+    "Q3": {
+      "original": 1.0,
+      "corrected": 1.0,
+      "strict": 1.0,
+      "basis": "original_unselected",
+      "rationale": "Both rules stated precisely: numbered list for specs, risk classification for engineering recommendations."
+    },
+    "Q4": {
+      "original": 1.0,
+      "corrected": 1.0,
+      "strict": 1.0,
+      "basis": "original_unselected",
+      "rationale": "All four correct: The Annunciation of Forlì, Melozzo da Forlì, Cardinal Giuliano della Rovere, 1483."
+    },
+    "Q5": {
+      "original": 0.0,
+      "corrected": 0.0,
+      "strict": 0.0,
+      "basis": "original_unselected",
+      "rationale": "Response truncated; only thinking block visible, no output recorded."
+    },
+    "Q6": {
+      "original": 0.0,
+      "corrected": 0.0,
+      "strict": 0.0,
+      "basis": "original_unselected",
+      "rationale": "Response truncated; no output recorded."
+    },
+    "Q7": {
+      "original": 1.0,
+      "corrected": 0.5,
+      "strict": 0.5,
+      "basis": "conflict_adjudicator",
+      "rationale": "The response correctly provides Vampyroteuthis infernalis, the 600-900 meter depth range, and marine-snow detritivory, but omits Dr. Kenji Watanabe."
+    },
+    "Q8": {
+      "original": 0.0,
+      "corrected": 0.0,
+      "strict": 0.0,
+      "basis": "ai_consensus",
+      "rationale": "Three-pass blind consensus; see pass files."
+    },
+    "Q9": {
+      "original": 1.0,
+      "corrected": 0.0,
+      "strict": 0.0,
+      "basis": "conflict_adjudicator",
+      "rationale": "NO_ANSWER is decisive; an empty response cannot demonstrate clean Renaissance retrieval."
+    },
+    "Q10": {
+      "original": 1.0,
+      "corrected": 1.0,
+      "strict": 1.0,
+      "basis": "original_unselected",
+      "rationale": "Q8 response had no output; no researcher conflation."
+    },
+    "Q11": {
+      "original": 1.0,
+      "corrected": 1.0,
+      "strict": 1.0,
+      "basis": "independent_adjudicator",
+      "rationale": "At least 14 of the 17 locked atoms are correctly supplied and attributed across the four topics, with no significant cross-attribution."
+    },
+    "Q12": {
+      "original": 1.0,
+      "corrected": 0.0,
+      "strict": 0.0,
+      "basis": "conflict_adjudicator",
+      "rationale": "Only the numbered-list rule is correct; the response substitutes a risk classification for the required confidence-level rule, and the criterion is binary."
+    },
+    "Q13": {
+      "original": 1.0,
+      "corrected": 1.0,
+      "strict": 1.0,
+      "basis": "original_unselected",
+      "rationale": "Numbered list rule consistently applied in all visible turns (113, 114, 115, 118, 119, 120). Risk classification rule N/A — no engineering recommendations in probe turns."
+    }
+  }
+}

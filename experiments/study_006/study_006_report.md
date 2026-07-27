@@ -1,3 +1,5 @@
+> **CORRECTION (2026-07-26):** Treatment corrects 10.5 -> **9.0**; control remains 11.0. The PARTIAL 1/3 verdict is unchanged. Original claims remain below. See `../audits/scoring_integrity/audit_report.md`.
+
 # Study 006 — Density-Normalized Span Selection in Extractive Dreaming
 
 ## contextDecayWindow — Idris Applied AI Research
