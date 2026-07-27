@@ -1,42 +1,15 @@
 {
+  "pass": 3,
   "status": "passed",
-  "matched": 7,
+  "correct": 7,
   "total": 7,
-  "per_item_scores": [
-    {
-      "id": "cal_no_answer",
-      "primary": 0.0,
-      "strict": 0.0
-    },
-    {
-      "id": "cal_truncated",
-      "primary": 0.0,
-      "strict": 0.0
-    },
-    {
-      "id": "cal_hedged",
-      "primary": 0.5,
-      "strict": 0.0
-    },
-    {
-      "id": "cal_q11_partial",
-      "primary": 0.0,
-      "strict": 0.0
-    },
-    {
-      "id": "cal_q14_one_lapse",
-      "primary": 0.5,
-      "strict": 0.5
-    },
-    {
-      "id": "cal_complete",
-      "primary": 1.0,
-      "strict": 1.0
-    },
-    {
-      "id": "cal_wrong",
-      "primary": 0.0,
-      "strict": 0.0
-    }
+  "items": [
+    {"id":"cal_no_answer","primary":0.0,"strict":0.0,"expected":0.0,"match":true,"rationale":"Unclosed reasoning with no scoreable final answer receives zero."},
+    {"id":"cal_truncated","primary":0.0,"strict":0.0,"expected":0.0,"match":true,"rationale":"Mid-sentence truncation is a protocol deviation and receives zero."},
+    {"id":"cal_hedged","primary":0.5,"strict":0.0,"expected":0.5,"strict_expected":0.0,"match":true,"rationale":"Primary credits the offered correct alternative; strict rejects unresolved alternatives."},
+    {"id":"cal_q11_partial","primary":0.0,"strict":0.0,"expected":0.0,"match":true,"rationale":"Ten of 17 is below the binary 14-item Q11 threshold."},
+    {"id":"cal_q14_one_lapse","primary":0.5,"strict":0.5,"expected":0.5,"match":true,"rationale":"All four domains are named and exactly one lacks a correct specific."},
+    {"id":"cal_complete","primary":1.0,"strict":1.0,"expected":1.0,"match":true,"rationale":"Both required facts are present in scoreable content."},
+    {"id":"cal_wrong","primary":0.0,"strict":0.0,"expected":0.0,"match":true,"rationale":"Neither required fact is present."}
   ]
 }
