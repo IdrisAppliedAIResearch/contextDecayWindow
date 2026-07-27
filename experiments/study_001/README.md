@@ -1,3 +1,5 @@
+> **CORRECTION (2026-07-26):** Study 001 changes from VALIDATED to **PARTIAL (2/3)**. Iterative corrects 9.0 -> 8.0 and compaction 3.5 -> 2.5; Bar 2 changes to FAIL. Original claims remain below. See `../audits/scoring_integrity/audit_report.md`.
+
 # Study 001 -- contextDecayWindow
 **Idris Applied AI Research**
 **Date:** June 2026

@@ -1,3 +1,5 @@
+> **CORRECTION (2026-07-26):** L remains 12.0; S corrects 10.5 -> **9.0**. The null-test gap is 3.0 and remains decisive; digest bars remain not evaluable. Original claims remain below. See `../audits/scoring_integrity/audit_report.md`.
+
 # Study 009 Report: Pure-STM Null Test
 
 **Registration anchor:** `37fff74`

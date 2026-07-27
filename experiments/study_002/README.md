@@ -1,3 +1,5 @@
+> **CORRECTION (2026-07-26):** Study 002 remains PARTIAL, but C corrects 13.0 -> **8.5**, A 8.0 -> 5.5, and B remains 2.0. Original claims remain below. See `../audits/scoring_integrity/audit_report.md`.
+
 # Study 002 — contextDecayWindow
 **Idris Applied AI Research**
 **Date:** June 2026
