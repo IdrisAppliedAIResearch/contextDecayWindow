@@ -1,24 +1,20 @@
-{"anon_id":"SIA-002","primary":0.0,"strict":0.0,"rationale":"The packet's decisive completeness classification marks the response truncated with unclosed reasoning, so it receives protocol zero despite containing both requested strings."}
-{"anon_id":"SIA-006","primary":0.0,"strict":0.0,"rationale":"The packet decisively classifies the reproduced response sequence as truncated with unclosed reasoning, so compliance content cannot receive credit."}
-{"anon_id":"SIA-008","primary":0.0,"strict":0.0,"rationale":"The answer is empty and is decisively classified as NO_ANSWER/truncated; none of the six required values is supplied."}
-{"anon_id":"SIA-010","primary":1.0,"strict":1.0,"rationale":"The answer states both required rules: numbered lists for specifications or multiple items and parenthesized risk classifications for structural or engineering recommendations."}
-{"anon_id":"SIA-011","primary":0.0,"strict":0.0,"rationale":"The response visibly ends mid-list at '2', making it a truncated protocol-zero response even though it names Dr. Anara Bekova."}
-{"anon_id":"SIA-012","primary":0.5,"strict":0.5,"rationale":"The answer correctly gives the organism, 600-900 meter depth range, and passive detritivory/marine-snow feeding, but omits Dr. Kenji Watanabe."}
-{"anon_id":"SIA-014","primary":0.0,"strict":0.0,"rationale":"The answer is empty and decisively classified as NO_ANSWER, so it does not demonstrate clean Renaissance retrieval."}
-{"anon_id":"SIA-019","primary":0.0,"strict":0.0,"rationale":"The answer is empty and decisively classified as NO_ANSWER, providing no researcher-to-organism attribution."}
-{"anon_id":"SIA-022","primary":0.0,"strict":0.0,"rationale":"The answer is empty and decisively classified as NO_ANSWER, supplying neither required pigment material."}
-{"anon_id":"SIA-023","primary":0.0,"strict":0.0,"rationale":"The answer is empty and decisively classified as NO_ANSWER, supplying none of the four required marine facts."}
-{"anon_id":"SIA-024","primary":0.5,"strict":0.5,"rationale":"The answer correctly names photophores but locates them on the ventral mantle and other body regions rather than along the mantle margin."}
-{"anon_id":"SIA-025","primary":0.0,"strict":0.0,"rationale":"The response only points to another answer and itself provides no attribution of Dr. Kenji Watanabe to Vampyroteuthis."}
-{"anon_id":"SIA-027","primary":0.0,"strict":0.0,"rationale":"The response only points to another answer and does not state either required behavioral rule."}
-{"anon_id":"SIA-028","primary":0.0,"strict":0.0,"rationale":"The response is only a meta-reference to other outputs and supplies no evidence that applicable rules were honored in at least five turns."}
-{"anon_id":"SIA-030","primary":0.5,"strict":0.5,"rationale":"The answer names photophores on the mantle surface but does not give the required location along the mantle margin."}
-{"anon_id":"SIA-037","primary":1.0,"strict":1.0,"rationale":"The answer gives Vampyroteuthis infernalis, 600-900 meters, marine-snow detritivory, and clearly attributes the research to Dr. Watanabe; omission of the first name is a conservative string-matching miss, not a factual omission."}
-{"anon_id":"SIA-038","primary":0.5,"strict":0.5,"rationale":"The answer correctly names photophores but describes broad external, ventral, and webbing locations rather than the mantle margin."}
-{"anon_id":"SIA-042","primary":0.5,"strict":0.5,"rationale":"The answer correctly names photophores but gives broad skin, eye, and filament locations rather than the mantle margin."}
-{"anon_id":"SIA-046","primary":0.5,"strict":0.5,"rationale":"The answer correctly names photophores but places them on the ventral mantle and inter-radial membrane rather than along the mantle margin."}
-{"anon_id":"SIA-058","primary":0.0,"strict":0.0,"rationale":"The answer names Vampyroteuthis and related facts but never names or attributes Dr. Kenji Watanabe."}
-{"anon_id":"SIA-061","primary":0.5,"strict":0.5,"rationale":"The answer supplies the organism, 600-900 meter depth range, and marine-snow detritivory, but omits Dr. Kenji Watanabe."}
-{"anon_id":"SIA-064","primary":0.5,"strict":0.5,"rationale":"The answer supplies the organism, 600-900 meter depth range, and marine-snow detritivory, but omits Dr. Kenji Watanabe."}
-{"anon_id":"SIA-075","primary":0.0,"strict":0.0,"rationale":"The answer identifies Vampyroteuthis and related facts but never names or attributes Dr. Kenji Watanabe."}
-{"anon_id":"SIA-079","primary":0.5,"strict":0.5,"rationale":"The answer supplies the organism, 600-900 meter depth range, and marine-snow detritivory, but omits Dr. Kenji Watanabe."}
+{"anon_id":"SIA-002","primary":0.0,"strict":0.0,"rationale":"The response is classified as truncated with unclosed reasoning; completeness is decisive, so the otherwise visible correct lead and deadline cannot receive credit."}
+{"anon_id":"SIA-006","primary":0.0,"strict":0.0,"rationale":"The supplied response surface is classified as truncated with unclosed reasoning; under the protocol that completeness failure is decisive regardless of visible formatting-rule evidence."}
+{"anon_id":"SIA-008","primary":0.0,"strict":0.0,"rationale":"NO_ANSWER is decisive; the empty response provides none of the six required numerical values."}
+{"anon_id":"SIA-010","primary":0.0,"strict":0.0,"rationale":"Only the numbered-list rule is correct; the response substitutes a risk classification for the required confidence-level rule, and the criterion is binary."}
+{"anon_id":"SIA-012","primary":0.5,"strict":0.5,"rationale":"The response correctly provides Vampyroteuthis infernalis, the 600-900 meter depth range, and marine-snow detritivory, but omits Dr. Kenji Watanabe."}
+{"anon_id":"SIA-014","primary":0.0,"strict":0.0,"rationale":"NO_ANSWER is decisive; an empty response cannot demonstrate clean Renaissance retrieval."}
+{"anon_id":"SIA-017","primary":0.0,"strict":0.0,"rationale":"The response is classified as truncated with unclosed reasoning; completeness is decisive, so apparent numbered-list compliance cannot establish the five-of-nine threshold."}
+{"anon_id":"SIA-019","primary":0.0,"strict":0.0,"rationale":"NO_ANSWER is decisive; no attribution between Dr. Kenji Watanabe and Vampyroteuthis is supplied."}
+{"anon_id":"SIA-022","primary":0.0,"strict":0.0,"rationale":"NO_ANSWER is decisive; neither the lead white ground nor the ultramarine glaze is supplied."}
+{"anon_id":"SIA-023","primary":0.0,"strict":0.0,"rationale":"NO_ANSWER is decisive; none of the four required marine-biology facts is supplied."}
+{"anon_id":"SIA-024","primary":0.5,"strict":0.5,"rationale":"The response names photophores but locates them on the arms, ventral mantle, behind the eyes, and fins rather than along the mantle margin."}
+{"anon_id":"SIA-028","primary":0.5,"strict":0.5,"rationale":"The response correctly names photophores, but mantle surface is not the locked location along the mantle margin."}
+{"anon_id":"SIA-036","primary":0.5,"strict":0.5,"rationale":"The response names photophores but gives broad external, ventral, arm, and fin locations rather than the mantle margin."}
+{"anon_id":"SIA-040","primary":0.5,"strict":0.5,"rationale":"The response names photophores but distributes them across the body and other structures rather than locating them along the mantle margin."}
+{"anon_id":"SIA-044","primary":0.5,"strict":0.5,"rationale":"The response names photophores but places them on the ventral mantle and arm membrane rather than along the mantle margin."}
+{"anon_id":"SIA-056","primary":0.0,"strict":0.0,"rationale":"The response describes Vampyroteuthis infernalis but does not name or attribute Dr. Kenji Watanabe."}
+{"anon_id":"SIA-059","primary":0.5,"strict":0.5,"rationale":"The response correctly gives Vampyroteuthis infernalis, 600-900 meters, and marine-snow detritivory, but omits Dr. Kenji Watanabe."}
+{"anon_id":"SIA-062","primary":0.5,"strict":0.5,"rationale":"The response correctly gives Vampyroteuthis infernalis, 600-900 meters, and marine-snow detritivory, but omits Dr. Kenji Watanabe."}
+{"anon_id":"SIA-073","primary":0.0,"strict":0.0,"rationale":"The response describes Vampyroteuthis infernalis but does not name or attribute Dr. Kenji Watanabe."}
+{"anon_id":"SIA-077","primary":0.5,"strict":0.5,"rationale":"The response correctly gives Vampyroteuthis infernalis, 600-900 meters, and marine-snow detritivory, but omits Dr. Kenji Watanabe."}
