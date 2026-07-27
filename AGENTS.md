@@ -32,7 +32,7 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **009 - Null test.** Pure STM versus best LTM at one seed, plus topic digest. PARTIAL; null decisive. S 9.0 versus L 12.0: the memory tier beat plain retrieval by 3.0 at 120 turns. The digest failed every offline setting through d=50/50,000 chars and was dropped pre-run.
 
-**010 - Endurance.** 1,000 turns, 12 domains, probes at 250/500/750, pure STM versus LTM at one seed. Tests whether LTM value appears as the store outgrows direct search. PAUSED. Do not read, write, hash, or touch `experiments/study_010/` unless a task explicitly names it.
+**010 - Endurance.** 1,000 turns, 12 domains, pure STM versus LTM. STOPPED AT G2 before inference: the accepted TopicManager could not recover the domains without merging or fragmentation. Post-audit correction: 009 already showed unique post-dedup LTM context and a 3.0-point advantage, so 010 was a scale extension, not the first fair test.
 
 **Scoring integrity audit (2026-07-26).** Re-scored 222 items across 001-009 after a truncated Study 002 reasoning block had been credited as complete. Nineteen scores changed; Study 002 C fell 13.0 to 8.5 and Study 001 lost VALIDATED. Corrected arc: 8.5, 11.5, 6.5, 11.0, 9.0, 12.0, 12.0. See `ERRATA.md`.
 
@@ -131,7 +131,7 @@ Items 2 and 3 are mandatory. A study is not closed and its PR must not merge wit
 - Expose rubric artifacts to mechanism code.
 - Run unseeded or use a flag-disabled control.
 - start a 120-turn run without a passing 35-turn ablation.
-- Touch `experiments/study_010/` while paused unless explicitly instructed.
+- Reopen a stopped study or bypass a binding gate without a new, authorized design.
 - Report a result that cannot be traced to a committed artifact.
 
 ## 8. Repository Map
