@@ -19,6 +19,7 @@ OUTPUT = Path("experiments/study_010/runs")
 AMENDMENTS = [
     "AMENDMENT_004_authorized_exploratory_restart.md",
     "AMENDMENT_005_disable_inapplicable_rule_extraction.md",
+    "AMENDMENT_006_parse_but_do_not_persist_rules.md",
 ]
 
 
@@ -97,7 +98,7 @@ def main() -> None:
         "response_budget": RESPONSE_BUDGET,
         "max_turns": args.max_turns,
         "resume_checkpoint": args.resume_checkpoint,
-        "suppress_rule_detection": True,
+        "rule_handling": "parse_tag_but_do_not_persist",
         "checkpoint_interval": 100,
         "server_props": props,
         "python": os.sys.executable,
@@ -132,7 +133,8 @@ def main() -> None:
         "expected_script_digest": SCRIPT_DIGEST,
         "checkpoint_interval": 100,
         "resume_checkpoint": args.resume_checkpoint,
-        "suppress_rule_detection": True,
+        "suppress_rule_detection": False,
+        "ignore_rule_detection_result": True,
     }
     if args.arm == "S":
         Study009Runner(composition="S", **common).run()
