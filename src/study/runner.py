@@ -70,6 +70,7 @@ class StudyRunner:
         ltm_render_mode: str = RENDER_EPISODE,
         checkpoint_interval: int | None = None,
         resume_checkpoint: str | None = None,
+        suppress_rule_detection: bool = False,
     ):
         self.ltm_budget = ltm_budget
         self.ltm_k_min = ltm_k_min
@@ -117,6 +118,7 @@ class StudyRunner:
         self._rubric_data = {}
         self.checkpoint_interval = checkpoint_interval
         self.resume_checkpoint = resume_checkpoint
+        self.suppress_rule_detection = suppress_rule_detection
 
     def _check_env_vars(self):
         required = [
@@ -237,12 +239,26 @@ class StudyRunner:
             record.previous_context_window = previous_prompt
             record.total_turns = len(self.turns)
 
-            result = self._inference_provider.complete(full_prompt)
-            if condition == "iterative" and not result.contains_rule:
+            suppress_rules = getattr(self, "suppress_rule_detection", False)
+            result = self._inference_provider.complete(
+                full_prompt,
+                suppress_rule_detection=suppress_rules,
+            )
+            if (
+                condition == "iterative"
+                and not suppress_rules
+                and not result.contains_rule
+            ):
                 fallback_rule = detect_explicit_persistent_rule(user_message)
                 if fallback_rule:
                     result.contains_rule = True
                     result.rule_summary = fallback_rule
+            if suppress_rules and (
+                result.contains_rule or record.rule_store_count != 0
+            ):
+                raise RuntimeError(
+                    "suppressed rule extraction produced or retained a rule"
+                )
             assistant_message = result.assistant_message
             invalid_response = (
                 not assistant_message.strip()
