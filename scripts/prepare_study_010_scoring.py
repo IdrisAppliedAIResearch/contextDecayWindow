@@ -23,7 +23,8 @@ def extract_probes(path: Path) -> str:
     sections = {
         int(match.group(1)): match.group(0).rstrip()
         for match in re.finditer(
-            r"(?ms)^## Turn (\d+)\s*$.*?(?=^## Turn \d+\s*$|\Z)", text
+            r"(?ms)^## Turn (\d+)[^\r\n]*\r?\n.*?(?=^## Turn \d+[^\r\n]*\r?\n|\Z)",
+            text,
         )
     }
     missing = [turn for turn in PROBE_TURNS if turn not in sections]
