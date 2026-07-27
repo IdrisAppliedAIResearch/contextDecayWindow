@@ -22,8 +22,8 @@ from src.study.script_loader import load_script
 ROOT = Path(__file__).resolve().parents[1]
 STUDY = ROOT / "experiments/study_010"
 SCRIPT = STUDY / "script_1000.json"
-RESULTS = STUDY / "gates/gate_results.json"
-REPORT = STUDY / "gates/gate_report.md"
+RESULTS = STUDY / "gates/amendment_004/gate_results.json"
+REPORT = STUDY / "gates/amendment_004/gate_report.md"
 
 
 @lru_cache(maxsize=None)
@@ -269,9 +269,13 @@ def write_report(results: dict) -> None:
     g1 = results["g1_retrieval"]
     g2 = results["g2_consolidation"]
     lines = [
-        "# Study 010 Offline Scale Gate Report",
+        "# Study 010 Amendment 004 Offline Gate Rerun",
         "",
-        f"**Overall:** {'PASS' if results['passed'] else 'FAIL'}",
+        "**Evidence status:** post-stop exploratory",
+        "",
+        f"**Original gate status:** {'PASS' if results['passed'] else 'FAIL'}",
+        f"**Continuation eligibility:** "
+        f"{'PASS' if results['continuation_passed'] else 'FAIL'}",
         "",
         "## G1 - Retrieval at scale",
         "",
@@ -327,6 +331,15 @@ def main() -> None:
     results["passed"] = all(
         results[key]["passed"]
         for key in ("g1_retrieval", "g2_consolidation", "g4_resume", "leakage")
+    )
+    results["evidence_status"] = "post_stop_exploratory"
+    results["governing_amendment"] = (
+        "experiments/study_010/amendments/"
+        "AMENDMENT_004_authorized_exploratory_restart.md"
+    )
+    results["continuation_passed"] = all(
+        results[key]["passed"]
+        for key in ("g1_retrieval", "g4_resume", "leakage")
     )
     RESULTS.parent.mkdir(parents=True, exist_ok=True)
     RESULTS.write_text(
