@@ -371,21 +371,17 @@ def main() -> None:
             "checkpoint_restore_gate": "PASS",
         },
         "bar_3": {
-            "result": "PASS",
+            "result": "NOT_EVALUABLE",
             "checkpoint_rows": len(curves),
             "construct_validity": "FAIL",
             "note": (
                 "I2, I5, and I8 require two facts not planted until after "
-                "their probe turns; checkpoint completeness passes literally, "
-                "but the scores cannot measure degradation."
+                "their probe turns. The resulting scores cannot deliver the "
+                "complete degradation curves required by Bar 3."
             ),
         },
     }
-    bars["exploratory_bars_complete"] = (
-        "PASS"
-        if bars["bar_2"]["result"] == bars["bar_3"]["result"] == "PASS"
-        else "FAIL"
-    )
+    bars["exploratory_bars_complete"] = "NOT_EVALUABLE"
     bars["confirmatory_status"] = "STOPPED_AT_G2"
     (EVAL / "bar_results.json").write_text(
         json.dumps(bars, indent=2) + "\n", encoding="utf-8"

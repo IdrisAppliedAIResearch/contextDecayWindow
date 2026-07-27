@@ -29,7 +29,7 @@ Runs use a scripted 120-turn conversation with facts planted at known positions 
 | 007 | Information-sized retrieval budget | PARTIAL (2/3) | Best score; the model used every delivered fact |
 | 008 | Rendering by selection factorial | STOPPED AT GATES | No jointly feasible operating point existed |
 | 009 | Pure-STM null test and topic digest | PARTIAL; null decisive | LTM beat STM by 3.0; digest failed its offline gate |
-| 010 | 1,000-turn endurance | STOPPED AT G2; EXPLORATORY CONTINUATION COMPLETE | LTM won breadth 2.0 points; targeted recall tied; degradation curve was construct-invalid |
+| 010 | 1,000-turn endurance | STOPPED AT G2; EXPLORATORY CONTINUATION COMPLETE | LTM won breadth; targeted tied; Bar 3 NOT EVALUABLE; scale robustness untested |
 
 Full reports live under `experiments/study_NNN/`.
 

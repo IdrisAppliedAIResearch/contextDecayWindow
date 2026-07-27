@@ -76,7 +76,8 @@ tests passed before execution.
 ## Evidence Boundary
 
 The original confirmatory outcome remains **STOPPED AT G2**. Under Amendment
-004, the exploratory continuation satisfies the operational requirements
-corresponding to Bars 2 and 3 and applies Bar 1 unchanged, yielding exploratory
-retention of LTM. It cannot convert the stopped confirmatory study into
+004, the exploratory continuation passes Bar 2 and applies Bar 1 unchanged,
+yielding exploratory retention of LTM. Bar 3 is `NOT EVALUABLE` because three
+construct-invalid probes prevent delivery of the registered degradation
+curves. The continuation cannot convert the stopped confirmatory study into
 VALIDATED.

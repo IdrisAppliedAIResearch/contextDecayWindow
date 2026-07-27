@@ -116,7 +116,7 @@ delivered only two and one respectively.
 |---|---|
 | Bar 1 decision | RETAIN LTM: L - S = 2.0 terminal |
 | Bar 2 endurance integrity | PASS |
-| Bar 3 checkpoint completeness | PASS nominally; degradation construct invalid |
+| Bar 3 degradation curves | **NOT EVALUABLE** |
 
 These are explicitly exploratory computations. They do not make the original
 confirmatory study VALIDATED.
@@ -139,9 +139,24 @@ ask for specification and threshold facts before those facts are planted,
 making 0.5 the maximum reachable score for each item. Both arms reached that
 maximum. The apparent interim-to-terminal improvement is therefore not a
 degradation finding; it reflects unavailable interim facts and a different
-question mix. Bar 3's literal all-checkpoints-scored criterion is complete,
-but the curve is construct-invalid. See
+question mix. Scored checkpoints alone do not deliver the complete degradation
+curves Bar 3 required, so Bar 3 is **NOT EVALUABLE**. See
 `evaluation/targeted_and_curve_validity_audit.md`.
+
+### Forward Scale Risk
+
+Study 010's breadth win may be specific to a compact-store regime. The failed
+topic layer exposed only two merged topics, so the floor selected two records
+rather than enforcing 12-domain coverage. The final distilled store held 290
+records and 18,951 raw text characters, while episode-mode rendering already
+filled 31,991 of 32,000 available LTM characters at Q13 and 31,847 at Q14.
+
+At ten times the observed formation volume, raw distilled text projects to
+about 189,510 characters before source-episode rendering overhead. Selection
+would then be strongly budget-constrained, and coverage would no longer follow
+cheaply from compactness. The forward bakeoff must test this directly across
+multiple store-to-budget ratios. The proposed T1.2 contract is recorded in
+`evaluation/bakeoff_t1_2_requirement.md`.
 
 Complete scoring, fact delivery, curves, integrity checks, and mechanism
 analysis are under `experiments/study_010/evaluation/`.
