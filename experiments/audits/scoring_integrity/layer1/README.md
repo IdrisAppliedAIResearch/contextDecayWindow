@@ -16,11 +16,11 @@ headings and was parsed by question.
 - `NO_ANSWER`: 16 items.
 - Truncation or unclosed reasoning: 24 items.
 - Unclosed reasoning blocks: 23 items.
-- Any F1-F5 flag: 37 items.
+- Any F1-F5 flag: 39 items.
 - F1: 7.
-- F2: 13.
+- F2: 14.
 - F3: 8.
-- F4: 21.
+- F4: 22.
 - F5: 0.
 
 Flags are routing evidence, not automatic corrections except where the locked
@@ -46,4 +46,3 @@ blinding claim for Study 001 fact extraction. Amendment 002 records the analogou
 behavioral-rule variant omission.
 
 The detailed record is `items.jsonl`; `items.csv` is the compact review surface.
-
