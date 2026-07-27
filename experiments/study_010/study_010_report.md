@@ -86,6 +86,14 @@ rehearsal passed after Amendments 005-006 prevented the inapplicable rule
 classifier from persisting false rules without changing decoded conversation
 answers.
 
+That repair followed a second carried-subsystem scale failure. Before the
+amendments, the rule detector persisted 118 false rules by rehearsal turn 200,
+grew the pinned block to about 5,512 tokens, and triggered cross-domain
+refusals from turn 84. Amendments 005-006 made the continuation executable by
+forcing persistence off symmetrically. The final zero-rule stores therefore
+do not validate rule retention; they show that the failed behavior was
+bypassed.
+
 Both full arms then completed 1,000 turns. Arm L resumed from its verified
 turn-500 checkpoint after the initial process was reaped during turn 597; Arm
 S completed in one process. Both produced all ten checkpoints and all 23
@@ -157,6 +165,20 @@ would then be strongly budget-constrained, and coverage would no longer follow
 cheaply from compactness. The forward bakeoff must test this directly across
 multiple store-to-budget ratios. The proposed T1.2 contract is recorded in
 `evaluation/bakeoff_t1_2_requirement.md`.
+
+### Standing Corrections
+
+Study 010 demonstrates that two carried subsystems failed at scale:
+TopicManager collapsed 12 domains into two topics, and the rule detector
+accumulated false persistent rules until persistence was disabled. Both had
+survived the 120-turn program. "Settled infrastructure" described a lack of
+prior long-horizon testing, not established scale robustness. See
+`evaluation/carried_subsystems_scale_audit.md`.
+
+A new mechanical pre-lock check now requires every rubric fact to appear in a
+scripted user turn strictly before its probe. Retrospective execution fails
+exactly I2, I5, and I8 and is preserved in
+`evaluation/probe_fact_order_audit.json`.
 
 Complete scoring, fact delivery, curves, integrity checks, and mechanism
 analysis are under `experiments/study_010/evaluation/`.
