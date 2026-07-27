@@ -44,3 +44,18 @@ This is a rehearsal-discovered protocol blocker. Continuing would primarily
 measure false-rule accumulation and refusal propagation rather than memory
 endurance. A new author-authorized amendment must define a symmetric repair,
 and a fresh two-arm rehearsal must pass, before a full run begins.
+
+## Amendment 005 Attempt 003
+
+Arm L attempt `study_010_rehearsal_003` completed 200 turns after rule
+extraction was disabled. It had zero pinned rules, zero cross-domain refusals,
+valid turn-100 and turn-200 checkpoints, and a 15,748-token peak.
+
+The attempt still failed response integrity. The existing
+`suppress_rule_detection` provider option skipped parsing but continued to
+inject the classifier instruction. Consequently, all 200 stored assistant
+responses contained a literal `<rule_detection>` tag. Arm S was not started.
+
+This is an implementation defect in the suppression API, not a study parameter
+failure. A true suppression path must omit the instruction as well as parsing,
+pass focused tests, and be committed before another fresh two-arm rehearsal.
