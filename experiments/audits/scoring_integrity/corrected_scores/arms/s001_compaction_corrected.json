@@ -1,0 +1,78 @@
+{
+  "arm_id": "s001_compaction",
+  "study": 1,
+  "arm": "compaction",
+  "provenance": "Scoring Integrity Audit; originals preserved unchanged",
+  "items": {
+    "Q1": {
+      "original": 1.0,
+      "corrected": 1.0,
+      "strict": 1.0,
+      "basis": "original_unselected",
+      "rationale": "Exact: \"$47,500\". Direct answer. Note: response includes duplicated \"END RECENT\" context artifacts, but the answer itself is correct."
+    },
+    "Q2": {
+      "original": 0.5,
+      "corrected": 0.5,
+      "strict": 0.5,
+      "basis": "ai_consensus",
+      "rationale": "Three-pass blind consensus; see pass files."
+    },
+    "Q3": {
+      "original": 0.0,
+      "corrected": 0.0,
+      "strict": 0.0,
+      "basis": "original_unselected",
+      "rationale": "Complete failure. Model states \"I do not have any record of a discussion regarding Dr. Yuki Tanaka or a specific CRISPR experiment.\" CRISPR topic entirely lost during compaction summary."
+    },
+    "Q4": {
+      "original": 1.0,
+      "corrected": 0.0,
+      "strict": 0.0,
+      "basis": "conflict_adjudicator",
+      "rationale": "The response is classified as truncated with unclosed reasoning; completeness is decisive, so the otherwise visible correct lead and deadline cannot receive credit."
+    },
+    "Q5": {
+      "original": 0.0,
+      "corrected": 0.0,
+      "strict": 0.0,
+      "basis": "ai_consensus",
+      "rationale": "Three-pass blind consensus; see pass files."
+    },
+    "Q6": {
+      "original": 0.0,
+      "corrected": 0.0,
+      "strict": 0.0,
+      "basis": "original_unselected",
+      "rationale": "Complete failure. Model could not retrieve any Meridian information. The compaction summary (covering turns 15-17) only contained CRISPR content. Meridian topic was lost during compaction. Model asked user to provide context about \"Meridian.\" Not a \"bleed\" in the traditional sense — the topic was entirely absent."
+    },
+    "Q7": {
+      "original": 0.0,
+      "corrected": 0.0,
+      "strict": 0.0,
+      "basis": "independent_adjudicator",
+      "rationale": "The response denies the study context and does not identify Dr. Yuki Tanaka as the researcher."
+    },
+    "Q8": {
+      "original": 0.0,
+      "corrected": 0.0,
+      "strict": 0.0,
+      "basis": "original_unselected",
+      "rationale": "Only listed 4 Meridian values (14, 10, 180, 47,500). All CRISPR values (2.5 mg/kg, 73%, etc.) absent because CRISPR topic was never in the compaction window."
+    },
+    "Q9": {
+      "original": 1.0,
+      "corrected": 1.0,
+      "strict": 1.0,
+      "basis": "original_unselected",
+      "rationale": "Both rules stated correctly: numbered lists for multiple items + confidence levels on technical recommendations."
+    },
+    "Q10": {
+      "original": 0.0,
+      "corrected": 0.0,
+      "strict": 0.0,
+      "basis": "original_unselected",
+      "rationale": "Only turns 26, 27, 30 have both numbered lists AND confidence levels (3/8). Turns 25, 28, 29, 31, 32 are missing one or both conventions. Fails the ≥6/8 threshold."
+    }
+  }
+}

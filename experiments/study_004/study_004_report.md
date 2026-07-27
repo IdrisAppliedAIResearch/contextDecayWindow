@@ -1,3 +1,5 @@
+> **CORRECTION (2026-07-26):** Treatment corrects 7.0 -> **6.5** and control 11.0 -> **10.5**. The PARTIAL 1/3 verdict is unchanged. Original claims remain below. See `../audits/scoring_integrity/audit_report.md`.
+
 # Active LTM Retrieval with Tier Arbitration in a Bounded Conversational Memory Architecture
 
 ## Study 004 Final Report — contextDecayWindow

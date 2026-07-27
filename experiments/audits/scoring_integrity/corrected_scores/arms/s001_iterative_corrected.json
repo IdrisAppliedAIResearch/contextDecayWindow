@@ -1,0 +1,78 @@
+{
+  "arm_id": "s001_iterative",
+  "study": 1,
+  "arm": "iterative",
+  "provenance": "Scoring Integrity Audit; originals preserved unchanged",
+  "items": {
+    "Q1": {
+      "original": 1.0,
+      "corrected": 1.0,
+      "strict": 1.0,
+      "basis": "original_unselected",
+      "rationale": "Exact: \"$47,500\". Retrieved from Turn 2 episode. Clean, concise answer."
+    },
+    "Q2": {
+      "original": 1.0,
+      "corrected": 1.0,
+      "strict": 1.0,
+      "basis": "ai_consensus",
+      "rationale": "Three-pass blind consensus; see pass files."
+    },
+    "Q3": {
+      "original": 1.0,
+      "corrected": 1.0,
+      "strict": 1.0,
+      "basis": "original_unselected",
+      "rationale": "Exact: \"2.5 mg/kg\". Retrieved from Turn 13. Clean answer."
+    },
+    "Q4": {
+      "original": 1.0,
+      "corrected": 1.0,
+      "strict": 1.0,
+      "basis": "original_unselected",
+      "rationale": "Both correct: Dr. Priya Nair, October 14th. Retrieved from Turn 2."
+    },
+    "Q5": {
+      "original": 1.0,
+      "corrected": 1.0,
+      "strict": 1.0,
+      "basis": "original_unselected",
+      "rationale": "Both correct: HEK-293T, 73%. Retrieved from Turn 12/13."
+    },
+    "Q6": {
+      "original": 1.0,
+      "corrected": 1.0,
+      "strict": 1.0,
+      "basis": "original_unselected",
+      "rationale": "Retrieved \"180 milliseconds at the 95th percentile (P95)\" cleanly. No CRISPR content in response. Embedding-based retrieval only pulled Meridian-relevant episodes."
+    },
+    "Q7": {
+      "original": 1.0,
+      "corrected": 1.0,
+      "strict": 1.0,
+      "basis": "original_unselected",
+      "rationale": "Dr. Yuki Tanaka named correctly. No conflation with Dr. Priya Nair. Retrieved from Turn 12/13."
+    },
+    "Q8": {
+      "original": 1.0,
+      "corrected": 0.0,
+      "strict": 0.0,
+      "basis": "conflict_adjudicator",
+      "rationale": "NO_ANSWER is decisive; the empty response provides none of the six required numerical values."
+    },
+    "Q9": {
+      "original": 1.0,
+      "corrected": 1.0,
+      "strict": 1.0,
+      "basis": "original_unselected",
+      "rationale": "Both rules stated correctly: numbered lists for multiple items + confidence levels on technical recommendations."
+    },
+    "Q10": {
+      "original": 0.0,
+      "corrected": 0.0,
+      "strict": 0.0,
+      "basis": "conflict_adjudicator",
+      "rationale": "The supplied response surface is classified as truncated with unclosed reasoning; under the protocol that completeness failure is decisive regardless of visible formatting-rule evidence."
+    }
+  }
+}

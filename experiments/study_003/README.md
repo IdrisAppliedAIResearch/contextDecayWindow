@@ -1,3 +1,5 @@
+> **CORRECTION (2026-07-26):** The accepted score corrects 12.0 -> **11.5**. The literal `overall >= 13.0` Bar 2 remains FAIL; corrected-baseline non-regression is observational only. Original claims remain below. See `../audits/scoring_integrity/audit_report.md`.
+
 # Selective Short-Term-to-Long-Term Promotion in an Iterative Memory Architecture for Long-Context Language Models
 
 **Author and affiliation:** Idris Applied AI Research<br>

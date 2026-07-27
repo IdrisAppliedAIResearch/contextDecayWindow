@@ -1,0 +1,302 @@
+[
+  {
+    "study": 1,
+    "arm_id": "s001_compaction",
+    "arm": "compaction",
+    "original_q1_q13": 3.5,
+    "corrected_q1_q13": 2.5,
+    "strict_q1_q13": 2.5,
+    "original_q14": null,
+    "corrected_q14": null,
+    "changed_items": 1,
+    "corrected_categories": {
+      "cat1_2": 1.5,
+      "cat3": 0.0,
+      "cat4": 1.0
+    }
+  },
+  {
+    "study": 1,
+    "arm_id": "s001_full_context",
+    "arm": "full_context",
+    "original_q1_q13": 10.0,
+    "corrected_q1_q13": 10.0,
+    "strict_q1_q13": 10.0,
+    "original_q14": null,
+    "corrected_q14": null,
+    "changed_items": 0,
+    "corrected_categories": {
+      "cat1_2": 5.0,
+      "cat3": 3.0,
+      "cat4": 2.0
+    }
+  },
+  {
+    "study": 1,
+    "arm_id": "s001_iterative",
+    "arm": "iterative",
+    "original_q1_q13": 9.0,
+    "corrected_q1_q13": 8.0,
+    "strict_q1_q13": 8.0,
+    "original_q14": null,
+    "corrected_q14": null,
+    "changed_items": 1,
+    "corrected_categories": {
+      "cat1_2": 5.0,
+      "cat3": 2.0,
+      "cat4": 1.0
+    }
+  },
+  {
+    "study": 2,
+    "arm_id": "s002_a",
+    "arm": "A_full_context",
+    "original_q1_q13": 8.0,
+    "corrected_q1_q13": 5.5,
+    "strict_q1_q13": 5.5,
+    "original_q14": null,
+    "corrected_q14": null,
+    "changed_items": 3,
+    "corrected_categories": {
+      "cat1": 1.0,
+      "cat2": 1.0,
+      "cat3": 0.5,
+      "cat4": 2.0,
+      "cat5": 1.0
+    }
+  },
+  {
+    "study": 2,
+    "arm_id": "s002_b",
+    "arm": "B_compaction",
+    "original_q1_q13": 2.0,
+    "corrected_q1_q13": 2.0,
+    "strict_q1_q13": 2.0,
+    "original_q14": null,
+    "corrected_q14": null,
+    "changed_items": 0,
+    "corrected_categories": {
+      "cat1": 1.0,
+      "cat2": 0.0,
+      "cat3": 0.0,
+      "cat4": 0.0,
+      "cat5": 1.0
+    }
+  },
+  {
+    "study": 2,
+    "arm_id": "s002_c",
+    "arm": "C_iterative",
+    "original_q1_q13": 13.0,
+    "corrected_q1_q13": 8.5,
+    "strict_q1_q13": 8.5,
+    "original_q14": null,
+    "corrected_q14": null,
+    "changed_items": 5,
+    "corrected_categories": {
+      "cat1": 3.0,
+      "cat2": 2.0,
+      "cat3": 0.5,
+      "cat4": 1.0,
+      "cat5": 2.0
+    }
+  },
+  {
+    "study": 3,
+    "arm_id": "s003_accepted",
+    "arm": "accepted",
+    "original_q1_q13": 12.0,
+    "corrected_q1_q13": 11.5,
+    "strict_q1_q13": 11.5,
+    "original_q14": null,
+    "corrected_q14": null,
+    "changed_items": 1,
+    "corrected_categories": {
+      "cat1": 3.0,
+      "cat2": 3.0,
+      "cat3": 1.5,
+      "cat4": 2.0,
+      "cat5": 2.0
+    }
+  },
+  {
+    "study": 4,
+    "arm_id": "s004_control",
+    "arm": "v3_control",
+    "original_q1_q13": 11.0,
+    "corrected_q1_q13": 10.5,
+    "strict_q1_q13": 10.5,
+    "original_q14": 0.0,
+    "corrected_q14": 0.0,
+    "changed_items": 1,
+    "corrected_categories": {
+      "cat1": 3.0,
+      "cat2": 2.0,
+      "cat3": 1.5,
+      "cat4": 2.0,
+      "cat5": 2.0
+    }
+  },
+  {
+    "study": 4,
+    "arm_id": "s004_treatment",
+    "arm": "treatment",
+    "original_q1_q13": 7.0,
+    "corrected_q1_q13": 6.5,
+    "strict_q1_q13": 6.5,
+    "original_q14": 0.0,
+    "corrected_q14": 0.0,
+    "changed_items": 1,
+    "corrected_categories": {
+      "cat1": 3.0,
+      "cat2": 0.0,
+      "cat3": 0.5,
+      "cat4": 1.0,
+      "cat5": 2.0
+    }
+  },
+  {
+    "study": 5,
+    "arm_id": "s005_control",
+    "arm": "promotion_control",
+    "original_q1_q13": 12.0,
+    "corrected_q1_q13": 11.5,
+    "strict_q1_q13": 11.5,
+    "original_q14": 0.0,
+    "corrected_q14": 0.0,
+    "changed_items": 1,
+    "corrected_categories": {
+      "cat1": 3.0,
+      "cat2": 3.0,
+      "cat3": 1.5,
+      "cat4": 2.0,
+      "cat5": 2.0
+    }
+  },
+  {
+    "study": 5,
+    "arm_id": "s005_treatment",
+    "arm": "treatment",
+    "original_q1_q13": 11.0,
+    "corrected_q1_q13": 11.0,
+    "strict_q1_q13": 10.5,
+    "original_q14": 0.5,
+    "corrected_q14": 0.5,
+    "changed_items": 0,
+    "corrected_categories": {
+      "cat1": 3.0,
+      "cat2": 2.5,
+      "cat3": 1.5,
+      "cat4": 2.0,
+      "cat5": 2.0
+    }
+  },
+  {
+    "study": 6,
+    "arm_id": "s006_control",
+    "arm": "whole_turn_control",
+    "original_q1_q13": 11.0,
+    "corrected_q1_q13": 11.0,
+    "strict_q1_q13": 10.5,
+    "original_q14": 0.5,
+    "corrected_q14": 0.5,
+    "changed_items": 0,
+    "corrected_categories": {
+      "cat1": 3.0,
+      "cat2": 2.5,
+      "cat3": 1.5,
+      "cat4": 2.0,
+      "cat5": 2.0
+    }
+  },
+  {
+    "study": 6,
+    "arm_id": "s006_treatment",
+    "arm": "treatment",
+    "original_q1_q13": 10.5,
+    "corrected_q1_q13": 9.0,
+    "strict_q1_q13": 9.0,
+    "original_q14": 0.0,
+    "corrected_q14": 0.0,
+    "changed_items": 2,
+    "corrected_categories": {
+      "cat1": 3.0,
+      "cat2": 2.0,
+      "cat3": 1.0,
+      "cat4": 1.0,
+      "cat5": 2.0
+    }
+  },
+  {
+    "study": 7,
+    "arm_id": "s007_control",
+    "arm": "count_budget_control",
+    "original_q1_q13": 10.5,
+    "corrected_q1_q13": 10.0,
+    "strict_q1_q13": 10.0,
+    "original_q14": 0.0,
+    "corrected_q14": 0.0,
+    "changed_items": 1,
+    "corrected_categories": {
+      "cat1": 3.0,
+      "cat2": 2.0,
+      "cat3": 1.0,
+      "cat4": 2.0,
+      "cat5": 2.0
+    }
+  },
+  {
+    "study": 7,
+    "arm_id": "s007_treatment",
+    "arm": "treatment",
+    "original_q1_q13": 12.0,
+    "corrected_q1_q13": 12.0,
+    "strict_q1_q13": 12.0,
+    "original_q14": 0.5,
+    "corrected_q14": 0.5,
+    "changed_items": 0,
+    "corrected_categories": {
+      "cat1": 3.0,
+      "cat2": 3.0,
+      "cat3": 2.0,
+      "cat4": 2.0,
+      "cat5": 2.0
+    }
+  },
+  {
+    "study": 9,
+    "arm_id": "s009_l",
+    "arm": "L",
+    "original_q1_q13": 12.0,
+    "corrected_q1_q13": 12.0,
+    "strict_q1_q13": 12.0,
+    "original_q14": 0.5,
+    "corrected_q14": 0.5,
+    "changed_items": 0,
+    "corrected_categories": {
+      "cat1": 3.0,
+      "cat2": 3.0,
+      "cat3": 2.0,
+      "cat4": 2.0,
+      "cat5": 2.0
+    }
+  },
+  {
+    "study": 9,
+    "arm_id": "s009_s",
+    "arm": "S",
+    "original_q1_q13": 10.5,
+    "corrected_q1_q13": 9.0,
+    "strict_q1_q13": 9.0,
+    "original_q14": 0.0,
+    "corrected_q14": 0.0,
+    "changed_items": 2,
+    "corrected_categories": {
+      "cat1": 3.0,
+      "cat2": 2.0,
+      "cat3": 1.0,
+      "cat4": 1.0,
+      "cat5": 2.0
+    }
+  }
+]
