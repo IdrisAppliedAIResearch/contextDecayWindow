@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "run_date": "2026-07-26",
+  "agent_id": "019fa0fc-eae7-7c83-97a4-fe7a001e847a",
+  "context": "clean; no parent history; filesystem and study-artifact access prohibited",
+  "matched": 7,
+  "total": 7,
+  "results": [
+    {"id": "cal_no_answer", "primary": 0.0, "expected": 0.0},
+    {"id": "cal_truncated", "primary": 0.0, "expected": 0.0},
+    {"id": "cal_hedged", "primary": 0.5, "expected": 0.5, "strict": 0.0, "strict_expected": 0.0},
+    {"id": "cal_q11_partial", "primary": 0.0, "expected": 0.0},
+    {"id": "cal_q14_one_lapse", "primary": 0.5, "expected": 0.5},
+    {"id": "cal_complete", "primary": 1.0, "expected": 1.0},
+    {"id": "cal_wrong", "primary": 0.0, "expected": 0.0}
+  ]
+}

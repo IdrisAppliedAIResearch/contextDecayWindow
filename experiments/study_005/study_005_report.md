@@ -1,3 +1,5 @@
+> **CORRECTION (2026-07-26):** Treatment remains 11.0; control corrects 12.0 -> **11.5**. Bar 3 still fails and the PARTIAL verdict is unchanged. Original claims remain below. See `../audits/scoring_integrity/audit_report.md`.
+
 # Extractive Dreaming for Factual Memory Formation in a Bounded Conversational Architecture
 
 ## Study 005 Final Report - contextDecayWindow

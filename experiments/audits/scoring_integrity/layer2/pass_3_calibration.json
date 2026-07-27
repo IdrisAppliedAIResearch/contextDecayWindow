@@ -1,0 +1,64 @@
+{
+  "status": "passed",
+  "matched": 7,
+  "total": 7,
+  "items": [
+    {
+      "id": "cal_no_answer",
+      "primary": 0.0,
+      "strict": 0.0,
+      "expected": 0.0,
+      "matched": true,
+      "rationale": "Unclosed reasoning block leaves no scoreable final answer."
+    },
+    {
+      "id": "cal_truncated",
+      "primary": 0.0,
+      "strict": 0.0,
+      "expected": 0.0,
+      "matched": true,
+      "rationale": "Mid-sentence truncation is a protocol deviation and receives no credit."
+    },
+    {
+      "id": "cal_hedged",
+      "primary": 0.5,
+      "strict": 0.0,
+      "expected": 0.5,
+      "strict_expected": 0.0,
+      "matched": true,
+      "rationale": "Primary credits the offered correct alternative; strict rejects unresolved alternatives."
+    },
+    {
+      "id": "cal_q11_partial",
+      "primary": 0.0,
+      "strict": 0.0,
+      "expected": 0.0,
+      "matched": true,
+      "rationale": "Ten of 17 items is below the binary 80 percent threshold."
+    },
+    {
+      "id": "cal_q14_one_lapse",
+      "primary": 0.5,
+      "strict": 0.5,
+      "expected": 0.5,
+      "matched": true,
+      "rationale": "All four domains are named and exactly one lacks a correct specific."
+    },
+    {
+      "id": "cal_complete",
+      "primary": 1.0,
+      "strict": 1.0,
+      "expected": 1.0,
+      "matched": true,
+      "rationale": "Both required facts appear in scoreable final content."
+    },
+    {
+      "id": "cal_wrong",
+      "primary": 0.0,
+      "strict": 0.0,
+      "expected": 0.0,
+      "matched": true,
+      "rationale": "Neither required fact is present."
+    }
+  ]
+}
