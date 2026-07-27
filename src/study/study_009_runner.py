@@ -50,6 +50,7 @@ class Study009Runner:
         checkpoint_interval: int | None = None,
         resume_checkpoint: str | None = None,
         suppress_rule_detection: bool = False,
+        ignore_rule_detection_result: bool = False,
     ):
         if composition not in {"S", "S+D"}:
             raise ValueError(f"Unsupported Study 009 composition: {composition}")
@@ -80,6 +81,7 @@ class Study009Runner:
         self.checkpoint_interval = checkpoint_interval
         self.resume_checkpoint = resume_checkpoint
         self.suppress_rule_detection = suppress_rule_detection
+        self.ignore_rule_detection_result = ignore_rule_detection_result
 
     @staticmethod
     def _check_env(inference_provider, embedding_provider) -> None:
@@ -172,12 +174,22 @@ class Study009Runner:
                 full_prompt,
                 suppress_rule_detection=self.suppress_rule_detection,
             )
-            if not self.suppress_rule_detection and not result.contains_rule:
+            if self.ignore_rule_detection_result:
+                result.contains_rule = False
+                result.rule_summary = None
+            if (
+                not self.suppress_rule_detection
+                and not self.ignore_rule_detection_result
+                and not result.contains_rule
+            ):
                 fallback = detect_explicit_persistent_rule(user_message)
                 if fallback:
                     result.contains_rule = True
                     result.rule_summary = fallback
-            if self.suppress_rule_detection and (
+            if (
+                self.suppress_rule_detection
+                or self.ignore_rule_detection_result
+            ) and (
                 result.contains_rule or record.rule_store_count != 0
             ):
                 raise RuntimeError(
