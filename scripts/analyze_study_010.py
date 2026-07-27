@@ -37,7 +37,8 @@ def parse_rubric() -> list[dict]:
             continue
         cells = [cell.strip() for cell in line.strip("|").split("|")]
         label, turn, kind, expected = cells
-        type_name, _, domain = kind.partition("/")
+        domain = kind.strip()
+        type_name = "breadth" if domain == "breadth" else "targeted"
         rows.append(
             {
                 "label": label,
@@ -207,9 +208,21 @@ def k_precision(rubric: list[dict]) -> tuple[list[dict], dict]:
                 }
             )
         summaries[arm] = {
-            "targeted_probe_k_hits": considered,
+            "all_targeted_probe_k_hits": considered,
+            "interim_targeted_probe_k_hits": sum(
+                1
+                for row in rows
+                if row["arm"] == arm.removeprefix("arm_").upper()
+                and int(row["turn"]) < 987
+            ),
+            "terminal_targeted_probe_k_hits": sum(
+                1
+                for row in rows
+                if row["arm"] == arm.removeprefix("arm_").upper()
+                and int(row["turn"]) >= 987
+            ),
             "domain_matched_hits": matched,
-            "domain_precision": matched / considered if considered else None,
+            "domain_label_precision": matched / considered if considered else None,
         }
     return rows, summaries
 
@@ -357,7 +370,16 @@ def main() -> None:
             else "FAIL",
             "checkpoint_restore_gate": "PASS",
         },
-        "bar_3": {"result": "PASS", "checkpoint_rows": len(curves)},
+        "bar_3": {
+            "result": "PASS",
+            "checkpoint_rows": len(curves),
+            "construct_validity": "FAIL",
+            "note": (
+                "I2, I5, and I8 require two facts not planted until after "
+                "their probe turns; checkpoint completeness passes literally, "
+                "but the scores cannot measure degradation."
+            ),
+        },
     }
     bars["exploratory_bars_complete"] = (
         "PASS"

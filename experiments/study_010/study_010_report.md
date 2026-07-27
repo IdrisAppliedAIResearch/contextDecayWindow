@@ -116,7 +116,7 @@ delivered only two and one respectively.
 |---|---|
 | Bar 1 decision | RETAIN LTM: L - S = 2.0 terminal |
 | Bar 2 endurance integrity | PASS |
-| Bar 3 degradation curves | PASS |
+| Bar 3 checkpoint completeness | PASS nominally; degradation construct invalid |
 
 These are explicitly exploratory computations. They do not make the original
 confirmatory study VALIDATED.
@@ -126,10 +126,22 @@ below the 40,000-token monitor. L formed 290 offset-verbatim content records
 across 63 dream events with zero non-content records and zero dream inference
 calls. Both arms persisted zero rules.
 
-The topic failure remained visible: both live arms ended with two topics, and
-neither had a K hit at a terminal targeted probe. The result supports LTM's
-cross-domain breadth value under the failed carried topic layer; it does not
-validate that layer or isolate a healthy 12-topic architecture.
+The topic failure remained visible: both live arms ended with two topics. Arm
+S nevertheless logged 203 K retrieval events across the 12 terminal targeted
+turns, and `<retrieved_stm>` contained all 60 required targeted facts. The
+targeted tie is genuine long-range STM retrieval, not recency-only recall.
+The result supports LTM's cross-domain breadth value under the failed carried
+topic layer; it does not show an LTM advantage for single-domain targeted
+recall.
+
+The registered degradation curves have a construction defect. I2, I5, and I8
+ask for specification and threshold facts before those facts are planted,
+making 0.5 the maximum reachable score for each item. Both arms reached that
+maximum. The apparent interim-to-terminal improvement is therefore not a
+degradation finding; it reflects unavailable interim facts and a different
+question mix. Bar 3's literal all-checkpoints-scored criterion is complete,
+but the curve is construct-invalid. See
+`evaluation/targeted_and_curve_validity_audit.md`.
 
 Complete scoring, fact delivery, curves, integrity checks, and mechanism
 analysis are under `experiments/study_010/evaluation/`.

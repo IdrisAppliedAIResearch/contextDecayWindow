@@ -15,7 +15,9 @@
   },
   "bar_3": {
     "result": "PASS",
-    "checkpoint_rows": 8
+    "checkpoint_rows": 8,
+    "construct_validity": "FAIL",
+    "note": "I2, I5, and I8 require two facts not planted until after their probe turns; checkpoint completeness passes literally, but the scores cannot measure degradation."
   },
   "exploratory_bars_complete": "PASS",
   "confirmatory_status": "STOPPED_AT_G2"

@@ -23,6 +23,11 @@
   two. Both arms were perfect on all terminal targeted probes.
 - Formation integrity passed: 290 L records, 63 dream events, zero offset
   mismatches, zero non-content records, and zero dream inference calls.
-- The live topic failure persisted: both arms ended with two topics and no
-  terminal targeted probe had a K hit. A future study should construct and
-  pre-register a topic architecture against the frozen replay.
+- The live topic failure persisted: both arms ended with two topics. Arm S had
+  203 K retrieval events across terminal Q1-Q12, and STM delivered all 60
+  required targeted facts. The LTM advantage is breadth-specific.
+- The degradation curve is construct-invalid: I2, I5, and I8 ask for two
+  facts before they are planted, capping each at 0.5. Checkpoint scoring is
+  complete, but interim-to-terminal fractions cannot measure degradation.
+- A future study should construct and pre-register a topic architecture and
+  temporally validate every probe against plant availability.
