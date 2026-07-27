@@ -329,7 +329,16 @@ def run() -> None:
         facts_map = FACTS_S1 if arm.study == 1 else FACTS
         for number in range(1, expected + 1):
             q = f"Q{number}"
-            raw = questions.get(q, "") if arm.study == 3 else "\n\n".join(turns.get(t, "") for t in turn_map[q]).strip()
+            if arm.study == 3:
+                referenced = {"Q9": "Q6", "Q10": "Q7", "Q12": "Q3"}
+                if q in referenced:
+                    raw = questions.get(referenced[q], "")
+                elif q == "Q13":
+                    raw = "\n\n".join(questions.get(name, "") for name in [f"Q{i}" for i in range(1, 9)] + ["Q11"])
+                else:
+                    raw = questions.get(q, "")
+            else:
+                raw = "\n\n".join(turns.get(t, "") for t in turn_map[q]).strip()
             source_parts = [raw] if arm.study == 3 else [turns.get(t, "") for t in turn_map[q]]
             surface_parts = [scoreable_surface(part)[0] for part in source_parts]
             surface = "\n\n".join(part for part in surface_parts if part).strip()
