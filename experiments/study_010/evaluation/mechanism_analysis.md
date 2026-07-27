@@ -32,17 +32,24 @@ probes. None appeared in L's `<retrieved_stm>` block. S had no LTM block and
 its sparse delivered pairs came from recency. This directly attributes the
 terminal score gap to unique LTM delivery rather than unsupported recall.
 
-The interim pattern is already visible at turns 250, 500, and 750. Both arms
-score 0.5 on each recent-domain targeted item and 1.0 on the oldest structural
-target. L scores 1.0 on every breadth probe; S scores 0.0 on every breadth
-probe. Checkpoint fractions are in `degradation_curve.csv`.
+The interim breadth separation is already visible at turns 250, 500, and 750:
+L scores 1.0 on every breadth probe and S scores 0.0 on every breadth probe.
+The aggregate interim fractions must not be interpreted as degradation.
+I2, I5, and I8 each ask for two facts that are not planted until after the
+probe, imposing a maximum score of 0.5. See
+`targeted_and_curve_validity_audit.md`.
 
 ## Retrieval And Topic Failure
 
-Neither arm had a K hit at any of the 12 terminal targeted probes. The offline
-G1 replay predicted that target sources were reachable, but live trajectory
-did not reproduce those hits. Targeted answers nevertheless remained perfect,
-so live K precision at those probes is undefined rather than zero.
+Arm S logged 203 K retrieval events across Q1-Q12. Every one of the 60
+required targeted facts appeared in `<retrieved_stm>` and was recalled. Only
+Q1 also received three required facts through recency; Q2-Q12 received none
+of their required facts there. Arm S's perfect targeted score is therefore
+genuine long-range STM retrieval, not ten-episode recency recall.
+
+An earlier version of this analysis incorrectly reported zero K hits because
+its rubric parser misclassified the domain column. The parser and generated
+K artifact were corrected before merge.
 
 Both arms ended with two topics, reproducing the mass-merging side of the
 binding G2 failure. The continuation therefore cannot validate the topic
