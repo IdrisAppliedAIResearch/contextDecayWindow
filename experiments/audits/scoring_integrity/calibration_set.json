@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "synthetic": true,
+    "declaration": "Authored from locked scoring criteria only; contains no preserved answer text."
+  },
+  "items": [
+    {
+      "id": "cal_no_answer",
+      "criterion": "Both named facts required for 1.0; one earns 0.5.",
+      "response": "<think>The first fact is Alpha and the second is 42. I should explain both",
+      "expected": 0.0,
+      "reason": "Unclosed reasoning block with no scoreable final answer."
+    },
+    {
+      "id": "cal_truncated",
+      "criterion": "Four domain hits required for 1.0; one lapse earns 0.5.",
+      "response": "Civil: Alpha 10. Art: Beta 20. Monetary: Gamma",
+      "expected": 0.0,
+      "reason": "Mid-sentence truncation is a protocol deviation and cannot receive credit."
+    },
+    {
+      "id": "cal_hedged",
+      "criterion": "Name the exact material; one correct material earns 0.5.",
+      "response": "It might have been Material X, though Material Y is also possible.",
+      "expected": 0.5,
+      "strict_expected": 0.0,
+      "reason": "Primary records the offered correct alternative; strict rejects unresolved alternatives."
+    },
+    {
+      "id": "cal_q11_partial",
+      "criterion": "At least 80% of 17 required items with correct attribution earns 1.0; otherwise 0.",
+      "response": "Names all four domains and correctly supplies 10 of the 17 required items.",
+      "expected": 0.0,
+      "reason": "Q11's locked binary threshold has no 0.5 category."
+    },
+    {
+      "id": "cal_q14_one_lapse",
+      "criterion": "Four domain hits earn 1.0; all four named with exactly one missing specific earns 0.5.",
+      "response": "Civil: Alpha 10. Art: Beta 20. Monetary: Gamma 30. Marine biology was discussed.",
+      "expected": 0.5,
+      "reason": "All domains named; exactly one lacks a correct specific."
+    },
+    {
+      "id": "cal_complete",
+      "criterion": "Both named facts required for 1.0; one earns 0.5.",
+      "response": "The two facts are Alpha and 42.",
+      "expected": 1.0,
+      "reason": "Both required facts are in scoreable final content."
+    },
+    {
+      "id": "cal_wrong",
+      "criterion": "Both named facts required for 1.0; one earns 0.5.",
+      "response": "The two facts are Delta and 99.",
+      "expected": 0.0,
+      "reason": "Neither required fact is present."
+    }
+  ]
+}
+

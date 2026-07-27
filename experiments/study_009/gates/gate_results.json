@@ -1,0 +1,140 @@
+{
+  "g1_digest": {
+    "passed": false,
+    "read_only_store_unchanged": true,
+    "store_sha256": "8847e946d1b2c49e0952ad4257d3e8da487e74de7a7e80dd1199ee1dd45aa359",
+    "plant_key_sha256": "53b9f6823ae6f186abfc63c861fa0f7850a39afb6394bce76e14f6b41114557f",
+    "smallest_sufficient": null,
+    "registered": {
+      "d": 2,
+      "budget": 2500,
+      "serialized_chars": 2332,
+      "span_count": 8,
+      "domains": [],
+      "matched_facts": {
+        "civil": [],
+        "art": [],
+        "monetary": [],
+        "marine": []
+      },
+      "passed": false,
+      "spans": [
+        {
+          "topic_id": "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0",
+          "topic_label": "topic_4",
+          "source_episode_id": "a0033e57-f0e0-43fb-889c-0b1578f57f66",
+          "source_turn": 68,
+          "role": "assistant",
+          "span_start": 2690,
+          "span_end": 2829,
+          "text": "**Historical Applications:** The Danish National Bank (2012), BOJ (2016), ECB (2014), and Swiss National Bank (SNB, 2014) implemented NIRP.",
+          "density": 0.8421052631578947
+        },
+        {
+          "topic_id": "0bd7be2f-1b71-4e9b-8149-51fb1d7eedb0",
+          "topic_label": "topic_4",
+          "source_episode_id": "adeff8e5-9dd9-4017-8f65-366ee8862392",
+          "source_turn": 67,
+          "role": "assistant",
+          "span_start": 3531,
+          "span_end": 3719,
+          "text": "**Empirical Evidence (1950s\u20131990s):** Seminal studies by economists like Alder, Brender, and Wallace (1999) and Grilli, Masciandaro, and Tabellini (1991) analyzed data from OECD countries.",
+          "density": 0.75
+        },
+        {
+          "topic_id": "ad30fb43-1a11-4647-802d-63a1307decc5",
+          "topic_label": "topic_5",
+          "source_episode_id": "de1325c1-9059-48a4-a68e-e9d1396d8e9f",
+          "source_turn": 110,
+          "role": "assistant",
+          "span_start": 2168,
+          "span_end": 2235,
+          "text": "10\u201315 cm) and remain strictly within the deep OMZ (600\u2013900 meters).",
+          "density": 1.0
+        },
+        {
+          "topic_id": "ad30fb43-1a11-4647-802d-63a1307decc5",
+          "topic_label": "topic_5",
+          "source_episode_id": "ca643d47-7f95-4720-9283-7050b4d38a2d",
+          "source_turn": 95,
+          "role": "assistant",
+          "span_start": 2441,
+          "span_end": 2570,
+          "text": "**Impact of the OMZ on Organism Distribution (600\u2013900 meters):** The core of many OMZs lies within the 600\u2013900 meter depth range.",
+          "density": 0.5238095238095238
+        },
+        {
+          "topic_id": "b667bd37-ef6f-4a8b-8511-9a02581b120c",
+          "topic_label": "topic_3",
+          "source_episode_id": "903db149-a8ac-411f-8bbc-ecf3efe13b65",
+          "source_turn": 40,
+          "role": "assistant",
+          "span_start": 1661,
+          "span_end": 1714,
+          "text": "**Maturity and Perspective Integration (1475\u20131500):**",
+          "density": 1.0
+        },
+        {
+          "topic_id": "b667bd37-ef6f-4a8b-8511-9a02581b120c",
+          "topic_label": "topic_3",
+          "source_episode_id": "903db149-a8ac-411f-8bbc-ecf3efe13b65",
+          "source_turn": 40,
+          "role": "assistant",
+          "span_start": 2385,
+          "span_end": 2450,
+          "text": "**High Renaissance Synthesis and Atmospheric Unity (1500\u20131510):**",
+          "density": 0.7142857142857143
+        },
+        {
+          "topic_id": "f2d154ee-1364-4de7-8f5f-2c7ae3b92341",
+          "topic_label": "topic_2",
+          "source_episode_id": "e7845997-379c-41bc-8dbc-ed9e3aa7ba8b",
+          "source_turn": 4,
+          "role": "assistant",
+          "span_start": 2375,
+          "span_end": 2404,
+          "text": "Tensile Strength: 620\u2013780 MPa",
+          "density": 1.25
+        },
+        {
+          "topic_id": "f2d154ee-1364-4de7-8f5f-2c7ae3b92341",
+          "topic_label": "topic_2",
+          "source_episode_id": "e7845997-379c-41bc-8dbc-ed9e3aa7ba8b",
+          "source_turn": 4,
+          "role": "assistant",
+          "span_start": 2341,
+          "span_end": 2366,
+          "text": "Yield Strength: \u2265 460 MPa",
+          "density": 0.8
+        }
+      ]
+    },
+    "embedding_cache_entries": 223,
+    "live_embedding_fallbacks": 23
+  },
+  "g2_ltm_fidelity": {
+    "passed": true,
+    "probes": {
+      "120": {
+        "equal": true,
+        "predicted_sha256": "f78f91fea54b535494437ce43f10278ced4720001dd78346be238c9c6b75180a",
+        "actual_sha256": "f78f91fea54b535494437ce43f10278ced4720001dd78346be238c9c6b75180a"
+      },
+      "121": {
+        "equal": true,
+        "predicted_sha256": "4b338017ab877cb6a2bc90ff2a62222b69a8129eec8359a8be007dbf4a87c61d",
+        "actual_sha256": "4b338017ab877cb6a2bc90ff2a62222b69a8129eec8359a8be007dbf4a87c61d"
+      }
+    }
+  },
+  "g3_stm_sanity": {
+    "passed": true,
+    "forbidden_modules": [],
+    "fixture_test_exit_code": 0,
+    "fixture_test_output": "....                                                                     [100%]\n4 passed in 0.61s"
+  },
+  "study_007_tree_unchanged": true,
+  "digest_contingency_invoked": true,
+  "s_plus_digest_enabled": false,
+  "passed": true
+}
