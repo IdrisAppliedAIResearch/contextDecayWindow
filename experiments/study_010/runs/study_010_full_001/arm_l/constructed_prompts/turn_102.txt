@@ -1,0 +1,113 @@
+You are a concise technical research assistant. Preserve exact user-supplied project facts across long conversations. Keep non-probe answers brief.
+
+<pinned_rules/>
+
+<recent_context>
+  <episode turn="101" topic="topic_2">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Briefly compare two validation strategies for propensity overlap.</user_message>
+    <assistant_message>1. **Covariate Balance Assessment:** Examines standardized mean differences and variance ratios to ensure distributional similarity between treatment groups.
+2. **Common Support Verification:** Confirms sufficient overlap in the propensity score density to exclude units with extreme scores lacking comparable controls.</assistant_message>
+  </episode>
+  <episode turn="1" topic="topic_2">
+    <user_message>For our structural engineering case, lock these facts: the project is Aster Viaduct, led by Dr. Leena Ortiz, with the primary value 1,126 meters. Acknowledge the three facts in a concise numbered list.</user_message>
+    <assistant_message>1. Project: Aster Viaduct
+2. Lead: Dr. Leena Ortiz
+3. Primary Value: 1,126 meters</assistant_message>
+  </episode>
+  <episode turn="2" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Identify one measurement error affecting cable fatigue and its consequence.</user_message>
+    <assistant_message>1. **Error:** Misalignment in cable clamping torque (±5% deviation)
+2. **Consequence:** Premature micro-fracture initiation reducing fatigue life by 40%</assistant_message>
+  </episode>
+  <episode turn="3" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Briefly compare two validation strategies for seismic isolation.</user_message>
+    <assistant_message>1. **Experimental Shaking Table:** Validates full-system nonlinear dynamic response and hysteretic behavior under realistic ground motions but is limited by scale effects and high costs.
+2. **Numerical FEM Modeling:** Allows extensive parametric studies and precise component-level analysis but relies heavily on accurate material constitutive models and boundary condition assumptions.</assistant_message>
+  </episode>
+  <episode turn="4" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. State one practical quality-control check for deck torsion.</user_message>
+    <assistant_message>1. **Check:** Verify symmetry of deflection profiles during load tests to detect unintended torsional response.</assistant_message>
+  </episode>
+  <episode turn="5" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Give a short example of uncertainty reporting for bearing creep.</user_message>
+    <assistant_message>Report: Creep deformation = 12.4 ± 1.8 mm (95% CI).</assistant_message>
+  </episode>
+  <episode turn="6" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Explain one failure mode involving wind-tunnel scaling.</user_message>
+    <assistant_message>1. **Failure Mode:** Incorrect scaling of Reynolds number due to insufficient tunnel pressure, leading to inaccurate prediction of vortex shedding frequency and potential resonance risks not captured in scaled tests.</assistant_message>
+  </episode>
+  <episode turn="7" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Briefly describe provenance documentation for load combinations.</user_message>
+    <assistant_message>1.  **Provenance Documentation:** Record the specific load code references (e.g., AASHTO, Eurocode), source of environmental data, and calculation methodology used for each load combination case to ensure traceability and auditability.</assistant_message>
+  </episode>
+  <episode turn="8" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Name one sensitivity analysis for corrosion monitoring and its purpose.</user_message>
+    <assistant_message>1. **Analysis:** Parametric variation of chloride ingress rate in the predictive model
+2. **Purpose:** To quantify the impact of environmental uncertainty on the remaining service life and optimize inspection intervals.</assistant_message>
+  </episode>
+  <episode turn="9" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Explain aeroelastic flutter in two concise sentences.</user_message>
+    <assistant_message>Aeroelastic flutter is a self-excited, divergent oscillation arising from the coupling between aerodynamic, elastic, and inertial forces. It occurs when structural energy dissipation is negative, causing vibrations to amplify and potentially lead to catastrophic failure.</assistant_message>
+  </episode>
+</recent_context>
+
+<retrieved_stm>
+  <episode turn="94" topic="topic_2" similarity="0.833103">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. State one practical quality-control check for competing risks.</user_message>
+    <assistant_message>1. **Check:** Verify that the sum of cumulative incidence functions for all defined event types at the maximum follow-up time equals the observed proportion of subjects who experienced any event, ensuring proper accounting for all outcomes.</assistant_message>
+  </episode>
+  <episode turn="86" topic="topic_2" similarity="0.833103">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. State one practical quality-control check for competing risks.</user_message>
+    <assistant_message>1. **Check:** Verify that the sum of cumulative incidence functions for all defined event types at the maximum follow-up time equals the observed proportion of subjects who experienced any event, ensuring proper accounting for all outcomes.</assistant_message>
+  </episode>
+  <episode turn="98" topic="topic_2" similarity="0.568122">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Name one sensitivity analysis for negative controls and its purpose.</user_message>
+    <assistant_message>1. **Analysis:** Varying the strength of the negative control exposure-outcome association.
+2. **Purpose:** To quantify the robustness of the primary causal estimate against residual confounding or bias mechanisms that the negative control is designed to capture.</assistant_message>
+  </episode>
+  <episode turn="90" topic="topic_2" similarity="0.568122">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Name one sensitivity analysis for negative controls and its purpose.</user_message>
+    <assistant_message>1. **Analysis:** Varying the strength of the negative control exposure-outcome association.
+2. **Purpose:** To quantify the robustness of the primary causal estimate against residual confounding or bias mechanisms that the negative control is designed to capture.</assistant_message>
+  </episode>
+  <episode turn="87" topic="topic_2" similarity="0.516692">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Give a short example of uncertainty reporting for outcome adjudication.</user_message>
+    <assistant_message>Report: Outcome adjudication agreement = 0.85 ICC (95% CI: 0.72–0.93).</assistant_message>
+  </episode>
+  <episode turn="95" topic="topic_2" similarity="0.516692">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Give a short example of uncertainty reporting for outcome adjudication.</user_message>
+    <assistant_message>Report: Outcome adjudication agreement = 0.85 ICC (95% CI: 0.72–0.93).</assistant_message>
+  </episode>
+  <episode turn="93" topic="topic_2" similarity="0.508532">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Briefly compare two validation strategies for propensity overlap.</user_message>
+    <assistant_message>1. **Covariate Balance Assessment:** Examines standardized mean differences and variance ratios to ensure distributional similarity between treatment groups.
+2. **Common Support Verification:** Confirms sufficient overlap in the propensity score density to exclude units with extreme scores lacking comparable controls.</assistant_message>
+  </episode>
+  <episode turn="85" topic="topic_2" similarity="0.508532">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Briefly compare two validation strategies for propensity overlap.</user_message>
+    <assistant_message>1. **Covariate Balance Assessment:** Examines standardized mean differences and variance ratios to ensure distributional similarity between treatment groups.
+2. **Common Support Verification:** Confirms sufficient overlap in the propensity score density to exclude units with extreme scores lacking comparable controls.</assistant_message>
+  </episode>
+  <episode turn="88" topic="topic_2" similarity="0.508232">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Explain one failure mode involving missing covariates.</user_message>
+    <assistant_message>1. **Failure Mode:** Omitted confounders (e.g., socioeconomic status or comorbidity indices) induce residual confounding, leading to biased effect estimates where the exposure-outcome relationship is distorted by unmeasured associations.</assistant_message>
+  </episode>
+</retrieved_stm>
+
+<retrieved_ltm>
+  <episode turn="75" topic="topic_2" similarity="0.467176" distilled_id="578973d2-b2d6-56dc-9c39-a93bc454c18b" dream_event="83" event_type="transition" source_turns="75">
+    <user_message>Without repeating the values, explain in two sentences why the recorded specification and threshold matter to Aster Viaduct.</user_message>
+    <assistant_message>The steel specification ensures the deck possesses the required strength and ductility to withstand dynamic loads over the viaduct's long service life. The axle load threshold defines the strict limit for operational safety, ensuring that structural stress remains within the calculated capacity to prevent fatigue or yield failure.</assistant_message>
+  </episode>
+  <episode turn="40" topic="topic_2" similarity="0.443246" distilled_id="3d75d240-5532-5c69-a050-f8cbca264457" dream_event="83" event_type="transition" source_turns="40">
+    <user_message>Add two locked facts for Aster Viaduct: the technical specification is HPS 70W steel, and the decision threshold is 118.6 metric tons per axle. Restate only those two facts.</user_message>
+    <assistant_message>1. Technical Specification: HPS 70W steel
+2. Decision Threshold: 118.6 metric tons per axle</assistant_message>
+  </episode>
+</retrieved_ltm>
+
+<current_turn>
+  <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. State one practical quality-control check for competing risks.</user_message>
+</current_turn>
+
+Assistant:

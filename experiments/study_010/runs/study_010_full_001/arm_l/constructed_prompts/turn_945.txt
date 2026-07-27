@@ -1,0 +1,522 @@
+You are a concise technical research assistant. Preserve exact user-supplied project facts across long conversations. Keep non-probe answers brief.
+
+<pinned_rules/>
+
+<recent_context>
+  <episode turn="944" topic="topic_2">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. Briefly describe provenance documentation for microcracking.</user_message>
+    <assistant_message>1. **Provenance Documentation:** Record imaging modality (e.g., X-radiography, raking light), resolution settings, and conservation context for each microcrack detection event to ensure traceability of deterioration mapping and treatment history.</assistant_message>
+  </episode>
+  <episode turn="1" topic="topic_2">
+    <user_message>For our structural engineering case, lock these facts: the project is Aster Viaduct, led by Dr. Leena Ortiz, with the primary value 1,126 meters. Acknowledge the three facts in a concise numbered list.</user_message>
+    <assistant_message>1. Project: Aster Viaduct
+2. Lead: Dr. Leena Ortiz
+3. Primary Value: 1,126 meters</assistant_message>
+  </episode>
+  <episode turn="2" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Identify one measurement error affecting cable fatigue and its consequence.</user_message>
+    <assistant_message>1. **Error:** Misalignment in cable clamping torque (±5% deviation)
+2. **Consequence:** Premature micro-fracture initiation reducing fatigue life by 40%</assistant_message>
+  </episode>
+  <episode turn="3" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Briefly compare two validation strategies for seismic isolation.</user_message>
+    <assistant_message>1. **Experimental Shaking Table:** Validates full-system nonlinear dynamic response and hysteretic behavior under realistic ground motions but is limited by scale effects and high costs.
+2. **Numerical FEM Modeling:** Allows extensive parametric studies and precise component-level analysis but relies heavily on accurate material constitutive models and boundary condition assumptions.</assistant_message>
+  </episode>
+  <episode turn="4" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. State one practical quality-control check for deck torsion.</user_message>
+    <assistant_message>1. **Check:** Verify symmetry of deflection profiles during load tests to detect unintended torsional response.</assistant_message>
+  </episode>
+  <episode turn="5" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Give a short example of uncertainty reporting for bearing creep.</user_message>
+    <assistant_message>Report: Creep deformation = 12.4 ± 1.8 mm (95% CI).</assistant_message>
+  </episode>
+  <episode turn="6" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Explain one failure mode involving wind-tunnel scaling.</user_message>
+    <assistant_message>1. **Failure Mode:** Incorrect scaling of Reynolds number due to insufficient tunnel pressure, leading to inaccurate prediction of vortex shedding frequency and potential resonance risks not captured in scaled tests.</assistant_message>
+  </episode>
+  <episode turn="7" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Briefly describe provenance documentation for load combinations.</user_message>
+    <assistant_message>1.  **Provenance Documentation:** Record the specific load code references (e.g., AASHTO, Eurocode), source of environmental data, and calculation methodology used for each load combination case to ensure traceability and auditability.</assistant_message>
+  </episode>
+  <episode turn="8" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Name one sensitivity analysis for corrosion monitoring and its purpose.</user_message>
+    <assistant_message>1. **Analysis:** Parametric variation of chloride ingress rate in the predictive model
+2. **Purpose:** To quantify the impact of environmental uncertainty on the remaining service life and optimize inspection intervals.</assistant_message>
+  </episode>
+  <episode turn="9" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Explain aeroelastic flutter in two concise sentences.</user_message>
+    <assistant_message>Aeroelastic flutter is a self-excited, divergent oscillation arising from the coupling between aerodynamic, elastic, and inertial forces. It occurs when structural energy dissipation is negative, causing vibrations to amplify and potentially lead to catastrophic failure.</assistant_message>
+  </episode>
+</recent_context>
+
+<retrieved_stm>
+  <episode turn="369" topic="topic_3" similarity="0.625074">
+    <user_message>Add two locked facts for Orchid Corridor model: the technical specification is three-quarter lag rule, and the decision threshold is 1.8% inflation floor. Restate only those two facts.</user_message>
+    <assistant_message>1. Technical Specification: three-quarter lag rule
+2. Decision Threshold: 1.8% inflation floor</assistant_message>
+  </episode>
+  <episode turn="203" topic="topic_3" similarity="0.624847">
+    <user_message>Add two locked facts for Vellum Harbor Ledger: the technical specification is iron-gall ink, and the decision threshold is folio 184. Restate only those two facts.</user_message>
+    <assistant_message>1. Technical Specification: iron-gall ink
+2. Decision Threshold: folio 184</assistant_message>
+  </episode>
+  <episode turn="616" topic="topic_3" similarity="0.623110">
+    <user_message>Add two locked facts for Citrine Handshake: the technical specification is ML-KEM-768, and the decision threshold is 11.8 millisecond median latency. Restate only those two facts.</user_message>
+    <assistant_message>1. Technical Specification: ML-KEM-768
+2. Decision Threshold: 11.8 millisecond median latency</assistant_message>
+  </episode>
+  <episode turn="864" topic="topic_3" similarity="0.619675">
+    <user_message>Add two locked facts for Kestrel Rover: the technical specification is event-camera navigation, and the decision threshold is 8.5 centimeter obstacle clearance. Restate only those two facts.</user_message>
+    <assistant_message>1. Technical Specification: event-camera navigation
+2. Decision Threshold: 8.5 centimeter obstacle clearance</assistant_message>
+  </episode>
+  <episode turn="535" topic="topic_3" similarity="0.616310">
+    <user_message>Add two locked facts for Marrowfen Survey: the technical specification is Sphagnum palustre, and the decision threshold is 6.2 millimeters per year. Restate only those two facts.</user_message>
+    <assistant_message>1. Technical Specification: Sphagnum palustre
+2. Decision Threshold: 6.2 millimeters per year</assistant_message>
+  </episode>
+  <episode turn="782" topic="topic_3" similarity="0.604629">
+    <user_message>Add two locked facts for Sable Isogloss Atlas: the technical specification is retroflex lateral marker, and the decision threshold is AD 1180 divergence. Restate only those two facts.</user_message>
+    <assistant_message>1. Technical Specification: retroflex lateral marker
+2. Decision Threshold: AD 1180 divergence</assistant_message>
+  </episode>
+  <episode turn="40" topic="topic_2" similarity="0.587160">
+    <user_message>Add two locked facts for Aster Viaduct: the technical specification is HPS 70W steel, and the decision threshold is 118.6 metric tons per axle. Restate only those two facts.</user_message>
+    <assistant_message>1. Technical Specification: HPS 70W steel
+2. Decision Threshold: 118.6 metric tons per axle</assistant_message>
+  </episode>
+  <episode turn="122" topic="topic_3" similarity="0.579890">
+    <user_message>Add two locked facts for MERIDIAN-4 cohort: the technical specification is inverse-probability weighting, and the decision threshold is 1.7% annual incidence. Restate only those two facts.</user_message>
+    <assistant_message>1. Technical Specification: inverse-probability weighting
+2. Decision Threshold: 1.7% annual incidence</assistant_message>
+  </episode>
+  <episode turn="906" topic="topic_3" similarity="0.577397">
+    <user_message>For our materials conservation case, lock these facts: the project is Blue Atrium Mosaic, led by Dr. Omar Velasquez, with the primary value AD 612. Acknowledge the three facts in a concise numbered list.</user_message>
+    <assistant_message>1. Project: Blue Atrium Mosaic
+2. Lead: Dr. Omar Velasquez
+3. Primary Value: AD 612</assistant_message>
+  </episode>
+  <episode turn="698" topic="topic_3" similarity="0.575067">
+    <user_message>Add two locked facts for Pelican Rift Transect: the technical specification is 24-channel streamer, and the decision threshold is 3.6 centimeters per year. Restate only those two facts.</user_message>
+    <assistant_message>1. Technical Specification: 24-channel streamer
+2. Decision Threshold: 3.6 centimeters per year</assistant_message>
+  </episode>
+  <episode turn="288" topic="topic_3" similarity="0.566678">
+    <user_message>Add two locked facts for Northstar Cell: the technical specification is NMC811 cathode, and the decision threshold is 92% retention at 1,200 cycles. Restate only those two facts.</user_message>
+    <assistant_message>1. Technical Specification: NMC811 cathode
+2. Decision Threshold: 92% retention at 1,200 cycles</assistant_message>
+  </episode>
+  <episode turn="451" topic="topic_3" similarity="0.553457">
+    <user_message>Add two locked facts for Kepler Ridge Array: the technical specification is 1.42 GHz hydrogen line, and the decision threshold is 0.031 arcsecond resolution. Restate only those two facts.</user_message>
+    <assistant_message>1. Technical Specification: 1.42 GHz hydrogen line
+2. Decision Threshold: 0.031 arcsecond resolution</assistant_message>
+  </episode>
+</retrieved_stm>
+
+<retrieved_ltm>
+  <episode turn="659" topic="topic_3" similarity="0.559779" distilled_id="299b9666-3d54-53d0-8153-15351d67fabb" dream_event="660" event_type="transition" source_turns="659">
+    <user_message>For our marine geophysics case, lock these facts: the project is Pelican Rift Transect, led by Dr. Marta Quispe, with the primary value 4,860 meters depth. Acknowledge the three facts in a concise numbered list.</user_message>
+    <assistant_message>1. Project: Pelican Rift Transect
+2. Lead: Dr. Marta Quispe
+3. Primary Value: 4,860 meters depth</assistant_message>
+  </episode>
+  <episode turn="740" topic="topic_3" similarity="0.559779" distilled_id="75ef2aec-7039-5813-bc25-1a43edc4107e" dream_event="741" event_type="transition" source_turns="740">
+    <user_message>For our historical linguistics case, lock these facts: the project is Sable Isogloss Atlas, led by Professor Idris Chen, with the primary value 43 dialect sites. Acknowledge the three facts in a concise numbered list.</user_message>
+    <assistant_message>1. Project: Sable Isogloss Atlas
+2. Lead: Professor Idris Chen
+3. Primary Value: 43 dialect sites</assistant_message>
+  </episode>
+  <episode turn="330" topic="topic_3" similarity="0.559779" distilled_id="7a1aeb6d-39dd-5e69-bc1f-932ff72c6c45" dream_event="331" event_type="transition" source_turns="330">
+    <user_message>For our monetary economics case, lock these facts: the project is Orchid Corridor model, led by Dr. Sanae Morimoto, with the primary value 2.4% neutral rate. Acknowledge the three facts in a concise numbered list.</user_message>
+    <assistant_message>1. Project: Orchid Corridor model
+2. Lead: Dr. Sanae Morimoto
+3. Primary Value: 2.4% neutral rate</assistant_message>
+  </episode>
+  <episode turn="825" topic="topic_3" similarity="0.559779" distilled_id="5a22396d-ba85-574e-9d68-b8c92c44df6a" dream_event="826" event_type="transition" source_turns="825">
+    <user_message>For our field robotics case, lock these facts: the project is Kestrel Rover, led by Dr. Hana Petrov, with the primary value 14.2 kilometer range. Acknowledge the three facts in a concise numbered list.</user_message>
+    <assistant_message>1. Project: Kestrel Rover
+2. Lead: Dr. Hana Petrov
+3. Primary Value: 14.2 kilometer range</assistant_message>
+  </episode>
+  <episode turn="412" topic="topic_3" similarity="0.559779" distilled_id="62d239d3-97c2-58b6-9b38-c1909cbd486d" dream_event="413" event_type="transition" source_turns="412">
+    <user_message>For our observational astronomy case, lock these facts: the project is Kepler Ridge Array, led by Dr. Elias Varga, with the primary value 18.7 light-years. Acknowledge the three facts in a concise numbered list.</user_message>
+    <assistant_message>1. Project: Kepler Ridge Array
+2. Lead: Dr. Elias Varga
+3. Primary Value: 18.7 light-years</assistant_message>
+  </episode>
+  <episode turn="493" topic="topic_3" similarity="0.559779" distilled_id="cdbdad9e-78be-59ed-a978-9777ae6dad01" dream_event="494" event_type="transition" source_turns="493">
+    <user_message>For our wetland ecology case, lock these facts: the project is Marrowfen Survey, led by Dr. Nia Okafor, with the primary value 38 hectares. Acknowledge the three facts in a concise numbered list.</user_message>
+    <assistant_message>1. Project: Marrowfen Survey
+2. Lead: Dr. Nia Okafor
+3. Primary Value: 38 hectares</assistant_message>
+  </episode>
+  <episode turn="83" topic="topic_3" similarity="0.559779" distilled_id="cc850bdf-67cb-5ea1-89cf-f8fd496b7443" dream_event="158" event_type="transition" source_turns="83">
+    <user_message>For our clinical epidemiology case, lock these facts: the project is MERIDIAN-4 cohort, led by Dr. Tomas Ilyin, with the primary value 6,240 participants. Acknowledge the three facts in a concise numbered list.</user_message>
+    <assistant_message>1. Project: MERIDIAN-4 cohort
+2. Lead: Dr. Tomas Ilyin
+3. Primary Value: 6,240 participants</assistant_message>
+  </episode>
+  <episode turn="246" topic="topic_3" similarity="0.559779" distilled_id="5ac95360-2c94-59b6-aa69-4cb693b7f7af" dream_event="247" event_type="transition" source_turns="246">
+    <user_message>For our battery chemistry case, lock these facts: the project is Northstar Cell, led by Dr. Pavel Nwosu, with the primary value 4.35 volts. Acknowledge the three facts in a concise numbered list.</user_message>
+    <assistant_message>1. Project: Northstar Cell
+2. Lead: Dr. Pavel Nwosu
+3. Primary Value: 4.35 volts</assistant_message>
+  </episode>
+  <episode turn="164" topic="topic_3" similarity="0.559779" distilled_id="7e7d2d1b-3c74-5e47-b808-c7cd0e4b6dd4" dream_event="239" event_type="transition" source_turns="164">
+    <user_message>For our archival history case, lock these facts: the project is Vellum Harbor Ledger, led by Professor Amira Solano, with the primary value 1572. Acknowledge the three facts in a concise numbered list.</user_message>
+    <assistant_message>1. Project: Vellum Harbor Ledger
+2. Lead: Professor Amira Solano
+3. Primary Value: 1572</assistant_message>
+  </episode>
+  <episode turn="577" topic="topic_3" similarity="0.559779" distilled_id="dcbd97ce-466c-546b-81cb-117b6003e5a2" dream_event="578" event_type="transition" source_turns="577">
+    <user_message>For our applied cryptography case, lock these facts: the project is Citrine Handshake, led by Dr. Yuki Bhandari, with the primary value 192-bit security. Acknowledge the three facts in a concise numbered list.</user_message>
+    <assistant_message>1. Project: Citrine Handshake
+2. Lead: Dr. Yuki Bhandari
+3. Primary Value: 192-bit security</assistant_message>
+  </episode>
+  <episode turn="250" topic="topic_2" similarity="0.540526" distilled_id="55b81285-4e4a-5dcd-90c7-ec176bf46807" dream_event="288" event_type="transition" source_turns="250">
+    <user_message>For structural engineering, name the project and lead, then state the primary value, technical specification, and decision threshold exactly.</user_message>
+    <assistant_message>1. Project: Aster Viaduct
+2. Lead: Dr. Leena Ortiz
+3. Primary Value: 1,126 meters
+4. Technical Specification: HPS 70W steel
+5. Decision Threshold: 118.6 metric tons per axle</assistant_message>
+  </episode>
+  <episode turn="500" topic="topic_3" similarity="0.540526" distilled_id="7c47094f-e873-5440-97de-f1e451308096" dream_event="536" event_type="transition" source_turns="500">
+    <user_message>For structural engineering, name the project and lead, then state the primary value, technical specification, and decision threshold exactly.</user_message>
+    <assistant_message>1. Project: Aster Viaduct
+2. Lead: Dr. Leena Ortiz
+3. Primary Value: 1,126 meters
+4. Technical Specification: HPS 70W steel
+5. Decision Threshold: 118.6 metric tons per axle</assistant_message>
+  </episode>
+  <episode turn="750" topic="topic_3" similarity="0.540526" distilled_id="0e1a13c2-3816-5c0e-be42-99f808fa407d" dream_event="783" event_type="transition" source_turns="750">
+    <user_message>For structural engineering, name the project and lead, then state the primary value, technical specification, and decision threshold exactly.</user_message>
+    <assistant_message>1. Project: Aster Viaduct
+2. Lead: Dr. Leena Ortiz
+3. Primary Value: 1,126 meters
+4. Technical Specification: HPS 70W steel
+5. Decision Threshold: 118.6 metric tons per axle</assistant_message>
+  </episode>
+  <episode turn="291" topic="topic_2" similarity="0.535446" distilled_id="8e80f19c-d91a-519e-b8dd-4c5796937b0c" dream_event="323" event_type="transition" source_turns="291,299,307,315">
+    <user_message>Stay within the battery chemistry thread and do not connect it to other subjects. Briefly compare two validation strategies for particle cracking.</user_message>
+    <assistant_message>1. **FIB-SEM Tomography:** Provides high-resolution 3D imaging to quantify crack volume and connectivity within single particles, but suffers from small sampling volumes and artifacts from focused ion beam milling.
+2. **In-situ X-ray CT:** Enables real-time monitoring of crack initiation and propagation under electrochemical cycling for statistical representativeness, but is limited by lower spatial resolution and beam damage risks.</assistant_message>
+  </episode>
+  <episode turn="248" topic="topic_2" similarity="0.535446" distilled_id="12b69786-39ca-5260-af9b-9473bc846ae7" dream_event="288" event_type="transition" source_turns="248,259,267,275,283">
+    <user_message>Stay within the battery chemistry thread and do not connect it to other subjects. Briefly compare two validation strategies for particle cracking.</user_message>
+    <assistant_message>1. **FIB-SEM Tomography:** Provides high-resolution 3D imaging to quantify crack volume and connectivity within single particles, but suffers from small sampling volumes and artifacts from focused ion beam milling.
+2. **In-situ X-ray CT:** Enables real-time monitoring of crack initiation and propagation under electrochemical cycling for statistical representativeness, but is limited by lower spatial resolution and beam damage risks.</assistant_message>
+  </episode>
+  <episode turn="252" topic="topic_3" similarity="0.533543" distilled_id="5bd92ffd-1229-544a-9da9-353db387bb43" dream_event="289" event_type="transition" source_turns="252">
+    <user_message>Across the 4 subject areas discussed so far, list each locked project name. Do not omit earlier areas.</user_message>
+    <assistant_message>1. Aster Viaduct
+2. MERIDIAN-4 cohort
+3. Vellum Harbor Ledger
+4. Northstar Cell</assistant_message>
+  </episode>
+  <episode turn="495" topic="topic_2" similarity="0.527102" distilled_id="a650b1b1-4c86-51c6-a71e-a4776ff53372" dream_event="535" event_type="transition" source_turns="495,506,514,522,530">
+    <user_message>Stay within the wetland ecology thread and do not connect it to other subjects. Briefly compare two validation strategies for methane flux.</user_message>
+    <assistant_message>1. **Eddy Covariance:** Provides continuous, high-temporal-resolution measurements of actual turbulent gas exchange but requires complex post-processing to account for frequency attenuation and coordinate rotation errors.
+2. **Static Chambers:** Offer simpler deployment and lower costs for discrete point measurements but suffer from artificial chamber effects (e.g., pressure differentials, warming) that can bias flux rates and lack spatial representativeness.</assistant_message>
+  </episode>
+  <episode turn="538" topic="topic_2" similarity="0.527102" distilled_id="e2fc3d50-91d4-5446-bb61-a1843a66de77" dream_event="570" event_type="transition" source_turns="538,546,554,562">
+    <user_message>Stay within the wetland ecology thread and do not connect it to other subjects. Briefly compare two validation strategies for methane flux.</user_message>
+    <assistant_message>1. **Eddy Covariance:** Provides continuous, high-temporal-resolution measurements of actual turbulent gas exchange but requires complex post-processing to account for frequency attenuation and coordinate rotation errors.
+2. **Static Chambers:** Offer simpler deployment and lower costs for discrete point measurements but suffer from artificial chamber effects (e.g., pressure differentials, warming) that can bias flux rates and lack spatial representativeness.</assistant_message>
+  </episode>
+  <episode turn="742" topic="topic_2" similarity="0.526090" distilled_id="d7ff9cb0-ac67-5515-a527-ff075a43d217" dream_event="782" event_type="transition" source_turns="742,753,761,769,777">
+    <user_message>Stay within the historical linguistics thread and do not connect it to other subjects. Briefly compare two validation strategies for morphological leveling.</user_message>
+    <assistant_message>1. **Diachronic Corpus Analysis:** Examines frequency shifts of irregular versus regular forms across dated textual corpora to track the spread of analogical change, though it may be biased by register preservation in the surviving documents.
+2. **Synchronic Variationist Study:** Analyzes speech patterns across different age groups and social networks in living dialects to observe ongoing regularization processes, but relies on capturing sufficient naturalistic data to distinguish change from performance error.</assistant_message>
+  </episode>
+  <episode turn="785" topic="topic_2" similarity="0.526090" distilled_id="0bc91923-a6b6-566a-a76e-fefeaf555da9" dream_event="817" event_type="transition" source_turns="785,793,801,809">
+    <user_message>Stay within the historical linguistics thread and do not connect it to other subjects. Briefly compare two validation strategies for morphological leveling.</user_message>
+    <assistant_message>1. **Diachronic Corpus Analysis:** Examines frequency shifts of irregular versus regular forms across dated textual corpora to track the spread of analogical change, though it may be biased by register preservation in the surviving documents.
+2. **Synchronic Variationist Study:** Analyzes speech patterns across different age groups and social networks in living dialects to observe ongoing regularization processes, but relies on capturing sufficient naturalistic data to distinguish change from performance error.</assistant_message>
+  </episode>
+  <episode turn="502" topic="topic_3" similarity="0.523562" distilled_id="a220626d-1349-5b53-84cc-28656a64debd" dream_event="536" event_type="transition" source_turns="502">
+    <user_message>Across the 7 subject areas discussed so far, list each locked project name. Do not omit earlier areas.</user_message>
+    <assistant_message>1. Aster Viaduct
+2. MERIDIAN-4 cohort
+3. Vellum Harbor Ledger
+4. Northstar Cell
+5. Orchid Corridor model
+6. Kepler Ridge Array
+7. Marrowfen Survey</assistant_message>
+  </episode>
+  <episode turn="752" topic="topic_3" similarity="0.521155" distilled_id="d72b8e21-3a34-508e-843a-db5d82a19bf0" dream_event="783" event_type="transition" source_turns="752">
+    <user_message>Across the 10 subject areas discussed so far, list each locked project name. Do not omit earlier areas.</user_message>
+    <assistant_message>1. Aster Viaduct
+2. MERIDIAN-4 cohort
+3. Vellum Harbor Ledger
+4. Northstar Cell
+5. Orchid Corridor model
+6. Kepler Ridge Array
+7. Marrowfen Survey
+8. Citrine Handshake
+9. Pelican Rift Transect
+10. Sable Isogloss Atlas</assistant_message>
+  </episode>
+  <episode turn="75" topic="topic_2" similarity="0.513247" distilled_id="578973d2-b2d6-56dc-9c39-a93bc454c18b" dream_event="83" event_type="transition" source_turns="75">
+    <user_message>Without repeating the values, explain in two sentences why the recorded specification and threshold matter to Aster Viaduct.</user_message>
+    <assistant_message>The steel specification ensures the deck possesses the required strength and ductility to withstand dynamic loads over the viaduct's long service life. The axle load threshold defines the strict limit for operational safety, ensuring that structural stress remains within the calculated capacity to prevent fatigue or yield failure.</assistant_message>
+  </episode>
+  <episode turn="651" topic="topic_3" similarity="0.508403" distilled_id="b8e74f2e-2229-5264-a571-352cfd757a88" dream_event="652" event_type="transition" source_turns="651">
+    <user_message>Without repeating the values, explain in two sentences why the recorded specification and threshold matter to Citrine Handshake.</user_message>
+    <assistant_message>The ML-KEM-768 specification ensures the key encapsulation mechanism meets the required post-quantum security level, resisting attacks from classical and quantum adversaries. The median latency threshold guarantees the handshake remains performant within practical network constraints, preventing deployment delays or connection timeouts.</assistant_message>
+  </episode>
+  <episode turn="208" topic="topic_2" similarity="0.507909" distilled_id="9bf0eaf2-bba2-5114-aceb-2c3c2c5fcd7b" dream_event="238" event_type="transition" source_turns="208,216,224,232">
+    <user_message>Stay within the archival history thread and do not connect it to other subjects. Give a short example of uncertainty reporting for provenance gaps.</user_message>
+    <assistant_message>Report: Provenance confidence = 85% (missing dates: n=12, 19th C).</assistant_message>
+  </episode>
+  <episode turn="240" topic="topic_2" similarity="0.507909" distilled_id="8521817d-c555-51e4-8b05-19332f16fb56" dream_event="246" event_type="transition" source_turns="240">
+    <user_message>Stay within the archival history thread and do not connect it to other subjects. Give a short example of uncertainty reporting for provenance gaps.</user_message>
+    <assistant_message>Report: Provenance confidence = 85% (missing dates: n=12, 19th C).</assistant_message>
+  </episode>
+  <episode turn="168" topic="topic_2" similarity="0.507909" distilled_id="118cbf4c-dab1-5ed3-bed3-e9328778c3ae" dream_event="203" event_type="transition" source_turns="168,176,184,192,200">
+    <user_message>Stay within the archival history thread and do not connect it to other subjects. Give a short example of uncertainty reporting for provenance gaps.</user_message>
+    <assistant_message>Report: Provenance confidence = 85% (missing dates: n=12, 19th C).</assistant_message>
+  </episode>
+  <episode turn="243" topic="topic_2" similarity="0.507392" distilled_id="ba44f530-374a-5da7-8a29-f57d9c63c1be" dream_event="246" event_type="transition" source_turns="243">
+    <user_message>Stay within the archival history thread and do not connect it to other subjects. Name one sensitivity analysis for marginal annotations and its purpose.</user_message>
+    <assistant_message>1. **Analysis:** Varying the assumed scribal hand or date range for marginal additions.
+2. **Purpose:** To assess how changes in authorship or chronology interpretation affect the document's contextual meaning, authenticity assessment, and hierarchical relationship to the main text.</assistant_message>
+  </episode>
+  <episode turn="211" topic="topic_2" similarity="0.507392" distilled_id="51da55a4-55ca-56d5-885d-afbfef4bb2df" dream_event="238" event_type="transition" source_turns="211,219,227,235">
+    <user_message>Stay within the archival history thread and do not connect it to other subjects. Name one sensitivity analysis for marginal annotations and its purpose.</user_message>
+    <assistant_message>1. **Analysis:** Varying the assumed scribal hand or date range for marginal additions.
+2. **Purpose:** To assess how changes in authorship or chronology interpretation affect the document's contextual meaning, authenticity assessment, and hierarchical relationship to the main text.</assistant_message>
+  </episode>
+  <episode turn="171" topic="topic_2" similarity="0.507392" distilled_id="975dfbae-195f-586f-80b9-9cd0a185c042" dream_event="203" event_type="transition" source_turns="171,179,187,195">
+    <user_message>Stay within the archival history thread and do not connect it to other subjects. Name one sensitivity analysis for marginal annotations and its purpose.</user_message>
+    <assistant_message>1. **Analysis:** Varying the assumed scribal hand or date range for marginal additions.
+2. **Purpose:** To assess how changes in authorship or chronology interpretation affect the document's contextual meaning, authenticity assessment, and hierarchical relationship to the main text.</assistant_message>
+  </episode>
+  <episode turn="817" topic="topic_3" similarity="0.507236" distilled_id="63444869-5e79-54e8-bf0c-4ae297e992aa" dream_event="818" event_type="transition" source_turns="817">
+    <user_message>Without repeating the values, explain in two sentences why the recorded specification and threshold matter to Sable Isogloss Atlas.</user_message>
+    <assistant_message>The retroflex lateral marker specification provides a precise phonological criterion for delineating dialect boundaries, ensuring the isogloss map accurately reflects specific sound change phenomena rather than general lexical differences. The AD 1180 divergence threshold establishes a critical chronological boundary for tracing the separation of dialect groups, allowing for the temporal correlation of linguistic split events with historical demographic shifts.</assistant_message>
+  </episode>
+  <episode turn="419" topic="topic_2" similarity="0.506413" distilled_id="a432dd37-e59e-51f5-9462-5096ec204fd0" dream_event="451" event_type="transition" source_turns="419,427,435,443">
+    <user_message>Stay within the observational astronomy thread and do not connect it to other subjects. Name one sensitivity analysis for atmospheric seeing and its purpose.</user_message>
+    <assistant_message>1. **Analysis:** Varying the assumed Full Width at Half Maximum (FWHM) of the Point Spread Function (PSF) in photometric aperture models.
+2. **Purpose:** To quantify the impact of variable atmospheric turbulence on flux measurement errors, source confusion limits, and the reliability of detection thresholds.</assistant_message>
+  </episode>
+  <episode turn="491" topic="topic_2" similarity="0.506413" distilled_id="5cbad4f6-41b3-512f-9330-2401adbce22c" dream_event="493" event_type="transition" source_turns="491">
+    <user_message>Stay within the observational astronomy thread and do not connect it to other subjects. Name one sensitivity analysis for atmospheric seeing and its purpose.</user_message>
+    <assistant_message>1. **Analysis:** Varying the assumed Full Width at Half Maximum (FWHM) of the Point Spread Function (PSF) in photometric aperture models.
+2. **Purpose:** To quantify the impact of variable atmospheric turbulence on flux measurement errors, source confusion limits, and the reliability of detection thresholds.</assistant_message>
+  </episode>
+  <episode turn="459" topic="topic_2" similarity="0.506413" distilled_id="4250e667-1f6b-5d14-95a8-ca27c2c5ada2" dream_event="486" event_type="transition" source_turns="459,467,475,483">
+    <user_message>Stay within the observational astronomy thread and do not connect it to other subjects. Name one sensitivity analysis for atmospheric seeing and its purpose.</user_message>
+    <assistant_message>1. **Analysis:** Varying the assumed Full Width at Half Maximum (FWHM) of the Point Spread Function (PSF) in photometric aperture models.
+2. **Purpose:** To quantify the impact of variable atmospheric turbulence on flux measurement errors, source confusion limits, and the reliability of detection thresholds.</assistant_message>
+  </episode>
+  <episode turn="85" topic="topic_2" similarity="0.503693" distilled_id="27f30750-bf13-5c53-ab5b-f0b1eb6b58e7" dream_event="122" event_type="transition" source_turns="85,93,101,109,117">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Briefly compare two validation strategies for propensity overlap.</user_message>
+    <assistant_message>1. **Covariate Balance Assessment:** Examines standardized mean differences and variance ratios to ensure distributional similarity between treatment groups.
+2. **Common Support Verification:** Confirms sufficient overlap in the propensity score density to exclude units with extreme scores lacking comparable controls.</assistant_message>
+  </episode>
+  <episode turn="125" topic="topic_2" similarity="0.503693" distilled_id="072556b6-49ca-587e-95c0-c3d609e2ba36" dream_event="157" event_type="transition" source_turns="125,133,141,149">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Briefly compare two validation strategies for propensity overlap.</user_message>
+    <assistant_message>1. **Covariate Balance Assessment:** Examines standardized mean differences and variance ratios to ensure distributional similarity between treatment groups.
+2. **Common Support Verification:** Confirms sufficient overlap in the propensity score density to exclude units with extreme scores lacking comparable controls.</assistant_message>
+  </episode>
+  <episode turn="206" topic="topic_2" similarity="0.502046" distilled_id="6ef8910f-5d4f-59e0-b4dc-a73225e05244" dream_event="238" event_type="transition" source_turns="206,214,222,230">
+    <user_message>Stay within the archival history thread and do not connect it to other subjects. Briefly compare two validation strategies for scribal hands.</user_message>
+    <assistant_message>1. **Comparative Paleography:** Relies on expert visual analysis of letterforms and ligatures to establish stylistic consistency but is subjective and may misattribute variations due to aging or copying errors.
+2. **Digital Multispectral Imaging:** Uses spectral analysis to detect hidden strokes or corrections for objective comparison but requires high-resolution equipment and may struggle with faded or chemically altered inks.</assistant_message>
+  </episode>
+  <episode turn="166" topic="topic_2" similarity="0.502046" distilled_id="4fc74cf1-6625-58cc-841c-b321973b5b09" dream_event="203" event_type="transition" source_turns="166,174,182,190,198">
+    <user_message>Stay within the archival history thread and do not connect it to other subjects. Briefly compare two validation strategies for scribal hands.</user_message>
+    <assistant_message>1. **Comparative Paleography:** Relies on expert visual analysis of letterforms and ligatures to establish stylistic consistency but is subjective and may misattribute variations due to aging or copying errors.
+2. **Digital Multispectral Imaging:** Uses spectral analysis to detect hidden strokes or corrections for objective comparison but requires high-resolution equipment and may struggle with faded or chemically altered inks.</assistant_message>
+  </episode>
+  <episode turn="899" topic="topic_3" similarity="0.498376" distilled_id="4b2ee975-f52e-5473-9da9-7e3d52ddea89" dream_event="900" event_type="transition" source_turns="899">
+    <user_message>Without repeating the values, explain in two sentences why the recorded specification and threshold matter to Kestrel Rover.</user_message>
+    <assistant_message>The event-camera navigation specification enables high-dynamic-range perception, allowing the rover to maintain reliable state estimation in extreme lighting conditions where conventional cameras fail. The 8.5 cm obstacle clearance threshold defines the critical mechanical limit for safe traversal, triggering autonomous navigation adjustments to prevent chassis damage or immobilization in rough terrain.</assistant_message>
+  </episode>
+  <episode turn="872" topic="topic_2" similarity="0.498280" distilled_id="6436ed7e-a087-5dbc-9d5f-2c3bb305fc80" dream_event="899" event_type="transition" source_turns="872,880,888,896">
+    <user_message>Stay within the field robotics thread and do not connect it to other subjects. Name one sensitivity analysis for actuator backlash and its purpose.</user_message>
+    <assistant_message>1. **Analysis:** Varying the assumed backlash magnitude in the joint kinematic model
+2. **Purpose:** To quantify the impact of mechanical play on positioning accuracy and determine the required feedback loop gain to maintain trajectory tracking precision.</assistant_message>
+  </episode>
+  <episode turn="832" topic="topic_2" similarity="0.498280" distilled_id="d587900e-20c0-588b-93bf-1ffeecd3e2da" dream_event="864" event_type="transition" source_turns="832,840,848,856">
+    <user_message>Stay within the field robotics thread and do not connect it to other subjects. Name one sensitivity analysis for actuator backlash and its purpose.</user_message>
+    <assistant_message>1. **Analysis:** Varying the assumed backlash magnitude in the joint kinematic model
+2. **Purpose:** To quantify the impact of mechanical play on positioning accuracy and determine the required feedback loop gain to maintain trajectory tracking precision.</assistant_message>
+  </episode>
+  <episode turn="904" topic="topic_2" similarity="0.498280" distilled_id="976c3a56-f844-5203-a971-3e2017ea4f23" dream_event="906" event_type="transition" source_turns="904">
+    <user_message>Stay within the field robotics thread and do not connect it to other subjects. Name one sensitivity analysis for actuator backlash and its purpose.</user_message>
+    <assistant_message>1. **Analysis:** Varying the assumed backlash magnitude in the joint kinematic model
+2. **Purpose:** To quantify the impact of mechanical play on positioning accuracy and determine the required feedback loop gain to maintain trajectory tracking precision.</assistant_message>
+  </episode>
+  <episode turn="584" topic="topic_2" similarity="0.495057" distilled_id="3a55301f-0adb-5d17-8dfa-776ec35836dc" dream_event="616" event_type="transition" source_turns="584,592,600,608">
+    <user_message>Stay within the applied cryptography thread and do not connect it to other subjects. Name one sensitivity analysis for downgrade resistance and its purpose.</user_message>
+    <assistant_message>1. **Analysis:** Varying the assumed security strength of the classical key exchange component in the hybrid protocol.
+2. **Purpose:** To assess the robustness of the overall system against downgrade attacks where the post-quantum component is bypassed, ensuring security degrades gracefully rather than catastrophically.</assistant_message>
+  </episode>
+  <episode turn="624" topic="topic_2" similarity="0.495057" distilled_id="b6bcfd19-f48d-5cd2-8f5f-5f0912f49553" dream_event="651" event_type="transition" source_turns="624,632,640,648">
+    <user_message>Stay within the applied cryptography thread and do not connect it to other subjects. Name one sensitivity analysis for downgrade resistance and its purpose.</user_message>
+    <assistant_message>1. **Analysis:** Varying the assumed security strength of the classical key exchange component in the hybrid protocol.
+2. **Purpose:** To assess the robustness of the overall system against downgrade attacks where the post-quantum component is bypassed, ensuring security degrades gracefully rather than catastrophically.</assistant_message>
+  </episode>
+  <episode turn="656" topic="topic_2" similarity="0.495057" distilled_id="6a787631-b901-544f-a7aa-7554093adf35" dream_event="659" event_type="transition" source_turns="656">
+    <user_message>Stay within the applied cryptography thread and do not connect it to other subjects. Name one sensitivity analysis for downgrade resistance and its purpose.</user_message>
+    <assistant_message>1. **Analysis:** Varying the assumed security strength of the classical key exchange component in the hybrid protocol.
+2. **Purpose:** To assess the robustness of the overall system against downgrade attacks where the post-quantum component is bypassed, ensuring security degrades gracefully rather than catastrophically.</assistant_message>
+  </episode>
+  <episode turn="332" topic="topic_2" similarity="0.494917" distilled_id="b56528c4-f388-50db-8b2d-e4f2e4b07f7a" dream_event="369" event_type="transition" source_turns="332,340,348,356,364">
+    <user_message>Stay within the monetary economics thread and do not connect it to other subjects. Briefly compare two validation strategies for expectation anchoring.</user_message>
+    <assistant_message>1. **Survey-Based Measures:** Directly capture public inflation expectations but are limited by sample representativeness and potential measurement error in interpretation.
+2. **Market-Based Implied Rates:** Derived from financial instruments like breakeven inflation rates, offering real-time data but reflecting risk premiums and arbitrage rather than pure expectations.</assistant_message>
+  </episode>
+  <episode turn="372" topic="topic_2" similarity="0.494917" distilled_id="e65e48cf-6ae1-5112-ac2f-217961228f6a" dream_event="404" event_type="transition" source_turns="372,380,388,396">
+    <user_message>Stay within the monetary economics thread and do not connect it to other subjects. Briefly compare two validation strategies for expectation anchoring.</user_message>
+    <assistant_message>1. **Survey-Based Measures:** Directly capture public inflation expectations but are limited by sample representativeness and potential measurement error in interpretation.
+2. **Market-Based Implied Rates:** Derived from financial instruments like breakeven inflation rates, offering real-time data but reflecting risk premiums and arbitrage rather than pure expectations.</assistant_message>
+  </episode>
+  <episode turn="827" topic="topic_2" similarity="0.494637" distilled_id="14695c46-18ca-5252-bbcc-e4f73d9b8252" dream_event="864" event_type="transition" source_turns="827,835,843,851,859">
+    <user_message>Stay within the field robotics thread and do not connect it to other subjects. Briefly compare two validation strategies for loop closure.</user_message>
+    <assistant_message>1. **Visual Place Recognition:** Uses image-based feature matching to detect revisited locations, providing robustness to GPS-denied environments but is sensitive to changes in illumination, season, or occlusion.
+2. **LiDAR Scan Matching:** Aligns current laser scans with a stored map using geometric consistency, offering high precision and scale invariance but requires significant computational resources and is less effective in textureless or repetitive structures.</assistant_message>
+  </episode>
+  <episode turn="867" topic="topic_2" similarity="0.494637" distilled_id="870dd7b4-f148-5f37-9103-66a7b29dbc71" dream_event="899" event_type="transition" source_turns="867,875,883,891">
+    <user_message>Stay within the field robotics thread and do not connect it to other subjects. Briefly compare two validation strategies for loop closure.</user_message>
+    <assistant_message>1. **Visual Place Recognition:** Uses image-based feature matching to detect revisited locations, providing robustness to GPS-denied environments but is sensitive to changes in illumination, season, or occlusion.
+2. **LiDAR Scan Matching:** Aligns current laser scans with a stored map using geometric consistency, offering high precision and scale invariance but requires significant computational resources and is less effective in textureless or repetitive structures.</assistant_message>
+  </episode>
+  <episode turn="404" topic="topic_3" similarity="0.486975" distilled_id="457a1dc7-0673-5797-b354-10c99977262e" dream_event="405" event_type="transition" source_turns="404">
+    <user_message>Without repeating the values, explain in two sentences why the recorded specification and threshold matter to Orchid Corridor model.</user_message>
+    <assistant_message>The three-quarter lag rule specification ensures the model accurately reflects the delayed transmission mechanism of monetary policy, preventing premature adjustments based on contemporaneous data. The inflation floor threshold establishes the lower bound for policy normalization, providing a critical trigger for evaluating whether accommodative measures should be withdrawn or maintained.</assistant_message>
+  </episode>
+  <episode turn="661" topic="topic_2" similarity="0.485504" distilled_id="baf555e5-2627-548c-8d65-7209bde9b73c" dream_event="698" event_type="transition" source_turns="661,669,677,685,693">
+    <user_message>Stay within the marine geophysics thread and do not connect it to other subjects. Briefly compare two validation strategies for sediment velocity.</user_message>
+    <assistant_message>1. **In-situ Logging:** Uses tools like the Sea-SPOC to measure sound velocity continuously through the sediment column, providing high spatial resolution of the velocity profile but requiring invasive coring and careful sensor alignment.
+2. **Seismic Full-Waveform Inversion:** Derives velocity models from reflection data by matching synthetic to observed wavefields, offering non-invasive wide-area coverage but suffering from non-uniqueness issues and dependence on an accurate initial model.</assistant_message>
+  </episode>
+  <episode turn="701" topic="topic_2" similarity="0.485504" distilled_id="0ae0b0dc-0ccd-515c-8473-87c981b000ec" dream_event="733" event_type="transition" source_turns="701,709,717,725">
+    <user_message>Stay within the marine geophysics thread and do not connect it to other subjects. Briefly compare two validation strategies for sediment velocity.</user_message>
+    <assistant_message>1. **In-situ Logging:** Uses tools like the Sea-SPOC to measure sound velocity continuously through the sediment column, providing high spatial resolution of the velocity profile but requiring invasive coring and careful sensor alignment.
+2. **Seismic Full-Waveform Inversion:** Derives velocity models from reflection data by matching synthetic to observed wavefields, offering non-invasive wide-area coverage but suffering from non-uniqueness issues and dependence on an accurate initial model.</assistant_message>
+  </episode>
+  <episode turn="570" topic="topic_3" similarity="0.484834" distilled_id="6510188e-65ae-5e52-a641-29c0c0dec342" dream_event="571" event_type="transition" source_turns="570">
+    <user_message>Without repeating the values, explain in two sentences why the recorded specification and threshold matter to Marrowfen Survey.</user_message>
+    <assistant_message>The *Sphagnum palustre* specification defines the target peat-forming species, establishing the baseline vegetative conditions necessary for accurate carbon sequestration and hydrological modeling. The 6.2 mm/year threshold serves as a critical ecological benchmark, indicating the minimum peat accumulation rate required to maintain the wetland's water retention capacity and prevent mineral soil exposure.</assistant_message>
+  </episode>
+  <episode turn="666" topic="topic_2" similarity="0.483440" distilled_id="5f05f39f-bdc4-5cee-8a73-aa9f9c50c1d7" dream_event="698" event_type="transition" source_turns="666,674,682,690">
+    <user_message>Stay within the marine geophysics thread and do not connect it to other subjects. Name one sensitivity analysis for crustal spreading and its purpose.</user_message>
+    <assistant_message>1. **Analysis:** Varying the assumed half-spreading rate in magnetic anomaly correlation models.
+2. **Purpose:** To quantify how uncertainties in geochronology and anomaly identification propagate into estimates of lithosphere age and thermal maturity.</assistant_message>
+  </episode>
+  <episode turn="738" topic="topic_2" similarity="0.483440" distilled_id="ef28da1f-ad19-5fac-a901-99d8b8aeebac" dream_event="740" event_type="transition" source_turns="738">
+    <user_message>Stay within the marine geophysics thread and do not connect it to other subjects. Name one sensitivity analysis for crustal spreading and its purpose.</user_message>
+    <assistant_message>1. **Analysis:** Varying the assumed half-spreading rate in magnetic anomaly correlation models.
+2. **Purpose:** To quantify how uncertainties in geochronology and anomaly identification propagate into estimates of lithosphere age and thermal maturity.</assistant_message>
+  </episode>
+  <episode turn="706" topic="topic_2" similarity="0.483440" distilled_id="ea1b5731-b1c0-51a1-801d-d198ecd971ba" dream_event="733" event_type="transition" source_turns="706,714,722,730">
+    <user_message>Stay within the marine geophysics thread and do not connect it to other subjects. Name one sensitivity analysis for crustal spreading and its purpose.</user_message>
+    <assistant_message>1. **Analysis:** Varying the assumed half-spreading rate in magnetic anomaly correlation models.
+2. **Purpose:** To quantify how uncertainties in geochronology and anomaly identification propagate into estimates of lithosphere age and thermal maturity.</assistant_message>
+  </episode>
+  <episode turn="157" topic="topic_3" similarity="0.480067" distilled_id="6d9fb2ff-f04f-5016-a91d-a3822ff4fa81" dream_event="158" event_type="transition" source_turns="157">
+    <user_message>Without repeating the values, explain in two sentences why the recorded specification and threshold matter to MERIDIAN-4 cohort.</user_message>
+    <assistant_message>The inverse-probability weighting specification ensures that the cohort analysis appropriately accounts for selection bias, yielding unbiased estimates of treatment effects or associations. The decision threshold provides a critical benchmark for interpreting statistical significance, guiding whether observed incidence rates warrant clinical or public health interventions.</assistant_message>
+  </episode>
+  <episode turn="498" topic="topic_2" similarity="0.479978" distilled_id="66ced644-d1f6-5a62-a68a-3d087e18cb9f" dream_event="535" event_type="transition" source_turns="498,509,517,525,533">
+    <user_message>Stay within the wetland ecology thread and do not connect it to other subjects. Explain one failure mode involving hydrologic connectivity.</user_message>
+    <assistant_message>1. **Failure Mode:** Fragmentation of surface water flow paths due to invasive vegetation clogging or seasonal drawdown, isolating nutrient sources from processing zones.
+2. **Consequence:** Accumulation of localized eutrophication in disconnected pools and reduced overall wetland filtration capacity.</assistant_message>
+  </episode>
+  <episode turn="573" topic="topic_2" similarity="0.479978" distilled_id="2842aa1f-cbdb-5dbc-82d6-26f8d823a105" dream_event="577" event_type="transition" source_turns="573">
+    <user_message>Stay within the wetland ecology thread and do not connect it to other subjects. Explain one failure mode involving hydrologic connectivity.</user_message>
+    <assistant_message>1. **Failure Mode:** Fragmentation of surface water flow paths due to invasive vegetation clogging or seasonal drawdown, isolating nutrient sources from processing zones.
+2. **Consequence:** Accumulation of localized eutrophication in disconnected pools and reduced overall wetland filtration capacity.</assistant_message>
+  </episode>
+  <episode turn="541" topic="topic_2" similarity="0.479978" distilled_id="22792a08-90f1-5464-a361-021964c0fe21" dream_event="570" event_type="transition" source_turns="541,549,557,565">
+    <user_message>Stay within the wetland ecology thread and do not connect it to other subjects. Explain one failure mode involving hydrologic connectivity.</user_message>
+    <assistant_message>1. **Failure Mode:** Fragmentation of surface water flow paths due to invasive vegetation clogging or seasonal drawdown, isolating nutrient sources from processing zones.
+2. **Consequence:** Accumulation of localized eutrophication in disconnected pools and reduced overall wetland filtration capacity.</assistant_message>
+  </episode>
+  <episode turn="787" topic="topic_2" similarity="0.477017" distilled_id="166443b6-1c01-5753-aa35-76bf2668bbc5" dream_event="817" event_type="transition" source_turns="787,795,803,811">
+    <user_message>Stay within the historical linguistics thread and do not connect it to other subjects. Give a short example of uncertainty reporting for dated inscriptions.</user_message>
+    <assistant_message>Report: Dating confidence = 78% (missing terminal digit: 1, 2nd C CE).</assistant_message>
+  </episode>
+  <episode turn="744" topic="topic_2" similarity="0.477017" distilled_id="461e8924-056f-515d-8fbf-4af7a86d751e" dream_event="782" event_type="transition" source_turns="744,755,763,771,779">
+    <user_message>Stay within the historical linguistics thread and do not connect it to other subjects. Give a short example of uncertainty reporting for dated inscriptions.</user_message>
+    <assistant_message>Report: Dating confidence = 78% (missing terminal digit: 1, 2nd C CE).</assistant_message>
+  </episode>
+  <episode turn="819" topic="topic_2" similarity="0.477017" distilled_id="97d30a7a-62be-5f4a-8149-403c58fac59b" dream_event="825" event_type="transition" source_turns="819">
+    <user_message>Stay within the historical linguistics thread and do not connect it to other subjects. Give a short example of uncertainty reporting for dated inscriptions.</user_message>
+    <assistant_message>Report: Dating confidence = 78% (missing terminal digit: 1, 2nd C CE).</assistant_message>
+  </episode>
+  <episode turn="751" topic="topic_3" similarity="0.472216" distilled_id="02993d3f-baeb-51de-b93e-c426e6a82967" dream_event="783" event_type="transition" source_turns="751">
+    <user_message>For historical linguistics, name the project and lead, then state the primary value, technical specification, and decision threshold exactly.</user_message>
+    <assistant_message>1. Project: Sable Isogloss Atlas
+2. Lead: Professor Idris Chen
+3. Primary Value: 43 dialect sites
+4. Technical Specification: [Not provided in context]
+5. Decision Threshold: [Not provided in context]</assistant_message>
+  </episode>
+  <episode turn="238" topic="topic_3" similarity="0.472176" distilled_id="e9e541bb-0fb0-5fd0-8c20-5913cf9d99fe" dream_event="239" event_type="transition" source_turns="238">
+    <user_message>Without repeating the values, explain in two sentences why the recorded specification and threshold matter to Vellum Harbor Ledger.</user_message>
+    <assistant_message>The iron-gall ink specification is critical for assessing the document's chemical stability and potential acid degradation over time. The folio threshold provides a precise boundary for chronological or thematic analysis within the ledger, ensuring accurate data segmentation.</assistant_message>
+  </episode>
+  <episode turn="162" topic="topic_2" similarity="0.471928" distilled_id="60b4cf19-4c01-56d0-a155-be18564494bf" dream_event="164" event_type="transition" source_turns="162">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Name one sensitivity analysis for negative controls and its purpose.</user_message>
+    <assistant_message>1. **Analysis:** Varying the strength of the negative control exposure-outcome association.
+2. **Purpose:** To quantify the robustness of the primary causal estimate against residual confounding or bias mechanisms that the negative control is designed to capture.</assistant_message>
+  </episode>
+  <episode turn="130" topic="topic_2" similarity="0.471928" distilled_id="16f60939-5905-58d4-b3da-bc0427573147" dream_event="157" event_type="transition" source_turns="130,138,146,154">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Name one sensitivity analysis for negative controls and its purpose.</user_message>
+    <assistant_message>1. **Analysis:** Varying the strength of the negative control exposure-outcome association.
+2. **Purpose:** To quantify the robustness of the primary causal estimate against residual confounding or bias mechanisms that the negative control is designed to capture.</assistant_message>
+  </episode>
+  <episode turn="90" topic="topic_2" similarity="0.471928" distilled_id="14e98615-d551-52ee-b924-6d1ec9947e1b" dream_event="122" event_type="transition" source_turns="90,98,106,114">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Name one sensitivity analysis for negative controls and its purpose.</user_message>
+    <assistant_message>1. **Analysis:** Varying the strength of the negative control exposure-outcome association.
+2. **Purpose:** To quantify the robustness of the primary causal estimate against residual confounding or bias mechanisms that the negative control is designed to capture.</assistant_message>
+  </episode>
+  <episode turn="241" topic="topic_2" similarity="0.471244" distilled_id="c759ad4a-cae2-5e79-9976-d2bdfe653df1" dream_event="246" event_type="transition" source_turns="241">
+    <user_message>Stay within the archival history thread and do not connect it to other subjects. Explain one failure mode involving folio collation.</user_message>
+    <assistant_message>1. **Failure Mode:** Incorrect sequence reconstruction due to missing or misordered gatherings, causing narrative discontinuity and loss of textual context within the manuscript.</assistant_message>
+  </episode>
+  <episode turn="169" topic="topic_2" similarity="0.471244" distilled_id="db3d3041-8801-51e9-86b1-c979d117043c" dream_event="203" event_type="transition" source_turns="169,177,185,193,201">
+    <user_message>Stay within the archival history thread and do not connect it to other subjects. Explain one failure mode involving folio collation.</user_message>
+    <assistant_message>1. **Failure Mode:** Incorrect sequence reconstruction due to missing or misordered gatherings, causing narrative discontinuity and loss of textual context within the manuscript.</assistant_message>
+  </episode>
+  <episode turn="209" topic="topic_2" similarity="0.471244" distilled_id="ecf6aa2c-d33c-57ca-8d91-1dc93e9eb198" dream_event="238" event_type="transition" source_turns="209,217,225,233">
+    <user_message>Stay within the archival history thread and do not connect it to other subjects. Explain one failure mode involving folio collation.</user_message>
+    <assistant_message>1. **Failure Mode:** Incorrect sequence reconstruction due to missing or misordered gatherings, causing narrative discontinuity and loss of textual context within the manuscript.</assistant_message>
+  </episode>
+  <episode turn="733" topic="topic_3" similarity="0.469011" distilled_id="0f7c57f7-d899-5d0d-808a-d460dd284f4e" dream_event="734" event_type="transition" source_turns="733">
+    <user_message>Without repeating the values, explain in two sentences why the recorded specification and threshold matter to Pelican Rift Transect.</user_message>
+    <assistant_message>The 24-channel streamer specification determines the spatial sampling density and fold coverage, ensuring sufficient resolution to image complex rift structures and subsurface faulting. The 3.6 cm/year threshold defines the critical extension rate boundary, distinguishing active tectonic spreading zones from stable or inactive crustal segments for accurate geological modeling.</assistant_message>
+  </episode>
+  <episode turn="579" topic="topic_2" similarity="0.465835" distilled_id="8419ce3f-4c9b-5600-873f-42020c79e473" dream_event="616" event_type="transition" source_turns="579,587,595,603,611">
+    <user_message>Stay within the applied cryptography thread and do not connect it to other subjects. Briefly compare two validation strategies for nonce reuse.</user_message>
+    <assistant_message>1. **Cryptographic Verification:** Uses MACs or digital signatures to mathematically detect identical nonces, providing definitive proof of reuse but requiring secure storage of verification keys and state.
+2. **Stateful Tracking:** Maintains a local record of all used nonces to prevent generation of duplicates, ensuring uniqueness at the source but introducing storage overhead and complexity in distributed or multi-instance systems.</assistant_message>
+  </episode>
+  <episode turn="619" topic="topic_2" similarity="0.465835" distilled_id="8e8df8d6-9952-5926-805d-09eeca9ab156" dream_event="651" event_type="transition" source_turns="619,627,635,643">
+    <user_message>Stay within the applied cryptography thread and do not connect it to other subjects. Briefly compare two validation strategies for nonce reuse.</user_message>
+    <assistant_message>1. **Cryptographic Verification:** Uses MACs or digital signatures to mathematically detect identical nonces, providing definitive proof of reuse but requiring secure storage of verification keys and state.
+2. **Stateful Tracking:** Maintains a local record of all used nonces to prevent generation of duplicates, ensuring uniqueness at the source but introducing storage overhead and complexity in distributed or multi-instance systems.</assistant_message>
+  </episode>
+  <episode turn="575" topic="topic_2" similarity="0.462259" distilled_id="e92046e6-6146-5c6a-a940-2b40d369151a" dream_event="577" event_type="transition" source_turns="575">
+    <user_message>Stay within the wetland ecology thread and do not connect it to other subjects. Name one sensitivity analysis for invasive reeds and its purpose.</user_message>
+    <assistant_message>1. **Analysis:** Varying the assumed dispersal rate of invasive reed propagules in population dynamics models.
+2. **Purpose:** To evaluate the robustness of containment strategies against uncertainty in spread mechanisms and identify critical thresholds for intervention.</assistant_message>
+  </episode>
+  <episode turn="869" topic="topic_2" similarity="0.425870" distilled_id="b3cddca2-a501-5e78-97ae-434b2ebd39c8" dream_event="899" event_type="transition" source_turns="869,877,885,893">
+    <user_message>Stay within the field robotics thread and do not connect it to other subjects. Give a short example of uncertainty reporting for sensor fusion.</user_message>
+    <assistant_message>Report: Heading estimate = 45.2° ± 3.1° (95% CI).</assistant_message>
+  </episode>
+</retrieved_ltm>
+
+<current_turn>
+  <user_message>Add two locked facts for Blue Atrium Mosaic: the technical specification is calcium-caseinate grout, and the decision threshold is 42% relative humidity. Restate only those two facts.</user_message>
+</current_turn>
+
+Assistant:
