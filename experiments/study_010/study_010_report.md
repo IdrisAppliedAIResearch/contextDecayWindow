@@ -60,3 +60,17 @@ The next study must be a topic-architecture construction study against this
 frozen 1,000-turn replay. Candidate changes such as supervised boundary
 signals, adaptive assignment, or a different clustering objective must be
 registered as treatments rather than silently inserted into Study 010.
+
+## Post-Audit Addendum
+
+Amendment 003 incorporates the completed Study 009 audits without editing the
+locked registration or prior decisions. Study 009 Arm S is corrected from
+10.5/13.0 to 9.0/13.0, so L's same-seed advantage was 3.0 points. The
+duplication audit also found zero rendered LTM overlap with STM plus recency
+after containment dedup, and the baseline audit showed that K retrieval had
+already collapsed at the turn-120 breadth probe in Arm S.
+
+Accordingly, Study 010 is a proposed scale extension of an advantage already
+observed at 120 turns, not the first fair STM-versus-LTM comparison. These
+interpretive corrections do not affect the independent G2 failure or reopen
+the study.
