@@ -1,0 +1,53 @@
+{
+  "metadata": {
+    "locked": "2026-07-26",
+    "sources": [
+      "experiments/study_001/rubric_filled.md",
+      "experiments/study_002/rubric_filled.md",
+      "experiments/study_004/q14_criteria.md",
+      "experiments/study_005/script.json",
+      "experiments/study_005/q_facts_key.md",
+      "experiments/study_006/q_facts_key.md",
+      "experiments/study_007/q_facts_key.md",
+      "experiments/study_009/q_facts_key.md"
+    ],
+    "declaration": "Derived only from locked criteria, plant keys, and script text. No preserved answer text informed any variant."
+  },
+  "normalization": {
+    "unicode": "NFKD, remove combining marks",
+    "case": "casefold",
+    "dash": "normalize Unicode dashes to hyphen",
+    "whitespace": "collapse runs",
+    "punctuation": "ignored except decimal points and percent signs"
+  },
+  "facts": {
+    "civil_project": ["halcyon crossing"],
+    "civil_span": ["847", "847 meter", "847 meters", "847 m"],
+    "civil_engineer": ["dr anara bekova", "anara bekova"],
+    "civil_steel": ["s460ml", "s 460 ml"],
+    "civil_load": ["92.4", "92.4 metric tons per axle", "92.4 mt per axle"],
+    "art_title": ["the annunciation of forli", "annunciation of forli"],
+    "art_artist": ["melozzo da forli", "melozzo"],
+    "art_patron": ["cardinal giuliano della rovere", "giuliano della rovere"],
+    "art_year": ["1483"],
+    "art_ground": ["lead white ground", "lead-white ground"],
+    "art_glaze": ["ultramarine glaze", "ultramarine glaze layers"],
+    "art_patron_role": ["patron", "commissioned", "commissioner"],
+    "art_papal_identity": ["pope julius ii", "julius ii"],
+    "monetary_taylor": ["taylor rule"],
+    "monetary_taylor_year": ["1993"],
+    "monetary_fed": ["federal reserve", "the fed"],
+    "monetary_dual_mandate": ["dual mandate", "maximum employment and stable prices"],
+    "monetary_researcher": ["dr priya mehta", "priya mehta"],
+    "monetary_instrument": ["reverse repurchase", "reverse repurchase agreements", "rrp"],
+    "monetary_threshold": ["2.3%", "2.3 percent"],
+    "monetary_target": ["2%", "2 percent"],
+    "marine_species": ["vampyroteuthis infernalis", "vampire squid"],
+    "marine_researcher": ["dr kenji watanabe", "kenji watanabe"],
+    "marine_depth": ["600-900", "600 to 900", "600–900"],
+    "marine_photophores": ["photophore", "photophores"],
+    "marine_location": ["mantle margin", "along the mantle margin"],
+    "marine_feeding": ["marine snow particle aggregation", "marine snow"]
+  }
+}
+
