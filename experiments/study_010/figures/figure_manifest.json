@@ -1,0 +1,47 @@
+{
+  "generator": "scripts/generate_study_010_figures.py",
+  "formats": [
+    "SVG",
+    "PNG (300 dpi)"
+  ],
+  "outputs": [
+    "figure_01_terminal_score_decomposition.svg",
+    "figure_01_terminal_score_decomposition.png",
+    "figure_02_probe_score_matrix.svg",
+    "figure_02_probe_score_matrix.png",
+    "figure_03_context_trajectory.svg",
+    "figure_03_context_trajectory.png",
+    "figure_04_breadth_delivery_and_budget.svg",
+    "figure_04_breadth_delivery_and_budget.png"
+  ],
+  "sources": [
+    {
+      "path": "experiments/study_010/evaluation/rubric_scores.json",
+      "sha256": "535a40b812e6caf2989590909fc8e69b9bd5aaf46c3a44bed2a0bf20b5efdc09"
+    },
+    {
+      "path": "experiments/study_010/evaluation/sealed_mapping.json",
+      "sha256": "ee94e1a4f5885d5b69e048fc276175a41f4586c95b00c0097f15899d1e1ee7ce"
+    },
+    {
+      "path": "experiments/study_010/evaluation/probe_fact_order_audit.json",
+      "sha256": "6c8fb495828b3428a93807608eb504b014340158e5ad5cb9abf95e2b774b84cc"
+    },
+    {
+      "path": "experiments/study_010/evaluation/context_performance_curve.csv",
+      "sha256": "c0323ba2c75be54f978cf385f38822c587107f0ce7e1c2f9f03d74d7b83e678e"
+    },
+    {
+      "path": "experiments/study_010/evaluation/fact_delivery_matrix.csv",
+      "sha256": "4758c512b6f0eb165351f2c98e8e06d51dcc173e352d464ef6cfd131e437b974"
+    },
+    {
+      "path": "experiments/study_010/runs/study_010_full_001/arm_l/logs/retrieval_budget.csv",
+      "sha256": "b3cf452cfc81da4ad531e4484709606a46ec3b1deb0be6924e62249413dcfca7"
+    },
+    {
+      "path": "experiments/study_010/evaluation/bakeoff_t1_2_requirement.md",
+      "sha256": "125ab8d32b829af410dc54c7d96ff9b7506fb78dc498b54a5f0f5ef48056a5f9"
+    }
+  ]
+}
