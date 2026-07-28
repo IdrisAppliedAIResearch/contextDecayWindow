@@ -6,7 +6,12 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
 from dataclasses import dataclass
 
-from src.inference.provider import InferenceProvider, InferenceResult, RESPONSE_BUDGET
+from src.inference.provider import (
+    InferenceProvider,
+    InferenceResult,
+    RESPONSE_BUDGET,
+    RULE_DETECTION_INSTRUCTION,
+)
 
 
 @dataclass
@@ -115,6 +120,8 @@ class TestInferenceProviderEnvCheck:
 
         assert result.assistant_message == "ok"
         assert captured["max_tokens"] == RESPONSE_BUDGET
+        assert captured["prompt"] == "Test prompt"
+        assert RULE_DETECTION_INSTRUCTION not in captured["prompt"]
 
     def test_server_url_bypasses_local_model_path_requirement(self):
         saved_url = os.environ.get("CDW_INFERENCE_SERVER_URL")

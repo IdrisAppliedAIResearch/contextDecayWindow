@@ -1,0 +1,754 @@
+{
+  "study": "010",
+  "rater_pass": 2,
+  "calibration": {
+    "completed_before_real_responses_opened": true,
+    "results": [
+      {
+        "id": "C1",
+        "score": 0.0,
+        "key_score": 0.0,
+        "matched_key": true,
+        "rationale": "Only a reasoning block was present, so there was no scoreable final answer."
+      },
+      {
+        "id": "C2",
+        "score": 0.5,
+        "key_score": 0.5,
+        "matched_key": true,
+        "rationale": "Four of five targeted items were present."
+      },
+      {
+        "id": "C3",
+        "score": 1.0,
+        "key_score": 1.0,
+        "matched_key": true,
+        "rationale": "Four of five paired anchors were present, exactly meeting the 80% breadth threshold."
+      }
+    ],
+    "passed": true
+  },
+  "blindness_attestations": {
+    "calibration_passed_before_real_responses": true,
+    "arm_identity_unknown_during_scoring": true,
+    "sealed_mapping_opened": false,
+    "run_directories_opened": false,
+    "q_facts_key_opened": false,
+    "reports_opened": false,
+    "mechanism_logs_opened": false,
+    "other_rater_outputs_opened": false,
+    "scoring_sources": [
+      "AGENTS.md",
+      "experiments/audits/scoring_integrity/PROTOCOL_scoring_integrity.md",
+      "experiments/study_010/evaluation/rater_calibration.md",
+      "experiments/study_010/rubric_1000.md",
+      "experiments/study_010/evaluation/scoring_protocol.md",
+      "experiments/study_010/evaluation/arm_A/responses.md",
+      "experiments/study_010/evaluation/arm_B/responses.md"
+    ]
+  },
+  "arms": {
+    "arm_A": {
+      "items": [
+        {
+          "label": "I1",
+          "turn": 250,
+          "type": "targeted",
+          "primary": 1.0,
+          "strict": 1.0,
+          "rationale": "Found 5/5 targeted items.",
+          "expected_items_found": [
+            "Aster Viaduct",
+            "Dr. Leena Ortiz",
+            "1,126 meters",
+            "HPS 70W steel",
+            "118.6 metric tons per axle"
+          ]
+        },
+        {
+          "label": "I2",
+          "turn": 251,
+          "type": "targeted",
+          "primary": 0.5,
+          "strict": 0.5,
+          "rationale": "Found 3/5 targeted items.",
+          "expected_items_found": [
+            "Northstar Cell",
+            "Dr. Pavel Nwosu",
+            "4.35 volts"
+          ]
+        },
+        {
+          "label": "I3",
+          "turn": 252,
+          "type": "breadth",
+          "primary": 1.0,
+          "strict": 1.0,
+          "rationale": "Found 4/4 expected anchors (100%).",
+          "expected_items_found": [
+            "Aster Viaduct",
+            "MERIDIAN-4 cohort",
+            "Vellum Harbor Ledger",
+            "Northstar Cell"
+          ]
+        },
+        {
+          "label": "I4",
+          "turn": 500,
+          "type": "targeted",
+          "primary": 1.0,
+          "strict": 1.0,
+          "rationale": "Found 5/5 targeted items.",
+          "expected_items_found": [
+            "Aster Viaduct",
+            "Dr. Leena Ortiz",
+            "1,126 meters",
+            "HPS 70W steel",
+            "118.6 metric tons per axle"
+          ]
+        },
+        {
+          "label": "I5",
+          "turn": 501,
+          "type": "targeted",
+          "primary": 0.5,
+          "strict": 0.5,
+          "rationale": "Found 3/5 targeted items.",
+          "expected_items_found": [
+            "Marrowfen Survey",
+            "Dr. Nia Okafor",
+            "38 hectares"
+          ]
+        },
+        {
+          "label": "I6",
+          "turn": 502,
+          "type": "breadth",
+          "primary": 1.0,
+          "strict": 1.0,
+          "rationale": "Found 7/7 expected anchors (100%).",
+          "expected_items_found": [
+            "Aster Viaduct",
+            "MERIDIAN-4 cohort",
+            "Vellum Harbor Ledger",
+            "Northstar Cell",
+            "Orchid Corridor model",
+            "Kepler Ridge Array",
+            "Marrowfen Survey"
+          ]
+        },
+        {
+          "label": "I7",
+          "turn": 750,
+          "type": "targeted",
+          "primary": 1.0,
+          "strict": 1.0,
+          "rationale": "Found 5/5 targeted items.",
+          "expected_items_found": [
+            "Aster Viaduct",
+            "Dr. Leena Ortiz",
+            "1,126 meters",
+            "HPS 70W steel",
+            "118.6 metric tons per axle"
+          ]
+        },
+        {
+          "label": "I8",
+          "turn": 751,
+          "type": "targeted",
+          "primary": 0.5,
+          "strict": 0.5,
+          "rationale": "Found 3/5 targeted items.",
+          "expected_items_found": [
+            "Sable Isogloss Atlas",
+            "Professor Idris Chen",
+            "43 dialect sites"
+          ]
+        },
+        {
+          "label": "I9",
+          "turn": 752,
+          "type": "breadth",
+          "primary": 1.0,
+          "strict": 1.0,
+          "rationale": "Found 10/10 expected anchors (100%).",
+          "expected_items_found": [
+            "Aster Viaduct",
+            "MERIDIAN-4 cohort",
+            "Vellum Harbor Ledger",
+            "Northstar Cell",
+            "Orchid Corridor model",
+            "Kepler Ridge Array",
+            "Marrowfen Survey",
+            "Citrine Handshake",
+            "Pelican Rift Transect",
+            "Sable Isogloss Atlas"
+          ]
+        },
+        {
+          "label": "Q1",
+          "turn": 987,
+          "type": "targeted",
+          "primary": 1.0,
+          "strict": 1.0,
+          "rationale": "Found 5/5 targeted items.",
+          "expected_items_found": [
+            "Aster Viaduct",
+            "Dr. Leena Ortiz",
+            "1,126 meters",
+            "HPS 70W steel",
+            "118.6 metric tons per axle"
+          ]
+        },
+        {
+          "label": "Q2",
+          "turn": 988,
+          "type": "targeted",
+          "primary": 1.0,
+          "strict": 1.0,
+          "rationale": "Found 5/5 targeted items.",
+          "expected_items_found": [
+            "MERIDIAN-4 cohort",
+            "Dr. Tomas Ilyin",
+            "6,240 participants",
+            "inverse-probability weighting",
+            "1.7% annual incidence"
+          ]
+        },
+        {
+          "label": "Q3",
+          "turn": 989,
+          "type": "targeted",
+          "primary": 1.0,
+          "strict": 1.0,
+          "rationale": "Found 5/5 targeted items.",
+          "expected_items_found": [
+            "Vellum Harbor Ledger",
+            "Professor Amira Solano",
+            "1572",
+            "iron-gall ink",
+            "folio 184"
+          ]
+        },
+        {
+          "label": "Q4",
+          "turn": 990,
+          "type": "targeted",
+          "primary": 1.0,
+          "strict": 1.0,
+          "rationale": "Found 5/5 targeted items.",
+          "expected_items_found": [
+            "Northstar Cell",
+            "Dr. Pavel Nwosu",
+            "4.35 volts",
+            "NMC811 cathode",
+            "92% retention at 1,200 cycles"
+          ]
+        },
+        {
+          "label": "Q5",
+          "turn": 991,
+          "type": "targeted",
+          "primary": 1.0,
+          "strict": 1.0,
+          "rationale": "Found 5/5 targeted items.",
+          "expected_items_found": [
+            "Orchid Corridor model",
+            "Dr. Sanae Morimoto",
+            "2.4% neutral rate",
+            "three-quarter lag rule",
+            "1.8% inflation floor"
+          ]
+        },
+        {
+          "label": "Q6",
+          "turn": 992,
+          "type": "targeted",
+          "primary": 1.0,
+          "strict": 1.0,
+          "rationale": "Found 5/5 targeted items.",
+          "expected_items_found": [
+            "Kepler Ridge Array",
+            "Dr. Elias Varga",
+            "18.7 light-years",
+            "1.42 GHz hydrogen line",
+            "0.031 arcsecond resolution"
+          ]
+        },
+        {
+          "label": "Q7",
+          "turn": 993,
+          "type": "targeted",
+          "primary": 1.0,
+          "strict": 1.0,
+          "rationale": "Found 5/5 targeted items.",
+          "expected_items_found": [
+            "Marrowfen Survey",
+            "Dr. Nia Okafor",
+            "38 hectares",
+            "Sphagnum palustre",
+            "6.2 millimeters per year"
+          ]
+        },
+        {
+          "label": "Q8",
+          "turn": 994,
+          "type": "targeted",
+          "primary": 1.0,
+          "strict": 1.0,
+          "rationale": "Found 5/5 targeted items.",
+          "expected_items_found": [
+            "Citrine Handshake",
+            "Dr. Yuki Bhandari",
+            "192-bit security",
+            "ML-KEM-768",
+            "11.8 millisecond median latency"
+          ]
+        },
+        {
+          "label": "Q9",
+          "turn": 995,
+          "type": "targeted",
+          "primary": 1.0,
+          "strict": 1.0,
+          "rationale": "Found 5/5 targeted items.",
+          "expected_items_found": [
+            "Pelican Rift Transect",
+            "Dr. Marta Quispe",
+            "4,860 meters depth",
+            "24-channel streamer",
+            "3.6 centimeters per year"
+          ]
+        },
+        {
+          "label": "Q10",
+          "turn": 996,
+          "type": "targeted",
+          "primary": 1.0,
+          "strict": 1.0,
+          "rationale": "Found 5/5 targeted items.",
+          "expected_items_found": [
+            "Sable Isogloss Atlas",
+            "Professor Idris Chen",
+            "43 dialect sites",
+            "retroflex lateral marker",
+            "AD 1180 divergence"
+          ]
+        },
+        {
+          "label": "Q11",
+          "turn": 997,
+          "type": "targeted",
+          "primary": 1.0,
+          "strict": 1.0,
+          "rationale": "Found 5/5 targeted items.",
+          "expected_items_found": [
+            "Kestrel Rover",
+            "Dr. Hana Petrov",
+            "14.2 kilometer range",
+            "event-camera navigation",
+            "8.5 centimeter obstacle clearance"
+          ]
+        },
+        {
+          "label": "Q12",
+          "turn": 998,
+          "type": "targeted",
+          "primary": 1.0,
+          "strict": 1.0,
+          "rationale": "Found 5/5 targeted items.",
+          "expected_items_found": [
+            "Blue Atrium Mosaic",
+            "Dr. Omar Velasquez",
+            "AD 612",
+            "calcium-caseinate grout",
+            "42% relative humidity"
+          ]
+        },
+        {
+          "label": "Q13",
+          "turn": 999,
+          "type": "breadth",
+          "primary": 1.0,
+          "strict": 1.0,
+          "rationale": "Found 12/12 expected paired anchors (100%).",
+          "expected_items_found": [
+            "Aster Viaduct + 1,126 meters",
+            "MERIDIAN-4 cohort + 6,240 participants",
+            "Vellum Harbor Ledger + 1572",
+            "Northstar Cell + 4.35 volts",
+            "Orchid Corridor model + 2.4% neutral rate",
+            "Kepler Ridge Array + 18.7 light-years",
+            "Marrowfen Survey + 38 hectares",
+            "Citrine Handshake + 192-bit security",
+            "Pelican Rift Transect + 4,860 meters depth",
+            "Sable Isogloss Atlas + 43 dialect sites",
+            "Kestrel Rover + 14.2 kilometer range",
+            "Blue Atrium Mosaic + AD 612"
+          ]
+        },
+        {
+          "label": "Q14",
+          "turn": 1000,
+          "type": "breadth",
+          "primary": 1.0,
+          "strict": 1.0,
+          "rationale": "Found 12/12 expected paired anchors (100%).",
+          "expected_items_found": [
+            "Aster Viaduct + Dr. Leena Ortiz",
+            "MERIDIAN-4 cohort + Dr. Tomas Ilyin",
+            "Vellum Harbor Ledger + Professor Amira Solano",
+            "Northstar Cell + Dr. Pavel Nwosu",
+            "Orchid Corridor model + Dr. Sanae Morimoto",
+            "Kepler Ridge Array + Dr. Elias Varga",
+            "Marrowfen Survey + Dr. Nia Okafor",
+            "Citrine Handshake + Dr. Yuki Bhandari",
+            "Pelican Rift Transect + Dr. Marta Quispe",
+            "Sable Isogloss Atlas + Professor Idris Chen",
+            "Kestrel Rover + Dr. Hana Petrov",
+            "Blue Atrium Mosaic + Dr. Omar Velasquez"
+          ]
+        }
+      ],
+      "summary": {
+        "item_count": 23,
+        "primary_total": 21.5,
+        "strict_total": 21.5
+      }
+    },
+    "arm_B": {
+      "items": [
+        {
+          "label": "I1",
+          "turn": 250,
+          "type": "targeted",
+          "primary": 1.0,
+          "strict": 1.0,
+          "rationale": "Found 5/5 targeted items.",
+          "expected_items_found": [
+            "Aster Viaduct",
+            "Dr. Leena Ortiz",
+            "1,126 meters",
+            "HPS 70W steel",
+            "118.6 metric tons per axle"
+          ]
+        },
+        {
+          "label": "I2",
+          "turn": 251,
+          "type": "targeted",
+          "primary": 0.5,
+          "strict": 0.5,
+          "rationale": "Found 3/5 targeted items.",
+          "expected_items_found": [
+            "Northstar Cell",
+            "Dr. Pavel Nwosu",
+            "4.35 volts"
+          ]
+        },
+        {
+          "label": "I3",
+          "turn": 252,
+          "type": "breadth",
+          "primary": 0.0,
+          "strict": 0.0,
+          "rationale": "Found 2/4 expected anchors (50%), below the 60% threshold.",
+          "expected_items_found": [
+            "Aster Viaduct",
+            "Northstar Cell"
+          ]
+        },
+        {
+          "label": "I4",
+          "turn": 500,
+          "type": "targeted",
+          "primary": 1.0,
+          "strict": 1.0,
+          "rationale": "Found 5/5 targeted items.",
+          "expected_items_found": [
+            "Aster Viaduct",
+            "Dr. Leena Ortiz",
+            "1,126 meters",
+            "HPS 70W steel",
+            "118.6 metric tons per axle"
+          ]
+        },
+        {
+          "label": "I5",
+          "turn": 501,
+          "type": "targeted",
+          "primary": 0.5,
+          "strict": 0.5,
+          "rationale": "Found 3/5 targeted items.",
+          "expected_items_found": [
+            "Marrowfen Survey",
+            "Dr. Nia Okafor",
+            "38 hectares"
+          ]
+        },
+        {
+          "label": "I6",
+          "turn": 502,
+          "type": "breadth",
+          "primary": 0.0,
+          "strict": 0.0,
+          "rationale": "Found 3/7 expected anchors (42.9%), below the 60% threshold.",
+          "expected_items_found": [
+            "Aster Viaduct",
+            "Northstar Cell",
+            "Marrowfen Survey"
+          ]
+        },
+        {
+          "label": "I7",
+          "turn": 750,
+          "type": "targeted",
+          "primary": 1.0,
+          "strict": 1.0,
+          "rationale": "Found 5/5 targeted items.",
+          "expected_items_found": [
+            "Aster Viaduct",
+            "Dr. Leena Ortiz",
+            "1,126 meters",
+            "HPS 70W steel",
+            "118.6 metric tons per axle"
+          ]
+        },
+        {
+          "label": "I8",
+          "turn": 751,
+          "type": "targeted",
+          "primary": 0.5,
+          "strict": 0.5,
+          "rationale": "Found 3/5 targeted items.",
+          "expected_items_found": [
+            "Sable Isogloss Atlas",
+            "Professor Idris Chen",
+            "43 dialect sites"
+          ]
+        },
+        {
+          "label": "I9",
+          "turn": 752,
+          "type": "breadth",
+          "primary": 0.0,
+          "strict": 0.0,
+          "rationale": "Found 4/10 expected anchors (40%), below the 60% threshold.",
+          "expected_items_found": [
+            "Aster Viaduct",
+            "Northstar Cell",
+            "Marrowfen Survey",
+            "Sable Isogloss Atlas"
+          ]
+        },
+        {
+          "label": "Q1",
+          "turn": 987,
+          "type": "targeted",
+          "primary": 1.0,
+          "strict": 1.0,
+          "rationale": "Found 5/5 targeted items.",
+          "expected_items_found": [
+            "Aster Viaduct",
+            "Dr. Leena Ortiz",
+            "1,126 meters",
+            "HPS 70W steel",
+            "118.6 metric tons per axle"
+          ]
+        },
+        {
+          "label": "Q2",
+          "turn": 988,
+          "type": "targeted",
+          "primary": 1.0,
+          "strict": 1.0,
+          "rationale": "Found 5/5 targeted items.",
+          "expected_items_found": [
+            "MERIDIAN-4 cohort",
+            "Dr. Tomas Ilyin",
+            "6,240 participants",
+            "inverse-probability weighting",
+            "1.7% annual incidence"
+          ]
+        },
+        {
+          "label": "Q3",
+          "turn": 989,
+          "type": "targeted",
+          "primary": 1.0,
+          "strict": 1.0,
+          "rationale": "Found 5/5 targeted items.",
+          "expected_items_found": [
+            "Vellum Harbor Ledger",
+            "Professor Amira Solano",
+            "1572",
+            "iron-gall ink",
+            "folio 184"
+          ]
+        },
+        {
+          "label": "Q4",
+          "turn": 990,
+          "type": "targeted",
+          "primary": 1.0,
+          "strict": 1.0,
+          "rationale": "Found 5/5 targeted items.",
+          "expected_items_found": [
+            "Northstar Cell",
+            "Dr. Pavel Nwosu",
+            "4.35 volts",
+            "NMC811 cathode",
+            "92% retention at 1,200 cycles"
+          ]
+        },
+        {
+          "label": "Q5",
+          "turn": 991,
+          "type": "targeted",
+          "primary": 1.0,
+          "strict": 1.0,
+          "rationale": "Found 5/5 targeted items.",
+          "expected_items_found": [
+            "Orchid Corridor model",
+            "Dr. Sanae Morimoto",
+            "2.4% neutral rate",
+            "three-quarter lag rule",
+            "1.8% inflation floor"
+          ]
+        },
+        {
+          "label": "Q6",
+          "turn": 992,
+          "type": "targeted",
+          "primary": 1.0,
+          "strict": 1.0,
+          "rationale": "Found 5/5 targeted items.",
+          "expected_items_found": [
+            "Kepler Ridge Array",
+            "Dr. Elias Varga",
+            "18.7 light-years",
+            "1.42 GHz hydrogen line",
+            "0.031 arcsecond resolution"
+          ]
+        },
+        {
+          "label": "Q7",
+          "turn": 993,
+          "type": "targeted",
+          "primary": 1.0,
+          "strict": 1.0,
+          "rationale": "Found 5/5 targeted items.",
+          "expected_items_found": [
+            "Marrowfen Survey",
+            "Dr. Nia Okafor",
+            "38 hectares",
+            "Sphagnum palustre",
+            "6.2 millimeters per year"
+          ]
+        },
+        {
+          "label": "Q8",
+          "turn": 994,
+          "type": "targeted",
+          "primary": 1.0,
+          "strict": 1.0,
+          "rationale": "Found 5/5 targeted items.",
+          "expected_items_found": [
+            "Citrine Handshake",
+            "Dr. Yuki Bhandari",
+            "192-bit security",
+            "ML-KEM-768",
+            "11.8 millisecond median latency"
+          ]
+        },
+        {
+          "label": "Q9",
+          "turn": 995,
+          "type": "targeted",
+          "primary": 1.0,
+          "strict": 1.0,
+          "rationale": "Found 5/5 targeted items.",
+          "expected_items_found": [
+            "Pelican Rift Transect",
+            "Dr. Marta Quispe",
+            "4,860 meters depth",
+            "24-channel streamer",
+            "3.6 centimeters per year"
+          ]
+        },
+        {
+          "label": "Q10",
+          "turn": 996,
+          "type": "targeted",
+          "primary": 1.0,
+          "strict": 1.0,
+          "rationale": "Found 5/5 targeted items.",
+          "expected_items_found": [
+            "Sable Isogloss Atlas",
+            "Professor Idris Chen",
+            "43 dialect sites",
+            "retroflex lateral marker",
+            "AD 1180 divergence"
+          ]
+        },
+        {
+          "label": "Q11",
+          "turn": 997,
+          "type": "targeted",
+          "primary": 1.0,
+          "strict": 1.0,
+          "rationale": "Found 5/5 targeted items.",
+          "expected_items_found": [
+            "Kestrel Rover",
+            "Dr. Hana Petrov",
+            "14.2 kilometer range",
+            "event-camera navigation",
+            "8.5 centimeter obstacle clearance"
+          ]
+        },
+        {
+          "label": "Q12",
+          "turn": 998,
+          "type": "targeted",
+          "primary": 1.0,
+          "strict": 1.0,
+          "rationale": "Found 5/5 targeted items.",
+          "expected_items_found": [
+            "Blue Atrium Mosaic",
+            "Dr. Omar Velasquez",
+            "AD 612",
+            "calcium-caseinate grout",
+            "42% relative humidity"
+          ]
+        },
+        {
+          "label": "Q13",
+          "turn": 999,
+          "type": "breadth",
+          "primary": 0.0,
+          "strict": 0.0,
+          "rationale": "Found 1/12 expected paired anchors (8.3%), below the 60% threshold.",
+          "expected_items_found": [
+            "Aster Viaduct + 1,126 meters"
+          ]
+        },
+        {
+          "label": "Q14",
+          "turn": 1000,
+          "type": "breadth",
+          "primary": 0.0,
+          "strict": 0.0,
+          "rationale": "Found 1/12 expected paired anchors (8.3%), below the 60% threshold.",
+          "expected_items_found": [
+            "Aster Viaduct + Dr. Leena Ortiz"
+          ]
+        }
+      ],
+      "summary": {
+        "item_count": 23,
+        "primary_total": 16.5,
+        "strict_total": 16.5
+      }
+    }
+  }
+}

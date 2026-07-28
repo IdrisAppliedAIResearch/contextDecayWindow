@@ -1,0 +1,191 @@
+You are a concise technical research assistant. Preserve exact user-supplied project facts across long conversations. Keep non-probe answers brief.
+
+<pinned_rules/>
+
+<recent_context>
+  <episode turn="722" topic="topic_2">
+    <user_message>Stay within the marine geophysics thread and do not connect it to other subjects. Name one sensitivity analysis for crustal spreading and its purpose.</user_message>
+    <assistant_message>1. Sensitivity Analysis: Varying the assumed spreading rate or half-rate symmetry in age-depth models to assess their impact on derived crustal thickness and subsidence curves.
+2. Purpose: To quantify how uncertainties in plate kinematic parameters affect interpretations of thermal evolution and lithospheric flexure, ensuring robust geological reconstructions.</assistant_message>
+  </episode>
+  <episode turn="1" topic="topic_2">
+    <user_message>For our structural engineering case, lock these facts: the project is Aster Viaduct, led by Dr. Leena Ortiz, with the primary value 1,126 meters. Acknowledge the three facts in a concise numbered list.</user_message>
+    <assistant_message>1. Project: Aster Viaduct
+2. Lead: Dr. Leena Ortiz
+3. Primary Value: 1,126 meters</assistant_message>
+  </episode>
+  <episode turn="2" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Identify one measurement error affecting cable fatigue and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Inaccurate tensioning calibration during installation can lead to non-uniform load distribution across cables.
+2. Consequence: This imbalance accelerates high-cycle fatigue failure in the overstressed strands, reducing the structure's service life and compromising safety.</assistant_message>
+  </episode>
+  <episode turn="3" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Briefly compare two validation strategies for seismic isolation.</user_message>
+    <assistant_message>1. **Physical Shake Table Testing**: Validates full-scale prototype behavior under controlled seismic inputs, capturing non-linear interactions and hysteresis, but is costly and logistically complex.
+2. **Numerical Simulation**: Uses finite element models to predict performance under varied scenarios efficiently, but relies heavily on accurate material input data and boundary condition assumptions.</assistant_message>
+  </episode>
+  <episode turn="4" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. State one practical quality-control check for deck torsion.</user_message>
+    <assistant_message>1. Practical Quality-Control Check: Use high-precision total stations to measure relative elevation differences between opposite deck edges during casting or placement, ensuring torsional warping remains within specified tolerance limits.</assistant_message>
+  </episode>
+  <episode turn="5" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Give a short example of uncertainty reporting for bearing creep.</user_message>
+    <assistant_message>Report bearing creep as a mean value with a confidence interval (e.g., $\mu \pm 2\sigma$), derived from long-term monotonic testing, to quantify dispersion and model reliability.</assistant_message>
+  </episode>
+  <episode turn="6" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Explain one failure mode involving wind-tunnel scaling.</user_message>
+    <assistant_message>Scaling discrepancies in Reynolds number between wind-tunnel models and full-scale structures can cause boundary layer separation characteristics to differ, leading to inaccurate prediction of vortex shedding and dynamic wind loads.</assistant_message>
+  </episode>
+  <episode turn="7" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Briefly describe provenance documentation for load combinations.</user_message>
+    <assistant_message>Provenance documentation for load combinations involves explicitly citing the governing design codes, specific equations, and environmental data sources (e.g., wind or snow maps) used to derive each load factor, ensuring traceability from final design values back to original standards and assumptions.</assistant_message>
+  </episode>
+  <episode turn="8" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Name one sensitivity analysis for corrosion monitoring and its purpose.</user_message>
+    <assistant_message>1. Sensitivity Analysis: Varying the corrosion rate input in finite element models to assess its impact on residual load-bearing capacity.
+2. Purpose: To identify the threshold at which section loss critically compromises structural safety, thereby optimizing inspection intervals and maintenance prioritization.</assistant_message>
+  </episode>
+  <episode turn="9" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Explain aeroelastic flutter in two concise sentences.</user_message>
+    <assistant_message>Aeroelastic flutter is a self-excited, divergent oscillation caused by the coupling of aerodynamic forces with a structure's elastic and inertial properties. This instability occurs when energy extraction from the airflow exceeds structural damping, leading to rapid, potentially catastrophic failure.</assistant_message>
+  </episode>
+</recent_context>
+
+<retrieved_stm>
+  <episode turn="660" topic="topic_2" similarity="0.529458">
+    <user_message>Stay within the marine geophysics thread and do not connect it to other subjects. Identify one measurement error affecting bathymetric correction and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Inaccurate sound velocity profiling (SVP) due to unmeasured temperature, salinity, or pressure gradients causes incorrect refraction modeling of acoustic pulses.
+2. Consequence: This results in vertical positioning errors where seabed points are misplaced depth-wise, leading to distorted bathymetric maps and erroneous terrain derivative calculations.</assistant_message>
+  </episode>
+  <episode turn="664" topic="topic_2" similarity="0.504790">
+    <user_message>Stay within the marine geophysics thread and do not connect it to other subjects. Explain one failure mode involving navigation drift.</user_message>
+    <assistant_message>Navigation drift causes cumulative positioning errors in seismic data acquisition, leading to incorrect spatial alignment of subsurface images. This misalignment manifests as migration artifacts and discontinuous reflectors, degrading the resolution and interpretability of the final geophysical model.</assistant_message>
+  </episode>
+  <episode turn="666" topic="topic_2" similarity="0.512433">
+    <user_message>Stay within the marine geophysics thread and do not connect it to other subjects. Name one sensitivity analysis for crustal spreading and its purpose.</user_message>
+    <assistant_message>1. Sensitivity Analysis: Varying the assumed spreading rate or half-rate symmetry in age-depth models to assess their impact on derived crustal thickness and subsidence curves.
+2. Purpose: To quantify how uncertainties in plate kinematic parameters affect interpretations of thermal evolution and lithospheric flexure, ensuring robust geological reconstructions.</assistant_message>
+  </episode>
+  <episode turn="667" topic="topic_2" similarity="0.762570">
+    <user_message>Stay within the marine geophysics thread and do not connect it to other subjects. Explain seismic refraction in two concise sentences.</user_message>
+    <assistant_message>Seismic refraction analyzes the travel times of refracted body waves that propagate along subsurface layer boundaries at critical angles. By interpreting velocity contrasts and intercept times, geophysicists map the depth to bedrock or identify shallow geological structures.</assistant_message>
+  </episode>
+  <episode turn="668" topic="topic_2" similarity="0.529458">
+    <user_message>Stay within the marine geophysics thread and do not connect it to other subjects. Identify one measurement error affecting bathymetric correction and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Inaccurate sound velocity profiling (SVP) due to unmeasured temperature, salinity, or pressure gradients causes incorrect refraction modeling of acoustic pulses.
+2. Consequence: This results in vertical positioning errors where seabed points are misplaced depth-wise, leading to distorted bathymetric maps and erroneous terrain derivative calculations.</assistant_message>
+  </episode>
+  <episode turn="672" topic="topic_2" similarity="0.504790">
+    <user_message>Stay within the marine geophysics thread and do not connect it to other subjects. Explain one failure mode involving navigation drift.</user_message>
+    <assistant_message>Navigation drift causes cumulative positioning errors in seismic data acquisition, leading to incorrect spatial alignment of subsurface images. This misalignment manifests as migration artifacts and discontinuous reflectors, degrading the resolution and interpretability of the final geophysical model.</assistant_message>
+  </episode>
+  <episode turn="674" topic="topic_2" similarity="0.512433">
+    <user_message>Stay within the marine geophysics thread and do not connect it to other subjects. Name one sensitivity analysis for crustal spreading and its purpose.</user_message>
+    <assistant_message>1. Sensitivity Analysis: Varying the assumed spreading rate or half-rate symmetry in age-depth models to assess their impact on derived crustal thickness and subsidence curves.
+2. Purpose: To quantify how uncertainties in plate kinematic parameters affect interpretations of thermal evolution and lithospheric flexure, ensuring robust geological reconstructions.</assistant_message>
+  </episode>
+  <episode turn="675" topic="topic_2" similarity="0.762570">
+    <user_message>Stay within the marine geophysics thread and do not connect it to other subjects. Explain seismic refraction in two concise sentences.</user_message>
+    <assistant_message>Seismic refraction analyzes the travel times of refracted body waves that propagate along subsurface layer boundaries at critical angles. By interpreting velocity contrasts and intercept times, geophysicists map the depth to bedrock or identify shallow geological structures.</assistant_message>
+  </episode>
+  <episode turn="676" topic="topic_2" similarity="0.529458">
+    <user_message>Stay within the marine geophysics thread and do not connect it to other subjects. Identify one measurement error affecting bathymetric correction and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Inaccurate sound velocity profiling (SVP) due to unmeasured temperature, salinity, or pressure gradients causes incorrect refraction modeling of acoustic pulses.
+2. Consequence: This results in vertical positioning errors where seabed points are misplaced depth-wise, leading to distorted bathymetric maps and erroneous terrain derivative calculations.</assistant_message>
+  </episode>
+  <episode turn="680" topic="topic_2" similarity="0.504790">
+    <user_message>Stay within the marine geophysics thread and do not connect it to other subjects. Explain one failure mode involving navigation drift.</user_message>
+    <assistant_message>Navigation drift causes cumulative positioning errors in seismic data acquisition, leading to incorrect spatial alignment of subsurface images. This misalignment manifests as migration artifacts and discontinuous reflectors, degrading the resolution and interpretability of the final geophysical model.</assistant_message>
+  </episode>
+  <episode turn="682" topic="topic_2" similarity="0.512433">
+    <user_message>Stay within the marine geophysics thread and do not connect it to other subjects. Name one sensitivity analysis for crustal spreading and its purpose.</user_message>
+    <assistant_message>1. Sensitivity Analysis: Varying the assumed spreading rate or half-rate symmetry in age-depth models to assess their impact on derived crustal thickness and subsidence curves.
+2. Purpose: To quantify how uncertainties in plate kinematic parameters affect interpretations of thermal evolution and lithospheric flexure, ensuring robust geological reconstructions.</assistant_message>
+  </episode>
+  <episode turn="683" topic="topic_2" similarity="0.762570">
+    <user_message>Stay within the marine geophysics thread and do not connect it to other subjects. Explain seismic refraction in two concise sentences.</user_message>
+    <assistant_message>Seismic refraction analyzes the travel times of refracted body waves that propagate along subsurface layer boundaries at critical angles. By interpreting velocity contrasts and intercept times, geophysicists map the depth to bedrock or identify shallow geological structures.</assistant_message>
+  </episode>
+  <episode turn="684" topic="topic_2" similarity="0.529458">
+    <user_message>Stay within the marine geophysics thread and do not connect it to other subjects. Identify one measurement error affecting bathymetric correction and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Inaccurate sound velocity profiling (SVP) due to unmeasured temperature, salinity, or pressure gradients causes incorrect refraction modeling of acoustic pulses.
+2. Consequence: This results in vertical positioning errors where seabed points are misplaced depth-wise, leading to distorted bathymetric maps and erroneous terrain derivative calculations.</assistant_message>
+  </episode>
+  <episode turn="688" topic="topic_2" similarity="0.504790">
+    <user_message>Stay within the marine geophysics thread and do not connect it to other subjects. Explain one failure mode involving navigation drift.</user_message>
+    <assistant_message>Navigation drift causes cumulative positioning errors in seismic data acquisition, leading to incorrect spatial alignment of subsurface images. This misalignment manifests as migration artifacts and discontinuous reflectors, degrading the resolution and interpretability of the final geophysical model.</assistant_message>
+  </episode>
+  <episode turn="690" topic="topic_2" similarity="0.512433">
+    <user_message>Stay within the marine geophysics thread and do not connect it to other subjects. Name one sensitivity analysis for crustal spreading and its purpose.</user_message>
+    <assistant_message>1. Sensitivity Analysis: Varying the assumed spreading rate or half-rate symmetry in age-depth models to assess their impact on derived crustal thickness and subsidence curves.
+2. Purpose: To quantify how uncertainties in plate kinematic parameters affect interpretations of thermal evolution and lithospheric flexure, ensuring robust geological reconstructions.</assistant_message>
+  </episode>
+  <episode turn="691" topic="topic_2" similarity="0.762570">
+    <user_message>Stay within the marine geophysics thread and do not connect it to other subjects. Explain seismic refraction in two concise sentences.</user_message>
+    <assistant_message>Seismic refraction analyzes the travel times of refracted body waves that propagate along subsurface layer boundaries at critical angles. By interpreting velocity contrasts and intercept times, geophysicists map the depth to bedrock or identify shallow geological structures.</assistant_message>
+  </episode>
+  <episode turn="692" topic="topic_2" similarity="0.529458">
+    <user_message>Stay within the marine geophysics thread and do not connect it to other subjects. Identify one measurement error affecting bathymetric correction and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Inaccurate sound velocity profiling (SVP) due to unmeasured temperature, salinity, or pressure gradients causes incorrect refraction modeling of acoustic pulses.
+2. Consequence: This results in vertical positioning errors where seabed points are misplaced depth-wise, leading to distorted bathymetric maps and erroneous terrain derivative calculations.</assistant_message>
+  </episode>
+  <episode turn="696" topic="topic_2" similarity="0.504790">
+    <user_message>Stay within the marine geophysics thread and do not connect it to other subjects. Explain one failure mode involving navigation drift.</user_message>
+    <assistant_message>Navigation drift causes cumulative positioning errors in seismic data acquisition, leading to incorrect spatial alignment of subsurface images. This misalignment manifests as migration artifacts and discontinuous reflectors, degrading the resolution and interpretability of the final geophysical model.</assistant_message>
+  </episode>
+  <episode turn="699" topic="topic_2" similarity="0.762570">
+    <user_message>Stay within the marine geophysics thread and do not connect it to other subjects. Explain seismic refraction in two concise sentences.</user_message>
+    <assistant_message>Seismic refraction analyzes the travel times of refracted body waves that propagate along subsurface layer boundaries at critical angles. By interpreting velocity contrasts and intercept times, geophysicists map the depth to bedrock or identify shallow geological structures.</assistant_message>
+  </episode>
+  <episode turn="700" topic="topic_2" similarity="0.529458">
+    <user_message>Stay within the marine geophysics thread and do not connect it to other subjects. Identify one measurement error affecting bathymetric correction and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Inaccurate sound velocity profiling (SVP) due to unmeasured temperature, salinity, or pressure gradients causes incorrect refraction modeling of acoustic pulses.
+2. Consequence: This results in vertical positioning errors where seabed points are misplaced depth-wise, leading to distorted bathymetric maps and erroneous terrain derivative calculations.</assistant_message>
+  </episode>
+  <episode turn="704" topic="topic_2" similarity="0.504790">
+    <user_message>Stay within the marine geophysics thread and do not connect it to other subjects. Explain one failure mode involving navigation drift.</user_message>
+    <assistant_message>Navigation drift causes cumulative positioning errors in seismic data acquisition, leading to incorrect spatial alignment of subsurface images. This misalignment manifests as migration artifacts and discontinuous reflectors, degrading the resolution and interpretability of the final geophysical model.</assistant_message>
+  </episode>
+  <episode turn="706" topic="topic_2" similarity="0.512433">
+    <user_message>Stay within the marine geophysics thread and do not connect it to other subjects. Name one sensitivity analysis for crustal spreading and its purpose.</user_message>
+    <assistant_message>1. Sensitivity Analysis: Varying the assumed spreading rate or half-rate symmetry in age-depth models to assess their impact on derived crustal thickness and subsidence curves.
+2. Purpose: To quantify how uncertainties in plate kinematic parameters affect interpretations of thermal evolution and lithospheric flexure, ensuring robust geological reconstructions.</assistant_message>
+  </episode>
+  <episode turn="707" topic="topic_2" similarity="0.762570">
+    <user_message>Stay within the marine geophysics thread and do not connect it to other subjects. Explain seismic refraction in two concise sentences.</user_message>
+    <assistant_message>Seismic refraction analyzes the travel times of refracted body waves that propagate along subsurface layer boundaries at critical angles. By interpreting velocity contrasts and intercept times, geophysicists map the depth to bedrock or identify shallow geological structures.</assistant_message>
+  </episode>
+  <episode turn="708" topic="topic_2" similarity="0.529458">
+    <user_message>Stay within the marine geophysics thread and do not connect it to other subjects. Identify one measurement error affecting bathymetric correction and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Inaccurate sound velocity profiling (SVP) due to unmeasured temperature, salinity, or pressure gradients causes incorrect refraction modeling of acoustic pulses.
+2. Consequence: This results in vertical positioning errors where seabed points are misplaced depth-wise, leading to distorted bathymetric maps and erroneous terrain derivative calculations.</assistant_message>
+  </episode>
+  <episode turn="712" topic="topic_2" similarity="0.504790">
+    <user_message>Stay within the marine geophysics thread and do not connect it to other subjects. Explain one failure mode involving navigation drift.</user_message>
+    <assistant_message>Navigation drift causes cumulative positioning errors in seismic data acquisition, leading to incorrect spatial alignment of subsurface images. This misalignment manifests as migration artifacts and discontinuous reflectors, degrading the resolution and interpretability of the final geophysical model.</assistant_message>
+  </episode>
+  <episode turn="714" topic="topic_2" similarity="0.512433">
+    <user_message>Stay within the marine geophysics thread and do not connect it to other subjects. Name one sensitivity analysis for crustal spreading and its purpose.</user_message>
+    <assistant_message>1. Sensitivity Analysis: Varying the assumed spreading rate or half-rate symmetry in age-depth models to assess their impact on derived crustal thickness and subsidence curves.
+2. Purpose: To quantify how uncertainties in plate kinematic parameters affect interpretations of thermal evolution and lithospheric flexure, ensuring robust geological reconstructions.</assistant_message>
+  </episode>
+  <episode turn="715" topic="topic_2" similarity="0.762570">
+    <user_message>Stay within the marine geophysics thread and do not connect it to other subjects. Explain seismic refraction in two concise sentences.</user_message>
+    <assistant_message>Seismic refraction analyzes the travel times of refracted body waves that propagate along subsurface layer boundaries at critical angles. By interpreting velocity contrasts and intercept times, geophysicists map the depth to bedrock or identify shallow geological structures.</assistant_message>
+  </episode>
+  <episode turn="716" topic="topic_2" similarity="0.529458">
+    <user_message>Stay within the marine geophysics thread and do not connect it to other subjects. Identify one measurement error affecting bathymetric correction and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Inaccurate sound velocity profiling (SVP) due to unmeasured temperature, salinity, or pressure gradients causes incorrect refraction modeling of acoustic pulses.
+2. Consequence: This results in vertical positioning errors where seabed points are misplaced depth-wise, leading to distorted bathymetric maps and erroneous terrain derivative calculations.</assistant_message>
+  </episode>
+  <episode turn="720" topic="topic_2" similarity="0.504790">
+    <user_message>Stay within the marine geophysics thread and do not connect it to other subjects. Explain one failure mode involving navigation drift.</user_message>
+    <assistant_message>Navigation drift causes cumulative positioning errors in seismic data acquisition, leading to incorrect spatial alignment of subsurface images. This misalignment manifests as migration artifacts and discontinuous reflectors, degrading the resolution and interpretability of the final geophysical model.</assistant_message>
+  </episode>
+</retrieved_stm>
+
+<current_turn>
+  <user_message>Stay within the marine geophysics thread and do not connect it to other subjects. Explain seismic refraction in two concise sentences.</user_message>
+</current_turn>
+
+Assistant:

@@ -2,27 +2,27 @@
 
 ## Current state
 
-Study 009 was stopped at the 35-turn Arm S ablation and is now **RESUMED UNDER
-AUTHOR-AUTHORIZED AMENDMENT 001**.
-Registration is `37fff74`; the implementation and offline gates are `f901bda`.
+Study 010 is **STOPPED AT G2 BEFORE LIVE INFERENCE**. Amendment 001 repaired
+the missing Study 009 input, parity rule, checkpoint scope, and blinded-rater
+dependency. A locked 1,000-turn script with 12 domains, 36 plants, and 23
+probes was produced. G1 retrieval-at-scale, G4 checkpoint/restore, and leakage
+passed, but the accepted TopicManager failed G2: no swept threshold pair
+recovered approximately 12 pure domains. Low thresholds merged domains and
+high thresholds fragmented them. No rehearsal, live 1,000-turn run, score, or
+Bar 1 verdict exists.
+
+Study 009 is complete as **PARTIAL WITH A DECISIVE NULL TEST**. Registration is
+`37fff74`; Amendment 001 is `5fa1700`; final analysis is `e533011`. Accepted
+Study 007 Arm L scored 12.0/13.0 and pure-STM Arm S scored 10.5/13.0 on
+Q1-Q13. S trails by 1.5, meeting the registered evidence threshold for LTM
+value at the 120-turn scale and cancelling retirement. P1 was refuted.
+
 The topic digest failed fact-aware G1 even through `d = 50` and
-`B_digest = 50,000`, so the registered contingency dropped S+D. G2 reproduced
-Study 007's probe LTM blocks byte-for-byte and G3 proved the pure-STM
-composition structurally clean.
-
-Arm S then completed its 35-turn ablation with healthy speed, context, logs,
-and leakage checks. The binding STOP was a registration contradiction:
-structural Arm S must omit `<retrieved_ltm>`, while cross-arm prompts were also
-required to be byte-identical through the empty-store prefix. Raw prompts
-differed at turn 1 and seeded responses at turn 3. No full run, human scoring,
-null-test verdict, or mechanism analysis occurred.
-
-Amendment 001 replaces impossible cross-arm byte identity with shared
-input/runtime parity and within-arm determinism, authorizes reuse of the
-byte-verified Study 007 artifact as Arm L, and permits blinded agent scoring
-with scores committed before full-run mechanism logs are opened. Digest carry
-remains false. The Study 009 null-test verdict is pending the resumed Arm S run
-and scoring.
+`B_digest = 50,000`, so S+D was dropped and digest Bars 1-2 were not
+evaluable. Arm S completed 121 turns with zero forbidden modules. Blinded
+scores were committed before mapping unseal and mechanism analysis. L's score
+advantage was localized to Q5 (+1.0, exact pigment-fact delivery) and Q8
+(+0.5, relevant photophore context without exact location delivery).
 
 Study 008 is complete as **STOPPED AT PRE-RUN GATES**. The registered 2x2
 retrieval factorial was not run because no `c_fill` from 1 through 50 passed

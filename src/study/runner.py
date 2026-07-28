@@ -33,6 +33,7 @@ from src.memory.retrieval_budget import (
 )
 from src.runners.iterative_runner import IterativeRunner
 from src.study.script_loader import load_script
+from src.study.checkpoint import restore_checkpoint, write_checkpoint
 from src.study.domain_labels import (
     PROBE_TURN_END,
     PROBE_TURN_START,
@@ -67,6 +68,10 @@ class StudyRunner:
         ltm_floor_ranking: str = FLOOR_SIMILARITY,
         ltm_fill_cap: int | None = None,
         ltm_render_mode: str = RENDER_EPISODE,
+        checkpoint_interval: int | None = None,
+        resume_checkpoint: str | None = None,
+        suppress_rule_detection: bool = False,
+        ignore_rule_detection_result: bool = False,
     ):
         self.ltm_budget = ltm_budget
         self.ltm_k_min = ltm_k_min
@@ -102,6 +107,9 @@ class StudyRunner:
         self._rubric_turns = set(
             self.script.get("rubric_turns", self.RUBRIC_TURNS)
         )
+        self._emission_guard_turns = set(
+            self.script.get("emission_guard_turns", [])
+        )
         self.study_dir = study_dir
         self.run_id = run_id
         self.memory_formation = memory_formation
@@ -109,6 +117,10 @@ class StudyRunner:
         self.strict_monitoring = strict_monitoring
         self._inference_provider = InferenceProvider()
         self._rubric_data = {}
+        self.checkpoint_interval = checkpoint_interval
+        self.resume_checkpoint = resume_checkpoint
+        self.suppress_rule_detection = suppress_rule_detection
+        self.ignore_rule_detection_result = ignore_rule_detection_result
 
     def _check_env_vars(self):
         required = [
@@ -138,7 +150,15 @@ class StudyRunner:
         )
 
         observer = Observer(run_config)
-        observer.init_run()
+        resume_payload = None
+        resume_checkpoint = getattr(self, "resume_checkpoint", None)
+        if resume_checkpoint:
+            resume_payload = restore_checkpoint(
+                __import__("pathlib").Path(output_dir),
+                __import__("pathlib").Path(resume_checkpoint),
+            )
+        else:
+            observer.init_run()
 
         runner = self._create_runner(condition, run_config, observer)
         formation_engine = None
@@ -167,13 +187,16 @@ class StudyRunner:
                     self._inference_provider,
                 )
                 formation_writer = LtmAnalysisWriter(output_dir)
-        previous_prompt = None
-        previous_episode_id = None
-        rubric_responses = []
+        state = resume_payload["state"] if resume_payload else {}
+        completed_turn = int(resume_payload["turn"]) if resume_payload else 0
+        previous_prompt = state.get("previous_prompt")
+        previous_episode_id = state.get("previous_episode_id")
+        previous_turn_number = state.get("previous_turn_number")
+        rubric_responses = state.get("rubric_responses", [])
         condition_start = time.perf_counter()
         peak_tokens = 0
         turn_count = 0
-        flush_completed = False
+        flush_completed = bool(state.get("flush_completed", False))
         consecutive_invalid_responses = 0
         promotion_flush_turn = getattr(
             self, "_promotion_flush_turn", self.PROMOTION_TURN_END
@@ -187,6 +210,8 @@ class StudyRunner:
 
         for turn_data in self.turns:
             turn_number = turn_data["turn"]
+            if turn_number <= completed_turn:
+                continue
             user_message = turn_data["user"]
             if condition == "iterative" and formation_engine:
                 self._assert_flush_completed_before_turn(
@@ -216,12 +241,33 @@ class StudyRunner:
             record.previous_context_window = previous_prompt
             record.total_turns = len(self.turns)
 
-            result = self._inference_provider.complete(full_prompt)
-            if condition == "iterative" and not result.contains_rule:
+            suppress_rules = getattr(self, "suppress_rule_detection", False)
+            result = self._inference_provider.complete(
+                full_prompt,
+                suppress_rule_detection=suppress_rules,
+            )
+            ignore_rule_result = getattr(
+                self, "ignore_rule_detection_result", False
+            )
+            if ignore_rule_result:
+                result.contains_rule = False
+                result.rule_summary = None
+            if (
+                condition == "iterative"
+                and not suppress_rules
+                and not ignore_rule_result
+                and not result.contains_rule
+            ):
                 fallback_rule = detect_explicit_persistent_rule(user_message)
                 if fallback_rule:
                     result.contains_rule = True
                     result.rule_summary = fallback_rule
+            if (suppress_rules or ignore_rule_result) and (
+                result.contains_rule or record.rule_store_count != 0
+            ):
+                raise RuntimeError(
+                    "suppressed rule extraction produced or retained a rule"
+                )
             assistant_message = result.assistant_message
             invalid_response = (
                 not assistant_message.strip()
@@ -292,6 +338,10 @@ class StudyRunner:
                     formation_engine
                     and assignment.stored_episode_id
                     and turn_number <= promotion_flush_turn
+                    and turn_number
+                    not in getattr(self, "_emission_guard_turns", set())
+                    and previous_turn_number
+                    not in getattr(self, "_emission_guard_turns", set())
                 ):
                     summary = formation_engine.process_transition(
                         previous_episode_id, assignment.stored_episode_id, turn_number
@@ -329,11 +379,29 @@ class StudyRunner:
                             )
                         flush_completed = True
                 previous_episode_id = assignment.stored_episode_id
+                previous_turn_number = turn_number
             else:
                 runner.on_turn_complete(user_message, assistant_message, turn_number)
 
             observer.flush_turn(record)
             previous_prompt = full_prompt
+            if (
+                getattr(self, "checkpoint_interval", None)
+                and turn_number % self.checkpoint_interval == 0
+                and condition == "iterative"
+            ):
+                write_checkpoint(
+                    __import__("pathlib").Path(output_dir),
+                    runner._conn,
+                    turn_number,
+                    {
+                        "previous_prompt": previous_prompt,
+                        "previous_episode_id": previous_episode_id,
+                        "previous_turn_number": previous_turn_number,
+                        "rubric_responses": rubric_responses,
+                        "flush_completed": flush_completed,
+                    },
+                )
 
         condition_duration = time.perf_counter() - condition_start
 

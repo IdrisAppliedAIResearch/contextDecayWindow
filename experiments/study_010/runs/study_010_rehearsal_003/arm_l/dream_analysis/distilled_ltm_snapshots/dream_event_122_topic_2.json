@@ -1,0 +1,582 @@
+{
+  "turn": 122,
+  "topic": "topic_2",
+  "event_type": "transition",
+  "segmenter": "spacy:en_core_web_sm:3.8.0:sentencizer",
+  "extractor": "spacy:en_core_web_sm:3.8.0:ner",
+  "records": [
+    {
+      "id": "dc93c2f3-d3e0-5b6c-b579-a2c66085b321",
+      "source_episode_id": "0954c32f-6e47-41cb-a812-807a2d1bf2eb",
+      "topic_id": "8c0944a9-be62-46ed-b988-f52c62ea00c4",
+      "topic_label": "topic_2",
+      "text": "Example: Bearing creep deformation = 2.5 mm ± 0.3 mm (95% confidence interval), derived from statistical analysis of time-series monitoring data.",
+      "source_episode_ids": [
+        "0954c32f-6e47-41cb-a812-807a2d1bf2eb",
+        "298ef311-ba49-4a2d-bade-afa8afabce89",
+        "e964df06-0f65-4317-8001-1fa1e0c9b288",
+        "aa5e3739-499b-46a9-9313-a9fb000f12a6",
+        "34432c50-68cc-414b-99a0-276ad2c65e56",
+        "0c97e95c-5616-4c67-a3bd-399eba330b80",
+        "0154a54e-d1f0-4d9a-9418-4baffc396204",
+        "f0a74561-32d0-43ed-9ce0-6e173b948c68",
+        "bcdce8a0-f6e1-41bc-bf9f-5de570b066a7",
+        "ac37a538-4d7d-47c5-a7f2-4b09b2736183"
+      ],
+      "source_turns": [
+        5,
+        13,
+        21,
+        29,
+        37,
+        45,
+        53,
+        61,
+        69,
+        77
+      ],
+      "collapsed_episode_ids": [
+        "298ef311-ba49-4a2d-bade-afa8afabce89",
+        "e964df06-0f65-4317-8001-1fa1e0c9b288",
+        "aa5e3739-499b-46a9-9313-a9fb000f12a6",
+        "34432c50-68cc-414b-99a0-276ad2c65e56",
+        "0c97e95c-5616-4c67-a3bd-399eba330b80",
+        "0154a54e-d1f0-4d9a-9418-4baffc396204",
+        "f0a74561-32d0-43ed-9ce0-6e173b948c68",
+        "bcdce8a0-f6e1-41bc-bf9f-5de570b066a7",
+        "ac37a538-4d7d-47c5-a7f2-4b09b2736183"
+      ],
+      "salience": 10,
+      "dream_event": 83,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-27T15:42:48.366868+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "ce18b859-464b-55a7-9b59-474029a11fea",
+      "source_episode_id": "3c4386c1-c2c6-4b89-820f-085efbbb4b94",
+      "topic_id": "8c0944a9-be62-46ed-b988-f52c62ea00c4",
+      "topic_label": "topic_2",
+      "text": "Add two locked facts for Aster Viaduct: the technical specification is HPS 70W steel, and the decision threshold is 118.6 metric tons per axle.",
+      "source_episode_ids": [
+        "3c4386c1-c2c6-4b89-820f-085efbbb4b94"
+      ],
+      "source_turns": [
+        40
+      ],
+      "collapsed_episode_ids": [],
+      "salience": 8,
+      "dream_event": 83,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-27T15:42:48.366823+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "2d3dbd91-a728-5e44-8c58-21f2484718f7",
+      "source_episode_id": "51a7af84-dc61-4e52-aafb-2ad601a92569",
+      "topic_id": "8c0944a9-be62-46ed-b988-f52c62ea00c4",
+      "topic_label": "topic_2",
+      "text": "For our structural engineering case, lock these facts: the project is Aster Viaduct, led by Dr. Leena Ortiz, with the primary value 1,126 meters.",
+      "source_episode_ids": [
+        "51a7af84-dc61-4e52-aafb-2ad601a92569"
+      ],
+      "source_turns": [
+        1
+      ],
+      "collapsed_episode_ids": [],
+      "salience": 5,
+      "dream_event": 83,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-27T15:42:48.366941+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "95f5e610-8ad3-59e4-aef0-d848190f3d60",
+      "source_episode_id": "3c4386c1-c2c6-4b89-820f-085efbbb4b94",
+      "topic_id": "8c0944a9-be62-46ed-b988-f52c62ea00c4",
+      "topic_label": "topic_2",
+      "text": "Technical Specification: HPS 70W steel",
+      "source_episode_ids": [
+        "3c4386c1-c2c6-4b89-820f-085efbbb4b94"
+      ],
+      "source_turns": [
+        40
+      ],
+      "collapsed_episode_ids": [],
+      "salience": 3,
+      "dream_event": 83,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-27T15:42:48.366755+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "50ec89e7-163f-5ac5-9cef-37e253b6c993",
+      "source_episode_id": "3c4386c1-c2c6-4b89-820f-085efbbb4b94",
+      "topic_id": "8c0944a9-be62-46ed-b988-f52c62ea00c4",
+      "topic_label": "topic_2",
+      "text": "Decision Threshold: 118.6 metric tons per axle",
+      "source_episode_ids": [
+        "3c4386c1-c2c6-4b89-820f-085efbbb4b94"
+      ],
+      "source_turns": [
+        40
+      ],
+      "collapsed_episode_ids": [],
+      "salience": 3,
+      "dream_event": 83,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-27T15:42:48.366908+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "5076a1a3-fb50-5d1d-8f6d-61d0f765ab53",
+      "source_episode_id": "51a7af84-dc61-4e52-aafb-2ad601a92569",
+      "topic_id": "8c0944a9-be62-46ed-b988-f52c62ea00c4",
+      "topic_label": "topic_2",
+      "text": "Primary Value: 1,126 meters",
+      "source_episode_ids": [
+        "51a7af84-dc61-4e52-aafb-2ad601a92569"
+      ],
+      "source_turns": [
+        1
+      ],
+      "collapsed_episode_ids": [],
+      "salience": 3,
+      "dream_event": 83,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-27T15:42:48.363490+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "578973d2-b2d6-56dc-9c39-a93bc454c18b",
+      "source_episode_id": "dba57d9b-fb4f-44ee-bf89-c4854c631812",
+      "topic_id": "8c0944a9-be62-46ed-b988-f52c62ea00c4",
+      "topic_label": "topic_2",
+      "text": "Without repeating the values, explain in two sentences why the recorded specification and threshold matter to Aster Viaduct.",
+      "source_episode_ids": [
+        "dba57d9b-fb4f-44ee-bf89-c4854c631812"
+      ],
+      "source_turns": [
+        75
+      ],
+      "collapsed_episode_ids": [],
+      "salience": 2,
+      "dream_event": 83,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-27T15:42:48.367179+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "9c430842-26ff-529b-952f-ad15bbdf7e5a",
+      "source_episode_id": "295b1c8a-c19f-436a-9eb1-bcf0a3c1c5ba",
+      "topic_id": "8c0944a9-be62-46ed-b988-f52c62ea00c4",
+      "topic_label": "topic_2",
+      "text": "Name one sensitivity analysis for corrosion monitoring and its purpose.",
+      "source_episode_ids": [
+        "295b1c8a-c19f-436a-9eb1-bcf0a3c1c5ba",
+        "ea4ebcb4-f0de-4f3b-938d-f867a49d747c",
+        "b6fa95ef-d7a6-4fb5-ab74-e713d5925479",
+        "88ffad9c-4295-4db8-b5dd-6d81a9f5ab51",
+        "413700d8-5c2a-411a-b178-e9feab0472cc",
+        "0669c654-0e61-4305-9c11-628f4bb60eb3",
+        "67289dc1-1026-437b-a82e-a5f229e5e061",
+        "b125b0e7-1b0c-49ac-89e1-0d800b56863b",
+        "fd45aa2b-376a-4e19-820a-b5d25f8b23ca"
+      ],
+      "source_turns": [
+        8,
+        16,
+        24,
+        32,
+        48,
+        56,
+        64,
+        72,
+        80
+      ],
+      "collapsed_episode_ids": [
+        "ea4ebcb4-f0de-4f3b-938d-f867a49d747c",
+        "b6fa95ef-d7a6-4fb5-ab74-e713d5925479",
+        "88ffad9c-4295-4db8-b5dd-6d81a9f5ab51",
+        "413700d8-5c2a-411a-b178-e9feab0472cc",
+        "0669c654-0e61-4305-9c11-628f4bb60eb3",
+        "67289dc1-1026-437b-a82e-a5f229e5e061",
+        "b125b0e7-1b0c-49ac-89e1-0d800b56863b",
+        "fd45aa2b-376a-4e19-820a-b5d25f8b23ca"
+      ],
+      "salience": 1,
+      "dream_event": 83,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-27T15:42:48.367212+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "3d75d240-5532-5c69-a050-f8cbca264457",
+      "source_episode_id": "3c4386c1-c2c6-4b89-820f-085efbbb4b94",
+      "topic_id": "8c0944a9-be62-46ed-b988-f52c62ea00c4",
+      "topic_label": "topic_2",
+      "text": "Restate only those two facts.",
+      "source_episode_ids": [
+        "3c4386c1-c2c6-4b89-820f-085efbbb4b94"
+      ],
+      "source_turns": [
+        40
+      ],
+      "collapsed_episode_ids": [],
+      "salience": 1,
+      "dream_event": 83,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-27T15:42:48.366973+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "3a166785-a55a-52aa-8aed-91c3cc6cff91",
+      "source_episode_id": "51a7af84-dc61-4e52-aafb-2ad601a92569",
+      "topic_id": "8c0944a9-be62-46ed-b988-f52c62ea00c4",
+      "topic_label": "topic_2",
+      "text": "Lead: Dr. Leena Ortiz",
+      "source_episode_ids": [
+        "51a7af84-dc61-4e52-aafb-2ad601a92569"
+      ],
+      "source_turns": [
+        1
+      ],
+      "collapsed_episode_ids": [],
+      "salience": 1,
+      "dream_event": 83,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-27T15:42:48.367008+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "757ff0fe-d102-59c3-8fec-7c5605579928",
+      "source_episode_id": "51a7af84-dc61-4e52-aafb-2ad601a92569",
+      "topic_id": "8c0944a9-be62-46ed-b988-f52c62ea00c4",
+      "topic_label": "topic_2",
+      "text": "Acknowledge the three facts in a concise numbered list.",
+      "source_episode_ids": [
+        "51a7af84-dc61-4e52-aafb-2ad601a92569"
+      ],
+      "source_turns": [
+        1
+      ],
+      "collapsed_episode_ids": [],
+      "salience": 1,
+      "dream_event": 83,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-27T15:42:48.367148+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "723ef81d-a07c-59a6-8bc5-bdff44944c3b",
+      "source_episode_id": "5cc9c76d-ae0c-422a-bda4-09dc8ae1d213",
+      "topic_id": "8c0944a9-be62-46ed-b988-f52c62ea00c4",
+      "topic_label": "topic_2",
+      "text": "Explain aeroelastic flutter in two concise sentences.",
+      "source_episode_ids": [
+        "5cc9c76d-ae0c-422a-bda4-09dc8ae1d213",
+        "65fd5f3a-49e4-4e84-83fc-45e53786395e",
+        "2db5e42d-20cf-47f1-82d9-0697c1f97405",
+        "7e4d090f-6733-46b4-bfc0-67fccf3f03b5",
+        "9dc9e817-73aa-49c8-81f9-68e39b1a4ce8",
+        "8218b1e9-553f-4716-82b8-ef162fc1c1fa",
+        "fcdf09e3-4ebe-4c93-9084-0e0a443de077",
+        "c83c7dde-ce65-46f4-9092-ee3514279ffc",
+        "2dc1645d-c98f-4033-84e4-56c418fc03bd",
+        "890a90a1-d13b-4593-9f02-c4afbcdabcda"
+      ],
+      "source_turns": [
+        9,
+        17,
+        25,
+        33,
+        41,
+        49,
+        57,
+        65,
+        73,
+        81
+      ],
+      "collapsed_episode_ids": [
+        "65fd5f3a-49e4-4e84-83fc-45e53786395e",
+        "2db5e42d-20cf-47f1-82d9-0697c1f97405",
+        "7e4d090f-6733-46b4-bfc0-67fccf3f03b5",
+        "9dc9e817-73aa-49c8-81f9-68e39b1a4ce8",
+        "8218b1e9-553f-4716-82b8-ef162fc1c1fa",
+        "fcdf09e3-4ebe-4c93-9084-0e0a443de077",
+        "c83c7dde-ce65-46f4-9092-ee3514279ffc",
+        "2dc1645d-c98f-4033-84e4-56c418fc03bd",
+        "890a90a1-d13b-4593-9f02-c4afbcdabcda"
+      ],
+      "salience": 1,
+      "dream_event": 83,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-27T15:42:48.367043+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "819b8d44-7d5f-5ff1-a0f6-a2d9c6d5feb9",
+      "source_episode_id": "c3482080-efbe-436f-a99a-8a09f72d86ae",
+      "topic_id": "8c0944a9-be62-46ed-b988-f52c62ea00c4",
+      "topic_label": "topic_2",
+      "text": "Briefly compare two validation strategies for seismic isolation.",
+      "source_episode_ids": [
+        "c3482080-efbe-436f-a99a-8a09f72d86ae",
+        "5d822c74-3eb4-4f8c-839c-26af5f308686",
+        "104e115d-53a4-494c-bb22-8b3956f9a404",
+        "8b0d2b39-86c8-4b6a-afe6-1d57c7257593",
+        "d5319b10-8020-4d51-a377-309b0faef11b",
+        "5a96be8f-836f-4968-9569-99d92236351f",
+        "b3331be2-3154-471b-8fe5-6393290f0491",
+        "d253524e-1b30-4cb8-9770-4de2ba5ca116",
+        "7c616d19-4e27-4f4b-98c3-69733338171b"
+      ],
+      "source_turns": [
+        3,
+        11,
+        19,
+        27,
+        35,
+        43,
+        51,
+        59,
+        67
+      ],
+      "collapsed_episode_ids": [
+        "5d822c74-3eb4-4f8c-839c-26af5f308686",
+        "104e115d-53a4-494c-bb22-8b3956f9a404",
+        "8b0d2b39-86c8-4b6a-afe6-1d57c7257593",
+        "d5319b10-8020-4d51-a377-309b0faef11b",
+        "5a96be8f-836f-4968-9569-99d92236351f",
+        "b3331be2-3154-471b-8fe5-6393290f0491",
+        "d253524e-1b30-4cb8-9770-4de2ba5ca116",
+        "7c616d19-4e27-4f4b-98c3-69733338171b"
+      ],
+      "salience": 1,
+      "dream_event": 83,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-27T15:42:48.367081+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "03fe8434-98bc-591b-a5fa-0eeecebd70b1",
+      "source_episode_id": "e760167b-7fde-46a1-8b9f-ab6bc26b5d47",
+      "topic_id": "8c0944a9-be62-46ed-b988-f52c62ea00c4",
+      "topic_label": "topic_2",
+      "text": "Explain one failure mode involving wind-tunnel scaling.",
+      "source_episode_ids": [
+        "e760167b-7fde-46a1-8b9f-ab6bc26b5d47",
+        "ef0b9755-bdd6-484f-b79d-0c288e889a9a",
+        "64500e5a-570f-46a9-91ed-2fff31fd995e",
+        "81f620fa-68f9-46c3-9d45-2dbc7cbb9a41",
+        "32e00c31-105c-417d-8e36-d695a31ecbb6",
+        "9283eeeb-62a3-4fb3-8b04-075f82ba7a87",
+        "8dcc5746-faff-4382-9e5e-59d12df6eb89",
+        "99fb3d1d-66b1-426b-b7ba-1c6ff3d88c00",
+        "fe3f4f4a-dcbf-4ce7-8a8d-08861dad13fa",
+        "25c992dd-5b43-4c15-bbf6-f39643cf78de"
+      ],
+      "source_turns": [
+        6,
+        14,
+        22,
+        30,
+        38,
+        46,
+        54,
+        62,
+        70,
+        78
+      ],
+      "collapsed_episode_ids": [
+        "ef0b9755-bdd6-484f-b79d-0c288e889a9a",
+        "64500e5a-570f-46a9-91ed-2fff31fd995e",
+        "81f620fa-68f9-46c3-9d45-2dbc7cbb9a41",
+        "32e00c31-105c-417d-8e36-d695a31ecbb6",
+        "9283eeeb-62a3-4fb3-8b04-075f82ba7a87",
+        "8dcc5746-faff-4382-9e5e-59d12df6eb89",
+        "99fb3d1d-66b1-426b-b7ba-1c6ff3d88c00",
+        "fe3f4f4a-dcbf-4ce7-8a8d-08861dad13fa",
+        "25c992dd-5b43-4c15-bbf6-f39643cf78de"
+      ],
+      "salience": 1,
+      "dream_event": 83,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-27T15:42:48.367116+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "e4d982d5-d287-57af-bce5-53379612462c",
+      "source_episode_id": "ef27b25f-b672-4196-9193-4dc687dbd36b",
+      "topic_id": "8c0944a9-be62-46ed-b988-f52c62ea00c4",
+      "topic_label": "topic_2",
+      "text": "Example: Adjudicated outcome probability = 85% (Bayesian posterior median), with a 95% credible interval of [72%, 93%], reflecting uncertainty from inter-rater variability and partial chart reviews.",
+      "source_episode_ids": [
+        "ef27b25f-b672-4196-9193-4dc687dbd36b",
+        "64d7fae9-2134-48f0-b73c-c5fac7c2ce7c",
+        "8208dc7c-177c-4098-b7ff-a6739ee7bbee",
+        "36c73944-279a-4a62-8d0a-10835ec8e2e1",
+        "40964617-6fc9-41ae-9c48-107db425ad06"
+      ],
+      "source_turns": [
+        87,
+        95,
+        103,
+        111,
+        119
+      ],
+      "collapsed_episode_ids": [
+        "64d7fae9-2134-48f0-b73c-c5fac7c2ce7c",
+        "8208dc7c-177c-4098-b7ff-a6739ee7bbee",
+        "36c73944-279a-4a62-8d0a-10835ec8e2e1",
+        "40964617-6fc9-41ae-9c48-107db425ad06"
+      ],
+      "salience": 13,
+      "dream_event": 122,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-27T15:45:14.224291+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "f29fbcd6-4463-5d03-bece-8c5509692286",
+      "source_episode_id": "3681387f-66db-44e2-b8cc-dec3029d648e",
+      "topic_id": "8c0944a9-be62-46ed-b988-f52c62ea00c4",
+      "topic_label": "topic_2",
+      "text": "Explain immortal-time bias in two concise sentences.",
+      "source_episode_ids": [
+        "3681387f-66db-44e2-b8cc-dec3029d648e",
+        "cd88c861-2506-40b8-9171-75634aaec722",
+        "9475373e-a86d-478d-9cb2-3979e3f70cd2",
+        "25f4d028-767b-4909-a996-951109ff7855"
+      ],
+      "source_turns": [
+        91,
+        99,
+        107,
+        115
+      ],
+      "collapsed_episode_ids": [
+        "cd88c861-2506-40b8-9171-75634aaec722",
+        "9475373e-a86d-478d-9cb2-3979e3f70cd2",
+        "25f4d028-767b-4909-a996-951109ff7855"
+      ],
+      "salience": 1,
+      "dream_event": 122,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-27T15:45:14.226941+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "55f840ec-4f27-5c8c-9e60-b4ba0660b242",
+      "source_episode_id": "72bc8697-9933-4e81-bb39-a9808290ae9b",
+      "topic_id": "8c0944a9-be62-46ed-b988-f52c62ea00c4",
+      "topic_label": "topic_2",
+      "text": "Explain one failure mode involving missing covariates.",
+      "source_episode_ids": [
+        "72bc8697-9933-4e81-bb39-a9808290ae9b",
+        "99b1cfd5-5dac-4190-a367-19db09afe67b",
+        "94fce027-d293-4c63-a5f7-7c0cbb784f7b",
+        "f60af4d8-de22-4d30-9a25-ef9dce89971d",
+        "e1b018cb-72c1-4763-a79a-f650bb9dd371"
+      ],
+      "source_turns": [
+        88,
+        96,
+        104,
+        112,
+        120
+      ],
+      "collapsed_episode_ids": [
+        "99b1cfd5-5dac-4190-a367-19db09afe67b",
+        "94fce027-d293-4c63-a5f7-7c0cbb784f7b",
+        "f60af4d8-de22-4d30-9a25-ef9dce89971d",
+        "e1b018cb-72c1-4763-a79a-f650bb9dd371"
+      ],
+      "salience": 1,
+      "dream_event": 122,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-27T15:45:14.226808+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "14e98615-d551-52ee-b924-6d1ec9947e1b",
+      "source_episode_id": "a9bb2c9e-48b4-4d3d-828d-7720cc91736c",
+      "topic_id": "8c0944a9-be62-46ed-b988-f52c62ea00c4",
+      "topic_label": "topic_2",
+      "text": "Name one sensitivity analysis for negative controls and its purpose.",
+      "source_episode_ids": [
+        "a9bb2c9e-48b4-4d3d-828d-7720cc91736c",
+        "1ac0d7d0-10c2-4768-b9b6-a6f2237cdce2",
+        "906ba882-a75b-4b06-b7e5-43e922996436",
+        "0debc7e8-5ed2-4125-b716-64b3a4f39967"
+      ],
+      "source_turns": [
+        90,
+        98,
+        106,
+        114
+      ],
+      "collapsed_episode_ids": [
+        "1ac0d7d0-10c2-4768-b9b6-a6f2237cdce2",
+        "906ba882-a75b-4b06-b7e5-43e922996436",
+        "0debc7e8-5ed2-4125-b716-64b3a4f39967"
+      ],
+      "salience": 1,
+      "dream_event": 122,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-27T15:45:14.226987+00:00",
+      "embedding_dimensions": 1024
+    },
+    {
+      "id": "27f30750-bf13-5c53-ab5b-f0b1eb6b58e7",
+      "source_episode_id": "efa30fb9-5267-4970-b16d-7fc40b1ca487",
+      "topic_id": "8c0944a9-be62-46ed-b988-f52c62ea00c4",
+      "topic_label": "topic_2",
+      "text": "Briefly compare two validation strategies for propensity overlap.",
+      "source_episode_ids": [
+        "efa30fb9-5267-4970-b16d-7fc40b1ca487",
+        "6dfca794-82da-4db6-96d1-507ac2e91d37",
+        "9332e339-1d5d-496c-b128-6011bc520c24",
+        "300c6207-208a-48f7-a43a-0b3c055e15c9",
+        "2ff479fb-dd9f-4c79-82f4-9cd7019bd800"
+      ],
+      "source_turns": [
+        85,
+        93,
+        101,
+        109,
+        117
+      ],
+      "collapsed_episode_ids": [
+        "6dfca794-82da-4db6-96d1-507ac2e91d37",
+        "9332e339-1d5d-496c-b128-6011bc520c24",
+        "300c6207-208a-48f7-a43a-0b3c055e15c9",
+        "2ff479fb-dd9f-4c79-82f4-9cd7019bd800"
+      ],
+      "salience": 1,
+      "dream_event": 122,
+      "event_type": "transition",
+      "status": "content",
+      "created_at": "2026-07-27T15:45:14.226892+00:00",
+      "embedding_dimensions": 1024
+    }
+  ]
+}

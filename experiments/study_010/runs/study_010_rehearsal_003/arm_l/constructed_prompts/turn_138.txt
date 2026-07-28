@@ -1,0 +1,345 @@
+You are a concise technical research assistant. Preserve exact user-supplied project facts across long conversations. Keep non-probe answers brief.
+
+<pinned_rules/>
+
+<recent_context>
+  <episode turn="137" topic="topic_2">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Briefly describe provenance documentation for cluster effects.</user_message>
+    <assistant_message>1. Provenance Documentation: Maintain a detailed log specifying the statistical method used (e.g., mixed-effects models, GEE) and the hierarchical variables defining clusters, ensuring transparent reproduction of intra-class correlation coefficients and variance inflation factors.
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the clinical epidemiology thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="1" topic="topic_2">
+    <user_message>For our structural engineering case, lock these facts: the project is Aster Viaduct, led by Dr. Leena Ortiz, with the primary value 1,126 meters. Acknowledge the three facts in a concise numbered list.</user_message>
+    <assistant_message>1. Project: Aster Viaduct
+2. Lead: Dr. Leena Ortiz
+3. Primary Value: 1,126 meters
+
+&lt;rule_detection&gt;{"contains_rule": false, "rule_summary": null}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="2" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Identify one measurement error affecting cable fatigue and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Inaccurate strain gauge calibration
+2. Consequence: Underestimated cyclic stress amplitude, leading to premature cable fracture
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the structural engineering thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="3" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Briefly compare two validation strategies for seismic isolation.</user_message>
+    <assistant_message>1. Shake Table Testing: Physical validation using scaled models; high fidelity but limited frequency range.
+2. Numerical Simulation: Computational modeling using FEA; comprehensive scenario coverage but relies on material property assumptions.
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the structural engineering thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="4" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. State one practical quality-control check for deck torsion.</user_message>
+    <assistant_message>1. Practical QC Check: Verify torsional alignment of bearing seats relative to the centerline to ensure even load distribution and prevent unintended torque on the deck.
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the structural engineering thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="5" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Give a short example of uncertainty reporting for bearing creep.</user_message>
+    <assistant_message>1. Example: Bearing creep deformation = 2.5 mm ± 0.3 mm (95% confidence interval), derived from statistical analysis of time-series monitoring data.
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the structural engineering thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="6" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Explain one failure mode involving wind-tunnel scaling.</user_message>
+    <assistant_message>1. Failure Mode: Incorrect scaling of Reynolds number or boundary layer characteristics can result in inaccurate estimation of aerodynamic forces, leading to inadequate design for flutter or galloping instability.
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the structural engineering thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="7" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Briefly describe provenance documentation for load combinations.</user_message>
+    <assistant_message>1. Provenance Documentation: Maintain a traceable ledger linking specific load combinations to their source standards (e.g., ASCE 7), applicable load factors, and project-specific verification signatures.
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the structural engineering thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="8" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Name one sensitivity analysis for corrosion monitoring and its purpose.</user_message>
+    <assistant_message>1. Sensitivity Analysis: Variation of corrosion rate parameters within probabilistic models
+2. Purpose: Determine the impact of corrosion uncertainty on residual service life and safety factors
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the structural engineering thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="9" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Explain aeroelastic flutter in two concise sentences.</user_message>
+    <assistant_message>Aeroelastic flutter is a dynamic instability where aerodynamic forces couple with structural bending and torsional modes, extracting energy from the airflow. This interaction causes oscillations to grow exponentially, often leading to catastrophic structural failure.
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the structural engineering thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+</recent_context>
+
+<retrieved_stm>
+  <episode turn="114" topic="topic_2" similarity="0.857931">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Name one sensitivity analysis for negative controls and its purpose.</user_message>
+    <assistant_message>1. Sensitivity Analysis: Negative Control Outcome Analysis
+2. Purpose: Detect residual confounding or unmeasured confounders by assessing whether an exposure is falsely associated with an outcome known to be causally unaffected by the exposure.
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the clinical epidemiology thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="98" topic="topic_2" similarity="0.857931">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Name one sensitivity analysis for negative controls and its purpose.</user_message>
+    <assistant_message>1. Sensitivity Analysis: Negative Control Outcome Analysis
+2. Purpose: Detect residual confounding or unmeasured confounders by assessing whether an exposure is falsely associated with an outcome known to be causally unaffected by the exposure.
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the clinical epidemiology thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="130" topic="topic_2" similarity="0.857931">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Name one sensitivity analysis for negative controls and its purpose.</user_message>
+    <assistant_message>1. Sensitivity Analysis: Negative Control Outcome Analysis
+2. Purpose: Detect residual confounding or unmeasured confounders by assessing whether an exposure is falsely associated with an outcome known to be causally unaffected by the exposure.
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the clinical epidemiology thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="106" topic="topic_2" similarity="0.857931">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Name one sensitivity analysis for negative controls and its purpose.</user_message>
+    <assistant_message>1. Sensitivity Analysis: Negative Control Outcome Analysis
+2. Purpose: Detect residual confounding or unmeasured confounders by assessing whether an exposure is falsely associated with an outcome known to be causally unaffected by the exposure.
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the clinical epidemiology thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="90" topic="topic_2" similarity="0.857931">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Name one sensitivity analysis for negative controls and its purpose.</user_message>
+    <assistant_message>1. Sensitivity Analysis: Negative Control Outcome Analysis
+2. Purpose: Detect residual confounding or unmeasured confounders by assessing whether an exposure is falsely associated with an outcome known to be causally unaffected by the exposure.
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the clinical epidemiology thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="56" topic="topic_2" similarity="0.550054">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Name one sensitivity analysis for corrosion monitoring and its purpose.</user_message>
+    <assistant_message>1. Sensitivity Analysis: Variation of corrosion rate parameters within probabilistic models
+2. Purpose: Determine the impact of corrosion uncertainty on residual service life and safety factors
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the structural engineering thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="48" topic="topic_2" similarity="0.550054">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Name one sensitivity analysis for corrosion monitoring and its purpose.</user_message>
+    <assistant_message>1. Sensitivity Analysis: Variation of corrosion rate parameters within probabilistic models
+2. Purpose: Determine the impact of corrosion uncertainty on residual service life and safety factors
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the structural engineering thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="64" topic="topic_2" similarity="0.550054">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Name one sensitivity analysis for corrosion monitoring and its purpose.</user_message>
+    <assistant_message>1. Sensitivity Analysis: Variation of corrosion rate parameters within probabilistic models
+2. Purpose: Determine the impact of corrosion uncertainty on residual service life and safety factors
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the structural engineering thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="32" topic="topic_2" similarity="0.550054">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Name one sensitivity analysis for corrosion monitoring and its purpose.</user_message>
+    <assistant_message>1. Sensitivity Analysis: Variation of corrosion rate parameters within probabilistic models
+2. Purpose: Determine the impact of corrosion uncertainty on residual service life and safety factors
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the structural engineering thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="72" topic="topic_2" similarity="0.550054">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Name one sensitivity analysis for corrosion monitoring and its purpose.</user_message>
+    <assistant_message>1. Sensitivity Analysis: Variation of corrosion rate parameters within probabilistic models
+2. Purpose: Determine the impact of corrosion uncertainty on residual service life and safety factors
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the structural engineering thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="24" topic="topic_2" similarity="0.550054">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Name one sensitivity analysis for corrosion monitoring and its purpose.</user_message>
+    <assistant_message>1. Sensitivity Analysis: Variation of corrosion rate parameters within probabilistic models
+2. Purpose: Determine the impact of corrosion uncertainty on residual service life and safety factors
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the structural engineering thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="16" topic="topic_2" similarity="0.550054">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Name one sensitivity analysis for corrosion monitoring and its purpose.</user_message>
+    <assistant_message>1. Sensitivity Analysis: Variation of corrosion rate parameters within probabilistic models
+2. Purpose: Determine the impact of corrosion uncertainty on residual service life and safety factors
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the structural engineering thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="80" topic="topic_2" similarity="0.550054">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Name one sensitivity analysis for corrosion monitoring and its purpose.</user_message>
+    <assistant_message>1. Sensitivity Analysis: Variation of corrosion rate parameters within probabilistic models
+2. Purpose: Determine the impact of corrosion uncertainty on residual service life and safety factors
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the structural engineering thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="117" topic="topic_2" similarity="0.536189">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Briefly compare two validation strategies for propensity overlap.</user_message>
+    <assistant_message>1. Common Support Check: Visual inspection of propensity score distributions for treated and control groups; simple but subjective.
+2. Trimmed Analysis: Restricting inference to the region of overlap using weighting or subclassification; robust but may reduce sample size.
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the clinical epidemiology thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="109" topic="topic_2" similarity="0.536189">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Briefly compare two validation strategies for propensity overlap.</user_message>
+    <assistant_message>1. Common Support Check: Visual inspection of propensity score distributions for treated and control groups; simple but subjective.
+2. Trimmed Analysis: Restricting inference to the region of overlap using weighting or subclassification; robust but may reduce sample size.
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the clinical epidemiology thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="93" topic="topic_2" similarity="0.536189">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Briefly compare two validation strategies for propensity overlap.</user_message>
+    <assistant_message>1. Common Support Check: Visual inspection of propensity score distributions for treated and control groups; simple but subjective.
+2. Trimmed Analysis: Restricting inference to the region of overlap using weighting or subclassification; robust but may reduce sample size.
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the clinical epidemiology thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="125" topic="topic_2" similarity="0.536189">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Briefly compare two validation strategies for propensity overlap.</user_message>
+    <assistant_message>1. Common Support Check: Visual inspection of propensity score distributions for treated and control groups; simple but subjective.
+2. Trimmed Analysis: Restricting inference to the region of overlap using weighting or subclassification; robust but may reduce sample size.
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the clinical epidemiology thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="133" topic="topic_2" similarity="0.536189">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Briefly compare two validation strategies for propensity overlap.</user_message>
+    <assistant_message>1. Common Support Check: Visual inspection of propensity score distributions for treated and control groups; simple but subjective.
+2. Trimmed Analysis: Restricting inference to the region of overlap using weighting or subclassification; robust but may reduce sample size.
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the clinical epidemiology thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="101" topic="topic_2" similarity="0.536189">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Briefly compare two validation strategies for propensity overlap.</user_message>
+    <assistant_message>1. Common Support Check: Visual inspection of propensity score distributions for treated and control groups; simple but subjective.
+2. Trimmed Analysis: Restricting inference to the region of overlap using weighting or subclassification; robust but may reduce sample size.
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the clinical epidemiology thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="85" topic="topic_2" similarity="0.536189">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Briefly compare two validation strategies for propensity overlap.</user_message>
+    <assistant_message>1. Common Support Check: Visual inspection of propensity score distributions for treated and control groups; simple but subjective.
+2. Trimmed Analysis: Restricting inference to the region of overlap using weighting or subclassification; robust but may reduce sample size.
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the clinical epidemiology thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="108" topic="topic_2" similarity="0.526278">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Identify one measurement error affecting loss to follow-up and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Inaccurate recording of contact information or vital status updates.
+2. Consequence: Incomplete outcome data, leading to attrition bias and potentially invalid conclusions about treatment efficacy or risk associations.
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the clinical epidemiology thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="84" topic="topic_2" similarity="0.526278">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Identify one measurement error affecting loss to follow-up and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Inaccurate recording of contact information or vital status updates.
+2. Consequence: Incomplete outcome data, leading to attrition bias and potentially invalid conclusions about treatment efficacy or risk associations.
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the clinical epidemiology thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="132" topic="topic_2" similarity="0.526278">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Identify one measurement error affecting loss to follow-up and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Inaccurate recording of contact information or vital status updates.
+2. Consequence: Incomplete outcome data, leading to attrition bias and potentially invalid conclusions about treatment efficacy or risk associations.
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the clinical epidemiology thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="124" topic="topic_2" similarity="0.526278">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Identify one measurement error affecting loss to follow-up and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Inaccurate recording of contact information or vital status updates.
+2. Consequence: Incomplete outcome data, leading to attrition bias and potentially invalid conclusions about treatment efficacy or risk associations.
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the clinical epidemiology thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="92" topic="topic_2" similarity="0.526278">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Identify one measurement error affecting loss to follow-up and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Inaccurate recording of contact information or vital status updates.
+2. Consequence: Incomplete outcome data, leading to attrition bias and potentially invalid conclusions about treatment efficacy or risk associations.
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the clinical epidemiology thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="100" topic="topic_2" similarity="0.526278">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Identify one measurement error affecting loss to follow-up and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Inaccurate recording of contact information or vital status updates.
+2. Consequence: Incomplete outcome data, leading to attrition bias and potentially invalid conclusions about treatment efficacy or risk associations.
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the clinical epidemiology thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="116" topic="topic_2" similarity="0.526278">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Identify one measurement error affecting loss to follow-up and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Inaccurate recording of contact information or vital status updates.
+2. Consequence: Incomplete outcome data, leading to attrition bias and potentially invalid conclusions about treatment efficacy or risk associations.
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the clinical epidemiology thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="134" topic="topic_2" similarity="0.517606">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. State one practical quality-control check for competing risks.</user_message>
+    <assistant_message>1. Practical QC Check: Verify that the cumulative incidence function (CIF) is used instead of Kaplan-Meier estimates to account for competing events, ensuring unbiased estimation of cause-specific risk.
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the clinical epidemiology thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="118" topic="topic_2" similarity="0.517606">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. State one practical quality-control check for competing risks.</user_message>
+    <assistant_message>1. Practical QC Check: Verify that the cumulative incidence function (CIF) is used instead of Kaplan-Meier estimates to account for competing events, ensuring unbiased estimation of cause-specific risk.
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the clinical epidemiology thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="94" topic="topic_2" similarity="0.517606">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. State one practical quality-control check for competing risks.</user_message>
+    <assistant_message>1. Practical QC Check: Verify that the cumulative incidence function (CIF) is used instead of Kaplan-Meier estimates to account for competing events, ensuring unbiased estimation of cause-specific risk.
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the clinical epidemiology thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="110" topic="topic_2" similarity="0.517606">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. State one practical quality-control check for competing risks.</user_message>
+    <assistant_message>1. Practical QC Check: Verify that the cumulative incidence function (CIF) is used instead of Kaplan-Meier estimates to account for competing events, ensuring unbiased estimation of cause-specific risk.
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the clinical epidemiology thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="126" topic="topic_2" similarity="0.517606">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. State one practical quality-control check for competing risks.</user_message>
+    <assistant_message>1. Practical QC Check: Verify that the cumulative incidence function (CIF) is used instead of Kaplan-Meier estimates to account for competing events, ensuring unbiased estimation of cause-specific risk.
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the clinical epidemiology thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="102" topic="topic_2" similarity="0.517606">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. State one practical quality-control check for competing risks.</user_message>
+    <assistant_message>1. Practical QC Check: Verify that the cumulative incidence function (CIF) is used instead of Kaplan-Meier estimates to account for competing events, ensuring unbiased estimation of cause-specific risk.
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the clinical epidemiology thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="86" topic="topic_2" similarity="0.517549">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. State one practical quality-control check for competing risks.</user_message>
+    <assistant_message>1. Practical QC Check: Verify that the cumulative incidence function (CIF) is used instead of Kaplan-Meier estimates to account for the fact that individuals experiencing competing events are censored, ensuring unbiased estimation of cause-specific risk.
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the clinical epidemiology thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+</retrieved_stm>
+
+<retrieved_ltm>
+  <episode turn="88" topic="topic_2" similarity="0.576404" distilled_id="55f840ec-4f27-5c8c-9e60-b4ba0660b242" dream_event="122" event_type="transition" source_turns="88,96,104,112,120">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Explain one failure mode involving missing covariates.</user_message>
+    <assistant_message>1. Failure Mode: Omitted variable bias occurs when an unmeasured confounder influences both exposure and outcome. This leads to distorted effect estimates, such as falsely attributing risk to the primary exposure that is actually driven by the missing covariate.
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the clinical epidemiology thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="75" topic="topic_2" similarity="0.432282" distilled_id="578973d2-b2d6-56dc-9c39-a93bc454c18b" dream_event="83" event_type="transition" source_turns="75">
+    <user_message>Without repeating the values, explain in two sentences why the recorded specification and threshold matter to Aster Viaduct.</user_message>
+    <assistant_message>The HPS 70W steel specification ensures the structure possesses the necessary tensile strength and toughness to withstand cyclic loading and environmental stress. The axle load threshold dictates the maximum permissible live loads, guiding reinforcement design and long-term fatigue assessment to maintain structural integrity.
+
+&lt;rule_detection&gt;{"contains_rule": false, "rule_summary": null}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="40" topic="topic_2" similarity="0.400680" distilled_id="3d75d240-5532-5c69-a050-f8cbca264457" dream_event="83" event_type="transition" source_turns="40">
+    <user_message>Add two locked facts for Aster Viaduct: the technical specification is HPS 70W steel, and the decision threshold is 118.6 metric tons per axle. Restate only those two facts.</user_message>
+    <assistant_message>1. Technical Specification: HPS 70W steel
+2. Decision Threshold: 118.6 metric tons per axle
+
+&lt;rule_detection&gt;{"contains_rule": false, "rule_summary": null}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="87" topic="topic_2" similarity="0.374786" distilled_id="e4d982d5-d287-57af-bce5-53379612462c" dream_event="122" event_type="transition" source_turns="87,95,103,111,119">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Give a short example of uncertainty reporting for outcome adjudication.</user_message>
+    <assistant_message>1. Example: Adjudicated outcome probability = 85% (Bayesian posterior median), with a 95% credible interval of [72%, 93%], reflecting uncertainty from inter-rater variability and partial chart reviews.
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the clinical epidemiology thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="91" topic="topic_2" similarity="0.347912" distilled_id="f29fbcd6-4463-5d03-bece-8c5509692286" dream_event="122" event_type="transition" source_turns="91,99,107,115">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Explain immortal-time bias in two concise sentences.</user_message>
+    <assistant_message>Immortal-time bias occurs when study subjects must survive a period of time to become classified into an exposure group, artificially inflating that group's survival time. This methodological error creates a spurious protective effect, falsely suggesting the exposure improves outcomes.
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the clinical epidemiology thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+</retrieved_ltm>
+
+<current_turn>
+  <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Name one sensitivity analysis for negative controls and its purpose.</user_message>
+</current_turn>
+
+Assistant:

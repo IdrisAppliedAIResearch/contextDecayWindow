@@ -1,0 +1,433 @@
+You are a concise technical research assistant. Preserve exact user-supplied project facts across long conversations. Keep non-probe answers brief.
+
+<pinned_rules/>
+
+<recent_context>
+  <episode turn="975" topic="topic_2">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. Explain one failure mode involving surface cleaning.</user_message>
+    <assistant_message>Incompatible abrasive cleaning can mechanically remove the hydrophobic patina and micro-crystalline surface layer, leaving the underlying stone or metal porous and highly susceptible to accelerated atmospheric re-soiling and moisture ingress.</assistant_message>
+  </episode>
+  <episode turn="1" topic="topic_2">
+    <user_message>For our structural engineering case, lock these facts: the project is Aster Viaduct, led by Dr. Leena Ortiz, with the primary value 1,126 meters. Acknowledge the three facts in a concise numbered list.</user_message>
+    <assistant_message>1. Project: Aster Viaduct
+2. Lead: Dr. Leena Ortiz
+3. Primary Value: 1,126 meters</assistant_message>
+  </episode>
+  <episode turn="2" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Identify one measurement error affecting cable fatigue and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Inaccurate tensioning calibration during installation can lead to non-uniform load distribution across cables.
+2. Consequence: This imbalance accelerates high-cycle fatigue failure in the overstressed strands, reducing the structure's service life and compromising safety.</assistant_message>
+  </episode>
+  <episode turn="3" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Briefly compare two validation strategies for seismic isolation.</user_message>
+    <assistant_message>1. **Physical Shake Table Testing**: Validates full-scale prototype behavior under controlled seismic inputs, capturing non-linear interactions and hysteresis, but is costly and logistically complex.
+2. **Numerical Simulation**: Uses finite element models to predict performance under varied scenarios efficiently, but relies heavily on accurate material input data and boundary condition assumptions.</assistant_message>
+  </episode>
+  <episode turn="4" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. State one practical quality-control check for deck torsion.</user_message>
+    <assistant_message>1. Practical Quality-Control Check: Use high-precision total stations to measure relative elevation differences between opposite deck edges during casting or placement, ensuring torsional warping remains within specified tolerance limits.</assistant_message>
+  </episode>
+  <episode turn="5" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Give a short example of uncertainty reporting for bearing creep.</user_message>
+    <assistant_message>Report bearing creep as a mean value with a confidence interval (e.g., $\mu \pm 2\sigma$), derived from long-term monotonic testing, to quantify dispersion and model reliability.</assistant_message>
+  </episode>
+  <episode turn="6" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Explain one failure mode involving wind-tunnel scaling.</user_message>
+    <assistant_message>Scaling discrepancies in Reynolds number between wind-tunnel models and full-scale structures can cause boundary layer separation characteristics to differ, leading to inaccurate prediction of vortex shedding and dynamic wind loads.</assistant_message>
+  </episode>
+  <episode turn="7" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Briefly describe provenance documentation for load combinations.</user_message>
+    <assistant_message>Provenance documentation for load combinations involves explicitly citing the governing design codes, specific equations, and environmental data sources (e.g., wind or snow maps) used to derive each load factor, ensuring traceability from final design values back to original standards and assumptions.</assistant_message>
+  </episode>
+  <episode turn="8" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Name one sensitivity analysis for corrosion monitoring and its purpose.</user_message>
+    <assistant_message>1. Sensitivity Analysis: Varying the corrosion rate input in finite element models to assess its impact on residual load-bearing capacity.
+2. Purpose: To identify the threshold at which section loss critically compromises structural safety, thereby optimizing inspection intervals and maintenance prioritization.</assistant_message>
+  </episode>
+  <episode turn="9" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Explain aeroelastic flutter in two concise sentences.</user_message>
+    <assistant_message>Aeroelastic flutter is a self-excited, divergent oscillation caused by the coupling of aerodynamic forces with a structure's elastic and inertial properties. This instability occurs when energy extraction from the airflow exceeds structural damping, leading to rapid, potentially catastrophic failure.</assistant_message>
+  </episode>
+</recent_context>
+
+<retrieved_stm>
+  <episode turn="168" topic="topic_2" similarity="0.605190">
+    <user_message>Stay within the archival history thread and do not connect it to other subjects. Give a short example of uncertainty reporting for provenance gaps.</user_message>
+    <assistant_message>Report provenance gaps using a qualitative risk assessment (e.g., Low/Medium/High) linked to the potential impact on attribution, alongside a notation of the specific missing linkage in the chain of custody.</assistant_message>
+  </episode>
+  <episode turn="170" topic="topic_2" similarity="0.536045">
+    <user_message>Stay within the archival history thread and do not connect it to other subjects. Briefly describe provenance documentation for seal impressions.</user_message>
+    <assistant_message>Provenance documentation for seal impressions involves high-resolution macro-photography and rubbings to capture intricate details and wear patterns, accompanied by a catalog record linking the seal matrix, wax, and impressions to specific dates, signatories, and diplomatic contexts to verify authenticity and chain of custody.</assistant_message>
+  </episode>
+  <episode turn="176" topic="topic_2" similarity="0.605190">
+    <user_message>Stay within the archival history thread and do not connect it to other subjects. Give a short example of uncertainty reporting for provenance gaps.</user_message>
+    <assistant_message>Report provenance gaps using a qualitative risk assessment (e.g., Low/Medium/High) linked to the potential impact on attribution, alongside a notation of the specific missing linkage in the chain of custody.</assistant_message>
+  </episode>
+  <episode turn="178" topic="topic_2" similarity="0.536045">
+    <user_message>Stay within the archival history thread and do not connect it to other subjects. Briefly describe provenance documentation for seal impressions.</user_message>
+    <assistant_message>Provenance documentation for seal impressions involves high-resolution macro-photography and rubbings to capture intricate details and wear patterns, accompanied by a catalog record linking the seal matrix, wax, and impressions to specific dates, signatories, and diplomatic contexts to verify authenticity and chain of custody.</assistant_message>
+  </episode>
+  <episode turn="184" topic="topic_2" similarity="0.605190">
+    <user_message>Stay within the archival history thread and do not connect it to other subjects. Give a short example of uncertainty reporting for provenance gaps.</user_message>
+    <assistant_message>Report provenance gaps using a qualitative risk assessment (e.g., Low/Medium/High) linked to the potential impact on attribution, alongside a notation of the specific missing linkage in the chain of custody.</assistant_message>
+  </episode>
+  <episode turn="186" topic="topic_2" similarity="0.536045">
+    <user_message>Stay within the archival history thread and do not connect it to other subjects. Briefly describe provenance documentation for seal impressions.</user_message>
+    <assistant_message>Provenance documentation for seal impressions involves high-resolution macro-photography and rubbings to capture intricate details and wear patterns, accompanied by a catalog record linking the seal matrix, wax, and impressions to specific dates, signatories, and diplomatic contexts to verify authenticity and chain of custody.</assistant_message>
+  </episode>
+  <episode turn="192" topic="topic_2" similarity="0.605190">
+    <user_message>Stay within the archival history thread and do not connect it to other subjects. Give a short example of uncertainty reporting for provenance gaps.</user_message>
+    <assistant_message>Report provenance gaps using a qualitative risk assessment (e.g., Low/Medium/High) linked to the potential impact on attribution, alongside a notation of the specific missing linkage in the chain of custody.</assistant_message>
+  </episode>
+  <episode turn="194" topic="topic_2" similarity="0.536045">
+    <user_message>Stay within the archival history thread and do not connect it to other subjects. Briefly describe provenance documentation for seal impressions.</user_message>
+    <assistant_message>Provenance documentation for seal impressions involves high-resolution macro-photography and rubbings to capture intricate details and wear patterns, accompanied by a catalog record linking the seal matrix, wax, and impressions to specific dates, signatories, and diplomatic contexts to verify authenticity and chain of custody.</assistant_message>
+  </episode>
+  <episode turn="200" topic="topic_2" similarity="0.605190">
+    <user_message>Stay within the archival history thread and do not connect it to other subjects. Give a short example of uncertainty reporting for provenance gaps.</user_message>
+    <assistant_message>Report provenance gaps using a qualitative risk assessment (e.g., Low/Medium/High) linked to the potential impact on attribution, alongside a notation of the specific missing linkage in the chain of custody.</assistant_message>
+  </episode>
+  <episode turn="202" topic="topic_2" similarity="0.536045">
+    <user_message>Stay within the archival history thread and do not connect it to other subjects. Briefly describe provenance documentation for seal impressions.</user_message>
+    <assistant_message>Provenance documentation for seal impressions involves high-resolution macro-photography and rubbings to capture intricate details and wear patterns, accompanied by a catalog record linking the seal matrix, wax, and impressions to specific dates, signatories, and diplomatic contexts to verify authenticity and chain of custody.</assistant_message>
+  </episode>
+  <episode turn="208" topic="topic_2" similarity="0.605190">
+    <user_message>Stay within the archival history thread and do not connect it to other subjects. Give a short example of uncertainty reporting for provenance gaps.</user_message>
+    <assistant_message>Report provenance gaps using a qualitative risk assessment (e.g., Low/Medium/High) linked to the potential impact on attribution, alongside a notation of the specific missing linkage in the chain of custody.</assistant_message>
+  </episode>
+  <episode turn="210" topic="topic_2" similarity="0.536045">
+    <user_message>Stay within the archival history thread and do not connect it to other subjects. Briefly describe provenance documentation for seal impressions.</user_message>
+    <assistant_message>Provenance documentation for seal impressions involves high-resolution macro-photography and rubbings to capture intricate details and wear patterns, accompanied by a catalog record linking the seal matrix, wax, and impressions to specific dates, signatories, and diplomatic contexts to verify authenticity and chain of custody.</assistant_message>
+  </episode>
+  <episode turn="216" topic="topic_2" similarity="0.605190">
+    <user_message>Stay within the archival history thread and do not connect it to other subjects. Give a short example of uncertainty reporting for provenance gaps.</user_message>
+    <assistant_message>Report provenance gaps using a qualitative risk assessment (e.g., Low/Medium/High) linked to the potential impact on attribution, alongside a notation of the specific missing linkage in the chain of custody.</assistant_message>
+  </episode>
+  <episode turn="218" topic="topic_2" similarity="0.536045">
+    <user_message>Stay within the archival history thread and do not connect it to other subjects. Briefly describe provenance documentation for seal impressions.</user_message>
+    <assistant_message>Provenance documentation for seal impressions involves high-resolution macro-photography and rubbings to capture intricate details and wear patterns, accompanied by a catalog record linking the seal matrix, wax, and impressions to specific dates, signatories, and diplomatic contexts to verify authenticity and chain of custody.</assistant_message>
+  </episode>
+  <episode turn="224" topic="topic_2" similarity="0.605190">
+    <user_message>Stay within the archival history thread and do not connect it to other subjects. Give a short example of uncertainty reporting for provenance gaps.</user_message>
+    <assistant_message>Report provenance gaps using a qualitative risk assessment (e.g., Low/Medium/High) linked to the potential impact on attribution, alongside a notation of the specific missing linkage in the chain of custody.</assistant_message>
+  </episode>
+  <episode turn="226" topic="topic_2" similarity="0.536045">
+    <user_message>Stay within the archival history thread and do not connect it to other subjects. Briefly describe provenance documentation for seal impressions.</user_message>
+    <assistant_message>Provenance documentation for seal impressions involves high-resolution macro-photography and rubbings to capture intricate details and wear patterns, accompanied by a catalog record linking the seal matrix, wax, and impressions to specific dates, signatories, and diplomatic contexts to verify authenticity and chain of custody.</assistant_message>
+  </episode>
+  <episode turn="232" topic="topic_2" similarity="0.605190">
+    <user_message>Stay within the archival history thread and do not connect it to other subjects. Give a short example of uncertainty reporting for provenance gaps.</user_message>
+    <assistant_message>Report provenance gaps using a qualitative risk assessment (e.g., Low/Medium/High) linked to the potential impact on attribution, alongside a notation of the specific missing linkage in the chain of custody.</assistant_message>
+  </episode>
+  <episode turn="234" topic="topic_2" similarity="0.536045">
+    <user_message>Stay within the archival history thread and do not connect it to other subjects. Briefly describe provenance documentation for seal impressions.</user_message>
+    <assistant_message>Provenance documentation for seal impressions involves high-resolution macro-photography and rubbings to capture intricate details and wear patterns, accompanied by a catalog record linking the seal matrix, wax, and impressions to specific dates, signatories, and diplomatic contexts to verify authenticity and chain of custody.</assistant_message>
+  </episode>
+  <episode turn="240" topic="topic_2" similarity="0.605190">
+    <user_message>Stay within the archival history thread and do not connect it to other subjects. Give a short example of uncertainty reporting for provenance gaps.</user_message>
+    <assistant_message>Report provenance gaps using a qualitative risk assessment (e.g., Low/Medium/High) linked to the potential impact on attribution, alongside a notation of the specific missing linkage in the chain of custody.</assistant_message>
+  </episode>
+  <episode turn="242" topic="topic_2" similarity="0.536045">
+    <user_message>Stay within the archival history thread and do not connect it to other subjects. Briefly describe provenance documentation for seal impressions.</user_message>
+    <assistant_message>Provenance documentation for seal impressions involves high-resolution macro-photography and rubbings to capture intricate details and wear patterns, accompanied by a catalog record linking the seal matrix, wax, and impressions to specific dates, signatories, and diplomatic contexts to verify authenticity and chain of custody.</assistant_message>
+  </episode>
+  <episode turn="499" topic="topic_2" similarity="0.524480">
+    <user_message>Stay within the wetland ecology thread and do not connect it to other subjects. Briefly describe provenance documentation for seed-bank recovery.</user_message>
+    <assistant_message>Provenance documentation for seed-bank recovery requires recording the specific extraction depth, sediment horizon, moisture conditions, and geographic coordinates of the sample, ensuring that germination outcomes can be traced back to precise historical environmental contexts and sampling methodologies.</assistant_message>
+  </episode>
+  <episode turn="510" topic="topic_2" similarity="0.524480">
+    <user_message>Stay within the wetland ecology thread and do not connect it to other subjects. Briefly describe provenance documentation for seed-bank recovery.</user_message>
+    <assistant_message>Provenance documentation for seed-bank recovery requires recording the specific extraction depth, sediment horizon, moisture conditions, and geographic coordinates of the sample, ensuring that germination outcomes can be traced back to precise historical environmental contexts and sampling methodologies.</assistant_message>
+  </episode>
+  <episode turn="518" topic="topic_2" similarity="0.524480">
+    <user_message>Stay within the wetland ecology thread and do not connect it to other subjects. Briefly describe provenance documentation for seed-bank recovery.</user_message>
+    <assistant_message>Provenance documentation for seed-bank recovery requires recording the specific extraction depth, sediment horizon, moisture conditions, and geographic coordinates of the sample, ensuring that germination outcomes can be traced back to precise historical environmental contexts and sampling methodologies.</assistant_message>
+  </episode>
+  <episode turn="526" topic="topic_2" similarity="0.524480">
+    <user_message>Stay within the wetland ecology thread and do not connect it to other subjects. Briefly describe provenance documentation for seed-bank recovery.</user_message>
+    <assistant_message>Provenance documentation for seed-bank recovery requires recording the specific extraction depth, sediment horizon, moisture conditions, and geographic coordinates of the sample, ensuring that germination outcomes can be traced back to precise historical environmental contexts and sampling methodologies.</assistant_message>
+  </episode>
+  <episode turn="534" topic="topic_2" similarity="0.524480">
+    <user_message>Stay within the wetland ecology thread and do not connect it to other subjects. Briefly describe provenance documentation for seed-bank recovery.</user_message>
+    <assistant_message>Provenance documentation for seed-bank recovery requires recording the specific extraction depth, sediment horizon, moisture conditions, and geographic coordinates of the sample, ensuring that germination outcomes can be traced back to precise historical environmental contexts and sampling methodologies.</assistant_message>
+  </episode>
+  <episode turn="542" topic="topic_2" similarity="0.524480">
+    <user_message>Stay within the wetland ecology thread and do not connect it to other subjects. Briefly describe provenance documentation for seed-bank recovery.</user_message>
+    <assistant_message>Provenance documentation for seed-bank recovery requires recording the specific extraction depth, sediment horizon, moisture conditions, and geographic coordinates of the sample, ensuring that germination outcomes can be traced back to precise historical environmental contexts and sampling methodologies.</assistant_message>
+  </episode>
+  <episode turn="550" topic="topic_2" similarity="0.524480">
+    <user_message>Stay within the wetland ecology thread and do not connect it to other subjects. Briefly describe provenance documentation for seed-bank recovery.</user_message>
+    <assistant_message>Provenance documentation for seed-bank recovery requires recording the specific extraction depth, sediment horizon, moisture conditions, and geographic coordinates of the sample, ensuring that germination outcomes can be traced back to precise historical environmental contexts and sampling methodologies.</assistant_message>
+  </episode>
+  <episode turn="558" topic="topic_2" similarity="0.524480">
+    <user_message>Stay within the wetland ecology thread and do not connect it to other subjects. Briefly describe provenance documentation for seed-bank recovery.</user_message>
+    <assistant_message>Provenance documentation for seed-bank recovery requires recording the specific extraction depth, sediment horizon, moisture conditions, and geographic coordinates of the sample, ensuring that germination outcomes can be traced back to precise historical environmental contexts and sampling methodologies.</assistant_message>
+  </episode>
+  <episode turn="566" topic="topic_2" similarity="0.524480">
+    <user_message>Stay within the wetland ecology thread and do not connect it to other subjects. Briefly describe provenance documentation for seed-bank recovery.</user_message>
+    <assistant_message>Provenance documentation for seed-bank recovery requires recording the specific extraction depth, sediment horizon, moisture conditions, and geographic coordinates of the sample, ensuring that germination outcomes can be traced back to precise historical environmental contexts and sampling methodologies.</assistant_message>
+  </episode>
+  <episode turn="574" topic="topic_2" similarity="0.524480">
+    <user_message>Stay within the wetland ecology thread and do not connect it to other subjects. Briefly describe provenance documentation for seed-bank recovery.</user_message>
+    <assistant_message>Provenance documentation for seed-bank recovery requires recording the specific extraction depth, sediment horizon, moisture conditions, and geographic coordinates of the sample, ensuring that germination outcomes can be traced back to precise historical environmental contexts and sampling methodologies.</assistant_message>
+  </episode>
+  <episode turn="665" topic="topic_2" similarity="0.522936">
+    <user_message>Stay within the marine geophysics thread and do not connect it to other subjects. Briefly describe provenance documentation for fault inversion.</user_message>
+    <assistant_message>Provenance documentation for fault inversion requires recording the specific kinematic constraints, velocity model parameters, and regularization weights applied during the inversion process, ensuring the derived slip distributions and stress drops are fully traceable to the underlying data and modeling assumptions.</assistant_message>
+  </episode>
+  <episode turn="673" topic="topic_2" similarity="0.522936">
+    <user_message>Stay within the marine geophysics thread and do not connect it to other subjects. Briefly describe provenance documentation for fault inversion.</user_message>
+    <assistant_message>Provenance documentation for fault inversion requires recording the specific kinematic constraints, velocity model parameters, and regularization weights applied during the inversion process, ensuring the derived slip distributions and stress drops are fully traceable to the underlying data and modeling assumptions.</assistant_message>
+  </episode>
+  <episode turn="681" topic="topic_2" similarity="0.522936">
+    <user_message>Stay within the marine geophysics thread and do not connect it to other subjects. Briefly describe provenance documentation for fault inversion.</user_message>
+    <assistant_message>Provenance documentation for fault inversion requires recording the specific kinematic constraints, velocity model parameters, and regularization weights applied during the inversion process, ensuring the derived slip distributions and stress drops are fully traceable to the underlying data and modeling assumptions.</assistant_message>
+  </episode>
+  <episode turn="689" topic="topic_2" similarity="0.522936">
+    <user_message>Stay within the marine geophysics thread and do not connect it to other subjects. Briefly describe provenance documentation for fault inversion.</user_message>
+    <assistant_message>Provenance documentation for fault inversion requires recording the specific kinematic constraints, velocity model parameters, and regularization weights applied during the inversion process, ensuring the derived slip distributions and stress drops are fully traceable to the underlying data and modeling assumptions.</assistant_message>
+  </episode>
+  <episode turn="697" topic="topic_2" similarity="0.522936">
+    <user_message>Stay within the marine geophysics thread and do not connect it to other subjects. Briefly describe provenance documentation for fault inversion.</user_message>
+    <assistant_message>Provenance documentation for fault inversion requires recording the specific kinematic constraints, velocity model parameters, and regularization weights applied during the inversion process, ensuring the derived slip distributions and stress drops are fully traceable to the underlying data and modeling assumptions.</assistant_message>
+  </episode>
+  <episode turn="705" topic="topic_2" similarity="0.522936">
+    <user_message>Stay within the marine geophysics thread and do not connect it to other subjects. Briefly describe provenance documentation for fault inversion.</user_message>
+    <assistant_message>Provenance documentation for fault inversion requires recording the specific kinematic constraints, velocity model parameters, and regularization weights applied during the inversion process, ensuring the derived slip distributions and stress drops are fully traceable to the underlying data and modeling assumptions.</assistant_message>
+  </episode>
+  <episode turn="713" topic="topic_2" similarity="0.522936">
+    <user_message>Stay within the marine geophysics thread and do not connect it to other subjects. Briefly describe provenance documentation for fault inversion.</user_message>
+    <assistant_message>Provenance documentation for fault inversion requires recording the specific kinematic constraints, velocity model parameters, and regularization weights applied during the inversion process, ensuring the derived slip distributions and stress drops are fully traceable to the underlying data and modeling assumptions.</assistant_message>
+  </episode>
+  <episode turn="721" topic="topic_2" similarity="0.522936">
+    <user_message>Stay within the marine geophysics thread and do not connect it to other subjects. Briefly describe provenance documentation for fault inversion.</user_message>
+    <assistant_message>Provenance documentation for fault inversion requires recording the specific kinematic constraints, velocity model parameters, and regularization weights applied during the inversion process, ensuring the derived slip distributions and stress drops are fully traceable to the underlying data and modeling assumptions.</assistant_message>
+  </episode>
+  <episode turn="729" topic="topic_2" similarity="0.522936">
+    <user_message>Stay within the marine geophysics thread and do not connect it to other subjects. Briefly describe provenance documentation for fault inversion.</user_message>
+    <assistant_message>Provenance documentation for fault inversion requires recording the specific kinematic constraints, velocity model parameters, and regularization weights applied during the inversion process, ensuring the derived slip distributions and stress drops are fully traceable to the underlying data and modeling assumptions.</assistant_message>
+  </episode>
+  <episode turn="737" topic="topic_2" similarity="0.522936">
+    <user_message>Stay within the marine geophysics thread and do not connect it to other subjects. Briefly describe provenance documentation for fault inversion.</user_message>
+    <assistant_message>Provenance documentation for fault inversion requires recording the specific kinematic constraints, velocity model parameters, and regularization weights applied during the inversion process, ensuring the derived slip distributions and stress drops are fully traceable to the underlying data and modeling assumptions.</assistant_message>
+  </episode>
+  <episode turn="907" topic="topic_2" similarity="0.516398">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. Identify one measurement error affecting mortar compatibility and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Incorrectly matching the porosity of the consolidation treatment to the degraded mortar matrix.
+2. Consequence: This creates a salt diffusion barrier that traps soluble salts behind the treated layer, leading to recurrent crystallization pressure and accelerated surface pulverization.</assistant_message>
+  </episode>
+  <episode turn="909" topic="topic_2" similarity="0.512438">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. State one practical quality-control check for moisture gradients.</user_message>
+    <assistant_message>1. Practical Quality-Control Check: Use calibrated hygrometers or pinless moisture meters to map relative humidity across the object's surface and internal cross-sections, verifying that moisture differentials remain within specified thresholds to prevent warping or delamination.</assistant_message>
+  </episode>
+  <episode turn="910" topic="topic_2" similarity="0.517197">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. Give a short example of uncertainty reporting for pigment fading.</user_message>
+    <assistant_message>Report pigment fading as a mean colorimetric shift (e.g., $\Delta E^*$) with a confidence interval, derived from accelerated light exposure testing, to quantify variability in spectral response and model reliability.</assistant_message>
+  </episode>
+  <episode turn="911" topic="topic_2" similarity="0.523440">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. Explain one failure mode involving surface cleaning.</user_message>
+    <assistant_message>Incompatible abrasive cleaning can mechanically remove the hydrophobic patina and micro-crystalline surface layer, leaving the underlying stone or metal porous and highly susceptible to accelerated atmospheric re-soiling and moisture ingress.</assistant_message>
+  </episode>
+  <episode turn="912" topic="topic_2" similarity="0.864677">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. Briefly describe provenance documentation for microcracking.</user_message>
+    <assistant_message>Provenance documentation for microcracking involves high-resolution photomicrography and optical mapping to record crack width, orientation, and density, linked to environmental monitoring logs and handling history to trace the physical stresses responsible for the damage pattern.</assistant_message>
+  </episode>
+  <episode turn="914" topic="topic_2" similarity="0.506062">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. Explain salt crystallization in two concise sentences.</user_message>
+    <assistant_message>Salt crystallization occurs when dissolved salts in pore water precipitate as moisture evaporates or temperatures fluctuate, generating expansive pressures that exceed the material's tensile strength. This cycle leads to mechanical damage, including surface spalling, pulverization, and structural weakening of the conservation object.</assistant_message>
+  </episode>
+  <episode turn="915" topic="topic_2" similarity="0.516398">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. Identify one measurement error affecting mortar compatibility and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Incorrectly matching the porosity of the consolidation treatment to the degraded mortar matrix.
+2. Consequence: This creates a salt diffusion barrier that traps soluble salts behind the treated layer, leading to recurrent crystallization pressure and accelerated surface pulverization.</assistant_message>
+  </episode>
+  <episode turn="917" topic="topic_2" similarity="0.512438">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. State one practical quality-control check for moisture gradients.</user_message>
+    <assistant_message>1. Practical Quality-Control Check: Use calibrated hygrometers or pinless moisture meters to map relative humidity across the object's surface and internal cross-sections, verifying that moisture differentials remain within specified thresholds to prevent warping or delamination.</assistant_message>
+  </episode>
+  <episode turn="918" topic="topic_2" similarity="0.517197">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. Give a short example of uncertainty reporting for pigment fading.</user_message>
+    <assistant_message>Report pigment fading as a mean colorimetric shift (e.g., $\Delta E^*$) with a confidence interval, derived from accelerated light exposure testing, to quantify variability in spectral response and model reliability.</assistant_message>
+  </episode>
+  <episode turn="919" topic="topic_2" similarity="0.523440">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. Explain one failure mode involving surface cleaning.</user_message>
+    <assistant_message>Incompatible abrasive cleaning can mechanically remove the hydrophobic patina and micro-crystalline surface layer, leaving the underlying stone or metal porous and highly susceptible to accelerated atmospheric re-soiling and moisture ingress.</assistant_message>
+  </episode>
+  <episode turn="920" topic="topic_2" similarity="0.864677">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. Briefly describe provenance documentation for microcracking.</user_message>
+    <assistant_message>Provenance documentation for microcracking involves high-resolution photomicrography and optical mapping to record crack width, orientation, and density, linked to environmental monitoring logs and handling history to trace the physical stresses responsible for the damage pattern.</assistant_message>
+  </episode>
+  <episode turn="922" topic="topic_2" similarity="0.506062">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. Explain salt crystallization in two concise sentences.</user_message>
+    <assistant_message>Salt crystallization occurs when dissolved salts in pore water precipitate as moisture evaporates or temperatures fluctuate, generating expansive pressures that exceed the material's tensile strength. This cycle leads to mechanical damage, including surface spalling, pulverization, and structural weakening of the conservation object.</assistant_message>
+  </episode>
+  <episode turn="923" topic="topic_2" similarity="0.516398">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. Identify one measurement error affecting mortar compatibility and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Incorrectly matching the porosity of the consolidation treatment to the degraded mortar matrix.
+2. Consequence: This creates a salt diffusion barrier that traps soluble salts behind the treated layer, leading to recurrent crystallization pressure and accelerated surface pulverization.</assistant_message>
+  </episode>
+  <episode turn="925" topic="topic_2" similarity="0.512438">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. State one practical quality-control check for moisture gradients.</user_message>
+    <assistant_message>1. Practical Quality-Control Check: Use calibrated hygrometers or pinless moisture meters to map relative humidity across the object's surface and internal cross-sections, verifying that moisture differentials remain within specified thresholds to prevent warping or delamination.</assistant_message>
+  </episode>
+  <episode turn="926" topic="topic_2" similarity="0.517197">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. Give a short example of uncertainty reporting for pigment fading.</user_message>
+    <assistant_message>Report pigment fading as a mean colorimetric shift (e.g., $\Delta E^*$) with a confidence interval, derived from accelerated light exposure testing, to quantify variability in spectral response and model reliability.</assistant_message>
+  </episode>
+  <episode turn="927" topic="topic_2" similarity="0.523440">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. Explain one failure mode involving surface cleaning.</user_message>
+    <assistant_message>Incompatible abrasive cleaning can mechanically remove the hydrophobic patina and micro-crystalline surface layer, leaving the underlying stone or metal porous and highly susceptible to accelerated atmospheric re-soiling and moisture ingress.</assistant_message>
+  </episode>
+  <episode turn="928" topic="topic_2" similarity="0.864677">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. Briefly describe provenance documentation for microcracking.</user_message>
+    <assistant_message>Provenance documentation for microcracking involves high-resolution photomicrography and optical mapping to record crack width, orientation, and density, linked to environmental monitoring logs and handling history to trace the physical stresses responsible for the damage pattern.</assistant_message>
+  </episode>
+  <episode turn="930" topic="topic_2" similarity="0.506062">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. Explain salt crystallization in two concise sentences.</user_message>
+    <assistant_message>Salt crystallization occurs when dissolved salts in pore water precipitate as moisture evaporates or temperatures fluctuate, generating expansive pressures that exceed the material's tensile strength. This cycle leads to mechanical damage, including surface spalling, pulverization, and structural weakening of the conservation object.</assistant_message>
+  </episode>
+  <episode turn="931" topic="topic_2" similarity="0.516398">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. Identify one measurement error affecting mortar compatibility and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Incorrectly matching the porosity of the consolidation treatment to the degraded mortar matrix.
+2. Consequence: This creates a salt diffusion barrier that traps soluble salts behind the treated layer, leading to recurrent crystallization pressure and accelerated surface pulverization.</assistant_message>
+  </episode>
+  <episode turn="933" topic="topic_2" similarity="0.512438">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. State one practical quality-control check for moisture gradients.</user_message>
+    <assistant_message>1. Practical Quality-Control Check: Use calibrated hygrometers or pinless moisture meters to map relative humidity across the object's surface and internal cross-sections, verifying that moisture differentials remain within specified thresholds to prevent warping or delamination.</assistant_message>
+  </episode>
+  <episode turn="934" topic="topic_2" similarity="0.517197">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. Give a short example of uncertainty reporting for pigment fading.</user_message>
+    <assistant_message>Report pigment fading as a mean colorimetric shift (e.g., $\Delta E^*$) with a confidence interval, derived from accelerated light exposure testing, to quantify variability in spectral response and model reliability.</assistant_message>
+  </episode>
+  <episode turn="935" topic="topic_2" similarity="0.523440">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. Explain one failure mode involving surface cleaning.</user_message>
+    <assistant_message>Incompatible abrasive cleaning can mechanically remove the hydrophobic patina and micro-crystalline surface layer, leaving the underlying stone or metal porous and highly susceptible to accelerated atmospheric re-soiling and moisture ingress.</assistant_message>
+  </episode>
+  <episode turn="936" topic="topic_2" similarity="0.864677">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. Briefly describe provenance documentation for microcracking.</user_message>
+    <assistant_message>Provenance documentation for microcracking involves high-resolution photomicrography and optical mapping to record crack width, orientation, and density, linked to environmental monitoring logs and handling history to trace the physical stresses responsible for the damage pattern.</assistant_message>
+  </episode>
+  <episode turn="938" topic="topic_2" similarity="0.506062">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. Explain salt crystallization in two concise sentences.</user_message>
+    <assistant_message>Salt crystallization occurs when dissolved salts in pore water precipitate as moisture evaporates or temperatures fluctuate, generating expansive pressures that exceed the material's tensile strength. This cycle leads to mechanical damage, including surface spalling, pulverization, and structural weakening of the conservation object.</assistant_message>
+  </episode>
+  <episode turn="939" topic="topic_2" similarity="0.516398">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. Identify one measurement error affecting mortar compatibility and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Incorrectly matching the porosity of the consolidation treatment to the degraded mortar matrix.
+2. Consequence: This creates a salt diffusion barrier that traps soluble salts behind the treated layer, leading to recurrent crystallization pressure and accelerated surface pulverization.</assistant_message>
+  </episode>
+  <episode turn="941" topic="topic_2" similarity="0.512438">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. State one practical quality-control check for moisture gradients.</user_message>
+    <assistant_message>1. Practical Quality-Control Check: Use calibrated hygrometers or pinless moisture meters to map relative humidity across the object's surface and internal cross-sections, verifying that moisture differentials remain within specified thresholds to prevent warping or delamination.</assistant_message>
+  </episode>
+  <episode turn="942" topic="topic_2" similarity="0.517197">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. Give a short example of uncertainty reporting for pigment fading.</user_message>
+    <assistant_message>Report pigment fading as a mean colorimetric shift (e.g., $\Delta E^*$) with a confidence interval, derived from accelerated light exposure testing, to quantify variability in spectral response and model reliability.</assistant_message>
+  </episode>
+  <episode turn="943" topic="topic_2" similarity="0.523440">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. Explain one failure mode involving surface cleaning.</user_message>
+    <assistant_message>Incompatible abrasive cleaning can mechanically remove the hydrophobic patina and micro-crystalline surface layer, leaving the underlying stone or metal porous and highly susceptible to accelerated atmospheric re-soiling and moisture ingress.</assistant_message>
+  </episode>
+  <episode turn="944" topic="topic_2" similarity="0.864677">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. Briefly describe provenance documentation for microcracking.</user_message>
+    <assistant_message>Provenance documentation for microcracking involves high-resolution photomicrography and optical mapping to record crack width, orientation, and density, linked to environmental monitoring logs and handling history to trace the physical stresses responsible for the damage pattern.</assistant_message>
+  </episode>
+  <episode turn="946" topic="topic_2" similarity="0.506062">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. Explain salt crystallization in two concise sentences.</user_message>
+    <assistant_message>Salt crystallization occurs when dissolved salts in pore water precipitate as moisture evaporates or temperatures fluctuate, generating expansive pressures that exceed the material's tensile strength. This cycle leads to mechanical damage, including surface spalling, pulverization, and structural weakening of the conservation object.</assistant_message>
+  </episode>
+  <episode turn="947" topic="topic_2" similarity="0.516398">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. Identify one measurement error affecting mortar compatibility and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Incorrectly matching the porosity of the consolidation treatment to the degraded mortar matrix.
+2. Consequence: This creates a salt diffusion barrier that traps soluble salts behind the treated layer, leading to recurrent crystallization pressure and accelerated surface pulverization.</assistant_message>
+  </episode>
+  <episode turn="949" topic="topic_2" similarity="0.512438">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. State one practical quality-control check for moisture gradients.</user_message>
+    <assistant_message>1. Practical Quality-Control Check: Use calibrated hygrometers or pinless moisture meters to map relative humidity across the object's surface and internal cross-sections, verifying that moisture differentials remain within specified thresholds to prevent warping or delamination.</assistant_message>
+  </episode>
+  <episode turn="950" topic="topic_2" similarity="0.517197">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. Give a short example of uncertainty reporting for pigment fading.</user_message>
+    <assistant_message>Report pigment fading as a mean colorimetric shift (e.g., $\Delta E^*$) with a confidence interval, derived from accelerated light exposure testing, to quantify variability in spectral response and model reliability.</assistant_message>
+  </episode>
+  <episode turn="951" topic="topic_2" similarity="0.523440">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. Explain one failure mode involving surface cleaning.</user_message>
+    <assistant_message>Incompatible abrasive cleaning can mechanically remove the hydrophobic patina and micro-crystalline surface layer, leaving the underlying stone or metal porous and highly susceptible to accelerated atmospheric re-soiling and moisture ingress.</assistant_message>
+  </episode>
+  <episode turn="952" topic="topic_2" similarity="0.864677">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. Briefly describe provenance documentation for microcracking.</user_message>
+    <assistant_message>Provenance documentation for microcracking involves high-resolution photomicrography and optical mapping to record crack width, orientation, and density, linked to environmental monitoring logs and handling history to trace the physical stresses responsible for the damage pattern.</assistant_message>
+  </episode>
+  <episode turn="954" topic="topic_2" similarity="0.506062">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. Explain salt crystallization in two concise sentences.</user_message>
+    <assistant_message>Salt crystallization occurs when dissolved salts in pore water precipitate as moisture evaporates or temperatures fluctuate, generating expansive pressures that exceed the material's tensile strength. This cycle leads to mechanical damage, including surface spalling, pulverization, and structural weakening of the conservation object.</assistant_message>
+  </episode>
+  <episode turn="955" topic="topic_2" similarity="0.516398">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. Identify one measurement error affecting mortar compatibility and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Incorrectly matching the porosity of the consolidation treatment to the degraded mortar matrix.
+2. Consequence: This creates a salt diffusion barrier that traps soluble salts behind the treated layer, leading to recurrent crystallization pressure and accelerated surface pulverization.</assistant_message>
+  </episode>
+  <episode turn="957" topic="topic_2" similarity="0.512438">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. State one practical quality-control check for moisture gradients.</user_message>
+    <assistant_message>1. Practical Quality-Control Check: Use calibrated hygrometers or pinless moisture meters to map relative humidity across the object's surface and internal cross-sections, verifying that moisture differentials remain within specified thresholds to prevent warping or delamination.</assistant_message>
+  </episode>
+  <episode turn="958" topic="topic_2" similarity="0.517197">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. Give a short example of uncertainty reporting for pigment fading.</user_message>
+    <assistant_message>Report pigment fading as a mean colorimetric shift (e.g., $\Delta E^*$) with a confidence interval, derived from accelerated light exposure testing, to quantify variability in spectral response and model reliability.</assistant_message>
+  </episode>
+  <episode turn="959" topic="topic_2" similarity="0.523440">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. Explain one failure mode involving surface cleaning.</user_message>
+    <assistant_message>Incompatible abrasive cleaning can mechanically remove the hydrophobic patina and micro-crystalline surface layer, leaving the underlying stone or metal porous and highly susceptible to accelerated atmospheric re-soiling and moisture ingress.</assistant_message>
+  </episode>
+  <episode turn="960" topic="topic_2" similarity="0.864677">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. Briefly describe provenance documentation for microcracking.</user_message>
+    <assistant_message>Provenance documentation for microcracking involves high-resolution photomicrography and optical mapping to record crack width, orientation, and density, linked to environmental monitoring logs and handling history to trace the physical stresses responsible for the damage pattern.</assistant_message>
+  </episode>
+  <episode turn="962" topic="topic_2" similarity="0.506062">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. Explain salt crystallization in two concise sentences.</user_message>
+    <assistant_message>Salt crystallization occurs when dissolved salts in pore water precipitate as moisture evaporates or temperatures fluctuate, generating expansive pressures that exceed the material's tensile strength. This cycle leads to mechanical damage, including surface spalling, pulverization, and structural weakening of the conservation object.</assistant_message>
+  </episode>
+  <episode turn="963" topic="topic_2" similarity="0.516398">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. Identify one measurement error affecting mortar compatibility and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Incorrectly matching the porosity of the consolidation treatment to the degraded mortar matrix.
+2. Consequence: This creates a salt diffusion barrier that traps soluble salts behind the treated layer, leading to recurrent crystallization pressure and accelerated surface pulverization.</assistant_message>
+  </episode>
+  <episode turn="965" topic="topic_2" similarity="0.512438">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. State one practical quality-control check for moisture gradients.</user_message>
+    <assistant_message>1. Practical Quality-Control Check: Use calibrated hygrometers or pinless moisture meters to map relative humidity across the object's surface and internal cross-sections, verifying that moisture differentials remain within specified thresholds to prevent warping or delamination.</assistant_message>
+  </episode>
+  <episode turn="966" topic="topic_2" similarity="0.517197">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. Give a short example of uncertainty reporting for pigment fading.</user_message>
+    <assistant_message>Report pigment fading as a mean colorimetric shift (e.g., $\Delta E^*$) with a confidence interval, derived from accelerated light exposure testing, to quantify variability in spectral response and model reliability.</assistant_message>
+  </episode>
+  <episode turn="967" topic="topic_2" similarity="0.523440">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. Explain one failure mode involving surface cleaning.</user_message>
+    <assistant_message>Incompatible abrasive cleaning can mechanically remove the hydrophobic patina and micro-crystalline surface layer, leaving the underlying stone or metal porous and highly susceptible to accelerated atmospheric re-soiling and moisture ingress.</assistant_message>
+  </episode>
+  <episode turn="968" topic="topic_2" similarity="0.864677">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. Briefly describe provenance documentation for microcracking.</user_message>
+    <assistant_message>Provenance documentation for microcracking involves high-resolution photomicrography and optical mapping to record crack width, orientation, and density, linked to environmental monitoring logs and handling history to trace the physical stresses responsible for the damage pattern.</assistant_message>
+  </episode>
+  <episode turn="970" topic="topic_2" similarity="0.506062">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. Explain salt crystallization in two concise sentences.</user_message>
+    <assistant_message>Salt crystallization occurs when dissolved salts in pore water precipitate as moisture evaporates or temperatures fluctuate, generating expansive pressures that exceed the material's tensile strength. This cycle leads to mechanical damage, including surface spalling, pulverization, and structural weakening of the conservation object.</assistant_message>
+  </episode>
+  <episode turn="971" topic="topic_2" similarity="0.516398">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. Identify one measurement error affecting mortar compatibility and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Incorrectly matching the porosity of the consolidation treatment to the degraded mortar matrix.
+2. Consequence: This creates a salt diffusion barrier that traps soluble salts behind the treated layer, leading to recurrent crystallization pressure and accelerated surface pulverization.</assistant_message>
+  </episode>
+  <episode turn="973" topic="topic_2" similarity="0.512438">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. State one practical quality-control check for moisture gradients.</user_message>
+    <assistant_message>1. Practical Quality-Control Check: Use calibrated hygrometers or pinless moisture meters to map relative humidity across the object's surface and internal cross-sections, verifying that moisture differentials remain within specified thresholds to prevent warping or delamination.</assistant_message>
+  </episode>
+  <episode turn="974" topic="topic_2" similarity="0.517197">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. Give a short example of uncertainty reporting for pigment fading.</user_message>
+    <assistant_message>Report pigment fading as a mean colorimetric shift (e.g., $\Delta E^*$) with a confidence interval, derived from accelerated light exposure testing, to quantify variability in spectral response and model reliability.</assistant_message>
+  </episode>
+</retrieved_stm>
+
+<current_turn>
+  <user_message>Stay within the materials conservation thread and do not connect it to other subjects. Briefly describe provenance documentation for microcracking.</user_message>
+</current_turn>
+
+Assistant:

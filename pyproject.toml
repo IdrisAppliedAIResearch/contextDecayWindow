@@ -21,5 +21,6 @@ packages = ["src"]
 
 [tool.uv]
 dev-dependencies = [
+    "matplotlib>=3.10.0",
     "pytest>=8.0.0",
 ]

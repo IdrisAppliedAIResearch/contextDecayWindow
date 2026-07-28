@@ -32,7 +32,7 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **009 - Null test.** Pure STM versus best LTM at one seed, plus topic digest. PARTIAL; null decisive. S 9.0 versus L 12.0: the memory tier beat plain retrieval by 3.0 at 120 turns. The digest failed every offline setting through d=50/50,000 chars and was dropped pre-run.
 
-**010 - Endurance.** 1,000 turns, 12 domains, probes at 250/500/750, pure STM versus LTM at one seed. Tests whether LTM value appears as the store outgrows direct search. PAUSED. Do not read, write, hash, or touch `experiments/study_010/` unless a task explicitly names it.
+**010 - Endurance.** Confirmatory STOPPED AT G2. Post-stop L beat S 14-12 on breadth only; targeted tied. Bar 3 NOT EVALUABLE due unplanted probe facts. TopicManager and rule persistence both failed at scale. LTM is retained exploratorily, but breadth may be compact-store dependent; T1.2 must stress fixed-budget retrieval.
 
 **Scoring integrity audit (2026-07-26).** Re-scored 222 items across 001-009 after a truncated Study 002 reasoning block had been credited as complete. Nineteen scores changed; Study 002 C fell 13.0 to 8.5 and Study 001 lost VALIDATED. Corrected arc: 8.5, 11.5, 6.5, 11.0, 9.0, 12.0, 12.0. See `ERRATA.md`.
 
@@ -54,9 +54,11 @@ Before implementing any gate or criterion, ask whether it can pass while the cer
 ### Gates and ablation
 
 - Offline gates are binding and run before full inference.
+- Before artifact lock, mechanically verify that every rubric-required fact is planted in a scripted user turn strictly before its probe. Any unavailable fact blocks lock and inference.
 - Run at least a 35-turn ablation before a 120-turn run.
 - Commit calibrated settings before the ablation.
 - Replay harnesses must reproduce a known result exactly before producing evidence.
+- Revalidate every carried subsystem at the study's maximum planned scale. A pass at 120 turns does not make infrastructure settled at 1,000 or 10,000 turns.
 
 ### Runtime and determinism
 
@@ -131,7 +133,7 @@ Items 2 and 3 are mandatory. A study is not closed and its PR must not merge wit
 - Expose rubric artifacts to mechanism code.
 - Run unseeded or use a flag-disabled control.
 - start a 120-turn run without a passing 35-turn ablation.
-- Touch `experiments/study_010/` while paused unless explicitly instructed.
+- Reopen a stopped study or bypass a binding gate without a new, authorized design.
 - Report a result that cannot be traced to a committed artifact.
 
 ## 8. Repository Map

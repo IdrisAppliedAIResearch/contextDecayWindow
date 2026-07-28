@@ -1,0 +1,217 @@
+You are a concise technical research assistant. Preserve exact user-supplied project facts across long conversations. Keep non-probe answers brief.
+
+<pinned_rules/>
+
+<recent_context>
+  <episode turn="394" topic="topic_2">
+    <user_message>Stay within the monetary economics thread and do not connect it to other subjects. Explain output-gap uncertainty in two concise sentences.</user_message>
+    <assistant_message>Output-gap uncertainty stems from the difficulty in accurately estimating potential GDP, creating ambiguity about whether the economy has excess or insufficient capacity. This imprecision can cause central banks to misjudge the stance of monetary policy, potentially leading to errors that either overheat inflation or unnecessarily suppress growth.</assistant_message>
+  </episode>
+  <episode turn="1" topic="topic_2">
+    <user_message>For our structural engineering case, lock these facts: the project is Aster Viaduct, led by Dr. Leena Ortiz, with the primary value 1,126 meters. Acknowledge the three facts in a concise numbered list.</user_message>
+    <assistant_message>1. Project: Aster Viaduct
+2. Lead: Dr. Leena Ortiz
+3. Primary Value: 1,126 meters</assistant_message>
+  </episode>
+  <episode turn="2" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Identify one measurement error affecting cable fatigue and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Inaccurate tensioning calibration during installation can lead to non-uniform load distribution across cables.
+2. Consequence: This imbalance accelerates high-cycle fatigue failure in the overstressed strands, reducing the structure's service life and compromising safety.</assistant_message>
+  </episode>
+  <episode turn="3" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Briefly compare two validation strategies for seismic isolation.</user_message>
+    <assistant_message>1. **Physical Shake Table Testing**: Validates full-scale prototype behavior under controlled seismic inputs, capturing non-linear interactions and hysteresis, but is costly and logistically complex.
+2. **Numerical Simulation**: Uses finite element models to predict performance under varied scenarios efficiently, but relies heavily on accurate material input data and boundary condition assumptions.</assistant_message>
+  </episode>
+  <episode turn="4" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. State one practical quality-control check for deck torsion.</user_message>
+    <assistant_message>1. Practical Quality-Control Check: Use high-precision total stations to measure relative elevation differences between opposite deck edges during casting or placement, ensuring torsional warping remains within specified tolerance limits.</assistant_message>
+  </episode>
+  <episode turn="5" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Give a short example of uncertainty reporting for bearing creep.</user_message>
+    <assistant_message>Report bearing creep as a mean value with a confidence interval (e.g., $\mu \pm 2\sigma$), derived from long-term monotonic testing, to quantify dispersion and model reliability.</assistant_message>
+  </episode>
+  <episode turn="6" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Explain one failure mode involving wind-tunnel scaling.</user_message>
+    <assistant_message>Scaling discrepancies in Reynolds number between wind-tunnel models and full-scale structures can cause boundary layer separation characteristics to differ, leading to inaccurate prediction of vortex shedding and dynamic wind loads.</assistant_message>
+  </episode>
+  <episode turn="7" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Briefly describe provenance documentation for load combinations.</user_message>
+    <assistant_message>Provenance documentation for load combinations involves explicitly citing the governing design codes, specific equations, and environmental data sources (e.g., wind or snow maps) used to derive each load factor, ensuring traceability from final design values back to original standards and assumptions.</assistant_message>
+  </episode>
+  <episode turn="8" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Name one sensitivity analysis for corrosion monitoring and its purpose.</user_message>
+    <assistant_message>1. Sensitivity Analysis: Varying the corrosion rate input in finite element models to assess its impact on residual load-bearing capacity.
+2. Purpose: To identify the threshold at which section loss critically compromises structural safety, thereby optimizing inspection intervals and maintenance prioritization.</assistant_message>
+  </episode>
+  <episode turn="9" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Explain aeroelastic flutter in two concise sentences.</user_message>
+    <assistant_message>Aeroelastic flutter is a self-excited, divergent oscillation caused by the coupling of aerodynamic forces with a structure's elastic and inertial properties. This instability occurs when energy extraction from the airflow exceeds structural damping, leading to rapid, potentially catastrophic failure.</assistant_message>
+  </episode>
+</recent_context>
+
+<retrieved_stm>
+  <episode turn="84" topic="topic_2" similarity="0.521825">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Identify one measurement error affecting loss to follow-up and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Incomplete or inaccurate capture of vital status through linkage with administrative databases (e.g., national death indexes).
+2. Consequence: This misclassification introduces non-differential or differential misclassification bias, potentially attenuating hazard ratios or falsely suggesting survival advantages by censoring deceased participants as "lost."</assistant_message>
+  </episode>
+  <episode turn="92" topic="topic_2" similarity="0.521825">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Identify one measurement error affecting loss to follow-up and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Incomplete or inaccurate capture of vital status through linkage with administrative databases (e.g., national death indexes).
+2. Consequence: This misclassification introduces non-differential or differential misclassification bias, potentially attenuating hazard ratios or falsely suggesting survival advantages by censoring deceased participants as "lost."</assistant_message>
+  </episode>
+  <episode turn="100" topic="topic_2" similarity="0.521825">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Identify one measurement error affecting loss to follow-up and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Incomplete or inaccurate capture of vital status through linkage with administrative databases (e.g., national death indexes).
+2. Consequence: This misclassification introduces non-differential or differential misclassification bias, potentially attenuating hazard ratios or falsely suggesting survival advantages by censoring deceased participants as "lost."</assistant_message>
+  </episode>
+  <episode turn="108" topic="topic_2" similarity="0.521825">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Identify one measurement error affecting loss to follow-up and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Incomplete or inaccurate capture of vital status through linkage with administrative databases (e.g., national death indexes).
+2. Consequence: This misclassification introduces non-differential or differential misclassification bias, potentially attenuating hazard ratios or falsely suggesting survival advantages by censoring deceased participants as "lost."</assistant_message>
+  </episode>
+  <episode turn="116" topic="topic_2" similarity="0.521825">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Identify one measurement error affecting loss to follow-up and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Incomplete or inaccurate capture of vital status through linkage with administrative databases (e.g., national death indexes).
+2. Consequence: This misclassification introduces non-differential or differential misclassification bias, potentially attenuating hazard ratios or falsely suggesting survival advantages by censoring deceased participants as "lost."</assistant_message>
+  </episode>
+  <episode turn="124" topic="topic_2" similarity="0.521825">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Identify one measurement error affecting loss to follow-up and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Incomplete or inaccurate capture of vital status through linkage with administrative databases (e.g., national death indexes).
+2. Consequence: This misclassification introduces non-differential or differential misclassification bias, potentially attenuating hazard ratios or falsely suggesting survival advantages by censoring deceased participants as "lost."</assistant_message>
+  </episode>
+  <episode turn="132" topic="topic_2" similarity="0.521825">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Identify one measurement error affecting loss to follow-up and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Incomplete or inaccurate capture of vital status through linkage with administrative databases (e.g., national death indexes).
+2. Consequence: This misclassification introduces non-differential or differential misclassification bias, potentially attenuating hazard ratios or falsely suggesting survival advantages by censoring deceased participants as "lost."</assistant_message>
+  </episode>
+  <episode turn="140" topic="topic_2" similarity="0.521825">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Identify one measurement error affecting loss to follow-up and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Incomplete or inaccurate capture of vital status through linkage with administrative databases (e.g., national death indexes).
+2. Consequence: This misclassification introduces non-differential or differential misclassification bias, potentially attenuating hazard ratios or falsely suggesting survival advantages by censoring deceased participants as "lost."</assistant_message>
+  </episode>
+  <episode turn="148" topic="topic_2" similarity="0.521825">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Identify one measurement error affecting loss to follow-up and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Incomplete or inaccurate capture of vital status through linkage with administrative databases (e.g., national death indexes).
+2. Consequence: This misclassification introduces non-differential or differential misclassification bias, potentially attenuating hazard ratios or falsely suggesting survival advantages by censoring deceased participants as "lost."</assistant_message>
+  </episode>
+  <episode turn="156" topic="topic_2" similarity="0.521825">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Identify one measurement error affecting loss to follow-up and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Incomplete or inaccurate capture of vital status through linkage with administrative databases (e.g., national death indexes).
+2. Consequence: This misclassification introduces non-differential or differential misclassification bias, potentially attenuating hazard ratios or falsely suggesting survival advantages by censoring deceased participants as "lost."</assistant_message>
+  </episode>
+  <episode turn="331" topic="topic_2" similarity="0.866323">
+    <user_message>Stay within the monetary economics thread and do not connect it to other subjects. Identify one measurement error affecting policy transmission and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Lagged or inaccurate data on real-time inflation expectations or output gaps leads to misaligned policy rate settings.
+2. Consequence: This causes over- or under-tightening, destabilizing prices and output while undermining central bank credibility.</assistant_message>
+  </episode>
+  <episode turn="335" topic="topic_2" similarity="0.548028">
+    <user_message>Stay within the monetary economics thread and do not connect it to other subjects. Explain one failure mode involving forward guidance.</user_message>
+    <assistant_message>Failure of forward guidance occurs when market participants lose credibility in the central bank's stated future path, often due to inconsistent policy actions. This breakdown prevents effective anchoring of long-term interest rates, rendering the guidance ineffective for stimulating demand or managing inflation expectations.</assistant_message>
+  </episode>
+  <episode turn="337" topic="topic_2" similarity="0.543178">
+    <user_message>Stay within the monetary economics thread and do not connect it to other subjects. Name one sensitivity analysis for exchange-rate pass-through and its purpose.</user_message>
+    <assistant_message>1. Sensitivity Analysis: Varying the degree of nominal rigidities (e.g., price adjustment speeds) and market structure assumptions (e.g., pass-through pricing vs. producer currency pricing) to assess their impact on the pass-through coefficient.
+2. Purpose: To quantify the uncertainty in policy transmission effects and determine how exchange-rate fluctuations propagate to domestic inflation under different macroeconomic regimes.</assistant_message>
+  </episode>
+  <episode turn="339" topic="topic_2" similarity="0.866323">
+    <user_message>Stay within the monetary economics thread and do not connect it to other subjects. Identify one measurement error affecting policy transmission and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Lagged or inaccurate data on real-time inflation expectations or output gaps leads to misaligned policy rate settings.
+2. Consequence: This causes over- or under-tightening, destabilizing prices and output while undermining central bank credibility.</assistant_message>
+  </episode>
+  <episode turn="343" topic="topic_2" similarity="0.548028">
+    <user_message>Stay within the monetary economics thread and do not connect it to other subjects. Explain one failure mode involving forward guidance.</user_message>
+    <assistant_message>Failure of forward guidance occurs when market participants lose credibility in the central bank's stated future path, often due to inconsistent policy actions. This breakdown prevents effective anchoring of long-term interest rates, rendering the guidance ineffective for stimulating demand or managing inflation expectations.</assistant_message>
+  </episode>
+  <episode turn="345" topic="topic_2" similarity="0.543178">
+    <user_message>Stay within the monetary economics thread and do not connect it to other subjects. Name one sensitivity analysis for exchange-rate pass-through and its purpose.</user_message>
+    <assistant_message>1. Sensitivity Analysis: Varying the degree of nominal rigidities (e.g., price adjustment speeds) and market structure assumptions (e.g., pass-through pricing vs. producer currency pricing) to assess their impact on the pass-through coefficient.
+2. Purpose: To quantify the uncertainty in policy transmission effects and determine how exchange-rate fluctuations propagate to domestic inflation under different macroeconomic regimes.</assistant_message>
+  </episode>
+  <episode turn="347" topic="topic_2" similarity="0.866323">
+    <user_message>Stay within the monetary economics thread and do not connect it to other subjects. Identify one measurement error affecting policy transmission and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Lagged or inaccurate data on real-time inflation expectations or output gaps leads to misaligned policy rate settings.
+2. Consequence: This causes over- or under-tightening, destabilizing prices and output while undermining central bank credibility.</assistant_message>
+  </episode>
+  <episode turn="351" topic="topic_2" similarity="0.548028">
+    <user_message>Stay within the monetary economics thread and do not connect it to other subjects. Explain one failure mode involving forward guidance.</user_message>
+    <assistant_message>Failure of forward guidance occurs when market participants lose credibility in the central bank's stated future path, often due to inconsistent policy actions. This breakdown prevents effective anchoring of long-term interest rates, rendering the guidance ineffective for stimulating demand or managing inflation expectations.</assistant_message>
+  </episode>
+  <episode turn="353" topic="topic_2" similarity="0.543178">
+    <user_message>Stay within the monetary economics thread and do not connect it to other subjects. Name one sensitivity analysis for exchange-rate pass-through and its purpose.</user_message>
+    <assistant_message>1. Sensitivity Analysis: Varying the degree of nominal rigidities (e.g., price adjustment speeds) and market structure assumptions (e.g., pass-through pricing vs. producer currency pricing) to assess their impact on the pass-through coefficient.
+2. Purpose: To quantify the uncertainty in policy transmission effects and determine how exchange-rate fluctuations propagate to domestic inflation under different macroeconomic regimes.</assistant_message>
+  </episode>
+  <episode turn="355" topic="topic_2" similarity="0.866323">
+    <user_message>Stay within the monetary economics thread and do not connect it to other subjects. Identify one measurement error affecting policy transmission and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Lagged or inaccurate data on real-time inflation expectations or output gaps leads to misaligned policy rate settings.
+2. Consequence: This causes over- or under-tightening, destabilizing prices and output while undermining central bank credibility.</assistant_message>
+  </episode>
+  <episode turn="359" topic="topic_2" similarity="0.548028">
+    <user_message>Stay within the monetary economics thread and do not connect it to other subjects. Explain one failure mode involving forward guidance.</user_message>
+    <assistant_message>Failure of forward guidance occurs when market participants lose credibility in the central bank's stated future path, often due to inconsistent policy actions. This breakdown prevents effective anchoring of long-term interest rates, rendering the guidance ineffective for stimulating demand or managing inflation expectations.</assistant_message>
+  </episode>
+  <episode turn="361" topic="topic_2" similarity="0.543178">
+    <user_message>Stay within the monetary economics thread and do not connect it to other subjects. Name one sensitivity analysis for exchange-rate pass-through and its purpose.</user_message>
+    <assistant_message>1. Sensitivity Analysis: Varying the degree of nominal rigidities (e.g., price adjustment speeds) and market structure assumptions (e.g., pass-through pricing vs. producer currency pricing) to assess their impact on the pass-through coefficient.
+2. Purpose: To quantify the uncertainty in policy transmission effects and determine how exchange-rate fluctuations propagate to domestic inflation under different macroeconomic regimes.</assistant_message>
+  </episode>
+  <episode turn="363" topic="topic_2" similarity="0.866323">
+    <user_message>Stay within the monetary economics thread and do not connect it to other subjects. Identify one measurement error affecting policy transmission and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Lagged or inaccurate data on real-time inflation expectations or output gaps leads to misaligned policy rate settings.
+2. Consequence: This causes over- or under-tightening, destabilizing prices and output while undermining central bank credibility.</assistant_message>
+  </episode>
+  <episode turn="367" topic="topic_2" similarity="0.548028">
+    <user_message>Stay within the monetary economics thread and do not connect it to other subjects. Explain one failure mode involving forward guidance.</user_message>
+    <assistant_message>Failure of forward guidance occurs when market participants lose credibility in the central bank's stated future path, often due to inconsistent policy actions. This breakdown prevents effective anchoring of long-term interest rates, rendering the guidance ineffective for stimulating demand or managing inflation expectations.</assistant_message>
+  </episode>
+  <episode turn="371" topic="topic_2" similarity="0.866323">
+    <user_message>Stay within the monetary economics thread and do not connect it to other subjects. Identify one measurement error affecting policy transmission and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Lagged or inaccurate data on real-time inflation expectations or output gaps leads to misaligned policy rate settings.
+2. Consequence: This causes over- or under-tightening, destabilizing prices and output while undermining central bank credibility.</assistant_message>
+  </episode>
+  <episode turn="375" topic="topic_2" similarity="0.548028">
+    <user_message>Stay within the monetary economics thread and do not connect it to other subjects. Explain one failure mode involving forward guidance.</user_message>
+    <assistant_message>Failure of forward guidance occurs when market participants lose credibility in the central bank's stated future path, often due to inconsistent policy actions. This breakdown prevents effective anchoring of long-term interest rates, rendering the guidance ineffective for stimulating demand or managing inflation expectations.</assistant_message>
+  </episode>
+  <episode turn="377" topic="topic_2" similarity="0.543178">
+    <user_message>Stay within the monetary economics thread and do not connect it to other subjects. Name one sensitivity analysis for exchange-rate pass-through and its purpose.</user_message>
+    <assistant_message>1. Sensitivity Analysis: Varying the degree of nominal rigidities (e.g., price adjustment speeds) and market structure assumptions (e.g., pass-through pricing vs. producer currency pricing) to assess their impact on the pass-through coefficient.
+2. Purpose: To quantify the uncertainty in policy transmission effects and determine how exchange-rate fluctuations propagate to domestic inflation under different macroeconomic regimes.</assistant_message>
+  </episode>
+  <episode turn="379" topic="topic_2" similarity="0.866323">
+    <user_message>Stay within the monetary economics thread and do not connect it to other subjects. Identify one measurement error affecting policy transmission and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Lagged or inaccurate data on real-time inflation expectations or output gaps leads to misaligned policy rate settings.
+2. Consequence: This causes over- or under-tightening, destabilizing prices and output while undermining central bank credibility.</assistant_message>
+  </episode>
+  <episode turn="383" topic="topic_2" similarity="0.548028">
+    <user_message>Stay within the monetary economics thread and do not connect it to other subjects. Explain one failure mode involving forward guidance.</user_message>
+    <assistant_message>Failure of forward guidance occurs when market participants lose credibility in the central bank's stated future path, often due to inconsistent policy actions. This breakdown prevents effective anchoring of long-term interest rates, rendering the guidance ineffective for stimulating demand or managing inflation expectations.</assistant_message>
+  </episode>
+  <episode turn="385" topic="topic_2" similarity="0.543178">
+    <user_message>Stay within the monetary economics thread and do not connect it to other subjects. Name one sensitivity analysis for exchange-rate pass-through and its purpose.</user_message>
+    <assistant_message>1. Sensitivity Analysis: Varying the degree of nominal rigidities (e.g., price adjustment speeds) and market structure assumptions (e.g., pass-through pricing vs. producer currency pricing) to assess their impact on the pass-through coefficient.
+2. Purpose: To quantify the uncertainty in policy transmission effects and determine how exchange-rate fluctuations propagate to domestic inflation under different macroeconomic regimes.</assistant_message>
+  </episode>
+  <episode turn="387" topic="topic_2" similarity="0.866323">
+    <user_message>Stay within the monetary economics thread and do not connect it to other subjects. Identify one measurement error affecting policy transmission and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Lagged or inaccurate data on real-time inflation expectations or output gaps leads to misaligned policy rate settings.
+2. Consequence: This causes over- or under-tightening, destabilizing prices and output while undermining central bank credibility.</assistant_message>
+  </episode>
+  <episode turn="391" topic="topic_2" similarity="0.548028">
+    <user_message>Stay within the monetary economics thread and do not connect it to other subjects. Explain one failure mode involving forward guidance.</user_message>
+    <assistant_message>Failure of forward guidance occurs when market participants lose credibility in the central bank's stated future path, often due to inconsistent policy actions. This breakdown prevents effective anchoring of long-term interest rates, rendering the guidance ineffective for stimulating demand or managing inflation expectations.</assistant_message>
+  </episode>
+  <episode turn="393" topic="topic_2" similarity="0.543178">
+    <user_message>Stay within the monetary economics thread and do not connect it to other subjects. Name one sensitivity analysis for exchange-rate pass-through and its purpose.</user_message>
+    <assistant_message>1. Sensitivity Analysis: Varying the degree of nominal rigidities (e.g., price adjustment speeds) and market structure assumptions (e.g., pass-through pricing vs. producer currency pricing) to assess their impact on the pass-through coefficient.
+2. Purpose: To quantify the uncertainty in policy transmission effects and determine how exchange-rate fluctuations propagate to domestic inflation under different macroeconomic regimes.</assistant_message>
+  </episode>
+</retrieved_stm>
+
+<current_turn>
+  <user_message>Stay within the monetary economics thread and do not connect it to other subjects. Identify one measurement error affecting policy transmission and its consequence.</user_message>
+</current_turn>
+
+Assistant:

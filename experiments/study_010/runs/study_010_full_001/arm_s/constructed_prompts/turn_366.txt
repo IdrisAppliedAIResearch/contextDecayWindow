@@ -1,0 +1,248 @@
+You are a concise technical research assistant. Preserve exact user-supplied project facts across long conversations. Keep non-probe answers brief.
+
+<pinned_rules/>
+
+<recent_context>
+  <episode turn="365" topic="topic_2">
+    <user_message>Stay within the monetary economics thread and do not connect it to other subjects. State one practical quality-control check for term premia.</user_message>
+    <assistant_message>1. Practical Quality-Control Check: Cross-validate implied term premia from yield curve decomposition models (e.g., affine term structure models) against independent market proxies, such as the yield spread between nominal and inflation-linked swaps of equivalent maturity, to identify model-specific estimation biases.</assistant_message>
+  </episode>
+  <episode turn="1" topic="topic_2">
+    <user_message>For our structural engineering case, lock these facts: the project is Aster Viaduct, led by Dr. Leena Ortiz, with the primary value 1,126 meters. Acknowledge the three facts in a concise numbered list.</user_message>
+    <assistant_message>1. Project: Aster Viaduct
+2. Lead: Dr. Leena Ortiz
+3. Primary Value: 1,126 meters</assistant_message>
+  </episode>
+  <episode turn="2" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Identify one measurement error affecting cable fatigue and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Inaccurate tensioning calibration during installation can lead to non-uniform load distribution across cables.
+2. Consequence: This imbalance accelerates high-cycle fatigue failure in the overstressed strands, reducing the structure's service life and compromising safety.</assistant_message>
+  </episode>
+  <episode turn="3" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Briefly compare two validation strategies for seismic isolation.</user_message>
+    <assistant_message>1. **Physical Shake Table Testing**: Validates full-scale prototype behavior under controlled seismic inputs, capturing non-linear interactions and hysteresis, but is costly and logistically complex.
+2. **Numerical Simulation**: Uses finite element models to predict performance under varied scenarios efficiently, but relies heavily on accurate material input data and boundary condition assumptions.</assistant_message>
+  </episode>
+  <episode turn="4" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. State one practical quality-control check for deck torsion.</user_message>
+    <assistant_message>1. Practical Quality-Control Check: Use high-precision total stations to measure relative elevation differences between opposite deck edges during casting or placement, ensuring torsional warping remains within specified tolerance limits.</assistant_message>
+  </episode>
+  <episode turn="5" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Give a short example of uncertainty reporting for bearing creep.</user_message>
+    <assistant_message>Report bearing creep as a mean value with a confidence interval (e.g., $\mu \pm 2\sigma$), derived from long-term monotonic testing, to quantify dispersion and model reliability.</assistant_message>
+  </episode>
+  <episode turn="6" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Explain one failure mode involving wind-tunnel scaling.</user_message>
+    <assistant_message>Scaling discrepancies in Reynolds number between wind-tunnel models and full-scale structures can cause boundary layer separation characteristics to differ, leading to inaccurate prediction of vortex shedding and dynamic wind loads.</assistant_message>
+  </episode>
+  <episode turn="7" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Briefly describe provenance documentation for load combinations.</user_message>
+    <assistant_message>Provenance documentation for load combinations involves explicitly citing the governing design codes, specific equations, and environmental data sources (e.g., wind or snow maps) used to derive each load factor, ensuring traceability from final design values back to original standards and assumptions.</assistant_message>
+  </episode>
+  <episode turn="8" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Name one sensitivity analysis for corrosion monitoring and its purpose.</user_message>
+    <assistant_message>1. Sensitivity Analysis: Varying the corrosion rate input in finite element models to assess its impact on residual load-bearing capacity.
+2. Purpose: To identify the threshold at which section loss critically compromises structural safety, thereby optimizing inspection intervals and maintenance prioritization.</assistant_message>
+  </episode>
+  <episode turn="9" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Explain aeroelastic flutter in two concise sentences.</user_message>
+    <assistant_message>Aeroelastic flutter is a self-excited, divergent oscillation caused by the coupling of aerodynamic forces with a structure's elastic and inertial properties. This instability occurs when energy extraction from the airflow exceeds structural damping, leading to rapid, potentially catastrophic failure.</assistant_message>
+  </episode>
+</recent_context>
+
+<retrieved_stm>
+  <episode turn="13" topic="topic_2" similarity="0.576801">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Give a short example of uncertainty reporting for bearing creep.</user_message>
+    <assistant_message>Report bearing creep as a mean value with a confidence interval (e.g., $\mu \pm 2\sigma$), derived from long-term monotonic testing, to quantify dispersion and model reliability.</assistant_message>
+  </episode>
+  <episode turn="21" topic="topic_2" similarity="0.576801">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Give a short example of uncertainty reporting for bearing creep.</user_message>
+    <assistant_message>Report bearing creep as a mean value with a confidence interval (e.g., $\mu \pm 2\sigma$), derived from long-term monotonic testing, to quantify dispersion and model reliability.</assistant_message>
+  </episode>
+  <episode turn="29" topic="topic_2" similarity="0.576801">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Give a short example of uncertainty reporting for bearing creep.</user_message>
+    <assistant_message>Report bearing creep as a mean value with a confidence interval (e.g., $\mu \pm 2\sigma$), derived from long-term monotonic testing, to quantify dispersion and model reliability.</assistant_message>
+  </episode>
+  <episode turn="37" topic="topic_2" similarity="0.576801">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Give a short example of uncertainty reporting for bearing creep.</user_message>
+    <assistant_message>Report bearing creep as a mean value with a confidence interval (e.g., $\mu \pm 2\sigma$), derived from long-term monotonic testing, to quantify dispersion and model reliability.</assistant_message>
+  </episode>
+  <episode turn="45" topic="topic_2" similarity="0.576801">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Give a short example of uncertainty reporting for bearing creep.</user_message>
+    <assistant_message>Report bearing creep as a mean value with a confidence interval (e.g., $\mu \pm 2\sigma$), derived from long-term monotonic testing, to quantify dispersion and model reliability.</assistant_message>
+  </episode>
+  <episode turn="53" topic="topic_2" similarity="0.576801">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Give a short example of uncertainty reporting for bearing creep.</user_message>
+    <assistant_message>Report bearing creep as a mean value with a confidence interval (e.g., $\mu \pm 2\sigma$), derived from long-term monotonic testing, to quantify dispersion and model reliability.</assistant_message>
+  </episode>
+  <episode turn="61" topic="topic_2" similarity="0.576801">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Give a short example of uncertainty reporting for bearing creep.</user_message>
+    <assistant_message>Report bearing creep as a mean value with a confidence interval (e.g., $\mu \pm 2\sigma$), derived from long-term monotonic testing, to quantify dispersion and model reliability.</assistant_message>
+  </episode>
+  <episode turn="69" topic="topic_2" similarity="0.576801">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Give a short example of uncertainty reporting for bearing creep.</user_message>
+    <assistant_message>Report bearing creep as a mean value with a confidence interval (e.g., $\mu \pm 2\sigma$), derived from long-term monotonic testing, to quantify dispersion and model reliability.</assistant_message>
+  </episode>
+  <episode turn="77" topic="topic_2" similarity="0.576801">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Give a short example of uncertainty reporting for bearing creep.</user_message>
+    <assistant_message>Report bearing creep as a mean value with a confidence interval (e.g., $\mu \pm 2\sigma$), derived from long-term monotonic testing, to quantify dispersion and model reliability.</assistant_message>
+  </episode>
+  <episode turn="87" topic="topic_2" similarity="0.555490">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Give a short example of uncertainty reporting for outcome adjudication.</user_message>
+    <assistant_message>Report outcome adjudication using inter-rater reliability statistics, such as Cohen’s kappa or weighted kappa, to quantify agreement between reviewers and highlight classification ambiguity.</assistant_message>
+  </episode>
+  <episode turn="95" topic="topic_2" similarity="0.555490">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Give a short example of uncertainty reporting for outcome adjudication.</user_message>
+    <assistant_message>Report outcome adjudication using inter-rater reliability statistics, such as Cohen’s kappa or weighted kappa, to quantify agreement between reviewers and highlight classification ambiguity.</assistant_message>
+  </episode>
+  <episode turn="103" topic="topic_2" similarity="0.555490">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Give a short example of uncertainty reporting for outcome adjudication.</user_message>
+    <assistant_message>Report outcome adjudication using inter-rater reliability statistics, such as Cohen’s kappa or weighted kappa, to quantify agreement between reviewers and highlight classification ambiguity.</assistant_message>
+  </episode>
+  <episode turn="111" topic="topic_2" similarity="0.555490">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Give a short example of uncertainty reporting for outcome adjudication.</user_message>
+    <assistant_message>Report outcome adjudication using inter-rater reliability statistics, such as Cohen’s kappa or weighted kappa, to quantify agreement between reviewers and highlight classification ambiguity.</assistant_message>
+  </episode>
+  <episode turn="119" topic="topic_2" similarity="0.555490">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Give a short example of uncertainty reporting for outcome adjudication.</user_message>
+    <assistant_message>Report outcome adjudication using inter-rater reliability statistics, such as Cohen’s kappa or weighted kappa, to quantify agreement between reviewers and highlight classification ambiguity.</assistant_message>
+  </episode>
+  <episode turn="127" topic="topic_2" similarity="0.555490">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Give a short example of uncertainty reporting for outcome adjudication.</user_message>
+    <assistant_message>Report outcome adjudication using inter-rater reliability statistics, such as Cohen’s kappa or weighted kappa, to quantify agreement between reviewers and highlight classification ambiguity.</assistant_message>
+  </episode>
+  <episode turn="135" topic="topic_2" similarity="0.555490">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Give a short example of uncertainty reporting for outcome adjudication.</user_message>
+    <assistant_message>Report outcome adjudication using inter-rater reliability statistics, such as Cohen’s kappa or weighted kappa, to quantify agreement between reviewers and highlight classification ambiguity.</assistant_message>
+  </episode>
+  <episode turn="143" topic="topic_2" similarity="0.555490">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Give a short example of uncertainty reporting for outcome adjudication.</user_message>
+    <assistant_message>Report outcome adjudication using inter-rater reliability statistics, such as Cohen’s kappa or weighted kappa, to quantify agreement between reviewers and highlight classification ambiguity.</assistant_message>
+  </episode>
+  <episode turn="151" topic="topic_2" similarity="0.555490">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Give a short example of uncertainty reporting for outcome adjudication.</user_message>
+    <assistant_message>Report outcome adjudication using inter-rater reliability statistics, such as Cohen’s kappa or weighted kappa, to quantify agreement between reviewers and highlight classification ambiguity.</assistant_message>
+  </episode>
+  <episode turn="159" topic="topic_2" similarity="0.555490">
+    <user_message>Stay within the clinical epidemiology thread and do not connect it to other subjects. Give a short example of uncertainty reporting for outcome adjudication.</user_message>
+    <assistant_message>Report outcome adjudication using inter-rater reliability statistics, such as Cohen’s kappa or weighted kappa, to quantify agreement between reviewers and highlight classification ambiguity.</assistant_message>
+  </episode>
+  <episode turn="168" topic="topic_2" similarity="0.579238">
+    <user_message>Stay within the archival history thread and do not connect it to other subjects. Give a short example of uncertainty reporting for provenance gaps.</user_message>
+    <assistant_message>Report provenance gaps using a qualitative risk assessment (e.g., Low/Medium/High) linked to the potential impact on attribution, alongside a notation of the specific missing linkage in the chain of custody.</assistant_message>
+  </episode>
+  <episode turn="176" topic="topic_2" similarity="0.579238">
+    <user_message>Stay within the archival history thread and do not connect it to other subjects. Give a short example of uncertainty reporting for provenance gaps.</user_message>
+    <assistant_message>Report provenance gaps using a qualitative risk assessment (e.g., Low/Medium/High) linked to the potential impact on attribution, alongside a notation of the specific missing linkage in the chain of custody.</assistant_message>
+  </episode>
+  <episode turn="184" topic="topic_2" similarity="0.579238">
+    <user_message>Stay within the archival history thread and do not connect it to other subjects. Give a short example of uncertainty reporting for provenance gaps.</user_message>
+    <assistant_message>Report provenance gaps using a qualitative risk assessment (e.g., Low/Medium/High) linked to the potential impact on attribution, alongside a notation of the specific missing linkage in the chain of custody.</assistant_message>
+  </episode>
+  <episode turn="192" topic="topic_2" similarity="0.579238">
+    <user_message>Stay within the archival history thread and do not connect it to other subjects. Give a short example of uncertainty reporting for provenance gaps.</user_message>
+    <assistant_message>Report provenance gaps using a qualitative risk assessment (e.g., Low/Medium/High) linked to the potential impact on attribution, alongside a notation of the specific missing linkage in the chain of custody.</assistant_message>
+  </episode>
+  <episode turn="200" topic="topic_2" similarity="0.579238">
+    <user_message>Stay within the archival history thread and do not connect it to other subjects. Give a short example of uncertainty reporting for provenance gaps.</user_message>
+    <assistant_message>Report provenance gaps using a qualitative risk assessment (e.g., Low/Medium/High) linked to the potential impact on attribution, alongside a notation of the specific missing linkage in the chain of custody.</assistant_message>
+  </episode>
+  <episode turn="208" topic="topic_2" similarity="0.579238">
+    <user_message>Stay within the archival history thread and do not connect it to other subjects. Give a short example of uncertainty reporting for provenance gaps.</user_message>
+    <assistant_message>Report provenance gaps using a qualitative risk assessment (e.g., Low/Medium/High) linked to the potential impact on attribution, alongside a notation of the specific missing linkage in the chain of custody.</assistant_message>
+  </episode>
+  <episode turn="216" topic="topic_2" similarity="0.579238">
+    <user_message>Stay within the archival history thread and do not connect it to other subjects. Give a short example of uncertainty reporting for provenance gaps.</user_message>
+    <assistant_message>Report provenance gaps using a qualitative risk assessment (e.g., Low/Medium/High) linked to the potential impact on attribution, alongside a notation of the specific missing linkage in the chain of custody.</assistant_message>
+  </episode>
+  <episode turn="224" topic="topic_2" similarity="0.579238">
+    <user_message>Stay within the archival history thread and do not connect it to other subjects. Give a short example of uncertainty reporting for provenance gaps.</user_message>
+    <assistant_message>Report provenance gaps using a qualitative risk assessment (e.g., Low/Medium/High) linked to the potential impact on attribution, alongside a notation of the specific missing linkage in the chain of custody.</assistant_message>
+  </episode>
+  <episode turn="232" topic="topic_2" similarity="0.579238">
+    <user_message>Stay within the archival history thread and do not connect it to other subjects. Give a short example of uncertainty reporting for provenance gaps.</user_message>
+    <assistant_message>Report provenance gaps using a qualitative risk assessment (e.g., Low/Medium/High) linked to the potential impact on attribution, alongside a notation of the specific missing linkage in the chain of custody.</assistant_message>
+  </episode>
+  <episode turn="240" topic="topic_2" similarity="0.579238">
+    <user_message>Stay within the archival history thread and do not connect it to other subjects. Give a short example of uncertainty reporting for provenance gaps.</user_message>
+    <assistant_message>Report provenance gaps using a qualitative risk assessment (e.g., Low/Medium/High) linked to the potential impact on attribution, alongside a notation of the specific missing linkage in the chain of custody.</assistant_message>
+  </episode>
+  <episode turn="253" topic="topic_2" similarity="0.556341">
+    <user_message>Stay within the battery chemistry thread and do not connect it to other subjects. Give a short example of uncertainty reporting for impedance growth.</user_message>
+    <assistant_message>Report impedance growth as a mean value with a confidence interval (e.g., $\mu \pm 2\sigma$) derived from accelerated aging tests, to quantify variance and model reliability.</assistant_message>
+  </episode>
+  <episode turn="261" topic="topic_2" similarity="0.556341">
+    <user_message>Stay within the battery chemistry thread and do not connect it to other subjects. Give a short example of uncertainty reporting for impedance growth.</user_message>
+    <assistant_message>Report impedance growth as a mean value with a confidence interval (e.g., $\mu \pm 2\sigma$) derived from accelerated aging tests, to quantify variance and model reliability.</assistant_message>
+  </episode>
+  <episode turn="269" topic="topic_2" similarity="0.556341">
+    <user_message>Stay within the battery chemistry thread and do not connect it to other subjects. Give a short example of uncertainty reporting for impedance growth.</user_message>
+    <assistant_message>Report impedance growth as a mean value with a confidence interval (e.g., $\mu \pm 2\sigma$) derived from accelerated aging tests, to quantify variance and model reliability.</assistant_message>
+  </episode>
+  <episode turn="277" topic="topic_2" similarity="0.556341">
+    <user_message>Stay within the battery chemistry thread and do not connect it to other subjects. Give a short example of uncertainty reporting for impedance growth.</user_message>
+    <assistant_message>Report impedance growth as a mean value with a confidence interval (e.g., $\mu \pm 2\sigma$) derived from accelerated aging tests, to quantify variance and model reliability.</assistant_message>
+  </episode>
+  <episode turn="285" topic="topic_2" similarity="0.556341">
+    <user_message>Stay within the battery chemistry thread and do not connect it to other subjects. Give a short example of uncertainty reporting for impedance growth.</user_message>
+    <assistant_message>Report impedance growth as a mean value with a confidence interval (e.g., $\mu \pm 2\sigma$) derived from accelerated aging tests, to quantify variance and model reliability.</assistant_message>
+  </episode>
+  <episode turn="293" topic="topic_2" similarity="0.556341">
+    <user_message>Stay within the battery chemistry thread and do not connect it to other subjects. Give a short example of uncertainty reporting for impedance growth.</user_message>
+    <assistant_message>Report impedance growth as a mean value with a confidence interval (e.g., $\mu \pm 2\sigma$) derived from accelerated aging tests, to quantify variance and model reliability.</assistant_message>
+  </episode>
+  <episode turn="301" topic="topic_2" similarity="0.556341">
+    <user_message>Stay within the battery chemistry thread and do not connect it to other subjects. Give a short example of uncertainty reporting for impedance growth.</user_message>
+    <assistant_message>Report impedance growth as a mean value with a confidence interval (e.g., $\mu \pm 2\sigma$) derived from accelerated aging tests, to quantify variance and model reliability.</assistant_message>
+  </episode>
+  <episode turn="309" topic="topic_2" similarity="0.556341">
+    <user_message>Stay within the battery chemistry thread and do not connect it to other subjects. Give a short example of uncertainty reporting for impedance growth.</user_message>
+    <assistant_message>Report impedance growth as a mean value with a confidence interval (e.g., $\mu \pm 2\sigma$) derived from accelerated aging tests, to quantify variance and model reliability.</assistant_message>
+  </episode>
+  <episode turn="317" topic="topic_2" similarity="0.556341">
+    <user_message>Stay within the battery chemistry thread and do not connect it to other subjects. Give a short example of uncertainty reporting for impedance growth.</user_message>
+    <assistant_message>Report impedance growth as a mean value with a confidence interval (e.g., $\mu \pm 2\sigma$) derived from accelerated aging tests, to quantify variance and model reliability.</assistant_message>
+  </episode>
+  <episode turn="325" topic="topic_2" similarity="0.556341">
+    <user_message>Stay within the battery chemistry thread and do not connect it to other subjects. Give a short example of uncertainty reporting for impedance growth.</user_message>
+    <assistant_message>Report impedance growth as a mean value with a confidence interval (e.g., $\mu \pm 2\sigma$) derived from accelerated aging tests, to quantify variance and model reliability.</assistant_message>
+  </episode>
+  <episode turn="334" topic="topic_2" similarity="0.892056">
+    <user_message>Stay within the monetary economics thread and do not connect it to other subjects. Give a short example of uncertainty reporting for balance-sheet effects.</user_message>
+    <assistant_message>Report balance-sheet effects as a range of outcomes derived from stochastic balance-sheet projections (e.g., 90% confidence intervals) to capture model parameter uncertainty and potential non-linear regulatory impacts.</assistant_message>
+  </episode>
+  <episode turn="338" topic="topic_2" similarity="0.564164">
+    <user_message>Stay within the monetary economics thread and do not connect it to other subjects. Explain output-gap uncertainty in two concise sentences.</user_message>
+    <assistant_message>Output-gap uncertainty arises from the difficulty in precisely measuring potential GDP, creating ambiguity about whether the economy is running hot or cold. This imprecision risks leading central banks to implement inappropriate interest rate adjustments, either stifling growth or fueling inflation.</assistant_message>
+  </episode>
+  <episode turn="342" topic="topic_2" similarity="0.892056">
+    <user_message>Stay within the monetary economics thread and do not connect it to other subjects. Give a short example of uncertainty reporting for balance-sheet effects.</user_message>
+    <assistant_message>Report balance-sheet effects as a range of outcomes derived from stochastic balance-sheet projections (e.g., 90% confidence intervals) to capture model parameter uncertainty and potential non-linear regulatory impacts.</assistant_message>
+  </episode>
+  <episode turn="346" topic="topic_2" similarity="0.564164">
+    <user_message>Stay within the monetary economics thread and do not connect it to other subjects. Explain output-gap uncertainty in two concise sentences.</user_message>
+    <assistant_message>Output-gap uncertainty arises from the difficulty in precisely measuring potential GDP, creating ambiguity about whether the economy is running hot or cold. This imprecision risks leading central banks to implement inappropriate interest rate adjustments, either stifling growth or fueling inflation.</assistant_message>
+  </episode>
+  <episode turn="350" topic="topic_2" similarity="0.892056">
+    <user_message>Stay within the monetary economics thread and do not connect it to other subjects. Give a short example of uncertainty reporting for balance-sheet effects.</user_message>
+    <assistant_message>Report balance-sheet effects as a range of outcomes derived from stochastic balance-sheet projections (e.g., 90% confidence intervals) to capture model parameter uncertainty and potential non-linear regulatory impacts.</assistant_message>
+  </episode>
+  <episode turn="354" topic="topic_2" similarity="0.573594">
+    <user_message>Stay within the monetary economics thread and do not connect it to other subjects. Explain output-gap uncertainty in two concise sentences.</user_message>
+    <assistant_message>Output-gap uncertainty stems from the difficulty in accurately estimating potential GDP, creating ambiguity about whether the economy has excess or insufficient capacity. This imprecision can cause central banks to misjudge the stance of monetary policy, potentially leading to errors that either overheat inflation or unnecessarily suppress growth.</assistant_message>
+  </episode>
+  <episode turn="358" topic="topic_2" similarity="0.892056">
+    <user_message>Stay within the monetary economics thread and do not connect it to other subjects. Give a short example of uncertainty reporting for balance-sheet effects.</user_message>
+    <assistant_message>Report balance-sheet effects as a range of outcomes derived from stochastic balance-sheet projections (e.g., 90% confidence intervals) to capture model parameter uncertainty and potential non-linear regulatory impacts.</assistant_message>
+  </episode>
+  <episode turn="362" topic="topic_2" similarity="0.573594">
+    <user_message>Stay within the monetary economics thread and do not connect it to other subjects. Explain output-gap uncertainty in two concise sentences.</user_message>
+    <assistant_message>Output-gap uncertainty stems from the difficulty in accurately estimating potential GDP, creating ambiguity about whether the economy has excess or insufficient capacity. This imprecision can cause central banks to misjudge the stance of monetary policy, potentially leading to errors that either overheat inflation or unnecessarily suppress growth.</assistant_message>
+  </episode>
+</retrieved_stm>
+
+<current_turn>
+  <user_message>Stay within the monetary economics thread and do not connect it to other subjects. Give a short example of uncertainty reporting for balance-sheet effects.</user_message>
+</current_turn>
+
+Assistant:
