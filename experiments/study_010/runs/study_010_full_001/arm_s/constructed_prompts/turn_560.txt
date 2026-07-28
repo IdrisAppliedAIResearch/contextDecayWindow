@@ -1,0 +1,121 @@
+You are a concise technical research assistant. Preserve exact user-supplied project facts across long conversations. Keep non-probe answers brief.
+
+<pinned_rules/>
+
+<recent_context>
+  <episode turn="559" topic="topic_2">
+    <user_message>Stay within the wetland ecology thread and do not connect it to other subjects. Name one sensitivity analysis for invasive reeds and its purpose.</user_message>
+    <assistant_message>1. Sensitivity Analysis: Varying the assumed growth rate or spread velocity of invasive reed species (e.g., *Phragmites australis*) in hydrological or vegetation models to test the robustness of predicted canopy dominance scenarios.
+2. Purpose: To determine the threshold conditions under which reed encroachment becomes irreversible without active management, thereby identifying critical windows for intervention and assessing the risk to native biodiversity.</assistant_message>
+  </episode>
+  <episode turn="1" topic="topic_2">
+    <user_message>For our structural engineering case, lock these facts: the project is Aster Viaduct, led by Dr. Leena Ortiz, with the primary value 1,126 meters. Acknowledge the three facts in a concise numbered list.</user_message>
+    <assistant_message>1. Project: Aster Viaduct
+2. Lead: Dr. Leena Ortiz
+3. Primary Value: 1,126 meters</assistant_message>
+  </episode>
+  <episode turn="2" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Identify one measurement error affecting cable fatigue and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Inaccurate tensioning calibration during installation can lead to non-uniform load distribution across cables.
+2. Consequence: This imbalance accelerates high-cycle fatigue failure in the overstressed strands, reducing the structure's service life and compromising safety.</assistant_message>
+  </episode>
+  <episode turn="3" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Briefly compare two validation strategies for seismic isolation.</user_message>
+    <assistant_message>1. **Physical Shake Table Testing**: Validates full-scale prototype behavior under controlled seismic inputs, capturing non-linear interactions and hysteresis, but is costly and logistically complex.
+2. **Numerical Simulation**: Uses finite element models to predict performance under varied scenarios efficiently, but relies heavily on accurate material input data and boundary condition assumptions.</assistant_message>
+  </episode>
+  <episode turn="4" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. State one practical quality-control check for deck torsion.</user_message>
+    <assistant_message>1. Practical Quality-Control Check: Use high-precision total stations to measure relative elevation differences between opposite deck edges during casting or placement, ensuring torsional warping remains within specified tolerance limits.</assistant_message>
+  </episode>
+  <episode turn="5" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Give a short example of uncertainty reporting for bearing creep.</user_message>
+    <assistant_message>Report bearing creep as a mean value with a confidence interval (e.g., $\mu \pm 2\sigma$), derived from long-term monotonic testing, to quantify dispersion and model reliability.</assistant_message>
+  </episode>
+  <episode turn="6" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Explain one failure mode involving wind-tunnel scaling.</user_message>
+    <assistant_message>Scaling discrepancies in Reynolds number between wind-tunnel models and full-scale structures can cause boundary layer separation characteristics to differ, leading to inaccurate prediction of vortex shedding and dynamic wind loads.</assistant_message>
+  </episode>
+  <episode turn="7" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Briefly describe provenance documentation for load combinations.</user_message>
+    <assistant_message>Provenance documentation for load combinations involves explicitly citing the governing design codes, specific equations, and environmental data sources (e.g., wind or snow maps) used to derive each load factor, ensuring traceability from final design values back to original standards and assumptions.</assistant_message>
+  </episode>
+  <episode turn="8" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Name one sensitivity analysis for corrosion monitoring and its purpose.</user_message>
+    <assistant_message>1. Sensitivity Analysis: Varying the corrosion rate input in finite element models to assess its impact on residual load-bearing capacity.
+2. Purpose: To identify the threshold at which section loss critically compromises structural safety, thereby optimizing inspection intervals and maintenance prioritization.</assistant_message>
+  </episode>
+  <episode turn="9" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Explain aeroelastic flutter in two concise sentences.</user_message>
+    <assistant_message>Aeroelastic flutter is a self-excited, divergent oscillation caused by the coupling of aerodynamic forces with a structure's elastic and inertial properties. This instability occurs when energy extraction from the airflow exceeds structural damping, leading to rapid, potentially catastrophic failure.</assistant_message>
+  </episode>
+</recent_context>
+
+<retrieved_stm>
+  <episode turn="498" topic="topic_2" similarity="0.532126">
+    <user_message>Stay within the wetland ecology thread and do not connect it to other subjects. Explain one failure mode involving hydrologic connectivity.</user_message>
+    <assistant_message>Disconnection of hydrologic flow between floodplains and channels restricts the exchange of nutrients and sediments, leading to nutrient trapping in isolated wetlands and a collapse in benthic invertebrate productivity.</assistant_message>
+  </episode>
+  <episode turn="504" topic="topic_2" similarity="0.780998">
+    <user_message>Stay within the wetland ecology thread and do not connect it to other subjects. Explain peat accretion in two concise sentences.</user_message>
+    <assistant_message>Peat accretion is the vertical accumulation of partially decayed organic matter in waterlogged, anoxic environments, forming a soil layer dominated by plant residues. This process results in the gradual upward growth of peatland surfaces, influencing local hydrology and long-term carbon sequestration.</assistant_message>
+  </episode>
+  <episode turn="509" topic="topic_2" similarity="0.532126">
+    <user_message>Stay within the wetland ecology thread and do not connect it to other subjects. Explain one failure mode involving hydrologic connectivity.</user_message>
+    <assistant_message>Disconnection of hydrologic flow between floodplains and channels restricts the exchange of nutrients and sediments, leading to nutrient trapping in isolated wetlands and a collapse in benthic invertebrate productivity.</assistant_message>
+  </episode>
+  <episode turn="512" topic="topic_2" similarity="0.780998">
+    <user_message>Stay within the wetland ecology thread and do not connect it to other subjects. Explain peat accretion in two concise sentences.</user_message>
+    <assistant_message>Peat accretion is the vertical accumulation of partially decayed organic matter in waterlogged, anoxic environments, forming a soil layer dominated by plant residues. This process results in the gradual upward growth of peatland surfaces, influencing local hydrology and long-term carbon sequestration.</assistant_message>
+  </episode>
+  <episode turn="517" topic="topic_2" similarity="0.532126">
+    <user_message>Stay within the wetland ecology thread and do not connect it to other subjects. Explain one failure mode involving hydrologic connectivity.</user_message>
+    <assistant_message>Disconnection of hydrologic flow between floodplains and channels restricts the exchange of nutrients and sediments, leading to nutrient trapping in isolated wetlands and a collapse in benthic invertebrate productivity.</assistant_message>
+  </episode>
+  <episode turn="520" topic="topic_2" similarity="0.780998">
+    <user_message>Stay within the wetland ecology thread and do not connect it to other subjects. Explain peat accretion in two concise sentences.</user_message>
+    <assistant_message>Peat accretion is the vertical accumulation of partially decayed organic matter in waterlogged, anoxic environments, forming a soil layer dominated by plant residues. This process results in the gradual upward growth of peatland surfaces, influencing local hydrology and long-term carbon sequestration.</assistant_message>
+  </episode>
+  <episode turn="525" topic="topic_2" similarity="0.532126">
+    <user_message>Stay within the wetland ecology thread and do not connect it to other subjects. Explain one failure mode involving hydrologic connectivity.</user_message>
+    <assistant_message>Disconnection of hydrologic flow between floodplains and channels restricts the exchange of nutrients and sediments, leading to nutrient trapping in isolated wetlands and a collapse in benthic invertebrate productivity.</assistant_message>
+  </episode>
+  <episode turn="528" topic="topic_2" similarity="0.780998">
+    <user_message>Stay within the wetland ecology thread and do not connect it to other subjects. Explain peat accretion in two concise sentences.</user_message>
+    <assistant_message>Peat accretion is the vertical accumulation of partially decayed organic matter in waterlogged, anoxic environments, forming a soil layer dominated by plant residues. This process results in the gradual upward growth of peatland surfaces, influencing local hydrology and long-term carbon sequestration.</assistant_message>
+  </episode>
+  <episode turn="533" topic="topic_2" similarity="0.532126">
+    <user_message>Stay within the wetland ecology thread and do not connect it to other subjects. Explain one failure mode involving hydrologic connectivity.</user_message>
+    <assistant_message>Disconnection of hydrologic flow between floodplains and channels restricts the exchange of nutrients and sediments, leading to nutrient trapping in isolated wetlands and a collapse in benthic invertebrate productivity.</assistant_message>
+  </episode>
+  <episode turn="536" topic="topic_2" similarity="0.780998">
+    <user_message>Stay within the wetland ecology thread and do not connect it to other subjects. Explain peat accretion in two concise sentences.</user_message>
+    <assistant_message>Peat accretion is the vertical accumulation of partially decayed organic matter in waterlogged, anoxic environments, forming a soil layer dominated by plant residues. This process results in the gradual upward growth of peatland surfaces, influencing local hydrology and long-term carbon sequestration.</assistant_message>
+  </episode>
+  <episode turn="541" topic="topic_2" similarity="0.532126">
+    <user_message>Stay within the wetland ecology thread and do not connect it to other subjects. Explain one failure mode involving hydrologic connectivity.</user_message>
+    <assistant_message>Disconnection of hydrologic flow between floodplains and channels restricts the exchange of nutrients and sediments, leading to nutrient trapping in isolated wetlands and a collapse in benthic invertebrate productivity.</assistant_message>
+  </episode>
+  <episode turn="544" topic="topic_2" similarity="0.780998">
+    <user_message>Stay within the wetland ecology thread and do not connect it to other subjects. Explain peat accretion in two concise sentences.</user_message>
+    <assistant_message>Peat accretion is the vertical accumulation of partially decayed organic matter in waterlogged, anoxic environments, forming a soil layer dominated by plant residues. This process results in the gradual upward growth of peatland surfaces, influencing local hydrology and long-term carbon sequestration.</assistant_message>
+  </episode>
+  <episode turn="549" topic="topic_2" similarity="0.532126">
+    <user_message>Stay within the wetland ecology thread and do not connect it to other subjects. Explain one failure mode involving hydrologic connectivity.</user_message>
+    <assistant_message>Disconnection of hydrologic flow between floodplains and channels restricts the exchange of nutrients and sediments, leading to nutrient trapping in isolated wetlands and a collapse in benthic invertebrate productivity.</assistant_message>
+  </episode>
+  <episode turn="552" topic="topic_2" similarity="0.780998">
+    <user_message>Stay within the wetland ecology thread and do not connect it to other subjects. Explain peat accretion in two concise sentences.</user_message>
+    <assistant_message>Peat accretion is the vertical accumulation of partially decayed organic matter in waterlogged, anoxic environments, forming a soil layer dominated by plant residues. This process results in the gradual upward growth of peatland surfaces, influencing local hydrology and long-term carbon sequestration.</assistant_message>
+  </episode>
+  <episode turn="557" topic="topic_2" similarity="0.532126">
+    <user_message>Stay within the wetland ecology thread and do not connect it to other subjects. Explain one failure mode involving hydrologic connectivity.</user_message>
+    <assistant_message>Disconnection of hydrologic flow between floodplains and channels restricts the exchange of nutrients and sediments, leading to nutrient trapping in isolated wetlands and a collapse in benthic invertebrate productivity.</assistant_message>
+  </episode>
+</retrieved_stm>
+
+<current_turn>
+  <user_message>Stay within the wetland ecology thread and do not connect it to other subjects. Explain peat accretion in two concise sentences.</user_message>
+</current_turn>
+
+Assistant:

@@ -1,0 +1,209 @@
+You are a concise technical research assistant. Preserve exact user-supplied project facts across long conversations. Keep non-probe answers brief.
+
+<pinned_rules/>
+
+<recent_context>
+  <episode turn="645" topic="topic_2">
+    <user_message>Stay within the applied cryptography thread and do not connect it to other subjects. Give a short example of uncertainty reporting for timing variance.</user_message>
+    <assistant_message>Report timing variance as a mean latency with a confidence interval (e.g., $\mu \pm 2\sigma$) derived from statistical side-channel profiling, to quantify dispersion and assess susceptibility to cache-timing attacks.</assistant_message>
+  </episode>
+  <episode turn="1" topic="topic_2">
+    <user_message>For our structural engineering case, lock these facts: the project is Aster Viaduct, led by Dr. Leena Ortiz, with the primary value 1,126 meters. Acknowledge the three facts in a concise numbered list.</user_message>
+    <assistant_message>1. Project: Aster Viaduct
+2. Lead: Dr. Leena Ortiz
+3. Primary Value: 1,126 meters</assistant_message>
+  </episode>
+  <episode turn="2" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Identify one measurement error affecting cable fatigue and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Inaccurate tensioning calibration during installation can lead to non-uniform load distribution across cables.
+2. Consequence: This imbalance accelerates high-cycle fatigue failure in the overstressed strands, reducing the structure's service life and compromising safety.</assistant_message>
+  </episode>
+  <episode turn="3" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Briefly compare two validation strategies for seismic isolation.</user_message>
+    <assistant_message>1. **Physical Shake Table Testing**: Validates full-scale prototype behavior under controlled seismic inputs, capturing non-linear interactions and hysteresis, but is costly and logistically complex.
+2. **Numerical Simulation**: Uses finite element models to predict performance under varied scenarios efficiently, but relies heavily on accurate material input data and boundary condition assumptions.</assistant_message>
+  </episode>
+  <episode turn="4" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. State one practical quality-control check for deck torsion.</user_message>
+    <assistant_message>1. Practical Quality-Control Check: Use high-precision total stations to measure relative elevation differences between opposite deck edges during casting or placement, ensuring torsional warping remains within specified tolerance limits.</assistant_message>
+  </episode>
+  <episode turn="5" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Give a short example of uncertainty reporting for bearing creep.</user_message>
+    <assistant_message>Report bearing creep as a mean value with a confidence interval (e.g., $\mu \pm 2\sigma$), derived from long-term monotonic testing, to quantify dispersion and model reliability.</assistant_message>
+  </episode>
+  <episode turn="6" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Explain one failure mode involving wind-tunnel scaling.</user_message>
+    <assistant_message>Scaling discrepancies in Reynolds number between wind-tunnel models and full-scale structures can cause boundary layer separation characteristics to differ, leading to inaccurate prediction of vortex shedding and dynamic wind loads.</assistant_message>
+  </episode>
+  <episode turn="7" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Briefly describe provenance documentation for load combinations.</user_message>
+    <assistant_message>Provenance documentation for load combinations involves explicitly citing the governing design codes, specific equations, and environmental data sources (e.g., wind or snow maps) used to derive each load factor, ensuring traceability from final design values back to original standards and assumptions.</assistant_message>
+  </episode>
+  <episode turn="8" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Name one sensitivity analysis for corrosion monitoring and its purpose.</user_message>
+    <assistant_message>1. Sensitivity Analysis: Varying the corrosion rate input in finite element models to assess its impact on residual load-bearing capacity.
+2. Purpose: To identify the threshold at which section loss critically compromises structural safety, thereby optimizing inspection intervals and maintenance prioritization.</assistant_message>
+  </episode>
+  <episode turn="9" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Explain aeroelastic flutter in two concise sentences.</user_message>
+    <assistant_message>Aeroelastic flutter is a self-excited, divergent oscillation caused by the coupling of aerodynamic forces with a structure's elastic and inertial properties. This instability occurs when energy extraction from the airflow exceeds structural damping, leading to rapid, potentially catastrophic failure.</assistant_message>
+  </episode>
+</recent_context>
+
+<retrieved_stm>
+  <episode turn="578" topic="topic_2" similarity="0.535847">
+    <user_message>Stay within the applied cryptography thread and do not connect it to other subjects. Identify one measurement error affecting key encapsulation and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Inconsistent entropy estimation of the underlying Random Number Generator can lead to biased or predictable ciphertexts.
+2. Consequence: An adversary can exploit these biases to narrow the key search space, potentially recovering the shared secret and breaking the confidentiality guarantee.</assistant_message>
+  </episode>
+  <episode turn="581" topic="topic_2" similarity="0.523969">
+    <user_message>Stay within the applied cryptography thread and do not connect it to other subjects. Give a short example of uncertainty reporting for timing variance.</user_message>
+    <assistant_message>Report timing variance as a mean latency with a confidence interval (e.g., $\mu \pm 2\sigma$) derived from statistical side-channel profiling, to quantify dispersion and assess susceptibility to cache-timing attacks.</assistant_message>
+  </episode>
+  <episode turn="582" topic="topic_2" similarity="0.852508">
+    <user_message>Stay within the applied cryptography thread and do not connect it to other subjects. Explain one failure mode involving hybrid negotiation.</user_message>
+    <assistant_message>A downgrade attack can force the system to select a weak legacy protocol during hybrid negotiation, bypassing modern cryptographic guarantees and exposing the session to known vulnerabilities in the deprecated standard.</assistant_message>
+  </episode>
+  <episode turn="584" topic="topic_2" similarity="0.574744">
+    <user_message>Stay within the applied cryptography thread and do not connect it to other subjects. Name one sensitivity analysis for downgrade resistance and its purpose.</user_message>
+    <assistant_message>1. Sensitivity Analysis: Simulating protocol negotiations under active adversarial manipulation to assess the robustness of version pinning or signature verification against rollback attempts.
+2. Purpose: To verify that the system fails securely or rejects weak parameters when an attacker attempts to force a downgrade to a deprecated cryptographic standard, ensuring no fallback to insecure states occurs.</assistant_message>
+  </episode>
+  <episode turn="586" topic="topic_2" similarity="0.535847">
+    <user_message>Stay within the applied cryptography thread and do not connect it to other subjects. Identify one measurement error affecting key encapsulation and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Inconsistent entropy estimation of the underlying Random Number Generator can lead to biased or predictable ciphertexts.
+2. Consequence: An adversary can exploit these biases to narrow the key search space, potentially recovering the shared secret and breaking the confidentiality guarantee.</assistant_message>
+  </episode>
+  <episode turn="589" topic="topic_2" similarity="0.523969">
+    <user_message>Stay within the applied cryptography thread and do not connect it to other subjects. Give a short example of uncertainty reporting for timing variance.</user_message>
+    <assistant_message>Report timing variance as a mean latency with a confidence interval (e.g., $\mu \pm 2\sigma$) derived from statistical side-channel profiling, to quantify dispersion and assess susceptibility to cache-timing attacks.</assistant_message>
+  </episode>
+  <episode turn="590" topic="topic_2" similarity="0.852508">
+    <user_message>Stay within the applied cryptography thread and do not connect it to other subjects. Explain one failure mode involving hybrid negotiation.</user_message>
+    <assistant_message>A downgrade attack can force the system to select a weak legacy protocol during hybrid negotiation, bypassing modern cryptographic guarantees and exposing the session to known vulnerabilities in the deprecated standard.</assistant_message>
+  </episode>
+  <episode turn="592" topic="topic_2" similarity="0.574744">
+    <user_message>Stay within the applied cryptography thread and do not connect it to other subjects. Name one sensitivity analysis for downgrade resistance and its purpose.</user_message>
+    <assistant_message>1. Sensitivity Analysis: Simulating protocol negotiations under active adversarial manipulation to assess the robustness of version pinning or signature verification against rollback attempts.
+2. Purpose: To verify that the system fails securely or rejects weak parameters when an attacker attempts to force a downgrade to a deprecated cryptographic standard, ensuring no fallback to insecure states occurs.</assistant_message>
+  </episode>
+  <episode turn="594" topic="topic_2" similarity="0.535847">
+    <user_message>Stay within the applied cryptography thread and do not connect it to other subjects. Identify one measurement error affecting key encapsulation and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Inconsistent entropy estimation of the underlying Random Number Generator can lead to biased or predictable ciphertexts.
+2. Consequence: An adversary can exploit these biases to narrow the key search space, potentially recovering the shared secret and breaking the confidentiality guarantee.</assistant_message>
+  </episode>
+  <episode turn="597" topic="topic_2" similarity="0.523969">
+    <user_message>Stay within the applied cryptography thread and do not connect it to other subjects. Give a short example of uncertainty reporting for timing variance.</user_message>
+    <assistant_message>Report timing variance as a mean latency with a confidence interval (e.g., $\mu \pm 2\sigma$) derived from statistical side-channel profiling, to quantify dispersion and assess susceptibility to cache-timing attacks.</assistant_message>
+  </episode>
+  <episode turn="598" topic="topic_2" similarity="0.852508">
+    <user_message>Stay within the applied cryptography thread and do not connect it to other subjects. Explain one failure mode involving hybrid negotiation.</user_message>
+    <assistant_message>A downgrade attack can force the system to select a weak legacy protocol during hybrid negotiation, bypassing modern cryptographic guarantees and exposing the session to known vulnerabilities in the deprecated standard.</assistant_message>
+  </episode>
+  <episode turn="600" topic="topic_2" similarity="0.574744">
+    <user_message>Stay within the applied cryptography thread and do not connect it to other subjects. Name one sensitivity analysis for downgrade resistance and its purpose.</user_message>
+    <assistant_message>1. Sensitivity Analysis: Simulating protocol negotiations under active adversarial manipulation to assess the robustness of version pinning or signature verification against rollback attempts.
+2. Purpose: To verify that the system fails securely or rejects weak parameters when an attacker attempts to force a downgrade to a deprecated cryptographic standard, ensuring no fallback to insecure states occurs.</assistant_message>
+  </episode>
+  <episode turn="602" topic="topic_2" similarity="0.535847">
+    <user_message>Stay within the applied cryptography thread and do not connect it to other subjects. Identify one measurement error affecting key encapsulation and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Inconsistent entropy estimation of the underlying Random Number Generator can lead to biased or predictable ciphertexts.
+2. Consequence: An adversary can exploit these biases to narrow the key search space, potentially recovering the shared secret and breaking the confidentiality guarantee.</assistant_message>
+  </episode>
+  <episode turn="605" topic="topic_2" similarity="0.523969">
+    <user_message>Stay within the applied cryptography thread and do not connect it to other subjects. Give a short example of uncertainty reporting for timing variance.</user_message>
+    <assistant_message>Report timing variance as a mean latency with a confidence interval (e.g., $\mu \pm 2\sigma$) derived from statistical side-channel profiling, to quantify dispersion and assess susceptibility to cache-timing attacks.</assistant_message>
+  </episode>
+  <episode turn="606" topic="topic_2" similarity="0.852508">
+    <user_message>Stay within the applied cryptography thread and do not connect it to other subjects. Explain one failure mode involving hybrid negotiation.</user_message>
+    <assistant_message>A downgrade attack can force the system to select a weak legacy protocol during hybrid negotiation, bypassing modern cryptographic guarantees and exposing the session to known vulnerabilities in the deprecated standard.</assistant_message>
+  </episode>
+  <episode turn="608" topic="topic_2" similarity="0.574744">
+    <user_message>Stay within the applied cryptography thread and do not connect it to other subjects. Name one sensitivity analysis for downgrade resistance and its purpose.</user_message>
+    <assistant_message>1. Sensitivity Analysis: Simulating protocol negotiations under active adversarial manipulation to assess the robustness of version pinning or signature verification against rollback attempts.
+2. Purpose: To verify that the system fails securely or rejects weak parameters when an attacker attempts to force a downgrade to a deprecated cryptographic standard, ensuring no fallback to insecure states occurs.</assistant_message>
+  </episode>
+  <episode turn="610" topic="topic_2" similarity="0.535847">
+    <user_message>Stay within the applied cryptography thread and do not connect it to other subjects. Identify one measurement error affecting key encapsulation and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Inconsistent entropy estimation of the underlying Random Number Generator can lead to biased or predictable ciphertexts.
+2. Consequence: An adversary can exploit these biases to narrow the key search space, potentially recovering the shared secret and breaking the confidentiality guarantee.</assistant_message>
+  </episode>
+  <episode turn="613" topic="topic_2" similarity="0.523969">
+    <user_message>Stay within the applied cryptography thread and do not connect it to other subjects. Give a short example of uncertainty reporting for timing variance.</user_message>
+    <assistant_message>Report timing variance as a mean latency with a confidence interval (e.g., $\mu \pm 2\sigma$) derived from statistical side-channel profiling, to quantify dispersion and assess susceptibility to cache-timing attacks.</assistant_message>
+  </episode>
+  <episode turn="614" topic="topic_2" similarity="0.852508">
+    <user_message>Stay within the applied cryptography thread and do not connect it to other subjects. Explain one failure mode involving hybrid negotiation.</user_message>
+    <assistant_message>A downgrade attack can force the system to select a weak legacy protocol during hybrid negotiation, bypassing modern cryptographic guarantees and exposing the session to known vulnerabilities in the deprecated standard.</assistant_message>
+  </episode>
+  <episode turn="616" topic="topic_3" similarity="0.532814">
+    <user_message>Add two locked facts for Citrine Handshake: the technical specification is ML-KEM-768, and the decision threshold is 11.8 millisecond median latency. Restate only those two facts.</user_message>
+    <assistant_message>1. Technical Specification: ML-KEM-768
+2. Decision Threshold: 11.8 millisecond median latency</assistant_message>
+  </episode>
+  <episode turn="618" topic="topic_2" similarity="0.535847">
+    <user_message>Stay within the applied cryptography thread and do not connect it to other subjects. Identify one measurement error affecting key encapsulation and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Inconsistent entropy estimation of the underlying Random Number Generator can lead to biased or predictable ciphertexts.
+2. Consequence: An adversary can exploit these biases to narrow the key search space, potentially recovering the shared secret and breaking the confidentiality guarantee.</assistant_message>
+  </episode>
+  <episode turn="621" topic="topic_2" similarity="0.523969">
+    <user_message>Stay within the applied cryptography thread and do not connect it to other subjects. Give a short example of uncertainty reporting for timing variance.</user_message>
+    <assistant_message>Report timing variance as a mean latency with a confidence interval (e.g., $\mu \pm 2\sigma$) derived from statistical side-channel profiling, to quantify dispersion and assess susceptibility to cache-timing attacks.</assistant_message>
+  </episode>
+  <episode turn="622" topic="topic_2" similarity="0.852508">
+    <user_message>Stay within the applied cryptography thread and do not connect it to other subjects. Explain one failure mode involving hybrid negotiation.</user_message>
+    <assistant_message>A downgrade attack can force the system to select a weak legacy protocol during hybrid negotiation, bypassing modern cryptographic guarantees and exposing the session to known vulnerabilities in the deprecated standard.</assistant_message>
+  </episode>
+  <episode turn="624" topic="topic_2" similarity="0.574744">
+    <user_message>Stay within the applied cryptography thread and do not connect it to other subjects. Name one sensitivity analysis for downgrade resistance and its purpose.</user_message>
+    <assistant_message>1. Sensitivity Analysis: Simulating protocol negotiations under active adversarial manipulation to assess the robustness of version pinning or signature verification against rollback attempts.
+2. Purpose: To verify that the system fails securely or rejects weak parameters when an attacker attempts to force a downgrade to a deprecated cryptographic standard, ensuring no fallback to insecure states occurs.</assistant_message>
+  </episode>
+  <episode turn="626" topic="topic_2" similarity="0.535847">
+    <user_message>Stay within the applied cryptography thread and do not connect it to other subjects. Identify one measurement error affecting key encapsulation and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Inconsistent entropy estimation of the underlying Random Number Generator can lead to biased or predictable ciphertexts.
+2. Consequence: An adversary can exploit these biases to narrow the key search space, potentially recovering the shared secret and breaking the confidentiality guarantee.</assistant_message>
+  </episode>
+  <episode turn="629" topic="topic_2" similarity="0.523969">
+    <user_message>Stay within the applied cryptography thread and do not connect it to other subjects. Give a short example of uncertainty reporting for timing variance.</user_message>
+    <assistant_message>Report timing variance as a mean latency with a confidence interval (e.g., $\mu \pm 2\sigma$) derived from statistical side-channel profiling, to quantify dispersion and assess susceptibility to cache-timing attacks.</assistant_message>
+  </episode>
+  <episode turn="630" topic="topic_2" similarity="0.852508">
+    <user_message>Stay within the applied cryptography thread and do not connect it to other subjects. Explain one failure mode involving hybrid negotiation.</user_message>
+    <assistant_message>A downgrade attack can force the system to select a weak legacy protocol during hybrid negotiation, bypassing modern cryptographic guarantees and exposing the session to known vulnerabilities in the deprecated standard.</assistant_message>
+  </episode>
+  <episode turn="632" topic="topic_2" similarity="0.574744">
+    <user_message>Stay within the applied cryptography thread and do not connect it to other subjects. Name one sensitivity analysis for downgrade resistance and its purpose.</user_message>
+    <assistant_message>1. Sensitivity Analysis: Simulating protocol negotiations under active adversarial manipulation to assess the robustness of version pinning or signature verification against rollback attempts.
+2. Purpose: To verify that the system fails securely or rejects weak parameters when an attacker attempts to force a downgrade to a deprecated cryptographic standard, ensuring no fallback to insecure states occurs.</assistant_message>
+  </episode>
+  <episode turn="634" topic="topic_2" similarity="0.535847">
+    <user_message>Stay within the applied cryptography thread and do not connect it to other subjects. Identify one measurement error affecting key encapsulation and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Inconsistent entropy estimation of the underlying Random Number Generator can lead to biased or predictable ciphertexts.
+2. Consequence: An adversary can exploit these biases to narrow the key search space, potentially recovering the shared secret and breaking the confidentiality guarantee.</assistant_message>
+  </episode>
+  <episode turn="637" topic="topic_2" similarity="0.523969">
+    <user_message>Stay within the applied cryptography thread and do not connect it to other subjects. Give a short example of uncertainty reporting for timing variance.</user_message>
+    <assistant_message>Report timing variance as a mean latency with a confidence interval (e.g., $\mu \pm 2\sigma$) derived from statistical side-channel profiling, to quantify dispersion and assess susceptibility to cache-timing attacks.</assistant_message>
+  </episode>
+  <episode turn="638" topic="topic_2" similarity="0.852508">
+    <user_message>Stay within the applied cryptography thread and do not connect it to other subjects. Explain one failure mode involving hybrid negotiation.</user_message>
+    <assistant_message>A downgrade attack can force the system to select a weak legacy protocol during hybrid negotiation, bypassing modern cryptographic guarantees and exposing the session to known vulnerabilities in the deprecated standard.</assistant_message>
+  </episode>
+  <episode turn="640" topic="topic_2" similarity="0.574744">
+    <user_message>Stay within the applied cryptography thread and do not connect it to other subjects. Name one sensitivity analysis for downgrade resistance and its purpose.</user_message>
+    <assistant_message>1. Sensitivity Analysis: Simulating protocol negotiations under active adversarial manipulation to assess the robustness of version pinning or signature verification against rollback attempts.
+2. Purpose: To verify that the system fails securely or rejects weak parameters when an attacker attempts to force a downgrade to a deprecated cryptographic standard, ensuring no fallback to insecure states occurs.</assistant_message>
+  </episode>
+  <episode turn="642" topic="topic_2" similarity="0.535847">
+    <user_message>Stay within the applied cryptography thread and do not connect it to other subjects. Identify one measurement error affecting key encapsulation and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Inconsistent entropy estimation of the underlying Random Number Generator can lead to biased or predictable ciphertexts.
+2. Consequence: An adversary can exploit these biases to narrow the key search space, potentially recovering the shared secret and breaking the confidentiality guarantee.</assistant_message>
+  </episode>
+</retrieved_stm>
+
+<current_turn>
+  <user_message>Stay within the applied cryptography thread and do not connect it to other subjects. Explain one failure mode involving hybrid negotiation.</user_message>
+</current_turn>
+
+Assistant:

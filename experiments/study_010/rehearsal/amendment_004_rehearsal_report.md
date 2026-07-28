@@ -1,0 +1,99 @@
+# Study 010 Amendment 004 Rehearsal Report
+
+**Evidence status:** post-stop exploratory
+**Result:** FAIL - no full run authorized
+**Execution commit:** `faa05eb`
+**Arm order:** L then S
+
+## Attempt 001
+
+Arm L attempt `study_010_rehearsal_001` stopped before turn 1 and before any
+inference call. Windows' default `cp1252` console encoding could not render the
+runner's Unicode start banner. The empty initialized artifacts and launch
+manifest are preserved. The process was relaunched under a new run ID with
+`PYTHONUTF8=1`; no code or study parameter changed.
+
+## Attempt 002
+
+Arm L attempt `study_010_rehearsal_002` completed 200 turns in 15 minutes 47
+seconds. Checkpoints were written at turns 100 and 200. Peak estimated context
+was 13,464 tokens, below the 40,000-token monitor.
+
+The rehearsal nevertheless failed behavioral integrity. The inference-side
+rule classifier repeatedly treated the locked script's turn-local prefix,
+"Stay within the [domain] thread and do not connect it to other subjects," as
+a persistent cross-turn rule. By turn 200:
+
+- 118 false rules were pinned;
+- the pinned-rules block occupied an estimated 5,512 tokens;
+- the first domain's Aster Viaduct scope was still active after the script
+  moved to clinical epidemiology and archival history;
+- the first cross-domain refusal occurred at turn 84; and
+- contaminated refusal responses entered STM and LTM.
+
+Arm S was not started. Neither 1,000-turn arm was started.
+
+## Diagnosis
+
+The locked 1,000-turn script contains no genuine persistent behavioral-rule
+plant. Its thread-scoping clauses constrain individual filler questions and
+change with each domain. The model-generated classifier output, not the
+conservative lexical fallback, promoted them to the persistent rule store.
+
+This is a rehearsal-discovered protocol blocker. Continuing would primarily
+measure false-rule accumulation and refusal propagation rather than memory
+endurance. A new author-authorized amendment must define a symmetric repair,
+and a fresh two-arm rehearsal must pass, before a full run begins.
+
+## Amendment 005 Attempt 003
+
+Arm L attempt `study_010_rehearsal_003` completed 200 turns after rule
+extraction was disabled. It had zero pinned rules, zero cross-domain refusals,
+valid turn-100 and turn-200 checkpoints, and a 15,748-token peak.
+
+The attempt still failed response integrity. The existing
+`suppress_rule_detection` provider option skipped parsing but continued to
+inject the classifier instruction. Consequently, all 200 stored assistant
+responses contained a literal `<rule_detection>` tag. Arm S was not started.
+
+This is an implementation defect in the suppression API, not a study parameter
+failure. A true suppression path must omit the instruction as well as parsing,
+pass focused tests, and be committed before another fresh two-arm rehearsal.
+
+## Amendment 005 Attempt 004
+
+Arm L attempt `study_010_rehearsal_004` was terminated during turn 1 before
+any response was accepted or stored. After true prompt-level suppression
+removed the classifier suffix, raw completion did not emit a practical stop
+and continued toward the registered 2,048-token safety ceiling.
+
+The attempt demonstrates that the classifier suffix also acts as a response
+delimiter for this runtime. The valid repair is therefore to retain normal
+classifier prompting and parsing, strip the tag as before, and ignore only the
+parsed persistence decision in Study 010. A superseding amendment and
+implementation commit are required before the next rehearsal.
+
+## Amendments 005-006 Attempt 005
+
+**Result:** PASS - full exploratory runs authorized
+
+Both arms completed 200 turns from fresh state at execution commit `0c606a9`.
+The locked script digest matched
+`2d186e1b7f4c89d7095d01d7ac267d981abb0996c60c922a35f78cf2c6d38521`.
+
+| Check | Arm L | Arm S |
+|---|---:|---:|
+| Completed turns | 200 | 200 |
+| Literal rule tags in responses | 0 | 0 |
+| Detected or pinned rules | 0 | 0 |
+| Prior-domain scope refusals | 0 | 0 |
+| Checkpoints | 100, 200 | 100, 200 |
+| Peak estimated context | 9,219 | 8,240 |
+
+Both peaks are below the 40,000-token monitor. Runtime manifests show the same
+model, seed, sampling, context capacity, response budget, script digest, and
+`parse_tag_but_do_not_persist` rule policy. The server guards and previously
+rerun G1, G4, and leakage checks remain satisfied.
+
+Under Amendments 004-006, this passing two-arm rehearsal authorizes the
+post-stop exploratory 1,000-turn runs in fixed order: Arm L, then Arm S.

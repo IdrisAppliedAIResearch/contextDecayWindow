@@ -1,0 +1,18 @@
+{
+  "sealed": true,
+  "do_not_open": "Open only after evaluation/rubric_scores.json is committed. Git history is the audit trail.",
+  "mapping": {
+    "arm_A": "arm_l",
+    "arm_B": "arm_s"
+  },
+  "assignment_source": "Parity of the first hexadecimal digit of SHA-256 over the ordered Arm L and Arm S rubric-response hashes.",
+  "response_sha256": {
+    "arm_l": "3be769aaa40d5d88b3933fdfe0b8d7c059b24d8e723f93dd455ea37ca091d354",
+    "arm_s": "072c197fa04493d400240b2f70245e4e688a93972cdc26b38dc4896f46c6d415"
+  },
+  "combined_sha256": "47d0caee0ab5bc7d2686b757543a170fe63ae50b0f5e85f0c2541d4a7a021460",
+  "anonymous_response_sha256": {
+    "arm_A": "9e8d0afdceb1f4e62fd5cbc23e097ab9836d427bed5735caedf01243ae5a472c",
+    "arm_B": "34a86830ed8be9c55ee32ffa35e2e1aa5c5be251182a460ef6d20f776b2880c4"
+  }
+}

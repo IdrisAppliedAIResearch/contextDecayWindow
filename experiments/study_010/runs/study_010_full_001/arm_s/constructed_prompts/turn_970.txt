@@ -1,0 +1,129 @@
+You are a concise technical research assistant. Preserve exact user-supplied project facts across long conversations. Keep non-probe answers brief.
+
+<pinned_rules/>
+
+<recent_context>
+  <episode turn="969" topic="topic_2">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. Name one sensitivity analysis for environmental logging and its purpose.</user_message>
+    <assistant_message>1. Sensitivity Analysis: Varying the temporal resolution or calibration offsets of environmental sensors in predictive degradation models.
+2. Purpose: To quantify how uncertainties in climate data (e.g., RH spikes, temperature fluctuations) affect estimated damage accumulation, ensuring preservation strategies are robust against sensor noise or gaps.</assistant_message>
+  </episode>
+  <episode turn="1" topic="topic_2">
+    <user_message>For our structural engineering case, lock these facts: the project is Aster Viaduct, led by Dr. Leena Ortiz, with the primary value 1,126 meters. Acknowledge the three facts in a concise numbered list.</user_message>
+    <assistant_message>1. Project: Aster Viaduct
+2. Lead: Dr. Leena Ortiz
+3. Primary Value: 1,126 meters</assistant_message>
+  </episode>
+  <episode turn="2" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Identify one measurement error affecting cable fatigue and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Inaccurate tensioning calibration during installation can lead to non-uniform load distribution across cables.
+2. Consequence: This imbalance accelerates high-cycle fatigue failure in the overstressed strands, reducing the structure's service life and compromising safety.</assistant_message>
+  </episode>
+  <episode turn="3" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Briefly compare two validation strategies for seismic isolation.</user_message>
+    <assistant_message>1. **Physical Shake Table Testing**: Validates full-scale prototype behavior under controlled seismic inputs, capturing non-linear interactions and hysteresis, but is costly and logistically complex.
+2. **Numerical Simulation**: Uses finite element models to predict performance under varied scenarios efficiently, but relies heavily on accurate material input data and boundary condition assumptions.</assistant_message>
+  </episode>
+  <episode turn="4" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. State one practical quality-control check for deck torsion.</user_message>
+    <assistant_message>1. Practical Quality-Control Check: Use high-precision total stations to measure relative elevation differences between opposite deck edges during casting or placement, ensuring torsional warping remains within specified tolerance limits.</assistant_message>
+  </episode>
+  <episode turn="5" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Give a short example of uncertainty reporting for bearing creep.</user_message>
+    <assistant_message>Report bearing creep as a mean value with a confidence interval (e.g., $\mu \pm 2\sigma$), derived from long-term monotonic testing, to quantify dispersion and model reliability.</assistant_message>
+  </episode>
+  <episode turn="6" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Explain one failure mode involving wind-tunnel scaling.</user_message>
+    <assistant_message>Scaling discrepancies in Reynolds number between wind-tunnel models and full-scale structures can cause boundary layer separation characteristics to differ, leading to inaccurate prediction of vortex shedding and dynamic wind loads.</assistant_message>
+  </episode>
+  <episode turn="7" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Briefly describe provenance documentation for load combinations.</user_message>
+    <assistant_message>Provenance documentation for load combinations involves explicitly citing the governing design codes, specific equations, and environmental data sources (e.g., wind or snow maps) used to derive each load factor, ensuring traceability from final design values back to original standards and assumptions.</assistant_message>
+  </episode>
+  <episode turn="8" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Name one sensitivity analysis for corrosion monitoring and its purpose.</user_message>
+    <assistant_message>1. Sensitivity Analysis: Varying the corrosion rate input in finite element models to assess its impact on residual load-bearing capacity.
+2. Purpose: To identify the threshold at which section loss critically compromises structural safety, thereby optimizing inspection intervals and maintenance prioritization.</assistant_message>
+  </episode>
+  <episode turn="9" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Explain aeroelastic flutter in two concise sentences.</user_message>
+    <assistant_message>Aeroelastic flutter is a self-excited, divergent oscillation caused by the coupling of aerodynamic forces with a structure's elastic and inertial properties. This instability occurs when energy extraction from the airflow exceeds structural damping, leading to rapid, potentially catastrophic failure.</assistant_message>
+  </episode>
+</recent_context>
+
+<retrieved_stm>
+  <episode turn="907" topic="topic_2" similarity="0.523878">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. Identify one measurement error affecting mortar compatibility and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Incorrectly matching the porosity of the consolidation treatment to the degraded mortar matrix.
+2. Consequence: This creates a salt diffusion barrier that traps soluble salts behind the treated layer, leading to recurrent crystallization pressure and accelerated surface pulverization.</assistant_message>
+  </episode>
+  <episode turn="914" topic="topic_2" similarity="0.768500">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. Explain salt crystallization in two concise sentences.</user_message>
+    <assistant_message>Salt crystallization occurs when dissolved salts in pore water precipitate as moisture evaporates or temperatures fluctuate, generating expansive pressures that exceed the material's tensile strength. This cycle leads to mechanical damage, including surface spalling, pulverization, and structural weakening of the conservation object.</assistant_message>
+  </episode>
+  <episode turn="915" topic="topic_2" similarity="0.523878">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. Identify one measurement error affecting mortar compatibility and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Incorrectly matching the porosity of the consolidation treatment to the degraded mortar matrix.
+2. Consequence: This creates a salt diffusion barrier that traps soluble salts behind the treated layer, leading to recurrent crystallization pressure and accelerated surface pulverization.</assistant_message>
+  </episode>
+  <episode turn="922" topic="topic_2" similarity="0.768500">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. Explain salt crystallization in two concise sentences.</user_message>
+    <assistant_message>Salt crystallization occurs when dissolved salts in pore water precipitate as moisture evaporates or temperatures fluctuate, generating expansive pressures that exceed the material's tensile strength. This cycle leads to mechanical damage, including surface spalling, pulverization, and structural weakening of the conservation object.</assistant_message>
+  </episode>
+  <episode turn="923" topic="topic_2" similarity="0.523878">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. Identify one measurement error affecting mortar compatibility and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Incorrectly matching the porosity of the consolidation treatment to the degraded mortar matrix.
+2. Consequence: This creates a salt diffusion barrier that traps soluble salts behind the treated layer, leading to recurrent crystallization pressure and accelerated surface pulverization.</assistant_message>
+  </episode>
+  <episode turn="930" topic="topic_2" similarity="0.768500">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. Explain salt crystallization in two concise sentences.</user_message>
+    <assistant_message>Salt crystallization occurs when dissolved salts in pore water precipitate as moisture evaporates or temperatures fluctuate, generating expansive pressures that exceed the material's tensile strength. This cycle leads to mechanical damage, including surface spalling, pulverization, and structural weakening of the conservation object.</assistant_message>
+  </episode>
+  <episode turn="931" topic="topic_2" similarity="0.523878">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. Identify one measurement error affecting mortar compatibility and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Incorrectly matching the porosity of the consolidation treatment to the degraded mortar matrix.
+2. Consequence: This creates a salt diffusion barrier that traps soluble salts behind the treated layer, leading to recurrent crystallization pressure and accelerated surface pulverization.</assistant_message>
+  </episode>
+  <episode turn="938" topic="topic_2" similarity="0.768500">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. Explain salt crystallization in two concise sentences.</user_message>
+    <assistant_message>Salt crystallization occurs when dissolved salts in pore water precipitate as moisture evaporates or temperatures fluctuate, generating expansive pressures that exceed the material's tensile strength. This cycle leads to mechanical damage, including surface spalling, pulverization, and structural weakening of the conservation object.</assistant_message>
+  </episode>
+  <episode turn="939" topic="topic_2" similarity="0.523878">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. Identify one measurement error affecting mortar compatibility and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Incorrectly matching the porosity of the consolidation treatment to the degraded mortar matrix.
+2. Consequence: This creates a salt diffusion barrier that traps soluble salts behind the treated layer, leading to recurrent crystallization pressure and accelerated surface pulverization.</assistant_message>
+  </episode>
+  <episode turn="946" topic="topic_2" similarity="0.768500">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. Explain salt crystallization in two concise sentences.</user_message>
+    <assistant_message>Salt crystallization occurs when dissolved salts in pore water precipitate as moisture evaporates or temperatures fluctuate, generating expansive pressures that exceed the material's tensile strength. This cycle leads to mechanical damage, including surface spalling, pulverization, and structural weakening of the conservation object.</assistant_message>
+  </episode>
+  <episode turn="947" topic="topic_2" similarity="0.523878">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. Identify one measurement error affecting mortar compatibility and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Incorrectly matching the porosity of the consolidation treatment to the degraded mortar matrix.
+2. Consequence: This creates a salt diffusion barrier that traps soluble salts behind the treated layer, leading to recurrent crystallization pressure and accelerated surface pulverization.</assistant_message>
+  </episode>
+  <episode turn="954" topic="topic_2" similarity="0.768500">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. Explain salt crystallization in two concise sentences.</user_message>
+    <assistant_message>Salt crystallization occurs when dissolved salts in pore water precipitate as moisture evaporates or temperatures fluctuate, generating expansive pressures that exceed the material's tensile strength. This cycle leads to mechanical damage, including surface spalling, pulverization, and structural weakening of the conservation object.</assistant_message>
+  </episode>
+  <episode turn="955" topic="topic_2" similarity="0.523878">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. Identify one measurement error affecting mortar compatibility and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Incorrectly matching the porosity of the consolidation treatment to the degraded mortar matrix.
+2. Consequence: This creates a salt diffusion barrier that traps soluble salts behind the treated layer, leading to recurrent crystallization pressure and accelerated surface pulverization.</assistant_message>
+  </episode>
+  <episode turn="962" topic="topic_2" similarity="0.768500">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. Explain salt crystallization in two concise sentences.</user_message>
+    <assistant_message>Salt crystallization occurs when dissolved salts in pore water precipitate as moisture evaporates or temperatures fluctuate, generating expansive pressures that exceed the material's tensile strength. This cycle leads to mechanical damage, including surface spalling, pulverization, and structural weakening of the conservation object.</assistant_message>
+  </episode>
+  <episode turn="963" topic="topic_2" similarity="0.523878">
+    <user_message>Stay within the materials conservation thread and do not connect it to other subjects. Identify one measurement error affecting mortar compatibility and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Incorrectly matching the porosity of the consolidation treatment to the degraded mortar matrix.
+2. Consequence: This creates a salt diffusion barrier that traps soluble salts behind the treated layer, leading to recurrent crystallization pressure and accelerated surface pulverization.</assistant_message>
+  </episode>
+</retrieved_stm>
+
+<current_turn>
+  <user_message>Stay within the materials conservation thread and do not connect it to other subjects. Explain salt crystallization in two concise sentences.</user_message>
+</current_turn>
+
+Assistant:

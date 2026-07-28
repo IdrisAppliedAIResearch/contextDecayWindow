@@ -1,0 +1,186 @@
+You are a concise technical research assistant. Preserve exact user-supplied project facts across long conversations. Keep non-probe answers brief.
+
+<pinned_rules/>
+
+<recent_context>
+  <episode turn="73" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Explain aeroelastic flutter in two concise sentences.</user_message>
+    <assistant_message>Aeroelastic flutter is a self-excited oscillation where aerodynamic forces couple with structural bending and torsional modes to extract energy from the airflow. This positive feedback loop causes vibration amplitudes to grow exponentially, potentially resulting in catastrophic failure.
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the structural engineering thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="1" topic="topic_2">
+    <user_message>For our structural engineering case, lock these facts: the project is Aster Viaduct, led by Dr. Leena Ortiz, with the primary value 1,126 meters. Acknowledge the three facts in a concise numbered list.</user_message>
+    <assistant_message>1. Project: Aster Viaduct
+2. Lead: Dr. Leena Ortiz
+3. Primary Value: 1,126 meters
+
+&lt;rule_detection&gt;{"contains_rule": false, "rule_summary": null}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="2" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Identify one measurement error affecting cable fatigue and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Inaccurate strain gauge calibration
+2. Consequence: Underestimated cyclic stress amplitude, leading to premature cable fracture
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the structural engineering thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="3" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Briefly compare two validation strategies for seismic isolation.</user_message>
+    <assistant_message>1. Shake Table Testing: Physical validation using scaled models; high fidelity but limited frequency range.
+2. Numerical Simulation: Computational modeling using FEA; comprehensive scenario coverage but relies on material property assumptions.
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the structural engineering thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="4" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. State one practical quality-control check for deck torsion.</user_message>
+    <assistant_message>1. Practical QC Check: Verify torsional alignment of bearing seats relative to the centerline to ensure even load distribution and prevent unintended torque on the deck.
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the structural engineering thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="5" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Give a short example of uncertainty reporting for bearing creep.</user_message>
+    <assistant_message>1. Example: Bearing creep deformation = 2.5 mm ± 0.3 mm (95% confidence interval), derived from statistical analysis of time-series monitoring data.
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the structural engineering thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="6" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Explain one failure mode involving wind-tunnel scaling.</user_message>
+    <assistant_message>1. Failure Mode: Incorrect scaling of Reynolds number or boundary layer characteristics can result in inaccurate estimation of aerodynamic forces, leading to inadequate design for flutter or galloping instability.
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the structural engineering thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="7" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Briefly describe provenance documentation for load combinations.</user_message>
+    <assistant_message>1. Provenance Documentation: Maintain a traceable ledger linking specific load combinations to their source standards (e.g., ASCE 7), applicable load factors, and project-specific verification signatures.
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the structural engineering thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="8" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Name one sensitivity analysis for corrosion monitoring and its purpose.</user_message>
+    <assistant_message>1. Sensitivity Analysis: Variation of corrosion rate parameters within probabilistic models
+2. Purpose: Determine the impact of corrosion uncertainty on residual service life and safety factors
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the structural engineering thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="9" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Explain aeroelastic flutter in two concise sentences.</user_message>
+    <assistant_message>Aeroelastic flutter is a dynamic instability where aerodynamic forces couple with structural bending and torsional modes, extracting energy from the airflow. This interaction causes oscillations to grow exponentially, often leading to catastrophic structural failure.
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the structural engineering thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+</recent_context>
+
+<retrieved_stm>
+  <episode turn="50" topic="topic_2" similarity="0.891698">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Identify one measurement error affecting cable fatigue and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Inaccurate strain gauge calibration
+2. Consequence: Underestimated cyclic stress amplitude, leading to premature cable fracture
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the structural engineering thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="26" topic="topic_2" similarity="0.891698">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Identify one measurement error affecting cable fatigue and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Inaccurate strain gauge calibration
+2. Consequence: Underestimated cyclic stress amplitude, leading to premature cable fracture
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the structural engineering thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="18" topic="topic_2" similarity="0.891698">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Identify one measurement error affecting cable fatigue and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Inaccurate strain gauge calibration
+2. Consequence: Underestimated cyclic stress amplitude, leading to premature cable fracture
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the structural engineering thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="42" topic="topic_2" similarity="0.891698">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Identify one measurement error affecting cable fatigue and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Inaccurate strain gauge calibration
+2. Consequence: Underestimated cyclic stress amplitude, leading to premature cable fracture
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the structural engineering thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="66" topic="topic_2" similarity="0.891698">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Identify one measurement error affecting cable fatigue and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Inaccurate strain gauge calibration
+2. Consequence: Underestimated cyclic stress amplitude, leading to premature cable fracture
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the structural engineering thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="10" topic="topic_2" similarity="0.891698">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Identify one measurement error affecting cable fatigue and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Inaccurate strain gauge calibration
+2. Consequence: Underestimated cyclic stress amplitude, leading to premature cable fracture
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the structural engineering thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="58" topic="topic_2" similarity="0.891698">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Identify one measurement error affecting cable fatigue and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Inaccurate strain gauge calibration
+2. Consequence: Underestimated cyclic stress amplitude, leading to premature cable fracture
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the structural engineering thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="34" topic="topic_2" similarity="0.891698">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Identify one measurement error affecting cable fatigue and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Inaccurate strain gauge calibration
+2. Consequence: Underestimated cyclic stress amplitude, leading to premature cable fracture
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the structural engineering thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="53" topic="topic_2" similarity="0.570080">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Give a short example of uncertainty reporting for bearing creep.</user_message>
+    <assistant_message>1. Example: Bearing creep deformation = 2.5 mm ± 0.3 mm (95% confidence interval), derived from statistical analysis of time-series monitoring data.
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the structural engineering thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="45" topic="topic_2" similarity="0.570080">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Give a short example of uncertainty reporting for bearing creep.</user_message>
+    <assistant_message>1. Example: Bearing creep deformation = 2.5 mm ± 0.3 mm (95% confidence interval), derived from statistical analysis of time-series monitoring data.
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the structural engineering thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="13" topic="topic_2" similarity="0.570080">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Give a short example of uncertainty reporting for bearing creep.</user_message>
+    <assistant_message>1. Example: Bearing creep deformation = 2.5 mm ± 0.3 mm (95% confidence interval), derived from statistical analysis of time-series monitoring data.
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the structural engineering thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="37" topic="topic_2" similarity="0.570080">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Give a short example of uncertainty reporting for bearing creep.</user_message>
+    <assistant_message>1. Example: Bearing creep deformation = 2.5 mm ± 0.3 mm (95% confidence interval), derived from statistical analysis of time-series monitoring data.
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the structural engineering thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="29" topic="topic_2" similarity="0.570080">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Give a short example of uncertainty reporting for bearing creep.</user_message>
+    <assistant_message>1. Example: Bearing creep deformation = 2.5 mm ± 0.3 mm (95% confidence interval), derived from statistical analysis of time-series monitoring data.
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the structural engineering thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="69" topic="topic_2" similarity="0.570080">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Give a short example of uncertainty reporting for bearing creep.</user_message>
+    <assistant_message>1. Example: Bearing creep deformation = 2.5 mm ± 0.3 mm (95% confidence interval), derived from statistical analysis of time-series monitoring data.
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the structural engineering thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="21" topic="topic_2" similarity="0.570080">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Give a short example of uncertainty reporting for bearing creep.</user_message>
+    <assistant_message>1. Example: Bearing creep deformation = 2.5 mm ± 0.3 mm (95% confidence interval), derived from statistical analysis of time-series monitoring data.
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the structural engineering thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+  <episode turn="61" topic="topic_2" similarity="0.570080">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Give a short example of uncertainty reporting for bearing creep.</user_message>
+    <assistant_message>1. Example: Bearing creep deformation = 2.5 mm ± 0.3 mm (95% confidence interval), derived from statistical analysis of time-series monitoring data.
+
+&lt;rule_detection&gt;{"contains_rule": true, "rule_summary": "Constraint to stay within the structural engineering thread without connecting to other subjects"}&lt;/rule_detection&gt;</assistant_message>
+  </episode>
+</retrieved_stm>
+
+<retrieved_ltm/>
+
+<current_turn>
+  <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Identify one measurement error affecting cable fatigue and its consequence.</user_message>
+</current_turn>
+
+Assistant:

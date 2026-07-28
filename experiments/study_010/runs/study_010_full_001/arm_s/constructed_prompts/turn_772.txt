@@ -1,0 +1,109 @@
+You are a concise technical research assistant. Preserve exact user-supplied project facts across long conversations. Keep non-probe answers brief.
+
+<pinned_rules/>
+
+<recent_context>
+  <episode turn="771" topic="topic_2">
+    <user_message>Stay within the historical linguistics thread and do not connect it to other subjects. Give a short example of uncertainty reporting for dated inscriptions.</user_message>
+    <assistant_message>Report the date of an inscription as a calibrated range (e.g., 450–430 BCE) derived from stratigraphic context and epigraphic analysis, explicitly stating the confidence level and any residual dating ambiguity.</assistant_message>
+  </episode>
+  <episode turn="1" topic="topic_2">
+    <user_message>For our structural engineering case, lock these facts: the project is Aster Viaduct, led by Dr. Leena Ortiz, with the primary value 1,126 meters. Acknowledge the three facts in a concise numbered list.</user_message>
+    <assistant_message>1. Project: Aster Viaduct
+2. Lead: Dr. Leena Ortiz
+3. Primary Value: 1,126 meters</assistant_message>
+  </episode>
+  <episode turn="2" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Identify one measurement error affecting cable fatigue and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Inaccurate tensioning calibration during installation can lead to non-uniform load distribution across cables.
+2. Consequence: This imbalance accelerates high-cycle fatigue failure in the overstressed strands, reducing the structure's service life and compromising safety.</assistant_message>
+  </episode>
+  <episode turn="3" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Briefly compare two validation strategies for seismic isolation.</user_message>
+    <assistant_message>1. **Physical Shake Table Testing**: Validates full-scale prototype behavior under controlled seismic inputs, capturing non-linear interactions and hysteresis, but is costly and logistically complex.
+2. **Numerical Simulation**: Uses finite element models to predict performance under varied scenarios efficiently, but relies heavily on accurate material input data and boundary condition assumptions.</assistant_message>
+  </episode>
+  <episode turn="4" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. State one practical quality-control check for deck torsion.</user_message>
+    <assistant_message>1. Practical Quality-Control Check: Use high-precision total stations to measure relative elevation differences between opposite deck edges during casting or placement, ensuring torsional warping remains within specified tolerance limits.</assistant_message>
+  </episode>
+  <episode turn="5" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Give a short example of uncertainty reporting for bearing creep.</user_message>
+    <assistant_message>Report bearing creep as a mean value with a confidence interval (e.g., $\mu \pm 2\sigma$), derived from long-term monotonic testing, to quantify dispersion and model reliability.</assistant_message>
+  </episode>
+  <episode turn="6" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Explain one failure mode involving wind-tunnel scaling.</user_message>
+    <assistant_message>Scaling discrepancies in Reynolds number between wind-tunnel models and full-scale structures can cause boundary layer separation characteristics to differ, leading to inaccurate prediction of vortex shedding and dynamic wind loads.</assistant_message>
+  </episode>
+  <episode turn="7" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Briefly describe provenance documentation for load combinations.</user_message>
+    <assistant_message>Provenance documentation for load combinations involves explicitly citing the governing design codes, specific equations, and environmental data sources (e.g., wind or snow maps) used to derive each load factor, ensuring traceability from final design values back to original standards and assumptions.</assistant_message>
+  </episode>
+  <episode turn="8" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Name one sensitivity analysis for corrosion monitoring and its purpose.</user_message>
+    <assistant_message>1. Sensitivity Analysis: Varying the corrosion rate input in finite element models to assess its impact on residual load-bearing capacity.
+2. Purpose: To identify the threshold at which section loss critically compromises structural safety, thereby optimizing inspection intervals and maintenance prioritization.</assistant_message>
+  </episode>
+  <episode turn="9" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Explain aeroelastic flutter in two concise sentences.</user_message>
+    <assistant_message>Aeroelastic flutter is a self-excited, divergent oscillation caused by the coupling of aerodynamic forces with a structure's elastic and inertial properties. This instability occurs when energy extraction from the airflow exceeds structural damping, leading to rapid, potentially catastrophic failure.</assistant_message>
+  </episode>
+</recent_context>
+
+<retrieved_stm>
+  <episode turn="741" topic="topic_2" similarity="0.570722">
+    <user_message>Stay within the historical linguistics thread and do not connect it to other subjects. Identify one measurement error affecting lexical borrowing and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Misattributing a loanword to a recent contact event by ignoring established cognates or shared etymologies within the language family.
+2. Consequence: This leads to inaccurate dating of contact periods and misinterpretation of the directionality of cultural influence in the Sable Isogloss Atlas data.</assistant_message>
+  </episode>
+  <episode turn="745" topic="topic_2" similarity="0.825811">
+    <user_message>Stay within the historical linguistics thread and do not connect it to other subjects. Explain one failure mode involving semantic shift.</user_message>
+    <assistant_message>Failure Mode: Over-reliance on etymological cognates to reconstruct semantics, leading to the misinterpretation of polysemy or metaphorical extensions.
+Consequence: This results in inaccurate mappings of conceptual evolution and false assumptions about the cultural or cognitive contexts driving lexical change.</assistant_message>
+  </episode>
+  <episode turn="747" topic="topic_2" similarity="0.531515">
+    <user_message>Stay within the historical linguistics thread and do not connect it to other subjects. Name one sensitivity analysis for phoneme reconstruction and its purpose.</user_message>
+    <assistant_message>1. Sensitivity Analysis: Testing the stability of a reconstructed phoneme by altering the assumed phonetic values of cognate reflexes in daughter languages or adjusting the weighting of irregular exceptions in comparative sets.
+2. Purpose: To assess the robustness of the reconstruction against minor variations in data interpretation, ensuring that the inferred ancestral sound is not an artifact of overly specific or arbitrary assumptions about sound change regularity.</assistant_message>
+  </episode>
+  <episode turn="749" topic="topic_2" similarity="0.570722">
+    <user_message>Stay within the historical linguistics thread and do not connect it to other subjects. Identify one measurement error affecting lexical borrowing and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Misattributing a loanword to a recent contact event by ignoring established cognates or shared etymologies within the language family.
+2. Consequence: This leads to inaccurate dating of contact periods and misinterpretation of the directionality of cultural influence in the Sable Isogloss Atlas data.</assistant_message>
+  </episode>
+  <episode turn="756" topic="topic_2" similarity="0.837247">
+    <user_message>Stay within the historical linguistics thread and do not connect it to other subjects. Explain one failure mode involving semantic shift.</user_message>
+    <assistant_message>Failure Mode: Misinterpreting a metaphorical extension as a polysemous development of a single root. Consequence: This creates inaccurate lexical reconstructions and obscures the actual trajectory of semantic change.</assistant_message>
+  </episode>
+  <episode turn="758" topic="topic_2" similarity="0.531515">
+    <user_message>Stay within the historical linguistics thread and do not connect it to other subjects. Name one sensitivity analysis for phoneme reconstruction and its purpose.</user_message>
+    <assistant_message>1. Sensitivity Analysis: Testing the stability of a reconstructed phoneme by altering the assumed phonetic values of cognate reflexes in daughter languages or adjusting the weighting of irregular exceptions in comparative sets.
+2. Purpose: To assess the robustness of the reconstruction against minor variations in data interpretation, ensuring that the inferred ancestral sound is not an artifact of overly specific or arbitrary assumptions about sound change regularity.</assistant_message>
+  </episode>
+  <episode turn="760" topic="topic_2" similarity="0.570722">
+    <user_message>Stay within the historical linguistics thread and do not connect it to other subjects. Identify one measurement error affecting lexical borrowing and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Misattributing a loanword to a recent contact event by ignoring established cognates or shared etymologies within the language family.
+2. Consequence: This leads to inaccurate dating of contact periods and misinterpretation of the directionality of cultural influence in the Sable Isogloss Atlas data.</assistant_message>
+  </episode>
+  <episode turn="764" topic="topic_2" similarity="0.827038">
+    <user_message>Stay within the historical linguistics thread and do not connect it to other subjects. Explain one failure mode involving semantic shift.</user_message>
+    <assistant_message>Failure Mode: Conflating semantic broadening with metaphorical extension leads to incorrect reconstruction of proto-semantic fields.
+Consequence: This obscures the specific cognitive or cultural triggers for lexical change and compromises the accuracy of historical semantic maps.</assistant_message>
+  </episode>
+  <episode turn="766" topic="topic_2" similarity="0.531515">
+    <user_message>Stay within the historical linguistics thread and do not connect it to other subjects. Name one sensitivity analysis for phoneme reconstruction and its purpose.</user_message>
+    <assistant_message>1. Sensitivity Analysis: Testing the stability of a reconstructed phoneme by altering the assumed phonetic values of cognate reflexes in daughter languages or adjusting the weighting of irregular exceptions in comparative sets.
+2. Purpose: To assess the robustness of the reconstruction against minor variations in data interpretation, ensuring that the inferred ancestral sound is not an artifact of overly specific or arbitrary assumptions about sound change regularity.</assistant_message>
+  </episode>
+  <episode turn="768" topic="topic_2" similarity="0.570722">
+    <user_message>Stay within the historical linguistics thread and do not connect it to other subjects. Identify one measurement error affecting lexical borrowing and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Misattributing a loanword to a recent contact event by ignoring established cognates or shared etymologies within the language family.
+2. Consequence: This leads to inaccurate dating of contact periods and misinterpretation of the directionality of cultural influence in the Sable Isogloss Atlas data.</assistant_message>
+  </episode>
+</retrieved_stm>
+
+<current_turn>
+  <user_message>Stay within the historical linguistics thread and do not connect it to other subjects. Explain one failure mode involving semantic shift.</user_message>
+</current_turn>
+
+Assistant:

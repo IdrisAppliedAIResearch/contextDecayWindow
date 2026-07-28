@@ -1,0 +1,146 @@
+You are a concise technical research assistant. Preserve exact user-supplied project facts across long conversations. Keep non-probe answers brief.
+
+<pinned_rules/>
+
+<recent_context>
+  <episode turn="865" topic="topic_2">
+    <user_message>Stay within the field robotics thread and do not connect it to other subjects. Explain visual odometry in two concise sentences.</user_message>
+    <assistant_message>Visual odometry estimates a robot's motion and orientation by analyzing the change in position and scale of features across consecutive camera frames. It typically employs epipolar geometry and bundle adjustment to minimize reprojection errors, enabling relative pose tracking without external aids.</assistant_message>
+  </episode>
+  <episode turn="1" topic="topic_2">
+    <user_message>For our structural engineering case, lock these facts: the project is Aster Viaduct, led by Dr. Leena Ortiz, with the primary value 1,126 meters. Acknowledge the three facts in a concise numbered list.</user_message>
+    <assistant_message>1. Project: Aster Viaduct
+2. Lead: Dr. Leena Ortiz
+3. Primary Value: 1,126 meters</assistant_message>
+  </episode>
+  <episode turn="2" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Identify one measurement error affecting cable fatigue and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Inaccurate tensioning calibration during installation can lead to non-uniform load distribution across cables.
+2. Consequence: This imbalance accelerates high-cycle fatigue failure in the overstressed strands, reducing the structure's service life and compromising safety.</assistant_message>
+  </episode>
+  <episode turn="3" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Briefly compare two validation strategies for seismic isolation.</user_message>
+    <assistant_message>1. **Physical Shake Table Testing**: Validates full-scale prototype behavior under controlled seismic inputs, capturing non-linear interactions and hysteresis, but is costly and logistically complex.
+2. **Numerical Simulation**: Uses finite element models to predict performance under varied scenarios efficiently, but relies heavily on accurate material input data and boundary condition assumptions.</assistant_message>
+  </episode>
+  <episode turn="4" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. State one practical quality-control check for deck torsion.</user_message>
+    <assistant_message>1. Practical Quality-Control Check: Use high-precision total stations to measure relative elevation differences between opposite deck edges during casting or placement, ensuring torsional warping remains within specified tolerance limits.</assistant_message>
+  </episode>
+  <episode turn="5" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Give a short example of uncertainty reporting for bearing creep.</user_message>
+    <assistant_message>Report bearing creep as a mean value with a confidence interval (e.g., $\mu \pm 2\sigma$), derived from long-term monotonic testing, to quantify dispersion and model reliability.</assistant_message>
+  </episode>
+  <episode turn="6" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Explain one failure mode involving wind-tunnel scaling.</user_message>
+    <assistant_message>Scaling discrepancies in Reynolds number between wind-tunnel models and full-scale structures can cause boundary layer separation characteristics to differ, leading to inaccurate prediction of vortex shedding and dynamic wind loads.</assistant_message>
+  </episode>
+  <episode turn="7" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Briefly describe provenance documentation for load combinations.</user_message>
+    <assistant_message>Provenance documentation for load combinations involves explicitly citing the governing design codes, specific equations, and environmental data sources (e.g., wind or snow maps) used to derive each load factor, ensuring traceability from final design values back to original standards and assumptions.</assistant_message>
+  </episode>
+  <episode turn="8" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Name one sensitivity analysis for corrosion monitoring and its purpose.</user_message>
+    <assistant_message>1. Sensitivity Analysis: Varying the corrosion rate input in finite element models to assess its impact on residual load-bearing capacity.
+2. Purpose: To identify the threshold at which section loss critically compromises structural safety, thereby optimizing inspection intervals and maintenance prioritization.</assistant_message>
+  </episode>
+  <episode turn="9" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Explain aeroelastic flutter in two concise sentences.</user_message>
+    <assistant_message>Aeroelastic flutter is a self-excited, divergent oscillation caused by the coupling of aerodynamic forces with a structure's elastic and inertial properties. This instability occurs when energy extraction from the airflow exceeds structural damping, leading to rapid, potentially catastrophic failure.</assistant_message>
+  </episode>
+</recent_context>
+
+<retrieved_stm>
+  <episode turn="826" topic="topic_2" similarity="0.870669">
+    <user_message>Stay within the field robotics thread and do not connect it to other subjects. Identify one measurement error affecting terrain slip and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Inaccurate calibration of wheel odometry sensors can miscalculate the true distance traveled versus wheel rotation.
+2. Consequence: This error leads to significant pose estimation drift and localization failure, as the navigation system incorrectly correlates motor commands with actual ground displacement due to slippage.</assistant_message>
+  </episode>
+  <episode turn="829" topic="topic_2" similarity="0.533786">
+    <user_message>Stay within the field robotics thread and do not connect it to other subjects. Give a short example of uncertainty reporting for sensor fusion.</user_message>
+    <assistant_message>Report sensor fusion uncertainty using a covariance matrix from an Extended Kalman Filter (EKF), quantifying positional error bounds based on the varying noise characteristics of odometry, IMU, and GPS inputs.</assistant_message>
+  </episode>
+  <episode turn="830" topic="topic_2" similarity="0.557054">
+    <user_message>Stay within the field robotics thread and do not connect it to other subjects. Explain one failure mode involving path replanning.</user_message>
+    <assistant_message>Failure Mode: Oscillatory Replanning Loop
+Description: Frequent trigger of the replanning algorithm due to minor obstacle movements or sensor noise, causing the robot to repeatedly calculate and switch between near-identical paths. This results in erratic motion, high computational load, and potential mission delay or instability.</assistant_message>
+  </episode>
+  <episode turn="832" topic="topic_2" similarity="0.531258">
+    <user_message>Stay within the field robotics thread and do not connect it to other subjects. Name one sensitivity analysis for actuator backlash and its purpose.</user_message>
+    <assistant_message>1. Sensitivity Analysis: Varying the backlash magnitude parameter in the dynamic control model to observe deviations in trajectory tracking and stability margins.
+2. Purpose: To determine the maximum tolerable mechanical play before control precision degrades below operational thresholds, informing maintenance schedules and control gain tuning.</assistant_message>
+  </episode>
+  <episode turn="834" topic="topic_2" similarity="0.870669">
+    <user_message>Stay within the field robotics thread and do not connect it to other subjects. Identify one measurement error affecting terrain slip and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Inaccurate calibration of wheel odometry sensors can miscalculate the true distance traveled versus wheel rotation.
+2. Consequence: This error leads to significant pose estimation drift and localization failure, as the navigation system incorrectly correlates motor commands with actual ground displacement due to slippage.</assistant_message>
+  </episode>
+  <episode turn="837" topic="topic_2" similarity="0.533786">
+    <user_message>Stay within the field robotics thread and do not connect it to other subjects. Give a short example of uncertainty reporting for sensor fusion.</user_message>
+    <assistant_message>Report sensor fusion uncertainty using a covariance matrix from an Extended Kalman Filter (EKF), quantifying positional error bounds based on the varying noise characteristics of odometry, IMU, and GPS inputs.</assistant_message>
+  </episode>
+  <episode turn="838" topic="topic_2" similarity="0.584038">
+    <user_message>Stay within the field robotics thread and do not connect it to other subjects. Explain one failure mode involving path replanning.</user_message>
+    <assistant_message>Failure Mode: Oscillatory Replanning Loop. Frequent triggers from minor obstacle movements or sensor noise cause the robot to repeatedly switch between near-identical paths, resulting in erratic motion, high computational load, and mission instability.</assistant_message>
+  </episode>
+  <episode turn="840" topic="topic_2" similarity="0.531258">
+    <user_message>Stay within the field robotics thread and do not connect it to other subjects. Name one sensitivity analysis for actuator backlash and its purpose.</user_message>
+    <assistant_message>1. Sensitivity Analysis: Varying the backlash magnitude parameter in the dynamic control model to observe deviations in trajectory tracking and stability margins.
+2. Purpose: To determine the maximum tolerable mechanical play before control precision degrades below operational thresholds, informing maintenance schedules and control gain tuning.</assistant_message>
+  </episode>
+  <episode turn="842" topic="topic_2" similarity="0.870669">
+    <user_message>Stay within the field robotics thread and do not connect it to other subjects. Identify one measurement error affecting terrain slip and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Inaccurate calibration of wheel odometry sensors can miscalculate the true distance traveled versus wheel rotation.
+2. Consequence: This error leads to significant pose estimation drift and localization failure, as the navigation system incorrectly correlates motor commands with actual ground displacement due to slippage.</assistant_message>
+  </episode>
+  <episode turn="845" topic="topic_2" similarity="0.533786">
+    <user_message>Stay within the field robotics thread and do not connect it to other subjects. Give a short example of uncertainty reporting for sensor fusion.</user_message>
+    <assistant_message>Report sensor fusion uncertainty using a covariance matrix from an Extended Kalman Filter (EKF), quantifying positional error bounds based on the varying noise characteristics of odometry, IMU, and GPS inputs.</assistant_message>
+  </episode>
+  <episode turn="846" topic="topic_2" similarity="0.584038">
+    <user_message>Stay within the field robotics thread and do not connect it to other subjects. Explain one failure mode involving path replanning.</user_message>
+    <assistant_message>Failure Mode: Oscillatory Replanning Loop. Frequent triggers from minor obstacle movements or sensor noise cause the robot to repeatedly switch between near-identical paths, resulting in erratic motion, high computational load, and mission instability.</assistant_message>
+  </episode>
+  <episode turn="848" topic="topic_2" similarity="0.531258">
+    <user_message>Stay within the field robotics thread and do not connect it to other subjects. Name one sensitivity analysis for actuator backlash and its purpose.</user_message>
+    <assistant_message>1. Sensitivity Analysis: Varying the backlash magnitude parameter in the dynamic control model to observe deviations in trajectory tracking and stability margins.
+2. Purpose: To determine the maximum tolerable mechanical play before control precision degrades below operational thresholds, informing maintenance schedules and control gain tuning.</assistant_message>
+  </episode>
+  <episode turn="850" topic="topic_2" similarity="0.870669">
+    <user_message>Stay within the field robotics thread and do not connect it to other subjects. Identify one measurement error affecting terrain slip and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Inaccurate calibration of wheel odometry sensors can miscalculate the true distance traveled versus wheel rotation.
+2. Consequence: This error leads to significant pose estimation drift and localization failure, as the navigation system incorrectly correlates motor commands with actual ground displacement due to slippage.</assistant_message>
+  </episode>
+  <episode turn="853" topic="topic_2" similarity="0.533786">
+    <user_message>Stay within the field robotics thread and do not connect it to other subjects. Give a short example of uncertainty reporting for sensor fusion.</user_message>
+    <assistant_message>Report sensor fusion uncertainty using a covariance matrix from an Extended Kalman Filter (EKF), quantifying positional error bounds based on the varying noise characteristics of odometry, IMU, and GPS inputs.</assistant_message>
+  </episode>
+  <episode turn="854" topic="topic_2" similarity="0.584038">
+    <user_message>Stay within the field robotics thread and do not connect it to other subjects. Explain one failure mode involving path replanning.</user_message>
+    <assistant_message>Failure Mode: Oscillatory Replanning Loop. Frequent triggers from minor obstacle movements or sensor noise cause the robot to repeatedly switch between near-identical paths, resulting in erratic motion, high computational load, and mission instability.</assistant_message>
+  </episode>
+  <episode turn="856" topic="topic_2" similarity="0.531258">
+    <user_message>Stay within the field robotics thread and do not connect it to other subjects. Name one sensitivity analysis for actuator backlash and its purpose.</user_message>
+    <assistant_message>1. Sensitivity Analysis: Varying the backlash magnitude parameter in the dynamic control model to observe deviations in trajectory tracking and stability margins.
+2. Purpose: To determine the maximum tolerable mechanical play before control precision degrades below operational thresholds, informing maintenance schedules and control gain tuning.</assistant_message>
+  </episode>
+  <episode turn="858" topic="topic_2" similarity="0.870669">
+    <user_message>Stay within the field robotics thread and do not connect it to other subjects. Identify one measurement error affecting terrain slip and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Inaccurate calibration of wheel odometry sensors can miscalculate the true distance traveled versus wheel rotation.
+2. Consequence: This error leads to significant pose estimation drift and localization failure, as the navigation system incorrectly correlates motor commands with actual ground displacement due to slippage.</assistant_message>
+  </episode>
+  <episode turn="861" topic="topic_2" similarity="0.533786">
+    <user_message>Stay within the field robotics thread and do not connect it to other subjects. Give a short example of uncertainty reporting for sensor fusion.</user_message>
+    <assistant_message>Report sensor fusion uncertainty using a covariance matrix from an Extended Kalman Filter (EKF), quantifying positional error bounds based on the varying noise characteristics of odometry, IMU, and GPS inputs.</assistant_message>
+  </episode>
+  <episode turn="862" topic="topic_2" similarity="0.584038">
+    <user_message>Stay within the field robotics thread and do not connect it to other subjects. Explain one failure mode involving path replanning.</user_message>
+    <assistant_message>Failure Mode: Oscillatory Replanning Loop. Frequent triggers from minor obstacle movements or sensor noise cause the robot to repeatedly switch between near-identical paths, resulting in erratic motion, high computational load, and mission instability.</assistant_message>
+  </episode>
+</retrieved_stm>
+
+<current_turn>
+  <user_message>Stay within the field robotics thread and do not connect it to other subjects. Identify one measurement error affecting terrain slip and its consequence.</user_message>
+</current_turn>
+
+Assistant:

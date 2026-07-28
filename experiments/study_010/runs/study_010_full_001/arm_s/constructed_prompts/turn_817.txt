@@ -1,0 +1,188 @@
+You are a concise technical research assistant. Preserve exact user-supplied project facts across long conversations. Keep non-probe answers brief.
+
+<pinned_rules/>
+
+<recent_context>
+  <episode turn="816" topic="topic_2">
+    <user_message>Stay within the historical linguistics thread and do not connect it to other subjects. Identify one measurement error affecting lexical borrowing and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Misattributing a loanword to a recent contact event by ignoring established cognates or shared etymologies within the language family.
+2. Consequence: This leads to inaccurate dating of contact periods and misinterpretation of the directionality of cultural influence in the Sable Isogloss Atlas data.</assistant_message>
+  </episode>
+  <episode turn="1" topic="topic_2">
+    <user_message>For our structural engineering case, lock these facts: the project is Aster Viaduct, led by Dr. Leena Ortiz, with the primary value 1,126 meters. Acknowledge the three facts in a concise numbered list.</user_message>
+    <assistant_message>1. Project: Aster Viaduct
+2. Lead: Dr. Leena Ortiz
+3. Primary Value: 1,126 meters</assistant_message>
+  </episode>
+  <episode turn="2" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Identify one measurement error affecting cable fatigue and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Inaccurate tensioning calibration during installation can lead to non-uniform load distribution across cables.
+2. Consequence: This imbalance accelerates high-cycle fatigue failure in the overstressed strands, reducing the structure's service life and compromising safety.</assistant_message>
+  </episode>
+  <episode turn="3" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Briefly compare two validation strategies for seismic isolation.</user_message>
+    <assistant_message>1. **Physical Shake Table Testing**: Validates full-scale prototype behavior under controlled seismic inputs, capturing non-linear interactions and hysteresis, but is costly and logistically complex.
+2. **Numerical Simulation**: Uses finite element models to predict performance under varied scenarios efficiently, but relies heavily on accurate material input data and boundary condition assumptions.</assistant_message>
+  </episode>
+  <episode turn="4" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. State one practical quality-control check for deck torsion.</user_message>
+    <assistant_message>1. Practical Quality-Control Check: Use high-precision total stations to measure relative elevation differences between opposite deck edges during casting or placement, ensuring torsional warping remains within specified tolerance limits.</assistant_message>
+  </episode>
+  <episode turn="5" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Give a short example of uncertainty reporting for bearing creep.</user_message>
+    <assistant_message>Report bearing creep as a mean value with a confidence interval (e.g., $\mu \pm 2\sigma$), derived from long-term monotonic testing, to quantify dispersion and model reliability.</assistant_message>
+  </episode>
+  <episode turn="6" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Explain one failure mode involving wind-tunnel scaling.</user_message>
+    <assistant_message>Scaling discrepancies in Reynolds number between wind-tunnel models and full-scale structures can cause boundary layer separation characteristics to differ, leading to inaccurate prediction of vortex shedding and dynamic wind loads.</assistant_message>
+  </episode>
+  <episode turn="7" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Briefly describe provenance documentation for load combinations.</user_message>
+    <assistant_message>Provenance documentation for load combinations involves explicitly citing the governing design codes, specific equations, and environmental data sources (e.g., wind or snow maps) used to derive each load factor, ensuring traceability from final design values back to original standards and assumptions.</assistant_message>
+  </episode>
+  <episode turn="8" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Name one sensitivity analysis for corrosion monitoring and its purpose.</user_message>
+    <assistant_message>1. Sensitivity Analysis: Varying the corrosion rate input in finite element models to assess its impact on residual load-bearing capacity.
+2. Purpose: To identify the threshold at which section loss critically compromises structural safety, thereby optimizing inspection intervals and maintenance prioritization.</assistant_message>
+  </episode>
+  <episode turn="9" topic="topic_2">
+    <user_message>Stay within the structural engineering thread and do not connect it to other subjects. Explain aeroelastic flutter in two concise sentences.</user_message>
+    <assistant_message>Aeroelastic flutter is a self-excited, divergent oscillation caused by the coupling of aerodynamic forces with a structure's elastic and inertial properties. This instability occurs when energy extraction from the airflow exceeds structural damping, leading to rapid, potentially catastrophic failure.</assistant_message>
+  </episode>
+</recent_context>
+
+<retrieved_stm>
+  <episode turn="203" topic="topic_3" similarity="0.554958">
+    <user_message>Add two locked facts for Vellum Harbor Ledger: the technical specification is iron-gall ink, and the decision threshold is folio 184. Restate only those two facts.</user_message>
+    <assistant_message>1. Technical Specification: iron-gall ink
+2. Decision Threshold: folio 184</assistant_message>
+  </episode>
+  <episode turn="238" topic="topic_3" similarity="0.599763">
+    <user_message>Without repeating the values, explain in two sentences why the recorded specification and threshold matter to Vellum Harbor Ledger.</user_message>
+    <assistant_message>The iron-gall ink specification is critical for assessing long-term material degradation risks, directly impacting preservation strategies and dating accuracy. The folio threshold establishes a precise structural boundary within the ledger, guiding targeted conservation efforts and ensuring chronological integrity during analysis.</assistant_message>
+  </episode>
+  <episode turn="535" topic="topic_3" similarity="0.572947">
+    <user_message>Add two locked facts for Marrowfen Survey: the technical specification is Sphagnum palustre, and the decision threshold is 6.2 millimeters per year. Restate only those two facts.</user_message>
+    <assistant_message>1. Technical Specification: Sphagnum palustre
+2. Decision Threshold: 6.2 millimeters per year</assistant_message>
+  </episode>
+  <episode turn="570" topic="topic_3" similarity="0.580752">
+    <user_message>Without repeating the values, explain in two sentences why the recorded specification and threshold matter to Marrowfen Survey.</user_message>
+    <assistant_message>The *Sphagnum palustre* specification identifies the key biological indicator for tracking peat accumulation, ensuring ecological monitoring targets the primary carbon-sequestering species. The millimetric threshold defines the critical growth rate necessary for wetland resilience, guiding management decisions on hydrological restoration.</assistant_message>
+  </episode>
+  <episode turn="698" topic="topic_3" similarity="0.502939">
+    <user_message>Add two locked facts for Pelican Rift Transect: the technical specification is 24-channel streamer, and the decision threshold is 3.6 centimeters per year. Restate only those two facts.</user_message>
+    <assistant_message>1. Technical Specification: 24-channel streamer
+2. Decision Threshold: 3.6 centimeters per year</assistant_message>
+  </episode>
+  <episode turn="733" topic="topic_3" similarity="0.519529">
+    <user_message>Without repeating the values, explain in two sentences why the recorded specification and threshold matter to Pelican Rift Transect.</user_message>
+    <assistant_message>The 24-channel streamer specification ensures high-resolution spatial sampling of seismic reflections, critical for resolving fine-scale tectonic features in the rift zone. The velocity threshold defines the minimum geologic deformation rate required to validate active extension models, guiding interpretations of crustal dynamics.</assistant_message>
+  </episode>
+  <episode turn="740" topic="topic_3" similarity="0.573298">
+    <user_message>For our historical linguistics case, lock these facts: the project is Sable Isogloss Atlas, led by Professor Idris Chen, with the primary value 43 dialect sites. Acknowledge the three facts in a concise numbered list.</user_message>
+    <assistant_message>1. Project: Sable Isogloss Atlas
+2. Lead: Professor Idris Chen
+3. Primary Value: 43 dialect sites</assistant_message>
+  </episode>
+  <episode turn="741" topic="topic_2" similarity="0.509197">
+    <user_message>Stay within the historical linguistics thread and do not connect it to other subjects. Identify one measurement error affecting lexical borrowing and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Misattributing a loanword to a recent contact event by ignoring established cognates or shared etymologies within the language family.
+2. Consequence: This leads to inaccurate dating of contact periods and misinterpretation of the directionality of cultural influence in the Sable Isogloss Atlas data.</assistant_message>
+  </episode>
+  <episode turn="743" topic="topic_2" similarity="0.539828">
+    <user_message>Stay within the historical linguistics thread and do not connect it to other subjects. State one practical quality-control check for isogloss overlap.</user_message>
+    <assistant_message>1. Practical Quality-Control Check: Cross-reference geographic distribution maps of multiple phonological or lexical features to verify that their boundary lines converge within the expected dialect continuum, rather than crossing abruptly without a transitional zone.</assistant_message>
+  </episode>
+  <episode turn="749" topic="topic_2" similarity="0.509197">
+    <user_message>Stay within the historical linguistics thread and do not connect it to other subjects. Identify one measurement error affecting lexical borrowing and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Misattributing a loanword to a recent contact event by ignoring established cognates or shared etymologies within the language family.
+2. Consequence: This leads to inaccurate dating of contact periods and misinterpretation of the directionality of cultural influence in the Sable Isogloss Atlas data.</assistant_message>
+  </episode>
+  <episode turn="751" topic="topic_3" similarity="0.650798">
+    <user_message>For historical linguistics, name the project and lead, then state the primary value, technical specification, and decision threshold exactly.</user_message>
+    <assistant_message>1. Project: Sable Isogloss Atlas
+2. Lead: Professor Idris Chen
+3. Primary Value: 43 dialect sites
+4. Technical Specification: [Not provided in context]
+5. Decision Threshold: [Not provided in context]</assistant_message>
+  </episode>
+  <episode turn="754" topic="topic_2" similarity="0.539828">
+    <user_message>Stay within the historical linguistics thread and do not connect it to other subjects. State one practical quality-control check for isogloss overlap.</user_message>
+    <assistant_message>1. Practical Quality-Control Check: Cross-reference geographic distribution maps of multiple phonological or lexical features to verify that their boundary lines converge within the expected dialect continuum, rather than crossing abruptly without a transitional zone.</assistant_message>
+  </episode>
+  <episode turn="760" topic="topic_2" similarity="0.509197">
+    <user_message>Stay within the historical linguistics thread and do not connect it to other subjects. Identify one measurement error affecting lexical borrowing and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Misattributing a loanword to a recent contact event by ignoring established cognates or shared etymologies within the language family.
+2. Consequence: This leads to inaccurate dating of contact periods and misinterpretation of the directionality of cultural influence in the Sable Isogloss Atlas data.</assistant_message>
+  </episode>
+  <episode turn="762" topic="topic_2" similarity="0.539828">
+    <user_message>Stay within the historical linguistics thread and do not connect it to other subjects. State one practical quality-control check for isogloss overlap.</user_message>
+    <assistant_message>1. Practical Quality-Control Check: Cross-reference geographic distribution maps of multiple phonological or lexical features to verify that their boundary lines converge within the expected dialect continuum, rather than crossing abruptly without a transitional zone.</assistant_message>
+  </episode>
+  <episode turn="768" topic="topic_2" similarity="0.509197">
+    <user_message>Stay within the historical linguistics thread and do not connect it to other subjects. Identify one measurement error affecting lexical borrowing and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Misattributing a loanword to a recent contact event by ignoring established cognates or shared etymologies within the language family.
+2. Consequence: This leads to inaccurate dating of contact periods and misinterpretation of the directionality of cultural influence in the Sable Isogloss Atlas data.</assistant_message>
+  </episode>
+  <episode turn="770" topic="topic_2" similarity="0.539828">
+    <user_message>Stay within the historical linguistics thread and do not connect it to other subjects. State one practical quality-control check for isogloss overlap.</user_message>
+    <assistant_message>1. Practical Quality-Control Check: Cross-reference geographic distribution maps of multiple phonological or lexical features to verify that their boundary lines converge within the expected dialect continuum, rather than crossing abruptly without a transitional zone.</assistant_message>
+  </episode>
+  <episode turn="776" topic="topic_2" similarity="0.509197">
+    <user_message>Stay within the historical linguistics thread and do not connect it to other subjects. Identify one measurement error affecting lexical borrowing and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Misattributing a loanword to a recent contact event by ignoring established cognates or shared etymologies within the language family.
+2. Consequence: This leads to inaccurate dating of contact periods and misinterpretation of the directionality of cultural influence in the Sable Isogloss Atlas data.</assistant_message>
+  </episode>
+  <episode turn="778" topic="topic_2" similarity="0.539828">
+    <user_message>Stay within the historical linguistics thread and do not connect it to other subjects. State one practical quality-control check for isogloss overlap.</user_message>
+    <assistant_message>1. Practical Quality-Control Check: Cross-reference geographic distribution maps of multiple phonological or lexical features to verify that their boundary lines converge within the expected dialect continuum, rather than crossing abruptly without a transitional zone.</assistant_message>
+  </episode>
+  <episode turn="782" topic="topic_3" similarity="0.691287">
+    <user_message>Add two locked facts for Sable Isogloss Atlas: the technical specification is retroflex lateral marker, and the decision threshold is AD 1180 divergence. Restate only those two facts.</user_message>
+    <assistant_message>1. Technical Specification: retroflex lateral marker
+2. Decision Threshold: AD 1180 divergence</assistant_message>
+  </episode>
+  <episode turn="784" topic="topic_2" similarity="0.509197">
+    <user_message>Stay within the historical linguistics thread and do not connect it to other subjects. Identify one measurement error affecting lexical borrowing and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Misattributing a loanword to a recent contact event by ignoring established cognates or shared etymologies within the language family.
+2. Consequence: This leads to inaccurate dating of contact periods and misinterpretation of the directionality of cultural influence in the Sable Isogloss Atlas data.</assistant_message>
+  </episode>
+  <episode turn="786" topic="topic_2" similarity="0.539828">
+    <user_message>Stay within the historical linguistics thread and do not connect it to other subjects. State one practical quality-control check for isogloss overlap.</user_message>
+    <assistant_message>1. Practical Quality-Control Check: Cross-reference geographic distribution maps of multiple phonological or lexical features to verify that their boundary lines converge within the expected dialect continuum, rather than crossing abruptly without a transitional zone.</assistant_message>
+  </episode>
+  <episode turn="792" topic="topic_2" similarity="0.509197">
+    <user_message>Stay within the historical linguistics thread and do not connect it to other subjects. Identify one measurement error affecting lexical borrowing and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Misattributing a loanword to a recent contact event by ignoring established cognates or shared etymologies within the language family.
+2. Consequence: This leads to inaccurate dating of contact periods and misinterpretation of the directionality of cultural influence in the Sable Isogloss Atlas data.</assistant_message>
+  </episode>
+  <episode turn="794" topic="topic_2" similarity="0.539828">
+    <user_message>Stay within the historical linguistics thread and do not connect it to other subjects. State one practical quality-control check for isogloss overlap.</user_message>
+    <assistant_message>1. Practical Quality-Control Check: Cross-reference geographic distribution maps of multiple phonological or lexical features to verify that their boundary lines converge within the expected dialect continuum, rather than crossing abruptly without a transitional zone.</assistant_message>
+  </episode>
+  <episode turn="800" topic="topic_2" similarity="0.509197">
+    <user_message>Stay within the historical linguistics thread and do not connect it to other subjects. Identify one measurement error affecting lexical borrowing and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Misattributing a loanword to a recent contact event by ignoring established cognates or shared etymologies within the language family.
+2. Consequence: This leads to inaccurate dating of contact periods and misinterpretation of the directionality of cultural influence in the Sable Isogloss Atlas data.</assistant_message>
+  </episode>
+  <episode turn="802" topic="topic_2" similarity="0.539828">
+    <user_message>Stay within the historical linguistics thread and do not connect it to other subjects. State one practical quality-control check for isogloss overlap.</user_message>
+    <assistant_message>1. Practical Quality-Control Check: Cross-reference geographic distribution maps of multiple phonological or lexical features to verify that their boundary lines converge within the expected dialect continuum, rather than crossing abruptly without a transitional zone.</assistant_message>
+  </episode>
+  <episode turn="808" topic="topic_2" similarity="0.509197">
+    <user_message>Stay within the historical linguistics thread and do not connect it to other subjects. Identify one measurement error affecting lexical borrowing and its consequence.</user_message>
+    <assistant_message>1. Measurement Error: Misattributing a loanword to a recent contact event by ignoring established cognates or shared etymologies within the language family.
+2. Consequence: This leads to inaccurate dating of contact periods and misinterpretation of the directionality of cultural influence in the Sable Isogloss Atlas data.</assistant_message>
+  </episode>
+  <episode turn="810" topic="topic_2" similarity="0.539828">
+    <user_message>Stay within the historical linguistics thread and do not connect it to other subjects. State one practical quality-control check for isogloss overlap.</user_message>
+    <assistant_message>1. Practical Quality-Control Check: Cross-reference geographic distribution maps of multiple phonological or lexical features to verify that their boundary lines converge within the expected dialect continuum, rather than crossing abruptly without a transitional zone.</assistant_message>
+  </episode>
+</retrieved_stm>
+
+<current_turn>
+  <user_message>Without repeating the values, explain in two sentences why the recorded specification and threshold matter to Sable Isogloss Atlas.</user_message>
+</current_turn>
+
+Assistant:

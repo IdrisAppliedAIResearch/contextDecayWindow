@@ -1,0 +1,24 @@
+{
+  "evidence_status": "post-stop exploratory",
+  "original_g2": "FAIL",
+  "bar_1": {
+    "result": "RETAIN_LTM",
+    "terminal_l": 14.0,
+    "terminal_s": 12.0,
+    "terminal_gap": 2.0,
+    "overall_gap_all_probes": 5.0,
+    "threshold_applied": "L > S by >= 1.5 overall"
+  },
+  "bar_2": {
+    "result": "PASS",
+    "checkpoint_restore_gate": "PASS"
+  },
+  "bar_3": {
+    "result": "NOT_EVALUABLE",
+    "checkpoint_rows": 8,
+    "construct_validity": "FAIL",
+    "note": "I2, I5, and I8 require two facts not planted until after their probe turns. The resulting scores cannot deliver the complete degradation curves required by Bar 3."
+  },
+  "exploratory_bars_complete": "NOT_EVALUABLE",
+  "confirmatory_status": "STOPPED_AT_G2"
+}
