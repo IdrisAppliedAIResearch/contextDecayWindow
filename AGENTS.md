@@ -36,6 +36,8 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **Scoring integrity audit (2026-07-26).** Re-scored 222 items across 001-009 after a truncated Study 002 reasoning block had been credited as complete. Nineteen scores changed; Study 002 C fell 13.0 to 8.5 and Study 001 lost VALIDATED. Corrected arc: 8.5, 11.5, 6.5, 11.0, 9.0, 12.0, 12.0. See `ERRATA.md`.
 
+**Retrieval bakeoff (2026-07-29).** COMPLETE through corrected 121-turn T6. Plain STM 9.0, character-matched widened STM 11.0, LTM 12.0. Volume recovered 2/3 points but did not erase LTM's advantage. First T6 6.5 is preserved invalid diagnostic. T1.3 reinforcement not confirmed. Optional 1,000-turn confirmation awaits owner review.
+
 ## 3. Failure Pattern
 
 The recurring failure class is a surrogate that can pass without the property it claims to certify: record count for information, novelty for importance, density for factual value, or a rubric score for a correct answer.
