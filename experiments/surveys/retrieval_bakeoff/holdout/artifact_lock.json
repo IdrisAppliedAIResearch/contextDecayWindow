@@ -1,0 +1,33 @@
+{
+  "status": "LOCKED_BEFORE_REGISTERED_TESTS",
+  "registration_anchor": "b60b7084741eb5d30298261076b4bca78abe713a",
+  "lock_anchor": "the commit that first adds this file",
+  "hash_mode": "SHA-256 of UTF-8 decoded text normalized to LF",
+  "temporal_cutoffs": {
+    "lineage_121_preprobe": {
+      "eligible_turn_min": 1,
+      "eligible_turn_max": 111
+    },
+    "study_010_preterminal": {
+      "eligible_turn_min": 1,
+      "eligible_turn_max": 986
+    }
+  },
+  "query_counts_per_corpus": {
+    "lookup": 12,
+    "chained": 8,
+    "enumeration": 4,
+    "total": 24
+  },
+  "artifacts": {
+    "queries_121.json": "5603d0ebf5771fb13b4cbf03d232bfdf0e13fc507790d88c59916439f5c88f8f",
+    "answer_key_121.json": "7d6c00b68479f806a146e2ed4c9163f699cb72fc620c5aebfb48037ba808f1e1",
+    "queries_1000.json": "6d75745a69bab5072a1e83b5d56d189c06d9077bf7a017013aa77fc5cdd16fd8",
+    "answer_key_1000.json": "aad181adf39344f9fb82873245910c2114ae01af59f2b30b26c5f8070f8efabc",
+    "overlap_matrix.csv": "bf8382bf8b047615c74eeea1e1deb1752b560870a1787396f4bfa296cf9eb8db"
+  },
+  "source_scripts": {
+    "experiments/study_005/script.json": "d8ba73fd02bfd41bec156904fb6a3328bbed3d0da8bff05e4667d2e450752f01",
+    "experiments/study_010/script_1000.json": "2d186e1b7f4c89d7095d01d7ac267d981abb0996c60c922a35f78cf2c6d38521"
+  }
+}
