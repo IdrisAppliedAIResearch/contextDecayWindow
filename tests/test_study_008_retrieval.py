@@ -15,6 +15,7 @@ from src.memory.retrieval_budget import (
     PHASE_FLOOR,
     RENDER_EPISODE,
     RENDER_SPAN,
+    rendered_block_cost,
     rendered_cost,
     selection_key,
     select_within_budget,
@@ -125,16 +126,17 @@ def test_fill_cap_prevents_one_topic_from_taking_all_fill():
         candidate(f"art-{i}", f"da-{i}", "art", 0.30 - i * 0.01)
         for i in range(3)
     ]
+    budget = rendered_block_cost(candidates[:5])
 
     uncapped = select_within_budget(
         candidates,
-        budget=500,
+        budget=budget,
         k_min=1,
         floor_ranking=FLOOR_SIMILARITY,
     )
     capped = select_within_budget(
         candidates,
-        budget=500,
+        budget=budget,
         k_min=1,
         floor_ranking=FLOOR_SIMILARITY,
         fill_cap=2,
@@ -231,7 +233,7 @@ def test_span_budget_charges_exact_serialized_element_not_episode_text():
         episode_chars=4000,
         span_text="847 meters",
     )
-    assert rendered_cost(item, RENDER_EPISODE) == 4000
+    assert rendered_cost(item, RENDER_EPISODE) > 4000
     assert rendered_cost(item, RENDER_SPAN) == len(
         render_ltm_span_element({**item, "render_mode": RENDER_SPAN})
     )
@@ -281,16 +283,21 @@ def test_character_budget_uses_each_arms_registered_cost():
     )
     episode_selection = select_within_budget(
         [episode],
-        budget=1000,
+        budget=rendered_block_cost([episode], RENDER_EPISODE),
         k_min=1,
         render_mode=RENDER_EPISODE,
     )
     span_selection = select_within_budget(
         [span],
-        budget=2000,
+        budget=rendered_block_cost([span], RENDER_SPAN),
         k_min=1,
         render_mode=RENDER_SPAN,
     )
-    assert episode_selection.chars_used == 1000
-    assert span_selection.chars_used == rendered_cost(span, RENDER_SPAN)
-    assert span_selection.chars_used <= 2000
+    assert episode_selection.chars_used == rendered_block_cost(
+        [episode],
+        RENDER_EPISODE,
+    )
+    assert span_selection.chars_used == rendered_block_cost(
+        [span],
+        RENDER_SPAN,
+    )

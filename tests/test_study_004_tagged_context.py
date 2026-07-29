@@ -41,17 +41,17 @@ def test_tagged_context_snapshot_and_recency_precedence():
 </pinned_rules>
 
 <recent_context>
-  <episode turn="2" topic="topic_a">
-    <user_message>Recent &lt;question&gt;</user_message>
-    <assistant_message>Answer &amp; detail</assistant_message>
-  </episode>
+<episode turn="2">
+<user>Recent &lt;question&gt;</user>
+<assistant>Answer &amp; detail</assistant>
+</episode>
 </recent_context>
 
 <retrieved_stm>
-  <episode turn="3" topic="topic_b" similarity="0.812346">
-    <user_message>STM user</user_message>
-    <assistant_message>STM assistant</assistant_message>
-  </episode>
+<episode turn="3">
+<user>STM user</user>
+<assistant>STM assistant</assistant>
+</episode>
 </retrieved_stm>
 
 <retrieved_ltm/>
@@ -108,8 +108,9 @@ def test_ltm_placement_wins_over_stm_for_same_episode():
 
     assert prompt.count("Shared user") == 1
     assert "<retrieved_stm/>" in prompt
-    assert 'promoted_at_turn="31"' in prompt
-    assert 'trigger_type="weighted_threshold"' in prompt
+    assert 'turn="4"' in prompt
+    assert "promoted_at_turn" not in prompt
+    assert "trigger_type" not in prompt
 
 
 def test_ltm_placement_preserves_provenance_when_episode_is_also_recent():
@@ -135,4 +136,5 @@ def test_ltm_placement_preserves_provenance_when_episode_is_also_recent():
     assert prompt.count("Promoted recent user") == 1
     assert "<recent_context/>" in prompt
     assert "<retrieved_ltm>" in prompt
-    assert 'promoted_at_turn="31"' in prompt
+    assert 'turn="7"' in prompt
+    assert "promoted_at_turn" not in prompt

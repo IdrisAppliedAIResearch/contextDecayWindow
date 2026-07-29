@@ -151,52 +151,26 @@ def _render_episode_block(name: str, episodes: list, tier: str) -> str:
         if tier == "ltm" and episode.get("render_mode") == "span":
             lines.append(render_ltm_span_element(episode))
             continue
-        attributes = [
-            f'turn="{_attribute(episode.get("turn_number", ""))}"',
-            f'topic="{_attribute(episode.get("topic_label", episode.get("topic_id", "")))}"',
-        ]
-        if tier in {"stm", "ltm"} and episode.get("similarity") is not None:
-            attributes.append(f'similarity="{float(episode["similarity"]):.6f}"')
-        if tier == "ltm":
-            if episode.get("promoted_at_turn") is not None:
-                attributes.append(
-                    f'promoted_at_turn="{_attribute(episode["promoted_at_turn"])}"'
-                )
-            if episode.get("trigger_type"):
-                attributes.append(
-                    f'trigger_type="{_attribute(episode["trigger_type"])}"'
-                )
-            if episode.get("distilled_id"):
-                attributes.append(
-                    f'distilled_id="{_attribute(episode["distilled_id"])}"'
-                )
-            if episode.get("dream_event") is not None:
-                attributes.append(
-                    f'dream_event="{_attribute(episode["dream_event"])}"'
-                )
-            if episode.get("event_type"):
-                attributes.append(
-                    f'event_type="{_attribute(episode["event_type"])}"'
-                )
-            if episode.get("source_turns"):
-                source_turns = ",".join(
-                    str(turn) for turn in episode["source_turns"]
-                )
-                attributes.append(
-                    f'source_turns="{_attribute(source_turns)}"'
-                )
-        lines.append(f"  <episode {' '.join(attributes)}>")
-        lines.append(
-            f"    <user_message>{_text(episode.get('user_message', ''))}</user_message>"
-        )
-        lines.append(
-            "    <assistant_message>"
-            f"{_text(episode.get('assistant_message', ''))}"
-            "</assistant_message>"
-        )
-        lines.append("  </episode>")
+        lines.append(render_episode_element(episode))
     lines.append(f"</{name}>")
     return "\n".join(lines)
+
+
+def render_episode_element(episode: dict) -> str:
+    """Serialize one source episode with only attribution-critical structure."""
+    turn = _attribute(episode.get("turn_number", ""))
+    return "\n".join(
+        (
+            f'<episode turn="{turn}">',
+            f"<user>{_text(episode.get('user_message', ''))}</user>",
+            (
+                "<assistant>"
+                f"{_text(episode.get('assistant_message', ''))}"
+                "</assistant>"
+            ),
+            "</episode>",
+        )
+    )
 
 
 def render_ltm_span_element(episode: dict) -> str:

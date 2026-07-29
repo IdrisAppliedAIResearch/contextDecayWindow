@@ -12,6 +12,7 @@ import os
 import pytest
 
 from src.memory.arbitration import arbitrate_budgeted
+from src.memory.retrieval_budget import rendered_block_cost, rendered_cost
 from src.observability.file_writer import FileWriter
 from src.observability.run_config import RunConfig
 from src.observability.turn_record import TurnRecord
@@ -24,6 +25,7 @@ HEADER = [
     "floor_selected_per_topic", "floor_selected", "fill_selected",
     "fill_selected_per_topic", "fill_cap_skips", "containment_drops",
     "refills", "collapsed_to_episode", "ltm_chars_used",
+    "ltm_content_chars", "block_overhead_chars",
     "ltm_records_used", "budget_utilization", "chars_per_topic", "selection",
 ]
 
@@ -110,7 +112,11 @@ def test_per_domain_split_sums_to_chars_used(writer):
 
     row = read_rows(path)[0]
     split = json.loads(row["chars_per_topic"])
-    assert sum(split.values()) == int(row["ltm_chars_used"])
+    assert (
+        sum(split.values())
+        + int(row["block_overhead_chars"])
+        == int(row["ltm_chars_used"])
+    )
     assert int(row["ltm_chars_used"]) <= 1800
 
 
@@ -151,8 +157,9 @@ def test_phase_labels_are_correct_against_a_hand_checked_turn(writer):
         ltm("civil-2", "civil", 0.70, chars=100),
         ltm("marine-0", "marine", 0.05, chars=100),
     ]
+    budget = rendered_block_cost(candidates)
     arbitration = arbitrate_budgeted(
-        [], candidates, set(), ltm_budget=400, ltm_k_min=1
+        [], candidates, set(), ltm_budget=budget, ltm_k_min=1
     )
     file_writer.write_turn(record_for(arbitration))
 
@@ -181,20 +188,23 @@ def test_selection_carries_ids_topics_similarities_and_chars(writer):
     assert item["distilled_id"] == "d-ep1"
     assert item["topic"] == "civil"
     assert item["similarity"] == pytest.approx(0.123457)
-    assert item["chars"] == 250
+    assert item["chars"] == rendered_cost(
+        ltm("ep1", "civil", 0.123456789, chars=250)
+    )
 
 
 def test_containment_drops_and_refills_are_logged(writer):
     file_writer, path = writer
     candidates = [ltm(f"ep{i}", "civil", 0.9 - i * 0.1, chars=400) for i in range(3)]
+    budget = rendered_block_cost(candidates[1:])
     arbitration = arbitrate_budgeted(
-        [], candidates, {"ep0"}, ltm_budget=800, ltm_k_min=0
+        [], candidates, {"ep0"}, ltm_budget=budget, ltm_k_min=0
     )
     file_writer.write_turn(record_for(arbitration))
 
     row = read_rows(path)[0]
     assert int(row["containment_drops"]) == 1
-    assert int(row["ltm_chars_used"]) == 800
+    assert int(row["ltm_chars_used"]) == budget
 
 
 def test_collapsed_records_are_logged(writer):
@@ -221,7 +231,8 @@ def test_utilization_is_reported(writer):
         ltm_budget=1000, ltm_k_min=1,
     )
     file_writer.write_turn(record_for(arbitration))
-    assert read_rows(path)[0]["budget_utilization"] == "0.4000"
+    expected = rendered_block_cost([ltm("ep1", "civil", 0.9, chars=400)])
+    assert read_rows(path)[0]["budget_utilization"] == f"{expected / 1000:.4f}"
 
 
 def test_control_arm_writes_no_rows(writer):
@@ -241,6 +252,7 @@ def test_empty_ltm_turn_still_writes_a_row(writer):
 
     row = read_rows(path)[0]
     assert int(row["topic_count"]) == 0
-    assert int(row["ltm_chars_used"]) == 0
+    assert int(row["ltm_chars_used"]) == rendered_block_cost([])
+    assert int(row["block_overhead_chars"]) == rendered_block_cost([])
     assert int(row["ltm_records_used"]) == 0
     assert json.loads(row["selection"]) == []

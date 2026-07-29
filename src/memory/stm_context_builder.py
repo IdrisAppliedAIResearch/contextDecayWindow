@@ -2,6 +2,8 @@
 
 from html import escape
 
+from src.memory.context_builder import render_episode_element
+
 
 def build_stm_context(
     system_prompt: str,
@@ -50,22 +52,7 @@ def render_episode_block(name: str, episodes: list, tier: str) -> str:
         return f"<{name}/>"
     lines = [f"<{name}>"]
     for episode in episodes:
-        attributes = [
-            f'turn="{_attribute(episode.get("turn_number", ""))}"',
-            f'topic="{_attribute(episode.get("topic_label", episode.get("topic_id", "")))}"',
-        ]
-        if tier == "stm" and episode.get("similarity") is not None:
-            attributes.append(f'similarity="{float(episode["similarity"]):.6f}"')
-        lines.append(f"  <episode {' '.join(attributes)}>")
-        lines.append(
-            f"    <user_message>{_text(episode.get('user_message', ''))}</user_message>"
-        )
-        lines.append(
-            "    <assistant_message>"
-            f"{_text(episode.get('assistant_message', ''))}"
-            "</assistant_message>"
-        )
-        lines.append("  </episode>")
+        lines.append(render_episode_element(episode))
     lines.append(f"</{name}>")
     return "\n".join(lines)
 
