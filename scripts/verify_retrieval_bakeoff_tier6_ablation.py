@@ -65,6 +65,18 @@ def main() -> int:
             == run_b["manifest"]["settings_sha256"]
             == _sha256(SETTINGS_PATH)
         ),
+        "fresh_server_per_valid_run": (
+            run_a["manifest"]["server_pid"]
+            != run_b["manifest"]["server_pid"]
+        ),
+        "same_server_build": (
+            run_a["manifest"]["server_build_hash"]
+            == run_b["manifest"]["server_build_hash"]
+        ),
+        "same_generation_model": (
+            run_a["manifest"]["generation_model_sha256"]
+            == run_b["manifest"]["generation_model_sha256"]
+        ),
         "turn_count_35": (
             len(run_a["turn_rows"]) == len(run_b["turn_rows"]) == 35
         ),
@@ -103,6 +115,10 @@ def main() -> int:
         "status": status,
         "created_at": datetime.now(timezone.utc).isoformat(),
         "run_ids": [args.run_a, args.run_b],
+        "server_pids": [
+            run_a["manifest"]["server_pid"],
+            run_b["manifest"]["server_pid"],
+        ],
         "code_commit": run_a["manifest"]["code_commit"],
         "settings_path": str(SETTINGS_PATH.relative_to(REPO_ROOT)),
         "settings_sha256": _sha256(SETTINGS_PATH),
