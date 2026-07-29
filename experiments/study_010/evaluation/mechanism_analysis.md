@@ -4,6 +4,11 @@ Generated after commit `32ffed4a` sealed the blinded scores and the anonymous
 mapping was opened. Evidence produced under Amendment 004 is post-stop
 exploratory and does not reverse the original G2 failure.
 
+**Post-publication boundary:** Study 010 was outside the scoring-integrity
+audit, so 21.5/23 and 16.5/23 are unaudited. Arm L's Q13/Q14 LTM blocks also
+violated `B_ltm = 32,000` by 67.9%/68.2%. Scores describe the oversized prompts
+the model received; they are not a compliant architecture comparison.
+
 ## Score Result
 
 | Arm | Anonymous label | Interim / 9 | Terminal / 14 | All probes / 23 |
@@ -12,7 +17,8 @@ exploratory and does not reverse the original G2 failure.
 | S | arm_B | 4.5 | 12.0 | 16.5 |
 
 L exceeds S by 2.0 terminal points, clearing the registered 1.5-point Bar 1
-threshold. The exploratory decision is **RETAIN LTM**.
+threshold numerically. The original exploratory `RETAIN LTM` consequence is
+not a compliant architecture verdict because Arm L exceeded its LTM budget.
 
 All 12 terminal targeted questions scored 1.0 in both arms. The terminal gap
 is exactly the two breadth questions: L scored 1.0 on Q13 and Q14; S scored

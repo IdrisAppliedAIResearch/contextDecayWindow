@@ -12,6 +12,7 @@ rationales, provenance, totals, reliability measures, and cascade verdicts are i
 Most consequential corrections:
 
 - Study 002 C: 13.0 -> 8.5. Q11: 1.0 -> 0.0 (`NO_ANSWER`).
+- Study 002 A: 8.0 -> 5.5.
 - Study 003 accepted: 12.0 -> 11.5; literal Bar 2 remains FAIL.
 - Study 009 S: 10.5 -> 9.0; L remains 12.0, so the null-test gap is 3.0.
 - Study 001 iterative: 9.0 -> 8.0; compaction: 3.5 -> 2.5; Bar 2 changes to FAIL.
@@ -19,6 +20,12 @@ Most consequential corrections:
 The first 81-item Layer 2 attempt is invalidated by
 `AMENDMENT_003_study003_cross_references.md`. The final results use the replacement
 79-item sequence only.
+
+The residual-error figure is extrapolated rather than observed: 3 disagreements
+in a 26-item control sample (11.54%) projected over 143 unreviewed items gives
+16.5 expected errors, reported informally as about 20. Study 010 was outside
+the audit; its exploratory scores are not directly comparable to the corrected
+Studies 001-009 series.
 
 ## Study 010 LTM Budget Accounting (2026-07-29)
 
@@ -73,4 +80,22 @@ AS-001 does not use the ignored database. It reconstructs candidate identity,
 order, topic, and source text from committed logs, reproduces the historical
 15-episode/59,708-character payload and SHA-256 exactly, and records the seal
 limitation. See `experiments/components/q4_packing/`.
+
+## AS-001 Decision Rule Invalidation (2026-07-29)
+
+**Headline change:** the emitted `PRIMACY MECHANISM LIVE` verdict is withdrawn.
+
+AS-001 opened `S' = 9` at 32k and 16 at 64k, versus 15 episodes in the
+historical 59,708-character payload. Its rule assumed compact rendering could
+recover slots; it had no interpretation for exact charging reducing them.
+Branch A required `S' >= 29` at 32k, while Branch D labeled every failure to
+reach rank 27 as a primacy mechanism. The rule could not distinguish a separate
+primacy mechanism from the joint effects of rank, greedy N-first packing, and
+budget.
+
+This issue was raised after output, so Decision 001 invalidates the
+interpretation rather than retroactively amending the locked rule. The original
+analysis artifacts remain unchanged as diagnostics. A post-result exact
+reachability calculation finds rank 27 first enters at 108,432 characters.
+AS-001 does not authorize a pinned tier or an architecture study.
 

@@ -1,12 +1,13 @@
 # AS-001 - Q4 Packing Re-Analysis Report
 
 **Type:** offline artifact analysis; not a study
-**Status:** PASS; Branch D
-**Verdict:** PRIMACY MECHANISM LIVE
+**Status:** DIAGNOSTIC; DECISION RULE INVALID
+**Verdict:** NO ARCHITECTURAL CONCLUSION
 **Design anchor:** `7c90235a`
 **Amendments:** `e6b05b55`, `6fa435b5`, `aaed920f`
 **Implementation:** `9a76a72c`, `3b5026fc`, `810b76ca`
 **Evidence:** `f6d5d79c`
+**Post-result invalidation:** `689a647e`
 
 ## Outcome
 
@@ -16,10 +17,30 @@ candidates fit and turn 55 remains absent with `S' - 27 = -18`. At the largest
 locked sensitivity point, 64,000 characters, only 16 candidates fit. Rank 27
 does not enter anywhere in the 16k-64k range.
 
-The binding rule therefore selects Branch D: **PRIMACY MECHANISM LIVE**. The Q4
-gap is a late-rank N-first packing exclusion, not an artifact of verbose episode
-tags. A pinned durable-fact tier remains a testable proposal, not a validated
-replacement; it requires a separate pre-registered CC-001 study.
+The locked rule mechanically emitted Branch D, but that interpretation is
+invalid. Exact charging reduced the fitted count from the historical 15 to 9;
+the rule had no interpretive branch for that outcome. Branch A required at
+least 29 episodes at 32k and could not provide a meaningful rendering null in
+this regime, while Branch D converted any failure to reach rank 27 into a
+primacy claim.
+
+The preserved result establishes only that turn 55 is excluded by the joint
+candidate rank, greedy N-first packer, and character budget. It does not
+identify primacy as a separate mechanism and does not authorize a pinned tier.
+This invalidation was raised after output; it is recorded as Decision 001, not
+retroactively as an amendment.
+
+## Post-Result Reachability
+
+A separate deterministic diagnostic finds that rank 27 first enters at
+**108,432 characters** under the unchanged compact renderer and packer. The
+registered 32k point is 76,432 characters below that boundary; even the locked
+64k sweep cannot reach it. At entry, the payload contains 27 episodes and uses
+exactly 108,432 characters.
+
+This is a joint rank/packing/budget boundary, not evidence for a distinct
+primacy mechanism. The diagnostic is committed under
+`artifacts/post_result_reachability/`.
 
 ## Results
 
@@ -43,6 +64,12 @@ This separates the new result from harness drift.
 Because turn 55 is unavailable at every point, none of its four Q4 identity
 facts is available in the packed payload. This is an availability finding only;
 no answer was generated or rescored.
+
+The historical widened-STM payload was calibrated to the actual delivered
+volume, not to a compliant 32k LTM block. Study 010 and the inherited renderer
+silently exceeded their nominal LTM budgets. The S/W/L scores remain
+descriptions of what each model received, but AS-001 cannot use a compliant
+32k re-pack as a clean null for that historical volume comparison.
 
 ## Integrity
 
@@ -68,6 +95,9 @@ Two separate processes produced byte-identical candidate CSV, source
 verification JSON, result JSON, and report Markdown. No generative inference,
 conversation run, mechanism change, or score change occurred.
 
+Decision 001 was raised after the result. It preserves the amendments and
+generated artifacts but withdraws the rule's architectural interpretation.
+
 ## Deliverables
 
 - [x] Decision rule committed before post-fix packing output.
@@ -75,7 +105,9 @@ conversation run, mechanism change, or score change occurred.
 - [x] Historical payload reproduced exactly.
 - [x] 32-candidate pre/post cost manifest.
 - [x] Exact 32k result and complete 16k-64k sensitivity frontier.
-- [x] Mechanical Branch D verdict.
+- [x] Mechanical Branch D output preserved as diagnostic.
+- [x] Post-result decision-rule invalidation.
+- [x] Exact post-result rank-27 reachability boundary.
 - [x] Deterministic repeat.
 - [x] `README.md`, `AGENTS.md`, `ERRATA.md`, and memory update.
 - [x] Independent stacked analysis PR: #24.

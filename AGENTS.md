@@ -34,13 +34,13 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **010 - Endurance.** Confirmatory STOPPED AT G2. Post-stop L beat S 14-12 on breadth only; targeted tied; scores unaudited. L's Q13/Q14 blocks violated 32k by 67.9%/68.2%, so the compact-store conclusion is withdrawn. Bar 3 NOT EVALUABLE. TopicManager and rule persistence failed at scale.
 
-**Scoring integrity audit (2026-07-26).** Re-scored 222 items across 001-009 after a truncated Study 002 reasoning block had been credited as complete. Nineteen scores changed; Study 002 C fell 13.0 to 8.5 and Study 001 lost VALIDATED. Corrected arc: 8.5, 11.5, 6.5, 11.0, 9.0, 12.0, 12.0. See `ERRATA.md`.
+**Scoring integrity audit (2026-07-26).** Re-scored 222 items across 001-009; 19 changed. Study 002 A fell 8.0->5.5, C 13.0->8.5; Study 001 lost VALIDATED. The residual 16.5/about-20 figure extrapolates 3/26 control disagreements over 143 unreviewed items. Study 010 is unaudited. See `ERRATA.md`.
 
-**Retrieval bakeoff (2026-07-29).** MIXED. Widened STM delivered 6/6 formation-blind facts, used 5. S/W/L: 9/11/12; Q4 is gap. Turn-55 ranked N=27/32; corrected K=.120<.48. Compact rendering still excludes it through 64k. LTM's observed edge is primacy under N-first packing. No other function beats matched raw volume. T6 6.5 invalid; no 1,000-turn run.
+**Retrieval bakeoff (2026-07-29).** MIXED. Widened STM delivered 6/6 formation-blind facts, used 5. S/W/L: 9/11/12; Q4 is gap. Turn-55 ranked N=27/32; K=.120<.48. Exact compact packing needs 108,432 chars to reach it. This is a joint rank/packing/budget boundary, not a distinct primacy result. T6 6.5 invalid; no 1,000-turn run.
 
 **DR-001 rendering fix (2026-07-29).** PASS. Q13/Q14 were 53,726/53,839 chars: 67.9%/68.2% over 32k, not saturated. Compact, content-identical tags reduce them to 37,619/37,545; exact cost is now authoritative. All 2,000 context estimates match serialized prompts; L peak 27,154 survives as chars/4. AS-001 owns Q4.
 
-**AS-001 Q4 packing (2026-07-29).** Branch D. Compact N-first packing fits 9/32 candidates at 32k and 16/32 at 64k; rank-27 turn 55 never enters. Historical 15/59,708 replayed exactly. Q4 is a late-rank packing exclusion, not tag expansion; primacy remains live. Cosine corrected .1661->.1204, still below K=.48. The sealed DB was never committed; logs reconstruct the inputs.
+**AS-001 Q4 packing (2026-07-29).** DIAGNOSTIC. Branch D's primacy verdict was invalidated post-result: its null could not fire, and no branch interpreted exact charging reducing 15 fitted episodes to 9. Rank 27 enters only at 108,432 chars under N-first packing. This identifies a joint rank/packing/budget boundary; no pinned-tier study is authorized.
 
 ## 3. Failure Pattern
 
