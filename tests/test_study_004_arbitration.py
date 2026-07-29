@@ -200,7 +200,8 @@ def test_real_retrieval_places_both_provenance_once_in_ltm_block(tmp_path):
     assert len(result.retrieved_ltm_episodes) == 1
     assert result.constructed_prompt.count("promoted user 0") == 1
     assert "<retrieved_ltm>" in result.constructed_prompt
-    assert 'promoted_at_turn="31"' in result.constructed_prompt
+    assert result.retrieved_ltm_episodes[0]["promoted_at_turn"] == 31
+    assert "promoted_at_turn" not in result.constructed_prompt
     assert result.total_episodes_in_context == 11
 
 

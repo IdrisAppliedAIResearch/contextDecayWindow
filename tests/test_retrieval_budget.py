@@ -10,6 +10,7 @@ from src.memory.retrieval_budget import (
     BudgetSelection,
     collapse_by_episode,
     episode_key,
+    rendered_block_cost,
     rendered_cost,
     select_top_m,
     select_within_budget,
@@ -46,7 +47,7 @@ def candidate(
 def test_budget_is_never_exceeded_across_randomized_lengths():
     rng = random.Random(5005)
     for trial in range(200):
-        budget = rng.randint(0, 4000)
+        budget = rng.randint(rendered_block_cost([]), 4000)
         candidates = [
             candidate(
                 f"e{i}",
@@ -60,9 +61,7 @@ def test_budget_is_never_exceeded_across_randomized_lengths():
             candidates, budget=budget, k_min=rng.randint(0, 4)
         )
         assert selection.chars_used <= budget, f"trial {trial}"
-        assert selection.chars_used == sum(
-            rendered_cost(c) for c in selection.selected
-        )
+        assert selection.chars_used == rendered_block_cost(selection.selected)
 
 
 def test_record_larger_than_whole_budget_is_skipped_not_deadlocked():
@@ -73,7 +72,7 @@ def test_record_larger_than_whole_budget_is_skipped_not_deadlocked():
     selection = select_within_budget(candidates, budget=1000, k_min=1)
 
     assert [c["id"] for c in selection.selected] == ["small"]
-    assert selection.chars_used == 50
+    assert selection.chars_used == rendered_block_cost([candidates[1]])
     assert selection.skipped_oversized >= 1
 
 
@@ -85,25 +84,38 @@ def test_oversized_candidate_does_not_strand_remaining_budget():
         candidate("b", "t0", 0.70, chars=100),
         candidate("c", "t0", 0.60, chars=100),
     ]
-    selection = select_within_budget(candidates, budget=400, k_min=0)
+    selection = select_within_budget(
+        candidates,
+        budget=rendered_block_cost([candidates[0], candidates[2], candidates[3]]),
+        k_min=0,
+    )
 
     assert sorted(c["id"] for c in selection.selected) == ["a", "b", "c"]
 
 
-def test_zero_budget_selects_nothing():
+def test_budget_must_fit_the_empty_serialized_block():
+    with pytest.raises(ValueError, match="cannot serialize an empty LTM block"):
+        select_within_budget(
+            [candidate("a", "t0", 0.9, chars=10)], budget=0, k_min=3
+        )
+
     selection = select_within_budget(
-        [candidate("a", "t0", 0.9, chars=10)], budget=0, k_min=3
+        [candidate("a", "t0", 0.9, chars=10)],
+        budget=rendered_block_cost([]),
+        k_min=3,
     )
     assert selection.selected == []
-    assert selection.chars_used == 0
-    assert selection.utilization == 0.0
+    assert selection.chars_used == rendered_block_cost([])
+    assert selection.utilization == 1.0
 
 
 def test_utilization_reported():
     candidates = [candidate("a", "t0", 0.9, chars=250)]
     selection = select_within_budget(candidates, budget=1000, k_min=1)
-    assert selection.chars_used == 250
-    assert selection.utilization == pytest.approx(0.25)
+    assert selection.chars_used == rendered_block_cost(candidates)
+    assert selection.utilization == pytest.approx(
+        rendered_block_cost(candidates) / 1000
+    )
 
 
 def test_negative_parameters_rejected():
@@ -114,9 +126,13 @@ def test_negative_parameters_rejected():
 
 
 def test_rendered_cost_counts_both_message_fields():
-    assert rendered_cost({"user_message": "abc", "assistant_message": "de"}) == 5
-    assert rendered_cost({"user_message": None, "assistant_message": None}) == 0
-    assert rendered_cost({}) == 0
+    from src.memory.context_builder import render_episode_element
+
+    populated = {"user_message": "abc", "assistant_message": "de"}
+    assert rendered_cost(populated) == len(render_episode_element(populated))
+    empty = {"user_message": None, "assistant_message": None}
+    assert rendered_cost(empty) == len(render_episode_element(empty))
+    assert rendered_cost({}) == len(render_episode_element({}))
 
 
 # --------------------------------------------------------------------------
@@ -185,11 +201,18 @@ def test_round_robin_prevents_starvation_by_a_long_episode():
         candidate("art-0", "art", 0.50, chars=300),
         candidate("marine-0", "marine", 0.20, chars=300),
     ]
-    selection = select_within_budget(candidates, budget=1000, k_min=2)
+    budget = rendered_block_cost(
+        [candidates[0], candidates[2], candidates[3]]
+    )
+    selection = select_within_budget(
+        candidates,
+        budget=budget,
+        k_min=2,
+    )
 
     topics = {topic_key(c) for c in selection.selected}
     assert topics == {"civil", "art", "marine"}
-    assert selection.chars_used <= 1000
+    assert selection.chars_used == budget
 
 
 def test_floor_visits_topics_by_query_relevance_under_pressure():
@@ -203,7 +226,11 @@ def test_floor_visits_topics_by_query_relevance_under_pressure():
         candidate("mmm-0", "mmm", 0.50, chars=400),
         candidate("aaa-0", "aaa", 0.10, chars=400),
     ]
-    selection = select_within_budget(candidates, budget=800, k_min=1)
+    selection = select_within_budget(
+        candidates,
+        budget=rendered_block_cost(candidates[:2]),
+        k_min=1,
+    )
 
     assert [c["id"] for c in selection.selected] == ["zzz-0", "mmm-0"]
     assert "aaa" not in selection.floor_per_topic
@@ -241,7 +268,11 @@ def test_k_min_zero_is_pure_similarity():
         candidate("civil-0", "civil", 0.9, chars=100),
         candidate("marine-0", "marine", 0.1, chars=100),
     ]
-    selection = select_within_budget(candidates, budget=100, k_min=0)
+    selection = select_within_budget(
+        candidates,
+        budget=rendered_block_cost(candidates[:1]),
+        k_min=0,
+    )
 
     assert [c["id"] for c in selection.selected] == ["civil-0"]
     assert selection.floor_per_topic == {}
@@ -251,7 +282,7 @@ def test_empty_ltm_is_handled():
     selection = select_within_budget([], budget=16000, k_min=3)
     assert selection.selected == []
     assert selection.topics_present == []
-    assert selection.chars_used == 0
+    assert selection.chars_used == rendered_block_cost([])
 
 
 def test_single_topic_degenerate_case():
@@ -259,12 +290,16 @@ def test_single_topic_degenerate_case():
     candidates = [
         candidate(f"c{i}", "civil", 0.9 - i * 0.01, chars=100) for i in range(10)
     ]
-    selection = select_within_budget(candidates, budget=500, k_min=3)
+    selection = select_within_budget(
+        candidates,
+        budget=rendered_block_cost(candidates[:5]),
+        k_min=3,
+    )
 
     assert selection.topics_present == ["civil"]
     assert selection.floor_per_topic == {"civil": 3}
     assert len(selection.selected) == 5
-    assert selection.chars_used == 500
+    assert selection.chars_used == rendered_block_cost(candidates[:5])
 
 
 # --------------------------------------------------------------------------
@@ -278,7 +313,11 @@ def test_fill_order_is_strictly_by_similarity():
         candidate("b", "t0", 0.90, chars=100),
         candidate("c", "t0", 0.50, chars=100),
     ]
-    selection = select_within_budget(candidates, budget=200, k_min=0)
+    selection = select_within_budget(
+        candidates,
+        budget=rendered_block_cost([candidates[1], candidates[2]]),
+        k_min=0,
+    )
 
     assert [c["id"] for c in selection.selected] == ["b", "c"]
 
@@ -290,7 +329,13 @@ def test_fill_never_displaces_a_floor_selection():
         for i in range(20)
     ] + [candidate("marine-0", "marine", 0.05, chars=100)]
 
-    selection = select_within_budget(candidates, budget=500, k_min=1)
+    selection = select_within_budget(
+        candidates,
+        budget=rendered_block_cost(
+            [*candidates[:4], candidates[-1]]
+        ),
+        k_min=1,
+    )
 
     assert "marine-0" in {c["id"] for c in selection.selected}
     assert selection.phases["marine-0"] == PHASE_FLOOR
@@ -334,7 +379,11 @@ def test_per_topic_chars_sum_to_chars_used():
     ]
     selection = select_within_budget(candidates, budget=1200, k_min=2)
 
-    assert sum(selection.chars_per_topic.values()) == selection.chars_used
+    assert (
+        sum(selection.chars_per_topic.values())
+        + selection.block_overhead_chars
+        == selection.chars_used
+    )
 
 
 # --------------------------------------------------------------------------
@@ -353,7 +402,9 @@ def test_records_sharing_a_source_episode_collapse_to_one_budget_item():
     selection = select_within_budget(candidates, budget=10_000, k_min=0)
 
     assert [c["id"] for c in selection.selected] == ["ep1", "ep2"]
-    assert selection.chars_used == 600
+    assert selection.chars_used == rendered_block_cost(
+        [candidates[0], candidates[3]]
+    )
     assert selection.collapsed_to_episode == 2
 
 
@@ -387,7 +438,7 @@ def test_excluded_episodes_are_dropped_before_selection():
     )
 
     assert [c["id"] for c in selection.selected] == ["ep2"]
-    assert selection.chars_used == 300
+    assert selection.chars_used == rendered_block_cost([candidates[1]])
 
 
 # --------------------------------------------------------------------------
@@ -403,7 +454,7 @@ def test_top_m_reproduces_count_based_selection():
     selection = select_top_m(candidates, top_m=5)
 
     assert [c["id"] for c in selection.selected] == ["e0", "e1", "e2", "e3", "e4"]
-    assert selection.chars_used == 500
+    assert selection.chars_used == rendered_block_cost(candidates[:5])
 
 
 def test_top_m_can_deliver_fewer_elements_than_its_cap():

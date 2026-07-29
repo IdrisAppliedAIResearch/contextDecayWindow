@@ -382,9 +382,10 @@ def test_retrieval_reads_distilled_ltm_and_renders_provenance(tmp_path):
     assert uuid.UUID(retrieved["distilled_id"]).version == 5
     assert retrieved["dream_event"] == 111
     assert retrieved["source_turns"] == [1]
-    assert 'distilled_id="' in result.constructed_prompt
-    assert 'dream_event="111"' in result.constructed_prompt
-    assert 'source_turns="1"' in result.constructed_prompt
+    assert "distilled_id" not in result.constructed_prompt
+    assert "dream_event" not in result.constructed_prompt
+    assert "source_turns" not in result.constructed_prompt
+    assert 'turn="1"' in result.constructed_prompt
     assert "promoted_at_turn=" not in result.constructed_prompt
     assert "salience=" not in result.constructed_prompt
 
