@@ -38,6 +38,8 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **Retrieval bakeoff (2026-07-29).** MIXED. Widened STM delivered 6/6 formation-blind facts, used 5. S/W/L: 9/11/12; Q4 is gap. Turn-55 ranked N=27/32 but only 15 fit; K=.166<.48. LTM's observed edge is primacy under the current renderer; test the rendering null before a pinned tier. No other function beats matched raw volume. T6 6.5 invalid; no 1,000-turn run.
 
+**DR-001 rendering fix (2026-07-29).** PASS. G-R1 reproduced Q13/Q14 exactly and found actual LTM blocks were 53,726/53,839 chars, not charged 31,991/31,847. Compact tags preserve identity/order/content and reduce them to 37,619/37,545. Exact block cost is now authoritative. B_ltm=32k, N=32, k_min=1, and containment retained. AS-001 decides Q4 packing.
+
 ## 3. Failure Pattern
 
 The recurring failure class is a surrogate that can pass without the property it claims to certify: record count for information, novelty for importance, density for factual value, or a rubric score for a correct answer.
