@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from statistics import fmean
+from fractions import Fraction
 
 from .classifier import classify_query
 from .config import CORPORA
@@ -35,9 +35,7 @@ def analyze_tier3(evaluation_rows: list[dict], tier2_summary: dict) -> dict:
         for row in primary_rows
         if row["method_id"] == selected_methods[row["query_class"]]
     ]
-    oracle_recall = fmean(
-        float(row["fact_recall_at_budget"]) for row in oracle_rows
-    )
+    oracle_recall = _exact_query_recall(oracle_rows)
 
     overall_winner = _winner(tier2_summary["overall_primary"])
     single_rows = [
@@ -45,9 +43,7 @@ def analyze_tier3(evaluation_rows: list[dict], tier2_summary: dict) -> dict:
         for row in primary_rows
         if row["method_id"] == overall_winner["method_id"]
     ]
-    single_recall = fmean(
-        float(row["fact_recall_at_budget"]) for row in single_rows
-    )
+    single_recall = _exact_query_recall(single_rows)
     oracle_gain = (
         (oracle_recall - single_recall) / single_recall
         if single_recall
@@ -60,6 +56,7 @@ def analyze_tier3(evaluation_rows: list[dict], tier2_summary: dict) -> dict:
             query_class: {
                 "method_id": row["method_id"],
                 "fact_recall_at_budget": row["fact_recall_at_budget"],
+                "fact_recall_exact": row["fact_recall_exact"],
                 "precision_proxy": row["precision_proxy"],
                 "latency_ms": row["latency_ms"],
             }
@@ -67,16 +64,24 @@ def analyze_tier3(evaluation_rows: list[dict], tier2_summary: dict) -> dict:
         },
         "T3.2_oracle_router": {
             "selected_method_by_class": selected_methods,
-            "oracle_macro_query_recall": oracle_recall,
+            "oracle_macro_query_recall": float(oracle_recall),
+            "oracle_macro_query_recall_exact": str(oracle_recall),
             "single_best_method": overall_winner["method_id"],
-            "single_best_macro_query_recall": single_recall,
-            "relative_gain": oracle_gain,
+            "single_best_macro_query_recall": float(single_recall),
+            "single_best_macro_query_recall_exact": str(single_recall),
+            "relative_gain": (
+                float(oracle_gain) if oracle_gain is not None else None
+            ),
+            "relative_gain_exact": (
+                str(oracle_gain) if oracle_gain is not None else None
+            ),
             "gain_at_least_10_percent": (
-                oracle_gain is not None and oracle_gain >= 0.10
+                oracle_gain is not None and oracle_gain >= Fraction(1, 10)
             ),
             "interpretation": (
                 "routing_worth_confirmatory_work"
-                if oracle_gain is not None and oracle_gain >= 0.10
+                if oracle_gain is not None
+                and oracle_gain >= Fraction(1, 10)
                 else "do_not_build_routing"
             ),
         },
@@ -90,12 +95,30 @@ def _winner(rows: list[dict]) -> dict:
     return sorted(
         rows,
         key=lambda row: (
-            -float(row["fact_recall_at_budget"]),
+            -Fraction(
+                row.get(
+                    "fact_recall_exact",
+                    str(row["fact_recall_at_budget"]),
+                )
+            ),
             -float(row["precision_proxy"]),
             float(row["latency_ms"]),
             str(row["method_id"]),
         ),
     )[0]
+
+
+def _exact_query_recall(rows: list[dict]) -> Fraction:
+    return sum(
+        (
+            Fraction(
+                int(row["matched_fact_count"]),
+                int(row["required_fact_count"]),
+            )
+            for row in rows
+        ),
+        Fraction(),
+    ) / len(rows)
 
 
 def _classifier_analysis(primary_rows: list[dict]) -> dict:

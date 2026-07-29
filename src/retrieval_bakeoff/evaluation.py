@@ -4,6 +4,7 @@ import hashlib
 import html
 import json
 from collections import defaultdict
+from fractions import Fraction
 from pathlib import Path
 from statistics import fmean
 
@@ -202,7 +203,18 @@ def aggregate_rows(rows: list[dict]) -> dict:
                     **{
                         metric: fmean(cell[metric] for cell in cells)
                         for metric in _METRICS
+                        if metric != "fact_recall_at_budget"
                     },
+                    **_fraction_fields(
+                        sum(
+                            (
+                                Fraction(cell["fact_recall_exact"])
+                                for cell in cells
+                            ),
+                            Fraction(),
+                        )
+                        / len(cells)
+                    ),
                     "corpus_count": len(cells),
                 }
             )
@@ -229,7 +241,9 @@ def aggregate_rows(rows: list[dict]) -> dict:
 
 def advancement_decisions(pooled_class: list[dict]) -> list[dict]:
     by_method_class = {
-        (row["method_id"], row["query_class"]): row["fact_recall_at_budget"]
+        (row["method_id"], row["query_class"]): Fraction(
+            row["fact_recall_exact"]
+        )
         for row in pooled_class
     }
     baseline = {
@@ -255,7 +269,7 @@ def advancement_decisions(pooled_class: list[dict]) -> list[dict]:
                 query_class
                 for query_class in baseline
                 if baseline[query_class] > 0
-                and values[query_class] < 0.90 * baseline[query_class]
+                and values[query_class] < Fraction(9, 10) * baseline[query_class]
             ]
         decisions.append(
             {
@@ -263,8 +277,22 @@ def advancement_decisions(pooled_class: list[dict]) -> list[dict]:
                 "advances": bool(complete and wins and not regressions),
                 "winning_classes": wins,
                 "regressing_classes": regressions,
-                "candidate_recall": values,
-                "baseline_recall": baseline,
+                "candidate_recall": {
+                    key: float(value) if value is not None else None
+                    for key, value in values.items()
+                },
+                "candidate_recall_exact": {
+                    key: str(value) if value is not None else None
+                    for key, value in values.items()
+                },
+                "baseline_recall": {
+                    key: float(value) if value is not None else None
+                    for key, value in baseline.items()
+                },
+                "baseline_recall_exact": {
+                    key: str(value) if value is not None else None
+                    for key, value in baseline.items()
+                },
             }
         )
     return decisions
@@ -280,10 +308,29 @@ _METRICS = (
 )
 
 
-def _mean_metrics(rows: list[dict]) -> dict[str, float]:
-    return {
+def _mean_metrics(rows: list[dict]) -> dict[str, float | str]:
+    metrics = {
         metric: fmean(float(row[metric]) for row in rows)
         for metric in _METRICS
+        if metric != "fact_recall_at_budget"
+    }
+    exact_recall = sum(
+        (
+            Fraction(
+                int(row["matched_fact_count"]),
+                int(row["required_fact_count"]),
+            )
+            for row in rows
+        ),
+        Fraction(),
+    ) / len(rows)
+    return {**metrics, **_fraction_fields(exact_recall)}
+
+
+def _fraction_fields(value: Fraction) -> dict[str, float | str]:
+    return {
+        "fact_recall_at_budget": float(value),
+        "fact_recall_exact": str(value),
     }
 
 
