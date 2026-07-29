@@ -40,7 +40,13 @@ architectural pivot. The best 32k raw-store retrieval surfaced 8/17 Q11 facts;
 explicit graphs did not advance; oracle routing added only 6.09%. Delivered
 volume did help: same-seed plain STM scored 9.0/13, widened STM scored 11.0/13
 with 13/17 Q11 facts, and LTM scored 12.0/13. Both widened STM and LTM failed
-Q11; the entire one-point rubric gap is Q4. No 1,000-turn run is authorized.
+Q11; the entire one-point rubric gap is Q4. The first clean positive result is
+more specific: widened raw STM delivered all six formation-blind facts and used
+five correctly, solving the track's hardest documented availability failure.
+The remaining evidence supports LTM as a primacy mechanism: Q4's turn-55 fact
+bundle ranked within widened N but fell outside the character-packed window.
+No other LTM function has been shown to beat matched raw volume.
+No 1,000-turn run is authorized.
 
 See `experiments/surveys/retrieval_bakeoff/retrieval_bakeoff_report.md`.
 

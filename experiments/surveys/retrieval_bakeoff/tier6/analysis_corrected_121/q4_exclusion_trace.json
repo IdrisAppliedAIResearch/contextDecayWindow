@@ -1,0 +1,24 @@
+{
+  "probe_turn": 115,
+  "primary_plant_turn": 55,
+  "primary_plant_age_turns": 60,
+  "patron_reiteration_turn": 60,
+  "patron_reiteration_age_turns": 55,
+  "n_candidate_cap": 32,
+  "turn_55_n_rank": 27,
+  "turn_55_within_n_cap": true,
+  "delivered_n_count": 15,
+  "turn_55_delivered": false,
+  "payload_budget_characters": 60595,
+  "turn_55_probe_cosine": 0.16612689197063446,
+  "k_threshold": 0.48,
+  "turn_55_k_eligible": false,
+  "classification": "N-first character-packing exclusion after late in-cap N rank; K did not rescue",
+  "sources": {
+    "plant_key": "experiments/study_009/q_facts_key.md",
+    "live_database": "experiments/surveys/retrieval_bakeoff/tier6/runs/tier6_live_121_corrected_001/context_matched_stm/study.db",
+    "live_turn_log": "experiments/surveys/retrieval_bakeoff/tier6/runs/tier6_live_121_corrected_001/context_matched_stm/logs/turns.jsonl",
+    "delivered_n_metrics": "experiments/surveys/retrieval_bakeoff/tier6/runs/tier6_live_121_corrected_001/context_matched_stm/metrics/N_values.csv",
+    "locked_settings": "experiments/surveys/retrieval_bakeoff/tier6/settings/tier6_context_match_settings.json"
+  }
+}
