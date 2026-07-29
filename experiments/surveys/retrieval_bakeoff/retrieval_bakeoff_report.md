@@ -20,20 +20,21 @@ What survived is delivered volume. In the clean same-seed 121-turn comparison,
 Study 009 plain STM scored **9.0/13**, corrected character-matched widened STM
 scored **11.0/13**, and Study 009 LTM scored **12.0/13**. Widening recovered two
 of the three points, but did not reproduce LTM. The L-versus-widened-STM gap is
-one binary rubric item wide: widened STM produced **13/17 correctly attributed
-Q11 facts**, but the locked binary Q11 criterion scored both 13/17 and 0/17 as
-zero. The 11.0 is retained without rescoring and must always be reported beside
-the 13/17 item count.
+one rubric item wide, and that item is **Q4**, not Q11. LTM received Q4's title,
+artist, patron, and year and scored 1.0; widened STM received none of those four
+facts and scored 0.0. Both arms scored zero on Q11. Widened STM nevertheless
+produced **13/17 correctly attributed Q11 facts**; the 11.0 is retained without
+rescoring and must always be reported beside that item count.
 
 The defensible conclusion is negative: the retained LTM tier is not replaceable
 by any single retrieval method tested. This survey does not validate a new
-architecture. It identifies a more specific problem: 17-fact enumeration has
-now failed under write-time formation, query-time retrieval, and increased
-delivery volume.
+architecture. The residual LTM advantage is a targeted Q4 selection failure.
+Separately, 17-fact enumeration remains a shared failure under write-time
+formation, query-time retrieval, and increased delivery volume.
 
 ## Reconciling 8/17 And 13/17
 
-The two figures do not measure the same object.
+The two figures do not measure the same object or the same 17-item denominator.
 
 | Figure | Artifact | Measurement |
 |---|---|---|
@@ -42,22 +43,33 @@ The two figures do not measure the same object.
 
 The live answer can contain facts not present in the final retrieval block,
 including facts repeated in earlier probe answers retained by widened STM.
-Therefore 13/17 does not overturn T1.2's 8/17 single-block retrieval result, and
-8/17 must not be described as a universal ceiling on end-to-end answer content.
+Moreover, the six formation-blind plant concepts are not the Tier 6 Q11
+rubric's 17 atomic items. Therefore 13/17 does not overturn T1.2's 8/17
+single-block retrieval result, and 8/17 must not be described as a universal
+ceiling on end-to-end answer content.
+
+## Formation-Blind Plant Intersection
+
+Widened STM delivered all six previously formation-blind plants at their
+relevant probes. It correctly used lead white and ultramarine glaze on Q5,
+marine snow on Q7, and photophores and mantle margin on Q8. Dual mandate was
+present in the Q11 prompt but omitted from the answer. Raw delivery therefore
+solved availability for this six-fact set and produced correct use for five of
+six; it did not guarantee breadth utilization. The arm-by-arm audit is
+`tier6/analysis_corrected_121/formation_blind_intersection.md`.
 
 ## Q11 Surrogate Audit
 
 Q11 cannot serve as a clean architectural bar until the mechanism can make
 14/17 facts available. Its binary threshold can fail while the underlying
 breadth property is nearly present: 13 correctly attributed facts and zero
-facts receive the same score. In Tier 6, this threshold creates the entire
-reported one-point gap between widened STM and LTM.
+facts receive the same score. It does not, however, create the reported
+one-point gap: LTM also scored zero on Q11. The gap is Q4.
 
-The score remains locked at 11.0/13. The architectural interpretation rests on
-the paired observation, not the scalar alone: **11.0/13 with 13/17 Q11 facts,
-versus LTM 12.0/13**. This is evidence that volume helps and that the tested raw
-retrieval did not strictly match LTM under the locked rubric; it is not evidence
-of a large capability gap.
+The score remains locked at 11.0/13. The paired observation is still required:
+**11.0/13 with 13/17 Q11 facts, versus LTM 12.0/13 with the same binary Q11
+failure**. This is evidence that volume helps. The remaining scored difference
+is narrower: widened STM failed to select Q4's identity bundle.
 
 ## Tier Verdicts
 
@@ -125,15 +137,17 @@ classified separately in `decisions/DECISION_001_post_stop_exploration.md`.
 
 ## Next Question
 
-The next question is no longer where selection should live. It is why
-high-cardinality enumeration breaks when targeted recall succeeds. A new study
-should isolate enumeration load rather than introduce another memory component:
-hold source facts, retrieval content, and delivered characters fixed; vary only
-the number of independently attributable facts requested, their domain spread,
-and whether the model must enumerate or answer targeted subqueries. Measure the
-item-level recall curve before applying any binary threshold. That design can
-separate retrieval omission, context utilization, and response-planning
-capacity.
+The immediate question for the residual LTM advantage is why widened STM failed
+Q4 selection. The committed turn-115 prompts already localize the failure:
+LTM delivered all four identity facts, while widened STM delivered none. A new
+study should test retrieval of compact, co-dependent identity bundles under a
+fixed character budget, separating source availability, ranking, and bundle
+completion.
+
+Enumeration is a second, architecture-spanning question, not the explanation
+for the one-point gap. It merits a separate design that fixes delivered content
+and varies requested fact count to distinguish utilization and response
+planning from retrieval omission.
 
 ## Artifacts
 
@@ -142,6 +156,8 @@ capacity.
 - Corrected Tier 6 score: `tier6/evaluation_corrected_121/blinded_scores.json`
 - Corrected Tier 6 mechanism report:
   `tier6/analysis_corrected_121/tier6_121_mechanism_evaluation.md`
+- Formation-blind plant and score-gap audit:
+  `tier6/analysis_corrected_121/formation_blind_intersection.md`
 - Corrected run: `tier6/runs/tier6_live_121_corrected_001/`
 - Invalid diagnostic run: `tier6/runs/tier6_live_121/`
 - T1.3 supplement: `tier1/t1_3_reinforcement/t1_3_reinforcement_report.md`

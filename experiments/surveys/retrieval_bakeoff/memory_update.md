@@ -17,10 +17,13 @@
 - The corrected Tier 6 run passed offline/live equivalence and two independent
   35-turn ablations, then scored 11.0/13 and Q14 1.0 under blinded scoring.
 - Same-seed 121-turn comparison: plain STM 9.0, widened STM 11.0 with 13/17
-  Q11 facts, LTM 12.0. The one-point gap is one binary rubric item wide.
+  Q11 facts, LTM 12.0. Both failed Q11; the entire one-point gap is Q4.
+- Widened STM delivered all six previously formation-blind plants at their
+  relevant probes and correctly used five; dual mandate was delivered but
+  omitted from Q11. The six plants and Q11's 17 atoms are different sets.
 - Greater volume explains part, but not all, of LTM's observed advantage.
 - No 1,000-turn run is authorized. A future run could only ask whether the
   volume effect persists or inverts under rendering saturation, under a new
   pre-registration.
-- Next question: why high-cardinality enumeration fails across formation,
-  retrieval, and volume while targeted recall succeeds.
+- Immediate gap question: why widened STM omitted Q4's four-fact identity
+  bundle while LTM selected it. Enumeration remains a separate shared failure.
