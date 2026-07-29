@@ -1,0 +1,296 @@
+{
+  "adjudicator_class": "fourth independent clean-context AI",
+  "adjudicator_limitation": "The adjudicator is an AI, not a human.",
+  "anonymous_arm": "arm_323e57a52a",
+  "calibration_pass_count": 4,
+  "category_primary": {
+    "cat1_Q1_Q3": 3.0,
+    "cat2_Q4_Q6": 2.0,
+    "cat3_Q7_Q8": 2.0,
+    "cat4_Q9_Q11": 2.0,
+    "cat5_Q12_Q13": 2.0
+  },
+  "category_strict": {
+    "cat1_Q1_Q3": 3.0,
+    "cat2_Q4_Q6": 2.0,
+    "cat3_Q7_Q8": 2.0,
+    "cat4_Q9_Q11": 2.0,
+    "cat5_Q12_Q13": 2.0
+  },
+  "h3_status": "NOT_EVALUABLE_NO_ORIGINAL_SCORE",
+  "mapping_opened_before_scoring": false,
+  "mechanical_fact_presence_artifact": "layer1_fact_presence.jsonl",
+  "mechanism_logs_opened_before_scoring": false,
+  "q14_primary": 1.0,
+  "q14_strict": 1.0,
+  "q1_q13_primary": 11.0,
+  "q1_q13_strict": 11.0,
+  "rater_class": "three independent clean-context AI passes",
+  "scores": {
+    "Q1": {
+      "anon_id": "RB6-3C1F132420BE",
+      "basis": "three_pass_consensus",
+      "primary": 1.0,
+      "primary_credited_item_ids": [
+        "civil_span_847",
+        "civil_steel_s460ml"
+      ],
+      "rationale": "The answer states both the exact 847-meter main span and the S460ML steel grade.",
+      "strict": 1.0,
+      "strict_credited_item_ids": [
+        "civil_span_847",
+        "civil_steel_s460ml"
+      ],
+      "triggers": []
+    },
+    "Q10": {
+      "anon_id": "RB6-B4766F112A60",
+      "basis": "three_pass_consensus",
+      "primary": 1.0,
+      "primary_credited_item_ids": [
+        "correct_watanabe_attribution"
+      ],
+      "rationale": "Dr. Kenji Watanabe is directly and unambiguously attributed to Vampyroteuthis infernalis, with no competing researcher attribution.",
+      "strict": 1.0,
+      "strict_credited_item_ids": [
+        "correct_watanabe_attribution"
+      ],
+      "triggers": []
+    },
+    "Q11": {
+      "anon_id": "RB6-5AB5E2F5CC86",
+      "basis": "independent_ai_adjudicator_h4_h5",
+      "primary": 0.0,
+      "primary_credited_item_ids": [
+        "q11_2",
+        "q11_2_3",
+        "q11_600_900",
+        "q11_847",
+        "q11_92_4",
+        "q11_bekova",
+        "q11_federal_reserve",
+        "q11_halcyon",
+        "q11_priya",
+        "q11_s460ml",
+        "q11_taylor_rule",
+        "q11_vampyroteuthis",
+        "q11_watanabe"
+      ],
+      "rationale": "The answer correctly attributes 13 of the 17 catalog items, including accepting \"Fed\" as Federal Reserve, but omits 1483, The Annunciation of Forli, Melozzo da Forli, and Cardinal Giuliano della Rovere. Thirteen is below the required threshold of 14, so the binary score is 0.",
+      "strict": 0.0,
+      "strict_credited_item_ids": [
+        "q11_2",
+        "q11_2_3",
+        "q11_600_900",
+        "q11_847",
+        "q11_92_4",
+        "q11_bekova",
+        "q11_federal_reserve",
+        "q11_halcyon",
+        "q11_priya",
+        "q11_s460ml",
+        "q11_taylor_rule",
+        "q11_vampyroteuthis",
+        "q11_watanabe"
+      ],
+      "triggers": [
+        "H4"
+      ]
+    },
+    "Q12": {
+      "anon_id": "RB6-41BED7AAAC03",
+      "basis": "three_pass_consensus",
+      "primary": 1.0,
+      "primary_credited_item_ids": [
+        "rule_numbered_lists",
+        "rule_risk_classification"
+      ],
+      "rationale": "Both behavioral rules are stated correctly and precisely, satisfying the binary criterion.",
+      "strict": 1.0,
+      "strict_credited_item_ids": [
+        "rule_numbered_lists",
+        "rule_risk_classification"
+      ],
+      "triggers": []
+    },
+    "Q13": {
+      "anon_id": "RB6-A1F09C69ED07",
+      "basis": "three_pass_consensus",
+      "primary": 1.0,
+      "primary_credited_item_ids": [
+        "late_turn_rule_compliance"
+      ],
+      "rationale": "Each of turns 112-120 uses numbered organization for its technical or multiple-item response, so the applicable numbered-list rule is honored in all nine turns, exceeding the five-turn threshold. The engineering-risk rule is N/A because these turns do not request engineering recommendations.",
+      "strict": 1.0,
+      "strict_credited_item_ids": [
+        "late_turn_rule_compliance"
+      ],
+      "triggers": []
+    },
+    "Q14": {
+      "anon_id": "RB6-41C2AFE41C7E",
+      "basis": "independent_ai_adjudicator_h4_h5",
+      "primary": 1.0,
+      "primary_credited_item_ids": [
+        "q14_art_hit",
+        "q14_art_named",
+        "q14_civil_hit",
+        "q14_civil_named",
+        "q14_marine_hit",
+        "q14_marine_named",
+        "q14_monetary_hit",
+        "q14_monetary_named"
+      ],
+      "rationale": "All four required domains are recognizably named and each has a correct planted specific: 847 meters, approximately 2 hours, 2%, and approximately 90 pairs of photophores.",
+      "strict": 1.0,
+      "strict_credited_item_ids": [
+        "q14_art_hit",
+        "q14_art_named",
+        "q14_civil_hit",
+        "q14_civil_named",
+        "q14_marine_hit",
+        "q14_marine_named",
+        "q14_monetary_hit",
+        "q14_monetary_named"
+      ],
+      "triggers": [
+        "H1",
+        "H4"
+      ]
+    },
+    "Q2": {
+      "anon_id": "RB6-D77B7F947BBD",
+      "basis": "independent_ai_adjudicator_h4_h5",
+      "primary": 1.0,
+      "primary_credited_item_ids": [
+        "civil_engineer_bekova",
+        "civil_load_92_4"
+      ],
+      "rationale": "The answer explicitly gives both required facts: Dr. Anara Bekova and 92.4 metric tons per axle.",
+      "strict": 1.0,
+      "strict_credited_item_ids": [
+        "civil_engineer_bekova",
+        "civil_load_92_4"
+      ],
+      "triggers": [
+        "H5"
+      ]
+    },
+    "Q3": {
+      "anon_id": "RB6-35C32B6ADBB0",
+      "basis": "three_pass_consensus",
+      "primary": 1.0,
+      "primary_credited_item_ids": [
+        "rule_numbered_lists",
+        "rule_risk_classification"
+      ],
+      "rationale": "The answer precisely states both rules: numbered lists for technical specifications or multiple items, and a parenthesized Low/Medium/High risk classification for structural or engineering recommendations.",
+      "strict": 1.0,
+      "strict_credited_item_ids": [
+        "rule_numbered_lists",
+        "rule_risk_classification"
+      ],
+      "triggers": []
+    },
+    "Q4": {
+      "anon_id": "RB6-A15FBD78BE29",
+      "basis": "three_pass_consensus",
+      "primary": 0.0,
+      "primary_credited_item_ids": [
+        "art_title"
+      ],
+      "rationale": "Only the title The Annunciation of Forli is correct. The response gives the wrong artist, commissioner, and year, so one of four items does not reach the two-item half-credit threshold.",
+      "strict": 0.0,
+      "strict_credited_item_ids": [
+        "art_title"
+      ],
+      "triggers": []
+    },
+    "Q5": {
+      "anon_id": "RB6-98C3C94CBEC8",
+      "basis": "independent_ai_adjudicator_h4_h5",
+      "primary": 1.0,
+      "primary_credited_item_ids": [
+        "art_glaze_ultramarine",
+        "art_ground_lead_white"
+      ],
+      "rationale": "The answer explicitly and unambiguously names both required techniques: a lead white ground and ultramarine glazes.",
+      "strict": 1.0,
+      "strict_credited_item_ids": [
+        "art_glaze_ultramarine",
+        "art_ground_lead_white"
+      ],
+      "triggers": [
+        "H5"
+      ]
+    },
+    "Q6": {
+      "anon_id": "RB6-945D1DEF9B5A",
+      "basis": "three_pass_consensus",
+      "primary": 1.0,
+      "primary_credited_item_ids": [
+        "clean_patron_and_pope"
+      ],
+      "rationale": "The answer cleanly identifies Cardinal Giuliano della Rovere as the patron and as the future Pope Julius II, with no monetary-policy or marine-biology contamination.",
+      "strict": 1.0,
+      "strict_credited_item_ids": [
+        "clean_patron_and_pope"
+      ],
+      "triggers": []
+    },
+    "Q7": {
+      "anon_id": "RB6-AA8964ADAF76",
+      "basis": "three_pass_consensus",
+      "primary": 1.0,
+      "primary_credited_item_ids": [
+        "marine_depth_600_900",
+        "marine_feeding",
+        "marine_researcher",
+        "marine_species"
+      ],
+      "rationale": "All four required marine facts are correctly supplied and attributed: Vampyroteuthis infernalis, Dr. Kenji Watanabe, 600-900 meters, and marine-snow aggregation or filtration.",
+      "strict": 1.0,
+      "strict_credited_item_ids": [
+        "marine_depth_600_900",
+        "marine_feeding",
+        "marine_researcher",
+        "marine_species"
+      ],
+      "triggers": []
+    },
+    "Q8": {
+      "anon_id": "RB6-24335EDD12E2",
+      "basis": "three_pass_consensus",
+      "primary": 1.0,
+      "primary_credited_item_ids": [
+        "marine_mantle_margin",
+        "marine_photophores"
+      ],
+      "rationale": "The answer explicitly identifies photophores and locates the principal organs along the outer mantle margins, satisfying both components.",
+      "strict": 1.0,
+      "strict_credited_item_ids": [
+        "marine_mantle_margin",
+        "marine_photophores"
+      ],
+      "triggers": []
+    },
+    "Q9": {
+      "anon_id": "RB6-55152D8F461B",
+      "basis": "three_pass_consensus",
+      "primary": 1.0,
+      "primary_credited_item_ids": [
+        "clean_renaissance_retrieval"
+      ],
+      "rationale": "The Renaissance answer remains on patronage, Melozzo, Forli, and Pope Julius II throughout and contains none of the listed monetary-policy or marine-biology contaminants.",
+      "strict": 1.0,
+      "strict_credited_item_ids": [
+        "clean_renaissance_retrieval"
+      ],
+      "triggers": []
+    }
+  },
+  "status": "FINAL_BLINDED_SCORES",
+  "study_009_arm_l_corrected_target": 12.0,
+  "t6_1000_turn_decision": "RUN_REQUIRED_SCORE_BELOW_12",
+  "trigger_artifact": "consensus_and_triggers.jsonl"
+}
