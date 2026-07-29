@@ -28,19 +28,27 @@ content estimates, not serialized block lengths.
 Study 010 reported 31,991 and 31,847 LTM characters at Q13 and Q14 and described
 them as near-saturation of `B_ltm = 32,000`. DR-001 replayed both committed
 blocks character-for-character. Their actual serialized lengths were 53,726 and
-53,839 characters, exceeding the nominal budget by 21,726 and 21,839.
+53,839 characters, exceeding the nominal budget by 21,726 and 21,839, or 67.9%
+and 68.2%. The budget was violated, not saturated.
 
 The old budget authority counted source user/assistant text but omitted
 per-episode tags, metadata, and separators. The historical values and run
-artifacts remain unchanged; their classification and the attached saturation
-interpretation are corrected here. Scores and fact-delivery findings do not
-change because the model received the recorded blocks.
+artifacts remain unchanged. Their classification is corrected here, and the
+compact-store scaling conclusion derived from the undercharged values is
+withdrawn. Scores and fact-delivery findings do not change because the model
+received the recorded blocks, but they describe a budget-noncompliant arm.
 
 DR-001 replaces the renderer with compact, content-identical episode elements
 and charges exact complete-block cost. The same historical identity sets render
 to 37,619 and 37,545 characters, still above 32,000; production re-selection at
 the locked budget admits 69 and 71 episodes. See
 `experiments/components/rendering_expansion/`.
+
+The separate reported context peak survives audit. All 2,000 Study 010 rows
+recompute from the committed serialized prompts under the registered
+`characters // 4` estimator; L peaks at 27,154 and S at 17,541. These are
+character-based estimates, not exact model-tokenizer counts. See
+`experiments/components/rendering_expansion/artifacts/context_peak_audit/`.
 
 ## Retrieval Bakeoff Q4 Cosine and Seal Provenance (2026-07-29)
 

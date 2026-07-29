@@ -5,6 +5,15 @@
 **Initial artifact lock:** `52f05e7`
 **Final status:** STOPPED AT G2; POST-STOP EXPLORATORY CONTINUATION COMPLETE
 
+> **Post-publication correction (2026-07-29):** Arm L's Q13/Q14 LTM blocks
+> serialized to 53,726/53,839 characters against `B_ltm = 32,000`, violating
+> the budget by 67.9%/68.2%. The reported 31,991/31,847 values were undercharged
+> source-content totals. The compact-store scaling conclusion is withdrawn.
+> Scores remain descriptions of the prompts the model received, but Arm L was
+> not budget compliant. The separate 27,154 context peak survives a
+> serialized-prompt audit under the registered `characters // 4` estimator.
+> See `ERRATA.md` and `experiments/components/rendering_expansion/`.
+
 ## Result
 
 Study 010 reached its offline scale gates but did not reach rehearsal or the
@@ -178,29 +187,25 @@ context, not missing observations. Source:
 
 ### Forward Scale Risk
 
-Study 010's breadth win may be specific to a compact-store regime. The failed
-topic layer exposed only two merged topics, so the floor selected two records
-rather than enforcing 12-domain coverage. The final distilled store held 290
-records and 18,951 raw text characters, while episode-mode rendering already
-filled 31,991 of 32,000 available LTM characters at Q13 and 31,847 at Q14.
+**Withdrawn.** This section originally classified the breadth win as potentially
+compact-store dependent from the 18,951-character distilled store and reported
+31,991/31,847 LTM charges. Those quantities do not measure the serialized
+candidate store and selected block respectively. The actual selected blocks
+were 53,726/53,839 characters, so Arm L silently exceeded its registered budget.
+The original scaling inference does not follow from these data.
 
-At ten times the observed formation volume, raw distilled text projects to
-about 189,510 characters before source-episode rendering overhead. Selection
-would then be strongly budget-constrained, and coverage would no longer follow
-cheaply from compactness. The forward bakeoff must test this directly across
-multiple store-to-budget ratios. The proposed T1.2 contract is recorded in
-`evaluation/bakeoff_t1_2_requirement.md`.
+The remaining result is narrower: the model answered from the oversized blocks
+it received. Exact-cost replay selects 69/71 episodes at 31,993/31,796
+characters, but no inference was run on those compliant selections. Study 010
+therefore does not establish whether breadth survives exact 32k charging.
 
-![Breadth delivery and budget pressure](figures/figure_04_breadth_delivery_and_budget.png)
-
-*Figure 4. (A) Required breadth fact pairs present in each terminal prompt:
-L delivered 12/12 at both probes, versus 2/12 and 1/12 for S. (B) The raw
-distilled store remained compact, but rendered LTM retrieval nearly saturated
-the fixed 32,000-character budget; the 10x bar is a declared linear projection,
-not an observed run. The logarithmic axis is used to show observed and projected
-regimes together. Sources: `evaluation/fact_delivery_matrix.csv`,
-`runs/study_010_full_001/arm_l/logs/retrieval_budget.csv`, and
-`evaluation/bakeoff_t1_2_requirement.md`.*
+*Withdrawn Figure 4. Panel A remains descriptive: L delivered 12/12 required
+breadth pairs at both probes, versus 2/12 and 1/12 for S. Panel B is
+invalidated. Its 31,991/31,847 values undercharged the actual
+53,726/53,839-character blocks, and the 10x projection mixed non-equivalent
+quantities. Sources:
+`evaluation/fact_delivery_matrix.csv`, `ERRATA.md`, and
+`experiments/components/rendering_expansion/`.*
 
 ### Standing Corrections
 
