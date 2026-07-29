@@ -318,6 +318,24 @@ PLANTS = (
 
 H5_SEED = "retrieval-bakeoff-t6-h5-2026-07-29-v1"
 PASS_SEED = "retrieval-bakeoff-t6-pass-order-2026-07-29-v1"
+CALIBRATION_REFERENCES = {
+    "cal_no_answer": "The two required facts are Alpha and 42.",
+    "cal_truncated": (
+        "The four domain specifics are Civil Alpha 10, Art Beta 20, "
+        "Monetary Gamma 30, and Marine Delta 40."
+    ),
+    "cal_hedged": "The exact correct material is Material X.",
+    "cal_q11_partial": (
+        "The response itself states the correctly attributed atomic-item "
+        "count; apply the 80% threshold to a 17-item denominator."
+    ),
+    "cal_q14_one_lapse": (
+        "The four domain specifics are Civil Alpha 10, Art Beta 20, "
+        "Monetary Gamma 30, and Marine Delta 40."
+    ),
+    "cal_complete": "The two required facts are Alpha and 42.",
+    "cal_wrong": "The two required facts are Alpha and 42.",
+}
 
 
 def write_preflight() -> dict:
@@ -576,6 +594,7 @@ def blind_calibration_payload() -> dict:
             {
                 "id": item["id"],
                 "criterion": item["criterion"],
+                "scoring_reference": CALIBRATION_REFERENCES[item["id"]],
                 "response": item["response"],
             }
             for item in source["items"]

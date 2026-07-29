@@ -93,4 +93,10 @@ def test_blind_calibration_packet_withholds_answers() -> None:
     packet = blind_calibration_payload()
     assert packet["metadata"]["expected_scores_withheld"] is True
     for item in packet["items"]:
-        assert set(item) == {"id", "criterion", "response"}
+        assert set(item) == {
+            "id",
+            "criterion",
+            "scoring_reference",
+            "response",
+        }
+        assert "expected" not in item
