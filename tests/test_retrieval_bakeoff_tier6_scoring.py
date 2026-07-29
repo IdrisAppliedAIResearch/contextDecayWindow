@@ -7,6 +7,7 @@ import pytest
 from src.analysis.retrieval_bakeoff_tier6_scoring import (
     CALIBRATION_PATH,
     CREDIT_CATALOG,
+    blind_calibration_payload,
     derive_score,
     mechanical_evidence,
     validate_calibration_result,
@@ -86,3 +87,10 @@ def test_calibration_validator_requires_exact_scores(tmp_path) -> None:
     path.write_text(json.dumps(payload), encoding="utf-8")
     with pytest.raises(ValueError, match="Calibration failed"):
         validate_calibration_result(path)
+
+
+def test_blind_calibration_packet_withholds_answers() -> None:
+    packet = blind_calibration_payload()
+    assert packet["metadata"]["expected_scores_withheld"] is True
+    for item in packet["items"]:
+        assert set(item) == {"id", "criterion", "response"}

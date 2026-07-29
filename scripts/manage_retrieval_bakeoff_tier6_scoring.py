@@ -8,6 +8,7 @@ from src.analysis.retrieval_bakeoff_tier6_scoring import (
     analyze_passes,
     finalize_scores,
     prepare_scoring,
+    refresh_calibration_packet,
     unseal_scores,
     validate_calibration_result,
     validate_rating_file,
@@ -20,6 +21,7 @@ def parse_args() -> argparse.Namespace:
     subparsers = parser.add_subparsers(dest="command", required=True)
     subparsers.add_parser("preflight")
     subparsers.add_parser("prepare")
+    subparsers.add_parser("refresh-calibration")
     subparsers.add_parser("analyze")
     subparsers.add_parser("finalize")
     subparsers.add_parser("unseal")
@@ -39,6 +41,8 @@ def main() -> int:
         result = write_preflight()
     elif args.command == "prepare":
         result = prepare_scoring()
+    elif args.command == "refresh-calibration":
+        result = refresh_calibration_packet()
     elif args.command == "analyze":
         result = analyze_passes()
     elif args.command == "finalize":

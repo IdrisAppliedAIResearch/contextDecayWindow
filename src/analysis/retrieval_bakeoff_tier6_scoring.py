@@ -501,10 +501,9 @@ def prepare_scoring() -> dict:
         )
         write_jsonl(packet_dir / f"pass_{pass_number}.jsonl", ordered)
 
-    calibration = json.loads(CALIBRATION_PATH.read_text(encoding="utf-8"))
     write_json(
         EVALUATION_ROOT / "calibration_packet.json",
-        calibration,
+        blind_calibration_payload(),
     )
     secret = secrets.token_hex(32)
     private_mapping = {
@@ -564,6 +563,53 @@ def prepare_scoring() -> dict:
     }
     write_json(EVALUATION_ROOT / "preparation_manifest.json", preparation)
     return preparation
+
+
+def blind_calibration_payload() -> dict:
+    source = json.loads(CALIBRATION_PATH.read_text(encoding="utf-8"))
+    return {
+        "metadata": {
+            "synthetic": True,
+            "expected_scores_withheld": True,
+        },
+        "items": [
+            {
+                "id": item["id"],
+                "criterion": item["criterion"],
+                "response": item["response"],
+            }
+            for item in source["items"]
+        ],
+    }
+
+
+def refresh_calibration_packet() -> dict:
+    result_paths = (
+        EVALUATION_ROOT / "calibration",
+        EVALUATION_ROOT / "passes",
+        EVALUATION_ROOT / "adjudication",
+    )
+    if any(
+        path.exists() and any(path.iterdir())
+        for path in result_paths
+    ):
+        raise RuntimeError(
+            "Refusing to refresh calibration after rating began"
+        )
+    packet_path = EVALUATION_ROOT / "calibration_packet.json"
+    manifest_path = EVALUATION_ROOT / "preparation_manifest.json"
+    if not packet_path.is_file() or not manifest_path.is_file():
+        raise RuntimeError("Tier 6 scoring packet is not prepared")
+    write_json(packet_path, blind_calibration_payload())
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    manifest["calibration_sha256"] = sha256(packet_path)
+    manifest["calibration_expected_scores_withheld"] = True
+    write_json(manifest_path, manifest)
+    return {
+        "status": "BLIND_CALIBRATION_READY",
+        "calibration_sha256": manifest["calibration_sha256"],
+        "item_count": len(blind_calibration_payload()["items"]),
+    }
 
 
 def validate_calibration_result(path: Path) -> dict:
