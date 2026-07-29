@@ -20,6 +20,10 @@ from src.retrieval_bakeoff.models import (
     RankedCandidate,
     RetrievalResult,
 )
+from src.retrieval_bakeoff.presence import (
+    evaluate_q11_reachability,
+    load_q11_atomic_facts,
+)
 from src.retrieval_bakeoff.serialization import (
     pack_ranked_candidates,
     render_candidate_element,
@@ -201,6 +205,35 @@ def test_measurement_evaluator_requires_source_provenance() -> None:
 def test_locked_hashes_and_planted_leakage_gate(tmp_path: Path) -> None:
     assert validate_locked_artifacts()
     assert assert_planted_violations(tmp_path)["status"] == "PASS"
+
+
+def test_q11_atomic_matrix_and_provenance_matching() -> None:
+    facts = load_q11_atomic_facts()
+    assert len(facts) == 17
+    assert {fact.domain for fact in facts} == {
+        "Civil engineering",
+        "Renaissance art",
+        "Monetary policy",
+        "Marine biology",
+    }
+    candidate = _episode(
+        "halcyon",
+        turn=3,
+        user="Halcyon Crossing has a main span of 847 meters.",
+    )
+    ranked = RankedCandidate(candidate, score=1.0)
+    result = RetrievalResult(
+        corpus_id="c121_l",
+        method_id="M2",
+        query=Query("development_q11_turn_120", "Across all four subjects"),
+        budget=32_000,
+        ranked_count=1,
+        selected=[ranked],
+        rendered_block=render_retrieval_block("M2", [ranked]),
+    )
+    row = evaluate_q11_reachability(result)
+    assert row["matched_fact_count"] == 2
+    assert row["domain_count"] == 1
 
 
 def test_negative_budget_is_rejected() -> None:

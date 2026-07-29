@@ -83,26 +83,37 @@ def pack_ranked_candidates(
     if budget < 0:
         raise ValueError("budget must be non-negative")
     start = time.perf_counter()
+    empty_block = render_retrieval_block(method_id, [])
+    if len(empty_block) > budget:
+        raise ValueError("budget cannot fit the retrieval block wrapper")
     selected: list[RankedCandidate] = []
     phases: dict[str, str] = {}
     identities: set[str] = set()
     skipped_oversized = 0
     duplicate_drops = 0
+    rendered_length = len(empty_block)
 
     for ranked, phase in ranked_with_phases:
         identity = ranked.candidate.rendered_identity
         if identity in identities:
             duplicate_drops += 1
             continue
-        proposed = [*selected, ranked]
-        if len(render_retrieval_block(method_id, proposed)) > budget:
+        element_length = len(render_candidate_element(ranked))
+        if selected:
+            proposed_length = rendered_length + 1 + element_length
+        else:
+            proposed_length = len(render_retrieval_block(method_id, [ranked]))
+        if proposed_length > budget:
             skipped_oversized += 1
             continue
         selected.append(ranked)
         identities.add(identity)
         phases[identity] = phase
+        rendered_length = proposed_length
 
     rendered = render_retrieval_block(method_id, selected)
+    if len(rendered) != rendered_length:
+        raise AssertionError("Incremental serialization accounting drifted")
     if len(rendered) > budget:
         raise AssertionError("Serialized retrieval block exceeded its budget")
     return PackResult(
