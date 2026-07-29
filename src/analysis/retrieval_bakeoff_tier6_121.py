@@ -4,6 +4,7 @@ import csv
 import hashlib
 import json
 import math
+import os
 import re
 import sqlite3
 import statistics
@@ -22,9 +23,8 @@ SURVEY_ROOT = (
     REPO_ROOT / "experiments" / "surveys" / "retrieval_bakeoff"
 )
 TIER6_ROOT = SURVEY_ROOT / "tier6"
-RUN_ROOT = (
-    TIER6_ROOT / "runs" / "tier6_live_121" / "context_matched_stm"
-)
+RUN_ID = os.environ.get("CDW_TIER6_ANALYSIS_RUN_ID", "tier6_live_121")
+RUN_ROOT = TIER6_ROOT / "runs" / RUN_ID / "context_matched_stm"
 ARM_S_ROOT = (
     REPO_ROOT
     / "experiments"
@@ -41,7 +41,8 @@ ARM_L_ROOT = (
     / "study_007_full_001"
     / "condition_c"
 )
-TIER6_SCORE = TIER6_ROOT / "evaluation" / "blinded_scores.json"
+EVALUATION_DIR = os.environ.get("CDW_TIER6_ANALYSIS_EVALUATION", "evaluation")
+TIER6_SCORE = TIER6_ROOT / EVALUATION_DIR / "blinded_scores.json"
 ARM_S_SCORE = (
     REPO_ROOT
     / "experiments"
@@ -63,10 +64,12 @@ ARM_L_SCORE = (
 SETTINGS_PATH = (
     SURVEY_ROOT / "settings" / "tier6_context_match_settings.json"
 )
-OUTPUT_ROOT = TIER6_ROOT / "analysis_121"
+OUTPUT_ROOT = TIER6_ROOT / os.environ.get(
+    "CDW_TIER6_ANALYSIS_OUTPUT", "analysis_121"
+)
 
-SCORE_COMMIT = "39423b02"
-MAPPING_COMMIT = "35af70a4"
+SCORE_COMMIT = os.environ.get("CDW_TIER6_SCORE_COMMIT", "39423b02")
+MAPPING_COMMIT = os.environ.get("CDW_TIER6_MAPPING_COMMIT", "35af70a4")
 SEQUENCING_AMENDMENT_COMMIT = "c87de99e"
 MECHANISM_ARTIFACT_COMMIT = "a3c80b07"
 
@@ -1022,6 +1025,80 @@ def _report(
     return "\n".join(lines)
 
 
+def _corrected_report(
+    *,
+    seal: dict,
+    context_match: dict,
+    composition: dict,
+    n_order: dict,
+    targeted_rows: list[dict],
+    breadth_rows: list[dict],
+    scores: dict,
+    runtime: dict,
+) -> str:
+    targeted_losses = [
+        question
+        for question in scores["T6_losses_vs_S"]
+        if question != "Q11"
+    ]
+    lines = [
+        "# Tier 6 Corrected 121-Turn Mechanism Evaluation",
+        "",
+        f"**Blinded score commit:** `{SCORE_COMMIT}`  ",
+        f"**Arm-mapping commit:** `{MAPPING_COMMIT}`  ",
+        f"**Run:** `{RUN_ID}`",
+        "",
+        "## Outcome",
+        "",
+        f"The corrected widened-STM arm scored "
+        f"**{scores['T6_Q1_Q13']:.1f}/13** with "
+        f"**Q14 = {scores['T6_Q14']:.1f}**. Study 009 Arm S scored "
+        f"{scores['S_Q1_Q13']:.1f}/13 and Arm L scored "
+        f"{scores['L_Q1_Q13']:.1f}/13. Widening recovered "
+        f"{scores['T6_Q1_Q13'] - scores['S_Q1_Q13']:.1f} points over S "
+        "but remained one point below L.",
+        "",
+        f"The registered character-match gate remained "
+        f"**{context_match['registered_gate_status']}**. The corrected "
+        f"offline/live N-order equivalence gate was **{n_order['status']}**. "
+        f"The run completed {runtime['turn_count']} turns with "
+        f"{runtime['empty_answer_count']} empty answers and "
+        f"{runtime['responses_at_2048_token_budget']} responses at the output "
+        "limit.",
+        "",
+        "## Score Pattern",
+        "",
+        f"Relative to Study 009 S, the corrected arm lost on "
+        f"{', '.join(scores['T6_losses_vs_S']) or 'no questions'} and gained "
+        f"on {', '.join(scores['T6_gains_vs_S']) or 'no questions'}. "
+        f"The targeted non-breadth losses were "
+        f"{', '.join(targeted_losses) or 'none'}.",
+        "",
+        "The result rejects the simple claim that LTM's 12.0 was only a "
+        "consequence of greater delivered character volume: matching that "
+        "volume improved STM from 9.0 to 11.0, but did not reproduce LTM. "
+        "Volume explains part, not all, of the observed advantage. This is "
+        "consistent with relevance and selection policy still contributing.",
+        "",
+        "## Decision",
+        "",
+        "The registered score rule marks the 1,000-turn confirmation as "
+        "eligible because the corrected score is below 12.0. It is not "
+        "launched here: owner authorization explicitly requires reviewing "
+        "this 121-turn result before committing that compute.",
+        "",
+        "## Integrity",
+        "",
+        f"Mechanism seal verification: **{seal['status']}**, "
+        f"{seal['mechanism_file_count']} files, aggregate "
+        f"`{seal['aggregate_sha256']}`. The preserved invalid 6.5 run remains "
+        "diagnostic-only and was neither deleted nor used for the architectural "
+        "conclusion.",
+        "",
+    ]
+    return "\n".join(lines)
+
+
 def generate_analysis(
     output_root: Path = OUTPUT_ROOT,
     *,
@@ -1040,7 +1117,22 @@ def generate_analysis(
     composition, composition_rows, probe_selection_rows = (
         retrieval_composition_analysis()
     )
-    n_order = n_order_contract_analysis()
+    if RUN_ID == "tier6_live_121":
+        n_order = n_order_contract_analysis()
+    else:
+        equivalence = json.loads(
+            (
+                TIER6_ROOT
+                / "equivalence_gate_corrected"
+                / "equivalence_gate.json"
+            ).read_text(encoding="utf-8")
+        )
+        n_order = {
+            "status": equivalence["status"],
+            "source": "equivalence_gate_corrected/equivalence_gate.json",
+            "turns_compared": equivalence["turn_count"],
+            "offline_live_n_order_exact": equivalence["all_turns_exact"],
+        }
     targeted_rows, breadth_rows, origin_rows = fact_delivery_analysis()
     scores, score_rows = score_comparison()
     runtime = runtime_analysis()
@@ -1082,17 +1174,29 @@ def generate_analysis(
     _write_csv(output_root / "score_comparison.csv", score_rows)
     _write_json(output_root / "runtime_summary.json", runtime)
 
-    report = _report(
-        seal=seal,
-        context_match=context_match,
-        composition=composition,
-        n_order=n_order,
-        targeted_rows=targeted_rows,
-        breadth_rows=breadth_rows,
-        origin_rows=origin_rows,
-        scores=scores,
-        runtime=runtime,
-    )
+    if RUN_ID == "tier6_live_121":
+        report = _report(
+            seal=seal,
+            context_match=context_match,
+            composition=composition,
+            n_order=n_order,
+            targeted_rows=targeted_rows,
+            breadth_rows=breadth_rows,
+            origin_rows=origin_rows,
+            scores=scores,
+            runtime=runtime,
+        )
+    else:
+        report = _corrected_report(
+            seal=seal,
+            context_match=context_match,
+            composition=composition,
+            n_order=n_order,
+            targeted_rows=targeted_rows,
+            breadth_rows=breadth_rows,
+            scores=scores,
+            runtime=runtime,
+        )
     report_path = output_root / "tier6_121_mechanism_evaluation.md"
     report_path.write_text(
         report,
@@ -1127,9 +1231,13 @@ def generate_analysis(
         "status": "COMPLETE",
         "classification": (
             "PROTOCOL_INVALID_FOR_ARCHITECTURAL_INFERENCE"
+            if RUN_ID == "tier6_live_121"
+            else "VALID_CORRECTED_121_RESULT"
         ),
         "recommendation": (
             "DO_NOT_RUN_1000_WITH_CURRENT_IMPLEMENTATION"
+            if RUN_ID == "tier6_live_121"
+            else "OWNER_REVIEW_BEFORE_OPTIONAL_1000_TURN_CONFIRMATION"
         ),
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "code_commit": current_commit,
