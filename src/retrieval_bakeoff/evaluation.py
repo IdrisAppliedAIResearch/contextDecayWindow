@@ -3,6 +3,7 @@ from __future__ import annotations
 import hashlib
 import html
 import json
+import math
 from collections import defaultdict
 from fractions import Fraction
 from pathlib import Path
@@ -113,6 +114,10 @@ class HoldoutEvaluator:
         key_bearing_characters = sum(
             len(rendered_elements[index]) for index in key_bearing_indices
         )
+        old_metrics = self.old_fact_metrics(
+            result.query.query_id,
+            matched.keys(),
+        )
         delivered = len(result.rendered_block)
         return {
             "corpus_id": result.corpus_id,
@@ -147,6 +152,7 @@ class HoldoutEvaluator:
             "budget": result.budget,
             "eligible_turn_min": self.eligible_turn_min,
             "eligible_turn_max": self.eligible_turn_max,
+            **old_metrics,
             "query_encode_ms": result.query_encode_ms,
             "rank_ms": result.rank_ms,
             "pack_ms": result.pack_ms,
@@ -157,6 +163,40 @@ class HoldoutEvaluator:
             "provenance_violations": provenance_violations,
             "evaluation_status": (
                 "FAIL_PROVENANCE" if provenance_violations else "PASS"
+            ),
+        }
+
+    def old_fact_metrics(
+        self,
+        query_id: str,
+        matched_fact_ids,
+    ) -> dict:
+        key_row = self.queries.get(query_id)
+        if key_row is None:
+            raise KeyError(f"No locked key row for {query_id}")
+        eligible_count = self.eligible_turn_max - self.eligible_turn_min + 1
+        oldest_boundary = (
+            self.eligible_turn_min + math.ceil(eligible_count / 4) - 1
+        )
+        old_required_fact_ids = [
+            fact_id
+            for fact_id in key_row["required_fact_ids"]
+            if min(int(turn) for turn in self.facts[fact_id]["source_turns"])
+            <= oldest_boundary
+        ]
+        matched = set(matched_fact_ids)
+        old_matched_fact_ids = [
+            fact_id for fact_id in old_required_fact_ids if fact_id in matched
+        ]
+        return {
+            "oldest_quartile_turn_max": oldest_boundary,
+            "old_required_fact_ids": old_required_fact_ids,
+            "old_matched_fact_ids": old_matched_fact_ids,
+            "old_fact_miss_rate": (
+                1.0
+                - len(old_matched_fact_ids) / len(old_required_fact_ids)
+                if old_required_fact_ids
+                else None
             ),
         }
 
