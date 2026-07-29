@@ -1,0 +1,207 @@
+{
+  "status": "LOCKED_BEFORE_REGISTERED_TESTS",
+  "classification": "MEASUREMENT_ONLY",
+  "corpus_id": "lineage_121_preprobe",
+  "eligible_turn_min": 1,
+  "eligible_turn_max": 111,
+  "matching": {
+    "case_sensitive": false,
+    "all_required_terms_must_share_one_serialized_episode": true
+  },
+  "facts": {
+    "f121_structural_service_life": {
+      "required_terms": ["100-year service life"],
+      "source_turns": [12],
+      "source_role": "user",
+      "development_overlap": false
+    },
+    "f121_structural_spherical_bearings": {
+      "required_terms": ["spherical bearings"],
+      "source_turns": [14],
+      "source_role": "user",
+      "development_overlap": false
+    },
+    "f121_structural_dehumidification": {
+      "required_terms": ["dehumidification systems"],
+      "source_turns": [28],
+      "source_role": "user",
+      "development_overlap": false
+    },
+    "f121_structural_wind_tunnel": {
+      "required_terms": ["wind tunnel testing"],
+      "source_turns": [16],
+      "source_role": "user",
+      "development_overlap": false
+    },
+    "f121_structural_orthotropic_deck": {
+      "required_terms": ["orthotropic steel deck"],
+      "source_turns": [18],
+      "source_role": "user",
+      "development_overlap": false
+    },
+    "f121_art_lapis_ultramarine": {
+      "required_terms": ["lapis lazuli-derived ultramarine"],
+      "source_turns": [34],
+      "source_role": "user",
+      "development_overlap": false
+    },
+    "f121_art_intonaco": {
+      "required_terms": ["intonaco preparation"],
+      "source_turns": [37],
+      "source_role": "user",
+      "development_overlap": false
+    },
+    "f121_art_infrared_reflectography": {
+      "required_terms": ["infrared reflectography"],
+      "source_turns": [52],
+      "source_role": "user",
+      "development_overlap": false
+    },
+    "f121_art_sacra_conversazione": {
+      "required_terms": ["sacra conversazione"],
+      "source_turns": [40],
+      "source_role": "user",
+      "development_overlap": false
+    },
+    "f121_art_gold_leaf": {
+      "required_terms": ["gold leaf"],
+      "source_turns": [43],
+      "source_role": "user",
+      "development_overlap": false
+    },
+    "f121_art_xray_radiography": {
+      "required_terms": ["X-ray radiography"],
+      "source_turns": [52],
+      "source_role": "user",
+      "development_overlap": false
+    },
+    "f121_art_date_span": {
+      "required_terms": ["1450", "1510"],
+      "source_turns": [31, 50],
+      "source_role": "user",
+      "development_overlap": false
+    },
+    "f121_monetary_gfc_2008": {
+      "required_terms": ["global financial crisis of 2008"],
+      "source_turns": [64],
+      "source_role": "user",
+      "development_overlap": false
+    },
+    "f121_monetary_near_zero": {
+      "required_terms": ["nominal interest rates approach zero"],
+      "source_turns": [68],
+      "source_role": "user",
+      "development_overlap": false
+    },
+    "f121_monetary_great_moderation": {
+      "required_terms": ["Great Moderation", "1985–2007"],
+      "source_turns": [75],
+      "source_role": "user",
+      "development_overlap": false
+    },
+    "f121_monetary_price_level_target": {
+      "required_terms": ["price level target"],
+      "source_turns": [80],
+      "source_role": "user",
+      "development_overlap": false
+    },
+    "f121_monetary_fiscal_price_level": {
+      "required_terms": ["fiscal theory of the price level"],
+      "source_turns": [83],
+      "source_role": "user",
+      "development_overlap": false
+    },
+    "f121_monetary_open_market_operations": {
+      "required_terms": ["open market operations"],
+      "source_turns": [73],
+      "source_role": "user",
+      "development_overlap": false
+    },
+    "f121_monetary_quantitative_easing": {
+      "required_terms": ["quantitative easing"],
+      "source_turns": [63],
+      "source_role": "user",
+      "development_overlap": false
+    },
+    "f121_monetary_stress_testing": {
+      "required_terms": ["stress testing financial institutions"],
+      "source_turns": [88],
+      "source_role": "user",
+      "development_overlap": false
+    },
+    "f121_marine_zones": {
+      "required_terms": ["mesopelagic", "bathypelagic"],
+      "source_turns": [91],
+      "source_role": "user",
+      "development_overlap": false
+    },
+    "f121_marine_luciferin_luciferase": {
+      "required_terms": ["luciferin-luciferase reaction mechanism"],
+      "source_turns": [96],
+      "source_role": "user",
+      "development_overlap": false
+    },
+    "f121_marine_diel_migration": {
+      "required_terms": ["diel vertical migration"],
+      "source_turns": [97],
+      "source_role": "user",
+      "development_overlap": false
+    },
+    "f121_marine_plankton_nets": {
+      "required_terms": ["plankton net tows"],
+      "source_turns": [98],
+      "source_role": "user",
+      "development_overlap": false
+    },
+    "f121_marine_in_situ_imaging": {
+      "required_terms": ["in situ imaging"],
+      "source_turns": [98],
+      "source_role": "user",
+      "development_overlap": false
+    },
+    "f121_marine_rov": {
+      "required_terms": ["ROV deployment"],
+      "source_turns": [98],
+      "source_role": "user",
+      "development_overlap": false
+    },
+    "f121_marine_oxygen_minimum": {
+      "required_terms": ["oxygen minimum zone"],
+      "source_turns": [95],
+      "source_role": "user",
+      "development_overlap": false
+    },
+    "f121_marine_gelatinous_zooplankton": {
+      "required_terms": ["gelatinous zooplankton"],
+      "source_turns": [99],
+      "source_role": "user",
+      "development_overlap": false
+    }
+  },
+  "queries": [
+    {"query_id": "h121_l01", "query_class": "lookup", "domains": ["structural"], "required_fact_ids": ["f121_structural_service_life"]},
+    {"query_id": "h121_l02", "query_class": "lookup", "domains": ["structural"], "required_fact_ids": ["f121_structural_spherical_bearings"]},
+    {"query_id": "h121_l03", "query_class": "lookup", "domains": ["structural"], "required_fact_ids": ["f121_structural_dehumidification"]},
+    {"query_id": "h121_l04", "query_class": "lookup", "domains": ["art"], "required_fact_ids": ["f121_art_lapis_ultramarine"]},
+    {"query_id": "h121_l05", "query_class": "lookup", "domains": ["art"], "required_fact_ids": ["f121_art_intonaco"]},
+    {"query_id": "h121_l06", "query_class": "lookup", "domains": ["art"], "required_fact_ids": ["f121_art_infrared_reflectography"]},
+    {"query_id": "h121_l07", "query_class": "lookup", "domains": ["monetary"], "required_fact_ids": ["f121_monetary_gfc_2008"]},
+    {"query_id": "h121_l08", "query_class": "lookup", "domains": ["monetary"], "required_fact_ids": ["f121_monetary_near_zero"]},
+    {"query_id": "h121_l09", "query_class": "lookup", "domains": ["monetary"], "required_fact_ids": ["f121_monetary_great_moderation"]},
+    {"query_id": "h121_l10", "query_class": "lookup", "domains": ["marine"], "required_fact_ids": ["f121_marine_zones"]},
+    {"query_id": "h121_l11", "query_class": "lookup", "domains": ["marine"], "required_fact_ids": ["f121_marine_luciferin_luciferase"]},
+    {"query_id": "h121_l12", "query_class": "lookup", "domains": ["marine"], "required_fact_ids": ["f121_marine_diel_migration"]},
+    {"query_id": "h121_c01", "query_class": "chained", "domains": ["structural"], "required_fact_ids": ["f121_structural_service_life", "f121_structural_dehumidification"]},
+    {"query_id": "h121_c02", "query_class": "chained", "domains": ["art"], "required_fact_ids": ["f121_art_lapis_ultramarine", "f121_art_intonaco"]},
+    {"query_id": "h121_c03", "query_class": "chained", "domains": ["monetary"], "required_fact_ids": ["f121_monetary_near_zero", "f121_monetary_great_moderation"]},
+    {"query_id": "h121_c04", "query_class": "chained", "domains": ["marine"], "required_fact_ids": ["f121_marine_diel_migration", "f121_marine_plankton_nets"]},
+    {"query_id": "h121_c05", "query_class": "chained", "domains": ["art", "marine"], "required_fact_ids": ["f121_art_infrared_reflectography", "f121_marine_in_situ_imaging"]},
+    {"query_id": "h121_c06", "query_class": "chained", "domains": ["structural", "monetary"], "required_fact_ids": ["f121_structural_spherical_bearings", "f121_monetary_price_level_target"]},
+    {"query_id": "h121_c07", "query_class": "chained", "domains": ["art", "monetary"], "required_fact_ids": ["f121_art_sacra_conversazione", "f121_monetary_fiscal_price_level"]},
+    {"query_id": "h121_c08", "query_class": "chained", "domains": ["structural", "marine"], "required_fact_ids": ["f121_structural_wind_tunnel", "f121_marine_rov"]},
+    {"query_id": "h121_e01", "query_class": "enumeration", "domains": ["structural", "art", "monetary", "marine"], "required_fact_ids": ["f121_structural_dehumidification", "f121_art_infrared_reflectography", "f121_monetary_open_market_operations", "f121_marine_diel_migration"]},
+    {"query_id": "h121_e02", "query_class": "enumeration", "domains": ["structural", "art", "monetary", "marine"], "required_fact_ids": ["f121_structural_service_life", "f121_art_date_span", "f121_monetary_gfc_2008", "f121_marine_oxygen_minimum"]},
+    {"query_id": "h121_e03", "query_class": "enumeration", "domains": ["structural", "art", "monetary", "marine"], "required_fact_ids": ["f121_structural_orthotropic_deck", "f121_art_gold_leaf", "f121_monetary_quantitative_easing", "f121_marine_gelatinous_zooplankton"]},
+    {"query_id": "h121_e04", "query_class": "enumeration", "domains": ["structural", "art", "monetary", "marine"], "required_fact_ids": ["f121_structural_wind_tunnel", "f121_art_xray_radiography", "f121_monetary_stress_testing", "f121_marine_rov"]}
+  ]
+}
