@@ -33,10 +33,25 @@ SCRIPT_DIGEST = (
 REGISTRATION_ANCHOR = "b60b7084741eb5d30298261076b4bca78abe713a"
 CORPUS_ORDER_ANCHOR = "96cdb776"
 CALIBRATION_PROTOCOL_ANCHOR = "032af39d"
+CORRECTED_PROTOCOL_ANCHOR = "39ba9175"
 ENGINE_PATH = (
     REPO_ROOT / "src" / "memory" / "context_matched_stm.py"
 )
-ABLATION_GATE = SURVEY_ROOT / "tier6" / "ablation_gate.json"
+CORRECTED_SETTINGS_LOCK = (
+    SURVEY_ROOT / "settings" / "tier6_corrected_121_settings_lock.json"
+)
+EQUIVALENCE_GATE = (
+    SURVEY_ROOT / "tier6" / "equivalence_gate_corrected"
+    / "equivalence_gate.json"
+)
+ABLATION_GATE = SURVEY_ROOT / "tier6" / "corrected_ablation_gate.json"
+CORRECTED_RUN_IDS = {
+    "ablation": {
+        "tier6_ablation_corrected_a",
+        "tier6_ablation_corrected_b",
+    },
+    "live": {"tier6_live_121_corrected_001"},
+}
 FORBIDDEN_FRAGMENTS = (
     "answer_key",
     "overlap_matrix",
@@ -114,6 +129,7 @@ def main() -> int:
         "registration_anchor": REGISTRATION_ANCHOR,
         "corpus_order_anchor": CORPUS_ORDER_ANCHOR,
         "calibration_protocol_anchor": CALIBRATION_PROTOCOL_ANCHOR,
+        "corrected_protocol_anchor": CORRECTED_PROTOCOL_ANCHOR,
         "code_commit": _git("rev-parse", "HEAD"),
         "command": [sys.executable, *sys.argv],
         "launcher_pid": os.getpid(),
@@ -126,6 +142,16 @@ def main() -> int:
         "settings_path": str(SETTINGS_PATH.relative_to(REPO_ROOT)),
         "settings_sha256": _sha256(SETTINGS_PATH),
         "settings_code_commit": settings["code_commit"],
+        "corrected_settings_lock": str(
+            CORRECTED_SETTINGS_LOCK.relative_to(REPO_ROOT)
+        ),
+        "corrected_settings_lock_sha256": _sha256(
+            CORRECTED_SETTINGS_LOCK
+        ),
+        "equivalence_gate": str(
+            EQUIVALENCE_GATE.relative_to(REPO_ROOT)
+        ),
+        "equivalence_gate_sha256": _sha256(EQUIVALENCE_GATE),
         "selected_settings": {
             "n_cap": int(selected["n_cap"]),
             "k_threshold": float(selected["k_threshold"]),
@@ -211,6 +237,11 @@ def _assert_ready(args: argparse.Namespace) -> dict:
         raise RuntimeError("Tier 6 requires Python UTF-8 mode")
     if _git("branch", "--show-current") != "retrieval-bakeoff":
         raise RuntimeError("Tier 6 requires retrieval-bakeoff")
+    if args.run_id not in CORRECTED_RUN_IDS[args.phase]:
+        raise RuntimeError(
+            f"Corrected Tier 6 {args.phase} run ID must be one of "
+            f"{sorted(CORRECTED_RUN_IDS[args.phase])}"
+        )
     preloaded_forbidden = [
         name
         for name in sys.modules
@@ -231,6 +262,7 @@ def _assert_ready(args: argparse.Namespace) -> dict:
         REGISTRATION_ANCHOR,
         CORPUS_ORDER_ANCHOR,
         CALIBRATION_PROTOCOL_ANCHOR,
+        CORRECTED_PROTOCOL_ANCHOR,
     ):
         subprocess.run(
             ["git", "merge-base", "--is-ancestor", anchor, "HEAD"],
@@ -248,6 +280,44 @@ def _assert_ready(args: argparse.Namespace) -> dict:
         raise RuntimeError("Tier 6 settings are not locked")
     if settings["selected"]["match_gate_status"] != "PASS":
         raise RuntimeError("Tier 6 calibration match gate did not pass")
+    for path in (CORRECTED_SETTINGS_LOCK, EQUIVALENCE_GATE):
+        if not path.is_file() or not _is_tracked(path):
+            raise RuntimeError(
+                f"Committed corrected Tier 6 gate is required: {path}"
+            )
+    corrected_lock = json.loads(
+        CORRECTED_SETTINGS_LOCK.read_text(encoding="utf-8")
+    )
+    if (
+        corrected_lock.get("status")
+        != "LOCKED_BEFORE_CORRECTED_T6_ABLATION"
+    ):
+        raise RuntimeError("Corrected Tier 6 settings are not locked")
+    if (
+        corrected_lock.get("original_settings_sha256")
+        != _sha256(SETTINGS_PATH)
+    ):
+        raise RuntimeError("Corrected lock does not match original settings")
+    frozen = corrected_lock.get("selected_settings", {})
+    if (
+        int(frozen.get("n_cap", -1))
+        != int(settings["selected"]["n_cap"])
+        or float(frozen.get("k_threshold", -1))
+        != float(settings["selected"]["k_threshold"])
+        or int(frozen.get("payload_budget", -1))
+        != int(settings["payload_budget"])
+    ):
+        raise RuntimeError("Corrected settings changed the calibrated values")
+    equivalence = json.loads(
+        EQUIVALENCE_GATE.read_text(encoding="utf-8")
+    )
+    if equivalence.get("status") != "PASS":
+        raise RuntimeError("Corrected offline/live equivalence gate failed")
+    if (
+        equivalence.get("corrected_settings_lock_sha256")
+        != _sha256(CORRECTED_SETTINGS_LOCK)
+    ):
+        raise RuntimeError("Equivalence gate used another settings lock")
     if script_digest(SCRIPT_PATH.read_text(encoding="utf-8")) != SCRIPT_DIGEST:
         raise RuntimeError("Post-decode Study 009 script hash changed")
     _verify_source_hashes(settings["source_hashes_before"])

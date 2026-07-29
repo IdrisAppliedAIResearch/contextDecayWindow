@@ -10,6 +10,7 @@ import numpy as np
 
 from src.db.retrieval import (
     get_all_episodes_with_embeddings,
+    get_last_retrieval_generations,
     update_retrieval_metadata,
 )
 from src.db.rule_store import get_all_rules
@@ -53,6 +54,13 @@ class ContextMatchedStmResult(StmRetrievalResult):
     retrieval_payload_sha256: str = ""
     n_candidate_count: int = 0
     k_candidate_count: int = 0
+    n_candidate_ids: list[str] = field(default_factory=list)
+    k_candidate_ids: list[str] = field(default_factory=list)
+    delivered_k_only_ids: list[str] = field(default_factory=list)
+    n_k_duplicate_ids: list[str] = field(default_factory=list)
+    n_candidate_last_generations: dict[str, int | None] = field(
+        default_factory=dict
+    )
     skipped_n_ids: list[str] = field(default_factory=list)
     skipped_k_ids: list[str] = field(default_factory=list)
 
@@ -219,6 +227,9 @@ class ContextMatchedStmRetrievalEngine(StmRetrievalEngine):
             for episode_id in k_candidate_ids
             if episode_id in delivered_ids
         ]
+        delivered_k_only_ids = [
+            str(episode["id"]) for episode in packed.stm_episodes
+        ]
         k_scores = {
             episode_id: all_k_scores[episode_id]
             for episode_id in delivered_k_ids
@@ -272,6 +283,18 @@ class ContextMatchedStmRetrievalEngine(StmRetrievalEngine):
             ).hexdigest(),
             n_candidate_count=len(n_candidate_ids),
             k_candidate_count=len(k_candidate_ids),
+            n_candidate_ids=list(n_candidate_ids),
+            k_candidate_ids=list(k_candidate_ids),
+            delivered_k_only_ids=delivered_k_only_ids,
+            n_k_duplicate_ids=[
+                episode_id
+                for episode_id in k_candidate_ids
+                if episode_id in n_candidate_set
+            ],
+            n_candidate_last_generations={
+                episode_id: self._last_generations.get(episode_id)
+                for episode_id in n_candidate_ids
+            },
             skipped_n_ids=list(packed.skipped_n_ids),
             skipped_k_ids=list(packed.skipped_k_ids),
         )
@@ -300,18 +323,42 @@ class ContextMatchedStmRetrievalEngine(StmRetrievalEngine):
         self,
         episodes: list[dict],
     ) -> tuple[list[str], dict[str, float]]:
+        self._last_generations = get_last_retrieval_generations(self.conn)
         scores = {
-            str(episode["id"]): self._compute_decay(
-                episode.get("last_retrieved_at")
+            str(episode["id"]): logical_n_score(
+                self._last_generations.get(str(episode["id"]))
             )
             for episode in episodes
         }
-        episode_ids = sorted(
-            scores,
-            key=lambda episode_id: scores[episode_id],
-            reverse=True,
+        ranked = sorted(
+            episodes,
+            key=lambda episode: logical_n_key(
+                episode,
+                self._last_generations,
+            ),
         )
+        episode_ids = [str(episode["id"]) for episode in ranked]
         return episode_ids[: self.n_cap], scores
+
+
+def logical_n_key(
+    episode: dict,
+    last_generations: dict[str, int],
+) -> tuple[bool, int, int, str]:
+    episode_id = str(episode["id"])
+    generation = last_generations.get(episode_id)
+    return (
+        generation is not None,
+        generation if generation is not None else -1,
+        int(episode["turn_number"]),
+        episode_id,
+    )
+
+
+def logical_n_score(generation: int | None) -> float:
+    if generation is None:
+        return 1.0
+    return 1.0 / (generation + 2.0)
 
 
 def context_match_accounting(result: ContextMatchedStmResult) -> dict:
@@ -321,6 +368,14 @@ def context_match_accounting(result: ContextMatchedStmResult) -> dict:
         "retrieval_payload_sha256": result.retrieval_payload_sha256,
         "n_candidate_count": result.n_candidate_count,
         "k_candidate_count": result.k_candidate_count,
+        "n_candidate_ids": result.n_candidate_ids,
+        "k_candidate_ids": result.k_candidate_ids,
+        "delivered_n_ids": result.n_episode_ids,
+        "delivered_k_only_ids": result.delivered_k_only_ids,
+        "n_k_duplicate_ids": result.n_k_duplicate_ids,
+        "n_candidate_last_generations": (
+            result.n_candidate_last_generations
+        ),
         "n_delivered_count": len(result.n_episode_ids),
         "k_delivered_count": len(result.k_episode_ids),
         "k_only_delivered_count": len(result.retrieved_stm_episodes),
