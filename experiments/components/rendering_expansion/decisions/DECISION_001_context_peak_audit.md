@@ -17,7 +17,8 @@ prompts rather than assumed to share the LTM accounting defect.
 Add a deterministic offline audit that, for every turn in both Study 010 arms:
 
 1. reads the committed `constructed_prompt` artifact;
-2. removes only the runner-appended `\n\nAssistant:` generation cue;
+2. removes only the 12-character runner-appended `\n\nAssistant:` generation
+   cue;
 3. recomputes the registered estimator as `len(prompt) // 4`;
 4. compares the result with the committed `context_sizes.csv` value; and
 5. reports each arm's peak turn, serialized character count, and estimate.
@@ -31,4 +32,3 @@ A complete match establishes that the logged context trajectory was calculated
 from the serialized prompt, not from the undercharged LTM content total. It does
 not establish an exact model-tokenizer count. The LTM budget violation remains
 a separate defect and is not excused by a passing prompt-telemetry audit.
-
