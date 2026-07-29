@@ -6,11 +6,12 @@ import json
 import math
 import re
 import sqlite3
+import xml.etree.ElementTree as ET
 from html import escape
 from pathlib import Path
 
 from src.db.retrieval import get_all_episodes_with_embeddings
-from src.memory.context_builder import render_ltm_block
+from src.memory.context_builder import render_episode_element, render_ltm_block
 from src.memory.distilled_ltm_store import get_distilled_retrieval_rows
 from src.memory.stm_context_builder import render_episode_block
 
@@ -52,6 +53,7 @@ BAKEOFF_RUN = (
 DESIGN_COMMIT = "094cbea2"
 AMENDMENT_COMMIT = "ad74b991"
 EXECUTION_COMMIT = AMENDMENT_COMMIT
+POST_FIX_EXECUTION_COMMIT = "202b1883"
 STUDY_010_TURNS = (999, 1000)
 BAKEOFF_TURN = 115
 
@@ -125,6 +127,230 @@ def generate_pre_fix_artifacts(output_dir: Path) -> dict:
         newline="\n",
     )
     return summary
+
+
+def generate_post_fix_artifacts(output_dir: Path) -> dict:
+    output_dir.mkdir(parents=True, exist_ok=True)
+    inputs = _input_paths()
+    hashes_before = _hash_paths(inputs)
+    pre_fix = json.loads(
+        (
+            REPO_ROOT
+            / "experiments"
+            / "components"
+            / "rendering_expansion"
+            / "artifacts"
+            / "pre_fix"
+            / "summary.json"
+        ).read_text(encoding="utf-8")
+    )
+    pre_blocks = {block["block"]: block for block in pre_fix["blocks"]}
+
+    rows: list[dict] = []
+    blocks: list[dict] = []
+    for turn in STUDY_010_TURNS:
+        selected, logged_ids = _load_study_010_selected(turn)
+        block_name = f"study_010_q{13 if turn == 999 else 14}"
+        content_matches = []
+        for position, candidate in enumerate(selected, 1):
+            element = render_episode_element(candidate)
+            content_matches.append(_compact_content_matches(element, candidate))
+            rows.append(
+                _measurement_row(
+                    block=block_name,
+                    turn=turn,
+                    position=position,
+                    candidate=candidate,
+                    element=element,
+                )
+            )
+        rendered = render_ltm_block(selected)
+        replayed_ids = [str(candidate["id"]) for candidate in selected]
+        blocks.append(
+            _post_fix_block(
+                block_name=block_name,
+                turn=turn,
+                rendered=rendered,
+                selected_ids=replayed_ids,
+                logged_ids=logged_ids,
+                content_matches=content_matches,
+                pre_fix=pre_blocks[block_name],
+            )
+        )
+
+    recent, stm, context_row = _load_bakeoff_selected()
+    selected = [*recent, *stm]
+    content_matches = []
+    for position, candidate in enumerate(selected, 1):
+        element = render_episode_element(candidate)
+        content_matches.append(_compact_content_matches(element, candidate))
+        rows.append(
+            _measurement_row(
+                block="bakeoff_tier6_q4",
+                turn=BAKEOFF_TURN,
+                position=position,
+                candidate=candidate,
+                element=element,
+            )
+        )
+    rendered = "\n\n".join(
+        (
+            render_episode_block("recent_context", recent, "recent"),
+            render_episode_block("retrieved_stm", stm, "stm"),
+        )
+    )
+    blocks.append(
+        _post_fix_block(
+            block_name="bakeoff_tier6_q4",
+            turn=BAKEOFF_TURN,
+            rendered=rendered,
+            selected_ids=[str(candidate["id"]) for candidate in selected],
+            logged_ids=context_row["selected_ids"],
+            content_matches=content_matches,
+            pre_fix=pre_blocks["bakeoff_tier6_q4"],
+        )
+    )
+
+    hashes_after = _hash_paths(inputs)
+    inputs_unchanged = hashes_before == hashes_after
+    status = (
+        "PASS"
+        if inputs_unchanged
+        and all(
+            block["identity_order_match"]
+            and block["source_content_identity"]
+            for block in blocks
+        )
+        else "FAIL"
+    )
+    summary = {
+        "record": "DR-001",
+        "phase": "post_fix",
+        "design_commit": DESIGN_COMMIT,
+        "amendment_commit": AMENDMENT_COMMIT,
+        "implementation_commit": POST_FIX_EXECUTION_COMMIT,
+        "renderer_source_sha256": _sha256(
+            REPO_ROOT / "src" / "memory" / "context_builder.py"
+        ),
+        "stm_renderer_source_sha256": _sha256(
+            REPO_ROOT / "src" / "memory" / "stm_context_builder.py"
+        ),
+        "runtime_provenance": _runtime_provenance(),
+        "g_r2": {
+            "status": status,
+            "inputs_unchanged": inputs_unchanged,
+            "input_file_count": len(inputs),
+            "input_tree_sha256_before": _digest_mapping(hashes_before),
+            "input_tree_sha256_after": _digest_mapping(hashes_after),
+        },
+        "blocks": blocks,
+        "distributions": {
+            block["block"]: _block_distribution(rows, block["block"])
+            for block in blocks
+        },
+    }
+    _write_csv(output_dir / "expansion_rows.csv", rows)
+    _write_json(output_dir / "summary.json", summary)
+    (output_dir / "gate_report.md").write_text(
+        _post_fix_gate_markdown(summary),
+        encoding="utf-8",
+        newline="\n",
+    )
+    return summary
+
+
+def _load_study_010_selected(turn: int) -> tuple[list[dict], list[str]]:
+    connection = _read_only_connection(STUDY_010_RUN / "study.db")
+    try:
+        candidates = get_distilled_retrieval_rows(connection)
+    finally:
+        connection.close()
+    by_distilled_id = {
+        str(candidate["distilled_id"]): candidate for candidate in candidates
+    }
+    historical = [
+        row
+        for row in _read_csv(
+            STUDY_010_RUN / "logs" / "ltm_context_episodes.csv"
+        )
+        if int(row["turn"]) == turn
+    ]
+    selected = []
+    for row in historical:
+        candidate = dict(by_distilled_id[row["distilled_id"]])
+        candidate.update(
+            similarity=float(row["similarity"]),
+            provenance=row["provenance"],
+            render_mode=row["render_mode"],
+        )
+        selected.append(candidate)
+    return selected, [row["episode_id"] for row in historical]
+
+
+def _load_bakeoff_selected() -> tuple[list[dict], list[dict], dict]:
+    context_row = next(
+        json.loads(line)
+        for line in (
+            BAKEOFF_RUN / "logs" / "context_match.jsonl"
+        ).read_text(encoding="utf-8").splitlines()
+        if int(json.loads(line)["turn_number"]) == BAKEOFF_TURN
+    )
+    connection = _read_only_connection(BAKEOFF_RUN / "study.db")
+    try:
+        episodes = get_all_episodes_with_embeddings(connection)
+    finally:
+        connection.close()
+    by_id = {str(episode["id"]): episode for episode in episodes}
+    recent = [
+        by_id[episode_id] for episode_id in context_row["delivered_n_ids"]
+    ]
+    stm = [
+        {**by_id[episode_id], "similarity": 0.0}
+        for episode_id in context_row["delivered_k_only_ids"]
+    ]
+    return recent, stm, context_row
+
+
+def _post_fix_block(
+    *,
+    block_name: str,
+    turn: int,
+    rendered: str,
+    selected_ids: list[str],
+    logged_ids: list[str],
+    content_matches: list[bool],
+    pre_fix: dict,
+) -> dict:
+    pre_chars = int(pre_fix["actual_serialized_chars"])
+    post_chars = len(rendered)
+    return {
+        "block": block_name,
+        "turn": turn,
+        "episode_count": len(selected_ids),
+        "budget_chars": int(pre_fix["budget_chars"]),
+        "pre_fix_serialized_chars": pre_chars,
+        "post_fix_serialized_chars": post_chars,
+        "reduction_chars": pre_chars - post_chars,
+        "reduction_fraction": round((pre_chars - post_chars) / pre_chars, 6),
+        "post_fix_sha256": _text_sha256(rendered),
+        "identity_order_match": selected_ids == logged_ids,
+        "source_content_identity": all(content_matches),
+        "historical_set_fits_budget": post_chars <= int(pre_fix["budget_chars"]),
+    }
+
+
+def _compact_content_matches(element: str, candidate: dict) -> bool:
+    parsed = ET.fromstring(element)
+    return (
+        parsed.tag == "episode"
+        and set(parsed.attrib) == {"turn"}
+        and parsed.attrib["turn"] == str(candidate.get("turn_number", ""))
+        and [child.tag for child in parsed] == ["user", "assistant"]
+        and (parsed.findtext("user") or "")
+        == str(candidate.get("user_message") or "")
+        and (parsed.findtext("assistant") or "")
+        == str(candidate.get("assistant_message") or "")
+    )
 
 
 def _study_010_measurements() -> tuple[list[dict], list[dict]]:
@@ -529,6 +755,49 @@ def _gate_markdown(summary: dict) -> str:
             "",
             "Per-episode rows and distribution summaries are in "
             "`expansion_rows.csv` and `summary.json`.",
+            "",
+        ]
+    )
+    return "\n".join(lines)
+
+
+def _post_fix_gate_markdown(summary: dict) -> str:
+    lines = [
+        "# DR-001 Post-Fix Replay and Expansion Measurement",
+        "",
+        f"**Design commit:** `{summary['design_commit']}`  ",
+        f"**Amendment commit:** `{summary['amendment_commit']}`  ",
+        f"**Implementation commit:** `{summary['implementation_commit']}`  ",
+        f"**G-R2:** **{summary['g_r2']['status']}**",
+        "",
+        "No inference call was made. Immutable inputs were unchanged. Every "
+        "compact element parsed back to the original user and assistant text.",
+        "",
+        "| Block | Episodes | Pre-fix chars | Post-fix chars | Reduction | "
+        "Historical set fits budget | Identity/content |",
+        "|---|---:|---:|---:|---:|---|---|",
+    ]
+    for block in summary["blocks"]:
+        lines.append(
+            "| {block} | {episode_count} | {pre_fix_serialized_chars} | "
+            "{post_fix_serialized_chars} | {reduction_chars} | {fits} | "
+            "{status} |".format(
+                **block,
+                fits="YES" if block["historical_set_fits_budget"] else "NO",
+                status=(
+                    "PASS"
+                    if block["identity_order_match"]
+                    and block["source_content_identity"]
+                    else "FAIL"
+                ),
+            )
+        )
+    lines.extend(
+        [
+            "",
+            "G-R2 is an identity-preserving serializer gate. Production "
+            "re-selection under exact cost is a separate downstream "
+            "re-derivation.",
             "",
         ]
     )
