@@ -1,0 +1,47 @@
+{
+  "rater_id": "adjudicator",
+  "items": [
+    {
+      "id": "cal_no_answer",
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "The response contains only an unterminated reasoning block and no scoreable final content, so it is NO_ANSWER and must score 0."
+    },
+    {
+      "id": "cal_truncated",
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "The response gives complete specifics for only Civil and Art, leaves Monetary incomplete, and omits Marine, so it does not meet either credit threshold."
+    },
+    {
+      "id": "cal_hedged",
+      "primary": 0.5,
+      "strict": 0.0,
+      "rationale": "Material X appears in the response, supporting primary half credit, but it is offered as an unresolved alternative to Material Y and therefore receives no strict credit."
+    },
+    {
+      "id": "cal_q11_partial",
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "The response states that 10 of 17 required items are correct; 10/17 is below the at-least-80% threshold."
+    },
+    {
+      "id": "cal_q14_one_lapse",
+      "primary": 0.5,
+      "strict": 0.5,
+      "rationale": "All four domains are named, and exactly one domain, Marine, lacks its required specific, which is the registered half-credit case."
+    },
+    {
+      "id": "cal_complete",
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Both required facts, Alpha and 42, are explicitly and unambiguously present."
+    },
+    {
+      "id": "cal_wrong",
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Neither required fact is present; Delta and 99 do not match Alpha and 42."
+    }
+  ]
+}

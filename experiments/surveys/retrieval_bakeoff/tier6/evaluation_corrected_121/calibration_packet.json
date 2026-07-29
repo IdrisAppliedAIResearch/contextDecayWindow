@@ -1,0 +1,50 @@
+{
+  "items": [
+    {
+      "criterion": "Both named facts required for 1.0; one earns 0.5.",
+      "id": "cal_no_answer",
+      "response": "<think>The first fact is Alpha and the second is 42. I should explain both",
+      "scoring_reference": "The two required facts are Alpha and 42."
+    },
+    {
+      "criterion": "Four domain hits required for 1.0; one lapse earns 0.5.",
+      "id": "cal_truncated",
+      "response": "Civil: Alpha 10. Art: Beta 20. Monetary: Gamma",
+      "scoring_reference": "The four domain specifics are Civil Alpha 10, Art Beta 20, Monetary Gamma 30, and Marine Delta 40."
+    },
+    {
+      "criterion": "Name the exact material; one correct material earns 0.5.",
+      "id": "cal_hedged",
+      "response": "It might have been Material X, though Material Y is also possible.",
+      "scoring_reference": "The exact correct material is Material X."
+    },
+    {
+      "criterion": "At least 80% of 17 required items with correct attribution earns 1.0; otherwise 0.",
+      "id": "cal_q11_partial",
+      "response": "Names all four domains and correctly supplies 10 of the 17 required items.",
+      "scoring_reference": "The response itself states the correctly attributed atomic-item count; apply the 80% threshold to a 17-item denominator."
+    },
+    {
+      "criterion": "Four domain hits earn 1.0; all four named with exactly one missing specific earns 0.5.",
+      "id": "cal_q14_one_lapse",
+      "response": "Civil: Alpha 10. Art: Beta 20. Monetary: Gamma 30. Marine biology was discussed.",
+      "scoring_reference": "The four domain specifics are Civil Alpha 10, Art Beta 20, Monetary Gamma 30, and Marine Delta 40."
+    },
+    {
+      "criterion": "Both named facts required for 1.0; one earns 0.5.",
+      "id": "cal_complete",
+      "response": "The two facts are Alpha and 42.",
+      "scoring_reference": "The two required facts are Alpha and 42."
+    },
+    {
+      "criterion": "Both named facts required for 1.0; one earns 0.5.",
+      "id": "cal_wrong",
+      "response": "The two facts are Delta and 99.",
+      "scoring_reference": "The two required facts are Alpha and 42."
+    }
+  ],
+  "metadata": {
+    "expected_scores_withheld": true,
+    "synthetic": true
+  }
+}

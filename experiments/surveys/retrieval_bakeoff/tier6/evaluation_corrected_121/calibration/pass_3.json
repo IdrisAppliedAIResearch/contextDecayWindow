@@ -1,0 +1,47 @@
+{
+  "rater_id": "pass_3",
+  "items": [
+    {
+      "id": "cal_no_answer",
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "The response contains only an unclosed reasoning block and no scoreable final content, so it is NO_ANSWER and must score 0."
+    },
+    {
+      "id": "cal_truncated",
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Civil and art are complete, but monetary lacks its required value and marine is omitted; two domain specifics are missing, so neither the full-credit nor one-lapse threshold is met."
+    },
+    {
+      "id": "cal_hedged",
+      "primary": 0.5,
+      "strict": 0.0,
+      "rationale": "Material X is named, so the primary criterion earns one-correct-material half credit; because it is left unresolved against Material Y, strict scoring excludes it and earns 0."
+    },
+    {
+      "id": "cal_q11_partial",
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Ten of 17 correctly attributed items is 58.8%, below the required 80% threshold."
+    },
+    {
+      "id": "cal_q14_one_lapse",
+      "primary": 0.5,
+      "strict": 0.5,
+      "rationale": "All four domains are named and exactly one, marine, lacks its required specific, matching the one-lapse half-credit condition."
+    },
+    {
+      "id": "cal_complete",
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Both required facts, Alpha and 42, appear unambiguously in scoreable final content."
+    },
+    {
+      "id": "cal_wrong",
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Neither required fact appears; Delta and 99 do not match Alpha and 42."
+    }
+  ]
+}
