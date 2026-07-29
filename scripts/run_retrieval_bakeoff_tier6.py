@@ -106,6 +106,10 @@ def main() -> int:
     assert_server(server_props)
 
     server_pid = _server_pid()
+    server_binary = Path(
+        os.environ["CDW_INFERENCE_SERVER_BINARY"]
+    ).resolve()
+    server_command = os.environ["CDW_INFERENCE_SERVER_COMMAND"]
     model_path = Path(server_props["model_path"]).resolve()
     if not model_path.is_file():
         raise FileNotFoundError(f"Server model does not exist: {model_path}")
@@ -134,6 +138,9 @@ def main() -> int:
         "command": [sys.executable, *sys.argv],
         "launcher_pid": os.getpid(),
         "server_pid": server_pid,
+        "server_binary": str(server_binary),
+        "server_binary_sha256": _sha256(server_binary),
+        "server_command": server_command,
         "server_url": server_url,
         "server_build_hash": server_props["build_info"],
         "server_props": server_props,
@@ -327,6 +334,16 @@ def _assert_ready(args: argparse.Namespace) -> dict:
         raise EnvironmentError("CDW_EMBEDDING_MODEL_PATH is required")
     if _sha256(Path(embedding_path)) != settings["embedding_model_sha256"]:
         raise RuntimeError("Embedding model differs from calibration")
+    server_binary = os.environ.get("CDW_INFERENCE_SERVER_BINARY")
+    server_command = os.environ.get("CDW_INFERENCE_SERVER_COMMAND")
+    if not server_binary or not Path(server_binary).is_file():
+        raise EnvironmentError(
+            "CDW_INFERENCE_SERVER_BINARY must name the live server binary"
+        )
+    if not server_command:
+        raise EnvironmentError(
+            "CDW_INFERENCE_SERVER_COMMAND is required in every run header"
+        )
     if args.phase == "live":
         if not ABLATION_GATE.is_file() or not _is_tracked(ABLATION_GATE):
             raise RuntimeError("Committed Tier 6 ablation gate is required")
