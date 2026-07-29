@@ -33,7 +33,11 @@
   bundle while LTM selected it. The bundle was planted at turn 55, 60 turns
   before Q4. It ranked 27th within N=32, but only 15 N episodes fit the payload;
   K cosine was 0.166 below 0.48. This was N-first packing exclusion.
-- Best-supported verdict: LTM is a primacy mechanism; no other function has
-  beaten matched raw volume. Next study should test a small, always-rendered
-  persistent-entity fact set with update replacement and no inference calls.
+- Best-supported observed verdict: LTM's only edge over matched raw volume is
+  keeping Q4's older bundle renderable under the current renderer.
+- A known structural serialization-expansion risk is a causal null for that
+  edge; its Q4 effect is not yet measured.
+  Repair and identity-preserving replay must precede a pre-committed offline
+  packing reanalysis. A pinned persistent-entity tier is live only if Q4
+  remains excluded; otherwise pursue the implicated budget/packing fix.
 - Enumeration remains a separate shared failure.
