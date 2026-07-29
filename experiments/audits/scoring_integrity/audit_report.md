@@ -4,6 +4,10 @@
 **Scope:** 17 arms, 222 scored items, Studies 001-009  
 **Study 010:** not read, written, hashed, contacted, or reconfigured
 
+Study 010's exploratory 21.5/23 and 16.5/23 scores are outside this audit. They
+must not be compared directly with the corrected Studies 001-009 series without
+an explicit unaudited-results note.
+
 ## Executive Finding
 
 The triggering Study 002 C Q11 score was not an isolated one-point error.
@@ -30,6 +34,12 @@ and margins change.
 - H5 disagreement was **0/4**.
 - Control-sample disagreement was **11.54%**, below the pre-registered full-rescore
   threshold of **22.97%**; escalation did not fire.
+
+The residual-error figure is an extrapolation, not a measured count. The
+control sample contained 3 disagreements in 26 items. Applying 11.54% to the
+143 unreviewed items yields 16.5 expected residual errors, reported informally
+as "about 20." Sampling uncertainty remains; no 16.5- or 20-item set was
+observed.
 
 The author amended the draft to use clean-context AI subagents as adjudicators.
 These are not human ratings. The audit preserves the anchoring controls but cannot
@@ -59,6 +69,8 @@ claim human adjudication.
 
 The Study 002 README displayed A as 8.5 while its committed score sheet sums to
 8.0; the audit uses item-level committed scores and records the discrepancy.
+This is the concrete failure Protocol R11 now prevents: cross-study totals must
+cite artifact SHAs and be recomputed from the authoritative item-level record.
 
 ## Q11/Q14 Guidance
 

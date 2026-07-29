@@ -113,6 +113,9 @@ registered probe answers.
 Three clean-context blind rating passes completed the standing calibration
 gate. Six strict-score disagreements were independently adjudicated before
 the mapping was opened. The score artifact was committed at `32ffed4a`.
+Study 010 was outside the 2026-07-26 scoring-integrity audit; these exploratory
+scores are unaudited and are not directly comparable to the corrected
+Studies 001-009 series.
 
 | Arm | Interim / 9 | Terminal / 14 | All probes / 23 |
 |---|---:|---:|---:|
@@ -120,7 +123,8 @@ the mapping was opened. The score artifact was committed at `32ffed4a`.
 | S | 4.5 | 12.0 | 16.5 |
 
 L's 2.0-point terminal advantage clears the registered 1.5-point Bar 1
-threshold. The post-stop exploratory consequence is **RETAIN LTM**.
+threshold numerically. The original post-stop `RETAIN LTM` consequence is not
+a compliant architecture verdict because Arm L exceeded its LTM budget.
 
 The gap is entirely breadth. Both arms scored 12.0/12.0 on terminal targeted
 questions. L answered both breadth probes perfectly; S scored zero on both.
@@ -199,11 +203,13 @@ it received. Exact-cost replay selects 69/71 episodes at 31,993/31,796
 characters, but no inference was run on those compliant selections. Study 010
 therefore does not establish whether breadth survives exact 32k charging.
 
-*Withdrawn Figure 4. Panel A remains descriptive: L delivered 12/12 required
+![Corrected breadth delivery and budget violation](figures/figure_04_breadth_delivery_and_budget.png)
+
+*Corrected Figure 4. Panel A remains descriptive: L delivered 12/12 required
 breadth pairs at both probes, versus 2/12 and 1/12 for S. Panel B is
-invalidated. Its 31,991/31,847 values undercharged the actual
-53,726/53,839-character blocks, and the 10x projection mixed non-equivalent
-quantities. Sources:
+replaced with the actual 53,726/53,839-character blocks and their 32k budget
+overruns. The former 10x projection is withdrawn because it mixed
+non-equivalent quantities. Sources:
 `evaluation/fact_delivery_matrix.csv`, `ERRATA.md`, and
 `experiments/components/rendering_expansion/`.*
 
