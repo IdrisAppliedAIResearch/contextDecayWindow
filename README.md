@@ -35,11 +35,12 @@ Full reports live under `experiments/study_NNN/`.
 
 ## Retrieval Bakeoff
 
-The registered exploratory retrieval bakeoff is complete through its corrected
-121-turn live test. At the clean same-seed comparison, plain STM scored 9.0/13,
-character-matched widened STM scored 11.0/13, and LTM scored 12.0/13. Delivery
-volume explained two points of LTM's three-point advantage, but not all of it.
-The optional 1,000-turn confirmation was held for owner review.
+The registered exploratory retrieval bakeoff is a negative result on the
+architectural pivot. The best 32k raw-store retrieval surfaced 8/17 Q11 facts;
+explicit graphs did not advance; oracle routing added only 6.09%. Delivered
+volume did help: same-seed plain STM scored 9.0/13, widened STM scored 11.0/13
+with 13/17 Q11 facts, and LTM scored 12.0/13. The one-point rubric gap is one
+binary item wide. No 1,000-turn run is authorized.
 
 See `experiments/surveys/retrieval_bakeoff/retrieval_bakeoff_report.md`.
 
