@@ -92,4 +92,4 @@ The full 16k-64k frontier and selected identities are committed in
 - [x] Post-fix distributions.
 - [x] Budget, cap, floor, packing, and containment re-derivation.
 - [x] `README.md`, `AGENTS.md`, `ERRATA.md`, and memory update.
-- [ ] Independent correctness-fix PR.
+- [x] Independent correctness-fix PR: #23.
