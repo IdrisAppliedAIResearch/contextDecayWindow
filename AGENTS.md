@@ -36,9 +36,11 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **Scoring integrity audit (2026-07-26).** Re-scored 222 items across 001-009 after a truncated Study 002 reasoning block had been credited as complete. Nineteen scores changed; Study 002 C fell 13.0 to 8.5 and Study 001 lost VALIDATED. Corrected arc: 8.5, 11.5, 6.5, 11.0, 9.0, 12.0, 12.0. See `ERRATA.md`.
 
-**Retrieval bakeoff (2026-07-29).** MIXED. Widened STM delivered 6/6 formation-blind facts, used 5. S/W/L: 9/11/12; Q4 is gap. Turn-55 ranked N=27/32 but only 15 fit; K=.166<.48. LTM's observed edge is primacy under the current renderer; test the rendering null before a pinned tier. No other function beats matched raw volume. T6 6.5 invalid; no 1,000-turn run.
+**Retrieval bakeoff (2026-07-29).** MIXED. Widened STM delivered 6/6 formation-blind facts, used 5. S/W/L: 9/11/12; Q4 is gap. Turn-55 ranked N=27/32; corrected K=.120<.48. Compact rendering still excludes it through 64k. LTM's observed edge is primacy under N-first packing. No other function beats matched raw volume. T6 6.5 invalid; no 1,000-turn run.
 
-**DR-001 rendering fix (2026-07-29).** PASS. G-R1 reproduced Q13/Q14 exactly and found actual LTM blocks were 53,726/53,839 chars, not charged 31,991/31,847. Compact tags preserve identity/order/content and reduce them to 37,619/37,545. Exact block cost is now authoritative. B_ltm=32k, N=32, k_min=1, and containment retained. AS-001 decides Q4 packing.
+**DR-001 rendering fix (2026-07-29).** PASS. G-R1 reproduced Q13/Q14 exactly and found actual LTM blocks were 53,726/53,839 chars, not charged 31,991/31,847. Compact tags preserve identity/order/content and reduce them to 37,619/37,545. Exact block cost is now authoritative. B_ltm=32k, N=32, k_min=1, and containment retained.
+
+**AS-001 Q4 packing (2026-07-29).** Branch D. Compact N-first packing fits 9/32 candidates at 32k and 16/32 at 64k; rank-27 turn 55 never enters. Historical 15/59,708 replayed exactly. Q4 is a late-rank packing exclusion, not tag expansion; primacy remains live. Cosine corrected .1661->.1204, still below K=.48. The sealed DB was never committed; logs reconstruct the inputs.
 
 ## 3. Failure Pattern
 

@@ -42,3 +42,27 @@ to 37,619 and 37,545 characters, still above 32,000; production re-selection at
 the locked budget admits 69 and 71 episodes. See
 `experiments/components/rendering_expansion/`.
 
+## Retrieval Bakeoff Q4 Cosine and Seal Provenance (2026-07-29)
+
+**Headline change:** the published turn-55/Q4-query cosine changes from
+0.16612689197063446 to 0.12042197585105896.
+
+AS-001 reconstructed the turn-55 episode from the committed turn log. Its
+embedding is byte-identical to the original local database vector, and the
+exact committed turn-115 query yields 0.12042197585105896. The old value has no
+committed generating code. Both values remain below the registered K threshold
+of 0.48, so K-ineligibility, scores, and the Q4 exclusion verdict do not change.
+
+The audit also found that the corrected Tier 6 mechanism seal lists `study.db`,
+but `*.db` is ignored and that file was never committed or placed in Git LFS.
+The seal was computed over mixed LF/CRLF working-tree representations. All 264
+tracked mechanism files match their seal entries under exact canonical LF or
+deterministic CRLF materialization, with no content mismatch; the missing
+database means the historical seal cannot establish a complete committed
+265-file mechanism tree.
+
+AS-001 does not use the ignored database. It reconstructs candidate identity,
+order, topic, and source text from committed logs, reproduces the historical
+15-episode/59,708-character payload and SHA-256 exactly, and records the seal
+limitation. See `experiments/components/q4_packing/`.
+
