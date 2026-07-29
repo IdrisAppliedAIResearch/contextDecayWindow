@@ -1,0 +1,22 @@
+{
+  "registered_calibration_semantics": "unretrieved first, then least-recently retrieved generation",
+  "calibration_order": [
+    "never",
+    "old",
+    "new"
+  ],
+  "production_order": [
+    "never",
+    "new",
+    "old"
+  ],
+  "production_decay_scores": {
+    "old": 0.3678794408955327,
+    "new": 0.9048374171562565,
+    "never": 1.0
+  },
+  "orders_match": false,
+  "finding": "DIVERGENCE_PRODUCTION_REINFORCES_RECENT_RETRIEVAL",
+  "calibrator_source_sha256": "221e0d0a687b65d2f34bb4c99e637bccfde909e0ee3f49b4974065c60ed90d51",
+  "engine_source_sha256": "68a0c9578c8355dc6dd4bd4834c6d00e8b90430cbc6251f96eb1a16a3bcee0ac"
+}

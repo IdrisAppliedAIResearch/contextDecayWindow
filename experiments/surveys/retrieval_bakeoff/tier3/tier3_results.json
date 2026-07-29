@@ -1,0 +1,494 @@
+{
+  "evidence_class": "registered",
+  "query_set": "holdout",
+  "status": "COMPLETE",
+  "analysis": {
+    "T3.1_per_class_winners": {
+      "lookup": {
+        "method_id": "M3",
+        "fact_recall_at_budget": 0.9583333333333333,
+        "precision_proxy": 0.0839314178929572,
+        "latency_ms": 2.09105833346257
+      },
+      "chained": {
+        "method_id": "M3",
+        "fact_recall_at_budget": 0.78125,
+        "precision_proxy": 0.1438717242193353,
+        "latency_ms": 2.1159500065550674
+      },
+      "enumeration": {
+        "method_id": "M5_span",
+        "fact_recall_at_budget": 0.6458333333333334,
+        "precision_proxy": 0.051462401660461614,
+        "latency_ms": 224.70236249500886
+      }
+    },
+    "T3.2_oracle_router": {
+      "selected_method_by_class": {
+        "lookup": "M3",
+        "chained": "M3",
+        "enumeration": "M5_span"
+      },
+      "oracle_macro_query_recall": 0.8472222222222222,
+      "single_best_method": "M3",
+      "single_best_macro_query_recall": 0.7986111111111112,
+      "relative_gain": 0.060869565217391224,
+      "gain_at_least_10_percent": false,
+      "interpretation": "do_not_build_routing"
+    },
+    "T3.3_classifier": {
+      "accuracy": 0.8333333333333334,
+      "correct": 40,
+      "total": 48,
+      "confusion_matrix_actual_by_predicted": {
+        "lookup": {
+          "lookup": 24,
+          "chained": 0,
+          "enumeration": 0
+        },
+        "chained": {
+          "lookup": 5,
+          "chained": 9,
+          "enumeration": 2
+        },
+        "enumeration": {
+          "lookup": 0,
+          "chained": 1,
+          "enumeration": 7
+        }
+      },
+      "predictions": [
+        {
+          "corpus_id": "c1000_l",
+          "query_id": "h1000_c01",
+          "actual": "chained",
+          "predicted": "chained",
+          "correct": true
+        },
+        {
+          "corpus_id": "c1000_l",
+          "query_id": "h1000_c02",
+          "actual": "chained",
+          "predicted": "chained",
+          "correct": true
+        },
+        {
+          "corpus_id": "c1000_l",
+          "query_id": "h1000_c03",
+          "actual": "chained",
+          "predicted": "chained",
+          "correct": true
+        },
+        {
+          "corpus_id": "c1000_l",
+          "query_id": "h1000_c04",
+          "actual": "chained",
+          "predicted": "chained",
+          "correct": true
+        },
+        {
+          "corpus_id": "c1000_l",
+          "query_id": "h1000_c05",
+          "actual": "chained",
+          "predicted": "chained",
+          "correct": true
+        },
+        {
+          "corpus_id": "c1000_l",
+          "query_id": "h1000_c06",
+          "actual": "chained",
+          "predicted": "chained",
+          "correct": true
+        },
+        {
+          "corpus_id": "c1000_l",
+          "query_id": "h1000_c07",
+          "actual": "chained",
+          "predicted": "enumeration",
+          "correct": false
+        },
+        {
+          "corpus_id": "c1000_l",
+          "query_id": "h1000_c08",
+          "actual": "chained",
+          "predicted": "enumeration",
+          "correct": false
+        },
+        {
+          "corpus_id": "c1000_l",
+          "query_id": "h1000_e01",
+          "actual": "enumeration",
+          "predicted": "enumeration",
+          "correct": true
+        },
+        {
+          "corpus_id": "c1000_l",
+          "query_id": "h1000_e02",
+          "actual": "enumeration",
+          "predicted": "enumeration",
+          "correct": true
+        },
+        {
+          "corpus_id": "c1000_l",
+          "query_id": "h1000_e03",
+          "actual": "enumeration",
+          "predicted": "enumeration",
+          "correct": true
+        },
+        {
+          "corpus_id": "c1000_l",
+          "query_id": "h1000_e04",
+          "actual": "enumeration",
+          "predicted": "enumeration",
+          "correct": true
+        },
+        {
+          "corpus_id": "c1000_l",
+          "query_id": "h1000_l01",
+          "actual": "lookup",
+          "predicted": "lookup",
+          "correct": true
+        },
+        {
+          "corpus_id": "c1000_l",
+          "query_id": "h1000_l02",
+          "actual": "lookup",
+          "predicted": "lookup",
+          "correct": true
+        },
+        {
+          "corpus_id": "c1000_l",
+          "query_id": "h1000_l03",
+          "actual": "lookup",
+          "predicted": "lookup",
+          "correct": true
+        },
+        {
+          "corpus_id": "c1000_l",
+          "query_id": "h1000_l04",
+          "actual": "lookup",
+          "predicted": "lookup",
+          "correct": true
+        },
+        {
+          "corpus_id": "c1000_l",
+          "query_id": "h1000_l05",
+          "actual": "lookup",
+          "predicted": "lookup",
+          "correct": true
+        },
+        {
+          "corpus_id": "c1000_l",
+          "query_id": "h1000_l06",
+          "actual": "lookup",
+          "predicted": "lookup",
+          "correct": true
+        },
+        {
+          "corpus_id": "c1000_l",
+          "query_id": "h1000_l07",
+          "actual": "lookup",
+          "predicted": "lookup",
+          "correct": true
+        },
+        {
+          "corpus_id": "c1000_l",
+          "query_id": "h1000_l08",
+          "actual": "lookup",
+          "predicted": "lookup",
+          "correct": true
+        },
+        {
+          "corpus_id": "c1000_l",
+          "query_id": "h1000_l09",
+          "actual": "lookup",
+          "predicted": "lookup",
+          "correct": true
+        },
+        {
+          "corpus_id": "c1000_l",
+          "query_id": "h1000_l10",
+          "actual": "lookup",
+          "predicted": "lookup",
+          "correct": true
+        },
+        {
+          "corpus_id": "c1000_l",
+          "query_id": "h1000_l11",
+          "actual": "lookup",
+          "predicted": "lookup",
+          "correct": true
+        },
+        {
+          "corpus_id": "c1000_l",
+          "query_id": "h1000_l12",
+          "actual": "lookup",
+          "predicted": "lookup",
+          "correct": true
+        },
+        {
+          "corpus_id": "c121_l",
+          "query_id": "h121_c01",
+          "actual": "chained",
+          "predicted": "lookup",
+          "correct": false
+        },
+        {
+          "corpus_id": "c121_l",
+          "query_id": "h121_c02",
+          "actual": "chained",
+          "predicted": "chained",
+          "correct": true
+        },
+        {
+          "corpus_id": "c121_l",
+          "query_id": "h121_c03",
+          "actual": "chained",
+          "predicted": "chained",
+          "correct": true
+        },
+        {
+          "corpus_id": "c121_l",
+          "query_id": "h121_c04",
+          "actual": "chained",
+          "predicted": "chained",
+          "correct": true
+        },
+        {
+          "corpus_id": "c121_l",
+          "query_id": "h121_c05",
+          "actual": "chained",
+          "predicted": "lookup",
+          "correct": false
+        },
+        {
+          "corpus_id": "c121_l",
+          "query_id": "h121_c06",
+          "actual": "chained",
+          "predicted": "lookup",
+          "correct": false
+        },
+        {
+          "corpus_id": "c121_l",
+          "query_id": "h121_c07",
+          "actual": "chained",
+          "predicted": "lookup",
+          "correct": false
+        },
+        {
+          "corpus_id": "c121_l",
+          "query_id": "h121_c08",
+          "actual": "chained",
+          "predicted": "lookup",
+          "correct": false
+        },
+        {
+          "corpus_id": "c121_l",
+          "query_id": "h121_e01",
+          "actual": "enumeration",
+          "predicted": "enumeration",
+          "correct": true
+        },
+        {
+          "corpus_id": "c121_l",
+          "query_id": "h121_e02",
+          "actual": "enumeration",
+          "predicted": "enumeration",
+          "correct": true
+        },
+        {
+          "corpus_id": "c121_l",
+          "query_id": "h121_e03",
+          "actual": "enumeration",
+          "predicted": "chained",
+          "correct": false
+        },
+        {
+          "corpus_id": "c121_l",
+          "query_id": "h121_e04",
+          "actual": "enumeration",
+          "predicted": "enumeration",
+          "correct": true
+        },
+        {
+          "corpus_id": "c121_l",
+          "query_id": "h121_l01",
+          "actual": "lookup",
+          "predicted": "lookup",
+          "correct": true
+        },
+        {
+          "corpus_id": "c121_l",
+          "query_id": "h121_l02",
+          "actual": "lookup",
+          "predicted": "lookup",
+          "correct": true
+        },
+        {
+          "corpus_id": "c121_l",
+          "query_id": "h121_l03",
+          "actual": "lookup",
+          "predicted": "lookup",
+          "correct": true
+        },
+        {
+          "corpus_id": "c121_l",
+          "query_id": "h121_l04",
+          "actual": "lookup",
+          "predicted": "lookup",
+          "correct": true
+        },
+        {
+          "corpus_id": "c121_l",
+          "query_id": "h121_l05",
+          "actual": "lookup",
+          "predicted": "lookup",
+          "correct": true
+        },
+        {
+          "corpus_id": "c121_l",
+          "query_id": "h121_l06",
+          "actual": "lookup",
+          "predicted": "lookup",
+          "correct": true
+        },
+        {
+          "corpus_id": "c121_l",
+          "query_id": "h121_l07",
+          "actual": "lookup",
+          "predicted": "lookup",
+          "correct": true
+        },
+        {
+          "corpus_id": "c121_l",
+          "query_id": "h121_l08",
+          "actual": "lookup",
+          "predicted": "lookup",
+          "correct": true
+        },
+        {
+          "corpus_id": "c121_l",
+          "query_id": "h121_l09",
+          "actual": "lookup",
+          "predicted": "lookup",
+          "correct": true
+        },
+        {
+          "corpus_id": "c121_l",
+          "query_id": "h121_l10",
+          "actual": "lookup",
+          "predicted": "lookup",
+          "correct": true
+        },
+        {
+          "corpus_id": "c121_l",
+          "query_id": "h121_l11",
+          "actual": "lookup",
+          "predicted": "lookup",
+          "correct": true
+        },
+        {
+          "corpus_id": "c121_l",
+          "query_id": "h121_l12",
+          "actual": "lookup",
+          "predicted": "lookup",
+          "correct": true
+        }
+      ],
+      "features": "query text only under the registered deterministic rules"
+    }
+  },
+  "metadata": {
+    "registration_anchor": "b60b7084741eb5d30298261076b4bca78abe713a",
+    "holdout_anchor": "23b9bb99",
+    "protocol_anchor": "d6d80fbb",
+    "tier0_anchor": "a615c3a8",
+    "code_commit": "1c35e216c19f2409ba2e98c5a2da0b32da51483c",
+    "command": ".venv\\Scripts\\python.exe scripts\\run_retrieval_bakeoff_tiers_1_3.py --embedding-model C:\\Users\\muzaf\\.cache\\huggingface\\hub\\Qwen3-Embedding-0.6B-GGUF\\Qwen3-Embedding-0.6B-Q8_0.gguf --repetitions 9",
+    "model_path": "C:\\Users\\muzaf\\.cache\\huggingface\\hub\\Qwen3-Embedding-0.6B-GGUF\\Qwen3-Embedding-0.6B-Q8_0.gguf",
+    "model_sha256": "06507c7b42688469c4e7298b0a1e16deff06caf291cf0a5b278c308249c3e439",
+    "threading": {
+      "llama_cpp_n_threads": 1,
+      "llama_cpp_n_threads_batch": 1,
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1"
+    },
+    "runtime": {
+      "python": "3.13.13",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "logical_cpu_count": 32,
+      "numpy": "2.4.6",
+      "llama_cpp_python": "0.3.25"
+    },
+    "locked_artifact_hashes": {
+      "experiments\\surveys\\retrieval_bakeoff\\holdout\\queries_121.json": "5603d0ebf5771fb13b4cbf03d232bfdf0e13fc507790d88c59916439f5c88f8f",
+      "experiments\\surveys\\retrieval_bakeoff\\holdout\\answer_key_121.json": "7d6c00b68479f806a146e2ed4c9163f699cb72fc620c5aebfb48037ba808f1e1",
+      "experiments\\surveys\\retrieval_bakeoff\\holdout\\queries_1000.json": "6d75745a69bab5072a1e83b5d56d189c06d9077bf7a017013aa77fc5cdd16fd8",
+      "experiments\\surveys\\retrieval_bakeoff\\holdout\\answer_key_1000.json": "aad181adf39344f9fb82873245910c2114ae01af59f2b30b26c5f8070f8efabc",
+      "experiments\\surveys\\retrieval_bakeoff\\holdout\\overlap_matrix.csv": "bf8382bf8b047615c74eeea1e1deb1752b560870a1787396f4bfa296cf9eb8db",
+      "experiments/study_005/script.json": "d8ba73fd02bfd41bec156904fb6a3328bbed3d0da8bff05e4667d2e450752f01",
+      "experiments/study_010/script_1000.json": "2d186e1b7f4c89d7095d01d7ac267d981abb0996c60c922a35f78cf2c6d38521"
+    },
+    "source_hashes_before": {
+      "experiments\\study_002\\runs\\run_001\\iterative\\logs\\retrieval.jsonl": "995f98032583776b0fa4107dc8beffbe845f324ffb6f76198641c4878e1dd8dc",
+      "experiments\\study_002\\runs\\run_001\\iterative\\study.db": "2263bac1c8a7bc9044b8e974ee74365427e430b168b0e7d86752bc9ca3fec29d",
+      "experiments\\study_005\\runs\\study_005_full_001\\condition_c\\study.db": "c98eecafcb4d579f671694c4bb28481e0d24d6d48d6d6a81bc66200f312af04c",
+      "experiments\\study_005\\script.json": "8015c8eb89838c6aae4fd342af06ddb13cfd07f64dcdfa750ade54e375c4dd43",
+      "experiments\\study_006\\runs\\study_006_full_001\\condition_c\\study.db": "7b34664638331dae59c1c6b8dedd532f7fe01ae1df5f39331943f82d3e1a8eaa",
+      "experiments\\study_007\\runs\\study_007_full_001\\condition_c\\study.db": "8847e946d1b2c49e0952ad4257d3e8da487e74de7a7e80dd1199ee1dd45aa359",
+      "experiments\\study_008\\q_facts_key.md": "95baac3b0c36462c37d45d6bbb85405511fa254aef4ce9051eb3ab868c09fbba",
+      "experiments\\study_009\\runs\\study_009_full_001\\arm_s\\logs\\retrieval.jsonl": "c948eaca81450cad14283b57591cdc2355011d797c885c84688d94acc37a9ddb",
+      "experiments\\study_009\\runs\\study_009_full_001\\arm_s\\study.db": "404efbdb38d1abe729a1ab43ef697b1aea4247f476a24625b4120944bd519bac",
+      "experiments\\study_010\\q_facts_key_1000.md": "7798c7d0310a84cdbf63a69fc579b1c44ccf6f7692227a841b514a3f02e240d6",
+      "experiments\\study_010\\runs\\study_010_full_001\\arm_l\\study.db": "8b254953e0f764e838da79b8aabf20a1a2eca6fcbbe46f188811b1abafce93e8",
+      "experiments\\study_010\\runs\\study_010_full_001\\arm_s\\study.db": "022d196222a75bd868d9f4e5c848c1cde53d1d83bf7412e23f33d907ed5ebe15"
+    },
+    "source_hashes_after": {
+      "experiments\\study_002\\runs\\run_001\\iterative\\logs\\retrieval.jsonl": "995f98032583776b0fa4107dc8beffbe845f324ffb6f76198641c4878e1dd8dc",
+      "experiments\\study_002\\runs\\run_001\\iterative\\study.db": "2263bac1c8a7bc9044b8e974ee74365427e430b168b0e7d86752bc9ca3fec29d",
+      "experiments\\study_005\\runs\\study_005_full_001\\condition_c\\study.db": "c98eecafcb4d579f671694c4bb28481e0d24d6d48d6d6a81bc66200f312af04c",
+      "experiments\\study_005\\script.json": "8015c8eb89838c6aae4fd342af06ddb13cfd07f64dcdfa750ade54e375c4dd43",
+      "experiments\\study_006\\runs\\study_006_full_001\\condition_c\\study.db": "7b34664638331dae59c1c6b8dedd532f7fe01ae1df5f39331943f82d3e1a8eaa",
+      "experiments\\study_007\\runs\\study_007_full_001\\condition_c\\study.db": "8847e946d1b2c49e0952ad4257d3e8da487e74de7a7e80dd1199ee1dd45aa359",
+      "experiments\\study_008\\q_facts_key.md": "95baac3b0c36462c37d45d6bbb85405511fa254aef4ce9051eb3ab868c09fbba",
+      "experiments\\study_009\\runs\\study_009_full_001\\arm_s\\logs\\retrieval.jsonl": "c948eaca81450cad14283b57591cdc2355011d797c885c84688d94acc37a9ddb",
+      "experiments\\study_009\\runs\\study_009_full_001\\arm_s\\study.db": "404efbdb38d1abe729a1ab43ef697b1aea4247f476a24625b4120944bd519bac",
+      "experiments\\study_010\\q_facts_key_1000.md": "7798c7d0310a84cdbf63a69fc579b1c44ccf6f7692227a841b514a3f02e240d6",
+      "experiments\\study_010\\runs\\study_010_full_001\\arm_l\\study.db": "8b254953e0f764e838da79b8aabf20a1a2eca6fcbbe46f188811b1abafce93e8",
+      "experiments\\study_010\\runs\\study_010_full_001\\arm_s\\study.db": "022d196222a75bd868d9f4e5c848c1cde53d1d83bf7412e23f33d907ed5ebe15"
+    },
+    "changed_source_files": [],
+    "leakage": {
+      "static": {
+        "status": "PASS",
+        "visited_modules": [
+          "src\\db\\episode.py",
+          "src\\db\\topic.py",
+          "src\\embeddings\\provider.py",
+          "src\\memory\\distilled_ltm_store.py",
+          "src\\memory\\dream_engine.py",
+          "src\\memory\\span_segmenter.py",
+          "src\\retrieval_bakeoff\\classifier.py",
+          "src\\retrieval_bakeoff\\config.py",
+          "src\\retrieval_bakeoff\\corpus.py",
+          "src\\retrieval_bakeoff\\embedding.py",
+          "src\\retrieval_bakeoff\\embedding_cache.py",
+          "src\\retrieval_bakeoff\\harness.py",
+          "src\\retrieval_bakeoff\\methods.py",
+          "src\\retrieval_bakeoff\\models.py",
+          "src\\retrieval_bakeoff\\serialization.py"
+        ],
+        "edge_count": 24
+      },
+      "planted": {
+        "status": "PASS",
+        "planted_module_rejected": true,
+        "planted_file_rejected": true
+      },
+      "runtime_observed_open_count": 158,
+      "status": "PASS"
+    }
+  }
+}

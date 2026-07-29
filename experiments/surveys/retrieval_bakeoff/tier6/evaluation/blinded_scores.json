@@ -1,0 +1,259 @@
+{
+  "adjudicator_class": "fourth independent clean-context AI",
+  "adjudicator_limitation": "The adjudicator is an AI, not a human.",
+  "anonymous_arm": "arm_12e5362913",
+  "calibration_pass_count": 4,
+  "category_primary": {
+    "cat1_Q1_Q3": 3.0,
+    "cat2_Q4_Q6": 0.0,
+    "cat3_Q7_Q8": 0.5,
+    "cat4_Q9_Q11": 1.0,
+    "cat5_Q12_Q13": 2.0
+  },
+  "category_strict": {
+    "cat1_Q1_Q3": 3.0,
+    "cat2_Q4_Q6": 0.0,
+    "cat3_Q7_Q8": 0.5,
+    "cat4_Q9_Q11": 1.0,
+    "cat5_Q12_Q13": 2.0
+  },
+  "h3_status": "NOT_EVALUABLE_NO_ORIGINAL_SCORE",
+  "mapping_opened_before_scoring": false,
+  "mechanical_fact_presence_artifact": "layer1_fact_presence.jsonl",
+  "mechanism_logs_opened_before_scoring": false,
+  "q14_primary": 0.5,
+  "q14_strict": 0.5,
+  "q1_q13_primary": 6.5,
+  "q1_q13_strict": 6.5,
+  "rater_class": "three independent clean-context AI passes",
+  "scores": {
+    "Q1": {
+      "anon_id": "RB6-21B34B3E149B",
+      "basis": "three_pass_consensus",
+      "primary": 1.0,
+      "primary_credited_item_ids": [
+        "civil_span_847",
+        "civil_steel_s460ml"
+      ],
+      "rationale": "The answer correctly gives both the 847-meter main span and the S460ML steel grade.",
+      "strict": 1.0,
+      "strict_credited_item_ids": [
+        "civil_span_847",
+        "civil_steel_s460ml"
+      ],
+      "triggers": []
+    },
+    "Q10": {
+      "anon_id": "RB6-EDB7CDF9EA6E",
+      "basis": "three_pass_consensus",
+      "primary": 0.0,
+      "primary_credited_item_ids": [],
+      "rationale": "The answer says it cannot retrieve the organism and never attributes Dr. Kenji Watanabe to Vampyroteuthis infernalis.",
+      "strict": 0.0,
+      "strict_credited_item_ids": [],
+      "triggers": []
+    },
+    "Q11": {
+      "anon_id": "RB6-37AD83ED183B",
+      "basis": "independent_ai_adjudicator_h4_h5",
+      "primary": 0.0,
+      "primary_credited_item_ids": [
+        "q11_847",
+        "q11_92_4",
+        "q11_annunciation",
+        "q11_bekova",
+        "q11_halcyon",
+        "q11_s460ml",
+        "q11_vampyroteuthis"
+      ],
+      "rationale": "Only 7 of 17 required atomic items are correctly supplied and attributed, below the binary 14-item threshold.",
+      "strict": 0.0,
+      "strict_credited_item_ids": [
+        "q11_847",
+        "q11_92_4",
+        "q11_annunciation",
+        "q11_bekova",
+        "q11_halcyon",
+        "q11_s460ml",
+        "q11_vampyroteuthis"
+      ],
+      "triggers": [
+        "H4"
+      ]
+    },
+    "Q12": {
+      "anon_id": "RB6-159D83DA3B51",
+      "basis": "three_pass_consensus",
+      "primary": 1.0,
+      "primary_credited_item_ids": [
+        "rule_numbered_lists",
+        "rule_risk_classification"
+      ],
+      "rationale": "Both behavioral rules are stated correctly and precisely.",
+      "strict": 1.0,
+      "strict_credited_item_ids": [
+        "rule_numbered_lists",
+        "rule_risk_classification"
+      ],
+      "triggers": []
+    },
+    "Q13": {
+      "anon_id": "RB6-9F270DFDAB97",
+      "basis": "independent_ai_adjudicator_h4_h5",
+      "primary": 1.0,
+      "primary_credited_item_ids": [
+        "late_turn_rule_compliance"
+      ],
+      "rationale": "At least five turns use numbered formatting for multiple items or technical specifications; the engineering-risk rule is either honored with a concluding risk label or not applicable.",
+      "strict": 1.0,
+      "strict_credited_item_ids": [
+        "late_turn_rule_compliance"
+      ],
+      "triggers": [
+        "H5"
+      ]
+    },
+    "Q14": {
+      "anon_id": "RB6-E37FFBE39A3D",
+      "basis": "independent_ai_adjudicator_h4_h5",
+      "primary": 0.5,
+      "primary_credited_item_ids": [
+        "q14_art_hit",
+        "q14_art_named",
+        "q14_civil_hit",
+        "q14_civil_named",
+        "q14_marine_hit",
+        "q14_marine_named",
+        "q14_monetary_named"
+      ],
+      "rationale": "All four domains are named, and civil engineering, Renaissance art, and marine biology each include a correct planted specific; monetary policy alone lacks a specific.",
+      "strict": 0.5,
+      "strict_credited_item_ids": [
+        "q14_art_hit",
+        "q14_art_named",
+        "q14_civil_hit",
+        "q14_civil_named",
+        "q14_marine_hit",
+        "q14_marine_named",
+        "q14_monetary_named"
+      ],
+      "triggers": [
+        "H4"
+      ]
+    },
+    "Q2": {
+      "anon_id": "RB6-C00A3E3B214C",
+      "basis": "three_pass_consensus",
+      "primary": 1.0,
+      "primary_credited_item_ids": [
+        "civil_engineer_bekova",
+        "civil_load_92_4"
+      ],
+      "rationale": "The answer correctly identifies Dr. Anara Bekova and gives the maximum load as 92.4 metric tons per axle.",
+      "strict": 1.0,
+      "strict_credited_item_ids": [
+        "civil_engineer_bekova",
+        "civil_load_92_4"
+      ],
+      "triggers": []
+    },
+    "Q3": {
+      "anon_id": "RB6-85091BEEA7F6",
+      "basis": "three_pass_consensus",
+      "primary": 1.0,
+      "primary_credited_item_ids": [
+        "rule_numbered_lists",
+        "rule_risk_classification"
+      ],
+      "rationale": "The answer precisely states both the numbered-list rule and the parenthesized Low/Medium/High engineering risk-classification rule.",
+      "strict": 1.0,
+      "strict_credited_item_ids": [
+        "rule_numbered_lists",
+        "rule_risk_classification"
+      ],
+      "triggers": []
+    },
+    "Q4": {
+      "anon_id": "RB6-0DB237BC2942",
+      "basis": "three_pass_consensus",
+      "primary": 0.0,
+      "primary_credited_item_ids": [
+        "art_title"
+      ],
+      "rationale": "The title is correct, but the answer gives Giovanni Bellini, local church or civic authorities, and 1489 instead of Melozzo da Forl\u00ec, Cardinal Giuliano della Rovere, and 1483; one correct item earns no credit under this criterion.",
+      "strict": 0.0,
+      "strict_credited_item_ids": [
+        "art_title"
+      ],
+      "triggers": []
+    },
+    "Q5": {
+      "anon_id": "RB6-D5C4A26C4253",
+      "basis": "three_pass_consensus",
+      "primary": 0.0,
+      "primary_credited_item_ids": [],
+      "rationale": "The answer gives a gypsum-based gesso ground and generic transparent glazes, not the required lead white ground or ultramarine glaze.",
+      "strict": 0.0,
+      "strict_credited_item_ids": [],
+      "triggers": []
+    },
+    "Q6": {
+      "anon_id": "RB6-061C0B728B00",
+      "basis": "three_pass_consensus",
+      "primary": 0.0,
+      "primary_credited_item_ids": [],
+      "rationale": "Although it identifies della Rovere as the later Pope Julius II, the answer explicitly denies that he patronized the painting, contrary to the required attribution.",
+      "strict": 0.0,
+      "strict_credited_item_ids": [],
+      "triggers": []
+    },
+    "Q7": {
+      "anon_id": "RB6-D71F9484D5B5",
+      "basis": "independent_ai_adjudicator_h4_h5",
+      "primary": 0.0,
+      "primary_credited_item_ids": [
+        "marine_researcher"
+      ],
+      "rationale": "The response names Dr. Kenji Watanabe but explicitly declines to identify the organism, depth range, or feeding behavior, yielding only one of four required items.",
+      "strict": 0.0,
+      "strict_credited_item_ids": [
+        "marine_researcher"
+      ],
+      "triggers": [
+        "H5"
+      ]
+    },
+    "Q8": {
+      "anon_id": "RB6-1EBDC645E45A",
+      "basis": "three_pass_consensus",
+      "primary": 0.5,
+      "primary_credited_item_ids": [
+        "marine_photophores"
+      ],
+      "rationale": "The answer correctly names photophores but locates them on the arms and webbed-arm margins rather than along the mantle margin.",
+      "strict": 0.5,
+      "strict_credited_item_ids": [
+        "marine_photophores"
+      ],
+      "triggers": []
+    },
+    "Q9": {
+      "anon_id": "RB6-0E8D49E3C06C",
+      "basis": "three_pass_consensus",
+      "primary": 1.0,
+      "primary_credited_item_ids": [
+        "clean_renaissance_retrieval"
+      ],
+      "rationale": "The answer remains entirely on the Renaissance topic and contains none of the specified monetary-policy or marine-biology bleed terms.",
+      "strict": 1.0,
+      "strict_credited_item_ids": [
+        "clean_renaissance_retrieval"
+      ],
+      "triggers": []
+    }
+  },
+  "status": "FINAL_BLINDED_SCORES",
+  "study_009_arm_l_corrected_target": 12.0,
+  "t6_1000_turn_decision": "RUN_REQUIRED_SCORE_BELOW_12",
+  "trigger_artifact": "consensus_and_triggers.jsonl"
+}

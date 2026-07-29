@@ -4,7 +4,7 @@
 
 Ten pre-registered studies test that question, each adding one memory component and fixing the prior study's documented failures. Every result is published as found.
 
-> **Status:** Study 010 stopped at G2; authorized post-stop exploratory continuation complete | scoring record corrected 2026-07-26 | README current as of 2026-07-27
+> **Status:** Study 010 stopped at G2; authorized post-stop exploratory continuation complete | retrieval bakeoff complete through corrected 121-turn Tier 6 | scoring record corrected 2026-07-26 | README current as of 2026-07-29
 
 ## The Problem
 
@@ -32,6 +32,25 @@ Runs use a scripted 120-turn conversation with facts planted at known positions 
 | 010 | 1,000-turn endurance | STOPPED AT G2; EXPLORATORY CONTINUATION COMPLETE | LTM won breadth; targeted tied; Bar 3 NOT EVALUABLE; scale robustness untested |
 
 Full reports live under `experiments/study_NNN/`.
+
+## Retrieval Bakeoff
+
+The registered exploratory retrieval bakeoff is a negative result on the
+architectural pivot. The best 32k raw-store retrieval surfaced 8/17 Q11 facts;
+explicit graphs did not advance; oracle routing added only 6.09%. Delivered
+volume did help: same-seed plain STM scored 9.0/13, widened STM scored 11.0/13
+with 13/17 Q11 facts, and LTM scored 12.0/13. Both widened STM and LTM failed
+Q11; the entire one-point rubric gap is Q4. The first clean positive result is
+more specific: widened raw STM delivered all six formation-blind facts and used
+five correctly, solving the track's hardest documented availability failure.
+LTM's only observed edge over matched raw volume is keeping Q4's turn-55 fact
+bundle renderable under the current renderer. A known serialization-expansion
+risk must be measured, repaired, and tested against the Q4 packing null before
+concluding that a separate primacy mechanism is required. No other LTM function
+has been shown to beat matched raw volume.
+No 1,000-turn run is authorized.
+
+See `experiments/surveys/retrieval_bakeoff/retrieval_bakeoff_report.md`.
 
 ## What We Learned
 

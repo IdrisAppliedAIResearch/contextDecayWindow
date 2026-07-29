@@ -1,0 +1,2 @@
+llama_context: n_ctx_seq (512) < n_ctx_train (32768) -- the full capacity of the model will not be utilized
+~llama_context:  CUDA_Host compute buffer size of  18.3299 MiB, does not match expectation of  11.0107 MiB

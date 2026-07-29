@@ -21,6 +21,7 @@ packages = ["src"]
 
 [tool.uv]
 dev-dependencies = [
+    "hnswlib==0.8.0",
     "matplotlib>=3.10.0",
     "pytest>=8.0.0",
 ]

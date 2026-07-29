@@ -1,0 +1,117 @@
+{
+  "status": "LOCKED_BEFORE_TIER5_IMPLEMENTATION",
+  "date": "2026-07-28",
+  "authoritative_amendment": "AMENDMENT_005_tier5_execution_details.md",
+  "registration_anchor": "b60b7084741eb5d30298261076b4bca78abe713a",
+  "corrected_tier2_anchor": "f3e9735b",
+  "tier4_result_anchor": "9ea96278",
+  "fixed_policy": {
+    "method_id": "M3",
+    "status": "advancing",
+    "pooled_macro_recall_exact": "67/96",
+    "selection_rule": "highest exact pooled macro recall among advancing Tier 2 and Tier 4 methods"
+  },
+  "T5.0": {
+    "corpora": [
+      "c121_l",
+      "c1000_l"
+    ],
+    "budgets": [
+      32000,
+      64000,
+      160000,
+      320000
+    ],
+    "warmups": 1,
+    "measured_repetitions": 9
+  },
+  "T5.1": {
+    "base_corpus": "c1000_l",
+    "scales": [
+      120,
+      1000,
+      10000,
+      100000
+    ],
+    "seed": 5005,
+    "hnswlib_version": "0.8.0",
+    "space": "cosine",
+    "dimension": 1024,
+    "M": 16,
+    "ef_construction": 200,
+    "ef_search": 64,
+    "recall_k": [
+      10,
+      50
+    ],
+    "warmup_query_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "measured_query_indices": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  },
+  "T5.2": {
+    "budget": 32000,
+    "tier_fractions": {
+      "hot": 0.1,
+      "warm": 0.3,
+      "cold": "remainder"
+    },
+    "minimum_budget_fill": 0.95,
+    "minimum_best_cosine": 0.5,
+    "warmups": 1,
+    "measured_repetitions": 9
+  },
+  "T5.3": {
+    "topic_minimum_macro_domain_purity": 0.8,
+    "require_distinct_domain_dominants": true,
+    "require_verbatim_resolving_rule": true,
+    "arm_order": [
+      "recency",
+      "recency_topic",
+      "recency_rules",
+      "recency_topic_rules"
+    ]
+  },
+  "T5.4": {
+    "graph_comparators": {
+      "depth_1": "G_E1_E3_d1",
+      "depth_2": "G_E3_d2",
+      "depth_3": "G_E3_d3"
+    },
+    "dominance_axes": [
+      "fact_recall",
+      "latency",
+      "old_fact_miss_rate"
+    ]
+  }
+}
