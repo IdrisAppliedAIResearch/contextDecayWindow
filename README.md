@@ -4,7 +4,7 @@
 
 Ten pre-registered studies test that question, each adding one memory component and fixing the prior study's documented failures. Every result is published as found.
 
-> **Status:** Study 010 stopped at G2; authorized post-stop exploratory continuation complete | retrieval bakeoff complete through corrected 121-turn Tier 6 | scoring record corrected 2026-07-26 | README current as of 2026-07-29
+> **Status:** Study 010 stopped at G2; authorized post-stop exploratory continuation complete | retrieval bakeoff complete | episode-rendering correctness fix complete; Q4 packing re-analysis pending | scoring record corrected 2026-07-26 | README current as of 2026-07-29
 
 ## The Problem
 
@@ -44,13 +44,28 @@ Q11; the entire one-point rubric gap is Q4. The first clean positive result is
 more specific: widened raw STM delivered all six formation-blind facts and used
 five correctly, solving the track's hardest documented availability failure.
 LTM's only observed edge over matched raw volume is keeping Q4's turn-55 fact
-bundle renderable under the current renderer. A known serialization-expansion
-risk must be measured, repaired, and tested against the Q4 packing null before
-concluding that a separate primacy mechanism is required. No other LTM function
-has been shown to beat matched raw volume.
+bundle renderable under the bakeoff renderer. DR-001 reproduced the historical
+blocks exactly, found that Study 010's reported 31,991/31,847 values were
+undercharged content totals rather than 53,726/53,839-character serialized
+blocks, and replaced repeated diagnostic markup with a compact,
+content-identical episode format. The Q4 packing null is the next analysis;
+primacy remains a current-renderer observation until it is complete. No other
+LTM function has been shown to beat matched raw volume.
 No 1,000-turn run is authorized.
 
 See `experiments/surveys/retrieval_bakeoff/retrieval_bakeoff_report.md`.
+
+## Renderer Correctness
+
+DR-001 is a component fix, not a study. Pre-fix replay reproduced Study 010
+Q13/Q14 character-for-character. Post-fix replay preserved every selected
+episode identity, order, and source message while reducing the same blocks from
+53,726 to 37,619 characters and 53,839 to 37,545. Production LTM selection now
+charges the exact complete serialized block. The registered 32,000-character
+allocation, N cap 32, per-domain floor, and containment policy were re-derived
+and retained; N-first packing remains flagged for AS-001.
+
+See `experiments/components/rendering_expansion/DR_001_report.md`.
 
 ## What We Learned
 

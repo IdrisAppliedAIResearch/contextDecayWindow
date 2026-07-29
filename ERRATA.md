@@ -20,3 +20,25 @@ The first 81-item Layer 2 attempt is invalidated by
 `AMENDMENT_003_study003_cross_references.md`. The final results use the replacement
 79-item sequence only.
 
+## Study 010 LTM Budget Accounting (2026-07-29)
+
+**Headline change:** the published Q13/Q14 LTM character values were charged
+content estimates, not serialized block lengths.
+
+Study 010 reported 31,991 and 31,847 LTM characters at Q13 and Q14 and described
+them as near-saturation of `B_ltm = 32,000`. DR-001 replayed both committed
+blocks character-for-character. Their actual serialized lengths were 53,726 and
+53,839 characters, exceeding the nominal budget by 21,726 and 21,839.
+
+The old budget authority counted source user/assistant text but omitted
+per-episode tags, metadata, and separators. The historical values and run
+artifacts remain unchanged; their classification and the attached saturation
+interpretation are corrected here. Scores and fact-delivery findings do not
+change because the model received the recorded blocks.
+
+DR-001 replaces the renderer with compact, content-identical episode elements
+and charges exact complete-block cost. The same historical identity sets render
+to 37,619 and 37,545 characters, still above 32,000; production re-selection at
+the locked budget admits 69 and 71 episodes. See
+`experiments/components/rendering_expansion/`.
+
