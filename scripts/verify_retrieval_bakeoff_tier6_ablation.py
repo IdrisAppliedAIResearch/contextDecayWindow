@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import subprocess
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -50,16 +51,22 @@ def main() -> int:
         run_a["output_dir"],
         run_a["assistant_messages"],
     )
+    code_commits = [
+        run_a["manifest"]["code_commit"],
+        run_b["manifest"]["code_commit"],
+    ]
+    runtime_source_changes = _changed_paths(
+        code_commits[0],
+        code_commits[1],
+        "src",
+    )
     checks = {
         "distinct_run_ids": args.run_a != args.run_b,
         "manifest_status_complete": (
             run_a["manifest"]["status"] == "COMPLETE"
             and run_b["manifest"]["status"] == "COMPLETE"
         ),
-        "same_code_commit": (
-            run_a["manifest"]["code_commit"]
-            == run_b["manifest"]["code_commit"]
-        ),
+        "same_runtime_source_tree": runtime_source_changes == [],
         "same_settings_sha256": (
             run_a["manifest"]["settings_sha256"]
             == run_b["manifest"]["settings_sha256"]
@@ -119,7 +126,8 @@ def main() -> int:
             run_a["manifest"]["server_pid"],
             run_b["manifest"]["server_pid"],
         ],
-        "code_commit": run_a["manifest"]["code_commit"],
+        "code_commits": code_commits,
+        "runtime_source_changes_between_runs": runtime_source_changes,
         "settings_path": str(SETTINGS_PATH.relative_to(REPO_ROOT)),
         "settings_sha256": _sha256(SETTINGS_PATH),
         "selected_settings": settings["selected"],
@@ -262,6 +270,35 @@ def _combined_prefix_hash(
 def _read_jsonl(path: Path) -> list[dict]:
     with path.open("r", encoding="utf-8") as handle:
         return [json.loads(line) for line in handle]
+
+
+def _changed_paths(
+    commit_a: str,
+    commit_b: str,
+    pathspec: str,
+) -> list[str]:
+    result = subprocess.run(
+        [
+            "git",
+            "diff",
+            "--name-only",
+            "--no-renames",
+            commit_a,
+            commit_b,
+            "--",
+            pathspec,
+        ],
+        cwd=REPO_ROOT,
+        check=True,
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
+    )
+    return [
+        line.strip()
+        for line in result.stdout.splitlines()
+        if line.strip()
+    ]
 
 
 def _write_json(path: Path, payload: dict) -> None:
