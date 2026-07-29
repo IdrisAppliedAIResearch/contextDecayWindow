@@ -1,0 +1,75 @@
+{
+  "status": "LOCKED_BEFORE_CORRECTED_T6_ABLATION",
+  "date": "2026-07-29",
+  "amendment_anchor": "39ba9175",
+  "amendment_commit": "39ba9175af1739c706b0d4153e90f0388da0e4c6",
+  "implementation_commit": "c772f2e316d8c821342e84dce41ea31a2b69c044",
+  "original_settings_path": "experiments/surveys/retrieval_bakeoff/settings/tier6_context_match_settings.json",
+  "original_settings_sha256": "a6173f7feb34fd1d84e14bc2d77301a8188ea26dd6d9644bb2024bab954b0b86",
+  "original_settings_commit": "b1f79ad723039cfb6049d2c57f154e94599f38c4",
+  "selected_settings": {
+    "n_cap": 32,
+    "k_threshold": 0.48,
+    "payload_budget": 60595,
+    "calibration_median_absolute_percentage_error": 0.01003452656554571,
+    "calibration_match_gate": "PASS"
+  },
+  "widening_rule": {
+    "unit": "exact serialized delivered retrieval characters after identity deduplication",
+    "candidate_order": "N first, then K-only",
+    "n_order": "unretrieved first, then least-recently retrieved logical generation, then source turn and episode ID",
+    "k_order": "carried source order after thresholding, without similarity reranking",
+    "logical_generation_source": "MAX(retrieval_events.turn_number) from prior admitted retrieval events",
+    "wall_clock_affects_selection": false,
+    "retuning_after_invalid_run": false
+  },
+  "equivalence_gate": {
+    "replay_turns": [
+      1,
+      111
+    ],
+    "required_exact_fields": [
+      "eligible_episode_ids",
+      "n_candidate_ids",
+      "k_candidate_ids_before_dedup",
+      "delivered_n_ids",
+      "delivered_k_only_ids",
+      "skipped_ids",
+      "duplicate_ids",
+      "serialized_payload_bytes",
+      "serialized_payload_sha256",
+      "serialized_payload_characters",
+      "post_turn_logical_generation_state"
+    ],
+    "required_locked_vector_reproduction_turns": [
+      92,
+      111
+    ],
+    "failure_action": "BLOCK_ABLATION_AND_REQUIRE_AMENDMENT"
+  },
+  "source_hashes": {
+    "experiments/study_009/runs/study_009_full_001/arm_s/study.db": "404efbdb38d1abe729a1ab43ef697b1aea4247f476a24625b4120944bd519bac",
+    "experiments/study_005/script.json": "8015c8eb89838c6aae4fd342af06ddb13cfd07f64dcdfa750ade54e375c4dd43",
+    "src/memory/context_matched_stm.py": "db927796f100a6c690bcf96276a8f77f2d52b0f2e0b245b9e245ad421a97dd57",
+    "scripts/run_retrieval_bakeoff_tier6_equivalence_gate.py": "063d60d6d76b01f647d4a3f50695a401435e8d83e44be1c1cf0d62199c6e170e"
+  },
+  "script_sha256_post_decode_lf": "d8ba73fd02bfd41bec156904fb6a3328bbed3d0da8bff05e4667d2e450752f01",
+  "embedding_model_sha256": "06507c7b42688469c4e7298b0a1e16deff06caf291cf0a5b278c308249c3e439",
+  "corrected_run_ids": {
+    "ablations": [
+      "tier6_ablation_corrected_a",
+      "tier6_ablation_corrected_b"
+    ],
+    "live": "tier6_live_121_corrected_001"
+  },
+  "invalid_run_treatment": {
+    "run_id": "tier6_live_121",
+    "classification": "PROTOCOL_INVALID_FOR_ARCHITECTURAL_INFERENCE",
+    "historical_score": 6.5,
+    "historical_score_status": "PRESERVED_DIAGNOSTIC_ONLY",
+    "eligible_for_inferential_comparison": false,
+    "rescore": false,
+    "delete": false
+  },
+  "extension_1000_authorized": false
+}
