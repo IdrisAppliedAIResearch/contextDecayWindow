@@ -1,0 +1,25 @@
+Tier 5 pre-run gates
+T5.0 fixed-policy budget multiples
+T5.0 c121_l budget 32000
+T5.0 c121_l budget 64000
+T5.0 c121_l budget 160000
+T5.0 c121_l budget 320000
+T5.0 c1000_l budget 32000
+T5.0 c1000_l budget 64000
+T5.0 c1000_l budget 160000
+T5.0 c1000_l budget 320000
+T5.1 exact-cosine versus HNSW
+T5.1 ANN scale 120
+T5.1 ANN scale 1000
+T5.1 ANN scale 10000
+T5.1 ANN scale 100000
+T5.2-T5.3 progressive and orthogonal tiers
+T5.2-T5.3 c121_l P_recency
+T5.2-T5.3 c121_l P_recency_topic
+T5.2-T5.3 c121_l P_recency_rules
+T5.2-T5.3 c121_l P_recency_topic_rules
+T5.2-T5.3 c1000_l P_recency
+T5.3 c1000_l P_recency_topic NOT_EVALUABLE
+T5.3 c1000_l P_recency_rules NOT_EVALUABLE
+T5.3 c1000_l P_recency_topic_rules NOT_EVALUABLE
+Tier 5 analysis complete
