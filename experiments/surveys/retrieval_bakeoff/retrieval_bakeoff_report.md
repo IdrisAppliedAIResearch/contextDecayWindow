@@ -40,9 +40,13 @@ solved a failure that query-blind formation, entity counts, density, and
 word-level IDF did not. The residual LTM advantage is a targeted Q4 selection
 failure. Separately, 17-fact enumeration remains a shared failure.
 
-The best-supported one-line program verdict is: **the LTM tier is a primacy
-mechanism, and nothing else it does has been shown to beat matched raw
-volume.**
+The best-supported one-line verdict for the system as run is: **the LTM tier's
+only demonstrated advantage over matched raw volume is keeping the older Q4
+bundle renderable.** This is evidence for a primacy function under the current
+renderer, not yet proof that a distinct primacy mechanism is required. A known
+structural serialization-expansion risk may have reduced how many widened-STM
+episodes fit; its Q4 effect has not been measured and that causal null must be
+tested before building a pinned tier.
 
 ## Reconciling 8/17 And 13/17
 
@@ -106,8 +110,10 @@ STM, turn 55 ranked 27th inside the 32-item N candidate cap. The fixed
 This is a structural N-first packing failure after a late N rank, not raw-store
 absence and not exclusion from the N candidate cap. LTM's residual point came
 from keeping that older identity bundle renderable. The evidence therefore
-supports primacy, not a demonstrated advantage from graph structure, routing,
-or another selection mechanism.
+supports a primacy interpretation under the renderer used in the bakeoff, not
+a demonstrated advantage from graph structure, routing, or another selection
+mechanism. It does not distinguish a necessary primacy mechanism from a
+serialization artifact that caused only 15 of 32 N candidates to fit.
 
 ## Tier Verdicts
 
@@ -175,18 +181,21 @@ classified separately in `decisions/DECISION_001_post_stop_exploration.md`.
 
 ## Next Question
 
-The immediate question is whether LTM can be replaced by a minimal primacy
-mechanism: a small, always-rendered set of durable facts about persistent
-conversation entities, refreshed when those facts change. The Q4 trace provides
-the motivating failure: the facts remained in the raw store and inside the N
-candidate cap but fell behind enough verbose N material to miss the character
-window, while K did not recognize the query.
+The immediate question is whether Q4's exclusion reflects a mechanism gap or
+the known structural expansion of episodes during serialization. That defect
+must be measured and repaired independently, with a byte-identical pre-fix
+replay and an identity-preserving post-fix replay. Then an offline, pre-committed
+packing analysis must test whether the turn-55 bundle enters the corrected
+window across the re-derived budget range. Neither step changes this bakeoff's
+score or observed result.
 
-A new pre-registered study should compare that pinned durable-fact set against
-widened raw STM under the same context budget. It should measure update
-correctness, stale-fact replacement, pin budget, and targeted recall, while
-adding no graph, router, coverage selector, or inference call. This directly
-tests whether primacy is the tier's sufficient function.
+Only if Q4 remains excluded after that null should a new pre-registered study
+compare a small, always-rendered durable-fact set against widened raw STM under
+the same context budget. It should measure update correctness, stale-fact
+replacement, pin budget, and targeted recall, while adding no graph, router,
+coverage selector, or inference call. If corrected serialization admits Q4,
+there is no basis for a pinned-tier study; if Q4 enters only under an achievable
+budget or packing change, that cheaper mechanism should be studied instead.
 
 Enumeration is a second, architecture-spanning question, not the explanation
 for the one-point gap. It merits a separate design that fixes delivered content
@@ -204,6 +213,8 @@ planning from retrieval omission.
   `tier6/analysis_corrected_121/formation_blind_intersection.md`
 - Q4 machine-readable exclusion trace:
   `tier6/analysis_corrected_121/q4_exclusion_trace.json`
+- Q4 follow-up scope decision:
+  `decisions/DECISION_002_q4_rendering_followup_scope.md`
 - Corrected run: `tier6/runs/tier6_live_121_corrected_001/`
 - Invalid diagnostic run: `tier6/runs/tier6_live_121/`
 - T1.3 supplement: `tier1/t1_3_reinforcement/t1_3_reinforcement_report.md`

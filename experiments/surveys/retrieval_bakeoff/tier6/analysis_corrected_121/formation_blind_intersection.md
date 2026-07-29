@@ -59,10 +59,15 @@ not rescue it. The episode was therefore not absent from the raw store or
 ranked outside the N candidate cap; it was structurally excluded by N-first
 character packing after ranking too late to fit.
 
-This supports a primacy interpretation of the remaining LTM advantage. The
-tier's demonstrated benefit is keeping selected durable facts renderable after
-their raw episodes fall behind verbose material. No graph, router, or other LTM
-behavior has independently been shown to beat matched raw volume.
+This supports a primacy interpretation of the remaining LTM advantage under
+the renderer used in the bakeoff. The observed benefit is keeping selected
+durable facts renderable after their raw episodes fall behind verbose material.
+It does not establish that a distinct primacy mechanism is necessary: a known
+structural serialization-expansion risk may have reduced the fitted N set, and
+an identity-preserving renderer fix plus pre-committed offline packing
+reanalysis must test that null first. Its Q4 effect is not measured here. No
+graph, router, or other LTM behavior has
+independently been shown to beat matched raw volume.
 
 The derived values and their committed sources are recorded in
 `q4_exclusion_trace.json`.

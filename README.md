@@ -43,9 +43,11 @@ with 13/17 Q11 facts, and LTM scored 12.0/13. Both widened STM and LTM failed
 Q11; the entire one-point rubric gap is Q4. The first clean positive result is
 more specific: widened raw STM delivered all six formation-blind facts and used
 five correctly, solving the track's hardest documented availability failure.
-The remaining evidence supports LTM as a primacy mechanism: Q4's turn-55 fact
-bundle ranked within widened N but fell outside the character-packed window.
-No other LTM function has been shown to beat matched raw volume.
+LTM's only observed edge over matched raw volume is keeping Q4's turn-55 fact
+bundle renderable under the current renderer. A known serialization-expansion
+risk must be measured, repaired, and tested against the Q4 packing null before
+concluding that a separate primacy mechanism is required. No other LTM function
+has been shown to beat matched raw volume.
 No 1,000-turn run is authorized.
 
 See `experiments/surveys/retrieval_bakeoff/retrieval_bakeoff_report.md`.
