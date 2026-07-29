@@ -1,7 +1,9 @@
 from src.analysis.rendering_expansion_replay import (
+    _compact_content_matches,
     _distribution,
     _extract_block,
 )
+from src.memory.context_builder import render_episode_element
 
 
 def test_distribution_uses_nearest_rank_percentiles():
@@ -39,3 +41,15 @@ def test_extract_block_accepts_populated_and_empty_blocks():
         "<retrieved_stm/>"
     )
 
+
+def test_compact_element_round_trips_attribution_and_content():
+    candidate = {
+        "turn_number": 55,
+        "user_message": "A < B & C",
+        "assistant_message": 'Answer "quoted"',
+    }
+    element = render_episode_element(candidate)
+
+    assert _compact_content_matches(element, candidate)
+    assert "topic=" not in element
+    assert "similarity=" not in element
