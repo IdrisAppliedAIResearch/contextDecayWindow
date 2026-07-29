@@ -263,6 +263,13 @@ def _assert_ready(args: argparse.Namespace) -> dict:
         gate = json.loads(ABLATION_GATE.read_text(encoding="utf-8"))
         if gate.get("status") != "PASS":
             raise RuntimeError("Tier 6 ablation gate did not pass")
+        current_server_pid = int(os.environ["CDW_INFERENCE_SERVER_PID"])
+        if current_server_pid in {
+            int(pid) for pid in gate.get("server_pids", [])
+        }:
+            raise RuntimeError(
+                "Tier 6 live inference requires a fresh server PID"
+            )
     elif args.checkpoint_interval is not None:
         raise RuntimeError("Ablation runs may not change checkpoint cadence")
     return settings
