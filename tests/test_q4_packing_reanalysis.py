@@ -10,6 +10,7 @@ from src.analysis.q4_packing_reanalysis import (
     _historical_reproduction,
     _ordered_candidates,
     _pack_row,
+    _source_paths,
     _turn_55_id,
     verify_canonical_source_seal,
 )
@@ -47,6 +48,10 @@ def test_q4_candidate_contract_is_preserved() -> None:
     assert len({candidate["id"] for candidate in candidates}) == N_CAP
     assert int(candidates[26]["turn_number"]) == PLANT_TURN
     assert str(candidates[26]["id"]) == _turn_55_id(candidates)
+
+
+def test_all_declared_analysis_sources_exist() -> None:
+    assert all(path.is_file() for path in _source_paths())
 
 
 def test_locked_sweep_changes_only_exact_budget() -> None:

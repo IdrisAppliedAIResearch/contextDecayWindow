@@ -633,7 +633,6 @@ def _source_paths() -> list[Path]:
             / "experiments"
             / "surveys"
             / "retrieval_bakeoff"
-            / "tier6"
             / "settings"
             / "tier6_context_match_settings.json"
         ),
