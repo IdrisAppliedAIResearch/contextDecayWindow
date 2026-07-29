@@ -78,4 +78,4 @@ conversation run, mechanism change, or score change occurred.
 - [x] Mechanical Branch D verdict.
 - [x] Deterministic repeat.
 - [x] `README.md`, `AGENTS.md`, `ERRATA.md`, and memory update.
-- [ ] Independent stacked analysis PR.
+- [x] Independent stacked analysis PR: #24.
