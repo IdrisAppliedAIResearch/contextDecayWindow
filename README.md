@@ -29,7 +29,7 @@ Runs use a scripted 120-turn conversation with facts planted at known positions 
 | 007 | Information-sized retrieval budget | PARTIAL (2/3) | Best score; the model used every delivered fact |
 | 008 | Rendering by selection factorial | STOPPED AT GATES | No jointly feasible operating point existed |
 | 009 | Pure-STM null test and topic digest | PARTIAL; null decisive | LTM beat STM by 3.0; digest failed its offline gate |
-| 010 | 1,000-turn endurance | STOPPED AT G2; EXPLORATORY CONTINUATION COMPLETE | LTM won breadth; targeted tied; Bar 3 NOT EVALUABLE; scale robustness untested |
+| 010 | 1,000-turn endurance | STOPPED AT G2; EXPLORATORY CONTINUATION COMPLETE | LTM won breadth in a budget-noncompliant arm; targeted tied; Bar 3 NOT EVALUABLE |
 
 Full reports live under `experiments/study_NNN/`.
 
@@ -47,8 +47,9 @@ LTM's only observed edge over matched raw volume is keeping Q4's turn-55 fact
 bundle renderable under the bakeoff renderer. DR-001 reproduced the historical
 blocks exactly, found that Study 010's reported 31,991/31,847 values were
 undercharged content totals rather than 53,726/53,839-character serialized
-blocks, and replaced repeated diagnostic markup with a compact,
-content-identical episode format. The Q4 packing null is the next analysis;
+blocks, violating the 32k budget by 67.9%/68.2%, and replaced repeated
+diagnostic markup with a compact, content-identical episode format. The Q4
+packing null is the next analysis;
 primacy remains a current-renderer observation until it is complete. No other
 LTM function has been shown to beat matched raw volume.
 No 1,000-turn run is authorized.
@@ -63,7 +64,10 @@ episode identity, order, and source message while reducing the same blocks from
 53,726 to 37,619 characters and 53,839 to 37,545. Production LTM selection now
 charges the exact complete serialized block. The registered 32,000-character
 allocation, N cap 32, per-domain floor, and containment policy were re-derived
-and retained; N-first packing remains flagged for AS-001.
+and retained; N-first packing remains flagged for AS-001. The separate Study
+010 context peak is traceable to the full serialized prompts: all 2,000 rows
+recompute under the registered `characters // 4` estimator, with L peaking at
+27,154 and S at 17,541. These are estimates, not exact tokenizer counts.
 
 See `experiments/components/rendering_expansion/DR_001_report.md`.
 

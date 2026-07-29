@@ -1,8 +1,16 @@
-# Forward Bakeoff Requirement T1.2: Breadth Beyond A Compact Store
+# Withdrawn Forward Bakeoff Requirement T1.2: Breadth Beyond A Compact Store
 
-**Status:** forward design requirement derived from post-score Study 010
-analysis. This is not a new Study 010 result and does not amend a locked future
-registration.
+**Status:** WITHDRAWN 2026-07-29; the decision rule was derived from
+non-equivalent character measures. This file is not a locked registration.
+
+## Withdrawal
+
+The 31,991/31,847 values below are undercharged source-content totals. The
+selected Q13/Q14 blocks actually serialized to 53,726/53,839 characters,
+violating `B_ltm = 32,000` by 67.9%/68.2%. The 18,951-character distilled-store
+total measures neither the rendered candidate store nor the rendered selection.
+The compact-store classification and its 1x-10x decision rule therefore do not
+follow. They are preserved below as the withdrawn historical proposal.
 
 ## Risk
 
@@ -11,8 +19,8 @@ may make coverage unusually easy:
 
 1. the failed TopicManager exposed only two merged topics, so the registered
    floor selected only two records and did not enforce 12-domain coverage; and
-2. the distilled store remained compact relative to the fixed retrieval
-   budget, while episode-mode rendering filled that budget almost completely.
+2. the analysis incorrectly treated non-equivalent store and selection
+   measures as evidence of budget saturation.
 
 The exact final store contains 290 distilled records totaling 18,951 text
 characters, with mean 65.35 and median 55 characters. This corrects the rough
@@ -23,21 +31,21 @@ expanded selected records to their source episodes:
 
 | Probe | Budget | Rendered LTM chars | Utilization | Records used | Floor records |
 |---|---:|---:|---:|---:|---:|
-| Q13, turn 999 | 32,000 | 31,991 | 99.97% | 80 | 2 |
-| Q14, turn 1000 | 32,000 | 31,847 | 99.52% | 81 | 2 |
+| Q13, turn 999 | 32,000 | 53,726 | 167.89% | 80 | 2 |
+| Q14, turn 1000 | 32,000 | 53,839 | 168.25% | 81 | 2 |
 
-L delivered all 12 breadth pairs, but the evidence cannot distinguish a robust
-allocation policy from favorable ranking over a still-small candidate store.
-At ten times the observed formation volume, raw distilled text alone projects
-to about 189,510 characters, 5.9 times the fixed budget, before source-episode
-rendering overhead. Coverage would no longer be cheap.
+L delivered all 12 breadth pairs from budget-noncompliant blocks. Exact-cost
+replay selects 69 and 71 episodes within 32k, but no inference result exists for
+those compliant selections. The global 18,951-to-189,510 projection is
+prohibited because distilled text and rendered source episodes are not
+equivalent units.
 
 Study 008's offline gates found no count-cap configuration from 1 through 50
 that jointly passed breadth and targeted retrieval on its preserved store.
 That result increases the prior risk that Study 010's breadth win is a
 small-store regime rather than a scalable policy.
 
-## T1.2 Test
+## Withdrawn T1.2 Test
 
 **Question:** Does breadth remain above the locked threshold when the eligible
 rendered distilled store substantially exceeds `B_ltm`, or does Study 010's
@@ -69,7 +77,7 @@ For every policy and scale tier, report:
 - containment drops, refills, and duplicate characters; and
 - whether the policy passes both breadth and targeted criteria jointly.
 
-## Decision Rule
+## Withdrawn Decision Rule
 
 T1.2 passes only if a single pre-committed policy, without scale-specific
 tuning, preserves the registered breadth threshold and does not regress
