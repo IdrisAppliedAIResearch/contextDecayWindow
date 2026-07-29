@@ -1,0 +1,47 @@
+{
+  "rater_id": "pass_3",
+  "items": [
+    {
+      "id": "cal_no_answer",
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "The unclosed reasoning block contains no scoreable final content, so this is NO_ANSWER."
+    },
+    {
+      "id": "cal_truncated",
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "The response ends visibly mid-sentence after \"Monetary: Gamma\" and therefore scores 0."
+    },
+    {
+      "id": "cal_hedged",
+      "primary": 0.5,
+      "strict": 0.0,
+      "rationale": "Material X is offered among unresolved alternatives, earning primary partial credit; strict scoring rejects the hedge with Material Y."
+    },
+    {
+      "id": "cal_q11_partial",
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "The response supplies 10 of 17 required items, about 58.8%, which is below the 80% threshold."
+    },
+    {
+      "id": "cal_q14_one_lapse",
+      "primary": 0.5,
+      "strict": 0.5,
+      "rationale": "All four domains are named, but Marine is missing the required Delta 40 specific, matching the exactly-one-missing-specific rule."
+    },
+    {
+      "id": "cal_complete",
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "The response correctly gives both required facts, Alpha and 42."
+    },
+    {
+      "id": "cal_wrong",
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Neither Delta nor 99 matches the required facts Alpha and 42."
+    }
+  ]
+}

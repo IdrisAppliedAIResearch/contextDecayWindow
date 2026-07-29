@@ -1,0 +1,37 @@
+You are a helpful technical and research assistant with deep knowledge across engineering, art history, economics, and biology.
+
+<pinned_rules>
+  <rule id="472e5a6e-3ee3-5a88-b671-e4b0aa35fb93" set_at_turn="1">Before we begin our technical discussions, I want to establish two rules you must follow throughout our entire conversation without exception. First, whenever you list technical specifications or multiple items, always format them as a numbered list. Second, always conclude any structural or engineering recommendation with a risk classification in parentheses — either (Risk: Low), (Risk: Medium), or (Risk: High). Please confirm you understand and will apply both rules consistently.</rule>
+</pinned_rules>
+
+<recent_context>
+  <episode turn="3" topic="topic_2">
+    <user_message>We are beginning work on a major infrastructure project called Halcyon Crossing — a long-span cable-stayed bridge. The total main span is 847 meters. The lead structural engineer assigned to the project is Dr. Anara Bekova. Please acknowledge these project parameters.</user_message>
+    <assistant_message>1. Project Name: Halcyon Crossing
+2. Project Type: Long-span cable-stayed bridge
+3. Main Span Length: 847 meters
+4. Lead Structural Engineer: Dr. Anara Bekova
+
+I acknowledge these parameters and am ready to proceed with the technical discussion. (Risk: Low)</assistant_message>
+  </episode>
+  <episode turn="1" topic="topic_1">
+    <user_message>Before we begin our technical discussions, I want to establish two rules you must follow throughout our entire conversation without exception. First, whenever you list technical specifications or multiple items, always format them as a numbered list. Second, always conclude any structural or engineering recommendation with a risk classification in parentheses — either (Risk: Low), (Risk: Medium), or (Risk: High). Please confirm you understand and will apply both rules consistently.</user_message>
+    <assistant_message>I understand and will apply both rules consistently throughout our conversation:
+
+1. Whenever listing technical specifications or multiple items, I will format them as a numbered list.
+2. Any structural or engineering recommendation will conclude with a risk classification in parentheses — either (Risk: Low), (Risk: Medium), or (Risk: High).</assistant_message>
+  </episode>
+  <episode turn="2" topic="topic_1">
+    <user_message>Good. To confirm you understood: if I ask you to list the properties of a material or the steps of a process, what format will you use? And what will you append to any engineering recommendation you make?</user_message>
+    <assistant_message>1. I will use a numbered list format.
+2. I will append a risk classification in parentheses.</assistant_message>
+  </episode>
+</recent_context>
+
+<retrieved_stm/>
+
+<current_turn>
+  <user_message>The steel specification for Halcyon Crossing's primary structural members has been set at grade S460ML. The bridge's maximum load rating is 92.4 metric tons per axle. Walk me through step by step what makes S460ML appropriate for a span of this length and load rating, and what the key material performance thresholds are.</user_message>
+</current_turn>
+
+Assistant:

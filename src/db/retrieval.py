@@ -25,6 +25,19 @@ def get_all_episodes_with_embeddings(conn: sqlite3.Connection) -> list:
     return episodes
 
 
+def get_last_retrieval_generations(
+    conn: sqlite3.Connection,
+) -> dict[str, int]:
+    rows = conn.execute(
+        "SELECT episode_id, MAX(turn_number) "
+        "FROM retrieval_events GROUP BY episode_id"
+    ).fetchall()
+    return {
+        str(episode_id): int(turn_number)
+        for episode_id, turn_number in rows
+    }
+
+
 def update_retrieval_metadata(
     conn: sqlite3.Connection,
     episode_ids: list,
