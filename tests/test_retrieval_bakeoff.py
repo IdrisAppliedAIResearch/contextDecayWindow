@@ -10,6 +10,7 @@ from src.retrieval_bakeoff.config import CORPORA
 from src.retrieval_bakeoff.embedding_cache import EmbeddingCache
 from src.retrieval_bakeoff.evaluation import (
     HoldoutEvaluator,
+    advancement_decisions,
     validate_locked_artifacts,
 )
 from src.retrieval_bakeoff.leakage import assert_planted_violations
@@ -234,6 +235,26 @@ def test_q11_atomic_matrix_and_provenance_matching() -> None:
     row = evaluate_q11_reachability(result)
     assert row["matched_fact_count"] == 2
     assert row["domain_count"] == 1
+
+
+def test_advancement_uses_exact_fraction_comparisons() -> None:
+    rows = []
+    for method_id in ("M1", "M2", "M3", "M4", "M5_span", "M6"):
+        for query_class in ("lookup", "chained", "enumeration"):
+            exact = "23/96" if query_class == "enumeration" else "1/2"
+            rows.append(
+                {
+                    "method_id": method_id,
+                    "query_class": query_class,
+                    "fact_recall_exact": exact,
+                }
+            )
+    decisions = {
+        row["method_id"]: row for row in advancement_decisions(rows)
+    }
+    assert decisions["M6"]["winning_classes"] == []
+    assert decisions["M6"]["regressing_classes"] == []
+    assert decisions["M6"]["advances"] is False
 
 
 def test_negative_budget_is_rejected() -> None:
