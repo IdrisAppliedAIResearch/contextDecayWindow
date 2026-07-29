@@ -1,11 +1,16 @@
 from __future__ import annotations
 
+import sqlite3
 from pathlib import Path
 
 import numpy as np
 import pytest
 
 from src.retrieval_bakeoff.classifier import classify_query
+from src.retrieval_bakeoff.ann import (
+    benchmark_ann,
+    build_scaled_vector_store,
+)
 from src.retrieval_bakeoff.config import CORPORA, CorpusSpec
 from src.retrieval_bakeoff.embedding_cache import EmbeddingCache
 from src.retrieval_bakeoff.evaluation import (
@@ -27,11 +32,16 @@ from src.retrieval_bakeoff.presence import (
     evaluate_q11_reachability,
     load_q11_atomic_facts,
 )
+from src.retrieval_bakeoff.progressive import (
+    ProgressiveIndex,
+    inspect_orthogonal_axes,
+)
 from src.retrieval_bakeoff.serialization import (
     pack_ranked_candidates,
     render_candidate_element,
     render_retrieval_block,
 )
+from src.retrieval_bakeoff.tier5_analysis import analyze_tier5
 
 
 def _vector(index: int) -> np.ndarray:
@@ -48,6 +58,7 @@ def _episode(
     user: str = "user text",
     assistant: str = "assistant text",
     embedding: np.ndarray | None = None,
+    domain: str = "domain",
 ) -> Candidate:
     return Candidate(
         candidate_id=candidate_id,
@@ -58,7 +69,7 @@ def _episode(
         assistant_message=assistant,
         topic_id=topic,
         topic_label=topic,
-        domain="domain",
+        domain=domain,
         embedding=embedding if embedding is not None else _vector(0),
     )
 
@@ -398,3 +409,224 @@ def test_graph_advancement_uses_exact_recall_and_old_fact_baseline() -> None:
     assert lookup["old_fact_miss_rate_exact"] == "0"
     assert lookup["flat_m1_old_fact_miss_rate"] == 1.0
     assert lookup["delta_from_flat_m1"] == -1.0
+
+
+def test_ann_registered_path_and_synthetic_provenance(tmp_path: Path) -> None:
+    candidates = [
+        _episode(
+            f"ann_{index}",
+            turn=index + 1,
+            embedding=_vector(index),
+        )
+        for index in range(120)
+    ]
+    real = build_scaled_vector_store(candidates, 120)
+    assert real.real_count == 120
+    assert real.synthetic_count == 0
+    result = benchmark_ann(
+        real,
+        [_vector(index) for index in range(24)],
+        tmp_path,
+    )
+    assert result["scale"] == 120
+    assert len(result["exact_query_samples_ns"]) == 25
+    assert len(result["hnsw_query_samples_ns"]) == 25
+    assert 0.0 <= result["recall_at_10"] <= 1.0
+
+    padded = build_scaled_vector_store(candidates, 1_000)
+    provenance = list(padded.provenance_rows())
+    assert padded.synthetic_count == 880
+    assert len(provenance) == 1_000
+    assert sum(row["synthetic"] for row in provenance) == 880
+    assert np.allclose(
+        np.linalg.norm(padded.vectors, axis=1),
+        1.0,
+        atol=1e-5,
+    )
+
+
+def test_topic_validation_rejects_collapsed_high_purity_axis(
+    tmp_path: Path,
+) -> None:
+    spec, candidates = _progressive_fixture(tmp_path, collapsed=True)
+    axes = inspect_orthogonal_axes(spec, candidates)
+    topic = axes.report["topic_axis"]
+    assert topic["macro_domain_to_topic_purity_exact"] == "1"
+    assert topic["distinct_dominant_topic_count"] == 1
+    assert topic["status"] == "NOT_EVALUABLE"
+    assert "dominant_topics_not_distinct" in topic["invalid_reasons"]
+
+
+def test_progressive_search_runs_valid_orthogonal_tiers(
+    tmp_path: Path,
+) -> None:
+    spec, candidates = _progressive_fixture(tmp_path, collapsed=False)
+    index = ProgressiveIndex(spec, candidates)
+    assert index.axes.report["topic_axis"]["status"] == "VALID"
+    assert index.axes.report["pinned_rule_axis"]["status"] == "VALID"
+    outcome = index.retrieve(
+        "P_recency_topic_rules",
+        Query("q", "find topic zero"),
+        lambda _: _vector(0),
+        repetitions=2,
+    )
+    assert outcome.searched_tiers == [
+        "hot",
+        "rules",
+        "topic",
+        "warm",
+        "cold",
+    ]
+    assert outcome.stop_reason == "exhausted_cold"
+    assert outcome.selected_topic_id == "topic_0"
+    selected_sources = [
+        item.candidate.source_episode_id for item in outcome.result.selected
+    ]
+    assert len(selected_sources) == len(set(selected_sources))
+    assert outcome.result.delivered_characters <= 32_000
+
+
+def test_tier5_analysis_uses_matched_cells_and_exact_dominance() -> None:
+    def row(
+        corpus_id: str,
+        method_id: str,
+        query_id: str,
+        *,
+        budget: int = 32_000,
+        latency: float = 2.0,
+    ) -> dict:
+        return {
+            "corpus_id": corpus_id,
+            "method_id": method_id,
+            "query_id": query_id,
+            "query_class": "lookup",
+            "budget": budget,
+            "required_fact_count": 1,
+            "matched_fact_count": 1,
+            "domain_coverage": 1.0,
+            "precision_proxy": 0.1,
+            "delivered_characters": budget - 1,
+            "selected_count": 1,
+            "latency_ms": latency,
+            "old_required_fact_ids": ["old"],
+            "old_matched_fact_ids": ["old"],
+        }
+
+    budget_rows = [
+        row(corpus, "M3", f"{corpus}_{budget}_{index}", budget=budget)
+        for corpus in ("c121_l", "c1000_l")
+        for budget in (32_000, 64_000, 160_000, 320_000)
+        for index in range(24)
+    ]
+    progressive_rows = [
+        {
+            **row(corpus, "P_recency", f"q_{corpus}"),
+            "searched_tiers": ["hot"],
+            "stop_reason": "threshold_after_hot",
+        }
+        for corpus in ("c121_l", "c1000_l")
+    ]
+    graph_rows = [
+        row(corpus, method, f"q_{corpus}", latency=1.0)
+        for method in ("G_E1_E3_d1", "G_E3_d2", "G_E3_d3")
+        for corpus in ("c121_l", "c1000_l")
+    ]
+    analysis = analyze_tier5(
+        budget_rows=budget_rows,
+        progressive_rows=progressive_rows,
+        graph_rows=graph_rows,
+        ann_results=[
+            {"recall_at_10": 1.0, "recall_at_50": 1.0}
+            for _ in range(4)
+        ],
+        axis_reports={},
+    )
+    assert (
+        analysis["T5.0_budget_multiples"][
+            "fact_recall_collapse_above_2x"
+        ]
+        is False
+    )
+    comparison = analysis["T5.4_tiering_comparison"]
+    assert comparison["any_depth_matches_or_beats_partition"] is True
+    assert all(
+        item["query_count"] == 2 for item in comparison["comparisons"]
+    )
+
+
+def _progressive_fixture(
+    tmp_path: Path,
+    *,
+    collapsed: bool,
+) -> tuple[CorpusSpec, list[Candidate]]:
+    database = tmp_path / "study.db"
+    connection = sqlite3.connect(database)
+    connection.executescript(
+        """
+        CREATE TABLE topics (
+            id TEXT PRIMARY KEY,
+            centroid BLOB NOT NULL
+        );
+        CREATE TABLE rule_store (
+            id TEXT PRIMARY KEY,
+            episode_id TEXT NOT NULL,
+            rule_summary TEXT NOT NULL,
+            turn_number INTEGER NOT NULL
+        );
+        """
+    )
+    domains = (
+        "civil_engineering",
+        "renaissance_art",
+        "monetary_policy",
+        "marine_biology",
+    )
+    topic_ids = ["topic_0"] if collapsed else [
+        f"topic_{index}" for index in range(4)
+    ]
+    for index, topic_id in enumerate(topic_ids):
+        connection.execute(
+            "INSERT INTO topics (id, centroid) VALUES (?, ?)",
+            (topic_id, _vector(index).tobytes()),
+        )
+    rule = "Always number technical lists."
+    connection.execute(
+        """
+        INSERT INTO rule_store (id, episode_id, rule_summary, turn_number)
+        VALUES ('rule_1', 'candidate_0', ?, 1)
+        """,
+        (rule,),
+    )
+    connection.commit()
+    connection.close()
+
+    candidates = []
+    for index in range(12):
+        domain_index = index % 4
+        topic_id = "topic_0" if collapsed else f"topic_{domain_index}"
+        candidates.append(
+            _episode(
+                f"candidate_{index}",
+                turn=index + 1,
+                topic=topic_id,
+                user=(
+                    rule
+                    if index == 0
+                    else f"source text {index}"
+                ),
+                embedding=_vector(domain_index),
+                domain=domains[domain_index],
+            )
+        )
+    spec = CorpusSpec(
+        corpus_id="c121_l",
+        database_path=database,
+        eligible_turn_min=1,
+        eligible_turn_max=12,
+        query_manifest=tmp_path / "unused.json",
+        domain_labels=("domain",),
+        has_distilled_ltm=False,
+        advancement_primary=True,
+        run_directory=tmp_path,
+    )
+    return spec, candidates
