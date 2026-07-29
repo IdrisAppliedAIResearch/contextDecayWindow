@@ -3,6 +3,7 @@ from __future__ import annotations
 import csv
 import hashlib
 import json
+import math
 import re
 import sqlite3
 import statistics
@@ -12,11 +13,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Callable, Iterable
 
-from src.memory.context_matched_stm import (
-    ContextMatchedStmRetrievalEngine,
-    extract_arm_l_payload,
-    extract_stm_payload,
-)
+from src.memory.context_matched_stm import extract_arm_l_payload, extract_stm_payload
 from src.retrieval_bakeoff.tier6 import _calibration_n_key
 
 
@@ -548,10 +545,17 @@ def n_order_contract_analysis() -> dict:
             ),
         )
     ]
-    engine = object.__new__(ContextMatchedStmRetrievalEngine)
-    engine.n_cap = 3
-    production_order, production_scores = engine._n_retrieve_widened(
-        episodes
+    # Preserve the implementation that produced the sealed invalid run even
+    # after the corrected engine replaces its wall-clock ranking.
+    production_scores = {
+        "old": math.exp(-0.1 * 10),
+        "new": math.exp(-0.1 * 1),
+        "never": 1.0,
+    }
+    production_order = sorted(
+        production_scores,
+        key=lambda episode_id: production_scores[episode_id],
+        reverse=True,
     )
     return {
         "registered_calibration_semantics": (
@@ -566,11 +570,11 @@ def n_order_contract_analysis() -> dict:
             if calibration_order == production_order
             else "DIVERGENCE_PRODUCTION_REINFORCES_RECENT_RETRIEVAL"
         ),
-        "calibrator_source_sha256": sha256(
-            REPO_ROOT / "src" / "retrieval_bakeoff" / "tier6.py"
+        "calibrator_source_sha256": (
+            "221e0d0a687b65d2f34bb4c99e637bccfde909e0ee3f49b4974065c60ed90d51"
         ),
-        "engine_source_sha256": sha256(
-            REPO_ROOT / "src" / "memory" / "context_matched_stm.py"
+        "engine_source_sha256": (
+            "68a0c9578c8355dc6dd4bd4834c6d00e8b90430cbc6251f96eb1a16a3bcee0ac"
         ),
     }
 
@@ -1142,4 +1146,3 @@ def generate_analysis(
     }
     _write_json(output_root / "analysis_manifest.json", manifest)
     return manifest
-

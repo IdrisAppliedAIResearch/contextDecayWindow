@@ -19,8 +19,18 @@ ABLATION_ROOT = TIER6_ROOT / "ablations"
 SETTINGS_PATH = (
     SURVEY_ROOT / "settings" / "tier6_context_match_settings.json"
 )
-GATE_PATH = TIER6_ROOT / "ablation_gate.json"
-REPORT_PATH = TIER6_ROOT / "ablation_report.md"
+CORRECTED_SETTINGS_LOCK = (
+    SURVEY_ROOT / "settings" / "tier6_corrected_121_settings_lock.json"
+)
+EQUIVALENCE_GATE = (
+    TIER6_ROOT / "equivalence_gate_corrected" / "equivalence_gate.json"
+)
+GATE_PATH = TIER6_ROOT / "corrected_ablation_gate.json"
+REPORT_PATH = TIER6_ROOT / "corrected_ablation_report.md"
+EXPECTED_RUN_IDS = {
+    "tier6_ablation_corrected_a",
+    "tier6_ablation_corrected_b",
+}
 
 
 def parse_args() -> argparse.Namespace:
@@ -34,6 +44,10 @@ def main() -> int:
     args = parse_args()
     if args.run_a == args.run_b:
         raise ValueError("Ablation reruns must have distinct run IDs")
+    if {args.run_a, args.run_b} != EXPECTED_RUN_IDS:
+        raise ValueError(
+            f"Corrected ablations must be {sorted(EXPECTED_RUN_IDS)}"
+        )
     if GATE_PATH.exists() or REPORT_PATH.exists():
         raise RuntimeError("Refusing to overwrite Tier 6 ablation evidence")
     settings = json.loads(SETTINGS_PATH.read_text(encoding="utf-8"))
@@ -71,6 +85,20 @@ def main() -> int:
             run_a["manifest"]["settings_sha256"]
             == run_b["manifest"]["settings_sha256"]
             == _sha256(SETTINGS_PATH)
+        ),
+        "same_corrected_settings_lock": (
+            run_a["manifest"]["corrected_settings_lock_sha256"]
+            == run_b["manifest"]["corrected_settings_lock_sha256"]
+            == _sha256(CORRECTED_SETTINGS_LOCK)
+        ),
+        "same_passing_equivalence_gate": (
+            run_a["manifest"]["equivalence_gate_sha256"]
+            == run_b["manifest"]["equivalence_gate_sha256"]
+            == _sha256(EQUIVALENCE_GATE)
+            and json.loads(
+                EQUIVALENCE_GATE.read_text(encoding="utf-8")
+            )["status"]
+            == "PASS"
         ),
         "fresh_server_per_valid_run": (
             run_a["manifest"]["server_pid"]
@@ -130,6 +158,10 @@ def main() -> int:
         "runtime_source_changes_between_runs": runtime_source_changes,
         "settings_path": str(SETTINGS_PATH.relative_to(REPO_ROOT)),
         "settings_sha256": _sha256(SETTINGS_PATH),
+        "corrected_settings_lock_sha256": _sha256(
+            CORRECTED_SETTINGS_LOCK
+        ),
+        "equivalence_gate_sha256": _sha256(EQUIVALENCE_GATE),
         "selected_settings": settings["selected"],
         "payload_budget": settings["payload_budget"],
         "checks": checks,
@@ -319,7 +351,7 @@ def _sha256(path: Path) -> str:
 
 def _report(payload: dict) -> str:
     lines = [
-        "# Retrieval Bakeoff Tier 6 Ablation Report",
+        "# Corrected Retrieval Bakeoff Tier 6 Ablation Report",
         "",
         f"**Status:** {payload['status']}",
         "",
