@@ -28,7 +28,8 @@ HISTORICAL_PAYLOAD_BUDGET = 60_595
 HISTORICAL_PAYLOAD_CHARS = 59_708
 HISTORICAL_FITTED_EPISODES = 15
 K_THRESHOLD = 0.48
-TURN_55_COSINE = 0.16612689197063446
+SUPERSEDED_TURN_55_COSINE = 0.16612689197063446
+TURN_55_COSINE = 0.12042197585105896
 DESIGN_COMMIT = "7c90235a"
 FACTS = {
     "title": "Annunciation",
@@ -73,7 +74,7 @@ def generate_analysis(output_dir: Path, embedding_path: Path) -> dict:
     context_row = _context_row()
     candidates = _ordered_candidates(context_row)
     query = _probe_query()
-    cosines, query_vector_sha = _candidate_cosines(
+    cosines, query_vector_sha, candidate_vector_shas = _candidate_cosines(
         candidates,
         query,
         embedding_path,
@@ -91,9 +92,15 @@ def generate_analysis(output_dir: Path, embedding_path: Path) -> dict:
         if str(candidate["id"]) == turn_55_id
     )
     turn_55_cosine = cosines[turn_55_id]
+    exclusion_trace = json.loads(EXCLUSION_TRACE.read_text(encoding="utf-8"))
+    if (
+        float(exclusion_trace["turn_55_probe_cosine"])
+        != SUPERSEDED_TURN_55_COSINE
+    ):
+        raise AssertionError("Superseded Q4 trace value changed")
     if abs(turn_55_cosine - TURN_55_COSINE) > 1e-7:
         raise AssertionError(
-            "Turn-55 cosine did not reproduce the committed exclusion trace"
+            "Turn-55 cosine did not reproduce Amendment 003"
         )
 
     first_entry = next(
@@ -156,8 +163,10 @@ def generate_analysis(output_dir: Path, embedding_path: Path) -> dict:
             "expected_model_sha256": CARRIED_EMBEDDING_SHA256,
             "query_sha256": _text_sha256(query),
             "query_vector_sha256": query_vector_sha,
+            "turn_55_vector_sha256": candidate_vector_shas[turn_55_id],
             "turn_55_cosine": turn_55_cosine,
-            "committed_turn_55_cosine": TURN_55_COSINE,
+            "corrected_turn_55_cosine": TURN_55_COSINE,
+            "superseded_turn_55_cosine": SUPERSEDED_TURN_55_COSINE,
         },
         "source_integrity": {
             "status": "PASS" if sources_unchanged else "FAIL",
@@ -341,24 +350,33 @@ def _candidate_cosines(
     candidates: list[dict],
     query: str,
     embedding_path: Path,
-) -> tuple[dict[str, float], str]:
+) -> tuple[dict[str, float], str, dict[str, str]]:
     if _sha256(embedding_path) != CARRIED_EMBEDDING_SHA256:
         raise AssertionError("Carried embedding model SHA mismatch")
     embedder = CarriedEmbedder(embedding_path)
     embedder.assert_carried_model()
     query_vector = np.asarray(embedder(query), dtype=np.float32)
     cosines = {}
+    vector_shas = {}
     for candidate in candidates:
         embedding_text = (
             f"User: {candidate['user_message']}\n"
             f"Assistant: {candidate['assistant_message']}"
         )
         embedding = np.asarray(embedder(embedding_text), dtype=np.float32)
-        cosines[str(candidate["id"])] = cosine_similarity(
+        candidate_id = str(candidate["id"])
+        cosines[candidate_id] = cosine_similarity(
             query_vector,
             embedding,
         )
-    return cosines, hashlib.sha256(query_vector.tobytes()).hexdigest()
+        vector_shas[candidate_id] = hashlib.sha256(
+            embedding.tobytes()
+        ).hexdigest()
+    return (
+        cosines,
+        hashlib.sha256(query_vector.tobytes()).hexdigest(),
+        vector_shas,
+    )
 
 
 def _historical_reproduction(
