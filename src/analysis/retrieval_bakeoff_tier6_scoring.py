@@ -3,6 +3,7 @@ from __future__ import annotations
 import hashlib
 import json
 import math
+import os
 import re
 import secrets
 import subprocess
@@ -20,14 +21,18 @@ SURVEY_ROOT = (
     REPO_ROOT / "experiments" / "surveys" / "retrieval_bakeoff"
 )
 TIER6_ROOT = SURVEY_ROOT / "tier6"
-RUN_ID = "tier6_live_121"
+RUN_ID = os.environ.get("CDW_TIER6_SCORING_RUN_ID", "tier6_live_121")
 RUN_ROOT = TIER6_ROOT / "runs"
 RUN_DIR = RUN_ROOT / RUN_ID / "context_matched_stm"
 LAUNCH_MANIFEST = RUN_ROOT / f"{RUN_ID}_launch_manifest.json"
 SCORING_SURFACE = RUN_DIR / "scoring_surface.json"
 MECHANISM_SEAL = RUN_DIR / "mechanism_seal.json"
-EVALUATION_ROOT = TIER6_ROOT / "evaluation"
-PREFLIGHT_PATH = TIER6_ROOT / "scoring_preflight.json"
+EVALUATION_ROOT = TIER6_ROOT / os.environ.get(
+    "CDW_TIER6_EVALUATION_DIR", "evaluation"
+)
+PREFLIGHT_PATH = TIER6_ROOT / os.environ.get(
+    "CDW_TIER6_PREFLIGHT_FILE", "scoring_preflight.json"
+)
 
 RUBRIC_PATH = REPO_ROOT / "experiments" / "study_002" / "rubric_filled.md"
 Q14_PATH = REPO_ROOT / "experiments" / "study_004" / "q14_criteria.md"
