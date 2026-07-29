@@ -8,6 +8,7 @@
 **G-R1 evidence:** `4046fd4c`
 **G-R2 evidence:** `20227d59`
 **Downstream re-derivation:** `4aa3bf4a`
+**Context-peak audit decision:** `ed1e954b`
 
 ## Outcome
 
@@ -51,7 +52,9 @@ serialized block, including wrappers and separators.
 
 The historical Study 010 `ltm_chars_used` values, 31,991 and 31,847, were
 undercharged source-content totals. They were not serialized block lengths.
-Amendment 001 and `ERRATA.md` preserve and correct that distinction.
+The actual Q13/Q14 blocks violated `B_ltm = 32,000` by 21,726 and 21,839
+characters, or 67.9% and 68.2%. This was a silent budget violation, not
+saturation. Amendment 001 and `ERRATA.md` preserve and correct that distinction.
 
 ## Re-Derivation
 
@@ -70,6 +73,23 @@ At exact 32k cost, Study 010 Q13/Q14 select 69 and 71 episodes and serialize to
 31,993 and 31,796 characters. Study 007's two probes select 8 and 9 episodes.
 The full 16k-64k frontier and selected identities are committed in
 `artifacts/rederivation/rederivation.json`.
+
+## Study 010 Context-Peak Audit
+
+The separate 27,154 estimated-token context peak does not use the defective LTM
+charge. A deterministic audit recomputed all 2,000 committed telemetry rows
+from their serialized prompt artifacts. Every row matched.
+
+| Arm | Peak turn | Serialized prompt chars | Chars before cue | Logged and recomputed estimate |
+|---|---:|---:|---:|---:|
+| L | 985 | 108,629 | 108,617 | 27,154 |
+| S | 982 | 70,176 | 70,164 | 17,541 |
+
+The runner estimated `len(serialized_prompt_without_assistant_cue) // 4`. The
+40,000-token monitor therefore passed under its registered character estimator,
+but the values are estimates rather than exact model-tokenizer counts. This
+does not repair or excuse the separate LTM budget violation. Evidence is in
+`artifacts/context_peak_audit/`.
 
 ## Integrity and Limits
 
@@ -91,5 +111,6 @@ The full 16k-64k frontier and selected identities are committed in
 - [x] G-R2 and deterministic repeat.
 - [x] Post-fix distributions.
 - [x] Budget, cap, floor, packing, and containment re-derivation.
+- [x] Study 010 serialized-prompt context-peak provenance audit.
 - [x] `README.md`, `AGENTS.md`, `ERRATA.md`, and memory update.
 - [x] Independent correctness-fix PR: #23.
