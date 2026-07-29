@@ -5,6 +5,8 @@ from src.analysis.q4_packing_reanalysis import (
     N_CAP,
     PLANT_TURN,
     REGISTERED_B_LTM,
+    SUPERSEDED_TURN_55_COSINE,
+    TURN_55_COSINE,
     _context_row,
     _decision,
     _historical_reproduction,
@@ -52,6 +54,11 @@ def test_q4_candidate_contract_is_preserved() -> None:
 
 def test_all_declared_analysis_sources_exist() -> None:
     assert all(path.is_file() for path in _source_paths())
+
+
+def test_cosine_correction_does_not_change_k_classification() -> None:
+    assert SUPERSEDED_TURN_55_COSINE < 0.48
+    assert TURN_55_COSINE < 0.48
 
 
 def test_locked_sweep_changes_only_exact_budget() -> None:
