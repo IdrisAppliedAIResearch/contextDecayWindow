@@ -21,9 +21,19 @@
 - Widened STM delivered all six previously formation-blind plants at their
   relevant probes and correctly used five; dual mandate was delivered but
   omitted from Q11. The six plants and Q11's 17 atoms are different sets.
+- This 6/6 availability and 5/6 correct-use result is the memory track's first
+  clean positive result. Raw, non-entity-gated delivery solved the hardest
+  documented formation failure and supports the entity-centric differentiation
+  claim, though it is not a direct HippoRAG benchmark.
 - Greater volume explains part, but not all, of LTM's observed advantage.
 - No 1,000-turn run is authorized. A future run could only ask whether the
   volume effect persists or inverts under rendering saturation, under a new
   pre-registration.
 - Immediate gap question: why widened STM omitted Q4's four-fact identity
-  bundle while LTM selected it. Enumeration remains a separate shared failure.
+  bundle while LTM selected it. The bundle was planted at turn 55, 60 turns
+  before Q4. It ranked 27th within N=32, but only 15 N episodes fit the payload;
+  K cosine was 0.166 below 0.48. This was N-first packing exclusion.
+- Best-supported verdict: LTM is a primacy mechanism; no other function has
+  beaten matched raw volume. Next study should test a small, always-rendered
+  persistent-entity fact set with update replacement and no inference calls.
+- Enumeration remains a separate shared failure.

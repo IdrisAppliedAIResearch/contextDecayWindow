@@ -26,11 +26,23 @@ facts and scored 0.0. Both arms scored zero on Q11. Widened STM nevertheless
 produced **13/17 correctly attributed Q11 facts**; the 11.0 is retained without
 rescoring and must always be reported beside that item count.
 
-The defensible conclusion is negative: the retained LTM tier is not replaceable
-by any single retrieval method tested. This survey does not validate a new
-architecture. The residual LTM advantage is a targeted Q4 selection failure.
-Separately, 17-fact enumeration remains a shared failure under write-time
-formation, query-time retrieval, and increased delivery volume.
+The bakeoff also produced the memory track's first clean positive result:
+**widened raw-store STM delivered all six facts that every tested write-time
+formation policy had missed, and the model used five in correct targeted
+answers.** Raw delivery solved the program's hardest documented availability
+failure. This result is stronger and more specific than the aggregate 11.0:
+formation blindness was not intrinsic fact unreachability.
+
+The defensible conclusion is therefore split. The retained LTM tier is not
+replaceable by any single retrieval method tested, so the proposed architecture
+does not advance as a wholesale replacement. But raw, non-entity-gated delivery
+solved a failure that query-blind formation, entity counts, density, and
+word-level IDF did not. The residual LTM advantage is a targeted Q4 selection
+failure. Separately, 17-fact enumeration remains a shared failure.
+
+The best-supported one-line program verdict is: **the LTM tier is a primacy
+mechanism, and nothing else it does has been shown to beat matched raw
+volume.**
 
 ## Reconciling 8/17 And 13/17
 
@@ -48,15 +60,26 @@ rubric's 17 atomic items. Therefore 13/17 does not overturn T1.2's 8/17
 single-block retrieval result, and 8/17 must not be described as a universal
 ceiling on end-to-end answer content.
 
-## Formation-Blind Plant Intersection
+## Primary Positive Result: Formation-Blind Facts
 
-Widened STM delivered all six previously formation-blind plants at their
-relevant probes. It correctly used lead white and ultramarine glaze on Q5,
-marine snow on Q7, and photophores and mantle margin on Q8. Dual mandate was
-present in the Q11 prompt but omitted from the answer. Raw delivery therefore
-solved availability for this six-fact set and produced correct use for five of
-six; it did not guarantee breadth utilization. The arm-by-arm audit is
-`tier6/analysis_corrected_121/formation_blind_intersection.md`.
+These six facts were the program's hardest repeated failure. They contain rare
+technical phrases whose component words are common; prior formation policies
+based on entity counts, density, and word-level IDF did not select them. The
+registered graph-extraction gate also recorded that spaCy found zero entities
+in the `Vampyroteuthis infernalis` span, so an entity-gated index could not
+construct a path to that evidence.
+
+Widened STM delivered all six at their relevant probes. It correctly used lead
+white and ultramarine glaze on Q5, marine snow on Q7, and photophores and mantle
+margin on Q8. Dual mandate was present in the Q11 prompt but omitted from the
+answer. Raw delivery therefore achieved **6/6 availability and 5/6 correct
+use** on the exact set that defeated formation.
+
+This is direct evidence for the program's differentiation claim: preserving
+raw spans and retrieving without an entity-extraction gate can reach evidence
+that entity-centric construction would omit. It is not a direct HippoRAG
+benchmark, so no comparative performance claim is made. The arm-by-arm audit
+is `tier6/analysis_corrected_121/formation_blind_intersection.md`.
 
 ## Q11 Surrogate Audit
 
@@ -71,6 +94,21 @@ The score remains locked at 11.0/13. The paired observation is still required:
 failure**. This is evidence that volume helps. The remaining scored difference
 is narrower: widened STM failed to select Q4's identity bundle.
 
+## Q4 Primacy Trace
+
+Q4's complete title-artist-patron-year bundle was planted at turn 55, 60 turns
+before the turn-115 probe; the patron was reiterated at turn 60. In widened
+STM, turn 55 ranked 27th inside the 32-item N candidate cap. The fixed
+60,595-character payload filled after the first 15 N episodes, excluding turn
+55 from the rendered window. Its cosine to the Q4 probe was 0.166, below the
+0.48 K threshold, so similarity retrieval did not rescue it.
+
+This is a structural N-first packing failure after a late N rank, not raw-store
+absence and not exclusion from the N candidate cap. LTM's residual point came
+from keeping that older identity bundle renderable. The evidence therefore
+supports primacy, not a demonstrated advantage from graph structure, routing,
+or another selection mechanism.
+
 ## Tier Verdicts
 
 | Tier | Verdict | Finding |
@@ -81,7 +119,7 @@ is narrower: widened STM failed to select Q4's identity bundle.
 | 3 | CLOSED | Oracle routing improved recall by 6.09%; do not build routing. |
 | 4 | CLOSED AT 4A | No explicit graph configuration cleared advancement. Tier 4B did not run, so extraction-based novelty was never tested. |
 | 5 | MIXED DIAGNOSTIC | Recall improved with budget; ANN recall degraded at synthetic scale; progressive search did not solve old-fact retrieval. |
-| 6 | VOLUME HELPS, DOES NOT REPLACE LTM | Corrected widened STM scored 11.0/13 with 13/17 Q11 facts, versus STM 9.0 and LTM 12.0. |
+| 6 | POSITIVE ON FORMATION-BLIND AVAILABILITY; DOES NOT REPLACE LTM | Widened STM delivered all six formation-blind facts and correctly used five. It scored 11.0/13 versus STM 9.0 and LTM 12.0; Q4 is the residual gap. |
 
 ## Amendment Legitimacy
 
@@ -137,12 +175,18 @@ classified separately in `decisions/DECISION_001_post_stop_exploration.md`.
 
 ## Next Question
 
-The immediate question for the residual LTM advantage is why widened STM failed
-Q4 selection. The committed turn-115 prompts already localize the failure:
-LTM delivered all four identity facts, while widened STM delivered none. A new
-study should test retrieval of compact, co-dependent identity bundles under a
-fixed character budget, separating source availability, ranking, and bundle
-completion.
+The immediate question is whether LTM can be replaced by a minimal primacy
+mechanism: a small, always-rendered set of durable facts about persistent
+conversation entities, refreshed when those facts change. The Q4 trace provides
+the motivating failure: the facts remained in the raw store and inside the N
+candidate cap but fell behind enough verbose N material to miss the character
+window, while K did not recognize the query.
+
+A new pre-registered study should compare that pinned durable-fact set against
+widened raw STM under the same context budget. It should measure update
+correctness, stale-fact replacement, pin budget, and targeted recall, while
+adding no graph, router, coverage selector, or inference call. This directly
+tests whether primacy is the tier's sufficient function.
 
 Enumeration is a second, architecture-spanning question, not the explanation
 for the one-point gap. It merits a separate design that fixes delivered content
@@ -158,6 +202,8 @@ planning from retrieval omission.
   `tier6/analysis_corrected_121/tier6_121_mechanism_evaluation.md`
 - Formation-blind plant and score-gap audit:
   `tier6/analysis_corrected_121/formation_blind_intersection.md`
+- Q4 machine-readable exclusion trace:
+  `tier6/analysis_corrected_121/q4_exclusion_trace.json`
 - Corrected run: `tier6/runs/tier6_live_121_corrected_001/`
 - Invalid diagnostic run: `tier6/runs/tier6_live_121/`
 - T1.3 supplement: `tier1/t1_3_reinforcement/t1_3_reinforcement_report.md`

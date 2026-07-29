@@ -36,7 +36,7 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **Scoring integrity audit (2026-07-26).** Re-scored 222 items across 001-009 after a truncated Study 002 reasoning block had been credited as complete. Nineteen scores changed; Study 002 C fell 13.0 to 8.5 and Study 001 lost VALIDATED. Corrected arc: 8.5, 11.5, 6.5, 11.0, 9.0, 12.0, 12.0. See `ERRATA.md`.
 
-**Retrieval bakeoff (2026-07-29).** NEGATIVE on pivot. T1.2 reached 8/17; graph/routing closed. Widened STM scored 11 vs STM 9 and LTM 12. Both widened/L failed Q11; Q4 is the full gap. Widened delivered all six formation-blind plants and used five. Volume helps; no method replaces LTM. T6 6.5 remains invalid. No 1,000-turn run.
+**Retrieval bakeoff (2026-07-29).** MIXED. Raw widened STM delivered all 6 formation-blind facts, used 5: first clean positive. Scores S/W/L: 9/11/12; Q4 is gap. Its turn-55 bundle ranked N=27/32 but only 15 fit; K=.166<.48. LTM's shown advantage is primacy; no other function beats matched raw volume. T6 6.5 invalid; no 1,000-turn run.
 
 ## 3. Failure Pattern
 
