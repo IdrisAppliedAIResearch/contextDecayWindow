@@ -4,7 +4,7 @@
 
 Ten pre-registered studies test that question, each adding one memory component and fixing the prior study's documented failures. Every result is published as found.
 
-> **Status:** Study 010 stopped at G2; authorized post-stop exploratory continuation complete | scoring record corrected 2026-07-26 | README current as of 2026-07-27
+> **Status:** Study 010 stopped at G2; authorized post-stop exploratory continuation complete | retrieval bakeoff complete through corrected 121-turn Tier 6 | scoring record corrected 2026-07-26 | README current as of 2026-07-29
 
 ## The Problem
 
@@ -32,6 +32,16 @@ Runs use a scripted 120-turn conversation with facts planted at known positions 
 | 010 | 1,000-turn endurance | STOPPED AT G2; EXPLORATORY CONTINUATION COMPLETE | LTM won breadth; targeted tied; Bar 3 NOT EVALUABLE; scale robustness untested |
 
 Full reports live under `experiments/study_NNN/`.
+
+## Retrieval Bakeoff
+
+The registered exploratory retrieval bakeoff is complete through its corrected
+121-turn live test. At the clean same-seed comparison, plain STM scored 9.0/13,
+character-matched widened STM scored 11.0/13, and LTM scored 12.0/13. Delivery
+volume explained two points of LTM's three-point advantage, but not all of it.
+The optional 1,000-turn confirmation was held for owner review.
+
+See `experiments/surveys/retrieval_bakeoff/retrieval_bakeoff_report.md`.
 
 ## What We Learned
 
