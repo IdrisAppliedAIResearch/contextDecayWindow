@@ -5,9 +5,11 @@ import ast
 import csv
 import hashlib
 import json
+import os
 import platform
 import subprocess
 import sys
+from datetime import datetime, timezone
 from pathlib import Path
 
 import numpy as np
@@ -50,6 +52,9 @@ def run_capture(output_dir: Path, model_path: Path, track1_repo: Path) -> dict:
     if output_dir.exists():
         raise FileExistsError(f"Refusing to overwrite E001 capture: {output_dir}")
     output_dir.mkdir(parents=True)
+    execution_commit = _git("rev-parse", "HEAD")
+    launch = launch_manifest(execution_commit)
+    _write_json(output_dir / "launch_manifest.json", launch)
 
     source_paths = [
         PROTOCOL,
@@ -156,7 +161,12 @@ def run_capture(output_dir: Path, model_path: Path, track1_repo: Path) -> dict:
     collector.close()
     model_manifest = hash_model_snapshot(model_path)
     after = _hash_paths(source_paths)
-    source_status = "PASS" if before == after else "FAIL"
+    execution_commit_after = _git("rev-parse", "HEAD")
+    source_status = (
+        "PASS"
+        if before == after and execution_commit == execution_commit_after
+        else "FAIL"
+    )
     determinism = {
         "status": "PASS",
         "calibration_score_sha256": _array_sha256(head_scores),
@@ -191,7 +201,9 @@ def run_capture(output_dir: Path, model_path: Path, track1_repo: Path) -> dict:
             else "FAIL"
         ),
         "design_commit": "fd880d88",
-        "execution_commit": _git("rev-parse", "HEAD"),
+        "execution_commit": execution_commit,
+        "execution_commit_after": execution_commit_after,
+        "launch": launch,
         "probe_turn": PROBE_TURN,
         "query": query,
         "model_revision": EXPECTED_MODEL_REVISION,
@@ -245,6 +257,23 @@ def run_capture(output_dir: Path, model_path: Path, track1_repo: Path) -> dict:
     )
     _write_json(output_dir / "capture_manifest.json", result)
     return result
+
+
+def launch_manifest(execution_commit: str) -> dict:
+    argv = [sys.executable, *sys.argv]
+    return {
+        "timestamp_utc": datetime.now(timezone.utc).isoformat(),
+        "pid": os.getpid(),
+        "cwd": str(Path.cwd().resolve()),
+        "argv": argv,
+        "command": subprocess.list2cmdline(argv),
+        "execution_commit": execution_commit,
+        "inference_server": {
+            "used": False,
+            "build_hash": None,
+            "reason": "Transformers runs in-process against the pinned local snapshot",
+        },
+    }
 
 
 class AttentionCollector:
