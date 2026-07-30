@@ -71,7 +71,7 @@ def run_capture(output_dir: Path, model_path: Path, track1_repo: Path) -> dict:
     if leakage["status"] != "PASS":
         raise RuntimeError("E001 capture leakage audit failed")
     track1 = track1_manifest(track1_repo)
-    if track1["commit"] != EXPECTED_TRACK1_COMMIT:
+    if track1["commit"] != track1["resolved_registered_commit"]:
         raise RuntimeError("Track 1 reference commit changed")
     if model_path.name != EXPECTED_MODEL_REVISION:
         raise RuntimeError("Pinned Qwen3.6 revision path changed")
@@ -455,11 +455,17 @@ def leakage_audit() -> dict:
 
 def track1_manifest(repo: Path) -> dict:
     analyzer = repo / "protected" / "attention" / "analyzer.py"
+    commit = subprocess.check_output(
+        ["git", "rev-parse", "HEAD"], cwd=repo, text=True
+    ).strip()
+    registered_commit = subprocess.check_output(
+        ["git", "rev-parse", EXPECTED_TRACK1_COMMIT], cwd=repo, text=True
+    ).strip()
     return {
         "repository": str(repo.resolve()),
-        "commit": subprocess.check_output(
-            ["git", "rev-parse", "HEAD"], cwd=repo, text=True
-        ).strip(),
+        "commit": commit,
+        "registered_commit": EXPECTED_TRACK1_COMMIT,
+        "resolved_registered_commit": registered_commit,
         "analyzer_sha256": _sha256(analyzer),
         "imported_at_runtime": False,
     }
