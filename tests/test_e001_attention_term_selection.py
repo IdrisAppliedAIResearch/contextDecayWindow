@@ -3,7 +3,7 @@ from pathlib import Path
 import numpy as np
 import pytest
 
-from src.analysis.e001_attention_capture import leakage_audit
+from src.analysis.e001_attention_capture import launch_manifest, leakage_audit
 from src.analysis.e001_attention_term_selection import build_sweep_rows
 from src.analysis.e002_segmented_query import RUN_ROOT
 from src.retrieval_mechanism_ledger.e001 import (
@@ -120,3 +120,14 @@ def test_shared_mixed_seal_gate_matches_corrected_source() -> None:
         "sealed_materialized_crlf": 262,
         "exact_untracked_binary": 1,
     }
+
+
+def test_capture_launch_manifest_records_local_runtime() -> None:
+    manifest = launch_manifest("abc123")
+
+    assert manifest["execution_commit"] == "abc123"
+    assert manifest["pid"] > 0
+    assert manifest["argv"]
+    assert manifest["command"]
+    assert manifest["inference_server"]["used"] is False
+    assert manifest["inference_server"]["build_hash"] is None
