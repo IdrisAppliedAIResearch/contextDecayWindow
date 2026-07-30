@@ -205,8 +205,8 @@ Q4-only test cannot bound F1 breadth. E001 cannot authorize E003 regardless of
 its narrow F2 result. See `E001_attention_term_selection_protocol.md`.
 
 **What it measures:** whether attention-derived query-term selection improves
-the corrected Q4 cue enough to cross K or enter a compact similarity-ranked
-candidate set. It is not a shippable mechanism or a family ceiling.
+the corrected Q4 cue enough to cross K. It is not a shippable mechanism or a
+family ceiling.
 
 **Mechanism:** Forward pass over the query. Extract attention over query tokens.
 Select top-k. Embed *only those tokens* with the carried embedding model. Retrieve
@@ -256,8 +256,9 @@ the corrected committed **0.12042197585105896** (`0.16612689197063446` is
 superseded). Sweep probe position - see risks.
 
 **Interpretation:** The narrow F2 signal is present only if a cue reaches
-K=0.48 or moves turn 55 to rank 9 or better. E003 remains unauthorized under
-either outcome because this Q4-only diagnostic has no breadth arm.
+K=0.48. Similarity rank is descriptive because the historical rank 27 is a
+different, logical N ordering. E003 remains unauthorized under either outcome
+because this Q4-only diagnostic has no breadth arm.
 
 **Risks - all from Track 1, advisory only:**
 - **Attention ceiling 0.05-0.17** (Track 1, Study 002). If attention over probe

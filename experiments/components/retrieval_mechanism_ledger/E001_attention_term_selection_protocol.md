@@ -14,8 +14,8 @@ cannot authorize or kill E003 as a family-wide mechanism.
 
 The current K path is thresholded but not similarity-sorted, and exact N-first
 packing can still exclude a K candidate. E001 will report cosine, corpus rank,
-K-threshold crossing, and a hypothetical similarity-ranked 32k reachability
-marker. None is reported as live delivery.
+K-threshold crossing. Similarity rank is descriptive only. None is reported as
+live delivery.
 
 The ledger's `0.16612689197063446` Q4 baseline is superseded. The corrected
 baseline is `0.12042197585105896`, as already recorded in `ERRATA.md` and
@@ -51,13 +51,14 @@ labels crossed with four needle positions in a fixed 24-sentence synthetic
 haystack. Each needle states a label-specific six-digit access code; the query
 asks for that code.
 
-The exact expected answer is teacher-forced after the query. For each
-full-attention head and each expected answer token, record whether its
-highest-attended prompt token is an occurrence of the same token inside the
-needle's code span. A head's retrieval score is the mean of that indicator over
-all answer tokens and cases. Following Wu et al., heads with score at least
-`0.1` form the retrieval-head arm. Calibration data are generated from constants
-in mechanism code and are independent of Q4, study facts, and rubric files.
+The exact expected answer is teacher-forced after the query. For each expected
+code token, inspect the causal attention row immediately before that token.
+Within haystack token positions only, record whether each full-attention head's
+highest-attended token overlaps the needle's code span. A head's retrieval score
+is the mean of that indicator over all code tokens and cases. Following Wu et
+al., heads with score at least `0.1` form the retrieval-head arm. Calibration
+data are generated from constants in mechanism code and are independent of Q4,
+study facts, and rubric files.
 
 Fail closed if no head crosses `0.1`, any case/token mapping is ambiguous, or a
 deterministic calibration rerun changes selected head IDs or scores.
@@ -87,20 +88,19 @@ For every cue report:
 - target cosine and corrected-baseline delta;
 - target rank among all eligible episodes, with deterministic episode-ID ties;
 - whether cosine reaches the carried K threshold `0.48`;
-- whether rank is at most 9, the exact number of compact N candidates that fit
-  the 32k AS-001 point.
+- a warning that similarity rank is not the historical logical N rank.
 
 The unmodified full query is a baseline row. The raw attention tensors and every
 sweep row are written before descriptive selection of a best row.
 
 ## Interpretation
 
-**Narrow F2 signal:** present only if a cue either reaches cosine `0.48` or
-improves the target to rank 9 or better. Otherwise attention-derived selection
-is killed for this Q4 diagnostic.
+**Narrow F2 signal:** present only if a cue reaches cosine `0.48`. Otherwise
+attention-derived selection is killed for this Q4 diagnostic.
 
-This threshold measures whether the target could enter a relevant candidate set;
-it does not claim delivery under the unchanged N-first packer.
+This threshold measures K eligibility; it does not claim delivery under the
+unchanged N-first packer. Similarity rank is reported only to detect whether a
+cue changes relative ordering rather than shifting every cosine together.
 
 **Family decision:** E001 cannot bound breadth because it has no Q11 arm. E003
 therefore remains `NOT_AUTHORIZED` regardless of E001's narrow F2 result. A
