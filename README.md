@@ -4,7 +4,7 @@
 
 Ten pre-registered studies test that question, each adding one memory component and fixing the prior study's documented failures. Every result is published as found.
 
-> **Status:** Study 010 stopped at G2; exploratory continuation unaudited and LTM budget-noncompliant | retrieval bakeoff complete | renderer fix complete | Q4 packing diagnostic; Branch D invalidated | scoring record corrected 2026-07-29
+> **Status:** Study 010 stopped at G2; exploratory continuation unaudited and LTM budget-noncompliant | retrieval bakeoff complete | retrieval mechanism ledger closed; E001/E002 killed | renderer fix complete | Q4 packing diagnostic; Branch D invalidated | scoring record corrected 2026-07-29
 
 ## The Problem
 
@@ -60,6 +60,18 @@ No 1,000-turn run is authorized.
 
 See `experiments/surveys/retrieval_bakeoff/retrieval_bakeoff_report.md` and
 `experiments/components/q4_packing/AS_001_report.md`.
+
+## Retrieval Mechanism Ledger
+
+The query-representation ledger is closed. Exhaustive mechanical segmentation
+(E002) peaked at 10/17 breadth facts across 3/4 domains and preserved 14/16
+targeted items, so it was killed. The exploratory NF4 attention diagnostic
+(E001) improved Q4 cosine from 0.120422 to 0.210318 and descriptive similarity
+rank from 24 to 20, but none of 714 cues reached K=0.48. E003 late interaction
+was not run because the Q4-only diagnostic cannot supply its required breadth
+bound.
+
+See `experiments/components/retrieval_mechanism_ledger/RETRIEVAL_MECHANISM_LEDGER_REPORT.md`.
 
 ## Renderer Correctness
 

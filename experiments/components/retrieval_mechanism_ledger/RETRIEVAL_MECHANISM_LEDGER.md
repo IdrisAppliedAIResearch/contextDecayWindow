@@ -117,14 +117,14 @@ filters, TopicManager, rule detection.
 
 Three mechanisms, same hypothesis, **ranked by cost**:
 
-| Entry | Mechanism | Type | Cost | Deployable |
-|---|---|---|---|---|
-| **E002** | Mechanical query segmentation | CANDIDATE | existing machinery | Yes |
-| **E003** | Late interaction / token-level MaxSim | CANDIDATE | build, no second model | Yes, at a storage cost |
-| **E001** | Attention-derived term selection | **EXPLORATORY DIAGNOSTIC** | build + Q4 model in VRAM | **No** |
+| Entry | Mechanism | Type | Status | Cost | Deployable |
+|---|---|---|---|---|---|
+| **E002** | Mechanical query segmentation | CANDIDATE | **KILLED** | existing machinery | Yes |
+| **E003** | Late interaction / token-level MaxSim | CANDIDATE | **NOT AUTHORIZED** | build, no second model | Yes, at a storage cost |
+| **E001** | Attention-derived term selection | **EXPLORATORY DIAGNOSTIC** | **KILLED** | build + Q4 model in VRAM | **No** |
 
-**Run order:** E002, then E001 as a narrow F2 diagnostic. E003 remains
-unauthorized until a separate breadth bound exists.
+**Run order completed:** E002, then E001 as a narrow F2 diagnostic. E003 was
+not run because no valid breadth bound authorized it.
 
 E001 asks whether generator attention can improve the specific Q4 identity cue.
 It does not measure perfect selection and cannot bound breadth.
@@ -157,8 +157,8 @@ top-1 or top-2 per segment. Dedup by containment. Pack under the character budge
 
 **Prior art:** query decomposition and sub-query generation (typically LLM-driven -
 the distinction here is that segmentation is mechanical); diversity-aware selection
-(MMR, submodular/facility-location) is the established answer to coverage and
-**has not been scanned. Scan blocks promotion.**
+(MMR, submodular/facility-location) is the established answer to coverage. The
+blocking scan is complete; see `LITERATURE_SCAN.md`.
 
 **Cost:** test with existing machinery. Embeddings and cosine only. No forward
 pass, no generation, no new run.
@@ -198,7 +198,15 @@ domain has satisfied the mechanism and failed the purpose.
 
 *(Revision 4 - narrowed from an invalid family oracle. Not deployable; see Deployment.)*
 
-**Type:** EXPLORATORY DIAGNOSTIC. **Addresses:** F2 only. **Status:** PROTOCOL LOCKED - run after E002.
+**Type:** EXPLORATORY DIAGNOSTIC. **Addresses:** F2 only. **Status:** **KILLED July 30, 2026.**
+
+**Disposition:** The deterministic NF4 capture calibrated 266 retrieval heads
+from 32 cases and produced 714 complete cue-sweep rows across 335 unique cues.
+No cue reached K=0.48. The corrected baseline was cosine 0.120421976 at
+descriptive similarity rank 24/114; the best all-head cue reached 0.210318044
+at rank 20/114. Source seal, leakage audit, source integrity, model revision,
+and deterministic reruns passed. See
+`artifacts/e001/analysis_001/E001_report.md`.
 
 **Validity correction:** attention is not perfect term selection, and the
 Q4-only test cannot bound F1 breadth. E001 cannot authorize E003 regardless of
@@ -228,9 +236,9 @@ the vector, so no cross-model vector transfer is required.
 **Not found:** using the generator's own attention to construct a **first-stage**
 retrieval cue over a corpus not in context.
 
-**Cost: BUILD.** No attention extraction exists here. Requires the transformers
-path stood up in this repository, retrieval-head detection on Qwen3.6 27B, and
-attention-bias calibration. **The model fits only at Q4 in available VRAM.**
+**Cost: BUILD, completed for the diagnostic.** The implementation uses the
+Transformers path, model-specific retrieval-head calibration on Qwen3.6 27B,
+and eager full-attention capture. **The model fits only at Q4 in available VRAM.**
 
 **Compute is not the constraint the test is limited by.** The forward pass is over
 the *query* - tens of tokens, not the 50k context - so attention is trivially
@@ -339,7 +347,9 @@ eviction work in `CC_001`?
 
 ---
 
-*Opened July 29, 2026. Revision 4, July 30, 2026 - E002 killed by exhaustive
+*Opened July 29, 2026. Revision 5, July 30, 2026 - ledger closed: E001 and E002
+killed by their registered diagnostics; E003 not authorized because no breadth
+bound exists. Revision 4, July 30, 2026 - E002 killed by exhaustive
 offline test; owed scans completed; F2 cosine corrected; E001 narrowed from an
 invalid family oracle to an F2 diagnostic; E003 left unauthorized because no
 breadth bound exists. Revision 3, July 30, 2026 - entry types introduced;
