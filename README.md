@@ -4,7 +4,7 @@
 
 Ten pre-registered studies test that question, each adding one memory component and fixing the prior study's documented failures. Every result is published as found.
 
-> **Status:** Study 010 stopped at G2; authorized post-stop exploratory continuation complete | retrieval bakeoff complete | episode-rendering correctness fix complete; Q4 packing re-analysis pending | scoring record corrected 2026-07-26 | README current as of 2026-07-29
+> **Status:** Study 010 stopped at G2; exploratory continuation unaudited and LTM budget-noncompliant | retrieval bakeoff complete | renderer fix complete | Q4 packing diagnostic; Branch D invalidated | scoring record corrected 2026-07-29
 
 ## The Problem
 
@@ -44,17 +44,22 @@ Q11; the entire one-point rubric gap is Q4. The first clean positive result is
 more specific: widened raw STM delivered all six formation-blind facts and used
 five correctly, solving the track's hardest documented availability failure.
 LTM's only observed edge over matched raw volume is keeping Q4's turn-55 fact
-bundle renderable under the bakeoff renderer. DR-001 reproduced the historical
+bundle available. DR-001 reproduced the historical
 blocks exactly, found that Study 010's reported 31,991/31,847 values were
 undercharged content totals rather than 53,726/53,839-character serialized
 blocks, violating the 32k budget by 67.9%/68.2%, and replaced repeated
-diagnostic markup with a compact, content-identical episode format. The Q4
-packing null is the next analysis;
-primacy remains a current-renderer observation until it is complete. No other
-LTM function has been shown to beat matched raw volume.
+diagnostic markup with a compact, content-identical episode format. AS-001
+found that compact N-first packing admitted 9 of 32 candidates at 32k and 16 at
+64k; rank-27 Q4 never entered. Its Branch D `PRIMACY MECHANISM LIVE`
+interpretation was invalidated after output because the null could not fire in
+the tested regime. A post-result diagnostic places rank-27 entry at 108,432
+characters. The result indicts ranking/packing and budget jointly, not primacy
+as a separate mechanism. No other LTM function has been shown to beat matched
+raw volume.
 No 1,000-turn run is authorized.
 
-See `experiments/surveys/retrieval_bakeoff/retrieval_bakeoff_report.md`.
+See `experiments/surveys/retrieval_bakeoff/retrieval_bakeoff_report.md` and
+`experiments/components/q4_packing/AS_001_report.md`.
 
 ## Renderer Correctness
 
@@ -64,7 +69,9 @@ episode identity, order, and source message while reducing the same blocks from
 53,726 to 37,619 characters and 53,839 to 37,545. Production LTM selection now
 charges the exact complete serialized block. The registered 32,000-character
 allocation, N cap 32, per-domain floor, and containment policy were re-derived
-and retained; N-first packing remains flagged for AS-001. The separate Study
+and retained. AS-001 found that compact rendering does not bring the rank-27 Q4
+episode into the window anywhere in the locked 16k-64k sweep, but its
+architectural decision rule was invalid. The separate Study
 010 context peak is traceable to the full serialized prompts: all 2,000 rows
 recompute under the registered `characters // 4` estimator, with L peaking at
 27,154 and S at 17,541. These are estimates, not exact tokenizer counts.
@@ -100,11 +107,19 @@ Also read:
 
 ## Corrected Numbers
 
-The 2026-07-26 audit re-scored all 222 committed scores across Studies 001-009; 19 changed. Study 002's headline arm fell from 13.0 to 8.5 because a truncated reasoning block had been credited as a complete response. Study 001 lost the program's only VALIDATED verdict.
+The 2026-07-26 audit re-scored all 222 committed scores across Studies 001-009;
+19 changed. Study 002 C fell from 13.0 to 8.5 because a truncated reasoning
+block had been credited as a complete response; Study 002 A fell from 8.0 to
+5.5. Study 001 lost the program's only VALIDATED verdict.
 
 Corrected treatment scores are **8.5, 11.5, 6.5, 11.0, 9.0, 12.0, 12.0** for Studies 002 C, 003, 004, 005, 006, 007, and 009 L. Runtime and response budgets changed across that series. The clean architectural comparison is Study 009's same-seed result: **9.0 without LTM and 12.0 with it.**
 
-The audit estimates about 20 residual unreviewed scoring errors; final adjudication used AI reviewers rather than human reviewers.
+The residual figure is an extrapolation, not an observed count: 3 disagreements
+in the 26-item control sample (11.54%) projected across 143 unreviewed items
+gives 16.5 expected errors, reported informally as about 20. Final adjudication
+used AI reviewers rather than human reviewers. Study 010 was outside the audit;
+its exploratory 21.5/23 and 16.5/23 are not directly comparable to this
+corrected series.
 
 ## Runtime
 
