@@ -1,0 +1,42 @@
+{
+  "arms": [
+    {
+      "all_rows_match": true,
+      "arm": "arm_l",
+      "mismatch_count": 0,
+      "mismatches": [],
+      "peak": {
+        "estimated_prompt_chars": 108617,
+        "logged_estimated_tokens": 27154,
+        "recomputed_estimated_tokens": 27154,
+        "serialized_prompt_chars": 108629,
+        "turn": 985
+      },
+      "rows_checked": 1000
+    },
+    {
+      "all_rows_match": true,
+      "arm": "arm_s",
+      "mismatch_count": 0,
+      "mismatches": [],
+      "peak": {
+        "estimated_prompt_chars": 70164,
+        "logged_estimated_tokens": 17541,
+        "recomputed_estimated_tokens": 17541,
+        "serialized_prompt_chars": 70176,
+        "turn": 982
+      },
+      "rows_checked": 1000
+    }
+  ],
+  "assistant_cue": "\n\nAssistant:",
+  "assistant_cue_chars": 12,
+  "estimator": "len(serialized_prompt_without_assistant_cue) // 4",
+  "input_file_count": 2002,
+  "input_tree_sha256_after": "b169659853eda44d84a7072395bd8405c5fb6841b0def8f36d471ee51f6a1b99",
+  "input_tree_sha256_before": "b169659853eda44d84a7072395bd8405c5fb6841b0def8f36d471ee51f6a1b99",
+  "inputs_unchanged": true,
+  "interpretation": "The telemetry is a character-based estimate from the serialized prompt, not an exact model-tokenizer count.",
+  "record": "DR-001 context-peak provenance audit",
+  "status": "PASS"
+}

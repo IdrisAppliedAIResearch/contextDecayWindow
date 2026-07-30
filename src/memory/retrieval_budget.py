@@ -85,13 +85,7 @@ def rendered_cost(
     candidate: dict,
     render_mode: str = RENDER_EPISODE,
 ) -> int:
-    """Characters this candidate contributes to the rendered LTM block.
-
-    Mirrors what `context_builder._render_episode_block` emits as element text.
-    The budget is charged against the renderer's own notion of content so the
-    two cannot drift apart; block scaffolding (tags, attributes) is excluded
-    because it is a fixed per-element overhead, not information.
-    """
+    """Exact serialized characters in this candidate's LTM element."""
     if render_mode == RENDER_SPAN:
         # Amendment 001: provenance scaffolding scales with the number of span
         # units and is part of what the model receives. Use the production
@@ -103,7 +97,26 @@ def rendered_cost(
                 {**candidate, "render_mode": RENDER_SPAN}
             )
         )
-    return len(rendered_text(candidate, render_mode))
+    from src.memory.context_builder import render_episode_element
+
+    return len(render_episode_element(candidate))
+
+
+def rendered_block_cost(
+    candidates: list[dict],
+    render_mode: str = RENDER_EPISODE,
+) -> int:
+    """Exact serialized length of the complete production LTM block."""
+    from src.memory.context_builder import render_ltm_block
+
+    return len(
+        render_ltm_block(
+            [
+                {**candidate, "render_mode": render_mode}
+                for candidate in candidates
+            ]
+        )
+    )
 
 
 def episode_key(candidate: dict) -> str:
@@ -142,6 +155,7 @@ class BudgetSelection:
     chars_per_topic: dict[str, int] = field(default_factory=dict)
     collapsed_to_episode: int = 0
     skipped_oversized: int = 0
+    block_overhead_chars: int = 0
 
     @property
     def utilization(self) -> float:
@@ -232,8 +246,12 @@ def select_within_budget(
     they are dropped before selection so containment dedup never spends budget
     it will have to refill.
     """
-    if budget < 0:
-        raise ValueError(f"B_ltm must be non-negative, got {budget}")
+    empty_block_cost = rendered_block_cost([], render_mode)
+    if budget < empty_block_cost:
+        raise ValueError(
+            "B_ltm cannot serialize an empty LTM block: "
+            f"{budget} < {empty_block_cost}"
+        )
     if k_min < 0:
         raise ValueError(f"k_min must be non-negative, got {k_min}")
     if floor_ranking not in FLOOR_RANKINGS:
@@ -254,6 +272,8 @@ def select_within_budget(
         fill_cap=fill_cap,
         render_mode=render_mode,
     )
+    selection.chars_used = empty_block_cost
+    selection.block_overhead_chars = empty_block_cost
     selection.collapsed_to_episode = collapsed
     selection.topics_present = sorted({topic_key(c) for c in pool})
 
@@ -282,16 +302,18 @@ def select_within_budget(
     chosen: dict[str, dict] = {}
 
     def admit(candidate: dict, phase: str) -> bool:
-        cost = rendered_cost(candidate, render_mode)
-        if selection.chars_used + cost > budget:
+        trial = [*chosen.values(), candidate]
+        trial_cost = rendered_block_cost(trial, render_mode)
+        if trial_cost > budget:
             return False
         key = selection_key(candidate, render_mode)
         chosen[key] = candidate
         selection.phases[key] = phase
-        selection.chars_used += cost
+        selection.chars_used = trial_cost
         topic = topic_key(candidate)
         selection.chars_per_topic[topic] = (
-            selection.chars_per_topic.get(topic, 0) + cost
+            selection.chars_per_topic.get(topic, 0)
+            + rendered_cost(candidate, render_mode)
         )
         return True
 
@@ -337,6 +359,17 @@ def select_within_budget(
         chosen.values(),
         key=lambda item: _rank_key(item, render_mode),
     )
+    selection.chars_used = rendered_block_cost(
+        selection.selected,
+        render_mode,
+    )
+    selection.block_overhead_chars = (
+        selection.chars_used
+        - sum(
+            rendered_cost(candidate, render_mode)
+            for candidate in selection.selected
+        )
+    )
     assert selection.chars_used <= budget, (
         f"LTM budget exceeded: {selection.chars_used} > {budget}"
     )
@@ -362,10 +395,13 @@ def select_top_m(candidates: list[dict], top_m: int = 5) -> BudgetSelection:
         key = episode_key(candidate)
         selection.phases[key] = PHASE_FILL
         cost = rendered_cost(candidate)
-        selection.chars_used += cost
         topic = topic_key(candidate)
         selection.chars_per_topic[topic] = (
             selection.chars_per_topic.get(topic, 0) + cost
         )
+    selection.chars_used = rendered_block_cost(selection.selected)
+    selection.block_overhead_chars = (
+        selection.chars_used - sum(selection.chars_per_topic.values())
+    )
     selection.budget = selection.chars_used
     return selection

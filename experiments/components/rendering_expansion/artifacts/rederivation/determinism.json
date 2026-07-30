@@ -1,0 +1,20 @@
+{
+  "check": "DR-001 offline replay determinism",
+  "file_sets_match": true,
+  "files": [
+    {
+      "match": true,
+      "name": "rederivation.json",
+      "primary_sha256": "e07a9b913b64f08bc48282fa9ead29fab353669751efe1218d8930bb775414fa",
+      "repeat_sha256": "e07a9b913b64f08bc48282fa9ead29fab353669751efe1218d8930bb775414fa"
+    },
+    {
+      "match": true,
+      "name": "rederivation_report.md",
+      "primary_sha256": "571b866d09c9df020985d2d86ab0ffffb60a1bfeb48caa557833abf021657a5a",
+      "repeat_sha256": "571b866d09c9df020985d2d86ab0ffffb60a1bfeb48caa557833abf021657a5a"
+    }
+  ],
+  "separate_processes": true,
+  "status": "PASS"
+}

@@ -1,0 +1,870 @@
+{
+  "analysis": "AS-001 post-result diagnostic",
+  "decision_commit": "689a647e",
+  "fitted_episodes_at_entry": 27,
+  "inference_calls": 0,
+  "input_hashes_after": {
+    "experiments/components/q4_packing/artifacts/analysis/candidate_manifest.csv": "6325496f460fe98c5f8b09ba54d66cca422bd4ae1a5119d4564df36748b43d8c",
+    "experiments/surveys/retrieval_bakeoff/tier6/runs/tier6_live_121_corrected_001/context_matched_stm/logs/context_match.jsonl": "543441d5304a5d5c98b636c0338eb795f92fe7a8df8b3df2427a145f0eb7fff4"
+  },
+  "input_hashes_before": {
+    "experiments/components/q4_packing/artifacts/analysis/candidate_manifest.csv": "6325496f460fe98c5f8b09ba54d66cca422bd4ae1a5119d4564df36748b43d8c",
+    "experiments/surveys/retrieval_bakeoff/tier6/runs/tier6_live_121_corrected_001/context_matched_stm/logs/context_match.jsonl": "543441d5304a5d5c98b636c0338eb795f92fe7a8df8b3df2427a145f0eb7fff4"
+  },
+  "inputs_unchanged": true,
+  "interpretation": "This is the exact reachability boundary under the joint preserved rank order, greedy N-first packer, compact renderer, and character budget. It does not identify a separate primacy mechanism.",
+  "minimum_budget_chars": 108432,
+  "selected_source_turns_at_entry": [
+    114,
+    61,
+    65,
+    70,
+    85,
+    92,
+    106,
+    16,
+    19,
+    34,
+    40,
+    48,
+    51,
+    54,
+    62,
+    66,
+    80,
+    86,
+    99,
+    100,
+    107,
+    6,
+    15,
+    21,
+    23,
+    33,
+    55
+  ],
+  "serialized_chars_at_entry": 108432,
+  "status": "PASS",
+  "target_rank": 27,
+  "target_selected": true,
+  "target_turn": 55,
+  "transition_count_to_entry": 136,
+  "transition_trace": [
+    {
+      "budget_chars": 35,
+      "fitted_episodes": 0,
+      "serialized_chars": 35,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 820,
+      "fitted_episodes": 1,
+      "serialized_chars": 820,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 3112,
+      "fitted_episodes": 2,
+      "serialized_chars": 3112,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 3721,
+      "fitted_episodes": 2,
+      "serialized_chars": 3721,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 3764,
+      "fitted_episodes": 2,
+      "serialized_chars": 3764,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 4209,
+      "fitted_episodes": 2,
+      "serialized_chars": 4209,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 4233,
+      "fitted_episodes": 2,
+      "serialized_chars": 4233,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 4411,
+      "fitted_episodes": 2,
+      "serialized_chars": 4411,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 5120,
+      "fitted_episodes": 2,
+      "serialized_chars": 5120,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 7412,
+      "fitted_episodes": 3,
+      "serialized_chars": 7412,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 8021,
+      "fitted_episodes": 3,
+      "serialized_chars": 8021,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 8064,
+      "fitted_episodes": 3,
+      "serialized_chars": 8064,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 8509,
+      "fitted_episodes": 3,
+      "serialized_chars": 8509,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 8533,
+      "fitted_episodes": 3,
+      "serialized_chars": 8533,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 8711,
+      "fitted_episodes": 3,
+      "serialized_chars": 8711,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 11003,
+      "fitted_episodes": 4,
+      "serialized_chars": 11003,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 11612,
+      "fitted_episodes": 4,
+      "serialized_chars": 11612,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 11655,
+      "fitted_episodes": 4,
+      "serialized_chars": 11655,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 12100,
+      "fitted_episodes": 4,
+      "serialized_chars": 12100,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 12124,
+      "fitted_episodes": 4,
+      "serialized_chars": 12124,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 12547,
+      "fitted_episodes": 4,
+      "serialized_chars": 12547,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 13372,
+      "fitted_episodes": 4,
+      "serialized_chars": 13372,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 15664,
+      "fitted_episodes": 5,
+      "serialized_chars": 15664,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 16273,
+      "fitted_episodes": 5,
+      "serialized_chars": 16273,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 16316,
+      "fitted_episodes": 5,
+      "serialized_chars": 16316,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 16761,
+      "fitted_episodes": 5,
+      "serialized_chars": 16761,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 16785,
+      "fitted_episodes": 5,
+      "serialized_chars": 16785,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 17208,
+      "fitted_episodes": 5,
+      "serialized_chars": 17208,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 19500,
+      "fitted_episodes": 6,
+      "serialized_chars": 19500,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 20109,
+      "fitted_episodes": 6,
+      "serialized_chars": 20109,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 20152,
+      "fitted_episodes": 6,
+      "serialized_chars": 20152,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 20597,
+      "fitted_episodes": 6,
+      "serialized_chars": 20597,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 20621,
+      "fitted_episodes": 6,
+      "serialized_chars": 20621,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 21615,
+      "fitted_episodes": 6,
+      "serialized_chars": 21615,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 23907,
+      "fitted_episodes": 7,
+      "serialized_chars": 23907,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 24516,
+      "fitted_episodes": 7,
+      "serialized_chars": 24516,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 24559,
+      "fitted_episodes": 7,
+      "serialized_chars": 24559,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 25004,
+      "fitted_episodes": 7,
+      "serialized_chars": 25004,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 25028,
+      "fitted_episodes": 7,
+      "serialized_chars": 25028,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 26037,
+      "fitted_episodes": 7,
+      "serialized_chars": 26037,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 28329,
+      "fitted_episodes": 8,
+      "serialized_chars": 28329,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 28938,
+      "fitted_episodes": 8,
+      "serialized_chars": 28938,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 28981,
+      "fitted_episodes": 8,
+      "serialized_chars": 28981,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 29426,
+      "fitted_episodes": 8,
+      "serialized_chars": 29426,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 29450,
+      "fitted_episodes": 8,
+      "serialized_chars": 29450,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 31742,
+      "fitted_episodes": 9,
+      "serialized_chars": 31742,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 32351,
+      "fitted_episodes": 9,
+      "serialized_chars": 32351,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 32394,
+      "fitted_episodes": 9,
+      "serialized_chars": 32394,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 32839,
+      "fitted_episodes": 9,
+      "serialized_chars": 32839,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 33351,
+      "fitted_episodes": 9,
+      "serialized_chars": 33351,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 35643,
+      "fitted_episodes": 10,
+      "serialized_chars": 35643,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 36252,
+      "fitted_episodes": 10,
+      "serialized_chars": 36252,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 36295,
+      "fitted_episodes": 10,
+      "serialized_chars": 36295,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 36740,
+      "fitted_episodes": 10,
+      "serialized_chars": 36740,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 39032,
+      "fitted_episodes": 11,
+      "serialized_chars": 39032,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 39641,
+      "fitted_episodes": 11,
+      "serialized_chars": 39641,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 39684,
+      "fitted_episodes": 11,
+      "serialized_chars": 39684,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 40425,
+      "fitted_episodes": 11,
+      "serialized_chars": 40425,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 40559,
+      "fitted_episodes": 11,
+      "serialized_chars": 40559,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 42851,
+      "fitted_episodes": 12,
+      "serialized_chars": 42851,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 43460,
+      "fitted_episodes": 12,
+      "serialized_chars": 43460,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 43503,
+      "fitted_episodes": 12,
+      "serialized_chars": 43503,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 44244,
+      "fitted_episodes": 12,
+      "serialized_chars": 44244,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 44837,
+      "fitted_episodes": 12,
+      "serialized_chars": 44837,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 44908,
+      "fitted_episodes": 12,
+      "serialized_chars": 44908,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 44984,
+      "fitted_episodes": 12,
+      "serialized_chars": 44984,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 45211,
+      "fitted_episodes": 12,
+      "serialized_chars": 45211,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 47503,
+      "fitted_episodes": 13,
+      "serialized_chars": 47503,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 48112,
+      "fitted_episodes": 13,
+      "serialized_chars": 48112,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 48155,
+      "fitted_episodes": 13,
+      "serialized_chars": 48155,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 48896,
+      "fitted_episodes": 13,
+      "serialized_chars": 48896,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 49489,
+      "fitted_episodes": 13,
+      "serialized_chars": 49489,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 49560,
+      "fitted_episodes": 13,
+      "serialized_chars": 49560,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 49636,
+      "fitted_episodes": 13,
+      "serialized_chars": 49636,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 50034,
+      "fitted_episodes": 13,
+      "serialized_chars": 50034,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 52326,
+      "fitted_episodes": 14,
+      "serialized_chars": 52326,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 52935,
+      "fitted_episodes": 14,
+      "serialized_chars": 52935,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 52978,
+      "fitted_episodes": 14,
+      "serialized_chars": 52978,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 53719,
+      "fitted_episodes": 14,
+      "serialized_chars": 53719,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 54312,
+      "fitted_episodes": 14,
+      "serialized_chars": 54312,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 54383,
+      "fitted_episodes": 14,
+      "serialized_chars": 54383,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 54459,
+      "fitted_episodes": 14,
+      "serialized_chars": 54459,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 56751,
+      "fitted_episodes": 15,
+      "serialized_chars": 56751,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 57360,
+      "fitted_episodes": 15,
+      "serialized_chars": 57360,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 57403,
+      "fitted_episodes": 15,
+      "serialized_chars": 57403,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 58144,
+      "fitted_episodes": 15,
+      "serialized_chars": 58144,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 58737,
+      "fitted_episodes": 15,
+      "serialized_chars": 58737,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 58808,
+      "fitted_episodes": 15,
+      "serialized_chars": 58808,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 61100,
+      "fitted_episodes": 16,
+      "serialized_chars": 61100,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 61709,
+      "fitted_episodes": 16,
+      "serialized_chars": 61709,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 61752,
+      "fitted_episodes": 16,
+      "serialized_chars": 61752,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 62493,
+      "fitted_episodes": 16,
+      "serialized_chars": 62493,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 63086,
+      "fitted_episodes": 16,
+      "serialized_chars": 63086,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 65378,
+      "fitted_episodes": 17,
+      "serialized_chars": 65378,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 65987,
+      "fitted_episodes": 17,
+      "serialized_chars": 65987,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 66030,
+      "fitted_episodes": 17,
+      "serialized_chars": 66030,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 66771,
+      "fitted_episodes": 17,
+      "serialized_chars": 66771,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 67588,
+      "fitted_episodes": 17,
+      "serialized_chars": 67588,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 69880,
+      "fitted_episodes": 18,
+      "serialized_chars": 69880,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 70489,
+      "fitted_episodes": 18,
+      "serialized_chars": 70489,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 70532,
+      "fitted_episodes": 18,
+      "serialized_chars": 70532,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 71273,
+      "fitted_episodes": 18,
+      "serialized_chars": 71273,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 72384,
+      "fitted_episodes": 18,
+      "serialized_chars": 72384,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 74676,
+      "fitted_episodes": 19,
+      "serialized_chars": 74676,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 75285,
+      "fitted_episodes": 19,
+      "serialized_chars": 75285,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 75328,
+      "fitted_episodes": 19,
+      "serialized_chars": 75328,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 76069,
+      "fitted_episodes": 19,
+      "serialized_chars": 76069,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 77558,
+      "fitted_episodes": 19,
+      "serialized_chars": 77558,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 79850,
+      "fitted_episodes": 20,
+      "serialized_chars": 79850,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 80459,
+      "fitted_episodes": 20,
+      "serialized_chars": 80459,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 80502,
+      "fitted_episodes": 20,
+      "serialized_chars": 80502,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 81243,
+      "fitted_episodes": 20,
+      "serialized_chars": 81243,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 83535,
+      "fitted_episodes": 21,
+      "serialized_chars": 83535,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 84144,
+      "fitted_episodes": 21,
+      "serialized_chars": 84144,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 84187,
+      "fitted_episodes": 21,
+      "serialized_chars": 84187,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 85615,
+      "fitted_episodes": 21,
+      "serialized_chars": 85615,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 87907,
+      "fitted_episodes": 22,
+      "serialized_chars": 87907,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 88516,
+      "fitted_episodes": 22,
+      "serialized_chars": 88516,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 88559,
+      "fitted_episodes": 22,
+      "serialized_chars": 88559,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 90851,
+      "fitted_episodes": 23,
+      "serialized_chars": 90851,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 91460,
+      "fitted_episodes": 23,
+      "serialized_chars": 91460,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 92633,
+      "fitted_episodes": 23,
+      "serialized_chars": 92633,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 93061,
+      "fitted_episodes": 23,
+      "serialized_chars": 93061,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 93824,
+      "fitted_episodes": 23,
+      "serialized_chars": 93824,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 96116,
+      "fitted_episodes": 24,
+      "serialized_chars": 96116,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 96725,
+      "fitted_episodes": 24,
+      "serialized_chars": 96725,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 97898,
+      "fitted_episodes": 24,
+      "serialized_chars": 97898,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 98326,
+      "fitted_episodes": 24,
+      "serialized_chars": 98326,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 100618,
+      "fitted_episodes": 25,
+      "serialized_chars": 100618,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 101227,
+      "fitted_episodes": 25,
+      "serialized_chars": 101227,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 102400,
+      "fitted_episodes": 25,
+      "serialized_chars": 102400,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 104692,
+      "fitted_episodes": 26,
+      "serialized_chars": 104692,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 105301,
+      "fitted_episodes": 26,
+      "serialized_chars": 105301,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 107593,
+      "fitted_episodes": 27,
+      "serialized_chars": 107593,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 108417,
+      "fitted_episodes": 27,
+      "serialized_chars": 108417,
+      "target_selected": false
+    },
+    {
+      "budget_chars": 108432,
+      "fitted_episodes": 27,
+      "serialized_chars": 108432,
+      "target_selected": true
+    }
+  ]
+}

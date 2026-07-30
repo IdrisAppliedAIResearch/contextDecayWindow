@@ -1,0 +1,26 @@
+{
+  "check": "DR-001 offline replay determinism",
+  "file_sets_match": true,
+  "files": [
+    {
+      "match": true,
+      "name": "expansion_rows.csv",
+      "primary_sha256": "c24a8e7c241991f077b6372df37476f1b39afa6428c2acaa95d72a0160117170",
+      "repeat_sha256": "c24a8e7c241991f077b6372df37476f1b39afa6428c2acaa95d72a0160117170"
+    },
+    {
+      "match": true,
+      "name": "gate_report.md",
+      "primary_sha256": "c126eca98c9ffb72cedf5d04e71ae1c9b827a8671feb17a38d5e8bda85e3b346",
+      "repeat_sha256": "c126eca98c9ffb72cedf5d04e71ae1c9b827a8671feb17a38d5e8bda85e3b346"
+    },
+    {
+      "match": true,
+      "name": "summary.json",
+      "primary_sha256": "230d638b6cc81e99acd04eb63c793b797044441bd485be4bd3cf96bec150624c",
+      "repeat_sha256": "230d638b6cc81e99acd04eb63c793b797044441bd485be4bd3cf96bec150624c"
+    }
+  ],
+  "separate_processes": true,
+  "status": "PASS"
+}

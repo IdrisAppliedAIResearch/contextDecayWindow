@@ -17,10 +17,13 @@
   S completed in one process. Peak estimated contexts were 27,154 and 17,541
   tokens respectively.
 - Three calibrated blind passes plus clean-context adjudication scored L at
-  14.0/14 terminal and 21.5/23 overall versus S at 12.0 and 16.5.
-- Exploratory Bar 1 retains LTM. The 2.0 terminal gap came entirely from
+  14.0/14 terminal and 21.5/23 overall versus S at 12.0 and 16.5. Study 010 was
+  outside the scoring-integrity audit; these values are unaudited.
+- The exploratory 2.0 terminal gap came entirely from
   breadth: L's LTM block delivered all 12 pairs at Q13-Q14; S delivered one or
-  two. Both arms were perfect on all terminal targeted probes.
+  two. Both arms were perfect on all terminal targeted probes. Arm L's blocks
+  violated the 32k budget, so `RETAIN LTM` is not a compliant architecture
+  verdict.
 - Formation integrity passed: 290 L records, 63 dream events, zero offset
   mismatches, zero non-content records, and zero dream inference calls.
 - The live topic failure persisted: both arms ended with two topics. Arm S had
@@ -28,10 +31,11 @@
   required targeted facts. The LTM advantage is breadth-specific.
 - Bar 3 is NOT EVALUABLE. I2, I5, and I8 ask for two facts before they are
   planted, so complete degradation curves were not delivered.
-- Forward bakeoff T1.2 must test breadth at fixed 32k retrieval budget with
-  rendered candidate stores at 1x, 2x, 5x, and 10x budget. Study 010's floor
-  selected only two merged topics; its breadth win may be compact-store
-  dependent.
+- The compact-store scaling conclusion and its 1x-10x T1.2 requirement are
+  withdrawn. Q13/Q14 serialized to 53,726/53,839 characters, 67.9%/68.2% over
+  budget; 31,991/31,847 were undercharged content totals.
+- The separate 27,154/17,541 peaks survive as serialized-prompt
+  `characters // 4` estimates, not exact tokenizer counts.
 - Two carried subsystems failed at scale. TopicManager collapsed 12 domains
   into two topics. The rule detector pinned 118 false rules by rehearsal turn
   200 and caused refusals; Amendments 005-006 disabled persistence, so the
