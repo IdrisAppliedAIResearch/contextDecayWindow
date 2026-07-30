@@ -4,7 +4,10 @@ import argparse
 import csv
 import hashlib
 import json
+import os
 import subprocess
+import sys
+from datetime import datetime, timezone
 from pathlib import Path
 
 import numpy as np
@@ -75,6 +78,9 @@ def run_analysis(
     if output_dir.exists():
         raise FileExistsError(f"Refusing to overwrite E001 analysis: {output_dir}")
     output_dir.mkdir(parents=True)
+    execution_commit = _git("rev-parse", "HEAD")
+    launch = analysis_launch_manifest(execution_commit)
+    _write_json(output_dir / "launch_manifest.json", launch)
 
     inputs = [
         PROTOCOL,
@@ -167,7 +173,12 @@ def run_analysis(
         else "KILL"
     )
     after = _hash_paths(inputs)
-    source_status = "PASS" if before == after else "FAIL"
+    execution_commit_after = _git("rev-parse", "HEAD")
+    source_status = (
+        "PASS"
+        if before == after and execution_commit == execution_commit_after
+        else "FAIL"
+    )
     result = {
         "entry": "E001",
         "status": "COMPLETE" if source_status == "PASS" else "FAIL",
@@ -176,7 +187,9 @@ def run_analysis(
         "deployment_status": "NOT_DEPLOYABLE",
         "e003_disposition": "NOT_AUTHORIZED",
         "design_commit": "fd880d88",
-        "execution_commit": _git("rev-parse", "HEAD"),
+        "execution_commit": execution_commit,
+        "execution_commit_after": execution_commit_after,
+        "launch": launch,
         "probe_turn": PROBE_TURN,
         "target_turn": TARGET_TURN,
         "generator_revision": capture["model_revision"],
@@ -225,6 +238,23 @@ def run_analysis(
         },
     )
     return result
+
+
+def analysis_launch_manifest(execution_commit: str) -> dict:
+    argv = [sys.executable, *sys.argv]
+    return {
+        "timestamp_utc": datetime.now(timezone.utc).isoformat(),
+        "pid": os.getpid(),
+        "cwd": str(Path.cwd().resolve()),
+        "argv": argv,
+        "command": subprocess.list2cmdline(argv),
+        "execution_commit": execution_commit,
+        "inference_server": {
+            "used": False,
+            "build_hash": None,
+            "reason": "llama-cpp-python embeds in-process with the pinned local GGUF",
+        },
+    }
 
 
 def build_sweep_rows(
