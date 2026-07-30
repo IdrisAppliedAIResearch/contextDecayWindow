@@ -1,5 +1,26 @@
 # contextDecayWindow Research Context
 
+> **Current-record warning (2026-07-29):** Sections below preserve older
+> working context and contain pre-audit scores. `AGENTS.md`, `ERRATA.md`, and
+> the committed reports are authoritative. Study 009 S is 9.0, not 10.5.
+> Study 010 stopped confirmatorily at G2, then completed an authorized
+> exploratory continuation; its 21.5/23 and 16.5/23 scores are unaudited.
+> Study 010 LTM Q13/Q14 violated the 32k budget by 67.9%/68.2%. AS-001's
+> post-result Branch D primacy interpretation is invalid.
+
+## Current correction ledger
+
+- Scoring audit scope: 222 items, Studies 001-009; 19 changed.
+- Study 002 Arm A: 8.0 -> 5.5. Arm C: 13.0 -> 8.5.
+- The residual "about 20" figure is extrapolated: 3/26 control disagreements
+  over 143 unreviewed items gives 16.5 expected. It is not a measured count.
+- The Study 002 README/score-sheet mismatch is the concrete case behind
+  Protocol R11's SHA-cited, recomputed cross-study totals.
+- Study 010's 27,154 peak is traceable to serialized prompts under the
+  `characters // 4` estimator; it is not an exact tokenizer count.
+- AS-001 preserves `S'=9` at 32k and 16 at 64k as diagnostics. Rank 27 first
+  enters at 108,432 characters, a joint rank/packing/budget boundary.
+
 ## Current state
 
 Study 010 is **STOPPED AT G2 BEFORE LIVE INFERENCE**. Amendment 001 repaired
@@ -149,4 +170,4 @@ run, scoring, or Bars 0–3 evaluation occurred.
 - Study 007 correction:
   `experiments/study_007/evaluation/position_and_grounding_analysis.md`
 
-**Last updated:** July 26, 2026
+**Last updated:** July 29, 2026
