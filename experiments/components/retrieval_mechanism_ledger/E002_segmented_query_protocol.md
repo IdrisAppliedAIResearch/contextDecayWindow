@@ -1,6 +1,6 @@
 # E002 Segmented Query Retrieval Protocol
 
-**Status:** PROSPECTIVE - no segmented-retrieval output generated
+**Status:** COMPLETE - KILL (best 10/17; targeted 14/16)
 **Type:** Offline component test, not a study or pre-registration
 **Parent:** `RETRIEVAL_MECHANISM_LEDGER.md`, E002
 **Inference calls:** 0
