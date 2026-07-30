@@ -42,6 +42,8 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **AS-001 Q4 packing (2026-07-29).** DIAGNOSTIC. Branch D's primacy verdict was invalidated post-result: its null could not fire, and no branch interpreted exact charging reducing 15 fitted episodes to 9. Rank 27 enters only at 108,432 chars under N-first packing. This identifies a joint rank/packing/budget boundary; no pinned-tier study is authorized.
 
+**Retrieval mechanism ledger (2026-07-30).** CLOSED. E002 KILL: 992 segmented-query cells peaked at 10/17 Q11 across 3/4 domains, targeted 14/16. E001 KILL (exploratory NF4): best cue moved Q4 cosine .1204->.2103 and rank 24->20; 0/714 reached K=.48. E003 NOT AUTHORIZED; no breadth bound.
+
 ## 3. Failure Pattern
 
 The recurring failure class is a surrogate that can pass without the property it claims to certify: record count for information, novelty for importance, density for factual value, or a rubric score for a correct answer.
