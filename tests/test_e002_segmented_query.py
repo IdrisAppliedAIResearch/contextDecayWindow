@@ -9,6 +9,7 @@ from src.analysis.e002_segmented_query import (
     load_candidates,
     load_queries,
     same_budget_baseline,
+    verify_e002_source_seal,
 )
 from src.memory.context_matched_stm import render_stm_payload
 from src.retrieval_bakeoff.config import EMBEDDING_DIMENSION
@@ -142,6 +143,19 @@ def test_mechanism_import_graph_and_planted_violation_pass_audit() -> None:
     assert result["status"] == "PASS"
     assert result["forbidden_imports"] == []
     assert result["planted_forbidden_path_rejected"] is True
+
+
+def test_corrected_source_seal_accepts_only_canonical_newline_materialization() -> None:
+    result = verify_e002_source_seal()
+
+    assert result["status"] == "PASS"
+    assert result["mechanism_file_count"] == 265
+    assert result["representations"] == {
+        "sealed_canonical_lf": 2,
+        "sealed_materialized_crlf": 262,
+        "exact_untracked_binary": 1,
+    }
+    assert not result["mismatches"]
 
 
 def test_same_budget_baseline_is_exact_and_distinct_from_historical_hurdle() -> None:
