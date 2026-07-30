@@ -1,0 +1,212 @@
+{
+  "amendment_commit": "ad74b991",
+  "blocks": [
+    {
+      "actual_serialized_chars": 53726,
+      "actual_sha256": "d81e4c097d85a3c9fd21f77d4c2c4383ed5bc6fae544bdda7df3baecb33e3eb5",
+      "block": "study_010_q13",
+      "budget_chars": 32000,
+      "budget_overrun_chars": 21726,
+      "character_identity": true,
+      "episode_count": 80,
+      "historical_charged_chars": 31991,
+      "identity_order_match": true,
+      "replayed_serialized_chars": 53726,
+      "replayed_sha256": "d81e4c097d85a3c9fd21f77d4c2c4383ed5bc6fae544bdda7df3baecb33e3eb5",
+      "turn": 999
+    },
+    {
+      "actual_serialized_chars": 53839,
+      "actual_sha256": "04fca3e8c557fd364065567a2a2fbab3222f990029322bd8ee4c70cf363a6e47",
+      "block": "study_010_q14",
+      "budget_chars": 32000,
+      "budget_overrun_chars": 21839,
+      "character_identity": true,
+      "episode_count": 81,
+      "historical_charged_chars": 31847,
+      "identity_order_match": true,
+      "replayed_serialized_chars": 53839,
+      "replayed_sha256": "04fca3e8c557fd364065567a2a2fbab3222f990029322bd8ee4c70cf363a6e47",
+      "turn": 1000
+    },
+    {
+      "actual_serialized_chars": 59708,
+      "actual_sha256": "a161131b1f9352792656ffdda6f073d388244f722aafcb7ee8f007c7660b0721",
+      "block": "bakeoff_tier6_q4",
+      "budget_chars": 60595,
+      "budget_overrun_chars": -887,
+      "character_identity": true,
+      "episode_count": 15,
+      "historical_charged_chars": 59708,
+      "identity_order_match": true,
+      "replayed_serialized_chars": 59708,
+      "replayed_sha256": "a161131b1f9352792656ffdda6f073d388244f722aafcb7ee8f007c7660b0721",
+      "turn": 115
+    }
+  ],
+  "design_commit": "094cbea2",
+  "distributions": {
+    "bakeoff_tier6_q4": {
+      "episode_count": 15,
+      "serialized_element_chars": {
+        "count": 15,
+        "max": 4882,
+        "median": 4359,
+        "min": 827,
+        "p25": 3650,
+        "p75": 4484,
+        "p95": 4882,
+        "total": 59641
+      },
+      "source_content_chars": {
+        "count": 15,
+        "max": 4754,
+        "median": 4231,
+        "min": 698,
+        "p25": 3522,
+        "p75": 4356,
+        "p95": 4754,
+        "total": 57719
+      },
+      "stored_span_chars": {
+        "count": 0,
+        "max": null,
+        "median": null,
+        "min": null,
+        "p25": null,
+        "p75": null,
+        "p95": null,
+        "total": 0
+      },
+      "structural_overhead_chars": {
+        "count": 15,
+        "max": 129,
+        "median": 128,
+        "min": 128,
+        "p25": 128,
+        "p75": 128,
+        "p95": 129,
+        "total": 1922
+      }
+    },
+    "study_010_q13": {
+      "episode_count": 80,
+      "serialized_element_chars": {
+        "count": 80,
+        "max": 952,
+        "median": 678,
+        "min": 477,
+        "p25": 563,
+        "p75": 741,
+        "p95": 882,
+        "total": 53614
+      },
+      "source_content_chars": {
+        "count": 80,
+        "max": 672,
+        "median": 402,
+        "min": 213,
+        "p25": 300,
+        "p75": 466,
+        "p95": 602,
+        "total": 31991
+      },
+      "stored_span_chars": {
+        "count": 80,
+        "max": 160,
+        "median": 65,
+        "min": 20,
+        "p25": 55,
+        "p75": 71,
+        "p95": 154,
+        "total": 5632
+      },
+      "structural_overhead_chars": {
+        "count": 80,
+        "max": 280,
+        "median": 264,
+        "min": 261,
+        "p25": 264,
+        "p75": 276,
+        "p95": 280,
+        "total": 21623
+      }
+    },
+    "study_010_q14": {
+      "episode_count": 81,
+      "serialized_element_chars": {
+        "count": 81,
+        "max": 952,
+        "median": 657,
+        "min": 445,
+        "p25": 554,
+        "p75": 741,
+        "p95": 889,
+        "total": 53726
+      },
+      "source_content_chars": {
+        "count": 81,
+        "max": 672,
+        "median": 381,
+        "min": 181,
+        "p25": 290,
+        "p75": 466,
+        "p95": 609,
+        "total": 31847
+      },
+      "stored_span_chars": {
+        "count": 81,
+        "max": 133,
+        "median": 64,
+        "min": 20,
+        "p25": 51,
+        "p75": 69,
+        "p95": 73,
+        "total": 4589
+      },
+      "structural_overhead_chars": {
+        "count": 81,
+        "max": 280,
+        "median": 264,
+        "min": 261,
+        "p25": 264,
+        "p75": 276,
+        "p95": 280,
+        "total": 21879
+      }
+    }
+  },
+  "execution_commit": "ad74b991",
+  "g_r1": {
+    "input_file_count": 10,
+    "input_tree_sha256_after": "81ad012be35fedc5915897fe694706b0e1625fa2d072efa6fa0eb56f99783f4a",
+    "input_tree_sha256_before": "81ad012be35fedc5915897fe694706b0e1625fa2d072efa6fa0eb56f99783f4a",
+    "inputs_unchanged": true,
+    "status": "PASS",
+    "study_010_turns": [
+      999,
+      1000
+    ]
+  },
+  "phase": "pre_fix",
+  "record": "DR-001",
+  "renderer_source_sha256": "b33ee48d8a71aa1c5dbacd9991d9e3a66a32ad603366b181e186c145f1b3d6e8",
+  "runtime_provenance": {
+    "cache_type_k": "q8_0",
+    "cache_type_v": "q8_0",
+    "ctx_size": 50000,
+    "launch_command": "llama-server.exe\n  -m C:\\Users\\muzaf\\.cache\\huggingface\\hub\\models--unsloth--Qwen3.6-27B-MTP-GGUF\\snapshots\\5cb35eb3dcbf52dbce5f87dbc64df6aaffadcace\\Qwen3.6-27B-UD-Q6_K_XL.gguf\n  --host 127.0.0.1 --port 8080\n  --ctx-size 50000 --parallel 1\n  --cache-type-k q8_0 --cache-type-v q8_0\n  --flash-attn on --jinja --metrics\n  --temp 1 --top-p 0.95 --top-k 20 --min-p 0.0\n  --presence-penalty 0.0 --repeat-penalty 1.0\n  --seed 5005",
+    "manifest": "experiments\\study_010\\runs\\study_010_full_001_l_launch_manifest.json",
+    "manifest_sha256": "4f7c01940959ad213ee91c76bc4de3744f339b87573fd1542786a7c5b59c77d2",
+    "model_alias": "Qwen3.6-27B-UD-Q6_K_XL.gguf",
+    "model_sha256": "f3b4a622e06e8ade06ec5c0eb9b40ed7c9bd707b5fada46c0215f4ab4a6bc32b",
+    "parallel": 1,
+    "replay_mode": "offline_no_inference",
+    "runtime_start": "experiments\\study_010\\runtime\\amendment_004\\runtime_start.md",
+    "runtime_start_sha256": "ae45c49ba4dc0d52832457953856807355b3be303301e17874a1cc957e4dc422",
+    "seed": 5005,
+    "server_build": "b9294-0f3cb3fc8",
+    "speculative_decoding": "none"
+  },
+  "stm_renderer_source_sha256": "a1ef64e2bfa27684e85ae8feda0a236ddf6ca73fff86f2e770dc5ddf692cb058"
+}

@@ -65,6 +65,8 @@ class TurnRecord:
     budget_containment_drops: int = 0
     budget_refills: int = 0
     budget_chars_used: int = 0
+    budget_content_chars: int = 0
+    budget_block_overhead_chars: int = 0
     budget_records_used: int = 0
     budget_utilization: float = 0.0
     budget_chars_per_topic: dict[str, int] = field(default_factory=dict)

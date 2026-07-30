@@ -6,7 +6,11 @@ from src.db.rule_store import store_rule
 from src.memory.retrieval_engine import RetrievalEngine
 from src.memory.topic_manager import TopicManager
 from src.memory.context_builder import estimate_tokens
-from src.memory.retrieval_budget import rendered_cost, selection_key
+from src.memory.retrieval_budget import (
+    rendered_cost,
+    rendered_text,
+    selection_key,
+)
 from src.inference.provider import InferenceResult
 from src.observability.turn_record import TurnRecord, AssignmentResult
 from src.runners.base_runner import BaseRunner
@@ -154,6 +158,11 @@ class IterativeRunner(BaseRunner):
             "budget_containment_drops": arbitration.containment_drops,
             "budget_refills": arbitration.refills,
             "budget_chars_used": selection.chars_used,
+            "budget_content_chars": sum(
+                len(rendered_text(candidate, selection.render_mode))
+                for candidate in selection.selected
+            ),
+            "budget_block_overhead_chars": selection.block_overhead_chars,
             "budget_records_used": len(selection.selected),
             "budget_utilization": selection.utilization,
             "budget_chars_per_topic": dict(selection.chars_per_topic),

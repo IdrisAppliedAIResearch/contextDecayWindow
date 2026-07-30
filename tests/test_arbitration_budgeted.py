@@ -3,7 +3,11 @@
 import pytest
 
 from src.memory.arbitration import arbitrate_budgeted, arbitrate_candidates
-from src.memory.retrieval_budget import PHASE_FILL, PHASE_FLOOR
+from src.memory.retrieval_budget import (
+    PHASE_FILL,
+    PHASE_FLOOR,
+    rendered_block_cost,
+)
 
 
 def stm(episode_id: str, similarity: float = 0.6, chars: int = 200) -> dict:
@@ -68,17 +72,18 @@ def test_containment_drop_frees_budget_for_a_replacement():
         ltm("ep2", "civil", 0.80, chars=400),
         ltm("ep3", "civil", 0.70, chars=400),
     ]
+    budget = rendered_block_cost(candidates[:2])
     without = arbitrate_budgeted(
-        [], candidates, set(), ltm_budget=800, ltm_k_min=0
+        [], candidates, set(), ltm_budget=budget, ltm_k_min=0
     )
     assert {e["id"] for e in without.episodes} == {"ep1", "ep2"}
 
     with_drop = arbitrate_budgeted(
-        [], candidates, {"ep1"}, ltm_budget=800, ltm_k_min=0
+        [], candidates, {"ep1"}, ltm_budget=budget, ltm_k_min=0
     )
     assert {e["id"] for e in with_drop.episodes} == {"ep2", "ep3"}
     assert with_drop.containment_drops == 1
-    assert with_drop.budget.chars_used == 800
+    assert with_drop.budget.chars_used == budget
 
 
 def test_floor_survives_a_containment_drop_from_its_own_topic():
@@ -223,11 +228,12 @@ def test_final_set_has_no_duplicate_ids():
 def test_no_ltm_count_cap_is_applied():
     """The departure from Study 004: LTM size is set by budget, not by k_stm+M."""
     candidates = [ltm(f"e{i}", f"t{i % 4}", 0.9 - i * 0.001, chars=100) for i in range(40)]
+    budget = rendered_block_cost(candidates)
     result = arbitrate_budgeted(
-        [], candidates, set(), ltm_budget=4000, ltm_k_min=1
+        [], candidates, set(), ltm_budget=budget, ltm_k_min=1
     )
     assert result.ltm_episodes_in_final_set == 40
-    assert result.budget.chars_used == 4000
+    assert result.budget.chars_used == budget
 
 
 def test_empty_ltm_yields_stm_only():

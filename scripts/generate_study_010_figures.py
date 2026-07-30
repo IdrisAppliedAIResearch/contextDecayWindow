@@ -20,6 +20,15 @@ ROOT = Path(__file__).resolve().parents[1]
 STUDY = ROOT / "experiments" / "study_010"
 EVAL = STUDY / "evaluation"
 FIGURES = STUDY / "figures"
+RENDERING_PRE_FIX = (
+    ROOT
+    / "experiments"
+    / "components"
+    / "rendering_expansion"
+    / "artifacts"
+    / "pre_fix"
+    / "summary.json"
+)
 
 BLUE = "#0072B2"
 ORANGE = "#D55E00"
@@ -229,19 +238,17 @@ def figure_4() -> list[str]:
         for arm in ("L", "S")
         for question in ("Q13", "Q14")
     }
-    logs = {
-        int(r["turn"]): r
-        for r in read_csv(STUDY / "runs" / "study_010_full_001" / "arm_l" / "logs" / "retrieval_budget.csv")
-    }
-    q13 = int(logs[999]["ltm_chars_used"])
-    q14 = int(logs[1000]["ltm_chars_used"])
+    replay = read_json(RENDERING_PRE_FIX)
+    blocks = {block["block"]: block for block in replay["blocks"]}
+    q13 = int(blocks["study_010_q13"]["actual_serialized_chars"])
+    q14 = int(blocks["study_010_q14"]["actual_serialized_chars"])
 
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10.8, 5.2), gridspec_kw={"width_ratios": [0.85, 1.25]})
     fig.subplots_adjust(left=0.08, right=0.97, top=0.75, bottom=0.23, wspace=0.3)
     title(
         fig,
-        "Breadth succeeded with a compact store and a nearly saturated fixed budget",
-        "Observed delivery at terminal breadth probes and the registered forward scale stress",
+        "Breadth came from LTM blocks that violated the fixed character budget",
+        "Delivery is descriptive; no inference was run on exact-cost 32k selections",
     )
     x = np.arange(2)
     width = 0.32
@@ -262,31 +269,45 @@ def figure_4() -> list[str]:
     ax1.set_ylabel("Required fact pairs delivered")
     ax1.legend(frameon=False, fontsize=8, loc="upper center")
 
-    names = ["Raw distilled\nstore", "Q13 rendered\nLTM", "Q14 rendered\nLTM", "10x raw\nprojection"]
-    values = [18951, q13, q14, 189510]
-    colors = [MID, BLUE, BLUE, RED]
-    bars = ax2.bar(np.arange(4), values, color=colors, width=0.66)
-    ax2.axhline(32000, color=RED, linestyle="--", linewidth=1.3, label="Fixed LTM budget (32,000)")
-    ax2.set_yscale("log")
-    ax2.set_ylim(10000, 260000)
-    ax2.set_xticks(np.arange(4), names)
-    ax2.set_ylabel("Characters (log scale)")
-    ax2.set_title("B  Store and rendered-budget pressure", loc="left", fontsize=10)
-    ax2.legend(frameon=False, fontsize=8, loc="upper left")
+    names = ["Q13 actual\nserialized LTM", "Q14 actual\nserialized LTM"]
+    values = [q13, q14]
+    colors = [BLUE, BLUE]
+    bars = ax2.bar(np.arange(2), values, color=colors, width=0.58)
+    ax2.axhline(32000, color=RED, linestyle="--", linewidth=1.3)
+    ax2.set_ylim(0, 60000)
+    ax2.set_xticks(np.arange(2), names)
+    ax2.set_ylabel("Serialized characters")
+    ax2.set_title("B  Actual LTM budget violation", loc="left", fontsize=10)
+    ax2.text(
+        -0.32,
+        32750,
+        "Registered LTM budget: 32,000",
+        color=RED,
+        fontsize=8,
+        weight="bold",
+    )
     for bar, value in zip(bars, values):
-        ax2.text(bar.get_x() + bar.get_width() / 2, value * 1.06, f"{value:,}", ha="center", fontsize=8, weight="bold")
+        overage = value - 32000
+        ax2.text(
+            bar.get_x() + bar.get_width() / 2,
+            value + 1200,
+            f"{value:,}\n+{overage:,}",
+            ha="center",
+            fontsize=8,
+            weight="bold",
+        )
     fig.text(
         0.54,
         0.075,
-        "Forward T1.2: hold the 32,000-character budget fixed and test 1x, 2x, 5x, and 10x store pressure.",
+        "The historical 31,991/31,847 values undercharged serialized output; the compact-store projection is withdrawn.",
         color=RED,
         weight="bold",
-        fontsize=8.5,
+        fontsize=7.8,
     )
     fig.text(
         0.97,
         0.02,
-        "Sources: fact_delivery_matrix.csv; retrieval_budget.csv; bakeoff_t1_2_requirement.md",
+        "Sources: fact_delivery_matrix.csv; DR-001 pre-fix replay; ERRATA.md",
         ha="right",
         color=MID,
         fontsize=7.5,
@@ -303,7 +324,7 @@ def main() -> None:
         EVAL / "probe_fact_order_audit.json",
         EVAL / "context_performance_curve.csv",
         EVAL / "fact_delivery_matrix.csv",
-        STUDY / "runs" / "study_010_full_001" / "arm_l" / "logs" / "retrieval_budget.csv",
+        RENDERING_PRE_FIX,
         EVAL / "bakeoff_t1_2_requirement.md",
     ]
     manifest = {

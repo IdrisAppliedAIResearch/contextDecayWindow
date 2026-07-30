@@ -1,0 +1,32 @@
+{
+  "analysis_source_status": "PASS",
+  "canonical_mismatches": [],
+  "checkout_mismatches": [
+    {
+      "checkout": "543441d5304a5d5c98b636c0338eb795f92fe7a8df8b3df2427a145f0eb7fff4",
+      "expected": "19b05a0b9bf070177b0cac2802e124657557f4788edf6c7d91e5cc2038e27432",
+      "newline_normalized_equivalent": true,
+      "path": "logs/context_match.jsonl"
+    },
+    {
+      "checkout": "d638f3229cab471dc1befccd0539ba54143d4d497ef1b283994f254edfa745be",
+      "expected": "e660c6b949bd41026bb58994d2663441070b94577d623e0deb15206ddc7cefc7",
+      "newline_normalized_equivalent": true,
+      "path": "runtime_audit.json"
+    }
+  ],
+  "expected_aggregate_sha256": "6d2f7dac4d998b6d6d5d62dd7fbabe3786e61533682f42d44cc81b16687dc31e",
+  "expected_mechanism_file_count": 265,
+  "interpretation": "The historical seal is invalid because study.db was never committed. Every tracked seal entry matches either canonical LF bytes or deterministic CRLF materialization; checkout mismatches are accepted only when newline-normalized content is identical.",
+  "matched_representations": {
+    "canonical_lf": 2,
+    "materialized_crlf": 262
+  },
+  "missing_committed_files": [
+    "study.db"
+  ],
+  "seal_status": "SEALED_BEFORE_SCORING",
+  "status": "FAIL_MISSING_COMMITTED_DB",
+  "tracked_aggregate_sha256": "8ec4c063963e4266c54e9396ac53d80f7c93802d271a4e39db8cf883b00d519d",
+  "tracked_mechanism_file_count": 264
+}
