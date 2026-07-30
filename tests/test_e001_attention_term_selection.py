@@ -4,7 +4,10 @@ import numpy as np
 import pytest
 
 from src.analysis.e001_attention_capture import launch_manifest, leakage_audit
-from src.analysis.e001_attention_term_selection import build_sweep_rows
+from src.analysis.e001_attention_term_selection import (
+    analysis_launch_manifest,
+    build_sweep_rows,
+)
 from src.analysis.e002_segmented_query import RUN_ROOT
 from src.retrieval_mechanism_ledger.e001 import (
     assert_mechanism_path_allowed,
@@ -126,6 +129,17 @@ def test_capture_launch_manifest_records_local_runtime() -> None:
     manifest = launch_manifest("abc123")
 
     assert manifest["execution_commit"] == "abc123"
+    assert manifest["pid"] > 0
+    assert manifest["argv"]
+    assert manifest["command"]
+    assert manifest["inference_server"]["used"] is False
+    assert manifest["inference_server"]["build_hash"] is None
+
+
+def test_analysis_launch_manifest_records_local_runtime() -> None:
+    manifest = analysis_launch_manifest("def456")
+
+    assert manifest["execution_commit"] == "def456"
     assert manifest["pid"] > 0
     assert manifest["argv"]
     assert manifest["command"]
