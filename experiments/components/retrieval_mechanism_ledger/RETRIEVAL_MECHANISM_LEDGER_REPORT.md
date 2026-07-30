@@ -3,6 +3,8 @@
 **Status:** CLOSED
 **Date:** 2026-07-30
 **Scope:** Offline query-representation mechanisms after the retrieval bakeoff
+**Prospective design anchors:** `b42f4f81` (ledger and E002 protocol);
+`fd880d88` (E001 protocol and dispositions)
 
 ## Outcome
 
