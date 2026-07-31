@@ -3,6 +3,11 @@
 **Scan date:** July 30, 2026
 **Scope:** Sources owed by `RETRIEVAL_MECHANISM_LEDGER.md`
 **Source policy:** Primary papers, proceedings, and official code/model pages
+**Decision companion:** `LITERATURE_LANDSCAPE.md`
+
+This file owns candidate-mechanism prior art. `LITERATURE_LANDSCAPE.md` owns
+program positioning, external benchmark adoption, and the HippoRAG
+disposition. The two files are reconciled in the landscape's Section 7.
 
 ## Diversity-Aware And Coverage Selection
 
@@ -83,11 +88,9 @@ does not contain retrieval-head calibration for Qwen3.6.
 an independent copy task. Track 1 is prior art, not available Track 2
 infrastructure.
 
-## Unresolved Carried Reference
+## Carried Landscape Reference
 
-The supplied ledger also requests "Items carried from
-`LITERATURE_LANDSCAPE.md` Section 7." No file with that name exists in this
-repository or beside the supplied ledger, and a repository-wide text search
-finds no copied Section 7. That reference cannot be silently reconstructed.
-The named scans above are complete; the absent document remains an unresolved
-source reference rather than an open mechanism authorization.
+`LITERATURE_LANDSCAPE.md` is now committed. Its Section 7 reconciles the
+HippoRAG disposition, LoCoMo/LongMemEval adoption, paper positioning, and every
+candidate class scanned here. No reconciliation changes an E001/E002 outcome
+or authorizes E003.

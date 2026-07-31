@@ -42,7 +42,7 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **AS-001 Q4 packing (2026-07-29).** DIAGNOSTIC. Branch D's primacy verdict was invalidated post-result: its null could not fire, and no branch interpreted exact charging reducing 15 fitted episodes to 9. Rank 27 enters only at 108,432 chars under N-first packing. This identifies a joint rank/packing/budget boundary; no pinned-tier study is authorized.
 
-**Retrieval mechanism ledger (2026-07-30).** CLOSED. E002 KILL: 992 segmented-query cells peaked at 10/17 Q11 across 3/4 domains, targeted 14/16. E001 KILL (exploratory NF4): best cue moved Q4 cosine .1204->.2103 and rank 24->20; 0/714 reached K=.48. E003 NOT AUTHORIZED; no breadth bound.
+**Retrieval mechanism ledger (2026-07-31).** CLOSED; outcomes unchanged. E002 KILL but exact-32k segmentation improved 6/17->10/17 (66.7%); F1 open. E001 best-found cue .1204->.2103, 0/714 reached K=.48; 266/384 heads was non-sparse, so not a ceiling. F2 closed; F3 unclaimed; E003 unauthorized.
 
 ## 3. Failure Pattern
 
