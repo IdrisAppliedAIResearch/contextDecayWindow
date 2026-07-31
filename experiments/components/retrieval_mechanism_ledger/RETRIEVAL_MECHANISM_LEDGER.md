@@ -150,7 +150,10 @@ turn-log store found a 14/17 minimum of 5,058 serialized characters and a
 17/17 frontier point of 7,592. Standalone complete-domain minima were civil
 826, art 3,182, monetary 2,913, and marine 824 characters. E002's missing art
 domain is therefore not explained by payload capacity. This is an answer-key
-oracle over availability, not a deployable selection policy. See
+oracle over availability, not a deployable selection policy. Four of the five
+threshold episodes are prior probe answers allowed by the locked
+`source_turn < 120` rule, so AR-001 does not establish a plant-source-only
+bound. See
 `AR_001_Q11_ACHIEVABILITY_PROTOCOL.md` and
 `artifacts/ar_001/AR_001_report.md`.
 
