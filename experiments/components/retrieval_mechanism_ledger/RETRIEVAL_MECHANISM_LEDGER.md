@@ -62,7 +62,7 @@ here are curation *for* it: deciding what it gets to see under a real budget.
 
 | # | Failure | Evidence | Status |
 |---|---|---|---|
-| **F1** | **Breadth / enumeration** | E002 raised its exact 32k matched baseline from 6/17 to 10/17 but missed the locked hurdle. Bakeoff Tier 1 reached 8/17 at exact 32k; Tier 6 reached 13/17 at 60,285 chars. Threshold 14/17, binary | **OPEN - segmentation is the best matched-budget improvement tested** |
+| **F1** | **Breadth / enumeration** | E002 raised its exact 32k matched baseline from 6/17 to 10/17 but missed the locked hurdle. AR-001 proves the bar exists: exact 14/17 costs 5,058 chars and 17/17 costs 7,592. Threshold 14/17, binary | **OPEN - achievable selection/ranking problem; segmentation is the best matched-budget improvement tested** |
 | **F2** | **Bad cue / identity** | Corrected Q4 cosine 0.12042197585105896 vs K = 0.48. E001 best found across 335 cues was 0.21031804382801056; 0/714 crossed K. Planted turn 55, probed turn 115; exact N-first reachability is 108,432 chars | **CLOSED - Family QR did not authorize an identity repair** |
 | **F3** | **No absence detection** | E002 had two zero-unique segments and eight duplicate slots but still missed 7/17 facts and one domain. No validated signal tells the system what is absent | **UNCLAIMED** |
 | **F4** | **Rare technical vocabulary** | `photophores`, `mantle margin`, `lead white`, `ultramarine glaze`, `marine snow`, `dual mandate`. Zero spaCy entities in the target span. Density ranks them 89th-316th; IDF worse | **SOLVED by raw delivery** (6/6) - do not re-solve |
@@ -143,6 +143,16 @@ improved matched-budget availability by 66.7%. The KILL remains binding; F1
 remains open. Mechanism seal, leakage audit, source integrity, and raw rerun
 determinism all passed. See `artifacts/e002/E002_report.md` and
 `E002_POSTHOC_INTERPRETATION.md`.
+
+**Bar achievability:** AR-001 was registered after E002 and before its own
+implementation or output. Exact dynamic programming over the committed
+turn-log store found a 14/17 minimum of 5,058 serialized characters and a
+17/17 frontier point of 7,592. Standalone complete-domain minima were civil
+826, art 3,182, monetary 2,913, and marine 824 characters. E002's missing art
+domain is therefore not explained by payload capacity. This is an answer-key
+oracle over availability, not a deployable selection policy. See
+`AR_001_Q11_ACHIEVABILITY_PROTOCOL.md` and
+`artifacts/ar_001/AR_001_report.md`.
 
 **Claim:** Segmenting the query and allocating a small fixed retrieval budget per
 segment converts one averaged cue into several specific ones.
@@ -355,7 +365,10 @@ eviction work in `CC_001`?
 
 ---
 
-*Opened July 29, 2026. Revision 6, July 31, 2026 - outcomes unchanged; E002
+*Opened July 29, 2026. Revision 7, July 31, 2026 - AR-001 establishes exact
+bar achievability: 14/17 at 5,058 chars and 17/17 at 7,592; F1 remains an open
+selection/ranking problem, not a 32k capacity impossibility. Revision 6, July
+31, 2026 - outcomes unchanged; E002
 cross-budget interpretation corrected; F1 left open and F2 closed; E002 segment
 diagnostics recorded; literature landscape recovered and reconciled. Revision
 5, July 30, 2026 - ledger closed: E001 and E002

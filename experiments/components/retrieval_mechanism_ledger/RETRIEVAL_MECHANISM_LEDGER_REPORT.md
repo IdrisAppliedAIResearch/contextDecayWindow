@@ -5,6 +5,8 @@
 **Scope:** Offline query-representation mechanisms after the retrieval bakeoff
 **Prospective design anchors:** `b42f4f81` (ledger and E002 protocol);
 `fd880d88` (E001 protocol and dispositions)
+**Post-hoc bar-audit anchors:** `b48e7501` (AR-001 protocol);
+`15cdb177` (AR-001 implementation)
 
 ## Outcome
 
@@ -28,6 +30,14 @@ E003 late interaction remains not authorized. E001 was Q4-only and cannot
 provide the prospective breadth bound, storage multiplier, exact-budget
 policy, and no-regression test required to open E003.
 
+AR-001 subsequently checked whether E002's 14/17 bar existed under exact
+accounting. Dynamic programming over all 17-bit coverage states found an exact
+minimum of 5,058 serialized characters across five episodes for at least
+14/17. The full 17/17 frontier point costs 7,592 characters. The bar is
+therefore achievable with 26,942 characters of headroom; F1 is a selection and
+ranking problem under the registered availability measure, not a capacity
+impossibility at 32,000 characters.
+
 ## Integrity
 
 - E002 mechanism seal, leakage audit, source integrity, and raw rerun
@@ -50,6 +60,10 @@ Mechanical query splitting did not reach a hurdle established under a larger,
 now non-production payload regime, but at the same enforced 32,000-character
 budget it raised availability from 6/17 to 10/17. F1 remains open, with
 segmentation the best matched-budget improvement tested in this ledger.
+AR-001 rules out serialized capacity as the reason E002 stopped at 3/4
+domains: complete standalone domain payloads cost 826 characters for civil,
+3,182 for art, 2,913 for monetary, and 824 for marine. Art is the most
+expensive domain, but all 17 facts fit together at 7,592 characters.
 
 Generator-attention term selection did not restore the buried Q4 identity
 bundle to K eligibility. Its 266/384 selected full-attention heads (69.3%) are
@@ -75,7 +89,10 @@ historical Tier 6 seal test was resolved without changing its verifier, seal,
 or artifacts: it now asserts the two documented strict newline mismatches
 (`logs/context_match.jsonl` and `runtime_audit.json`) and separately requires
 the authorized canonical/mixed 265-file seal to pass. The full suite now
-passes 755/755.
+passes 760/760. AR-001's exact solver matches exhaustive subset enumeration on
+a synthetic corpus; its additive cost matches the complete production
+renderer, and an independent output-directory rerun was byte-identical across
+all seven artifacts.
 
 ## Evidence
 
@@ -87,7 +104,9 @@ passes 755/755.
 - E001 result: `artifacts/e001/analysis_001/E001_report.md`
 - Literature: `LITERATURE_SCAN.md`
 - Program landscape: `LITERATURE_LANDSCAPE.md`
+- Q11 achievability design: `AR_001_Q11_ACHIEVABILITY_PROTOCOL.md`
+- Q11 achievability result: `artifacts/ar_001/AR_001_report.md`
 
 Design and disposition commits precede implementation and output. E002 output
 is anchored by `dfdb257e`; E001 capture by `dbbf7617`; E001 analysis by
-`2ba4dd99`.
+`2ba4dd99`; AR-001 result by `cb696c7f`.

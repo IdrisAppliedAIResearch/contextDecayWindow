@@ -7,6 +7,11 @@ movement. At an exact 32,000-character budget, segmentation raised the
 unchanged selector from 6/17 to 10/17, a 66.7% improvement. F1 remains open,
 with segmentation the best matched-budget improvement tested.
 
+AR-001 proves the 14/17 bar is achievable under exact accounting: the exact
+minimum is 5,058 characters, and 17/17 costs 7,592. Complete standalone domain
+costs are civil 826, art 3,182, monetary 2,913, and marine 824 characters.
+E002's absent art domain is a selection/ranking miss, not a 32k capacity limit.
+
 Do not treat generator attention as a perfect-term oracle or a deployable
 retrieval mechanism. E001 was an exploratory NF4 Q4-only diagnostic. Its best
 cue raised cosine from 0.120421976 to 0.210318044 and descriptive similarity
@@ -29,6 +34,8 @@ Authoritative files:
 - `RETRIEVAL_MECHANISM_LEDGER_REPORT.md`
 - `E002_POSTHOC_INTERPRETATION.md`
 - `LITERATURE_LANDSCAPE.md`
+- `AR_001_Q11_ACHIEVABILITY_PROTOCOL.md`
+- `artifacts/ar_001/AR_001_report.md`
 - `artifacts/e002/e002_results.json`
 - `artifacts/e001/capture_001/capture_manifest.json`
 - `artifacts/e001/analysis_001/e001_results.json`

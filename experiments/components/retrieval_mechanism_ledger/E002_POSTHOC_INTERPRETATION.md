@@ -40,6 +40,13 @@ allowed payload, but it substantially improved the unchanged selector at the
 same enforced budget. F1 therefore remains open, with segmentation the best
 matched-budget improvement tested in the ledger.
 
+AR-001 later established that the bar itself is achievable under exact
+accounting. The minimum payload for at least 14/17 is 5,058 characters, and
+the 17/17 frontier point is 7,592. Complete standalone domain minima are civil
+826, art 3,182, monetary 2,913, and marine 824 characters. Art is relatively
+expensive but easily fits; E002's 3/4-domain result is not a serialization-cost
+limit. See `artifacts/ar_001/AR_001_report.md`.
+
 ## Per-Segment Diagnostics
 
 The primary configuration (`S=4`, `o=1`, `b=2`) generated nine segments and 18
