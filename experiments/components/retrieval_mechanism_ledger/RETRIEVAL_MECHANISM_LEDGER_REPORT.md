@@ -38,6 +38,11 @@ therefore achievable with 26,942 characters of headroom; F1 is a selection and
 ranking problem under the registered availability measure, not a capacity
 impossibility at 32,000 characters.
 
+Four of the five exact-threshold episodes are prior probe answers at turns 112,
+113, 115, and 118. They are valid under E002's locked `source_turn < 120`
+eligibility rule, but this makes AR-001 a bound on the registered store measure,
+not a plant-source-only sensitivity result.
+
 ## Integrity
 
 - E002 mechanism seal, leakage audit, source integrity, and raw rerun
