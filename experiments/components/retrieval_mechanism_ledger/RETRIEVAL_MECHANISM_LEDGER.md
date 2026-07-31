@@ -62,11 +62,11 @@ here are curation *for* it: deciding what it gets to see under a real budget.
 
 | # | Failure | Evidence | Status |
 |---|---|---|---|
-| **F1** | **Breadth / enumeration** | Q11 never answered correctly by any arm. Raw store 8/17. Widened STM 13/17. Threshold 14/17, binary. Similarity ranking is anti-correlated with informativeness on breadth queries (Study 007) | **CLAIMED - Family QR** |
-| **F2** | **Bad cue / identity** | Q4 bundle: corrected cosine 0.12042197585105896 vs K = 0.48 (0.16612689197063446 superseded). Planted turn 55, probed turn 115. Rank 27 of 32. First reachable at 108,432 chars vs 32,000 budget | **CLAIMED - Family QR** |
-| **F3** | **No absence detection** | Q11 returned 8/17 and signalled nothing. No mechanism exists by which the system can know it is missing something | **UNCLAIMED** |
+| **F1** | **Breadth / enumeration** | E002 raised its exact 32k matched baseline from 6/17 to 10/17 but missed the locked hurdle. Bakeoff Tier 1 reached 8/17 at exact 32k; Tier 6 reached 13/17 at 60,285 chars. Threshold 14/17, binary | **OPEN - segmentation is the best matched-budget improvement tested** |
+| **F2** | **Bad cue / identity** | Corrected Q4 cosine 0.12042197585105896 vs K = 0.48. E001 best found across 335 cues was 0.21031804382801056; 0/714 crossed K. Planted turn 55, probed turn 115; exact N-first reachability is 108,432 chars | **CLOSED - Family QR did not authorize an identity repair** |
+| **F3** | **No absence detection** | E002 had two zero-unique segments and eight duplicate slots but still missed 7/17 facts and one domain. No validated signal tells the system what is absent | **UNCLAIMED** |
 | **F4** | **Rare technical vocabulary** | `photophores`, `mantle margin`, `lead white`, `ultramarine glaze`, `marine snow`, `dual mandate`. Zero spaCy entities in the target span. Density ranks them 89th-316th; IDF worse | **SOLVED by raw delivery** (6/6) - do not re-solve |
-| **F5** | **Enforced budget behavior** | No study in the record ran under an enforced ceiling; all were 68% over | Engineering - see `CC_001` |
+| **F5** | **Enforced budget behavior** | Study 010 LTM undercharged Q13/Q14 by 67.9%/68.2%. Widened STM and bakeoff Tier 1 charged complete payloads exactly; post-DR-001 LTM now does too | **ENGINEERING FIXED; historical LTM results remain noncompliant** |
 
 **What works and needs no mechanism:** targeted recall. Study 010 logged 203 K
 events across Q1-Q12; `<retrieved_stm>` supplied all 60 targeted facts. Both arms
@@ -137,9 +137,12 @@ It does not measure perfect selection and cannot bound breadth.
 
 **Disposition:** An exhaustive 992-cell sweep reached at most 10/17 Q11 items
 across 3/4 domains and preserved 14/16 required targeted items. It did not beat
-the historical 13/17 hurdle. The unchanged same-budget baseline was 6/17 at
-31,946 characters. Mechanism seal, leakage audit, source integrity, and raw
-rerun determinism all passed. See `artifacts/e002/E002_report.md`.
+the historical 13/17 hurdle, which came from a 60,285-character Q11 payload.
+The unchanged same-budget baseline was 6/17 at 31,946 characters, so E002
+improved matched-budget availability by 66.7%. The KILL remains binding; F1
+remains open. Mechanism seal, leakage audit, source integrity, and raw rerun
+determinism all passed. See `artifacts/e002/E002_report.md` and
+`E002_POSTHOC_INTERPRETATION.md`.
 
 **Claim:** Segmenting the query and allocating a small fixed retrieval budget per
 segment converts one averaged cue into several specific ones.
@@ -204,8 +207,11 @@ domain has satisfied the mechanism and failed the purpose.
 from 32 cases and produced 714 complete cue-sweep rows across 335 unique cues.
 No cue reached K=0.48. The corrected baseline was cosine 0.120421976 at
 descriptive similarity rank 24/114; the best all-head cue reached 0.210318044
-at rank 20/114. Source seal, leakage audit, source integrity, model revision,
-and deterministic reruns passed. See
+at rank 20/114. This is the best found across 335 cues, not a ceiling. Selecting
+266/384 full-attention heads (69.3%) was non-discriminating relative to Wu et
+al.'s reported under-5% retrieval-head sparsity, consistent with the all-head
+arm winning. Source seal, leakage audit, source integrity, model revision, and
+deterministic reruns passed. See
 `artifacts/e001/analysis_001/E001_report.md`.
 
 **Validity correction:** attention is not perfect term selection, and the
@@ -331,23 +337,28 @@ eviction work in `CC_001`?
 ## 7. Open slots
 
 - **F3 (absence detection):** nothing proposed. Arguably prior to F1 - a system that
-  knew it had 8 of 17 could act on it. Candidate signals discussed, not entered:
-  retrieval-score distribution shape; per-segment miss counts under E002 (**cheap,
-  and it comes free with the E002 test**); generation-time confidence (FLARE-style,
-  unscanned, breaks the one-shot contract).
+  knew it had 8 of 17 could act on it. E002's counts came back: 18 slots yielded
+  10 unique episodes and eight duplicates; two of nine segments added no unique
+  episode. That signal did not certify completeness because seven segments added
+  episodes while the result still missed 7/17 facts and one domain. Candidate
+  signals still unentered: retrieval-score distribution shape; generation-time
+  confidence (FLARE-style, scanned, breaks the one-shot contract).
 
 ## 8. Scan disposition
 
 - Diversity-aware / coverage selection: **COMPLETE.**
 - Query decomposition and multi-vector conversational retrieval: **COMPLETE.**
 - Active / mid-generation retrieval: **COMPLETE.**
-- Details and sources: `LITERATURE_SCAN.md`.
-- `LITERATURE_LANDSCAPE.md` Section 7: **UNRESOLVED SOURCE REFERENCE**; no
-  such file exists in the repository or beside the supplied ledger.
+- Candidate-mechanism details and sources: `LITERATURE_SCAN.md`.
+- Program positioning, benchmark adoption, HippoRAG disposition, and carried
+  Section 7 decisions: `LITERATURE_LANDSCAPE.md`.
 
 ---
 
-*Opened July 29, 2026. Revision 5, July 30, 2026 - ledger closed: E001 and E002
+*Opened July 29, 2026. Revision 6, July 31, 2026 - outcomes unchanged; E002
+cross-budget interpretation corrected; F1 left open and F2 closed; E002 segment
+diagnostics recorded; literature landscape recovered and reconciled. Revision
+5, July 30, 2026 - ledger closed: E001 and E002
 killed by their registered diagnostics; E003 not authorized because no breadth
 bound exists. Revision 4, July 30, 2026 - E002 killed by exhaustive
 offline test; owed scans completed; F2 cosine corrected; E001 narrowed from an

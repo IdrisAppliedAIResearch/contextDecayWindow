@@ -99,3 +99,26 @@ analysis artifacts remain unchanged as diagnostics. A post-result exact
 reachability calculation finds rank 27 first enters at 108,432 characters.
 AS-001 does not authorize a pinned tier or an architecture study.
 
+## Retrieval Ledger E002 Budget Interpretation (2026-07-31)
+
+**Headline change:** E002 remains KILL, but its matched-budget improvement is
+now part of the primary interpretation.
+
+The closeout originally paired E002's 10/17 result with the registered 13/17
+historical hurdle without stating the budget difference in the interpretation.
+The corrected Tier 6 Q11 payload that made 13/17 items available was 60,285
+characters under its locked 60,595-character cap. The separate 59,708 figure
+is Tier 6 Q4 at turn 115. E002 was held to an exact 32,000-character cap.
+
+At the same enforced budget, the unchanged selector made 6/17 items available
+at 31,946 characters and segmentation made 10/17 available at 21,761
+characters, a 66.7% increase. This does not change the prospectively locked
+14/17 pass threshold or the KILL. It changes the interpretation from "did not
+solve breadth" without qualification to "did not reach a cross-budget
+historical hurdle, while materially improving the matched-budget baseline."
+
+The 6/17 figure is not the program's first exact-budget breadth measurement.
+Retrieval bakeoff Tier 1 previously reported 8/17 at 31,861 exactly serialized
+characters under its own renderer and M4 method. See
+`experiments/components/retrieval_mechanism_ledger/E002_POSTHOC_INTERPRETATION.md`.
+
