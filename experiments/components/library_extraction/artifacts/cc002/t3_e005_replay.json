@@ -1,0 +1,24 @@
+{
+  "a3_configurations_replayed": 132,
+  "embedding_call_shape": "committed batch via CarriedEmbedder.embed_many",
+  "expected_result_vector": {
+    "q11_domain_count": 4,
+    "q11_fact_count": 12,
+    "serialized_chars": 31569,
+    "targeted_preserved": 16
+  },
+  "payload_sha256_mismatches": [],
+  "primary_configuration": "A3_l0.1_r0.0_k16",
+  "primary_result_vector": {
+    "q11_domain_count": 4,
+    "q11_fact_count": 12,
+    "serialized_chars": 31569,
+    "targeted_preserved": 16
+  },
+  "selection_module": "episodic._selection",
+  "selector_module": "episodic._selection",
+  "status": "PASS",
+  "targeted_required": 16,
+  "targeted_selections_replayed": 7,
+  "test": "CC-002 T3"
+}
