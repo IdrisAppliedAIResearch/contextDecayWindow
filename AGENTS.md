@@ -44,6 +44,8 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **E005 diversity selection (2026-08-01).** PROMOTION_ELIGIBLE offline. Set-level selection beats A0 6/17 in all 146 configs; best gate-passing 12/17 at 4/4 domains, 16/16 targeted, 4/5 oracle episodes. Facility location led on count (13/17) but gave monetary 0/4 and passed nothing. Escalations: r not inert (greedy fills budget); deployed pool yields 0 four-domain configs. No live run.
 
+**DX-001 turn-90 miss (2026-08-01).** NO CHANGE. E005's whole remaining oracle gap is one in-pool episode at cosine rank 112 with 4 monetary items; 0/146 configs take it. Cluster collision refuted: its cluster is never entered, so diversity paid in full and it still lost by .169. Needed cosine .225, has .056. 12/17 ships with the miss characterized; objective escalates to unauthorized E006.
+
 **Retrieval mechanism ledger (2026-07-31).** CLOSED. E002 KILL but exact-32k segmentation improved 6/17->10/17. AR-001 proves F1 achievable: exact 14/17 costs 5,058 chars; 17/17 costs 7,592. E001 best-found .1204->.2103; 0/714 reached K=.48 and 266/384 heads was non-sparse. F2 closed; F3 open; E003 unauthorized.
 
 ## 3. Failure Pattern
