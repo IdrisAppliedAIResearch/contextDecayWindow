@@ -171,3 +171,35 @@ The scan's conclusion, that MMR carries no constant-factor guarantee, stands.
 Its stated reason does not. No repository text may describe MMR as
 non-submodular. See
 `experiments/components/retrieval_mechanism_ledger/E005_POSTHOC_INTERPRETATION.md`.
+
+## DR-002 Cosine Rank Under the Committed Embedding Call (2026-08-01)
+
+**Headline change:** one published rank moves. DR-002's step-11 selection, turn
+118, is corrected from cosine rank **21 to 20** of 119.
+
+DX-001's replay gate established that the carried embedder returns a different
+vector for the same query text depending on the shape of the embedding call.
+E005 embedded all nine probe queries in one batch; DR-002's rank tables embedded
+the query on its own. The two vectors agree to cosine 0.999837 with a largest
+component difference of 0.217, and the difference flips 6 of the 146 committed
+E005 payloads.
+
+The E005 primary configuration `A3_l0.1_r0.0_k16` is not among the six. Its
+selection sequence, character count, domain counts, targeted preservation and
+oracle overlap are unchanged, and DX-001 reproduced all 146 committed payload
+hashes under the committed call. Re-measured under that call:
+
+- All nine rows of the DR-002 generality table reproduce exactly, including
+  Q11's last-needed item at rank 87 and every targeted probe at rank 2 or
+  better.
+- The worst fact-bearing rank remains 86, so DR-002's registered rule and its
+  "cosine ordering is the wrong prior" verdict are unaffected.
+- Oracle episode ranks read 14, 20, 22, 86, 112 rather than 14, 21, 22, 86, 112.
+
+Committed DR-002 artifacts are not edited. The re-measurement is
+`experiments/components/retrieval_mechanism_ledger/artifacts/e005/dr_002/generality_batched.json`,
+produced by `scripts/verify_dr002_generality_batched.py`. The general lesson is
+recorded in
+`experiments/components/retrieval_mechanism_ledger/DX_001_PART2_DISPOSITION.md`
+section 8: reproducing a retrieval result requires reproducing the embedding
+call shape, not only the query text.

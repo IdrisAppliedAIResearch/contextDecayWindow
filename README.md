@@ -4,7 +4,7 @@
 
 Ten pre-registered studies test that question, each adding one memory component and fixing the prior study's documented failures. Every result is published as found.
 
-> **Status:** Study 010 stopped at G2; exploratory continuation unaudited and LTM budget-noncompliant | retrieval bakeoff complete | retrieval mechanism ledger reopened for Family CS; E005 diversity-aware selection PROMOTION_ELIGIBLE offline at 12/17 across 4/4 domains, F1 open but materially advanced, F2 closed, F3 open | renderer fix complete | Q4 packing diagnostic; Branch D invalidated | scoring/interpretation record corrected through 2026-08-01
+> **Status:** Study 010 stopped at G2; exploratory continuation unaudited and LTM budget-noncompliant | retrieval bakeoff complete | retrieval mechanism ledger reopened for Family CS; E005 diversity-aware selection PROMOTION_ELIGIBLE offline at 12/17 across 4/4 domains, DX-001 closes the turn-90 miss NO CHANGE with the residual localized to the relevance term, F1 open but materially advanced, F2 closed, F3 open | renderer fix complete | Q4 packing diagnostic; Branch D invalidated | scoring/interpretation record corrected through 2026-08-01
 
 ## The Problem
 
@@ -107,9 +107,24 @@ registered to fill it. And on the deployed candidate pool, no configuration
 covers four domains at all, so the pre-filter, not the selector, had been
 setting the ceiling.
 
+Two diagnostics then split the remaining gap in two. DR-002 found that cosine
+ordering is the wrong prior for the enumeration probe - the four highest-cosine
+episodes carry none of its facts - and that the pool binds on both facts and
+domains. DX-001 asked why the one remaining oracle episode, turn 90 at cosine
+rank 112 carrying four monetary items, was never selected. **It is inside the
+pool, and the objective declines it in all 146 configurations.** Cluster
+collision, the predicted cause, is refuted: its cluster is never entered, so the
+diversity term was payable in full at every step and it still lost by 0.169. To
+win it needed a cosine of 0.225 against its actual 0.056. The registered
+protocol's no-change branch fired, so **12/17 ships with that miss characterized
+rather than tuned away**, and the objective question escalates to a proposed,
+unauthorized study. The pool decides what can be seen; the objective decides
+what is worth taking; each now binds on a different part of the gap.
+
 See `experiments/components/retrieval_mechanism_ledger/RETRIEVAL_MECHANISM_LEDGER_REPORT.md`,
 `experiments/components/retrieval_mechanism_ledger/artifacts/ar_001/AR_001_report.md`,
-and `experiments/components/retrieval_mechanism_ledger/E005_POSTHOC_INTERPRETATION.md`.
+`experiments/components/retrieval_mechanism_ledger/E005_POSTHOC_INTERPRETATION.md`,
+and `experiments/components/retrieval_mechanism_ledger/DX_001_PART2_DISPOSITION.md`.
 
 ## Renderer Correctness
 

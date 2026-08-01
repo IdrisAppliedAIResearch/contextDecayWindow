@@ -294,3 +294,29 @@ def test_diagnostic_source_reads_no_rubric_artifact_path() -> None:
     ).read_text(encoding="utf-8")
 
     assert "q_facts_key" not in source
+
+
+def test_dr002_rank_correction_is_the_only_one_and_stays_under_the_rule() -> None:
+    """The corrected rank must not disturb DR-002's registered 80-rank rule."""
+    check = json.loads(
+        (
+            E005_ARTIFACTS / "dr_002" / "generality_batched.json"
+        ).read_text(encoding="utf-8")
+    )
+
+    assert check["generality_rows_matching_published"] == 9
+    assert check["generality_conclusion_unchanged"] is True
+    assert [
+        (row["source_turn"], row["published_rank"], row["measured_rank"])
+        for row in check["selection_rank_corrections"]
+    ] == [(118, 21, 20)]
+    assert check["worst_fact_bearing_rank_unchanged"] is True
+
+
+def test_part_2_disposition_records_no_change() -> None:
+    disposition = (
+        COMPONENT_ROOT / "DX_001_PART2_DISPOSITION.md"
+    ).read_text(encoding="utf-8")
+
+    assert "**NO CHANGE.** F.6 fires." in disposition
+    assert "no bar is claimed as passed" in disposition.lower()
