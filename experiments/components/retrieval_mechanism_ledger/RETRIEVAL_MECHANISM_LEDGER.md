@@ -62,7 +62,7 @@ here are curation *for* it: deciding what it gets to see under a real budget.
 
 | # | Failure | Evidence | Status |
 |---|---|---|---|
-| **F1** | **Breadth / enumeration** | E002 raised its exact 32k matched baseline from 6/17 to 10/17 but missed the locked hurdle. AR-001 proves the bar exists: exact 14/17 costs 5,058 chars and 17/17 costs 7,592. Threshold 14/17, binary | **OPEN - achievable selection/ranking problem; segmentation is the best matched-budget improvement tested** |
+| **F1** | **Breadth / enumeration** | E002 raised its exact 32k matched baseline from 6/17 to 10/17 but missed the locked hurdle. AR-001 proves the bar exists: exact 14/17 costs 5,058 chars and 17/17 costs 7,592. E005 set-level selection reaches 12/17 at 4/4 domains with no targeted regression, and 35 of 146 configurations pass every gate. Threshold 14/17, binary | **OPEN, MATERIALLY ADVANCED - E005 PROMOTION_ELIGIBLE offline at 12/17; still short of the 14/17 rubric threshold and of the 15/17 oracle, and unvalidated in inference** |
 | **F2** | **Bad cue / identity** | Corrected Q4 cosine 0.12042197585105896 vs K = 0.48. E001 best found across 335 cues was 0.21031804382801056; 0/714 crossed K. Planted turn 55, probed turn 115; exact N-first reachability is 108,432 chars | **CLOSED - Family QR did not authorize an identity repair** |
 | **F3** | **No absence detection** | E002 had two zero-unique segments and eight duplicate slots but still missed 7/17 facts and one domain. No validated signal tells the system what is absent | **UNCLAIMED** |
 | **F4** | **Rare technical vocabulary** | `photophores`, `mantle margin`, `lead white`, `ultramarine glaze`, `marine snow`, `dual mandate`. Zero spaCy entities in the target span. Density ranks them 89th-316th; IDF worse | **SOLVED by raw delivery** (6/6) - do not re-solve |
@@ -136,7 +136,10 @@ It does not measure perfect selection and cannot bound breadth.
 **Type:** CANDIDATE. **Addresses:** F1 primarily, F2 possibly. **Status:** **KILLED July 30, 2026.**
 
 **Disposition:** An exhaustive 992-cell sweep reached at most 10/17 Q11 items
-across 3/4 domains and preserved 14/16 required targeted items. It did not beat
+across 3/4 domains and preserved every required targeted item. *(Originally
+published as 14/16; corrected to 16/16 on August 1, 2026 - see
+`amendments/AMENDMENT_004_targeted_item_identity.md`. The KILL is unaffected.)*
+It did not beat
 the historical 13/17 hurdle, which came from a 60,285-character Q11 payload.
 The unchanged same-budget baseline was 6/17 at 31,946 characters, so E002
 improved matched-budget availability by 66.7%. The KILL remains binding; F1
@@ -310,7 +313,38 @@ not only its cosine. A cue that raises all cosines uniformly has done nothing.
 
 ### E005 - Diversity-aware / coverage-based selection
 
-**Type:** CANDIDATE (deployable). **Addresses:** F1. **Status:** **PROPOSED - design anchor committed, not yet executed.**
+**Type:** CANDIDATE (deployable). **Addresses:** F1. **Status:** **PROMOTION_ELIGIBLE August 1, 2026.**
+
+**Disposition:** All 146 swept configurations beat A0's committed 6/17 at the
+enforced 32,000-character budget; 137 preserved targeted recall completely, 40
+covered all four domains, and 35 passed all three gates. The primary
+configuration `A3_l0.1_r0.0_k16` delivered **12/17 items across 4/4 domains at
+31,569 characters with 16/16 targeted items preserved**, recovering 4 of the
+oracle's 5 episodes. A2 facility location produced the highest raw count, 13/17,
+but delivered monetary 0/4 at every `r` and passed no gate - the registered
+per-domain surrogate check firing as designed. Data-dependent optimality ratios
+of 0.955-0.9996 place greedy near its own bound, so the remaining gap to the
+oracle is in the objective, not in the search. Mechanism seal, leakage audit,
+source integrity, and byte-identical rerun all passed. Promotion eligibility is
+an offline result; **no live run is authorized.** See
+`artifacts/e005/E005_report.md` and `E005_POSTHOC_INTERPRETATION.md`.
+
+**Two escalations recorded, neither changing the outcome:**
+1. **`r` is not inert.** It changes the fact count in 44/44 A3 cells. The budget
+   is slack for the *optimum* (15/17 costs 5,455 of 32,000) but not for the
+   *selector*, because the registered greedy frame fills the budget. The
+   knapsack constraint is active after all.
+2. **The candidate pool is load-bearing.** On the deployed N-cap union K pool,
+   **zero** configurations cover four domains, so nothing could have passed the
+   surrogate gate. The registered unrestricted pool is what made the experiment
+   measurable.
+
+**Measurement correction applied before the outcome was accepted:** the
+no-regression numerator was keyed on `(turn, item)` while its denominator
+counted rows, and Q7/Q10 share two turn-118 items, capping preservation at 14/16
+for any selector. Corrected to question-scoped identity. This also corrects
+E002's published 14/16 to 16/16 without disturbing its KILL. See
+`amendments/AMENDMENT_004_targeted_item_identity.md` and `ERRATA.md`.
 
 **Claim:** Replacing per-item cosine ranking with a set-level selection
 objective recovers a material fraction of the AR-001 coverage gap.
@@ -417,7 +451,14 @@ eviction work in `CC_001`?
 
 ## 8. Scan disposition
 
-- Diversity-aware / coverage selection: **COMPLETE.**
+- Diversity-aware / coverage selection: **COMPLETE, and its one owed
+  verification is discharged.** The scan's unconfirmed claim that MMR lacks
+  submodularity is **refuted** by Lin and Bilmes (2011) Section 3, Theorem 2:
+  `F_MMR` is **non-monotone submodular**. The greedy guarantee fails for MMR
+  because the objective is not monotone, not because it is not submodular. The
+  scan's conclusion stands; its reason does not. **No text in this repository
+  may describe MMR as non-submodular.**
+- Determinantal Point Processes: **still not scanned, still owed.**
 - Query decomposition and multi-vector conversational retrieval: **COMPLETE.**
 - Active / mid-generation retrieval: **COMPLETE.**
 - Candidate-mechanism details and sources: `LITERATURE_SCAN.md`.
@@ -426,7 +467,15 @@ eviction work in `CC_001`?
 
 ---
 
-*Opened July 29, 2026. Revision 7, July 31, 2026 - AR-001 establishes exact
+*Opened July 29, 2026. Revision 8, August 1, 2026 - Family CS opened and E005
+diversity-aware selection returns PROMOTION_ELIGIBLE offline: 12/17 at 4/4
+domains with 16/16 targeted preservation, against A0's 6/17. Facility location
+scored highest and failed the per-domain gate. Two escalations recorded: cost
+scaling `r` is material because the greedy frame fills the budget, and the
+deployed candidate pool cannot express a four-domain answer at all. The
+no-regression unit mismatch is corrected, which also lifts E002's published
+14/16 to 16/16 without disturbing its KILL. The scan's MMR-submodularity claim
+is refuted against primary text. Revision 7, July 31, 2026 - AR-001 establishes exact
 bar achievability: 14/17 at 5,058 chars and 17/17 at 7,592; F1 remains an open
 selection/ranking problem, not a 32k capacity impossibility. Revision 6, July
 31, 2026 - outcomes unchanged; E002

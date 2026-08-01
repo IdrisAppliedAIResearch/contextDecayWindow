@@ -22,10 +22,20 @@ greedy approximation guarantees.
 - Lin and Bilmes, 2011:
   [Submodular summarization](https://aclanthology.org/P11-1052/).
 
+**Verified against primary text, August 1, 2026.** Lin and Bilmes (2011)
+Section 3, Theorem 2 proves `F_MMR` is **non-monotone submodular**, and notes
+MMR's diminishing-returns property was "apparently unnoticed until now." MMR
+carries no constant-factor greedy guarantee because its objective is **not
+monotone** - not, as commonly repeated, because it is not submodular. Do not
+describe MMR as non-submodular anywhere in this repository.
+
 **Disposition:** This is a real alternative to E002, not evidence that
 fixed-width mechanical segments align with information needs. E002 was killed
-by its locked offline test before promotion, so no diversity selector is
-imported or retrospectively substituted.
+by its locked offline test before promotion, so no diversity selector was
+imported or retrospectively substituted. The family was subsequently tested on
+its own registered anchor as **E005**, which returned PROMOTION_ELIGIBLE
+offline at 12/17 across 4/4 domains. See `E005_diversity_selection_protocol.md`
+and `E005_POSTHOC_INTERPRETATION.md`.
 
 ## Query Decomposition And Multi-Vector Retrieval
 
