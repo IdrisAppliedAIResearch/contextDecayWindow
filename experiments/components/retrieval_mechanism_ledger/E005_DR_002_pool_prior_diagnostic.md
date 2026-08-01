@@ -1,6 +1,13 @@
 # E005 DR-002 - Candidate-Pool Prior Diagnostic
 
-**Status:** PROSPECTIVE - decision rule committed before measurement
+**Status:** COMPLETE - rule committed `fd53591f`, results in
+`artifacts/e005/dr_002/DR_002_report.md`
+**Verdict:** **COSINE ORDERING IS THE WRONG PRIOR.** Worst fact-bearing cosine
+rank is 86 of 119, and both art contributors sit at ranks 50 and 86 while the
+four highest-cosine episodes carry no Q11 facts at all. Widening the pool from
+34 to 119 moves the frozen configuration from 5/17 at 2/4 domains to 12/17 at
+4/4. Selection over the full store costs 1.28 ms against 0.45 ms, a 2.84x ratio
+on 3.5x the candidates.
 **Type:** Diagnostic read-out on committed E005 artifacts plus two new measurements
 **Parent:** `E005_diversity_selection_protocol.md`, `E005_POSTHOC_INTERPRETATION.md`
 **Frozen configuration:** A3, `lambda = 0.1`, `r = 0.0`, `k = 16`, budget 32,000,
