@@ -301,6 +301,64 @@ not only its cosine. A cue that raises all cosines uniformly has done nothing.
 
 ---
 
+## 5A. Family CS - Coverage Selection
+
+> **Shared hypothesis:** cosine top-k scores each episode independently and
+> therefore fills the budget with mutually redundant episodes. A set-level
+> objective, where an episode's value depends on what is already selected,
+> recovers a material fraction of the coverage gap AR-001 measured.
+
+### E005 - Diversity-aware / coverage-based selection
+
+**Type:** CANDIDATE (deployable). **Addresses:** F1. **Status:** **PROPOSED - design anchor committed, not yet executed.**
+
+**Claim:** Replacing per-item cosine ranking with a set-level selection
+objective recovers a material fraction of the AR-001 coverage gap.
+
+**Why it is the right next candidate:**
+- AR-001 proved the gap is selection: 6/17 delivered against 15/17 available at
+  17% of budget.
+- The oracle that reached 15/17 is submodular coverage maximization. E005 is its
+  deployable approximation.
+- It is a **post-scoring reranker**: no new model, no storage multiplier, no
+  forward pass, no quant conflict, no second resident model. It satisfies every
+  Section 4 constraint.
+- It keeps the `store.context(query, budget)` pure-function contract.
+
+**Arms:** A0 committed cosine/N-first baseline at 6/17; A1 MMR; A2 facility
+location, cost-scaled greedy; A3 relevance plus cluster diversity in the Shang
+form; A4 AR-001's greedy set cover carried in at 15/17 / 5,455 chars as the
+reference point, never deployable.
+
+**Kill condition:** KILLED if no arm exceeds A0's committed 6/17 at the enforced
+32,000-character budget. The bar sits at the same-regime baseline, not at the
+14/17 rubric threshold, because E002 was killed against a hurdle imported from a
+superseded accounting regime.
+
+**Registered candidate-pool decision:** the primary pool is the complete
+eligible store with no similarity pre-filter. The deployed N-cap union K pool
+contains two of AR-001's five optimum episodes and a cosine top-100 pre-filter
+contains four; either restriction would set the ceiling by pool construction
+rather than by the selector. Both restricted pools are reported as secondaries.
+
+**Cost:** test with existing machinery. Embeddings and cosine only. No forward
+pass, no generation, no new run.
+
+**Prior art:** MMR (Carbonell and Goldstein 1998); budgeted submodular
+maximization (Lin and Bilmes 2010, 2011); facility location; Shang et al. (2018)
+objective form; Feng/Wang et al. (2021) data-dependent bound. Scan complete; see
+`E005_diversity_selection_scan_and_protocol.md`.
+
+**Surrogate audit:** "diversity score improved" certifies "more facts covered"
+only if dissimilarity tracks informational novelty, which it does not - chit-chat
+is maximally dissimilar and factually empty. Score on fact count, never on the
+diversity objective. Per-domain counts are mandatory.
+
+See `E005_diversity_selection_protocol.md` for the committed design anchor and
+`E005_diversity_selection_scan_and_protocol.md` for the literature scan.
+
+---
+
 ### E003 - Late interaction / token-level MaxSim
 
 **Type:** CANDIDATE. **Addresses:** F1, F2. **Status:** **NOT AUTHORIZED.**
