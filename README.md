@@ -4,7 +4,7 @@
 
 Ten pre-registered studies test that question, each adding one memory component and fixing the prior study's documented failures. Every result is published as found.
 
-> **Status:** Study 010 stopped at G2; exploratory continuation unaudited and LTM budget-noncompliant | retrieval bakeoff complete | renderer fix complete | Q4 packing diagnostic; Branch D invalidated | scoring record corrected 2026-07-29
+> **Status:** Study 010 stopped at G2; exploratory continuation unaudited and LTM budget-noncompliant | retrieval bakeoff complete | retrieval mechanism ledger closed; F1 reachable/open, F2 closed, F3 open | renderer fix complete | Q4 packing diagnostic; Branch D invalidated | scoring/interpretation record corrected through 2026-07-31
 
 ## The Problem
 
@@ -60,6 +60,33 @@ No 1,000-turn run is authorized.
 
 See `experiments/surveys/retrieval_bakeoff/retrieval_bakeoff_report.md` and
 `experiments/components/q4_packing/AS_001_report.md`.
+
+## Retrieval Mechanism Ledger
+
+The query-representation ledger is closed. Exhaustive mechanical segmentation
+(E002) peaked at 10/17 breadth facts across 3/4 domains and preserved 14/16
+targeted items, so it was killed under its locked criterion. The historical
+13/17 hurdle used a 60,285-character Q11 payload, while E002 was held to
+32,000. Against its unchanged exact-budget baseline, segmentation improved
+availability from 6/17 to 10/17 (66.7%), leaving F1 open with the best
+matched-budget improvement tested. The exploratory NF4 attention diagnostic
+(E001) improved Q4 cosine from 0.120422 to a best-found 0.210318 and
+descriptive similarity rank from 24 to 20, but none of 714 rows reached
+K=0.48. Its 266/384 selected heads were not sparse, so 0.210318 is not a
+ceiling; F2 is nevertheless closed as a program disposition. E003 late
+interaction was not authorized, and E002's segment counts did not validate an
+absence detector for F3.
+
+AR-001 checked whether the 14/17 breadth bar was physically achievable after
+exact accounting. The exact minimum is 5,058 serialized characters across five
+episodes, leaving 26,942 characters of headroom; even 17/17 costs only 7,592.
+Complete standalone domain costs are civil 826, art 3,182, monetary 2,913, and
+marine 824 characters. Art is the most expensive domain but still occupies
+less than 10% of the budget, so E002's 3/4-domain ceiling is a selection and
+ranking failure rather than a serialized-capacity limit.
+
+See `experiments/components/retrieval_mechanism_ledger/RETRIEVAL_MECHANISM_LEDGER_REPORT.md`
+and `experiments/components/retrieval_mechanism_ledger/artifacts/ar_001/AR_001_report.md`.
 
 ## Renderer Correctness
 

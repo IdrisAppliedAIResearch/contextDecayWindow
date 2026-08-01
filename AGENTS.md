@@ -42,6 +42,8 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **AS-001 Q4 packing (2026-07-29).** DIAGNOSTIC. Branch D's primacy verdict was invalidated post-result: its null could not fire, and no branch interpreted exact charging reducing 15 fitted episodes to 9. Rank 27 enters only at 108,432 chars under N-first packing. This identifies a joint rank/packing/budget boundary; no pinned-tier study is authorized.
 
+**Retrieval mechanism ledger (2026-07-31).** CLOSED. E002 KILL but exact-32k segmentation improved 6/17->10/17. AR-001 proves F1 achievable: exact 14/17 costs 5,058 chars; 17/17 costs 7,592. E001 best-found .1204->.2103; 0/714 reached K=.48 and 266/384 heads was non-sparse. F2 closed; F3 open; E003 unauthorized.
+
 ## 3. Failure Pattern
 
 The recurring failure class is a surrogate that can pass without the property it claims to certify: record count for information, novelty for importance, density for factual value, or a rubric score for a correct answer.

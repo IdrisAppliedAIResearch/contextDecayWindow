@@ -1,0 +1,20 @@
+{
+  "analysis": "AR-001",
+  "artifact_hashes": {
+    "AR_001_report.md": "7930a81b6ea7b6b474019ec7a99a5448925efca89b6e2844d5115ea9978d701a",
+    "achievability.json": "770792d09e07978d1933b2bedef6ae8f4f1e720215f18d64db5e013fd0f76a23",
+    "determinism.json": "faa9d08df33b5e5bd4695a48ac61c63484f608fb5fa753b4afba84a7c87e108b",
+    "episode_coverage.csv": "29276780d2bfac57d7720ca0ee4cf1fa0582ca97e12b9aab4c88fe8b60e812e4",
+    "exact_frontier.csv": "096bf44b08b7b23500e0264478b700ee2148971e0d52e75f75c4aee11186b451",
+    "global_optimum_payload.txt": "fa97d1dab3883225e00da7bc16b4c86db1ecb86fb52f7a743ce30a0b59a46809"
+  },
+  "design_commit": "b48e7501e733d56f94cd5ba442c1e5ce950439f2",
+  "execution_commit": "15cdb1770d2dc935f7fa23f5df2779b40bd45e0d",
+  "source_hashes": {
+    "experiments/components/retrieval_mechanism_ledger/AR_001_Q11_ACHIEVABILITY_PROTOCOL.md": "564ca819b47927faf40dbe30d70515e445290de66d08482d7a281ce6ab910024",
+    "experiments/surveys/retrieval_bakeoff/tier6/runs/tier6_live_121_corrected_001/context_matched_stm/logs/turns.jsonl": "a1e6941c92b15d47f75fc44c5f833999ac1ef148cf4eeebd50b0c9f3204b86bd",
+    "src/analysis/q11_achievability.py": "ad6bcd3bf108affd8c969b70346f9e18b10cc59c09b5452c1c1848cd306016d0",
+    "src/analysis/retrieval_bakeoff_tier6_121.py": "f2d6b71f82b5cd6246e505f825a5480a16c280774480433dd80f2fbac38c1b60",
+    "src/memory/context_builder.py": "1565532394b9b2a7a95abb654a0dd5bea3948742f42d32ad534240c38fde4ae3"
+  }
+}
