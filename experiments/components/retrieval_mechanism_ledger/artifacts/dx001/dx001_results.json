@@ -1,0 +1,375 @@
+{
+  "attribution": {
+    "M1_cluster_collision": {
+      "evidence": "target shares its k=16 cluster with 19 other episodes, but the diversity term went unpaid at 0 of 15 steps",
+      "fires": false,
+      "sufficient_alone": false
+    },
+    "M2_cost_discount": {
+      "evidence": "best rank by r: {\"0.0\": 16, \"0.5\": 8, \"1.0\": 4}",
+      "fires": true
+    },
+    "M3_relevance_floor": {
+      "evidence": "relevance term 0.05599 against lambda term 0.1; counterfactual with novelty paid in full wins at no step",
+      "fires": true
+    },
+    "M4_budget_exhaustion": {
+      "evidence": "terminated on budget with 431 chars left and 0 affordable unselected candidates",
+      "fires": true
+    },
+    "census_settles_recovery": false,
+    "distinguishable": true,
+    "target_cheaper_than_median_selected": false,
+    "verdict": "M2+M3+M4"
+  },
+  "cluster_collision": {
+    "collision_at_every_k": true,
+    "collision_at_primary_k": true,
+    "rows": [
+      {
+        "cluster_member_turns": "6 13 14 15 18 19 22 23 25 31 33 34 35 36 37 38 40 41 42 44 46 48 49 50 51 52 53 55 57 58 61 62 63 64 65 66 67 68 69 70 71 72 73 74 76 77 78 79 80 81 82 83 85 86 87 88 89 90 91 92 93 94 95 96 97 99 100 101 102 103 104 105 106 107 109 111 117 119",
+        "cluster_size": 78,
+        "first_occupant_q11_facts": 0,
+        "first_occupant_step": 4,
+        "first_occupant_turn": 78,
+        "k": 2,
+        "occupied_before_target_best_step": true,
+        "target_cluster": 1,
+        "target_is_only_member": false
+      },
+      {
+        "cluster_member_turns": "6 13 14 15 18 21 22 23 25 30 33 34 35 36 41 46 47 48 49 50 53 55 57 58 63 64 65 66 67 70 71 72 74 76 80 81 83 87 89 90 91 93 94 96 97 98 99 100 101 102 103 104 105 108 109 111 117 118",
+        "cluster_size": 58,
+        "first_occupant_q11_facts": 0,
+        "first_occupant_step": 8,
+        "first_occupant_turn": 98,
+        "k": 4,
+        "occupied_before_target_best_step": true,
+        "target_cluster": 2,
+        "target_is_only_member": false
+      },
+      {
+        "cluster_member_turns": "6 13 14 15 18 21 22 23 25 30 33 34 35 41 43 46 47 48 49 50 53 55 57 58 63 64 65 66 67 70 71 72 74 76 80 83 87 89 90 91 93 94 96 97 98 99 100 101 102 103 104 105 108 109 111 117 118",
+        "cluster_size": 57,
+        "first_occupant_q11_facts": 0,
+        "first_occupant_step": 2,
+        "first_occupant_turn": 43,
+        "k": 8,
+        "occupied_before_target_best_step": true,
+        "target_cluster": 2,
+        "target_is_only_member": false
+      },
+      {
+        "cluster_member_turns": "63 64 65 66 67 69 70 71 72 74 75 76 79 80 83 85 87 89 90 93",
+        "cluster_size": 20,
+        "first_occupant_q11_facts": null,
+        "first_occupant_step": null,
+        "first_occupant_turn": null,
+        "k": 16,
+        "occupied_before_target_best_step": false,
+        "target_cluster": 12,
+        "target_is_only_member": false
+      }
+    ]
+  },
+  "cost": {
+    "fact_bearing_chars_per_fact_median": 497.0,
+    "pool_chars_median": 3946.0,
+    "rows": [
+      {
+        "chars": 2862,
+        "chars_per_q11_fact": 715.5,
+        "cosine_rank": 112,
+        "q11_facts": 4,
+        "role": "target",
+        "turn": 90
+      },
+      {
+        "chars": 768,
+        "chars_per_q11_fact": "",
+        "cosine_rank": 1,
+        "q11_facts": 0,
+        "role": "selected",
+        "turn": 114
+      },
+      {
+        "chars": 4217,
+        "chars_per_q11_fact": "",
+        "cosine_rank": 4,
+        "q11_facts": 0,
+        "role": "selected",
+        "turn": 43
+      },
+      {
+        "chars": 897,
+        "chars_per_q11_fact": "",
+        "cosine_rank": 2,
+        "q11_facts": 0,
+        "role": "selected",
+        "turn": 1
+      },
+      {
+        "chars": 364,
+        "chars_per_q11_fact": "",
+        "cosine_rank": 3,
+        "q11_facts": 0,
+        "role": "selected",
+        "turn": 2
+      },
+      {
+        "chars": 4170,
+        "chars_per_q11_fact": "",
+        "cosine_rank": 9,
+        "q11_facts": 0,
+        "role": "selected",
+        "turn": 78
+      },
+      {
+        "chars": 4472,
+        "chars_per_q11_fact": 1490.7,
+        "cosine_rank": 10,
+        "q11_facts": 3,
+        "role": "selected",
+        "turn": 110
+      },
+      {
+        "chars": 3000,
+        "chars_per_q11_fact": 1500.0,
+        "cosine_rank": 11,
+        "q11_facts": 2,
+        "role": "selected",
+        "turn": 27
+      },
+      {
+        "chars": 593,
+        "chars_per_q11_fact": 197.7,
+        "cosine_rank": 5,
+        "q11_facts": 3,
+        "role": "selected",
+        "turn": 3
+      },
+      {
+        "chars": 4425,
+        "chars_per_q11_fact": "",
+        "cosine_rank": 6,
+        "q11_facts": 0,
+        "role": "selected",
+        "turn": 54
+      },
+      {
+        "chars": 5473,
+        "chars_per_q11_fact": 5473.0,
+        "cosine_rank": 7,
+        "q11_facts": 1,
+        "role": "selected",
+        "turn": 84
+      },
+      {
+        "chars": 773,
+        "chars_per_q11_fact": 193.2,
+        "cosine_rank": 20,
+        "q11_facts": 4,
+        "role": "selected",
+        "turn": 118
+      },
+      {
+        "chars": 358,
+        "chars_per_q11_fact": 119.3,
+        "cosine_rank": 14,
+        "q11_facts": 3,
+        "role": "selected",
+        "turn": 113
+      },
+      {
+        "chars": 597,
+        "chars_per_q11_fact": 597.0,
+        "cosine_rank": 50,
+        "q11_facts": 1,
+        "role": "selected",
+        "turn": 115
+      },
+      {
+        "chars": 417,
+        "chars_per_q11_fact": 139.0,
+        "cosine_rank": 22,
+        "q11_facts": 3,
+        "role": "selected",
+        "turn": 112
+      },
+      {
+        "chars": 994,
+        "chars_per_q11_fact": 497.0,
+        "cosine_rank": 86,
+        "q11_facts": 2,
+        "role": "selected",
+        "turn": 116
+      }
+    ],
+    "selected_chars_max": 5473,
+    "selected_chars_median": 897.0,
+    "selected_chars_min": 358,
+    "target_chars": 2862,
+    "target_chars_per_fact": 715.5,
+    "target_cheaper_than_median": false
+  },
+  "greedy_trace": {
+    "cluster_novel_steps": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "counterfactual_wins_any_step": false,
+    "steps": 15,
+    "target_affordable_steps": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "target_best_rank": 27,
+    "target_ever_affordable": true,
+    "target_lambda_term": 0.1,
+    "target_min_gap": 0.169042,
+    "target_relevance_term": 0.05599,
+    "tied_with_winner_steps": []
+  },
+  "input_hashes": {
+    "experiments\\components\\retrieval_mechanism_ledger\\artifacts\\e005\\configuration_sweep.csv": "1ad625d10fb988f9b17f81e799b3ca84eb8ec2c32ec91c04551c36b088eb937b",
+    "experiments\\components\\retrieval_mechanism_ledger\\artifacts\\e005\\raw\\q11_selection.jsonl": "71d7d1a6f4d46d231a0ddd3ee11bea285f659456707f0754cae211d992dba9b7",
+    "src\\retrieval_mechanism_ledger\\e005.py": "e207cfe46550f829fa0387224a234bc5f43181b0758bb2038542afc68c5b90df"
+  },
+  "part": 1,
+  "reading": {
+    "best_rank_ever_reached": 4,
+    "diversity_term_was_payable_in_full": true,
+    "episodes_meeting_the_required_relevance": 20,
+    "f6_conditions": {
+      "branch_c_reached": true,
+      "justification_needs_the_target": true,
+      "mechanisms_indistinguishable": false,
+      "no_configuration_recovers_the_target": true
+    },
+    "f6_fires": true,
+    "f8_prediction_census_finds_nothing": {
+      "held": true,
+      "measured": true,
+      "predicted": true
+    },
+    "f8_prediction_m1_cluster_collision": {
+      "held": false,
+      "measured": false,
+      "predicted": true
+    },
+    "part_2_outcome": "NO_CHANGE_ESCALATE",
+    "relevance_actual": 0.05599,
+    "relevance_required_to_win_any_step": 0.225032,
+    "relevance_shortfall": 0.169042
+  },
+  "registration_commit": "a30d3bcca53248fe75b7901c2ff74a8aa28f5e1a",
+  "replay_gate": {
+    "configurations": 146,
+    "embedding_batch_sensitivity": {
+      "configurations_flipped": 6,
+      "cosine_between_embeddings": 0.9998368023433521,
+      "flipped_configuration_ids": [
+        "A1_l0.4",
+        "A1_l0.5",
+        "A3_l0.4_r0.0_k08",
+        "A3_l0.5_r0.5_k02",
+        "A3_l0.7_r1.0_k02",
+        "A3_l0.8_r0.5_k16"
+      ],
+      "max_absolute_difference": 0.21708208322525024
+    },
+    "mismatches": [],
+    "passed": true,
+    "reproduced": 146
+  },
+  "selection_census": {
+    "by_arm": {
+      "A1": 0,
+      "A2": 0,
+      "A3": 0
+    },
+    "configurations": 146,
+    "selecting_configuration_ids": [],
+    "selecting_result_vectors": [],
+    "selecting_turn90": 0
+  },
+  "sensitivity": {
+    "best_rank_by_k": {
+      "16": 4,
+      "2": 7,
+      "4": 10,
+      "8": 10
+    },
+    "best_rank_by_lambda": {
+      "0.0": 10,
+      "0.1": 10,
+      "0.2": 10,
+      "0.3": 9,
+      "0.4": 9,
+      "0.5": 8,
+      "0.6": 6,
+      "0.7": 7,
+      "0.8": 7,
+      "0.9": 5,
+      "1.0": 4
+    },
+    "best_rank_by_r": {
+      "0.0": 16,
+      "0.5": 8,
+      "1.0": 4
+    },
+    "best_rank_configuration": "A3_l1.0_r1.0_k16",
+    "best_rank_overall": 4,
+    "configurations": 132,
+    "counterfactual_wins_configurations": 82,
+    "selected_anywhere": 0
+  },
+  "target": {
+    "chars": 2862,
+    "cosine_rank": 112,
+    "id": "1dec9c9e-b948-4ef8-9eaa-aa889c083470",
+    "is_oracle_episode": true,
+    "pool_size": 119,
+    "q11_facts": [
+      "monetary:Taylor Rule",
+      "monetary:Federal Reserve",
+      "monetary:Dr. Priya Mehta",
+      "monetary:2.3%"
+    ],
+    "relevance": 0.055990349501371384,
+    "turn": 90
+  },
+  "termination": {
+    "affordable_unselected_at_end": 0,
+    "budget_chars": 32000,
+    "cheapest_unselected_chars": 1439,
+    "remaining_chars": 431,
+    "serialized_chars": 31569,
+    "target_affordable_at_end": false,
+    "target_chars": 2862,
+    "terminated_on": "budget",
+    "unselected_candidates": 104
+  }
+}
