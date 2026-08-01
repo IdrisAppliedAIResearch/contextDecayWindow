@@ -122,3 +122,52 @@ Retrieval bakeoff Tier 1 previously reported 8/17 at 31,861 exactly serialized
 characters under its own renderer and M4 method. See
 `experiments/components/retrieval_mechanism_ledger/E002_POSTHOC_INTERPRETATION.md`.
 
+
+## Retrieval Ledger E002 Targeted No-Regression Count (2026-08-01)
+
+**Headline change:** E002's targeted preservation is corrected from **14/16 to
+16/16**. Its KILL verdict is unaffected.
+
+E002 reported preserving 14 of 16 committed-available targeted items. Its own
+committed artifact `artifacts/e002/targeted_no_regression.csv` records
+`preserved = True` on every committed-available row, so no item was ever lost;
+only the summary count was wrong.
+
+The cause is a unit mismatch found while implementing E005. `TARGETED_ITEMS`
+places Q7 and Q10 both at turn 118, sharing the items `vampyroteuthis
+infernalis` and `kenji watanabe`. The availability map was keyed on
+`(turn, item)`, which collapses those four rows to two, capping the numerator at
+14 distinct keys. The denominator summed `committed_available` over the row
+list, counting the duplicates separately, and so equalled 16. The gate
+`preserved == required` was therefore unsatisfiable by construction, for any
+selector.
+
+E002 was killed on its primary gate, reaching at most 10/17 Q11 items against a
+locked 14/17 requirement, so the no-regression result was never binding. The
+correction means E002 passed a gate it was previously recorded as failing.
+
+E005 keys availability on `(question, turn, item)` and gates the unit with a
+regression test. The defect changed E005's outcome from
+`REJECT_NO_REGRESSION` to `PROMOTION_ELIGIBLE`; it was repaired before the
+outcome was accepted and no threshold was altered. Committed E002 artifacts are
+not edited. See
+`experiments/components/retrieval_mechanism_ledger/amendments/AMENDMENT_004_targeted_item_identity.md`.
+
+## Retrieval Ledger MMR Submodularity Claim (2026-08-01)
+
+**Headline change:** the diversity-selection scan's unverified claim that MMR's
+objective lacks submodularity is **refuted**. MMR is *non-monotone submodular*.
+
+The scan recorded, explicitly flagged as unconfirmed, that MMR is "widely
+described as lacking the submodularity that buys the greedy guarantees."
+Verified against the primary text, Lin and Bilmes (2011), *A Class of Submodular
+Functions for Document Summarization*, ACL-HLT 510-520, Section 3: Theorem 2
+states `F_MMR` is non-monotone submodular, and the surrounding text notes MMR's
+diminishing-returns property was "apparently unnoticed until now." The greedy
+constant-factor guarantee fails for MMR because the objective is **not
+monotone**, not because it is not submodular.
+
+The scan's conclusion, that MMR carries no constant-factor guarantee, stands.
+Its stated reason does not. No repository text may describe MMR as
+non-submodular. See
+`experiments/components/retrieval_mechanism_ledger/E005_POSTHOC_INTERPRETATION.md`.

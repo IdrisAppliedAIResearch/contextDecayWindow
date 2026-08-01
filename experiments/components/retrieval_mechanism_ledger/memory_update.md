@@ -1,6 +1,56 @@
 # Retrieval Mechanism Ledger Memory Update
 
-**Status:** CLOSED on 2026-07-30.
+**Status:** REOPENED on 2026-08-01 for Family CS. Family QR remains closed.
+
+## E005 diversity-aware selection - PROMOTION_ELIGIBLE offline
+
+Design anchor `ebbf384e18f38c5af017464e4723a3c77d81e73b`. Set-level selection is
+the first mechanism here to move breadth materially at the enforced budget
+without costing anything elsewhere. All 146 swept configurations beat A0's 6/17.
+Primary `A3_l0.1_r0.0_k16`: **12/17 across 4/4 domains, 31,569 chars, 16/16
+targeted preserved, 4/5 oracle episodes recovered.** 35 configurations passed
+every gate.
+
+**Still short.** 12/17 is below the 14/17 rubric threshold and the 15/17 oracle.
+This is offline availability only; no live run is authorized and no answer was
+generated or scored.
+
+Carry forward:
+
+1. **The highest count can be the worst selector.** Facility location scored
+   13/17, best in the sweep, with monetary 0/4 at every `r`, and passed no gate.
+   Scoring on the total alone would have promoted a three-domain payload as a
+   breadth result. The per-domain diagnostic caught it, as registered.
+2. **"The budget is slack" describes the optimum, not the selector.** AR-001's
+   15/17 costs 5,455 of 32,000, which made cost scaling look inert. The greedy
+   frame fills the budget, so every arm spent 31,000-plus characters and the
+   knapsack constraint was active throughout: `r` changed the fact count in 44
+   of 44 A3 cells. Check what the mechanism does, not what the optimum costs.
+3. **A pre-filtered pool can decide the result before the mechanism runs.** On
+   the deployed N-cap union K pool, zero configurations covered four domains.
+   The oracle's episodes rank 14, 21, 22, 86 and 112 of 119 by cosine, so any
+   similarity pre-filter drops the ones carrying the missing domains. Measure
+   pool reachability against a known optimum before locking a pool.
+4. **Greedy near its bound relocates the gap.** Optimality ratios ran
+   0.955-0.9996, so 12/17 against 15/17 is the surrogate objective topping out,
+   not search suboptimality. Tuning the sweep harder will not close it.
+5. **Prior-answer hazard is live and unresolved.** The primary configuration
+   draws 5 of 15 episodes from prior probe answers (range 0.100-0.333 across
+   passing configurations). Four of AR-001's five optimum episodes are prior
+   answers too, so this is where the facts sit. Study 004's error cascade is the
+   risk: availability is not correctness, and nothing offline separates them.
+6. **MMR is non-monotone submodular, not non-submodular.** Lin and Bilmes (2011)
+   Theorem 2. The greedy guarantee fails on monotonicity. The scan's conclusion
+   survived; its reason did not.
+
+**Measurement correction (Amendment 004):** the no-regression gate keyed
+availability on `(turn, item)` while the denominator counted rows, and Q7/Q10
+share two turn-118 items. Preservation was capped at 14/16 for every selector,
+making the gate unsatisfiable and flipping E005 to `REJECT_NO_REGRESSION` until
+found. This also lifts E002's published 14/16 to 16/16 without disturbing its
+KILL. Seventh instance of the count-unit failure class.
+
+## Family QR, closed 2026-07-30
 
 E002 remains KILL under its locked hurdle, but do not summarize it as no
 movement. At an exact 32,000-character budget, segmentation raised the
@@ -31,6 +81,10 @@ the seven missing facts or absent art domain, so F3 remains unclaimed.
 
 Authoritative files:
 
+- `E005_diversity_selection_protocol.md`
+- `E005_POSTHOC_INTERPRETATION.md`
+- `amendments/AMENDMENT_004_targeted_item_identity.md`
+- `artifacts/e005/e005_results.json`
 - `RETRIEVAL_MECHANISM_LEDGER_REPORT.md`
 - `E002_POSTHOC_INTERPRETATION.md`
 - `LITERATURE_LANDSCAPE.md`

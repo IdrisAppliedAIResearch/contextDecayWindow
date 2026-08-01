@@ -1,0 +1,85 @@
+{
+  "a0_baseline": {
+    "domain_count": 3,
+    "fact_count": 6,
+    "selected_episode_count": 8,
+    "serialized_chars": 31946
+  },
+  "best_by_arm": {
+    "A1": 12,
+    "A2": 13,
+    "A3": 12
+  },
+  "best_by_pool": {
+    "cosine_top_100": 13,
+    "deployed_n_union_k": 13,
+    "full_eligible_store": 13
+  },
+  "best_q11_fact_count": 13,
+  "budget_chars": 32000,
+  "configuration_count": 146,
+  "design_commit": "ebbf384e18f38c5af017464e4723a3c77d81e73b",
+  "determinism_status": "PASS",
+  "embedding_model_sha256": "06507c7b42688469c4e7298b0a1e16deff06caf291cf0a5b278c308249c3e439",
+  "entry": "E005",
+  "execution_commit": "dc9f090d9cf00d9dd7840048cf6027d2e5c9bd11",
+  "expected_embedding_model_sha256": "06507c7b42688469c4e7298b0a1e16deff06caf291cf0a5b278c308249c3e439",
+  "inference_calls": 0,
+  "interpretation": "Availability only; one breadth probe against one store. No answer-correctness claim, no general breadth claim, no live run.",
+  "kill_bar": 7,
+  "leakage_audit_status": "PASS",
+  "mechanism_seal_status": "PASS",
+  "oracle": {
+    "episode_ids": [
+      "1dec9c9e-b948-4ef8-9eaa-aa889c083470",
+      "5c4446e4-fc4b-40f8-8b27-04cb33c7be57",
+      "dd904725-094b-4f94-a8fc-ca18668ad246",
+      "4c611a05-6ad0-434a-a188-1cdb941acf58",
+      "77a1d148-12da-4a70-874d-42e816497c9a"
+    ],
+    "fact_count": 15,
+    "serialized_chars": 5455,
+    "source": "AR-001, carried, never re-derived"
+  },
+  "outcome": "PROMOTION_ELIGIBLE",
+  "pool_sizes": {
+    "cosine_top_100": 100,
+    "deployed_n_union_k": 34,
+    "full_eligible_store": 119
+  },
+  "primary_configuration": {
+    "arm": "A3",
+    "art": 2,
+    "civil": 5,
+    "configuration_id": "A3_l0.1_r0.0_k16",
+    "facts_per_10k_chars": 3.801,
+    "k": 16,
+    "lambda": 0.1,
+    "marine": 4,
+    "monetary": 1,
+    "no_regression_gate": true,
+    "optimality_ratio": 0.9927,
+    "oracle_overlap": 4,
+    "pool": "full_eligible_store",
+    "primary_gate": true,
+    "prior_answer_fraction": 0.333,
+    "q11_domain_count": 4,
+    "q11_fact_count": 12,
+    "r": 0.0,
+    "selected_episode_count": 15,
+    "serialized_chars": 31569,
+    "surrogate_gate": true,
+    "targeted_preserved": 16,
+    "targeted_required": 16
+  },
+  "primary_pool": "full_eligible_store",
+  "secondary_reference_points": {
+    "ar_001_exact_frontier_17": 7592,
+    "ar_001_greedy": 15,
+    "e002_best": 10,
+    "rubric_threshold": 14
+  },
+  "source_integrity_status": "PASS",
+  "status": "COMPLETE",
+  "targeted_required": 16
+}
