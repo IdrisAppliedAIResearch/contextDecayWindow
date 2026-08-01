@@ -4,7 +4,7 @@
 
 Ten pre-registered studies test that question, each adding one memory component and fixing the prior study's documented failures. Every result is published as found.
 
-> **Status:** Study 010 stopped at G2; exploratory continuation unaudited and LTM budget-noncompliant | retrieval bakeoff complete | retrieval mechanism ledger reopened for Family CS; E005 diversity-aware selection PROMOTION_ELIGIBLE offline at 12/17 across 4/4 domains, DX-001 closes the turn-90 miss NO CHANGE with the residual localized to the relevance term, F1 open but materially advanced, F2 closed, F3 open | renderer fix complete | Q4 packing diagnostic; Branch D invalidated | scoring/interpretation record corrected through 2026-08-01
+> **Status:** Study 010 stopped at G2; exploratory continuation unaudited and LTM budget-noncompliant | retrieval bakeoff complete | retrieval mechanism ledger reopened for Family CS; E005 diversity-aware selection PROMOTION_ELIGIBLE offline at 12/17 across 4/4 domains, DX-001 closes the turn-90 miss NO CHANGE with the residual localized to the relevance term, F1 open but materially advanced, F2 closed, F3 open | CC-002 extracts the deployable component into the installable `episodic` package with byte-identical replay through the library (T1–T7 pass) | renderer fix complete | Q4 packing diagnostic; Branch D invalidated | scoring/interpretation record corrected through 2026-08-01
 
 ## The Problem
 
@@ -125,6 +125,27 @@ See `experiments/components/retrieval_mechanism_ledger/RETRIEVAL_MECHANISM_LEDGE
 `experiments/components/retrieval_mechanism_ledger/artifacts/ar_001/AR_001_report.md`,
 `experiments/components/retrieval_mechanism_ledger/E005_POSTHOC_INTERPRETATION.md`,
 and `experiments/components/retrieval_mechanism_ledger/DX_001_PART2_DISPOSITION.md`.
+
+## The Extracted Library
+
+CC-002 moved the deployable memory component into `episodic/`, an
+installable package with a three-symbol API (`EpisodeStore`,
+`ContextReport`, `EpisodicConfig`) and zero experiment machinery; the
+harness now imports the library and is its largest test. Extraction is
+certified behavior-preserving, not assumed: all 132 committed A3
+selection records and all three committed DR-001 serialized blocks
+reproduce their SHA-256 byte-for-byte through the library (T3/T4), the
+full suite runs green with the harness consuming it (T6, 804 tests), and
+`store.context()` is byte-identical across processes (T7). The two
+reproduction hazards found by gates in this program ship as contract
+requirements, not documentation: the embedder call-shape sentinel is
+asserted on every store open (H1, from DX-001), and candidate-pool
+trimming exists only under an `unsafe_` name carrying the DR-002 finding
+(H2). The library README makes measured claims only, each row with its
+artifact hash.
+
+See `episodic/README.md` and
+`experiments/components/library_extraction/CC_002_library_extraction.md`.
 
 ## Renderer Correctness
 
