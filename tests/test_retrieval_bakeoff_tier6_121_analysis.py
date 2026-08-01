@@ -10,13 +10,33 @@ from src.analysis.retrieval_bakeoff_tier6_121 import (
     score_comparison,
     verify_mechanism_seal,
 )
+from src.retrieval_mechanism_ledger.seal import verify_mixed_source_seal
 
 
-def test_committed_mechanism_seal_verifies() -> None:
+def test_historical_strict_seal_has_only_documented_newline_mismatches() -> None:
     result = verify_mechanism_seal(RUN_ROOT)
+
+    assert result["status"] == "FAIL"
+    assert result["mechanism_file_count"] == 265
+    assert {row["path"] for row in result["mismatches"]} == {
+        "logs/context_match.jsonl",
+        "runtime_audit.json",
+    }
+    assert result["extra_files"] == []
+    assert result["missing_files"] == []
+
+
+def test_authorized_mixed_representation_seal_verifies() -> None:
+    repo_root = Path(__file__).resolve().parents[1]
+    result = verify_mixed_source_seal(repo_root, RUN_ROOT)
 
     assert result["status"] == "PASS"
     assert result["mechanism_file_count"] == 265
+    assert result["representations"] == {
+        "sealed_canonical_lf": 2,
+        "sealed_materialized_crlf": 262,
+        "exact_untracked_binary": 1,
+    }
     assert (
         result["aggregate_sha256"]
         == "8f131532e3f63918babd77d6c01bae4030848553c9fd9fcac4a8f88ceb523462"

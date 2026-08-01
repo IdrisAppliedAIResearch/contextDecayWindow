@@ -1,0 +1,244 @@
+{
+  "best_q11_fact_count": 10,
+  "configuration_count": 992,
+  "design_commit": "b42f4f81b371225b082204cfbbb03aa031d5f24c",
+  "determinism_status": "PASS",
+  "embedding_model_sha256": "06507c7b42688469c4e7298b0a1e16deff06caf291cf0a5b278c308249c3e439",
+  "entry": "E002",
+  "execution_commit": "51e55e47725ccd92b762771302e21eaa527c389a",
+  "expected_embedding_model_sha256": "06507c7b42688469c4e7298b0a1e16deff06caf291cf0a5b278c308249c3e439",
+  "historical_hurdle": {
+    "budget_chars": 60595,
+    "fact_count": 13
+  },
+  "inference_calls": 0,
+  "interpretation": "Availability only; no answer-correctness or live-run claim.",
+  "leakage_audit_status": "PASS",
+  "mechanism_seal_status": "PASS",
+  "outcome": "KILL",
+  "primary_configuration": {
+    "boundary_offset": 1,
+    "configuration_id": "s04_o01_b2",
+    "no_regression_gate": false,
+    "per_segment_budget": 2,
+    "primary_gate": false,
+    "q11_domain_count": 3,
+    "q11_fact_count": 10,
+    "q4_item_count": 4,
+    "segment_width": 4,
+    "selected_episode_count": 10,
+    "serialized_chars": 21761,
+    "surrogate_gate": false,
+    "targeted_preserved": 14,
+    "targeted_required": 16
+  },
+  "primary_q11_items": [
+    {
+      "available": true,
+      "domain": "civil",
+      "item": "Halcyon Crossing"
+    },
+    {
+      "available": true,
+      "domain": "civil",
+      "item": "847"
+    },
+    {
+      "available": true,
+      "domain": "civil",
+      "item": "Dr. Anara Bekova"
+    },
+    {
+      "available": false,
+      "domain": "civil",
+      "item": "S460ML"
+    },
+    {
+      "available": true,
+      "domain": "civil",
+      "item": "92.4"
+    },
+    {
+      "available": false,
+      "domain": "art",
+      "item": "The Annunciation of Forli"
+    },
+    {
+      "available": false,
+      "domain": "art",
+      "item": "Melozzo da Forli"
+    },
+    {
+      "available": false,
+      "domain": "art",
+      "item": "Cardinal Giuliano della Rovere"
+    },
+    {
+      "available": false,
+      "domain": "art",
+      "item": "1483"
+    },
+    {
+      "available": true,
+      "domain": "monetary",
+      "item": "Taylor Rule"
+    },
+    {
+      "available": true,
+      "domain": "monetary",
+      "item": "Federal Reserve"
+    },
+    {
+      "available": false,
+      "domain": "monetary",
+      "item": "Dr. Priya Mehta"
+    },
+    {
+      "available": false,
+      "domain": "monetary",
+      "item": "2.3%"
+    },
+    {
+      "available": true,
+      "domain": "marine",
+      "item": "Vampyroteuthis infernalis"
+    },
+    {
+      "available": true,
+      "domain": "marine",
+      "item": "Dr. Kenji Watanabe"
+    },
+    {
+      "available": true,
+      "domain": "marine",
+      "item": "600"
+    },
+    {
+      "available": true,
+      "domain": "marine",
+      "item": "marine snow"
+    }
+  ],
+  "primary_targeted_preserved": 14,
+  "promotion_blocked_on_literature_scan": false,
+  "same_budget_baseline": {
+    "budget_chars": 32000,
+    "domain_count": 3,
+    "fact_count": 6,
+    "interpretation": "Unchanged corrected-run candidate order under compact exact-cost packing at the enforced budget.",
+    "items": [
+      {
+        "available": true,
+        "domain": "civil",
+        "item": "Halcyon Crossing"
+      },
+      {
+        "available": true,
+        "domain": "civil",
+        "item": "847"
+      },
+      {
+        "available": false,
+        "domain": "civil",
+        "item": "Dr. Anara Bekova"
+      },
+      {
+        "available": true,
+        "domain": "civil",
+        "item": "S460ML"
+      },
+      {
+        "available": true,
+        "domain": "civil",
+        "item": "92.4"
+      },
+      {
+        "available": false,
+        "domain": "art",
+        "item": "The Annunciation of Forli"
+      },
+      {
+        "available": false,
+        "domain": "art",
+        "item": "Melozzo da Forli"
+      },
+      {
+        "available": false,
+        "domain": "art",
+        "item": "Cardinal Giuliano della Rovere"
+      },
+      {
+        "available": false,
+        "domain": "art",
+        "item": "1483"
+      },
+      {
+        "available": false,
+        "domain": "monetary",
+        "item": "Taylor Rule"
+      },
+      {
+        "available": true,
+        "domain": "monetary",
+        "item": "Federal Reserve"
+      },
+      {
+        "available": false,
+        "domain": "monetary",
+        "item": "Dr. Priya Mehta"
+      },
+      {
+        "available": false,
+        "domain": "monetary",
+        "item": "2.3%"
+      },
+      {
+        "available": true,
+        "domain": "marine",
+        "item": "Vampyroteuthis infernalis"
+      },
+      {
+        "available": false,
+        "domain": "marine",
+        "item": "Dr. Kenji Watanabe"
+      },
+      {
+        "available": false,
+        "domain": "marine",
+        "item": "600"
+      },
+      {
+        "available": false,
+        "domain": "marine",
+        "item": "marine snow"
+      }
+    ],
+    "payload_sha256": "64b19b96b44bb4745f4543a7824a18433e49131d1eeb9a9813760f15f8afe478",
+    "selected_episode_count": 8,
+    "selected_ids": [
+      "34f5bb4c-c590-4d6c-8a11-7d4e2ed134a7",
+      "3392af3a-e027-4205-8003-02085f8ba527",
+      "5505312f-3f23-458c-a3c1-acac220abd08",
+      "fd7ed8c4-fcff-4d37-9583-d2e7ec97da73",
+      "c690555c-d66b-41d0-82c2-fb591e4a221f",
+      "dc2b025a-0f1e-4344-93bd-a6ab59facd95",
+      "7ed56c34-ddb9-490d-81b8-87848f88ca14",
+      "98015b9a-0576-4fc6-8584-df00a7a888af"
+    ],
+    "selected_source_turns": [
+      119,
+      68,
+      73,
+      83,
+      89,
+      96,
+      103,
+      4
+    ],
+    "serialized_chars": 31946
+  },
+  "source_integrity_status": "PASS",
+  "status": "COMPLETE",
+  "targeted_configuration_count": 3,
+  "targeted_required": 16
+}
