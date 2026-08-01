@@ -4,9 +4,17 @@ import hashlib
 import sqlite3
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
-from typing import Iterable
 
 import numpy as np
+
+# The two-block payload renderer and N-first exact-cost packer moved into
+# the episodic library (CC-002); re-exported here for their harness
+# consumers.
+from episodic._packing import (  # noqa: F401
+    PackedStmPayload,
+    pack_stm_payload,
+)
+from episodic._render import render_stm_payload  # noqa: F401
 
 from src.db.retrieval import (
     get_all_episodes_with_embeddings,
@@ -17,34 +25,12 @@ from src.db.rule_store import get_all_rules
 from src.embeddings.provider import cosine_similarity
 from src.memory.stm_context_builder import (
     build_stm_context,
-    render_episode_block,
     render_rules_block,
 )
 from src.memory.stm_retrieval_engine import (
     StmRetrievalEngine,
     StmRetrievalResult,
 )
-
-
-@dataclass(frozen=True)
-class PackedStmPayload:
-    recent_episodes: tuple[dict, ...]
-    stm_episodes: tuple[dict, ...]
-    payload: str
-    skipped_n_ids: tuple[str, ...] = ()
-    skipped_k_ids: tuple[str, ...] = ()
-    duplicate_ids: tuple[str, ...] = ()
-
-    @property
-    def serialized_chars(self) -> int:
-        return len(self.payload)
-
-    @property
-    def selected_ids(self) -> tuple[str, ...]:
-        return tuple(
-            str(episode["id"])
-            for episode in (*self.recent_episodes, *self.stm_episodes)
-        )
 
 
 @dataclass
@@ -65,26 +51,6 @@ class ContextMatchedStmResult(StmRetrievalResult):
     skipped_k_ids: list[str] = field(default_factory=list)
 
 
-def render_stm_payload(
-    recent_episodes: Iterable[dict],
-    stm_episodes: Iterable[dict],
-) -> str:
-    return "\n\n".join(
-        (
-            render_episode_block(
-                "recent_context",
-                list(recent_episodes),
-                "recent",
-            ),
-            render_episode_block(
-                "retrieved_stm",
-                list(stm_episodes),
-                "stm",
-            ),
-        )
-    )
-
-
 def extract_arm_l_payload(prompt: str) -> str:
     return "\n\n".join(
         _extract_block(prompt, name)
@@ -96,56 +62,6 @@ def extract_stm_payload(prompt: str) -> str:
     return "\n\n".join(
         _extract_block(prompt, name)
         for name in ("recent_context", "retrieved_stm")
-    )
-
-
-def pack_stm_payload(
-    n_candidates: Iterable[dict],
-    k_candidates: Iterable[dict],
-    budget: int,
-) -> PackedStmPayload:
-    if budget < len(render_stm_payload([], [])):
-        raise ValueError("Payload budget cannot fit the two empty STM blocks")
-
-    recent: list[dict] = []
-    stm: list[dict] = []
-    seen: set[str] = set()
-    duplicates: list[str] = []
-    skipped_n: list[str] = []
-    skipped_k: list[str] = []
-
-    def consider(candidate: dict, *, tier: str) -> None:
-        candidate_id = str(candidate["id"])
-        if candidate_id in seen:
-            duplicates.append(candidate_id)
-            return
-        target = recent if tier == "n" else stm
-        target.append(candidate)
-        payload = render_stm_payload(recent, stm)
-        if len(payload) <= budget:
-            seen.add(candidate_id)
-            return
-        target.pop()
-        if tier == "n":
-            skipped_n.append(candidate_id)
-        else:
-            skipped_k.append(candidate_id)
-
-    for candidate in n_candidates:
-        consider(candidate, tier="n")
-    for candidate in k_candidates:
-        consider(candidate, tier="k")
-
-    payload = render_stm_payload(recent, stm)
-    if len(payload) > budget:
-        raise AssertionError("STM payload exceeded its character budget")
-    return PackedStmPayload(
-        recent_episodes=tuple(recent),
-        stm_episodes=tuple(stm),
-        payload=payload,
-        skipped_n_ids=tuple(skipped_n),
-        skipped_k_ids=tuple(skipped_k),
-        duplicate_ids=tuple(duplicates),
     )
 
 
