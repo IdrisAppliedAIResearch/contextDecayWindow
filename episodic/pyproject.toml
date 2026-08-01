@@ -1,0 +1,20 @@
+[project]
+name = "episodic"
+version = "0.1.0"
+description = "Episodic memory for long conversations: append-only store, budgeted context construction, measured behavior only."
+requires-python = ">=3.11"
+dependencies = [
+    "numpy>=1.26.0",
+]
+
+[project.optional-dependencies]
+# The default embedder loads a GGUF model through llama.cpp. The import is
+# lazy: the base install carries no inference runtime.
+llama = ["llama-cpp-python>=0.3.0"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/episodic"]
