@@ -141,6 +141,47 @@ a CC-001 design input, not a result of this diagnostic.
 No threshold was registered and none is applied. At this store size the
 pre-filter buys 3.49 ms and costs two domains.
 
+## 3.5 Generality check - the bad prior is query-type-specific
+
+Added because the rank-86 result invites a stronger reading than it supports:
+that every mechanism in this program ran downstream of a broken candidate
+ordering. **Measured, that reading is false.**
+
+Same store, same embedder, same eligibility rule. For each probe, the cosine
+rank at which the *last* still-needed target item first appears:
+
+| Probe | Turn | Top-4 carry a target item | First hit | **Last needed item** |
+|---|---:|---:|---:|---:|
+| Q1 | 112 | 4/4 | 1 | **2** |
+| Q2 | 113 | 3/4 | 2 | **2** |
+| Q4 | 115 | 3/4 | 1 | **2** |
+| Q5 | 116 | 1/4 | 1 | **1** |
+| Q6 | 117 | 1/4 | 1 | **1** |
+| Q7 | 118 | 3/4 | 1 | **1** |
+| Q8 | 119 | 2/4 | 2 | **2** |
+| Q10 | 118 | 2/4 | 1 | **1** |
+| **Q11** | **120** | **0/4** | **5** | **87** |
+
+On every targeted probe cosine ordering places **every needed item inside rank
+2**. It is not merely adequate there, it is near-optimal, which is why targeted
+recall runs at 60/60 and why all 137 no-regression-passing E005 configurations
+preserve 16/16 without effort.
+
+Q11 is the only probe where the ordering fails, and it is the only enumeration
+probe. This is a sharper, quantified form of what the ledger already records:
+**K-collapse is query-type-specific, not a scale failure.**
+
+The defensible claim is therefore narrow: *mechanisms aimed at breadth ran
+downstream of a candidate ordering that is anti-correlated at the top for
+enumeration queries.* It unifies the F1 failures. It does not explain
+formation-side failures, which ran at write time upstream of any retrieval
+filter; it does not explain Study 003's promotion route, which was
+arithmetically unreachable; it does not explain Study 007, where the model used
+all 10 delivered facts and seven required facts were absent from the store; and
+it is contradicted by bakeoff Tier 3, whose routing *oracle* assumed perfect
+selection and still ceilinged at 6.09%, and by widened raw STM, which delivered
+6/6 formation-blind facts with no selection filter at all.
+
 ## 4. Boundary
 
 One probe, one store, one frozen configuration. Availability and cost only.
