@@ -264,7 +264,13 @@ def select(
     payload = render_stm_payload([], chosen_candidates)
     if len(payload) > budget_chars:
         raise AssertionError("Selection exceeded its character budget")
-    if len(payload) != fixed + spent:
+    if selected and len(payload) != fixed + spent:
+        # ``fixed`` is the wrapper cost of a *non-empty* retrieved_stm
+        # block, so the additive identity only describes a non-empty
+        # selection. An empty selection renders the two self-closing tags
+        # instead, and comparing that against ``fixed`` fired an assertion
+        # at every budget too small to afford a single candidate (CC-003
+        # E4). The budget ceiling above is checked unconditionally.
         raise AssertionError(
             "Additive serialized cost did not reproduce the rendered payload"
         )

@@ -1,0 +1,116 @@
+{
+  "bounded": true,
+  "budget_chars": 32000,
+  "ceiling": {
+    "breach_count": 0,
+    "breaches": [],
+    "holds": true,
+    "max_delivered_chars": 32000,
+    "min_delivered_chars": 402
+  },
+  "question": "Does episodic reproduce the unbudgeted STM growth DX-002 found in the Study 010 runner?",
+  "record": "CC-003 G-E0 library growth gate",
+  "saturation": {
+    "blocks": [
+      {
+        "first_turn": 1,
+        "last_turn": 100,
+        "max": 31996,
+        "mean": 19818.44,
+        "p95": 31973
+      },
+      {
+        "first_turn": 101,
+        "last_turn": 200,
+        "max": 32000,
+        "mean": 31836.18,
+        "p95": 31990
+      },
+      {
+        "first_turn": 201,
+        "last_turn": 300,
+        "max": 31999,
+        "mean": 31855.78,
+        "p95": 31993
+      },
+      {
+        "first_turn": 301,
+        "last_turn": 400,
+        "max": 31999,
+        "mean": 31862.44,
+        "p95": 31991
+      },
+      {
+        "first_turn": 401,
+        "last_turn": 500,
+        "max": 31999,
+        "mean": 31848.73,
+        "p95": 31994
+      },
+      {
+        "first_turn": 501,
+        "last_turn": 600,
+        "max": 32000,
+        "mean": 31840.13,
+        "p95": 31972
+      },
+      {
+        "first_turn": 601,
+        "last_turn": 700,
+        "max": 31999,
+        "mean": 31847.29,
+        "p95": 31989
+      },
+      {
+        "first_turn": 701,
+        "last_turn": 800,
+        "max": 31998,
+        "mean": 31840.69,
+        "p95": 31991
+      },
+      {
+        "first_turn": 801,
+        "last_turn": 900,
+        "max": 31998,
+        "mean": 31827.08,
+        "p95": 31984
+      },
+      {
+        "first_turn": 901,
+        "last_turn": 1000,
+        "max": 32000,
+        "mean": 31845.86,
+        "p95": 31990
+      }
+    ],
+    "material_growth": false,
+    "materiality_floor_chars": 320,
+    "p95_growth_chars": 18.0,
+    "saturated": true,
+    "window_over_window": {
+      "comparable": true,
+      "delta_chars": -7.506666666668025,
+      "delta_pct": -0.023572228941614325,
+      "prior_max": 32000,
+      "prior_mean": 31845.383333333335,
+      "prior_window_turns": [
+        401,
+        700
+      ],
+      "recent_max": 32000,
+      "recent_mean": 31837.876666666667,
+      "recent_window_turns": [
+        701,
+        1000
+      ]
+    }
+  },
+  "status": "PASS",
+  "truncation": {
+    "max_chars_wanted": 65864,
+    "max_episodes_dropped": 70,
+    "turns_truncated": 895
+  },
+  "turns_replayed": 1000,
+  "verdict": "The library does not carry the leak. The delivered block is bounded by the budget at every turn and does not grow with store size, so DX-002's Branch B is a property of the Study 010 runner's separate STM budget, not of episodic. CC-003 is unblocked."
+}
