@@ -1,0 +1,242 @@
+{
+  "budget_chars": 32000,
+  "components": {
+    "cluster_fitted_exponent": 1.5971186433152862,
+    "cluster_share_at_max": 0.8072426592257902,
+    "dominant_stage": "cluster_setup",
+    "repeats_per_point": 7,
+    "rows": [
+      {
+        "candidates": 50,
+        "cluster_ms": 1.4143999997031642,
+        "cluster_share": 0.3741501996844301,
+        "pack_ms": 1.1227999993934645,
+        "relevance_ms": 0.08040000011533266,
+        "select_ms": 1.1627000003500143,
+        "stage_total_ms": 3.7802999995619757
+      },
+      {
+        "candidates": 100,
+        "cluster_ms": 2.7075000007243943,
+        "cluster_share": 0.30997412590762385,
+        "pack_ms": 2.8967000007469323,
+        "relevance_ms": 0.1526000005469541,
+        "select_ms": 2.9777999998259475,
+        "stage_total_ms": 8.734600001844228
+      },
+      {
+        "candidates": 200,
+        "cluster_ms": 13.295400000060908,
+        "cluster_share": 0.5636223356462653,
+        "pack_ms": 3.4590999994179583,
+        "relevance_ms": 0.5385000004025642,
+        "select_ms": 6.296200000178942,
+        "stage_total_ms": 23.589200000060373
+      },
+      {
+        "candidates": 300,
+        "cluster_ms": 26.60459999970044,
+        "cluster_share": 0.6693705231098714,
+        "pack_ms": 3.4238999996887287,
+        "relevance_ms": 1.0333000000173342,
+        "select_ms": 8.683899999596179,
+        "stage_total_ms": 39.74569999900268
+      },
+      {
+        "candidates": 400,
+        "cluster_ms": 34.65499999947497,
+        "cluster_share": 0.6782424215004471,
+        "pack_ms": 3.8314000003083493,
+        "relevance_ms": 1.4612000004490255,
+        "select_ms": 11.14770000003773,
+        "stage_total_ms": 51.09530000027007
+      },
+      {
+        "candidates": 500,
+        "cluster_ms": 42.99119999996037,
+        "cluster_share": 0.6557955207632971,
+        "pack_ms": 5.111200000101235,
+        "relevance_ms": 1.8104000000676024,
+        "select_ms": 15.64299999972718,
+        "stage_total_ms": 65.55579999985639
+      },
+      {
+        "candidates": 700,
+        "cluster_ms": 88.7057999998433,
+        "cluster_share": 0.7798819439698039,
+        "pack_ms": 3.4813000002031913,
+        "relevance_ms": 2.886199999920791,
+        "select_ms": 18.669299999601208,
+        "stage_total_ms": 113.74259999956848
+      },
+      {
+        "candidates": 850,
+        "cluster_ms": 108.68110000046727,
+        "cluster_share": 0.7883228144945083,
+        "pack_ms": 3.1596999997418607,
+        "relevance_ms": 3.506799999740906,
+        "select_ms": 22.51609999984794,
+        "stage_total_ms": 137.86369999979797
+      },
+      {
+        "candidates": 1000,
+        "cluster_ms": 150.52000000014232,
+        "cluster_share": 0.8072426592257902,
+        "pack_ms": 3.4234999993714155,
+        "relevance_ms": 4.144300000007206,
+        "select_ms": 28.374100000291946,
+        "stage_total_ms": 186.46189999981289
+      }
+    ]
+  },
+  "context_window": {
+    "bounded": true,
+    "note": "The delivered block is bounded by the budget and does not grow with store size, so context is not one of the growth paths eviction has to solve for this library.",
+    "source": "CC-003 G-E0"
+  },
+  "disk": {
+    "embedding_bytes_per_turn": 4096,
+    "marginal_bytes_per_turn": 4742.736842105263,
+    "measured_to_turns": 1000,
+    "projections": {
+      "10000": 47427368.421052635,
+      "2000": 9485473.684210526,
+      "5000": 23713684.210526317
+    },
+    "rows": [
+      {
+        "bytes": 262144,
+        "bytes_per_turn": 5242.88,
+        "turns": 50
+      },
+      {
+        "bytes": 503808,
+        "bytes_per_turn": 5038.08,
+        "turns": 100
+      },
+      {
+        "bytes": 974848,
+        "bytes_per_turn": 4874.24,
+        "turns": 200
+      },
+      {
+        "bytes": 1916928,
+        "bytes_per_turn": 4792.32,
+        "turns": 400
+      },
+      {
+        "bytes": 2871296,
+        "bytes_per_turn": 4785.493333333333,
+        "turns": 600
+      },
+      {
+        "bytes": 3813376,
+        "bytes_per_turn": 4766.72,
+        "turns": 800
+      },
+      {
+        "bytes": 4767744,
+        "bytes_per_turn": 4767.744,
+        "turns": 1000
+      }
+    ],
+    "text_bytes_per_turn": 392.626,
+    "total_bytes": 4767744
+  },
+  "dr002_reconciliation": {
+    "dr002_exponent": 0.96,
+    "dr002_measured_range_candidates": [
+      20,
+      119
+    ],
+    "dr002_us_per_candidate": "35-43, flat across that range",
+    "note": "DR-002 is corroborated inside the range it measured and does not extrapolate past it. Per-candidate cost is flat to 119 candidates and rises steadily after, so a linear projection from 119 understates cost at 1,000 by roughly a factor of five. The pre-registration's ~40 ms at 1,000 and ~400 ms at 10,000 come from that extrapolation.",
+    "this_exponent": 1.252399508050631,
+    "this_measured_range_candidates": [
+      50,
+      1000
+    ]
+  },
+  "episodes_available": 1000,
+  "latency": {
+    "embedding_excluded": true,
+    "fitted_coefficient": 0.03141407805121954,
+    "fitted_exponent": 1.252399508050631,
+    "measured_max_ms": 189.98969999938708,
+    "measured_to_candidates": 1000,
+    "projections_labelled_as_projections": {
+      "10000": 3211.6066658971554,
+      "2000": 427.8905164221888,
+      "5000": 1348.0702736986243
+    },
+    "repeats_per_point": 7,
+    "rows": [
+      {
+        "candidates": 50,
+        "max_ms": 4.7585000002072775,
+        "median_ms": 4.202099999929487,
+        "min_ms": 3.919300000234216,
+        "us_per_candidate": 84.04199999858974
+      },
+      {
+        "candidates": 100,
+        "max_ms": 11.800399999629008,
+        "median_ms": 10.008400000515394,
+        "min_ms": 9.71300000037445,
+        "us_per_candidate": 100.08400000515394
+      },
+      {
+        "candidates": 200,
+        "max_ms": 25.654799999756506,
+        "median_ms": 25.098999999499938,
+        "min_ms": 24.820500000714674,
+        "us_per_candidate": 125.49499999749969
+      },
+      {
+        "candidates": 300,
+        "max_ms": 42.43570000016916,
+        "median_ms": 42.12230000030104,
+        "min_ms": 41.59890000028099,
+        "us_per_candidate": 140.40766666767013
+      },
+      {
+        "candidates": 400,
+        "max_ms": 54.312799999934214,
+        "median_ms": 53.93300000014278,
+        "min_ms": 53.38339999980235,
+        "us_per_candidate": 134.83250000035696
+      },
+      {
+        "candidates": 500,
+        "max_ms": 67.10819999989326,
+        "median_ms": 66.36369999978342,
+        "min_ms": 66.01190000037604,
+        "us_per_candidate": 132.72739999956684
+      },
+      {
+        "candidates": 700,
+        "max_ms": 124.26289999984874,
+        "median_ms": 118.89560000054189,
+        "min_ms": 117.8514000002906,
+        "us_per_candidate": 169.85085714363126
+      },
+      {
+        "candidates": 850,
+        "max_ms": 147.13260000007722,
+        "median_ms": 145.67629999964993,
+        "min_ms": 143.3434999999008,
+        "us_per_candidate": 171.38388235252933
+      },
+      {
+        "candidates": 1000,
+        "max_ms": 193.45530000009603,
+        "median_ms": 189.98969999938708,
+        "min_ms": 188.8635000004797,
+        "us_per_candidate": 189.98969999938708
+      }
+    ]
+  },
+  "policy": "unbounded retention; no eviction in v0",
+  "record": "CC-005 store growth measurement",
+  "scope": "committed Study 010 arm L episodes; offline; no eviction implemented"
+}
