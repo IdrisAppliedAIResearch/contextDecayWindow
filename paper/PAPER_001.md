@@ -582,7 +582,11 @@ what a model scored with it. The component-level guarantees below — budget
 enforcement, restart, byte-identical reproduction — are tested; the retrieval
 result they carry is not.
 
-### 6.1 Eleven efforts removed more than they added
+### 6.1 What was removed
+
+Eleven mechanisms, each with the result that closed it. The count is a
+coincidence: "eleven efforts" elsewhere in this paper means ten studies plus the
+bakeoff, and these are not in one-to-one correspondence with those.
 
 | Removed | Killed by |
 |---|---|
@@ -627,9 +631,8 @@ run here and whose designs are not measured by anything in this paper.
 measured; the causal story about why they hold is a reading of this program's
 history.*
 
-The surviving design is reproducible, free of generated intermediate text, and
-provenance-preserving. Each of those properties tracks a negative result rather
-than a design goal.
+The surviving design is reproducible and provenance-preserving. Both properties
+track a negative result rather than a design goal.
 
 It is reproducible because distillation was removed, and distillation was the
 component whose output could vary run to run: `context()` is a pure function of
@@ -652,18 +655,18 @@ the study harness consuming it.
 
 ### 6.4 What it costs
 
-Three things could grow as a conversation lengthens. Only one binds.
-
 These results come from the program's 1,000-turn endurance run, not from the
 121-turn corpus §5 uses. Nothing here establishes a §5 result at 1,000 turns,
 and nothing in §5 establishes these at 121.
 
+Three things could grow as a conversation lengthens. Only one binds.
+
 **Delivered context is bounded, because it is enforced.** Replaying the 1,000
 committed episodes of that run through the library at a 32,000-character budget,
 the delivered block breaches the budget on 0 of 1,000 turns and its 95th
-percentile moves +18 characters across the final five 100-turn buckets. The same block also
-**truncates on 895 of those 1,000 turns**, dropping up to 70 episodes and wanting
-up to 65,864 characters. It is bounded because a ceiling binds during selection,
+percentile moves +18 characters across the final five 100-turn buckets. The same
+block also **truncates on 895 of those 1,000 turns**, dropping up to 70 episodes
+and wanting up to 65,864 characters. It is bounded because a ceiling binds during selection,
 not because demand is small. Both readings belong together; the first alone
 would be the kind of surrogate this program keeps catching.
 
@@ -817,10 +820,11 @@ Every error above was caught by a gate this program wrote, which invites the
 obvious question, and it deserves the honest answer rather than the flattering
 one.
 
-About 20 scoring errors are estimated to remain unreviewed in the corpus (§7.1).
-Runtime independence was never measured: every number in this paper comes from
-one model at one quantization on one machine, and nothing establishes that any
-of it survives a different embedder. Study 010 was outside the scoring audit
+Somewhere between about 3 and about 43 scoring errors are estimated to remain
+unreviewed in the corpus, with a point estimate of 16.5 (§7.1). Runtime
+independence was never measured: every number in this paper comes from one model
+at one quantization on one machine, and §7.4 gives positive reason to expect
+that a different embedder would move the §5 results. Study 010 was outside the scoring audit
 entirely, so its exploratory scores are not comparable to the corrected series.
 The mechanism seal for one tier was computed over mixed line-ending
 representations and referenced a database file that was never committed. And the
@@ -943,9 +947,8 @@ For a practitioner, the useful part is the subtraction. Eleven mechanisms were
 built and none of them cleared its own gate; what is left is an append-only
 verbatim store, a recency window, similarity retrieval, and a set-level coverage
 objective, with no generative model calls in the memory path. That component is
-reproducible given a pinned embedder, free of generated intermediate text, and
-auditable, and §6.3 argues those properties followed from the removals rather
-than from foresight. If a memory component in your
+reproducible given a pinned embedder and auditable line by line, and §6.3 argues
+both properties followed from the removals rather than from foresight. If a memory component in your
 system makes model calls, this program's experience is that the calls bought
 less than they cost — on one corpus, with no live comparison run.
 
