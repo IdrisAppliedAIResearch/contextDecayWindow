@@ -217,6 +217,26 @@ and `experiments/components` for R22–R29.
 
 ---
 
+## A.8b Restructure note (2026-08-02)
+
+After a three-reader readability review the paper was restructured: §5 now
+follows the forced order it claims (pool → objective → floor), the scoring-audit
+figure was cut, and the remaining figures renumbered 1–5. **No claim in this
+table changed value, was added, or was removed.** The section numbers cited in
+paper prose moved; the claim/artifact pairs did not. Claims C71–C75 (the scoring
+audit) remain supported and are now reported in §7.1 prose rather than in a
+figure.
+
+Three figure/text contradictions were also repaired, all of the same species —
+the figures were generated in Pass 3 and the review cycles corrected the prose
+without re-auditing the images:
+
+| Figure | Contradiction | Fix |
+|---|---|---|
+| 2 | Plotted baseline against shipped configuration with no indication the pool changed too — the confound C15/§5.3 exists to refute | Every bar now names its pool; footnote states the confound |
+| 4 (was 5) | Footnote asserted "all 146 configurations beat the deployed 6/17", true only on the 119-pool (C18) | Names the pool; states the 5/17 inversion |
+| 1 | Callout asserted "selected by 0 of 146 configurations", the count C28's §5.4 declines to lean on | Replaced with the arithmetic: needs 0.225, has 0.056 |
+
 ## A.9 Figure-source note
 
 `dr_002_results.json` (R16) carries a `timings` block reading 1.28 ms at pool
