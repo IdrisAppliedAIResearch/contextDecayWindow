@@ -164,3 +164,28 @@ class TestReadmeStatesThePolicy:
     def test_the_errata_correction_is_pointed_at(self, readme):
         assert "ERRATA.md" in readme
         assert "20–119" in readme or "20-119" in readme
+
+
+class TestCorrectionsAreDocumentedNotOnlyErrataed:
+    """Both corrected numbers stay visible to a reader of the library.
+
+    A correction filed only in ERRATA is a correction the next reader of
+    the README will not see. These assertions keep the two failures that
+    the program's own gates caught in front of whoever is deciding
+    whether to trust the numbers above them.
+    """
+
+    def test_the_interval_misreading_is_documented(self, readme):
+        assert "power, not flatness" in readme
+        assert "23,238" in readme
+
+    def test_the_replacement_criterion_is_described(self, readme):
+        assert "assume nothing about noise" in readme
+        assert "last bucket still holds the maximum" in readme
+
+    def test_the_range_misquote_is_documented(self, readme):
+        assert "20–3,000 candidates" in readme
+        assert "cumulative" in readme and "character" in readme
+
+    def test_the_transferable_lesson_is_stated(self, readme):
+        assert "check the range it was measured over" in readme

@@ -62,6 +62,44 @@ Artifacts live in the source repository under
 | `chars_wanted` is not an upper bound | It is the cost of what the three paths proposed, not of an unconstrained selection: the coverage selector is a budgeted greedy with no unconstrained mode. It tells a caller how much budget the current proposal needed, not what a larger budget would retrieve | CC-003 |
 | The ceiling covers the returned block only | Whatever a caller wraps around it — preamble, tool schemas, its own scratchpad — is outside this accounting, and that is exactly where Study 010's growth happened | DX-002 (`ge0_growth_gate.json`) |
 
+### Two numbers this table used to get wrong
+
+Both were caught by the program's own gates rather than in use, and both
+are here because the corrections are more informative than the claims
+were.
+
+**A confidence interval was read as evidence of boundedness.** DX-002 asked
+whether Study 010's context was still growing at turn 1,000. Its first
+decision rule asked only whether the terminal slope's 95% interval
+contained zero. It does — for every part of the prompt, in both arms — and
+the diagnostic returned "bounded". The interval was measuring statistical
+power, not flatness: these series are sawtooths, and the smallest slope the
+data could resolve was about 17 characters per turn, or 17,000 per 1,000
+turns. Underneath that threshold sat a block whose 95th percentile had
+risen 23,238 characters and which was still setting records in the final
+bucket of the run.
+
+The verdict now rests on two readings that assume nothing about noise —
+whether the last bucket still holds the maximum, and how the terminal
+window compares against the one before it — with the fit kept only as
+corroboration. The claim in the table above, that the delivered block does
+not grow with store size, is measured that way.
+
+**A scaling range was quoted eight times wider than it was measured.** This
+README cited DR-002 for "35–43 µs per candidate over 20–3,000 candidates".
+DR-002's committed sweep is six rows covering 20–119; the 3,000 was a
+cumulative *character* count from a different table in the same report.
+Per-candidate cost is flat across the range DR-002 actually measured and
+rises steadily above it, so projecting from 119 understates the cost at
+1,000 candidates by about fivefold — 190 ms measured against ~40 ms
+projected. See `ERRATA.md`.
+
+The general form of the second one is worth stating plainly, because it is
+the more likely of the two to bite a reader of this file: **before relying
+on any scaling number here, check the range it was measured over.**
+Anything beyond that range is a projection, and this document labels it as
+one.
+
 ## Growth, and what it costs
 
 **The policy is unbounded retention. This version evicts nothing.** That is
