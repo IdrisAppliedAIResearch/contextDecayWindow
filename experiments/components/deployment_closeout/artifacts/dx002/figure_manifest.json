@@ -1,0 +1,21 @@
+{
+  "formats": [
+    "SVG",
+    "PNG (300 dpi)"
+  ],
+  "generator": "scripts/generate_dx002_figures.py",
+  "outputs": [
+    "dx002_context_growth.svg",
+    "dx002_context_growth.png"
+  ],
+  "sources": [
+    {
+      "path": "experiments/components/deployment_closeout/artifacts/dx002/decomposition.csv",
+      "sha256": "479ebaafe268b864d142f4e130e68c51a118b91cb0f02492a3873bde03049014"
+    },
+    {
+      "path": "experiments/components/deployment_closeout/artifacts/dx002/dx002_results.json",
+      "sha256": "f8ab79ab041cb3e33225ac7287f0844af085d63964edbf15a7e4a2b241d14de2"
+    }
+  ]
+}

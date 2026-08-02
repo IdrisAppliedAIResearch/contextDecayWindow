@@ -1,0 +1,33 @@
+{
+  "check": "DX-002 offline diagnostic determinism",
+  "file_sets_match": true,
+  "files": [
+    {
+      "match": true,
+      "name": "DX_002_report.md",
+      "primary_sha256": "456c474f546e61a05306f059a7f5ade0c0b51a21d1c0a6fcc6658fdf9c0c72ea",
+      "repeat_sha256": "456c474f546e61a05306f059a7f5ade0c0b51a21d1c0a6fcc6658fdf9c0c72ea"
+    },
+    {
+      "match": true,
+      "name": "decomposition.csv",
+      "primary_sha256": "ab47029cad75e6034e13981ab2116542d962fe47c054373b9b5cf46e817eb7ff",
+      "repeat_sha256": "ab47029cad75e6034e13981ab2116542d962fe47c054373b9b5cf46e817eb7ff"
+    },
+    {
+      "match": true,
+      "name": "dx002_results.json",
+      "primary_sha256": "f8ab79ab041cb3e33225ac7287f0844af085d63964edbf15a7e4a2b241d14de2",
+      "repeat_sha256": "f8ab79ab041cb3e33225ac7287f0844af085d63964edbf15a7e4a2b241d14de2"
+    },
+    {
+      "match": true,
+      "name": "terminal_slopes.csv",
+      "primary_sha256": "53aeaf4780a34d7956d6beddfed87fb565831247a98e12a97a309a5c515d158a",
+      "repeat_sha256": "53aeaf4780a34d7956d6beddfed87fb565831247a98e12a97a309a5c515d158a"
+    }
+  ],
+  "note": "Two runs of scripts/run_dx002_context_growth.py in separate processes, compared byte-for-byte. Figures are excluded: matplotlib embeds a creation timestamp, so they are verified by the source hashes in figure_manifest.json instead.",
+  "separate_processes": true,
+  "status": "PASS"
+}

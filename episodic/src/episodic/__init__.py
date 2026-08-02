@@ -15,9 +15,28 @@ byte-identical. Everything not exported here is private.
 """
 
 from ._config import EpisodicConfig
+from ._errors import (
+    CallShapeError,
+    ConfigMismatchError,
+    EmbeddingDriftError,
+    EpisodicError,
+    StoreCorruptError,
+    TurnOrderError,
+)
 from ._report import ContextReport
 from ._store import EpisodeStore
 
 __version__ = "0.1.0"
 
-__all__ = ["EpisodeStore", "ContextReport", "EpisodicConfig"]
+__all__ = [
+    "EpisodeStore",
+    "ContextReport",
+    "EpisodicConfig",
+    # Exported so callers can catch them by name rather than by message.
+    "EpisodicError",
+    "CallShapeError",
+    "ConfigMismatchError",
+    "EmbeddingDriftError",
+    "StoreCorruptError",
+    "TurnOrderError",
+]
