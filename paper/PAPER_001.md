@@ -31,9 +31,11 @@ model calls anywhere in the memory path.
    answers. For ordinary lookup questions the same ranking was near-perfect.
    That split rests on one enumeration question, and testing it elsewhere is the
    open problem this work leaves.
-3. **Fix order matters, and the intuitive order is wrong.** Improving the
-   selection rule *before* widening the set of records it may consider makes the
-   system worse than the baseline it replaces.
+3. **Fix order matters, and the intuitive order is wrong.** The deployed
+   shortlist contained no record at all from one of the four topics, so no
+   selection rule of any kind could cover all four from it. Improving the rule
+   before widening the shortlist cannot work, and measured once, it made things
+   slightly worse than the baseline.
 
 **Three operational instructions.**
 
@@ -60,7 +62,11 @@ loop somewhere before ten thousand.
   correctly.
 - The breadth findings rest on a single enumeration question.
 
-Figure 1 is the one image that carries the argument.
+Two images carry the argument between them. Figure 1 is the budget claim: the
+target is affordable and deployed selection spent everything without reaching
+it. Figure 3 is the ordering claim, and it is the one drawn at the resolution
+the committed record allows — 16 of 119 points, with its key readings as
+annotations rather than plotted data.
 
 ---
 
@@ -84,21 +90,23 @@ item inside rank 2 on all eight lookup probes, so this is one probe behaving
 unlike eight rather than an established property of query types.
 
 Separating the failure gives three constraints that bind in a forced order, and
-the order is the paper's operational result. **The candidate pool binds first**:
-with the selector held fixed, widening it from 34 to 119 episodes moves 5 of 17
-items across 2 domains to 12 across 4, and no configuration reaches four domains
-on the deployed pool because one domain has no representative in it. **The
-objective binds second, and only after that** — on the deployed pool the
-set-level objective this program ships scores 5 of 17, *below* the 6 of 17
-baseline it replaces. Doing the objective work first is a regression. **A
-similarity floor binds last**: the final missing episode needs a query cosine of
-0.225 and has 0.056, which no reweighting closes.
+the order is the paper's operational result. **The candidate pool binds first,
+structurally**: the art domain has no representative anywhere in the deployed
+34-episode pool, so no selection rule of any kind reaches four domains from it —
+this follows from the pool's contents, not from any measured comparison. With
+the selector held fixed, widening the pool to 119 episodes moves 5 of 17 items
+across 2 domains to 12 across 4. **The objective binds second, and only after
+that**; run on the deployed pool the shipped objective scores 5 of 17 against
+the 6 of 17 baseline it replaces, one count from one run, illustrating the
+ordering rather than establishing it. **A similarity floor binds last**: the
+final missing episode needs a query cosine of 0.225 and has 0.056, which no
+reweighting closes.
 
 Capacity was never the constraint. An exact optimum on the same store makes 14
 of 17 items available in 5,058 of 32,000 characters; deployed selection made 6
 available while spending 31,946. These are availability counts measured offline
 against a planted answer key, and the resulting configuration was never run
-live. What remains after eleven removals is an append-only store, a recency
+live. What remains after every one of those removals is an append-only store, a recency
 window, similarity retrieval, and a coverage objective, with no generative model
 calls in the memory path — a design that is reproducible and free of generated
 intermediate text because the removed components were the ones that produced it.
@@ -460,13 +468,20 @@ not for a selector registered to fill it, and the prediction failed.
 worst-case constant: at the final greedy set, each unselected candidate's
 marginal gain per unit cost is computed, the remaining budget filled fractionally
 in that order, and the result added to the achieved objective value to bound the
-optimum. Across the 405 configurations where that bound is computable, greedy
-sits between **0.954 and 0.9996** of it; the shipped configuration is at 0.9927.
-A better search over the same objective has almost nothing left to find. The
-bound is computable only for the two arms with a set function — all 33
-non-computable rows are the maximal-marginal-relevance arm — so this covers
-facility location and relevance-plus-diversity and says nothing about MMR's
-search quality.
+optimum. On the primary 119-episode pool, greedy sits between **0.9548 and
+0.9996** of it across the 135 configurations where the bound is computable; the
+shipped configuration is at 0.9927. A better search over the same objective has
+almost nothing left to find.
+
+Two scope notes, because this number is easy to quote wrongly. Widening the
+population to all three pools — 405 computable configurations — moves the
+minimum to 0.9536; the program's ledger reports 0.955, which is the primary-pool
+minimum to three places and is the figure this paper uses. Neither value
+supersedes the other and no published number changes; they count different
+configurations. And the bound exists only for the two arms with a set function.
+All 33 non-computable rows are the maximal-marginal-relevance arm, so this
+reading covers facility location and relevance-plus-diversity and says nothing
+about MMR's search quality.
 
 ### 5.4 The similarity floor binds last
 
@@ -554,22 +569,35 @@ how much weight §5.2.1 deserves.
 
 | Constraint | Binds on | Bound, on this corpus |
 |---|---|---|
-| **Candidate pool** | domain coverage, and part of the fact gap | With the selector frozen, 34 → 119 candidates moves 5/17 across 2 domains to 12/17 across 4. On the 34-pool no configuration reaches four domains, because one domain is absent from it entirely |
-| **Selection objective** | the remaining recoverable facts | Holding the deployed pool fixed, the best set-level configuration reaches 13/17 against the baseline's 6/17. Greedy runs at 0.954–0.9996 of a data-dependent bound, so the objective and not the search is the limit |
+| **Candidate pool** | domain coverage, and part of the fact gap | The art domain has no representative in the deployed 34-episode pool, so no rule of any kind reaches four domains there. With the selector frozen, 34 → 119 candidates moves 5/17 across 2 domains to 12/17 across 4 |
+| **Selection objective** | the remaining recoverable facts | Holding the deployed pool fixed, the best set-level configuration reaches 13/17 against the baseline's 6/17. Greedy runs at 0.9548–0.9996 of a data-dependent bound on the primary pool, so the objective and not the search is the limit |
 | **Similarity floor** | the irreducible residual | 0.056 against the 0.225 required, a shortfall of 0.169; only 20 of 119 episodes clear the bar; unreachable by any reweighting of this objective |
 
-The order is forced, and §5.3's first table is the evidence. A better objective
-over the deployed pool cannot reach four domains, because that pool does not
-contain them; and the specific objective this program ships, run on that pool,
-scores 5 of 17 against a 6 of 17 baseline. **The pool has to be widened first.
-Doing the objective work alone makes the shipped configuration worse than what
-it replaces.**
+The order is forced, and the argument for it is structural rather than
+numerical. **The art domain has no representative anywhere in the deployed
+34-episode pool.** Its two contributors sit at cosine ranks 50 and 86 (§5.2.1),
+so no selection rule of any kind — set-level, per-item, or hand-written — can
+deliver an art item from that pool. Four-domain coverage is not merely hard
+there; it is unavailable. Objective work cannot recover a domain the pre-filter
+never admitted.
 
-That is the operational content of the decomposition and the sentence a
-practitioner should take from §5. One caveat belongs with it: the inversion
-rests on a **single-count difference**, 5 against 6, from one unreplicated run.
-It is the load-bearing number for this paper's boldest claim, and it is one
-measurement.
+**The pool has to be widened first.** That follows from what the pool contains,
+not from any measured comparison, and nothing about a single run or a single
+seed bears on it.
+
+A measured result points the same way and is worth stating for its vividness,
+with its fragility attached: run on the deployed pool, the configuration this
+program ships scores 5 of 17 against the baseline's 6 of 17 — the objective fix,
+applied alone, is a small regression. That is **one count, from one unreplicated
+run**, and a reader is entitled to weigh it lightly. Note also that the best of
+146 configurations reaches 13 of 17 on that same pool, so the shipped cell is
+not the only cell one could point at.
+
+Neither observation is load-bearing. **The structural claim carries the ordering
+by itself**, and the 5-against-6 is illustration.
+
+That is the operational content of the decomposition and what a practitioner
+should take from §5.
 
 One clarification the title invites. "Selection, not capacity" contrasts with
 the *character budget*, which was never binding: the target cost 5,058 of 32,000
@@ -597,9 +625,9 @@ guarantees below are tested; the retrieval result they carry is not.
 
 ### 6.1 What was removed
 
-Eleven mechanisms, each with the result that closed it. The count is a
-coincidence: "eleven efforts" elsewhere means ten studies plus the bakeoff, and
-these are not in one-to-one correspondence with those.
+Each mechanism below was built, measured, and closed by the result beside it.
+They do not correspond one-to-one with the studies: several fell to the same
+study, and some outlived the study that first weakened them.
 
 | Removed | Killed by |
 |---|---|
@@ -623,7 +651,7 @@ Everything packed at exact serialized cost against one budget.
 
 **There are no generative model calls anywhere in the memory path.** Nothing in
 it asks a model to write text about the store. That is the property Study 005
-established and the one all eleven removals preserve.
+established and the one every removal preserved.
 
 It is not the absence of model calls. `context()` embeds the query on every
 call, and `append()` embeds every episode, so an embedding model must be
@@ -633,7 +661,7 @@ which is why the library asserts a sentinel vector hash on every store open
 rather than assuming one (§7.4).
 
 That is the whole architecture, and it is smaller than what this program started
-building. It contains none of the eleven mechanisms above. We make no claim
+building. It contains none of the mechanisms listed above. We make no claim
 about how it compares to systems that were never run here.
 
 ### 6.3 Why a practitioner should care
@@ -855,6 +883,16 @@ answers.** §5.1.1 in full: four of five optimum episodes are prior probe
 exchanges, this probe's earlier answers were largely wrong, and an item counts
 as available if its text appears — however wrong the surrounding response.
 
+This is the paper's largest structural weakness, and unlike the others it has a
+defined remedy rather than an aspiration. *Settled by:* **LV-001**, a
+pre-registered two-arm live run of the shipping configuration against the
+deployed baseline at one seed
+(`experiments/components/live_validation/LV_001_pre_registration.md`). Its
+thresholds and both reporting outcomes are fixed in advance, including what this
+paper must change if the offline advantage fails to convert. The design is
+committed; the run needs a runtime this repository does not carry, and has not
+been authorized.
+
 **8.7 Amendments exist after results.** Twelve in the bakeoff alone. The program
 records per amendment whether it preceded the result it affects, and applies a
 legitimacy test permitting corrections to measurement units and protocol
@@ -875,8 +913,8 @@ it cannot be drawn honestly.
 Eleven pre-registered efforts on one program produced one architecture worth
 keeping and a measurable account of why the rest did not work.
 
-For a practitioner, the useful part is the subtraction. Eleven mechanisms were
-built and none cleared its own gate; what is left is an append-only verbatim
+For a practitioner, the useful part is the subtraction. Every mechanism the
+program built failed its own gate; what is left is an append-only verbatim
 store, a recency window, similarity retrieval, and a set-level coverage
 objective, with no generative model calls in the memory path. That component is
 reproducible given a pinned embedder and auditable line by line, and §6.3 argues
@@ -889,9 +927,10 @@ For a researcher, the useful part is the decomposition and the order inside it.
 Retrieval failure here was not one thing. The candidate pool decided what could
 be seen, the objective decided what was worth taking, and a similarity floor
 decided what was unreachable at any weighting. The order is forced rather than
-tidy: on the deployed pool, the objective this program ships scores 5 of 17
-against the 6 of 17 baseline it replaces, and becomes an improvement only once
-the pool is widened. Separating the three required a per-fact known optimum on
+tidy, and structurally so: one of the four domains has no representative
+anywhere in the deployed shortlist, so no objective can recover it from there.
+Widening the pool is not the first fix because it measured better. It is first
+because the alternative is impossible. Separating the three required a per-fact known optimum on
 the same store — a measurement costing an answer key and exact cost accounting,
 and buying a sharper question than an end-to-end score.
 
