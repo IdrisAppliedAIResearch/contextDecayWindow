@@ -1088,7 +1088,12 @@ projections, drawn dashed. Sources: `dx002/dx002_results.json`,
 - **C. Amendment record** — per-study `amendments/` directories, each with the
   before/after-result status.
 - **D. Corrections index** — `ERRATA.md`, cross-referenced from §7.
-- **E. Reproduction** — `paper/REPRODUCTION.md`. *(Pass 7.)*
+- **E. Reproduction** — `paper/REPRODUCTION.md` and `paper/reproduce_headline.py`.
+  Rebuilds the 5,058-character exact optimum from the committed turn log through
+  the installed library and checks its length and SHA-256 against AR-001's
+  committed values. Verified in a clean virtual environment containing only
+  `episodic`. The selection results cannot be reproduced this way, because the
+  store's vectors were never committed; the appendix says so.
 - **F. Spec reconciliation** — `paper/notes/EVIDENCE_INDEX.md` §1, recording six
   places where the authoring specification and the committed artifacts disagreed
   and the artifact won.
