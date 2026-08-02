@@ -4,7 +4,7 @@
 
 Ten pre-registered studies test that question, each adding one memory component and fixing the prior study's documented failures. Every result is published as found.
 
-> **Status:** Study 010 stopped at G2; exploratory continuation unaudited and LTM budget-noncompliant | retrieval bakeoff complete | retrieval mechanism ledger reopened for Family CS; E005 diversity-aware selection PROMOTION_ELIGIBLE offline at 12/17 across 4/4 domains, DX-001 closes the turn-90 miss NO CHANGE with the residual localized to the relevance term, F1 open but materially advanced, F2 closed, F3 open | CC-002 extracts the deployable component into the installable `episodic` package with byte-identical replay through the library (T1–T7 pass) | renderer fix complete | Q4 packing diagnostic; Branch D invalidated | scoring/interpretation record corrected through 2026-08-01
+> **Status:** Study 010 stopped at G2; exploratory continuation unaudited and LTM budget-noncompliant | retrieval bakeoff complete | retrieval mechanism ledger reopened for Family CS; E005 diversity-aware selection PROMOTION_ELIGIBLE offline at 12/17 across 4/4 domains, DX-001 closes the turn-90 miss NO CHANGE with the residual localized to the relevance term, F1 open but materially advanced, F2 closed, F3 open | CC-002 extracts the deployable component into the installable `episodic` package with byte-identical replay through the library (T1–T7 pass) | deployment closeout complete: DX-002 returns Branch B and names the unbudgeted STM block, CC-003 makes the budget a hard ceiling with the operating point unchanged, CC-004 tests restart against real process kills, CC-005 states unbounded retention and corrects the latency range to 20–119 measured candidates | renderer fix complete | Q4 packing diagnostic; Branch D invalidated | scoring/interpretation record corrected through 2026-08-02
 
 ## The Problem
 
@@ -146,6 +146,54 @@ artifact hash.
 
 See `episodic/README.md` and
 `experiments/components/library_extraction/CC_002_library_extraction.md`.
+
+## Deployment Closeout
+
+The four remaining component obligations are closed, preceded by the
+diagnostic that gated them.
+
+**DX-002 asked whether Study 010's context was still growing at turn
+1,000.** The record held a peak — 27,154 estimated tokens — and a peak
+cannot answer that. Decomposing all 2,000 committed prompts into their
+parts, under a gate that every prompt reconstructs byte-exactly, returned
+**Branch B**: the budgeted LTM block saturates at ~52–54k characters from
+turn 500, but the unbudgeted `<retrieved_stm>` block never does. Its 95th
+percentile rose 23,238 characters in arm L and 28,701 in arm S over the
+final five 100-turn buckets and held the record in the last bucket of both
+arms. Rule pinning, the named suspect, contributed exactly zero — and was
+disabled before the run, so it is untested rather than cleared.
+
+The diagnostic first returned Branch A, on a rule that only asked whether
+the terminal slope's confidence interval contained zero. It does, for every
+part in both arms. Branch A is a conjunction whose third clause is *no
+unbudgeted component climbing*, and checking only the slope let a block
+that grew 23,000 characters read as flat — the interval was measuring
+statistical power and was read as evidence of boundedness.
+
+**CC-003 makes the budget a ceiling.** The leak turned out to be the Study
+010 runner's, not the library's: replaying the same 1,000 episodes through
+`episodic`, the delivered block never exceeds its budget and its p95 moves
++18 characters. Enforcement closed three real gaps — the ceiling used to
+raise rather than degrade at budgets too small for one episode, `truncated`
+carried no content, and the drop order had no name — and is certified inert
+at the operating point: 132/132 committed payload SHAs and 12/17 · 4/4 ·
+16/16 at 31,569 of 32,000 characters, unchanged.
+
+**CC-004 makes restart a guarantee.** The durability point is stated — when
+`append()` returns, the episode is on disk — and tested against real
+process kills, not simulations. `context()` returns a byte-identical block
+across restart, corruption is refused at open, and 100 restart cycles leave
+no drift.
+
+**CC-005 states a growth policy and builds nothing.** Disk is cheap at
+4,743 bytes per turn. Latency binds: 190 ms at 1,000 candidates, 81% of it
+clustering. That measurement corrects a published claim — DR-002's timing
+sweep covered 20–119 candidates, not the "20–3,000" the library README
+cited, and projections from it understate the cost at 1,000 candidates
+about fivefold. Trimming the pool remains the one fix measured to break
+retrieval, so retention stays unbounded and the horizon is stated instead.
+
+See `experiments/components/deployment_closeout/`.
 
 ## Renderer Correctness
 

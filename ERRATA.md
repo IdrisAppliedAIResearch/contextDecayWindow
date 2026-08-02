@@ -172,6 +172,49 @@ Its stated reason does not. No repository text may describe MMR as
 non-submodular. See
 `experiments/components/retrieval_mechanism_ledger/E005_POSTHOC_INTERPRETATION.md`.
 
+## episodic Selection-Latency Range and Its Extrapolation (2026-08-02)
+
+**Headline change:** the library README claimed a selection-latency range of
+"20-3,000 candidates". DR-002 measured 20-119. The number 3,000 was a
+character count from an unrelated table.
+
+`episodic/README.md` cited "35-43 microseconds per candidate over 20-3,000
+candidates; empirical scaling exponent 0.96" against
+`dr_002/scaling_timings.json`. That artifact holds six rows, from 20 to 119
+candidates, and DR-002's own report describes it as "a 6x range in pool
+size". The 3,000 appears in the DR-002 report as a cumulative character
+figure in the greedy-trace table and was misread as a pool size. The README
+line is corrected to 20-119.
+
+The per-candidate figure and the 0.96 exponent are correct inside the range
+DR-002 measured. They do not extend past it. CC-005 measured the same
+configuration on the same material to 1,000 candidates:
+
+| Candidates | Median build_context | Microseconds per candidate |
+|---:|---:|---:|
+| 50 | 3.8 ms | 76 |
+| 119 (DR-002's maximum) | ~10 ms | ~84 |
+| 500 | 65.6 ms | 131 |
+| 1,000 | 190.0 ms | 190 |
+
+Per-candidate cost is flat to about 119 candidates and rises steadily after,
+so the empirical exponent over 50-1,000 is **1.25**, not 0.96. Clustering's
+share of the total rises with it, from 37% at 50 candidates to **81%** at
+1,000; DR-002's "roughly 73% at n = 119" sits on that trend rather than
+being a constant.
+
+The consequence is for the projections, not for DR-002. The CC-003/004/005
+pre-registration reads "~40 microseconds per candidate, exponent 0.96;
+DR-002 projects ~40 ms at 1,000 candidates and ~400 ms at 10,000". Those
+come from extending a curve 84x beyond its last measured point. The measured
+value at 1,000 candidates is 190 ms, about five times the projection, and
+the corresponding projection to 10,000 candidates is roughly 3.2 seconds
+rather than 400 ms.
+
+No committed run artifact changes. DR-002's measurements stand as recorded;
+what is withdrawn is the range attributed to them in the library README and
+the linear extrapolation built on top of them.
+
 ## DR-002 Cosine Rank Under the Committed Embedding Call (2026-08-01)
 
 **Headline change:** one published rank moves. DR-002's step-11 selection, turn
