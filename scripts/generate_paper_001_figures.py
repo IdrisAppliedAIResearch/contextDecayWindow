@@ -169,7 +169,7 @@ def figure_1() -> None:
         arrowprops=dict(arrowstyle="->", color=BLACK, linewidth=0.9),
     )
     ax.annotate(
-        "turn 90: 4 monetary items,\nselected by 0 of 146 configurations",
+        "turn 90: 4 monetary items.\nNeeds cosine 0.225, has 0.056",
         xy=(111, 4.06),
         xytext=(56, 5.05),
         fontsize=8.5,
@@ -234,12 +234,16 @@ def figure_2() -> None:
     exact_facts = ar["exact_optimum"]["fact_count"]
 
     bars = [
-        ("deployed baseline (A0)", a0["serialized_chars"], a0["fact_count"], VERMILLION, "right", 0.34),
-        ("set-level coverage (ships)", e005["primary_configuration"]["serialized_chars"],
+        ("deployed baseline - deployed selector, 34-episode pool",
+         a0["serialized_chars"], a0["fact_count"], VERMILLION, "right", 0.34),
+        ("set-level coverage - new selector AND 119-episode pool",
+         e005["primary_configuration"]["serialized_chars"],
          e005["primary_configuration"]["q11_fact_count"], BLUE, "right", 0.34),
-        ("known optimum, greedy", e005["oracle"]["serialized_chars"], e005["oracle"]["fact_count"],
+        ("known optimum, greedy - answer key, 119-episode pool",
+         e005["oracle"]["serialized_chars"], e005["oracle"]["fact_count"],
          GREEN, "left", 0.0),
-        ("known optimum, exact", exact_chars, exact_facts, SKY, "left", -0.62),
+        ("known optimum, exact - answer key, 119-episode pool",
+         exact_chars, exact_facts, SKY, "left", -0.62),
     ]
 
     fig, ax = plt.subplots(figsize=(9.2, 4.6))
@@ -290,8 +294,11 @@ def figure_2() -> None:
     fig.text(
         0.005,
         -0.055,
-        "The two known-optimum bars are computed with the answer key. They are bounds, not methods, and no deployable\n"
-        "selection reaches the 14/17 bar. Same store, same renderer, same enforced budget throughout.",
+        "The top two bars change TWO things against the baseline, not one: the selection objective and the candidate pool.\n"
+        "Section 5.2 separates them - on the deployed 34-episode pool the same set-level configuration scores 5/17, BELOW the\n"
+        "baseline's 6/17. Read this figure as the budget argument only: the target is affordable, and deployed selection spent\n"
+        "the whole budget without reaching it. The two known-optimum bars are computed with the answer key and are bounds,\n"
+        "not methods; no deployable selection reaches the 14/17 bar.",
         fontsize=7.6,
         color="#444444",
         va="top",
@@ -492,9 +499,10 @@ def figure_5() -> None:
         0.005,
         -0.10,
         "Primary pool, 119 candidates, 32,000-character budget; best configuration per arm by fact count. A2 delivers monetary 0/4\n"
-        "at every one of its settings. All 146 configurations beat the deployed 6/17, and 137 preserve 16/16 targeted items, so\n"
-        "targeted recall does not separate the arms - which is itself the finding: the failure is confined to enumeration.\n"
-        "A4 is AR-001's known optimum, carried in as a reference point and never deployable.",
+        "at every one of its settings. On THIS pool all 146 configurations beat the deployed 6/17; on the deployed 34-episode\n"
+        "pool they fall as low as 4/17 and the shipped configuration scores 5/17, which is the ordering result in section 5.7.\n"
+        "137 configurations preserve 16/16 targeted items, so targeted recall does not separate the arms - itself the finding:\n"
+        "the failure is confined to enumeration. A4 is AR-001's known optimum, a reference point and never deployable.",
         fontsize=7.6,
         color="#444444",
         va="top",

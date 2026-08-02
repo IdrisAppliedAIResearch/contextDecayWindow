@@ -355,11 +355,12 @@ The best configuration that passed every gate makes **12 of 17 items available
 across 4 of 4 domains at 31,569 characters**, preserving all 16 targeted items
 and recovering 4 of the 5 known-optimum episodes.
 
-**That headline moves two variables at once, and the paper says so before using
-it.** The deployed baseline is the deployed selector running on the deployed
-34-episode pre-filter; the 12 of 17 is a set-level selector running on the full
-119-episode store. Selector and pool both changed. The per-pool minima across
-the same 146 configurations make the confound concrete:
+**That headline moves two variables at once.** The deployed baseline is the
+deployed selector running on the deployed 34-episode pre-filter; the 12 of 17 is
+a set-level selector running on the full 119-episode store. Selector and pool
+both changed, so it is not a selector result and this paper does not use it as
+one. The per-pool minima across the same 146 configurations make the confound
+concrete:
 
 | Pool | Worst of 146 | Best of 146 | Frozen shipped config | Deployed baseline |
 |---|---:|---:|---:|---:|
