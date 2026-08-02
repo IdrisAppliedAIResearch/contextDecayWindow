@@ -2,441 +2,903 @@
 
 ### A measured decomposition of retrieval failure in conversational memory, and what survived eleven negative results
 
-**Idris Applied AI Research** · independent, non-profit
+**Idris Applied AI Research** — independent, non-profit
 Repository: `contextDecayWindow` · Licence: CC BY 4.0
-Draft — PAPER-001, Pass 1 skeleton
-
----
-
-> **Status of this draft.** Pass 1 of the seven-pass authoring loop: headings,
-> abstract, and figure captions. Captions are written before the figures they
-> describe. Body sections carry their argument in outline and their committed
-> sources; prose lands in Pass 3. Numbers shown here are verified against
-> committed artifacts in `paper/notes/EVIDENCE_INDEX.md`.
+Draft — PAPER-001, Pass 3
 
 ---
 
 ## Abstract
 
-*(One paragraph, Pass 3. Must carry: the category declaration up front; the
-three-way decomposition — pool, objective, similarity floor — with each bound;
-the inversion result stated at its measured width, not wider; 6/17 → 12/17
-against the 14/17 bar and the 15/17 known optimum; 14/17 reachable in 5,058 of
-32,000 characters; and the subtraction result. The n=1 declaration belongs in
-the abstract, not only in Limitations.)*
+This is a single-program experience report, not a general-claims paper. One
+corpus, one probe set, one model, one quantization, one machine, one seed; there
+is no error bar anywhere in the work it describes, and none of it was calibrated
+against an external benchmark. We say so first because it decides how everything
+below should be read.
 
-**Placeholder claim set for Pass 3:**
+Across ten pre-registered studies and one registered retrieval bakeoff, this
+program tried to make a language model hold a long conversation by rebuilding a
+small context each turn. Write-time selection failed in five studies. Moving
+selection to query time failed in the bakeoff, which surfaced 8 of 17 target
+facts where write-time formation had reached 11. Graph construction, query-type
+routing, approximate search, query segmentation, and attention-derived term
+selection each failed their own registered gates. What explains the set is
+measurable: on this corpus the four highest-cosine episodes carry none of the
+enumeration probe's target facts, and the last still-needed item does not appear
+until rank 87 of 119. The same ordering is near-optimal on the eight targeted
+probes, placing every needed item inside rank 2, so the failure is specific to
+enumeration rather than general to similarity retrieval.
 
-- This is a single-program experience report. One corpus, one probe set, one
-  model, one quantization, one machine, one seed. No error bars anywhere.
-- On this corpus, the four highest-cosine episodes carry none of the enumeration
-  probe's target facts, while on all eight targeted probes cosine ordering
-  places every needed item inside rank 2.
-- Deployed selection delivered 6 of 17 facts while spending 31,946 of 32,000
-  characters. An exact optimum reaches 14 of 17 in 5,058 characters.
-- Replacing per-item cosine ranking with a set-level coverage objective reaches
-  12 of 17 across 4 of 4 domains at 31,569 characters, preserving 16 of 16
-  targeted items.
-- The residual is a floor, not a tuning problem: 0 of 146 configurations select
-  the last oracle episode, which needs a query cosine of 0.225 and has 0.056.
-- What survived eleven studies is smaller than what the field builds, and its
-  deployable properties are consequences of the negative results.
+Separating that failure gives three constraints with different bounds. The
+candidate pool binds on domain coverage: with the selector frozen, widening it
+from 34 to 119 episodes moves 5 of 17 items across 2 domains to 12 across 4, and
+the deployed pool contains no episode of one domain at any setting. The
+objective binds next: a set-level coverage objective reaches 12 of 17 where
+per-item cosine ranking reached 6, and the greedy search runs at 0.954–0.9996 of
+its own certified bound, so the objective and not the search is the limit. A
+similarity floor binds last: the final missing episode needs a query cosine of
+0.225 and has 0.056, and 0 of 146 configurations select it.
+
+Capacity was never the constraint. An exact optimum computed on the same store
+reaches 14 of 17 items in 5,058 of 32,000 characters; deployed selection
+delivered 6 while spending 31,946. Eleven studies removed distillation,
+promotion filters, a topic layer, an associative graph, routing, and approximate
+search, and what remains is an append-only store, a recency window, similarity
+retrieval, and a coverage objective, with no inference calls in the memory path.
+That design is deterministic and offline because the components that were
+removed were the ones that required model calls.
 
 ---
 
 ## 1. Introduction
 
-**1.1 The problem.** A long conversation forces a trade: carry the transcript and
-pay for it, or summarize and lose detail permanently.
+A long conversation forces a trade. Keep the transcript and the model slows down
+and loses the middle. Summarize it and the details are gone. This program spent
+eleven pre-registered efforts on a third option: store every exchange verbatim
+and rebuild a small, relevant context each turn.
 
-**1.2 What this paper is.** A case study of one program's eleven pre-registered
-efforts — ten numbered studies plus one registered exploratory bakeoff — with
-the diagnostics and component work that followed. Every result published as
-found.
+Most of those efforts failed. This paper is about what the failures had in
+common, which turned out to be measurable, and about what was left after the
+failed parts were removed, which turned out to be small.
 
-**1.3 The category declaration.** Stated here, not deferred to Limitations. The
-program has never been externally calibrated: Study 003 retired external
-baselines in favour of self-comparison and nothing restored them. Declaring the
-category is what makes n=1 legitimate rather than a defect.
+### 1.1 The category, declared
 
-**1.4 Contributions.**
+This is a case study of one program. It is not a general-claims paper, and the
+distinction is not modesty — it decides which sentences are permitted.
 
-1. A measured decomposition of where retrieval failure lives, with three
-   constraints separated and each independently bounded.
-2. The measurement that supports it: a per-fact known optimum computed on the
-   same store under exact serialized-cost accounting.
-3. A subtraction result — what eleven studies removed, and why what remains is
-   deployable *because* of what was removed.
-4. A published correction record, including one near miss by a diagnostic
-   written to catch exactly that failure class.
+The program has never been externally calibrated. Study 003 retired external
+baselines in favour of self-comparison and nothing restored them. LoCoMo and
+LongMemEval were adopted in principle and never run. Every number here comes
+from one corpus with facts planted at known turns, one rubric locked since
+Study 002, one local model at one quantization, one machine, and one seed. Every
+comparison is a single run. There is no variance estimate anywhere in the
+program, and therefore no significance test that would mean anything.
 
-**1.5 What this paper does not claim.** No comparison to HippoRAG, Mem0, Zep, or
-Letta — none were run. No general claim about similarity retrieval. The
-inversion is an observation on one corpus, offered with the experiment that
-would test it elsewhere (§9.5).
+Declaring this is what makes the report legitimate rather than defective. A case
+study reporting what happened across eleven efforts on one program is a readable
+form. The same content claiming general findings would deserve rejection. So the
+findings below are stated as *on this corpus*, and where a result would be worth
+testing elsewhere we name the experiment instead of implying the outcome.
+
+### 1.2 Contributions
+
+1. **A decomposition of where retrieval failure lives**, with three constraints
+   separated and each independently bounded (§5). The constraints bind on
+   different quantities and respond to different fixes.
+2. **The measurement that makes the decomposition possible**: a per-fact known
+   optimum computed on the same store under exact serialized-cost accounting
+   (§5.1). It requires an answer key and exact cost accounting, which is why it
+   is unusual rather than difficult.
+3. **A subtraction result** (§6): what eleven efforts removed, and why the
+   properties that make what remains deployable are consequences of the negative
+   results rather than independent design choices.
+4. **A correction record** (§7), including one instance where a diagnostic
+   written to catch a specific failure class nearly committed that exact
+   failure.
+
+### 1.3 What this paper does not claim
+
+No comparison against HippoRAG, Mem0, Zep, or Letta; none were run. No general
+claim that similarity retrieval fails — §5.6 measures the opposite on eight of
+nine probes. No novelty for maximal marginal relevance, facility location, or
+submodular selection, which are established methods; what is offered is the
+decomposition and the measurement, not the selector. And no claim that the 12
+of 17 result is good: it sits below the program's own registered bar of 14 and
+below the 15 that a known optimum reaches on the same store for a sixth of the
+cost.
 
 ---
 
 ## 2. Related work
 
-Convergence and grounding, never derivation. Studies 001–010 predate the
-program's first literature scan and are committed with SHAs showing it; stated
-once, plainly, without overselling independence.
+Studies 001–010 were designed and run before this program's first literature
+scan, and are committed with SHAs that show it. We state that once because it
+explains why the early designs rediscovered known ideas, and we do not press it
+further: arriving independently at a worse version of a published method is not
+a contribution.
 
-- **HippoRAG** — entity-centric indexing, and the authors' own ICML follow-up
-  naming that as the limitation. Relevant because this program's hardest
-  repeated failure (F4) is a span in which spaCy finds zero entities.
-- **GraphRAG, SGMem, CodaRAG** — explicit structure over retrieved units.
-- **Letta, Mem0, Zep** — deployed conversational-memory systems.
-- **LoCoMo, LongMemEval** — the benchmarks this program adopted in principle and
-  never ran. Named here as the calibration gap, not as related work it competes
-  with.
+**Entity-centric indexing.** HippoRAG builds a knowledge graph over extracted
+entities and retrieves by traversal. The authors' own follow-up work identifies
+entity-centricity as a limitation. This program's hardest repeated failure is
+consistent with that: six target facts sit in spans where the entity extractor
+finds zero entities, so an entity-gated index has no path to them. That is why
+entity extraction was ruled out as a primary index here, and why HippoRAG was
+treated as a comparison target rather than a component to adopt — though the
+comparison was never run.
 
-Placement of this program: it operates on the candidate set those systems also
-consume, and measures that set rather than proposing a new structure over it.
+**Structure over retrieved units.** GraphRAG, SGMem, and CodaRAG each impose
+explicit structure on retrieved material. This program built the corresponding
+mechanism — an associative graph over observed co-activation — and no
+configuration cleared its advancement gate (§4.3).
+
+**Deployed conversational memory.** Letta, Mem0, and Zep ship systems in this
+space. This program's surviving design (§6) is smaller than all of them, and the
+comparison that would establish whether that matters was not run.
+
+**Benchmarks.** LoCoMo and LongMemEval are the calibration this program lacks.
+They are named here as the gap, not as work this paper competes with.
+
+The placement is narrow. Every system above consumes a candidate set produced
+upstream by similarity ranking. This paper measures that set rather than
+proposing another structure over it.
 
 ---
 
 ## 3. Method
 
-Short. Four things a reader needs to trust the rest.
+Four properties make the rest of the paper checkable.
 
-**3.1 Pre-registration and gates.** Design committed before implementation; its
-SHA is the integrity anchor. Offline gates bind and run before inference.
-Study 008 stopped at its pre-run gates, preventing four invalid 121-turn runs.
+**Pre-registration and binding gates.** Each study's design was committed before
+implementation, and that commit's SHA is the integrity anchor. Pre-registration
+commits contain no implementation files. Offline gates run before inference and
+bind: Study 008 stopped at its pre-run gates when replay proved that no
+registered fill cap between 1 and 50 could pass the breadth and targeted gates
+jointly, which prevented four invalid 121-turn runs.
 
-**3.2 Amendments.** Standalone files, never edits to a locked registration, with
-a per-amendment record of whether it preceded the affected result. Twelve in the
-bakeoff alone.
+**Amendments, recorded not absorbed.** Locked registrations are never edited.
+Changes go in standalone amendment files carrying the trigger, the change, the
+rationale, and the authorization. Whether an amendment preceded the result it
+affects is recorded per amendment rather than asserted globally; the bakeoff
+carries twelve, each with that column filled in.
 
-**3.3 Exact-cost accounting.** All character budgets charge the complete
-serialized block, including per-episode tags, metadata, and separators. This is
-the correction DR-001 forced (§8.2) and it is load-bearing for every number
-after it.
+**Exact serialized cost.** Every character budget charges the complete
+serialized block — per-episode tags, metadata, and separators included, not just
+the source text. This was not true before DR-001 (§7.2), and correcting it moved
+published numbers by up to 68%. Every figure in this paper uses the corrected
+accounting.
 
-**3.4 Determinism and leakage.** Fixed seed, one slot, no speculative decoding,
-byte-identical seeded-prefix rerun. Mechanism code may not read the answer key;
-measurement may. Enforced by grep, import-graph checks, and a planted test
-violation.
+**Determinism and leakage control.** Fixed seed, one slot, speculative decoding
+disabled, and a required byte-identical seeded-prefix rerun. Mechanism code —
+retrieval, formation, ranking, gating — may not read the answer key; measurement
+may. The boundary is enforced by grep, by import-graph checks, and by a planted
+test violation that must be caught.
 
-**3.5 The control/baseline distinction.** Controls run from checked-out prior
-code in a separate worktree, never by disabling features in the current runner.
+**Controls versus baselines.** A control runs from checked-out prior code in a
+separate worktree. Disabling a feature in the current runner does not produce a
+control, and results from flag-disabled arms were rejected.
 
 ---
 
-## 4. The arc, compressed
+## 4. The arc
 
-One table. One page on the turning points. Not a narration of ten studies.
+Ten numbered studies and one registered bakeoff. The table is the record; the
+turning points are the argument.
 
-**4.1 The table.** Studies 001–010: what was added, what it scored after the
-scoring audit, and the terminal diagnosis in one line each.
+| # | Added | Outcome | Terminal diagnosis |
+|---|---|---|---|
+| 001 | Recency plus similarity retrieval | PARTIAL | Similarity fired once in 32 turns. Thirty topics for 32 episodes compressed nothing |
+| 002 | Consolidation, rule pinning, 120 turns | PARTIAL | Similarity recovered buried facts; consolidation produced 52 topics |
+| 003 | Long-term write path, four promotion filters | PARTIAL | The weighted route was arithmetically unreachable; every promotion used the bypass, making it a novelty-spike detector |
+| 004 | Long-term read path and arbitration | PARTIAL | Retrieval ran on all 90 eligible turns with zero displacement; the store lacked the later-domain facts |
+| 005 | Permissive capture, extractive distillation | PARTIAL | Absolute entity and number counts selected long responses. The salience metric was a verbosity detector; 2 of 4 domains formed |
+| 006 | Length-normalized span selection | PARTIAL | Formation reached 4 of 4 domains; records shrank ~28×, and count-based retrieval budgets silently broke |
+| 007 | Character-budgeted retrieval | PARTIAL | Best score of the series. The model used all 10 delivered facts and invented none; 7 required facts were absent from the store |
+| 008 | Rendering-by-floor factorial | STOPPED AT GATES | No fill cap from 1 to 50 passed breadth and targeted gates jointly |
+| 009 | Pure-STM null test | PARTIAL, null decisive | Same seed: 9.0 without the memory tier, 12.0 with it |
+| 010 | 1,000-turn endurance | STOPPED AT G2 | Post-stop arms were budget-noncompliant by 67.9% and 68.2%; scores unaudited; one bar not evaluable |
+| — | Retrieval bakeoff | MIXED | Query-time selection did not recover what formation missed |
 
-**4.2 Turning point one — write-time selection cannot anticipate a query.**
-Five studies of promotion filters, distillation, and salience heuristics, every
-one PARTIAL. Terminal diagnosis: whole-turn absolute-count salience is a
-verbosity detector; density ranks the six hardest planted facts 89th–316th; IDF
-ranks them worse.
+Scores are post-audit corrected values (§7.1). They are not a controlled series
+— runtime and response budgets changed across it — and Figure 4 carries that
+warning where the numbers appear.
 
-**4.3 Turning point two — moving selection to query time did not recover it.**
-The bakeoff's Tier 1 raw-store reachability topped out at 8/17, below the 11/17
-the formation era could reach. The pivot's central premise, refuted by its own
-test. Graphs did not clear their advancement gate; routing's oracle ceiling was
-6.09%; ANN recall degraded at synthetic scale.
+### 4.1 Write-time selection cannot anticipate a query
 
-**4.4 Turning point three — the first clean positive was volume, not mechanism.**
-Widened raw STM delivered all six formation-blind facts and the model used five.
-No selection filter involved.
+Studies 003 through 007 are five attempts to decide, at write time, what deserves
+to be remembered. Every one returned PARTIAL, and the reasons converge on one
+shape: each policy optimized a proxy that could be satisfied without the property
+it was supposed to certify.
 
-**4.5 Turning point four — query representation was not the problem either.**
-Mechanical segmentation improved its exact-budget baseline from 6/17 to 10/17
-and still failed its registered 14/17 bar. Attention-derived term selection, run
-as an oracle, moved cosine from 0.120 to 0.210 against a 0.48 threshold.
+Study 003's promotion route could not fire, because novelty and association were
+complementary values derived from a single centroid and their weighted sum was
+capped below the threshold. Every promotion therefore came through the bypass,
+and a mechanism registered as salience judgment behaved as spike detection.
+Study 005 replaced it with absolute entity and number counts, which selected the
+longest responses. Study 006 normalized by length, which fixed formation — 4 of
+4 domains, faithful and junk-free — and broke delivery, because records shrank by
+about 28× while the retrieval budget was still counted in records rather than
+characters.
 
-> **Figure 1 belongs here or in §5.** Decide in Pass 3. It is the hinge between
-> the arc and the decomposition, and it can only be placed once the prose around
-> it exists.
+The terminal diagnosis is specific. Density, the best of the write-time salience
+signals, ranks the six hardest planted facts between 89th and 316th. Word-level
+inverse document frequency ranks them worse. These are facts like *photophores*,
+*mantle margin*, and *ultramarine glaze*: rare technical phrases whose component
+words are common.
+
+### 4.2 Moving selection to query time did not recover it
+
+If write-time selection cannot anticipate a query, the obvious repair is to
+select at query time over a permissive raw store. The bakeoff registered that as
+its central premise and refuted it. The best registered 32,000-character
+retrieval block surfaced **8 of 17** target facts — below the 11 of 17 that the
+formation era could reach. All 17 facts were present in the raw store. Retrieval
+did not find them.
+
+### 4.3 The mechanisms the field favors did not clear their own gates
+
+The bakeoff tested three more pillars of the proposed pivot and advanced none.
+Graph retrieval over observed co-activation: no configuration of eight edge
+types at three traversal depths cleared the advancement gate, so the
+extraction-based follow-up never ran. Query-type routing: an oracle upper bound
+of **6.09%**, against a registered 10% build threshold — an oracle, meaning the
+number assumes perfect routing decisions and is still too small to justify
+building the router. Approximate nearest-neighbour search: recall degraded at
+synthetic scale.
+
+### 4.4 The first clean positive was volume, with no mechanism at all
+
+Widened raw short-term memory delivered all six formation-blind facts and the
+model used five of them correctly in targeted answers. No selection filter was
+involved. This remains the program's most specific positive result, and it is
+the reason §6 treats raw verbatim storage as load-bearing rather than as a
+default.
+
+One caution the bakeoff records and this paper repeats: the widened arm also
+produced 13 of 17 correctly attributed facts in a live answer, and that figure
+does not overturn the 8 of 17 above. They measure different objects — offline
+content in a single retrieval block against end-to-end content in a generated
+answer, over different denominators — and a live answer can contain facts
+repeated from earlier probe responses that the final block never carried.
+
+### 4.5 Query representation was not the problem either
+
+Two further attempts moved the failure to the query side. Exhaustive mechanical
+segmentation (E002) improved its exact-budget baseline from 6 of 17 to 10 of 17,
+using 21,761 characters where the baseline spent 31,946 — and still failed its
+locked 14 of 17 bar, so it was killed. Attention-derived term selection (E001),
+run as an oracle over 714 candidate cue rows, moved the relevant cosine from
+0.120 to a best-found 0.210 against a retrieval threshold of 0.48. No row
+reached the threshold. The oracle was not a ceiling — 266 of 384 selected
+attention heads were not sparse — but the program closed the line anyway.
+
+Five studies of write-time selection, one bakeoff of query-time selection, and
+two attempts at query representation. Each is an unremarkable negative result on
+its own. §5 is what they have in common.
 
 ---
 
 ## 5. The decomposition
 
-The core, and the longest section.
+### 5.1 The target was always reachable
 
-**5.1 The target was always reachable.** AR-001 computed the exact minimum cost
-of the breadth bar on the same store under exact accounting. All 17 items are
-present; 76 of 119 episodes carry at least one.
+Before asking why selection failed, the program asked what success would have
+cost. AR-001 computed, on the same store and under exact serialized accounting,
+the cheapest set of episodes that satisfies the breadth bar.
 
-**5.2 The gap is not capacity, formation, or cue quality.** Deployed selection
-spent the full budget for 6/17. The exact optimum spends 16% of it for 14/17.
+All 17 items are present in the store; 76 of the 119 eligible episodes carry at
+least one. The exact minimum for 14 of 17 items is **5,058 characters across
+five episodes**, leaving 26,942 characters of the 32,000-character budget unused.
+A greedy variant reaches 15 of 17 for 5,455 characters. Even 17 of 17 costs only
+7,592. The most expensive single domain, art, needs 3,182 characters — under a
+tenth of the budget.
 
-**5.3 Set-level selection recovers half the gap.** Replacing per-item cosine
-ranking with a submodular coverage objective. What it recovers, what it costs,
-and the arm that scored highest while failing every gate.
+Deployed selection delivered **6 of 17 while spending 31,946 characters**.
 
-**5.4 The candidate pool binds on domain coverage.** The frozen configuration
-across three pools, and the brittleness that pool size alone does not predict.
+Figure 2 is that comparison. The result is not that the budget was tight. The
+budget was never tight. Selection spent it on episodes that carried nothing.
 
-**5.5 The ordering is anti-correlated at the top — for one query type.** The
-registered rule, what fired it, and §5.6's limit on how far it generalizes.
+Two cautions attach to the optimum and hold everywhere it appears below. It is
+computed with the answer key, so it is a bound and not a method; no deployable
+retriever can be expected to find it. And AR-001 has two sets that are easy to
+conflate — the exact 14-fact optimum over turns {90, 112, 113, 115, 118} and the
+greedy 15-fact set over turns {90, 112, 113, **116**, 118}. Everything the
+program calls "the oracle" downstream, including every overlap figure in this
+paper, refers to the greedy 15-fact set.
 
-**5.6 What the inversion does not explain.** Stated at measured width. On all
-eight targeted probes cosine places every needed item inside rank 2. The
-inversion does not explain formation-side failures, Study 003's arithmetically
-unreachable promotion route, Study 007's absent facts, Tier 3's routing oracle,
-or widened STM's unfiltered 6/6.
+### 5.2 Set-level selection recovers about half the gap
 
-**5.7 The residual is a floor, not an interaction.** One episode, 0 of 146
-configurations, and the predicted cause refuted.
+If the budget is not the constraint and the facts are present, the remaining
+suspect is the rule that decides which episodes to take. The deployed rule ranks
+each episode against the query independently and takes the best until the budget
+fills. That rule cannot represent redundancy: an episode's value does not depend
+on what has already been selected.
 
-**5.8 The three constraints, separated.**
+E005 replaced it with three set-level objectives — maximal marginal relevance,
+facility location, and relevance plus cluster diversity — swept over 146
+configurations per candidate pool at the enforced budget, with zero inference
+calls and a byte-identical rerun.
 
-| Constraint | Binds on | Bound |
+**Every one of the 146 configurations beat the deployed 6 of 17.** The best
+configuration that passed every gate delivers **12 of 17 items across 4 of 4
+domains at 31,569 characters**, preserving all 16 targeted items and recovering
+4 of the 5 known-optimum episodes.
+
+Three results around that headline matter more than the headline.
+
+**The highest-scoring selector was the worst one.** Facility location reached 13
+of 17, the highest raw count in the sweep, and passed no gate at any setting,
+because it delivered the monetary domain 0 of 4 every time. It improved the
+total by abandoning a domain. Only the per-domain check caught it; a reader
+looking at fact counts would have shipped it. Figure 5.
+
+**A parameter registered as inert was not.** Cost scaling was predicted to make
+no difference on a budget with slack. The budget is slack for the optimum and
+not for a selector registered to fill it, and the prediction failed.
+
+**The search is not the limit.** Across the 405 configurations where the bound
+is computable, the greedy solution sits between 0.954 and 0.9996 of its own
+certified upper bound; the shipped configuration is at 0.9927. A better search
+over the same objective has almost nothing left to find. What limits the result
+is the objective.
+
+### 5.3 The candidate pool binds on domain coverage
+
+Selection runs over whatever the pre-filter admits. DR-002 froze the shipped
+configuration and varied only pool membership — same store, same renderer, same
+embedding.
+
+| Pool | Candidates | Facts | Domains | Known-optimum overlap |
+|---|---:|---:|---:|---:|
+| deployed pre-filter | 34 | 5/17 | 2/4 | 1/5 |
+| cosine top-100 | 100 | 9/17 | 3/4 | 0/5 |
+| full eligible store | 119 | 12/17 | 4/4 | 4/5 |
+
+Widening the pool moves the same configuration from 5 of 17 across 2 domains to
+12 across 4. Figure 3.
+
+Two things keep this honest. It is a **frozen-configuration** readout, not a
+sweep: the best of the 146 configurations reaches 13 of 17 on all three pools,
+so the pool's binding effect is properly read in domain coverage rather than in
+that maximum. And on the deployed 34-episode pool, **no configuration covers
+four domains at all**, because the art domain has no representative anywhere in
+the top 34. That is a statement about what the pre-filter makes possible, not
+about how well any selector searches.
+
+The middle row deserves a second look. Dropping only the 19 lowest-cosine
+episodes to form the 100-pool costs three facts, the whole art domain, and *all*
+overlap with the known optimum — even though four of the five optimum episodes
+survive the cut. The selector clusters over the pool, so removing the tail
+reshuffles the objective rather than merely removing options. Pool size does not
+predict what removal costs.
+
+### 5.4 The ordering is anti-correlated at the top, for one query type
+
+DR-002 registered its rule before computing any rank: *any fact-bearing
+selection at cosine rank 80 or worse means cosine ordering is the wrong prior
+for breadth.*
+
+It fired. The worst fact-bearing selection sits at rank 86 and carries two of
+the four art items. Around it:
+
+- **The four highest-cosine episodes in the store carry zero target facts.**
+- The first fact-bearing episode is at rank 5; the last still-needed item does
+  not appear until rank 87 of 119.
+- Both art contributors sit at ranks 50 and 86, which is why the deployed
+  34-episode pool cannot reach four domains.
+- The five known-optimum episodes sit at ranks 14, 20, 22, 86, and 112. The
+  shipped configuration recovers four of them, including the one at rank 86, and
+  misses only the deepest.
+
+Figure 1. The failure is not that the ordering is noisy. At the top it is
+anti-correlated: the most query-similar episodes are the least informative for
+this probe, and one of the two domains that decides the gate is unreachable
+before rank 50.
+
+That a set-level objective reaches rank 86 at all is worth stating, because it
+bounds the claim. The objective partially compensates for a bad ordering. It
+does not compensate fully.
+
+### 5.5 What the inversion does not explain
+
+The result in §5.4 invites a larger claim — that every mechanism in this
+program, and much of the published architecture in this space, ran downstream of
+a broken candidate ordering. DR-002 tested that reading and **measured it
+false**.
+
+On the eight targeted probes, cosine ordering places every needed item **inside
+rank 2**. The top four candidates carry a target item on every one of them. That
+is not adequate performance, it is near-optimal, and it is why targeted recall
+runs at 60 of 60 and why 137 of the 146 configurations preserve 16 of 16
+targeted items without effort. Q11 — the enumeration probe — is the only probe
+where the ordering fails, and it is the only enumeration probe the program has.
+
+The inversion also fails to explain most of §4. It does not explain the
+formation-side failures, which ran at write time upstream of any retrieval
+filter. It does not explain Study 003's promotion route, which was
+arithmetically unreachable. It does not explain Study 007, where the model used
+all 10 delivered facts and seven required facts were simply absent from the
+store. It is contradicted by the bakeoff's routing oracle, which assumed perfect
+selection and still ceilinged at 6.09%. And it is contradicted by widened raw
+short-term memory, which delivered 6 of 6 formation-blind facts with no
+selection filter at all.
+
+The defensible claim is therefore narrow, and it is the one this paper makes:
+**on this corpus, mechanisms aimed at breadth ran downstream of a candidate
+ordering that is anti-correlated at the top for enumeration queries.** It
+unifies the breadth failures. It does not unify the program.
+
+### 5.6 The residual is a floor, not an interaction
+
+After the pool is widened and the objective replaced, one known-optimum episode
+remains unselected: turn 90, carrying four monetary items — the reason monetary
+is the shipped configuration's weakest domain at 1 of 4.
+
+DX-001 asked why, and ran a replay gate first that reproduced 146 of 146
+committed payload hashes byte-for-byte before reporting anything. The gate
+earned its place; §7.4 records what it caught.
+
+**No configuration in the registered space selects turn 90 — 0 of 146.** The
+objective is blind to it across the whole space explored, not unlucky in one
+cell.
+
+The registered prediction was cluster collision: the episode shares a cluster
+with a selected one, so the diversity term goes unpaid. That prediction is
+**wrong**, and refuted twice over. The episode's cluster is never entered by any
+selection, so the diversity term was payable in full at all 15 steps; a
+counterfactual that pays it in full wins at no step.
+
+What remains is arithmetic. To win at its best step the episode needed a query
+relevance of **0.225**. It has **0.056**. Only 20 of the 119 episodes clear that
+bar, so it would have to be a different episode by cosine, not a
+better-weighted one. Across 132 walks of the parameter space its best rank
+anywhere is 4, and never 1.
+
+This is a floor. No reweighting of an objective built on that similarity reaches
+it, which is why the program's registered no-change branch fired and 12 of 17
+ships with the miss characterized rather than tuned away.
+
+### 5.7 The three constraints, separated
+
+| Constraint | Binds on | Bound, on this corpus |
 |---|---|---|
-| Candidate pool | domain coverage, and part of the fact gap | *(§5.4)* |
-| Selection objective | the remaining recoverable facts | *(§5.3, §5.7)* |
-| Similarity floor | the irreducible residual | *(§5.7)* |
+| **Candidate pool** | domain coverage, and part of the fact gap | With the selector frozen, 34 → 119 candidates moves 5/17 across 2 domains to 12/17 across 4. On the 34-pool no configuration reaches four domains, because one domain is absent from it entirely |
+| **Selection objective** | the remaining recoverable facts | Set-level coverage reaches 12/17 where per-item ranking reached 6/17. Greedy runs at 0.954–0.9996 of its own bound, so the objective and not the search is the limit |
+| **Similarity floor** | the irreducible residual | 0.056 measured against the 0.225 required; 0 of 146 configurations select it; unreachable by any reweighting of this objective |
 
-**5.9 Why this decomposition is not reported elsewhere.** It requires a per-fact
-known optimum on the same store, which requires an answer key and exact-cost
-accounting. Stated as an observation about what evaluations typically carry, not
-as a claim about what others could have done.
+The three respond to different fixes, and the ordering matters operationally: a
+better objective over the deployed pool cannot reach four domains, because the
+pool does not contain them.
+
+We have not found this decomposition reported elsewhere in this space. The
+reason is likely mechanical rather than intellectual: computing it requires a
+per-fact known optimum measured on the same store, which requires both an answer
+key and exact-cost accounting. Evaluations that report end-to-end scores against
+a benchmark do not usually carry either.
 
 ---
 
 ## 6. What survives
 
-**6.1 The subtraction result.** Eleven studies removed more than they added. The
-graveyard table, each row with the result that killed it.
+### 6.1 Eleven efforts removed more than they added
 
-**6.2 What remains.** An append-only verbatim store, a recency window, cosine
-similarity retrieval for targeted queries, and a set-level coverage objective
-for selection. No inference calls anywhere in the memory path.
+| Removed | Killed by |
+|---|---|
+| Distillation and "dreaming" | Five studies; query-blind selection cannot anticipate a later query |
+| Promotion filters | The weighted route was arithmetically unreachable; every promotion came via bypass |
+| Topic layer and consolidation | 52 topics for one 120-turn conversation; 12 domains collapsed to 2 at 1,000 turns |
+| Associative graph from co-activation | No configuration cleared its advancement gate |
+| Query-type routing | Oracle ceiling 6.09% against a 10% threshold |
+| Approximate nearest-neighbour search | Recall degraded at synthetic scale |
+| Query segmentation | Failed its locked 14/17 bar at matched budget |
+| Attention-derived term selection | 0 of 714 rows reached the retrieval threshold |
+| Entity extraction as primary index | Zero entities in the target span |
+| Density and inverse document frequency for formation | Rank the six hardest facts 89th–316th, and worse |
+| Rule detection and persistence | Failed at 1,000-turn scale |
 
-**6.3 Why a practitioner should care.** The surviving design is deterministic,
-offline, and provenance-preserving *because* the removed components were the
-ones requiring model calls. The properties that make it deployable are
-consequences of the negative results, not independent design choices.
+### 6.2 What remains
 
-**6.4 What it costs.** Bounded delivered context, cheap disk, and a latency
-horizon that binds before ten thousand episodes.
+An append-only verbatim store. A recency window. Cosine-threshold similarity
+retrieval for targeted queries. A set-level coverage objective for selection.
+Everything packed at exact serialized cost against one budget.
+
+There are no inference calls anywhere in the memory path.
+
+That is the whole architecture. It is smaller than what this program started
+building and smaller than the deployed systems named in §2.
+
+### 6.3 Why a practitioner should care
+
+The surviving design is deterministic, offline, and provenance-preserving. Each
+of those properties is a consequence of a negative result rather than a design
+goal.
+
+It is deterministic because distillation was removed, and distillation was the
+component that required a model call. It is offline for the same reason. It
+preserves provenance because every delivered character is a stored episode
+verbatim — there is no generated text about the store to be wrong, which follows
+from removing the mechanisms that generated such text. `context()` is a pure
+function of store state, query, and budget: same inputs, same bytes, verified
+across two processes.
+
+This is the most useful sentence in the paper, so it is stated plainly: **the
+properties that make this component deployable were bought by the failures, not
+by the design.** A program that had succeeded at distillation would have shipped
+something harder to test and impossible to audit.
+
+The extraction is certified rather than assumed. All 132 committed selection
+records and all three committed rendered blocks reproduce their SHA-256
+byte-for-byte through the library, and the full suite runs at 1,007 tests with
+the study harness consuming it.
+
+### 6.4 What it costs
+
+Three things could grow as a conversation lengthens. Only one binds.
+
+**Delivered context is bounded, because it is enforced.** Replaying 1,000
+episodes through the library at a 32,000-character budget, the delivered block
+breaches the budget on 0 of 1,000 turns and its 95th percentile moves +18
+characters across the final five 100-turn buckets. The same block also
+**truncates on 895 of those 1,000 turns**, dropping up to 70 episodes and wanting
+up to 65,864 characters. It is bounded because a ceiling binds during selection,
+not because demand is small. Both readings belong together; the first alone
+would be the kind of surrogate this program keeps catching.
+
+**Disk is cheap.** 4,743 bytes per turn at the margin, 86% of it embeddings.
+About 48 MB at 10,000 turns. Nothing there ends continuous operation.
+
+**Latency binds.** 190 ms at 1,000 candidates, with clustering at 81% of it and
+rising. The stated horizon is comfortable to a few thousand episodes and
+unusable in an interactive loop somewhere before 10,000. Figure 6, right panel.
+
+The obvious fix — keep the pool small by dropping low-similarity episodes — is
+the one operation this program measured to break retrieval (§5.3). So retention
+is unbounded by policy, the trimming knob carries an `unsafe_` prefix and the
+finding in its docstring, and the horizon is stated rather than engineered
+around.
 
 ---
 
 ## 7. Self-audit and corrections
 
-Framed as *we broke ours first*. A numbered section, not a footnote. Reported at
-full strength.
+Everything in §5 rests on this program's own measurements, scored by its own
+raters, against its own rubric. The reason to extend it any credit is that the
+program audited itself and published what it found. All six items below were
+caught by gates the program wrote, and all six are in the repository's `ERRATA`.
 
-**7.1 The scoring-integrity audit.** 222 items re-scored, 19 changed, and the
-program's only VALIDATED verdict removed.
+### 7.1 The scoring audit removed the program's only success
 
-**7.2 Rendering accounting (DR-001).** Every study on record ran over its stated
-budget; a headline "saturated" figure was an undercharged content total.
+A blind re-scoring of 222 committed items across Studies 001–009 changed 19.
+Study 002's iterative arm fell from 13.0 to 8.5, because a truncated reasoning
+block had been credited as a complete response; its full-context arm fell from
+8.0 to 5.5. Study 001 lost the program's **only VALIDATED verdict**. Figure 4.
 
-**7.3 The probe-order validator.** Degradation probes requested facts before
-they were planted, invalidating a published curve.
+The residual estimate is itself extrapolated and is reported that way: 3
+disagreements in a 26-item control sample, projected across 143 unreviewed
+items, gives about 16.5 expected remaining errors. That is an estimate, not a
+count, and roughly 20 scoring errors are believed to remain in the corpus
+unreviewed.
 
-**7.4 Embedder call-shape dependence.** The same query text returns a materially
-different vector depending on the shape of the embedding call. Found by a replay
-gate; now a startup assertion in the shipped library.
+### 7.2 Every study on record ran over its stated budget
 
-**7.5 The latency projection error.** A pre-registered budget extrapolated 84×
-past its last measured point and understated cost about fivefold.
+Study 010 reported two retrieval blocks at 31,991 and 31,847 characters and
+described them as near-saturation of a 32,000-character budget. DR-001 replayed
+both blocks character-for-character. Their actual serialized lengths were 53,726
+and 53,839 — **67.9% and 68.2% over budget**, not saturated.
 
-**7.6 The near miss, and it is the most instructive.** A three-clause decision
-rule implemented as a check on its terminal clause alone let a block that grew
-23,000 characters read as flat. A diagnostic written to catch surrogate failures
-nearly committed one.
+The old accounting counted source text and omitted per-episode tags, metadata,
+and separators. The scores did not change, because the model received the blocks
+that were recorded, but they describe a budget-noncompliant arm, and the
+compact-store scaling conclusion built on the undercharged figures was
+withdrawn.
 
-**7.7 What the gates missed.** §9.8's question, answered here rather than
-deflected.
+### 7.3 A validator invalidated a published curve
+
+A probe-order validator checks mechanically that every rubric-required fact is
+planted in a scripted turn strictly before the probe that asks for it. It found
+degradation probes requesting facts that had not yet been planted, which
+invalidated a published curve. The check now blocks artifact lock: any
+unavailable fact stops the run before inference.
+
+### 7.4 The same query text returns different vectors
+
+DX-001's replay gate failed on its first attempt. The cause was not the query
+text but the shape of the embedding call: E005 embedded nine probe queries in
+one batch, and the replay embedded one query alone. The two vectors agree to a
+cosine of **0.999837**, with a largest single-component difference of **0.217**,
+and that difference flips **6 of 146** committed selection payloads.
+
+A 0.999837 agreement reads as identical and is not. Reproducing a retrieval
+result requires reproducing the call shape, not only the text. The shipped
+library now embeds a fixed sentinel under the pinned call shape on every store
+open and asserts its hash against the one recorded at first open; drift raises
+rather than warns.
+
+### 7.5 A projection extended 84× past its data
+
+The pre-registration for the deployment work quoted a measured cost of about
+40 microseconds per candidate at an empirical exponent of 0.96, and projected
+40 ms at 1,000 candidates and 400 ms at 10,000.
+
+The source sweep covered **20 to 119 candidates**. Inside that range every
+figure it reported is correct. The projection extended it 84× beyond its last
+measured point, and per-candidate cost stops being flat shortly after the data
+ends: measured at 1,000 candidates, the cost is **190 ms, about five times the
+projection**, at an exponent of 1.25. A published README figure separately
+described the sweep as covering "20–3,000 candidates"; the 3,000 was a character
+count from an unrelated table in the same report.
+
+The correction is not to the original measurement, which stands. It is to the
+range attributed to it and the extrapolation built on top. Figure 6, right
+panel.
+
+### 7.6 A diagnostic written to catch surrogate failures nearly committed one
+
+This is the most instructive of the six.
+
+The recurring failure class this program tracks is a check that can pass while
+the property it certifies is false. DX-002 was written to determine whether a
+1,000-turn run's context was still growing. Its decision rule was a three-clause
+conjunction; its implementation checked one clause — whether the terminal slope's
+95% confidence interval contained zero.
+
+It did, for every component of the prompt, in both arms. The diagnostic returned
+"bounded".
+
+The third clause was *no unbudgeted component climbing*, and one was. A block
+whose 95th percentile rose from 25,253 to **48,491 characters** across the final
+five buckets, and which was still setting records in the last bucket of the run,
+was reported as flat. The interval was wide because the series are sawtooths with
+autocorrelated residuals; it was measuring statistical power, and it was read as
+evidence of boundedness. The smallest slope the data could distinguish from zero
+was about 17 characters per turn — 17,203 characters of drift over 1,000 turns
+that the fit would not have caught.
+
+The rule was replaced with two readings that assume nothing about noise: whether
+the final bucket still holds the maximum, and how the terminal window compares
+against the one before it. The verdict flipped, and the near miss was written
+into the decision record rather than quietly repaired.
+
+The finding that followed is in Figure 6: the leak belonged to the study runner,
+which carried the recency window and the retrieval tier on separate budgets, not
+to the extracted component, which routes both through one.
+
+### 7.7 What the gates missed
+
+Every error above was caught by a gate this program wrote, which invites the
+obvious question, and it deserves the honest answer rather than the flattering
+one.
+
+About 20 scoring errors are estimated to remain unreviewed in the corpus (§7.1).
+Runtime independence was never measured: every number in this paper comes from
+one model at one quantization on one machine, and nothing establishes that any
+of it survives a different embedder. Study 010 was outside the scoring audit
+entirely, so its exploratory scores are not comparable to the corrected series.
+The mechanism seal for one tier was computed over mixed line-ending
+representations and referenced a database file that was never committed. And the
+program refuted one of its own literature claims: an internal note described
+maximal marginal relevance as lacking submodularity, which is wrong — it is
+non-monotone submodular, and the conclusion drawn from it happened to survive
+for a different reason than the one given.
 
 ---
 
 ## 8. Limitations
 
-Load-bearing, first-person, and stated before a reviewer states them. Each item
-names what would settle it.
+This section is load-bearing. Each item names what would settle it.
 
-8.1 n=1 corpus, single seed, no variance anywhere in the program.
-8.2 No external calibration; benchmarks adopted in principle, never run.
-8.3 Breadth conclusions rest on one probe.
-8.4 AI-scored rubrics with AI adjudicators.
-8.5 Planted facts may not represent natural conversation — open question, with
-the experiment named.
-8.6 The known optimum contains prior probe answers: four of five.
-8.7 Amendments exist after results; the legitimacy test and record, not a claim
-of cleanliness.
-8.8 What else is wrong: residual scoring errors remain unreviewed, and runtime
-independence is entirely unmeasured.
-8.9 Horizon: 1,000 turns says nothing about 10,000.
+**8.1 One corpus, one seed, no variance.** Every comparison in this program is a
+single run at a fixed seed. There is no error bar anywhere, and no significance
+test would be meaningful. Where this paper reports a difference — 6 of 17 against
+12 of 17, 5 of 17 against 12 of 17 — the difference is one measurement against
+another, not an estimate with an interval. *Settled by:* repeated runs at
+multiple seeds, which the program never did.
+
+**8.2 No external calibration.** Study 003 retired external baselines and nothing
+restored them. LoCoMo and LongMemEval were adopted in principle and never run.
+Nothing here establishes where this program sits relative to published systems.
+*Settled by:* running one of them.
+
+**8.3 Breadth rests on a single probe.** The program has exactly one enumeration
+question. Every breadth number in this paper — 6 of 17, 12 of 17, 14 of 17, the
+rank-87 reading, the whole of §5.4 — comes from it. A single probe cannot
+support a claim about enumeration in general, and this paper does not make one.
+*Settled by:* more enumeration probes across more domains.
+
+**8.4 AI raters, AI adjudicators.** Scoring used three blind passes with
+registered adjudication triggers, but the adjudicators were subagents, not
+humans. The control sample disagreed at 11.54%. *Settled by:* human adjudication
+of the same items.
+
+**8.5 Planted facts may not represent natural conversation.** The corpus is
+constructed: facts are planted at known turns in a scripted conversation. The
+inversion in §5.4 might be a property of how facts were planted rather than of
+conversational retrieval — planted facts may be lexically distinctive in ways
+that push them down a similarity ranking. This is an open question and the paper
+does not resolve it. *Settled by:* repeating the rank-versus-fact-content
+measurement on a corpus of unscripted conversation with facts annotated after
+the fact rather than planted before it. If the top-ranked episodes still carry no
+target facts for enumeration queries there, the finding is about retrieval; if
+they do carry them, it is about this corpus.
+
+**8.6 The known optimum contains prior probe answers.** Four of its five
+episodes are turns that answered earlier probes. Achievability therefore holds
+under the registered rule that any episode before the probe turn is eligible, not
+under a stricter rule admitting only original plant sources. A reader who
+believes the stricter rule is the right one should discount the 15 of 17
+accordingly.
+
+**8.7 Amendments exist after results.** Twelve in the bakeoff alone. The program
+does not claim these were unnecessary; it records, per amendment, whether it
+preceded the result it affects, and applies a legitimacy test that permits
+correcting measurement units and repairing protocol contradictions while
+forbidding making a criterion easier once results are known. The record is
+published so a reader can disagree with individual calls.
+
+**8.8 One runtime, unmeasured.** One model, one quantization, one machine, one
+embedder. The absolute latencies in §6.4 are not portable; only the exponent and
+the clustering share plausibly are. Whether any §5 result survives a different
+embedder is entirely unmeasured, and §7.4 is a reason to expect embedder details
+to matter more than one would like.
+
+**8.9 The horizon is 1,000 turns.** Every boundedness claim in §6.4 is a
+statement about the tested horizon. A plateau at 1,000 turns says nothing about
+10,000.
+
+**8.10 Figure 1 is drawn at the resolution the artifacts support.** Per-episode
+cosine ranks were committed for 16 of the 119 candidates. The remaining ranks
+were never committed, and recomputing them requires the carried embedder under
+the batched call shape of §7.4, which is not in the repository. The structural
+readings the figure annotates — the top four carrying zero facts, first hit at
+rank 5, last needed item at rank 87 — are committed values, but the full curve
+is not drawn because it cannot be drawn honestly.
 
 ---
 
 ## 9. Conclusion
 
-What a practitioner takes from this. The inversion restated at its measured
-width, and named as worth testing elsewhere with the experiment specified.
+Eleven pre-registered efforts on one program produced one architecture worth
+keeping and a great deal of evidence about why the rest did not work.
+
+For a practitioner, the useful part is the subtraction. An append-only verbatim
+store, a recency window, similarity retrieval, and a set-level coverage
+objective, with no inference calls in the memory path, outperformed every
+mechanism this program layered on top of it — and it is deterministic, offline,
+and auditable precisely because those mechanisms were removed. If a memory
+component in your system makes model calls, this program's experience is that
+the calls bought less than they cost.
+
+For a researcher, the useful part is the decomposition. Retrieval failure here
+was not one thing. The candidate pool decided what could be seen, the objective
+decided what was worth taking, and a similarity floor decided what was
+unreachable at any weighting. They bind on different quantities and respond to
+different fixes, and separating them required a per-fact known optimum on the
+same store — a measurement that costs an answer key and exact cost accounting,
+and buys a much sharper question than an end-to-end score.
+
+The observation most worth testing elsewhere is the narrow one. On this corpus,
+for the single enumeration probe, the four highest-cosine episodes carried none
+of the target facts and the last needed item sat at rank 87 of 119 — while the
+same ordering placed every needed item inside rank 2 on all eight targeted
+probes. If that split holds on a corpus this program did not build, then
+enumeration queries need a different candidate ordering from lookup queries, and
+a good deal of machinery is being tuned over candidate sets that have already
+discarded the answer. If it does not hold, the finding is about this corpus, and
+saying so was the point of §1.1.
+
+The program's own summary of eleven efforts is that the model used what it
+received. At the hardest probe it used all ten available facts and invented
+none. The failures were delivery failures, and delivery turned out to be a
+selection problem sitting on top of a candidate set that had already been
+narrowed by the wrong rule.
 
 ---
 
 ## Figures
 
-Six. Each carries an argument no sentence carries as well. Every figure is
-generated by `scripts/generate_paper_001_figures.py` from committed artifacts.
-Every caption states the artifact its data came from and is self-contained: a
-reader who skims only figures and captions should get the thesis.
+Six. All generated by `scripts/generate_paper_001_figures.py` from committed
+artifacts; `paper/figures/figure_manifest.json` records the SHA-256 of every
+input. Vector SVG alongside PNG.
 
----
+**Figure 1 — Cosine rank against fact content.**
+`paper/figures/f1_cosine_rank_vs_fact_content.svg`
+*On this corpus, the enumeration probe's target facts sit outside the top of the
+cosine ranking, and the deployed pool cut removes an entire domain.* Horizontal
+axis: cosine rank against the turn-120 breadth query over the 119 eligible
+episodes. Vertical axis: target facts carried. The four highest-ranked episodes
+carry zero; the first fact-bearing episode is at rank 5 and the last
+still-needed item does not appear until rank 87. The five episodes of the
+15-fact known optimum are marked at ranks 14, 20, 22, 86 and 112. Both art
+contributors lie at ranks 50 and 86, so the deployed 34-episode pool contains no
+art episode and cannot reach four domains at any setting; the 100-episode pool
+excludes the rank-112 episode carrying four monetary items. Only the 16 episodes
+whose ranks are committed are plotted — the 15 selected plus the rank-112 miss;
+ranks for the other 103 candidates were never committed and recomputing them
+needs the carried embedder under the batched call of §7.4. The rank-4, rank-5
+and rank-87 readings are committed structural values drawn as annotations, not
+inferred from the plotted points. Sources: `dr_002/selection_ranks.csv`,
+`dx001/cost_comparison.csv`, `dr_002/generality_batched.json`; rank 20
+supersedes the published 21 per `ERRATA.md`, 2026-08-01.
 
-### Figure 1 — Cosine rank against fact content
+**Figure 2 — The budget efficiency gap.**
+`paper/figures/f2_budget_efficiency_gap.svg`
+*The constraint is not capacity: the tallest result is also the narrowest.* Each
+horizontal stem runs from zero to the characters spent, at a height equal to the
+facts delivered, over the same store at the same enforced 32,000-character
+budget. The deployed baseline delivers 6 of 17 for 31,946 characters; the
+shipped set-level configuration 12 of 17 for 31,569; the exact known optimum 14
+of 17 for 5,058, leaving 26,942 characters unused; its greedy variant 15 of 17
+for 5,455. The shipped configuration spends 26,114 more characters than the
+greedy optimum and delivers three fewer facts. Both optima are computed with the
+answer key and are bounds, not methods. Sources: `e005/a0_baseline.json`,
+`e005/e005_results.json`, `ar_001/achievability.json`.
 
-**Argument it carries:** the ranking that every downstream mechanism consumes
-puts the answer where the pool cut discards it.
+**Figure 3 — Pool ablation.**
+`paper/figures/f3_pool_ablation.svg`
+*Widening the candidate pool from 34 to 119 episodes, with the selector frozen,
+moves the same configuration from 5 of 17 across 2 domains to 12 of 17 across
+4.* Facts, domains, and known-optimum overlap at three pool sizes, everything
+except pool membership held fixed. Dropping only the 19 lowest-cosine episodes
+to form the 100-pool costs three facts, the whole art domain, and all optimum
+overlap, though four of the five optimum episodes survive the cut — the selector
+clusters over the pool, so tail removal reshuffles the objective rather than
+removing options. The orange rule marks the best of 146 configurations on each
+pool: 13 of 17 on all three, which is why the pool's binding effect must be read
+in domain coverage. Sources: `DR_002_report.md` §1;
+`e005/configuration_sweep.csv`, `e005/pool_secondaries.csv`.
 
-> **Figure 1. On this corpus, the enumeration probe's target facts sit outside
-> the top of the cosine ranking, and the deployed pool cut removes an entire
-> domain.** Horizontal axis: cosine rank against the turn-120 breadth query,
-> over the 119 eligible episodes. Vertical axis: Q11 target facts carried by
-> that episode. The four highest-ranked episodes carry zero facts; the first
-> fact-bearing episode is at rank 5 and the last still-needed item does not
-> appear until rank 87. The five episodes of AR-001's 15-fact known optimum are
-> marked at ranks 14, 20, 22, 86 and 112. Both contributors of the art domain
-> lie at ranks 50 and 86, so the deployed 34-episode pool (first vertical line)
-> contains no art episode at any setting and cannot reach four domains; the
-> 100-episode pool (second line) excludes the rank-112 episode carrying four
-> monetary items. **Only the 16 episodes whose ranks are committed are plotted**
-> — the 15 selected by the primary configuration plus the rank-112 miss;
-> per-episode ranks for the remaining 103 candidates were not committed, and
-> recomputing them requires the carried embedder under E005's nine-query batched
-> call, which is not in the repository. The rank-5, rank-87 and top-four
-> readings are committed structural values, drawn as annotations rather than
-> inferred from the plotted points. Sources: `dr_002/selection_ranks.csv`,
-> `dx001/cost_comparison.csv`, `dr_002/generality_batched.json`; rank 20
-> supersedes the published 21 per `ERRATA.md`, 2026-08-01.
+**Figure 4 — The corrected arc.**
+`paper/figures/f4_corrected_arc.svg`
+*19 of 222 re-scored items changed, and the program's only VALIDATED verdict
+disappeared.* Paired points, original against corrected, for Studies 002C
+through 009L. The largest fall is Study 002's iterative arm at −4.5, where a
+truncated reasoning block had been credited as complete. These points are **not
+a controlled series** — runtime and response budgets changed across it — and the
+only clean architectural comparison in the program is Study 009's same-seed
+pair, 9.0 without the memory tier against 12.0 with it. Study 010 was outside the
+audit and Study 001 scored on a different rubric; neither is plotted. Source:
+`audits/scoring_integrity/corrected_scores/arm_totals.json`.
 
----
+**Figure 5 — Selector comparison.**
+`paper/figures/f5_selector_comparison.svg`
+*The selector with the highest raw fact count delivered nothing from one domain
+and passed no gate.* Best configuration per arm on the 119-candidate pool at the
+enforced budget, with the monetary domain broken out. Facility location leads on
+count at 13 of 17 and delivers monetary 0 of 4 at every setting; the shipped
+relevance-plus-diversity configuration reaches 12 of 17 across all four domains.
+All 146 configurations beat the deployed 6 of 17, and 137 preserve 16 of 16
+targeted items — targeted recall does not separate the arms, which is itself the
+finding. Sources: `e005/configuration_sweep.csv`, `e005/per_domain_counts.csv`,
+`e005/a0_baseline.json`, `ar_001/achievability.json`.
 
-### Figure 2 — The budget efficiency gap
-
-**Argument it carries:** the constraint is not capacity. The tallest bar is also
-the narrowest.
-
-> **Figure 2. Delivered facts against characters spent: the known optimum is one
-> sixth the width and taller.** Each bar is one selection over the same store at
-> the same enforced 32,000-character budget. The deployed baseline delivers 6 of
-> 17 items for 31,946 characters. The set-level coverage configuration delivers
-> 12 of 17 across all four domains for 31,569. AR-001's exact optimum delivers
-> 14 of 17 for 5,058 characters — 16% of the budget, leaving 26,942 characters
-> unused — and its greedy variant reaches 15 of 17 for 5,455. The bar for the
-> registered 14/17 threshold is drawn for reference; no deployable selection
-> reaches it. The optimum is not achievable by a deployable retriever: it is
-> computed with the answer key and is a bound, not a method. Sources:
-> `e005/a0_baseline.json`, `e005/e005_results.json`,
-> `ar_001/achievability.json`.
-
----
-
-### Figure 3 — Pool ablation
-
-**Argument it carries:** the pre-filter, not the selector, sets the domain
-ceiling — and pool size does not predict what removal costs.
-
-> **Figure 3. Widening the candidate pool from the deployed 34 episodes to the
-> full 119, with the selector frozen, moves the same configuration from 5 of 17
-> items across 2 domains to 12 of 17 across 4.** Grouped bars: facts delivered,
-> domains covered, and overlap with the five-episode known optimum, at pools of
-> 34, 100 and 119 candidates. Everything except pool membership is held fixed —
-> same store, same renderer, same embedding, configuration `A3_l0.1_r0.0_k16`.
-> The middle group is the one to read twice: dropping only the 19 lowest-cosine
-> episodes costs three facts, the entire art domain, and *all* overlap with the
-> known optimum, even though four of its five episodes survive the cut. The
-> selector clusters over the pool, so removing the tail reshuffles the objective
-> rather than removing options. This is a frozen-configuration readout, not a
-> sweep: the best of 146 configurations reaches 13 of 17 on all three pools, and
-> the pool's binding effect shows in domains rather than in that maximum.
-> Source: `DR_002_report.md` §1; per-configuration values in
-> `e005/pool_secondaries.csv`.
-
----
-
-### Figure 4 — The corrected arc
-
-**Argument it carries:** the program's own record was wrong in its favour, and
-the correction is published rather than absorbed.
-
-> **Figure 4. Treatment scores before and after the scoring-integrity audit: 19
-> of 222 re-scored items changed, and the program's only VALIDATED verdict
-> disappeared.** Paired points per study arm, original against corrected, for
-> Studies 002C through 009L. The largest single fall is Study 002's iterative
-> arm, 13.0 to 8.5, where a truncated reasoning block had been credited as a
-> complete response; Study 002 A falls 8.0 to 5.5, and Study 001 loses the
-> VALIDATED verdict it had held. Corrected treatment values are 8.5, 11.5, 6.5,
-> 11.0, 9.0, 12.0 and 12.0. These points are **not a controlled series** —
-> runtime and response budgets changed across it — and the only clean
-> architectural comparison in the program is Study 009's same-seed pair, 9.0
-> without the memory tier against 12.0 with it. Study 010 was outside the audit
-> and is not plotted. Source:
-> `audits/scoring_integrity/corrected_scores/arm_totals.json`.
-
----
-
-### Figure 5 — Selector comparison
-
-**Argument it carries:** the highest-scoring selector was the worst one, and
-only a per-domain check could tell.
-
-> **Figure 5. The selector with the highest raw fact count passed no gate.**
-> Arms A0 (deployed baseline), A1 (MMR), A2 (facility location), A3 (relevance
-> plus cluster diversity) and A4 (the carried known optimum), each showing
-> facts delivered, domains covered, and targeted items preserved, with the
-> monetary domain broken out. A2 leads on count at 13 of 17 and delivers
-> monetary 0 of 4 at every one of its settings, so it fails the per-domain gate
-> everywhere; A3's 12 of 17 across 4 of 4 domains is what ships. Every one of
-> the 146 configurations beats the deployed 6 of 17, so the comparison that
-> matters is between selectors rather than against the baseline. Targeted
-> preservation is not a differentiator — 137 configurations preserve 16 of 16 —
-> which is itself the finding: the failure is confined to enumeration. Sources:
-> `e005/configuration_sweep.csv`, `e005/per_domain_counts.csv`,
-> `e005/a0_baseline.json`, `ar_001/achievability.json`.
-
----
-
-### Figure 6 — Growth and cost
-
-**Argument it carries:** the growth was in the harness, not the component; and
-the cost curve that replaced a projection was five times the projection.
-
-> **Figure 6. Left: the context leak belonged to the study runner, not to the
-> extracted component. Right: a projection extended 84× past its data
-> understated cost about fivefold.** Left panel: the 95th percentile of the
-> retrieved-STM block per 100-turn bucket over the final 500 turns of the
-> 1,000-turn run. In the study harness the block rises 23,238 characters in arm
-> L and 28,701 in arm S, still setting records in the last bucket; replayed
-> through the extracted library at the same 32,000-character budget, the
-> delivered block moves +18 characters and breaches the budget on 0 of 1,000
-> turns. The library truncates on 895 of those turns — the block is bounded
-> because it is enforced, not because the demand is small. Right panel: measured
-> median selection latency against candidate count, 50 to 1,000, with the
-> withdrawn linear projection overlaid. Measured cost at 1,000 candidates is
-> 190 ms against roughly 40 ms projected; the empirical exponent is 1.25 over
-> 50–1,000 where the earlier sweep found 0.96 over 20–119, and clustering's
-> share rises from 37% to 81%. Values beyond 1,000 candidates are projections
-> and are drawn dashed. Sources: `dx002/dx002_results.json`,
-> `cc003/ge0_growth_gate.json`, `cc005/latency_curve.csv`,
-> `cc005/latency_components.csv`.
+**Figure 6 — Growth and cost.**
+`paper/figures/f6_growth_and_cost.svg`
+*Growth belonged to the harness; cost was five times the projection.* Left: the
+95th percentile of the retrieved block per 100-turn bucket over the final 500
+turns. In the study runner the block rises 23,238 characters in one arm and
+28,701 in the other and is still setting records in the last bucket; replayed
+through the extracted library at the same budget it moves +18 characters and
+breaches the budget on 0 of 1,000 turns — while truncating on 895 of them, so it
+is bounded because enforced, not because demand is small. Right: measured median
+selection latency against candidate count with the withdrawn linear projection
+overlaid; 190 ms measured at 1,000 candidates against about 40 ms projected,
+exponent 1.25 over 50–1,000 where the earlier sweep found 0.96 over 20–119, and
+clustering's share rising from 37% to 81%. Values above 1,000 candidates are
+projections, drawn dashed. Sources: `dx002/dx002_results.json`,
+`cc003/ge0_growth_gate.json`, `cc005/latency_curve.csv`,
+`cc005/latency_components.csv`.
 
 ---
 
 ## Appendices
 
-- **A. Claim-to-artifact table.** Every claim in the paper with its committed
-  SHA and artifact path. Produced in Pass 2; any claim that could not be traced
-  was cut or demoted before Pass 3.
-- **B. Study table.** Studies 001–010 with bars, outcomes, and report paths.
-- **C. Amendment record.** Every amendment with its before/after-result status.
-- **D. Corrections index.** The full set, cross-referenced to `ERRATA.md`.
-- **E. Reproduction.** Installing `episodic` in a clean environment and
-  reproducing at least one headline number, verified end to end in Pass 7.
-- **F. Spec reconciliation.** Where this paper's numbers differ from the
-  authoring specification, and why the artifact won.
+- **A. Claim-to-artifact table** — `paper/CLAIM_TO_ARTIFACT.md`. Every claim with
+  its committed artifact and hash; two claims cut or demoted for lack of one.
+- **B. Study table** — §4 above, with full reports under
+  `experiments/study_NNN/`.
+- **C. Amendment record** — per-study `amendments/` directories, each with the
+  before/after-result status.
+- **D. Corrections index** — `ERRATA.md`, cross-referenced from §7.
+- **E. Reproduction** — `paper/REPRODUCTION.md`. *(Pass 7.)*
+- **F. Spec reconciliation** — `paper/notes/EVIDENCE_INDEX.md` §1, recording six
+  places where the authoring specification and the committed artifacts disagreed
+  and the artifact won.
