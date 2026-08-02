@@ -4,7 +4,7 @@
 
 Ten pre-registered studies test that question, each adding one memory component and fixing the prior study's documented failures. Every result is published as found.
 
-> **Status:** Study 010 stopped at G2; exploratory continuation unaudited and LTM budget-noncompliant | retrieval bakeoff complete | retrieval mechanism ledger closed; F1 reachable/open, F2 closed, F3 open | renderer fix complete | Q4 packing diagnostic; Branch D invalidated | scoring/interpretation record corrected through 2026-07-31
+> **Status:** Study 010 stopped at G2; exploratory continuation unaudited and LTM budget-noncompliant | retrieval bakeoff complete | retrieval mechanism ledger reopened for Family CS; E005 diversity-aware selection PROMOTION_ELIGIBLE offline at 12/17 across 4/4 domains, F1 open but materially advanced, F2 closed, F3 open | renderer fix complete | Q4 packing diagnostic; Branch D invalidated | scoring/interpretation record corrected through 2026-08-01
 
 ## The Problem
 
@@ -64,8 +64,10 @@ See `experiments/surveys/retrieval_bakeoff/retrieval_bakeoff_report.md` and
 ## Retrieval Mechanism Ledger
 
 The query-representation ledger is closed. Exhaustive mechanical segmentation
-(E002) peaked at 10/17 breadth facts across 3/4 domains and preserved 14/16
-targeted items, so it was killed under its locked criterion. The historical
+(E002) peaked at 10/17 breadth facts across 3/4 domains and preserved all 16
+targeted items, so it was killed under its locked criterion. (E002's targeted
+figure was published as 14/16 and corrected to 16/16 on 2026-08-01; the KILL is
+unaffected. See `ERRATA.md`.) The historical
 13/17 hurdle used a 60,285-character Q11 payload, while E002 was held to
 32,000. Against its unchanged exact-budget baseline, segmentation improved
 availability from 6/17 to 10/17 (66.7%), leaving F1 open with the best
@@ -85,8 +87,29 @@ marine 824 characters. Art is the most expensive domain but still occupies
 less than 10% of the budget, so E002's 3/4-domain ceiling is a selection and
 ranking failure rather than a serialized-capacity limit.
 
-See `experiments/components/retrieval_mechanism_ledger/RETRIEVAL_MECHANISM_LEDGER_REPORT.md`
-and `experiments/components/retrieval_mechanism_ledger/artifacts/ar_001/AR_001_report.md`.
+E005 acted on that finding. If the gap is selection, replace per-item cosine
+ranking with a set-level objective where an episode's value depends on what is
+already selected. Three deployable selectors were swept over 146 configurations
+at the enforced 32,000-character budget: MMR, facility location, and a
+relevance-plus-cluster-diversity objective. **Every configuration beat the
+committed 6/17 baseline. The best gate-passing configuration delivered 12/17
+items across all four domains at 31,569 characters while preserving all 16
+targeted items, and recovered 4 of the oracle's 5 episodes.** The outcome is
+PROMOTION_ELIGIBLE offline; no live run is authorized, and 12/17 remains short
+of the 14/17 rubric threshold and the 15/17 oracle.
+
+Three results matter more than the headline. Facility location scored the
+highest raw count, 13/17, and passed no gate, because it delivered monetary 0/4
+at every setting - the per-domain check catching a selector that improved the
+total by abandoning a domain. Cost scaling was predicted to be inert on a slack
+budget and was not: the budget is slack for the optimum but not for a selector
+registered to fill it. And on the deployed candidate pool, no configuration
+covers four domains at all, so the pre-filter, not the selector, had been
+setting the ceiling.
+
+See `experiments/components/retrieval_mechanism_ledger/RETRIEVAL_MECHANISM_LEDGER_REPORT.md`,
+`experiments/components/retrieval_mechanism_ledger/artifacts/ar_001/AR_001_report.md`,
+and `experiments/components/retrieval_mechanism_ledger/E005_POSTHOC_INTERPRETATION.md`.
 
 ## Renderer Correctness
 
