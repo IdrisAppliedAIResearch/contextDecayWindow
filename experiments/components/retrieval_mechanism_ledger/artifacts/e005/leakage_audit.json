@@ -1,0 +1,18 @@
+{
+  "forbidden_imports": [],
+  "forbidden_literals": [],
+  "imports": [
+    "__future__",
+    "dataclasses",
+    "hashlib",
+    "numpy",
+    "pathlib",
+    "src.memory.context_matched_stm",
+    "src.memory.stm_context_builder",
+    "src.retrieval_bakeoff.config",
+    "typing"
+  ],
+  "mechanism_source": "src\\retrieval_mechanism_ledger\\e005.py",
+  "planted_forbidden_path_rejected": true,
+  "status": "PASS"
+}

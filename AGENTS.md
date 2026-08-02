@@ -42,6 +42,8 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **AS-001 Q4 packing (2026-07-29).** DIAGNOSTIC. Branch D's primacy verdict was invalidated post-result: its null could not fire, and no branch interpreted exact charging reducing 15 fitted episodes to 9. Rank 27 enters only at 108,432 chars under N-first packing. This identifies a joint rank/packing/budget boundary; no pinned-tier study is authorized.
 
+**E005 diversity selection (2026-08-01).** PROMOTION_ELIGIBLE offline. Set-level selection beats A0 6/17 in all 146 configs; best gate-passing 12/17 at 4/4 domains, 16/16 targeted, 4/5 oracle episodes. Facility location led on count (13/17) but gave monetary 0/4 and passed nothing. Escalations: r not inert (greedy fills budget); deployed pool yields 0 four-domain configs. No live run.
+
 **Retrieval mechanism ledger (2026-07-31).** CLOSED. E002 KILL but exact-32k segmentation improved 6/17->10/17. AR-001 proves F1 achievable: exact 14/17 costs 5,058 chars; 17/17 costs 7,592. E001 best-found .1204->.2103; 0/714 reached K=.48 and 266/384 heads was non-sparse. F2 closed; F3 open; E003 unauthorized.
 
 ## 3. Failure Pattern
