@@ -4,7 +4,7 @@
 
 **Idris Applied AI Research** — independent, non-profit
 Repository: `contextDecayWindow` · Licence: CC BY 4.0
-Draft — PAPER-001, Pass 3
+Draft — PAPER-001, Pass 6
 
 ---
 
@@ -26,8 +26,9 @@ selection each failed their own registered gates. What explains the set is
 measurable: on this corpus the four highest-cosine episodes carry none of the
 enumeration probe's target facts, and the last still-needed item does not appear
 until rank 87 of 119. The same ordering is near-optimal on the eight targeted
-probes, placing every needed item inside rank 2, so the failure is specific to
-enumeration rather than general to similarity retrieval.
+probes, placing every needed item inside rank 2. The program has one
+enumeration probe and eight lookup probes, so this is one instance behaving
+unlike eight, not an established property of query types.
 
 Separating that failure gives three constraints that bind in a forced order. The
 candidate pool binds first, on domain coverage: with the selector frozen,
@@ -48,9 +49,9 @@ offline against a planted answer key; no live run of the resulting configuration
 exists. Eleven mechanisms were removed — distillation, promotion filters, a
 topic layer, an associative graph, routing, approximate search among them — and
 what remains is an append-only store, a recency window, similarity retrieval,
-and a coverage objective, with no inference calls in the memory path. That
-design is deterministic and offline because the removed components were the ones
-that required model calls.
+and a coverage objective, with no generative model calls in the memory path.
+That design is reproducible and free of generated intermediate text because the
+removed components were the ones that produced it.
 
 ---
 
@@ -86,9 +87,11 @@ testing elsewhere we name the experiment instead of implying the outcome.
 
 ### 1.2 Contributions
 
-1. **A decomposition of where retrieval failure lives**, with three constraints
-   separated and each independently bounded (§5). The constraints bind on
-   different quantities and respond to different fixes.
+1. **A decomposition of where retrieval failure lives** (§5): a candidate pool,
+   a selection objective, and a similarity floor, each separately bounded. They
+   are not independent. They bind in a forced order, and applying the second fix
+   without the first makes the shipped configuration worse than the baseline it
+   replaces (§5.7).
 2. **The measurement that makes the decomposition possible**: a per-fact known
    optimum computed on the same store under exact serialized-cost accounting
    (§5.1). It requires an answer key and exact cost accounting, which is why it
@@ -103,7 +106,7 @@ testing elsewhere we name the experiment instead of implying the outcome.
 ### 1.3 What this paper does not claim
 
 No comparison against HippoRAG, Mem0, Zep, or Letta; none were run. No general
-claim that similarity retrieval fails — §5.6 measures the opposite on eight of
+claim that similarity retrieval fails — §5.5 measures the opposite on eight of
 nine probes. No novelty for maximal marginal relevance, facility location, or
 submodular selection, which are established methods; what is offered is the
 decomposition and the measurement, not the selector. And no claim that the 12
@@ -285,12 +288,20 @@ its own. §5 is what they have in common.
 
 ### 5.1 The target was reachable, in the sense of being present and affordable
 
-**A note on what every number in this section measures.** The counts below —
-6 of 17, 12 of 17, 14 of 17, 15 of 17 — are *availability*: whether an item's
-text was present in the block delivered to the model. They are not answer
-correctness. A separate rubric scores answers, and no arm of the selection work
-was ever scored end-to-end. Where this section says a configuration "delivers"
-facts, it means the facts were in the window, nothing more.
+**Two notes before the numbers.**
+
+*Which corpus.* All of §5 is one 121-turn scripted conversation whose store
+holds 119 episodes eligible for the turn-120 breadth probe. §6.4's growth and
+latency results come from a different, 1,000-turn run and are labelled there.
+The two are not interchangeable, and no §5 result is established at 1,000 turns.
+
+*What the counts measure.* 6 of 17, 12 of 17, 14 of 17, 15 of 17 are
+*availability*: whether an item's text was present in the block delivered to the
+model. They are not answer correctness. A separate rubric scores answers, and no
+arm of the selection work was ever scored end-to-end. Where this section says a
+configuration "delivers" facts, it means the facts were in the window, nothing
+more — and §8.6 records a specific way availability and correctness come apart
+on this probe.
 
 Before asking why selection failed, the program asked what success would have
 cost. AR-001 computed, on the same store and under exact serialized accounting,
@@ -353,8 +364,12 @@ the same 146 configurations make the confound concrete:
 | Pool | Worst of 146 | Best of 146 | Frozen shipped config | Deployed baseline |
 |---|---:|---:|---:|---:|
 | deployed pre-filter, 34 | **4/17** | 13/17 | **5/17** | 6/17 |
-| cosine top-100 | 5/17 | 13/17 | 9/17 | — |
-| full eligible store, 119 | 7/17 | 13/17 | 12/17 | — |
+| cosine top-100 | 5/17 | 13/17 | 9/17 | not applicable |
+| full eligible store, 119 | 7/17 | 13/17 | 12/17 | not applicable |
+
+The baseline column has one entry because the baseline has no pool variable: it
+is the deployed pipeline's own pre-filter and selector together, and it was
+never run against a wider pool. The blank rows are not zero measurements.
 
 Read the first row. On the pool the system actually used, set-level
 configurations fall as low as 4 of 17, and **the configuration this program
@@ -541,6 +556,14 @@ replaces.**
 That is the operational content of the decomposition, and it is the sentence a
 practitioner should take from §5.
 
+One clarification the title invites. "Selection, not capacity" contrasts with
+the *character budget*, which was never binding: the target cost 5,058 of 32,000
+characters and deployed selection spent 31,946 to deliver a third of it. The
+candidate pool is a capacity limit of a different kind — on how many episodes
+the selector may consider — and §5.3 says it binds first. Both statements hold.
+What the program spent four studies believing, and what is false, is that the
+character budget was the constraint.
+
 We have not found this decomposition reported elsewhere in this space. The
 reason is likely mechanical rather than intellectual: computing it requires a
 per-fact known optimum measured on the same store, which requires both an answer
@@ -581,7 +604,16 @@ An append-only verbatim store. A recency window. Cosine-threshold similarity
 retrieval for targeted queries. A set-level coverage objective for selection.
 Everything packed at exact serialized cost against one budget.
 
-There are no inference calls anywhere in the memory path.
+**There are no generative model calls anywhere in the memory path.** Nothing in
+it asks a model to write text about the store. That is the property Study 005
+established and the one all eleven removals in §6.1 preserve.
+
+It is not the absence of model calls. `context()` embeds the query on every
+call, and `append()` embeds every episode, so an embedding model must be
+resident. The distinction matters for §6.3: what follows from the architecture
+is that the memory path emits no generated text, and that its output is
+reproducible **given a pinned embedder** — which is why the library asserts a
+sentinel vector hash on every store open rather than assuming one (§7.4).
 
 That is the whole architecture, and it is smaller than what this program started
 building. It contains none of the eleven mechanisms in §6.1 — no entity
@@ -595,22 +627,23 @@ run here and whose designs are not measured by anything in this paper.
 measured; the causal story about why they hold is a reading of this program's
 history.*
 
-The surviving design is deterministic, offline, and provenance-preserving. Each
-of those properties tracks a negative result rather than a design goal.
+The surviving design is reproducible, free of generated intermediate text, and
+provenance-preserving. Each of those properties tracks a negative result rather
+than a design goal.
 
-It is deterministic because distillation was removed, and distillation was the
-component that required a model call. It is offline for the same reason. It
-preserves provenance because every delivered character is a stored episode
-verbatim — there is no generated text about the store to be wrong, which follows
-from removing the mechanisms that generated such text. `context()` is a pure
-function of store state, query, and budget: same inputs, same bytes, verified
-across two processes.
+It is reproducible because distillation was removed, and distillation was the
+component whose output could vary run to run: `context()` is a pure function of
+store state, query, and budget, verified byte-identical across two processes.
+That reproducibility is conditional on a pinned embedder, not unconditional
+(§6.2). It preserves provenance because every delivered character is a stored
+episode verbatim — there is no generated text about the store to be wrong, which
+follows from removing the mechanisms that generated such text.
 
 Stated plainly, and as a reading rather than a result: **the properties that
 make this component deployable were bought by the failures, not by the design.**
 A program that had succeeded at distillation would have shipped something harder
 to test and harder to audit. That counterfactual is not measured; the absence of
-model calls, and what follows from it, is.
+generative calls, and what follows from it, is.
 
 The extraction is certified rather than assumed. All 132 committed selection
 records and all three committed rendered blocks reproduce their SHA-256
@@ -621,10 +654,14 @@ the study harness consuming it.
 
 Three things could grow as a conversation lengthens. Only one binds.
 
-**Delivered context is bounded, because it is enforced.** Replaying 1,000
-episodes through the library at a 32,000-character budget, the delivered block
-breaches the budget on 0 of 1,000 turns and its 95th percentile moves +18
-characters across the final five 100-turn buckets. The same block also
+These results come from the program's 1,000-turn endurance run, not from the
+121-turn corpus §5 uses. Nothing here establishes a §5 result at 1,000 turns,
+and nothing in §5 establishes these at 121.
+
+**Delivered context is bounded, because it is enforced.** Replaying the 1,000
+committed episodes of that run through the library at a 32,000-character budget,
+the delivered block breaches the budget on 0 of 1,000 turns and its 95th
+percentile moves +18 characters across the final five 100-turn buckets. The same block also
 **truncates on 895 of those 1,000 turns**, dropping up to 70 episodes and wanting
 up to 65,864 characters. It is bounded because a ceiling binds during selection,
 not because demand is small. Both readings belong together; the first alone
@@ -716,6 +753,14 @@ rather than warns.
 This is also evidence about something else, and §8.8 collects the consequence:
 if a change this small moves 4% of committed payloads, the pipeline's
 sensitivity to the embedder is not merely unmeasured.
+
+It has one direct consequence for a reader reproducing this work. The 12-of-17
+result was produced with the breadth query embedded in a nine-query batch; the
+shipped `context()` embeds a single query alone. Those are the two call shapes
+that differ. The primary configuration `A3_l0.1_r0.0_k16` is **not** among the
+six payloads the difference flips, so the headline reproduces under either — but
+that is a checked fact rather than a safe assumption, and six other
+configurations do not have it.
 
 ### 7.5 A projection extended 84× past its data
 
@@ -839,11 +884,20 @@ means the facts had already been restated compactly in earlier answers, and
 retrieving those restatements is cheap. Achievability holds under the registered
 eligibility rule and not under a stricter plant-source-only rule.
 
-There is a further hazard the program recorded and this paper repeats: a selector
-that prefers prior answers propagates prior errors, and this probe's earlier
-answers were largely wrong. Availability of a prior answer is not availability of
-a correct fact, which is one more reason §5's counts must be read as
-availability (§5.1).
+There is a further hazard the program recorded and this paper repeats, and it is
+the sharpest limit on how much §5's counts mean. A selector that prefers prior
+answers propagates prior errors, **and this probe's earlier answers were largely
+wrong.** Availability is scored on an item's presence in the delivered text, so
+an earlier answer that names the right entity inside an otherwise incorrect
+response makes that item "available".
+
+A part of the 15-of-17 known optimum, and of any configuration that scores well
+by recovering those four episodes, therefore consists of delivering the
+conversation's own earlier mistakes with the correct nouns in them. The
+decomposition in §5 survives this — it is about which episodes get selected, not
+about whether they are true — but "makes 15 of 17 available" and "would help the
+model answer correctly" are further apart than an availability count suggests,
+and nothing in this program measured the distance.
 
 **8.7 Amendments exist after results.** Twelve in the bakeoff alone. The program
 does not claim these were unnecessary; it records, per amendment, whether it
@@ -888,9 +942,10 @@ keeping and a great deal of evidence about why the rest did not work.
 For a practitioner, the useful part is the subtraction. Eleven mechanisms were
 built and none of them cleared its own gate; what is left is an append-only
 verbatim store, a recency window, similarity retrieval, and a set-level coverage
-objective, with no inference calls in the memory path. That component is
-deterministic, offline, and auditable, and §6.3 argues those properties followed
-from the removals rather than from foresight. If a memory component in your
+objective, with no generative model calls in the memory path. That component is
+reproducible given a pinned embedder, free of generated intermediate text, and
+auditable, and §6.3 argues those properties followed from the removals rather
+than from foresight. If a memory component in your
 system makes model calls, this program's experience is that the calls bought
 less than they cost — on one corpus, with no live comparison run.
 
