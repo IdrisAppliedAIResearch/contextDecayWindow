@@ -2,7 +2,12 @@
 
 from html import escape
 
-from src.memory.context_builder import render_episode_element
+# Episode serialization moved into the episodic library (CC-002); both
+# names are re-exported here for the harness modules that import them.
+from episodic._render import (  # noqa: F401
+    render_episode_block,
+    render_episode_element,
+)
 
 
 def build_stm_context(
@@ -44,16 +49,6 @@ def render_rules_block(rules: list) -> str:
             f"{_text(summary)}</rule>"
         )
     lines.append("</pinned_rules>")
-    return "\n".join(lines)
-
-
-def render_episode_block(name: str, episodes: list, tier: str) -> str:
-    if not episodes:
-        return f"<{name}/>"
-    lines = [f"<{name}>"]
-    for episode in episodes:
-        lines.append(render_episode_element(episode))
-    lines.append(f"</{name}>")
     return "\n".join(lines)
 
 

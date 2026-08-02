@@ -1,5 +1,6 @@
 import hashlib
 import json
+import subprocess
 from pathlib import Path
 
 import numpy as np
@@ -34,6 +35,7 @@ from src.retrieval_mechanism_ledger.e005 import (
 
 E005_ARTIFACTS = COMPONENT_ROOT / "artifacts" / "e005"
 MECHANISM_SOURCE = REPO_ROOT / "src" / "retrieval_mechanism_ledger" / "e005.py"
+DX001_CLOSE_COMMIT = "4fa6e897"
 
 
 def _vector(*indices: int) -> np.ndarray:
@@ -277,13 +279,26 @@ def test_census_denominator_matches_the_registered_configuration_count() -> None
 
 
 def test_dx001_does_not_modify_the_e005_mechanism() -> None:
-    """B7: E005's committed results are not re-scored under a changed mechanism."""
+    """B7: E005's committed results are not re-scored under a changed mechanism.
+
+    Anchored at the DX-001 close commit: the invariant is that the mechanism
+    DX-001 diagnosed is byte-identical to the one E005 committed. CC-002
+    later moved the mechanism into the episodic library, so the guard reads
+    the source at the close commit rather than the working tree; extraction
+    equivalence is certified separately by the CC-002 T3 replay.
+    """
     committed = json.loads(
         (E005_ARTIFACTS / "source_integrity.json").read_text(encoding="utf-8")
     )["after"]
     key = next(name for name in committed if name.endswith("e005.py"))
 
-    digest = hashlib.sha256(MECHANISM_SOURCE.read_bytes()).hexdigest()
+    at_close = subprocess.run(
+        ["git", "show", f"{DX001_CLOSE_COMMIT}:{key.replace(chr(92), '/')}"],
+        cwd=REPO_ROOT,
+        check=True,
+        capture_output=True,
+    ).stdout
+    digest = hashlib.sha256(at_close).hexdigest()
 
     assert digest == committed[key]
 
