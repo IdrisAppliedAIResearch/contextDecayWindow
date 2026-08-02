@@ -50,6 +50,40 @@ making the gate unsatisfiable and flipping E005 to `REJECT_NO_REGRESSION` until
 found. This also lifts E002's published 14/16 to 16/16 without disturbing its
 KILL. Seventh instance of the count-unit failure class.
 
+## DX-001 turn-90 miss - NO CHANGE, closed 2026-08-01
+
+Registration `a30d3bcca53248fe75b7901c2ff74a8aa28f5e1a`. The whole remaining gap
+between E005's 12/17 and the 15/17 oracle is **one episode**: turn 90, monetary,
+four items, cosine rank 112 of 119, 2,862 characters. It sits inside the
+registered pool and **no configuration of the 146 selects it.**
+
+Carry forward:
+
+7. **A cause is not a remedy, and the registered no-change branch is a real
+   outcome.** Three mechanisms fire (cost discount, relevance floor, budget
+   exhaustion) and none of them is actionable: `r` moves the episode's best rank
+   from 16 to 8 to 4 and never to 1, and a marginal-gain termination rule
+   subtracts episodes rather than adding this one. Shipping 12/17 with the miss
+   characterized beats tuning a parameter to a single known test case.
+8. **Refuting your own prediction is the cheap part of pre-registration.**
+   Cluster collision was registered as the most likely mechanism at ~65%
+   confidence. It does not fire at all: turn 90's k=16 cluster holds 20
+   episodes and **no selection ever enters it**, so the diversity term was
+   offering full credit at all 15 steps and no episode there was relevant enough
+   to collect. The objective declined it on relevance alone, by 0.169.
+9. **Pool and objective bind on different parts of the same gap.** DR-002 showed
+   the pool decides what can be seen - widening 34 to 119 moved 5/17 at 2/4
+   domains to 12/17 at 4/4. DX-001 shows the objective decides what is worth
+   taking, and no amount of pool work recovers an episode already in the pool.
+   Do not let one finding absorb the other.
+10. **Reproducing a retrieval result requires reproducing the embedding call
+    shape, not only the query text.** The Part 1 replay gate failed first time
+    because the Q11 query was embedded alone rather than in E005's nine-query
+    batch. The vectors agree to cosine 0.999837 and that is enough to flip 6 of
+    146 committed payloads. One published DR-002 rank is corrected in
+    `ERRATA.md`; no conclusion moves. Gate every diagnostic on byte-identical
+    replay before reporting anything derived from it.
+
 ## Family QR, closed 2026-07-30
 
 E002 remains KILL under its locked hurdle, but do not summarize it as no
@@ -83,6 +117,10 @@ Authoritative files:
 
 - `E005_diversity_selection_protocol.md`
 - `E005_POSTHOC_INTERPRETATION.md`
+- `DX_001_turn90_diagnostic_and_fix.md`
+- `DX_001_PART2_DISPOSITION.md`
+- `artifacts/dx001/DX_001_report.md`
+- `artifacts/dx001/dx001_results.json`
 - `amendments/AMENDMENT_004_targeted_item_identity.md`
 - `artifacts/e005/e005_results.json`
 - `RETRIEVAL_MECHANISM_LEDGER_REPORT.md`
