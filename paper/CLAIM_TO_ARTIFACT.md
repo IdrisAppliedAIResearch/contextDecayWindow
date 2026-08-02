@@ -225,10 +225,18 @@ with cluster setup moved inside the timed region the total is 4.756 ms. The JSON
 was not regenerated after the correction. **Figure 6 uses R25, not R16.** Noted
 here because the stale value is the one a reader parsing the JSON would find.
 
-A second, smaller instance: `ERRATA.md`'s latency table (R32) labels its column
-"Median build_context" and gives 3.8 ms / 76 µs at 50 candidates. R25, the
-`build_context` medians, reads 4.2021 ms / 84.042 µs; the 3.8 ms figure is
-R26's `stage_total_ms`, the sum of the timed stages. The headline values —
-190 ms at 1,000, exponent 1.25, clustering 81% — are unaffected. The paper uses
-R25 and does not reproduce the ERRATA row. Flagged for a future erratum;
-PAPER-001 has no mandate to edit `ERRATA.md`.
+A second instance, **now fixed**: `ERRATA.md`'s latency table (R32) was headed
+"Median build_context" while drawing its 50- and 500-candidate rows from R26's
+`stage_total_ms`, its 1,000-candidate row from R25, and its "119" row from
+neither — CC-005 has no 119-candidate point, and that row paired the
+100-candidate median with the 50-candidate per-candidate cost. The table is
+replaced with all nine rows of R25, and the entry now carries a dated
+correction-to-itself recording what was wrong.
+
+One claim in that entry did not survive: "per-candidate cost is flat to about
+119 candidates" is not a reading of CC-005's curve, where cost rises 84.0 → 100.1
+µs between 50 and 100 candidates. The flatness belongs to DR-002's measurement,
+which times a narrower span. The headline values — 190 ms at 1,000, exponent
+1.25, clustering 81% — were always read from the right artifacts and stand.
+
+The paper uses R25 throughout and never reproduced the faulty row.

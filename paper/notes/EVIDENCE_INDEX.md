@@ -104,8 +104,16 @@ The headline numbers are unaffected: 189.99 ms at 1,000 candidates
 exponent 1.252, clustering share 0.807.
 
 **Paper uses `latency_curve.csv` for F6 and does not reproduce the ERRATA row.**
-Flagged for a future erratum; not fixed here, because PAPER-001 has no mandate
-to edit `ERRATA.md`.
+
+**Resolved 2026-08-02.** The `ERRATA.md` entry is corrected: the table now holds
+all nine `latency_curve.csv` rows, and the entry carries a dated
+correction-to-itself. Tracing it fully turned up two further defects beyond the
+column mislabel — the four rows came from two different artifacts, and the "119
+(DR-002's maximum)" row was not a CC-005 measurement at all, pairing the
+100-candidate median with the 50-candidate per-candidate cost. A claim in the
+entry also fell: per-candidate cost is not flat to 119 on CC-005's curve, rising
+84.0 → 100.1 µs between 50 and 100 candidates. That flatness is DR-002's, on a
+measurement spanning less of the call.
 
 ### D6 — "Eleven studies" needs defining
 
