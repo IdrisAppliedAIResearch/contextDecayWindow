@@ -46,6 +46,8 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **DX-001 turn-90 miss (2026-08-01).** NO CHANGE. E005's whole remaining oracle gap is one in-pool episode at cosine rank 112 with 4 monetary items; 0/146 configs take it. Cluster collision refuted: its cluster is never entered, so diversity paid in full and it still lost by .169. Needed cosine .225, has .056. 12/17 ships with the miss characterized; objective escalates to unauthorized E006.
 
+**CC-002 library extraction (2026-08-01).** The deployable component now lives in the installable `episodic` package; the harness imports it. T1-T7 pass: clean-venv import, leakage grep + import-graph, byte-identical reproduction of 132 committed A3 payloads and 3 rendered blocks, call-shape sentinel fails loudly, 804 tests green, two-process purity. H1/H2 ship as config-pinned gates, not docs.
+
 **Retrieval mechanism ledger (2026-07-31).** CLOSED. E002 KILL but exact-32k segmentation improved 6/17->10/17. AR-001 proves F1 achievable: exact 14/17 costs 5,058 chars; 17/17 costs 7,592. E001 best-found .1204->.2103; 0/714 reached K=.48 and 266/384 heads was non-sparse. F2 closed; F3 open; E003 unauthorized.
 
 ## 3. Failure Pattern

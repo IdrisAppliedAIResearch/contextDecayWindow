@@ -1,5 +1,10 @@
 from html import escape
 
+# The compact episode serializer moved into the episodic library (CC-002);
+# the harness consumes it from there. Span rendering stays here: spans are
+# distillation output, which the library does not produce.
+from episodic._render import render_episode_element
+
 
 def build_prompt(
     episodes: list,
@@ -154,23 +159,6 @@ def _render_episode_block(name: str, episodes: list, tier: str) -> str:
         lines.append(render_episode_element(episode))
     lines.append(f"</{name}>")
     return "\n".join(lines)
-
-
-def render_episode_element(episode: dict) -> str:
-    """Serialize one source episode with only attribution-critical structure."""
-    turn = _attribute(episode.get("turn_number", ""))
-    return "\n".join(
-        (
-            f'<episode turn="{turn}">',
-            f"<user>{_text(episode.get('user_message', ''))}</user>",
-            (
-                "<assistant>"
-                f"{_text(episode.get('assistant_message', ''))}"
-                "</assistant>"
-            ),
-            "</episode>",
-        )
-    )
 
 
 def render_ltm_span_element(episode: dict) -> str:
