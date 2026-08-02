@@ -1,4 +1,4 @@
-"""Generate PAPER-001's six figures from committed artifacts.
+"""Generate PAPER-001's five figures from committed artifacts.
 
 Every value plotted is read from a committed artifact. No number is entered by
 hand in this file except two documented corrections, both flagged inline and
@@ -9,7 +9,7 @@ both traceable to `ERRATA.md`:
      puts it at rank 20 (`generality_batched.json`). The corrected value is
      read from that artifact, not typed.
   2. `dr_002_results.json` carries a pre-correction `timings` block that its
-     own report supersedes. It is not read here; Figure 6 uses CC-005's
+     own report supersedes. It is not read here; Figure 5 uses CC-005's
      `latency_curve.csv`.
 
 Writes SVG (vector) plus a manifest recording the SHA-256 of every input, so a
@@ -31,12 +31,10 @@ import matplotlib
 
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
-from matplotlib.patches import Rectangle
 
 REPO = Path(__file__).resolve().parent.parent
 LEDGER = REPO / "experiments/components/retrieval_mechanism_ledger/artifacts"
 CLOSEOUT = REPO / "experiments/components/deployment_closeout/artifacts"
-AUDIT = REPO / "experiments/audits/scoring_integrity"
 OUT = REPO / "paper/figures"
 
 # Okabe-Ito, colourblind-safe.
@@ -295,7 +293,7 @@ def figure_2() -> None:
         0.005,
         -0.055,
         "The top two bars change TWO things against the baseline, not one: the selection objective and the candidate pool.\n"
-        "Section 5.2 separates them - on the deployed 34-episode pool the same set-level configuration scores 5/17, BELOW the\n"
+        "Section 5.3 separates them - on the deployed 34-episode pool the same set-level configuration scores 5/17, BELOW the\n"
         "baseline's 6/17. Read this figure as the budget argument only: the target is affordable, and deployed selection spent\n"
         "the whole budget without reaching it. The two known-optimum bars are computed with the answer key and are bounds,\n"
         "not methods; no deployable selection reaches the 14/17 bar.",
@@ -379,64 +377,9 @@ def figure_3() -> None:
 
 
 # --------------------------------------------------------------------------
-# F4 - the corrected arc
+# F4 - selector comparison
 # --------------------------------------------------------------------------
 def figure_4() -> None:
-    totals = load_json(AUDIT / "corrected_scores/arm_totals.json")
-    wanted = [
-        ("s002_c", "002 C"), ("s003_accepted", "003"), ("s004_treatment", "004"),
-        ("s005_treatment", "005"), ("s006_treatment", "006"),
-        ("s007_treatment", "007"), ("s009_l", "009 L"),
-    ]
-    rows = []
-    for arm_id, label in wanted:
-        row = next(r for r in totals if r["arm_id"] == arm_id)
-        rows.append((label, row["original_q1_q13"], row["corrected_q1_q13"]))
-
-    fig, ax = plt.subplots(figsize=(9.2, 4.2))
-    style(ax)
-    xs = range(len(rows))
-    for x, (_, original, corrected) in zip(xs, rows):
-        ax.plot([x, x], [original, corrected], color=GREY, linewidth=1.4, zorder=1)
-    ax.scatter(list(xs), [r[1] for r in rows], s=64, color=GREY, zorder=2, label="as originally published")
-    ax.scatter(list(xs), [r[2] for r in rows], s=76, color=BLUE, zorder=3, label="after the scoring audit")
-
-    for x, (_, original, corrected) in zip(xs, rows):
-        if original != corrected:
-            ax.annotate(f"{corrected - original:+.1f}", xy=(x, (original + corrected) / 2),
-                        xytext=(9, 0), textcoords="offset points",
-                        fontsize=8.2, color=VERMILLION, va="center")
-
-    ax.set_xticks(list(xs))
-    ax.set_xticklabels([r[0] for r in rows])
-    ax.set_ylim(0, 14.4)
-    ax.set_xlabel("study arm")
-    ax.set_ylabel("treatment score (Q1-Q13, of 13)")
-    ax.set_title(
-        "Figure 4  19 of 222 re-scored items changed, and the program's only VALIDATED verdict disappeared",
-        fontsize=10.5,
-        loc="left",
-        pad=12,
-    )
-    ax.legend(loc="lower right", frameon=False, fontsize=8.6)
-    fig.text(
-        0.005,
-        -0.075,
-        "These points are not a controlled series: runtime and response budgets changed across it. The only clean architectural\n"
-        "comparison in the program is Study 009's same-seed pair, 9.0 without the memory tier against 12.0 with it. Study 010 was\n"
-        "outside the audit and is not plotted. Study 001, which lost the VALIDATED verdict, scored on a different rubric and is\n"
-        "likewise not plotted; its fall is reported in the text.",
-        fontsize=7.6,
-        color="#444444",
-        va="top",
-    )
-    save(fig, "f4_corrected_arc")
-
-
-# --------------------------------------------------------------------------
-# F5 - selector comparison
-# --------------------------------------------------------------------------
-def figure_5() -> None:
     sweep = load_csv(LEDGER / "e005/configuration_sweep.csv")
     e005 = load_json(LEDGER / "e005/e005_results.json")
     a0 = load_json(LEDGER / "e005/a0_baseline.json")
@@ -489,7 +432,7 @@ def figure_5() -> None:
     ax2.tick_params(labelsize=8.2)
 
     fig.suptitle(
-        "Figure 5  The selector with the highest raw fact count delivered nothing from one domain and passed no gate",
+        "Figure 4  The selector with the highest raw fact count delivered nothing from one domain and passed no gate",
         fontsize=10.5,
         x=0.005,
         ha="left",
@@ -500,20 +443,20 @@ def figure_5() -> None:
         -0.10,
         "Primary pool, 119 candidates, 32,000-character budget; best configuration per arm by fact count. A2 delivers monetary 0/4\n"
         "at every one of its settings. On THIS pool all 146 configurations beat the deployed 6/17; on the deployed 34-episode\n"
-        "pool they fall as low as 4/17 and the shipped configuration scores 5/17, which is the ordering result in section 5.7.\n"
+        "pool they fall as low as 4/17 and the shipped configuration scores 5/17, which is the ordering result in section 5.6.\n"
         "137 configurations preserve 16/16 targeted items, so targeted recall does not separate the arms - itself the finding:\n"
         "the failure is confined to enumeration. A4 is AR-001's known optimum, a reference point and never deployable.",
         fontsize=7.6,
         color="#444444",
         va="top",
     )
-    save(fig, "f5_selector_comparison")
+    save(fig, "f4_selector_comparison")
 
 
 # --------------------------------------------------------------------------
-# F6 - growth and cost
+# F5 - growth and cost
 # --------------------------------------------------------------------------
-def figure_6() -> None:
+def figure_5() -> None:
     dx002 = load_json(CLOSEOUT / "dx002/dx002_results.json")
     gate = load_json(CLOSEOUT / "cc003/ge0_growth_gate.json")
     latency = load_csv(CLOSEOUT / "cc005/latency_curve.csv")
@@ -588,7 +531,7 @@ def figure_6() -> None:
     ax2.legend(loc="lower right", frameon=False, fontsize=7.8)
 
     fig.suptitle(
-        "Figure 6  Growth belonged to the harness; cost was five times the projection",
+        "Figure 5  Growth belonged to the harness; cost was five times the projection",
         fontsize=10.5,
         x=0.005,
         ha="left",
@@ -605,7 +548,7 @@ def figure_6() -> None:
         color="#444444",
         va="top",
     )
-    save(fig, "f6_growth_and_cost")
+    save(fig, "f5_growth_and_cost")
 
 
 def main() -> None:
@@ -615,7 +558,6 @@ def main() -> None:
     figure_3()
     figure_4()
     figure_5()
-    figure_6()
 
     manifest = {
         "record": "PAPER-001 figure inputs",
