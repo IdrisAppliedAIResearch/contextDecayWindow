@@ -39,6 +39,8 @@ blocks reproduce their SHA-256 byte-for-byte through this package.
 | Context bound at 1,000 turns | ~27k estimated tokens peak (27,154 = chars//4, verified across all 2,000 serialized prompts) | Study 010 corrected context peak audit | `context_peak_audit.json` `61e833965397c3f8…` |
 | Selector scaling | A3 needs a cluster assignment vector, not the O(n²) similarity matrix A1/A2 require | DR-002 | `dr_002_results.json` `8be66a2f457a169d…` |
 | Extraction equivalence | 132/132 committed A3 payload SHAs and 3/3 committed rendered blocks byte-identical through this package | CC-002 T3/T4 | `t3_e005_replay.json` `d8e08f94952e468d…`, `t4_render_replay.json` `43c938898a71fa06…` |
+| Budget ceiling | `chars_delivered ≤ budget` at every one of 1,000 replayed turns and across a 1k–64k sweep; 0 breaches | CC-003 E1 + G-E0 | `ge0_growth_gate.json` |
+| Delivered block does not grow with store size | p95 moves +18 chars over the last five 100-turn buckets of a 1,000-turn replay; −0.02% window over window | CC-003 G-E0 | `ge0_growth_gate.json` |
 
 Artifacts live in the source repository under
 `experiments/components/retrieval_mechanism_ledger/artifacts/e005/`,
@@ -55,7 +57,8 @@ Artifacts live in the source repository under
 | Evidence breadth | One runtime (llama.cpp CPU embedding), one conversation shape (a scripted 121-turn run and one 1,000-turn run), one measurement set | all of the above |
 | Store growth | Unbounded by design in this version; eviction is deliberately out of scope (CC-005) | — |
 | Checkpointing | The checkpoint module moved as-is from code that has survived exactly one 1,000-turn run; it is not yet a tested guarantee (CC-004) | Study 010 incident path |
-| `truncated` is a report, not a ceiling | The signal is honest; enforcement semantics are out of scope (CC-003) | — |
+| `chars_wanted` is not an upper bound | It is the cost of what the three paths proposed, not of an unconstrained selection: the coverage selector is a budgeted greedy with no unconstrained mode. It tells a caller how much budget the current proposal needed, not what a larger budget would retrieve | CC-003 |
+| The ceiling covers the returned block only | Whatever a caller wraps around it — preamble, tool schemas, its own scratchpad — is outside this accounting, and that is exactly where Study 010's growth happened | DX-002 (`ge0_growth_gate.json`) |
 
 ## What was removed and why
 

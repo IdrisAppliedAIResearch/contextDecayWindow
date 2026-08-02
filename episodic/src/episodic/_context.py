@@ -21,7 +21,7 @@ import time
 from typing import Sequence
 
 from ._config import EpisodicConfig
-from ._packing import pack_stm_payload
+from ._packing import DROP_POLICY, EMPTY_PAYLOAD_CHARS, pack_stm_payload
 from ._render import render_stm_payload
 from ._report import ContextReport
 from ._selection import (
@@ -62,7 +62,7 @@ def build_context(
 
     pool = _candidate_pool(episodes, relevance_by_id, config)
     coverage: list[dict] = []
-    if pool:
+    if pool and budget >= EMPTY_PAYLOAD_CHARS:
         result = select(
             candidates=pool,
             query_embedding=query,
@@ -96,19 +96,40 @@ def build_context(
     stm_count = len(delivered_ids & recent_ids)
     k_count = len((delivered_ids & k_ids) - recent_ids)
     coverage_count = len(delivered_ids - recent_ids - k_ids)
-    wanted_count = len(recent) + len(wanted_stm)
+
+    # What the paths proposed, in the order they proposed it, minus what
+    # actually landed. Order is preserved so the identities are reportable
+    # rather than merely countable.
+    wanted_order = [*recent, *wanted_stm]
+    dropped_ids = tuple(
+        str(episode["id"])
+        for episode in wanted_order
+        if str(episode["id"]) not in delivered_ids
+    )
+
+    # The ceiling, asserted on the way out. A negative budget cannot be
+    # honoured literally - the empty string is already zero characters -
+    # so it is read as zero rather than treated as unsatisfiable.
+    if len(packed.payload) > max(budget, 0):
+        raise AssertionError(
+            "Context block exceeded its character budget: "
+            f"{len(packed.payload)} > {budget}"
+        )
 
     report = ContextReport(
         chars_delivered=len(packed.payload),
         chars_wanted=chars_wanted,
         episodes_delivered=len(delivered_ids),
-        episodes_dropped=wanted_count - len(delivered_ids),
-        truncated=wanted_count > len(delivered_ids),
+        episodes_dropped=len(dropped_ids),
+        truncated=bool(dropped_ids),
         stm_count=stm_count,
         k_count=k_count,
         coverage_count=coverage_count,
         latency_ms=(time.perf_counter() - started) * 1_000.0,
         pool_size=len(pool),
+        dropped_ids=dropped_ids,
+        drop_policy=DROP_POLICY,
+        budget_chars=budget,
     )
     return packed.payload, report
 
