@@ -41,6 +41,7 @@ blocks reproduce their SHA-256 byte-for-byte through this package.
 | Extraction equivalence | 132/132 committed A3 payload SHAs and 3/3 committed rendered blocks byte-identical through this package | CC-002 T3/T4 | `t3_e005_replay.json` `d8e08f94952e468d…`, `t4_render_replay.json` `43c938898a71fa06…` |
 | Budget ceiling | `chars_delivered ≤ budget` at every one of 1,000 replayed turns and across a 1k–64k sweep; 0 breaches | CC-003 E1 + G-E0 | `ge0_growth_gate.json` |
 | Delivered block does not grow with store size | p95 moves +18 chars over the last five 100-turn buckets of a 1,000-turn replay; −0.02% window over window | CC-003 G-E0 | `ge0_growth_gate.json` |
+| Restart persistence | Turns acknowledged by `append()` survive `SIGKILL`; `context()` returns a byte-identical block across restart; 100 restart cycles with no drift | CC-004 P1–P6 | `CC_004_report.md` |
 
 Artifacts live in the source repository under
 `experiments/components/retrieval_mechanism_ledger/artifacts/e005/`,
@@ -56,7 +57,7 @@ Artifacts live in the source repository under
 | The rank-112 class | An episode whose cosine to the relevant query is below what any reweighting can recover (0.056 measured against the 0.225 needed) is invisible to the selector at every registered setting: 0 of 146 configurations selected it | DX-001, `dx001_results.json` `2f07a462e09bdf79…` |
 | Evidence breadth | One runtime (llama.cpp CPU embedding), one conversation shape (a scripted 121-turn run and one 1,000-turn run), one measurement set | all of the above |
 | Store growth | Unbounded by design in this version; eviction is deliberately out of scope (CC-005) | — |
-| Checkpointing | The checkpoint module moved as-is from code that has survived exactly one 1,000-turn run; it is not yet a tested guarantee (CC-004) | Study 010 incident path |
+| Restart guarantees are tested against process kills, not power loss | P1/P3 kill a live process with no cleanup. Surviving a power cut or a lost storage connection rests on `synchronous=FULL` and SQLite's implementation, not on anything measured here | CC-004 |
 | `chars_wanted` is not an upper bound | It is the cost of what the three paths proposed, not of an unconstrained selection: the coverage selector is a budgeted greedy with no unconstrained mode. It tells a caller how much budget the current proposal needed, not what a larger budget would retrieve | CC-003 |
 | The ceiling covers the returned block only | Whatever a caller wraps around it — preamble, tool schemas, its own scratchpad — is outside this accounting, and that is exactly where Study 010's growth happened | DX-002 (`ge0_growth_gate.json`) |
 
