@@ -1,5 +1,14 @@
 # contextDecayWindow
 
+### → [**Read the paper: *Selection, Not Capacity***](paper/PAPER_001.md)
+
+A measured decomposition of retrieval failure across eleven pre-registered
+efforts, what survived them, and why. Opens with a one-page executive summary;
+every claim carries its committed artifact, and one headline number
+[reproduces in a clean environment](paper/REPRODUCTION.md). Draft.
+
+---
+
 **Can a language model hold a long conversation by rebuilding a small, relevant context every turn, instead of re-reading the whole transcript or summarising it away?**
 
 Ten pre-registered studies test that question, each adding one memory component and fixing the prior study's documented failures. Every result is published as found.
