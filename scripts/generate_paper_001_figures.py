@@ -181,12 +181,6 @@ def figure_1() -> None:
     ax.set_ylim(0, 5.7)
     ax.set_xlabel("cosine rank against the turn-120 breadth query (1 = most similar, of 119 eligible episodes)")
     ax.set_ylabel("Q11 target facts carried")
-    ax.set_title(
-        "Figure 1  The target facts sit outside the top of the ranking, and the pool cut removes a domain",
-        fontsize=10.5,
-        loc="left",
-        pad=12,
-    )
 
     handles = [
         plt.Line2D([], [], marker="o", color="none", markerfacecolor=GREEN,
@@ -206,18 +200,7 @@ def figure_1() -> None:
         fontsize=8.5,
     )
 
-    fig.text(
-        0.005,
-        -0.26,
-        "Only the 16 episodes whose cosine rank is committed are plotted: the 15 selected, plus the rank-112 miss.\n"
-        "Per-episode ranks for the other 103 candidates were never committed. The rank-4, rank-5 and rank-87 readings\n"
-        "are committed structural values (generality_batched.json), drawn as annotations rather than inferred from points.\n"
-        "Turn 118 is shown at its corrected rank 20, not the published 21 (ERRATA.md, 2026-08-01).",
-        fontsize=7.6,
-        color="#444444",
-        va="top",
-    )
-    save(fig, "f1_cosine_rank_vs_fact_content")
+    save(fig, "f3_cosine_rank_vs_fact_content")
 
 
 # --------------------------------------------------------------------------
@@ -283,25 +266,7 @@ def figure_2() -> None:
     ax.set_ylim(0, 17.2)
     ax.set_xlabel("characters spent (exact serialized cost)")
     ax.set_ylabel("Q11 target facts delivered")
-    ax.set_title(
-        "Figure 2  The constraint is not capacity: the tallest result is also the narrowest",
-        fontsize=10.5,
-        loc="left",
-        pad=12,
-    )
-    fig.text(
-        0.005,
-        -0.055,
-        "The top two bars change TWO things against the baseline, not one: the selection objective and the candidate pool.\n"
-        "Section 5.3 separates them - on the deployed 34-episode pool the same set-level configuration scores 5/17, BELOW the\n"
-        "baseline's 6/17. Read this figure as the budget argument only: the target is affordable, and deployed selection spent\n"
-        "the whole budget without reaching it. The two known-optimum bars are computed with the answer key and are bounds,\n"
-        "not methods; no deployable selection reaches the 14/17 bar.",
-        fontsize=7.6,
-        color="#444444",
-        va="top",
-    )
-    save(fig, "f2_budget_efficiency_gap")
+    save(fig, "f1_budget_efficiency_gap")
 
 
 # --------------------------------------------------------------------------
@@ -354,26 +319,7 @@ def figure_3() -> None:
         fontsize=7.4, color=VERMILLION, va="top",
     )
 
-    fig.suptitle(
-        "Figure 3  Widening the pool moves the frozen configuration from 5/17 across 2 domains to 12/17 across 4",
-        fontsize=10.5,
-        x=0.005,
-        ha="left",
-        y=1.03,
-    )
-    fig.text(
-        0.005,
-        -0.14,
-        "One frozen configuration (A3, lambda 0.1, r 0.0, k 16) read across three pools; store, renderer and embedding held fixed.\n"
-        "Dropping only the 19 lowest-cosine episodes to form the 100-pool costs three facts, the whole art domain, and all\n"
-        "optimum overlap - though four of the five optimum episodes survive the cut. The selector clusters over the pool, so\n"
-        "removing the tail reshuffles the objective rather than removing options. The best-of-sweep rule shows why the pool's\n"
-        "binding effect must be read in domains: that maximum is 13/17 on all three pools.",
-        fontsize=7.6,
-        color="#444444",
-        va="top",
-    )
-    save(fig, "f3_pool_ablation")
+    save(fig, "f2_pool_ablation")
 
 
 # --------------------------------------------------------------------------
@@ -431,25 +377,6 @@ def figure_4() -> None:
     ax2.set_title("the per-domain check that caught A2", fontsize=9.2)
     ax2.tick_params(labelsize=8.2)
 
-    fig.suptitle(
-        "Figure 4  The selector with the highest raw fact count delivered nothing from one domain and passed no gate",
-        fontsize=10.5,
-        x=0.005,
-        ha="left",
-        y=1.02,
-    )
-    fig.text(
-        0.005,
-        -0.10,
-        "Primary pool, 119 candidates, 32,000-character budget; best configuration per arm by fact count. A2 delivers monetary 0/4\n"
-        "at every one of its settings. On THIS pool all 146 configurations beat the deployed 6/17; on the deployed 34-episode\n"
-        "pool they fall as low as 4/17 and the shipped configuration scores 5/17, which is the ordering result in section 5.6.\n"
-        "137 configurations preserve 16/16 targeted items, so targeted recall does not separate the arms - itself the finding:\n"
-        "the failure is confined to enumeration. A4 is AR-001's known optimum, a reference point and never deployable.",
-        fontsize=7.6,
-        color="#444444",
-        va="top",
-    )
     save(fig, "f4_selector_comparison")
 
 
@@ -530,24 +457,6 @@ def figure_5() -> None:
     ax2.set_title("a projection extended 84x past its data", fontsize=9.6)
     ax2.legend(loc="lower right", frameon=False, fontsize=7.8)
 
-    fig.suptitle(
-        "Figure 5  Growth belonged to the harness; cost was five times the projection",
-        fontsize=10.5,
-        x=0.005,
-        ha="left",
-        y=1.02,
-    )
-    fig.text(
-        0.005,
-        -0.10,
-        "Left: same 1,000 episodes, same 32,000-character budget. The runner's block was still setting records in its final bucket;\n"
-        "the library breaches the budget on 0 of 1,000 turns. The library also truncates on 895 of them - the block is bounded\n"
-        "because it is enforced, not because demand is small. Right: exponent 1.25 over 50-1,000 candidates, where the earlier\n"
-        "sweep found 0.96 over 20-119; clustering's share rises from 37% to 81%. Both axes are logarithmic.",
-        fontsize=7.6,
-        color="#444444",
-        va="top",
-    )
     save(fig, "f5_growth_and_cost")
 
 

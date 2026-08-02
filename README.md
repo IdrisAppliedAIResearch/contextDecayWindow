@@ -1,6 +1,6 @@
 # contextDecayWindow
 
-### → [**Read the paper: *Selection, Not Capacity***](paper/PAPER_001.md)
+### → [**Read the paper: *Selection, Not Capacity***](paper/PAPER_001.md) · [**Download the PDF**](paper/Selection_Not_Capacity.pdf)
 
 A measured decomposition of retrieval failure across eleven pre-registered
 efforts, what survived them, and why. Opens with a one-page executive summary;

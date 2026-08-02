@@ -60,7 +60,7 @@ loop somewhere before ten thousand.
   correctly.
 - The breadth findings rest on a single enumeration question.
 
-Figure 2 is the one image that carries the argument.
+Figure 1 is the one image that carries the argument.
 
 ---
 
@@ -315,7 +315,7 @@ expensive domain, art, needs 3,182 — under a tenth of the budget.
 
 Deployed selection made **6 of 17 available while spending 31,946 characters**.
 
-Figure 2. The budget was never tight. Selection spent it on episodes carrying
+Figure 1. The budget was never tight. Selection spent it on episodes carrying
 nothing.
 
 Two cautions attach to the optimum wherever it appears below. It is computed
@@ -361,7 +361,7 @@ embedding.
 | full eligible store | 119 | 12/17 | 4/4 | 4/5 |
 
 Widening the pool moves the same configuration from 5 of 17 across 2 domains to
-12 across 4. Figure 3.
+12 across 4. Figure 2.
 
 Two things keep this honest. It is a **frozen-configuration** readout, not a
 sweep: the best of 146 configurations reaches 13 of 17 on all three pools, so
@@ -397,7 +397,7 @@ the four art items. Around it:
   shipped configuration recovers four, including the one at rank 86, and misses
   only the deepest.
 
-Figure 1. The failure is not that the ordering is noisy. At the top it is
+Figure 3. The failure is not that the ordering is noisy. At the top it is
 anti-correlated: the most query-similar episodes are the least informative for
 this probe, and one of the two domains deciding the gate is unreachable before
 rank 50. That a set-level objective reaches rank 86 at all bounds the claim —
@@ -861,7 +861,7 @@ legitimacy test permitting corrections to measurement units and protocol
 contradictions while forbidding making a criterion easier once results are
 known. The record is published so a reader can disagree with individual calls.
 
-**8.8 Figure 1 is drawn at the resolution the artifacts support.** Per-episode
+**8.8 Figure 3 is drawn at the resolution the artifacts support.** Per-episode
 cosine ranks were committed for 16 of the 119 candidates; the rest were never
 committed, and recomputing them requires the carried embedder under the batched
 call shape of §7.2, which is not in the repository. The structural readings the
@@ -921,8 +921,35 @@ artifact it draws from, over git blob content so the values are stable across
 platforms; `paper/figures/figure_manifest.json` records the full set alongside
 the commit they were read at. Vector SVG alongside PNG.
 
-**Figure 1 — Cosine rank against fact content.**
-`f1_cosine_rank_vs_fact_content.svg`
+**Figure 1 — The budget efficiency gap.** `f1_budget_efficiency_gap.svg`
+*The constraint is not capacity: the tallest result is also the narrowest.* Each
+horizontal stem runs from zero to the characters spent, at a height equal to the
+facts made available, over the same store at the same enforced 32,000-character
+budget. The deployed baseline reaches 6 of 17 for 31,946 characters; the shipped
+set-level configuration 12 of 17 for 31,569; the exact known optimum 14 of 17
+for 5,058, leaving 26,942 unused; its greedy variant 15 of 17 for 5,455. **The
+top two bars change two things against the baseline, not one — the selector and
+the candidate pool.** §5.3 separates them: on the deployed 34-episode pool the
+same set-level configuration scores 5 of 17, below the baseline's 6. Read this
+figure as the budget argument only. Both optima are computed with the answer key
+and are bounds, not methods. Sources: `a0_baseline.json` `7645e4746715a965`,
+`e005_results.json` `07b714389697c6e5`, `achievability.json` `770792d09e07978d`.
+
+**Figure 2 — Pool ablation.** `f2_pool_ablation.svg`
+*Widening the candidate pool from 34 to 119 episodes, with the selector frozen,
+moves the same configuration from 5 of 17 across 2 domains to 12 of 17 across
+4.* Facts, domains, and known-optimum overlap at three pool sizes, everything
+except pool membership held fixed. Dropping only the 19 lowest-cosine episodes
+to form the 100-pool costs three facts, the whole art domain, and all optimum
+overlap, though four of the five optimum episodes survive the cut — the selector
+clusters over the pool, so tail removal reshuffles the objective rather than
+removing options. The orange rule marks the best of 146 configurations on each
+pool: 13 of 17 on all three, which is why the pool's binding effect must be read
+in domain coverage. Sources: `configuration_sweep.csv` `1ad625d10fb988f9`,
+`pool_secondaries.csv` `5987d05846c64f97`.
+
+**Figure 3 — Cosine rank against fact content.**
+`f3_cosine_rank_vs_fact_content.svg`
 *On this corpus, the enumeration probe's target facts sit outside the top of the
 cosine ranking, and the deployed pool cut removes an entire domain.* Horizontal
 axis: cosine rank against the turn-120 breadth query over the 119 eligible
@@ -940,33 +967,6 @@ inferred from the plotted points. Sources: `selection_ranks.csv`
 `6fdff4022997ab83`, `cost_comparison.csv` `1ca40da99315c719`,
 `generality_batched.json` `7e1fa13ef71a8077`; rank 20 supersedes the published
 21 per `ERRATA.md`, 2026-08-01.
-
-**Figure 2 — The budget efficiency gap.** `f2_budget_efficiency_gap.svg`
-*The constraint is not capacity: the tallest result is also the narrowest.* Each
-horizontal stem runs from zero to the characters spent, at a height equal to the
-facts made available, over the same store at the same enforced 32,000-character
-budget. The deployed baseline reaches 6 of 17 for 31,946 characters; the shipped
-set-level configuration 12 of 17 for 31,569; the exact known optimum 14 of 17
-for 5,058, leaving 26,942 unused; its greedy variant 15 of 17 for 5,455. **The
-top two bars change two things against the baseline, not one — the selector and
-the candidate pool.** §5.3 separates them: on the deployed 34-episode pool the
-same set-level configuration scores 5 of 17, below the baseline's 6. Read this
-figure as the budget argument only. Both optima are computed with the answer key
-and are bounds, not methods. Sources: `a0_baseline.json` `7645e4746715a965`,
-`e005_results.json` `07b714389697c6e5`, `achievability.json` `770792d09e07978d`.
-
-**Figure 3 — Pool ablation.** `f3_pool_ablation.svg`
-*Widening the candidate pool from 34 to 119 episodes, with the selector frozen,
-moves the same configuration from 5 of 17 across 2 domains to 12 of 17 across
-4.* Facts, domains, and known-optimum overlap at three pool sizes, everything
-except pool membership held fixed. Dropping only the 19 lowest-cosine episodes
-to form the 100-pool costs three facts, the whole art domain, and all optimum
-overlap, though four of the five optimum episodes survive the cut — the selector
-clusters over the pool, so tail removal reshuffles the objective rather than
-removing options. The orange rule marks the best of 146 configurations on each
-pool: 13 of 17 on all three, which is why the pool's binding effect must be read
-in domain coverage. Sources: `configuration_sweep.csv` `1ad625d10fb988f9`,
-`pool_secondaries.csv` `5987d05846c64f97`.
 
 **Figure 4 — Selector comparison.** `f4_selector_comparison.svg`
 *The selector with the highest raw fact count delivered nothing from one domain
@@ -1020,3 +1020,10 @@ candidates are projections, drawn dashed. Sources: `dx002_results.json`
   and the artifact won.
 - **G. Review record** — `paper/reviews/`: two adversarial cycles, a slop audit,
   and the three-reader readability review that prompted this restructure.
+
+**Typeset PDF.** `paper/Selection_Not_Capacity.pdf`, built from this file by
+`scripts/build_paper_pdf.py` (`pip install typst`). The PDF has no independent
+source: it is generated from this Markdown, figures are placed at the paragraph
+that first cites them, and figure numbering comes from here rather than from the
+typesetter, so the numbers cannot drift from the prose. If the two ever
+disagree, this file is right and the build script is broken.
