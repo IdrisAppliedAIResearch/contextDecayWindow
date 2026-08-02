@@ -84,7 +84,7 @@ and `experiments/components` for R22–R29.
 | C11 | Best by arm | A0 6, A1 12, A2 13, A3 12, A4 15 | R5 `best_by_arm`, `oracle` | VERIFIED |
 | C12 | A2 delivers monetary 0/4 at every setting and passes no gate | 3 A2 rows, monetary 0 | R7, R8 | VERIFIED |
 | C13 | Configurations swept per pool | 146; 0 inference calls; determinism PASS | R5 | VERIFIED |
-| C14 | Every configuration beats the 6/17 baseline | 146/146 | R4 §Result; R7 | VERIFIED |
+| C14 | Every configuration beats the 6/17 baseline **on the 119-episode pool only** | min 7/17 on the 119-pool; min 5/17 on top-100; **min 4/17 on the deployed 34-pool**, where the shipped config scores 5/17 against the baseline's 6/17 | R7 (min over `q11_fact_count` by pool); R4 §Result | **CORRECTED** — R4 states this unscoped and it holds only on the primary pool. Cycle 1 objection A1. This is the paper's forced-order result (§5.3, §5.6) |
 | C15 | Greedy optimality ratio range | 0.9536–0.9996 over 405 computable configurations; primary config 0.9927 | R9; R5 `primary_configuration.optimality_ratio` | DERIVED — min/max over rows with `computable == True`. **Spec said 0.955; the primary-pool A3 minimum is 0.9548 and the global minimum is 0.9536.** A1's bound is not computable (33 rows), consistent with MMR being non-monotone (R32) |
 | C16 | Pool ablation, frozen configuration | 34 → 5/17, 2/4; 100 → 9/17, 3/4; 119 → 12/17, 4/4 | R13 §1 | VERIFIED |
 | C17 | Oracle overlap by pool, frozen configuration | 1/5, 0/5, 4/5 | R13 §1 | VERIFIED |
