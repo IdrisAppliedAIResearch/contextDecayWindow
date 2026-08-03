@@ -13,7 +13,7 @@ every claim carries its committed artifact, and one headline number
 
 Ten pre-registered studies test that question, each adding one memory component and fixing the prior study's documented failures. Every result is published as found.
 
-> **Status:** Study 010 stopped at G2; exploratory continuation unaudited and LTM budget-noncompliant | retrieval bakeoff complete | retrieval mechanism ledger reopened for Family CS; E005 is killed by LV-001's live targeted-regression bar, DX-001 closes NO CHANGE, and RD-001 stops before correlation because unchanged rarity scores cover only 6/76 fact-bearing episodes; chained retrieval is not authorized | CC-002 extracts the deployable component into `episodic`; CC-006 adds exact hashed vector-cache reuse | deployment closeout complete | PAPER-001 revised through RD-001 | scoring/interpretation record corrected through 2026-08-05
+> **Status:** Study 010 stopped at G2; exploratory continuation unaudited and LTM budget-noncompliant | retrieval bakeoff complete | retrieval mechanism ledger reopened for Family CS; E005 is killed by LV-001's live targeted-regression bar, DX-001 closes NO CHANGE, and RD-001 stops before correlation because unchanged rarity scores cover only 6/76 fact-bearing episodes; chained retrieval is not authorized | EC-001 LongMemEval complete: inversion not dominant, Codex-substituted score only | CC-002 extracts the deployable component into `episodic`; CC-006 adds exact hashed vector-cache reuse | deployment closeout complete | PAPER-001 revised through EC-001 | scoring/interpretation record corrected through 2026-08-05
 
 ## The Problem
 
@@ -40,7 +40,8 @@ Runs use a scripted 120-turn conversation with facts planted at known positions 
 | 009 | Pure-STM null test and topic digest | PARTIAL; null decisive | LTM beat STM by 3.0; digest failed its offline gate |
 | 010 | 1,000-turn endurance | STOPPED AT G2; EXPLORATORY CONTINUATION COMPLETE | LTM won breadth in a budget-noncompliant arm; targeted tied; Bar 3 NOT EVALUABLE |
 
-Full reports live under `experiments/study_NNN/`.
+Full reports live under `experiments/study_NNN/`; external evaluation reports
+live under `experiments/external/`.
 
 ## Retrieval Bakeoff
 
@@ -149,6 +150,28 @@ See `experiments/components/retrieval_mechanism_ledger/RETRIEVAL_MECHANISM_LEDGE
 and `experiments/components/retrieval_mechanism_ledger/DX_001_PART2_DISPOSITION.md`.
 RD-001 is recorded in
 `experiments/components/retrieval_mechanism_ledger/RD_001_report.md`.
+
+## External Calibration
+
+EC-001 ran the unchanged shipped component over all 500 questions in cleaned
+LongMemEval-S and generated answers for a prospectively registered
+seven-by-20 subset. The internal cosine inversion does not reproduce as a
+dominant external pattern: the top four ranked sessions contain no evidence on
+69 of 470 answerable questions (14.7%), while the median evidence-session rank
+is 2. Exact answer-turn availability is 79 of 470 (16.8%).
+
+End-to-end scoring is deliberately bounded. The equal-quota subset scores
+28/140 (20.0%), and post-stratification to the verified benchmark population
+gives 12.22%. Both are **Codex-substituted integrity scores**, not official or
+benchmark-comparable LongMemEval scores: API access to the pinned evaluator was
+unavailable, so Amendment 010 substituted Phi, Mistral, and hosted GPT-5.4
+raters with hosted GPT-5.5 AI adjudication. Multi-session and temporal reasoning
+score 0/20; abstention scores 17/20 even though the component emits no absence
+signal on any of 500 questions. The registered exact
+availability-minus-correctness gap is −2.54 percentage points, opposite the
+predicted large positive gap.
+
+See `experiments/external/longmemeval/EC_001_REPORT.md`.
 
 ## The Extracted Library
 

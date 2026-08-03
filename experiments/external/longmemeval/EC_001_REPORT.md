@@ -273,8 +273,8 @@ speculative decoding.
 Three blind rater families — Phi, Mistral, and hosted GPT-5.4 — produce 120
 unanimous final labels. Six disagreements trigger H2, and 14 unanimous blind
 controls trigger H5. Hosted GPT-5.5 independently adjudicates all 20 triggered
-items. Both hosted stages pass their planted calibration and mechanical
-validators before acceptance.
+items. GPT-5.4 passes its planted calibration, and both hosted stage outputs
+pass their mechanical validators before acceptance.
 
 Ten standalone amendments record schema repairs, scoring reconciliation, local
 rater failures and replacements, chat transport, and the final hosted

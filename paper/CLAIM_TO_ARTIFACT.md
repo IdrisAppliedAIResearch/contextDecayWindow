@@ -13,7 +13,7 @@ across platforms; working-tree hashes on Windows are not, and are not used.
 Verified against two independently published values: `e005_results.json`
 `07b714389697c6e5` and `dx001_results.json` `2f07a462e09bdf79`, both of which
 `episodic/README.md` already cites. Repository state: branch `paper-001` from
-`main` at `8a8a6229`.
+`main` at `8a8a6229`, updated through EC-001 report commit `070ab94c`.
 
 **Status column.**
 
@@ -65,9 +65,16 @@ Verified against two independently published values: `e005_results.json`
 | R34 | `…/artifacts/rd001/measurement_feasibility.json` | `765f48e8` | `cfdb5155854686c8` |
 | R35 | `…/artifacts/rd001/rank_replay.json` | `765f48e8` | `c12448b1a6ce893e` |
 | R36 | `…/RD_001_RARITY_PROVENANCE_AUDIT.md` | `4485d640` | `9c10690001f50fd8` |
+| R37 | `…/external/longmemeval/EC_001_REPORT.md` | `070ab94c` | `1fd9be38e2b33d15` |
+| R38 | `…/runs/tier1_001/tier1_summary.json` | `08e90fa3` | `376ef7c7a16cbc0b` |
+| R39 | `…/runs/tier1_001/instrument_audit.json` | `08e90fa3` | `2754bcdd09f24e28` |
+| R40 | `…/final_codex_integrity/codex_integrity_score_summary.json` | `e59f86cd` | `178321282e180792` |
+| R41 | `…/final_codex_integrity/codex_integrity_score_ledger.jsonl` | `e59f86cd` | `3a293c0973637b45` |
 
 Path prefix `…` is `experiments/components/retrieval_mechanism_ledger` for
 R1–R21 and R33–R36, and `experiments/components` for R22–R29.
+For R37 it is `experiments`; for R38–R41 it is
+`experiments/external/longmemeval`.
 
 ---
 
@@ -196,20 +203,34 @@ R1–R21 and R33–R36, and `experiments/components` for R22–R29.
 | # | Claim | Value | Source | Status |
 |---|---|---|---|---|
 | C85 | No error bars anywhere in the program | every comparison single-run, one seed | `AGENTS.md` §4 runtime rules; absence across all reports | VERIFIED — stated as an absence, which is what it is |
-| C86 | No external calibration | Study 003 retired baselines; LoCoMo/LongMemEval never run | R21; `README.md` | VERIFIED |
-| C87 | Breadth rests on one probe | Q11 is the only enumeration question | R13 §3.5 | VERIFIED |
+| C86 | External calibration boundary | LongMemEval-S now run; LoCoMo unrun; no official comparator score | R37 §7; R40 | VERIFIED — replaces the former “no external calibration” claim |
+| C87 | Literal enumeration rests on one probe | Q11 is the only literal enumeration question; EC-001 adds multi-session reasoning as an analogue | R13 §3.5; R37 §6 | VERIFIED |
 | C88 | The known optimum contains prior probe answers | 4 of 5 | R15 probe-turn map + R1 oracle set | DERIVED — probe turns are 112, 113, 115, 116, 117, 118, 119, 120; oracle turns are 90, 112, 113, 116, 118; four intersect. **Not** from `prior_answer_fraction.csv`, which measures a different quantity (fraction of *selected* episodes that are prior answers, per configuration) |
 | C89 | Achievability holds under `source_turn < 120`, not a plant-source-only bound | — | R1 §Interpretation Boundary | VERIFIED |
 | C90 | Amendments after results exist | 12 in the bakeoff, each with a before/after column | R31 §Amendment Legitimacy | VERIFIED |
 | C91 | Runtime independence unmeasured | one model, one quantization, one machine | R29 §6 | VERIFIED |
 | C92 | Horizon limit | 1,000 turns says nothing about 10,000 | R22 §Boundary; R28 §5 | VERIFIED |
 | C93 | AI raters with AI adjudicators | final adjudication used AI reviewers, not humans | R32; `README.md` §Corrected Numbers | VERIFIED |
-| C94 | The inversion may be an artifact of corpus construction | unresolved; RD-001 stopped before correlation | R34 | VERIFIED AS UNRESOLVED — unchanged rarity scores cover 6/76 fact-bearing episodes across three variants; no coefficient or branch verdict |
+| C94 | The inversion is not a dominant external pattern; its cause remains unresolved | LongMemEval top-four failure 69/470; RD-001 stopped before correlation | R37 §2; R38; R34 | VERIFIED — external outcome narrows the claim without identifying vocabulary as the cause |
 | C95 | Full Q11 cosine ordering recovered under the pinned call | 119/119; 16-rank replay PASS with known 21→20 correction | R33, R35 | VERIFIED |
 
 ---
 
-## A.8 Claims deliberately not made
+## A.8 EC-001 external calibration claims
+
+| # | Claim | Value | Source | Status |
+|---|---|---|---|---|
+| C96 | LongMemEval top-four inversion rate | 69/470 = 14.7%; median evidence-session rank 2, p95 23, max 49 | R37 §2; R38 | VERIFIED |
+| C97 | LongMemEval exact-turn availability | any 79/470 = 16.8%; all 20/470 = 4.3% | R37 §3; R38 | VERIFIED |
+| C98 | Codex-substituted Tier 2 result | 28/140 = 20.0% equal-quota; 12.22% post-stratified | R37 §4; R40 | VERIFIED — explicitly not official or benchmark-comparable |
+| C99 | External availability-minus-correctness gap | 8/118 vs 11/118; −2.54 percentage points | R37 §5; R40 | VERIFIED |
+| C100 | Multi-session and temporal Tier 2 | 0/20 in each stratum | R37 §4; R40 | VERIFIED |
+| C101 | Component absence signal vs reader abstention | 0/500 component signals; 17/20 reader-correct | R37 §§4,6; R38; R40 | VERIFIED — different levels of the system |
+| C102 | Instrument-audit inventory | 358 predicate hits across five registered kinds | R37 §8; R39 | VERIFIED — not described as 358 adjudicated defects |
+
+---
+
+## A.9 Claims deliberately not made
 
 | Claim the evidence does not support | Why |
 |---|---|
@@ -223,7 +244,7 @@ R1–R21 and R33–R36, and `experiments/components` for R22–R29.
 
 ---
 
-## A.8b Restructure note (2026-08-02)
+## A.9b Restructure note (2026-08-02)
 
 After a three-reader readability review the paper was restructured: §5 now
 follows the forced order it claims (pool → objective → floor), the scoring-audit
@@ -243,7 +264,7 @@ without re-auditing the images:
 | 4 (was 5) | Footnote asserted "all 146 configurations beat the deployed 6/17", true only on the 119-pool (C18) | Names the pool; states the 5/17 inversion |
 | 1 | Callout asserted "selected by 0 of 146 configurations", the count C28's §5.4 declines to lean on | Replaced with the arithmetic: needs 0.225, has 0.056 |
 
-## A.9 Figure-source note
+## A.10 Figure-source note
 
 `dr_002_results.json` (R16) carries a `timings` block reading 1.28 ms at pool
 119. That is the greedy-loop-only measurement which DR-002 §3 itself supersedes:

@@ -6,23 +6,19 @@
 
 **Governing two-model amendment:** `b80bd8b32a86771dbaa4ba1f2fb8faa0eaae074d`
 
-**Current status:** waiting for manual switch to **GPT-5.4**
+**Current status:** COMPLETE
 
-**Exact resume phrase:** `EC001 RESUME C1 GPT-5.4 SWITCHED`
+**Exact resume phrase:** none
 
-After compaction, read only:
+The manual sequence completed:
 
-1. root `AGENTS.md`;
-2. `amendments/AMENDMENT_009_codex_agent_evaluators.md`;
-3. `amendments/AMENDMENT_010_two_hosted_replacements.md`;
-4. `EC_001_CODEX_AGENT_RUNTIME_RECORD.json`;
-5. `EC_001_CODEX_AGENT_CHECKPOINT.json`;
-6. `EC_001_CODEX_AGENT_RUNBOOK.md`.
+1. GPT-5.4 C1 rater artifacts: `f15b0401`;
+2. trigger preparation: `fbdb17ed`;
+3. GPT-5.5 C2 adjudications: `9863a4a7`;
+4. Codex-substituted final scores: `e59f86cd`;
+5. completed checkpoint: `7e933aec`;
+6. study report: `070ab94c`.
 
-Then verify the exact resume phrase and follow the runbook. Spawn the C1 child
-with `fork_turns="none"` and omit both model and reasoning overrides so it
-inherits GPT-5.4 with a fresh context.
-
-Do not open the sealed identity map, prepare triggers, aggregate scores, or
-read other rater outputs. Phi and Mistral are already committed rater passes.
-GPT-5.4 is the third rater; GPT-5.5 is the later adjudicator.
+No evaluator stage may be resumed. The authoritative outcome is
+`EC_001_REPORT.md`. The final result is a Codex-substituted integrity score,
+not an official or benchmark-comparable LongMemEval score.
