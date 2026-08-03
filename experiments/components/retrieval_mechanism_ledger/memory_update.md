@@ -2,6 +2,32 @@
 
 **Status:** REOPENED on 2026-08-01 for Family CS. Family QR remains closed.
 
+## RD-001 rarity diagnostic - STOP, measurement not identifiable
+
+Design anchor `37d5bf2db418a0cc2e333faad47bb9c1965c28b4`. The carried
+embedder recovered all 119 Q11 cosine ranks under E005's pinned nine-query call;
+the 16 published checks replayed with only the known turn-118 21-to-20
+correction. The expected 76 episodes are fact-bearing.
+
+The promised rarity side does not exist at that unit. The earlier audit has
+three variants for six planted source episodes and no score for the other 70
+fact-bearing episodes. It also registers neither a primary variant nor a
+phrase-to-episode aggregation. No Spearman coefficient or interval was
+computed. No registered branch covers full ranks plus incomplete rarity.
+
+Carry forward:
+
+1. A claim that two artifacts are "already committed" is not a join check.
+   Verify population, identifier, unit, and cardinality before registering a
+   derived statistic.
+2. This is not an underpowered null and cannot become Branch B. The statistic
+   was undefined, not non-significant.
+3. The full 119-rank inventory is valid descriptive evidence and replaces the
+   paper's 16-point figure limitation.
+4. The vocabulary-versus-retrieval alternative remains unresolved.
+5. E006 Part 2 is not authorized. A future rarity study needs a new prospective
+   design with one score per registered unit and a named interval method.
+
 ## E005 diversity-aware selection - PROMOTION_ELIGIBLE offline
 
 Design anchor `ebbf384e18f38c5af017464e4723a3c77d81e73b`. Set-level selection is
@@ -115,6 +141,11 @@ the seven missing facts or absent art domain, so F3 remains unclaimed.
 
 Authoritative files:
 
+- `E006_rarity_diagnostic_and_chained_retrieval.md`
+- `RD_001_report.md`
+- `RD_001_POST_RESULT_DECISION.md`
+- `artifacts/rd001/measurement_feasibility.json`
+- `artifacts/rd001/full_rank_inventory.csv`
 - `E005_diversity_selection_protocol.md`
 - `E005_POSTHOC_INTERPRETATION.md`
 - `DX_001_turn90_diagnostic_and_fix.md`

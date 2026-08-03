@@ -6,6 +6,12 @@ disagrees with the repository.
 
 Repository state: branch `paper-001`, from `main` at `8a8a6229`.
 
+**Post-draft update, RD-001 (2026-08-03).** The full 119-rank ordering is now
+committed at `artifacts/rd001/full_rank_inventory.csv`. The proposed rarity
+correlation remains not identifiable: the prior audit scores only 6 of 76
+fact-bearing episodes across three variants. PAPER-001 is revised on the
+separate `e006/rarity-diagnostic` branch.
+
 ---
 
 ## 1. Spec-versus-artifact discrepancies
@@ -315,7 +321,7 @@ budget-noncompliant wherever it appears, or not at all.**
 
 ---
 
-## 3b. F1 cannot be drawn at full resolution — and this is a finding
+## 3b. F1 was not drawable at full resolution at draft time
 
 **No committed artifact contains the cosine rank of all 119 candidate
 episodes.** What exists:
@@ -347,6 +353,14 @@ structural facts. The caption states what is plotted and what is not, and names
 the experiment that would produce the full curve. This costs the figure some
 visual force and is the correct trade.
 
+**RD-001 update.** The exact carried embedder and hash-anchored source store
+were available locally. RD-001 replayed E005's nine-query call, recovered all
+119 ranks, and reproduced the 16 prior checks with only the known rank-21 to
+rank-20 correction. Figure 3 now reads
+`artifacts/rd001/full_rank_inventory.csv`. The rank gap is closed; the rarity
+measurement is not, because only six fact-bearing episodes have prior rarity
+scores and no primary of the three variants was registered.
+
 ---
 
 ## 4. Figure data sources
@@ -357,7 +371,7 @@ visual force and is the correct trade.
 
 | Fig | Data | Path |
 |---|---|---|
-| F1 | 16 committed ranks × Q11 facts on a 1–119 axis; oracle marks; pool cuts at 34/100; first-hit and last-needed annotations | `dr_002/selection_ranks.csv`, `dx001/cost_comparison.csv`, `dr_002/generality_batched.json` |
+| F1 | All 119 recovered ranks × Q11 facts; selected and oracle marks; pool cuts at 34/100; first-hit and last-needed annotations | `rd001/full_rank_inventory.csv`, `e005/raw/q11_selection.jsonl`, `dx001/cost_comparison.csv`, `dr_002/generality_batched.json` |
 | F2 | chars vs facts for A0 / E005 primary / AR-001 exact and greedy | `e005_results.json`, `a0_baseline.json`, `ar_001/achievability.json` |
 | F3 | pool 34/100/119 × facts, domains, oracle overlap, for the frozen config | `DR_002_report.md` §1 (values also in `pool_secondaries.csv` per config) |
 | F4 | corrected vs original treatment score by study | `arm_totals.json` |

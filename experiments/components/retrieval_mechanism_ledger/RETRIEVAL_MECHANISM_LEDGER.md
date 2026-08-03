@@ -355,6 +355,13 @@ an offline result; **no live run is authorized.** See
   **NO CHANGE**, 12/17 ships with rank 112 as a characterized limitation, and
   the objective question escalates to a proposed, unauthorized E006. See
   `DX_001_PART2_DISPOSITION.md`.
+- **RD-001 / E006 Part 1 (rarity diagnostic).** The complete 119-rank ordering
+  replayed under E005's committed embedding call, but the registered
+  correlation stopped before computation. The prior rarity artifact scores
+  only 6 of 76 fact-bearing episodes and exposes three variants without a
+  registered primary or episode aggregation. No registered branch covers that
+  state. The vocabulary alternative remains unresolved and chained retrieval
+  is **not authorized**. See `RD_001_report.md`.
 
 **Measurement correction applied before the outcome was accepted:** the
 no-regression numerator was keyed on `(turn, item)` while its denominator
@@ -484,7 +491,12 @@ eviction work in `CC_001`?
 
 ---
 
-*Opened July 29, 2026. Revision 9, August 1, 2026 - post-promotion diagnostics
+*Opened July 29, 2026. Revision 10, August 3, 2026 - RD-001 recovers the full
+119-episode cosine ordering but stops before correlation because unchanged
+rarity scores exist for only 6 of 76 fact-bearing episodes across three
+unregistered variants. No coefficient is computed, no registered branch
+applies, and chained retrieval remains unauthorized. Revision 9, August 1,
+2026 - post-promotion diagnostics
 recorded against E005 without reopening it. DR-002 finds cosine ordering is the
 wrong prior for the enumeration probe and the candidate pool binds on both facts
 and domains. DX-001 localizes the entire remaining oracle gap to one in-pool
