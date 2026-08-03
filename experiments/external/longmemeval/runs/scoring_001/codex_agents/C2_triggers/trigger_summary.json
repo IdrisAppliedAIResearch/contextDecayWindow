@@ -1,0 +1,58 @@
+{
+  "record": "EC-001 H1-H5 trigger computation",
+  "head": "f15b04017e2a4206c7e531e8db18ce79ee4e6db2",
+  "family_ids": [
+    "codex-gpt54",
+    "mistral-local",
+    "phi-local"
+  ],
+  "question_count": 140,
+  "trigger_counts": {
+    "H1": 0,
+    "H2": 6,
+    "H3": 0,
+    "H4": 0,
+    "H5": 14
+  },
+  "trigger_membership": {
+    "H1": [],
+    "H2": [
+      "EC1-01c3a21f0bde1198",
+      "EC1-62797b3303311839",
+      "EC1-95230a69e9e3db8d",
+      "EC1-9817fb8d2eb91670",
+      "EC1-e3d8f1b6c1d9e3df",
+      "EC1-fb0be3968c9c17da"
+    ],
+    "H3": [],
+    "H4": [],
+    "H5": [
+      "EC1-0396b14669396a28",
+      "EC1-0bd8c4704a815dc2",
+      "EC1-16011c20767d7979",
+      "EC1-176ef9f4715f19a6",
+      "EC1-4a34f844bd7b2351",
+      "EC1-5795f47a77dab83c",
+      "EC1-5b15f5ee7ef720c2",
+      "EC1-66febfbce6225377",
+      "EC1-6f282eb10f94848e",
+      "EC1-95f74c757ccbd358",
+      "EC1-9bdb31738cb206ec",
+      "EC1-cd3a62bfdee302f4",
+      "EC1-d6b56602cb6fc4ed",
+      "EC1-d6e414785e066f9e"
+    ]
+  },
+  "triggered_item_count": 20,
+  "unanimous_non_h1_count": 134,
+  "h5_population_rule": "ceil(10% of unanimous non-H1 items), minimum one",
+  "h5_family_labels_revealed_to_packet": false,
+  "packets_sha256": "612097791f2fcfee029e062f104aa28e1b8e12a63ec3dde89853fd0335f9f95f",
+  "rater_output_sha256": {
+    "rater_phi.jsonl": "a1064ceb9c22e5b48e49eec2f9b3b878670cc4f77da2b7b70b7bc9d5a9df756f",
+    "rater_mistral.jsonl": "e309e57f9023de34591309365b57fe26f750175bfa0aa0f144d43736cbb4abb5",
+    "C1_rater.jsonl": "a18658d116f658219979cf809fb6fa89c88df8f3d7a0f98000d533d0ab086d16"
+  },
+  "h1_h2_packets_sha256": "fcbeae76301d7c2c1d322108e17202a7d773e4982edf02addb1d09f81e355d9d",
+  "h5_packets_sha256": "f4b476412d8d2e2890d8f14193f95eec668fe9460f26a107bbd851bd405cb06b"
+}
