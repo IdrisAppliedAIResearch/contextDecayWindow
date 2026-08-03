@@ -57,16 +57,19 @@ loop somewhere before ten thousand.
 
 - One conversation corpus, one model, one machine, one seed. No error bars
   anywhere, and no comparison against any published system.
-- The final configuration was **never run live.** Every count here measures
-  whether a fact was *present in the window*, not whether the model answered
-  correctly.
+- Every selection count here measures whether a fact was *present in the
+  window*, not whether the model answered correctly. **Those are not the same
+  property, and one live run showed them moving in opposite directions**: the
+  final configuration made six more facts available offline, then scored *lower*
+  than the baseline on questions asking for one specific fact. It is **not
+  promoted**.
 - The breadth findings rest on a single enumeration question.
 
 Two images carry the argument between them. Figure 1 is the budget claim: the
 target is affordable and deployed selection spent everything without reaching
-it. Figure 3 is the ordering claim, and it is the one drawn at the resolution
-the committed record allows — 16 of 119 points, with its key readings as
-annotations rather than plotted data.
+it. Figure 3 is the ordering claim. RD-001 recovered the complete 119-episode
+ordering under the pinned embedding call, so the figure now shows every
+eligible episode rather than the 16 ranks available when the paper was drafted.
 
 ---
 
@@ -105,10 +108,14 @@ reweighting closes.
 Capacity was never the constraint. An exact optimum on the same store makes 14
 of 17 items available in 5,058 of 32,000 characters; deployed selection made 6
 available while spending 31,946. These are availability counts measured offline
-against a planted answer key, and the resulting configuration was never run
-live. What remains after every one of those removals is an append-only store, a recency
-window, similarity retrieval, and a coverage objective, with no generative model
-calls in the memory path — a design that is reproducible and free of generated
+against a planted answer key. Tested live once, the configuration did not
+promote: its six-item availability advantage produced a one-item gain in
+correctly attributed answers and a 2.0 loss on targeted probes, failing its own
+pre-registered no-regression bar.
+
+What remains after every one of those removals is an append-only store, a
+recency window, similarity retrieval, and a coverage objective, with no
+generative model calls in the memory path — a design that is reproducible and free of generated
 intermediate text because the removed components were the ones that produced it.
 
 ---
@@ -280,9 +287,11 @@ Two results from that table carry the argument forward.
 five attempts to decide, at write time, what deserves remembering. Each
 optimized a proxy satisfiable without the property it certified. The terminal
 diagnosis is specific: density, the best write-time salience signal, ranks the
-six hardest planted facts between 89th and 316th, and word-level inverse
-document frequency ranks them worse. These are facts like *photophores* and
-*ultramarine glaze* — rare technical phrases whose component words are common.
+six hardest planted facts between 89th and 316th. A later IDF audit did not
+establish a replacement: its three unregistered variants disagree, and one of
+the six spans remains ineligible under every variant. These are facts like
+*photophores* and *ultramarine glaze* — rare technical phrases whose component
+words are common.
 
 **Moving selection to query time did not recover it.** The bakeoff registered
 that repair as its central premise and refuted it. The best registered
@@ -353,8 +362,18 @@ recovering those four episodes, therefore consists of delivering the
 conversation's own earlier mistakes with the correct nouns in them. The
 decomposition survives this — it concerns which episodes get selected, not
 whether they are true — but "makes 15 of 17 available" and "would help the model
-answer correctly" are further apart than an availability count suggests, and
-nothing in this program measured the distance.
+answer correctly" are further apart than an availability count suggests.
+
+**That distance has since been measured once, and it is large.** LV-001 ran the
+shipping configuration and the deployed baseline live over this corpus at one
+seed. The six-item offline availability advantage became a **one-item**
+difference in correctly attributed answers, while targeted accuracy moved the
+*other* way: the shipping configuration scored 1.5 of 8 against the baseline's
+3.5. Asked for the two formatting rules planted in turns 1 and 2, it reported
+that it could not see the start of the conversation at all — the coverage
+objective had spent its budget on domain spread. Offline, the same
+configuration preserved 16 of 16 targeted items. Availability was preserved;
+answers were not. §8.6 carries the consequence.
 
 ### 5.2 The candidate pool binds first
 
@@ -532,9 +551,9 @@ arithmetically unreachable promotion route. Not Study 007, where the model used
 all 10 delivered facts and seven required facts were simply absent from the
 store. It is contradicted by the bakeoff's routing oracle, which assumed perfect
 selection and still ceilinged at 6.09%, and by widened raw short-term memory,
-which delivered all six formation-blind facts — the ones density and inverse
-document frequency both missed — with no selection filter at all, the model
-using five correctly.
+which delivered all six formation-blind facts — the ones density missed and
+the later three-variant IDF audit did not consistently rescue — with no
+selection filter at all, the model using five correctly.
 
 One limit decides how much §5.2.1 can carry: the comparison is **eight probes
 against one**. The program has exactly one enumeration question, so the entire
@@ -548,7 +567,7 @@ program built for breadth all ran downstream of the ordering that probe
 exposes.** It unifies the breadth failures. It does not unify the program, and
 it does not yet describe a category of query.
 
-#### 5.5.1 The cheapest test of whether this is a corpus artifact
+#### 5.5.1 What the corpus-artifact test now requires
 
 The program's own description of its hardest facts is that they are rare
 technical phrases whose component words are common. That is a *lexical*
@@ -557,13 +576,34 @@ such a span far from a query phrased in ordinary words. If that is the
 mechanism, §5.2.1 is a finding about this corpus's planted vocabulary and
 generalizes only to corpora whose target facts are similarly distinctive.
 
-The discriminating measurement is cheap and was not run: correlate each
+RD-001 pre-registered that discriminating measurement: correlate each
 fact-bearing episode's cosine rank against the lexical rarity of its key
-phrases, on the committed store. The ranks and the phrases are both already
-committed, and the program has rarity scores from an earlier audit. **If rank
-tracks rarity, the inversion is vocabulary. If it does not, the corpus objection
-weakens considerably.** This is the single measurement that would most change
-how much weight §5.2.1 deserves.
+phrases. It recovered all 119 ranks under the pinned E005 embedding call, but
+then stopped before computing a coefficient. The earlier rarity artifact does
+not score the registered population: it has three variants for only 6 of the
+76 fact-bearing episodes, with no primary variant and no phrase-to-episode
+aggregation. The other 70 have no unchanged committed rarity score.
+
+The three variants also do not support the paper's earlier shorthand that "IDF
+ranks them worse." Mean content-word IDF ranks all five eligible hard-plant
+spans worse than density; maximum IDF improves two of five, and summed IDF per
+word improves one. The sixth span is unranked because the audit retained an
+entity-or-number eligibility filter. No variant was designated primary. The
+categorical claim is corrected in `ERRATA.md`.
+
+**This is a measurement failure, not a null.** Choosing a variant, extending it
+to 70 episodes, or defining an aggregation after the decision rule would decide
+the result through unregistered choices. No Spearman coefficient or confidence
+interval was computed, no registered branch fired, and the vocabulary
+alternative remains unresolved. The full rank recovery strengthens the
+descriptive ordering in Figure 3; it does not tell us why that ordering occurs.
+
+Completing the test needs no embedder replay, but it is not free recovery. It
+requires a prospective RD-002 that fixes one rarity formula and one
+phrase-to-episode aggregation, then computes 70 new corpus-statistic rows. That
+design would be registered after the cosine ranks were known, a weaker
+epistemic position than the original paper implied and one the result would
+need to state.
 
 ### 5.6 The three constraints, and why the order is forced
 
@@ -617,11 +657,18 @@ either.
 
 ## 6. What survives
 
-**None of this section was run live.** The 12 of 17 result is offline
-availability, registered outcome PROMOTION_ELIGIBLE, meaning it may be promoted
-to a live study and has not been. No inference run of the shipped configuration
-exists, so nothing here reports what a model scored with it. The component-level
-guarantees below are tested; the retrieval result they carry is not.
+**The 12 of 17 is offline availability, and it has now been tested live — it did
+not promote.** LV-001 ran the shipping configuration against the deployed
+baseline over this corpus at one seed. The six-item offline advantage produced a
+one-item live difference in correctly attributed answers, and the configuration
+scored **2.0 lower on targeted probes** than the baseline it was meant to
+replace — failing its own pre-registered no-regression bar by four times the
+tolerance. Its registered status is **not promoted**.
+
+What survives below is unaffected. The component guarantees are tested, and §5's
+decomposition concerns which episodes reach the window, not what a model does
+with them once they are there. What LV-001 removes is the assumption that the
+second follows from the first (§5.1.1, §8.6).
 
 ### 6.1 What was removed
 
@@ -640,7 +687,8 @@ study, and some outlived the study that first weakened them.
 | Query segmentation | Improved its matched-budget baseline from 6/17 to 10/17 and still failed its locked 14/17 bar |
 | Attention-derived term selection | Run as an oracle over 714 candidate cue rows: 0 reached the retrieval threshold |
 | Entity extraction as primary index | Zero entities in the target span |
-| Density and inverse document frequency for formation | Rank the six hardest facts 89th–316th, and worse |
+| Density for formation | Ranks the six hardest facts 89th–316th |
+| Inverse document frequency for formation | Three unregistered variants disagree; no family-level negative result |
 | Rule detection and persistence | Failed at 1,000-turn scale |
 
 ### 6.2 What remains
@@ -875,23 +923,46 @@ reasonable prior is that §5's specific numbers are embedder-dependent.
 
 **8.5 Planted facts may not represent natural conversation.** The corpus is
 constructed, and §5.5.1 gives a specific reason to suspect the inversion is a
-property of the planted vocabulary rather than of retrieval, along with the
-cheap measurement that would discriminate. It was not run.
+property of the planted vocabulary rather than of retrieval. RD-001 recovered
+all 119 ranks but stopped before correlation: unchanged rarity scores cover
+only 6 of 76 fact-bearing episodes, across three variants with no registered
+primary or episode aggregation. Completing the test requires 70 new rarity
+measurements under a prospectively fixed formula and aggregation, registered
+after the ranks were known. The artifact alternative therefore remains open.
+*Settled by:* that explicitly post-rank RD-002 design, or an external corpus
+this program did not construct.
 
 **8.6 Availability is not correctness, and the known optimum is mostly prior
 answers.** §5.1.1 in full: four of five optimum episodes are prior probe
 exchanges, this probe's earlier answers were largely wrong, and an item counts
 as available if its text appears — however wrong the surrounding response.
 
-This is the paper's largest structural weakness, and unlike the others it has a
-defined remedy rather than an aspiration. *Settled by:* **LV-001**, a
-pre-registered two-arm live run of the shipping configuration against the
-deployed baseline at one seed
-(`experiments/components/live_validation/LV_001_pre_registration.md`). Its
-thresholds and both reporting outcomes are fixed in advance, including what this
-paper must change if the offline advantage fails to convert. The design is
-committed; the run needs a runtime this repository does not carry, and has not
-been authorized.
+This was the paper's largest structural weakness. **It has now been measured,
+and the weakness is real.** LV-001 pre-registered a two-arm live run of the
+shipping configuration against the deployed baseline over this corpus at one
+seed, fixing its thresholds and both reporting outcomes before any number
+existed. It ran, and it returned:
+
+| Registered bar | Result |
+|---|---|
+| **B1** — does the offline advantage convert? | **WEAK.** Six-item offline gap became +1 correctly attributed item, inside the band the design called noise |
+| **B2** — no targeted regression, tolerance 0.5 | **FAIL.** The shipping configuration scored 1.5 of 8 against the baseline's 3.5, a 2.0 shortfall |
+
+B2 was registered as a kill: *"A B2 failure kills the promotion regardless of
+B1."* The configuration's status is therefore **not promoted**.
+
+The mechanism is legible. Asked for the two formatting rules planted in turns 1
+and 2, the shipping configuration reported that it could not see the start of
+the conversation — the coverage objective had spent its budget on domain spread
+and stopped carrying the opening, which per-item cosine ranking had retained.
+Offline, that same configuration preserved 16 of 16 targeted items. **Preserving
+an item's availability and preserving the answer that depends on it are not the
+same property**, and this program had measured only the first.
+
+One run, one seed, one rater where the protocol asks for three. The −2.0 is as
+unreplicated as the +1. Full detail, including the fabrication both arms
+produced on the domain neither retrieved, is in
+`experiments/components/live_validation/LV_001_report.md`.
 
 **8.7 Amendments exist after results.** Twelve in the bakeoff alone. The program
 records per amendment whether it preceded the result it affects, and applies a
@@ -899,12 +970,16 @@ legitimacy test permitting corrections to measurement units and protocol
 contradictions while forbidding making a criterion easier once results are
 known. The record is published so a reader can disagree with individual calls.
 
-**8.8 Figure 3 is drawn at the resolution the artifacts support.** Per-episode
-cosine ranks were committed for 16 of the 119 candidates; the rest were never
-committed, and recomputing them requires the carried embedder under the batched
-call shape of §7.2, which is not in the repository. The structural readings the
-figure annotates are committed values, but the full curve is not drawn because
-it cannot be drawn honestly.
+**8.8 Figure 3 now has the full ordering; the rarity join still fails.** When
+the paper was drafted, per-episode cosine ranks were committed for 16 of 119
+candidates. RD-001 recovered all 119 under E005's pinned nine-query call and
+replayed those 16 checks with only the already-published turn-118 correction
+from rank 21 to rank 20. Figure 3 now plots the full ordering. That recovery does
+not repair the proposed rarity test: the prior audit scores six source episodes,
+not the 76-episode population, so no correlation is reported. A provenance
+audit also finds that no IDF variant was primary: only mean IDF ranks all five
+eligible hard-plant spans worse than density, while maximum and summed-per-word
+IDF each improve at least one.
 
 ---
 
@@ -940,9 +1015,10 @@ the four highest-cosine episodes carried none of the target facts and the last
 needed item sat at rank 87 of 119 — while the same ordering placed every needed
 item inside rank 2 on all eight lookup probes. One probe cannot establish that
 enumeration queries are a category with different retrieval needs. It is enough
-to make the question worth asking on a corpus this program did not build, and
-§5.5.1 names the cheaper measurement that would first tell us whether the effect
-is about retrieval or about the vocabulary these facts were planted in.
+to make the question worth asking on a corpus this program did not build.
+§5.5.1 records why the proposed in-corpus measurement could not answer whether
+the effect is about retrieval or about the vocabulary these facts were planted
+in.
 
 The program's own summary of eleven efforts is that the model used what it
 received. At the hardest probe it used all ten available facts and invented
@@ -998,12 +1074,11 @@ still-needed item does not appear until rank 87. The five episodes of the
 15-fact known optimum are marked at ranks 14, 20, 22, 86 and 112. Both art
 contributors lie at ranks 50 and 86, so the deployed 34-episode pool contains no
 art episode and cannot reach four domains at any setting; the 100-episode pool
-excludes the rank-112 episode carrying four monetary items. Only the 16 episodes
-whose ranks are committed are plotted — the 15 selected plus the rank-112 miss;
-ranks for the other 103 were never committed (§8.8). The rank-4, rank-5 and
-rank-87 readings are committed structural values drawn as annotations, not
-inferred from the plotted points. Sources: `selection_ranks.csv`
-`6fdff4022997ab83`, `cost_comparison.csv` `1ca40da99315c719`,
+excludes the rank-112 episode carrying four monetary items. The first version
+plotted only the 16 ranks then available. RD-001 now plots all 119 after
+replaying the pinned E005 embedding call (§8.8). Sources:
+`full_rank_inventory.csv` `7d8874f54d8e9729`, `q11_selection.jsonl`
+`71d7d1a6f4d46d23`, `cost_comparison.csv` `1ca40da99315c719`, and
 `generality_batched.json` `7e1fa13ef71a8077`; rank 20 supersedes the published
 21 per `ERRATA.md`, 2026-08-01.
 

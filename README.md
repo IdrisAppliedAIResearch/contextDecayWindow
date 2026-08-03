@@ -13,7 +13,7 @@ every claim carries its committed artifact, and one headline number
 
 Ten pre-registered studies test that question, each adding one memory component and fixing the prior study's documented failures. Every result is published as found.
 
-> **Status:** Study 010 stopped at G2; exploratory continuation unaudited and LTM budget-noncompliant | retrieval bakeoff complete | retrieval mechanism ledger reopened for Family CS; E005 diversity-aware selection PROMOTION_ELIGIBLE offline at 12/17 across 4/4 domains, DX-001 closes the turn-90 miss NO CHANGE with the residual localized to the relevance term, F1 open but materially advanced, F2 closed, F3 open | CC-002 extracts the deployable component into the installable `episodic` package with byte-identical replay through the library (T1–T7 pass) | deployment closeout complete: DX-002 returns Branch B and names the unbudgeted STM block, CC-003 makes the budget a hard ceiling with the operating point unchanged, CC-004 tests restart against real process kills, CC-005 states unbounded retention and corrects the latency range to 20–119 measured candidates | renderer fix complete | Q4 packing diagnostic; Branch D invalidated | scoring/interpretation record corrected through 2026-08-02
+> **Status:** Study 010 stopped at G2; exploratory continuation unaudited and LTM budget-noncompliant | retrieval bakeoff complete | retrieval mechanism ledger reopened for Family CS; E005 is killed by LV-001's live targeted-regression bar, DX-001 closes NO CHANGE, and RD-001 stops before correlation because unchanged rarity scores cover only 6/76 fact-bearing episodes; chained retrieval is not authorized | CC-002 extracts the deployable component into `episodic` | deployment closeout complete | PAPER-001 revised through RD-001 | scoring/interpretation record corrected through 2026-08-03
 
 ## The Problem
 
@@ -130,10 +130,25 @@ rather than tuned away**, and the objective question escalates to a proposed,
 unauthorized study. The pool decides what can be seen; the objective decides
 what is worth taking; each now binds on a different part of the gap.
 
+RD-001 then tested the paper's cheapest corpus-artifact alternative. It
+recovered the complete 119-episode cosine ordering under the pinned E005
+embedding call, but stopped before correlation: the earlier rarity audit has
+unchanged scores for only 6 of the 76 fact-bearing episodes, with three variants
+and no registered primary or episode aggregation. This is a measurement-unit
+failure, not a null. The vocabulary explanation remains unresolved, and E006's
+conditional chained-retrieval Part 2 is not authorized.
+
+A provenance follow-up also withdraws the categorical claim that IDF ranked the
+hard plants worse than density. Mean IDF did so for all five eligible spans, but
+maximum IDF improved two and summed IDF per word improved one; no variant was
+registered as primary. See `ERRATA.md`.
+
 See `experiments/components/retrieval_mechanism_ledger/RETRIEVAL_MECHANISM_LEDGER_REPORT.md`,
 `experiments/components/retrieval_mechanism_ledger/artifacts/ar_001/AR_001_report.md`,
 `experiments/components/retrieval_mechanism_ledger/E005_POSTHOC_INTERPRETATION.md`,
 and `experiments/components/retrieval_mechanism_ledger/DX_001_PART2_DISPOSITION.md`.
+RD-001 is recorded in
+`experiments/components/retrieval_mechanism_ledger/RD_001_report.md`.
 
 ## The Extracted Library
 

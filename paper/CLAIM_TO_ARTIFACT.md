@@ -60,10 +60,14 @@ Verified against two independently published values: `e005_results.json`
 | R29 | `…/deployment_closeout/CC_005_report.md` | `9c4d93ef` | `af2b07da813c95a7` |
 | R30 | `…/audits/scoring_integrity/corrected_scores/arm_totals.json` | `3bb340f8` | `443282df34a3a4ba` |
 | R31 | `…/surveys/retrieval_bakeoff/retrieval_bakeoff_report.md` | `4e98a676` | `681208a78d12f591` |
-| R32 | `ERRATA.md` | `9c4d93ef` | `a5aa4771d37f1272` |
+| R32 | `ERRATA.md` | `4485d640` | `19dd4abaf4a57377` |
+| R33 | `…/artifacts/rd001/full_rank_inventory.csv` | `765f48e8` | `7d8874f54d8e9729` |
+| R34 | `…/artifacts/rd001/measurement_feasibility.json` | `765f48e8` | `cfdb5155854686c8` |
+| R35 | `…/artifacts/rd001/rank_replay.json` | `765f48e8` | `c12448b1a6ce893e` |
+| R36 | `…/RD_001_RARITY_PROVENANCE_AUDIT.md` | `4485d640` | `9c10690001f50fd8` |
 
-Path prefix `…` is `experiments/components/retrieval_mechanism_ledger` for R1–R21
-and `experiments/components` for R22–R29.
+Path prefix `…` is `experiments/components/retrieval_mechanism_ledger` for
+R1–R21 and R33–R36, and `experiments/components` for R22–R29.
 
 ---
 
@@ -118,7 +122,7 @@ and `experiments/components` for R22–R29.
 | C37 | T5 ANN | recall degraded at synthetic scale | R31 Tier 5 | VERIFIED |
 | C38 | Widened raw STM, formation-blind facts | 6/6 available, 5/6 used correctly | R31 §Primary Positive Result | VERIFIED |
 | C39 | 8/17 and 13/17 measure different objects | offline single-block content vs live end-to-end answer; different denominators | R31 §Reconciling | VERIFIED — the paper must not present 13/17 as overturning 8/17 |
-| C40 | Density ranks the six hardest plants 89th–316th; IDF worse | — | R21 §3 F4, §6 | VERIFIED |
+| C40 | Density ranks the six hardest plants 89th–316th; the three IDF variants disagree | mean 5/5 eligible spans worse; max 3/5 worse and 2/5 better; sum/word 4/5 worse and 1/5 better | R32, R36 | CORRECTED — no primary IDF variant was registered; family-level negative claim withdrawn |
 | C41 | Study 003's weighted promotion route was structurally unreachable | all promotion via bypass | `AGENTS.md` digest 003 | VERIFIED |
 | C42 | Topic layer | 52 topics at 120 turns; 12 domains → 2 at 1,000 | `AGENTS.md` digests 002, 010 | VERIFIED |
 | C43 | Study 007 | model used 10 of 10 delivered facts, invented none; 7 required facts absent | `AGENTS.md` digest 007 | VERIFIED |
@@ -200,7 +204,8 @@ and `experiments/components` for R22–R29.
 | C91 | Runtime independence unmeasured | one model, one quantization, one machine | R29 §6 | VERIFIED |
 | C92 | Horizon limit | 1,000 turns says nothing about 10,000 | R22 §Boundary; R28 §5 | VERIFIED |
 | C93 | AI raters with AI adjudicators | final adjudication used AI reviewers, not humans | R32; `README.md` §Corrected Numbers | VERIFIED |
-| C94 | The inversion may be an artifact of corpus construction | open question | — | **HYPOTHESIS** — stated as an open question in §8.5 with the experiment named; no artifact claimed |
+| C94 | The inversion may be an artifact of corpus construction | unresolved; RD-001 stopped before correlation | R34 | VERIFIED AS UNRESOLVED — unchanged rarity scores cover 6/76 fact-bearing episodes across three variants; no coefficient or branch verdict |
+| C95 | Full Q11 cosine ordering recovered under the pinned call | 119/119; 16-rank replay PASS with known 21→20 correction | R33, R35 | VERIFIED |
 
 ---
 

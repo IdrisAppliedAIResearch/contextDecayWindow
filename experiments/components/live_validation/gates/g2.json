@@ -1,0 +1,32 @@
+{
+  "gate": "G2",
+  "certifies": "the same prompt under the registered seed produces a byte-identical generation across repeated calls",
+  "server": "http://127.0.0.1:8080",
+  "repeats": 3,
+  "compared": "generated content only, not the prompt or retrieval block",
+  "runs": [
+    {
+      "run": 1,
+      "chars": 5794,
+      "tokens_predicted": 1171,
+      "sha256": "4b2f401a062dcbba5bdbc08fb6f8ed5b8d100471c59d999b4bd6f54d3a54a539"
+    },
+    {
+      "run": 2,
+      "chars": 5794,
+      "tokens_predicted": 1171,
+      "sha256": "4b2f401a062dcbba5bdbc08fb6f8ed5b8d100471c59d999b4bd6f54d3a54a539"
+    },
+    {
+      "run": 3,
+      "chars": 5794,
+      "tokens_predicted": 1171,
+      "sha256": "4b2f401a062dcbba5bdbc08fb6f8ed5b8d100471c59d999b4bd6f54d3a54a539"
+    }
+  ],
+  "distinct_digests": 1,
+  "identical": true,
+  "generation_substantive": true,
+  "min_tokens_required": 128,
+  "status": "PASS"
+}

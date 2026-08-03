@@ -1,0 +1,28 @@
+{
+  "gate": "G6",
+  "certifies": "35-turn ablation completes for both arms with no budget breach",
+  "budget_chars": 32000,
+  "arms": {
+    "l_a0": {
+      "turns": 35,
+      "max_chars": 31963,
+      "mean_chars": 24577,
+      "budget_breaches": [],
+      "empty_answers": [],
+      "turns_truncated": 23,
+      "total_output_tokens": 28072,
+      "status": "PASS"
+    },
+    "l_a3": {
+      "turns": 35,
+      "max_chars": 31191,
+      "mean_chars": 24014,
+      "budget_breaches": [],
+      "empty_answers": [],
+      "turns_truncated": 24,
+      "total_output_tokens": 23369,
+      "status": "PASS"
+    }
+  },
+  "status": "PASS"
+}
