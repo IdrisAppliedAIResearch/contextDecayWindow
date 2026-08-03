@@ -29,8 +29,10 @@ model calls anywhere in the memory path.
 2. **For "list everything about X" questions, the most similar records were the
    least useful.** The four closest matches to the question carried none of its
    answers. For ordinary lookup questions the same ranking was near-perfect.
-   That split rests on one enumeration question, and testing it elsewhere is the
-   open problem this work leaves.
+   That split rests on one enumeration question. EC-001 tested the ranking on
+   cleaned LongMemEval-S: only 14.7% of 470 answerable questions put all evidence
+   below the top four, with median evidence rank 2. The internal inversion is not
+   a dominant external pattern.
 3. **Fix order matters, and the intuitive order is wrong.** The deployed
    shortlist contained no record at all from one of the four topics, so no
    selection rule of any kind could cover all four from it. Improving the rule
@@ -55,8 +57,9 @@ loop somewhere before ten thousand.
 
 **What this does not establish.**
 
-- One conversation corpus, one model, one machine, one seed. No error bars
-  anywhere, and no comparison against any published system.
+- One internal conversation corpus and one external benchmark, still one model,
+  one machine, one seed, and no error bars. EC-001's evaluator substitution
+  forbids direct comparison against published LongMemEval systems.
 - Every selection count here measures whether a fact was *present in the
   window*, not whether the model answered correctly. **Those are not the same
   property, and one live run showed them moving in opposite directions**: the
@@ -77,8 +80,10 @@ eligible episode rather than the 16 ranks available when the paper was drafted.
 
 Eleven pre-registered attempts to build a memory layer for long conversations
 produced one architecture worth keeping and a measurable account of why the rest
-failed. This is a single-program experience report: one corpus, one model, one
-seed, no external calibration, and no error bars.
+failed. This is a single-program experience report: one internal corpus, one
+model, one seed, and no error bars. A later external stress test on cleaned
+LongMemEval-S is reported, but evaluator substitution prevents an official or
+published-system comparison.
 
 The failures share a cause that can be measured. Write-time selection failed in
 five studies because it cannot anticipate a later query. Moving selection to
@@ -90,7 +95,11 @@ corpus's one enumeration probe, is anti-correlated at the top: the four
 highest-similarity episodes carry none of its target facts and the last needed
 item does not appear until rank 87 of 119. The same ordering places every needed
 item inside rank 2 on all eight lookup probes, so this is one probe behaving
-unlike eight rather than an established property of query types.
+unlike eight rather than an established property of query types. On 470
+answerable LongMemEval-S questions, the top four ranked sessions contain no
+evidence for 14.7%, while the median evidence-session rank is 2 and the 95th
+percentile is 23. The internal inversion therefore does not generalize as a
+dominant external pattern.
 
 Separating the failure gives three constraints that bind in a forced order, and
 the order is the paper's operational result. **The candidate pool binds first,
@@ -169,12 +178,14 @@ failed parts were removed, which turned out to be small.
 ### 1.1 The category, declared
 
 This is a case study of one program, not a general-claims paper, and the
-distinction decides which sentences are permitted. The program was never
-externally calibrated: Study 003 retired external baselines in favour of
-self-comparison and nothing restored them. Every number comes from one corpus,
-one rubric locked since Study 002, one local model at one quantization, one
-machine, one seed. Every comparison is a single run, so there is no variance
-estimate anywhere and no significance test that would mean anything.
+distinction decides which sentences are permitted. Study 003 retired external
+baselines in favour of self-comparison. EC-001 later ran cleaned
+LongMemEval-S, but its substituted evaluator does not authorize an official
+score or published-system comparison. The internal decomposition still comes
+from one corpus, one rubric locked since Study 002, one local model at one
+quantization, one machine, one seed. Every comparison is a single run, so there
+is no variance estimate anywhere and no significance test that would mean
+anything.
 
 Findings below are therefore stated as *on this corpus*, and where a result
 would be worth testing elsewhere the paper names the experiment rather than
@@ -230,8 +241,10 @@ an associative graph over observed co-activation, and no configuration cleared
 its advancement gate (§4).
 
 **Deployed systems and benchmarks.** Letta, Mem0, and Zep ship in this space;
-LoCoMo and LongMemEval are the calibration this program lacks. Both groups were
-adopted in principle and never run, so this paper makes no comparison to either.
+LoCoMo and LongMemEval were the calibration this program lacked. EC-001 has now
+run the unchanged component on cleaned LongMemEval-S, but its Codex-substituted
+evaluation is not the benchmark's official score and cannot be compared
+directly with published systems. LoCoMo remains unrun.
 
 The placement is narrow: every system above consumes a candidate set produced
 upstream by similarity ranking, and this paper measures that set rather than
@@ -431,6 +444,15 @@ rank 50. That a set-level objective reaches rank 86 at all bounds the claim —
 the objective partially compensates for a bad ordering, and does not compensate
 fully.
 
+**The external test narrows this claim.** EC-001 ranked annotated evidence
+sessions for all 470 answerable cleaned LongMemEval-S questions under the
+unchanged embedder. The top four contain no evidence for 69 questions (14.7%),
+not as a general rule; across 890 evidence sessions, median rank is 2, p95 is
+23, and the maximum is 49. Multi-session questions are not the exceptional
+case: 13 of 121 (10.7%) have no evidence in the top four. The internal
+rank-87 pattern remains an exact fact about this corpus and probe, but it is not
+a dominant property of naturalistic conversational retrieval under this test.
+
 ### 5.3 The objective binds second, and only after the pool
 
 The deployed rule ranks each episode against the query independently and takes
@@ -555,17 +577,21 @@ which delivered all six formation-blind facts — the ones density missed and
 the later three-variant IDF audit did not consistently rescue — with no
 selection filter at all, the model using five correctly.
 
-One limit decides how much §5.2.1 can carry: the comparison is **eight probes
-against one**. The program has exactly one enumeration question, so the entire
-enumeration side — the top four carrying zero, the rank-87 reading, the
-registered rule firing — is a single instance, and one instance cannot establish
-a query type.
+One limit decides how much §5.2.1 can carry: the internal comparison is **eight
+probes against one**. The program has exactly one enumeration question, so the
+top-four-zero and rank-87 readings remain a single instance. EC-001 adds 121
+multi-session reasoning questions as the closest external breadth analogue, but
+they are not literal enumeration probes. They score weakly — 24.0% any-turn
+availability over all 121 and 0 of 20 correct in Tier 2 — while their top-four
+failure rate is only 10.7%. Breadth weakness therefore generalizes more readily
+than the inversion proposed to explain it.
 
 So the claim is what was measured: **on this corpus, one enumeration probe
 behaves completely unlike the eight lookup probes, and the mechanisms this
 program built for breadth all ran downstream of the ordering that probe
-exposes.** It unifies the breadth failures. It does not unify the program, and
-it does not yet describe a category of query.
+exposes.** It unifies the internal breadth failures. LongMemEval shows that
+multi-session weakness can occur without a dominant top-four inversion, so the
+ordering does not describe the external category.
 
 #### 5.5.1 What the corpus-artifact test now requires
 
@@ -595,8 +621,13 @@ categorical claim is corrected in `ERRATA.md`.
 to 70 episodes, or defining an aggregation after the decision rule would decide
 the result through unregistered choices. No Spearman coefficient or confidence
 interval was computed, no registered branch fired, and the vocabulary
-alternative remains unresolved. The full rank recovery strengthens the
-descriptive ordering in Figure 3; it does not tell us why that ordering occurs.
+alternative's cause remains unresolved. EC-001 supplies the other registered
+route: on a corpus this program did not construct, only 14.7% of answerable
+questions put all evidence below the top four. That narrows the internal
+inversion to a non-dominant pattern without identifying whether vocabulary,
+query form, history structure, or ranking granularity caused the difference.
+The full rank recovery strengthens the descriptive ordering in Figure 3; it
+does not tell us why that ordering occurs.
 
 Completing the test needs no embedder replay, but it is not free recovery. It
 requires a prospective RD-002 that fixes one rarity formula and one
@@ -889,22 +920,26 @@ move the §5 results.
 Each item names what would settle it. §5 states its own scope where it matters;
 this section is the complete list rather than a restatement.
 
-**8.1 One corpus, one seed, no variance, no calibration.** Every comparison is a
-single run at a fixed seed. There is no error bar anywhere and no meaningful
-significance test. Where this paper reports a difference — 6 of 17 against 12 of
-17, or the load-bearing 5 against 6 of §5.6 — it is one measurement against
-another. Study 003 retired external baselines and nothing restored them; LoCoMo
-and LongMemEval were adopted in principle and never run, so nothing here
-establishes where this program sits relative to published systems. Boundedness
+**8.1 One seed, no variance, and no official external comparison.** Every
+comparison is a single run at a fixed seed. There is no error bar anywhere and
+no meaningful significance test. EC-001 ran cleaned LongMemEval-S, removing the
+claim that every result is self-authored, but API unavailability replaced the
+pinned benchmark evaluator with Phi, Mistral, and hosted GPT-5.4 raters plus
+hosted GPT-5.5 AI adjudication. Its 20.0% equal-quota and 12.22%
+post-stratified results are Codex-substituted integrity scores, not official or
+benchmark-comparable LongMemEval scores. LoCoMo remains unrun. Boundedness
 claims are statements about a 1,000-turn horizon and say nothing about 10,000.
-*Settled by:* repeated runs at multiple seeds, and running one external
-benchmark.
+*Settled by:* repeated runs at multiple seeds and the official evaluator on the
+registered answers.
 
-**8.2 Breadth rests on a single probe.** The program has exactly one enumeration
-question. Every breadth number here — 6 of 17, 12 of 17, 14 of 17, the rank-87
-reading, all of §5.2.1 — comes from it. A single probe cannot support a claim
-about enumeration in general, and this paper does not make one. *Settled by:*
-more enumeration probes across more domains.
+**8.2 Literal enumeration still rests on a single probe.** Every internal
+breadth number here — 6 of 17, 12 of 17, 14 of 17, and the rank-87 reading —
+comes from one question. EC-001 adds 121 multi-session reasoning questions as
+the registered closest analogue: any-turn availability is 24.0%, and the
+equal-quota Tier 2 subset scores 0 of 20. That establishes external synthesis
+weakness under this configuration, but not that all such questions are
+enumeration or that the internal four-domain rubric generalizes. *Settled by:*
+multiple literal enumeration probes across external domains.
 
 **8.3 AI raters, AI adjudicators.** Scoring used three blind passes with
 registered adjudication triggers, but the adjudicators were subagents, not
@@ -921,16 +956,18 @@ perturbation far smaller than a model change already moves 4% of results, so the
 reasonable prior is that §5's specific numbers are embedder-dependent.
 *Settled by:* rerunning the E005 sweep under a second embedder.
 
-**8.5 Planted facts may not represent natural conversation.** The corpus is
-constructed, and §5.5.1 gives a specific reason to suspect the inversion is a
-property of the planted vocabulary rather than of retrieval. RD-001 recovered
-all 119 ranks but stopped before correlation: unchanged rarity scores cover
-only 6 of 76 fact-bearing episodes, across three variants with no registered
-primary or episode aggregation. Completing the test requires 70 new rarity
-measurements under a prospectively fixed formula and aggregation, registered
-after the ranks were known. The artifact alternative therefore remains open.
-*Settled by:* that explicitly post-rank RD-002 design, or an external corpus
-this program did not construct.
+**8.5 Planted facts do not represent the dominant external ranking pattern.**
+The corpus is constructed, and §5.5.1 gives a specific reason to suspect the
+inversion is a property of the planted vocabulary. RD-001 could not identify
+that mechanism: unchanged rarity scores cover only 6 of 76 fact-bearing
+episodes, across three variants with no registered primary or episode
+aggregation. EC-001 tests the outcome on a corpus this program did not
+construct. Only 69 of 470 answerable questions (14.7%) put all evidence below
+the top four, with median evidence-session rank 2. The dominant-generalization
+claim is therefore rejected. The cause remains open because corpus, query
+population, session ranking, and history structure all change together.
+*Settled by:* an explicitly post-rank RD-002 rarity design, or a controlled
+replay holding those other factors fixed.
 
 **8.6 Availability is not correctness, and the known optimum is mostly prior
 answers.** §5.1.1 in full: four of five optimum episodes are prior probe
@@ -981,6 +1018,15 @@ audit also finds that no IDF variant was primary: only mean IDF ranks all five
 eligible hard-plant spans worse than density, while maximum and summed-per-word
 IDF each improve at least one.
 
+**8.9 External scoring is substituted, not official.** EC-001's equal-quota
+subset scores 28 of 140 (20.0%), and post-stratification to the 500-question
+population gives 12.22%. Amendment 010 forbids placing either number directly
+against published LongMemEval results because the pinned GPT-4o evaluator was
+unavailable. Three blind family passes and 20 independent AI adjudications
+improve integrity over a single pass, but GPT-5.4 and GPT-5.5 are hosted display
+selections without immutable API snapshots, and the adjudicator is not human.
+The full boundary is in `experiments/external/longmemeval/EC_001_REPORT.md`.
+
 ---
 
 ## 9. Conclusion
@@ -995,8 +1041,8 @@ objective, with no generative model calls in the memory path. That component is
 reproducible given a pinned embedder and auditable line by line, and §6.3 argues
 both properties followed from the removals rather than from foresight. If a
 memory component in your system makes generative calls, this program's
-experience is that they bought less than they cost — on one corpus, with no live
-comparison run.
+experience is that they bought less than they cost — on one internal corpus,
+with one later external stress test that is not a published-system comparison.
 
 For a researcher, the useful part is the decomposition and the order inside it.
 Retrieval failure here was not one thing. The candidate pool decided what could
@@ -1009,16 +1055,16 @@ because the alternative is impossible. Separating the three required a per-fact 
 the same store — a measurement costing an answer key and exact cost accounting,
 and buying a sharper question than an end-to-end score.
 
-The observation most worth testing elsewhere is the narrow one, and it is a
-single instance. On this corpus, for the one enumeration probe this program has,
+The observation was tested elsewhere and narrowed. On the internal corpus, for
+the one enumeration probe this program has,
 the four highest-cosine episodes carried none of the target facts and the last
 needed item sat at rank 87 of 119 — while the same ordering placed every needed
-item inside rank 2 on all eight lookup probes. One probe cannot establish that
-enumeration queries are a category with different retrieval needs. It is enough
-to make the question worth asking on a corpus this program did not build.
-§5.5.1 records why the proposed in-corpus measurement could not answer whether
-the effect is about retrieval or about the vocabulary these facts were planted
-in.
+item inside rank 2 on all eight lookup probes. On cleaned LongMemEval-S, only
+14.7% of answerable questions put all evidence below the top four, and
+multi-session questions fail end-to-end without showing a stronger inversion.
+The internal result remains real, but it is not the dominant external pattern.
+§5.5.1 records why neither the failed rarity join nor this multi-factor external
+comparison identifies whether planted vocabulary caused the difference.
 
 The program's own summary of eleven efforts is that the model used what it
 received. At the hardest probe it used all ten available facts and invented

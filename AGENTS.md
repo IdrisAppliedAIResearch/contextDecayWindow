@@ -58,9 +58,11 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **LV-001 (2026-08-02).** RUN. B1 WEAK, B2 FAIL, **promotion killed on its own pre-registered bar**. The 6-item offline availability gap became +1 correctly attributed item live; targeted fell 3.5->1.5 against a 0.5 tolerance. A3 dropped turns 1-2 and could not state the formatting rules; offline it preserved 16/16. Availability is not the answer. Both arms fabricated the unretrieved art domain.
 
-**PAPER-001 (2026-08-03).** DRAFT, revised through RD-001. The forced pool/objective/floor decomposition stands. Figure 3 now uses all 119 recovered ranks. The proposed rarity correlation was not identifiable: committed rarity covers 6/76 episodes, so the corpus-artifact alternative remains unresolved. Source is `paper/PAPER_001.md`; figures and PDF are generated.
+**EC-001 LongMemEval (2026-08-03).** COMPLETE, Codex-substituted only. On 470 answerable items, top-4 held no evidence for 14.7%; exact-turn availability was 16.8%. Tier 2: 28/140 raw, 12.22% post-stratified; gap -2.54 pp. Multi-session and temporal 0/20; abstention 17/20 despite 0 component signals. Not an official benchmark score.
 
-**Retrieval mechanism ledger (2026-07-31).** CLOSED. E002 KILL but exact-32k segmentation improved 6/17->10/17. AR-001 proves F1 achievable: exact 14/17 costs 5,058 chars; 17/17 costs 7,592. E001 best-found .1204->.2103; 0/714 reached K=.48 and 266/384 heads was non-sparse. F2 closed; F3 open; E003 unauthorized.
+**PAPER-001 (2026-08-03).** DRAFT, revised through EC-001. The forced pool/objective/floor decomposition stands. LongMemEval shows the internal inversion is not dominant: top-4 lack evidence on 14.7%, with median evidence rank 2. The corpus-artifact cause remains unresolved. Source is `paper/PAPER_001.md`; figures and PDF are generated.
+
+**Retrieval mechanism ledger (2026-08-03).** CLOSED. E002 KILL but exact-32k segmentation improved 6/17->10/17. AR-001 proves exact 14/17 costs 5,058 chars. E001 best-found .1204->.2103; 0/714 reached K=.48. F2 closed. EC-001 measures F3 externally: 0/500 component absence signals, but reader abstention 17/20. E003 unauthorized.
 
 ## 3. Failure Pattern
 

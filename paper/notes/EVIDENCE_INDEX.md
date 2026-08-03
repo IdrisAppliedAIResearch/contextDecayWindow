@@ -253,13 +253,26 @@ differently from the spec, per §1 above.
 | Item | Value | Artifact |
 |---|---|---|
 | No error bars anywhere | every comparison single-run, one seed | program-wide; `AGENTS.md` runtime rules |
-| No external calibration | Study 003 retired baselines; LoCoMo/LongMemEval adopted in principle, never run | `RETRIEVAL_MECHANISM_LEDGER.md` |
-| One breadth probe | Q11 is the program's only enumeration question | `DR_002_report.md` §3.5 |
+| External calibration boundary | LongMemEval-S run in EC-001; LoCoMo unrun; substituted evaluator forbids official comparator score | `external/longmemeval/EC_001_REPORT.md` §§1,7 |
+| One literal breadth probe | Q11 is the program's only enumeration question; LongMemEval multi-session is an analogue, not an identical task | `DR_002_report.md` §3.5; `EC_001_REPORT.md` §6 |
 | AI raters, AI adjudicators | self-consistency 97.47%, control disagreement 11.54% | `audits/scoring_integrity/` — **verify 97.47 before use** |
 | Oracle contains prior probe answers | 4 of 5; registered rule is `source_turn < 120` | `artifacts/e005/prior_answer_fraction.csv` — **verify before use** |
 | Amendments | 12 in the bakeoff alone, each with a per-amendment "before results?" column | `retrieval_bakeoff_report.md` §Amendment Legitimacy |
 | O6 runtime independence unmeasured | one model, one quant, one machine | `CC_005_report.md` §6 |
 | Horizon | 1,000 turns says nothing about 10,000 | `DX_002_report.md`, `CC_003_report.md` boundaries |
+
+### EC-001 external calibration
+
+| Measurement | Value | Artifact |
+|---|---|---|
+| Primary rank result | top four contain no evidence on 69/470 (14.7%); median evidence-session rank 2, p95 23, max 49 | `external/longmemeval/EC_001_REPORT.md` §2; `runs/tier1_001/tier1_summary.json` |
+| Tier 1 exact-turn availability | any 79/470 (16.8%); all 20/470 (4.3%) | `EC_001_REPORT.md` §3; `tier1_summary.json` |
+| Tier 2, equal quota | 28/140 (20.0%) | `EC_001_REPORT.md` §4; `codex_integrity_score_summary.json` |
+| Tier 2, post-stratified | 12.22% | same |
+| Exact availability gap | 8/118 available vs 11/118 correct; −2.54 percentage points | `EC_001_REPORT.md` §5; `codex_integrity_score_summary.json` |
+| F3 absence detection | 0/500 component signals; reader correct on 17/20 abstention items | `EC_001_REPORT.md` §§4,6 |
+| Instrument audit | 358 registered predicate hits; not 358 adjudicated defects | `EC_001_REPORT.md` §8; `instrument_audit.json` |
+| Reporting boundary | Codex-substituted integrity only; no official or direct published-system comparison | `AMENDMENT_010_two_hosted_replacements.md`; `EC_001_REPORT.md` §7 |
 
 ---
 
