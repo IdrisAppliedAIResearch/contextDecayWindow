@@ -1,0 +1,128 @@
+{
+  "record": "EC-001 Tier 2 runtime lock",
+  "locked_utc": "2026-08-03T18:56:16.0872452Z",
+  "registration_sha": "b595b05e1469c67277844d4bd97f77c89a20772b",
+  "adaptation_sha": "a65c2566e55a2063bd1904065032f86c5d0e23a9",
+  "amendment_004_sha": "37864822e4c429412b81f67db8af4af804308b8f",
+  "tier1_score_commit": "08e90fa3",
+  "tier1_mechanism_commit": "7511ebc8",
+  "seed": 5005,
+  "parallel": 1,
+  "speculative_decoding": false,
+  "reader": {
+    "model_family": "qwen",
+    "model_id": "Qwen3.6-27B-UD-Q6_K_XL",
+    "model_path": "C:\\Users\\muzaf\\.cache\\huggingface\\hub\\models--unsloth--Qwen3.6-27B-MTP-GGUF\\snapshots\\5cb35eb3dcbf52dbce5f87dbc64df6aaffadcace\\Qwen3.6-27B-UD-Q6_K_XL.gguf",
+    "model_sha256": "f3b4a622e06e8ade06ec5c0eb9b40ed7c9bd707b5fada46c0215f4ab4a6bc32b",
+    "model_bytes": 26015429760,
+    "model_alias": "Qwen3.6-27B-UD-Q6_K_XL.gguf",
+    "server_binary": "C:\\Users\\muzaf\\.unsloth\\llama.cpp\\build\\bin\\Release\\llama-server.exe",
+    "server_sha256": "3827a6b634a88073dc63b97edf6e0dc575d33ecf58268803ece0ed23216095fa",
+    "server_build_info": "b9294-0f3cb3fc8",
+    "response_budget_tokens": 2048,
+    "context_size_tokens": 50176,
+    "launch_arguments": [
+      "--host",
+      "127.0.0.1",
+      "--port",
+      "8080",
+      "--ctx-size",
+      "50176",
+      "--parallel",
+      "1",
+      "--cache-type-k",
+      "q8_0",
+      "--cache-type-v",
+      "q8_0",
+      "--flash-attn",
+      "on",
+      "--jinja",
+      "--metrics",
+      "--temp",
+      "1",
+      "--top-p",
+      "0.95",
+      "--top-k",
+      "20",
+      "--min-p",
+      "0",
+      "--presence-penalty",
+      "0",
+      "--repeat-penalty",
+      "1",
+      "--seed",
+      "5005"
+    ]
+  },
+  "raters": [
+    {
+      "family_id": "benchmark-gpt4o",
+      "model_family": "gpt-4o",
+      "model_id": "gpt-4o-2024-08-06",
+      "provider": "openai",
+      "api_key_env": "OPENAI_API_KEY",
+      "base_url": "https://api.openai.com/v1",
+      "seed": 5005,
+      "benchmark_protocol": true,
+      "access_gate": {
+        "status": "FAIL_HTTP_401",
+        "probed_utc": "2026-08-03T18:56:16.0872452Z",
+        "must_pass_before": "scoring"
+      }
+    },
+    {
+      "family_id": "gemma-local",
+      "model_family": "gemma",
+      "model_id": "gemma-4-E2B-it-UD-Q4_K_XL",
+      "provider": "llama_cpp",
+      "model_path": "C:\\Users\\muzaf\\.cache\\huggingface\\hub\\models--unsloth--gemma-4-E2B-it-GGUF\\snapshots\\0314792d7f1f7e229411f620751375812bb9faf2\\gemma-4-E2B-it-UD-Q4_K_XL.gguf",
+      "model_sha256": "b52f438017efaec5debf1c0d8be690571e212a07c312f1102bbce927258cfc32",
+      "model_bytes": 3184496736,
+      "model_alias": "gemma-4-E2B-it-UD-Q4_K_XL.gguf",
+      "server_binary": "C:\\Users\\muzaf\\.unsloth\\llama.cpp\\build\\bin\\Release\\llama-server.exe",
+      "server_sha256": "3827a6b634a88073dc63b97edf6e0dc575d33ecf58268803ece0ed23216095fa",
+      "server_build_info": "b9294-0f3cb3fc8",
+      "seed": 5005,
+      "context_size_tokens": 16384
+    },
+    {
+      "family_id": "mistral-local",
+      "model_family": "mistral",
+      "model_id": "mistralai-Mistral-Small-3.1-24B-Instruct-2503-Q5_K_M",
+      "provider": "llama_cpp",
+      "model_path": "C:\\Users\\muzaf\\.cache\\huggingface\\hub\\models--bartowski--mistralai_Mistral-Small-3.1-24B-Instruct-2503-GGUF\\snapshots\\f73dfd9e812922fb503a993e3fa5671424f486d3\\mistralai_Mistral-Small-3.1-24B-Instruct-2503-Q5_K_M.gguf",
+      "model_sha256": "64553a25b66927d0105c048d10cc96db31174cf05c3846885b2ad50cd4f32bb3",
+      "model_bytes": 16763985376,
+      "model_alias": "mistralai_Mistral-Small-3.1-24B-Instruct-2503-Q5_K_M.gguf",
+      "server_binary": "C:\\Users\\muzaf\\.unsloth\\llama.cpp\\build\\bin\\Release\\llama-server.exe",
+      "server_sha256": "3827a6b634a88073dc63b97edf6e0dc575d33ecf58268803ece0ed23216095fa",
+      "server_build_info": "b9294-0f3cb3fc8",
+      "seed": 5005,
+      "context_size_tokens": 16384
+    }
+  ],
+  "adjudicator": {
+    "model_family": "gpt-5",
+    "model_id": "gpt-5.2-2025-12-11",
+    "provider": "openai",
+    "api_key_env": "OPENAI_API_KEY",
+    "base_url": "https://api.openai.com/v1",
+    "seed": 5005,
+    "access_gate": {
+      "status": "FAIL_HTTP_401",
+      "probed_utc": "2026-08-03T18:56:16.0872452Z",
+      "must_pass_before": "adjudication"
+    }
+  },
+  "family_independence": {
+    "reader_excluded_from_raters": true,
+    "distinct_rater_families": [
+      "gpt-4o",
+      "gemma",
+      "mistral"
+    ],
+    "adjudicator_excluded_from_raters": true
+  },
+  "selection_rationale": "The reader preserves the standing runtime. The three raters are distinct non-Qwen architecture families; GPT-4o preserves benchmark comparability, while Gemma and Mistral provide locally available independent-family passes. GPT-5.2 is separately pinned for AI adjudication.",
+  "blocking_status": "Reader generation is authorized. OpenAI access gates must pass before GPT-4o scoring or GPT-5.2 adjudication."
+}
