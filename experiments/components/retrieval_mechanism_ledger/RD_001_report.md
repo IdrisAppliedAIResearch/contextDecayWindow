@@ -53,6 +53,16 @@ Figure 3, but the paper now states that RD-001 exposed a measurement-unit
 mismatch and left the corpus-artifact hypothesis unresolved. The paper cannot
 claim that the correlation is runnable from already-committed inputs.
 
+## Rarity-Variant Provenance Follow-up
+
+The historical audit computed `rarity_mean`, `rarity_max`, and
+`rarity_sum_per_word` but designated none as primary. Only `rarity_mean` ranks
+all five eligible hard-plant spans worse than density. The other variants
+improve two and one spans respectively; photophores remains ineligible under
+all three. The later categorical claim "IDF worse" is therefore withdrawn, not
+assigned retroactively to mean IDF. See
+`RD_001_RARITY_PROVENANCE_AUDIT.md` and `ERRATA.md`.
+
 ## Close Checklist
 
 - [x] Report records the pre-registration SHA.
@@ -62,5 +72,5 @@ claim that the correlation is runnable from already-committed inputs.
 - [x] Claim table and evidence index updated.
 - [x] Root README and AGENTS digest updated.
 - [x] Retrieval ledger and memory updated.
-- [x] ERRATA reviewed; no published score or historical number changed.
+- [x] ERRATA records the unsupported PAPER-001 and ledger IDF claim.
 - [x] Pull request opened: PR #36.

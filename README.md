@@ -138,6 +138,11 @@ and no registered primary or episode aggregation. This is a measurement-unit
 failure, not a null. The vocabulary explanation remains unresolved, and E006's
 conditional chained-retrieval Part 2 is not authorized.
 
+A provenance follow-up also withdraws the categorical claim that IDF ranked the
+hard plants worse than density. Mean IDF did so for all five eligible spans, but
+maximum IDF improved two and summed IDF per word improved one; no variant was
+registered as primary. See `ERRATA.md`.
+
 See `experiments/components/retrieval_mechanism_ledger/RETRIEVAL_MECHANISM_LEDGER_REPORT.md`,
 `experiments/components/retrieval_mechanism_ledger/artifacts/ar_001/AR_001_report.md`,
 `experiments/components/retrieval_mechanism_ledger/E005_POSTHOC_INTERPRETATION.md`,

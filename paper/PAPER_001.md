@@ -287,9 +287,11 @@ Two results from that table carry the argument forward.
 five attempts to decide, at write time, what deserves remembering. Each
 optimized a proxy satisfiable without the property it certified. The terminal
 diagnosis is specific: density, the best write-time salience signal, ranks the
-six hardest planted facts between 89th and 316th, and word-level inverse
-document frequency ranks them worse. These are facts like *photophores* and
-*ultramarine glaze* — rare technical phrases whose component words are common.
+six hardest planted facts between 89th and 316th. A later IDF audit did not
+establish a replacement: its three unregistered variants disagree, and one of
+the six spans remains ineligible under every variant. These are facts like
+*photophores* and *ultramarine glaze* — rare technical phrases whose component
+words are common.
 
 **Moving selection to query time did not recover it.** The bakeoff registered
 that repair as its central premise and refuted it. The best registered
@@ -549,9 +551,9 @@ arithmetically unreachable promotion route. Not Study 007, where the model used
 all 10 delivered facts and seven required facts were simply absent from the
 store. It is contradicted by the bakeoff's routing oracle, which assumed perfect
 selection and still ceilinged at 6.09%, and by widened raw short-term memory,
-which delivered all six formation-blind facts — the ones density and inverse
-document frequency both missed — with no selection filter at all, the model
-using five correctly.
+which delivered all six formation-blind facts — the ones density missed and
+the later three-variant IDF audit did not consistently rescue — with no
+selection filter at all, the model using five correctly.
 
 One limit decides how much §5.2.1 can carry: the comparison is **eight probes
 against one**. The program has exactly one enumeration question, so the entire
@@ -565,7 +567,7 @@ program built for breadth all ran downstream of the ordering that probe
 exposes.** It unifies the breadth failures. It does not unify the program, and
 it does not yet describe a category of query.
 
-#### 5.5.1 The cheapest test of whether this is a corpus artifact
+#### 5.5.1 What the corpus-artifact test now requires
 
 The program's own description of its hardest facts is that they are rare
 technical phrases whose component words are common. That is a *lexical*
@@ -582,12 +584,26 @@ not score the registered population: it has three variants for only 6 of the
 76 fact-bearing episodes, with no primary variant and no phrase-to-episode
 aggregation. The other 70 have no unchanged committed rarity score.
 
+The three variants also do not support the paper's earlier shorthand that "IDF
+ranks them worse." Mean content-word IDF ranks all five eligible hard-plant
+spans worse than density; maximum IDF improves two of five, and summed IDF per
+word improves one. The sixth span is unranked because the audit retained an
+entity-or-number eligibility filter. No variant was designated primary. The
+categorical claim is corrected in `ERRATA.md`.
+
 **This is a measurement failure, not a null.** Choosing a variant, extending it
 to 70 episodes, or defining an aggregation after the decision rule would decide
 the result through unregistered choices. No Spearman coefficient or confidence
 interval was computed, no registered branch fired, and the vocabulary
 alternative remains unresolved. The full rank recovery strengthens the
 descriptive ordering in Figure 3; it does not tell us why that ordering occurs.
+
+Completing the test needs no embedder replay, but it is not free recovery. It
+requires a prospective RD-002 that fixes one rarity formula and one
+phrase-to-episode aggregation, then computes 70 new corpus-statistic rows. That
+design would be registered after the cosine ranks were known, a weaker
+epistemic position than the original paper implied and one the result would
+need to state.
 
 ### 5.6 The three constraints, and why the order is forced
 
@@ -671,7 +687,8 @@ study, and some outlived the study that first weakened them.
 | Query segmentation | Improved its matched-budget baseline from 6/17 to 10/17 and still failed its locked 14/17 bar |
 | Attention-derived term selection | Run as an oracle over 714 candidate cue rows: 0 reached the retrieval threshold |
 | Entity extraction as primary index | Zero entities in the target span |
-| Density and inverse document frequency for formation | Rank the six hardest facts 89th–316th, and worse |
+| Density for formation | Ranks the six hardest facts 89th–316th |
+| Inverse document frequency for formation | Three unregistered variants disagree; no family-level negative result |
 | Rule detection and persistence | Failed at 1,000-turn scale |
 
 ### 6.2 What remains
@@ -906,13 +923,14 @@ reasonable prior is that §5's specific numbers are embedder-dependent.
 
 **8.5 Planted facts may not represent natural conversation.** The corpus is
 constructed, and §5.5.1 gives a specific reason to suspect the inversion is a
-property of the planted vocabulary rather than of retrieval. RD-001 attempted
-the cheap discriminating measurement and stopped before correlation: unchanged
-rarity scores cover only 6 of 76 fact-bearing episodes, across three variants
-with no registered primary or episode aggregation. The artifact alternative
-therefore remains open. *Settled by:* a prospective rarity design with one
-score per registered episode unit, or an external corpus this program did not
-construct.
+property of the planted vocabulary rather than of retrieval. RD-001 recovered
+all 119 ranks but stopped before correlation: unchanged rarity scores cover
+only 6 of 76 fact-bearing episodes, across three variants with no registered
+primary or episode aggregation. Completing the test requires 70 new rarity
+measurements under a prospectively fixed formula and aggregation, registered
+after the ranks were known. The artifact alternative therefore remains open.
+*Settled by:* that explicitly post-rank RD-002 design, or an external corpus
+this program did not construct.
 
 **8.6 Availability is not correctness, and the known optimum is mostly prior
 answers.** §5.1.1 in full: four of five optimum episodes are prior probe
@@ -958,7 +976,10 @@ candidates. RD-001 recovered all 119 under E005's pinned nine-query call and
 replayed those 16 checks with only the already-published turn-118 correction
 from rank 21 to rank 20. Figure 3 now plots the full ordering. That recovery does
 not repair the proposed rarity test: the prior audit scores six source episodes,
-not the 76-episode population, so no correlation is reported.
+not the 76-episode population, so no correlation is reported. A provenance
+audit also finds that no IDF variant was primary: only mean IDF ranks all five
+eligible hard-plant spans worse than density, while maximum and summed-per-word
+IDF each improve at least one.
 
 ---
 
@@ -995,7 +1016,7 @@ needed item sat at rank 87 of 119 — while the same ordering placed every neede
 item inside rank 2 on all eight lookup probes. One probe cannot establish that
 enumeration queries are a category with different retrieval needs. It is enough
 to make the question worth asking on a corpus this program did not build.
-§5.5.1 records why the cheaper in-corpus measurement could not answer whether
+§5.5.1 records why the proposed in-corpus measurement could not answer whether
 the effect is about retrieval or about the vocabulary these facts were planted
 in.
 
