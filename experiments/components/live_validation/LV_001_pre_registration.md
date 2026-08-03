@@ -144,9 +144,24 @@ property it certifies is false.
 
 ## 7. Authorization and prerequisites
 
-**Authorization.** Muzaffer, as program owner, is the authorizing authority.
-E005's "no live run is authorized" stands until this document is approved and
-that approval recorded here.
+**Authorization: GRANTED, 2026-08-02.** Muzaffer, as program owner:
+
+> "You are authorized to run it (since you preregistered it already) as long as
+> you follow agents.md instructions."
+
+E005's "no live run is authorized" is superseded for this design only, and for
+no other. The authorization is conditional on `AGENTS.md` compliance, so any
+gate failure in §4 stops the run rather than being waived under it.
+
+**Integrity anchor.** This design was committed at
+`89614a0c3799e0e96edb7809ba11eac07d39ac90`, before any LV-001 implementation
+file existed. That commit carries PAPER-001 revisions alongside it but no
+LV-001 implementation, which satisfies §4's "pre-registration commits contain
+no implementation files" for the study being registered. Work proceeds on
+branch `lv/001-live-validation`.
+
+**Nothing below this line may alter §1–§6.** Thresholds, arms, gates and the
+reporting rules are fixed as of the anchor commit.
 
 **Runtime prerequisites, not present in the repository.** The generation model
 and embedding model are gitignored (`*.gguf`, `models/`), and no llama.cpp
