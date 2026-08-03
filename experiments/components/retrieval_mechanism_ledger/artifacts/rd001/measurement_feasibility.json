@@ -1,0 +1,26 @@
+{
+  "all_plant_phrases_found_verbatim": true,
+  "branch_explanation": "Branch D assumes the registered n=16 rank limit. The full 119 ranks were recovered, but the committed rarity artifact scores only six episodes and has three variants with no registered primary or episode-level aggregation. No registered branch covers this state.",
+  "confidence_interval_computed": false,
+  "expected_fact_bearing_episode_count": 76,
+  "expected_rarity_plant_count": 6,
+  "fact_bearing_episode_count": 76,
+  "fact_bearing_episodes_with_committed_rarity": 6,
+  "fact_bearing_episodes_without_committed_rarity": 70,
+  "full_rank_count": 119,
+  "paper_must_pause": true,
+  "paper_reason": "PAPER-001 says the ranks and phrases needed for the correlation are already committed. RD-001 establishes that the two artifacts do not share the registered episode-level measurement unit.",
+  "part_2_authorized": false,
+  "rank_replay_status": "PASS",
+  "rarity_plant_count": 6,
+  "rarity_variant_count": 3,
+  "rarity_variants": [
+    "rarity_max",
+    "rarity_mean",
+    "rarity_sum_per_word"
+  ],
+  "reason_no_coefficient": "Computing one would require a new rarity score for 70 episodes, choosing one of three variants, and defining an episode aggregation. All three choices are absent from the locked design.",
+  "registered_branch": "NONE",
+  "spearman_computed": false,
+  "status": "STOP_MEASUREMENT_NOT_IDENTIFIABLE"
+}
