@@ -3,11 +3,11 @@
   "checkpoint_version": 1,
   "amendment_009_sha": "c2bd4b52ee0904c15135efcaf099e094da21b56c",
   "amendment_010_sha": "b80bd8b32a86771dbaa4ba1f2fb8faa0eaae074d",
-  "status": "WAITING_FOR_MANUAL_MODEL_SWITCH",
+  "status": "COMPLETE",
   "current_stage": "C2",
   "display_model": "GPT-5.5",
   "role": "adjudicator",
-  "expected_resume_phrase": "EC001 RESUME C2 GPT-5.5 SWITCHED",
+  "expected_resume_phrase": null,
   "spawn_policy": {
     "fork_turns": "none",
     "model_override": "OMIT_TO_INHERIT_PARENT",
@@ -24,14 +24,16 @@
     "adjudications": "experiments/external/longmemeval/runs/scoring_001/codex_agents/C2_adjudications.jsonl",
     "validation_report": "experiments/external/longmemeval/runs/scoring_001/codex_agents/C2_validation.json"
   },
-  "last_completed_stage": "C1",
+  "last_completed_stage": "C2",
   "completed_stage_commits": {
     "C1_artifacts": "f15b04017e2a4206c7e531e8db18ce79ee4e6db2",
-    "trigger_preparation": "fbdb17ed4b5a2193a973e06adc32528efa31e554"
+    "trigger_preparation": "fbdb17ed4b5a2193a973e06adc32528efa31e554",
+    "C2_adjudications": "9863a4a7c13f4892eae0ffd64ec7ecb52ceb41ba",
+    "codex_finalization": "e59f86cd378080174723ec6c083f38f29324d593"
   },
-  "identity_map_opened": false,
+  "identity_map_opened": true,
   "trigger_preparation_run": true,
-  "final_aggregation_run": false,
+  "final_aggregation_run": true,
   "next_stage_after_pass": {
     "stage": "FINALIZATION",
     "display_model": "GPT-5.5",
