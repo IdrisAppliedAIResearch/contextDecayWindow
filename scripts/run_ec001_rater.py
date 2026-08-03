@@ -27,6 +27,8 @@ from src.analysis.ec001_tier2 import (  # noqa: E402
     parse_binary_label,
 )
 
+LOCAL_BINARY_LABEL_GRAMMAR = 'root ::= "yes" | "no"'
+
 
 def _jsonl(path: Path) -> list[dict]:
     with path.open(encoding="utf-8") as handle:
@@ -89,7 +91,13 @@ class RaterClient:
         self.server_url = server_url
         self.call_count = 0
 
-    def complete(self, prompt: str, *, max_tokens: int) -> str:
+    def complete(
+        self,
+        prompt: str,
+        *,
+        max_tokens: int,
+        binary_label: bool = False,
+    ) -> str:
         self.call_count += 1
         provider = self.config["provider"]
         if provider == "openai":
@@ -113,16 +121,19 @@ class RaterClient:
         if provider == "llama_cpp":
             if not self.server_url:
                 raise RuntimeError("Local rater requires --server-url")
+            payload = {
+                "prompt": f"{prompt}\n<think>\n</think>\n",
+                "n_predict": max_tokens,
+                "reasoning_format": "none",
+                "temperature": 0,
+                "seed": int(self.config["seed"]),
+                "stream": False,
+            }
+            if binary_label:
+                payload["grammar"] = LOCAL_BINARY_LABEL_GRAMMAR
             result = _post_json(
                 self.server_url.rstrip("/") + "/completion",
-                {
-                    "prompt": f"{prompt}\n<think>\n</think>\n",
-                    "n_predict": max_tokens,
-                    "reasoning_format": "none",
-                    "temperature": 0,
-                    "seed": int(self.config["seed"]),
-                    "stream": False,
-                },
+                payload,
                 {},
             )
             return str(result.get("content", "")).strip()
@@ -159,7 +170,11 @@ def _calibrate(client: RaterClient, cases: list[dict]) -> list[dict]:
             str(case["response"]),
             abstention=bool(case["abstention"]),
         )
-        surface = client.complete(prompt, max_tokens=10)
+        surface = client.complete(
+            prompt,
+            max_tokens=10,
+            binary_label=True,
+        )
         label = parse_binary_label(surface)
         expected = bool(case["expected_label"])
         results.append(
@@ -222,6 +237,7 @@ def main() -> int:
             label_surface = client.complete(
                 str(packet["label_prompt"]),
                 max_tokens=10,
+                binary_label=True,
             )
             label = parse_binary_label(label_surface)
             rationale = client.complete(
