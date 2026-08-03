@@ -65,7 +65,7 @@ here are curation *for* it: deciding what it gets to see under a real budget.
 | **F1** | **Breadth / enumeration** | E002 raised its exact 32k matched baseline from 6/17 to 10/17 but missed the locked hurdle. AR-001 proves the bar exists: exact 14/17 costs 5,058 chars and 17/17 costs 7,592. E005 set-level selection reaches 12/17 at 4/4 domains with no targeted regression, and 35 of 146 configurations pass every gate. DX-001 localizes the whole remaining gap to one in-pool episode the objective declines everywhere, so the residual is a relevance-term problem. Threshold 14/17, binary | **OPEN, MATERIALLY ADVANCED - E005 PROMOTION_ELIGIBLE offline at 12/17; still short of the 14/17 rubric threshold and of the 15/17 oracle, and unvalidated in inference** |
 | **F2** | **Bad cue / identity** | Corrected Q4 cosine 0.12042197585105896 vs K = 0.48. E001 best found across 335 cues was 0.21031804382801056; 0/714 crossed K. Planted turn 55, probed turn 115; exact N-first reachability is 108,432 chars | **CLOSED - Family QR did not authorize an identity repair** |
 | **F3** | **No absence detection** | E002 had two zero-unique segments and eight duplicate slots but still missed 7/17 facts and one domain. No validated signal tells the system what is absent | **UNCLAIMED** |
-| **F4** | **Rare technical vocabulary** | `photophores`, `mantle margin`, `lead white`, `ultramarine glaze`, `marine snow`, `dual mandate`. Zero spaCy entities in the target span. Density ranks them 89th-316th; IDF worse | **SOLVED by raw delivery** (6/6) - do not re-solve |
+| **F4** | **Rare technical vocabulary** | `photophores`, `mantle margin`, `lead white`, `ultramarine glaze`, `marine snow`, `dual mandate`. Zero spaCy entities in the target span. Density ranks them 89th-316th. The later IDF audit has three non-primary variants that disagree | **SOLVED by raw delivery** (6/6) - do not re-solve |
 | **F5** | **Enforced budget behavior** | Study 010 LTM undercharged Q13/Q14 by 67.9%/68.2%. Widened STM and bakeoff Tier 1 charged complete payloads exactly; post-DR-001 LTM now does too | **ENGINEERING FIXED; historical LTM results remain noncompliant** |
 
 **What works and needs no mechanism:** targeted recall. Study 010 logged 203 K
@@ -355,6 +355,13 @@ an offline result; **no live run is authorized.** See
   **NO CHANGE**, 12/17 ships with rank 112 as a characterized limitation, and
   the objective question escalates to a proposed, unauthorized E006. See
   `DX_001_PART2_DISPOSITION.md`.
+- **RD-001 / E006 Part 1 (rarity diagnostic).** The complete 119-rank ordering
+  replayed under E005's committed embedding call, but the registered
+  correlation stopped before computation. The prior rarity artifact scores
+  only 6 of 76 fact-bearing episodes and exposes three variants without a
+  registered primary or episode aggregation. No registered branch covers that
+  state. The vocabulary alternative remains unresolved and chained retrieval
+  is **not authorized**. See `RD_001_report.md`.
 
 **Measurement correction applied before the outcome was accepted:** the
 no-regression numerator was keyed on `(turn, item)` while its denominator
@@ -443,7 +450,7 @@ eviction work in `CC_001`?
 | Mechanism | Killed by |
 |---|---|
 | Density / span salience for formation | Ranks the six hard plants 89th-316th (Study 006, Q11 audit) |
-| IDF / rarity for **episode ranking** | Ranks them *worse* than density (breadth regression audit). **Note: refuted as an episode-ranking signal, not as a query-term weighting signal - that role is untested** |
+| IDF / rarity for **episode ranking** | **NOT REFUTED.** Mean IDF ranks 5/5 eligible hard-plant spans worse than density, but max IDF improves 2/5 and sum/word improves 1/5; no primary was registered. See `RD_001_RARITY_PROVENANCE_AUDIT.md` and `ERRATA.md` |
 | Entity extraction as index | Zero spaCy entities in the target span (F4) |
 | Promotion filters (novelty/repetition/association/emotional) | Weighted route structurally unreachable; every promotion via bypass (Study 003) |
 | Query-blind distillation for breadth | Five studies; bakeoff T1 8/17 |
@@ -484,7 +491,15 @@ eviction work in `CC_001`?
 
 ---
 
-*Opened July 29, 2026. Revision 9, August 1, 2026 - post-promotion diagnostics
+*Opened July 29, 2026. Revision 11, August 3, 2026 - the IDF graveyard claim is
+withdrawn after provenance review: no primary variant was registered, and only
+mean IDF ranks all five eligible hard-plant spans worse than density. Revision
+10, August 3, 2026 - RD-001 recovers the full
+119-episode cosine ordering but stops before correlation because unchanged
+rarity scores exist for only 6 of 76 fact-bearing episodes across three
+unregistered variants. No coefficient is computed, no registered branch
+applies, and chained retrieval remains unauthorized. Revision 9, August 1,
+2026 - post-promotion diagnostics
 recorded against E005 without reopening it. DR-002 finds cosine ordering is the
 wrong prior for the enumeration probe and the candidate pool binds on both facts
 and domains. DX-001 localizes the entire remaining oracle gap to one in-pool

@@ -1,0 +1,314 @@
+{
+  "gate": "G1",
+  "certifies": "every rubric-required item is planted in a scripted user turn strictly before the probe that asks for it",
+  "items_checked": 38,
+  "unplanted": [],
+  "status": "PASS",
+  "note": "scripts/check_probe_fact_order.py parses Study 010's rubric_1000.md table shape and does not read this corpus's item sets, so the same property is checked here directly against the committed Q11 and targeted item lists.",
+  "findings": [
+    {
+      "probe": "Q11",
+      "probe_turn": 120,
+      "domain": "civil",
+      "item": "Halcyon Crossing",
+      "planted_before_probe": true,
+      "first_planted_turn": 3
+    },
+    {
+      "probe": "Q11",
+      "probe_turn": 120,
+      "domain": "civil",
+      "item": "847",
+      "planted_before_probe": true,
+      "first_planted_turn": 3
+    },
+    {
+      "probe": "Q11",
+      "probe_turn": 120,
+      "domain": "civil",
+      "item": "Dr. Anara Bekova",
+      "planted_before_probe": true,
+      "first_planted_turn": 3
+    },
+    {
+      "probe": "Q11",
+      "probe_turn": 120,
+      "domain": "civil",
+      "item": "S460ML",
+      "planted_before_probe": true,
+      "first_planted_turn": 4
+    },
+    {
+      "probe": "Q11",
+      "probe_turn": 120,
+      "domain": "civil",
+      "item": "92.4",
+      "planted_before_probe": true,
+      "first_planted_turn": 4
+    },
+    {
+      "probe": "Q11",
+      "probe_turn": 120,
+      "domain": "art",
+      "item": "The Annunciation of Forli",
+      "planted_before_probe": true,
+      "first_planted_turn": 55
+    },
+    {
+      "probe": "Q11",
+      "probe_turn": 120,
+      "domain": "art",
+      "item": "Melozzo da Forli",
+      "planted_before_probe": true,
+      "first_planted_turn": 55
+    },
+    {
+      "probe": "Q11",
+      "probe_turn": 120,
+      "domain": "art",
+      "item": "Cardinal Giuliano della Rovere",
+      "planted_before_probe": true,
+      "first_planted_turn": 55
+    },
+    {
+      "probe": "Q11",
+      "probe_turn": 120,
+      "domain": "art",
+      "item": "1483",
+      "planted_before_probe": true,
+      "first_planted_turn": 55
+    },
+    {
+      "probe": "Q11",
+      "probe_turn": 120,
+      "domain": "monetary",
+      "item": "Taylor Rule",
+      "planted_before_probe": true,
+      "first_planted_turn": 61
+    },
+    {
+      "probe": "Q11",
+      "probe_turn": 120,
+      "domain": "monetary",
+      "item": "Federal Reserve",
+      "planted_before_probe": true,
+      "first_planted_turn": 62
+    },
+    {
+      "probe": "Q11",
+      "probe_turn": 120,
+      "domain": "monetary",
+      "item": "Dr. Priya Mehta",
+      "planted_before_probe": true,
+      "first_planted_turn": 65
+    },
+    {
+      "probe": "Q11",
+      "probe_turn": 120,
+      "domain": "monetary",
+      "item": "2.3%",
+      "planted_before_probe": true,
+      "first_planted_turn": 65
+    },
+    {
+      "probe": "Q11",
+      "probe_turn": 120,
+      "domain": "marine",
+      "item": "Vampyroteuthis infernalis",
+      "planted_before_probe": true,
+      "first_planted_turn": 100
+    },
+    {
+      "probe": "Q11",
+      "probe_turn": 120,
+      "domain": "marine",
+      "item": "Dr. Kenji Watanabe",
+      "planted_before_probe": true,
+      "first_planted_turn": 100
+    },
+    {
+      "probe": "Q11",
+      "probe_turn": 120,
+      "domain": "marine",
+      "item": "600",
+      "planted_before_probe": true,
+      "first_planted_turn": 92
+    },
+    {
+      "probe": "Q11",
+      "probe_turn": 120,
+      "domain": "marine",
+      "item": "marine snow",
+      "planted_before_probe": true,
+      "first_planted_turn": 94
+    },
+    {
+      "probe": "Q1",
+      "probe_turn": 112,
+      "domain": null,
+      "item": "847",
+      "planted_before_probe": true,
+      "first_planted_turn": 3
+    },
+    {
+      "probe": "Q1",
+      "probe_turn": 112,
+      "domain": null,
+      "item": "s460ml",
+      "planted_before_probe": true,
+      "first_planted_turn": 4
+    },
+    {
+      "probe": "Q2",
+      "probe_turn": 113,
+      "domain": null,
+      "item": "anara bekova",
+      "planted_before_probe": true,
+      "first_planted_turn": 3
+    },
+    {
+      "probe": "Q2",
+      "probe_turn": 113,
+      "domain": null,
+      "item": "92.4",
+      "planted_before_probe": true,
+      "first_planted_turn": 4
+    },
+    {
+      "probe": "Q4",
+      "probe_turn": 115,
+      "domain": null,
+      "item": "annunciation of forli",
+      "planted_before_probe": true,
+      "first_planted_turn": 55
+    },
+    {
+      "probe": "Q4",
+      "probe_turn": 115,
+      "domain": null,
+      "item": "melozzo da forli",
+      "planted_before_probe": true,
+      "first_planted_turn": 55
+    },
+    {
+      "probe": "Q4",
+      "probe_turn": 115,
+      "domain": null,
+      "item": "giuliano della rovere",
+      "planted_before_probe": true,
+      "first_planted_turn": 55
+    },
+    {
+      "probe": "Q4",
+      "probe_turn": 115,
+      "domain": null,
+      "item": "1483",
+      "planted_before_probe": true,
+      "first_planted_turn": 55
+    },
+    {
+      "probe": "Q5",
+      "probe_turn": 116,
+      "domain": null,
+      "item": "lead white",
+      "planted_before_probe": true,
+      "first_planted_turn": 56
+    },
+    {
+      "probe": "Q5",
+      "probe_turn": 116,
+      "domain": null,
+      "item": "ultramarine glaze",
+      "planted_before_probe": true,
+      "first_planted_turn": 56
+    },
+    {
+      "probe": "Q6",
+      "probe_turn": 117,
+      "domain": null,
+      "item": "giuliano della rovere",
+      "planted_before_probe": true,
+      "first_planted_turn": 55
+    },
+    {
+      "probe": "Q6",
+      "probe_turn": 117,
+      "domain": null,
+      "item": "pope julius ii",
+      "planted_before_probe": true,
+      "first_planted_turn": 60
+    },
+    {
+      "probe": "Q7",
+      "probe_turn": 118,
+      "domain": null,
+      "item": "vampyroteuthis infernalis",
+      "planted_before_probe": true,
+      "first_planted_turn": 100
+    },
+    {
+      "probe": "Q7",
+      "probe_turn": 118,
+      "domain": null,
+      "item": "kenji watanabe",
+      "planted_before_probe": true,
+      "first_planted_turn": 100
+    },
+    {
+      "probe": "Q7",
+      "probe_turn": 118,
+      "domain": null,
+      "item": "600",
+      "planted_before_probe": true,
+      "first_planted_turn": 92
+    },
+    {
+      "probe": "Q7",
+      "probe_turn": 118,
+      "domain": null,
+      "item": "900",
+      "planted_before_probe": true,
+      "first_planted_turn": 92
+    },
+    {
+      "probe": "Q7",
+      "probe_turn": 118,
+      "domain": null,
+      "item": "marine snow",
+      "planted_before_probe": true,
+      "first_planted_turn": 94
+    },
+    {
+      "probe": "Q8",
+      "probe_turn": 119,
+      "domain": null,
+      "item": "photophores",
+      "planted_before_probe": true,
+      "first_planted_turn": 101
+    },
+    {
+      "probe": "Q8",
+      "probe_turn": 119,
+      "domain": null,
+      "item": "mantle margin",
+      "planted_before_probe": true,
+      "first_planted_turn": 101
+    },
+    {
+      "probe": "Q10",
+      "probe_turn": 118,
+      "domain": null,
+      "item": "vampyroteuthis infernalis",
+      "planted_before_probe": true,
+      "first_planted_turn": 100
+    },
+    {
+      "probe": "Q10",
+      "probe_turn": 118,
+      "domain": null,
+      "item": "kenji watanabe",
+      "planted_before_probe": true,
+      "first_planted_turn": 100
+    }
+  ]
+}

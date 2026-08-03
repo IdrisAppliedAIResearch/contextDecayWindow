@@ -46,15 +46,17 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **DX-001 turn-90 miss (2026-08-01).** NO CHANGE. E005's whole remaining oracle gap is one in-pool episode at cosine rank 112 with 4 monetary items; 0/146 configs take it. Cluster collision refuted: its cluster is never entered, so diversity paid in full and it still lost by .169. Needed cosine .225, has .056. 12/17 ships with the miss characterized; objective escalates to unauthorized E006.
 
+**RD-001 rarity diagnostic (2026-08-03).** STOP: measurement not identifiable. Full 119-rank replay passes; rarity covers 6/76 episodes across 3 non-primary variants. Mean IDF is worse than density on 5/5 eligible plants, but max improves 2 and sum/word 1, so the IDF-family claim is withdrawn. No coefficient; Part 2 unauthorized.
+
 **CC-002 library extraction (2026-08-01).** The deployable component now lives in the installable `episodic` package; the harness imports it. T1-T7 pass: clean-venv import, leakage grep + import-graph, byte-identical reproduction of 132 committed A3 payloads and 3 rendered blocks, call-shape sentinel fails loudly, 804 tests green, two-process purity. H1/H2 ship as config-pinned gates, not docs.
 
 **DX-002 context growth (2026-08-02).** BRANCH B. LTM saturates ~52-54k from turn 500 (H-A confirmed); retrieved_stm never does: p95 +23,238 L / +28,701 S over the last five buckets, still setting records at turn 1,000. Rule pinning added 0 but was disabled, not cleared. Blocks CC-003. A slope-CI-only rule first said Branch A; the interval measured power, not flatness.
 
 **CC-003/004/005 closeout (2026-08-02).** CLOSED. G-E0 clears DX-002's block: episodic's block is bounded, +18 chars p95/1,000 turns, so the leak is the runner's. The ceiling no longer raises at tiny budgets; truncated carries dropped ids; drop order named (amendment 001); E6 inert at 132/132 SHAs. CC-004 kills real processes. CC-005: 190 ms at 1,000 candidates, no eviction. Suite 1,007.
 
-**LV-001 (2026-08-02).** PRE-REGISTERED, NOT RUN. The authorized design E005's "no live run is authorized" asks for: two arms, one seed, does 12/17 offline availability convert to a better scored answer than A0's 6/17. B1 thresholds and both reporting outcomes are fixed before any number exists. Needs the runtime; no model is in the repo. `experiments/components/live_validation/`.
+**LV-001 (2026-08-02).** RUN. B1 WEAK, B2 FAIL, **promotion killed on its own pre-registered bar**. The 6-item offline availability gap became +1 correctly attributed item live; targeted fell 3.5->1.5 against a 0.5 tolerance. A3 dropped turns 1-2 and could not state the formatting rules; offline it preserved 16/16. Availability is not the answer. Both arms fabricated the unretrieved art domain.
 
-**PAPER-001 (2026-08-02).** DRAFT. Terminal document at `paper/PAPER_001.md`, typeset to `paper/Selection_Not_Capacity.pdf`. Decomposes retrieval failure into candidate pool, objective and similarity floor, binding in that forced order. The order is structural: art has no representative in the deployed 34-pool, so no rule reaches 4/4 there. Figures and PDF are generated; see section 8.
+**PAPER-001 (2026-08-03).** DRAFT, revised through RD-001. The forced pool/objective/floor decomposition stands. Figure 3 now uses all 119 recovered ranks. The proposed rarity correlation was not identifiable: committed rarity covers 6/76 episodes, so the corpus-artifact alternative remains unresolved. Source is `paper/PAPER_001.md`; figures and PDF are generated.
 
 **Retrieval mechanism ledger (2026-07-31).** CLOSED. E002 KILL but exact-32k segmentation improved 6/17->10/17. AR-001 proves F1 achievable: exact 14/17 costs 5,058 chars; 17/17 costs 7,592. E001 best-found .1204->.2103; 0/714 reached K=.48 and 266/384 heads was non-sparse. F2 closed; F3 open; E003 unauthorized.
 
