@@ -1,0 +1,77 @@
+{
+  "record": "EC-001 LongMemEval adaptation decisions",
+  "record_version": 1,
+  "registration_sha": "b595b05e1469c67277844d4bd97f77c89a20772b",
+  "authorization": {
+    "source": "Author accepted the baseline recommendation in EC_001_longmemeval_calibration.md.",
+    "date": "2026-08-03"
+  },
+  "benchmark": {
+    "version": "LongMemEval V1 cleaned",
+    "reason": "Use V1 as registered and use the benchmark maintainers' current cleaned V1 release. Comparisons to results on the original ICLR release are labelled non-like-for-like.",
+    "code_repository": "https://github.com/xiaowu0162/LongMemEval",
+    "code_commit": "9e0b455f4ef0e2ab8f2e582289761153549043fc",
+    "dataset_repository": "https://huggingface.co/datasets/xiaowu0162/longmemeval-cleaned",
+    "dataset_commit": "98d7416c24c778c2fee6e6f3006e7a073259d48f",
+    "dataset_file": "longmemeval_s_cleaned.json",
+    "dataset_sha256": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+    "dataset_bytes": 277383467,
+    "alternative_rejected": "The original 2024 LongMemEval-S release. It is closer to the ICLR baseline artifacts but is not the maintainers' corrected V1 instrument."
+  },
+  "decisions": {
+    "session_vs_episode": {
+      "decision": "One strict adjacent user/assistant exchange is one episodic episode. Session boundaries are retained in a measurement-only sidecar and do not change storage.",
+      "alternative": "Serialize a whole multi-round session as one episode.",
+      "rationale": "The shipped component's unchanged unit is one exchange. Whole-session storage changes indexing granularity and is reserved for a follow-on."
+    },
+    "timestamps": {
+      "decision": "Preserve session and question timestamps in measurement artifacts only. Do not prepend, append, or embed timestamps in stored message text.",
+      "alternative": "Inject timestamps into indexed text or add time-aware search.",
+      "rationale": "The shipped store has turn order only. Adding timestamp text or time-aware search would alter the mechanism and confound Q6."
+    },
+    "budget": {
+      "decision": "Use the carried 32000-character returned-block ceiling unchanged.",
+      "budget_chars": 32000,
+      "alternative": "Match a published baseline's token context size.",
+      "rationale": "EC-001 evaluates the shipped component under its deployed exact-character budget. Reader scaffolding remains outside this ceiling and is reported separately."
+    },
+    "recency_window": {
+      "decision": "Use EpisodicConfig.recency_window_n=32 over the continuous exchange sequence. Do not reset recency at session boundaries.",
+      "recency_window_n": 32,
+      "alternative": "Define session-relative recency or retune N for LongMemEval.",
+      "rationale": "Retuning or redefining recency would change the carried subsystem."
+    },
+    "embedder": {
+      "decision": "Use the carried Qwen3-Embedding-0.6B Q8_0 GGUF through solo calls and enforce the package's model and call-shape gates.",
+      "model_sha256": "06507c7b42688469c4e7298b0a1e16deff06caf291cf0a5b278c308249c3e439",
+      "call_shape": "solo",
+      "alternative": "Use a LongMemEval published retriever or a batched call shape.",
+      "rationale": "Changing either model or call shape changes the measured component. Published comparisons are explicitly non-like-for-like."
+    },
+    "abstention": {
+      "decision": "Do not infer abstention from an empty block, truncation, cosine, or any low-confidence threshold. Tier 1 records no component abstention signal. The 30 abstention instances are processed but have null evidence recall and availability because V1 provides no answer location; Tier 2 scores the generated answer with the benchmark abstention protocol.",
+      "alternative": "Choose an empty-block or post-result confidence threshold as an abstention signal.",
+      "rationale": "The component has no registered absence detector. Inventing a threshold after integration would turn Q4 into a tunable surrogate."
+    }
+  },
+  "q1_rank_measurement": {
+    "decision": "Rank sessions by the maximum cosine of their constituent exchange episodes against the query. Stable ties break by chronological session position and then session id. An evidence session's rank is its position in that session ranking.",
+    "alternative": "Embed each whole session as a new value and rank those vectors.",
+    "rationale": "The derived session score answers the registered session-rank question without changing the component's exchange-level index."
+  },
+  "tier_1_denominators": {
+    "evidence_metrics": "All non-abstention questions with at least one annotated evidence session.",
+    "abstention_questions": "Processed and counted, but evidence recall and availability are null.",
+    "availability": "All source turns marked has_answer must occur verbatim inside delivered episodes. Session identity alone does not count."
+  },
+  "non_comparabilities": [
+    "Cleaned V1 histories versus published results produced on the original V1 histories.",
+    "Carried Qwen3-Embedding-0.6B Q8_0 versus the benchmark's published retrievers.",
+    "A 32000-character exact returned-block ceiling versus token-count or top-k context limits.",
+    "No LLM key expansion, no time-aware query expansion, and exchange granularity versus optimized benchmark systems."
+  ],
+  "tier_2_subset": {
+    "status": "MUST_BE_REGISTERED_SEPARATELY_BEFORE_TIER_1",
+    "note": "Size and per-stratum quotas are set by the authorial compute budget, not by this adaptation record."
+  }
+}
