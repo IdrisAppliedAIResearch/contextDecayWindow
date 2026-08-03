@@ -61,9 +61,12 @@ Verified against two independently published values: `e005_results.json`
 | R30 | `…/audits/scoring_integrity/corrected_scores/arm_totals.json` | `3bb340f8` | `443282df34a3a4ba` |
 | R31 | `…/surveys/retrieval_bakeoff/retrieval_bakeoff_report.md` | `4e98a676` | `681208a78d12f591` |
 | R32 | `ERRATA.md` | `9c4d93ef` | `a5aa4771d37f1272` |
+| R33 | `…/artifacts/rd001/full_rank_inventory.csv` | `765f48e8` | `7d8874f54d8e9729` |
+| R34 | `…/artifacts/rd001/measurement_feasibility.json` | `765f48e8` | `cfdb5155854686c8` |
+| R35 | `…/artifacts/rd001/rank_replay.json` | `765f48e8` | `c12448b1a6ce893e` |
 
-Path prefix `…` is `experiments/components/retrieval_mechanism_ledger` for R1–R21
-and `experiments/components` for R22–R29.
+Path prefix `…` is `experiments/components/retrieval_mechanism_ledger` for
+R1–R21 and R33–R35, and `experiments/components` for R22–R29.
 
 ---
 
@@ -200,7 +203,8 @@ and `experiments/components` for R22–R29.
 | C91 | Runtime independence unmeasured | one model, one quantization, one machine | R29 §6 | VERIFIED |
 | C92 | Horizon limit | 1,000 turns says nothing about 10,000 | R22 §Boundary; R28 §5 | VERIFIED |
 | C93 | AI raters with AI adjudicators | final adjudication used AI reviewers, not humans | R32; `README.md` §Corrected Numbers | VERIFIED |
-| C94 | The inversion may be an artifact of corpus construction | open question | — | **HYPOTHESIS** — stated as an open question in §8.5 with the experiment named; no artifact claimed |
+| C94 | The inversion may be an artifact of corpus construction | unresolved; RD-001 stopped before correlation | R34 | VERIFIED AS UNRESOLVED — unchanged rarity scores cover 6/76 fact-bearing episodes across three variants; no coefficient or branch verdict |
+| C95 | Full Q11 cosine ordering recovered under the pinned call | 119/119; 16-rank replay PASS with known 21→20 correction | R33, R35 | VERIFIED |
 
 ---
 

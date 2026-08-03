@@ -67,9 +67,9 @@ loop somewhere before ten thousand.
 
 Two images carry the argument between them. Figure 1 is the budget claim: the
 target is affordable and deployed selection spent everything without reaching
-it. Figure 3 is the ordering claim, and it is the one drawn at the resolution
-the committed record allows — 16 of 119 points, with its key readings as
-annotations rather than plotted data.
+it. Figure 3 is the ordering claim. RD-001 recovered the complete 119-episode
+ordering under the pinned embedding call, so the figure now shows every
+eligible episode rather than the 16 ranks available when the paper was drafted.
 
 ---
 
@@ -574,13 +574,20 @@ such a span far from a query phrased in ordinary words. If that is the
 mechanism, §5.2.1 is a finding about this corpus's planted vocabulary and
 generalizes only to corpora whose target facts are similarly distinctive.
 
-The discriminating measurement is cheap and was not run: correlate each
+RD-001 pre-registered that discriminating measurement: correlate each
 fact-bearing episode's cosine rank against the lexical rarity of its key
-phrases, on the committed store. The ranks and the phrases are both already
-committed, and the program has rarity scores from an earlier audit. **If rank
-tracks rarity, the inversion is vocabulary. If it does not, the corpus objection
-weakens considerably.** This is the single measurement that would most change
-how much weight §5.2.1 deserves.
+phrases. It recovered all 119 ranks under the pinned E005 embedding call, but
+then stopped before computing a coefficient. The earlier rarity artifact does
+not score the registered population: it has three variants for only 6 of the
+76 fact-bearing episodes, with no primary variant and no phrase-to-episode
+aggregation. The other 70 have no unchanged committed rarity score.
+
+**This is a measurement failure, not a null.** Choosing a variant, extending it
+to 70 episodes, or defining an aggregation after the decision rule would decide
+the result through unregistered choices. No Spearman coefficient or confidence
+interval was computed, no registered branch fired, and the vocabulary
+alternative remains unresolved. The full rank recovery strengthens the
+descriptive ordering in Figure 3; it does not tell us why that ordering occurs.
 
 ### 5.6 The three constraints, and why the order is forced
 
@@ -899,8 +906,13 @@ reasonable prior is that §5's specific numbers are embedder-dependent.
 
 **8.5 Planted facts may not represent natural conversation.** The corpus is
 constructed, and §5.5.1 gives a specific reason to suspect the inversion is a
-property of the planted vocabulary rather than of retrieval, along with the
-cheap measurement that would discriminate. It was not run.
+property of the planted vocabulary rather than of retrieval. RD-001 attempted
+the cheap discriminating measurement and stopped before correlation: unchanged
+rarity scores cover only 6 of 76 fact-bearing episodes, across three variants
+with no registered primary or episode aggregation. The artifact alternative
+therefore remains open. *Settled by:* a prospective rarity design with one
+score per registered episode unit, or an external corpus this program did not
+construct.
 
 **8.6 Availability is not correctness, and the known optimum is mostly prior
 answers.** §5.1.1 in full: four of five optimum episodes are prior probe
@@ -940,12 +952,13 @@ legitimacy test permitting corrections to measurement units and protocol
 contradictions while forbidding making a criterion easier once results are
 known. The record is published so a reader can disagree with individual calls.
 
-**8.8 Figure 3 is drawn at the resolution the artifacts support.** Per-episode
-cosine ranks were committed for 16 of the 119 candidates; the rest were never
-committed, and recomputing them requires the carried embedder under the batched
-call shape of §7.2, which is not in the repository. The structural readings the
-figure annotates are committed values, but the full curve is not drawn because
-it cannot be drawn honestly.
+**8.8 Figure 3 now has the full ordering; the rarity join still fails.** When
+the paper was drafted, per-episode cosine ranks were committed for 16 of 119
+candidates. RD-001 recovered all 119 under E005's pinned nine-query call and
+replayed those 16 checks with only the already-published turn-118 correction
+from rank 21 to rank 20. Figure 3 now plots the full ordering. That recovery does
+not repair the proposed rarity test: the prior audit scores six source episodes,
+not the 76-episode population, so no correlation is reported.
 
 ---
 
@@ -981,9 +994,10 @@ the four highest-cosine episodes carried none of the target facts and the last
 needed item sat at rank 87 of 119 — while the same ordering placed every needed
 item inside rank 2 on all eight lookup probes. One probe cannot establish that
 enumeration queries are a category with different retrieval needs. It is enough
-to make the question worth asking on a corpus this program did not build, and
-§5.5.1 names the cheaper measurement that would first tell us whether the effect
-is about retrieval or about the vocabulary these facts were planted in.
+to make the question worth asking on a corpus this program did not build.
+§5.5.1 records why the cheaper in-corpus measurement could not answer whether
+the effect is about retrieval or about the vocabulary these facts were planted
+in.
 
 The program's own summary of eleven efforts is that the model used what it
 received. At the hardest probe it used all ten available facts and invented
@@ -1039,12 +1053,11 @@ still-needed item does not appear until rank 87. The five episodes of the
 15-fact known optimum are marked at ranks 14, 20, 22, 86 and 112. Both art
 contributors lie at ranks 50 and 86, so the deployed 34-episode pool contains no
 art episode and cannot reach four domains at any setting; the 100-episode pool
-excludes the rank-112 episode carrying four monetary items. Only the 16 episodes
-whose ranks are committed are plotted — the 15 selected plus the rank-112 miss;
-ranks for the other 103 were never committed (§8.8). The rank-4, rank-5 and
-rank-87 readings are committed structural values drawn as annotations, not
-inferred from the plotted points. Sources: `selection_ranks.csv`
-`6fdff4022997ab83`, `cost_comparison.csv` `1ca40da99315c719`,
+excludes the rank-112 episode carrying four monetary items. The first version
+plotted only the 16 ranks then available. RD-001 now plots all 119 after
+replaying the pinned E005 embedding call (§8.8). Sources:
+`full_rank_inventory.csv` `7d8874f54d8e9729`, `q11_selection.jsonl`
+`71d7d1a6f4d46d23`, `cost_comparison.csv` `1ca40da99315c719`, and
 `generality_batched.json` `7e1fa13ef71a8077`; rank 20 supersedes the published
 21 per `ERRATA.md`, 2026-08-01.
 

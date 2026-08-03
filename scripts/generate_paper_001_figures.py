@@ -78,6 +78,14 @@ def load_csv(path: Path) -> list[dict]:
         return list(csv.DictReader(handle))
 
 
+def load_jsonl(path: Path) -> list[dict]:
+    return [
+        json.loads(line)
+        for line in read(path).read_text(encoding="utf-8").splitlines()
+        if line.strip()
+    ]
+
+
 def style(ax) -> None:
     ax.spines["top"].set_visible(False)
     ax.spines["right"].set_visible(False)
@@ -97,27 +105,30 @@ def save(fig, name: str) -> None:
 # F1 - cosine rank against fact content
 # --------------------------------------------------------------------------
 def figure_1() -> None:
-    ranks = load_csv(LEDGER / "e005/dr_002/selection_ranks.csv")
+    ranks = load_csv(LEDGER / "rd001/full_rank_inventory.csv")
+    selections = load_jsonl(LEDGER / "e005/raw/q11_selection.jsonl")
     cost = load_csv(LEDGER / "dx001/cost_comparison.csv")
     generality = load_json(LEDGER / "e005/dr_002/generality_batched.json")
 
     q11 = next(r for r in generality["generality"] if r["question"] == "Q11")
-    correction = {
-        int(c["source_turn"]): int(c["measured_rank"])
-        for c in generality["selection_rank_corrections"]
-    }
+    primary = next(
+        row
+        for row in selections
+        if row["pool"] == "full_eligible_store"
+        and row["configuration_id"] == "A3_l0.1_r0.0_k16"
+    )
+    selected_ids = set(primary["selected_ids"])
+    points = [
+        (
+            int(row["cosine_rank"]),
+            int(row["fact_count"]),
+            int(row["source_turn"]),
+            row["episode_id"],
+        )
+        for row in ranks
+    ]
 
-    points = []
-    for row in ranks:
-        turn = int(row["source_turn"])
-        rank = correction.get(turn, int(row["cosine_rank"]))
-        facts = len([i for i in row["q11_items"].split(";") if i.strip()])
-        points.append((rank, facts, turn))
-
-    # The unselected residual, turn 90, comes from DX-001's cost comparison.
     target = next(r for r in cost if r["role"] == "target")
-    points.append((int(target["cosine_rank"]), int(target["q11_facts"]), int(target["turn"])))
-
     oracle_turns = {90, 112, 113, 116, 118}
 
     fig, ax = plt.subplots(figsize=(9.2, 4.4))
@@ -127,18 +138,23 @@ def figure_1() -> None:
     ax.axvline(34.5, color=BLUE, linewidth=1.2, linestyle="--", zorder=1)
     ax.axvline(100.5, color=PURPLE, linewidth=1.2, linestyle=":", zorder=1)
 
-    for rank, facts, turn in points:
+    for rank, facts, turn, episode_id in points:
         is_oracle = turn in oracle_turns
-        selected = turn != int(target["turn"])
-        ax.vlines(rank, 0, facts, color=GREY, linewidth=1.0, zorder=2)
+        selected = episode_id in selected_ids
+        target_miss = turn == int(target["turn"])
+        if facts:
+            ax.vlines(rank, 0, facts, color=GREY, linewidth=0.8, zorder=2)
         ax.scatter(
             rank,
             facts,
-            s=104 if is_oracle else 54,
+            s=100 if is_oracle else 34,
             facecolor=(GREEN if selected else "white"),
-            edgecolor=(BLACK if is_oracle else GREEN),
+            edgecolor=(
+                BLACK if is_oracle else (GREEN if selected else GREY)
+            ),
             linewidth=1.8 if is_oracle else 1.0,
-            marker="o" if selected else "D",
+            marker="D" if target_miss else "o",
+            alpha=0.95 if facts or selected else 0.55,
             zorder=3,
         )
 
@@ -157,7 +173,11 @@ def figure_1() -> None:
         fontsize=8.5,
         arrowprops=dict(arrowstyle="->", color=BLACK, linewidth=0.9),
     )
-    worst_rank = max(r for r, f, _ in points if f > 0 and r != 112)
+    worst_rank = max(
+        rank
+        for rank, facts, _turn, episode_id in points
+        if facts > 0 and episode_id in selected_ids
+    )
     ax.annotate(
         f"worst fact-bearing selection: rank {worst_rank}, 2 art items;\n"
         f"the last still-needed item first appears at rank {q11['last_needed']}",
@@ -185,8 +205,8 @@ def figure_1() -> None:
     handles = [
         plt.Line2D([], [], marker="o", color="none", markerfacecolor=GREEN,
                    markeredgecolor=GREEN, markersize=8, label="selected by the primary configuration"),
-        plt.Line2D([], [], marker="D", color="none", markerfacecolor="white",
-                   markeredgecolor=GREEN, markersize=7, label="in the pool, never selected"),
+        plt.Line2D([], [], marker="o", color="none", markerfacecolor="white",
+                   markeredgecolor=GREY, markersize=7, label="eligible, not selected"),
         plt.Line2D([], [], marker="o", color="none", markerfacecolor=GREEN,
                    markeredgecolor=BLACK, markeredgewidth=1.8, markersize=10,
                    label="episode of the 15-fact known optimum"),
