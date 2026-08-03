@@ -8,6 +8,7 @@ def _local_client() -> run_ec001_rater.RaterClient:
         {
             "provider": "llama_cpp",
             "seed": 5005,
+            "model_alias": "local-rater.gguf",
         },
         "http://127.0.0.1:9999",
     )
@@ -17,8 +18,9 @@ def test_local_binary_label_call_uses_exact_grammar(monkeypatch) -> None:
     captured: dict = {}
 
     def fake_post(url: str, payload: dict, headers: dict) -> dict:
+        captured["url"] = url
         captured.update(payload)
-        return {"content": "yes"}
+        return {"choices": [{"message": {"content": "yes"}}]}
 
     monkeypatch.setattr(run_ec001_rater, "_post_json", fake_post)
 
@@ -29,6 +31,11 @@ def test_local_binary_label_call_uses_exact_grammar(monkeypatch) -> None:
     )
 
     assert response == "yes"
+    assert captured["url"].endswith("/v1/chat/completions")
+    assert captured["model"] == "local-rater.gguf"
+    assert captured["messages"] == [
+        {"role": "user", "content": "label prompt"},
+    ]
     assert (
         captured["grammar"]
         == run_ec001_rater.LOCAL_BINARY_LABEL_GRAMMAR
@@ -40,7 +47,11 @@ def test_local_rationale_call_has_no_grammar(monkeypatch) -> None:
 
     def fake_post(url: str, payload: dict, headers: dict) -> dict:
         captured.update(payload)
-        return {"content": "grounded rationale"}
+        return {
+            "choices": [
+                {"message": {"content": "grounded rationale"}},
+            ]
+        }
 
     monkeypatch.setattr(run_ec001_rater, "_post_json", fake_post)
 

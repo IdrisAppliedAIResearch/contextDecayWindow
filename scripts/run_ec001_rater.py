@@ -122,9 +122,9 @@ class RaterClient:
             if not self.server_url:
                 raise RuntimeError("Local rater requires --server-url")
             payload = {
-                "prompt": f"{prompt}\n<think>\n</think>\n",
-                "n_predict": max_tokens,
-                "reasoning_format": "none",
+                "model": self.config["model_alias"],
+                "messages": [{"role": "user", "content": prompt}],
+                "max_tokens": max_tokens,
                 "temperature": 0,
                 "seed": int(self.config["seed"]),
                 "stream": False,
@@ -132,11 +132,13 @@ class RaterClient:
             if binary_label:
                 payload["grammar"] = LOCAL_BINARY_LABEL_GRAMMAR
             result = _post_json(
-                self.server_url.rstrip("/") + "/completion",
+                self.server_url.rstrip("/") + "/v1/chat/completions",
                 payload,
                 {},
             )
-            return str(result.get("content", "")).strip()
+            return str(
+                result["choices"][0]["message"]["content"]
+            ).strip()
         raise RuntimeError(f"Unsupported rater provider: {provider}")
 
 
