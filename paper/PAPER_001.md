@@ -57,9 +57,12 @@ loop somewhere before ten thousand.
 
 - One conversation corpus, one model, one machine, one seed. No error bars
   anywhere, and no comparison against any published system.
-- The final configuration was **never run live.** Every count here measures
-  whether a fact was *present in the window*, not whether the model answered
-  correctly.
+- Every selection count here measures whether a fact was *present in the
+  window*, not whether the model answered correctly. **Those are not the same
+  property, and one live run showed them moving in opposite directions**: the
+  final configuration made six more facts available offline, then scored *lower*
+  than the baseline on questions asking for one specific fact. It is **not
+  promoted**.
 - The breadth findings rest on a single enumeration question.
 
 Two images carry the argument between them. Figure 1 is the budget claim: the
@@ -105,10 +108,14 @@ reweighting closes.
 Capacity was never the constraint. An exact optimum on the same store makes 14
 of 17 items available in 5,058 of 32,000 characters; deployed selection made 6
 available while spending 31,946. These are availability counts measured offline
-against a planted answer key, and the resulting configuration was never run
-live. What remains after every one of those removals is an append-only store, a recency
-window, similarity retrieval, and a coverage objective, with no generative model
-calls in the memory path — a design that is reproducible and free of generated
+against a planted answer key. Tested live once, the configuration did not
+promote: its six-item availability advantage produced a one-item gain in
+correctly attributed answers and a 2.0 loss on targeted probes, failing its own
+pre-registered no-regression bar.
+
+What remains after every one of those removals is an append-only store, a
+recency window, similarity retrieval, and a coverage objective, with no
+generative model calls in the memory path — a design that is reproducible and free of generated
 intermediate text because the removed components were the ones that produced it.
 
 ---
@@ -353,8 +360,18 @@ recovering those four episodes, therefore consists of delivering the
 conversation's own earlier mistakes with the correct nouns in them. The
 decomposition survives this — it concerns which episodes get selected, not
 whether they are true — but "makes 15 of 17 available" and "would help the model
-answer correctly" are further apart than an availability count suggests, and
-nothing in this program measured the distance.
+answer correctly" are further apart than an availability count suggests.
+
+**That distance has since been measured once, and it is large.** LV-001 ran the
+shipping configuration and the deployed baseline live over this corpus at one
+seed. The six-item offline availability advantage became a **one-item**
+difference in correctly attributed answers, while targeted accuracy moved the
+*other* way: the shipping configuration scored 1.5 of 8 against the baseline's
+3.5. Asked for the two formatting rules planted in turns 1 and 2, it reported
+that it could not see the start of the conversation at all — the coverage
+objective had spent its budget on domain spread. Offline, the same
+configuration preserved 16 of 16 targeted items. Availability was preserved;
+answers were not. §8.6 carries the consequence.
 
 ### 5.2 The candidate pool binds first
 
@@ -617,11 +634,18 @@ either.
 
 ## 6. What survives
 
-**None of this section was run live.** The 12 of 17 result is offline
-availability, registered outcome PROMOTION_ELIGIBLE, meaning it may be promoted
-to a live study and has not been. No inference run of the shipped configuration
-exists, so nothing here reports what a model scored with it. The component-level
-guarantees below are tested; the retrieval result they carry is not.
+**The 12 of 17 is offline availability, and it has now been tested live — it did
+not promote.** LV-001 ran the shipping configuration against the deployed
+baseline over this corpus at one seed. The six-item offline advantage produced a
+one-item live difference in correctly attributed answers, and the configuration
+scored **2.0 lower on targeted probes** than the baseline it was meant to
+replace — failing its own pre-registered no-regression bar by four times the
+tolerance. Its registered status is **not promoted**.
+
+What survives below is unaffected. The component guarantees are tested, and §5's
+decomposition concerns which episodes reach the window, not what a model does
+with them once they are there. What LV-001 removes is the assumption that the
+second follows from the first (§5.1.1, §8.6).
 
 ### 6.1 What was removed
 
@@ -883,15 +907,32 @@ answers.** §5.1.1 in full: four of five optimum episodes are prior probe
 exchanges, this probe's earlier answers were largely wrong, and an item counts
 as available if its text appears — however wrong the surrounding response.
 
-This is the paper's largest structural weakness, and unlike the others it has a
-defined remedy rather than an aspiration. *Settled by:* **LV-001**, a
-pre-registered two-arm live run of the shipping configuration against the
-deployed baseline at one seed
-(`experiments/components/live_validation/LV_001_pre_registration.md`). Its
-thresholds and both reporting outcomes are fixed in advance, including what this
-paper must change if the offline advantage fails to convert. The design is
-committed; the run needs a runtime this repository does not carry, and has not
-been authorized.
+This was the paper's largest structural weakness. **It has now been measured,
+and the weakness is real.** LV-001 pre-registered a two-arm live run of the
+shipping configuration against the deployed baseline over this corpus at one
+seed, fixing its thresholds and both reporting outcomes before any number
+existed. It ran, and it returned:
+
+| Registered bar | Result |
+|---|---|
+| **B1** — does the offline advantage convert? | **WEAK.** Six-item offline gap became +1 correctly attributed item, inside the band the design called noise |
+| **B2** — no targeted regression, tolerance 0.5 | **FAIL.** The shipping configuration scored 1.5 of 8 against the baseline's 3.5, a 2.0 shortfall |
+
+B2 was registered as a kill: *"A B2 failure kills the promotion regardless of
+B1."* The configuration's status is therefore **not promoted**.
+
+The mechanism is legible. Asked for the two formatting rules planted in turns 1
+and 2, the shipping configuration reported that it could not see the start of
+the conversation — the coverage objective had spent its budget on domain spread
+and stopped carrying the opening, which per-item cosine ranking had retained.
+Offline, that same configuration preserved 16 of 16 targeted items. **Preserving
+an item's availability and preserving the answer that depends on it are not the
+same property**, and this program had measured only the first.
+
+One run, one seed, one rater where the protocol asks for three. The −2.0 is as
+unreplicated as the +1. Full detail, including the fabrication both arms
+produced on the domain neither retrieved, is in
+`experiments/components/live_validation/LV_001_report.md`.
 
 **8.7 Amendments exist after results.** Twelve in the bakeoff alone. The program
 records per amendment whether it preceded the result it affects, and applies a
