@@ -465,6 +465,7 @@ eviction work in `CC_001`?
 
 ## 7. Retired slot
 
+<<<<<<< HEAD
 - **F3 (absence detection): retired as a component requirement.**
   EC-001 records 0 component abstention signals on 500 cleaned LongMemEval-S
   questions, confirming the architectural absence. The fixed reader nonetheless
@@ -477,6 +478,18 @@ eviction work in `CC_001`?
   slots yielded 10 unique episodes and eight duplicates; two of nine segments
   added no unique episode, but that signal did not certify completeness because
   the result still missed 7/17 facts and one domain.
+=======
+- **F3 (absence detection): externally measured, no mechanism proposed.**
+  EC-001 records 0 component abstention signals on 500 cleaned LongMemEval-S
+  questions, confirming the architectural absence. The fixed reader nonetheless
+  scores 17/20 abstention items under Codex-substituted integrity, so component
+  absence detection and end-to-end refusal are different properties. E002's 18
+  slots yielded 10 unique episodes and eight duplicates; two of nine segments
+  added no unique episode, but that signal did not certify completeness because
+  the result still missed 7/17 facts and one domain. Candidate signals remain
+  unentered: retrieval-score distribution shape; generation-time confidence
+  (FLARE-style, scanned, breaks the one-shot contract).
+>>>>>>> 39d49c3e (docs(ec-001): close external calibration study)
 
 ## 8. Scan disposition
 

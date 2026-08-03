@@ -455,6 +455,7 @@ case: 13 of 121 (10.7%) have no evidence in the top four. The internal
 rank-87 pattern remains an exact fact about this corpus and probe, but it is not
 a dominant property of naturalistic conversational retrieval under this test.
 
+<<<<<<< HEAD
 The same external result exposes a different failure downstream of ranking.
 Session rank is diagnostic; the component thresholds and packs exchange
 episodes. A post-run audit of the committed mechanism log finds evidence in the
@@ -469,6 +470,8 @@ dominant observed gate is N-first budget exhaustion. EC-001 therefore narrows
 the inversion claim without validating the retrieval path that follows the
 ranking.
 
+=======
+>>>>>>> 39d49c3e (docs(ec-001): close external calibration study)
 ### 5.3 The objective binds second, and only after the pool
 
 The deployed rule ranks each episode against the query independently and takes
@@ -980,8 +983,12 @@ perturbation far smaller than a model change already moves 4% of results, so the
 reasonable prior is that §5's specific numbers are embedder-dependent.
 *Settled by:* rerunning the E005 sweep under a second embedder.
 
+<<<<<<< HEAD
 **8.5 Planted facts do not represent the dominant external ranking pattern,
 but external ranking did not produce retrieval.**
+=======
+**8.5 Planted facts do not represent the dominant external ranking pattern.**
+>>>>>>> 39d49c3e (docs(ec-001): close external calibration study)
 The corpus is constructed, and §5.5.1 gives a specific reason to suspect the
 inversion is a property of the planted vocabulary. RD-001 could not identify
 that mechanism: unchanged rarity scores cover only 6 of 76 fact-bearing
@@ -989,6 +996,7 @@ episodes, across three variants with no registered primary or episode
 aggregation. EC-001 tests the outcome on a corpus this program did not
 construct. Only 69 of 470 answerable questions (14.7%) put all evidence below
 the top four, with median evidence-session rank 2. The dominant-generalization
+<<<<<<< HEAD
 claim is therefore rejected, but that is only a claim about ordering. Of the
 401 questions with evidence in the top four, 305 still retrieve no evidence
 session. All 500 blocks are truncated, their median composition is 16 recency,
@@ -1002,6 +1010,12 @@ ranking, and history structure all change together.
 *Settled by:* an explicitly post-rank RD-002 rarity design, or a controlled
 replay holding those other factors fixed and separately varying K, recency,
 packing order, and exchange/session granularity.
+=======
+claim is therefore rejected. The cause remains open because corpus, query
+population, session ranking, and history structure all change together.
+*Settled by:* an explicitly post-rank RD-002 rarity design, or a controlled
+replay holding those other factors fixed.
+>>>>>>> 39d49c3e (docs(ec-001): close external calibration study)
 
 **8.6 Availability is not correctness, and the known optimum is mostly prior
 answers.** §5.1.1 in full: four of five optimum episodes are prior probe
