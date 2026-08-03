@@ -177,6 +177,7 @@ def main() -> int:
             "amendment_001_sha": repository["amendment_001_sha"],
             "amendment_002_sha": repository["amendment_002_sha"],
             "amendment_003_sha": repository["amendment_003_sha"],
+            "amendment_004_sha": repository["amendment_004_sha"],
             "head": repository["head"],
             "branch": repository["branch"],
             "launch_command": shlex.join(sys.argv),

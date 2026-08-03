@@ -43,12 +43,18 @@ AMENDMENT_003 = (
     / "amendments"
     / "AMENDMENT_003_incomplete_turn_labels.md"
 )
+AMENDMENT_004 = (
+    EC001_ROOT
+    / "amendments"
+    / "AMENDMENT_004_scoring_protocol_reconciliation.md"
+)
 
 REGISTRATION_SHA = "b595b05e1469c67277844d4bd97f77c89a20772b"
 ADAPTATION_SHA = "a65c2566e55a2063bd1904065032f86c5d0e23a9"
 AMENDMENT_001_SHA = "a1dc736cece4e1aa95412c661dec94da48feaf25"
 AMENDMENT_002_SHA = "befa2c41659031496127d8b2a180e3c616801d02"
 AMENDMENT_003_SHA = "4ce6db743f87431248e1c6eb67d3cd3a521c5465"
+AMENDMENT_004_SHA = "37864822e4c429412b81f67db8af4af804308b8f"
 EXPECTED_QUESTION_COUNT = 500
 QUESTION_TYPES = (
     "single-session-user",
@@ -200,6 +206,7 @@ def assert_repository_ready(*, require_clean: bool = True) -> dict:
         AMENDMENT_001_SHA,
         AMENDMENT_002_SHA,
         AMENDMENT_003_SHA,
+        AMENDMENT_004_SHA,
     ):
         completed = subprocess.run(
             ["git", "merge-base", "--is-ancestor", anchor, "HEAD"],
@@ -225,6 +232,7 @@ def assert_repository_ready(*, require_clean: bool = True) -> dict:
         "amendment_001_sha": AMENDMENT_001_SHA,
         "amendment_002_sha": AMENDMENT_002_SHA,
         "amendment_003_sha": AMENDMENT_003_SHA,
+        "amendment_004_sha": AMENDMENT_004_SHA,
         "worktree_clean": not bool(status),
     }
 
