@@ -144,6 +144,7 @@ Authoritative files:
 - `E006_rarity_diagnostic_and_chained_retrieval.md`
 - `RD_001_report.md`
 - `RD_001_POST_RESULT_DECISION.md`
+- `RD_001_RARITY_PROVENANCE_AUDIT.md`
 - `artifacts/rd001/measurement_feasibility.json`
 - `artifacts/rd001/full_rank_inventory.csv`
 - `E005_diversity_selection_protocol.md`

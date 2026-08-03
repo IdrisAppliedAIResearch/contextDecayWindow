@@ -148,7 +148,7 @@ differently from the spec, per §1 above.
 | Study 009 null test, same seed | S 9.0 vs L 12.0, gap 3.0 | `arm_totals.json` |
 | Topic layer | 52 topics at 120 turns; 12 domains → 2 at 1,000 | `AGENTS.md` digest 002/010 |
 | Study 003 promotion | weighted route structurally unreachable; all promotion via bypass | `AGENTS.md` digest 003 |
-| Density ranks the six hard plants | 89th–316th; IDF worse | `RETRIEVAL_MECHANISM_LEDGER.md` F4 + Graveyard |
+| Density and rarity on the six hard plants | Density 89th–316th; mean IDF is worse on 5/5 eligible spans, but max IDF improves 2/5 and sum/word improves 1/5; no primary variant | `rarity_signal_feasibility.csv`; `RD_001_RARITY_PROVENANCE_AUDIT.md`; `ERRATA.md` |
 | Study 007 | model used 10/10 delivered facts, invented none; 7 required facts absent | `AGENTS.md` digest 007; `README.md` |
 | Study 008 | stopped at pre-run gates; no fill cap 1–50 passed jointly | `AGENTS.md` digest 008 |
 
@@ -360,6 +360,14 @@ rank-20 correction. Figure 3 now reads
 `artifacts/rd001/full_rank_inventory.csv`. The rank gap is closed; the rarity
 measurement is not, because only six fact-bearing episodes have prior rarity
 scores and no primary of the three variants was registered.
+
+**Rarity-variant provenance correction.** The historical audit did not choose a
+primary formula and did not state the later categorical conclusion "IDF worse."
+That sentence first appeared in the retrieval ledger. It matches
+`rarity_mean` only: 5/5 eligible hard-plant spans rank worse than density,
+versus 3/5 for `rarity_max` and 4/5 for `rarity_sum_per_word`. The family-level
+negative claim is withdrawn in `ERRATA.md`; no historical artifact or score is
+changed.
 
 ---
 
