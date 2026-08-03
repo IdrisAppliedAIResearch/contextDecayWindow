@@ -1,0 +1,9 @@
+{
+  "gate": "G3",
+  "certifies": "the primary configuration is unaffected by the solo-versus-batched embedding call shape",
+  "primary_configuration": "A3_l0.1_r0.0_k16",
+  "errata_states_primary_unaffected": true,
+  "replay_gate_payloads_reproduced": null,
+  "status": "PASS",
+  "note": "Live confirmation is the byte-identical check inside the run itself: the turn-120 selection is compared against the committed primary payload SHA."
+}
