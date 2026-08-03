@@ -188,20 +188,55 @@ line is corrected to 20-119.
 
 The per-candidate figure and the 0.96 exponent are correct inside the range
 DR-002 measured. They do not extend past it. CC-005 measured the same
-configuration on the same material to 1,000 candidates:
+configuration on the same material to 1,000 candidates. Every row below is
+`artifacts/cc005/latency_curve.csv`, the median `build_context` wall time over
+seven runs per point, embedding excluded:
 
-| Candidates | Median build_context | Microseconds per candidate |
+| Candidates | Median `build_context` | Microseconds per candidate |
 |---:|---:|---:|
-| 50 | 3.8 ms | 76 |
-| 119 (DR-002's maximum) | ~10 ms | ~84 |
-| 500 | 65.6 ms | 131 |
-| 1,000 | 190.0 ms | 190 |
+| 50 | 4.20 ms | 84.0 |
+| 100 | 10.01 ms | 100.1 |
+| 200 | 25.10 ms | 125.5 |
+| 300 | 42.12 ms | 140.4 |
+| 400 | 53.93 ms | 134.8 |
+| 500 | 66.36 ms | 132.7 |
+| 700 | 118.90 ms | 169.9 |
+| 850 | 145.68 ms | 171.4 |
+| 1,000 | 189.99 ms | 190.0 |
 
-Per-candidate cost is flat to about 119 candidates and rises steadily after,
-so the empirical exponent over 50-1,000 is **1.25**, not 0.96. Clustering's
-share of the total rises with it, from 37% at 50 candidates to **81%** at
-1,000; DR-002's "roughly 73% at n = 119" sits on that trend rather than
-being a constant.
+The empirical exponent over 50-1,000 is **1.25**, not 0.96. Clustering's share
+of the total rises with it, from 37% at 50 candidates to **81%** at 1,000;
+DR-002's "roughly 73% at n = 119" sits on that trend rather than being a
+constant.
+
+**Correction to this entry (2026-08-02).** The table above replaces a
+four-row version that was wrong in three ways, found while tracing figure
+sources for PAPER-001. It was headed "Median build_context" but took its 50-
+and 500-candidate rows from `artifacts/cc005/latency_components.csv`
+`stage_total_ms` - the sum of the timed stages, which is smaller than the call
+- giving 3.8 ms and 65.6 ms where the medians are 4.20 ms and 66.36 ms. Its
+1,000-candidate row was a `build_context` median, so the four rows did not
+come from one measurement. And its second row, "119 (DR-002's maximum), ~10 ms,
+~84", was not a CC-005 measurement at all: CC-005 has no 119-candidate point,
+and that row pairs the 100-candidate median with the 50-candidate
+per-candidate cost.
+
+The entry's headline is unaffected. 190 ms at 1,000 candidates, the 1.25
+exponent, and the 81% clustering share were all read from the correct
+artifacts and all stand.
+
+One claim in the original entry does not survive the correction, and it is
+worth stating rather than deleting. The entry read "per-candidate cost is flat
+to about 119 candidates and rises steadily after", positioned as a reading of
+the table. It is not one: across CC-005's own curve, per-candidate cost rises
+from 84.0 to 100.1 microseconds between 50 and 100 candidates, which is a 19%
+climb inside the range described as flat. The flatness is DR-002's finding
+about DR-002's measurement - 35-43 microseconds over 20-119 candidates - and
+the two quantities are not comparable: DR-002 timed cluster setup plus the
+greedy loop, while CC-005 times the whole `build_context` call, which is why
+CC-005 reads about 100 microseconds per candidate at n = 100 where DR-002 reads
+about 40 at n = 119. Neither measurement is wrong. Placing them in one column
+was.
 
 The consequence is for the projections, not for DR-002. The CC-003/004/005
 pre-registration reads "~40 microseconds per candidate, exponent 0.96;

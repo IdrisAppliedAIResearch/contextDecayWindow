@@ -52,6 +52,10 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **CC-003/004/005 closeout (2026-08-02).** CLOSED. G-E0 clears DX-002's block: episodic's block is bounded, +18 chars p95/1,000 turns, so the leak is the runner's. The ceiling no longer raises at tiny budgets; truncated carries dropped ids; drop order named (amendment 001); E6 inert at 132/132 SHAs. CC-004 kills real processes. CC-005: 190 ms at 1,000 candidates, no eviction. Suite 1,007.
 
+**LV-001 (2026-08-02).** PRE-REGISTERED, NOT RUN. The authorized design E005's "no live run is authorized" asks for: two arms, one seed, does 12/17 offline availability convert to a better scored answer than A0's 6/17. B1 thresholds and both reporting outcomes are fixed before any number exists. Needs the runtime; no model is in the repo. `experiments/components/live_validation/`.
+
+**PAPER-001 (2026-08-02).** DRAFT. Terminal document at `paper/PAPER_001.md`, typeset to `paper/Selection_Not_Capacity.pdf`. Decomposes retrieval failure into candidate pool, objective and similarity floor, binding in that forced order. The order is structural: art has no representative in the deployed 34-pool, so no rule reaches 4/4 there. Figures and PDF are generated; see section 8.
+
 **Retrieval mechanism ledger (2026-07-31).** CLOSED. E002 KILL but exact-32k segmentation improved 6/17->10/17. AR-001 proves F1 achievable: exact 14/17 costs 5,058 chars; 17/17 costs 7,592. E001 best-found .1204->.2103; 0/714 reached K=.48 and 266/384 heads was non-sparse. F2 closed; F3 open; E003 unauthorized.
 
 ## 3. Failure Pattern
@@ -170,4 +174,31 @@ experiments/study_NNN/
   runs/                                        logs and analyses
   study_NNN_report.md                          result and limitations
 experiments/probes/                            exploratory work outside the arc
+paper/
+  PAPER_001.md                                 terminal research document; the source of truth
+  Selection_Not_Capacity.pdf                   typeset build of the above; generated, never authored
+  CLAIM_TO_ARTIFACT.md                         every claim with its committed artifact and hash
+  REPRODUCTION.md                              Appendix E; clean-environment check of one headline number
+  reproduce_headline.py                        that check; reader-facing, runs against the installed library
+  figures/                                     generated SVG/PNG plus figure_manifest.json
+  notes/EVIDENCE_INDEX.md                      spec-versus-artifact reconciliation
+  reviews/                                     two adversarial cycles, slop audit, three-reader review
+experiments/components/live_validation/
+  LV_001_pre_registration.md                   live validation of the shipping selector; PRE-REGISTERED, NOT RUN
+scripts/generate_paper_001_figures.py          rebuilds paper/figures/ from committed artifacts
+scripts/build_paper_pdf.py                     rebuilds the PDF from PAPER_001.md; needs `pip install typst`
 ```
+
+### The paper is generated, not authored
+
+`paper/PAPER_001.md` is the only place a claim in the paper may be edited. The
+figures and the PDF are build outputs of the two scripts above.
+
+- Edit `PAPER_001.md`, then re-run **both** scripts. Hand-editing a figure, the
+  PDF, or `paper/build/` is a defect, not a shortcut.
+- Figure numbering lives in the Markdown, not in the typesetter, so a renumber
+  means editing the Markdown and the generator together. The build places each
+  figure at the paragraph that first cites it; if citation order and figure
+  order disagree, fix the numbering rather than the placement.
+- Every figure caption carries its artifacts' SHA-256 prefixes. If an artifact
+  changes, the caption and `figure_manifest.json` change with it.
