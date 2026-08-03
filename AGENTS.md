@@ -52,7 +52,7 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **CC-003/004/005 closeout (2026-08-02).** CLOSED. G-E0 clears DX-002's block: episodic's block is bounded, +18 chars p95/1,000 turns, so the leak is the runner's. The ceiling no longer raises at tiny budgets; truncated carries dropped ids; drop order named (amendment 001); E6 inert at 132/132 SHAs. CC-004 kills real processes. CC-005: 190 ms at 1,000 candidates, no eviction. Suite 1,007.
 
-**LV-001 (2026-08-02).** PRE-REGISTERED, NOT RUN. The authorized design E005's "no live run is authorized" asks for: two arms, one seed, does 12/17 offline availability convert to a better scored answer than A0's 6/17. B1 thresholds and both reporting outcomes are fixed before any number exists. Needs the runtime; no model is in the repo. `experiments/components/live_validation/`.
+**LV-001 (2026-08-02).** RUN. B1 WEAK, B2 FAIL, **promotion killed on its own pre-registered bar**. The 6-item offline availability gap became +1 correctly attributed item live; targeted fell 3.5->1.5 against a 0.5 tolerance. A3 dropped turns 1-2 and could not state the formatting rules; offline it preserved 16/16. Availability is not the answer. Both arms fabricated the unretrieved art domain.
 
 **PAPER-001 (2026-08-02).** DRAFT. Terminal document at `paper/PAPER_001.md`, typeset to `paper/Selection_Not_Capacity.pdf`. Decomposes retrieval failure into candidate pool, objective and similarity floor, binding in that forced order. The order is structural: art has no representative in the deployed 34-pool, so no rule reaches 4/4 there. Figures and PDF are generated; see section 8.
 
