@@ -2,41 +2,8 @@
   "gate": "G1",
   "certifies": "every rubric-required item is planted in a scripted user turn strictly before the probe that asks for it",
   "items_checked": 38,
-  "unplanted": [
-    {
-      "probe": "Q11",
-      "probe_turn": 120,
-      "domain": "art",
-      "item": "The Annunciation of Forli",
-      "planted_before_probe": false,
-      "first_planted_turn": null
-    },
-    {
-      "probe": "Q11",
-      "probe_turn": 120,
-      "domain": "art",
-      "item": "Melozzo da Forli",
-      "planted_before_probe": false,
-      "first_planted_turn": null
-    },
-    {
-      "probe": "Q4",
-      "probe_turn": 115,
-      "domain": null,
-      "item": "annunciation of forli",
-      "planted_before_probe": false,
-      "first_planted_turn": null
-    },
-    {
-      "probe": "Q4",
-      "probe_turn": 115,
-      "domain": null,
-      "item": "melozzo da forli",
-      "planted_before_probe": false,
-      "first_planted_turn": null
-    }
-  ],
-  "status": "FAIL",
+  "unplanted": [],
+  "status": "PASS",
   "note": "scripts/check_probe_fact_order.py parses Study 010's rubric_1000.md table shape and does not read this corpus's item sets, so the same property is checked here directly against the committed Q11 and targeted item lists.",
   "findings": [
     {
@@ -84,16 +51,16 @@
       "probe_turn": 120,
       "domain": "art",
       "item": "The Annunciation of Forli",
-      "planted_before_probe": false,
-      "first_planted_turn": null
+      "planted_before_probe": true,
+      "first_planted_turn": 55
     },
     {
       "probe": "Q11",
       "probe_turn": 120,
       "domain": "art",
       "item": "Melozzo da Forli",
-      "planted_before_probe": false,
-      "first_planted_turn": null
+      "planted_before_probe": true,
+      "first_planted_turn": 55
     },
     {
       "probe": "Q11",
@@ -212,16 +179,16 @@
       "probe_turn": 115,
       "domain": null,
       "item": "annunciation of forli",
-      "planted_before_probe": false,
-      "first_planted_turn": null
+      "planted_before_probe": true,
+      "first_planted_turn": 55
     },
     {
       "probe": "Q4",
       "probe_turn": 115,
       "domain": null,
       "item": "melozzo da forli",
-      "planted_before_probe": false,
-      "first_planted_turn": null
+      "planted_before_probe": true,
+      "first_planted_turn": 55
     },
     {
       "probe": "Q4",
