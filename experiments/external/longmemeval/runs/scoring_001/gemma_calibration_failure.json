@@ -1,0 +1,51 @@
+{
+  "record": "EC-001 Gemma rater calibration failure",
+  "observed_utc": "2026-08-03T19:17:00Z",
+  "runtime_record_commit": "2480595f",
+  "family_id": "gemma-local",
+  "model_family": "gemma",
+  "model_id": "gemma-4-E2B-it-UD-Q4_K_XL",
+  "model_sha256": "b52f438017efaec5debf1c0d8be690571e212a07c312f1102bbce927258cfc32",
+  "server_properties": {
+    "total_slots": 1,
+    "model_alias": "gemma-4-E2B-it-UD-Q4_K_XL.gguf",
+    "build_info": "b9294-0f3cb3fc8",
+    "speculative_types": "none",
+    "seed": 5005
+  },
+  "calibration_results": [
+    {
+      "calibration_id": "exact-positive",
+      "expected_label": true,
+      "observed_label": true,
+      "response": "yes",
+      "pass": true
+    },
+    {
+      "calibration_id": "partial-negative",
+      "expected_label": false,
+      "observed_label": false,
+      "response": "no",
+      "pass": true
+    },
+    {
+      "calibration_id": "reasoning-only-no-answer",
+      "expected_label": false,
+      "observed_label": false,
+      "response": "no",
+      "pass": true
+    },
+    {
+      "calibration_id": "abstention-positive",
+      "expected_label": true,
+      "observed_label": false,
+      "response": "no",
+      "pass": false
+    }
+  ],
+  "calibration_status": "FAIL",
+  "calibration_calls": 4,
+  "real_benchmark_packets_seen": 0,
+  "rater_output_created": false,
+  "action": "STOP_BEFORE_SCORING"
+}
