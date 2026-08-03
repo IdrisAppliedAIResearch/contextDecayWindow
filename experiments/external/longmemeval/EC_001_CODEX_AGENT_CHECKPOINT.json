@@ -1,0 +1,43 @@
+{
+  "record": "EC-001 manual Codex-agent evaluator checkpoint",
+  "checkpoint_version": 1,
+  "amendment_009_sha": "c2bd4b52ee0904c15135efcaf099e094da21b56c",
+  "amendment_010_sha": "b80bd8b32a86771dbaa4ba1f2fb8faa0eaae074d",
+  "status": "WAITING_FOR_MANUAL_MODEL_SWITCH",
+  "current_stage": "C1",
+  "display_model": "GPT-5.4",
+  "role": "third rater",
+  "expected_resume_phrase": "EC001 RESUME C1 GPT-5.4 SWITCHED",
+  "spawn_policy": {
+    "fork_turns": "none",
+    "model_override": "OMIT_TO_INHERIT_PARENT",
+    "reasoning_effort_override": "OMIT_TO_INHERIT_PARENT",
+    "child_task_name": "ec001_c1_gpt54_rater"
+  },
+  "allowed_child_inputs": [
+    "experiments/external/longmemeval/EC_001_CODEX_AGENT_CHILD_CONTRACT.md",
+    "experiments/external/longmemeval/EC_001_CODEX_AGENT_CALIBRATION_BLIND.jsonl",
+    "experiments/external/longmemeval/runs/scoring_001/rater_packets.jsonl"
+  ],
+  "runtime_record": "experiments/external/longmemeval/EC_001_CODEX_AGENT_RUNTIME_RECORD.json",
+  "stage_outputs": {
+    "calibration_observations": "experiments/external/longmemeval/runs/scoring_001/codex_agents/C1_calibration_observations.json",
+    "calibration_gate": "experiments/external/longmemeval/runs/scoring_001/codex_agents/C1_calibration_gate.json",
+    "rater_output": "experiments/external/longmemeval/runs/scoring_001/codex_agents/C1_rater.jsonl",
+    "validation_report": "experiments/external/longmemeval/runs/scoring_001/codex_agents/C1_validation.json"
+  },
+  "last_completed_stage": null,
+  "completed_stage_commits": {},
+  "identity_map_opened": false,
+  "trigger_preparation_run": false,
+  "final_aggregation_run": false,
+  "next_stage_after_pass": {
+    "stage": "TRIGGER_PREPARATION",
+    "display_model": "GPT-5.4",
+    "role": "deterministic parent-side preparation",
+    "then_stage": "C2",
+    "then_display_model": "GPT-5.5",
+    "then_role": "adjudicator",
+    "then_expected_resume_phrase": "EC001 RESUME C2 GPT-5.5 SWITCHED"
+  }
+}
