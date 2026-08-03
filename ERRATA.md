@@ -304,3 +304,32 @@ recorded in
 `experiments/components/retrieval_mechanism_ledger/DX_001_PART2_DISPOSITION.md`
 section 8: reproducing a retrieval result requires reproducing the embedding
 call shape, not only the query text.
+
+## EC-001 Rank-to-Retrieval Interpretation (2026-08-03)
+
+**No registered number changes.** The EC-001 report correctly published pooled
+median evidence-session rank 2 and any-session recall 109/470 (23.2%), but it
+did not explain why a favourable session ordering produced weak delivery. The
+omission made the two results read as a contradiction.
+
+A post-run audit of the already-opened sealed Tier 1 mechanism log separates
+the stages. Evidence is in the top four on 401/470 questions, but only 96 of
+those retrieve any evidence session. At least one exchange clears the carried
+`K = 0.48` threshold on 232/500 questions, while a non-recency K exchange
+survives exact packing on only 20. Every block is truncated and at least 31,000
+characters; median composition is 16 recency, 0 non-recency K, and 1 coverage
+exchange. Of 109 evidence-session hits, 91 come from delivered recency and 18
+from all non-recency paths. Thirty session hits omit every exact annotated
+answer turn.
+
+The corrected interpretation is that the internal top-of-rank inversion is not
+a dominant property of these naturalistic questions, while EC-001's adapted
+retrieval path is dominated downstream by N-first exact-budget exhaustion.
+The threshold is an additional category-specific gate, especially for
+single-session preference, and session/exchange granularity explains the later
+109-to-79 loss. The diagnostic is explicitly post hoc and does not authorize a
+counterfactual parameter change.
+
+Artifact:
+`experiments/external/longmemeval/runs/tier1_001/retrieval_path_diagnostic.json`
+at commit `7b38badb`.

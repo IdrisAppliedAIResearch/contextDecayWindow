@@ -32,7 +32,9 @@ model calls anywhere in the memory path.
    That split rests on one enumeration question. EC-001 tested the ranking on
    cleaned LongMemEval-S: only 14.7% of 470 answerable questions put all evidence
    below the top four, with median evidence rank 2. The internal inversion is not
-   a dominant external pattern.
+   a dominant external pattern. That ranking result does not imply a working
+   retrieval path: 401 questions have evidence in the top four, but only 96 of
+   those retrieve any evidence session after thresholding and packing.
 3. **Fix order matters, and the intuitive order is wrong.** The deployed
    shortlist contained no record at all from one of the four topics, so no
    selection rule of any kind could cover all four from it. Improving the rule
@@ -453,6 +455,20 @@ case: 13 of 121 (10.7%) have no evidence in the top four. The internal
 rank-87 pattern remains an exact fact about this corpus and probe, but it is not
 a dominant property of naturalistic conversational retrieval under this test.
 
+The same external result exposes a different failure downstream of ranking.
+Session rank is diagnostic; the component thresholds and packs exchange
+episodes. A post-run audit of the committed mechanism log finds evidence in the
+top four on 401 of 470 questions, but any evidence-session recall on only 96 of
+those 401. At least one exchange clears `K = 0.48` on 232 of 500 questions, yet
+a non-recency K exchange survives packing on only 20. Every block is truncated;
+the median composition is 16 recency exchanges, zero non-recency K exchanges,
+and one coverage exchange at 31,920 characters. Of 109 session hits, 91 come
+from recency and only 18 from non-recency paths. The threshold matters most for
+single-session preference, whose median best-evidence cosine is 0.399, but the
+dominant observed gate is N-first budget exhaustion. EC-001 therefore narrows
+the inversion claim without validating the retrieval path that follows the
+ranking.
+
 ### 5.3 The objective binds second, and only after the pool
 
 The deployed rule ranks each episode against the query independently and takes
@@ -728,6 +744,14 @@ An append-only verbatim store. A recency window. Cosine-threshold similarity
 retrieval for targeted queries. A set-level coverage objective for selection.
 Everything packed at exact serialized cost against one budget.
 
+One formerly open item is no longer owed as a component mechanism. The
+component emitted no absence signal on any of 500 EC-001 questions, while the
+fixed reader correctly abstained on 17 of 20 registered abstention items. This
+does not give the component an absence detector or establish reader robustness
+across models and prompts. It does show that component-level detection is not
+necessary for end-to-end abstention under this tested reader, so F3 is retired
+as a component requirement rather than marked solved.
+
 **There are no generative model calls anywhere in the memory path.** Nothing in
 it asks a model to write text about the store. That is the property Study 005
 established and the one every removal preserved.
@@ -956,7 +980,8 @@ perturbation far smaller than a model change already moves 4% of results, so the
 reasonable prior is that §5's specific numbers are embedder-dependent.
 *Settled by:* rerunning the E005 sweep under a second embedder.
 
-**8.5 Planted facts do not represent the dominant external ranking pattern.**
+**8.5 Planted facts do not represent the dominant external ranking pattern,
+but external ranking did not produce retrieval.**
 The corpus is constructed, and §5.5.1 gives a specific reason to suspect the
 inversion is a property of the planted vocabulary. RD-001 could not identify
 that mechanism: unchanged rarity scores cover only 6 of 76 fact-bearing
@@ -964,10 +989,19 @@ episodes, across three variants with no registered primary or episode
 aggregation. EC-001 tests the outcome on a corpus this program did not
 construct. Only 69 of 470 answerable questions (14.7%) put all evidence below
 the top four, with median evidence-session rank 2. The dominant-generalization
-claim is therefore rejected. The cause remains open because corpus, query
-population, session ranking, and history structure all change together.
+claim is therefore rejected, but that is only a claim about ordering. Of the
+401 questions with evidence in the top four, 305 still retrieve no evidence
+session. All 500 blocks are truncated, their median composition is 16 recency,
+0 non-recency K, and 1 coverage exchange, and 91 of the 109 session hits come
+from recency. The external calibration therefore strengthens the corpus caveat:
+naturalistic questions do not show the same dominant inversion, while this
+particular adaptation is dominated downstream by exchange-level thresholding,
+continuous-conversation recency, and N-first exact packing. The cause of the
+ranking difference remains open because corpus, query population, session
+ranking, and history structure all change together.
 *Settled by:* an explicitly post-rank RD-002 rarity design, or a controlled
-replay holding those other factors fixed.
+replay holding those other factors fixed and separately varying K, recency,
+packing order, and exchange/session granularity.
 
 **8.6 Availability is not correctness, and the known optimum is mostly prior
 answers.** §5.1.1 in full: four of five optimum episodes are prior probe

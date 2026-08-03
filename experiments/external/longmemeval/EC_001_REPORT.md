@@ -22,6 +22,12 @@ four all being empty on the program's one enumeration probe. Across 890
 annotated evidence sessions, the median rank is 2, the 95th percentile is 23,
 and the deepest observed evidence rank is 49.
 
+Those ranks are a measurement-only session ordering, not the component's
+delivered top-k. A post-run audit of the sealed mechanism log finds that 401 of
+470 questions have an evidence session in the top four, but only 96 of those
+401 retrieve any evidence session. The rank result therefore narrows the
+internal inversion; it does not certify a working external retrieval path.
+
 Retrieval performance is nevertheless weak. A delivered block contains at
 least one exact annotated answer turn on **79 of 470 answerable questions
 (16.8%)**, and contains all annotated answer turns on **20 of 470 (4.3%)**.
@@ -92,6 +98,46 @@ processing count and enter Tier 2 scoring.
 | Single-session user | 64 | 15.6% | 15.6% | 9.4% | 9.4% |
 | Temporal reasoning | 127 | 19.7% | 3.1% | 15.7% | 4.7% |
 | **All answerable** | **470** | **23.2%** | **7.2%** | **16.8%** | **4.3%** |
+
+### 3.1 Post-run retrieval-path diagnostic
+
+This diagnostic is explicitly post hoc. It changes no registered metric,
+score, criterion, or run artifact. It was added because the report originally
+placed median evidence rank 2 beside 23.2% session recall without identifying
+the gates between ranking and delivery. The six registered adaptation hazards
+included recency and session/exchange granularity but omitted the carried
+`K = 0.48` threshold as a distinct foreign-corpus hazard.
+
+| Check | Result |
+|---|---:|
+| Questions with any evidence session in cosine top four | 401/470 |
+| Those questions retrieving any evidence session | 96/401 |
+| Questions with at least one exchange clearing K | 232/500 |
+| Questions where a non-recency K exchange survives packing | 20/500 |
+| Non-recency K exchanges delivered | 26 |
+| Questions whose best evidence session contains a K-eligible exchange | 208/470 |
+| Those questions retrieving any evidence session | 56/208 |
+| Questions with an evidence session in the 32-exchange recency candidates | 131/470 |
+| Those questions retrieving any evidence session | 91/131 |
+
+Every returned block is truncated and at least 31,000 characters. The median
+block is 31,920 characters and **17 exchanges, not roughly 60**: 16 recency,
+0 non-recency K, and 1 A3 coverage exchange. Blocks range from 9 to 42
+exchanges. Exact N-first packing drops evidence on 40 of the 131 questions
+where an evidence session is inside the nominal 32-exchange recency window.
+
+Of the 109 evidence-session hits, 91 come from delivered recency exchanges and
+18 from all non-recency paths. K is therefore not simply inert: at least one
+exchange clears 0.48 on 232 questions. But its non-recency output almost never
+survives after recency claims the exact-character budget. N-first budget
+exhaustion is the dominant observed delivery gate in this run; K is an
+additional category-specific gate.
+
+Single-session preference shows the threshold effect most clearly. Its median
+best-evidence cosine is 0.399; only 5 of 30 evidence sessions contain any
+K-eligible exchange. Yet 20 of 30 place evidence in the top four, and only 1
+of 30 retrieves the session. Session rank, exchange thresholding, and exact
+packing are three different operations.
 
 The session/turn split matters. Retrieving a session is not sufficient when the
 exact answer-bearing exchange is absent from the returned block. Thirty
@@ -292,6 +338,9 @@ immutable API model id, build hash, temperature, or seed for GPT-5.4 or GPT-5.5.
 - One reader, one embedder, one seed, one machine, no variance estimate.
 - The rank comparison changes corpus and ranking unit together; it rejects
   dominant generalization, not every possible vocabulary explanation.
+- The retrieval-path audit is post hoc. It diagnoses the committed path but
+  does not estimate a counterfactual K, recency policy, packing order,
+  granularity, or budget.
 - Exact answer-turn matching is stricter than semantic availability and cannot
   by itself certify what the reader knew.
 - Equal Tier 2 quotas deliberately overrepresent small strata. The 20.0% raw
@@ -323,6 +372,7 @@ immutable API model id, build hash, temperature, or seed for GPT-5.4 or GPT-5.5.
 | Adjudication triggers | `fbdb17ed` |
 | GPT-5.5 adjudications | `9863a4a7` |
 | Codex-substituted final scores | `e59f86cd` |
+| Post-run retrieval-path diagnostic | `7b38badb` |
 
 Downloaded model resources are recorded by exact path, byte count, source
 revision, and SHA-256 in `EC_001_CLEANUP_MANIFEST.json`. After closeout
