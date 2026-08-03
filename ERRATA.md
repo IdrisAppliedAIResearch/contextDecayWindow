@@ -122,6 +122,29 @@ Retrieval bakeoff Tier 1 previously reported 8/17 at 31,861 exactly serialized
 characters under its own renderer and M4 method. See
 `experiments/components/retrieval_mechanism_ledger/E002_POSTHOC_INTERPRETATION.md`.
 
+## Retrieval Ledger and PAPER-001 IDF Claim (2026-08-03)
+
+**Headline change:** the categorical claim that inverse document frequency
+ranked the six hard plants worse than density is withdrawn.
+
+The Study 009 breadth regression audit computed three IDF variants and
+designated none as primary. Mean content-word IDF ranked all five eligible
+hard-plant spans worse than density. Maximum content-word IDF ranked three
+worse and two better; summed IDF per logged word ranked four worse and one
+better. The sixth, photophores, was unranked under all three because the audit
+retained the formation eligibility filter.
+
+The audit itself reports the three formulas and their rows but does not state
+"IDF worse." That categorical sentence first appears four days later in the
+retrieval mechanism ledger, without naming a variant, and was later repeated in
+PAPER-001 and its claim index. It can only be reconstructed by selecting
+`rarity_mean` after seeing all three results. The narrower mean-IDF result
+remains descriptive; IDF as a family was not refuted.
+
+No historical artifact is edited and no missing rarity value is recomputed.
+See
+`experiments/components/retrieval_mechanism_ledger/RD_001_RARITY_PROVENANCE_AUDIT.md`.
+
 
 ## Retrieval Ledger E002 Targeted No-Regression Count (2026-08-01)
 
