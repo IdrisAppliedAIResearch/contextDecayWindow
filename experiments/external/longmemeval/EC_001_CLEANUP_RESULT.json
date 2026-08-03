@@ -1,0 +1,148 @@
+{
+  "record": "EC-001 authorized cleanup result",
+  "completed_utc": "2026-08-03T23:18:08Z",
+  "authorization": {
+    "source": "User message in the EC-001 Codex task",
+    "quote": "You can delete. You need to double check every deletion. If you ever run a command and delete something unauthorized you are in trouble."
+  },
+  "source_manifest": {
+    "path": "experiments/external/longmemeval/EC_001_CLEANUP_MANIFEST.json",
+    "sha256": "7b539ca8a8ef7ca6b5693287cef4d2cf65f7a01c1bccbaff5c473ed46b118c29",
+    "allowlist_validated_before_deletion": true
+  },
+  "preflight": {
+    "download_target_count": 3,
+    "temporary_file_target_count": 10,
+    "protected_resource_count": 4,
+    "download_sizes_matched": true,
+    "download_sha256_hashes_matched": true,
+    "blocking_processes": 0
+  },
+  "deleted_model_files": [
+    {
+      "resource_id": "mistral-rater",
+      "path": "C:\\Users\\muzaf\\.cache\\huggingface\\hub\\models--bartowski--mistralai_Mistral-Small-3.1-24B-Instruct-2503-GGUF\\snapshots\\f73dfd9e812922fb503a993e3fa5671424f486d3\\mistralai_Mistral-Small-3.1-24B-Instruct-2503-Q5_K_M.gguf",
+      "predelete_bytes": 16763985376,
+      "predelete_sha256": "64553a25b66927d0105c048d10cc96db31174cf05c3846885b2ad50cd4f32bb3",
+      "status": "DELETED",
+      "postdelete_exists": false
+    },
+    {
+      "resource_id": "llama-failed-replacement",
+      "path": "C:\\Users\\muzaf\\.cache\\huggingface\\hub\\models--bartowski--Meta-Llama-3.1-8B-Instruct-GGUF\\snapshots\\bf5b95e96dac0462e2a09145ec66cae9a3f12067\\Meta-Llama-3.1-8B-Instruct-Q6_K_L.gguf",
+      "predelete_bytes": 6850471328,
+      "predelete_sha256": "9bf5598b3cc6c5804c520aa6349266d2e2c9a22402e157bd9b187dc34806dad6",
+      "status": "DELETED",
+      "postdelete_exists": false
+    },
+    {
+      "resource_id": "phi-rater",
+      "path": "C:\\Users\\muzaf\\.cache\\huggingface\\hub\\models--bartowski--phi-4-GGUF\\snapshots\\19cd65f97c2f1712a81c506611d3f9c94b16a1e1\\phi-4-Q5_K_M.gguf",
+      "predelete_bytes": 10604188096,
+      "predelete_sha256": "b4b1ecedddfdd25a9c44c10a77bb118bcbb6a9004234286c7d4a4510c907f073",
+      "status": "DELETED",
+      "postdelete_exists": false
+    }
+  ],
+  "deleted_temporary_files": [
+    {
+      "path": "C:\\Users\\muzaf\\Downloads\\ec001-reader-stdout.log",
+      "predelete_bytes": 0,
+      "status": "DELETED",
+      "postdelete_exists": false
+    },
+    {
+      "path": "C:\\Users\\muzaf\\Downloads\\ec001-reader-stderr.log",
+      "predelete_bytes": 568013,
+      "status": "DELETED",
+      "postdelete_exists": false
+    },
+    {
+      "path": "C:\\Users\\muzaf\\Downloads\\ec001-gemma-rater-stdout.log",
+      "predelete_bytes": 0,
+      "status": "DELETED",
+      "postdelete_exists": false
+    },
+    {
+      "path": "C:\\Users\\muzaf\\Downloads\\ec001-gemma-rater-stderr.log",
+      "predelete_bytes": 9621,
+      "status": "DELETED",
+      "postdelete_exists": false
+    },
+    {
+      "path": "C:\\Users\\muzaf\\Downloads\\ec001-llama-rater-stdout.log",
+      "predelete_bytes": 0,
+      "status": "DELETED",
+      "postdelete_exists": false
+    },
+    {
+      "path": "C:\\Users\\muzaf\\Downloads\\ec001-llama-rater-stderr.log",
+      "predelete_bytes": 8287,
+      "status": "DELETED",
+      "postdelete_exists": false
+    },
+    {
+      "path": "C:\\Users\\muzaf\\Downloads\\ec001-phi-rater-stdout.log",
+      "predelete_bytes": 0,
+      "status": "DELETED",
+      "postdelete_exists": false
+    },
+    {
+      "path": "C:\\Users\\muzaf\\Downloads\\ec001-phi-rater-stderr.log",
+      "predelete_bytes": 845141,
+      "status": "DELETED",
+      "postdelete_exists": false
+    },
+    {
+      "path": "C:\\Users\\muzaf\\Downloads\\ec001-mistral-rater-stdout.log",
+      "predelete_bytes": 0,
+      "status": "DELETED",
+      "postdelete_exists": false
+    },
+    {
+      "path": "C:\\Users\\muzaf\\Downloads\\ec001-mistral-rater-stderr.log",
+      "predelete_bytes": 407676,
+      "status": "DELETED",
+      "postdelete_exists": false
+    }
+  ],
+  "protected_resources": [
+    {
+      "resource_id": "qwen-reader",
+      "path": "C:\\Users\\muzaf\\.cache\\huggingface\\hub\\models--unsloth--Qwen3.6-27B-MTP-GGUF\\snapshots\\5cb35eb3dcbf52dbce5f87dbc64df6aaffadcace\\Qwen3.6-27B-UD-Q6_K_XL.gguf",
+      "postcleanup_bytes": 26015429760,
+      "status": "PRESERVED"
+    },
+    {
+      "resource_id": "gemma-preexisting-rater",
+      "path": "C:\\Users\\muzaf\\.cache\\huggingface\\hub\\models--unsloth--gemma-4-E2B-it-GGUF\\snapshots\\0314792d7f1f7e229411f620751375812bb9faf2\\gemma-4-E2B-it-UD-Q4_K_XL.gguf",
+      "postcleanup_bytes": 3184496736,
+      "status": "PRESERVED"
+    },
+    {
+      "resource_id": "qwen-embedder",
+      "path": "C:\\Users\\muzaf\\.cache\\huggingface\\hub\\Qwen3-Embedding-0.6B-GGUF\\Qwen3-Embedding-0.6B-Q8_0.gguf",
+      "postcleanup_bytes": 639150592,
+      "status": "PRESERVED"
+    },
+    {
+      "resource_id": "longmemeval-dataset",
+      "path": "C:\\Users\\muzaf\\Downloads\\longmemeval_s_cleaned.json",
+      "postcleanup_bytes": 277383467,
+      "status": "PRESERVED"
+    }
+  ],
+  "result": {
+    "deleted_file_count": 13,
+    "deleted_model_bytes": 34218644800,
+    "deleted_log_bytes": 1838738,
+    "deleted_total_bytes": 34220483538,
+    "deleted_total_gib": 31.8703,
+    "all_authorized_targets_absent": true,
+    "all_protected_resources_preserved": true,
+    "all_parent_directories_preserved": true,
+    "recursive_deletion_used": false,
+    "directories_deleted": false,
+    "recovery": "Deleted model bytes can be recovered only by downloading them again; the temporary logs were not moved to a recoverable trash location."
+  }
+}

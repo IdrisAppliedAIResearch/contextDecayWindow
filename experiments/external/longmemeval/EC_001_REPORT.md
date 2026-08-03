@@ -325,7 +325,10 @@ immutable API model id, build hash, temperature, or seed for GPT-5.4 or GPT-5.5.
 | Codex-substituted final scores | `e59f86cd` |
 
 Downloaded model resources are recorded by exact path, byte count, source
-revision, and SHA-256 in `EC_001_CLEANUP_MANIFEST.json`. The study-created
-model files are eligible for later deletion after closeout validation, but the
-manifest requires separate explicit user confirmation; EC-001 performs no
-automatic cleanup.
+revision, and SHA-256 in `EC_001_CLEANUP_MANIFEST.json`. After closeout
+validation, the user explicitly authorized cleanup. EC-001 deleted only the
+three study-owned model files and ten temporary logs named in that manifest,
+reclaiming 34,220,483,538 bytes (31.8703 GiB). The preexisting Qwen reader,
+Gemma rater, Qwen embedder, user-provided dataset, cache directories, and
+Downloads directory were preserved. `EC_001_CLEANUP_RESULT.json` records the
+per-file checks and post-cleanup verification.
