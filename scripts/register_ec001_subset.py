@@ -14,6 +14,7 @@ from src.analysis.ec001_longmemeval import (  # noqa: E402
     EXPECTED_STRATA,
     EC001Error,
     assert_repository_ready,
+    build_instrument_audit_registration,
     build_subset_manifest,
     load_adaptation_record,
     load_longmemeval,
@@ -40,6 +41,11 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--data", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument(
+        "--instrument-audit-output",
+        type=Path,
+        required=True,
+    )
     parser.add_argument("--seed", type=int, required=True)
     parser.add_argument(
         "--quota",
@@ -56,6 +62,11 @@ def main() -> int:
     assert_repository_ready(require_clean=True)
     if args.output.exists():
         raise FileExistsError(f"Refusing to overwrite subset: {args.output}")
+    if args.instrument_audit_output.exists():
+        raise FileExistsError(
+            "Refusing to overwrite instrument audit: "
+            f"{args.instrument_audit_output}"
+        )
     record = load_adaptation_record()
     benchmark = record["benchmark"]
     if args.data.stat().st_size != int(benchmark["dataset_bytes"]):
@@ -70,14 +81,21 @@ def main() -> int:
         seed=args.seed,
     )
     validate_subset_manifest(manifest, dataset)
+    audit = build_instrument_audit_registration(dataset)
     args.output.parent.mkdir(parents=True, exist_ok=True)
+    args.instrument_audit_output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(
         json.dumps(manifest, indent=2, ensure_ascii=False) + "\n",
         encoding="utf-8",
     )
+    args.instrument_audit_output.write_text(
+        json.dumps(audit, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
     print(
         f"Registered {manifest['size']} Tier 2 questions at {args.output}. "
-        "Commit this file before running Tier 1."
+        f"Registered the pre-retrieval audit at "
+        f"{args.instrument_audit_output}. Commit both files before Tier 1."
     )
     return 0
 

@@ -16,6 +16,7 @@ from src.analysis.ec001_longmemeval import (
     InstanceBundle,
     MechanismInstance,
     MeasurementInstance,
+    build_instrument_audit_registration,
     build_subset_manifest,
     load_longmemeval,
     mechanism_surface_fields,
@@ -101,16 +102,158 @@ def test_loader_separates_mechanism_from_reference_fields(tmp_path: Path) -> Non
     assert dataset.annotation_findings == ()
 
 
-def test_loader_fails_closed_on_non_exchange_session(tmp_path: Path) -> None:
-    path = tmp_path / "bad.json"
+def test_loader_losslessly_adapts_unpaired_source_turn(tmp_path: Path) -> None:
+    path = tmp_path / "irregular.json"
     entry = _entry("q", "single-session-user")
     entry["haystack_sessions"][0].append(
         {"role": "user", "content": "unpaired"}
     )
     path.write_text(json.dumps([entry]), encoding="utf-8")
 
-    with pytest.raises(EC001Error, match="complete user/assistant"):
+    dataset = load_longmemeval(path, expected_count=1)
+    bundle = dataset.instances[0]
+
+    assert len(bundle.mechanism.episodes) == 2
+    assert bundle.mechanism.episodes[1] == EpisodeInput(
+        2,
+        "unpaired",
+        "",
+    )
+    assert [turn.content for turn in bundle.measurement.source_turns] == [
+        "fact for q",
+        "acknowledged",
+        "unpaired",
+    ]
+    assert bundle.measurement.singleton_episode_turn_numbers == (2,)
+    assert dataset.adaptation_stats["lossless_turn_count"] == 3
+    assert dataset.adaptation_stats["status"] == "PASS"
+
+
+def test_loader_preserves_assistant_first_evidence(tmp_path: Path) -> None:
+    path = tmp_path / "assistant-first.json"
+    entry = _entry("q", "single-session-assistant")
+    entry["haystack_sessions"] = [
+        [
+            {
+                "role": "assistant",
+                "content": "required assistant fact",
+                "has_answer": True,
+            },
+            {"role": "user", "content": "follow-up"},
+            {"role": "assistant", "content": "reply"},
+        ]
+    ]
+    path.write_text(json.dumps([entry]), encoding="utf-8")
+
+    dataset = load_longmemeval(path, expected_count=1)
+    bundle = dataset.instances[0]
+
+    assert bundle.mechanism.episodes == (
+        EpisodeInput(1, "", "required assistant fact"),
+        EpisodeInput(2, "follow-up", "reply"),
+    )
+    assert bundle.measurement.evidence_turns == (
+        EvidenceTurn(
+            session_id="session-q::position=0",
+            episode_turn_number=1,
+            role="assistant",
+            content="required assistant fact",
+            raw_session_id="session-q",
+        ),
+    )
+    assert dataset.adaptation_stats["singleton_assistant_episodes"] == 1
+
+
+def test_loader_preserves_duplicate_filler_session_occurrences(
+    tmp_path: Path,
+) -> None:
+    path = tmp_path / "duplicate-filler.json"
+    entry = _entry("q", "multi-session")
+    filler = [
+        {"role": "user", "content": "same filler"},
+        {"role": "assistant", "content": "same reply"},
+    ]
+    entry["haystack_session_ids"].extend(["filler", "filler"])
+    entry["haystack_dates"].extend(
+        ["2023/05/01 (Mon) 10:00", "2023/05/01 (Mon) 11:00"]
+    )
+    entry["haystack_sessions"].extend([filler, filler])
+    path.write_text(json.dumps([entry]), encoding="utf-8")
+
+    dataset = load_longmemeval(path, expected_count=1)
+    measurement = dataset.instances[0].measurement
+
+    assert measurement.session_ids == (
+        "session-q::position=0",
+        "filler::position=1",
+        "filler::position=2",
+    )
+    assert measurement.raw_session_ids == ("session-q", "filler", "filler")
+    assert measurement.answer_session_keys == ("session-q::position=0",)
+    assert len(dataset.instances[0].mechanism.episodes) == 3
+    assert dataset.adaptation_stats["duplicate_session_occurrences"] == 1
+    assert dataset.adaptation_stats["questions_with_duplicate_session_ids"] == 1
+
+
+def test_loader_fails_on_ambiguous_duplicate_evidence_session(
+    tmp_path: Path,
+) -> None:
+    path = tmp_path / "duplicate-evidence.json"
+    entry = _entry("q", "multi-session")
+    entry["haystack_session_ids"].append("session-q")
+    entry["haystack_dates"].append("2023/05/01 (Mon) 13:00")
+    entry["haystack_sessions"].append(
+        [
+            {"role": "user", "content": "duplicate evidence id"},
+            {"role": "assistant", "content": "reply"},
+        ]
+    )
+    path.write_text(json.dumps([entry]), encoding="utf-8")
+
+    with pytest.raises(EC001Error, match="duplicated raw evidence"):
         load_longmemeval(path, expected_count=1)
+
+
+def test_loader_preserves_file_order_and_audits_timestamp_anomalies(
+    tmp_path: Path,
+) -> None:
+    path = tmp_path / "timestamp-anomaly.json"
+    entry = _entry("q", "temporal-reasoning")
+    entry["haystack_session_ids"].append("earlier-second")
+    entry["haystack_dates"].append("2023/04/30 (Sun) 12:00")
+    entry["haystack_sessions"].append(
+        [
+            {"role": "user", "content": "earlier by timestamp"},
+            {"role": "assistant", "content": "reply"},
+        ]
+    )
+    path.write_text(json.dumps([entry]), encoding="utf-8")
+
+    dataset = load_longmemeval(path, expected_count=1)
+
+    assert dataset.instances[0].measurement.raw_session_ids == (
+        "session-q",
+        "earlier-second",
+    )
+    assert any(
+        finding["kind"] == "nonchronological_session_timestamps"
+        and finding["adjacent_inversions"] == 1
+        for finding in dataset.annotation_findings
+    )
+
+
+def test_loader_preserves_empty_source_turn(tmp_path: Path) -> None:
+    path = tmp_path / "empty-turn.json"
+    entry = _entry("q", "single-session-user")
+    entry["haystack_sessions"][0][1]["content"] = ""
+    path.write_text(json.dumps([entry]), encoding="utf-8")
+
+    dataset = load_longmemeval(path, expected_count=1)
+
+    assert dataset.instances[0].mechanism.episodes[0].assistant_message == ""
+    assert dataset.instances[0].measurement.source_turns[1].content == ""
+    assert dataset.adaptation_stats["empty_source_turns"] == 1
+    assert dataset.adaptation_stats["lossless_turn_count"] == 2
 
 
 def test_subset_is_deterministic_and_covers_every_stratum(
@@ -178,6 +321,40 @@ def test_session_recall_can_pass_when_fact_availability_fails() -> None:
     assert result["availability_all"] is False
 
 
+def test_incomplete_turn_labels_cannot_certify_exact_availability() -> None:
+    measurement = MeasurementInstance(
+        question_id="q",
+        question_type="multi-session",
+        is_abstention=False,
+        question_date="2023/05/02 (Tue) 12:00",
+        session_ids=("marked", "unmarked"),
+        session_dates=(
+            "2023/05/01 (Mon) 12:00",
+            "2023/05/01 (Mon) 13:00",
+        ),
+        episode_session_ids=("marked", "unmarked"),
+        answer_session_ids=("marked", "unmarked"),
+        evidence_turns=(
+            EvidenceTurn("marked", 1, "user", "positive evidence"),
+        ),
+    )
+    delivered = {
+        1: {"user": "positive evidence", "assistant": "ack"},
+        2: {"user": "exclusion evidence", "assistant": "ack"},
+    }
+    ranking = [
+        {"rank": 1, "session_id": "marked", "cosine": 1.0},
+        {"rank": 2, "session_id": "unmarked", "cosine": 0.5},
+    ]
+
+    result = score_retrieval(measurement, delivered, ranking)
+
+    assert result["marker_availability_all"] is True
+    assert result["availability_all"] is True
+    assert result["turn_label_complete"] is False
+    assert result["exact_gap_evaluable"] is False
+
+
 def test_abstention_has_no_invented_retrieval_metric() -> None:
     measurement = MeasurementInstance(
         question_id="q_abs",
@@ -200,6 +377,34 @@ def test_abstention_has_no_invented_retrieval_metric() -> None:
     assert result["evidence_session_recall_any"] is None
     assert result["availability_all"] is None
     assert result["component_abstention_signal"] is False
+
+
+def test_pre_retrieval_audit_registers_incomplete_turn_labels(
+    tmp_path: Path,
+) -> None:
+    path = tmp_path / "incomplete-label.json"
+    entry = _entry("q", "multi-session")
+    entry["haystack_session_ids"].append("unmarked")
+    entry["haystack_dates"].append("2023/05/01 (Mon) 13:00")
+    entry["haystack_sessions"].append(
+        [
+            {"role": "user", "content": "exclusion evidence"},
+            {"role": "assistant", "content": "ack"},
+        ]
+    )
+    entry["answer_session_ids"].append("unmarked")
+    path.write_text(json.dumps([entry]), encoding="utf-8")
+
+    audit = build_instrument_audit_registration(
+        load_longmemeval(path, expected_count=1)
+    )
+
+    assert audit["tier_1_results_consulted"] is False
+    assert audit["incomplete_turn_label_question_count"] == 1
+    assert audit["incomplete_turn_label_session_count"] == 1
+    assert audit["incomplete_turn_labels"][0][
+        "raw_answer_session_ids_without_turn_label"
+    ] == ["unmarked"]
 
 
 def test_session_rank_uses_best_episode_and_stable_session_order() -> None:

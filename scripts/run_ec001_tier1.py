@@ -25,6 +25,7 @@ from src.analysis.ec001_longmemeval import (  # noqa: E402
     EC001Error,
     aggregate_tier1,
     assert_repository_ready,
+    build_instrument_audit_registration,
     load_adaptation_record,
     load_longmemeval,
     retrieve_tier1_instance,
@@ -45,6 +46,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--data", type=Path, required=True)
     parser.add_argument("--subset", type=Path, required=True)
+    parser.add_argument("--instrument-audit", type=Path, required=True)
     parser.add_argument("--embedding-model", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
@@ -58,6 +60,10 @@ def main() -> int:
         raise EC001Error(
             "Tier 2 subset must exist and be committed before Tier 1"
         )
+    if not args.instrument_audit.is_file():
+        raise EC001Error(
+            "Pre-retrieval instrument audit must be committed before Tier 1"
+        )
 
     record = load_adaptation_record()
     benchmark = record["benchmark"]
@@ -69,6 +75,13 @@ def main() -> int:
     )
     subset = json.loads(args.subset.read_text(encoding="utf-8"))
     validate_subset_manifest(subset, dataset)
+    registered_audit = json.loads(
+        args.instrument_audit.read_text(encoding="utf-8")
+    )
+    if registered_audit != build_instrument_audit_registration(dataset):
+        raise EC001Error(
+            "Pre-retrieval instrument audit does not match the pinned dataset"
+        )
 
     from episodic import EpisodicConfig
 
@@ -147,6 +160,9 @@ def main() -> int:
             "script_sha256_before": script_sha256,
             "script_sha256_after": script_after,
             "subset_sha256": sha256_file(args.subset),
+            "registered_instrument_audit_sha256": sha256_file(
+                args.instrument_audit
+            ),
             "scores_sha256": sha256_file(scores_path),
             "sealed_mechanism_sha256": sha256_file(mechanism_path),
             "status": "PASS",
@@ -158,6 +174,9 @@ def main() -> int:
             "record": "EC-001 Tier 1 retrieval only",
             "registration_sha": repository["registration_sha"],
             "adaptation_sha": repository["adaptation_sha"],
+            "amendment_001_sha": repository["amendment_001_sha"],
+            "amendment_002_sha": repository["amendment_002_sha"],
+            "amendment_003_sha": repository["amendment_003_sha"],
             "head": repository["head"],
             "branch": repository["branch"],
             "launch_command": shlex.join(sys.argv),
@@ -171,6 +190,7 @@ def main() -> int:
             "episodic_config": json.loads(config.to_json()),
             "embedding_model_sha256": embedder.model_sha256,
             "dataset_sha256": dataset.source_sha256,
+            "foreign_store_adaptation": dataset.adaptation_stats,
             "benchmark_code_commit": benchmark["code_commit"],
             "benchmark_dataset_commit": benchmark["dataset_commit"],
             "started_utc": datetime.fromtimestamp(

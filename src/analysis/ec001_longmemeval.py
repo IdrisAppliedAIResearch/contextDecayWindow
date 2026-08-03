@@ -28,9 +28,27 @@ REPO_ROOT = Path(__file__).resolve().parents[2]
 EC001_ROOT = REPO_ROOT / "experiments" / "external" / "longmemeval"
 REGISTRATION = EC001_ROOT / "EC_001_longmemeval_calibration.md"
 ADAPTATION_RECORD = EC001_ROOT / "EC_001_ADAPTATION_RECORD.json"
+AMENDMENT_001 = (
+    EC001_ROOT
+    / "amendments"
+    / "AMENDMENT_001_irregular_session_turns.md"
+)
+AMENDMENT_002 = (
+    EC001_ROOT
+    / "amendments"
+    / "AMENDMENT_002_foreign_schema_fidelity.md"
+)
+AMENDMENT_003 = (
+    EC001_ROOT
+    / "amendments"
+    / "AMENDMENT_003_incomplete_turn_labels.md"
+)
 
 REGISTRATION_SHA = "b595b05e1469c67277844d4bd97f77c89a20772b"
 ADAPTATION_SHA = "a65c2566e55a2063bd1904065032f86c5d0e23a9"
+AMENDMENT_001_SHA = "a1dc736cece4e1aa95412c661dec94da48feaf25"
+AMENDMENT_002_SHA = "befa2c41659031496127d8b2a180e3c616801d02"
+AMENDMENT_003_SHA = "4ce6db743f87431248e1c6eb67d3cd3a521c5465"
 EXPECTED_QUESTION_COUNT = 500
 QUESTION_TYPES = (
     "single-session-user",
@@ -79,6 +97,19 @@ class EvidenceTurn:
     episode_turn_number: int
     role: str
     content: str
+    raw_session_id: str = ""
+
+
+@dataclass(frozen=True)
+class SourceTurn:
+    """Measurement-only provenance for one foreign source turn."""
+
+    session_id: str
+    session_turn_index: int
+    episode_turn_number: int
+    role: str
+    content: str
+    raw_session_id: str = ""
 
 
 @dataclass(frozen=True)
@@ -94,6 +125,11 @@ class MeasurementInstance:
     episode_session_ids: tuple[str, ...]
     answer_session_ids: tuple[str, ...]
     evidence_turns: tuple[EvidenceTurn, ...]
+    raw_session_ids: tuple[str, ...] = ()
+    answer_session_keys: tuple[str, ...] = ()
+    source_turns: tuple[SourceTurn, ...] = ()
+    irregular_session_ids: tuple[str, ...] = ()
+    singleton_episode_turn_numbers: tuple[int, ...] = ()
 
     @property
     def stratum(self) -> str:
@@ -111,6 +147,7 @@ class LoadedDataset:
     source_sha256: str
     instances: tuple[InstanceBundle, ...]
     annotation_findings: tuple[dict, ...]
+    adaptation_stats: dict
 
     @property
     def by_id(self) -> dict[str, InstanceBundle]:
@@ -157,7 +194,13 @@ def assert_repository_ready(*, require_clean: bool = True) -> dict:
         raise EC001Error(
             f"EC-001 must run on ec/001-longmemeval, found {branch}"
         )
-    for anchor in (REGISTRATION_SHA, ADAPTATION_SHA):
+    for anchor in (
+        REGISTRATION_SHA,
+        ADAPTATION_SHA,
+        AMENDMENT_001_SHA,
+        AMENDMENT_002_SHA,
+        AMENDMENT_003_SHA,
+    ):
         completed = subprocess.run(
             ["git", "merge-base", "--is-ancestor", anchor, "HEAD"],
             cwd=REPO_ROOT,
@@ -179,6 +222,9 @@ def assert_repository_ready(*, require_clean: bool = True) -> dict:
         "head": _git("rev-parse", "HEAD"),
         "registration_sha": REGISTRATION_SHA,
         "adaptation_sha": ADAPTATION_SHA,
+        "amendment_001_sha": AMENDMENT_001_SHA,
+        "amendment_002_sha": AMENDMENT_002_SHA,
+        "amendment_003_sha": AMENDMENT_003_SHA,
         "worktree_clean": not bool(status),
     }
 
@@ -273,6 +319,7 @@ def load_longmemeval(
         source_sha256=observed_sha256,
         instances=tuple(bundles),
         annotation_findings=tuple(findings),
+        adaptation_stats=_adaptation_stats(bundles),
     )
 
 
@@ -311,7 +358,7 @@ def _parse_instance(
     )
     _parse_timestamp(question_date, f"{question_id}: question_date")
 
-    session_ids = _text_list(
+    raw_session_ids = _text_list(
         entry["haystack_session_ids"],
         f"{question_id}: haystack_session_ids",
     )
@@ -322,65 +369,154 @@ def _parse_instance(
     sessions = entry["haystack_sessions"]
     if not isinstance(sessions, list):
         raise EC001Error(f"{question_id}: haystack_sessions must be a list")
-    if not (len(session_ids) == len(session_dates) == len(sessions)):
+    if not (len(raw_session_ids) == len(session_dates) == len(sessions)):
         raise EC001Error(
             f"{question_id}: parallel haystack arrays differ in length"
         )
-    if len(set(session_ids)) != len(session_ids):
-        raise EC001Error(f"{question_id}: duplicate session ids")
-    if not session_ids:
+    if not raw_session_ids:
         raise EC001Error(f"{question_id}: empty history")
+    session_ids = tuple(
+        _session_occurrence_key(raw_session_id, position)
+        for position, raw_session_id in enumerate(raw_session_ids)
+    )
+    duplicate_raw_ids = {
+        raw_session_id
+        for raw_session_id, count in Counter(raw_session_ids).items()
+        if count > 1
+    }
 
     parsed_dates = [
         _parse_timestamp(value, f"{question_id}: haystack_dates")
         for value in session_dates
     ]
-    if parsed_dates != sorted(parsed_dates):
-        raise EC001Error(f"{question_id}: sessions are not chronological")
-
     answer_session_ids = _text_list(
         entry["answer_session_ids"],
         f"{question_id}: answer_session_ids",
     )
-    unknown_answers = sorted(set(answer_session_ids) - set(session_ids))
+    unknown_answers = sorted(
+        set(answer_session_ids) - set(raw_session_ids)
+    )
     if unknown_answers:
         raise EC001Error(
             f"{question_id}: evidence sessions absent from history: "
             f"{unknown_answers}"
         )
+    ambiguous_answers = sorted(
+        set(answer_session_ids) & duplicate_raw_ids
+    )
+    if ambiguous_answers:
+        raise EC001Error(
+            f"{question_id}: duplicated raw evidence session ids are "
+            f"ambiguous: {ambiguous_answers}"
+        )
+    raw_to_key = {
+        raw_session_id: session_key
+        for raw_session_id, session_key in zip(
+            raw_session_ids,
+            session_ids,
+            strict=True,
+        )
+    }
+    answer_session_keys = tuple(
+        raw_to_key[raw_session_id]
+        for raw_session_id in answer_session_ids
+    )
 
     episodes: list[EpisodeInput] = []
     episode_session_ids: list[str] = []
     evidence_turns: list[EvidenceTurn] = []
-    for session_id, session in zip(session_ids, sessions, strict=True):
+    source_turns: list[SourceTurn] = []
+    irregular_session_ids: list[str] = []
+    singleton_episode_turn_numbers: list[int] = []
+    for session_id, raw_session_id, session in zip(
+        session_ids,
+        raw_session_ids,
+        sessions,
+        strict=True,
+    ):
         if not isinstance(session, list) or not session:
             raise EC001Error(f"{question_id}/{session_id}: empty session")
-        if len(session) % 2:
-            raise EC001Error(
-                f"{question_id}/{session_id}: session does not contain "
-                "complete user/assistant exchanges"
+        parsed_session = [
+            _parse_turn(
+                turn,
+                location=f"{question_id}/{session_id}/{turn_index}",
             )
-        for start in range(0, len(session), 2):
-            user = _parse_turn(
-                session[start],
-                expected_role="user",
-                location=f"{question_id}/{session_id}/{start}",
+            for turn_index, turn in enumerate(session)
+        ]
+        strict_pairs = (
+            len(parsed_session) % 2 == 0
+            and all(
+                (
+                    parsed_session[pair_index]["role"],
+                    parsed_session[pair_index + 1]["role"],
+                )
+                == ("user", "assistant")
+                for pair_index in range(0, len(parsed_session), 2)
             )
-            assistant = _parse_turn(
-                session[start + 1],
-                expected_role="assistant",
-                location=f"{question_id}/{session_id}/{start + 1}",
-            )
+        )
+        if not strict_pairs:
+            irregular_session_ids.append(session_id)
+
+        expected_source = [
+            (turn["role"], turn["content"]) for turn in parsed_session
+        ]
+        reconstructed_source: list[tuple[str, str]] = []
+        source_index = 0
+        while source_index < len(parsed_session):
+            first = parsed_session[source_index]
+            if (
+                first["role"] == "user"
+                and source_index + 1 < len(parsed_session)
+                and parsed_session[source_index + 1]["role"] == "assistant"
+            ):
+                adapted_turns = (
+                    (source_index, first),
+                    (source_index + 1, parsed_session[source_index + 1]),
+                )
+                source_index += 2
+            else:
+                adapted_turns = ((source_index, first),)
+                source_index += 1
+
             turn_number = len(episodes) + 1
+            user_message = next(
+                (
+                    turn["content"]
+                    for _index, turn in adapted_turns
+                    if turn["role"] == "user"
+                ),
+                "",
+            )
+            assistant_message = next(
+                (
+                    turn["content"]
+                    for _index, turn in adapted_turns
+                    if turn["role"] == "assistant"
+                ),
+                "",
+            )
             episodes.append(
                 EpisodeInput(
                     turn_number=turn_number,
-                    user_message=user["content"],
-                    assistant_message=assistant["content"],
+                    user_message=user_message,
+                    assistant_message=assistant_message,
                 )
             )
             episode_session_ids.append(session_id)
-            for turn in (user, assistant):
+            if len(adapted_turns) == 1:
+                singleton_episode_turn_numbers.append(turn_number)
+            for session_turn_index, turn in adapted_turns:
+                reconstructed_source.append((turn["role"], turn["content"]))
+                source_turns.append(
+                    SourceTurn(
+                        session_id=session_id,
+                        session_turn_index=session_turn_index,
+                        episode_turn_number=turn_number,
+                        role=turn["role"],
+                        content=turn["content"],
+                        raw_session_id=raw_session_id,
+                    )
+                )
                 if turn["has_answer"]:
                     evidence_turns.append(
                         EvidenceTurn(
@@ -388,8 +524,13 @@ def _parse_instance(
                             episode_turn_number=turn_number,
                             role=turn["role"],
                             content=turn["content"],
+                            raw_session_id=raw_session_id,
                         )
                     )
+        if reconstructed_source != expected_source:
+            raise EC001Error(
+                f"{question_id}/{session_id}: lossless turn adaptation failed"
+            )
 
     mechanism = MechanismInstance(
         question_id=question_id,
@@ -406,14 +547,45 @@ def _parse_instance(
         episode_session_ids=tuple(episode_session_ids),
         answer_session_ids=tuple(answer_session_ids),
         evidence_turns=tuple(evidence_turns),
+        raw_session_ids=tuple(raw_session_ids),
+        answer_session_keys=answer_session_keys,
+        source_turns=tuple(source_turns),
+        irregular_session_ids=tuple(irregular_session_ids),
+        singleton_episode_turn_numbers=tuple(
+            singleton_episode_turn_numbers
+        ),
     )
     findings = annotation_findings(measurement)
-    if any(value >= _parse_timestamp(question_date, question_id)
-           for value in parsed_dates):
+    adjacent_inversions = sum(
+        parsed_dates[position] < parsed_dates[position - 1]
+        for position in range(1, len(parsed_dates))
+    )
+    if adjacent_inversions:
         findings.append(
             {
                 "question_id": question_id,
-                "kind": "session_not_strictly_before_question",
+                "kind": "nonchronological_session_timestamps",
+                "adjacent_inversions": adjacent_inversions,
+            }
+        )
+    question_timestamp = _parse_timestamp(question_date, question_id)
+    post_question_positions = [
+        position
+        for position, timestamp in enumerate(parsed_dates)
+        if timestamp >= question_timestamp
+    ]
+    if post_question_positions:
+        post_keys = {
+            session_ids[position] for position in post_question_positions
+        }
+        findings.append(
+            {
+                "question_id": question_id,
+                "kind": "session_timestamp_not_before_question",
+                "session_count": len(post_question_positions),
+                "answer_session_count": len(
+                    post_keys & set(answer_session_keys)
+                ),
             }
         )
     return InstanceBundle(mechanism, measurement), findings
@@ -443,22 +615,17 @@ def _parse_timestamp(value: str, location: str) -> datetime:
         ) from error
 
 
-def _parse_turn(
-    value: object,
-    *,
-    expected_role: str,
-    location: str,
-) -> dict:
+def _parse_turn(value: object, *, location: str) -> dict:
     if not isinstance(value, dict):
         raise EC001Error(f"{location}: turn must be an object")
     role = value.get("role")
     content = value.get("content")
-    if role != expected_role:
+    if role not in ("user", "assistant"):
         raise EC001Error(
-            f"{location}: expected role {expected_role!r}, found {role!r}"
+            f"{location}: unsupported role {role!r}"
         )
-    if not isinstance(content, str) or not content:
-        raise EC001Error(f"{location}: content must be non-empty text")
+    if not isinstance(content, str):
+        raise EC001Error(f"{location}: content must be text")
     has_answer = value.get("has_answer", False)
     if not isinstance(has_answer, bool):
         raise EC001Error(f"{location}: has_answer must be boolean")
@@ -469,11 +636,96 @@ def _parse_turn(
     }
 
 
+def _session_occurrence_key(raw_session_id: str, position: int) -> str:
+    return f"{raw_session_id}::position={position}"
+
+
+def _adaptation_stats(bundles: Sequence[InstanceBundle]) -> dict:
+    source_turn_count = 0
+    episode_count = 0
+    paired_episode_count = 0
+    singleton_user_count = 0
+    singleton_assistant_count = 0
+    irregular_session_count = 0
+    irregular_question_count = 0
+    duplicate_session_occurrences = 0
+    duplicate_session_questions = 0
+    empty_source_turns = 0
+    for bundle in bundles:
+        measurement = bundle.measurement
+        source_turn_count += len(measurement.source_turns)
+        episode_count += len(bundle.mechanism.episodes)
+        irregular_session_count += len(measurement.irregular_session_ids)
+        irregular_question_count += bool(measurement.irregular_session_ids)
+        raw_session_ids = measurement.raw_session_ids
+        duplicates = len(raw_session_ids) - len(set(raw_session_ids))
+        duplicate_session_occurrences += duplicates
+        duplicate_session_questions += bool(duplicates)
+        empty_source_turns += sum(
+            source_turn.content == ""
+            for source_turn in measurement.source_turns
+        )
+        source_turns_by_episode = Counter(
+            source_turn.episode_turn_number
+            for source_turn in measurement.source_turns
+        )
+        roles_by_episode: dict[int, set[str]] = defaultdict(set)
+        for source_turn in measurement.source_turns:
+            roles_by_episode[source_turn.episode_turn_number].add(
+                source_turn.role
+            )
+        for episode in bundle.mechanism.episodes:
+            source_count = source_turns_by_episode[episode.turn_number]
+            roles = roles_by_episode[episode.turn_number]
+            if source_count == 2 and roles == {"user", "assistant"}:
+                paired_episode_count += 1
+            elif source_count == 1 and roles == {"user"}:
+                singleton_user_count += 1
+            elif source_count == 1 and roles == {"assistant"}:
+                singleton_assistant_count += 1
+            else:
+                raise EC001Error(
+                    "Adaptation produced an invalid episode provenance group"
+                )
+    reconstructed_turn_count = (
+        paired_episode_count * 2
+        + singleton_user_count
+        + singleton_assistant_count
+    )
+    if reconstructed_turn_count != source_turn_count:
+        raise EC001Error(
+            "Dataset-level lossless adaptation turn count failed"
+        )
+    return {
+        "source_turns": source_turn_count,
+        "episodes": episode_count,
+        "paired_episodes": paired_episode_count,
+        "singleton_user_episodes": singleton_user_count,
+        "singleton_assistant_episodes": singleton_assistant_count,
+        "irregular_session_instances": irregular_session_count,
+        "questions_with_irregular_sessions": irregular_question_count,
+        "duplicate_session_occurrences": duplicate_session_occurrences,
+        "questions_with_duplicate_session_ids": duplicate_session_questions,
+        "empty_source_turns": empty_source_turns,
+        "lossless_turn_count": reconstructed_turn_count,
+        "status": "PASS",
+        "amendment_shas": [
+            AMENDMENT_001_SHA,
+            AMENDMENT_002_SHA,
+            AMENDMENT_003_SHA,
+        ],
+    }
+
+
 def annotation_findings(measurement: MeasurementInstance) -> list[dict]:
     """Mechanically audit evidence availability without changing the corpus."""
 
     findings: list[dict] = []
-    answer_sessions = set(measurement.answer_session_ids)
+    answer_sessions = set(
+        measurement.answer_session_keys
+        if measurement.answer_session_keys
+        else measurement.answer_session_ids
+    )
     evidence_sessions = {turn.session_id for turn in measurement.evidence_turns}
     if measurement.is_abstention:
         if answer_sessions:
@@ -529,6 +781,93 @@ def annotation_findings(measurement: MeasurementInstance) -> list[dict]:
     return findings
 
 
+def turn_label_complete(measurement: MeasurementInstance) -> bool | None:
+    """Whether every named answer session has a marked evidence turn."""
+
+    if measurement.is_abstention:
+        return None
+    answer_sessions = set(
+        measurement.answer_session_keys
+        if measurement.answer_session_keys
+        else measurement.answer_session_ids
+    )
+    evidence_sessions = {turn.session_id for turn in measurement.evidence_turns}
+    return bool(answer_sessions) and answer_sessions <= evidence_sessions
+
+
+def build_instrument_audit_registration(dataset: LoadedDataset) -> dict:
+    """Build the measurement-only audit that must be locked before Tier 1."""
+
+    incomplete: list[dict] = []
+    for bundle in dataset.instances:
+        measurement = bundle.measurement
+        if measurement.is_abstention or turn_label_complete(measurement):
+            continue
+        answer_sessions = set(measurement.answer_session_keys)
+        marked_sessions = {
+            turn.session_id for turn in measurement.evidence_turns
+        }
+        missing_keys = sorted(answer_sessions - marked_sessions)
+        raw_by_key = dict(
+            zip(
+                measurement.session_ids,
+                measurement.raw_session_ids,
+                strict=True,
+            )
+        )
+        incomplete.append(
+            {
+                "question_id": measurement.question_id,
+                "question_type": measurement.question_type,
+                "answer_session_keys_without_turn_label": missing_keys,
+                "raw_answer_session_ids_without_turn_label": [
+                    raw_by_key[key] for key in missing_keys
+                ],
+                "marked_evidence_turn_count": len(
+                    measurement.evidence_turns
+                ),
+            }
+        )
+
+    finding_counts = Counter(
+        finding["kind"] for finding in dataset.annotation_findings
+    )
+    return {
+        "record": "EC-001 pre-retrieval instrument audit",
+        "registration_sha": REGISTRATION_SHA,
+        "adaptation_sha": ADAPTATION_SHA,
+        "amendment_shas": [
+            AMENDMENT_001_SHA,
+            AMENDMENT_002_SHA,
+            AMENDMENT_003_SHA,
+        ],
+        "dataset_sha256": dataset.source_sha256,
+        "tier_1_results_consulted": False,
+        "question_count": len(dataset.instances),
+        "finding_counts": dict(sorted(finding_counts.items())),
+        "foreign_store_adaptation": dataset.adaptation_stats,
+        "incomplete_turn_label_question_count": len(incomplete),
+        "incomplete_turn_label_session_count": sum(
+            len(row["answer_session_keys_without_turn_label"])
+            for row in incomplete
+        ),
+        "incomplete_turn_labels": incomplete,
+        "interpretation": {
+            "marker_availability": (
+                "Exact delivery of all source turns marked has_answer; not "
+                "complete factual availability when turn_label_complete is "
+                "false."
+            ),
+            "exact_gap": (
+                "NOT_EVALUABLE where turn_label_complete is false."
+            ),
+            "session_recall": (
+                "Retained as session identity only; it is not fact presence."
+            ),
+        },
+    }
+
+
 def stratum_for(measurement: MeasurementInstance) -> str:
     return measurement.stratum
 
@@ -582,6 +921,11 @@ def build_subset_manifest(
         "record": "EC-001 Tier 2 subset registration",
         "registration_sha": REGISTRATION_SHA,
         "adaptation_sha": ADAPTATION_SHA,
+        "amendment_shas": [
+            AMENDMENT_001_SHA,
+            AMENDMENT_002_SHA,
+            AMENDMENT_003_SHA,
+        ],
         "dataset_sha256": dataset.source_sha256,
         "selection_inputs": [
             "question_id",
@@ -598,6 +942,21 @@ def build_subset_manifest(
         "question_ids": selected,
         "size": len(selected),
         "tier_1_results_consulted": False,
+        "benchmark_population_counts": {
+            stratum: len(by_stratum[stratum])
+            for stratum in EXPECTED_STRATA
+        },
+        "aggregate_reporting": {
+            "raw_subset_micro_average": (
+                "Report and label as non-benchmark-distributed when quotas "
+                "are not proportional."
+            ),
+            "benchmark_population_weighted_average": (
+                "Post-stratify per-stratum accuracy by the verified full "
+                "dataset population counts."
+            ),
+            "per_stratum": "Always report all seven strata.",
+        },
     }
 
 
@@ -609,6 +968,12 @@ def validate_subset_manifest(
         raise EC001Error("Tier 2 subset has the wrong registration anchor")
     if manifest.get("adaptation_sha") != ADAPTATION_SHA:
         raise EC001Error("Tier 2 subset predates the locked adaptation record")
+    if manifest.get("amendment_shas") != [
+        AMENDMENT_001_SHA,
+        AMENDMENT_002_SHA,
+        AMENDMENT_003_SHA,
+    ]:
+        raise EC001Error("Tier 2 subset predates a binding amendment")
     if manifest.get("dataset_sha256") != dataset.source_sha256:
         raise EC001Error("Tier 2 subset was selected from a different dataset")
     if manifest.get("tier_1_results_consulted") is not False:
@@ -657,6 +1022,16 @@ def validate_subset_manifest(
             f"Tier 2 subset stratum counts {dict(observed)} do not match "
             f"quotas {normalized_quotas}"
         )
+    expected_population = Counter(
+        stratum_for(bundle.measurement) for bundle in dataset.instances
+    )
+    if manifest.get("benchmark_population_counts") != {
+        stratum: expected_population[stratum]
+        for stratum in EXPECTED_STRATA
+    }:
+        raise EC001Error(
+            "Tier 2 subset has incorrect benchmark population weights"
+        )
 
     selected_findings = [
         finding
@@ -665,13 +1040,11 @@ def validate_subset_manifest(
         and finding["kind"] in {
             "answerable_missing_answer_session",
             "answerable_missing_answer_turn",
-            "answer_session_without_answer_turn",
-            "session_not_strictly_before_question",
         }
     ]
     if selected_findings:
         raise EC001Error(
-            "Tier 2 subset contains mechanically unavailable or post-probe "
+            "Tier 2 subset contains mechanically unavailable "
             f"evidence: {selected_findings}"
         )
     return tuple(question_ids)
@@ -784,8 +1157,12 @@ def score_retrieval(
         return {
             "evidence_session_recall_any": None,
             "evidence_session_recall_all": None,
+            "marker_availability_any": None,
+            "marker_availability_all": None,
             "availability_any": None,
             "availability_all": None,
+            "turn_label_complete": None,
+            "exact_gap_evaluable": False,
             "evidence_session_ranks": [],
             "deepest_evidence_rank": None,
             "top_4_no_evidence": None,
@@ -793,7 +1170,11 @@ def score_retrieval(
             "delivered_episode_count": len(delivered_turns),
         }
 
-    answer_sessions = set(measurement.answer_session_ids)
+    answer_sessions = set(
+        measurement.answer_session_keys
+        if measurement.answer_session_keys
+        else measurement.answer_session_ids
+    )
     recall_any = bool(delivered_sessions & answer_sessions)
     recall_all = answer_sessions <= delivered_sessions
     evidence_presence = [
@@ -803,8 +1184,13 @@ def score_retrieval(
         )
         for turn in measurement.evidence_turns
     ]
-    availability_any = any(evidence_presence) if evidence_presence else None
-    availability_all = all(evidence_presence) if evidence_presence else None
+    marker_availability_any = (
+        any(evidence_presence) if evidence_presence else None
+    )
+    marker_availability_all = (
+        all(evidence_presence) if evidence_presence else None
+    )
+    labels_complete = turn_label_complete(measurement)
 
     rank_by_session = {
         str(row["session_id"]): int(row["rank"]) for row in session_ranking
@@ -822,8 +1208,12 @@ def score_retrieval(
     return {
         "evidence_session_recall_any": recall_any,
         "evidence_session_recall_all": recall_all,
-        "availability_any": availability_any,
-        "availability_all": availability_all,
+        "marker_availability_any": marker_availability_any,
+        "marker_availability_all": marker_availability_all,
+        "availability_any": marker_availability_any,
+        "availability_all": marker_availability_all,
+        "turn_label_complete": labels_complete,
+        "exact_gap_evaluable": labels_complete is True,
         "evidence_session_ranks": evidence_ranks,
         "deepest_evidence_rank": max(evidence_ranks) if evidence_ranks else None,
         "top_4_no_evidence": not bool(top_four & answer_sessions),
@@ -925,7 +1315,12 @@ def aggregate_tier1(rows: Sequence[Mapping[str, object]]) -> dict:
             for stratum, group in sorted(groups.items())
         },
         "availability_definition": (
-            "Exact has_answer turn content present in a delivered episode"
+            "Compatibility alias for marker_availability: exact has_answer "
+            "turn content present in a delivered episode"
+        ),
+        "marker_availability_limitation": (
+            "Does not certify complete factual availability when "
+            "turn_label_complete is false"
         ),
         "abstention_retrieval_metrics": None,
     }
@@ -957,8 +1352,14 @@ def _aggregate_group(rows: Sequence[Mapping[str, object]]) -> dict:
         "questions": len(rows),
         "evidence_session_recall_any": rate("evidence_session_recall_any"),
         "evidence_session_recall_all": rate("evidence_session_recall_all"),
+        "marker_availability_any": rate("marker_availability_any"),
+        "marker_availability_all": rate("marker_availability_all"),
         "availability_any": rate("availability_any"),
         "availability_all": rate("availability_all"),
+        "turn_label_complete": rate("turn_label_complete"),
+        "exact_gap_evaluable_count": sum(
+            row.get("exact_gap_evaluable") is True for row in rows
+        ),
         "top_4_no_evidence": rate("top_4_no_evidence"),
         "evidence_rank_distribution": sorted(ranks),
         "deepest_evidence_rank_required": max(deepest) if deepest else None,
