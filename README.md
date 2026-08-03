@@ -158,7 +158,11 @@ LongMemEval-S and generated answers for a prospectively registered
 seven-by-20 subset. The internal cosine inversion does not reproduce as a
 dominant external pattern: the top four ranked sessions contain no evidence on
 69 of 470 answerable questions (14.7%), while the median evidence-session rank
-is 2. Exact answer-turn availability is 79 of 470 (16.8%).
+is 2. That rank result does not describe delivery: 401 questions have evidence
+in the top four, but only 96 retrieve any evidence session. Every block is
+truncated; median composition is 16 recency, 0 non-recency K, and 1 coverage
+exchange. Of 109 session hits, 91 come from recency. Exact answer-turn
+availability is 79 of 470 (16.8%).
 
 End-to-end scoring is deliberately bounded. The equal-quota subset scores
 28/140 (20.0%), and post-stratification to the verified benchmark population
@@ -167,7 +171,9 @@ benchmark-comparable LongMemEval scores: API access to the pinned evaluator was
 unavailable, so Amendment 010 substituted Phi, Mistral, and hosted GPT-5.4
 raters with hosted GPT-5.5 AI adjudication. Multi-session and temporal reasoning
 score 0/20; abstention scores 17/20 even though the component emits no absence
-signal on any of 500 questions. The registered exact
+signal on any of 500 questions. F3 is therefore retired as a component
+requirement under this tested reader, not marked solved as a component
+capability. The registered exact
 availability-minus-correctness gap is −2.54 percentage points, opposite the
 predicted large positive gap.
 

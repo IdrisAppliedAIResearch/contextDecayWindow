@@ -266,11 +266,12 @@ differently from the spec, per §1 above.
 | Measurement | Value | Artifact |
 |---|---|---|
 | Primary rank result | top four contain no evidence on 69/470 (14.7%); median evidence-session rank 2, p95 23, max 49 | `external/longmemeval/EC_001_REPORT.md` §2; `runs/tier1_001/tier1_summary.json` |
+| Rank-to-delivery path | evidence top-four on 401/470 but recalled on 96/401; K candidates 232/500 but delivered non-recency K on 20/500; median block 16 recency/0 K/1 coverage, all truncated | `runs/tier1_001/retrieval_path_diagnostic.json`; `EC_001_POSTRUN_RETRIEVAL_PATH_DIAGNOSTIC.md` |
 | Tier 1 exact-turn availability | any 79/470 (16.8%); all 20/470 (4.3%) | `EC_001_REPORT.md` §3; `tier1_summary.json` |
 | Tier 2, equal quota | 28/140 (20.0%) | `EC_001_REPORT.md` §4; `codex_integrity_score_summary.json` |
 | Tier 2, post-stratified | 12.22% | same |
 | Exact availability gap | 8/118 available vs 11/118 correct; −2.54 percentage points | `EC_001_REPORT.md` §5; `codex_integrity_score_summary.json` |
-| F3 absence detection | 0/500 component signals; reader correct on 17/20 abstention items | `EC_001_REPORT.md` §§4,6 |
+| F3 absence detection | 0/500 component signals; reader correct on 17/20 abstention items; retired as a component requirement, not component-solved | `EC_001_REPORT.md` §§4,6; `RETRIEVAL_MECHANISM_LEDGER.md` §3 |
 | Instrument audit | 358 registered predicate hits; not 358 adjudicated defects | `EC_001_REPORT.md` §8; `instrument_audit.json` |
 | Reporting boundary | Codex-substituted integrity only; no official or direct published-system comparison | `AMENDMENT_010_two_hosted_replacements.md`; `EC_001_REPORT.md` §7 |
 
