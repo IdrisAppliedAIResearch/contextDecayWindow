@@ -58,11 +58,13 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **LV-001 (2026-08-02).** RUN. B1 WEAK, B2 FAIL, **promotion killed on its own pre-registered bar**. The 6-item offline availability gap became +1 correctly attributed item live; targeted fell 3.5->1.5 against a 0.5 tolerance. A3 dropped turns 1-2 and could not state the formatting rules; offline it preserved 16/16. Availability is not the answer. Both arms fabricated the unretrieved art domain.
 
-**EC-001 LongMemEval (2026-08-03).** COMPLETE, Codex-substituted. Top-4 held evidence on 401/470 but only 96 recalled any; blocks median 16 recency/0 K/1 coverage, all truncated. Tier 2 28/140 raw, 12.22% weighted; multi-session and temporal 0/20. Abstention 17/20 with 0 component signals.
+**EC-001 LongMemEval (2026-08-03).** COMPLETE, Codex-substituted only. On 470 answerable items, top-4 held no evidence for 14.7%; exact-turn availability was 16.8%. Tier 2: 28/140 raw, 12.22% post-stratified; gap -2.54 pp. Multi-session and temporal 0/20; abstention 17/20 despite 0 component signals. Not an official benchmark score.
 
-**PAPER-001 (2026-08-03).** DRAFT, revised through EC-001 path audit. The forced pool/objective/floor decomposition stands. Naturalistic ranking lacks the dominant internal inversion, but delivery is governed by recency-first packing; the corpus-artifact cause remains unresolved. Source is `paper/PAPER_001.md`; figures/PDF are generated.
+**EC-002 K-first packing (2026-08-05).** COMPLETE offline. N-first instead of cosine-first raised any-session recall from 109/470 (23.2%) to 261/470 (55.5%); exact 4-turn availability 79->153 (32.6%). All blocks remain truncated; packing priority is the delivery gate, not selection or budget. No production promotion authorized. Branch comparison: EC-001 delivery (recency-first) vs. EC-002 availability (N-first) diverges at pooling rank.
 
-**Retrieval mechanism ledger (2026-08-03).** CLOSED. E002 KILL; exact-32k segmentation 6/17->10/17. AR-001: exact 14/17 costs 5,058 chars. E001 best .1204->.2103; 0/714 reached K=.48. F2 closed. F3 retired as a component requirement: 0/500 signals, reader abstention 17/20. E003 unauthorized.
+**PAPER-001 (2026-08-03).** DRAFT, revised through EC-001. The forced pool/objective/floor decomposition stands. LongMemEval shows the internal inversion is not dominant: top-4 lack evidence on 14.7%, with median evidence rank 2. The corpus-artifact cause remains unresolved. Source is `paper/PAPER_001.md`; figures and PDF are generated.
+
+**Retrieval mechanism ledger (2026-08-03).** CLOSED. E002 KILL but exact-32k segmentation improved 6/17->10/17. AR-001 proves exact 14/17 costs 5,058 chars. E001 best-found .1204->.2103; 0/714 reached K=.48. F2 closed. EC-001 measures F3 externally: 0/500 component absence signals, but reader abstention 17/20. E003 unauthorized.
 
 ## 3. Failure Pattern
 
