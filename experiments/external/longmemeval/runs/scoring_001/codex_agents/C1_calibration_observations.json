@@ -1,0 +1,27 @@
+{
+  "record": "EC-001 blind Codex-agent calibration observations",
+  "stage": "C1",
+  "display_model": "GPT-5.4",
+  "calibration": [
+    {
+      "calibration_id": "exact-positive",
+      "label": true,
+      "label_response": "yes"
+    },
+    {
+      "calibration_id": "partial-negative",
+      "label": false,
+      "label_response": "no"
+    },
+    {
+      "calibration_id": "reasoning-only-no-answer",
+      "label": false,
+      "label_response": "no"
+    },
+    {
+      "calibration_id": "abstention-positive",
+      "label": true,
+      "label_response": "yes"
+    }
+  ]
+}
