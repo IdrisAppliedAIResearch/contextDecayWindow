@@ -64,4 +64,3 @@ claim that the correlation is runnable from already-committed inputs.
 - [x] Retrieval ledger and memory updated.
 - [x] ERRATA reviewed; no published score or historical number changed.
 - [ ] Pull request opened.
-

@@ -50,4 +50,3 @@ before the mismatch was confirmed, so the locked design remains untouched.
 5. Any future rarity correlation requires a new prospective design naming the
    text unit, rarity variant, phrase-to-episode aggregation, interval method,
    and branch for incomplete joins.
-
