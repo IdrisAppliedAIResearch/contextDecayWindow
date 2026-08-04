@@ -15,7 +15,10 @@ from src.analysis.ec002_k_first_packing import (
     normalized_report,
     pack_k_first,
 )
-from scripts.run_ec002_k_first_packing import read_jsonl
+from scripts.run_ec002_k_first_packing import (
+    PersistentSoloEmbedder,
+    read_jsonl,
+)
 
 
 def episode(identifier: str, turn: int, size: int = 80, axis: int = 0) -> dict:
@@ -247,3 +250,40 @@ def test_jsonl_loader_does_not_split_unicode_line_separator(tmp_path) -> None:
     )
 
     assert read_jsonl(path) == [{"text": "before\u2028after"}]
+
+
+def test_persistent_solo_cache_reuses_exact_a0_vector_without_model_call(
+    tmp_path,
+) -> None:
+    class Delegate:
+        model_sha256 = "a" * 64
+
+        def __init__(self) -> None:
+            self.calls = 0
+
+        def __call__(self, text: str) -> np.ndarray:
+            self.calls += 1
+            return np.full(1024, len(text), dtype=np.float32)
+
+    path = tmp_path / "embeddings.db"
+    populate_delegate = Delegate()
+    with PersistentSoloEmbedder(
+        populate_delegate, path, mode="populate"
+    ) as cache:
+        first = cache("same text")
+        second = cache("same text")
+        assert cache.cache_size == 1
+        assert cache.misses == 1
+        assert cache.hits == 1
+    assert populate_delegate.calls == 1
+
+    reuse_delegate = Delegate()
+    with PersistentSoloEmbedder(
+        reuse_delegate, path, mode="reuse"
+    ) as cache:
+        replay = cache("same text")
+        assert cache.misses == 0
+        assert cache.hits == 1
+    assert reuse_delegate.calls == 0
+    assert np.array_equal(first, second)
+    assert np.array_equal(first, replay)
