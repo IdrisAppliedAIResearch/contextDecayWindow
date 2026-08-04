@@ -6,6 +6,7 @@ import argparse
 import hashlib
 import json
 import shlex
+import sqlite3
 import subprocess
 import sys
 import tempfile
@@ -14,13 +15,15 @@ from dataclasses import asdict
 from datetime import datetime, timezone
 from pathlib import Path
 
+import numpy as np
+
 REPO = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO))
 sys.path.insert(0, str(REPO / "episodic" / "src"))
 
 from episodic import EpisodeStore, EpisodicConfig  # noqa: E402
+from episodic._embedding import EMBEDDING_DIMENSION  # noqa: E402
 from src.analysis.ec001_longmemeval import (  # noqa: E402
-    CachingSoloEmbedder,
     aggregate_tier1,
     load_adaptation_record,
     load_longmemeval,
@@ -44,6 +47,130 @@ REQUIRED_BRANCH = "ec/002-k-first-packing"
 DEFAULT_ORIGINAL_RUN = (
     REPO / "experiments" / "external" / "longmemeval" / "runs" / "tier1_001"
 )
+CACHE_COMMIT_INTERVAL = 256
+
+
+class PersistentSoloEmbedder:
+    """Persist exact solo-call vectors so A1 reuses A0's values byte-for-byte."""
+
+    def __init__(
+        self,
+        delegate,
+        path: Path,
+        *,
+        mode: str,
+    ) -> None:
+        if mode not in {"populate", "reuse"}:
+            raise EC002Error(f"Unknown embedding-cache mode: {mode}")
+        self._delegate = delegate
+        self.path = path.resolve()
+        self.mode = mode
+        self.hits = 0
+        self.misses = 0
+        self._closed = False
+
+        if mode == "populate":
+            if self.path.exists():
+                raise EC002Error(
+                    f"Refusing to overwrite embedding cache: {self.path}"
+                )
+            self.path.parent.mkdir(parents=True, exist_ok=True)
+            self._conn = sqlite3.connect(str(self.path))
+            self._conn.execute("PRAGMA synchronous=FULL")
+            self._conn.execute("PRAGMA journal_mode=DELETE")
+            self._conn.executescript(
+                """
+                CREATE TABLE cache (
+                    text TEXT PRIMARY KEY,
+                    embedding BLOB NOT NULL
+                );
+                CREATE TABLE metadata (
+                    key TEXT PRIMARY KEY,
+                    value TEXT NOT NULL
+                );
+                """
+            )
+            self._conn.executemany(
+                "INSERT INTO metadata (key, value) VALUES (?, ?)",
+                (
+                    ("model_sha256", self.model_sha256),
+                    ("call_shape", "solo"),
+                    ("dtype", "float32"),
+                    ("dimension", str(EMBEDDING_DIMENSION)),
+                ),
+            )
+            self._conn.commit()
+        else:
+            if not self.path.is_file():
+                raise EC002Error(
+                    f"Registered embedding cache is missing: {self.path}"
+                )
+            uri = f"file:{self.path.as_posix()}?mode=ro"
+            self._conn = sqlite3.connect(uri, uri=True)
+            metadata = dict(
+                self._conn.execute(
+                    "SELECT key, value FROM metadata"
+                ).fetchall()
+            )
+            expected = {
+                "model_sha256": self.model_sha256,
+                "call_shape": "solo",
+                "dtype": "float32",
+                "dimension": str(EMBEDDING_DIMENSION),
+            }
+            if metadata != expected:
+                raise EC002Error(
+                    f"Embedding cache metadata differs: {metadata}"
+                )
+
+    @property
+    def model_sha256(self) -> str:
+        return str(self._delegate.model_sha256)
+
+    @property
+    def cache_size(self) -> int:
+        return int(
+            self._conn.execute("SELECT COUNT(*) FROM cache").fetchone()[0]
+        )
+
+    def __call__(self, text: str) -> np.ndarray:
+        row = self._conn.execute(
+            "SELECT embedding FROM cache WHERE text = ?", (text,)
+        ).fetchone()
+        if row is not None:
+            self.hits += 1
+            vector = np.frombuffer(row[0], dtype=np.float32).copy()
+            return vector.reshape(EMBEDDING_DIMENSION)
+        if self.mode == "reuse":
+            raise EC002Error(
+                "A1 requested text absent from the committed A0 embedding "
+                "cache; no new model call is allowed"
+            )
+        vector = np.asarray(
+            self._delegate(text), dtype=np.float32
+        ).reshape(EMBEDDING_DIMENSION)
+        self._conn.execute(
+            "INSERT INTO cache (text, embedding) VALUES (?, ?)",
+            (text, vector.tobytes()),
+        )
+        self.misses += 1
+        if self.misses % CACHE_COMMIT_INTERVAL == 0:
+            self._conn.commit()
+        return vector
+
+    def close(self) -> None:
+        if self._closed:
+            return
+        if self.mode == "populate":
+            self._conn.commit()
+        self._conn.close()
+        self._closed = True
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *_: object) -> None:
+        self.close()
 
 
 def _git(*arguments: str) -> str:
@@ -160,10 +287,14 @@ def committed_gate(path: Path) -> dict:
         raise EC002Error("A0 reproduction gate did not pass")
     if gate.get("registration_sha") != _git("rev-parse", REGISTRATION_SHA):
         raise EC002Error("A0 gate registration anchor differs")
+    cache = gate.get("embedding_cache")
+    if not isinstance(cache, dict):
+        raise EC002Error("A0 gate does not record its embedding cache")
     return {
         "path": relative,
         "sha256": sha256_file(path),
         "commit": gate_commit,
+        "embedding_cache": cache,
     }
 
 
@@ -354,6 +485,7 @@ def main() -> int:
     )
     parser.add_argument("--data", type=Path, required=True)
     parser.add_argument("--embedding-model", type=Path, required=True)
+    parser.add_argument("--embedding-cache", type=Path, required=True)
     parser.add_argument(
         "--original-run", type=Path, default=DEFAULT_ORIGINAL_RUN
     )
@@ -392,28 +524,65 @@ def main() -> int:
 
     carried = CarriedEmbedder(args.embedding_model)
     carried.assert_carried_model()
-    embedder = CachingSoloEmbedder(carried)
+    if args.mode == "counterfactual":
+        registered_cache = gate_record["embedding_cache"]
+        if args.embedding_cache.resolve() != Path(
+            registered_cache["path"]
+        ).resolve():
+            raise EC002Error("A1 cache path differs from the A0 gate")
+        observed_cache_sha = sha256_file(args.embedding_cache)
+        if observed_cache_sha != registered_cache["sha256"]:
+            raise EC002Error("A1 embedding cache hash differs from A0")
 
     args.output.mkdir(parents=True)
     started = time.time()
-    if args.mode == "reproduce":
-        result = run_reproduction(
-            dataset=dataset,
-            original=original,
-            embedder=embedder,
-            config=config,
-            budget=budget,
-            output=args.output,
-        )
+    with PersistentSoloEmbedder(
+        carried,
+        args.embedding_cache,
+        mode=("populate" if args.mode == "reproduce" else "reuse"),
+    ) as embedder:
+        if args.mode == "reproduce":
+            result = run_reproduction(
+                dataset=dataset,
+                original=original,
+                embedder=embedder,
+                config=config,
+                budget=budget,
+                output=args.output,
+            )
+        else:
+            result = run_counterfactual(
+                dataset=dataset,
+                original=original,
+                embedder=embedder,
+                config=config,
+                budget=budget,
+                output=args.output,
+            )
+        cache_entries = embedder.cache_size
+        cache_hits = embedder.hits
+        cache_misses = embedder.misses
+
+    cache_record = {
+        "path": str(args.embedding_cache.resolve()),
+        "bytes": args.embedding_cache.stat().st_size,
+        "sha256": sha256_file(args.embedding_cache),
+        "entries": cache_entries,
+        "hits": cache_hits,
+        "misses": cache_misses,
+        "call_shape": "solo",
+    }
+    if args.mode == "counterfactual":
+        if cache_misses != 0:
+            raise EC002Error("A1 made a new embedding call")
+        if cache_record["sha256"] != gate_record["embedding_cache"]["sha256"]:
+            raise EC002Error("Read-only A1 changed the embedding cache")
     else:
-        result = run_counterfactual(
-            dataset=dataset,
-            original=original,
-            embedder=embedder,
-            config=config,
-            budget=budget,
-            output=args.output,
-        )
+        gate_path = args.output / "a0_reproduction_gate.json"
+        gate_payload = json.loads(gate_path.read_text(encoding="utf-8"))
+        gate_payload["embedding_cache"] = cache_record
+        write_json(gate_path, gate_payload)
+        result = gate_payload
 
     script_after = sha256_file(script_path)
     if script_after != script_before:
@@ -439,6 +608,7 @@ def main() -> int:
             original["paths"]["summary"]
         ),
         "a0_gate": gate_record,
+        "embedding_cache": cache_record,
     }
     write_json(args.output / "source_integrity.json", integrity)
     write_json(
@@ -465,7 +635,8 @@ def main() -> int:
             ).isoformat(),
             "finished_utc": datetime.now(timezone.utc).isoformat(),
             "elapsed_seconds": round(time.time() - started, 3),
-            "embedding_cache_entries": embedder.cache_size,
+            "embedding_cache_entries": cache_entries,
+            "embedding_cache": cache_record,
             "result_status": result.get("status"),
         },
     )
