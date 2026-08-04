@@ -81,11 +81,8 @@ def repository_gate() -> dict:
 
 
 def read_jsonl(path: Path) -> list[dict]:
-    return [
-        json.loads(line)
-        for line in path.read_text(encoding="utf-8").splitlines()
-        if line
-    ]
+    with path.open("r", encoding="utf-8", newline="\n") as handle:
+        return [json.loads(line) for line in handle if line.strip()]
 
 
 def write_json(path: Path, value: object) -> None:

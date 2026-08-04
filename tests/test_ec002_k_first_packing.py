@@ -15,6 +15,7 @@ from src.analysis.ec002_k_first_packing import (
     normalized_report,
     pack_k_first,
 )
+from scripts.run_ec002_k_first_packing import read_jsonl
 
 
 def episode(identifier: str, turn: int, size: int = 80, axis: int = 0) -> dict:
@@ -235,3 +236,14 @@ def test_paired_comparison_reports_gains_and_losses_separately() -> None:
     assert session_any["losses"] == 1
     assert result["gained_question_ids"]["session_any"] == ["gain"]
     assert result["lost_question_ids"]["session_any"] == ["loss"]
+
+
+def test_jsonl_loader_does_not_split_unicode_line_separator(tmp_path) -> None:
+    path = tmp_path / "rows.jsonl"
+    path.write_text(
+        json.dumps({"text": "before\u2028after"}, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+        newline="\n",
+    )
+
+    assert read_jsonl(path) == [{"text": "before\u2028after"}]
