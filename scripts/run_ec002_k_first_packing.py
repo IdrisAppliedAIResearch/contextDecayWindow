@@ -6,7 +6,6 @@ import argparse
 import hashlib
 import json
 import shlex
-import sqlite3
 import subprocess
 import sys
 import tempfile
@@ -15,14 +14,11 @@ from dataclasses import asdict
 from datetime import datetime, timezone
 from pathlib import Path
 
-import numpy as np
-
 REPO = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO))
 sys.path.insert(0, str(REPO / "episodic" / "src"))
 
-from episodic import EpisodeStore, EpisodicConfig  # noqa: E402
-from episodic._embedding import EMBEDDING_DIMENSION  # noqa: E402
+from episodic import EmbeddingCache, EpisodeStore, EpisodicConfig  # noqa: E402
 from src.analysis.ec001_longmemeval import (  # noqa: E402
     aggregate_tier1,
     load_adaptation_record,
@@ -48,130 +44,15 @@ REQUIRED_BRANCH = "ec/002-k-first-packing"
 DEFAULT_ORIGINAL_RUN = (
     REPO / "experiments" / "external" / "longmemeval" / "runs" / "tier1_001"
 )
-CACHE_COMMIT_INTERVAL = 256
-
-
-class PersistentSoloEmbedder:
-    """Persist exact solo-call vectors so A1 reuses A0's values byte-for-byte."""
-
-    def __init__(
-        self,
-        delegate,
-        path: Path,
-        *,
-        mode: str,
-    ) -> None:
-        if mode not in {"populate", "reuse"}:
-            raise EC002Error(f"Unknown embedding-cache mode: {mode}")
-        self._delegate = delegate
-        self.path = path.resolve()
-        self.mode = mode
-        self.hits = 0
-        self.misses = 0
-        self._closed = False
-
-        if mode == "populate":
-            if self.path.exists():
-                raise EC002Error(
-                    f"Refusing to overwrite embedding cache: {self.path}"
-                )
-            self.path.parent.mkdir(parents=True, exist_ok=True)
-            self._conn = sqlite3.connect(str(self.path))
-            self._conn.execute("PRAGMA synchronous=FULL")
-            self._conn.execute("PRAGMA journal_mode=DELETE")
-            self._conn.executescript(
-                """
-                CREATE TABLE cache (
-                    text TEXT PRIMARY KEY,
-                    embedding BLOB NOT NULL
-                );
-                CREATE TABLE metadata (
-                    key TEXT PRIMARY KEY,
-                    value TEXT NOT NULL
-                );
-                """
-            )
-            self._conn.executemany(
-                "INSERT INTO metadata (key, value) VALUES (?, ?)",
-                (
-                    ("model_sha256", self.model_sha256),
-                    ("call_shape", "solo"),
-                    ("dtype", "float32"),
-                    ("dimension", str(EMBEDDING_DIMENSION)),
-                ),
-            )
-            self._conn.commit()
-        else:
-            if not self.path.is_file():
-                raise EC002Error(
-                    f"Registered embedding cache is missing: {self.path}"
-                )
-            uri = f"file:{self.path.as_posix()}?mode=ro"
-            self._conn = sqlite3.connect(uri, uri=True)
-            metadata = dict(
-                self._conn.execute(
-                    "SELECT key, value FROM metadata"
-                ).fetchall()
-            )
-            expected = {
-                "model_sha256": self.model_sha256,
-                "call_shape": "solo",
-                "dtype": "float32",
-                "dimension": str(EMBEDDING_DIMENSION),
-            }
-            if metadata != expected:
-                raise EC002Error(
-                    f"Embedding cache metadata differs: {metadata}"
-                )
-
-    @property
-    def model_sha256(self) -> str:
-        return str(self._delegate.model_sha256)
-
-    @property
-    def cache_size(self) -> int:
-        return int(
-            self._conn.execute("SELECT COUNT(*) FROM cache").fetchone()[0]
-        )
-
-    def __call__(self, text: str) -> np.ndarray:
-        row = self._conn.execute(
-            "SELECT embedding FROM cache WHERE text = ?", (text,)
-        ).fetchone()
-        if row is not None:
-            self.hits += 1
-            vector = np.frombuffer(row[0], dtype=np.float32).copy()
-            return vector.reshape(EMBEDDING_DIMENSION)
-        if self.mode == "reuse":
-            raise EC002Error(
-                "A1 requested text absent from the committed A0 embedding "
-                "cache; no new model call is allowed"
-            )
-        vector = np.asarray(
-            self._delegate(text), dtype=np.float32
-        ).reshape(EMBEDDING_DIMENSION)
-        self._conn.execute(
-            "INSERT INTO cache (text, embedding) VALUES (?, ?)",
-            (text, vector.tobytes()),
-        )
-        self.misses += 1
-        if self.misses % CACHE_COMMIT_INTERVAL == 0:
-            self._conn.commit()
-        return vector
-
-    def close(self) -> None:
-        if self._closed:
-            return
-        if self.mode == "populate":
-            self._conn.commit()
-        self._conn.close()
-        self._closed = True
-
-    def __enter__(self):
-        return self
-
-    def __exit__(self, *_: object) -> None:
-        self.close()
+DEFAULT_CACHE_ADOPTION = (
+    REPO
+    / "experiments"
+    / "components"
+    / "embedding_cache"
+    / "artifacts"
+    / "cc006"
+    / "ec002_legacy_adoption.json"
+)
 
 
 def _git(*arguments: str) -> str:
@@ -306,6 +187,34 @@ def committed_gate(path: Path) -> dict:
     }
 
 
+def committed_cache_adoption(path: Path) -> dict:
+    """Load CC-006's committed binding for the retained EC-002 cache."""
+
+    if not path.is_file():
+        raise EC002Error(f"CC-006 cache adoption is missing: {path}")
+    relative = path.resolve().relative_to(REPO.resolve()).as_posix()
+    subprocess.run(
+        ["git", "ls-files", "--error-unmatch", "--", relative],
+        cwd=REPO,
+        check=True,
+        capture_output=True,
+    )
+    if _git("status", "--porcelain", "--", relative):
+        raise EC002Error("CC-006 cache adoption artifact is dirty")
+    record = json.loads(path.read_text(encoding="utf-8"))
+    if record.get("status") != "PASS":
+        raise EC002Error("CC-006 cache adoption did not pass")
+    adoption = record.get("adoption")
+    if not isinstance(adoption, dict):
+        raise EC002Error("CC-006 cache adoption record is malformed")
+    return {
+        "path": relative,
+        "sha256": sha256_file(path),
+        "commit": _git("log", "-1", "--format=%H", "--", relative),
+        "adoption": adoption,
+    }
+
+
 def build_store(bundle, path: Path, embedder, config: EpisodicConfig):
     store = EpisodeStore(path, config=config, embedder=embedder)
     for episode in bundle.mechanism.episodes:
@@ -413,6 +322,15 @@ def run_counterfactual(
     budget: int,
     output: Path,
 ) -> dict:
+    original_scores = {
+        str(row["question_id"]): row for row in original["scores"]
+    }
+    original_mechanisms = {
+        str(row["question_id"]): row for row in original["mechanisms"]
+    }
+    baseline_scores: list[dict] = []
+    baseline_mechanisms: list[dict] = []
+    baseline_checks: list[dict] = []
     treatment_scores: list[dict] = []
     treatment_mechanisms: list[dict] = []
     started = time.time()
@@ -427,6 +345,22 @@ def run_counterfactual(
                 embedder,
                 config,
             ) as store:
+                baseline_block, baseline_report = store.context(
+                    bundle.mechanism.question, budget
+                )
+                baseline_rerun_block, baseline_rerun_report = store.context(
+                    bundle.mechanism.question, budget
+                )
+                if baseline_block != baseline_rerun_block:
+                    raise EC002Error(
+                        f"{question_id}: same-store A0 block rerun drifted"
+                    )
+                if normalized_report(
+                    baseline_report
+                ) != normalized_report(baseline_rerun_report):
+                    raise EC002Error(
+                        f"{question_id}: same-store A0 report rerun drifted"
+                    )
                 episodes = store._all_episodes()
                 query = embedder(bundle.mechanism.question)
                 block, report, diagnostics = build_k_first_context(
@@ -456,10 +390,44 @@ def run_counterfactual(
                     f"{question_id}: K-first diagnostics rerun drifted"
                 )
 
-            delivered = parse_delivered_block(block)
             ranking = session_cosine_ranking(
                 bundle.mechanism, bundle.measurement, embedder
             )
+            baseline_delivered = parse_delivered_block(baseline_block)
+            baseline_score = {
+                "question_id": question_id,
+                "question_type": bundle.measurement.question_type,
+                "stratum": bundle.measurement.stratum,
+                **score_retrieval(
+                    bundle.measurement, baseline_delivered, ranking
+                ),
+            }
+            baseline_scores.append(baseline_score)
+            baseline_mechanisms.append(
+                {
+                    "question_id": question_id,
+                    "block": baseline_block,
+                    "block_sha256": hashlib.sha256(
+                        baseline_block.encode("utf-8")
+                    ).hexdigest(),
+                    "report": asdict(baseline_report),
+                    "delivered_turn_numbers": sorted(baseline_delivered),
+                    "session_cosine_ranking": ranking,
+                    "same_store_as_a1": True,
+                    "determinism_rerun": "PASS",
+                }
+            )
+            baseline_checks.append(
+                check_reproduction_row(
+                    original_score=original_scores[question_id],
+                    original_mechanism=original_mechanisms[question_id],
+                    reproduced_score=baseline_score,
+                    reproduced_block=baseline_block,
+                    reproduced_report=baseline_report,
+                )
+            )
+
+            delivered = parse_delivered_block(block)
             score = {
                 "question_id": question_id,
                 "question_type": bundle.measurement.question_type,
@@ -480,14 +448,40 @@ def run_counterfactual(
                     "delivered_turn_numbers": sorted(delivered),
                     "session_cosine_ranking": ranking,
                     "packing_diagnostics": diagnostics,
+                    "same_store_as_a0": True,
                     "determinism_rerun": "PASS",
                 }
             )
             _progress(index, len(dataset.instances), started)
 
+    baseline_summary = aggregate_tier1(baseline_scores)
+    baseline_gate = evaluate_reproduction(
+        checks=baseline_checks,
+        reproduced_summary=baseline_summary,
+        original_summary=original["summary"],
+    )
+    baseline_gate["same_store_as_a1"] = True
+    baseline_gate["registration_sha"] = _git("rev-parse", REGISTRATION_SHA)
+    baseline_gate["amendment_001_sha"] = _git(
+        "rev-parse", AMENDMENT_001_SHA
+    )
+    write_jsonl(output / "a1_same_store_a0_scores.jsonl", baseline_scores)
+    write_jsonl(
+        output / "a1_same_store_a0_mechanism.jsonl", baseline_mechanisms
+    )
+    write_json(
+        output / "a1_same_store_a0_summary.json", baseline_summary
+    )
+    write_json(output / "a1_same_store_a0_gate.json", baseline_gate)
+    if baseline_gate["status"] != "PASS":
+        raise EC002Error(
+            "Same-store A0 failed the amended reproduction gate; "
+            "A1 output remains unwritten"
+        )
+
     summary = aggregate_tier1(treatment_scores)
     comparison = compare_score_rows(
-        baseline_rows=original["scores"],
+        baseline_rows=baseline_scores,
         treatment_rows=treatment_scores,
         treatment_mechanisms=treatment_mechanisms,
     )
@@ -527,6 +521,9 @@ def main() -> int:
         "--original-run", type=Path, default=DEFAULT_ORIGINAL_RUN
     )
     parser.add_argument("--gate", type=Path)
+    parser.add_argument(
+        "--cache-adoption", type=Path, default=DEFAULT_CACHE_ADOPTION
+    )
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
 
@@ -540,6 +537,11 @@ def main() -> int:
     gate_record = (
         committed_gate(args.gate)
         if args.mode == "counterfactual"
+        else None
+    )
+    adoption_record = (
+        committed_cache_adoption(args.cache_adoption)
+        if args.mode == "counterfactual" or args.reuse_a0_cache
         else None
     )
 
@@ -559,28 +561,56 @@ def main() -> int:
     if budget != 32_000:
         raise EC002Error("Registered budget is not 32,000 characters")
 
-    carried = CarriedEmbedder(args.embedding_model)
-    carried.assert_carried_model()
+    expected_model_sha = str(config.embedder_sha256)
+    observed_model_sha = sha256_file(args.embedding_model)
+    if observed_model_sha != expected_model_sha:
+        raise EC002Error(
+            "Embedding model artifact differs from the pinned configuration"
+        )
+    carried = None
+    if args.mode == "reproduce" and not args.reuse_a0_cache:
+        carried = CarriedEmbedder(args.embedding_model)
+        carried.assert_carried_model()
     if args.mode == "counterfactual":
         registered_cache = gate_record["embedding_cache"]
+        adoption = adoption_record["adoption"]
         if args.embedding_cache.resolve() != Path(
             registered_cache["path"]
         ).resolve():
             raise EC002Error("A1 cache path differs from the A0 gate")
+        if args.embedding_cache.resolve() != Path(adoption["path"]).resolve():
+            raise EC002Error("A1 cache path differs from CC-006 adoption")
+        if adoption["file_sha256"] != registered_cache["sha256"]:
+            raise EC002Error("CC-006 file hash differs from the A0 gate")
+        if adoption["model_sha256"] != expected_model_sha:
+            raise EC002Error("CC-006 model hash differs from EC-002")
         observed_cache_sha = sha256_file(args.embedding_cache)
-        if observed_cache_sha != registered_cache["sha256"]:
+        if observed_cache_sha != adoption["file_sha256"]:
             raise EC002Error("A1 embedding cache hash differs from A0")
 
     args.output.mkdir(parents=True)
     started = time.time()
-    with PersistentSoloEmbedder(
-        carried,
-        args.embedding_cache,
-        mode=(
+    cache_arguments = {
+        "mode": (
             "reuse"
             if args.mode == "counterfactual" or args.reuse_a0_cache
             else "populate"
         ),
+        "embedder": carried,
+    }
+    if cache_arguments["mode"] == "reuse":
+        adoption = adoption_record["adoption"]
+        cache_arguments.update(
+            {
+                "expected_file_sha256": adoption["file_sha256"],
+                "expected_content_sha256": adoption["content_sha256"],
+                "expected_model_sha256": expected_model_sha,
+                "legacy_v0": True,
+            }
+        )
+    with EmbeddingCache(
+        args.embedding_cache,
+        **cache_arguments,
     ) as embedder:
         if args.mode == "reproduce":
             result = run_reproduction(
@@ -603,21 +633,23 @@ def main() -> int:
         cache_entries = embedder.cache_size
         cache_hits = embedder.hits
         cache_misses = embedder.misses
+        public_cache_record = embedder.record()
 
     cache_record = {
-        "path": str(args.embedding_cache.resolve()),
-        "bytes": args.embedding_cache.stat().st_size,
-        "sha256": sha256_file(args.embedding_cache),
-        "entries": cache_entries,
-        "hits": cache_hits,
-        "misses": cache_misses,
-        "call_shape": "solo",
+        **public_cache_record,
+        # Compatibility with the locked A0 artifact's field name.
+        "sha256": public_cache_record["file_sha256"],
     }
     if args.mode == "counterfactual":
         if cache_misses != 0:
             raise EC002Error("A1 made a new embedding call")
         if cache_record["sha256"] != gate_record["embedding_cache"]["sha256"]:
             raise EC002Error("Read-only A1 changed the embedding cache")
+        if (
+            cache_record["content_sha256"]
+            != adoption_record["adoption"]["content_sha256"]
+        ):
+            raise EC002Error("Read-only A1 changed cache content")
     elif args.reuse_a0_cache:
         if cache_misses != 0:
             raise EC002Error("Amended A0 made a new embedding call")
@@ -652,6 +684,7 @@ def main() -> int:
             original["paths"]["summary"]
         ),
         "a0_gate": gate_record,
+        "cc006_cache_adoption": adoption_record,
         "embedding_cache": cache_record,
     }
     write_json(args.output / "source_integrity.json", integrity)
