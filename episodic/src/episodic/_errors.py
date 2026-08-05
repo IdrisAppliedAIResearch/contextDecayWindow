@@ -44,3 +44,7 @@ class EmbeddingDriftError(EpisodicError):
     same space or every cosine in the store is meaningless. See DX-001 for
     what makes this a live hazard rather than a theoretical one.
     """
+
+
+class EmbeddingCacheError(EpisodicError):
+    """A persistent vector cache is missing, altered, or incomplete."""

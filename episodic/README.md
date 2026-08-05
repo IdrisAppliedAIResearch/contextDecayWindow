@@ -9,13 +9,44 @@ studies in the `contextDecayWindow` repository, and every behavioral
 claim below carries the committed artifact that measured it.
 
 ```python
-from episodic import EpisodeStore, ContextReport, EpisodicConfig
+from episodic import (
+    EmbeddingCache, EpisodeStore, ContextReport, EpisodicConfig
+)
 
 store = EpisodeStore(path, config=EpisodicConfig())   # opens or creates
 store.append(role, content)                           # verbatim, append-only
 block, report = store.context(query, budget)          # pure function of (store state, query, budget)
 store.close()
 ```
+
+Runs that must be replayable at vector granularity wrap their embedder in a
+persistent cache, record both digests, and reopen it read-only:
+
+```python
+with EmbeddingCache(cache_path, mode="populate", embedder=embedder) as vectors:
+    store = EpisodeStore(store_path, config=config, embedder=vectors)
+    # append and context calls populate exact float32 vector bytes
+
+with EmbeddingCache(
+    cache_path,
+    mode="reuse",
+    expected_file_sha256=recorded_file_sha256,
+    expected_content_sha256=recorded_content_sha256,
+    expected_model_sha256=recorded_model_sha256,
+) as vectors:
+    store = EpisodeStore(store_path, config=config, embedder=vectors)
+    # every cache miss is fatal; no model call is possible
+```
+
+The content digest binds each complete UTF-8 text to its exact vector bytes;
+the file digest binds the retained SQLite artifact. This guarantee applies
+only to runs that retained such a cache. It cannot reconstruct historical
+vectors that were never preserved.
+
+The pre-contract EC-002 cache can be opened with `legacy_v0=True` only after
+its already-recorded file SHA and a newly recorded canonical content SHA are
+both supplied. This adopts retained bytes; it does not recreate a missing
+historical cache.
 
 `store.context()` is a pure function of store state, query, and budget:
 no mutation, no inference calls, no network. Same inputs, same output,
