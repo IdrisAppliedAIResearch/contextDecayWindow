@@ -60,9 +60,9 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **EC-001 LongMemEval (2026-08-03).** COMPLETE, Codex-substituted only. On 470 answerable items, top-4 held no evidence for 14.7%; exact-turn availability was 16.8%. Tier 2: 28/140 raw, 12.22% post-stratified; gap -2.54 pp. Multi-session and temporal 0/20; abstention 17/20 despite 0 component signals. Not an official benchmark score.
 
-**EC-002 K-first packing (2026-08-05).** COMPLETE offline. N-first instead of cosine-first raised any-session recall from 109/470 (23.2%) to 261/470 (55.5%); exact 4-turn availability 79->153 (32.6%). All blocks remain truncated; packing priority is the delivery gate, not selection or budget. No production promotion authorized. Branch comparison: EC-001 delivery (recency-first) vs. EC-002 availability (N-first) diverges at pooling rank.
+**EC-002 K-first packing (2026-08-05).** COMPLETE offline. Same-store K-first raises any-session recall 109/470->261/470: 152 gains, 0 losses. Exact-turn-any 79->196: 119 gains, 2 losses. K deliveries 26->476; all blocks still truncated. Confirms recency-first budget exhaustion as a causal gate. No production/Tier 2 promotion authorized.
 
-**PAPER-001 (2026-08-03).** DRAFT, revised through EC-001. The forced pool/objective/floor decomposition stands. LongMemEval shows the internal inversion is not dominant: top-4 lack evidence on 14.7%, with median evidence rank 2. The corpus-artifact cause remains unresolved. Source is `paper/PAPER_001.md`; figures and PDF are generated.
+**PAPER-001 (2026-08-05).** DRAFT, revised through EC-002. The pool/objective/floor decomposition stands. Naturalistic ranking lacks the dominant internal inversion; EC-002 causally confirms recency-first packing gated delivery. Corpus-artifact cause remains unresolved. Source is `paper/PAPER_001.md`; figures/PDF are generated.
 
 **Retrieval mechanism ledger (2026-08-03).** CLOSED. E002 KILL but exact-32k segmentation improved 6/17->10/17. AR-001 proves exact 14/17 costs 5,058 chars. E001 best-found .1204->.2103; 0/714 reached K=.48. F2 closed. EC-001 measures F3 externally: 0/500 component absence signals, but reader abstention 17/20. E003 unauthorized.
 

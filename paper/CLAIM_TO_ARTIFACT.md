@@ -13,8 +13,7 @@ across platforms; working-tree hashes on Windows are not, and are not used.
 Verified against two independently published values: `e005_results.json`
 `07b714389697c6e5` and `dx001_results.json` `2f07a462e09bdf79`, both of which
 `episodic/README.md` already cites. Repository state: branch `paper-001` from
-`main` at `8a8a6229`, updated through EC-001 retrieval-path diagnostic commit
-`7b38badb`.
+`main` at `8a8a6229`, updated through EC-002 A1 evidence commit `4168a05c`.
 
 **Status column.**
 
@@ -66,27 +65,16 @@ Verified against two independently published values: `e005_results.json`
 | R34 | `…/artifacts/rd001/measurement_feasibility.json` | `765f48e8` | `cfdb5155854686c8` |
 | R35 | `…/artifacts/rd001/rank_replay.json` | `765f48e8` | `c12448b1a6ce893e` |
 | R36 | `…/RD_001_RARITY_PROVENANCE_AUDIT.md` | `4485d640` | `9c10690001f50fd8` |
-<<<<<<< HEAD
 | R37 | `…/external/longmemeval/EC_001_REPORT.md` | `070ab94c` | `0113f4bcb1de02fd` |
-=======
-| R37 | `…/external/longmemeval/EC_001_REPORT.md` | `070ab94c` | `1fd9be38e2b33d15` |
->>>>>>> 39d49c3e (docs(ec-001): close external calibration study)
 | R38 | `…/runs/tier1_001/tier1_summary.json` | `08e90fa3` | `376ef7c7a16cbc0b` |
 | R39 | `…/runs/tier1_001/instrument_audit.json` | `08e90fa3` | `2754bcdd09f24e28` |
 | R40 | `…/final_codex_integrity/codex_integrity_score_summary.json` | `e59f86cd` | `178321282e180792` |
 | R41 | `…/final_codex_integrity/codex_integrity_score_ledger.jsonl` | `e59f86cd` | `3a293c0973637b45` |
-<<<<<<< HEAD
 | R42 | `…/runs/tier1_001/retrieval_path_diagnostic.json` | `7b38badb` | `fc6589071af5a092` |
 
 Path prefix `…` is `experiments/components/retrieval_mechanism_ledger` for
 R1–R21 and R33–R36, and `experiments/components` for R22–R29.
 For R37 it is `experiments`; for R38–R42 it is
-=======
-
-Path prefix `…` is `experiments/components/retrieval_mechanism_ledger` for
-R1–R21 and R33–R36, and `experiments/components` for R22–R29.
-For R37 it is `experiments`; for R38–R41 it is
->>>>>>> 39d49c3e (docs(ec-001): close external calibration study)
 `experiments/external/longmemeval`.
 
 ---
@@ -224,11 +212,7 @@ For R37 it is `experiments`; for R38–R41 it is
 | C91 | Runtime independence unmeasured | one model, one quantization, one machine | R29 §6 | VERIFIED |
 | C92 | Horizon limit | 1,000 turns says nothing about 10,000 | R22 §Boundary; R28 §5 | VERIFIED |
 | C93 | AI raters with AI adjudicators | final adjudication used AI reviewers, not humans | R32; `README.md` §Corrected Numbers | VERIFIED |
-<<<<<<< HEAD
 | C94 | The inversion is not a dominant external ranking pattern; its cause remains unresolved and the adapted delivery path still fails | LongMemEval top-four failure 69/470; top-four evidence 401/470 but session recall only 96/401; RD-001 stopped before correlation | R37 §§2–3; R38; R42; R34 | VERIFIED — external ordering narrows the inversion claim without validating downstream retrieval or identifying vocabulary as the cause |
-=======
-| C94 | The inversion is not a dominant external pattern; its cause remains unresolved | LongMemEval top-four failure 69/470; RD-001 stopped before correlation | R37 §2; R38; R34 | VERIFIED — external outcome narrows the claim without identifying vocabulary as the cause |
->>>>>>> 39d49c3e (docs(ec-001): close external calibration study)
 | C95 | Full Q11 cosine ordering recovered under the pinned call | 119/119; 16-rank replay PASS with known 21→20 correction | R33, R35 | VERIFIED |
 
 ---
@@ -242,15 +226,16 @@ For R37 it is `experiments`; for R38–R41 it is
 | C98 | Codex-substituted Tier 2 result | 28/140 = 20.0% equal-quota; 12.22% post-stratified | R37 §4; R40 | VERIFIED — explicitly not official or benchmark-comparable |
 | C99 | External availability-minus-correctness gap | 8/118 vs 11/118; −2.54 percentage points | R37 §5; R40 | VERIFIED |
 | C100 | Multi-session and temporal Tier 2 | 0/20 in each stratum | R37 §4; R40 | VERIFIED |
-<<<<<<< HEAD
 | C101 | Component absence signal vs reader abstention | 0/500 component signals; 17/20 reader-correct | R37 §§4,6; R38; R40 | VERIFIED — different levels of the system; retires F3 as a component requirement for this tested reader, not as a universal capability |
 | C102 | Instrument-audit inventory | 358 predicate hits across five registered kinds | R37 §8; R39 | VERIFIED — not described as 358 adjudicated defects |
 | C103 | Favourable external session rank does not become delivery | evidence top-four on 401/470; session recall on 96/401; 232/500 K-candidate questions but 20/500 with delivered non-recency K | R42 | VERIFIED — post-hoc path diagnostic, no counterfactual parameter claim |
 | C104 | EC-001 delivered path is recency dominated | all 500 blocks truncated; median 16 recency, 0 K, 1 coverage; 91/109 session hits from recency | R42 | VERIFIED — observed path attribution, not a retuning result |
-=======
-| C101 | Component absence signal vs reader abstention | 0/500 component signals; 17/20 reader-correct | R37 §§4,6; R38; R40 | VERIFIED — different levels of the system |
-| C102 | Instrument-audit inventory | 358 predicate hits across five registered kinds | R37 §8; R39 | VERIFIED — not described as 358 adjudicated defects |
->>>>>>> 39d49c3e (docs(ec-001): close external calibration study)
+
+---
+
+| C105 | K-first packing causally recovers evidence sessions offline | any-session 109/470 -> 261/470; 152 gains, 0 losses | `external/longmemeval/runs/ec002_k_first/a1_k_first/paired_comparison.json` | VERIFIED - same-store paired counterfactual |
+| C106 | K-first raises exact-turn-any availability with two losses | 79/470 -> 196/470; 119 gains, 2 losses | same | VERIFIED - no materiality threshold or reader-level claim |
+| C107 | EC-001 is not bit-replayable | original vector cache unrecoverable; A0 is a reproduction under recomputed embeddings | `external/longmemeval/amendments/AMENDMENT_011_ec002_recomputed_embedding_reproduction.md`; `EC_002_REPORT.md` section 5 | VERIFIED - CC-006 protection is prospective |
 
 ---
 
