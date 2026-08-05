@@ -40,6 +40,7 @@ from src.retrieval_bakeoff.embedding import CarriedEmbedder  # noqa: E402
 
 REGISTRATION_SHA = "8c75d7e2"
 AMENDMENT_001_SHA = "2a675eef"
+AMENDMENT_002_SHA = "1e2410c4"
 REQUIRED_BRANCH = "ec/002-k-first-packing"
 DEFAULT_ORIGINAL_RUN = (
     REPO / "experiments" / "external" / "longmemeval" / "runs" / "tier1_001"
@@ -84,6 +85,12 @@ def repository_gate() -> dict:
         check=False,
     ).returncode:
         raise EC002Error("EC-002 amendment is not an ancestor of HEAD")
+    if subprocess.run(
+        ["git", "merge-base", "--is-ancestor", AMENDMENT_002_SHA, "HEAD"],
+        cwd=REPO,
+        check=False,
+    ).returncode:
+        raise EC002Error("EC-002 amendment 002 is not an ancestor of HEAD")
     status = _git("status", "--porcelain")
     if status:
         raise EC002Error(f"EC-002 refuses a dirty worktree:\n{status}")
@@ -92,6 +99,7 @@ def repository_gate() -> dict:
         "head": _git("rev-parse", "HEAD"),
         "registration_sha": _git("rev-parse", REGISTRATION_SHA),
         "amendment_001_sha": _git("rev-parse", AMENDMENT_001_SHA),
+        "amendment_002_sha": _git("rev-parse", AMENDMENT_002_SHA),
         "worktree_clean": True,
     }
 
@@ -177,13 +185,97 @@ def committed_gate(path: Path) -> dict:
     if gate.get("registration_sha") != _git("rev-parse", REGISTRATION_SHA):
         raise EC002Error("A0 gate registration anchor differs")
     cache = gate.get("embedding_cache")
+    cache_source = "a0_reproduction_gate.json"
     if not isinstance(cache, dict):
-        raise EC002Error("A0 gate does not record its embedding cache")
+        integrity_path = path.parent / "source_integrity.json"
+        if not integrity_path.is_file():
+            raise EC002Error(
+                "A0 gate omits its cache and sibling source integrity is missing"
+            )
+        integrity_relative = (
+            integrity_path.resolve().relative_to(REPO.resolve()).as_posix()
+        )
+        subprocess.run(
+            [
+                "git",
+                "ls-files",
+                "--error-unmatch",
+                "--",
+                integrity_relative,
+            ],
+            cwd=REPO,
+            check=True,
+            capture_output=True,
+        )
+        if _git("status", "--porcelain", "--", integrity_relative):
+            raise EC002Error("A0 source-integrity artifact is dirty")
+        integrity_commit = _git(
+            "log", "-1", "--format=%H", "--", integrity_relative
+        )
+        if integrity_commit != gate_commit:
+            raise EC002Error(
+                "A0 gate and source integrity were not committed together"
+            )
+        integrity = json.loads(
+            integrity_path.read_text(encoding="utf-8")
+        )
+        if integrity.get("status") != "PASS":
+            raise EC002Error("A0 source integrity did not pass")
+        if integrity.get("mode") != "reproduce":
+            raise EC002Error("A0 source integrity has the wrong mode")
+        if integrity.get("registration_sha") != _git(
+            "rev-parse", REGISTRATION_SHA
+        ):
+            raise EC002Error(
+                "A0 source-integrity registration anchor differs"
+            )
+        if (
+            integrity.get("script_sha256_before")
+            != integrity.get("script_sha256_after")
+        ):
+            raise EC002Error("A0 script changed during reproduction")
+        if integrity.get("embedding_model_sha256") != (
+            "06507c7b42688469c4e7298b0a1e16de"
+            "ff06caf291cf0a5b278c308249c3e439"
+        ):
+            raise EC002Error("A0 source-integrity model hash differs")
+        cache = integrity.get("embedding_cache")
+        if not isinstance(cache, dict):
+            raise EC002Error("A0 source integrity omits its cache")
+        expected_cache = {
+            "bytes": 1_050_013_696,
+            "entries": 96_585,
+            "misses": 0,
+            "call_shape": "solo",
+            "sha256": (
+                "e8a31513700a0a5d1cfe34b4703bbe3c"
+                "8c85dc3ca29188d7cc480c2e2417a7ad"
+            ),
+        }
+        for key, expected in expected_cache.items():
+            if cache.get(key) != expected:
+                raise EC002Error(
+                    f"A0 source-integrity cache {key} differs: "
+                    f"{cache.get(key)!r} != {expected!r}"
+                )
+        expected_path = (
+            REPO
+            / "experiments"
+            / "external"
+            / "longmemeval"
+            / "runs"
+            / "ec002_k_first"
+            / "ec002_exact_solo_embeddings.db"
+        ).resolve()
+        if Path(str(cache.get("path"))).resolve() != expected_path:
+            raise EC002Error("A0 source-integrity cache path differs")
+        cache_source = integrity_relative
     return {
         "path": relative,
         "sha256": sha256_file(path),
         "commit": gate_commit,
         "embedding_cache": cache,
+        "embedding_cache_source": cache_source,
     }
 
 
@@ -465,6 +557,9 @@ def run_counterfactual(
     baseline_gate["amendment_001_sha"] = _git(
         "rev-parse", AMENDMENT_001_SHA
     )
+    baseline_gate["amendment_002_sha"] = _git(
+        "rev-parse", AMENDMENT_002_SHA
+    )
     write_jsonl(output / "a1_same_store_a0_scores.jsonl", baseline_scores)
     write_jsonl(
         output / "a1_same_store_a0_mechanism.jsonl", baseline_mechanisms
@@ -582,8 +677,15 @@ def main() -> int:
             raise EC002Error("A1 cache path differs from CC-006 adoption")
         if adoption["file_sha256"] != registered_cache["sha256"]:
             raise EC002Error("CC-006 file hash differs from the A0 gate")
+        if adoption["entries"] != registered_cache["entries"]:
+            raise EC002Error("CC-006 entry count differs from the A0 gate")
         if adoption["model_sha256"] != expected_model_sha:
             raise EC002Error("CC-006 model hash differs from EC-002")
+        if adoption["content_sha256"] != (
+            "d60d723dea787b0d5bbd25a3c89f2a1c"
+            "20b92a2a79813f34688a12e7c346a180"
+        ):
+            raise EC002Error("CC-006 canonical content hash differs")
         observed_cache_sha = sha256_file(args.embedding_cache)
         if observed_cache_sha != adoption["file_sha256"]:
             raise EC002Error("A1 embedding cache hash differs from A0")

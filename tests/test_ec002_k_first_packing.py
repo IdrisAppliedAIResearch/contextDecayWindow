@@ -18,7 +18,11 @@ from src.analysis.ec002_k_first_packing import (
     normalized_report,
     pack_k_first,
 )
-from scripts.run_ec002_k_first_packing import read_jsonl
+from scripts.run_ec002_k_first_packing import (
+    committed_cache_adoption,
+    committed_gate,
+    read_jsonl,
+)
 
 
 def episode(identifier: str, turn: int, size: int = 80, axis: int = 0) -> dict:
@@ -377,3 +381,36 @@ def test_jsonl_loader_does_not_split_unicode_line_separator(tmp_path) -> None:
     )
 
     assert read_jsonl(path) == [{"text": "before\u2028after"}]
+
+
+def test_committed_a0_recovers_cache_from_sibling_integrity() -> None:
+    root = (
+        __import__("pathlib").Path(__file__).resolve().parent.parent
+    )
+    gate = committed_gate(
+        root
+        / "experiments"
+        / "external"
+        / "longmemeval"
+        / "runs"
+        / "ec002_k_first"
+        / "a0_amended_reproduction_v2"
+        / "a0_reproduction_gate.json"
+    )
+    adoption = committed_cache_adoption(
+        root
+        / "experiments"
+        / "components"
+        / "embedding_cache"
+        / "artifacts"
+        / "cc006"
+        / "ec002_legacy_adoption.json"
+    )
+
+    assert gate["embedding_cache_source"].endswith(
+        "a0_amended_reproduction_v2/source_integrity.json"
+    )
+    assert gate["embedding_cache"]["misses"] == 0
+    assert gate["embedding_cache"]["sha256"] == (
+        adoption["adoption"]["file_sha256"]
+    )
