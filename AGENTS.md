@@ -54,6 +54,8 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **CC-003/004/005 closeout (2026-08-02).** CLOSED. G-E0 clears DX-002's block: episodic's block is bounded, +18 chars p95/1,000 turns, so the leak is the runner's. The ceiling no longer raises at tiny budgets; truncated carries dropped ids; drop order named (amendment 001); E6 inert at 132/132 SHAs. CC-004 kills real processes. CC-005: 190 ms at 1,000 candidates, no eviction. Suite 1,007.
 
+**CC-006 vector cache (2026-08-05).** PASS. Exact solo-call float32 vectors are persisted and bound by file plus canonical text-to-vector SHA-256; read-only misses fail. C1-C9 pass. EC-002 adopts 96,585 entries with 0 model calls. Protection begins with retained caches; EC-001 remains permanently non-bit-replayable. Suite 1,028.
+
 **LV-001 (2026-08-02).** RUN. B1 WEAK, B2 FAIL, **promotion killed on its own pre-registered bar**. The 6-item offline availability gap became +1 correctly attributed item live; targeted fell 3.5->1.5 against a 0.5 tolerance. A3 dropped turns 1-2 and could not state the formatting rules; offline it preserved 16/16. Availability is not the answer. Both arms fabricated the unretrieved art domain.
 
 **PAPER-001 (2026-08-03).** DRAFT, revised through RD-001. The forced pool/objective/floor decomposition stands. Figure 3 now uses all 119 recovered ranks. The proposed rarity correlation was not identifiable: committed rarity covers 6/76 episodes, so the corpus-artifact alternative remains unresolved. Source is `paper/PAPER_001.md`; figures and PDF are generated.

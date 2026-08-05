@@ -13,7 +13,7 @@ every claim carries its committed artifact, and one headline number
 
 Ten pre-registered studies test that question, each adding one memory component and fixing the prior study's documented failures. Every result is published as found.
 
-> **Status:** Study 010 stopped at G2; exploratory continuation unaudited and LTM budget-noncompliant | retrieval bakeoff complete | retrieval mechanism ledger reopened for Family CS; E005 is killed by LV-001's live targeted-regression bar, DX-001 closes NO CHANGE, and RD-001 stops before correlation because unchanged rarity scores cover only 6/76 fact-bearing episodes; chained retrieval is not authorized | CC-002 extracts the deployable component into `episodic` | deployment closeout complete | PAPER-001 revised through RD-001 | scoring/interpretation record corrected through 2026-08-03
+> **Status:** Study 010 stopped at G2; exploratory continuation unaudited and LTM budget-noncompliant | retrieval bakeoff complete | retrieval mechanism ledger reopened for Family CS; E005 is killed by LV-001's live targeted-regression bar, DX-001 closes NO CHANGE, and RD-001 stops before correlation because unchanged rarity scores cover only 6/76 fact-bearing episodes; chained retrieval is not authorized | CC-002 extracts the deployable component into `episodic`; CC-006 adds exact hashed vector-cache reuse | deployment closeout complete | PAPER-001 revised through RD-001 | scoring/interpretation record corrected through 2026-08-05
 
 ## The Problem
 
@@ -153,8 +153,8 @@ RD-001 is recorded in
 ## The Extracted Library
 
 CC-002 moved the deployable memory component into `episodic/`, an
-installable package with a three-symbol API (`EpisodeStore`,
-`ContextReport`, `EpisodicConfig`) and zero experiment machinery; the
+installable package with a public store, report, config, and embedding-cache
+API (`EpisodeStore`, `ContextReport`, `EpisodicConfig`, `EmbeddingCache`) and zero experiment machinery; the
 harness now imports the library and is its largest test. Extraction is
 certified behavior-preserving, not assumed: all 132 committed A3
 selection records and all three committed DR-001 serialized blocks
@@ -170,6 +170,17 @@ artifact hash.
 
 See `episodic/README.md` and
 `experiments/components/library_extraction/CC_002_library_extraction.md`.
+
+CC-006 closes a second reproducibility hazard. A model-artifact hash and the
+H1 solo-call sentinel do not certify every vector byte: EC-002 recomputed the
+same nominal embeddings and moved one evidence rank plus one coverage
+selection. `EmbeddingCache` now retains exact float32 vectors, records both
+the SQLite file hash and a canonical text-to-vector content hash, and refuses
+read-only misses. C1-C9 pass. The retained EC-002 cache adopts unchanged at
+96,585 entries with zero model calls. The guarantee is prospective: EC-001's
+unretained original cache remains permanently unreplayable at bit granularity.
+
+See `experiments/components/embedding_cache/CC_006_report.md`.
 
 ## Deployment Closeout
 
