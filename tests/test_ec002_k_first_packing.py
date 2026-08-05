@@ -227,6 +227,47 @@ def test_path_identities_split_k_before_coverage() -> None:
     assert len(paths["coverage"]) == 1
 
 
+def test_nondelivered_coverage_proposal_drift_is_disclosed_not_failed() -> None:
+    block = "<recent_context/><retrieved_stm/>"
+    original_result = report(chars_wanted=200, episodes_dropped=2)
+    reproduced_result = report(chars_wanted=240, episodes_dropped=3)
+    score = {
+        "question_id": "q1",
+        "evidence_session_ranks": [],
+        "deepest_evidence_rank": None,
+        **{field: None for field in (
+            "evidence_session_recall_any",
+            "evidence_session_recall_all",
+            "marker_availability_any",
+            "marker_availability_all",
+            "availability_any",
+            "availability_all",
+        )},
+    }
+    mechanism = {
+        "block": block,
+        "block_sha256": __import__("hashlib").sha256(
+            block.encode("utf-8")
+        ).hexdigest(),
+        "report": asdict(original_result),
+    }
+
+    check = check_reproduction_row(
+        original_score=score,
+        original_mechanism=mechanism,
+        reproduced_score=score,
+        reproduced_block=block,
+        reproduced_report=reproduced_result,
+    )
+
+    assert check["report_match"]
+    assert set(check["report_differences"]) == {
+        "chars_wanted",
+        "episodes_dropped",
+    }
+    assert not check["coverage_difference"]
+
+
 def test_reproduction_gate_allows_two_bounded_coverage_differences() -> None:
     base = {
         "recency_identity_match": True,
