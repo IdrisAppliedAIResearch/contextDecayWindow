@@ -352,10 +352,12 @@ OUTCOME_FIELDS = (
 )
 _COVERAGE_REPORT_FIELDS = {
     "chars_delivered",
-    "chars_wanted",
     "episodes_delivered",
-    "episodes_dropped",
     "coverage_count",
+}
+_NONDELIVERED_PROPOSAL_REPORT_FIELDS = {
+    "chars_wanted",
+    "episodes_dropped",
 }
 
 
@@ -406,9 +408,9 @@ def check_reproduction_row(
     report_differences = _mapping_differences(
         original_report, reproduced_report_values
     )
-    allowed_report_fields = (
-        _COVERAGE_REPORT_FIELDS if coverage_difference else set()
-    )
+    allowed_report_fields = set(_NONDELIVERED_PROPOSAL_REPORT_FIELDS)
+    if coverage_difference:
+        allowed_report_fields.update(_COVERAGE_REPORT_FIELDS)
     report_match = set(report_differences) <= allowed_report_fields
 
     original_score_values = json.loads(
