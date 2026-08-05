@@ -187,6 +187,18 @@ predicted large positive gap.
 
 See `experiments/external/longmemeval/EC_001_REPORT.md`.
 
+EC-002 then held the 500 stores, exact retained vectors, threshold, selector,
+and 32,000-character budget fixed and changed only packing order from
+recency-first to K-first. Any evidence-session recall rose from 109/470 to
+261/470: 152 paired gains and zero losses. Exact-answer-turn-any availability
+rose from 79/470 to 196/470, with 119 gains and two losses. All blocks remained
+truncated; delivered K episodes rose from 26 to 476. This confirms
+recency-first budget exhaustion as a causal gate under the EC-001 adaptation.
+It is offline availability evidence, not reader accuracy, and does not
+authorize production promotion.
+
+See `experiments/external/longmemeval/EC_002_REPORT.md`.
+
 ## The Extracted Library
 
 CC-002 moved the deployable memory component into `episodic/`, an
