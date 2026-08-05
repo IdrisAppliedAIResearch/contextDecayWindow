@@ -43,6 +43,7 @@ from src.analysis.ec002_k_first_packing import (  # noqa: E402
 from src.retrieval_bakeoff.embedding import CarriedEmbedder  # noqa: E402
 
 REGISTRATION_SHA = "8c75d7e2"
+AMENDMENT_001_SHA = "2a675eef"
 REQUIRED_BRANCH = "ec/002-k-first-packing"
 DEFAULT_ORIGINAL_RUN = (
     REPO / "experiments" / "external" / "longmemeval" / "runs" / "tier1_001"
@@ -196,6 +197,12 @@ def repository_gate() -> dict:
         check=False,
     ).returncode:
         raise EC002Error("EC-002 registration is not an ancestor of HEAD")
+    if subprocess.run(
+        ["git", "merge-base", "--is-ancestor", AMENDMENT_001_SHA, "HEAD"],
+        cwd=REPO,
+        check=False,
+    ).returncode:
+        raise EC002Error("EC-002 amendment is not an ancestor of HEAD")
     status = _git("status", "--porcelain")
     if status:
         raise EC002Error(f"EC-002 refuses a dirty worktree:\n{status}")
@@ -203,6 +210,7 @@ def repository_gate() -> dict:
         "branch": branch,
         "head": _git("rev-parse", "HEAD"),
         "registration_sha": _git("rev-parse", REGISTRATION_SHA),
+        "amendment_001_sha": _git("rev-parse", AMENDMENT_001_SHA),
         "worktree_clean": True,
     }
 
@@ -323,6 +331,7 @@ def run_reproduction(
     }
     checks: list[dict] = []
     reproduced_scores: list[dict] = []
+    reproduced_mechanisms: list[dict] = []
     started = time.time()
 
     with tempfile.TemporaryDirectory(prefix="ec002-a0-") as temporary:
@@ -351,6 +360,21 @@ def run_reproduction(
                 ),
             }
             reproduced_scores.append(score)
+            reproduced_mechanisms.append(
+                {
+                    "question_id": question_id,
+                    "block": block,
+                    "block_sha256": hashlib.sha256(
+                        block.encode("utf-8")
+                    ).hexdigest(),
+                    "report": asdict(report),
+                    "delivered_turn_numbers": sorted(delivered),
+                    "session_cosine_ranking": ranking,
+                    "reproduction_label": (
+                        "reproduction under recomputed embeddings"
+                    ),
+                }
+            )
             checks.append(
                 check_reproduction_row(
                     original_score=original_scores[question_id],
@@ -369,8 +393,13 @@ def run_reproduction(
         original_summary=original["summary"],
     )
     gate["registration_sha"] = _git("rev-parse", REGISTRATION_SHA)
+    gate["amendment_001_sha"] = _git("rev-parse", AMENDMENT_001_SHA)
     write_jsonl(output / "a0_reproduction_checks.jsonl", checks)
     write_json(output / "a0_reproduction_gate.json", gate)
+    write_jsonl(output / "a0_reproduced_scores.jsonl", reproduced_scores)
+    write_jsonl(
+        output / "a0_reproduced_mechanism.jsonl", reproduced_mechanisms
+    )
     write_json(output / "a0_reproduced_summary.json", summary)
     return gate
 
@@ -487,6 +516,14 @@ def main() -> int:
     parser.add_argument("--embedding-model", type=Path, required=True)
     parser.add_argument("--embedding-cache", type=Path, required=True)
     parser.add_argument(
+        "--reuse-a0-cache",
+        action="store_true",
+        help=(
+            "Open an existing failed-A0 cache read-only for the amended "
+            "reproduction; no new embedding calls are allowed."
+        ),
+    )
+    parser.add_argument(
         "--original-run", type=Path, default=DEFAULT_ORIGINAL_RUN
     )
     parser.add_argument("--gate", type=Path)
@@ -539,7 +576,11 @@ def main() -> int:
     with PersistentSoloEmbedder(
         carried,
         args.embedding_cache,
-        mode=("populate" if args.mode == "reproduce" else "reuse"),
+        mode=(
+            "reuse"
+            if args.mode == "counterfactual" or args.reuse_a0_cache
+            else "populate"
+        ),
     ) as embedder:
         if args.mode == "reproduce":
             result = run_reproduction(
@@ -577,6 +618,9 @@ def main() -> int:
             raise EC002Error("A1 made a new embedding call")
         if cache_record["sha256"] != gate_record["embedding_cache"]["sha256"]:
             raise EC002Error("Read-only A1 changed the embedding cache")
+    elif args.reuse_a0_cache:
+        if cache_misses != 0:
+            raise EC002Error("Amended A0 made a new embedding call")
     else:
         gate_path = args.output / "a0_reproduction_gate.json"
         gate_payload = json.loads(gate_path.read_text(encoding="utf-8"))

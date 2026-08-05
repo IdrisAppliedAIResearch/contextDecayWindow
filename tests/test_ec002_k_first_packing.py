@@ -12,6 +12,9 @@ from src.analysis.ec002_k_first_packing import (
     build_k_first_context,
     check_reproduction_row,
     compare_score_rows,
+    delivered_path_identities,
+    episode_content_identity,
+    evaluate_reproduction,
     normalized_report,
     pack_k_first,
 )
@@ -148,20 +151,39 @@ def test_normalized_report_removes_only_latency_and_normalizes_tuples() -> None:
     assert normalized_report(original) == normalized_report(mapping)
 
 
-def test_reproduction_check_requires_block_report_and_score_identity() -> None:
+def test_reproduction_check_uses_content_identity_not_generated_uuid() -> None:
     block = "<recent_context/><retrieved_stm/>"
-    result = report(
+    original_result = report(
         chars_delivered=len(block),
-        dropped_ids=(),
+        dropped_ids=("old-uuid",),
         episodes_dropped=0,
         truncated=False,
     )
-    score = {"question_id": "q1", "availability_any": True}
+    result = report(
+        chars_delivered=len(block),
+        dropped_ids=("new-uuid",),
+        episodes_dropped=0,
+        truncated=False,
+    )
+    score = {
+        "question_id": "q1",
+        "evidence_session_ranks": [],
+        "deepest_evidence_rank": None,
+        **{field: None for field in (
+            "evidence_session_recall_any",
+            "evidence_session_recall_all",
+            "marker_availability_any",
+            "marker_availability_all",
+            "availability_any",
+            "availability_all",
+        )},
+    }
     mechanism = {
         "block_sha256": __import__("hashlib").sha256(
             block.encode("utf-8")
         ).hexdigest(),
-        "report": {**asdict(result), "latency_ms": 99.0},
+        "block": block,
+        "report": {**asdict(original_result), "latency_ms": 99.0},
     }
 
     check = check_reproduction_row(
@@ -172,12 +194,79 @@ def test_reproduction_check_requires_block_report_and_score_identity() -> None:
         reproduced_report=result,
     )
 
-    assert check == {
-        "question_id": "q1",
-        "block_sha256_match": True,
+    assert check["recency_identity_match"]
+    assert check["k_identity_match"]
+    assert check["coverage_identity_match"]
+    assert check["report_match"]
+    assert check["score_match"]
+
+
+def test_content_identity_includes_occurrence_position() -> None:
+    first = episode_content_identity(
+        turn_number=1, user_message="same", assistant_message="same"
+    )
+    second = episode_content_identity(
+        turn_number=2, user_message="same", assistant_message="same"
+    )
+    assert first != second
+
+
+def test_path_identities_split_k_before_coverage() -> None:
+    block = (
+        "<recent_context><episode turn=\"3\"><user>r</user>"
+        "<assistant>r</assistant></episode></recent_context>"
+        "<retrieved_stm><episode turn=\"1\"><user>k</user>"
+        "<assistant>k</assistant></episode><episode turn=\"2\">"
+        "<user>c</user><assistant>c</assistant></episode></retrieved_stm>"
+    )
+    paths = delivered_path_identities(
+        block, report(stm_count=1, k_count=1, coverage_count=1)
+    )
+    assert len(paths["recency"]) == 1
+    assert len(paths["k"]) == 1
+    assert len(paths["coverage"]) == 1
+
+
+def test_reproduction_gate_allows_two_bounded_coverage_differences() -> None:
+    base = {
+        "recency_identity_match": True,
+        "k_identity_match": True,
+        "outcome_match": True,
+        "rank_tolerance_pass": True,
+        "coverage_difference": True,
+        "coverage_difference_permitted": True,
+        "block_sha256_match": False,
         "report_match": True,
         "score_match": True,
     }
+    checks = [
+        {"question_id": str(index), **base}
+        if index < 2
+        else {
+            "question_id": str(index),
+            **base,
+            "coverage_difference": False,
+            "block_sha256_match": True,
+        }
+        for index in range(500)
+    ]
+    gate = evaluate_reproduction(
+        checks=checks,
+        reproduced_summary={},
+        original_summary={},
+    )
+    assert gate["status"] == "PASS"
+    assert gate["coverage_difference_questions"] == 2
+
+    checks[2]["coverage_difference"] = True
+    assert (
+        evaluate_reproduction(
+            checks=checks,
+            reproduced_summary={},
+            original_summary={},
+        )["status"]
+        == "FAIL"
+    )
 
 
 def test_paired_comparison_reports_gains_and_losses_separately() -> None:
