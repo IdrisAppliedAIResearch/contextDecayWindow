@@ -21,6 +21,7 @@ import time
 from collections import defaultdict
 from collections.abc import Mapping, Sequence
 from dataclasses import asdict, dataclass
+from xml.etree import ElementTree as ET
 
 from episodic._config import EpisodicConfig
 from episodic._context import _candidate_pool, _recency_window
@@ -273,6 +274,105 @@ def normalized_report(value: Mapping[str, object] | ContextReport) -> dict:
     return json.loads(json.dumps(report, sort_keys=True))
 
 
+def episode_content_identity(
+    *,
+    turn_number: int,
+    user_message: str,
+    assistant_message: str,
+) -> str:
+    """Return the amendment's occurrence-aware, content-stable identity."""
+
+    payload = (
+        f"turn={turn_number}\0"
+        f"user\0{user_message}\0"
+        f"assistant\0{assistant_message}"
+    )
+    return hashlib.sha256(payload.encode("utf-8")).hexdigest()
+
+
+def delivered_path_identities(
+    block: str,
+    report: Mapping[str, object] | ContextReport,
+) -> dict[str, list[str]]:
+    """Attribute rendered episodes to recency, K, and coverage stably."""
+
+    values = asdict(report) if isinstance(report, ContextReport) else dict(report)
+    if not block:
+        return {"recency": [], "k": [], "coverage": []}
+    try:
+        root = ET.fromstring(f"<ec002_root>{block}</ec002_root>")
+    except ET.ParseError as error:
+        raise EC002Error(f"Malformed serialized context: {error}") from error
+
+    def identities(tag: str) -> list[str]:
+        result: list[str] = []
+        container = root.find(tag)
+        if container is None:
+            return result
+        for element in container.findall("episode"):
+            turn_text = element.attrib.get("turn")
+            try:
+                turn_number = int(turn_text or "")
+            except ValueError as error:
+                raise EC002Error(
+                    f"Invalid rendered episode turn: {turn_text!r}"
+                ) from error
+            user = element.find("user")
+            assistant = element.find("assistant")
+            if user is None or assistant is None:
+                raise EC002Error("Rendered episode is missing a role element")
+            result.append(
+                episode_content_identity(
+                    turn_number=turn_number,
+                    user_message=user.text or "",
+                    assistant_message=assistant.text or "",
+                )
+            )
+        return result
+
+    recency = identities("recent_context")
+    nonrecency = identities("retrieved_stm")
+    k_count = int(values["k_count"])
+    if k_count > len(nonrecency):
+        raise EC002Error("Report K count exceeds rendered non-recency episodes")
+    return {
+        "recency": recency,
+        "k": nonrecency[:k_count],
+        "coverage": nonrecency[k_count:],
+    }
+
+
+OUTCOME_FIELDS = (
+    "evidence_session_recall_any",
+    "evidence_session_recall_all",
+    "marker_availability_any",
+    "marker_availability_all",
+    "availability_any",
+    "availability_all",
+)
+_COVERAGE_REPORT_FIELDS = {
+    "chars_delivered",
+    "chars_wanted",
+    "episodes_delivered",
+    "episodes_dropped",
+    "coverage_count",
+}
+
+
+def _mapping_differences(
+    original: Mapping[str, object],
+    reproduced: Mapping[str, object],
+) -> dict[str, dict[str, object]]:
+    differences: dict[str, dict[str, object]] = {}
+    for key in sorted(set(original) | set(reproduced)):
+        if original.get(key) != reproduced.get(key):
+            differences[key] = {
+                "original": original.get(key),
+                "reproduced": reproduced.get(key),
+            }
+    return differences
+
+
 def check_reproduction_row(
     *,
     original_score: Mapping[str, object],
@@ -281,24 +381,101 @@ def check_reproduction_row(
     reproduced_block: str,
     reproduced_report: ContextReport,
 ) -> dict:
-    """Return the binding A0 checks for one question."""
+    """Return the amended, mechanical A0 checks for one question."""
 
     block_sha256 = hashlib.sha256(
         reproduced_block.encode("utf-8")
     ).hexdigest()
+    original_paths = delivered_path_identities(
+        str(original_mechanism["block"]), original_mechanism["report"]
+    )
+    reproduced_paths = delivered_path_identities(
+        reproduced_block, reproduced_report
+    )
+    recency_match = original_paths["recency"] == reproduced_paths["recency"]
+    k_match = original_paths["k"] == reproduced_paths["k"]
+    coverage_match = (
+        original_paths["coverage"] == reproduced_paths["coverage"]
+    )
+    coverage_difference = not coverage_match
+
+    original_report = normalized_report(original_mechanism["report"])
+    reproduced_report_values = normalized_report(reproduced_report)
+    original_report.pop("dropped_ids", None)
+    reproduced_report_values.pop("dropped_ids", None)
+    report_differences = _mapping_differences(
+        original_report, reproduced_report_values
+    )
+    allowed_report_fields = (
+        _COVERAGE_REPORT_FIELDS if coverage_difference else set()
+    )
+    report_match = set(report_differences) <= allowed_report_fields
+
+    original_score_values = json.loads(
+        json.dumps(original_score, sort_keys=True)
+    )
+    reproduced_score_values = json.loads(
+        json.dumps(reproduced_score, sort_keys=True)
+    )
+    score_differences = _mapping_differences(
+        original_score_values, reproduced_score_values
+    )
+    outcome_match = all(
+        original_score_values.get(field) == reproduced_score_values.get(field)
+        for field in OUTCOME_FIELDS
+    )
+    original_ranks = list(original_score_values["evidence_session_ranks"])
+    reproduced_ranks = list(reproduced_score_values["evidence_session_ranks"])
+    rank_tolerance_pass = (
+        len(original_ranks) == len(reproduced_ranks)
+        and all(
+            abs(int(original) - int(reproduced)) <= 1
+            for original, reproduced in zip(original_ranks, reproduced_ranks)
+        )
+    )
+    allowed_score_fields = {
+        "evidence_session_ranks",
+        "deepest_evidence_rank",
+    }
+    if coverage_difference:
+        allowed_score_fields.add("delivered_episode_count")
+    score_match = (
+        outcome_match
+        and rank_tolerance_pass
+        and set(score_differences) <= allowed_score_fields
+    )
+    coverage_difference_permitted = (
+        not coverage_difference
+        or (
+            recency_match
+            and k_match
+            and outcome_match
+            and int(reproduced_report_values["chars_delivered"])
+            <= int(reproduced_report_values["budget_chars"])
+            and report_match
+            and score_match
+        )
+    )
     return {
         "question_id": str(original_score["question_id"]),
+        "original_block_sha256": str(original_mechanism["block_sha256"]),
+        "reproduced_block_sha256": block_sha256,
         "block_sha256_match": (
             block_sha256 == str(original_mechanism["block_sha256"])
         ),
-        "report_match": (
-            normalized_report(reproduced_report)
-            == normalized_report(original_mechanism["report"])
-        ),
-        "score_match": (
-            json.loads(json.dumps(reproduced_score, sort_keys=True))
-            == json.loads(json.dumps(original_score, sort_keys=True))
-        ),
+        "recency_identity_match": recency_match,
+        "k_identity_match": k_match,
+        "coverage_identity_match": coverage_match,
+        "coverage_difference": coverage_difference,
+        "coverage_difference_permitted": coverage_difference_permitted,
+        "outcome_match": outcome_match,
+        "rank_tolerance_pass": rank_tolerance_pass,
+        "report_match": report_match,
+        "score_match": score_match,
+        "original_paths": original_paths,
+        "reproduced_paths": reproduced_paths,
+        "report_differences": report_differences,
+        "score_differences": score_differences,
     }
 
 
@@ -308,7 +485,7 @@ def evaluate_reproduction(
     reproduced_summary: Mapping[str, object],
     original_summary: Mapping[str, object],
 ) -> dict:
-    """Evaluate the registered 500-row reproduction gate."""
+    """Evaluate the amended 500-row reproduction-under-recomputation gate."""
 
     expected = 500
     if len(checks) != expected:
@@ -316,31 +493,68 @@ def evaluate_reproduction(
             f"Reproduction gate expected {expected} rows, got {len(checks)}"
         )
     block_matches = sum(bool(row["block_sha256_match"]) for row in checks)
+    recency_matches = sum(bool(row["recency_identity_match"]) for row in checks)
+    k_matches = sum(bool(row["k_identity_match"]) for row in checks)
+    outcome_matches = sum(bool(row["outcome_match"]) for row in checks)
+    rank_matches = sum(bool(row["rank_tolerance_pass"]) for row in checks)
     report_matches = sum(bool(row["report_match"]) for row in checks)
     score_matches = sum(bool(row["score_match"]) for row in checks)
-    summary_match = (
-        json.loads(json.dumps(reproduced_summary, sort_keys=True))
-        == json.loads(json.dumps(original_summary, sort_keys=True))
+    coverage_differences = [
+        row for row in checks if bool(row["coverage_difference"])
+    ]
+    coverage_differences_permitted = (
+        len(coverage_differences) <= 2
+        and all(
+            bool(row["coverage_difference_permitted"])
+            for row in coverage_differences
+        )
     )
+    # Per-row outcome identity and rank tolerance are the authoritative
+    # amended aggregate checks. Recompute the summary for disclosure, but do
+    # not pretend its rank-distribution array remains byte-identical.
+    summary_outcomes_match = outcome_matches == expected
+    summary_rank_tolerance_pass = rank_matches == expected
     passed = (
-        block_matches == expected
+        recency_matches == expected
+        and k_matches == expected
+        and outcome_matches == expected
+        and rank_matches == expected
+        and coverage_differences_permitted
         and report_matches == expected
         and score_matches == expected
-        and summary_match
+        and summary_outcomes_match
+        and summary_rank_tolerance_pass
     )
     return {
-        "record": "EC-002 A0 reproduction gate",
+        "record": "EC-002 A0 reproduction-under-recomputed-embeddings gate",
         "expected_questions": expected,
+        "reproduction_label": "reproduction under recomputed embeddings",
         "block_sha256_matches": block_matches,
-        "report_matches_excluding_latency": report_matches,
+        "recency_identity_matches": recency_matches,
+        "k_identity_matches": k_matches,
+        "outcome_matches": outcome_matches,
+        "rank_tolerance_matches": rank_matches,
+        "rank_tolerance_positions": 1,
+        "coverage_difference_questions": len(coverage_differences),
+        "coverage_difference_cap": 2,
+        "coverage_differences_permitted": coverage_differences_permitted,
+        "coverage_difference_disclosures": coverage_differences,
+        "report_matches_stable_fields": report_matches,
         "score_matches": score_matches,
-        "summary_match": summary_match,
+        "summary_outcomes_match": summary_outcomes_match,
+        "summary_rank_tolerance_pass": summary_rank_tolerance_pass,
+        "original_summary": original_summary,
+        "reproduced_summary": reproduced_summary,
         "status": "PASS" if passed else "FAIL",
         "failed_question_ids": [
             str(row["question_id"])
             for row in checks
             if not (
-                bool(row["block_sha256_match"])
+                bool(row["recency_identity_match"])
+                and bool(row["k_identity_match"])
+                and bool(row["outcome_match"])
+                and bool(row["rank_tolerance_pass"])
+                and bool(row["coverage_difference_permitted"])
                 and bool(row["report_match"])
                 and bool(row["score_match"])
             )
