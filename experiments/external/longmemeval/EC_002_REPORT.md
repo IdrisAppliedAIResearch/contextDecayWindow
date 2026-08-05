@@ -127,4 +127,4 @@ A1 artifacts were committed at
 - [x] README and AGENTS digest updated.
 - [x] Memory, ledger, errata, claim map, evidence index, and paper updated.
 - [x] All run artifacts committed; cache and local logs preserved.
-- [ ] Separate study pull request opened.
+- [x] Separate study pull request opened: PR #40.
