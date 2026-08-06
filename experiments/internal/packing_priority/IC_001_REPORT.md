@@ -151,6 +151,7 @@ spending less.
 | B1 precondition: B0 gate committed, git-tracked, passing, reproducing | **PASS** |
 | Leakage audit on the mechanism source | **PASS** |
 | Deterministic in-process rerun, both arms | **PASS** |
+| Independent re-execution on a later commit, both arms | **byte-identical evidence** |
 | Source integrity before and after, both phases | **PASS** |
 | Model calls / embedding calls / cache misses | **0 / 0 / 0**, enforced |
 
@@ -250,6 +251,15 @@ cannot be helped by delivering records differently.
 Decision rule committed at `7b578c54` before any arm ran. B0 evidence
 committed at `9d2ecd58`. B1 evidence committed at `4947582e`, before this
 interpretation.
+
+Both phases were then re-executed on a clean tracked worktree at `c4482c5b`
+and `d5e605c4`, because the first pair of run headers named execution commits
+that did not yet contain the harness edits that produced them. **Every
+evidence file is byte-identical across the two independent runs on different
+commits** — the five artifacts above, the Q11 payloads, and all five CSVs.
+Only the run headers, the gate precondition, source integrity, and the
+manifests differ, which is exactly the set that records provenance. The
+digests in the table are unchanged and were verified after the re-run.
 
 ## 11. Closeout
 
