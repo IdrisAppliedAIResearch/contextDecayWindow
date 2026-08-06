@@ -13,7 +13,7 @@ every claim carries its committed artifact, and one headline number
 
 Ten pre-registered studies test that question, each adding one memory component and fixing the prior study's documented failures. Every result is published as found.
 
-> **Status:** Study 010 stopped at G2; exploratory continuation unaudited and LTM budget-noncompliant | retrieval bakeoff complete | retrieval mechanism ledger reopened for Family CS; E005 is killed by LV-001's live targeted-regression bar, DX-001 closes NO CHANGE, and RD-001 stops before correlation because unchanged rarity scores cover only 6/76 fact-bearing episodes; chained retrieval is not authorized | EC-001 LongMemEval complete: inversion not dominant, Codex-substituted score only | EC-002 complete: K-first packing raises any-session recall 109/470 -> 261/470 offline; no production promotion authorized | CC-002 extracts the deployable component into `episodic`; CC-006 adds exact hashed vector-cache reuse | deployment closeout complete | PAPER-001 revised through EC-002 | scoring/interpretation record corrected through 2026-08-05
+> **Status:** Study 010 stopped at G2; exploratory continuation unaudited and LTM budget-noncompliant | retrieval bakeoff complete | retrieval mechanism ledger reopened for Family CS; E005 is killed by LV-001's live targeted-regression bar, DX-001 closes NO CHANGE, and RD-001 stops before correlation because unchanged rarity scores cover only 6/76 fact-bearing episodes; chained retrieval is not authorized | EC-001 LongMemEval complete: inversion not dominant, Codex-substituted score only | EC-002 complete: K-first packing raises any-session recall 109/470 -> 261/470 offline; no production promotion authorized | IC-001 Branch A: the same gate is closed internally — K delivered nothing at 8/8 probes under the deployed order; Q11 6/17 -> 7/17, targeted 14/21 -> 18/21, zero losses; no recalibration authorized | CC-002 extracts the deployable component into `episodic`; CC-006 adds exact hashed vector-cache reuse | deployment closeout complete | PAPER-001 revised through EC-002 | scoring/interpretation record corrected through 2026-08-05
 
 ## The Problem
 
@@ -198,6 +198,23 @@ It is offline availability evidence, not reader accuracy, and does not
 authorize production promotion.
 
 See `experiments/external/longmemeval/EC_002_REPORT.md`.
+
+IC-001 asked the same question of this program's own corpus, where every study
+on record ran recency-first. It replayed the corrected 121-turn run under both
+orders on frozen candidate identities — no vector re-derived, no model call —
+after its B0 arm reproduced the committed deployed 6-of-17 result exactly,
+episode identities and payload digest included. Under the deployed order the
+similarity path delivered **zero episodes and zero characters at all eight
+probes**; recency consumed the whole budget every time. Under K-first it
+delivers nine episodes, Q11 availability rises 6/17 to 7/17 with one gain and
+no losses, and the eight targeted probes rise 14/21 to 18/21 with four gains
+and no losses. The Q11 window fits twelve episodes in 31,863 characters against
+the deployed eight in 31,946. The registered verdict is Branch A: part of what
+PAPER-001 §5 attributed to selection is attributable to packing priority. It is
+availability on one probe, authorizes no re-run of the arc, and its cache
+clause is unmet pending an amendment.
+
+See `experiments/internal/packing_priority/IC_001_REPORT.md`.
 
 ## The Extracted Library
 

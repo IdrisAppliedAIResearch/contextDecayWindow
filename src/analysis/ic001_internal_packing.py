@@ -514,39 +514,82 @@ def leakage_audit() -> dict:
     }
 
 
-def no_model_call_audit() -> dict:
-    """Zero model calls, asserted rather than asserted-by-narration.
+class ModelCallGuard:
+    """Make a model call impossible rather than merely unexpected.
 
-    The replay consumes committed candidate identities, so it needs no
-    query vector at all. The embedding provider is reachable through the
-    measurement module's import chain, so the check is that no model was
-    ever loaded and no carried embedder module was imported.
+    The measurement module's import chain reaches the embedding provider,
+    so module presence in `sys.modules` certifies nothing: it is
+    reachability, not use. This guard replaces every entry point that
+    could load or query the carried model with a raise, counts attempts,
+    and restores the originals afterwards. Zero attempts is then a
+    property of the run, not a claim about it.
     """
 
-    provider = sys.modules.get("src.embeddings.provider")
-    provider_model_loaded = (
-        provider is not None and getattr(provider, "_MODEL", None) is not None
+    ENTRY_POINTS = (
+        ("llama_cpp", "Llama", "__init__"),
+        ("src.embeddings.provider", None, "_get_model"),
+        ("src.retrieval_bakeoff.embedding", "CarriedEmbedder", "__init__"),
     )
-    carried_embedder_imported = (
-        "src.retrieval_bakeoff.embedding" in sys.modules
-    )
-    return {
-        "status": (
-            "PASS"
-            if not provider_model_loaded and not carried_embedder_imported
-            else "FAIL"
-        ),
-        "model_calls": 0,
-        "embedding_calls": 0,
-        "cache_misses": 0,
-        "vector_source": (
-            "committed context_match.jsonl candidate identities; no vector "
-            "is re-derived and no cache is read"
-        ),
-        "embedding_provider_model_loaded": provider_model_loaded,
-        "carried_embedder_imported": carried_embedder_imported,
-        "amendment": "AMENDMENT_001_no_vector_recomputation",
-    }
+
+    def __init__(self) -> None:
+        self.attempts: list[str] = []
+        self._restore: list[tuple[object, str, object]] = []
+        self.armed: list[str] = []
+
+    def __enter__(self) -> "ModelCallGuard":
+        for module_name, class_name, attribute in self.ENTRY_POINTS:
+            module = sys.modules.get(module_name)
+            if module is None:
+                continue
+            owner = module if class_name is None else getattr(module, class_name, None)
+            if owner is None or not hasattr(owner, attribute):
+                continue
+            label = ".".join(
+                part for part in (module_name, class_name, attribute) if part
+            )
+            self._restore.append((owner, attribute, getattr(owner, attribute)))
+            setattr(owner, attribute, self._refusal(label))
+            self.armed.append(label)
+        return self
+
+    def __exit__(self, *_exception) -> None:
+        for owner, attribute, original in reversed(self._restore):
+            setattr(owner, attribute, original)
+        self._restore.clear()
+
+    def _refusal(self, label: str):
+        def refuse(*_args, **_kwargs):
+            self.attempts.append(label)
+            raise AssertionError(
+                f"IC-001 is an offline replay: {label} must not be called"
+            )
+
+        return refuse
+
+    def audit(self) -> dict:
+        provider = sys.modules.get("src.embeddings.provider")
+        provider_model_loaded = (
+            provider is not None
+            and getattr(provider, "_MODEL", None) is not None
+        )
+        return {
+            "status": (
+                "PASS"
+                if not self.attempts and not provider_model_loaded and self.armed
+                else "FAIL"
+            ),
+            "model_calls": 0,
+            "embedding_calls": 0,
+            "cache_misses": 0,
+            "vector_source": (
+                "committed context_match.jsonl candidate identities; no "
+                "vector is re-derived and no cache is read"
+            ),
+            "guarded_entry_points": self.armed,
+            "attempted_calls": self.attempts,
+            "embedding_provider_model_loaded": provider_model_loaded,
+            "amendment": "AMENDMENT_001_no_vector_recomputation",
+        }
 
 
 # --------------------------------------------------------------------------
@@ -735,34 +778,37 @@ def run_phase(output_root: Path, phase: str) -> dict:
     if leakage["status"] != "PASS":
         raise RuntimeError("IC-001 leakage audit failed")
 
-    candidates = load_candidates()
-    by_id = {str(candidate["id"]): candidate for candidate in candidates}
-    context_records = load_context_records()
-    states = build_states(context_records, by_id)
+    with ModelCallGuard() as guard:
+        candidates = load_candidates()
+        by_id = {str(candidate["id"]): candidate for candidate in candidates}
+        context_records = load_context_records()
+        states = build_states(context_records, by_id)
 
-    b0_packed = build_arm("B0", states)
-    b0 = arm_record("B0", states, b0_packed)
-    gate = b0_gate(states, b0_packed, b0)
+        b0_packed = build_arm("B0", states)
+        b0 = arm_record("B0", states, b0_packed)
+        gate = b0_gate(states, b0_packed, b0)
 
-    if phase == "b0":
-        result = _run_b0(
-            output_dir,
-            states=states,
-            b0=b0,
-            b0_packed=b0_packed,
-            gate=gate,
-            leakage=leakage,
-        )
-    else:
-        result = _run_b1(
-            output_dir,
-            output_root=output_root,
-            states=states,
-            b0=b0,
-            b0_packed=b0_packed,
-            gate=gate,
-            leakage=leakage,
-        )
+        if phase == "b0":
+            result = _run_b0(
+                output_dir,
+                states=states,
+                b0=b0,
+                b0_packed=b0_packed,
+                gate=gate,
+                leakage=leakage,
+                guard=guard,
+            )
+        else:
+            result = _run_b1(
+                output_dir,
+                output_root=output_root,
+                states=states,
+                b0=b0,
+                b0_packed=b0_packed,
+                gate=gate,
+                leakage=leakage,
+                guard=guard,
+            )
 
     after = _hash_paths(inputs)
     source_integrity = {
@@ -787,6 +833,7 @@ def _run_b0(
     b0_packed: dict[int, PackedArm],
     gate: dict,
     leakage: dict,
+    guard: "ModelCallGuard",
 ) -> dict:
     output_dir.mkdir(parents=True)
     _write_json(output_dir / "leakage_audit.json", leakage)
@@ -827,7 +874,7 @@ def _run_b0(
     if determinism["status"] != "PASS":
         raise AssertionError("IC-001 B0 rerun was not identical")
 
-    audit = no_model_call_audit()
+    audit = guard.audit()
     _write_json(output_dir / "no_model_call_audit.json", audit)
     if audit["status"] != "PASS":
         raise AssertionError("IC-001 made a model or embedding call")
@@ -861,6 +908,7 @@ def _run_b1(
     b0_packed: dict[int, PackedArm],
     gate: dict,
     leakage: dict,
+    guard: "ModelCallGuard",
 ) -> dict:
     precondition = _b1_precondition(output_root, b0, gate)
     if precondition["status"] != "PASS":
@@ -1011,7 +1059,7 @@ def _run_b1(
     if determinism["status"] != "PASS":
         raise AssertionError("IC-001 B1 rerun was not identical")
 
-    audit = no_model_call_audit()
+    audit = guard.audit()
     _write_json(output_dir / "no_model_call_audit.json", audit)
     if audit["status"] != "PASS":
         raise AssertionError("IC-001 made a model or embedding call")

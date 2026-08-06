@@ -87,6 +87,15 @@ undetectable without measuring it.
 - **Must degrade gracefully under an enforced budget.** Untested for everything on record.
 - **Must not require a second resident model** or a quant that conflicts with the standing runtime. *(Constraint added July 30, 2026 - see E001.)*
 - **Surrogate audit before promotion.** Can the test pass while the property it certifies is false?
+- **Every number in this ledger was measured behind recency-first packing.** IC-001
+  replayed the corrected 121-turn run under both orders and found the K path
+  delivered **zero episodes and zero characters at 8 of 8 probes** under the
+  deployed order. Q11 rises 6/17 to 7/17 and the eight targeted probes 14/21 to
+  18/21, both with zero losses, on frozen candidate identities. A candidate's
+  measured value is therefore a joint readout of the mechanism and the fill
+  order; a candidate that looks weak may have been starved rather than wrong.
+  *(Constraint added August 6, 2026 - see `IC_001_REPORT.md`. This does not
+  authorize re-running anything: IC-001 section 9 lists the five conditions.)*
 
 ### 4.1 What actually exists in this repository
 
