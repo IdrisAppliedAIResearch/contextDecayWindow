@@ -83,6 +83,9 @@ MEASUREMENT_SOURCE = Path(__file__).resolve()
 PRE_REGISTRATION = (
     STUDY_ROOT / "IC_001_internal_packing_counterfactual.md"
 )
+AMENDMENT_001 = (
+    STUDY_ROOT / "amendments" / "AMENDMENT_001_no_vector_recomputation.md"
+)
 
 DESIGN_COMMIT_SUBJECT = "docs(ic-001): register internal packing-priority counterfactual"
 Q11_TURN = 120
@@ -515,6 +518,43 @@ def leakage_audit() -> dict:
     }
 
 
+def amendment_authorization() -> dict:
+    """The cache substitution is a gate, not a note in the report.
+
+    IC-001's registered cache clause cannot be met on this corpus, and
+    Amendment 001 substitutes a stronger condition for it. That
+    substitution is the program author's to grant, so the harness reads
+    the amendment's own status line and refuses to run while it is
+    anything other than AUTHORIZED. Reverting the line stops IC-001
+    rather than quietly changing what its artifacts mean.
+    """
+
+    text = AMENDMENT_001.read_text(encoding="utf-8")
+    status_lines = [
+        line.split("**Status:**", 1)[1].strip()
+        for line in text.splitlines()
+        if line.startswith("**Status:**")
+    ]
+    if len(status_lines) != 1:
+        raise IC001Error(
+            "Amendment 001 must carry exactly one status line; found "
+            f"{len(status_lines)}"
+        )
+    status = status_lines[0]
+    authorized = status == "AUTHORIZED"
+    return {
+        "status": "PASS" if authorized else "FAIL",
+        "amendment": _repo_relative(AMENDMENT_001),
+        "amendment_status": status,
+        "amendment_sha256": _sha256(AMENDMENT_001),
+        "authorized": authorized,
+        "substitutes": (
+            "registered section 3 CC-006 cache binding, which is unreachable "
+            "on this corpus without the model calls the same section forbids"
+        ),
+    }
+
+
 class ModelCallGuard:
     """Make a model call impossible rather than merely unexpected.
 
@@ -573,10 +613,14 @@ class ModelCallGuard:
             provider is not None
             and getattr(provider, "_MODEL", None) is not None
         )
+        amendment = amendment_authorization()
         return {
             "status": (
                 "PASS"
-                if not self.attempts and not provider_model_loaded and self.armed
+                if not self.attempts
+                and not provider_model_loaded
+                and self.armed
+                and amendment["status"] == "PASS"
                 else "FAIL"
             ),
             "model_calls": 0,
@@ -589,7 +633,7 @@ class ModelCallGuard:
             "guarded_entry_points": self.armed,
             "attempted_calls": self.attempts,
             "embedding_provider_model_loaded": provider_model_loaded,
-            "amendment": "AMENDMENT_001_no_vector_recomputation",
+            "amendment_001": amendment,
         }
 
 
@@ -779,6 +823,17 @@ def run_phase(output_root: Path, phase: str) -> dict:
     if leakage["status"] != "PASS":
         raise RuntimeError("IC-001 leakage audit failed")
 
+    # Before anything is written. The registered cache clause is unreachable
+    # here, and Amendment 001's substitution is what the arms rest on, so an
+    # unauthorized amendment stops the phase rather than producing artifacts
+    # whose provenance claim nobody granted.
+    amendment = amendment_authorization()
+    if amendment["status"] != "PASS":
+        raise RuntimeError(
+            "IC-001 Amendment 001 is not authorized "
+            f"({amendment['amendment_status']}); no phase may run"
+        )
+
     with ModelCallGuard() as guard:
         candidates = load_candidates()
         by_id = {str(candidate["id"]): candidate for candidate in candidates}
@@ -797,6 +852,7 @@ def run_phase(output_root: Path, phase: str) -> dict:
                 b0_packed=b0_packed,
                 gate=gate,
                 leakage=leakage,
+                amendment=amendment,
                 guard=guard,
             )
         else:
@@ -808,6 +864,7 @@ def run_phase(output_root: Path, phase: str) -> dict:
                 b0_packed=b0_packed,
                 gate=gate,
                 leakage=leakage,
+                amendment=amendment,
                 guard=guard,
             )
 
@@ -834,10 +891,12 @@ def _run_b0(
     b0_packed: dict[int, PackedArm],
     gate: dict,
     leakage: dict,
+    amendment: dict,
     guard: "ModelCallGuard",
 ) -> dict:
     output_dir.mkdir(parents=True)
     _write_json(output_dir / "leakage_audit.json", leakage)
+    _write_json(output_dir / "amendment_authorization.json", amendment)
     _write_json(output_dir / "b0_arm.json", b0)
     _write_json(output_dir / "b0_gate.json", gate)
     (output_dir / "b0_q11_payload.txt").write_text(
@@ -909,6 +968,7 @@ def _run_b1(
     b0_packed: dict[int, PackedArm],
     gate: dict,
     leakage: dict,
+    amendment: dict,
     guard: "ModelCallGuard",
 ) -> dict:
     precondition = _b1_precondition(output_root, b0, gate)
@@ -921,6 +981,7 @@ def _run_b1(
     output_dir.mkdir(parents=True)
     _write_json(output_dir / "b1_gate_precondition.json", precondition)
     _write_json(output_dir / "leakage_audit.json", leakage)
+    _write_json(output_dir / "amendment_authorization.json", amendment)
 
     b1_packed = build_arm("B1", states)
     b1 = arm_record("B1", states, b1_packed)
@@ -1218,6 +1279,7 @@ def _run_header(phase: str, result: dict) -> dict:
             _repo_relative(PRE_REGISTRATION),
         ),
         "pre_registration": _repo_relative(PRE_REGISTRATION),
+        "amendment_001": amendment_authorization(),
         "budget_chars": BUDGET_CHARS,
         "k_threshold": EXPECTED_K_THRESHOLD,
         "n_cap": EXPECTED_N_CAP,
@@ -1262,6 +1324,7 @@ def _input_paths() -> list[Path]:
         MECHANISM_SOURCE,
         MEASUREMENT_SOURCE,
         PRE_REGISTRATION,
+        AMENDMENT_001,
     ]
 
 
