@@ -1,4 +1,12 @@
 {
+  "amendment_001": {
+    "amendment": "experiments/internal/packing_priority/amendments/AMENDMENT_001_no_vector_recomputation.md",
+    "amendment_sha256": "60f4cc80e75a08722041dfb68bdb166b6088529da8bc3592284b35499b5f7284",
+    "amendment_status": "AUTHORIZED",
+    "authorized": true,
+    "status": "PASS",
+    "substitutes": "registered section 3 CC-006 cache binding, which is unreachable on this corpus without the model calls the same section forbids"
+  },
   "arm": "B0",
   "budget_chars": 32000,
   "candidate_source": "experiments/surveys/retrieval_bakeoff/tier6/runs/tier6_live_121_corrected_001/context_matched_stm/logs/context_match.jsonl",
@@ -6,7 +14,7 @@
   "design_commit": "7b578c54aa5643fbc691ed679aab95e531a9e962",
   "drop_policy": "exact_cost_skip_on_overflow",
   "embedding_calls": 0,
-  "execution_commit": "c5dcfee5bbe6cf566095e0f5a0be662b806f8d22",
+  "execution_commit": "2abe77ca4234d22db76061f2b179591775823d11",
   "inference_calls": 0,
   "k_threshold": 0.48,
   "model_calls": 0,
