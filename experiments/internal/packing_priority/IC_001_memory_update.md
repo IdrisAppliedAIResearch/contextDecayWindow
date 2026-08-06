@@ -6,8 +6,9 @@
   committed `n_candidate_ids` and `k_candidate_ids` from `context_match.jsonl`,
   so nothing is re-ranked and no model or embedding call occurs. That is
   stronger than EC-002's cache reuse, and it is why the registered CC-006 cache
-  clause is unmet — no such cache exists for this corpus (Amendment 001,
-  proposed, not authorized).
+  clause is met by substitution rather than by the registered mechanism — no
+  such cache exists for this corpus (Amendment 001, authorized August 6, 2026,
+  and enforced: a phase refuses to run unless the amendment says AUTHORIZED).
 - Under the deployed order the K path delivered **zero episodes and zero
   characters at 8 of 8 probes**. Recency consumed the whole budget every time.
   The similarity path was computing candidates and being denied window space,
