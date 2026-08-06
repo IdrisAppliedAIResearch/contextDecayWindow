@@ -79,6 +79,7 @@ AR_001_ACHIEVABILITY = (
     COMPONENT_ROOT / "artifacts" / "ar_001" / "achievability.json"
 )
 MECHANISM_SOURCE = REPO_ROOT / "src" / "internal_packing" / "ic001.py"
+MEASUREMENT_SOURCE = Path(__file__).resolve()
 PRE_REGISTRATION = (
     STUDY_ROOT / "IC_001_internal_packing_counterfactual.md"
 )
@@ -1201,6 +1202,13 @@ def _run_header(phase: str, result: dict) -> dict:
         "packing_order": list(PACKING_ORDERS[ARMS[phase]]),
         "design_commit": _design_commit(),
         "execution_commit": _git("rev-parse", "HEAD"),
+        # Untracked paths are excluded: this phase's own output is untracked
+        # while it runs, and the scratch directory is never tracked. What must
+        # be clean is every tracked file, so the execution commit above
+        # actually describes the code that ran.
+        "tracked_worktree_clean": not _git(
+            "status", "--porcelain", "--untracked-files=no"
+        ),
         "pre_registration": _repo_relative(PRE_REGISTRATION),
         "budget_chars": BUDGET_CHARS,
         "k_threshold": EXPECTED_K_THRESHOLD,
@@ -1244,6 +1252,7 @@ def _input_paths() -> list[Path]:
         COMMITTED_A0,
         AR_001_ACHIEVABILITY,
         MECHANISM_SOURCE,
+        MEASUREMENT_SOURCE,
         PRE_REGISTRATION,
     ]
 
