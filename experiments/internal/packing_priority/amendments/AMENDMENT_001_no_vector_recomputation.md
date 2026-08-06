@@ -2,9 +2,12 @@
 
 **Study:** IC-001 internal packing-priority counterfactual
 **Registration anchor:** `7b578c54aa5643fbc691ed679aab95e531a9e962`
-**Status:** PROPOSED — AWAITING PROGRAM AUTHOR AUTHORIZATION
-**Authorization:** not yet granted. Recorded before any arm was run so the
-substitution is visible in git order rather than discovered in the report.
+**Status:** AUTHORIZED
+**Authorization:** Program author authorized the substitution, August 6, 2026,
+after the proposed text and both arms' results were presented. The proposal was
+recorded before any arm ran, so the substitution is visible in git order rather
+than discovered in the report; this authorization is a separate commit ahead of
+the runs that rely on it.
 
 ## Trigger and evidence
 
@@ -68,3 +71,17 @@ equal the shipped `pack_stm_payload` output byte-for-byte.
 - If the program author declines this substitution, IC-001's arms are
   withdrawn and the study requires re-registration against an artifact that
   can supply a CC-006 cache for this corpus.
+
+## Binding
+
+This file is not documentation of a decision made elsewhere; it is the
+decision, and the harness enforces it. Every phase:
+
+1. refuses to run unless this file's `**Status:**` line reads `AUTHORIZED`;
+2. hashes this file in `source_integrity.json` before and after the phase,
+   alongside the store, the context log, and the pre-registration; and
+3. records the file's SHA-256 and status in `run_header.json` and in
+   `no_model_call_audit.json`.
+
+Reverting the status line therefore stops IC-001 rather than silently
+changing what its artifacts mean.

@@ -234,6 +234,43 @@ def test_b0_gate_fails_on_matching_counts_with_different_episodes(
     assert gate["checks"]["episode_identities"] is False
 
 
+def test_the_authorized_amendment_is_bound_to_every_run() -> None:
+    from src.analysis.ic001_internal_packing import (
+        AMENDMENT_001,
+        _input_paths,
+        amendment_authorization,
+    )
+
+    authorization = amendment_authorization()
+    assert authorization["status"] == "PASS"
+    assert authorization["amendment_status"] == "AUTHORIZED"
+    assert AMENDMENT_001 in _input_paths()
+
+
+def test_an_unauthorized_amendment_stops_the_run(monkeypatch, tmp_path) -> None:
+    """Reverting the status line must stop IC-001, not change its meaning."""
+
+    from src.analysis import ic001_internal_packing as harness
+
+    revoked = tmp_path / "AMENDMENT_001_no_vector_recomputation.md"
+    revoked.write_text(
+        harness.AMENDMENT_001.read_text(encoding="utf-8").replace(
+            "**Status:** AUTHORIZED",
+            "**Status:** PROPOSED - AWAITING PROGRAM AUTHOR AUTHORIZATION",
+        ),
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(harness, "AMENDMENT_001", revoked)
+
+    authorization = harness.amendment_authorization()
+    assert authorization["status"] == "FAIL"
+    assert authorization["authorized"] is False
+
+    with pytest.raises(RuntimeError, match="not authorized"):
+        harness.run_phase(tmp_path / "runs", "b0")
+    assert not (tmp_path / "runs").exists()
+
+
 def test_mechanism_cannot_reach_the_answer_key() -> None:
     audit = leakage_audit()
     assert audit["status"] == "PASS"
