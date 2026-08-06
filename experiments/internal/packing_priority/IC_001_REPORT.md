@@ -2,7 +2,8 @@
 
 **Pre-registration:** `IC_001_internal_packing_counterfactual.md` at
 `7b578c54aa5643fbc691ed679aab95e531a9e962`
-**Amendment 001:** `no vector recomputation` — **PROPOSED, NOT AUTHORIZED**
+**Amendment 001:** `no vector recomputation` — **AUTHORIZED**, August 6, 2026,
+SHA-256 `60f4cc80e75a08722041dfb68bdb166b6088529da8bc3592284b35499b5f7284`
 **Status:** COMPLETE
 **Outcome:** **BRANCH A — PACKING IS A GATE INTERNALLY TOO**
 
@@ -154,6 +155,7 @@ spending less.
 | Independent re-execution on a later commit, both arms | **byte-identical evidence** |
 | Source integrity before and after, both phases | **PASS** |
 | Model calls / embedding calls / cache misses | **0 / 0 / 0**, enforced |
+| Amendment 001 authorization | **AUTHORIZED**, enforced as a run gate |
 
 The B0 gate is the binding one, and it is a stricter faithfulness test than a
 count comparison: the fact count could have matched on different episodes, so
@@ -165,7 +167,7 @@ identity and payload digest are asserted too.
 records the attempt count. It was armed on all three entry points, and zero
 attempts were made.
 
-### Cache binding — an unmet registered clause
+### Cache binding — substituted under an authorized amendment
 
 Section 3 requires a read-only CC-006 cache with file and canonical content
 hashes asserted before and after. **No such cache exists for this corpus and
@@ -174,13 +176,22 @@ only adopted CC-006 cache is EC-002's 96,585-entry LongMemEval cache; the only
 internal-corpus vector files are gitignored, unhashed span caches from the
 bakeoff.
 
-Amendment 001 proposes a stronger substitute: both arms consume the deployed
+Amendment 001 substitutes a stronger condition: both arms consume the deployed
 run's **committed candidate identities** from `logs/context_match.jsonl`, so no
 cosine is recomputed, no ranking re-derived, and no vector read at all. The log
 and store hashes are asserted before and after each phase.
 
-**That amendment is PROPOSED and has not been authorized.** Until it is, this
-report's arms rest on a substitution the program author has not approved.
+**The program author authorized that substitution on August 6, 2026**, and the
+authorization is enforced rather than recorded. Every phase reads the
+amendment's own `**Status:**` line and refuses to run unless it says
+`AUTHORIZED`, hashes the amendment file in the input set before and after, and
+writes its SHA-256 and status into `amendment_authorization.json`, the run
+header, and the model-call audit. Reverting the status line stops IC-001; a
+test asserts the phase raises and creates no output directory. Both arms were
+re-run after the authorization was committed.
+
+The clause is therefore met by substitution, not by the registered mechanism,
+and this report says which.
 
 ## 7. Configuration note: the coverage tier is empty
 
@@ -252,21 +263,26 @@ Decision rule committed at `7b578c54` before any arm ran. B0 evidence
 committed at `9d2ecd58`. B1 evidence committed at `4947582e`, before this
 interpretation.
 
-Both phases were then re-executed on a clean tracked worktree at `c4482c5b`
-and `d5e605c4`, because the first pair of run headers named execution commits
-that did not yet contain the harness edits that produced them. **Every
-evidence file is byte-identical across the two independent runs on different
-commits** — the five artifacts above, the Q11 payloads, and all five CSVs.
-Only the run headers, the gate precondition, source integrity, and the
-manifests differ, which is exactly the set that records provenance. The
-digests in the table are unchanged and were verified after the re-run.
+Both phases were then re-executed twice: once on a clean tracked worktree at
+`c4482c5b` and `d5e605c4`, because the first run headers named execution
+commits that did not yet contain the harness edits that produced them, and
+again after Amendment 001 was authorized and bound as a run gate.
+
+**Every evidence file is byte-identical across all three independent runs on
+three different commits** — the five artifacts above, the Q11 payloads, and all
+five CSVs. Only the run headers, the gate precondition, source integrity, the
+model-call audit, and the manifests differ, which is exactly the set that
+records provenance. The digests in the table are unchanged and were verified
+after each re-run.
 
 ## 11. Closeout
 
 - [x] Decision rule committed before B1 output was opened — `7b578c54`
 - [x] B0 gate: committed deployed result reproduced, episode identities asserted
 - [x] Zero new model calls, zero misses — enforced, not narrated
-- [ ] Cache hashes asserted before and after — **unmet; Amendment 001 pending**
+- [x] Cache hashes asserted before and after — **met by substitution** under
+      authorized Amendment 001: no cache exists to bind, and the stronger
+      condition is that no vector is read at all
 - [x] Per-arm Q11 facts and per-domain counts
 - [x] Character and episode split by path, both arms
 - [x] Oracle-set overlap, both arms, both AR-001 sets

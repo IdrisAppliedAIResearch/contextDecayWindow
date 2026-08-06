@@ -62,7 +62,7 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **EC-002 K-first packing (2026-08-05).** COMPLETE offline. Same-store K-first raises any-session recall 109/470->261/470: 152 gains, 0 losses. Exact-turn-any 79->196: 119 gains, 2 losses. K deliveries 26->476; all blocks still truncated. Confirms recency-first budget exhaustion as a causal gate. No production/Tier 2 promotion authorized.
 
-**IC-001 internal packing (2026-08-06).** BRANCH A. K-first replay on the internal corpus from frozen candidate identities; 0 model calls. B0 reproduces the deployed 6/17 at 31,946 chars exactly. Under the deployed order K delivered 0 episodes at 8/8 probes; K-first delivers 9. Q11 6/17->7/17, targeted 14/21->18/21, both zero losses. Cache clause unmet; Amendment 001 pending.
+**IC-001 internal packing (2026-08-06).** BRANCH A. K-first replay from frozen candidate identities; 0 model calls. B0 reproduces the deployed 6/17 at 31,946 chars exactly. Under the deployed order K delivered 0 episodes at 8/8 probes; K-first gives 9. Q11 6/17->7/17, targeted 14/21->18/21, zero losses. No CC-006 cache here; Amendment 001 authorized, enforced as a gate.
 
 **PAPER-001 (2026-08-06).** DRAFT, revised through IC-001. The pool/objective/floor decomposition stands, but §5's 6/17 is packing-conditioned: new §5.2.2 records that the internal K path delivered nothing at 8/8 probes. Naturalistic ranking lacks the dominant internal inversion. Corpus-artifact cause unresolved. Source is `paper/PAPER_001.md`; figures/PDF are generated.
 
