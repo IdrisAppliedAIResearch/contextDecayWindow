@@ -1,0 +1,22 @@
+{
+  "amendment_001": {
+    "amendment": "experiments/internal/packing_priority/amendments/AMENDMENT_001_no_vector_recomputation.md",
+    "amendment_sha256": "60f4cc80e75a08722041dfb68bdb166b6088529da8bc3592284b35499b5f7284",
+    "amendment_status": "AUTHORIZED",
+    "authorized": true,
+    "status": "PASS",
+    "substitutes": "registered section 3 CC-006 cache binding, which is unreachable on this corpus without the model calls the same section forbids"
+  },
+  "attempted_calls": [],
+  "cache_misses": 0,
+  "embedding_calls": 0,
+  "embedding_provider_model_loaded": false,
+  "guarded_entry_points": [
+    "llama_cpp.Llama.__init__",
+    "src.embeddings.provider._get_model",
+    "src.retrieval_bakeoff.embedding.CarriedEmbedder.__init__"
+  ],
+  "model_calls": 0,
+  "status": "PASS",
+  "vector_source": "committed context_match.jsonl candidate identities; no vector is re-derived and no cache is read"
+}

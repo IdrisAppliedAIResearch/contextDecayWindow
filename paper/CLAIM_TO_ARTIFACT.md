@@ -239,6 +239,13 @@ For R37 it is `experiments`; for R38–R42 it is
 
 ---
 
+| C108 | The internal deployed order starved the similarity path completely | K delivered 0 episodes and 0 characters at 8 of 8 probes under recency-first; 9 episodes and 14,796 characters under K-first | `internal/packing_priority/runs/ic001/b1_k_first/path_split.csv` | VERIFIED - observed path attribution on frozen candidate identities |
+| C109 | Internal breadth availability rises under K-first without a targeted loss | Q11 6/17 -> 7/17, 1 gain 0 losses; eight targeted probes 14/21 -> 18/21, 4 gains 0 losses | `internal/packing_priority/runs/ic001/b1_k_first/paired_comparison.json` | VERIFIED - availability only, one probe, no variance |
+| C110 | The internal 6-of-17 baseline is packing-conditioned | same store, identities, and selector deliver 7/17 in 31,863 characters against 6/17 in 31,946 | `internal/packing_priority/runs/ic001/b0_recency_first/b0_gate.json`; `.../b1_k_first/b1_arm.json` | VERIFIED - B0 reproduces the committed deployed result exactly |
+| C111 | K-first did not reproduce the LV-001 displacement offline | no targeted probe fell; the Q11 window gains the turn-1 and turn-2 episodes B0 dropped | `internal/packing_priority/runs/ic001/b1_k_first/targeted_per_probe.csv`; `.../b1_arm.json` | VERIFIED - offline availability on a different arm; not a repair of LV-001 |
+
+---
+
 ## A.9 Claims deliberately not made
 
 | Claim the evidence does not support | Why |

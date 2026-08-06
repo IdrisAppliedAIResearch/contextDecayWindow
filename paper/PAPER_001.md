@@ -347,6 +347,12 @@ expensive domain, art, needs 3,182 — under a tenth of the budget.
 
 Deployed selection made **6 of 17 available while spending 31,946 characters**.
 
+That figure is packing-conditioned, and §5.2.2 separates the two causes. On the
+same store, the same candidate identities, and the same selector, offering the
+similarity hits before the recency window makes **7 of 17 available in 31,863
+characters** — one more item for slightly less spend. Part of what this section
+calls a selection failure is a fill-order failure.
+
 Figure 1. The budget was never tight. Selection spent it on episodes carrying
 nothing.
 
@@ -478,6 +484,47 @@ Delivered K episodes rise from 26 to 476 while every block remains truncated.
 Packing priority is therefore a causal gate for recovered EC-001 items, not
 merely a post-hoc correlate. The replay is availability-only and does not
 authorize production promotion or establish reader-level gains.
+
+#### 5.2.2 The same gate is closed on the internal corpus
+
+Every study in this program's record ran recency-first, so whether the internal
+corpus was starved the same way was unmeasured until IC-001 replayed the
+corrected 121-turn run under both orders. It holds the store, the committed
+candidate identities, `K = 0.48`, `N = 32`, the selector, the budget, and the
+renderer fixed, re-derives no vector, and changes only fill order. Its B0 arm
+reproduces the deployed 6-of-17 result exactly — same characters, same eight
+episodes, same payload digest — before the K-first arm was opened.
+
+The expected effect was smaller here. One continuous conversation gives recent
+turns and relevant turns far more overlap than EC-001's discontinuous
+histories, so recency-first should waste less. The breadth effect is indeed
+small: 6 of 17 to **7 of 17**, one gain and no losses. The delivery effect is
+not small at all.
+
+| | Recency-first | K-first |
+|---|---:|---:|
+| Probes where the K path delivered nothing | **8 of 8** | 3 of 8 |
+| K episodes delivered across the eight probes | **0** | 9 |
+| Q11 episodes delivered | 8 | 12 |
+| Q11 characters spent | 31,946 | 31,863 |
+
+Under the order this program shipped for eleven studies, the similarity path
+delivered **zero episodes and zero characters at every probe**. Recency
+consumed the whole budget every time, exactly as EC-001's external audit found.
+Admitting two small similarity hits first then left room for four *more*
+recency episodes than the deployed order fitted, because the deployed walk had
+already spent the budget on one large episode — so the K-first window is larger
+and cheaper at once. It is a priority effect under a binding budget, not extra
+capacity, and on this corpus it is not a trade: no targeted probe fell, two
+rose from 0 of 2 to 2 of 2, and the window gained the turn-1 and turn-2
+episodes whose absence LV-001 reported live.
+
+The consequence for this section is narrow and real. The 6-of-17 baseline is a
+joint readout of a selector and a fill order, and §5.3's within-pool selector
+comparisons inherit that: they compare objectives that were all run behind the
+same starved packing order. IC-001 is availability-only on one probe, one
+store, one run, with no variance, and authorizes no re-run of the arc.
+
 ### 5.3 The objective binds second, and only after the pool
 
 The deployed rule ranks each episode against the query independently and takes
