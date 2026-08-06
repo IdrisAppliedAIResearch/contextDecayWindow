@@ -1,0 +1,45 @@
+{
+  "record": "EC-001 OpenAI scoring and adjudication access gate",
+  "probed_utc": "2026-08-03T19:58:00.9510061Z",
+  "credential_environment_variable": "OPENAI_API_KEY",
+  "credential_present": true,
+  "credential_value_recorded": false,
+  "model_access": [
+    {
+      "model_id": "gpt-4o-2024-08-06",
+      "required_for": "benchmark-protocol rater pass",
+      "probe_endpoint": "GET /v1/models/gpt-4o-2024-08-06",
+      "status": "FAIL_HTTP_401"
+    },
+    {
+      "model_id": "gpt-5.2-2025-12-11",
+      "required_for": "independent AI adjudication",
+      "probe_endpoint": "GET /v1/models/gpt-5.2-2025-12-11",
+      "status": "FAIL_HTTP_401"
+    }
+  ],
+  "completed_local_passes": [
+    {
+      "family_id": "phi-local",
+      "commit": "53fb26fc",
+      "calibration": "PASS_4_OF_4",
+      "items": 140
+    },
+    {
+      "family_id": "mistral-local",
+      "commit": "06b6b3dd",
+      "calibration": "PASS_4_OF_4",
+      "items": 140
+    }
+  ],
+  "blocked_outputs": [
+    "rater_gpt4o.jsonl",
+    "three-family trigger registration",
+    "GPT-5.2 adjudications",
+    "final benchmark-protocol score",
+    "final three-family integrity score"
+  ],
+  "identity_unsealed": false,
+  "final_aggregation_run": false,
+  "status": "BLOCKED_EXTERNAL_CREDENTIAL"
+}

@@ -1,0 +1,109 @@
+{
+  "record": "EC-001 finalized Codex-substituted integrity scores",
+  "head": "c0dd128231e9310ffae8ab529e53fca582a4712d",
+  "question_count": 140,
+  "authorized_result_name": "Codex-substituted integrity score",
+  "codex_substituted_integrity": {
+    "question_count": 140,
+    "raw_subset_micro_average": {
+      "correct": 28,
+      "denominator": 140,
+      "accuracy": 0.2,
+      "comparability": "NON_BENCHMARK_DISTRIBUTED_EQUAL_QUOTAS"
+    },
+    "benchmark_population_post_stratified_accuracy": 0.1222,
+    "benchmark_population_counts": {
+      "single-session-user": 64,
+      "single-session-assistant": 56,
+      "single-session-preference": 30,
+      "temporal-reasoning": 127,
+      "knowledge-update": 72,
+      "multi-session": 121,
+      "abstention": 30
+    },
+    "per_stratum": {
+      "abstention": {
+        "correct": 17,
+        "denominator": 20,
+        "accuracy": 0.85
+      },
+      "knowledge-update": {
+        "correct": 4,
+        "denominator": 20,
+        "accuracy": 0.2
+      },
+      "multi-session": {
+        "correct": 0,
+        "denominator": 20,
+        "accuracy": 0.0
+      },
+      "single-session-assistant": {
+        "correct": 3,
+        "denominator": 20,
+        "accuracy": 0.15
+      },
+      "single-session-preference": {
+        "correct": 0,
+        "denominator": 20,
+        "accuracy": 0.0
+      },
+      "single-session-user": {
+        "correct": 4,
+        "denominator": 20,
+        "accuracy": 0.2
+      },
+      "temporal-reasoning": {
+        "correct": 0,
+        "denominator": 20,
+        "accuracy": 0.0
+      }
+    },
+    "observed_stratum_counts": {
+      "abstention": 20,
+      "knowledge-update": 20,
+      "multi-session": 20,
+      "single-session-assistant": 20,
+      "single-session-preference": 20,
+      "single-session-user": 20,
+      "temporal-reasoning": 20
+    }
+  },
+  "availability_to_correctness_gap": {
+    "codex_substituted_integrity": {
+      "status": "EVALUABLE",
+      "denominator": 118,
+      "marker_availability_rate": 0.06779661016949153,
+      "correctness_rate": 0.09322033898305085,
+      "tier1_minus_tier2": -0.025423728813559324,
+      "excluded_not_evaluable_count": 22,
+      "excluded_incomplete_turn_label_count": 2,
+      "excluded_abstention_count": 20
+    }
+  },
+  "trigger_counts": {
+    "H1": 0,
+    "H2": 6,
+    "H3": 0,
+    "H4": 0,
+    "H5": 14
+  },
+  "adjudication_limitation": "AI adjudication; not human adjudication",
+  "benchmark_protocol_score_authorized": false,
+  "published_longmemeval_comparison_authorized": false,
+  "identity_mapping_unsealed_after_scoring": true,
+  "source_hashes": {
+    "mapping": "e829ae0a2c9c4501384508583f0b5c81f6fbd14c91dc544ba183b6eb3639996e",
+    "packets": "612097791f2fcfee029e062f104aa28e1b8e12a63ec3dde89853fd0335f9f95f",
+    "mechanical_evidence": "18dbdb760fd27d647314f9a9f109c93390254d8bbbda1e1f7e37fa142e7b707b",
+    "subset": "7cd0550f96a7ffa18751a0dfcba0fe8a66b299d327f4e10f8ea7b886ecd1b741",
+    "runtime_record": "c306fd873766b937cd54c853ddc3550cf9a568e75f99c23cff22e8f1b2cfb731",
+    "trigger_summary": "4dcbb500766f118b03b63057f0d7edd3c1ac22180c1fc633d4f8f964476ca677",
+    "adjudications": "624d9f5b02466d44a3d39da63c8d8a8ede0e928285f8607614c918264284677b",
+    "rater_outputs": {
+      "rater_phi.jsonl": "a1064ceb9c22e5b48e49eec2f9b3b878670cc4f77da2b7b70b7bc9d5a9df756f",
+      "rater_mistral.jsonl": "e309e57f9023de34591309365b57fe26f750175bfa0aa0f144d43736cbb4abb5",
+      "C1_rater.jsonl": "a18658d116f658219979cf809fb6fa89c88df8f3d7a0f98000d533d0ab086d16"
+    }
+  },
+  "score_ledger_sha256": "dbfde0395f5e4348eaebc277f0eb632f5313340058322108dc337fba037dc1bc"
+}

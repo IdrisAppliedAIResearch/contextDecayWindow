@@ -1,0 +1,125 @@
+{
+  "record": "EC-001 downloaded-resource and cleanup manifest",
+  "created_utc": "2026-08-03T19:47:00Z",
+  "cleanup_requires_explicit_user_confirmation": true,
+  "planned_download_bytes": 34218644800,
+  "planned_download_gib": 31.87,
+  "downloaded_for_ec001": [
+    {
+      "resource_id": "mistral-rater",
+      "purpose": "Locked Mistral independent-family rater",
+      "status": "COMPLETE_HASH_VERIFIED",
+      "source_repository": "bartowski/mistralai_Mistral-Small-3.1-24B-Instruct-2503-GGUF",
+      "source_revision": "f73dfd9e812922fb503a993e3fa5671424f486d3",
+      "filename": "mistralai_Mistral-Small-3.1-24B-Instruct-2503-Q5_K_M.gguf",
+      "path": "C:\\Users\\muzaf\\.cache\\huggingface\\hub\\models--bartowski--mistralai_Mistral-Small-3.1-24B-Instruct-2503-GGUF\\snapshots\\f73dfd9e812922fb503a993e3fa5671424f486d3\\mistralai_Mistral-Small-3.1-24B-Instruct-2503-Q5_K_M.gguf",
+      "bytes": 16763985376,
+      "sha256": "64553a25b66927d0105c048d10cc96db31174cf05c3846885b2ad50cd4f32bb3",
+      "used_by_evidence": true,
+      "deletable_after": "EC-001 scoring, adjudication, and reproduction checks are complete"
+    },
+    {
+      "resource_id": "llama-failed-replacement",
+      "purpose": "Amendment 005 replacement rater; failed planted abstention calibration before real scoring",
+      "status": "COMPLETE_HASH_VERIFIED_DISQUALIFIED",
+      "source_repository": "bartowski/Meta-Llama-3.1-8B-Instruct-GGUF",
+      "source_revision": "bf5b95e96dac0462e2a09145ec66cae9a3f12067",
+      "filename": "Meta-Llama-3.1-8B-Instruct-Q6_K_L.gguf",
+      "path": "C:\\Users\\muzaf\\.cache\\huggingface\\hub\\models--bartowski--Meta-Llama-3.1-8B-Instruct-GGUF\\snapshots\\bf5b95e96dac0462e2a09145ec66cae9a3f12067\\Meta-Llama-3.1-8B-Instruct-Q6_K_L.gguf",
+      "bytes": 6850471328,
+      "sha256": "9bf5598b3cc6c5804c520aa6349266d2e2c9a22402e157bd9b187dc34806dad6",
+      "used_by_evidence": true,
+      "deletable_after": "The committed calibration-failure artifacts are accepted; model bytes are not needed for remaining EC-001 execution"
+    },
+    {
+      "resource_id": "phi-rater",
+      "purpose": "Amendment 007 replacement independent-family rater",
+      "status": "COMPLETE_HASH_VERIFIED",
+      "source_repository": "bartowski/phi-4-GGUF",
+      "source_revision": "19cd65f97c2f1712a81c506611d3f9c94b16a1e1",
+      "filename": "phi-4-Q5_K_M.gguf",
+      "path": "C:\\Users\\muzaf\\.cache\\huggingface\\hub\\models--bartowski--phi-4-GGUF\\snapshots\\19cd65f97c2f1712a81c506611d3f9c94b16a1e1\\phi-4-Q5_K_M.gguf",
+      "expected_bytes": 10604188096,
+      "expected_sha256": "b4b1ecedddfdd25a9c44c10a77bb118bcbb6a9004234286c7d4a4510c907f073",
+      "bytes": 10604188096,
+      "sha256": "b4b1ecedddfdd25a9c44c10a77bb118bcbb6a9004234286c7d4a4510c907f073",
+      "used_by_evidence": true,
+      "deletable_after": "EC-001 scoring, adjudication, and reproduction checks are complete"
+    }
+  ],
+  "preexisting_resources_not_owned_by_ec001": [
+    {
+      "resource_id": "qwen-reader",
+      "path": "C:\\Users\\muzaf\\.cache\\huggingface\\hub\\models--unsloth--Qwen3.6-27B-MTP-GGUF\\snapshots\\5cb35eb3dcbf52dbce5f87dbc64df6aaffadcace\\Qwen3.6-27B-UD-Q6_K_XL.gguf",
+      "cleanup_policy": "DO_NOT_DELETE_AS_EC001_DOWNLOAD"
+    },
+    {
+      "resource_id": "gemma-preexisting-rater",
+      "path": "C:\\Users\\muzaf\\.cache\\huggingface\\hub\\models--unsloth--gemma-4-E2B-it-GGUF\\snapshots\\0314792d7f1f7e229411f620751375812bb9faf2\\gemma-4-E2B-it-UD-Q4_K_XL.gguf",
+      "cleanup_policy": "DO_NOT_DELETE_AS_EC001_DOWNLOAD"
+    },
+    {
+      "resource_id": "qwen-embedder",
+      "path": "C:\\Users\\muzaf\\.cache\\huggingface\\hub\\Qwen3-Embedding-0.6B-GGUF\\Qwen3-Embedding-0.6B-Q8_0.gguf",
+      "cleanup_policy": "DO_NOT_DELETE_AS_EC001_DOWNLOAD"
+    },
+    {
+      "resource_id": "longmemeval-dataset",
+      "path": "C:\\Users\\muzaf\\Downloads\\longmemeval_s_cleaned.json",
+      "cleanup_policy": "USER_PROVIDED_DO_NOT_DELETE"
+    }
+  ],
+  "temporary_files": [
+    {
+      "path": "C:\\Users\\muzaf\\Downloads\\ec001-reader-stdout.log",
+      "owner": "EC-001",
+      "cleanup_policy": "DELETE_AFTER_LOG_REVIEW"
+    },
+    {
+      "path": "C:\\Users\\muzaf\\Downloads\\ec001-reader-stderr.log",
+      "owner": "EC-001",
+      "cleanup_policy": "DELETE_AFTER_LOG_REVIEW"
+    },
+    {
+      "path": "C:\\Users\\muzaf\\Downloads\\ec001-gemma-rater-stdout.log",
+      "owner": "EC-001",
+      "cleanup_policy": "DELETE_AFTER_LOG_REVIEW"
+    },
+    {
+      "path": "C:\\Users\\muzaf\\Downloads\\ec001-gemma-rater-stderr.log",
+      "owner": "EC-001",
+      "cleanup_policy": "DELETE_AFTER_LOG_REVIEW"
+    },
+    {
+      "path": "C:\\Users\\muzaf\\Downloads\\ec001-llama-rater-stdout.log",
+      "owner": "EC-001",
+      "cleanup_policy": "DELETE_AFTER_LOG_REVIEW"
+    },
+    {
+      "path": "C:\\Users\\muzaf\\Downloads\\ec001-llama-rater-stderr.log",
+      "owner": "EC-001",
+      "cleanup_policy": "DELETE_AFTER_LOG_REVIEW"
+    },
+    {
+      "path": "C:\\Users\\muzaf\\Downloads\\ec001-phi-rater-stdout.log",
+      "owner": "EC-001",
+      "cleanup_policy": "DELETE_AFTER_LOG_REVIEW"
+    },
+    {
+      "path": "C:\\Users\\muzaf\\Downloads\\ec001-phi-rater-stderr.log",
+      "owner": "EC-001",
+      "cleanup_policy": "DELETE_AFTER_LOG_REVIEW"
+    },
+    {
+      "path": "C:\\Users\\muzaf\\Downloads\\ec001-mistral-rater-stdout.log",
+      "owner": "EC-001",
+      "cleanup_policy": "DELETE_AFTER_LOG_REVIEW"
+    },
+    {
+      "path": "C:\\Users\\muzaf\\Downloads\\ec001-mistral-rater-stderr.log",
+      "owner": "EC-001",
+      "cleanup_policy": "DELETE_AFTER_LOG_REVIEW"
+    }
+  ],
+  "safe_cleanup_rule": "Delete only exact paths listed under downloaded_for_ec001 or temporary_files, after confirming no active process holds them. Never recursively delete a cache root, Downloads, a model-family directory, or any preexisting_resources_not_owned_by_ec001 path."
+}

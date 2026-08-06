@@ -64,7 +64,7 @@ here are curation *for* it: deciding what it gets to see under a real budget.
 |---|---|---|---|
 | **F1** | **Breadth / enumeration** | E002 raised its exact 32k matched baseline from 6/17 to 10/17 but missed the locked hurdle. AR-001 proves the bar exists: exact 14/17 costs 5,058 chars and 17/17 costs 7,592. E005 set-level selection reaches 12/17 at 4/4 domains with no targeted regression, and 35 of 146 configurations pass every gate. DX-001 localizes the whole remaining gap to one in-pool episode the objective declines everywhere, so the residual is a relevance-term problem. Threshold 14/17, binary | **OPEN, MATERIALLY ADVANCED - E005 PROMOTION_ELIGIBLE offline at 12/17; still short of the 14/17 rubric threshold and of the 15/17 oracle, and unvalidated in inference** |
 | **F2** | **Bad cue / identity** | Corrected Q4 cosine 0.12042197585105896 vs K = 0.48. E001 best found across 335 cues was 0.21031804382801056; 0/714 crossed K. Planted turn 55, probed turn 115; exact N-first reachability is 108,432 chars | **CLOSED - Family QR did not authorize an identity repair** |
-| **F3** | **No absence detection** | E002 had two zero-unique segments and eight duplicate slots but still missed 7/17 facts and one domain. No validated signal tells the system what is absent | **UNCLAIMED** |
+| **F3** | **No absence detection** | E002's duplicate/zero-unique counts did not certify completeness. EC-001 then emitted 0 component abstention signals across all 500 LongMemEval-S questions, while the fixed reader answered 17/20 abstention items correctly under Codex-substituted scoring | **RETIRED AS A COMPONENT REQUIREMENT — the detector remains absent, but the tested reader compensated; do not build a component mechanism without reader-level failure evidence** |
 | **F4** | **Rare technical vocabulary** | `photophores`, `mantle margin`, `lead white`, `ultramarine glaze`, `marine snow`, `dual mandate`. Zero spaCy entities in the target span. Density ranks them 89th-316th. The later IDF audit has three non-primary variants that disagree | **SOLVED by raw delivery** (6/6) - do not re-solve |
 | **F5** | **Enforced budget behavior** | Study 010 LTM undercharged Q13/Q14 by 67.9%/68.2%. Widened STM and bakeoff Tier 1 charged complete payloads exactly; post-DR-001 LTM now does too | **ENGINEERING FIXED; historical LTM results remain noncompliant** |
 
@@ -463,15 +463,20 @@ eviction work in `CC_001`?
 
 ---
 
-## 7. Open slots
+## 7. Retired slot
 
-- **F3 (absence detection):** nothing proposed. Arguably prior to F1 - a system that
-  knew it had 8 of 17 could act on it. E002's counts came back: 18 slots yielded
-  10 unique episodes and eight duplicates; two of nine segments added no unique
-  episode. That signal did not certify completeness because seven segments added
-  episodes while the result still missed 7/17 facts and one domain. Candidate
-  signals still unentered: retrieval-score distribution shape; generation-time
-  confidence (FLARE-style, scanned, breaks the one-shot contract).
+- **F3 (absence detection): retired as a component requirement.**
+  EC-001 records 0 component abstention signals on 500 cleaned LongMemEval-S
+  questions, confirming the architectural absence. The fixed reader nonetheless
+  scores 17/20 abstention items under Codex-substituted integrity, so component
+  absence detection and end-to-end refusal are different properties. This is
+  one reader, prompt, seed, and 20-item abstention subset, so F3 is not
+  component-solved or universally unnecessary. It is retired because the
+  external result removes the evidence that a new component mechanism is owed.
+  Reopen only on a prospective reader-level regression. E002's 18
+  slots yielded 10 unique episodes and eight duplicates; two of nine segments
+  added no unique episode, but that signal did not certify completeness because
+  the result still missed 7/17 facts and one domain.
 
 ## 8. Scan disposition
 

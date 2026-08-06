@@ -1,0 +1,73 @@
+{
+  "record": "EC-001 Phi calibration transport diagnostic",
+  "observed_utc": "2026-08-03T19:55:00Z",
+  "runtime_record_commit": "b1009254",
+  "family_id": "phi-local",
+  "model_family": "phi",
+  "model_id": "phi-4-Q5_K_M",
+  "model_sha256": "b4b1ecedddfdd25a9c44c10a77bb118bcbb6a9004234286c7d4a4510c907f073",
+  "fixed_conditions": {
+    "server_build_info": "b9294-0f3cb3fc8",
+    "total_slots": 1,
+    "seed": 5005,
+    "speculative_types": "none",
+    "label_grammar": "root ::= \"yes\" | \"no\"",
+    "prompt_content_unchanged": true
+  },
+  "raw_completion_results": [
+    {
+      "calibration_id": "exact-positive",
+      "expected": "yes",
+      "observed": "yes",
+      "pass": true
+    },
+    {
+      "calibration_id": "partial-negative",
+      "expected": "no",
+      "observed": "no",
+      "pass": true
+    },
+    {
+      "calibration_id": "reasoning-only-no-answer",
+      "expected": "no",
+      "observed": "yes",
+      "pass": false
+    },
+    {
+      "calibration_id": "abstention-positive",
+      "expected": "yes",
+      "observed": "yes",
+      "pass": true
+    }
+  ],
+  "chat_template_results": [
+    {
+      "calibration_id": "exact-positive",
+      "expected": "yes",
+      "observed": "yes",
+      "pass": true
+    },
+    {
+      "calibration_id": "partial-negative",
+      "expected": "no",
+      "observed": "no",
+      "pass": true
+    },
+    {
+      "calibration_id": "reasoning-only-no-answer",
+      "expected": "no",
+      "observed": "no",
+      "pass": true
+    },
+    {
+      "calibration_id": "abstention-positive",
+      "expected": "yes",
+      "observed": "yes",
+      "pass": true
+    }
+  ],
+  "raw_completion_status": "FAIL_3_OF_4",
+  "chat_template_status": "PASS_4_OF_4",
+  "real_benchmark_packets_seen": 0,
+  "action": "AMEND_LOCAL_TRANSPORT_BEFORE_SCORING"
+}
