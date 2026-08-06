@@ -156,6 +156,21 @@ Carry forward:
     fixed reader answers 17/20 abstention items correctly. Retire F3 as a
     component requirement; reopen only on prospective reader-level failure.
 
+## EC-002 packing counterfactual, 2026-08-05
+
+Carry forward:
+
+13. **Recency-first packing is a causal delivery gate on LongMemEval-S.**
+    With store, vectors, K, selector, and 32k budget fixed, K-first changes
+    any-session recall 109/470 -> 261/470: 152 paired gains and zero losses.
+    Exact-turn-any changes 79/470 -> 196/470: 119 gains and two losses.
+14. **The gate is not the whole failure.** K-first still misses every evidence
+    session on 209/470 questions. Threshold and exchange/session granularity
+    remain open; no production or Tier 2 promotion is authorized.
+15. **Vector reproducibility is prospective.** EC-001's original cache is
+    unrecoverable. A0 is an aggregate reproduction under recomputed embeddings;
+    A1 uses the retained CC-006-bound cache with zero misses/model calls.
+
 Authoritative files:
 
 - `E006_rarity_diagnostic_and_chained_retrieval.md`

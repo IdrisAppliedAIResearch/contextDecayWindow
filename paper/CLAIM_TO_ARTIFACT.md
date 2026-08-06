@@ -13,8 +13,7 @@ across platforms; working-tree hashes on Windows are not, and are not used.
 Verified against two independently published values: `e005_results.json`
 `07b714389697c6e5` and `dx001_results.json` `2f07a462e09bdf79`, both of which
 `episodic/README.md` already cites. Repository state: branch `paper-001` from
-`main` at `8a8a6229`, updated through EC-001 retrieval-path diagnostic commit
-`7b38badb`.
+`main` at `8a8a6229`, updated through EC-002 A1 evidence commit `4168a05c`.
 
 **Status column.**
 
@@ -231,6 +230,12 @@ For R37 it is `experiments`; for R38–R42 it is
 | C102 | Instrument-audit inventory | 358 predicate hits across five registered kinds | R37 §8; R39 | VERIFIED — not described as 358 adjudicated defects |
 | C103 | Favourable external session rank does not become delivery | evidence top-four on 401/470; session recall on 96/401; 232/500 K-candidate questions but 20/500 with delivered non-recency K | R42 | VERIFIED — post-hoc path diagnostic, no counterfactual parameter claim |
 | C104 | EC-001 delivered path is recency dominated | all 500 blocks truncated; median 16 recency, 0 K, 1 coverage; 91/109 session hits from recency | R42 | VERIFIED — observed path attribution, not a retuning result |
+
+---
+
+| C105 | K-first packing causally recovers evidence sessions offline | any-session 109/470 -> 261/470; 152 gains, 0 losses | `external/longmemeval/runs/ec002_k_first/a1_k_first/paired_comparison.json` | VERIFIED - same-store paired counterfactual |
+| C106 | K-first raises exact-turn-any availability with two losses | 79/470 -> 196/470; 119 gains, 2 losses | same | VERIFIED - no materiality threshold or reader-level claim |
+| C107 | EC-001 is not bit-replayable | original vector cache unrecoverable; A0 is a reproduction under recomputed embeddings | `external/longmemeval/amendments/AMENDMENT_011_ec002_recomputed_embedding_reproduction.md`; `EC_002_REPORT.md` section 5 | VERIFIED - CC-006 protection is prospective |
 
 ---
 

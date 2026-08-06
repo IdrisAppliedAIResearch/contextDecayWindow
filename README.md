@@ -13,7 +13,7 @@ every claim carries its committed artifact, and one headline number
 
 Ten pre-registered studies test that question, each adding one memory component and fixing the prior study's documented failures. Every result is published as found.
 
-> **Status:** Study 010 stopped at G2; exploratory continuation unaudited and LTM budget-noncompliant | retrieval bakeoff complete | retrieval mechanism ledger reopened for Family CS; E005 is killed by LV-001's live targeted-regression bar, DX-001 closes NO CHANGE, and RD-001 stops before correlation because unchanged rarity scores cover only 6/76 fact-bearing episodes; chained retrieval is not authorized | EC-001 LongMemEval complete: inversion not dominant, Codex-substituted score only | CC-002 extracts the deployable component into `episodic`; CC-006 adds exact hashed vector-cache reuse | deployment closeout complete | PAPER-001 revised through EC-001 | scoring/interpretation record corrected through 2026-08-05
+> **Status:** Study 010 stopped at G2; exploratory continuation unaudited and LTM budget-noncompliant | retrieval bakeoff complete | retrieval mechanism ledger reopened for Family CS; E005 is killed by LV-001's live targeted-regression bar, DX-001 closes NO CHANGE, and RD-001 stops before correlation because unchanged rarity scores cover only 6/76 fact-bearing episodes; chained retrieval is not authorized | EC-001 LongMemEval complete: inversion not dominant, Codex-substituted score only | EC-002 complete: K-first packing raises any-session recall 109/470 -> 261/470 offline; no production promotion authorized | CC-002 extracts the deployable component into `episodic`; CC-006 adds exact hashed vector-cache reuse | deployment closeout complete | PAPER-001 revised through EC-002 | scoring/interpretation record corrected through 2026-08-05
 
 ## The Problem
 
@@ -158,11 +158,15 @@ LongMemEval-S and generated answers for a prospectively registered
 seven-by-20 subset. The internal cosine inversion does not reproduce as a
 dominant external pattern: the top four ranked sessions contain no evidence on
 69 of 470 answerable questions (14.7%), while the median evidence-session rank
+<<<<<<< HEAD
 is 2. That rank result does not describe delivery: 401 questions have evidence
 in the top four, but only 96 retrieve any evidence session. Every block is
 truncated; median composition is 16 recency, 0 non-recency K, and 1 coverage
 exchange. Of 109 session hits, 91 come from recency. Exact answer-turn
 availability is 79 of 470 (16.8%).
+=======
+is 2. Exact answer-turn availability is 79 of 470 (16.8%).
+>>>>>>> 39d49c3e (docs(ec-001): close external calibration study)
 
 End-to-end scoring is deliberately bounded. The equal-quota subset scores
 28/140 (20.0%), and post-stratification to the verified benchmark population
@@ -171,13 +175,29 @@ benchmark-comparable LongMemEval scores: API access to the pinned evaluator was
 unavailable, so Amendment 010 substituted Phi, Mistral, and hosted GPT-5.4
 raters with hosted GPT-5.5 AI adjudication. Multi-session and temporal reasoning
 score 0/20; abstention scores 17/20 even though the component emits no absence
+<<<<<<< HEAD
 signal on any of 500 questions. F3 is therefore retired as a component
 requirement under this tested reader, not marked solved as a component
 capability. The registered exact
+=======
+signal on any of 500 questions. The registered exact
+>>>>>>> 39d49c3e (docs(ec-001): close external calibration study)
 availability-minus-correctness gap is −2.54 percentage points, opposite the
 predicted large positive gap.
 
 See `experiments/external/longmemeval/EC_001_REPORT.md`.
+
+EC-002 then held the 500 stores, exact retained vectors, threshold, selector,
+and 32,000-character budget fixed and changed only packing order from
+recency-first to K-first. Any evidence-session recall rose from 109/470 to
+261/470: 152 paired gains and zero losses. Exact-answer-turn-any availability
+rose from 79/470 to 196/470, with 119 gains and two losses. All blocks remained
+truncated; delivered K episodes rose from 26 to 476. This confirms
+recency-first budget exhaustion as a causal gate under the EC-001 adaptation.
+It is offline availability evidence, not reader accuracy, and does not
+authorize production promotion.
+
+See `experiments/external/longmemeval/EC_002_REPORT.md`.
 
 ## The Extracted Library
 
