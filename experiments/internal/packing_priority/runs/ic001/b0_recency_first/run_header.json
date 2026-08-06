@@ -1,0 +1,40 @@
+{
+  "arm": "B0",
+  "budget_chars": 32000,
+  "candidate_source": "experiments/surveys/retrieval_bakeoff/tier6/runs/tier6_live_121_corrected_001/context_matched_stm/logs/context_match.jsonl",
+  "coverage_tier": "empty; the deployed configuration is recency plus a K threshold and populates no coverage tier",
+  "design_commit": "7b578c54aa5643fbc691ed679aab95e531a9e962",
+  "drop_policy": "exact_cost_skip_on_overflow",
+  "embedding_calls": 0,
+  "execution_commit": "b7804a2f615f71e7f7059f7dbd52427b5031dbd3",
+  "inference_calls": 0,
+  "k_threshold": 0.48,
+  "model_calls": 0,
+  "n_cap": 32,
+  "packing_order": [
+    "recency",
+    "k",
+    "coverage"
+  ],
+  "phase": "b0",
+  "pre_registration": "experiments/internal/packing_priority/IC_001_internal_packing_counterfactual.md",
+  "renderer": "post-DR-001 compact exact-cost renderer",
+  "result": {
+    "b0_gate_status": "PASS",
+    "determinism_status": "PASS",
+    "leakage_audit_status": "PASS",
+    "model_call_audit_status": "PASS",
+    "next": "Commit this phase before opening B1.",
+    "phase": "b0",
+    "q11_domain_count": 3,
+    "q11_fact_count": 6,
+    "q11_serialized_chars": 31946,
+    "source_integrity_status": "PASS",
+    "status": "COMPLETE",
+    "study": "IC-001",
+    "targeted_available_total": 14
+  },
+  "seed": 5005,
+  "store": "experiments/surveys/retrieval_bakeoff/tier6/runs/tier6_live_121_corrected_001/context_matched_stm/study.db",
+  "study": "IC-001"
+}

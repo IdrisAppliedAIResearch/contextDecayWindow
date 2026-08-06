@@ -1,0 +1,1482 @@
+{
+  "arm": "B0",
+  "budget_chars": 32000,
+  "drop_policy": "exact_cost_skip_on_overflow",
+  "order_label": "recency -> K -> coverage (deployed)",
+  "packing_order": [
+    "recency",
+    "k",
+    "coverage"
+  ],
+  "probes": {
+    "112": {
+      "budget_chars": 32000,
+      "candidates_by_path": {
+        "coverage": 0,
+        "k": 5,
+        "recency": 32
+      },
+      "considered_ids": [
+        "5df1f239-5a2d-47b3-ac10-207a349db110",
+        "fd7ed8c4-fcff-4d37-9583-d2e7ec97da73",
+        "c690555c-d66b-41d0-82c2-fb591e4a221f",
+        "dc2b025a-0f1e-4344-93bd-a6ab59facd95",
+        "7ed56c34-ddb9-490d-81b8-87848f88ca14",
+        "4d41447d-9776-4ff5-baf3-c38c6974b982",
+        "98015b9a-0576-4fc6-8584-df00a7a888af",
+        "dc96fb4f-c389-4a81-ba3f-e109e814eea5",
+        "27eddd46-3066-4b14-b861-085a67dcd0ac",
+        "598a93b5-f9ba-49b9-abf1-9df4704204fd",
+        "e7f71945-a158-4c8c-9fe8-ec70a1657d39",
+        "84230a8a-c438-46b1-8b4c-9fb1270e8507",
+        "0cd1ea33-3191-48e9-ad90-fde1d44b21b5",
+        "1a6a9faf-acb7-4ee5-b949-f29f0e6c9116",
+        "3392af3a-e027-4205-8003-02085f8ba527",
+        "5505312f-3f23-458c-a3c1-acac220abd08",
+        "1ec94493-58ad-4f1a-96e5-caac118e854f",
+        "48b41502-2e76-4bfd-9d96-be8af9312a55",
+        "1dec9c9e-b948-4ef8-9eaa-aa889c083470",
+        "cb79542d-7dff-4373-9e3d-3583f87da301",
+        "8961ed05-6fe0-42a1-b5cb-fe6aa8b96aa2",
+        "35725a87-15ce-4373-8456-214188818afb",
+        "b4e05297-81cd-4cce-924e-eb1895e881b1",
+        "9b4d93e7-e56a-4c38-90d2-d3dcf218be16",
+        "2b5fee6a-cf47-4d91-9364-db40fb9a6ef6",
+        "c9bfd1d1-914b-4200-9f91-603edafd4bd8",
+        "a05e4997-d883-44ec-9cc0-294af28bb17d",
+        "6a786542-39d2-4027-87be-5538759a9ada",
+        "38c3a5a3-747b-41dd-a653-f1c2b02dac56",
+        "670ec4a0-a435-4fc7-a7c7-1b2f494d4588",
+        "02fa4616-abd4-4d19-8912-e45511987490",
+        "11debcd5-f3de-42df-8927-ccbc7d234f43",
+        "2423ce0b-c305-4d63-820c-d31b616dd8c8"
+      ],
+      "dropped_by_path": {
+        "coverage": [],
+        "k": [
+          "2423ce0b-c305-4d63-820c-d31b616dd8c8"
+        ],
+        "recency": [
+          "598a93b5-f9ba-49b9-abf1-9df4704204fd",
+          "e7f71945-a158-4c8c-9fe8-ec70a1657d39",
+          "84230a8a-c438-46b1-8b4c-9fb1270e8507",
+          "0cd1ea33-3191-48e9-ad90-fde1d44b21b5",
+          "1a6a9faf-acb7-4ee5-b949-f29f0e6c9116",
+          "3392af3a-e027-4205-8003-02085f8ba527",
+          "5505312f-3f23-458c-a3c1-acac220abd08",
+          "1ec94493-58ad-4f1a-96e5-caac118e854f",
+          "48b41502-2e76-4bfd-9d96-be8af9312a55",
+          "1dec9c9e-b948-4ef8-9eaa-aa889c083470",
+          "cb79542d-7dff-4373-9e3d-3583f87da301",
+          "8961ed05-6fe0-42a1-b5cb-fe6aa8b96aa2",
+          "35725a87-15ce-4373-8456-214188818afb",
+          "b4e05297-81cd-4cce-924e-eb1895e881b1",
+          "9b4d93e7-e56a-4c38-90d2-d3dcf218be16",
+          "2b5fee6a-cf47-4d91-9364-db40fb9a6ef6",
+          "c9bfd1d1-914b-4200-9f91-603edafd4bd8",
+          "a05e4997-d883-44ec-9cc0-294af28bb17d",
+          "6a786542-39d2-4027-87be-5538759a9ada",
+          "38c3a5a3-747b-41dd-a653-f1c2b02dac56",
+          "670ec4a0-a435-4fc7-a7c7-1b2f494d4588",
+          "02fa4616-abd4-4d19-8912-e45511987490",
+          "11debcd5-f3de-42df-8927-ccbc7d234f43"
+        ]
+      },
+      "dropped_ids": [
+        "598a93b5-f9ba-49b9-abf1-9df4704204fd",
+        "e7f71945-a158-4c8c-9fe8-ec70a1657d39",
+        "84230a8a-c438-46b1-8b4c-9fb1270e8507",
+        "0cd1ea33-3191-48e9-ad90-fde1d44b21b5",
+        "1a6a9faf-acb7-4ee5-b949-f29f0e6c9116",
+        "3392af3a-e027-4205-8003-02085f8ba527",
+        "5505312f-3f23-458c-a3c1-acac220abd08",
+        "1ec94493-58ad-4f1a-96e5-caac118e854f",
+        "48b41502-2e76-4bfd-9d96-be8af9312a55",
+        "1dec9c9e-b948-4ef8-9eaa-aa889c083470",
+        "cb79542d-7dff-4373-9e3d-3583f87da301",
+        "8961ed05-6fe0-42a1-b5cb-fe6aa8b96aa2",
+        "35725a87-15ce-4373-8456-214188818afb",
+        "b4e05297-81cd-4cce-924e-eb1895e881b1",
+        "9b4d93e7-e56a-4c38-90d2-d3dcf218be16",
+        "2b5fee6a-cf47-4d91-9364-db40fb9a6ef6",
+        "c9bfd1d1-914b-4200-9f91-603edafd4bd8",
+        "a05e4997-d883-44ec-9cc0-294af28bb17d",
+        "6a786542-39d2-4027-87be-5538759a9ada",
+        "38c3a5a3-747b-41dd-a653-f1c2b02dac56",
+        "670ec4a0-a435-4fc7-a7c7-1b2f494d4588",
+        "02fa4616-abd4-4d19-8912-e45511987490",
+        "11debcd5-f3de-42df-8927-ccbc7d234f43",
+        "2423ce0b-c305-4d63-820c-d31b616dd8c8"
+      ],
+      "element_chars_by_path": {
+        "coverage": 0,
+        "k": 0,
+        "recency": 31482
+      },
+      "element_chars_total": 31482,
+      "episode_ids_by_path": {
+        "coverage": [],
+        "k": [],
+        "recency": [
+          "5df1f239-5a2d-47b3-ac10-207a349db110",
+          "fd7ed8c4-fcff-4d37-9583-d2e7ec97da73",
+          "c690555c-d66b-41d0-82c2-fb591e4a221f",
+          "dc2b025a-0f1e-4344-93bd-a6ab59facd95",
+          "7ed56c34-ddb9-490d-81b8-87848f88ca14",
+          "4d41447d-9776-4ff5-baf3-c38c6974b982",
+          "98015b9a-0576-4fc6-8584-df00a7a888af",
+          "dc96fb4f-c389-4a81-ba3f-e109e814eea5",
+          "27eddd46-3066-4b14-b861-085a67dcd0ac"
+        ]
+      },
+      "episodes_by_path": {
+        "coverage": 0,
+        "k": 0,
+        "recency": 9
+      },
+      "overhead_chars": 61,
+      "payload_sha256": "ba5866c72dcd863ea13d0a3370f7c6476e22e6064ed7fa545374950ce3e2643a",
+      "probe_turn": 112,
+      "selected_ids": [
+        "5df1f239-5a2d-47b3-ac10-207a349db110",
+        "fd7ed8c4-fcff-4d37-9583-d2e7ec97da73",
+        "c690555c-d66b-41d0-82c2-fb591e4a221f",
+        "dc2b025a-0f1e-4344-93bd-a6ab59facd95",
+        "7ed56c34-ddb9-490d-81b8-87848f88ca14",
+        "4d41447d-9776-4ff5-baf3-c38c6974b982",
+        "98015b9a-0576-4fc6-8584-df00a7a888af",
+        "dc96fb4f-c389-4a81-ba3f-e109e814eea5",
+        "27eddd46-3066-4b14-b861-085a67dcd0ac"
+      ],
+      "selected_source_turns": [
+        111,
+        83,
+        89,
+        96,
+        103,
+        2,
+        4,
+        7,
+        9
+      ],
+      "serialized_chars": 31543
+    },
+    "113": {
+      "budget_chars": 32000,
+      "candidates_by_path": {
+        "coverage": 0,
+        "k": 6,
+        "recency": 32
+      },
+      "considered_ids": [
+        "5c4446e4-fc4b-40f8-8b27-04cb33c7be57",
+        "1ec94493-58ad-4f1a-96e5-caac118e854f",
+        "48b41502-2e76-4bfd-9d96-be8af9312a55",
+        "1dec9c9e-b948-4ef8-9eaa-aa889c083470",
+        "cb79542d-7dff-4373-9e3d-3583f87da301",
+        "8961ed05-6fe0-42a1-b5cb-fe6aa8b96aa2",
+        "35725a87-15ce-4373-8456-214188818afb",
+        "b4e05297-81cd-4cce-924e-eb1895e881b1",
+        "9b4d93e7-e56a-4c38-90d2-d3dcf218be16",
+        "2b5fee6a-cf47-4d91-9364-db40fb9a6ef6",
+        "c9bfd1d1-914b-4200-9f91-603edafd4bd8",
+        "a05e4997-d883-44ec-9cc0-294af28bb17d",
+        "6a786542-39d2-4027-87be-5538759a9ada",
+        "38c3a5a3-747b-41dd-a653-f1c2b02dac56",
+        "670ec4a0-a435-4fc7-a7c7-1b2f494d4588",
+        "02fa4616-abd4-4d19-8912-e45511987490",
+        "11debcd5-f3de-42df-8927-ccbc7d234f43",
+        "e3775be9-d8db-4286-8e1e-bd4ee9f57ff8",
+        "8dccce8b-66f3-464a-8502-64e5a36ea0dc",
+        "ceb66039-f037-40ff-82e9-95a7b11f951b",
+        "45729f2e-cd29-4889-9af2-afd6fc5f1625",
+        "8793f165-25db-4fb5-a0b3-6837ba2ed952",
+        "de647c60-87ff-4102-9996-697b5d38ac99",
+        "65a29452-ed4f-488f-913e-d76a128dc12d",
+        "db04e44b-c2ff-4654-b4d5-03c9a5a41ac3",
+        "045482c4-8183-4b7e-92ae-e6a7fb92d355",
+        "cdf91933-b446-4536-a8e2-abc867cd0704",
+        "bc129435-b7c7-4795-83bf-9e7ff02a915e",
+        "b40a6a99-54fd-4e44-a632-120d8bb57c6e",
+        "85b13695-afff-4706-9112-22c4c041b269",
+        "d5d24dd1-75d3-4ad6-b3fa-e8aabcf9acce",
+        "c3cfc044-0c32-49c7-90cb-d1ee59561c9b",
+        "98015b9a-0576-4fc6-8584-df00a7a888af",
+        "2423ce0b-c305-4d63-820c-d31b616dd8c8",
+        "27eddd46-3066-4b14-b861-085a67dcd0ac"
+      ],
+      "dropped_by_path": {
+        "coverage": [],
+        "k": [
+          "98015b9a-0576-4fc6-8584-df00a7a888af",
+          "2423ce0b-c305-4d63-820c-d31b616dd8c8",
+          "27eddd46-3066-4b14-b861-085a67dcd0ac"
+        ],
+        "recency": [
+          "c9bfd1d1-914b-4200-9f91-603edafd4bd8",
+          "a05e4997-d883-44ec-9cc0-294af28bb17d",
+          "6a786542-39d2-4027-87be-5538759a9ada",
+          "38c3a5a3-747b-41dd-a653-f1c2b02dac56",
+          "670ec4a0-a435-4fc7-a7c7-1b2f494d4588",
+          "02fa4616-abd4-4d19-8912-e45511987490",
+          "11debcd5-f3de-42df-8927-ccbc7d234f43",
+          "e3775be9-d8db-4286-8e1e-bd4ee9f57ff8",
+          "8dccce8b-66f3-464a-8502-64e5a36ea0dc",
+          "ceb66039-f037-40ff-82e9-95a7b11f951b",
+          "45729f2e-cd29-4889-9af2-afd6fc5f1625",
+          "8793f165-25db-4fb5-a0b3-6837ba2ed952",
+          "de647c60-87ff-4102-9996-697b5d38ac99",
+          "65a29452-ed4f-488f-913e-d76a128dc12d",
+          "db04e44b-c2ff-4654-b4d5-03c9a5a41ac3",
+          "045482c4-8183-4b7e-92ae-e6a7fb92d355",
+          "cdf91933-b446-4536-a8e2-abc867cd0704",
+          "bc129435-b7c7-4795-83bf-9e7ff02a915e",
+          "b40a6a99-54fd-4e44-a632-120d8bb57c6e",
+          "85b13695-afff-4706-9112-22c4c041b269",
+          "d5d24dd1-75d3-4ad6-b3fa-e8aabcf9acce",
+          "c3cfc044-0c32-49c7-90cb-d1ee59561c9b"
+        ]
+      },
+      "dropped_ids": [
+        "c9bfd1d1-914b-4200-9f91-603edafd4bd8",
+        "a05e4997-d883-44ec-9cc0-294af28bb17d",
+        "6a786542-39d2-4027-87be-5538759a9ada",
+        "38c3a5a3-747b-41dd-a653-f1c2b02dac56",
+        "670ec4a0-a435-4fc7-a7c7-1b2f494d4588",
+        "02fa4616-abd4-4d19-8912-e45511987490",
+        "11debcd5-f3de-42df-8927-ccbc7d234f43",
+        "e3775be9-d8db-4286-8e1e-bd4ee9f57ff8",
+        "8dccce8b-66f3-464a-8502-64e5a36ea0dc",
+        "ceb66039-f037-40ff-82e9-95a7b11f951b",
+        "45729f2e-cd29-4889-9af2-afd6fc5f1625",
+        "8793f165-25db-4fb5-a0b3-6837ba2ed952",
+        "de647c60-87ff-4102-9996-697b5d38ac99",
+        "65a29452-ed4f-488f-913e-d76a128dc12d",
+        "db04e44b-c2ff-4654-b4d5-03c9a5a41ac3",
+        "045482c4-8183-4b7e-92ae-e6a7fb92d355",
+        "cdf91933-b446-4536-a8e2-abc867cd0704",
+        "bc129435-b7c7-4795-83bf-9e7ff02a915e",
+        "b40a6a99-54fd-4e44-a632-120d8bb57c6e",
+        "85b13695-afff-4706-9112-22c4c041b269",
+        "d5d24dd1-75d3-4ad6-b3fa-e8aabcf9acce",
+        "c3cfc044-0c32-49c7-90cb-d1ee59561c9b",
+        "98015b9a-0576-4fc6-8584-df00a7a888af",
+        "2423ce0b-c305-4d63-820c-d31b616dd8c8",
+        "27eddd46-3066-4b14-b861-085a67dcd0ac"
+      ],
+      "element_chars_by_path": {
+        "coverage": 0,
+        "k": 0,
+        "recency": 31412
+      },
+      "element_chars_total": 31412,
+      "episode_ids_by_path": {
+        "coverage": [],
+        "k": [],
+        "recency": [
+          "5c4446e4-fc4b-40f8-8b27-04cb33c7be57",
+          "1ec94493-58ad-4f1a-96e5-caac118e854f",
+          "48b41502-2e76-4bfd-9d96-be8af9312a55",
+          "1dec9c9e-b948-4ef8-9eaa-aa889c083470",
+          "cb79542d-7dff-4373-9e3d-3583f87da301",
+          "8961ed05-6fe0-42a1-b5cb-fe6aa8b96aa2",
+          "35725a87-15ce-4373-8456-214188818afb",
+          "b4e05297-81cd-4cce-924e-eb1895e881b1",
+          "9b4d93e7-e56a-4c38-90d2-d3dcf218be16",
+          "2b5fee6a-cf47-4d91-9364-db40fb9a6ef6"
+        ]
+      },
+      "episodes_by_path": {
+        "coverage": 0,
+        "k": 0,
+        "recency": 10
+      },
+      "overhead_chars": 62,
+      "payload_sha256": "7161444f99c7cfe180478bc6d9145e0f331ddc8769be591a7c9155d78a0678b4",
+      "probe_turn": 113,
+      "selected_ids": [
+        "5c4446e4-fc4b-40f8-8b27-04cb33c7be57",
+        "1ec94493-58ad-4f1a-96e5-caac118e854f",
+        "48b41502-2e76-4bfd-9d96-be8af9312a55",
+        "1dec9c9e-b948-4ef8-9eaa-aa889c083470",
+        "cb79542d-7dff-4373-9e3d-3583f87da301",
+        "8961ed05-6fe0-42a1-b5cb-fe6aa8b96aa2",
+        "35725a87-15ce-4373-8456-214188818afb",
+        "b4e05297-81cd-4cce-924e-eb1895e881b1",
+        "9b4d93e7-e56a-4c38-90d2-d3dcf218be16",
+        "2b5fee6a-cf47-4d91-9364-db40fb9a6ef6"
+      ],
+      "selected_source_turns": [
+        112,
+        78,
+        84,
+        90,
+        97,
+        104,
+        3,
+        10,
+        12,
+        20
+      ],
+      "serialized_chars": 31474
+    },
+    "115": {
+      "budget_chars": 32000,
+      "candidates_by_path": {
+        "coverage": 0,
+        "k": 1,
+        "recency": 32
+      },
+      "considered_ids": [
+        "8be0f5af-b452-4acd-b3b6-2afef003e03d",
+        "d5d24dd1-75d3-4ad6-b3fa-e8aabcf9acce",
+        "c3cfc044-0c32-49c7-90cb-d1ee59561c9b",
+        "5f6ecd9f-bf3e-4dac-92be-96123b7e05d1",
+        "7651c072-ce22-4c12-923f-84bf7c817235",
+        "a725d025-92cb-4d29-91c9-df82f356974c",
+        "31de80d9-8487-4f79-8cb9-23dc4b3574cc",
+        "b22fa928-2e44-4da3-970f-1eef06b9af0f",
+        "b2dac773-3bfb-49f9-a07b-a4e51132c073",
+        "437b58a3-40b5-4c60-af49-0a92e164d53f",
+        "908479ee-34b0-40e1-8599-e934ac47df7e",
+        "f8e99b3f-9d39-4cf2-a4a5-bf19ddfbd170",
+        "f2223f95-4c32-455d-917d-06e13a9cc93f",
+        "c134f401-afa1-43d1-9e80-6d5212904c99",
+        "0459c215-b4db-46c5-a071-14ae528b58e4",
+        "cc4ebc0a-8851-4bf5-883d-0b070dd6f174",
+        "2b6a0006-d982-475d-abb0-c419213c2e61",
+        "ce2a39b3-dd40-4084-91b2-cd6b2c8b5701",
+        "af8aeeac-f593-4784-b7a0-eb4907b2a960",
+        "66def2b8-90ff-446c-8ad4-1dc9e35820be",
+        "ed569488-8342-4a97-9c02-9cf487d42f33",
+        "6a01601c-5f66-4663-bf8b-671b9e055ae5",
+        "21cd52d3-077d-43de-8714-487f211f8e1e",
+        "e86465f5-5719-402c-99f2-cf56214cf969",
+        "66fd23b1-3e58-478b-af19-e9170c0ab86b",
+        "f6ec50a8-0243-47e6-9d6b-d5fa2afe4fdf",
+        "7abe80be-01aa-4b89-8720-cfdce04bfd1d",
+        "c2a71b45-9105-44d2-9800-e2b2ea7609e6",
+        "0bf1f893-db4c-43d4-a49f-638299e19b0a",
+        "4e4acf64-6430-4ea0-a316-49eaa0a774fc",
+        "d292f483-31a5-4887-bbdb-7bf15a9460e5",
+        "d1c362a3-c7de-49e5-83db-e324afc858e6"
+      ],
+      "dropped_by_path": {
+        "coverage": [],
+        "k": [],
+        "recency": [
+          "b2dac773-3bfb-49f9-a07b-a4e51132c073",
+          "437b58a3-40b5-4c60-af49-0a92e164d53f",
+          "908479ee-34b0-40e1-8599-e934ac47df7e",
+          "f8e99b3f-9d39-4cf2-a4a5-bf19ddfbd170",
+          "f2223f95-4c32-455d-917d-06e13a9cc93f",
+          "c134f401-afa1-43d1-9e80-6d5212904c99",
+          "0459c215-b4db-46c5-a071-14ae528b58e4",
+          "cc4ebc0a-8851-4bf5-883d-0b070dd6f174",
+          "2b6a0006-d982-475d-abb0-c419213c2e61",
+          "ce2a39b3-dd40-4084-91b2-cd6b2c8b5701",
+          "af8aeeac-f593-4784-b7a0-eb4907b2a960",
+          "66def2b8-90ff-446c-8ad4-1dc9e35820be",
+          "ed569488-8342-4a97-9c02-9cf487d42f33",
+          "6a01601c-5f66-4663-bf8b-671b9e055ae5",
+          "21cd52d3-077d-43de-8714-487f211f8e1e",
+          "e86465f5-5719-402c-99f2-cf56214cf969",
+          "66fd23b1-3e58-478b-af19-e9170c0ab86b",
+          "f6ec50a8-0243-47e6-9d6b-d5fa2afe4fdf",
+          "7abe80be-01aa-4b89-8720-cfdce04bfd1d",
+          "c2a71b45-9105-44d2-9800-e2b2ea7609e6",
+          "4e4acf64-6430-4ea0-a316-49eaa0a774fc",
+          "d292f483-31a5-4887-bbdb-7bf15a9460e5",
+          "d1c362a3-c7de-49e5-83db-e324afc858e6"
+        ]
+      },
+      "dropped_ids": [
+        "b2dac773-3bfb-49f9-a07b-a4e51132c073",
+        "437b58a3-40b5-4c60-af49-0a92e164d53f",
+        "908479ee-34b0-40e1-8599-e934ac47df7e",
+        "f8e99b3f-9d39-4cf2-a4a5-bf19ddfbd170",
+        "f2223f95-4c32-455d-917d-06e13a9cc93f",
+        "c134f401-afa1-43d1-9e80-6d5212904c99",
+        "0459c215-b4db-46c5-a071-14ae528b58e4",
+        "cc4ebc0a-8851-4bf5-883d-0b070dd6f174",
+        "2b6a0006-d982-475d-abb0-c419213c2e61",
+        "ce2a39b3-dd40-4084-91b2-cd6b2c8b5701",
+        "af8aeeac-f593-4784-b7a0-eb4907b2a960",
+        "66def2b8-90ff-446c-8ad4-1dc9e35820be",
+        "ed569488-8342-4a97-9c02-9cf487d42f33",
+        "6a01601c-5f66-4663-bf8b-671b9e055ae5",
+        "21cd52d3-077d-43de-8714-487f211f8e1e",
+        "e86465f5-5719-402c-99f2-cf56214cf969",
+        "66fd23b1-3e58-478b-af19-e9170c0ab86b",
+        "f6ec50a8-0243-47e6-9d6b-d5fa2afe4fdf",
+        "7abe80be-01aa-4b89-8720-cfdce04bfd1d",
+        "c2a71b45-9105-44d2-9800-e2b2ea7609e6",
+        "4e4acf64-6430-4ea0-a316-49eaa0a774fc",
+        "d292f483-31a5-4887-bbdb-7bf15a9460e5",
+        "d1c362a3-c7de-49e5-83db-e324afc858e6"
+      ],
+      "element_chars_by_path": {
+        "coverage": 0,
+        "k": 0,
+        "recency": 31681
+      },
+      "element_chars_total": 31681,
+      "episode_ids_by_path": {
+        "coverage": [],
+        "k": [],
+        "recency": [
+          "8be0f5af-b452-4acd-b3b6-2afef003e03d",
+          "d5d24dd1-75d3-4ad6-b3fa-e8aabcf9acce",
+          "c3cfc044-0c32-49c7-90cb-d1ee59561c9b",
+          "5f6ecd9f-bf3e-4dac-92be-96123b7e05d1",
+          "7651c072-ce22-4c12-923f-84bf7c817235",
+          "a725d025-92cb-4d29-91c9-df82f356974c",
+          "31de80d9-8487-4f79-8cb9-23dc4b3574cc",
+          "b22fa928-2e44-4da3-970f-1eef06b9af0f",
+          "0bf1f893-db4c-43d4-a49f-638299e19b0a"
+        ]
+      },
+      "episodes_by_path": {
+        "coverage": 0,
+        "k": 0,
+        "recency": 9
+      },
+      "overhead_chars": 61,
+      "payload_sha256": "d06e12f88ea1419ec02a8fdcacb04ffb0f5facd235adaf160cf153d745d5bd25",
+      "probe_turn": 115,
+      "selected_ids": [
+        "8be0f5af-b452-4acd-b3b6-2afef003e03d",
+        "d5d24dd1-75d3-4ad6-b3fa-e8aabcf9acce",
+        "c3cfc044-0c32-49c7-90cb-d1ee59561c9b",
+        "5f6ecd9f-bf3e-4dac-92be-96123b7e05d1",
+        "7651c072-ce22-4c12-923f-84bf7c817235",
+        "a725d025-92cb-4d29-91c9-df82f356974c",
+        "31de80d9-8487-4f79-8cb9-23dc4b3574cc",
+        "b22fa928-2e44-4da3-970f-1eef06b9af0f",
+        "0bf1f893-db4c-43d4-a49f-638299e19b0a"
+      ],
+      "selected_source_turns": [
+        114,
+        61,
+        65,
+        70,
+        85,
+        92,
+        106,
+        16,
+        59
+      ],
+      "serialized_chars": 31742
+    },
+    "116": {
+      "budget_chars": 32000,
+      "candidates_by_path": {
+        "coverage": 0,
+        "k": 4,
+        "recency": 32
+      },
+      "considered_ids": [
+        "7307e832-370a-43ea-b25b-449f929de49e",
+        "cc4ebc0a-8851-4bf5-883d-0b070dd6f174",
+        "2b6a0006-d982-475d-abb0-c419213c2e61",
+        "ce2a39b3-dd40-4084-91b2-cd6b2c8b5701",
+        "af8aeeac-f593-4784-b7a0-eb4907b2a960",
+        "66def2b8-90ff-446c-8ad4-1dc9e35820be",
+        "ed569488-8342-4a97-9c02-9cf487d42f33",
+        "6a01601c-5f66-4663-bf8b-671b9e055ae5",
+        "21cd52d3-077d-43de-8714-487f211f8e1e",
+        "e86465f5-5719-402c-99f2-cf56214cf969",
+        "66fd23b1-3e58-478b-af19-e9170c0ab86b",
+        "f6ec50a8-0243-47e6-9d6b-d5fa2afe4fdf",
+        "7abe80be-01aa-4b89-8720-cfdce04bfd1d",
+        "c2a71b45-9105-44d2-9800-e2b2ea7609e6",
+        "0bf1f893-db4c-43d4-a49f-638299e19b0a",
+        "4e4acf64-6430-4ea0-a316-49eaa0a774fc",
+        "d292f483-31a5-4887-bbdb-7bf15a9460e5",
+        "d1c362a3-c7de-49e5-83db-e324afc858e6",
+        "09ed3945-5d08-4255-8276-786f2decfccb",
+        "cbdd42e2-51e4-46a8-abfe-1fe0fb9a0b08",
+        "0f222693-1e97-4a1d-8394-07377c752835",
+        "9fc98cdf-cda0-4683-b78f-90dcf38b895b",
+        "fcb5c2e1-67ab-4b57-888c-1e2ae499b439",
+        "55c2db90-d130-43ee-9576-fc29ea1648cf",
+        "0b9dfd05-682b-41de-83ef-f755d687cc81",
+        "456f82bd-a793-428f-96b8-2d2ed8df336c",
+        "62e64b84-bf8a-40ca-86b6-40981fa44b83",
+        "20d366fb-126c-40bf-bda9-70efa2f4feee",
+        "e69975a2-ebc5-47f3-8f71-2edc23ebc446",
+        "bf01658f-8774-4025-bdc2-be46a5ac3a9c",
+        "b17427a8-3ae0-46e2-94c0-9bca1bf2dd27",
+        "217374b8-4b90-4b31-aa4c-d65066b26200",
+        "6a786542-39d2-4027-87be-5538759a9ada"
+      ],
+      "dropped_by_path": {
+        "coverage": [],
+        "k": [
+          "6a786542-39d2-4027-87be-5538759a9ada"
+        ],
+        "recency": [
+          "21cd52d3-077d-43de-8714-487f211f8e1e",
+          "e86465f5-5719-402c-99f2-cf56214cf969",
+          "66fd23b1-3e58-478b-af19-e9170c0ab86b",
+          "f6ec50a8-0243-47e6-9d6b-d5fa2afe4fdf",
+          "7abe80be-01aa-4b89-8720-cfdce04bfd1d",
+          "c2a71b45-9105-44d2-9800-e2b2ea7609e6",
+          "0bf1f893-db4c-43d4-a49f-638299e19b0a",
+          "4e4acf64-6430-4ea0-a316-49eaa0a774fc",
+          "d292f483-31a5-4887-bbdb-7bf15a9460e5",
+          "d1c362a3-c7de-49e5-83db-e324afc858e6",
+          "09ed3945-5d08-4255-8276-786f2decfccb",
+          "cbdd42e2-51e4-46a8-abfe-1fe0fb9a0b08",
+          "0f222693-1e97-4a1d-8394-07377c752835",
+          "9fc98cdf-cda0-4683-b78f-90dcf38b895b",
+          "fcb5c2e1-67ab-4b57-888c-1e2ae499b439",
+          "55c2db90-d130-43ee-9576-fc29ea1648cf",
+          "0b9dfd05-682b-41de-83ef-f755d687cc81",
+          "456f82bd-a793-428f-96b8-2d2ed8df336c",
+          "62e64b84-bf8a-40ca-86b6-40981fa44b83",
+          "20d366fb-126c-40bf-bda9-70efa2f4feee",
+          "e69975a2-ebc5-47f3-8f71-2edc23ebc446",
+          "bf01658f-8774-4025-bdc2-be46a5ac3a9c",
+          "b17427a8-3ae0-46e2-94c0-9bca1bf2dd27",
+          "217374b8-4b90-4b31-aa4c-d65066b26200"
+        ]
+      },
+      "dropped_ids": [
+        "21cd52d3-077d-43de-8714-487f211f8e1e",
+        "e86465f5-5719-402c-99f2-cf56214cf969",
+        "66fd23b1-3e58-478b-af19-e9170c0ab86b",
+        "f6ec50a8-0243-47e6-9d6b-d5fa2afe4fdf",
+        "7abe80be-01aa-4b89-8720-cfdce04bfd1d",
+        "c2a71b45-9105-44d2-9800-e2b2ea7609e6",
+        "0bf1f893-db4c-43d4-a49f-638299e19b0a",
+        "4e4acf64-6430-4ea0-a316-49eaa0a774fc",
+        "d292f483-31a5-4887-bbdb-7bf15a9460e5",
+        "d1c362a3-c7de-49e5-83db-e324afc858e6",
+        "09ed3945-5d08-4255-8276-786f2decfccb",
+        "cbdd42e2-51e4-46a8-abfe-1fe0fb9a0b08",
+        "0f222693-1e97-4a1d-8394-07377c752835",
+        "9fc98cdf-cda0-4683-b78f-90dcf38b895b",
+        "fcb5c2e1-67ab-4b57-888c-1e2ae499b439",
+        "55c2db90-d130-43ee-9576-fc29ea1648cf",
+        "0b9dfd05-682b-41de-83ef-f755d687cc81",
+        "456f82bd-a793-428f-96b8-2d2ed8df336c",
+        "62e64b84-bf8a-40ca-86b6-40981fa44b83",
+        "20d366fb-126c-40bf-bda9-70efa2f4feee",
+        "e69975a2-ebc5-47f3-8f71-2edc23ebc446",
+        "bf01658f-8774-4025-bdc2-be46a5ac3a9c",
+        "b17427a8-3ae0-46e2-94c0-9bca1bf2dd27",
+        "217374b8-4b90-4b31-aa4c-d65066b26200",
+        "6a786542-39d2-4027-87be-5538759a9ada"
+      ],
+      "element_chars_by_path": {
+        "coverage": 0,
+        "k": 0,
+        "recency": 30340
+      },
+      "element_chars_total": 30340,
+      "episode_ids_by_path": {
+        "coverage": [],
+        "k": [],
+        "recency": [
+          "7307e832-370a-43ea-b25b-449f929de49e",
+          "cc4ebc0a-8851-4bf5-883d-0b070dd6f174",
+          "2b6a0006-d982-475d-abb0-c419213c2e61",
+          "ce2a39b3-dd40-4084-91b2-cd6b2c8b5701",
+          "af8aeeac-f593-4784-b7a0-eb4907b2a960",
+          "66def2b8-90ff-446c-8ad4-1dc9e35820be",
+          "ed569488-8342-4a97-9c02-9cf487d42f33",
+          "6a01601c-5f66-4663-bf8b-671b9e055ae5"
+        ]
+      },
+      "episodes_by_path": {
+        "coverage": 0,
+        "k": 0,
+        "recency": 8
+      },
+      "overhead_chars": 60,
+      "payload_sha256": "a53b255a498c59ed2ba7a648c0f581fea1095c6210c05999b0b2eb3f79875367",
+      "probe_turn": 116,
+      "selected_ids": [
+        "7307e832-370a-43ea-b25b-449f929de49e",
+        "cc4ebc0a-8851-4bf5-883d-0b070dd6f174",
+        "2b6a0006-d982-475d-abb0-c419213c2e61",
+        "ce2a39b3-dd40-4084-91b2-cd6b2c8b5701",
+        "af8aeeac-f593-4784-b7a0-eb4907b2a960",
+        "66def2b8-90ff-446c-8ad4-1dc9e35820be",
+        "ed569488-8342-4a97-9c02-9cf487d42f33",
+        "6a01601c-5f66-4663-bf8b-671b9e055ae5"
+      ],
+      "selected_source_turns": [
+        115,
+        66,
+        80,
+        86,
+        99,
+        100,
+        107,
+        6
+      ],
+      "serialized_chars": 30400
+    },
+    "117": {
+      "budget_chars": 32000,
+      "candidates_by_path": {
+        "coverage": 0,
+        "k": 3,
+        "recency": 32
+      },
+      "considered_ids": [
+        "4c611a05-6ad0-434a-a188-1cdb941acf58",
+        "4e4acf64-6430-4ea0-a316-49eaa0a774fc",
+        "d292f483-31a5-4887-bbdb-7bf15a9460e5",
+        "d1c362a3-c7de-49e5-83db-e324afc858e6",
+        "09ed3945-5d08-4255-8276-786f2decfccb",
+        "cbdd42e2-51e4-46a8-abfe-1fe0fb9a0b08",
+        "9fc98cdf-cda0-4683-b78f-90dcf38b895b",
+        "fcb5c2e1-67ab-4b57-888c-1e2ae499b439",
+        "55c2db90-d130-43ee-9576-fc29ea1648cf",
+        "0b9dfd05-682b-41de-83ef-f755d687cc81",
+        "456f82bd-a793-428f-96b8-2d2ed8df336c",
+        "62e64b84-bf8a-40ca-86b6-40981fa44b83",
+        "20d366fb-126c-40bf-bda9-70efa2f4feee",
+        "e69975a2-ebc5-47f3-8f71-2edc23ebc446",
+        "bf01658f-8774-4025-bdc2-be46a5ac3a9c",
+        "b17427a8-3ae0-46e2-94c0-9bca1bf2dd27",
+        "217374b8-4b90-4b31-aa4c-d65066b26200",
+        "9636b90b-68cd-48a5-91d1-268468c5a0f0",
+        "f096285c-a9c2-498b-8ae7-52db595fa54e",
+        "edcb6d0e-5dcb-4556-b43c-8d369bc9766a",
+        "0c23cfc6-9d76-4b21-a51b-ba4ae395c86a",
+        "684bcca8-46cd-482a-b56d-f2780d4f7bf2",
+        "2423ce0b-c305-4d63-820c-d31b616dd8c8",
+        "803dc8e7-e49c-4953-9aa9-c87b7c0bd8dd",
+        "385e79b1-58a0-4275-9ec5-e253f4aa6eaa",
+        "f5cad6e5-07d0-4cc7-87a5-b8d6dc8359ad",
+        "5ded4e7a-d80c-4cd5-a6c8-0fff1ae223f9",
+        "917fbcd0-d3a5-4fae-9a0d-f26f8528ee49",
+        "111e3e3f-6c5a-438f-8084-083ed2af62df",
+        "7d7e6a4f-a8a5-4b02-96fb-b71ab1164f76",
+        "412b14b3-22dc-450a-823a-96078c7cb063",
+        "cbd2d2e1-b37b-449d-996e-9e90aa473b6a",
+        "0bf1f893-db4c-43d4-a49f-638299e19b0a",
+        "7307e832-370a-43ea-b25b-449f929de49e"
+      ],
+      "dropped_by_path": {
+        "coverage": [],
+        "k": [
+          "0bf1f893-db4c-43d4-a49f-638299e19b0a",
+          "7307e832-370a-43ea-b25b-449f929de49e"
+        ],
+        "recency": [
+          "fcb5c2e1-67ab-4b57-888c-1e2ae499b439",
+          "55c2db90-d130-43ee-9576-fc29ea1648cf",
+          "0b9dfd05-682b-41de-83ef-f755d687cc81",
+          "456f82bd-a793-428f-96b8-2d2ed8df336c",
+          "62e64b84-bf8a-40ca-86b6-40981fa44b83",
+          "20d366fb-126c-40bf-bda9-70efa2f4feee",
+          "e69975a2-ebc5-47f3-8f71-2edc23ebc446",
+          "bf01658f-8774-4025-bdc2-be46a5ac3a9c",
+          "b17427a8-3ae0-46e2-94c0-9bca1bf2dd27",
+          "9636b90b-68cd-48a5-91d1-268468c5a0f0",
+          "f096285c-a9c2-498b-8ae7-52db595fa54e",
+          "edcb6d0e-5dcb-4556-b43c-8d369bc9766a",
+          "0c23cfc6-9d76-4b21-a51b-ba4ae395c86a",
+          "684bcca8-46cd-482a-b56d-f2780d4f7bf2",
+          "2423ce0b-c305-4d63-820c-d31b616dd8c8",
+          "803dc8e7-e49c-4953-9aa9-c87b7c0bd8dd",
+          "385e79b1-58a0-4275-9ec5-e253f4aa6eaa",
+          "f5cad6e5-07d0-4cc7-87a5-b8d6dc8359ad",
+          "5ded4e7a-d80c-4cd5-a6c8-0fff1ae223f9",
+          "917fbcd0-d3a5-4fae-9a0d-f26f8528ee49",
+          "111e3e3f-6c5a-438f-8084-083ed2af62df",
+          "7d7e6a4f-a8a5-4b02-96fb-b71ab1164f76",
+          "412b14b3-22dc-450a-823a-96078c7cb063",
+          "cbd2d2e1-b37b-449d-996e-9e90aa473b6a"
+        ]
+      },
+      "dropped_ids": [
+        "fcb5c2e1-67ab-4b57-888c-1e2ae499b439",
+        "55c2db90-d130-43ee-9576-fc29ea1648cf",
+        "0b9dfd05-682b-41de-83ef-f755d687cc81",
+        "456f82bd-a793-428f-96b8-2d2ed8df336c",
+        "62e64b84-bf8a-40ca-86b6-40981fa44b83",
+        "20d366fb-126c-40bf-bda9-70efa2f4feee",
+        "e69975a2-ebc5-47f3-8f71-2edc23ebc446",
+        "bf01658f-8774-4025-bdc2-be46a5ac3a9c",
+        "b17427a8-3ae0-46e2-94c0-9bca1bf2dd27",
+        "9636b90b-68cd-48a5-91d1-268468c5a0f0",
+        "f096285c-a9c2-498b-8ae7-52db595fa54e",
+        "edcb6d0e-5dcb-4556-b43c-8d369bc9766a",
+        "0c23cfc6-9d76-4b21-a51b-ba4ae395c86a",
+        "684bcca8-46cd-482a-b56d-f2780d4f7bf2",
+        "2423ce0b-c305-4d63-820c-d31b616dd8c8",
+        "803dc8e7-e49c-4953-9aa9-c87b7c0bd8dd",
+        "385e79b1-58a0-4275-9ec5-e253f4aa6eaa",
+        "f5cad6e5-07d0-4cc7-87a5-b8d6dc8359ad",
+        "5ded4e7a-d80c-4cd5-a6c8-0fff1ae223f9",
+        "917fbcd0-d3a5-4fae-9a0d-f26f8528ee49",
+        "111e3e3f-6c5a-438f-8084-083ed2af62df",
+        "7d7e6a4f-a8a5-4b02-96fb-b71ab1164f76",
+        "412b14b3-22dc-450a-823a-96078c7cb063",
+        "cbd2d2e1-b37b-449d-996e-9e90aa473b6a",
+        "0bf1f893-db4c-43d4-a49f-638299e19b0a",
+        "7307e832-370a-43ea-b25b-449f929de49e"
+      ],
+      "element_chars_by_path": {
+        "coverage": 0,
+        "k": 0,
+        "recency": 31754
+      },
+      "element_chars_total": 31754,
+      "episode_ids_by_path": {
+        "coverage": [],
+        "k": [],
+        "recency": [
+          "4c611a05-6ad0-434a-a188-1cdb941acf58",
+          "4e4acf64-6430-4ea0-a316-49eaa0a774fc",
+          "d292f483-31a5-4887-bbdb-7bf15a9460e5",
+          "d1c362a3-c7de-49e5-83db-e324afc858e6",
+          "09ed3945-5d08-4255-8276-786f2decfccb",
+          "cbdd42e2-51e4-46a8-abfe-1fe0fb9a0b08",
+          "9fc98cdf-cda0-4683-b78f-90dcf38b895b",
+          "217374b8-4b90-4b31-aa4c-d65066b26200"
+        ]
+      },
+      "episodes_by_path": {
+        "coverage": 0,
+        "k": 0,
+        "recency": 8
+      },
+      "overhead_chars": 60,
+      "payload_sha256": "a2cd3f5ac2822138509b9e7d3cefe691412c8a180d45876c65aefc51b058b874",
+      "probe_turn": 117,
+      "selected_ids": [
+        "4c611a05-6ad0-434a-a188-1cdb941acf58",
+        "4e4acf64-6430-4ea0-a316-49eaa0a774fc",
+        "d292f483-31a5-4887-bbdb-7bf15a9460e5",
+        "d1c362a3-c7de-49e5-83db-e324afc858e6",
+        "09ed3945-5d08-4255-8276-786f2decfccb",
+        "cbdd42e2-51e4-46a8-abfe-1fe0fb9a0b08",
+        "9fc98cdf-cda0-4683-b78f-90dcf38b895b",
+        "217374b8-4b90-4b31-aa4c-d65066b26200"
+      ],
+      "selected_source_turns": [
+        116,
+        63,
+        71,
+        75,
+        81,
+        93,
+        108,
+        67
+      ],
+      "serialized_chars": 31814
+    },
+    "118": {
+      "budget_chars": 32000,
+      "candidates_by_path": {
+        "coverage": 0,
+        "k": 0,
+        "recency": 32
+      },
+      "considered_ids": [
+        "c3e4e2fb-c750-4dc8-8c29-a98e0a2f5dd5",
+        "bf01658f-8774-4025-bdc2-be46a5ac3a9c",
+        "217374b8-4b90-4b31-aa4c-d65066b26200",
+        "9636b90b-68cd-48a5-91d1-268468c5a0f0",
+        "f096285c-a9c2-498b-8ae7-52db595fa54e",
+        "edcb6d0e-5dcb-4556-b43c-8d369bc9766a",
+        "0c23cfc6-9d76-4b21-a51b-ba4ae395c86a",
+        "684bcca8-46cd-482a-b56d-f2780d4f7bf2",
+        "2423ce0b-c305-4d63-820c-d31b616dd8c8",
+        "803dc8e7-e49c-4953-9aa9-c87b7c0bd8dd",
+        "385e79b1-58a0-4275-9ec5-e253f4aa6eaa",
+        "f5cad6e5-07d0-4cc7-87a5-b8d6dc8359ad",
+        "5ded4e7a-d80c-4cd5-a6c8-0fff1ae223f9",
+        "917fbcd0-d3a5-4fae-9a0d-f26f8528ee49",
+        "111e3e3f-6c5a-438f-8084-083ed2af62df",
+        "7d7e6a4f-a8a5-4b02-96fb-b71ab1164f76",
+        "412b14b3-22dc-450a-823a-96078c7cb063",
+        "cbd2d2e1-b37b-449d-996e-9e90aa473b6a",
+        "c935ae96-f255-40a3-afcd-094159f48b91",
+        "e4a9993f-3117-44c3-b997-662a8cf3f188",
+        "52a69b27-f6ac-43b8-8b89-ecf1859a5e19",
+        "c6853501-e40c-4f70-8394-52fb19d8b3cf",
+        "70351c1e-c8bb-4a20-8925-559b39e0e936",
+        "4d41447d-9776-4ff5-baf3-c38c6974b982",
+        "dc96fb4f-c389-4a81-ba3f-e109e814eea5",
+        "27eddd46-3066-4b14-b861-085a67dcd0ac",
+        "598a93b5-f9ba-49b9-abf1-9df4704204fd",
+        "e7f71945-a158-4c8c-9fe8-ec70a1657d39",
+        "84230a8a-c438-46b1-8b4c-9fb1270e8507",
+        "0cd1ea33-3191-48e9-ad90-fde1d44b21b5",
+        "1a6a9faf-acb7-4ee5-b949-f29f0e6c9116",
+        "3392af3a-e027-4205-8003-02085f8ba527"
+      ],
+      "dropped_by_path": {
+        "coverage": [],
+        "k": [],
+        "recency": [
+          "684bcca8-46cd-482a-b56d-f2780d4f7bf2",
+          "803dc8e7-e49c-4953-9aa9-c87b7c0bd8dd",
+          "f5cad6e5-07d0-4cc7-87a5-b8d6dc8359ad",
+          "5ded4e7a-d80c-4cd5-a6c8-0fff1ae223f9",
+          "917fbcd0-d3a5-4fae-9a0d-f26f8528ee49",
+          "111e3e3f-6c5a-438f-8084-083ed2af62df",
+          "7d7e6a4f-a8a5-4b02-96fb-b71ab1164f76",
+          "412b14b3-22dc-450a-823a-96078c7cb063",
+          "cbd2d2e1-b37b-449d-996e-9e90aa473b6a",
+          "c935ae96-f255-40a3-afcd-094159f48b91",
+          "e4a9993f-3117-44c3-b997-662a8cf3f188",
+          "52a69b27-f6ac-43b8-8b89-ecf1859a5e19",
+          "c6853501-e40c-4f70-8394-52fb19d8b3cf",
+          "70351c1e-c8bb-4a20-8925-559b39e0e936",
+          "dc96fb4f-c389-4a81-ba3f-e109e814eea5",
+          "27eddd46-3066-4b14-b861-085a67dcd0ac",
+          "598a93b5-f9ba-49b9-abf1-9df4704204fd",
+          "e7f71945-a158-4c8c-9fe8-ec70a1657d39",
+          "84230a8a-c438-46b1-8b4c-9fb1270e8507",
+          "0cd1ea33-3191-48e9-ad90-fde1d44b21b5",
+          "1a6a9faf-acb7-4ee5-b949-f29f0e6c9116",
+          "3392af3a-e027-4205-8003-02085f8ba527"
+        ]
+      },
+      "dropped_ids": [
+        "684bcca8-46cd-482a-b56d-f2780d4f7bf2",
+        "803dc8e7-e49c-4953-9aa9-c87b7c0bd8dd",
+        "f5cad6e5-07d0-4cc7-87a5-b8d6dc8359ad",
+        "5ded4e7a-d80c-4cd5-a6c8-0fff1ae223f9",
+        "917fbcd0-d3a5-4fae-9a0d-f26f8528ee49",
+        "111e3e3f-6c5a-438f-8084-083ed2af62df",
+        "7d7e6a4f-a8a5-4b02-96fb-b71ab1164f76",
+        "412b14b3-22dc-450a-823a-96078c7cb063",
+        "cbd2d2e1-b37b-449d-996e-9e90aa473b6a",
+        "c935ae96-f255-40a3-afcd-094159f48b91",
+        "e4a9993f-3117-44c3-b997-662a8cf3f188",
+        "52a69b27-f6ac-43b8-8b89-ecf1859a5e19",
+        "c6853501-e40c-4f70-8394-52fb19d8b3cf",
+        "70351c1e-c8bb-4a20-8925-559b39e0e936",
+        "dc96fb4f-c389-4a81-ba3f-e109e814eea5",
+        "27eddd46-3066-4b14-b861-085a67dcd0ac",
+        "598a93b5-f9ba-49b9-abf1-9df4704204fd",
+        "e7f71945-a158-4c8c-9fe8-ec70a1657d39",
+        "84230a8a-c438-46b1-8b4c-9fb1270e8507",
+        "0cd1ea33-3191-48e9-ad90-fde1d44b21b5",
+        "1a6a9faf-acb7-4ee5-b949-f29f0e6c9116",
+        "3392af3a-e027-4205-8003-02085f8ba527"
+      ],
+      "element_chars_by_path": {
+        "coverage": 0,
+        "k": 0,
+        "recency": 31793
+      },
+      "element_chars_total": 31793,
+      "episode_ids_by_path": {
+        "coverage": [],
+        "k": [],
+        "recency": [
+          "c3e4e2fb-c750-4dc8-8c29-a98e0a2f5dd5",
+          "bf01658f-8774-4025-bdc2-be46a5ac3a9c",
+          "217374b8-4b90-4b31-aa4c-d65066b26200",
+          "9636b90b-68cd-48a5-91d1-268468c5a0f0",
+          "f096285c-a9c2-498b-8ae7-52db595fa54e",
+          "edcb6d0e-5dcb-4556-b43c-8d369bc9766a",
+          "0c23cfc6-9d76-4b21-a51b-ba4ae395c86a",
+          "2423ce0b-c305-4d63-820c-d31b616dd8c8",
+          "385e79b1-58a0-4275-9ec5-e253f4aa6eaa",
+          "4d41447d-9776-4ff5-baf3-c38c6974b982"
+        ]
+      },
+      "episodes_by_path": {
+        "coverage": 0,
+        "k": 0,
+        "recency": 10
+      },
+      "overhead_chars": 62,
+      "payload_sha256": "84253d4a1b035d8619acaa178d924a0d76679dd074022d99ed0deee1a42d689a",
+      "probe_turn": 118,
+      "selected_ids": [
+        "c3e4e2fb-c750-4dc8-8c29-a98e0a2f5dd5",
+        "bf01658f-8774-4025-bdc2-be46a5ac3a9c",
+        "217374b8-4b90-4b31-aa4c-d65066b26200",
+        "9636b90b-68cd-48a5-91d1-268468c5a0f0",
+        "f096285c-a9c2-498b-8ae7-52db595fa54e",
+        "edcb6d0e-5dcb-4556-b43c-8d369bc9766a",
+        "0c23cfc6-9d76-4b21-a51b-ba4ae395c86a",
+        "2423ce0b-c305-4d63-820c-d31b616dd8c8",
+        "385e79b1-58a0-4275-9ec5-e253f4aa6eaa",
+        "4d41447d-9776-4ff5-baf3-c38c6974b982"
+      ],
+      "selected_source_turns": [
+        117,
+        52,
+        67,
+        76,
+        87,
+        101,
+        102,
+        5,
+        11,
+        2
+      ],
+      "serialized_chars": 31855
+    },
+    "119": {
+      "budget_chars": 32000,
+      "candidates_by_path": {
+        "coverage": 0,
+        "k": 0,
+        "recency": 32
+      },
+      "considered_ids": [
+        "77a1d148-12da-4a70-874d-42e816497c9a",
+        "412b14b3-22dc-450a-823a-96078c7cb063",
+        "cbd2d2e1-b37b-449d-996e-9e90aa473b6a",
+        "c935ae96-f255-40a3-afcd-094159f48b91",
+        "e4a9993f-3117-44c3-b997-662a8cf3f188",
+        "52a69b27-f6ac-43b8-8b89-ecf1859a5e19",
+        "c6853501-e40c-4f70-8394-52fb19d8b3cf",
+        "70351c1e-c8bb-4a20-8925-559b39e0e936",
+        "4d41447d-9776-4ff5-baf3-c38c6974b982",
+        "dc96fb4f-c389-4a81-ba3f-e109e814eea5",
+        "27eddd46-3066-4b14-b861-085a67dcd0ac",
+        "598a93b5-f9ba-49b9-abf1-9df4704204fd",
+        "e7f71945-a158-4c8c-9fe8-ec70a1657d39",
+        "84230a8a-c438-46b1-8b4c-9fb1270e8507",
+        "0cd1ea33-3191-48e9-ad90-fde1d44b21b5",
+        "1a6a9faf-acb7-4ee5-b949-f29f0e6c9116",
+        "3392af3a-e027-4205-8003-02085f8ba527",
+        "5505312f-3f23-458c-a3c1-acac220abd08",
+        "fd7ed8c4-fcff-4d37-9583-d2e7ec97da73",
+        "c690555c-d66b-41d0-82c2-fb591e4a221f",
+        "dc2b025a-0f1e-4344-93bd-a6ab59facd95",
+        "7ed56c34-ddb9-490d-81b8-87848f88ca14",
+        "5df1f239-5a2d-47b3-ac10-207a349db110",
+        "35725a87-15ce-4373-8456-214188818afb",
+        "98015b9a-0576-4fc6-8584-df00a7a888af",
+        "b4e05297-81cd-4cce-924e-eb1895e881b1",
+        "9b4d93e7-e56a-4c38-90d2-d3dcf218be16",
+        "2b5fee6a-cf47-4d91-9364-db40fb9a6ef6",
+        "c9bfd1d1-914b-4200-9f91-603edafd4bd8",
+        "a05e4997-d883-44ec-9cc0-294af28bb17d",
+        "6a786542-39d2-4027-87be-5538759a9ada",
+        "38c3a5a3-747b-41dd-a653-f1c2b02dac56"
+      ],
+      "dropped_by_path": {
+        "coverage": [],
+        "k": [],
+        "recency": [
+          "70351c1e-c8bb-4a20-8925-559b39e0e936",
+          "27eddd46-3066-4b14-b861-085a67dcd0ac",
+          "598a93b5-f9ba-49b9-abf1-9df4704204fd",
+          "e7f71945-a158-4c8c-9fe8-ec70a1657d39",
+          "84230a8a-c438-46b1-8b4c-9fb1270e8507",
+          "0cd1ea33-3191-48e9-ad90-fde1d44b21b5",
+          "1a6a9faf-acb7-4ee5-b949-f29f0e6c9116",
+          "3392af3a-e027-4205-8003-02085f8ba527",
+          "5505312f-3f23-458c-a3c1-acac220abd08",
+          "fd7ed8c4-fcff-4d37-9583-d2e7ec97da73",
+          "c690555c-d66b-41d0-82c2-fb591e4a221f",
+          "dc2b025a-0f1e-4344-93bd-a6ab59facd95",
+          "7ed56c34-ddb9-490d-81b8-87848f88ca14",
+          "5df1f239-5a2d-47b3-ac10-207a349db110",
+          "35725a87-15ce-4373-8456-214188818afb",
+          "98015b9a-0576-4fc6-8584-df00a7a888af",
+          "b4e05297-81cd-4cce-924e-eb1895e881b1",
+          "9b4d93e7-e56a-4c38-90d2-d3dcf218be16",
+          "2b5fee6a-cf47-4d91-9364-db40fb9a6ef6",
+          "c9bfd1d1-914b-4200-9f91-603edafd4bd8",
+          "a05e4997-d883-44ec-9cc0-294af28bb17d",
+          "6a786542-39d2-4027-87be-5538759a9ada",
+          "38c3a5a3-747b-41dd-a653-f1c2b02dac56"
+        ]
+      },
+      "dropped_ids": [
+        "70351c1e-c8bb-4a20-8925-559b39e0e936",
+        "27eddd46-3066-4b14-b861-085a67dcd0ac",
+        "598a93b5-f9ba-49b9-abf1-9df4704204fd",
+        "e7f71945-a158-4c8c-9fe8-ec70a1657d39",
+        "84230a8a-c438-46b1-8b4c-9fb1270e8507",
+        "0cd1ea33-3191-48e9-ad90-fde1d44b21b5",
+        "1a6a9faf-acb7-4ee5-b949-f29f0e6c9116",
+        "3392af3a-e027-4205-8003-02085f8ba527",
+        "5505312f-3f23-458c-a3c1-acac220abd08",
+        "fd7ed8c4-fcff-4d37-9583-d2e7ec97da73",
+        "c690555c-d66b-41d0-82c2-fb591e4a221f",
+        "dc2b025a-0f1e-4344-93bd-a6ab59facd95",
+        "7ed56c34-ddb9-490d-81b8-87848f88ca14",
+        "5df1f239-5a2d-47b3-ac10-207a349db110",
+        "35725a87-15ce-4373-8456-214188818afb",
+        "98015b9a-0576-4fc6-8584-df00a7a888af",
+        "b4e05297-81cd-4cce-924e-eb1895e881b1",
+        "9b4d93e7-e56a-4c38-90d2-d3dcf218be16",
+        "2b5fee6a-cf47-4d91-9364-db40fb9a6ef6",
+        "c9bfd1d1-914b-4200-9f91-603edafd4bd8",
+        "a05e4997-d883-44ec-9cc0-294af28bb17d",
+        "6a786542-39d2-4027-87be-5538759a9ada",
+        "38c3a5a3-747b-41dd-a653-f1c2b02dac56"
+      ],
+      "element_chars_by_path": {
+        "coverage": 0,
+        "k": 0,
+        "recency": 31730
+      },
+      "element_chars_total": 31730,
+      "episode_ids_by_path": {
+        "coverage": [],
+        "k": [],
+        "recency": [
+          "77a1d148-12da-4a70-874d-42e816497c9a",
+          "412b14b3-22dc-450a-823a-96078c7cb063",
+          "cbd2d2e1-b37b-449d-996e-9e90aa473b6a",
+          "c935ae96-f255-40a3-afcd-094159f48b91",
+          "e4a9993f-3117-44c3-b997-662a8cf3f188",
+          "52a69b27-f6ac-43b8-8b89-ecf1859a5e19",
+          "c6853501-e40c-4f70-8394-52fb19d8b3cf",
+          "4d41447d-9776-4ff5-baf3-c38c6974b982",
+          "dc96fb4f-c389-4a81-ba3f-e109e814eea5"
+        ]
+      },
+      "episodes_by_path": {
+        "coverage": 0,
+        "k": 0,
+        "recency": 9
+      },
+      "overhead_chars": 61,
+      "payload_sha256": "b5a528d65e8e6e9a4cbe66f45243948ea0750349b140e9c2f6a6ae70af59a7fe",
+      "probe_turn": 119,
+      "selected_ids": [
+        "77a1d148-12da-4a70-874d-42e816497c9a",
+        "412b14b3-22dc-450a-823a-96078c7cb063",
+        "cbd2d2e1-b37b-449d-996e-9e90aa473b6a",
+        "c935ae96-f255-40a3-afcd-094159f48b91",
+        "e4a9993f-3117-44c3-b997-662a8cf3f188",
+        "52a69b27-f6ac-43b8-8b89-ecf1859a5e19",
+        "c6853501-e40c-4f70-8394-52fb19d8b3cf",
+        "4d41447d-9776-4ff5-baf3-c38c6974b982",
+        "dc96fb4f-c389-4a81-ba3f-e109e814eea5"
+      ],
+      "selected_source_turns": [
+        118,
+        60,
+        72,
+        77,
+        82,
+        88,
+        95,
+        2,
+        7
+      ],
+      "serialized_chars": 31791
+    },
+    "120": {
+      "budget_chars": 32000,
+      "candidates_by_path": {
+        "coverage": 0,
+        "k": 3,
+        "recency": 32
+      },
+      "considered_ids": [
+        "34f5bb4c-c590-4d6c-8a11-7d4e2ed134a7",
+        "3392af3a-e027-4205-8003-02085f8ba527",
+        "5505312f-3f23-458c-a3c1-acac220abd08",
+        "fd7ed8c4-fcff-4d37-9583-d2e7ec97da73",
+        "c690555c-d66b-41d0-82c2-fb591e4a221f",
+        "dc2b025a-0f1e-4344-93bd-a6ab59facd95",
+        "7ed56c34-ddb9-490d-81b8-87848f88ca14",
+        "5df1f239-5a2d-47b3-ac10-207a349db110",
+        "98015b9a-0576-4fc6-8584-df00a7a888af",
+        "b4e05297-81cd-4cce-924e-eb1895e881b1",
+        "9b4d93e7-e56a-4c38-90d2-d3dcf218be16",
+        "2b5fee6a-cf47-4d91-9364-db40fb9a6ef6",
+        "c9bfd1d1-914b-4200-9f91-603edafd4bd8",
+        "a05e4997-d883-44ec-9cc0-294af28bb17d",
+        "6a786542-39d2-4027-87be-5538759a9ada",
+        "38c3a5a3-747b-41dd-a653-f1c2b02dac56",
+        "670ec4a0-a435-4fc7-a7c7-1b2f494d4588",
+        "02fa4616-abd4-4d19-8912-e45511987490",
+        "1ec94493-58ad-4f1a-96e5-caac118e854f",
+        "48b41502-2e76-4bfd-9d96-be8af9312a55",
+        "1dec9c9e-b948-4ef8-9eaa-aa889c083470",
+        "cb79542d-7dff-4373-9e3d-3583f87da301",
+        "8961ed05-6fe0-42a1-b5cb-fe6aa8b96aa2",
+        "5c4446e4-fc4b-40f8-8b27-04cb33c7be57",
+        "e4286c8d-3430-43d1-9a53-15c87df89493",
+        "8793f165-25db-4fb5-a0b3-6837ba2ed952",
+        "de647c60-87ff-4102-9996-697b5d38ac99",
+        "65a29452-ed4f-488f-913e-d76a128dc12d",
+        "db04e44b-c2ff-4654-b4d5-03c9a5a41ac3",
+        "045482c4-8183-4b7e-92ae-e6a7fb92d355",
+        "cdf91933-b446-4536-a8e2-abc867cd0704",
+        "bc129435-b7c7-4795-83bf-9e7ff02a915e",
+        "4d41447d-9776-4ff5-baf3-c38c6974b982",
+        "8be0f5af-b452-4acd-b3b6-2afef003e03d"
+      ],
+      "dropped_by_path": {
+        "coverage": [],
+        "k": [
+          "4d41447d-9776-4ff5-baf3-c38c6974b982",
+          "8be0f5af-b452-4acd-b3b6-2afef003e03d"
+        ],
+        "recency": [
+          "5df1f239-5a2d-47b3-ac10-207a349db110",
+          "b4e05297-81cd-4cce-924e-eb1895e881b1",
+          "9b4d93e7-e56a-4c38-90d2-d3dcf218be16",
+          "2b5fee6a-cf47-4d91-9364-db40fb9a6ef6",
+          "c9bfd1d1-914b-4200-9f91-603edafd4bd8",
+          "a05e4997-d883-44ec-9cc0-294af28bb17d",
+          "6a786542-39d2-4027-87be-5538759a9ada",
+          "38c3a5a3-747b-41dd-a653-f1c2b02dac56",
+          "670ec4a0-a435-4fc7-a7c7-1b2f494d4588",
+          "02fa4616-abd4-4d19-8912-e45511987490",
+          "1ec94493-58ad-4f1a-96e5-caac118e854f",
+          "48b41502-2e76-4bfd-9d96-be8af9312a55",
+          "1dec9c9e-b948-4ef8-9eaa-aa889c083470",
+          "cb79542d-7dff-4373-9e3d-3583f87da301",
+          "8961ed05-6fe0-42a1-b5cb-fe6aa8b96aa2",
+          "5c4446e4-fc4b-40f8-8b27-04cb33c7be57",
+          "e4286c8d-3430-43d1-9a53-15c87df89493",
+          "8793f165-25db-4fb5-a0b3-6837ba2ed952",
+          "de647c60-87ff-4102-9996-697b5d38ac99",
+          "65a29452-ed4f-488f-913e-d76a128dc12d",
+          "db04e44b-c2ff-4654-b4d5-03c9a5a41ac3",
+          "045482c4-8183-4b7e-92ae-e6a7fb92d355",
+          "cdf91933-b446-4536-a8e2-abc867cd0704",
+          "bc129435-b7c7-4795-83bf-9e7ff02a915e"
+        ]
+      },
+      "dropped_ids": [
+        "5df1f239-5a2d-47b3-ac10-207a349db110",
+        "b4e05297-81cd-4cce-924e-eb1895e881b1",
+        "9b4d93e7-e56a-4c38-90d2-d3dcf218be16",
+        "2b5fee6a-cf47-4d91-9364-db40fb9a6ef6",
+        "c9bfd1d1-914b-4200-9f91-603edafd4bd8",
+        "a05e4997-d883-44ec-9cc0-294af28bb17d",
+        "6a786542-39d2-4027-87be-5538759a9ada",
+        "38c3a5a3-747b-41dd-a653-f1c2b02dac56",
+        "670ec4a0-a435-4fc7-a7c7-1b2f494d4588",
+        "02fa4616-abd4-4d19-8912-e45511987490",
+        "1ec94493-58ad-4f1a-96e5-caac118e854f",
+        "48b41502-2e76-4bfd-9d96-be8af9312a55",
+        "1dec9c9e-b948-4ef8-9eaa-aa889c083470",
+        "cb79542d-7dff-4373-9e3d-3583f87da301",
+        "8961ed05-6fe0-42a1-b5cb-fe6aa8b96aa2",
+        "5c4446e4-fc4b-40f8-8b27-04cb33c7be57",
+        "e4286c8d-3430-43d1-9a53-15c87df89493",
+        "8793f165-25db-4fb5-a0b3-6837ba2ed952",
+        "de647c60-87ff-4102-9996-697b5d38ac99",
+        "65a29452-ed4f-488f-913e-d76a128dc12d",
+        "db04e44b-c2ff-4654-b4d5-03c9a5a41ac3",
+        "045482c4-8183-4b7e-92ae-e6a7fb92d355",
+        "cdf91933-b446-4536-a8e2-abc867cd0704",
+        "bc129435-b7c7-4795-83bf-9e7ff02a915e",
+        "4d41447d-9776-4ff5-baf3-c38c6974b982",
+        "8be0f5af-b452-4acd-b3b6-2afef003e03d"
+      ],
+      "element_chars_by_path": {
+        "coverage": 0,
+        "k": 0,
+        "recency": 31886
+      },
+      "element_chars_total": 31886,
+      "episode_ids_by_path": {
+        "coverage": [],
+        "k": [],
+        "recency": [
+          "34f5bb4c-c590-4d6c-8a11-7d4e2ed134a7",
+          "3392af3a-e027-4205-8003-02085f8ba527",
+          "5505312f-3f23-458c-a3c1-acac220abd08",
+          "fd7ed8c4-fcff-4d37-9583-d2e7ec97da73",
+          "c690555c-d66b-41d0-82c2-fb591e4a221f",
+          "dc2b025a-0f1e-4344-93bd-a6ab59facd95",
+          "7ed56c34-ddb9-490d-81b8-87848f88ca14",
+          "98015b9a-0576-4fc6-8584-df00a7a888af"
+        ]
+      },
+      "episodes_by_path": {
+        "coverage": 0,
+        "k": 0,
+        "recency": 8
+      },
+      "overhead_chars": 60,
+      "payload_sha256": "64b19b96b44bb4745f4543a7824a18433e49131d1eeb9a9813760f15f8afe478",
+      "probe_turn": 120,
+      "selected_ids": [
+        "34f5bb4c-c590-4d6c-8a11-7d4e2ed134a7",
+        "3392af3a-e027-4205-8003-02085f8ba527",
+        "5505312f-3f23-458c-a3c1-acac220abd08",
+        "fd7ed8c4-fcff-4d37-9583-d2e7ec97da73",
+        "c690555c-d66b-41d0-82c2-fb591e4a221f",
+        "dc2b025a-0f1e-4344-93bd-a6ab59facd95",
+        "7ed56c34-ddb9-490d-81b8-87848f88ca14",
+        "98015b9a-0576-4fc6-8584-df00a7a888af"
+      ],
+      "selected_source_turns": [
+        119,
+        68,
+        73,
+        83,
+        89,
+        96,
+        103,
+        4
+      ],
+      "serialized_chars": 31946
+    }
+  },
+  "q11": {
+    "domain_count": 3,
+    "fact_count": 6,
+    "items": [
+      {
+        "available": true,
+        "domain": "civil",
+        "item": "Halcyon Crossing"
+      },
+      {
+        "available": true,
+        "domain": "civil",
+        "item": "847"
+      },
+      {
+        "available": false,
+        "domain": "civil",
+        "item": "Dr. Anara Bekova"
+      },
+      {
+        "available": true,
+        "domain": "civil",
+        "item": "S460ML"
+      },
+      {
+        "available": true,
+        "domain": "civil",
+        "item": "92.4"
+      },
+      {
+        "available": false,
+        "domain": "art",
+        "item": "The Annunciation of Forli"
+      },
+      {
+        "available": false,
+        "domain": "art",
+        "item": "Melozzo da Forli"
+      },
+      {
+        "available": false,
+        "domain": "art",
+        "item": "Cardinal Giuliano della Rovere"
+      },
+      {
+        "available": false,
+        "domain": "art",
+        "item": "1483"
+      },
+      {
+        "available": false,
+        "domain": "monetary",
+        "item": "Taylor Rule"
+      },
+      {
+        "available": true,
+        "domain": "monetary",
+        "item": "Federal Reserve"
+      },
+      {
+        "available": false,
+        "domain": "monetary",
+        "item": "Dr. Priya Mehta"
+      },
+      {
+        "available": false,
+        "domain": "monetary",
+        "item": "2.3%"
+      },
+      {
+        "available": true,
+        "domain": "marine",
+        "item": "Vampyroteuthis infernalis"
+      },
+      {
+        "available": false,
+        "domain": "marine",
+        "item": "Dr. Kenji Watanabe"
+      },
+      {
+        "available": false,
+        "domain": "marine",
+        "item": "600"
+      },
+      {
+        "available": false,
+        "domain": "marine",
+        "item": "marine snow"
+      }
+    ],
+    "payload_sha256": "64b19b96b44bb4745f4543a7824a18433e49131d1eeb9a9813760f15f8afe478",
+    "per_domain": {
+      "art": 0,
+      "civil": 4,
+      "marine": 1,
+      "monetary": 1
+    },
+    "probe_turn": 120,
+    "selected_ids": [
+      "34f5bb4c-c590-4d6c-8a11-7d4e2ed134a7",
+      "3392af3a-e027-4205-8003-02085f8ba527",
+      "5505312f-3f23-458c-a3c1-acac220abd08",
+      "fd7ed8c4-fcff-4d37-9583-d2e7ec97da73",
+      "c690555c-d66b-41d0-82c2-fb591e4a221f",
+      "dc2b025a-0f1e-4344-93bd-a6ab59facd95",
+      "7ed56c34-ddb9-490d-81b8-87848f88ca14",
+      "98015b9a-0576-4fc6-8584-df00a7a888af"
+    ],
+    "serialized_chars": 31946
+  },
+  "targeted": {
+    "Q1": {
+      "available_count": 2,
+      "item_count": 2,
+      "items": [
+        {
+          "available": true,
+          "item": "847"
+        },
+        {
+          "available": true,
+          "item": "s460ml"
+        }
+      ],
+      "turn": 112
+    },
+    "Q10": {
+      "available_count": 2,
+      "item_count": 2,
+      "items": [
+        {
+          "available": true,
+          "item": "vampyroteuthis infernalis"
+        },
+        {
+          "available": true,
+          "item": "kenji watanabe"
+        }
+      ],
+      "turn": 118
+    },
+    "Q2": {
+      "available_count": 2,
+      "item_count": 2,
+      "items": [
+        {
+          "available": true,
+          "item": "anara bekova"
+        },
+        {
+          "available": true,
+          "item": "92.4"
+        }
+      ],
+      "turn": 113
+    },
+    "Q4": {
+      "available_count": 3,
+      "item_count": 4,
+      "items": [
+        {
+          "available": true,
+          "item": "annunciation of forli"
+        },
+        {
+          "available": true,
+          "item": "melozzo da forli"
+        },
+        {
+          "available": false,
+          "item": "giuliano della rovere"
+        },
+        {
+          "available": true,
+          "item": "1483"
+        }
+      ],
+      "turn": 115
+    },
+    "Q5": {
+      "available_count": 0,
+      "item_count": 2,
+      "items": [
+        {
+          "available": false,
+          "item": "lead white"
+        },
+        {
+          "available": false,
+          "item": "ultramarine glaze"
+        }
+      ],
+      "turn": 116
+    },
+    "Q6": {
+      "available_count": 0,
+      "item_count": 2,
+      "items": [
+        {
+          "available": false,
+          "item": "giuliano della rovere"
+        },
+        {
+          "available": false,
+          "item": "pope julius ii"
+        }
+      ],
+      "turn": 117
+    },
+    "Q7": {
+      "available_count": 5,
+      "item_count": 5,
+      "items": [
+        {
+          "available": true,
+          "item": "vampyroteuthis infernalis"
+        },
+        {
+          "available": true,
+          "item": "kenji watanabe"
+        },
+        {
+          "available": true,
+          "item": "600"
+        },
+        {
+          "available": true,
+          "item": "900"
+        },
+        {
+          "available": true,
+          "item": "marine snow"
+        }
+      ],
+      "turn": 118
+    },
+    "Q8": {
+      "available_count": 0,
+      "item_count": 2,
+      "items": [
+        {
+          "available": false,
+          "item": "photophores"
+        },
+        {
+          "available": false,
+          "item": "mantle margin"
+        }
+      ],
+      "turn": 119
+    }
+  },
+  "targeted_available_total": 14,
+  "targeted_item_total": 21
+}
