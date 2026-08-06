@@ -137,7 +137,24 @@ test. E001 cannot supply that breadth bound.
 
 E002 per-segment counts did return: 10 unique selections and eight duplicate
 slots across nine segments, with two zero-unique segments. They did not certify
-the seven missing facts or absent art domain, so F3 remains unclaimed.
+the seven missing facts or absent art domain, so F3 remained unclaimed at the
+Family QR close.
+
+## EC-001 external path audit, 2026-08-03
+
+Carry forward:
+
+11. **Rank is not a delivered path.** EC-001 puts evidence in the top four on
+    401/470 questions but recalls any evidence session on only 96 of those.
+    Every block is truncated; median composition is 16 recency, 0 non-recency
+    K, and 1 coverage exchange. Of 109 session hits, 91 come from recency.
+    `K = 0.48` has a candidate on 232/500 questions but delivers outside
+    recency on only 20. Diagnose threshold, packing order, and granularity
+    separately.
+12. **A missing component capability is not automatically an owed component
+    mechanism.** EC-001 emits no absence signal on 500 questions while the
+    fixed reader answers 17/20 abstention items correctly. Retire F3 as a
+    component requirement; reopen only on prospective reader-level failure.
 
 Authoritative files:
 

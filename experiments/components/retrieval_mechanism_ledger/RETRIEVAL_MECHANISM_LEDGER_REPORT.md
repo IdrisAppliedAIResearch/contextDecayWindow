@@ -87,6 +87,28 @@ K-ineligibility nor the E001 outcome.
 LoCoMo/LongMemEval adoption decision, and paper-positioning call.
 `LITERATURE_SCAN.md` remains the companion candidate-mechanism scan.
 
+## EC-001 external path disposition
+
+The post-run EC-001 retrieval-path diagnostic resolves an apparent conflict
+between pooled median evidence-session rank 2 and 23.2% any-session recall.
+The rank is measurement-only; the component thresholds and packs exchanges.
+Evidence is in the top four on 401/470 questions, but only 96 of those retrieve
+any evidence session. K has a candidate on 232/500 questions, while a
+non-recency K exchange survives packing on only 20. Every block is truncated;
+the median is 16 recency, 0 K, and 1 coverage exchange. Of 109 session hits, 91
+come from recency and 18 from all non-recency paths.
+
+This is a post-hoc diagnosis, not a counterfactual parameter test. It identifies
+N-first exact-budget exhaustion as the dominant observed delivery gate and
+`K = 0.48` as an additional category-specific gate. It does not authorize
+retuning either.
+
+EC-001 also closes the reason to build F3 at component level. The component
+emits 0 absence signals on 500 questions, while the fixed reader scores 17/20
+abstention items. F3 is retired as a component requirement, not marked solved:
+the detector remains absent, and reader compensation is measured for only one
+reader, prompt, seed, and 20-item subset.
+
 ## Verification
 
 The 19 focused E001/E002 tests pass. On 2026-07-31 the permanently failing

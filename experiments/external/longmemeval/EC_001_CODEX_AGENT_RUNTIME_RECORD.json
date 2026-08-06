@@ -1,0 +1,91 @@
+{
+  "record": "EC-001 two-model Codex evaluator runtime lock",
+  "status": "LOCKED_BEFORE_CODEX_AGENT_SCORING",
+  "registration_sha": "b595b05e1469c67277844d4bd97f77c89a20772b",
+  "scoring_amendment_004_sha": "37864822e4c429412b81f67db8af4af804308b8f",
+  "manual_switch_amendment_009_sha": "c2bd4b52ee0904c15135efcaf099e094da21b56c",
+  "governing_amendment_010_sha": "b80bd8b32a86771dbaa4ba1f2fb8faa0eaae074d",
+  "rater_panel": [
+    {
+      "family_id": "phi",
+      "role": "committed local rater",
+      "artifact": "experiments/external/longmemeval/runs/scoring_001/rater_phi.jsonl",
+      "artifact_sha256": "a1064ceb9c22e5b48e49eec2f9b3b878670cc4f77da2b7b70b7bc9d5a9df756f",
+      "commit": "53fb26fc"
+    },
+    {
+      "family_id": "mistral",
+      "role": "committed local rater",
+      "artifact": "experiments/external/longmemeval/runs/scoring_001/rater_mistral.jsonl",
+      "artifact_sha256": "e309e57f9023de34591309365b57fe26f750175bfa0aa0f144d43736cbb4abb5",
+      "commit": "06b6b3dd"
+    },
+    {
+      "family_id": "codex-gpt54",
+      "model_family": "gpt-5.4",
+      "model_id": "GPT-5.4 (Codex hosted display selection)",
+      "role": "third blind rater",
+      "stage": "C1",
+      "manual_parent_selection": true,
+      "resume_phrase": "EC001 RESUME C1 GPT-5.4 SWITCHED",
+      "child_fork_turns": "none",
+      "explicit_model_override": null,
+      "explicit_reasoning_effort_override": null
+    }
+  ],
+  "adjudicator": {
+    "model_family": "gpt-5.5",
+    "model_id": "GPT-5.5 (Codex hosted display selection)",
+    "role": "independent adjudicator only",
+    "stage": "C2",
+    "manual_parent_selection": true,
+    "resume_phrase": "EC001 RESUME C2 GPT-5.5 SWITCHED",
+    "child_fork_turns": "none",
+    "explicit_model_override": null,
+    "explicit_reasoning_effort_override": null,
+    "panel_vote": false
+  },
+  "locked_inputs": {
+    "rater_packets": {
+      "path": "experiments/external/longmemeval/runs/scoring_001/rater_packets.jsonl",
+      "sha256": "612097791f2fcfee029e062f104aa28e1b8e12a63ec3dde89853fd0335f9f95f",
+      "question_count": 140
+    },
+    "blind_calibration": {
+      "path": "experiments/external/longmemeval/EC_001_CODEX_AGENT_CALIBRATION_BLIND.jsonl",
+      "sha256": "23271fc168b54ac0c6120d74d893ff88f7eaa4ef3fda70de8a79c5d90d58e06b",
+      "case_count": 4,
+      "expected_labels_present": false
+    },
+    "rater_child_contract": {
+      "path": "experiments/external/longmemeval/EC_001_CODEX_AGENT_CHILD_CONTRACT.md",
+      "sha256": "bb42dce605effe688c36c321f1ee63218492fef48674b37652becafbe05ef049"
+    },
+    "adjudicator_child_contract": {
+      "path": "experiments/external/longmemeval/EC_001_CODEX_ADJUDICATOR_CHILD_CONTRACT.md",
+      "sha256": "891945aa9e0bf653b9287dfd49f3aac7489c16ff4f970f4f4d885836e08c5ce7"
+    }
+  },
+  "validators": [
+    {
+      "path": "scripts/validate_ec001_codex_calibration.py",
+      "sha256": "cc9342ff7961fd1b85001636b5bc96d3e8f3284ad23145873f8977d46a4a88b2"
+    },
+    {
+      "path": "scripts/validate_ec001_codex_rater_output.py",
+      "sha256": "badffb6efd93ebfd56c080b6aa902b1c56c1791a4e83e70e6c074b6e91b2c5b8"
+    },
+    {
+      "path": "scripts/validate_ec001_codex_adjudicator_output.py",
+      "sha256": "847dcd57f875357d9297302f529f56dfc117c718ed1e7f935108dc7c3f334952"
+    }
+  ],
+  "reporting_boundary": {
+    "benchmark_protocol_score_authorized": false,
+    "published_longmemeval_comparison_authorized": false,
+    "authorized_result_name": "Codex-substituted integrity score",
+    "immutable_hosted_snapshot_available": false,
+    "model_identity_basis": "user-attested desktop display selection inherited by a fresh child"
+  },
+  "identity_map_opened": false
+}

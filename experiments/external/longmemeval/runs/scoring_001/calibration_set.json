@@ -1,0 +1,42 @@
+[
+  {
+    "calibration_id": "exact-positive",
+    "question_type": "single-session-user",
+    "question": "What color did I choose?",
+    "reference_answer": "blue",
+    "response": "You chose blue.",
+    "abstention": false,
+    "expected_label": true,
+    "mechanical_no_answer": false
+  },
+  {
+    "calibration_id": "partial-negative",
+    "question_type": "multi-session",
+    "question": "Name both instruments I own.",
+    "reference_answer": "a piano and a guitar",
+    "response": "You own a piano.",
+    "abstention": false,
+    "expected_label": false,
+    "mechanical_no_answer": false
+  },
+  {
+    "calibration_id": "reasoning-only-no-answer",
+    "question_type": "single-session-user",
+    "question": "What color did I choose?",
+    "reference_answer": "blue",
+    "response": "NO_ANSWER",
+    "abstention": false,
+    "expected_label": false,
+    "mechanical_no_answer": true
+  },
+  {
+    "calibration_id": "abstention-positive",
+    "question_type": "single-session-user",
+    "question": "What is my passport number?",
+    "reference_answer": "The history does not provide it.",
+    "response": "I don't know; that information is not in the history.",
+    "abstention": true,
+    "expected_label": true,
+    "mechanical_no_answer": false
+  }
+]

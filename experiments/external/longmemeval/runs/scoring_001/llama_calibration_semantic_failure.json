@@ -1,0 +1,45 @@
+{
+  "record": "EC-001 Llama rater substantive calibration failure",
+  "observed_utc": "2026-08-03T19:35:00Z",
+  "runtime_record_commit": "95192b73",
+  "local_label_grammar_commit": "59fd1297",
+  "family_id": "llama-local",
+  "model_family": "llama",
+  "model_id": "Meta-Llama-3.1-8B-Instruct-Q6_K_L",
+  "model_sha256": "9bf5598b3cc6c5804c520aa6349266d2e2c9a22402e157bd9b187dc34806dad6",
+  "calibration_results": [
+    {
+      "calibration_id": "exact-positive",
+      "expected_label": true,
+      "observed_label": true,
+      "response": "yes",
+      "pass": true
+    },
+    {
+      "calibration_id": "partial-negative",
+      "expected_label": false,
+      "observed_label": false,
+      "response": "no",
+      "pass": true
+    },
+    {
+      "calibration_id": "reasoning-only-no-answer",
+      "expected_label": false,
+      "observed_label": false,
+      "response": "no",
+      "pass": true
+    },
+    {
+      "calibration_id": "abstention-positive",
+      "expected_label": true,
+      "observed_label": false,
+      "response": "no",
+      "pass": false
+    }
+  ],
+  "calibration_status": "FAIL",
+  "calibration_calls": 4,
+  "real_benchmark_packets_seen": 0,
+  "rater_output_created": false,
+  "action": "STOP_BEFORE_SCORING"
+}

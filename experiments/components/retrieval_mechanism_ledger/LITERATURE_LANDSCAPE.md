@@ -61,6 +61,14 @@ Require LoCoMo and LongMemEval evaluation, with their native task definitions
 and no tuning on test questions, before claiming general long-conversation
 memory performance or comparison with external systems.
 
+**EC-001 disposition (2026-08-03):** LongMemEval-S is now adopted as an
+external stress test. The unchanged component processed all 500 cleaned V1
+questions; the internal top-four inversion appeared on 14.7% of 470 answerable
+items rather than as a dominant pattern. Tier 2 used Codex-substituted scoring,
+so its 20.0% equal-quota and 12.22% post-stratified values are not official or
+benchmark-comparable LongMemEval scores. LoCoMo remains unrun, and the adoption
+bar for general external-system claims is therefore not cleared.
+
 ## 4. Mechanism Landscape
 
 The later `LITERATURE_SCAN.md` closes three searches:
@@ -112,7 +120,9 @@ choice between calling a mechanism solved and calling it useless.
 - No claim that E001's best cue is a mathematical upper bound.
 - No claim that E002 validates fixed-width segmentation as a deployable
   breadth solution.
-- No claim of benchmark generalization before LoCoMo and LongMemEval adoption.
+- No claim of benchmark generalization after LongMemEval alone: LoCoMo remains
+  unrun, and EC-001's substituted evaluator does not authorize a published
+  system comparison.
 
 ## 7. Carried Decisions Reconciled With The Mechanism Scan
 
@@ -120,7 +130,7 @@ choice between calling a mechanism solved and calling it useless.
 |---|---|---|
 | HippoRAG / entity-centric graph | Do not adopt an entity-only F4 repair; preserve raw capture | No conflict; the mechanism scan does not promote an entity index |
 | LoCoMo | Adopt before external long-conversation claims | Outside the mechanism scan's narrower scope |
-| LongMemEval | Adopt before external memory-system claims | Outside the mechanism scan's narrower scope |
+| LongMemEval | Adopted in EC-001 as an external stress test; no official comparator score | Outside the mechanism scan's narrower scope |
 | Diversity-aware selection | Relevant untested F1 alternative | Scan complete; no post-hoc substitution for E002 |
 | Query decomposition / late interaction | Prior art, costs must be measured prospectively | Scan complete; E003 remains unauthorized |
 | Active retrieval | Revisit only if the product contract becomes agentic | Scan complete; current contract rejection stands |

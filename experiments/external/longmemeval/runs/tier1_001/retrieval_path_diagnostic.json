@@ -1,0 +1,366 @@
+{
+  "status": "POST_HOC_DIAGNOSTIC",
+  "registered_metrics_changed": false,
+  "definitions": {
+    "candidate_k_question": "At least one exchange episode reaches the carried cosine threshold; equivalently, the maximum session score reaches K.",
+    "delivered_nonrecency_k": "The committed ContextReport.k_count: delivered K-eligible episodes excluding episodes already claimed by recency.",
+    "recency_candidate": "At least one annotated evidence session intersects the final N exchange episodes before exact packing.",
+    "session_recall_path": "Evidence-session identity attributed from delivered turn numbers. Non-recency does not uniquely separate K from A3 when both paths delivered episodes."
+  },
+  "config": {
+    "k_threshold": 0.48,
+    "recency_window_n": 32,
+    "packing_order": "recency, K, A3 coverage",
+    "budget_policy": "N-first, exact serialized cost"
+  },
+  "all": {
+    "questions": 500,
+    "answerable_questions": 470,
+    "session_recall_any": 109,
+    "exact_turn_availability_any": 79,
+    "session_hit_without_exact_turn": 30,
+    "best_evidence_rank_le_4": {
+      "questions": 401,
+      "session_recall_any": 96
+    },
+    "best_evidence_session_has_k_eligible_episode": {
+      "questions": 208,
+      "session_recall_any": 56
+    },
+    "best_evidence_session_below_k": {
+      "questions": 262,
+      "session_recall_any": 53
+    },
+    "recency_candidate": {
+      "questions": 131,
+      "session_recall_any": 91,
+      "missed_after_packing": 40
+    },
+    "session_recall_path": {
+      "delivered_recency_only": 91,
+      "delivered_nonrecency_only": 18,
+      "both": 0
+    },
+    "median_best_question_evidence_rank": 1.0,
+    "median_best_evidence_cosine": 0.46112749,
+    "median_history_sessions": 48.0,
+    "median_history_episodes": 247.0,
+    "median_unique_sessions_in_recency_candidates": 7.0,
+    "median_unique_sessions_in_delivered_recency": 4.0,
+    "median_unique_sessions_in_delivered_nonrecency": 1.0,
+    "evidence_session_rank_count": 890,
+    "pooled_evidence_session_rank_median": 2.0,
+    "candidate_k_questions": 232,
+    "delivered_nonrecency_k_questions": 20,
+    "delivered_nonrecency_k_episodes": 26,
+    "delivered_coverage_questions": 270,
+    "delivered_coverage_episodes": 428,
+    "all_blocks_truncated": true,
+    "all_blocks_at_least_31000_chars": true,
+    "block_composition": {
+      "stm": {
+        "sum": 8247,
+        "min": 7,
+        "median": 16.0,
+        "max": 32
+      },
+      "k": {
+        "sum": 26,
+        "min": 0,
+        "median": 0.0,
+        "max": 3
+      },
+      "coverage": {
+        "sum": 428,
+        "min": 0,
+        "median": 1.0,
+        "max": 8
+      },
+      "episodes_delivered": {
+        "sum": 8701,
+        "min": 9,
+        "median": 17.0,
+        "max": 42
+      },
+      "episodes_dropped": {
+        "sum": 16871,
+        "min": 12,
+        "median": 34.0,
+        "max": 55
+      },
+      "chars_delivered": {
+        "sum": 15944165,
+        "min": 31198,
+        "median": 31920.0,
+        "max": 32000
+      },
+      "chars_wanted": {
+        "sum": 46563105,
+        "min": 53680,
+        "median": 93443.5,
+        "max": 131880
+      }
+    }
+  },
+  "by_stratum": {
+    "abstention": {
+      "questions": 30,
+      "answerable_questions": 0,
+      "session_recall_any": 0,
+      "exact_turn_availability_any": 0,
+      "session_hit_without_exact_turn": 0,
+      "best_evidence_rank_le_4": {
+        "questions": 0,
+        "session_recall_any": 0
+      },
+      "best_evidence_session_has_k_eligible_episode": {
+        "questions": 0,
+        "session_recall_any": 0
+      },
+      "best_evidence_session_below_k": {
+        "questions": 0,
+        "session_recall_any": 0
+      },
+      "recency_candidate": {
+        "questions": 0,
+        "session_recall_any": 0,
+        "missed_after_packing": 0
+      },
+      "session_recall_path": {
+        "delivered_recency_only": 0,
+        "delivered_nonrecency_only": 0,
+        "both": 0
+      },
+      "median_best_question_evidence_rank": null,
+      "median_best_evidence_cosine": null,
+      "median_history_sessions": 49.0,
+      "median_history_episodes": 254.0,
+      "median_unique_sessions_in_recency_candidates": 7.0,
+      "median_unique_sessions_in_delivered_recency": 5.0,
+      "median_unique_sessions_in_delivered_nonrecency": 0.5
+    },
+    "knowledge-update": {
+      "questions": 72,
+      "answerable_questions": 72,
+      "session_recall_any": 20,
+      "exact_turn_availability_any": 16,
+      "session_hit_without_exact_turn": 4,
+      "best_evidence_rank_le_4": {
+        "questions": 67,
+        "session_recall_any": 17
+      },
+      "best_evidence_session_has_k_eligible_episode": {
+        "questions": 44,
+        "session_recall_any": 14
+      },
+      "best_evidence_session_below_k": {
+        "questions": 28,
+        "session_recall_any": 6
+      },
+      "recency_candidate": {
+        "questions": 33,
+        "session_recall_any": 19,
+        "missed_after_packing": 14
+      },
+      "session_recall_path": {
+        "delivered_recency_only": 19,
+        "delivered_nonrecency_only": 1,
+        "both": 0
+      },
+      "median_best_question_evidence_rank": 1.0,
+      "median_best_evidence_cosine": 0.5226702990000001,
+      "median_history_sessions": 48.0,
+      "median_history_episodes": 245.5,
+      "median_unique_sessions_in_recency_candidates": 6.0,
+      "median_unique_sessions_in_delivered_recency": 4.0,
+      "median_unique_sessions_in_delivered_nonrecency": 1.0
+    },
+    "multi-session": {
+      "questions": 121,
+      "answerable_questions": 121,
+      "session_recall_any": 34,
+      "exact_turn_availability_any": 29,
+      "session_hit_without_exact_turn": 5,
+      "best_evidence_rank_le_4": {
+        "questions": 108,
+        "session_recall_any": 30
+      },
+      "best_evidence_session_has_k_eligible_episode": {
+        "questions": 50,
+        "session_recall_any": 14
+      },
+      "best_evidence_session_below_k": {
+        "questions": 71,
+        "session_recall_any": 20
+      },
+      "recency_candidate": {
+        "questions": 42,
+        "session_recall_any": 33,
+        "missed_after_packing": 9
+      },
+      "session_recall_path": {
+        "delivered_recency_only": 33,
+        "delivered_nonrecency_only": 1,
+        "both": 0
+      },
+      "median_best_question_evidence_rank": 1,
+      "median_best_evidence_cosine": 0.455944777,
+      "median_history_sessions": 47,
+      "median_history_episodes": 245,
+      "median_unique_sessions_in_recency_candidates": 7,
+      "median_unique_sessions_in_delivered_recency": 4,
+      "median_unique_sessions_in_delivered_nonrecency": 1
+    },
+    "single-session-assistant": {
+      "questions": 56,
+      "answerable_questions": 56,
+      "session_recall_any": 19,
+      "exact_turn_availability_any": 7,
+      "session_hit_without_exact_turn": 12,
+      "best_evidence_rank_le_4": {
+        "questions": 52,
+        "session_recall_any": 19
+      },
+      "best_evidence_session_has_k_eligible_episode": {
+        "questions": 52,
+        "session_recall_any": 19
+      },
+      "best_evidence_session_below_k": {
+        "questions": 4,
+        "session_recall_any": 0
+      },
+      "recency_candidate": {
+        "questions": 9,
+        "session_recall_any": 7,
+        "missed_after_packing": 2
+      },
+      "session_recall_path": {
+        "delivered_recency_only": 7,
+        "delivered_nonrecency_only": 12,
+        "both": 0
+      },
+      "median_best_question_evidence_rank": 1.0,
+      "median_best_evidence_cosine": 0.7129453125,
+      "median_history_sessions": 48.0,
+      "median_history_episodes": 249.5,
+      "median_unique_sessions_in_recency_candidates": 6.0,
+      "median_unique_sessions_in_delivered_recency": 4.0,
+      "median_unique_sessions_in_delivered_nonrecency": 1.0
+    },
+    "single-session-preference": {
+      "questions": 30,
+      "answerable_questions": 30,
+      "session_recall_any": 1,
+      "exact_turn_availability_any": 1,
+      "session_hit_without_exact_turn": 0,
+      "best_evidence_rank_le_4": {
+        "questions": 20,
+        "session_recall_any": 1
+      },
+      "best_evidence_session_has_k_eligible_episode": {
+        "questions": 5,
+        "session_recall_any": 0
+      },
+      "best_evidence_session_below_k": {
+        "questions": 25,
+        "session_recall_any": 1
+      },
+      "recency_candidate": {
+        "questions": 4,
+        "session_recall_any": 1,
+        "missed_after_packing": 3
+      },
+      "session_recall_path": {
+        "delivered_recency_only": 1,
+        "delivered_nonrecency_only": 0,
+        "both": 0
+      },
+      "median_best_question_evidence_rank": 3.0,
+      "median_best_evidence_cosine": 0.399222553,
+      "median_history_sessions": 47.5,
+      "median_history_episodes": 248.5,
+      "median_unique_sessions_in_recency_candidates": 7.0,
+      "median_unique_sessions_in_delivered_recency": 4.0,
+      "median_unique_sessions_in_delivered_nonrecency": 1.0
+    },
+    "single-session-user": {
+      "questions": 64,
+      "answerable_questions": 64,
+      "session_recall_any": 10,
+      "exact_turn_availability_any": 6,
+      "session_hit_without_exact_turn": 4,
+      "best_evidence_rank_le_4": {
+        "questions": 48,
+        "session_recall_any": 8
+      },
+      "best_evidence_session_has_k_eligible_episode": {
+        "questions": 23,
+        "session_recall_any": 5
+      },
+      "best_evidence_session_below_k": {
+        "questions": 41,
+        "session_recall_any": 5
+      },
+      "recency_candidate": {
+        "questions": 13,
+        "session_recall_any": 8,
+        "missed_after_packing": 5
+      },
+      "session_recall_path": {
+        "delivered_recency_only": 8,
+        "delivered_nonrecency_only": 2,
+        "both": 0
+      },
+      "median_best_question_evidence_rank": 1.0,
+      "median_best_evidence_cosine": 0.407642722,
+      "median_history_sessions": 49.5,
+      "median_history_episodes": 249.5,
+      "median_unique_sessions_in_recency_candidates": 6.0,
+      "median_unique_sessions_in_delivered_recency": 4.0,
+      "median_unique_sessions_in_delivered_nonrecency": 1.0
+    },
+    "temporal-reasoning": {
+      "questions": 127,
+      "answerable_questions": 127,
+      "session_recall_any": 25,
+      "exact_turn_availability_any": 20,
+      "session_hit_without_exact_turn": 5,
+      "best_evidence_rank_le_4": {
+        "questions": 106,
+        "session_recall_any": 21
+      },
+      "best_evidence_session_has_k_eligible_episode": {
+        "questions": 34,
+        "session_recall_any": 4
+      },
+      "best_evidence_session_below_k": {
+        "questions": 93,
+        "session_recall_any": 21
+      },
+      "recency_candidate": {
+        "questions": 30,
+        "session_recall_any": 23,
+        "missed_after_packing": 7
+      },
+      "session_recall_path": {
+        "delivered_recency_only": 23,
+        "delivered_nonrecency_only": 2,
+        "both": 0
+      },
+      "median_best_question_evidence_rank": 1,
+      "median_best_evidence_cosine": 0.410854369,
+      "median_history_sessions": 47,
+      "median_history_episodes": 246,
+      "median_unique_sessions_in_recency_candidates": 7,
+      "median_unique_sessions_in_delivered_recency": 4,
+      "median_unique_sessions_in_delivered_nonrecency": 1
+    }
+  },
+  "inputs": {
+    "dataset_sha256": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+    "tier1_scores_sha256": "66ead248b3b40b4a3f295d95093b156a0536ffc7837390941b2407a2012b5b81",
+    "sealed_mechanism_sha256": "5b1c880291c50bd46671baf118289ec03b3be3c5632ea7ba08826238cf4160fe",
+    "run_header_sha256": "16d7fdff3618785f4209abc1caada371ae88d95f4b6c1b0665f83ecc0e8e80be",
+    "analysis_script_sha256": "27699db2e2031e39ebc51fb61614c0427d488704e2c837e2baa5a4b38bb35a8d"
+  }
+}
