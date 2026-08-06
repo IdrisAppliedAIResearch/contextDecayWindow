@@ -103,6 +103,20 @@ N-first exact-budget exhaustion as the dominant observed delivery gate and
 `K = 0.48` as an additional category-specific gate. It does not authorize
 retuning either.
 
+## EC-002 packing counterfactual
+
+EC-002 turns the packing diagnosis into a same-store counterfactual. Holding
+the vectors, candidate sets, `K = 0.48`, selector, and 32,000-character budget
+fixed, it changes only exact packing order from recency-first to K-first.
+Any-session recall rises from 109/470 to 261/470, with 152 paired gains and no
+losses. Exact-turn-any availability rises from 79/470 to 196/470, with 119
+gains and two losses. Delivered K episodes rise from 26 to 476 while all 500
+blocks remain truncated.
+
+Packing priority is therefore a confirmed causal gate for recovered EC-001
+items. It does not close the residual 209/470 any-session misses, identify the
+remaining threshold/granularity losses, or authorize a live production change.
+
 EC-001 also closes the reason to build F3 at component level. The component
 emits 0 absence signals on 500 questions, while the fixed reader scores 17/20
 abstention items. F3 is retired as a component requirement, not marked solved:

@@ -333,3 +333,22 @@ counterfactual parameter change.
 Artifact:
 `experiments/external/longmemeval/runs/tier1_001/retrieval_path_diagnostic.json`
 at commit `7b38badb`.
+
+## EC-002 Packing Counterfactual (2026-08-05)
+
+**No EC-001 registered number changes.** EC-002 tests the post-hoc
+recency-first diagnosis with a registered same-store offline counterfactual.
+Changing only exact packing priority from recency-first to K-first raises
+any-session recall from 109/470 to 261/470 (152 paired gains, zero losses) and
+exact-turn-any availability from 79/470 to 196/470 (119 gains, two losses).
+The corrected interpretation is stronger: N-first budget exhaustion is a
+causal delivery gate under the EC-001 adaptation.
+
+The original EC-001 embedding cache was not retained. A0 is therefore an
+amended reproduction under recomputed embeddings, not a byte-exact replay.
+EC-001 remains permanently unreplayable at bit granularity; CC-006 protects
+retained caches only for runs made after its contract is adopted.
+
+Artifact:
+`experiments/external/longmemeval/runs/ec002_k_first/a1_k_first/paired_comparison.json`
+at commit `4168a05c`.

@@ -277,6 +277,18 @@ differently from the spec, per §1 above.
 
 ---
 
+### EC-002 packing counterfactual
+
+| Measurement | Value | Artifact |
+|---|---|---|
+| Any evidence-session recall | 109/470 -> 261/470; 152 gains, 0 losses | `external/longmemeval/runs/ec002_k_first/a1_k_first/paired_comparison.json` |
+| Exact-answer-turn-any availability | 79/470 -> 196/470; 119 gains, 2 losses | same |
+| Delivery-path change | K episodes 26 -> 476; all 500 blocks truncated | same; `a1_mechanism.jsonl`; `a1_same_store_a0_mechanism.jsonl` |
+| Binding and cache integrity | same-store A0 PASS 500/500; 96,585 cache entries, zero misses/model calls | `a1_same_store_a0_gate.json`; `source_integrity.json`; `run_header.json` |
+| Reproduction boundary | EC-001 original cache unrecoverable; amended aggregate reproduction, not bit replay | `AMENDMENT_011_ec002_recomputed_embedding_reproduction.md`; `EC_002_REPORT.md` section 5 |
+
+---
+
 ## 3. Verification outcomes
 
 ### V1 — Greedy optimality range: spec says 0.955–0.9996; measured 0.9536–0.9996

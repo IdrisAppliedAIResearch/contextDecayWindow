@@ -469,6 +469,15 @@ dominant observed gate is N-first budget exhaustion. EC-001 therefore narrows
 the inversion claim without validating the retrieval path that follows the
 ranking.
 
+EC-002 tests that gate directly. In an offline same-store replay it holds the
+vectors, `K = 0.48`, selector, and 32,000-character budget fixed and changes
+only packing order from recency-first to K-first. Any evidence-session recall
+rises from 109/470 to 261/470: 152 paired gains and zero losses. Exact-turn-any
+availability rises from 79/470 to 196/470, with 119 gains and two losses.
+Delivered K episodes rise from 26 to 476 while every block remains truncated.
+Packing priority is therefore a causal gate for recovered EC-001 items, not
+merely a post-hoc correlate. The replay is availability-only and does not
+authorize production promotion or establish reader-level gains.
 ### 5.3 The objective binds second, and only after the pool
 
 The deployed rule ranks each episode against the query independently and takes
@@ -892,6 +901,16 @@ configurations do not have it.
 
 It is also evidence about embedder sensitivity generally, which §8.4 collects.
 
+EC-002 exposed a second vector-level limit: recomputing nominally identical
+solo-call embeddings moved one evidence rank and one coverage selection because
+EC-001's original cache had not been retained. Its A0 is therefore an amended
+reproduction under recomputed embeddings, not a byte-exact replay. EC-001's
+headline numbers reproduce in aggregate under that gate but remain permanently
+unreplayable at bit granularity. The library now persists exact float32 vectors,
+binds them by both file and canonical text-to-vector hashes, and makes a
+read-only miss fatal. That contract protects retained caches going forward; it
+does not repair the historical EC-001 record.
+
 ### 7.3 A diagnostic written to catch surrogate failures nearly committed one
 
 This is the most instructive of the six.
@@ -980,8 +999,7 @@ perturbation far smaller than a model change already moves 4% of results, so the
 reasonable prior is that §5's specific numbers are embedder-dependent.
 *Settled by:* rerunning the E005 sweep under a second embedder.
 
-**8.5 Planted facts do not represent the dominant external ranking pattern,
-but external ranking did not produce retrieval.**
+**8.5 Planted facts do not represent the dominant external ranking pattern, and packing causally suppresses external delivery.**
 The corpus is constructed, and §5.5.1 gives a specific reason to suspect the
 inversion is a property of the planted vocabulary. RD-001 could not identify
 that mechanism: unchanged rarity scores cover only 6 of 76 fact-bearing
@@ -989,19 +1007,8 @@ episodes, across three variants with no registered primary or episode
 aggregation. EC-001 tests the outcome on a corpus this program did not
 construct. Only 69 of 470 answerable questions (14.7%) put all evidence below
 the top four, with median evidence-session rank 2. The dominant-generalization
-claim is therefore rejected, but that is only a claim about ordering. Of the
-401 questions with evidence in the top four, 305 still retrieve no evidence
-session. All 500 blocks are truncated, their median composition is 16 recency,
-0 non-recency K, and 1 coverage exchange, and 91 of the 109 session hits come
-from recency. The external calibration therefore strengthens the corpus caveat:
-naturalistic questions do not show the same dominant inversion, while this
-particular adaptation is dominated downstream by exchange-level thresholding,
-continuous-conversation recency, and N-first exact packing. The cause of the
-ranking difference remains open because corpus, query population, session
-ranking, and history structure all change together.
-*Settled by:* an explicitly post-rank RD-002 rarity design, or a controlled
-replay holding those other factors fixed and separately varying K, recency,
-packing order, and exchange/session granularity.
+claim is therefore rejected. Of the 401 questions with evidence in the top four, 305 still retrieve no evidence session under EC-001. EC-002 holds the store, vectors, threshold, selector, and budget fixed and reverses packing priority. Any-session recall rises 109/470 -> 261/470, with 152 gains and no losses; exact-turn-any rises 79/470 -> 196/470, with 119 gains and two losses. All 500 blocks remain truncated, their median composition is 16 recency, 0 non-recency K, and 1 coverage exchange, and 91 of the 109 session hits come from recency. The external calibration therefore strengthens the corpus caveat while the counterfactual isolates one downstream cause: naturalistic questions do not show the same dominant inversion, and N-first exact packing suppresses delivery. The cause of the ranking difference remains open, as do the residual effects of threshold and exchange/session granularity.
+*Settled by:* an explicitly post-rank RD-002 rarity design; separately registered threshold and granularity counterfactuals; and a prospective live reader test of K-first packing.
 
 **8.6 Availability is not correctness, and the known optimum is mostly prior
 answers.** §5.1.1 in full: four of five optimum episodes are prior probe

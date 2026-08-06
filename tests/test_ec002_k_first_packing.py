@@ -1,0 +1,416 @@
+import json
+from dataclasses import asdict
+
+import numpy as np
+
+from episodic._config import EpisodicConfig
+from episodic._packing import pack_stm_payload
+from episodic._render import render_stm_payload
+from episodic._report import ContextReport
+from src.analysis.ec002_k_first_packing import (
+    CandidateState,
+    build_k_first_context,
+    check_reproduction_row,
+    compare_score_rows,
+    delivered_path_identities,
+    episode_content_identity,
+    evaluate_reproduction,
+    normalized_report,
+    pack_k_first,
+)
+from scripts.run_ec002_k_first_packing import (
+    committed_cache_adoption,
+    committed_gate,
+    read_jsonl,
+)
+
+
+def episode(identifier: str, turn: int, size: int = 80, axis: int = 0) -> dict:
+    embedding = np.zeros(1024, dtype=np.float32)
+    embedding[axis] = 1.0
+    return {
+        "id": identifier,
+        "turn_number": turn,
+        "user_message": "u" * size,
+        "assistant_message": "a" * size,
+        "embedding": embedding,
+    }
+
+
+def report(**overrides) -> ContextReport:
+    values = {
+        "chars_delivered": 100,
+        "chars_wanted": 200,
+        "episodes_delivered": 1,
+        "episodes_dropped": 1,
+        "truncated": True,
+        "stm_count": 1,
+        "k_count": 0,
+        "coverage_count": 0,
+        "latency_ms": 1.0,
+        "pool_size": 2,
+        "dropped_ids": ("x",),
+        "drop_policy": "test",
+        "budget_chars": 100,
+    }
+    values.update(overrides)
+    return ContextReport(**values)
+
+
+def test_k_first_changes_only_which_single_tier_claims_the_budget() -> None:
+    recent = episode("recent", 2, size=120)
+    k_hit = episode("k", 1, size=120)
+    state = CandidateState(
+        recent=(recent,),
+        k_hits=(k_hit,),
+        coverage=(),
+        pool_size=2,
+    )
+    budget = max(
+        len(render_stm_payload([recent], [])),
+        len(render_stm_payload([], [k_hit])),
+    )
+    assert len(render_stm_payload([recent], [k_hit])) > budget
+
+    baseline = pack_stm_payload([recent], [k_hit], budget)
+    treatment = pack_k_first(state, budget=budget)
+
+    assert baseline.selected_ids == ("recent",)
+    assert treatment.selected_ids == ("k",)
+    assert len(treatment.payload) <= budget
+
+
+def test_k_recency_overlap_gets_k_priority_but_keeps_recency_tag() -> None:
+    overlap = episode("overlap", 1, size=120)
+    later = episode("later", 2, size=120)
+    state = CandidateState(
+        recent=(overlap, later),
+        k_hits=(overlap,),
+        coverage=(),
+        pool_size=2,
+    )
+    budget = len(render_stm_payload([overlap], []))
+
+    packed = pack_k_first(state, budget=budget)
+
+    assert packed.selected_ids == ("overlap",)
+    assert [row["id"] for row in packed.selected_recent] == ["overlap"]
+    assert packed.selected_stm == ()
+    assert "<recent_context>" in packed.payload
+    assert "<retrieved_stm/>" in packed.payload
+
+
+def test_k_first_skips_oversized_candidate_and_continues() -> None:
+    too_large = episode("large", 1, size=1_000)
+    small = episode("small", 2, size=20)
+    state = CandidateState(
+        recent=(),
+        k_hits=(too_large, small),
+        coverage=(),
+        pool_size=2,
+    )
+    budget = len(render_stm_payload([], [small]))
+
+    packed = pack_k_first(state, budget=budget)
+
+    assert packed.selected_ids == ("small",)
+    assert packed.dropped_ids == ("large",)
+
+
+def test_build_context_reports_k_first_path_without_exceeding_budget() -> None:
+    rows = [
+        episode("old-k", 1, size=80, axis=0),
+        episode("recent", 2, size=80, axis=1),
+    ]
+    config = EpisodicConfig(
+        recency_window_n=1,
+        k_threshold=0.48,
+        selector_cluster_count=2,
+    )
+    budget = len(render_stm_payload([], [rows[0]]))
+
+    block, result, diagnostics = build_k_first_context(
+        episodes=rows,
+        query_embedding=rows[0]["embedding"],
+        budget=budget,
+        config=config,
+    )
+
+    assert len(block) <= budget
+    assert result.k_count == 1
+    assert result.stm_count == 0
+    assert diagnostics["candidate_turns"]["k"] == [1]
+    assert diagnostics["selected_turns"]["nonrecency"] == [1]
+
+
+def test_normalized_report_removes_only_latency_and_normalizes_tuples() -> None:
+    original = report(latency_ms=9.5)
+    mapping = asdict(original)
+    mapping["latency_ms"] = 12.5
+    mapping["dropped_ids"] = ["x"]
+
+    assert normalized_report(original) == normalized_report(mapping)
+
+
+def test_reproduction_check_uses_content_identity_not_generated_uuid() -> None:
+    block = "<recent_context/><retrieved_stm/>"
+    original_result = report(
+        chars_delivered=len(block),
+        dropped_ids=("old-uuid",),
+        episodes_dropped=0,
+        truncated=False,
+    )
+    result = report(
+        chars_delivered=len(block),
+        dropped_ids=("new-uuid",),
+        episodes_dropped=0,
+        truncated=False,
+    )
+    score = {
+        "question_id": "q1",
+        "evidence_session_ranks": [],
+        "deepest_evidence_rank": None,
+        **{field: None for field in (
+            "evidence_session_recall_any",
+            "evidence_session_recall_all",
+            "marker_availability_any",
+            "marker_availability_all",
+            "availability_any",
+            "availability_all",
+        )},
+    }
+    mechanism = {
+        "block_sha256": __import__("hashlib").sha256(
+            block.encode("utf-8")
+        ).hexdigest(),
+        "block": block,
+        "report": {**asdict(original_result), "latency_ms": 99.0},
+    }
+
+    check = check_reproduction_row(
+        original_score=score,
+        original_mechanism=mechanism,
+        reproduced_score=json.loads(json.dumps(score)),
+        reproduced_block=block,
+        reproduced_report=result,
+    )
+
+    assert check["recency_identity_match"]
+    assert check["k_identity_match"]
+    assert check["coverage_identity_match"]
+    assert check["report_match"]
+    assert check["score_match"]
+
+
+def test_content_identity_includes_occurrence_position() -> None:
+    first = episode_content_identity(
+        turn_number=1, user_message="same", assistant_message="same"
+    )
+    second = episode_content_identity(
+        turn_number=2, user_message="same", assistant_message="same"
+    )
+    assert first != second
+
+
+def test_path_identities_split_k_before_coverage() -> None:
+    block = (
+        "<recent_context><episode turn=\"3\"><user>r</user>"
+        "<assistant>r</assistant></episode></recent_context>"
+        "<retrieved_stm><episode turn=\"1\"><user>k</user>"
+        "<assistant>k</assistant></episode><episode turn=\"2\">"
+        "<user>c</user><assistant>c</assistant></episode></retrieved_stm>"
+    )
+    paths = delivered_path_identities(
+        block, report(stm_count=1, k_count=1, coverage_count=1)
+    )
+    assert len(paths["recency"]) == 1
+    assert len(paths["k"]) == 1
+    assert len(paths["coverage"]) == 1
+
+
+def test_nondelivered_coverage_proposal_drift_is_disclosed_not_failed() -> None:
+    block = "<recent_context/><retrieved_stm/>"
+    original_result = report(chars_wanted=200, episodes_dropped=2)
+    reproduced_result = report(chars_wanted=240, episodes_dropped=3)
+    score = {
+        "question_id": "q1",
+        "evidence_session_ranks": [],
+        "deepest_evidence_rank": None,
+        **{field: None for field in (
+            "evidence_session_recall_any",
+            "evidence_session_recall_all",
+            "marker_availability_any",
+            "marker_availability_all",
+            "availability_any",
+            "availability_all",
+        )},
+    }
+    mechanism = {
+        "block": block,
+        "block_sha256": __import__("hashlib").sha256(
+            block.encode("utf-8")
+        ).hexdigest(),
+        "report": asdict(original_result),
+    }
+
+    check = check_reproduction_row(
+        original_score=score,
+        original_mechanism=mechanism,
+        reproduced_score=score,
+        reproduced_block=block,
+        reproduced_report=reproduced_result,
+    )
+
+    assert check["report_match"]
+    assert set(check["report_differences"]) == {
+        "chars_wanted",
+        "episodes_dropped",
+    }
+    assert not check["coverage_difference"]
+
+
+def test_reproduction_gate_allows_two_bounded_coverage_differences() -> None:
+    base = {
+        "recency_identity_match": True,
+        "k_identity_match": True,
+        "outcome_match": True,
+        "rank_tolerance_pass": True,
+        "coverage_difference": True,
+        "coverage_difference_permitted": True,
+        "block_sha256_match": False,
+        "report_match": True,
+        "score_match": True,
+    }
+    checks = [
+        {"question_id": str(index), **base}
+        if index < 2
+        else {
+            "question_id": str(index),
+            **base,
+            "coverage_difference": False,
+            "block_sha256_match": True,
+        }
+        for index in range(500)
+    ]
+    gate = evaluate_reproduction(
+        checks=checks,
+        reproduced_summary={},
+        original_summary={},
+    )
+    assert gate["status"] == "PASS"
+    assert gate["coverage_difference_questions"] == 2
+
+    checks[2]["coverage_difference"] = True
+    assert (
+        evaluate_reproduction(
+            checks=checks,
+            reproduced_summary={},
+            original_summary={},
+        )["status"]
+        == "FAIL"
+    )
+
+
+def test_paired_comparison_reports_gains_and_losses_separately() -> None:
+    baseline = [
+        {
+            "question_id": "gain",
+            "stratum": "single-session-user",
+            "evidence_session_recall_any": False,
+            "evidence_session_recall_all": False,
+            "availability_any": False,
+            "availability_all": False,
+            "evidence_session_ranks": [1],
+        },
+        {
+            "question_id": "loss",
+            "stratum": "single-session-user",
+            "evidence_session_recall_any": True,
+            "evidence_session_recall_all": True,
+            "availability_any": True,
+            "availability_all": True,
+            "evidence_session_ranks": [2],
+        },
+    ]
+    treatment = [
+        {
+            **baseline[0],
+            "evidence_session_recall_any": True,
+            "availability_any": True,
+        },
+        {
+            **baseline[1],
+            "evidence_session_recall_any": False,
+            "availability_any": False,
+        },
+    ]
+    mechanism_report = {
+        "chars_delivered": 100,
+        "episodes_delivered": 1,
+        "episodes_dropped": 1,
+        "stm_count": 0,
+        "k_count": 1,
+        "coverage_count": 0,
+        "truncated": True,
+    }
+    mechanisms = [
+        {"question_id": row["question_id"], "report": mechanism_report}
+        for row in baseline
+    ]
+
+    result = compare_score_rows(
+        baseline_rows=baseline,
+        treatment_rows=treatment,
+        treatment_mechanisms=mechanisms,
+    )
+
+    session_any = result["by_stratum"]["all"]["session_any"]
+    assert session_any["net_delta_questions"] == 0
+    assert session_any["gains"] == 1
+    assert session_any["losses"] == 1
+    assert result["gained_question_ids"]["session_any"] == ["gain"]
+    assert result["lost_question_ids"]["session_any"] == ["loss"]
+
+
+def test_jsonl_loader_does_not_split_unicode_line_separator(tmp_path) -> None:
+    path = tmp_path / "rows.jsonl"
+    path.write_text(
+        json.dumps({"text": "before\u2028after"}, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+        newline="\n",
+    )
+
+    assert read_jsonl(path) == [{"text": "before\u2028after"}]
+
+
+def test_committed_a0_recovers_cache_from_sibling_integrity() -> None:
+    root = (
+        __import__("pathlib").Path(__file__).resolve().parent.parent
+    )
+    gate = committed_gate(
+        root
+        / "experiments"
+        / "external"
+        / "longmemeval"
+        / "runs"
+        / "ec002_k_first"
+        / "a0_amended_reproduction_v2"
+        / "a0_reproduction_gate.json"
+    )
+    adoption = committed_cache_adoption(
+        root
+        / "experiments"
+        / "components"
+        / "embedding_cache"
+        / "artifacts"
+        / "cc006"
+        / "ec002_legacy_adoption.json"
+    )
+
+    assert gate["embedding_cache_source"].endswith(
+        "a0_amended_reproduction_v2/source_integrity.json"
+    )
+    assert gate["embedding_cache"]["misses"] == 0
+    assert gate["embedding_cache"]["sha256"] == (
+        adoption["adoption"]["file_sha256"]
+    )
