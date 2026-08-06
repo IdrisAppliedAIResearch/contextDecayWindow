@@ -1202,12 +1202,20 @@ def _run_header(phase: str, result: dict) -> dict:
         "packing_order": list(PACKING_ORDERS[ARMS[phase]]),
         "design_commit": _design_commit(),
         "execution_commit": _git("rev-parse", "HEAD"),
-        # Untracked paths are excluded: this phase's own output is untracked
-        # while it runs, and the scratch directory is never tracked. What must
-        # be clean is every tracked file, so the execution commit above
-        # actually describes the code that ran.
-        "tracked_worktree_clean": not _git(
-            "status", "--porcelain", "--untracked-files=no"
+        # Scoped to code and registration rather than the whole tree. The
+        # question this answers is whether `execution_commit` describes the
+        # code that ran; a re-run must first remove its own committed output
+        # directory, which would otherwise show as a dirty tree forever.
+        "source_worktree_clean": not _git(
+            "status",
+            "--porcelain",
+            "--untracked-files=no",
+            "--",
+            "src",
+            "scripts",
+            "tests",
+            "episodic",
+            _repo_relative(PRE_REGISTRATION),
         ),
         "pre_registration": _repo_relative(PRE_REGISTRATION),
         "budget_chars": BUDGET_CHARS,
