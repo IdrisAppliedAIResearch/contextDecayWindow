@@ -1,0 +1,15 @@
+{
+  "checks": {
+    "b0_arm_git_tracked": true,
+    "b0_arm_reproduces": true,
+    "b0_artifacts_present": true,
+    "b0_gate_git_tracked": true,
+    "committed_b0_gate_passes": true,
+    "live_b0_gate_passes": true
+  },
+  "committed_b0_arm_sha256": "89972bf6205b847a31d6d90fac098c154e27b74c86e4dd2183f33fafb5f3e624",
+  "design_commit": "9d2ecd58c28c578a5c392fd6ec4beb1d8106e2b3",
+  "replay_b0_arm_sha256": "89972bf6205b847a31d6d90fac098c154e27b74c86e4dd2183f33fafb5f3e624",
+  "rule": "Pre-registration section 3: B0 must reproduce the committed deployed result before B1 output is opened; git order is the evidence",
+  "status": "PASS"
+}

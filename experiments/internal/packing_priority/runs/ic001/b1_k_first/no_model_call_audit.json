@@ -1,0 +1,15 @@
+{
+  "amendment": "AMENDMENT_001_no_vector_recomputation",
+  "attempted_calls": [],
+  "cache_misses": 0,
+  "embedding_calls": 0,
+  "embedding_provider_model_loaded": false,
+  "guarded_entry_points": [
+    "llama_cpp.Llama.__init__",
+    "src.embeddings.provider._get_model",
+    "src.retrieval_bakeoff.embedding.CarriedEmbedder.__init__"
+  ],
+  "model_calls": 0,
+  "status": "PASS",
+  "vector_source": "committed context_match.jsonl candidate identities; no vector is re-derived and no cache is read"
+}
