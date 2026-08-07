@@ -1,0 +1,109 @@
+{
+  "arms": {
+    "A": {
+      "arm": "A",
+      "coherence_reported_not_thresholded": {
+        "budget_truncated_count": 0,
+        "note": "Reported for reading, not for deciding. Section 7 requires coherence separate from recall, and no coherence threshold is registered.",
+        "response_chars_max": 5116,
+        "response_chars_median": 4018,
+        "response_chars_min": 92,
+        "verbatim_repeat_count": 0
+      },
+      "completion": {
+        "complete": true,
+        "turns_completed": 35,
+        "turns_required": 35
+      },
+      "decision": "GO",
+      "reasons": [],
+      "run_directory": "experiments/study_011/ablation_runs/study_011_ablation_a/arm_a",
+      "scoreability": {
+        "budget_truncated_turns": [],
+        "empty_response_turns": [],
+        "verbatim_repeat_turns": []
+      }
+    },
+    "B": {
+      "arm": "B",
+      "coherence_reported_not_thresholded": {
+        "budget_truncated_count": 1,
+        "note": "Reported for reading, not for deciding. Section 7 requires coherence separate from recall, and no coherence threshold is registered.",
+        "response_chars_max": 9028,
+        "response_chars_median": 4663,
+        "response_chars_min": 80,
+        "verbatim_repeat_count": 0
+      },
+      "completion": {
+        "complete": true,
+        "turns_completed": 35,
+        "turns_required": 35
+      },
+      "decision": "GO",
+      "reasons": [],
+      "run_directory": "experiments/study_011/ablation_runs/study_011_ablation_b/arm_b",
+      "scoreability": {
+        "budget_truncated_turns": [
+          32
+        ],
+        "empty_response_turns": [],
+        "verbatim_repeat_turns": []
+      }
+    },
+    "C": {
+      "arm": "C",
+      "coherence_reported_not_thresholded": {
+        "budget_truncated_count": 0,
+        "note": "Reported for reading, not for deciding. Section 7 requires coherence separate from recall, and no coherence threshold is registered.",
+        "response_chars_max": 5431,
+        "response_chars_median": 3667,
+        "response_chars_min": 80,
+        "verbatim_repeat_count": 0
+      },
+      "completion": {
+        "complete": true,
+        "turns_completed": 35,
+        "turns_required": 35
+      },
+      "decision": "GO",
+      "reasons": [],
+      "run_directory": "experiments/study_011/ablation_runs/study_011_ablation_c/arm_c",
+      "scoreability": {
+        "budget_truncated_turns": [],
+        "empty_response_turns": [],
+        "verbatim_repeat_turns": []
+      }
+    },
+    "D": {
+      "arm": "D",
+      "coherence_reported_not_thresholded": {
+        "budget_truncated_count": 0,
+        "note": "Reported for reading, not for deciding. Section 7 requires coherence separate from recall, and no coherence threshold is registered.",
+        "response_chars_max": 5026,
+        "response_chars_median": 3715,
+        "response_chars_min": 80,
+        "verbatim_repeat_count": 0
+      },
+      "completion": {
+        "complete": true,
+        "turns_completed": 35,
+        "turns_required": 35
+      },
+      "decision": "GO",
+      "reasons": [],
+      "run_directory": "experiments/study_011/ablation_runs/study_011_ablation_d/context_matched_stm",
+      "scoreability": {
+        "budget_truncated_turns": [],
+        "empty_response_turns": [],
+        "verbatim_repeat_turns": []
+      }
+    }
+  },
+  "arms_missing": [],
+  "arms_not_go": [],
+  "consequence": "A NO_GO arm does not run at 121 turns. Section 9 registers the case where Arm B fails and the study runs three arms: record it, do not add a recency floor, which would make Arm B not an isolation.",
+  "decision": "GO",
+  "gate": "G6",
+  "requirement": "each arm completes 35 turns and produces coherent, scoreable output",
+  "study": "011"
+}
