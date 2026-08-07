@@ -97,6 +97,20 @@ undetectable without measuring it.
   *(Constraint added August 6, 2026 - see `IC_001_REPORT.md`. This does not
   authorize re-running anything: IC-001 section 9 lists the five conditions.)*
 
+  **Amended August 7, 2026 by Study 011, which tested that constraint live and
+  found its natural reading wrong.** Starving the similarity path is real: the
+  deployed arm scored identically to the recency-only arm on all thirteen
+  questions, so the tier this ledger measures contributed nothing at all in
+  deployment. But unstarving it did not help. The K-first arm delivered
+  thirteen K-path episodes against the deployed arm's one, raised Q11
+  availability to 10/17 and targeted to 10/21, and **scored a point lower**,
+  7.0 against 8.0. The registered kill fired and the correction was not
+  adopted. So a candidate that looks weak may indeed have been starved rather
+  than wrong - and feeding it may still cost answers. No entry in this ledger
+  is revived by Study 011, and a delivery gain remains not a result.
+  *(See `experiments/study_011/study_011_report.md`. One seed, one run per arm,
+  no variance estimate.)*
+
 ### 4.1 What actually exists in this repository
 
 Verify against the tree; this is from the record, not from inspection.
