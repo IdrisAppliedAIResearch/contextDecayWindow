@@ -560,13 +560,25 @@ helped there; what changed was the recency context it displaced elsewhere. The
 mechanism is consistent with displacement and is not established — a single run
 per arm cannot separate it from ordinary variation in a live conversation.
 
+One caveat governs every scored number above. Re-running a single arm under
+identical settings produced a byte-identical prompt and a **different answer**
+at the same seed, with one slot and speculative decoding off. The mechanism
+reproduces exactly where it can be tested — but that is one turn, since a
+differing answer changes the store and every prompt after it. A one-point gap
+on a thirteen-point rubric, from one run per arm, therefore sits inside a noise
+band this program has never measured. The registered bar fired on the committed
+numbers, which is what a pre-registered kill is for; the defensible reading is
+that the correction did not demonstrate an improvement, not that it is worse.
+The delivery and packing numbers are offline and reproduce exactly.
+
 For this paper the correction is narrow. §5.2.2's delivery finding stands
 unchanged and is now confirmed live. What does not survive is the inference a
 reader would naturally draw from it: that the starved fill order was holding
 back a working retrieval path. On this corpus, at this seed, giving that path
-the window space it had been denied moved availability up and answers down.
-The pool, the objective and the floor still bind in the order §5.6 gives them.
-Packing order gates delivery, and delivery was not what was limiting answers.
+the window space it had been denied moved availability up and answers did not
+follow. The pool, the objective and the floor still bind in the order §5.6
+gives them. Packing order gates delivery, and delivery was not the thing
+limiting answers.
 
 ### 5.3 The objective binds second, and only after the pool
 
