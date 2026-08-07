@@ -1,0 +1,43 @@
+You are a helpful technical and research assistant with deep knowledge across engineering, art history, economics, and biology.
+
+<pinned_rules>
+  <rule id="3162f32f-957f-551b-8f6e-dc5924478701" set_at_turn="1">Format specifications/items as numbered lists; conclude engineering/structural recommendations with risk classification (Risk: Low/Medium/High)</rule>
+</pinned_rules>
+
+<recent_context>
+<episode turn="4">
+<user>The steel specification for Halcyon Crossing's primary structural members has been set at grade S460ML. The bridge's maximum load rating is 92.4 metric tons per axle. Walk me through step by step what makes S460ML appropriate for a span of this length and load rating, and what the key material performance thresholds are.</user>
+<assistant>1.  **High Yield Strength for Slender Sections**: The "S460" designation indicates a minimum yield strength of 460 MPa. For an 847-meter main span, minimizing the self-weight of the box girder is critical to ensure cable forces remain within safe limits. Higher yield strength allows for reduced cross-sectional thickness in the deck and pylon, directly counteracting the dead load penalties associated with such long spans.
+2.  **Enhanced Toughness for Cold Climates**: The "M" suffix stands for "Minimum," but in the context of standard EN 10025, the key identifier is usually the temperature grade. However, S460ML is specifically rated for impact testing at -20°C. This ensures the material retains ductility and resistance to brittle fracture in sub-zero environments, a crucial factor for long-span bridges subject to wind-induced vibrations and thermal stresses.
+3.  **Thinning Tolerance ("L" Grade)**: The "L" stands for "Longitudinal" mechanical properties. It certifies that the steel maintains its specified yield and tensile strengths even when rolled into thinner plates (typically under 16mm-40mm range depending on the specific standard iteration). This allows Dr. Bekova to use thinner, lighter plate sections in the upper and lower flanges of the deck without losing structural integrity, optimizing the weight-to-strength ratio for the 92.4-ton axle load.
+4.  **Fatigue Resistance**: Long-span bridges are highly susceptible to fatigue due to traffic cycles and wind loading. S460ML generally requires strict control over impurities (Sulfur and Phosphorus limits) and inclusion shape control. This results in a cleaner microstructure that resists crack initiation and propagation under the repetitive dynamic loads of heavy truck traffic (92.4 tons/axle) over the bridge's 100+ year design life.
+
+(Risk: Medium)</assistant>
+</episode>
+<episode turn="1">
+<user>Before we begin our technical discussions, I want to establish two rules you must follow throughout our entire conversation without exception. First, whenever you list technical specifications or multiple items, always format them as a numbered list. Second, always conclude any structural or engineering recommendation with a risk classification in parentheses — either (Risk: Low), (Risk: Medium), or (Risk: High). Please confirm you understand and will apply both rules consistently.</user>
+<assistant>I understand and will apply both rules consistently throughout our conversation.</assistant>
+</episode>
+<episode turn="2">
+<user>Good. To confirm you understood: if I ask you to list the properties of a material or the steps of a process, what format will you use? And what will you append to any engineering recommendation you make?</user>
+<assistant>1. I will format the properties of a material or the steps of a process as a numbered list.
+2. I will append a risk classification in parentheses (Risk: Low, Risk: Medium, or Risk: High) to any engineering recommendation.</assistant>
+</episode>
+<episode turn="3">
+<user>We are beginning work on a major infrastructure project called Halcyon Crossing — a long-span cable-stayed bridge. The total main span is 847 meters. The lead structural engineer assigned to the project is Dr. Anara Bekova. Please acknowledge these project parameters.</user>
+<assistant>I acknowledge the project parameters for Halcyon Crossing:
+
+1. Project Name: Halcyon Crossing
+2. Project Type: Long-span cable-stayed bridge
+3. Main Span: 847 meters
+4. Lead Structural Engineer: Dr. Anara Bekova</assistant>
+</episode>
+</recent_context>
+
+<retrieved_stm/>
+
+<current_turn>
+  <user_message>Given the 847-meter span and 92.4 metric ton axle load rating for Halcyon Crossing, what are the primary structural failure modes Dr. Anara Bekova's team needs to model across the full lifecycle of the bridge?</user_message>
+</current_turn>
+
+Assistant:

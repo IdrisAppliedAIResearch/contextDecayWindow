@@ -31,6 +31,35 @@ This is the LV-001 rule doing precisely what it was generalised to do. A
 mechanism that improves delivery and degrades answers has not improved
 anything, and no availability gain rescues it.
 
+**Read §1.1 before citing the −1.0.**
+
+### 1.1 The runtime is not bit-reproducible, and it bounds this result
+
+The determinism spot-check found that **the same prompt produces different
+answers at the same seed.** Arm A's ablation was re-run under identical
+settings: turn 1's constructed prompt is byte-identical at 757 bytes, and
+the two responses diverge at character 79 — 343 characters against 80.
+Seed 5005, `--parallel 1`, speculative decoding off, same server process.
+
+The mechanism is clean where it can be tested: over the testable prefix,
+prompts and payload digests match exactly. But the testable prefix is
+**one turn**, because once a response differs the store differs and every
+later prompt must differ with it.
+
+The consequence for §1 is direct and it is not small. **A one-point
+difference on a 13-point rubric, from one run per arm, on a runtime that
+demonstrably produces different outputs from identical inputs, cannot be
+separated from run-to-run variation.** B1 is a registered bar and it fired
+on the committed numbers, exactly as specified — that is what a
+pre-registered kill is for, and the verdict stands as recorded. What
+cannot be claimed is that Arm C is *really* worse than Arm D. The honest
+statement is that the correction did not demonstrate an improvement, and
+the study lacks the power to say more.
+
+This also means the program's standing rule — *require a byte-identical
+seeded prefix rerun* — **is not satisfiable on this runtime**, and every
+prior study that assumed it should be read with that in mind.
+
 ---
 
 ## 2. The single new claim, judged
@@ -239,6 +268,15 @@ kill and it fired.
 estimate.** Study 011 cannot establish that any difference reported here
 would replicate. State this wherever a result is cited.
 
+**The runtime is not bit-reproducible (§1.1), which makes the above worse
+than it sounds.** This is not the usual boilerplate about a missing
+variance estimate: the same prompt was shown to produce a different answer
+at the same seed, so the program cannot even reproduce a single arm, let
+alone estimate the spread across arms. Every scored difference in this
+report — including the −1.0 that fired B1 — sits inside an unmeasured
+noise band. The gates, the delivery counts and the packing results are
+unaffected: those are offline, deterministic, and reproduce exactly.
+
 **Three raters, three distinct models, one family.** §6.1 requires three
 blind raters from *distinct model families*. The three raters were
 `claude-opus-5`, `claude-sonnet-5` and `claude-haiku-4-5-20251001`:
@@ -314,6 +352,6 @@ the mapping was unsealed before any mechanism analysis was committed.
 - [x] Ledger, `README.md`, `AGENTS.md` digest
 - [x] One PR
 
-**Determinism spot-check:** not run. The registration lists it under §5 as
-a gate. It is not reported as passed because it was not performed, and no
-result here rests on it.
+**Determinism spot-check:** run, and it changed how §1 must be read.
+Mechanism PASS over a one-turn testable prefix; **runtime bit-reproducibility
+FAILS**. See §1.1 and `runtime/determinism.json`.

@@ -106,8 +106,22 @@ def compare(original: Path, rerun: Path) -> dict:
             ("response", "response"),
         )
     }
-    mechanism_deterministic = first_divergence["prompt"] is None and (
-        first_divergence["payload"] is None
+
+    # The mechanism can only be judged where its inputs were identical. Once
+    # a response differs, the next turn's store differs, so a differing
+    # prompt after that point is the model's divergence arriving on schedule,
+    # not the mechanism drifting. The testable region is the prefix up to and
+    # including the first differing response -- "a byte-identical seeded
+    # prefix rerun", read literally.
+    first_response_divergence = first_divergence["response"]
+    if first_response_divergence is None:
+        prefix = shared
+    else:
+        prefix = [turn for turn in shared if turn <= first_response_divergence]
+    prefix_rows = [row for row in rows if row["turn"] in set(prefix)]
+    mechanism_deterministic = all(
+        row["prompt_identical"] and row["payload_digest_identical"]
+        for row in prefix_rows
     )
     return {
         "study": "011",
@@ -117,14 +131,24 @@ def compare(original: Path, rerun: Path) -> dict:
         "turns_compared": len(shared),
         "identical_counts": identical,
         "first_divergence_turn": first_divergence,
+        "testable_prefix_turns": len(prefix),
         "mechanism_deterministic": mechanism_deterministic,
         "response_deterministic": first_divergence["response"] is None,
         "status": "PASS" if mechanism_deterministic else "FAIL",
         "what_this_certifies": (
             "The mechanism -- prompt construction and packing -- is what this "
-            "gate binds. A model that is not bit-reproducible under a fixed "
-            "seed produces an identical prompt and a different answer; that "
-            "is reported separately and does not fail the mechanism check."
+            "gate binds, and only over the prefix where its inputs were "
+            "identical. A model that is not bit-reproducible under a fixed "
+            "seed produces an identical prompt and a different answer; after "
+            "that the store diverges and later prompts must differ. That is "
+            "reported separately and does not fail the mechanism check."
+        ),
+        "limitation": (
+            "A short testable prefix is weak evidence about the mechanism. "
+            "When the runtime is not bit-reproducible, a live rerun cannot "
+            "test mechanism determinism beyond the first differing response, "
+            "and the number of turns it did test is reported above rather "
+            "than implied."
         ),
         "per_turn": rows,
     }
