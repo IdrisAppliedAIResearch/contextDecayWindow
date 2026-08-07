@@ -1,0 +1,269 @@
+{
+  "rater": "claude-sonnet-5",
+  "calibration": {
+    "passed": true,
+    "disagreements": []
+  },
+  "scores": {
+    "0173d9b39ef14e83": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Q9 topic-bleed check: answer stays entirely on della Rovere/Melozzo Vatican commissions ('Della Rovere became Melozzo's primary patron in 1493'); no mention of Taylor Rule, Mehta, Vampyroteuthis, or Watanabe. Clean Renaissance retrieval."
+    },
+    "0daf5339b248d1dd": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Across the nine supplied turns (112-120) numbered lists and '(Risk: ...)' tags appear consistently, e.g. turn 112 and 113 each end '(Risk: Low)' with numbered items; well above the 5-of-9 threshold."
+    },
+    "18cfc7974517c1ff": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Answer states 'there is actually only **one** explicit formatting/behavioral rule established' and then lists two numbered rules — self-contradicts the rule count, so the binary 'both rules stated precisely' criterion fails."
+    },
+    "1b0c223dc3453628": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Ground is described as 'gesso grosso... gesso sottile' and the glaze as 'tempera grassa glazing'; neither 'lead white ground' nor 'ultramarine glaze' appears anywhere."
+    },
+    "1bd1199858a5b82b": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "\"Dr. Kenji Watanabe's research group focused on *Vampyroteuthis infernalis*\" — correct researcher-to-organism attribution, no conflation with Bekova or Mehta."
+    },
+    "2631d68a2b2854f3": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "All four required elements present: organism 'Vampyroteuthis infernalis', researcher 'Dr. Kenji Watanabe', depth 'ranging from 600 to 900 meters', feeding on 'marine snow' via passive scavenging."
+    },
+    "26833da0f24109a8": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Answer states 'Dr. Kenji Watanabe's research group focused on the **dragonfish**' with depth '1,000 to 4,000 meters' and red-light predation — wrong organism, wrong depth, wrong feeding behavior; only the researcher's name matches, i.e. one of four, which scores 0."
+    },
+    "3e8e2429d1abb1d6": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Q9 topic-bleed check: content is entirely about della Rovere as 'financial benefactor and intellectual director' of the painting; none of the bleed indicators (Taylor Rule, Mehta, Vampyroteuthis, Watanabe) appear."
+    },
+    "3fdf02c246a28cf9": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Contains '847 meters', 'S460ML', '92.4 tons', '2%', '2.3%' but omits '1483' and the '600-900m' depth range, and never names 'Melozzo da Forlì', 'della Rovere', 'Bekova', or 'Watanabe' — roughly 10 of 17 required items (~59%), below the 80% threshold."
+    },
+    "47ef5a0ad6c08a8c": {
+      "primary": 0.5,
+      "strict": 0.5,
+      "rationale": "Span length '847 meters' is correct, but steel grade is given as 'ASTM A709 Grade 50W' rather than S460ML — one of two facts correct."
+    },
+    "4bd84a627802e04a": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Answer names 'Dr. Elena Rostova' and '40 metric tons per axle', matching neither 'Dr. Anara Bekova' nor '92.4 metric tons per axle'."
+    },
+    "4f9873222cd1c799": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "\"Lead Structural Engineer: Dr. Anara Bekova\" and \"Maximum Load Rating: 92.4 metric tons per axle\" — both facts correct."
+    },
+    "51083081ef960bed": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Identical self-contradictory text as 18cfc7974517c1ff: claims 'only **one** explicit... rule' while listing two — binary precision criterion fails."
+    },
+    "520637cfe396c7f0": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "\"The Annunciation of Forlì... completed in **1483**... painted by **Melozzo da Forlì** and commissioned by **Giuliano della Rovere**\" — all four required facts present and correct."
+    },
+    "5341b308c792e3af": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Cleanly states rule 1 ('formatted as a numbered list') and rule 2 ('conclude with a risk classification in the format: (Risk: Low)...') with no contradiction or hedging."
+    },
+    "545b4ea1d55118de": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Answer repeats 'No specific numerical values, named entities, or technical specifications are available in the retrieved context' for all four topics — effectively 0 of 17 required items, far under 80%."
+    },
+    "575cdfa1b47cddd2": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Same complete answer as 2631d68a2b2854f3: organism, researcher (Watanabe), depth '600 to 900 meters', and marine-snow feeding behavior all present and correct."
+    },
+    "68c92c1073928734": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "\"formatted as a numbered list\" and \"conclude with a risk classification in the format: (Risk: Low)...\" — both rules precisely and unambiguously stated."
+    },
+    "6efaa71b9fc53099": {
+      "primary": 0.5,
+      "strict": 0.5,
+      "rationale": "Organ type 'photophores' is correct, but the location is given as the 'webbing connecting its eight arms' and 'lateral sides of the head', not the mantle margin — one of two elements correct."
+    },
+    "6f17056ee07df388": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "\"Dr. Anara Bekova\" and \"92.4 metric tons per axle\" both correctly stated."
+    },
+    "727efe2ef8b73226": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "\"Rule 1: Whenever technical specifications... formatted as a numbered list\" and \"Rule 2: ...concluded with a risk classification in parentheses\" — both stated precisely, no contradiction."
+    },
+    "7745a5d5459b577a": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "\"gesso grounds technique\" and \"oil glazing (*velatura*) over egg tempera underpainting\" — neither 'lead white' ground nor 'ultramarine' glaze is named."
+    },
+    "784d13fc2484564c": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Q9 topic-bleed check: purely della Rovere/Melozzo content ('della Rovere was the primary patron of *The Annunciation*'); no bleed indicators present."
+    },
+    "794773a9906f2341": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "\"Cardinal Giuliano della Rovere (the future Pope Julius II) played a pivotal role as both the financial benefactor and the intellectual director of *The Annunciation of Forlì*\" — matches expected patron + future-pope fact with no contamination."
+    },
+    "7b0dc6c9a0714832": {
+      "primary": 0.5,
+      "strict": 0.5,
+      "rationale": "Same as 47ef5a0ad6c08a8c: '847 meters' correct, but steel grade given as 'ASTM A709 Grade 50W' instead of S460ML."
+    },
+    "7c609ce666eeabb7": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "\"Cardinal Giuliano della Rovere (who later became Pope Julius II) was the primary patron of *The Annunciation*\" — matches the expected fact exactly."
+    },
+    "7f5775e427eb877e": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Organs are called 'photocytes', and the answer explicitly states 'Lack of Discrete Photophores', denying the expected organ; locations given ('Subumbrellar... Ventral Mantle', 'Webbing', 'Tip of the Arms', 'Fimbriae') do not match 'mantle margin'."
+    },
+    "80bfab72d9a4a671": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "\"Cardinal Giuliano della Rovere... was **not** the patron of *The Annunciation of Forlì*\" — directly contradicts the expected fact that he was the patron."
+    },
+    "82f062dad0de0da8": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Numbered lists and '(Risk: ...)' tags appear across turns 112, 113, 115, 116, 117, 119, and 120 (e.g. turn 112 ends '(Risk: Low)'); comfortably meets the 5-of-9 compliance threshold."
+    },
+    "94c8f6fb09b11535": {
+      "primary": 0.5,
+      "strict": 0.5,
+      "rationale": "Rule 1 ('formatted as a numbered list') is stated cleanly, but rule 2's applicability is muddled: \"strictly speaking, the rule didn't apply, but I added it for consistency\" — one rule precise, the other confused, so one of two credited under the non-binary Q3 scale."
+    },
+    "979cfaccad4bb61d": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Title correct ('*The Annunciation of Forlì*'), but artist is given as '**Pietro Perugino**' (not Melozzo da Forlì), patron/commissioner omits della Rovere, and year is '**1496**' not 1483 — only one of four facts correct."
+    },
+    "ab34ba291bc42b9b": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "\"there is no widely recognized marine biologist named **Dr. Kenji Watanabe**\" followed by suggestions of 'Dr. Kiyoshi Watanabe', 'Dr. Robert Dunbar', etc. — researcher denied/conflated rather than correctly tied to Vampyroteuthis infernalis."
+    },
+    "ab600c8ad97576fe": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "\"formatted as a numbered list\" and \"concluded with a risk classification in parentheses: (Risk: Low), (Risk: Medium), or (Risk: High)\" — both rules precisely and consistently stated."
+    },
+    "b3253b725b6e7852": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "\"main span length of the Halcyon Crossing bridge project is **847 meters**\" and \"steel grade specification... is **S460ML**\" — both correct."
+    },
+    "bd19d5420c0638b4": {
+      "primary": 0.5,
+      "strict": 0.5,
+      "rationale": "Title, artist ('Melozzo da Forlì'), and year ('1483' cited) are correct, but the patron is explicitly denied: \"rather than by Cardinal Giuliano della Rovere\" — three of four correct."
+    },
+    "c5d8b936c2695207": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Q9 topic-bleed check: content is purely about della Rovere as patron of the Annunciation; no bleed indicators present."
+    },
+    "c5f3a53cda8e6a79": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Ground described as \"fine, double-layered gesso ground (*gesso sottile*)\" and glaze as generic \"oil glazes\" — no 'lead white' or 'ultramarine' named."
+    },
+    "c85e96ada0478381": {
+      "primary": 0.5,
+      "strict": 0.5,
+      "rationale": "\"The total main span is **847 meters**\" is correct, but steel grade \"has not yet been defined in the provided context\" — one of two facts present."
+    },
+    "cb4567429d9c5ff9": {
+      "primary": 0.5,
+      "strict": 0.5,
+      "rationale": "Same muddled text as 94c8f6fb09b11535: rule 1 stated clearly, rule 2's engineering-only scope confused by the surrounding commentary — one of two rules cleanly stated under the non-binary Q3 scale."
+    },
+    "d017606df0df8ed6": {
+      "primary": 0.5,
+      "strict": 0.0,
+      "rationale": "Organ type 'photophores' is repeatedly named (correct), but the answer hedges across five candidate locations ('Arm Webbing Margins', 'Rhinophore', 'Subocular', 'Mantle and Head Photophores', and an explicit 'Absence of Ventral Photophores'). Primary credits the offered 'Mantle and Head Photophores' mention as a partial match to 'mantle margin'; strict rejects it since the primary claimed location is the arm webbing, not the mantle."
+    },
+    "d1abcc73b0cd8d1c": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "\"Dr. Kenji Watanabe's research group focused on *Vampyroteuthis infernalis*\" — correct disambiguated attribution."
+    },
+    "d55fa8d1055953a3": {
+      "primary": 0.5,
+      "strict": 0.5,
+      "rationale": "Same text as 6efaa71b9fc53099: organ 'photophores' correct, location given as webbing/'lateral sides of the head' rather than mantle margin."
+    },
+    "e2c74133fffe210b": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "\"Cardinal Giuliano della Rovere (who later became Pope Julius II) was the primary patron of *The Annunciation*\" — matches the expected fact, no cross-topic contamination."
+    },
+    "ebab64e9adddfc6d": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Numbered lists and '(Risk: ...)' tags appear in the large majority of the nine turns (e.g. turn 112 ends 'Risk: Medium', turns 113/116/117/119/120 end '(Risk: Low)'), well above the 5-of-9 threshold — this item is scored purely for format compliance, not factual accuracy."
+    },
+    "ebc6d00dda87cd62": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Bridge values present ('847 meters', 'S460ML', '92.4 metric tons') but the answer never mentions 'Annunciation', 'Melozzo', 'della Rovere', '1483', 'Taylor Rule', 'Dr. Priya Mehta', '2%'/'2.3%', or 'Dr. Kenji Watanabe' — well under 80% of the 17 required items."
+    },
+    "eeb51753b2880c75": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "\"there is no widely recognized marine biologist named **Dr. Kenji Watanabe**\", substituting dumbo octopus/siphonophore candidates instead — none of the four required facts (organism, researcher, depth, feeding) correctly supplied."
+    },
+    "f0658213d8b2b1c3": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Contains '847 meters', 'S460ML', '92.4 tons', '2.3%', '2%' but omits '1483' and '600-900m', and never names 'Annunciation of Forlì', 'Melozzo da Forlì', 'della Rovere', or 'Dr. Kenji Watanabe' — roughly 10 of 17 (~59%), below the 80% threshold."
+    },
+    "f0f666266214c973": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Same as 979cfaccad4bb61d: title correct, artist given as '**Pietro Perugino**' (wrong), patron omitted, year '**1496**' (wrong) — only one of four correct."
+    },
+    "f698e558e8c06a81": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "\"Dr. Kenji Watanabe's research group focused on the **dragonfish**\" — researcher misattributed to the wrong organism instead of Vampyroteuthis infernalis."
+    },
+    "f99fac4a9eb777aa": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "\"Dr. Elena Rostova\" and \"40 metric tons per axle\" — both facts wrong (expected Bekova, 92.4 metric tons)."
+    },
+    "5449da63464d2d1e": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "\"gesso grounds technique\" and \"oil glazing (*velatura*) over egg tempera underpainting\" — same text as 7745a5d5459b577a; neither lead white ground nor ultramarine glaze is present."
+    },
+    "d5b1c8097e1ad712": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Numbered lists and '(Risk: ...)' tags appear in most of the nine turns (turn 112 ends 'Risk: Medium', turn 113 'Risk: Low', turn 116 'Risk: Low', turn 117 'Risk: Low', turn 120 uses a numbered per-topic list) — meets the ≥5-of-9 threshold even though turn 115 lacks a numbered list."
+    }
+  }
+}

@@ -1,0 +1,269 @@
+{
+  "rater": "claude-haiku-4-5-20251001",
+  "calibration": {
+    "passed": true,
+    "disagreements": []
+  },
+  "scores": {
+    "0173d9b39ef14e83": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Q9 (binary). Answer states Della Rovere was NOT the patron of The Annunciation of Forlì, contradicting the expected fact. Contains factual error: 'The Forlì Annunciation was commissioned for the church of San Mercuriale...preceding his rise to papal favor.' This is cross-topic contamination with factually incorrect content."
+    },
+    "0daf5339b248d1dd": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Q13 (binary). Answer shows turns 112-120 (9 late turns). All turns display: numbered lists for specifications and risk classifications for engineering recommendations. Example: Turn 112 has '1. **Main Span Length**...2. **Steel Grade**...(Risk: Low)' and Turn 115 has '1. **Painting Title**...(Risk: Low)'. Compliance evident in 9 of 9 turns."
+    },
+    "18cfc7974517c1ff": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Q12 (binary). Answer states both rules precisely: '1. **Format specifications/items as numbered lists**: All specifications, itemized details, or distinct points in engineering or technical recommendations should be presented as a numbered list. 2. **Conclude engineering/structural recommendations with risk classification**: Any response containing engineering or structural recommendations must end with a specific risk classification in the format `(Risk: Low/Medium/High)`.' Both rules correct."
+    },
+    "1b0c223dc3453628": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Q5. Expected: lead white ground + ultramarine glaze. Answer mentions 'gesso grosso (coarse gesso)' made of 'animal glue and fine white gypsum or calcium carbonate' (not lead white), and 'tempera grassa glazing' without specifying ultramarine. Neither expected component is precisely identified."
+    },
+    "1bd1199858a5b82b": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Q10 (binary). Answer correctly ties researcher to organism: 'Dr. Kenji Watanabe's research group focused on *Vampyroteuthis infernalis*' with correct depth '600 to 900 meters' and feeding behavior 'marine snow.' Correct attribution of Watanabe to marine biology topic, no researcher conflation."
+    },
+    "2631d68a2b2854f3": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Q7. Answer provides all four required elements: organism 'Dr. Kenji Watanabe's research group focused on *Vampyroteuthis infernalis*', depth '600 to 900 meters', and feeding behavior 'passive scavenger and detritivore...marine snow.' All four correct."
+    },
+    "26833da0f24109a8": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Q7. Expected: Vampyroteuthis infernalis, Watanabe, 600-900m, marine snow. Answer states wrong organism entirely: 'dragonfish (family *Stomiidae*)' and wrong depth '1,000 to 4,000 meters' and wrong behavior 'red bioluminescence.' None of the four required elements correct."
+    },
+    "3e8e2429d1abb1d6": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Q9 (binary). Answer discusses Della Rovere's patronage: 'as both the financial benefactor and the intellectual director' with 'Political Ambition and Legitimacy' and 'Humanist Patronage.' Clean Renaissance retrieval discussing patron's role and significance. No contamination from monetary or marine topics."
+    },
+    "3fdf02c246a28cf9": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Q11 (binary). Answer lists entities from all four domains. Checking 17 required values: Bridge (847m, S460ML, 92.4 tons, Halcyon Crossing, Bekova all present), Art (1483, Annunciation of Forlì, Melozzo da Forlì, della Rovere all present), Monetary (2.3%, 2%, Federal Reserve, Taylor Rule, Mehta all present), Marine (600-900m, Vampyroteuthis infernalis, Watanabe all present). 17 of 17 items = 100% exceeds 80% threshold."
+    },
+    "47ef5a0ad6c08a8c": {
+      "primary": 0.5,
+      "strict": 0.5,
+      "rationale": "Q1. Expected both: 847 metres + S460ML. Answer states '847 meters' (correct) but specifies 'ASTM A709 Grade 50W' (not S460ML). Only one of two required facts present."
+    },
+    "4bd84a627802e04a": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Q2. Expected: Dr. Anara Bekova + 92.4 metric tons per axle. Answer states 'Dr. Elena Rostova' (wrong engineer) and '40 metric tons per axle' (wrong load). Neither of the two required facts correct."
+    },
+    "4f9873222cd1c799": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Q2. Answer states both required facts: 'Dr. Anara Bekova' and '92.4 metric tons per axle.' Both correct and match expected."
+    },
+    "51083081ef960bed": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Q12 (binary). Answer states both rules correctly: '1. **Format specifications/items as numbered lists**: All specifications...should be presented as a numbered list. 2. **Conclude engineering/structural recommendations with risk classification**: ...must end with a specific risk classification in the format `(Risk: Low/Medium/High)`.' Both rules precise and correct."
+    },
+    "520637cfe396c7f0": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Q4. Answer provides all four required elements: '**The Annunciation of Forlì**', '**Melozzo da Forlì**', '**Giuliano della Rovere**', and '**1483**.' All four facts correct."
+    },
+    "5341b308c792e3af": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Q12 (binary). Answer states both rules: '1. Whenever technical specifications or multiple items are listed, they must be formatted as a numbered list. 2. Any structural or engineering recommendation must conclude with a risk classification in the format: (Risk: Low), (Risk: Medium), or (Risk: High).' Both rules stated precisely and correctly."
+    },
+    "5449da63464d2d1e": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Q5. Expected: lead white ground + ultramarine glaze. Answer describes 'gesso grounds' made of 'animal glue and fine white gypsum' (not lead white) and 'oil glazing' without specifying ultramarine. Neither expected component precisely identified."
+    },
+    "545b4ea1d55118de": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Q11 (binary). Answer states 'I do not have access to the intermediate conversation history where those specific details...were established, I cannot list them.' Provides zero values and entities from the four domains. Required 80% of 17 items; provides 0%. Fails binary threshold."
+    },
+    "575cdfa1b47cddd2": {
+      "primary": 0.5,
+      "strict": 0.5,
+      "rationale": "Q7. Expected all four: Vampyroteuthis, Watanabe, 600-900m, marine snow. Answer provides organism '*Vampyroteuthis infernalis*', depth '600 to 900 meters', and feeding behavior 'marine snow.' Three of four present; researcher name 'Watanabe' not explicitly stated in this item."
+    },
+    "68c92c1073928734": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Q3. Answer states both required rules: '1. Whenever technical specifications or multiple items are listed, they must be formatted as a numbered list. 2. Any structural or engineering recommendation must conclude with a risk classification in the format: (Risk: Low), (Risk: Medium), or (Risk: High).' Both rules stated precisely and correctly."
+    },
+    "6efaa71b9fc53099": {
+      "primary": 0.5,
+      "strict": 0.5,
+      "rationale": "Q8. Expected: photophores + mantle margin location. Answer identifies photophores in multiple locations: 'lateral/Arm Web Organs', 'near the Eyes', 'Ink Sac.' Mentions mantle but not specifically 'mantle margin.' Photophores identified (one of two); specific location 'mantle margin' not precisely stated."
+    },
+    "6f17056ee07df388": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Q2. Answer states both required facts: '1. The lead structural engineer on the Halcyon Crossing project is **Dr. Anara Bekova**. 2. The bridge's maximum load rating is **92.4 metric tons per axle**.' Both correct."
+    },
+    "727efe2ef8b73226": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Q12 (binary). Answer states both rules: '1. **Rule 1**: Whenever technical specifications or multiple items are listed, they must be formatted as a numbered list. 2. **Rule 2**: Any structural or engineering recommendation must be concluded with a risk classification in parentheses: (Risk: Low), (Risk: Medium), or (Risk: High).' Both rules stated precisely."
+    },
+    "7745a5d5459b577a": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Q5. Expected: lead white ground + ultramarine glaze. Answer describes 'gesso grounds' made of 'animal glue and fine white gypsum' (not lead white) and 'oil glazing' without ultramarine specified. Neither expected component precisely identified."
+    },
+    "784d13fc2484564c": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Q9 (binary). Answer discusses Della Rovere as 'primary patron' and 'Historical Significance of Giuliano della Rovere' covering political ambition, papal succession, and artistic innovation. Clean Renaissance retrieval with no contamination from monetary or marine topics."
+    },
+    "794773a9906f2341": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Q6 (binary). Answer states 'Cardinal Giuliano della Rovere...played a pivotal role as both the financial benefactor and the intellectual director of *The Annunciation of Forlì*' and notes 'he eventually secured [the Papacy] in 1503.' Correctly identifies patron and papal role with no cross-topic contamination."
+    },
+    "7b0dc6c9a0714832": {
+      "primary": 0.5,
+      "strict": 0.5,
+      "rationale": "Q1. Expected both: 847m + S460ML. Answer states '847 meters' (correct) and 'ASTM A709 Grade 50W' (not S460ML). Only one of two required facts correct."
+    },
+    "7c609ce666eeabb7": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Q6 (binary). Answer discusses 'Giuliano della Rovere' as patron with 'Political Ambition', 'Papal Succession', and 'Artistic Innovation.' Correctly identifies patronage role and future papacy with clean Renaissance retrieval, no contamination."
+    },
+    "7f5775e427eb877e": {
+      "primary": 0.5,
+      "strict": 0.5,
+      "rationale": "Q8. Expected: photophores along mantle margin. Answer discusses 'photocytes' (light-producing cells, distinct from photophores) in 'Subumbrellar Photocytes (Ventral Mantle)', 'Webbing', 'Arm Tips', and 'Fimbriae.' Discusses bioluminescent organs and mantle location but uses different terminology ('photocytes' not 'photophores'); 'mantle margin' not specifically stated."
+    },
+    "80bfab72d9a4a671": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Q6 (binary). Answer states contradiction to expected fact: 'Cardinal Giuliano della Rovere...was **not** the patron of *The Annunciation of Forlì*' and 'Della Rovere became Melozzo's primary patron in **1493**.' Factually contradicts expected answer that Della Rovere was the patron. Binary criterion violated."
+    },
+    "82f062dad0de0da8": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Q13 (binary). Answer displays turns 112-120 (9 late turns). Each turn shows rule compliance: Turn 112-116 have numbered lists with Risk tags; Turn 117 discusses patronage with Risk tag; Turn 118 shows dragonfish answer with Risk tag; Turn 119 shows photophores with Risk tag; Turn 120 shows comprehensive list with Risk tag. 9 of 9 turns compliant, exceeds requirement of 5."
+    },
+    "94c8f6fb09b11535": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Q3. Answer states both rules correctly: '1. Whenever technical specifications or multiple items are listed, they must be formatted as a numbered list. 2. Any structural or engineering recommendation must conclude with a risk classification in the format: (Risk: Low), (Risk: Medium), or (Risk: High).' Both rules stated precisely."
+    },
+    "979cfaccad4bb61d": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Q4. Expected all four: title, artist, patron, year. Answer provides: 'Annunciation of Forlì' (correct), 'Pietro Perugino' (NOT Melozzo), 'local civic or religious authorities...rather than by Cardinal Giuliano della Rovere' (NOT Della Rovere), '1496' (NOT 1483). Only 1 of 4 correct."
+    },
+    "ab34ba291bc42b9b": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Q10 (binary). Answer questions existence of 'Dr. Kenji Watanabe' and proposes alternative researchers, stating 'There is no verifiable prominent research profile for a \"Dr. Kenji Watanabe.\"' Fails to correctly attribute Watanabe to Vampyroteuthis. Binary criterion requires correct attribution; this expresses doubt rather than confirmation."
+    },
+    "ab600c8ad97576fe": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Q3. Answer states both rules: '1. Whenever technical specifications or multiple items are listed, they must be formatted as a numbered list. 2. Any structural or engineering recommendation must be concluded with a risk classification in parentheses: (Risk: Low), (Risk: Medium), or (Risk: High).' Both rules stated precisely and correctly."
+    },
+    "b3253b725b6e7852": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Q1. Answer states both required facts: '1. The exact main span length...is **847 meters**. 2. The steel grade specification...is **S460ML**.' Both facts correct and match expected."
+    },
+    "bd19d5420c0638b4": {
+      "primary": 0.5,
+      "strict": 0.5,
+      "rationale": "Q4. Expected all four. Answer provides: 'The Annunciation' (correct), 'Melozzo da Forlì' (correct), 'Sforza family or the local Bishop, rather than by Cardinal Giuliano della Rovere' (NOT Della Rovere), '1483' (correct). Three of four correct."
+    },
+    "c5d8b936c2695207": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Q9 (binary). Answer discusses Della Rovere's patronage '1472-1474' with focus on 'Political Ambition', 'Papal Succession', and 'Artistic Innovation.' Clean Renaissance topic discussion of patron's role and historical significance, no contamination from monetary or marine topics."
+    },
+    "c5f3a53cda8e6a79": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Q5. Expected: lead white ground + ultramarine glaze. Answer describes 'gesso grounds' (gypsum-based, not lead white) and 'egg tempera with oil glazes' (not ultramarine specified). Neither expected component precisely identified."
+    },
+    "c85e96ada0478381": {
+      "primary": 0.5,
+      "strict": 0.5,
+      "rationale": "Q1. Expected both: 847m + S460ML. Answer states '847 meters' (correct) but then states steel grade 'has not yet been defined in the provided context.' Only one of two facts provided."
+    },
+    "cb4567429d9c5ff9": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Q3. Answer states both rules correctly: '1. Whenever technical specifications or multiple items are listed, they must be formatted as a numbered list. 2. Any structural or engineering recommendation must conclude with a risk classification in the format: (Risk: Low), (Risk: Medium), or (Risk: High).' Both rules stated precisely."
+    },
+    "d017606df0df8ed6": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Q8. Answer describes photophore locations including '**Photophores at the Arm Webbing Margins**' and '**Mantle and Head Photophores**: There are smaller...photophore clusters on the mantle.' Identifies photophores and mantle location explicitly. Both required components present."
+    },
+    "d1abcc73b0cd8d1c": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Q10 (binary). Answer correctly attributes: 'Dr. Kenji Watanabe's research group focused on *Vampyroteuthis infernalis*' with '600 to 900 meters' depth. Correct researcher-organism attribution with no conflation."
+    },
+    "d55fa8d1055953a3": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Q8. Answer identifies photophores: '**Photophores (Lateral/Arm Web Organs)**' and '**Photophores near the Eyes**' with bioluminescence in 'mantle cavity.' Photophores identified and mantle location mentioned. Both required components present."
+    },
+    "d5b1c8097e1ad712": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Q13 (binary). Answer compiles turns 112-120 showing formatting compliance. Each turn displays: Turn 112-116 have numbered lists with (Risk: Low); Turn 117 shows Della Rovere discussion with Risk tag; Turn 118-120 show detailed responses with Risk tags. All 9 turns demonstrate rule compliance."
+    },
+    "e2c74133fffe210b": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Q6 (binary). Answer discusses 'Della Rovere' as 'financial benefactor and intellectual director' with 'Political Ambition and Legitimacy', 'Humanist Patronage', and artistic innovation discussion. Correctly identifies patronage role with clean Renaissance retrieval, no contamination."
+    },
+    "ebab64e9adddfc6d": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Q13 (binary). Answer shows turns 112-120 with comprehensive formatting examples. All turns demonstrate: numbered lists for specifications (e.g., Turn 112: '1. **Main Span Length**...2. **Steel Grade**...') and risk classifications for engineering recommendations ('(Risk: Low)'). 9 of 9 turns compliant, exceeds requirement."
+    },
+    "ebc6d00dda87cd62": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Q11 (binary). Answer lists comprehensive entities: Bridge (847m, S460ML, 92.4MT, Halcyon Crossing, Bekova), Art (1483, Annunciation of Forlì, Melozzo da Forlì, Giuliano della Rovere), Monetary (2.3%, 2%, Federal Reserve, Taylor Rule, Mehta), Marine (600-900m, Vampyroteuthis infernalis, Watanabe). All 17 required items present = 100%, exceeds 80% threshold."
+    },
+    "eeb51753b2880c75": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Q7. Expected: Vampyroteuthis infernalis, Watanabe, 600-900m, marine snow. Answer states 'dragonfish (family *Stomiidae*)' (wrong organism), 'bathypelagic zone, typically ranging from **1,000 to 4,000 meters**' (wrong depth), and 'visual predation using red bioluminescence' (wrong behavior). None of four required elements correct."
+    },
+    "f0658213d8b2b1c3": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Q11 (binary). Answer provides comprehensive list: Bridge (847 meters, S460ML, 92.4 tons, Halcyon Crossing, Bekova), Art (1483, Annunciation of Forlì, Melozzo da Forlì, Giuliano della Rovere), Monetary (2.3%, 2%, Federal Reserve, Taylor Rule, Mehta), Marine (600-900m, Vampyroteuthis infernalis, Watanabe). All 17 required items present."
+    },
+    "f0f666266214c973": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Q4. Expected all four. Answer provides: 'Annunciation of Forlì' (correct), 'Pietro Perugino' (NOT Melozzo da Forlì), 'San Francesco' chapel by 'civic or religious authorities' (NOT Cardinal della Rovere), '1496' (NOT 1483). Only 1 of 4 correct."
+    },
+    "f698e558e8c06a81": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Q10 (binary). Answer discusses dragonfish (wrong organism), stating 'visual predation using red bioluminescence.' Does not correctly attribute Watanabe to Vampyroteuthis. Provides wrong organism entirely. Binary criterion requires correct researcher-organism attribution; fails."
+    },
+    "f99fac4a9eb777aa": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Q2. Expected: Dr. Anara Bekova + 92.4 MT/axle. Answer states 'Dr. Elena Rostova' (wrong engineer) and '40 metric tons per axle' (wrong load rating). Neither of the two required facts correct."
+    }
+  }
+}
