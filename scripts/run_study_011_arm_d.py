@@ -102,10 +102,15 @@ def assert_control_isolation(control_commit: str) -> dict:
         failures.append("control worktree is dirty")
 
     # The carried engine must be the committed one, byte for byte.
+    # `_git` strips its output, and git may hand back CRLF on Windows, so
+    # both sides are normalised the same way before comparing. The check is
+    # that the engine is the committed one, not that trailing whitespace
+    # survived a checkout.
     tracked = _git("show", f"{control_commit}:src/memory/context_matched_stm.py")
-    if tracked.replace("\r\n", "\n") != ENGINE_PATH.read_text(
-        encoding="utf-8"
-    ).replace("\r\n", "\n"):
+    on_disk = ENGINE_PATH.read_text(encoding="utf-8")
+    if tracked.replace("\r\n", "\n").strip() != on_disk.replace(
+        "\r\n", "\n"
+    ).strip():
         failures.append("deployed engine differs from the control commit")
 
     leakage = _scan_source(ENGINE_PATH)
