@@ -146,6 +146,35 @@ def test_every_arm_stays_inside_the_registered_budget(derivation: dict) -> None:
             assert row["arms"][arm]["serialized_chars"] <= ach.BUDGET_CHARS
 
 
+def test_the_ceiling_is_also_stated_in_the_registered_units(
+    derivation: dict,
+) -> None:
+    """Section 4 states T as a count out of thirteen probes."""
+
+    ceiling = derivation["ceilings"]["C"]
+    assert ceiling["question_total"] == 13
+    assert ceiling["ceiling_k_only_questions"] == 8
+    assert ceiling["questions_reached"] == [
+        "Q1",
+        "Q11",
+        "Q12",
+        "Q2",
+        "Q3",
+        "Q5",
+        "Q6",
+        "Q9",
+    ]
+
+
+def test_five_questions_can_never_reach_the_ceiling(derivation: dict) -> None:
+    assert derivation["binding_ceiling"]["questions_that_can_never_count"] == [
+        "Q10",
+        "Q13",
+        "Q7",
+        "Q8",
+    ]
+
+
 def test_the_module_sets_no_threshold(derivation: dict) -> None:
     assert "T" not in derivation
     assert "t_is_not_set_here" in derivation
