@@ -248,6 +248,8 @@ For R37 it is `experiments`; for R38–R42 it is
 | C114 | Correcting the packing order lowered the scored result | arm C 7.0/13 against arm D 8.0/13; B1 FAIL, correction not adopted | `study_011/evaluation/verdict.json` | VERIFIED - blind three-rater scoring; three raters, three models, one family (disclosed) |
 | C115 | The packing loss is late-probe, not uniform | C-D = -1.0 from gains Q1 +0.5, Q2 +1.0, Q4 +0.5 and losses Q6, Q7, Q10 at -1.0 each; turn 118 carries Q7 and Q10 and holds no K candidate | `study_011/evaluation/verdict.json`; `study_011/gates/achievability/k_availability.csv` | VERIFIED - displacement mechanism consistent but NOT established |
 | C116 | The thirteen rubric questions occupy nine retrieval windows | Q3/Q12 share turn 114, Q6/Q9 share 117, Q7/Q10 share 118, Q13 spans 112-120 with no window | `study_011/gates/achievability/achievability.json` | VERIFIED - read from the committed script and rubric |
+| C117 | The runtime is not bit-reproducible at a fixed seed | identical 757-byte prompt at turn 1; responses diverge at character 79, 343 chars vs 80; seed 5005, --parallel 1, no speculative decoding | `study_011/runtime/determinism.json` | VERIFIED - bounds every scored claim above; offline results unaffected |
+| C118 | Study 011's mechanism is deterministic where testable | prompts and payload digests identical over the testable prefix | `study_011/runtime/determinism.json` | VERIFIED - the testable prefix is ONE turn; weak evidence, stated as such |
 
 ---
 

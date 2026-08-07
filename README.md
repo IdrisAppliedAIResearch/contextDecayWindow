@@ -230,7 +230,19 @@ and **scored 7.0 against 8.0**. Bar B1 fired; the correction is not adopted.
 The loss is late-probe rather than uniform, and both losses at the marine probe
 fall on a turn that holds no similarity candidate at all, so the displacement
 mechanism is consistent but not established. Four of six registered predictions
-are refuted. One corpus, one seed, one run per arm, no variance estimate.
+are refuted.
+
+The determinism spot-check bounds all of it. Re-running one arm under identical
+settings gave a byte-identical prompt at turn 1 and a **different answer** —
+seed 5005, `--parallel 1`, speculative decoding off. The mechanism reproduces
+exactly where it can be tested, but that is one turn, because a differing
+answer changes the store and every prompt after it. So a one-point difference
+on a 13-point rubric, one run per arm, sits inside an unmeasured noise band:
+B1 fired on the committed numbers as a registered bar must, and the defensible
+claim is that the correction did not demonstrate an improvement, not that it is
+worse. The program's standing rule requiring a byte-identical seeded prefix
+rerun is not satisfiable on this runtime. Offline results are unaffected and
+reproduce exactly.
 
 See `experiments/study_011/study_011_report.md`.
 
