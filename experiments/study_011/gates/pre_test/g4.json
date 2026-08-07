@@ -1,0 +1,103 @@
+{
+  "T": 6,
+  "certifies": "the two paths select different material",
+  "delivery": {
+    "question_count": 8,
+    "questions": [
+      "Q1",
+      "Q11",
+      "Q12",
+      "Q2",
+      "Q3",
+      "Q5",
+      "Q6",
+      "Q9"
+    ],
+    "window_count": 6,
+    "windows": [
+      112,
+      113,
+      114,
+      116,
+      117,
+      120
+    ]
+  },
+  "gate": "G4",
+  "per_window": [
+    {
+      "arm_a_delivered": 9,
+      "arm_b_delivered": 5,
+      "arm_b_is_subset_of_arm_a": false,
+      "overlap": 2,
+      "overlap_fraction": 0.4,
+      "probe_turn": 112
+    },
+    {
+      "arm_a_delivered": 10,
+      "arm_b_delivered": 6,
+      "arm_b_is_subset_of_arm_a": false,
+      "overlap": 3,
+      "overlap_fraction": 0.5,
+      "probe_turn": 113
+    },
+    {
+      "arm_a_delivered": 8,
+      "arm_b_delivered": 1,
+      "arm_b_is_subset_of_arm_a": false,
+      "overlap": 0,
+      "overlap_fraction": 0.0,
+      "probe_turn": 114
+    },
+    {
+      "arm_a_delivered": 9,
+      "arm_b_delivered": 1,
+      "arm_b_is_subset_of_arm_a": true,
+      "overlap": 1,
+      "overlap_fraction": 1.0,
+      "probe_turn": 115
+    },
+    {
+      "arm_a_delivered": 8,
+      "arm_b_delivered": 4,
+      "arm_b_is_subset_of_arm_a": false,
+      "overlap": 1,
+      "overlap_fraction": 0.25,
+      "probe_turn": 116
+    },
+    {
+      "arm_a_delivered": 8,
+      "arm_b_delivered": 3,
+      "arm_b_is_subset_of_arm_a": false,
+      "overlap": 0,
+      "overlap_fraction": 0.0,
+      "probe_turn": 117
+    },
+    {
+      "arm_a_delivered": 10,
+      "arm_b_delivered": 0,
+      "arm_b_is_subset_of_arm_a": false,
+      "overlap": 0,
+      "overlap_fraction": null,
+      "probe_turn": 118
+    },
+    {
+      "arm_a_delivered": 9,
+      "arm_b_delivered": 0,
+      "arm_b_is_subset_of_arm_a": false,
+      "overlap": 0,
+      "overlap_fraction": null,
+      "probe_turn": 119
+    },
+    {
+      "arm_a_delivered": 8,
+      "arm_b_delivered": 3,
+      "arm_b_is_subset_of_arm_a": false,
+      "overlap": 0,
+      "overlap_fraction": 0.0,
+      "probe_turn": 120
+    }
+  ],
+  "requirement": "Arm B's delivered set is not a subset of Arm A's at >=T of 13 probes (T = 6)",
+  "status": "PASS"
+}

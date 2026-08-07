@@ -1,0 +1,84 @@
+{
+  "T": 6,
+  "budget_chars": 32000,
+  "consequence_on_failure": "any failure stops the study",
+  "failed_gates": [],
+  "gates": {
+    "G1": "PASS",
+    "G2": "PASS",
+    "G3": "PASS",
+    "G4": "PASS",
+    "G5": "PASS",
+    "G7": "PASS"
+  },
+  "measured_on": "the corrected Tier 6 run's committed candidates. These gates certify each arm's configuration on a real store; the arms' own stores do not exist until the live runs.",
+  "probe_map": {
+    "note": "Thirteen questions occupy nine windows. Questions sharing a turn share one retrieval window exactly, so a per-question threshold counts them more than once. Q13 has no window.",
+    "probe_window_count": 9,
+    "probe_windows": [
+      112,
+      113,
+      114,
+      115,
+      116,
+      117,
+      118,
+      119,
+      120
+    ],
+    "questions_sharing_a_window": {
+      "114": [
+        "Q12",
+        "Q3"
+      ],
+      "117": [
+        "Q6",
+        "Q9"
+      ],
+      "118": [
+        "Q10",
+        "Q7"
+      ]
+    },
+    "rubric_question_count": 13,
+    "script_rubric_turns": [
+      112,
+      113,
+      114,
+      115,
+      116,
+      117,
+      118,
+      119,
+      120,
+      121
+    ],
+    "spanning_questions": {
+      "Q13": {
+        "turns": [
+          112,
+          113,
+          114,
+          115,
+          116,
+          117,
+          118,
+          119,
+          120
+        ]
+      }
+    }
+  },
+  "section": "4",
+  "source_run_configuration": {
+    "budget_differs_from_source": true,
+    "candidate_order": "N first, then K-only",
+    "k_threshold": 0.48,
+    "n_cap": 32,
+    "source_payload_budget": 60595,
+    "study_011_budget_chars": 32000
+  },
+  "status": "PASS",
+  "study": "011",
+  "t_decision": "experiments/study_011/decisions/DECISION_T_threshold.md"
+}

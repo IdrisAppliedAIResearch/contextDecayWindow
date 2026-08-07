@@ -1,0 +1,32 @@
+{
+  "T": 6,
+  "artifact": "section 4 binding offline pre-test",
+  "budget_chars": 32000,
+  "design_commit": "9a050ceb6900a3d340dc4b0b7eba5bb6ced7c2bf",
+  "embedding_calls": 0,
+  "execution_commit": "4fac9c6fb451a6fe4bd0a57526722d800b10c258",
+  "gates": {
+    "G1": "PASS",
+    "G2": "PASS",
+    "G3": "PASS",
+    "G4": "PASS",
+    "G5": "PASS",
+    "G7": "PASS"
+  },
+  "input_sha256": {
+    "experiments/components/retrieval_mechanism_ledger/artifacts/e005/a0_baseline.json": "07fd98b31bc8f05b53da0e292af5427306b8f08952a470c07899f5d5ad8dd29a",
+    "experiments/study_005/script.json": "8015c8eb89838c6aae4fd342af06ddb13cfd07f64dcdfa750ade54e375c4dd43",
+    "experiments/study_011/decisions/DECISION_T_threshold.md": "d352d59baf2cc413478774b18e7f130dbbc1a0c25b6749756e71172e29c640d4",
+    "experiments/study_011/pre_registration.md": "350d9763691c93b2e057cc0c10bdd7f19d8a78c7e169f9e40ef0571d69e5e7f4",
+    "experiments/surveys/retrieval_bakeoff/settings/tier6_corrected_121_settings_lock.json": "00f88e513a51e8340621ad1551544e044a3abfe16adcee1b61eeaab72b0660e5",
+    "experiments/surveys/retrieval_bakeoff/tier6/runs/tier6_live_121_corrected_001/context_matched_stm/logs/context_match.jsonl": "543441d5304a5d5c98b636c0338eb795f92fe7a8df8b3df2427a145f0eb7fff4",
+    "experiments/surveys/retrieval_bakeoff/tier6/runs/tier6_live_121_corrected_001/context_matched_stm/study.db": "5da47ea3fc2c8e3dcc50fa380ff65202d82557905d9976117e9e5d82e55c1c41",
+    "src/analysis/study_011_achievability.py": "542ea530715ac505783e5008025b092b4e0cc225256b1a3a1c8d7e05bb5a684b",
+    "src/internal_packing/ic001.py": "4f31c1f398b92d7e790fa8e194db508df2d17e705ba342312e2096d6dbae00cf"
+  },
+  "model_calls": 0,
+  "packer": "src/internal_packing/ic001.py, imported unchanged",
+  "pre_registration_sha256": "350d9763691c93b2e057cc0c10bdd7f19d8a78c7e169f9e40ef0571d69e5e7f4",
+  "source_worktree_clean": true,
+  "study": "011"
+}
