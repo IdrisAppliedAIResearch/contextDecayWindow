@@ -326,6 +326,16 @@ def derive(records: dict[int, dict], by_id: dict[str, dict]) -> dict:
             for row in rows
             if row["arms"][arm]["k_delivered_count"] > 0
         ]
+        # The registration states T as a count out of thirteen probes, so
+        # the ceiling is reported in those units too. Questions sharing a
+        # window move together by construction and Q13 never counts, so
+        # the question count is a re-expression of the window count, not
+        # an independent measurement.
+        questions_reached = sorted(
+            question
+            for question, turn in QUESTION_TURNS.items()
+            if turn in reached
+        )
         ceilings[arm] = {
             "label": ARM_LABEL[arm],
             "windows_with_k_only_delivery": reached,
@@ -333,6 +343,9 @@ def derive(records: dict[int, dict], by_id: dict[str, dict]) -> dict:
             "ceiling_k_only": len(reached),
             "ceiling_any_k": len(any_k),
             "window_total": len(rows),
+            "questions_reached": questions_reached,
+            "ceiling_k_only_questions": len(questions_reached),
+            "question_total": len(QUESTION_TURNS) + len(SPANNING_QUESTIONS),
         }
 
     impossible = [
@@ -352,6 +365,18 @@ def derive(records: dict[int, dict], by_id: dict[str, dict]) -> dict:
             "arm_c_k_only_ceiling": ceilings["C"]["ceiling_k_only"],
             "arm_b_any_k_ceiling": ceilings["B"]["ceiling_any_k"],
             "window_total": len(rows),
+            "arm_c_k_only_ceiling_questions": ceilings["C"][
+                "ceiling_k_only_questions"
+            ],
+            "question_total": len(QUESTION_TURNS) + len(SPANNING_QUESTIONS),
+            "questions_that_can_never_count": sorted(
+                [
+                    question
+                    for question, turn in QUESTION_TURNS.items()
+                    if turn in [row["probe_turn"] for row in rows if row["k_candidate_count"] == 0]
+                ]
+                + list(SPANNING_QUESTIONS)
+            ),
         },
         "t_is_not_set_here": (
             "This module measures the ceiling. It does not choose T. A "
@@ -595,9 +620,15 @@ def main(argv: list[str] | None = None) -> int:
     for arm, values in ceilings.items():
         print(
             f"arm {arm} ({values['label']}): "
-            f"K-only ceiling {values['ceiling_k_only']}/{values['window_total']}, "
-            f"any-K ceiling {values['ceiling_any_k']}/{values['window_total']}"
+            f"K-only ceiling {values['ceiling_k_only']}/{values['window_total']} windows"
+            f" = {values['ceiling_k_only_questions']}/{values['question_total']} questions, "
+            f"any-K ceiling {values['ceiling_any_k']}/{values['window_total']} windows"
         )
+    binding = result["binding_ceiling"]
+    print(
+        "questions that can never count: "
+        f"{binding['questions_that_can_never_count']}"
+    )
     return 0
 
 
