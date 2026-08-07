@@ -525,6 +525,49 @@ comparisons inherit that: they compare objectives that were all run behind the
 same starved packing order. IC-001 is availability-only on one probe, one
 store, one run, with no variance, and authorizes no re-run of the arc.
 
+### 5.2.3 The gate was real, and opening it did not help
+
+Study 011 ran the arc live to find out. Four 121-turn runs at one seed —
+recency alone, similarity alone, both with similarity first, and both in the
+deployed order — scored blind by three raters who never saw which arm produced
+which answer.
+
+The suppression is confirmed at full strength. **The deployed arm scored
+identically to the recency-only arm on all thirteen questions**, with the same
+availability on both measures, and produced byte-identical windows at three
+consecutive late probes. A system carrying a similarity tier was
+indistinguishable from one with no similarity tier at all.
+
+Then the correction was applied, and the answers got worse.
+
+| | Recency only | Deployed | K-first |
+|---|---:|---:|---:|
+| K-path episodes delivered | 0 | 1 | **13** |
+| Q11 items available | 9 of 17 | 9 of 17 | **10 of 17** |
+| Targeted items available | 7 of 21 | 7 of 21 | **10 of 21** |
+| Scored rubric, out of 13 | 8.0 | 8.0 | **7.0** |
+
+The K-first arm had the best availability of any arm and the worst score. Its
+registered kill — *the corrected arm must not score below the deployed one* —
+fired, and the correction was not adopted.
+
+The shape matters more than the total. The point is built from three gains and
+three losses, not a uniform decline: the gains are the early and middle plants,
+where the similarity path had material to contribute, and every loss is late.
+Both losses at the marine-biology probe fall on a turn that holds **no
+similarity candidate at all**, so nothing the similarity tier did could have
+helped there; what changed was the recency context it displaced elsewhere. The
+mechanism is consistent with displacement and is not established — a single run
+per arm cannot separate it from ordinary variation in a live conversation.
+
+For this paper the correction is narrow. §5.2.2's delivery finding stands
+unchanged and is now confirmed live. What does not survive is the inference a
+reader would naturally draw from it: that the starved fill order was holding
+back a working retrieval path. On this corpus, at this seed, giving that path
+the window space it had been denied moved availability up and answers down.
+The pool, the objective and the floor still bind in the order §5.6 gives them.
+Packing order gates delivery, and delivery was not what was limiting answers.
+
 ### 5.3 The objective binds second, and only after the pool
 
 The deployed rule ranks each episode against the query independently and takes
