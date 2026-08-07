@@ -2,7 +2,15 @@
   "binding_ceiling": {
     "arm_b_any_k_ceiling": 7,
     "arm_c_k_only_ceiling": 6,
+    "arm_c_k_only_ceiling_questions": 8,
     "definition": "T counts probe windows at which the similarity tier delivers an episode the recency tier would not have delivered anyway. Arm C under K-first is the arm G3 constrains, so its K-only ceiling binds.",
+    "question_total": 13,
+    "questions_that_can_never_count": [
+      "Q10",
+      "Q13",
+      "Q7",
+      "Q8"
+    ],
     "window_total": 9
   },
   "budget_chars": 32000,
@@ -10,7 +18,10 @@
     "A": {
       "ceiling_any_k": 4,
       "ceiling_k_only": 0,
+      "ceiling_k_only_questions": 0,
       "label": "STM only (N = 32, K disabled)",
+      "question_total": 13,
+      "questions_reached": [],
       "window_total": 9,
       "windows_with_any_k_delivery": [
         112,
@@ -23,7 +34,19 @@
     "B": {
       "ceiling_any_k": 7,
       "ceiling_k_only": 6,
+      "ceiling_k_only_questions": 8,
       "label": "LTM only (recency disabled, K = 0.48)",
+      "question_total": 13,
+      "questions_reached": [
+        "Q1",
+        "Q11",
+        "Q12",
+        "Q2",
+        "Q3",
+        "Q5",
+        "Q6",
+        "Q9"
+      ],
       "window_total": 9,
       "windows_with_any_k_delivery": [
         112,
@@ -46,7 +69,19 @@
     "C": {
       "ceiling_any_k": 7,
       "ceiling_k_only": 6,
+      "ceiling_k_only_questions": 8,
       "label": "both, K-first",
+      "question_total": 13,
+      "questions_reached": [
+        "Q1",
+        "Q11",
+        "Q12",
+        "Q2",
+        "Q3",
+        "Q5",
+        "Q6",
+        "Q9"
+      ],
       "window_total": 9,
       "windows_with_any_k_delivery": [
         112,
@@ -69,7 +104,13 @@
     "D": {
       "ceiling_any_k": 5,
       "ceiling_k_only": 1,
+      "ceiling_k_only_questions": 2,
       "label": "both, recency-first (deployed)",
+      "question_total": 13,
+      "questions_reached": [
+        "Q12",
+        "Q3"
+      ],
       "window_total": 9,
       "windows_with_any_k_delivery": [
         112,
