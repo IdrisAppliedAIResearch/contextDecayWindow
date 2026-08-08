@@ -141,6 +141,57 @@ consistent with recency displacement, and it is **not established**. A
 single run per arm cannot separate displacement from ordinary run-to-run
 variation in a live conversation.
 
+### 3.2 The N tier is not a recency window
+
+Recorded in full in
+[Amendment 002](amendments/AMENDMENT_002_n_tier_is_not_a_recency_window.md);
+evidence in [`analysis/n_tier_characterization.json`](analysis/n_tier_characterization.json).
+
+The pre-registration calls the N tier a recency window. `logical_n_key`
+sorts the **whole store** by `(has ever been delivered, turn last
+delivered, source turn, id)` ascending: never-delivered material first,
+then the episode delivered longest ago, with source turn entering only as
+a third-level tiebreak and entering *oldest first*. It is a
+least-recently-delivered coverage rotation. The only place recency appears
+is the name of the block it renders into, `<recent_context>`.
+
+Replaying the deployed key against store state reconstructed from
+`retrieval_events` reproduces the live ranking on **120 of 120 testable
+turns** in every arm that has an N tier. On that licence:
+
+| | Arm A | Arm C | Arm D |
+|---|---:|---:|---:|
+| Mean overlap of delivered set with a true recency window | 0.29 | 0.29 | 0.29 |
+| Share of deliveries older than the cap of 32 turns | 36.3% | 35.7% | 36.1% |
+| Reachable store ever delivered | 120/120 | 120/120 | 120/120 |
+
+At turn 120 Arm A delivered source turns 18, 37, 49, 65, 66, 88, 103, 119;
+a window would have delivered 112 through 119.
+
+**Why it went unnoticed.** The candidate list equals a recency window on
+exactly 32 turns — exactly those where the store still fits inside the cap
+— and never again after turn 33. And the tier delivered the immediately
+preceding turn at 9 of 9 probes, because that episode is the one thing
+never delivered before, so the novelty term admits it every time. At 35
+turns the tier *is* a window, and at any length its first line is recent.
+
+**What it changes here.** C − D is unaffected: both arms carry the
+identical tier and the contrast is fill order, as reported. C − A is not
+"the marginal contribution of similarity over a recency window" but over a
+rotation that already reaches the entire store, which is a much harder
+baseline and is the most plausible reading of why 79% of Arm C's K
+candidates were material N had already nominated. A − B is coverage
+rotation against similarity, not recency against similarity.
+
+**Arm A does not replicate Study 009 Arm S.** Study 009 ran
+`StmRetrievalEngine` at cap 10, which scores `exp(-0.1 × hours since last
+delivery)` and sorts descending — *most* recently delivered first, the
+inverse of `logical_n_key` below the never-delivered head. The two engines
+differ in ordering rule and in cap; the difference is mechanism, not
+accounting, and the replication reading in the pre-registration's §3 is
+withdrawn. The Study 009 reference in §4 below stands as a reference point
+and was never a comparison arm.
+
 ---
 
 ## 4. The registered contrasts
@@ -191,7 +242,7 @@ eleven studies, and its offline reading was the study's clearest early
 signal: **K-first reaches both memory paths at 8 of 13 questions; the
 deployed order reaches 2.** The live result did not follow it.
 
-### 5.1 Three findings the registration did not anticipate
+### 5.1 Four findings the registration did not anticipate
 
 **The thirteen rubric questions occupy nine retrieval windows, not
 thirteen.** Q3 and Q12 share turn 114, Q6 and Q9 share 117, Q7 and Q10
@@ -214,6 +265,14 @@ harness fidelity offline and nothing else, and **Arm D's live run
 reproduces no committed live run**, because none exists at the registered
 budget in this configuration.
 
+**The N tier is not a recency window.** §3.2 records this in full. It is a
+least-recently-delivered rotation over the whole store; a third of its
+deliveries are older than any window of its size could reach, and it
+touches every episode in the store. The registered pre-test could not
+catch it because a rotation delivers, so a delivery count passes; the
+35-turn ablation could not catch it because for the first 32 turns the
+tier genuinely is a window.
+
 ---
 
 ## 6. Registered predictions
@@ -223,12 +282,15 @@ budget in this configuration.
 | 1 | Arm D reproduces | **Held, offline only.** G5 passed on identity and digest. The live run reproduces no committed live run (§5.1) |
 | 2 | Arm C ≥ Arm D, by 0–2 points | **Refuted.** Arm C is 1.0 *below* |
 | 3 | Arm B degenerate, ~40% it fails G6 | **Refuted.** No empty response, no verbatim repeat, median 4,663 characters at 35 turns, 121 live turns completed, 7.5/13 |
-| 4 | Arm A ≈ Study 009's Arm S | **Near.** 8.0 against 9.0, under corrected accounting and a different budget |
+| 4 | Arm A ≈ Study 009's Arm S | **Withdrawn, not held.** The scores are near — 8.0 against 9.0 — but the arms do not run the same mechanism. Study 009's engine orders by *most* recently delivered at cap 10; Arm A's orders by *least* at cap 32 (§3.2). The prediction cannot be scored |
 | 5 | C − A positive and larger than C − B | **Refuted twice.** C − A is −1.0 and C − B is −0.5; both negative, and C − A is the *smaller* |
 | 6 | G3 passes but T is low, 6–9 of 13 | **Held.** G3 passed at 8 of 13, inside the predicted band |
 
-Four of six registered predictions are refuted. The author's stated prior
-— "poor, ten predictions, most wrong on mechanism" — holds.
+Three of six are refuted outright, one held only offline, and one is now
+**withdrawn as unscorable** rather than scored as near (§3.2) — the
+mechanism it compared against was not the mechanism Study 009 ran. One
+held. The author's stated prior — "poor, ten predictions, most wrong on
+mechanism" — holds, and the withdrawal is itself an instance of it.
 
 **The uncomfortable case the registration named was too optimistic.** It
 anticipated Arm C beating Arm D by less than a point and called that a
@@ -308,6 +370,12 @@ ceiling precisely.
 **Episode identities are not comparable across arms** (§3.1 of this
 report). Delivery volumes are.
 
+**The tier this study isolated is not the tier the registration names**
+(§3.2). Everything measured about the N tier here is measured on a
+least-recently-delivered rotation at cap 32 on this corpus. **Nothing here
+establishes what a correctly-implemented recency window would score**, in
+either direction, and no result in this report may be cited for that.
+
 ---
 
 ## 9. Artifacts
@@ -326,6 +394,9 @@ report). Delivery volumes are.
 | Blind scores, unsealed scores | `evaluation/blind_scores.json`, `evaluation/rubric_scores.json` |
 | B1 verdict and contrasts | `evaluation/verdict.json` |
 | Per-arm delivery | `analysis/delivery_by_arm.json` |
+| N-tier characterization (§3.2) | `analysis/n_tier_characterization.json` |
+| Amendment 002 — the N tier is not a recency window | `amendments/AMENDMENT_002_n_tier_is_not_a_recency_window.md` |
+| Amendment 001 — determinism and noise band, **DRAFT, unauthorized** | `amendments/AMENDMENT_001_determinism_and_noise_band.md` |
 
 **Git order is the evidence.** The pre-registration was committed alone
 before any implementation; T was locked before the ablation; the offline
@@ -348,6 +419,7 @@ the mapping was unsealed before any mechanism analysis was committed.
 - [x] Per-arm outcomes (§6.2)
 - [x] B1 verdict — **FAIL**
 - [x] Registered descriptive comparisons with per-question detail
+- [x] Post-unseal mechanism analysis: the N tier characterized, Amendment 002
 - [x] `PAPER_001.md` §5 revised
 - [x] Ledger, `README.md`, `AGENTS.md` digest
 - [x] One PR
