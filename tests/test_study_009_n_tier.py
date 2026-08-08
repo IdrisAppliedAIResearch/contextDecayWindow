@@ -37,6 +37,7 @@ def _synthetic_run(
     store_turns: int,
     n_log: dict[int, list[str]],
     touches: dict[int, list[str]] | None = None,
+    ltm_block: dict[int, set[str]] | None = None,
 ) -> Run:
     store = [
         {"id": f"ep{turn:03d}", "turn_number": turn}
@@ -49,6 +50,7 @@ def _synthetic_run(
         store=store,
         n_log=n_log,
         touches=touches if touches is not None else dict(n_log),
+        ltm_block=ltm_block or {},
         turn_of={
             episode["id"]: episode["turn_number"] for episode in store
         },
@@ -181,6 +183,25 @@ def test_a_turn_is_tested_against_the_log_not_against_the_replay():
     assert replay["turns_matched"] == 2
 
 
+def test_an_episode_arbitration_moved_to_the_ltm_block_leaves_the_n_block():
+    """The LTM arms log the recent block after that removal, not before.
+
+    Modelling it is not a licence to fit the log: the removal set is read
+    from the run's own LTM log, and an episode absent from both is still
+    a mismatch.
+    """
+    log = {2: ["ep001"], 3: ["ep002"]}
+    run = _synthetic_run(
+        "promoted", 3, log, ltm_block={3: {"ep001"}}
+    )
+    replay = verify_replay(run)
+    assert replay["identical"] is True
+    assert replay["turns_matching_before_arbitration_removal"] == 1
+
+    unexplained = _synthetic_run("unexplained", 3, log)
+    assert verify_replay(unexplained)["identical"] is False
+
+
 # --- the negative controls --------------------------------------------
 
 
@@ -311,6 +332,67 @@ def test_the_log_the_replay_is_checked_against_is_the_committed_one():
         rows = list(csv.DictReader(handle))
     assert len(rows) == 1155
     assert {row["turn"] for row in rows} >= {"11", "120"}
+
+
+def test_the_rule_does_not_replay_the_engine_that_is_not_it():
+    """Specificity control.
+
+    Study 011's arms ran `logical_n_key`. If this module's rule
+    reproduced their logs too, it would be fitting logs rather than
+    identifying a mechanism.
+    """
+    from src.analysis.study_009_n_tier import REPO_ROOT, scan_run
+
+    row = scan_run(
+        REPO_ROOT / "experiments/study_011/runs/study_011_live_a/arm_a"
+    )
+    assert row["replay_identical"] is False
+    assert "measurements_withheld" in row
+
+
+def test_the_scan_separates_replay_from_store_signature():
+    """A run that cannot be replayed gets no derived measurement.
+
+    The retrieval counter is shared with the other tiers, so the store
+    signature is corroboration and never a substitute.
+    """
+    from src.analysis.study_009_n_tier import generality_scan
+
+    scan = generality_scan()
+    assert scan["runs_whose_ranking_replays_exactly"] > 0
+    for row in scan["rows"]:
+        if row.get("replay_identical"):
+            continue
+        assert "held_source_turns" not in row
+        assert "mean_overlap_with_true_window" not in row
+
+
+def test_store_signature_is_absent_when_deliveries_are_flat(tmp_path):
+    db_path = tmp_path / "study.db"
+    conn = sqlite3.connect(db_path)
+    conn.execute(
+        "CREATE TABLE episodes (turn_number INTEGER, retrieval_count INTEGER)"
+    )
+    conn.executemany(
+        "INSERT INTO episodes VALUES (?, ?)",
+        [(turn, 3) for turn in range(1, 41)],
+    )
+    conn.commit()
+    conn.close()
+
+    from src.analysis.study_009_n_tier import store_signature
+
+    signature = store_signature(db_path, turns_logged=40)
+    assert signature["signature_testable"] is True
+    assert signature["oldest_nine_all_near_the_turn_count"] is False
+
+
+def test_store_signature_is_present_on_the_committed_arm_s_store():
+    from src.analysis.study_009_n_tier import store_signature
+
+    signature = store_signature(ARM_S_FULL / "study.db", turns_logged=120)
+    assert signature["oldest_nine_all_near_the_turn_count"] is True
+    assert signature["rest_delivered_about_once"] is True
 
 
 def test_store_query_order_is_the_one_the_engine_uses():

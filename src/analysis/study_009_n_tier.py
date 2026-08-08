@@ -92,6 +92,7 @@ class Run:
     store: list[dict]
     n_log: dict[int, list[str]]
     touches: dict[int, list[str]]
+    ltm_block: dict[int, set[str]] = field(default_factory=dict)
     probe_turns: tuple[int, ...] = ()
     turn_of: dict[str, int] = field(default_factory=dict)
 
@@ -131,6 +132,42 @@ def load_store(db_path: Path) -> list[dict]:
     return [{"id": str(row[0]), "turn_number": int(row[1])} for row in rows]
 
 
+def store_signature(db_path: Path, turns_logged: int) -> dict:
+    """The lock-in as it appears in the store, without any replay.
+
+    `episodes.retrieval_count` is incremented once per touch, so a tier
+    that holds the same nine episodes for a whole run leaves those nine
+    with a count near the turn count and everything else near one. This
+    is an observation, not a derivation: the counter is shared with the
+    other tiers, so a matching signature is consistent with the locked
+    prefix rather than proof of it. Only the replayed runs establish the
+    rule. This is reported for the runs that predate it, whose logs
+    record the rendered block in conversation order rather than the
+    ranking, and which therefore cannot be replayed here.
+    """
+    conn = sqlite3.connect(db_path)
+    try:
+        rows = conn.execute(
+            "SELECT turn_number, retrieval_count FROM episodes "
+            "ORDER BY turn_number ASC"
+        ).fetchall()
+    finally:
+        conn.close()
+    counts = [int(row[1]) for row in rows]
+    if len(counts) < 12 or turns_logged < 12:
+        return {"signature_testable": False}
+    head, tail = counts[:9], counts[9:]
+    return {
+        "signature_testable": True,
+        "oldest_nine_retrieval_counts": head,
+        "median_retrieval_count_of_the_rest": statistics.median(tail),
+        "oldest_nine_all_near_the_turn_count": all(
+            count >= 0.9 * turns_logged for count in head
+        ),
+        "rest_delivered_about_once": statistics.median(tail) <= 2,
+    }
+
+
 def load_n_log(run_dir: Path) -> dict[int, list[str]]:
     """What the N tier delivered each turn, in the order it ranked them."""
     rows = _read_csv(run_dir / "metrics" / "N_values.csv")
@@ -159,6 +196,21 @@ def load_touches(run_dir: Path) -> dict[int, list[str]]:
         for row in _read_csv(path):
             touched.setdefault(int(row["turn"]), set()).add(row[column])
     return {turn: sorted(ids) for turn, ids in touched.items()}
+
+
+def load_ltm_block(run_dir: Path) -> dict[int, set[str]]:
+    """Episodes arbitration rendered as LTM rather than as recent context.
+
+    `RetrievalEngine.retrieve` removes an arbitration survivor from the
+    recent block so it keeps its tagged placement, so the N log in an LTM
+    arm is the candidate ranking *minus* that turn's survivors. Ignoring
+    that would make the replay fail on turns where the mechanism did
+    exactly what it says it does.
+    """
+    block: dict[int, set[str]] = {}
+    for row in _read_csv(run_dir / "logs" / "ltm_context_episodes.csv"):
+        block.setdefault(int(row["turn"]), set()).add(row["episode_id"])
+    return block
 
 
 def rank_n_candidates(
@@ -204,9 +256,16 @@ def verify_replay(run: Run) -> dict:
     last_touch: dict[str, int] = {}
     mismatches: list[dict] = []
     matched = 0
+    raw_matched = 0
     for turn in sorted(run.n_log):
-        predicted = rank_n_candidates(run.store, turn, last_touch)
+        ranked = rank_n_candidates(run.store, turn, last_touch)
+        promoted = run.ltm_block.get(turn, set())
+        predicted = [
+            episode_id for episode_id in ranked if episode_id not in promoted
+        ]
         observed = run.n_log[turn]
+        if ranked == observed:
+            raw_matched += 1
         if predicted == observed:
             matched += 1
         else:
@@ -222,6 +281,7 @@ def verify_replay(run: Run) -> dict:
     return {
         "turns_testable": len(run.n_log),
         "turns_matched": matched,
+        "turns_matching_before_arbitration_removal": raw_matched,
         "identical": matched == len(run.n_log) and bool(run.n_log),
         "mismatches": mismatches[:5],
     }
@@ -376,6 +436,7 @@ def load_run(
         store=store,
         n_log=load_n_log(run_dir),
         touches=load_touches(run_dir),
+        ltm_block=load_ltm_block(run_dir),
         probe_turns=probe_turns,
         turn_of={
             episode["id"]: episode["turn_number"] for episode in store
@@ -452,6 +513,89 @@ def shared_key_probe() -> dict:
     }
 
 
+def discover_runs() -> list[Path]:
+    """Every committed run directory that carries a store and an N log.
+
+    The scan is deliberately indiscriminate. Rehearsals, ablations and
+    failed launches are included and labelled rather than filtered, so
+    the reader can see the rule's reach without taking this module's
+    word for which runs counted.
+    """
+    found = []
+    for db_path in sorted(REPO_ROOT.glob("experiments/study_0*/runs/*/*/study.db")):
+        run_dir = db_path.parent
+        if (run_dir / "metrics" / "N_values.csv").exists():
+            found.append(run_dir)
+    return found
+
+
+def scan_run(run_dir: Path) -> dict:
+    """One compact row: did the rule run here, and did the block lock?"""
+    try:
+        run = load_run(_repo_relative(run_dir), run_dir, "scanned")
+    except NTierAnalysisError as error:
+        return {"run_dir": _repo_relative(run_dir), "error": str(error)}
+    replay = verify_replay(run)
+    row = {
+        "run_dir": _repo_relative(run_dir),
+        "turns_logged": len(run.n_log),
+        "store_size": len(run.store),
+        "replay_identical": replay["identical"],
+        "turns_matched": replay["turns_matched"],
+        "store_signature": store_signature(
+            run_dir / "study.db", len(run.n_log)
+        ),
+    }
+    if not replay["identical"]:
+        row["measurements_withheld"] = (
+            "The reconstructed rule does not reproduce this run's log, "
+            "so nothing is claimed about what its tier did."
+        )
+        return row
+    lock_in = lock_in_profile(run)
+    contrast = window_contrast(run)
+    row["held_source_turns"] = lock_in["held_source_turns"]
+    row["held_are_the_oldest_in_store"] = lock_in["held_are_the_oldest_in_store"]
+    row["constant_repeat_set_from_turn"] = lock_in["constant_repeat_set_from_turn"]
+    row["mean_overlap_with_true_window"] = contrast["mean_overlap_with_true_window"]
+    row["share_older_than_cap"] = contrast["share_older_than_cap"]
+    row["share_delivered_exactly_once"] = delivery_profile(run)[
+        "share_delivered_exactly_once"
+    ]
+    return row
+
+
+def generality_scan() -> dict:
+    """How far the locked prefix reaches across the committed record."""
+    rows = [scan_run(run_dir) for run_dir in discover_runs()]
+    replayed = [row for row in rows if row.get("replay_identical")]
+    locked = [
+        row for row in replayed
+        if row.get("held_are_the_oldest_in_store")
+        and row.get("constant_repeat_set_from_turn") is not None
+    ]
+    signature = [
+        row for row in rows
+        if row.get("store_signature", {}).get("signature_testable")
+        and row["store_signature"]["oldest_nine_all_near_the_turn_count"]
+        and row["store_signature"]["rest_delivered_about_once"]
+    ]
+    return {
+        "runs_scanned": len(rows),
+        "runs_whose_ranking_replays_exactly": len(replayed),
+        "runs_that_lock_onto_the_oldest_episodes": len(locked),
+        "runs_carrying_the_store_signature": len(signature),
+        "runs_carrying_the_signature_without_a_replay": sorted(
+            row["run_dir"] for row in signature
+            if not row.get("replay_identical")
+        ),
+        "runs_that_do_not_replay": [
+            row["run_dir"] for row in rows if not row.get("replay_identical")
+        ],
+        "rows": rows,
+    }
+
+
 def build_report() -> dict:
     runs = [
         load_run(
@@ -485,6 +629,7 @@ def build_report() -> dict:
             "licenses a claim about that in either direction."
         ),
         "shared_key_probe": shared_key_probe(),
+        "generality_scan": generality_scan(),
         "runs": analyses,
     }
 
