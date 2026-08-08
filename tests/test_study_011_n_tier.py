@@ -246,6 +246,24 @@ def test_committed_runs_replay_exactly(arm):
     assert replay["identical"] is True
 
 
+def test_neither_engine_orders_by_recency_of_formation():
+    """Scope check, and the reason Arm A does not replicate Study 009.
+
+    Study 009 ran the wall-clock decay engine; Study 011 ran the turn
+    generation key. Neither reads recency of formation, and they disagree
+    with each other about the episodes already delivered: the older engine
+    prefers the freshly delivered one, the newer prefers the stale one.
+    """
+    from src.analysis.study_011_n_tier import engine_ordering_probe
+
+    probe = engine_ordering_probe()
+    carried = probe["study_009_engine"]
+    current = probe["study_011_engine"]
+    assert carried["matches_reading"] == "most_recently_delivered"
+    assert current["matches_reading"] == "least_recently_delivered"
+    assert carried["n_cap"] != current["n_cap"]
+
+
 def test_committed_runs_are_not_recency_windows():
     result = analyze()
     verdict = result["verdict"]

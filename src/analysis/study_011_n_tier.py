@@ -32,6 +32,7 @@ import json
 import sqlite3
 import statistics
 from dataclasses import dataclass
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 from src.memory.context_matched_stm import logical_n_key
@@ -427,6 +428,99 @@ def k_overlap(run: ArmRun) -> dict:
     }
 
 
+def engine_ordering_probe() -> dict:
+    """Which order each engine actually produces, on one known store.
+
+    Two engines matter. Study 011 ran `logical_n_key`. Study 009 — the
+    study whose Arm S the pre-registration says Arm A replicates — ran
+    `StmRetrievalEngine._n_retrieve`, a wall-clock decay on
+    `last_retrieved_at` sorted descending.
+
+    The probe is a three-episode store constructed so that the three
+    candidate readings give three different answers, so the result cannot
+    be ambiguous:
+
+    * a recency window returns the newest source turn first;
+    * least-recently-delivered returns the one delivered longest ago
+      first;
+    * most-recently-delivered returns the freshly delivered one first.
+
+    Never-delivered material sorts first under both engines, so the
+    ordering is decided entirely by the two that have been delivered.
+    """
+    from src.memory.stm_retrieval_engine import (
+        N_RETRIEVAL_CAP,
+        StmRetrievalEngine,
+    )
+
+    now = datetime.now(timezone.utc)
+    episodes = [
+        {
+            "id": "oldest-never-delivered",
+            "turn_number": 1,
+            "last_retrieved_at": None,
+        },
+        {
+            "id": "newest-delivered-recently",
+            "turn_number": 9,
+            "last_retrieved_at": (now - timedelta(hours=1)).isoformat(),
+        },
+        {
+            "id": "middle-delivered-long-ago",
+            "turn_number": 5,
+            "last_retrieved_at": (now - timedelta(hours=48)).isoformat(),
+        },
+    ]
+    readings = {
+        "recency_of_formation": [
+            "newest-delivered-recently",
+            "middle-delivered-long-ago",
+            "oldest-never-delivered",
+        ],
+        "least_recently_delivered": [
+            "oldest-never-delivered",
+            "middle-delivered-long-ago",
+            "newest-delivered-recently",
+        ],
+        "most_recently_delivered": [
+            "oldest-never-delivered",
+            "newest-delivered-recently",
+            "middle-delivered-long-ago",
+        ],
+    }
+
+    carried, _ = StmRetrievalEngine._n_retrieve(episodes)
+    events = [(4, "middle-delivered-long-ago"), (9, "newest-delivered-recently")]
+    study_011 = replay_n_candidates(
+        [dict(episode) for episode in episodes],
+        events,
+        turn=10,
+        n_cap=3,
+    )
+    return {
+        "readings": readings,
+        "study_009_engine": {
+            "path": "src/memory/stm_retrieval_engine.py::_n_retrieve",
+            "n_cap": N_RETRIEVAL_CAP,
+            "ranking_returned": list(carried),
+            "matches_reading": _match_reading(list(carried), readings),
+        },
+        "study_011_engine": {
+            "path": "src/memory/context_matched_stm.py::logical_n_key",
+            "n_cap": 32,
+            "ranking_returned": list(study_011),
+            "matches_reading": _match_reading(study_011, readings),
+        },
+    }
+
+
+def _match_reading(ranking: list[str], readings: dict[str, list[str]]) -> str:
+    for name, expected in readings.items():
+        if ranking == expected:
+            return name
+    return "none of the three"
+
+
 def analyze_arm(arm: str, run_dir: Path) -> dict:
     run = load_arm(arm, run_dir)
     replay = verify_replay(run)
@@ -472,6 +566,7 @@ def analyze(arm_run_dirs: dict[str, Path] | None = None) -> dict:
             "source turn, id) ascending, over every episode in the store"
         ),
         "arms": arms,
+        "engine_ordering_probe": engine_ordering_probe(),
         "verdict": _verdict(arms),
     }
 

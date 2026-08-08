@@ -812,6 +812,45 @@
       "turns": 121
     }
   },
+  "engine_ordering_probe": {
+    "readings": {
+      "least_recently_delivered": [
+        "oldest-never-delivered",
+        "middle-delivered-long-ago",
+        "newest-delivered-recently"
+      ],
+      "most_recently_delivered": [
+        "oldest-never-delivered",
+        "newest-delivered-recently",
+        "middle-delivered-long-ago"
+      ],
+      "recency_of_formation": [
+        "newest-delivered-recently",
+        "middle-delivered-long-ago",
+        "oldest-never-delivered"
+      ]
+    },
+    "study_009_engine": {
+      "matches_reading": "most_recently_delivered",
+      "n_cap": 10,
+      "path": "src/memory/stm_retrieval_engine.py::_n_retrieve",
+      "ranking_returned": [
+        "oldest-never-delivered",
+        "newest-delivered-recently",
+        "middle-delivered-long-ago"
+      ]
+    },
+    "study_011_engine": {
+      "matches_reading": "least_recently_delivered",
+      "n_cap": 32,
+      "path": "src/memory/context_matched_stm.py::logical_n_key",
+      "ranking_returned": [
+        "oldest-never-delivered",
+        "middle-delivered-long-ago",
+        "newest-delivered-recently"
+      ]
+    }
+  },
   "ordering_key": "logical_n_key: (has ever been delivered, turn last delivered, source turn, id) ascending, over every episode in the store",
   "verdict": {
     "arms_whose_ranking_replays_exactly": [
