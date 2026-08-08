@@ -1,0 +1,677 @@
+{
+  "runs": [
+    {
+      "deliveries": {
+        "episodes_delivered_exactly_once": 111,
+        "episodes_ever_delivered": 120,
+        "max_deliveries": 120,
+        "median_deliveries": 1.0,
+        "min_deliveries": 1,
+        "share_delivered_exactly_once": 0.925,
+        "store_size": 121
+      },
+      "engine": "src/memory/stm_retrieval_engine.py::StmRetrievalEngine",
+      "lock_in": {
+        "constant_repeat_set_from_turn": 11,
+        "held_are_the_oldest_in_store": true,
+        "held_episode_count": 9,
+        "held_source_turns": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "turns_after_that_point": 111
+      },
+      "n_cap": 10,
+      "probe_turns": {
+        "112": {
+          "a_true_window_would_have_delivered": [
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110,
+            111
+          ],
+          "delivered_source_turns": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            111
+          ]
+        },
+        "113": {
+          "a_true_window_would_have_delivered": [
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110,
+            111,
+            112
+          ],
+          "delivered_source_turns": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            112
+          ]
+        },
+        "114": {
+          "a_true_window_would_have_delivered": [
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110,
+            111,
+            112,
+            113
+          ],
+          "delivered_source_turns": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            113
+          ]
+        },
+        "115": {
+          "a_true_window_would_have_delivered": [
+            105,
+            106,
+            107,
+            108,
+            109,
+            110,
+            111,
+            112,
+            113,
+            114
+          ],
+          "delivered_source_turns": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            114
+          ]
+        },
+        "116": {
+          "a_true_window_would_have_delivered": [
+            106,
+            107,
+            108,
+            109,
+            110,
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "delivered_source_turns": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            115
+          ]
+        },
+        "117": {
+          "a_true_window_would_have_delivered": [
+            107,
+            108,
+            109,
+            110,
+            111,
+            112,
+            113,
+            114,
+            115,
+            116
+          ],
+          "delivered_source_turns": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            116
+          ]
+        },
+        "118": {
+          "a_true_window_would_have_delivered": [
+            108,
+            109,
+            110,
+            111,
+            112,
+            113,
+            114,
+            115,
+            116,
+            117
+          ],
+          "delivered_source_turns": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            117
+          ]
+        },
+        "119": {
+          "a_true_window_would_have_delivered": [
+            109,
+            110,
+            111,
+            112,
+            113,
+            114,
+            115,
+            116,
+            117,
+            118
+          ],
+          "delivered_source_turns": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            118
+          ]
+        },
+        "120": {
+          "a_true_window_would_have_delivered": [
+            110,
+            111,
+            112,
+            113,
+            114,
+            115,
+            116,
+            117,
+            118,
+            119
+          ],
+          "delivered_source_turns": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            119
+          ]
+        },
+        "121": {
+          "a_true_window_would_have_delivered": [
+            111,
+            112,
+            113,
+            114,
+            115,
+            116,
+            117,
+            118,
+            119,
+            120
+          ],
+          "delivered_source_turns": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            120
+          ]
+        }
+      },
+      "replay": {
+        "identical": true,
+        "mismatches": [],
+        "turns_matched": 120,
+        "turns_testable": 120
+      },
+      "run": "arm_s_full",
+      "run_dir": "experiments/study_009/runs/study_009_full_001/arm_s",
+      "window_contrast": {
+        "max_delivered_age_turns": 120,
+        "mean_delivered_age_turns": 53,
+        "mean_overlap_with_true_window": 0.205,
+        "share_older_than_cap": 0.826,
+        "turns_delivering_the_newest_episode": 120,
+        "turns_measured": 120
+      }
+    },
+    {
+      "deliveries": {
+        "episodes_delivered_exactly_once": 25,
+        "episodes_ever_delivered": 34,
+        "max_deliveries": 34,
+        "median_deliveries": 1.0,
+        "min_deliveries": 1,
+        "share_delivered_exactly_once": 0.7353,
+        "store_size": 35
+      },
+      "engine": "src/memory/stm_retrieval_engine.py::StmRetrievalEngine",
+      "lock_in": {
+        "constant_repeat_set_from_turn": 11,
+        "held_are_the_oldest_in_store": true,
+        "held_episode_count": 9,
+        "held_source_turns": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "turns_after_that_point": 25
+      },
+      "n_cap": 10,
+      "probe_turns": {},
+      "replay": {
+        "identical": true,
+        "mismatches": [],
+        "turns_matched": 34,
+        "turns_testable": 34
+      },
+      "run": "arm_s_ablation",
+      "run_dir": "experiments/study_009/runs/study_009_ablation_001/arm_s",
+      "window_contrast": {
+        "max_delivered_age_turns": 34,
+        "mean_delivered_age_turns": 14.37,
+        "mean_overlap_with_true_window": 0.4706,
+        "share_older_than_cap": 0.6102,
+        "turns_delivering_the_newest_episode": 34,
+        "turns_measured": 34
+      }
+    },
+    {
+      "deliveries": {
+        "episodes_delivered_exactly_once": 111,
+        "episodes_ever_delivered": 120,
+        "max_deliveries": 120,
+        "median_deliveries": 1.0,
+        "min_deliveries": 1,
+        "share_delivered_exactly_once": 0.925,
+        "store_size": 121
+      },
+      "engine": "src/memory/retrieval_engine.py::RetrievalEngine",
+      "lock_in": {
+        "constant_repeat_set_from_turn": 11,
+        "held_are_the_oldest_in_store": true,
+        "held_episode_count": 9,
+        "held_source_turns": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "turns_after_that_point": 111
+      },
+      "n_cap": 10,
+      "probe_turns": {
+        "112": {
+          "a_true_window_would_have_delivered": [
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110,
+            111
+          ],
+          "delivered_source_turns": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            111
+          ]
+        },
+        "113": {
+          "a_true_window_would_have_delivered": [
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110,
+            111,
+            112
+          ],
+          "delivered_source_turns": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            112
+          ]
+        },
+        "114": {
+          "a_true_window_would_have_delivered": [
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110,
+            111,
+            112,
+            113
+          ],
+          "delivered_source_turns": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            113
+          ]
+        },
+        "115": {
+          "a_true_window_would_have_delivered": [
+            105,
+            106,
+            107,
+            108,
+            109,
+            110,
+            111,
+            112,
+            113,
+            114
+          ],
+          "delivered_source_turns": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            114
+          ]
+        },
+        "116": {
+          "a_true_window_would_have_delivered": [
+            106,
+            107,
+            108,
+            109,
+            110,
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "delivered_source_turns": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            115
+          ]
+        },
+        "117": {
+          "a_true_window_would_have_delivered": [
+            107,
+            108,
+            109,
+            110,
+            111,
+            112,
+            113,
+            114,
+            115,
+            116
+          ],
+          "delivered_source_turns": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            116
+          ]
+        },
+        "118": {
+          "a_true_window_would_have_delivered": [
+            108,
+            109,
+            110,
+            111,
+            112,
+            113,
+            114,
+            115,
+            116,
+            117
+          ],
+          "delivered_source_turns": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            117
+          ]
+        },
+        "119": {
+          "a_true_window_would_have_delivered": [
+            109,
+            110,
+            111,
+            112,
+            113,
+            114,
+            115,
+            116,
+            117,
+            118
+          ],
+          "delivered_source_turns": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            118
+          ]
+        },
+        "120": {
+          "a_true_window_would_have_delivered": [
+            110,
+            111,
+            112,
+            113,
+            114,
+            115,
+            116,
+            117,
+            118,
+            119
+          ],
+          "delivered_source_turns": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            119
+          ]
+        },
+        "121": {
+          "a_true_window_would_have_delivered": [
+            111,
+            112,
+            113,
+            114,
+            115,
+            116,
+            117,
+            118,
+            119,
+            120
+          ],
+          "delivered_source_turns": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            120
+          ]
+        }
+      },
+      "replay": {
+        "identical": true,
+        "mismatches": [],
+        "turns_matched": 120,
+        "turns_testable": 120
+      },
+      "run": "arm_l_full",
+      "run_dir": "experiments/study_007/runs/study_007_full_001/condition_c",
+      "window_contrast": {
+        "max_delivered_age_turns": 120,
+        "mean_delivered_age_turns": 53,
+        "mean_overlap_with_true_window": 0.205,
+        "share_older_than_cap": 0.826,
+        "turns_delivering_the_newest_episode": 120,
+        "turns_measured": 120
+      }
+    }
+  ],
+  "shared_key_probe": {
+    "caps_equal": true,
+    "fresher_delivery_outranks_staler": true,
+    "ltm_arm_cap": 10,
+    "never_delivered_scores_at_the_ceiling": true,
+    "scores_agree_to_six_places": true,
+    "stm_arm_cap": 10
+  },
+  "what_this_does_not_measure": "What a correctly-implemented recency window would have scored. No arm here ran one, and nothing in this file licenses a claim about that in either direction.",
+  "what_this_measures": "The N tier as it behaved in the runs that produced Study 009's S-L contrast, replayed from the carried engine's ordering rule and checked against the committed logs."
+}
