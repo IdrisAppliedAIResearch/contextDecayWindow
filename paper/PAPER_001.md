@@ -128,8 +128,9 @@ What remains after every one of those removals is an append-only store, a
 recency window, similarity retrieval, and a coverage objective, with no
 generative model calls in the memory path — a design that is reproducible and free of generated
 intermediate text because the removed components were the ones that produced it.
-That description is accurate about the component; §5.2.4 records that the live
-studies behind these results ran a different rule under the same name.
+That description is accurate about the component; §5.2.4 and §5.2.5 record that
+the live studies behind these results ran two different rules under the same
+name, and that neither was a window.
 
 ---
 
@@ -602,9 +603,16 @@ variants of one mechanism:
 
 | Path | Cap | Orders by | Where it ran |
 |---|---:|---|---|
-| `StmRetrievalEngine` | 10 | most recently delivered first | Study 009 and earlier live runs |
-| `logical_n_key` | 32 | least recently delivered first | Corrected Tier 6, Studies 010 and 011 |
+| `RetrievalEngine`, `StmRetrievalEngine` | 10 | most recently delivered first | Every live run through Study 010 |
+| `logical_n_key` | 32 | least recently delivered first | Corrected Tier 6 and Study 011 |
 | `episodic` library | 32 | the last N in conversation order | The extracted component; EC-002, CC-003, CC-005 |
+
+The first row's span was corrected on 2026-08-08. An earlier version of this
+table placed Study 010 in the second row. Study 010 ran `src/study/runner.py`,
+which constructs `RetrievalEngine`; its arms replay exactly under the first
+row's rule and do not replay under the second. The two carried engines declare
+the N tier separately but behave identically, which a probe on shared inputs
+confirms rather than assumes.
 
 **The only genuine recency window is in the component no scored live study ran.**
 The harness imports the library's packer and renderer, not its context
@@ -617,11 +625,9 @@ delivery and packing number in this paper. What changes is what the *marginal*
 contrasts mean: the similarity tier was being asked to add to a baseline that
 already reaches the entire store, not to a window over the last few turns — the
 most plausible reading of why 79% of the K-first arm's similarity candidates
-were material the other tier had already nominated. Study 009's 3.0-point
-architectural contrast was measured under the first rule in the table above;
-this paper does not re-read it, and establishing what it measured is its own
-work. **Nothing here establishes what a correctly-implemented recency window
-would score, in either direction.**
+were material the other tier had already nominated. §5.2.5 does the same
+analysis for the first rule in the table above. **Nothing here establishes what
+a correctly-implemented recency window would score, in either direction.**
 
 For this paper the correction is narrow. §5.2.2's delivery finding stands
 unchanged and is now confirmed live. What does not survive is the inference a
@@ -631,6 +637,50 @@ the window space it had been denied moved availability up and answers did not
 follow. The pool, the objective and the floor still bind in the order §5.6
 gives them. Packing order gates delivery, and delivery was not the thing
 limiting answers.
+
+### 5.2.5 The rule that ran before it was a locked prefix
+
+The rule in the first row of §5.2.4's table has a third component the key
+does not show. `retrieve()` refreshes every episode it delivered, in one call,
+with one timestamp. Since the rule ranks the freshest delivery highest, what is
+in the block is the freshest thing in the store, so it is selected again, so it
+is refreshed again. The batch write leaves its whole set tied, and the tie
+breaks toward the order the store query returns, which is oldest first.
+
+The block therefore settles on the oldest episodes in the conversation and
+cannot leave them. Replayed against the committed logs it reproduces the ranking
+exactly — 120 of 120 turns for Study 009's Arm S, 120 of 120 for the Study 007
+arm carried in as its comparison, 34 of 34 for the ablation. From turn 11 both
+arms delivered **source turns 1 through 9** plus whichever episode had not been
+delivered before, which is always the immediately preceding turn, and they held
+that for 111 consecutive turns.
+
+| | Value |
+|---|---:|
+| Mean overlap with a true window of the same size | 0.205 |
+| Deliveries older than the cap of ten turns | 82.6% |
+| Mean age of a delivered episode | 53 turns |
+| Episodes delivered exactly once | 111 of 120 |
+
+At turn 120 the block held source turns 1–9 and 119; a last-ten window would
+have held 110–119. The first episode of the conversation was delivered on all
+120 turns; episodes 10 through 118 were delivered once each, on the turn after
+they formed, and never again. Across the committed record the scan replays 17
+run directories exactly, of which 12 lock; **every scored live run from Study
+004 through Study 010 is among them**, including Study 010's arms, which held
+source turns 1–9 across 999 logged turns.
+
+The two carried arms hold the identical block turn for turn, so the 3.0-point
+architectural contrast is not confounded and is not re-read here. What the
+measurement corrects is the baseline's description: that contrast is not a win
+over a recency baseline but over one slot of genuine recency in ten, above a
+frozen prefix of the conversation's opening. The same correction reaches the
+earlier 11.0–7.0 STM-versus-LTM comparison, whose arms carried the same prefix.
+
+The two failures are opposite and nothing transfers between them. The deployed
+rotation reaches every episode and duplicates the similarity tier; the carried
+prefix reaches almost nothing and repeats itself. Both were called a recency
+window, and in both the name was the only thing asserting it.
 
 ### 5.3 The objective binds second, and only after the pool
 
@@ -908,9 +958,11 @@ retrieval for targeted queries. A set-level coverage objective for selection.
 Everything packed at exact serialized cost against one budget.
 
 The recency window in that list is the component's own, and it is a genuine
-last-N window. The live studies that produced the results above ran a different
-rule under the same name — a least-recently-delivered rotation over the whole
-store — and §5.2.4 gives the measurement and the consequences.
+last-N window. The live studies that produced the results above ran two other
+rules under the same name: a least-recently-delivered rotation over the whole
+store in the most recent study, and before it a block that locked onto the
+conversation's first nine turns and held them. §5.2.4 and §5.2.5 give the
+measurements and the consequences.
 
 One formerly open item is no longer owed as a component mechanism. The
 component emitted no absence signal on any of 500 EC-001 questions, while the
@@ -1240,8 +1292,11 @@ store, a recency window, similarity retrieval, and a set-level coverage
 objective, with no generative model calls in the memory path. That component is
 reproducible given a pinned embedder and auditable line by line, and §6.3 argues
 both properties followed from the removals rather than from foresight. Read
-§5.2.4 before carrying that list across: the component's recency window is a
-genuine one, and the live studies behind these results were not running it. If a
+§5.2.4 and §5.2.5 before carrying that list across: the component's recency
+window is a genuine one, and no live study behind these results ran it — they
+ran a rotation over the whole store, and before that a block frozen on the
+conversation's opening. Whether a real window would do better is not something
+this program measured. If a
 memory component in your system makes generative calls, this program's
 experience is that they bought less than they cost — on one internal corpus,
 with one later external stress test that is not a published-system comparison.
