@@ -64,6 +64,43 @@ No locked item was counted as invented in either breadth answer. The item-level
 matrix and method are in `evaluation/fact_delivery_matrix.csv` and
 `evaluation/mechanism_analysis.md`.
 
+### The STM arm was a locked prefix, not a recency baseline (added 2026-08-08)
+
+Recorded in full in `amendments/AMENDMENT_002_arm_s_was_a_locked_prefix.md`;
+evidence in `analysis/n_tier_characterization.json`.
+
+`StmRetrievalEngine._n_retrieve` scores episodes by a decay on the time since
+they were last *delivered*, sorted so the freshest delivery ranks highest, and
+`retrieve()` then refreshes everything it delivered in one batch write. That is
+a closed loop. From turn 11 onward, both arms' recent blocks held the same nine
+episodes — **source turns 1 through 9** — plus whichever episode had not been
+delivered before, which is always turn *t*−1. Arm S held that for 111
+consecutive turns.
+
+Replayed against the committed logs, exactly, on 120/120 turns for Arm S,
+34/34 for the ablation and 120/120 for Arm L:
+
+| | Arm S | Arm L |
+|---|---:|---:|
+| Mean overlap with a true window of the same size | 0.205 | 0.205 |
+| Deliveries older than the cap of ten turns | 82.6% | 82.6% |
+| Mean age of a delivered episode | 53 turns | 53 turns |
+| Episodes delivered exactly once | 111 of 120 | 111 of 120 |
+
+At turn 120 the block held source turns 1–9 and 119. A last-ten window would
+have held 110–119. Episode one was delivered on all 120 turns; episodes 10
+through 118 were delivered once each, on the turn after they formed.
+
+**The 3.0-point result is not disturbed.** Arm L carries the identical tier —
+a test asserts the two arms' blocks match turn for turn — so the contrast still
+isolates the LTM tier and no score changes. What is corrected is the baseline's
+description. "LTM beats pure STM by 3.0" reads as a win over a recency
+baseline; the baseline was one slot of genuine recency out of ten, over a
+frozen prefix of the conversation's opening.
+
+Nothing here establishes what a correctly-implemented recency window would have
+scored, in either direction. No arm ran one.
+
 ## Cost
 
 Arm S was substantially leaner:
@@ -118,6 +155,18 @@ This is one seed, one script, one model, one score pass, and one run per arm.
 The 1.5-point threshold makes the outcome binding for this program, not a
 population estimate. Arm L is also a preserved earlier run rather than a
 concurrent rerun, with fidelity established by G2.
+
+Amendment 002, raised after results, records that neither arm's recent block
+was a recency window. The contrast is unaffected — both arms carry the same
+tier — but the registered characterization of Arm S as **the pure STM
+architecture** does not describe what ran, and neither does the Summary's
+reading of Study 004's 11.0–7.0, whose arms carried the same locked prefix.
+Four checks stood between this and the record and all four passed: the Arm S
+structural purity gate verified the LTM tier's absence from the import graph
+and said nothing about what the surviving tier selected; the delivery counters
+saw ten episodes a turn and volume was never the failure; the 35-turn ablation
+ran past the lock at turn 11 and recorded the result; and the block name
+`<recent_context>` is not a check.
 
 ## Study 010 Inputs
 
