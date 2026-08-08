@@ -128,6 +128,8 @@ What remains after every one of those removals is an append-only store, a
 recency window, similarity retrieval, and a coverage objective, with no
 generative model calls in the memory path — a design that is reproducible and free of generated
 intermediate text because the removed components were the ones that produced it.
+That description is accurate about the component; §5.2.4 records that the live
+studies behind these results ran a different rule under the same name.
 
 ---
 
@@ -525,6 +527,111 @@ comparisons inherit that: they compare objectives that were all run behind the
 same starved packing order. IC-001 is availability-only on one probe, one
 store, one run, with no variance, and authorizes no re-run of the arc.
 
+### 5.2.3 The gate was real, and opening it did not help
+
+Study 011 ran the arc live to find out. Four 121-turn runs at one seed —
+recency alone, similarity alone, both with similarity first, and both in the
+deployed order — scored blind by three raters who never saw which arm produced
+which answer.
+
+The suppression is confirmed at full strength. **The deployed arm scored
+identically to the recency-only arm on all thirteen questions**, with the same
+availability on both measures, and produced byte-identical windows at three
+consecutive late probes. A system carrying a similarity tier was
+indistinguishable from one with no similarity tier at all.
+
+Then the correction was applied, and the answers got worse.
+
+| | Recency only | Deployed | K-first |
+|---|---:|---:|---:|
+| K-path episodes delivered | 0 | 1 | **13** |
+| Q11 items available | 9 of 17 | 9 of 17 | **10 of 17** |
+| Targeted items available | 7 of 21 | 7 of 21 | **10 of 21** |
+| Scored rubric, out of 13 | 8.0 | 8.0 | **7.0** |
+
+The K-first arm had the best availability of any arm and the worst score. Its
+registered kill — *the corrected arm must not score below the deployed one* —
+fired, and the correction was not adopted.
+
+The shape matters more than the total. The point is built from three gains and
+three losses, not a uniform decline: the gains are the early and middle plants,
+where the similarity path had material to contribute, and every loss is late.
+Both losses at the marine-biology probe fall on a turn that holds **no
+similarity candidate at all**, so nothing the similarity tier did could have
+helped there; what changed was the recency context it displaced elsewhere. The
+mechanism is consistent with displacement and is not established — a single run
+per arm cannot separate it from ordinary variation in a live conversation.
+
+One caveat governs every scored number above. Re-running a single arm under
+identical settings produced a byte-identical prompt and a **different answer**
+at the same seed, with one slot and speculative decoding off. The mechanism
+reproduces exactly where it can be tested — but that is one turn, since a
+differing answer changes the store and every prompt after it. A one-point gap
+on a thirteen-point rubric, from one run per arm, therefore sits inside a noise
+band this program has never measured. The registered bar fired on the committed
+numbers, which is what a pre-registered kill is for; the defensible reading is
+that the correction did not demonstrate an improvement, not that it is worse.
+The delivery and packing numbers are offline and reproduce exactly.
+
+### 5.2.4 The tier the arc calls recency is not one
+
+Mechanism analysis after Study 011 was unsealed found that the tier every study
+above calls a recency window does not select by recency. Its ordering key sorts
+the **whole store** by delivery history — never-delivered material first, then
+the episode delivered longest ago — with the source turn entering only as a
+third-level tiebreak, oldest first. It is a least-recently-delivered coverage
+rotation. The only place recency appears is the name of the block it renders
+into.
+
+Replaying the deployed key against store state reconstructed from the delivery
+log reproduces the live ranking on **120 of 120 testable turns** in every arm
+that has the tier. On that licence: the delivered set overlaps a true window of
+the same size by **0.29**, **36%** of deliveries are older than the cap of 32
+turns and so lie outside anything a window could reach, and the rotation touches
+**every one of the 120 reachable episodes**, which a window never does.
+
+Two measurements explain how this survived eleven studies. The candidate list
+equals a recency window on exactly the 32 turns where the store still fits
+inside the cap, and never after — so at ablation length the tier genuinely *is*
+a window. And it delivers the immediately preceding turn at 9 of 9 probes,
+because that episode is the one thing never delivered before. The block opens on
+the previous turn and then rotates through the archive.
+
+Three distinct rules carry the name in this repository, and they are not
+variants of one mechanism:
+
+| Path | Cap | Orders by | Where it ran |
+|---|---:|---|---|
+| `StmRetrievalEngine` | 10 | most recently delivered first | Study 009 and earlier live runs |
+| `logical_n_key` | 32 | least recently delivered first | Corrected Tier 6, Studies 010 and 011 |
+| `episodic` library | 32 | the last N in conversation order | The extracted component; EC-002, CC-003, CC-005 |
+
+**The only genuine recency window is in the component no scored live study ran.**
+The harness imports the library's packer and renderer, not its context
+composition. §6.2's description of what remains is accurate about that component;
+what does not hold is the implied continuity between it and the measured arc.
+
+What this does and does not change. Every contrast in which both arms carry the
+tier is untouched, which includes §5.2.3's C-against-D packing result and every
+delivery and packing number in this paper. What changes is what the *marginal*
+contrasts mean: the similarity tier was being asked to add to a baseline that
+already reaches the entire store, not to a window over the last few turns — the
+most plausible reading of why 79% of the K-first arm's similarity candidates
+were material the other tier had already nominated. Study 009's 3.0-point
+architectural contrast was measured under the first rule in the table above;
+this paper does not re-read it, and establishing what it measured is its own
+work. **Nothing here establishes what a correctly-implemented recency window
+would score, in either direction.**
+
+For this paper the correction is narrow. §5.2.2's delivery finding stands
+unchanged and is now confirmed live. What does not survive is the inference a
+reader would naturally draw from it: that the starved fill order was holding
+back a working retrieval path. On this corpus, at this seed, giving that path
+the window space it had been denied moved availability up and answers did not
+follow. The pool, the objective and the floor still bind in the order §5.6
+gives them. Packing order gates delivery, and delivery was not the thing
+limiting answers.
+
 ### 5.3 The objective binds second, and only after the pool
 
 The deployed rule ranks each episode against the query independently and takes
@@ -799,6 +906,11 @@ study, and some outlived the study that first weakened them.
 An append-only verbatim store. A recency window. Cosine-threshold similarity
 retrieval for targeted queries. A set-level coverage objective for selection.
 Everything packed at exact serialized cost against one budget.
+
+The recency window in that list is the component's own, and it is a genuine
+last-N window. The live studies that produced the results above ran a different
+rule under the same name — a least-recently-delivered rotation over the whole
+store — and §5.2.4 gives the measurement and the consequences.
 
 One formerly open item is no longer owed as a component mechanism. The
 component emitted no absence signal on any of 500 EC-001 questions, while the
@@ -1127,7 +1239,9 @@ program built failed its own gate; what is left is an append-only verbatim
 store, a recency window, similarity retrieval, and a set-level coverage
 objective, with no generative model calls in the memory path. That component is
 reproducible given a pinned embedder and auditable line by line, and §6.3 argues
-both properties followed from the removals rather than from foresight. If a
+both properties followed from the removals rather than from foresight. Read
+§5.2.4 before carrying that list across: the component's recency window is a
+genuine one, and the live studies behind these results were not running it. If a
 memory component in your system makes generative calls, this program's
 experience is that they bought less than they cost — on one internal corpus,
 with one later external stress test that is not a published-system comparison.

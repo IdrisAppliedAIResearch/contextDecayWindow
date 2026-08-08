@@ -1,0 +1,70 @@
+{
+  "arm": "D",
+  "certifies": "harness fidelity, offline; not that a live Arm D reproduces anything",
+  "checks": {
+    "budget_matches": true,
+    "domain_count": true,
+    "episode_identities": true,
+    "fact_count": true,
+    "item_level_match": true,
+    "payload_sha256": true,
+    "per_domain_breakdown": true,
+    "selected_episode_count": true,
+    "serialized_chars": true
+  },
+  "committed": {
+    "domain_count": 3,
+    "fact_count": 6,
+    "payload_sha256": "64b19b96b44bb4745f4543a7824a18433e49131d1eeb9a9813760f15f8afe478",
+    "per_domain": {
+      "art": 0,
+      "civil": 4,
+      "marine": 1,
+      "monetary": 1
+    },
+    "selected_episode_count": 8,
+    "selected_ids": [
+      "34f5bb4c-c590-4d6c-8a11-7d4e2ed134a7",
+      "3392af3a-e027-4205-8003-02085f8ba527",
+      "5505312f-3f23-458c-a3c1-acac220abd08",
+      "fd7ed8c4-fcff-4d37-9583-d2e7ec97da73",
+      "c690555c-d66b-41d0-82c2-fb591e4a221f",
+      "dc2b025a-0f1e-4344-93bd-a6ab59facd95",
+      "7ed56c34-ddb9-490d-81b8-87848f88ca14",
+      "98015b9a-0576-4fc6-8584-df00a7a888af"
+    ],
+    "serialized_chars": 31946
+  },
+  "committed_artifact": "experiments/components/retrieval_mechanism_ledger/artifacts/e005/a0_baseline.json",
+  "committed_artifact_sha256": "07fd98b31bc8f05b53da0e292af5427306b8f08952a470c07899f5d5ad8dd29a",
+  "consequence_on_failure": "Study 011 stops; every arm's accounting is uninterpretable",
+  "gate": "G5",
+  "item_mismatches": [],
+  "label": "both, recency-first (deployed)",
+  "replay": {
+    "domain_count": 3,
+    "fact_count": 6,
+    "payload_sha256": "64b19b96b44bb4745f4543a7824a18433e49131d1eeb9a9813760f15f8afe478",
+    "per_domain": {
+      "art": 0,
+      "civil": 4,
+      "marine": 1,
+      "monetary": 1
+    },
+    "selected_episode_count": 8,
+    "selected_ids": [
+      "34f5bb4c-c590-4d6c-8a11-7d4e2ed134a7",
+      "3392af3a-e027-4205-8003-02085f8ba527",
+      "5505312f-3f23-458c-a3c1-acac220abd08",
+      "fd7ed8c4-fcff-4d37-9583-d2e7ec97da73",
+      "c690555c-d66b-41d0-82c2-fb591e4a221f",
+      "dc2b025a-0f1e-4344-93bd-a6ab59facd95",
+      "7ed56c34-ddb9-490d-81b8-87848f88ca14",
+      "98015b9a-0576-4fc6-8584-df00a7a888af"
+    ],
+    "serialized_chars": 31946
+  },
+  "requirement": "Arm D reproduces the committed deployed result exactly",
+  "status": "PASS",
+  "target_is": "the corrected Tier 6 run's turn-120 candidate order re-packed at the enforced 32,000-character budget; not that run's delivered window, which was 60,285 characters at budget 60,595 (pre-registration section 3.1)"
+}

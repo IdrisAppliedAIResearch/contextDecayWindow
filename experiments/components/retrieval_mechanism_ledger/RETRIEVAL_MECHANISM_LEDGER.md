@@ -97,6 +97,38 @@ undetectable without measuring it.
   *(Constraint added August 6, 2026 - see `IC_001_REPORT.md`. This does not
   authorize re-running anything: IC-001 section 9 lists the five conditions.)*
 
+  **Amended August 7, 2026 by Study 011, which tested that constraint live and
+  found its natural reading wrong.** Starving the similarity path is real: the
+  deployed arm scored identically to the recency-only arm on all thirteen
+  questions, so the tier this ledger measures contributed nothing at all in
+  deployment. But unstarving it did not help. The K-first arm delivered
+  thirteen K-path episodes against the deployed arm's one, raised Q11
+  availability to 10/17 and targeted to 10/21, and **scored a point lower**,
+  7.0 against 8.0. The registered kill fired and the correction was not
+  adopted. So a candidate that looks weak may indeed have been starved rather
+  than wrong - and feeding it may still cost answers. No entry in this ledger
+  is revived by Study 011, and a delivery gain remains not a result.
+  *(See `experiments/study_011/study_011_report.md`. One seed, one run per arm,
+  no variance estimate.)*
+
+- **The tier every number here was measured against is not a recency window.**
+  `logical_n_key` sorts the whole store by (has ever been delivered, turn last
+  delivered, source turn, id) ascending: a least-recently-delivered coverage
+  rotation. Replay reproduces the live ranking on 120 of 120 testable turns per
+  arm. The delivered set overlaps a true window of the same size by 0.29, 36% of
+  deliveries are older than the cap of 32 turns, and the rotation reaches all
+  120 reachable episodes. **A candidate proposing to add breadth is therefore
+  competing with a baseline that already touches everything**, which is the most
+  plausible reading of why 79% of Study 011's K-first arm's similarity
+  candidates were material the rotation had already nominated. Three different
+  rules carry this name in the repository — most-recently-delivered at cap 10
+  (Study 009 and earlier), least-recently-delivered at cap 32 (corrected Tier 6,
+  Studies 010 and 011), and the extracted library's genuine last-N window at cap
+  32 (EC-002, CC-003, CC-005) — so an entry must name the path it was measured
+  against, not the tier. *(Constraint added August 8, 2026 - see
+  `experiments/study_011/amendments/AMENDMENT_002_n_tier_is_not_a_recency_window.md`.
+  This does not establish what a real recency window would score.)*
+
 ### 4.1 What actually exists in this repository
 
 Verify against the tree; this is from the record, not from inspection.
@@ -104,8 +136,10 @@ Verify against the tree; this is from the record, not from inspection.
 **Available:** the carried hash-verified embedding model; cosine similarity; the N
 candidate cap; the K threshold; N-first packing against a character budget; the
 compact episode renderer (DR-001); the append-only raw episode store; the STM
-recency window; the replay harness; the probe-order validator; the scoring
-protocol; llama.cpp generation runtime. ANN indexing and graph-construction code
+least-recently-delivered rotation, called the recency window everywhere in this
+record and measured as a rotation in §4; the extracted library's separate
+genuine last-N window; the replay harness; the probe-order validator; the
+scoring protocol; llama.cpp generation runtime. ANN indexing and graph-construction code
 exist from bakeoff Tiers 4-5 and are refuted, not absent.
 
 **Not available:** any attention extraction, forward hooks, head analysis,

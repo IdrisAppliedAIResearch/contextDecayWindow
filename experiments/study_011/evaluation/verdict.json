@@ -1,0 +1,577 @@
+{
+  "aggregates_conceal_composition": "Totals are reported beside the per-question rows, never instead of them. IC-001's arms delivered identical episode totals in different compositions.",
+  "b1": {
+    "arm_c": 7.0,
+    "arm_d": 8.0,
+    "bar": "B1",
+    "consequence": "The packing correction is NOT adopted, regardless of any availability gain. A mechanism that improves delivery and degrades answers has not improved anything (LV-001).",
+    "delta": -1.0,
+    "statement": "Arm C must not score below Arm D",
+    "status": "FAIL"
+  },
+  "no_significance_claim": "No materiality threshold is registered and the program holds no variance estimate anywhere. One corpus, one seed, one runtime, a single run per arm: Study 011 cannot establish that any difference here would replicate.",
+  "registered_contrasts": {
+    "A-B": {
+      "contrast": "A - B",
+      "gains": [
+        {
+          "A": 1.0,
+          "B": 0.0,
+          "delta": 1.0,
+          "question": "Q7"
+        },
+        {
+          "A": 0.5,
+          "B": 0.0,
+          "delta": 0.5,
+          "question": "Q8"
+        },
+        {
+          "A": 1.0,
+          "B": 0.0,
+          "delta": 1.0,
+          "question": "Q10"
+        }
+      ],
+      "losses": [
+        {
+          "A": 0.0,
+          "B": 1.0,
+          "delta": -1.0,
+          "question": "Q2"
+        },
+        {
+          "A": 0.0,
+          "B": 1.0,
+          "delta": -1.0,
+          "question": "Q4"
+        }
+      ],
+      "per_question": [
+        {
+          "A": 0.5,
+          "B": 0.5,
+          "delta": 0.0,
+          "question": "Q1"
+        },
+        {
+          "A": 0.0,
+          "B": 1.0,
+          "delta": -1.0,
+          "question": "Q2"
+        },
+        {
+          "A": 1.0,
+          "B": 1.0,
+          "delta": 0.0,
+          "question": "Q3"
+        },
+        {
+          "A": 0.0,
+          "B": 1.0,
+          "delta": -1.0,
+          "question": "Q4"
+        },
+        {
+          "A": 0.0,
+          "B": 0.0,
+          "delta": 0.0,
+          "question": "Q5"
+        },
+        {
+          "A": 1.0,
+          "B": 1.0,
+          "delta": 0.0,
+          "question": "Q6"
+        },
+        {
+          "A": 1.0,
+          "B": 0.0,
+          "delta": 1.0,
+          "question": "Q7"
+        },
+        {
+          "A": 0.5,
+          "B": 0.0,
+          "delta": 0.5,
+          "question": "Q8"
+        },
+        {
+          "A": 1.0,
+          "B": 1.0,
+          "delta": 0.0,
+          "question": "Q9"
+        },
+        {
+          "A": 1.0,
+          "B": 0.0,
+          "delta": 1.0,
+          "question": "Q10"
+        },
+        {
+          "A": 0.0,
+          "B": 0.0,
+          "delta": 0.0,
+          "question": "Q11"
+        },
+        {
+          "A": 1.0,
+          "B": 1.0,
+          "delta": 0.0,
+          "question": "Q12"
+        },
+        {
+          "A": 1.0,
+          "B": 1.0,
+          "delta": 0.0,
+          "question": "Q13"
+        }
+      ],
+      "total_delta": 0.5,
+      "unchanged_count": 8
+    },
+    "C-A": {
+      "contrast": "C - A",
+      "gains": [
+        {
+          "A": 0.5,
+          "C": 1.0,
+          "delta": 0.5,
+          "question": "Q1"
+        },
+        {
+          "A": 0.0,
+          "C": 1.0,
+          "delta": 1.0,
+          "question": "Q2"
+        },
+        {
+          "A": 0.0,
+          "C": 0.5,
+          "delta": 0.5,
+          "question": "Q4"
+        }
+      ],
+      "losses": [
+        {
+          "A": 1.0,
+          "C": 0.0,
+          "delta": -1.0,
+          "question": "Q6"
+        },
+        {
+          "A": 1.0,
+          "C": 0.0,
+          "delta": -1.0,
+          "question": "Q7"
+        },
+        {
+          "A": 1.0,
+          "C": 0.0,
+          "delta": -1.0,
+          "question": "Q10"
+        }
+      ],
+      "per_question": [
+        {
+          "A": 0.5,
+          "C": 1.0,
+          "delta": 0.5,
+          "question": "Q1"
+        },
+        {
+          "A": 0.0,
+          "C": 1.0,
+          "delta": 1.0,
+          "question": "Q2"
+        },
+        {
+          "A": 1.0,
+          "C": 1.0,
+          "delta": 0.0,
+          "question": "Q3"
+        },
+        {
+          "A": 0.0,
+          "C": 0.5,
+          "delta": 0.5,
+          "question": "Q4"
+        },
+        {
+          "A": 0.0,
+          "C": 0.0,
+          "delta": 0.0,
+          "question": "Q5"
+        },
+        {
+          "A": 1.0,
+          "C": 0.0,
+          "delta": -1.0,
+          "question": "Q6"
+        },
+        {
+          "A": 1.0,
+          "C": 0.0,
+          "delta": -1.0,
+          "question": "Q7"
+        },
+        {
+          "A": 0.5,
+          "C": 0.5,
+          "delta": 0.0,
+          "question": "Q8"
+        },
+        {
+          "A": 1.0,
+          "C": 1.0,
+          "delta": 0.0,
+          "question": "Q9"
+        },
+        {
+          "A": 1.0,
+          "C": 0.0,
+          "delta": -1.0,
+          "question": "Q10"
+        },
+        {
+          "A": 0.0,
+          "C": 0.0,
+          "delta": 0.0,
+          "question": "Q11"
+        },
+        {
+          "A": 1.0,
+          "C": 1.0,
+          "delta": 0.0,
+          "question": "Q12"
+        },
+        {
+          "A": 1.0,
+          "C": 1.0,
+          "delta": 0.0,
+          "question": "Q13"
+        }
+      ],
+      "total_delta": -1.0,
+      "unchanged_count": 7
+    },
+    "C-B": {
+      "contrast": "C - B",
+      "gains": [
+        {
+          "B": 0.5,
+          "C": 1.0,
+          "delta": 0.5,
+          "question": "Q1"
+        },
+        {
+          "B": 0.0,
+          "C": 0.5,
+          "delta": 0.5,
+          "question": "Q8"
+        }
+      ],
+      "losses": [
+        {
+          "B": 1.0,
+          "C": 0.5,
+          "delta": -0.5,
+          "question": "Q4"
+        },
+        {
+          "B": 1.0,
+          "C": 0.0,
+          "delta": -1.0,
+          "question": "Q6"
+        }
+      ],
+      "per_question": [
+        {
+          "B": 0.5,
+          "C": 1.0,
+          "delta": 0.5,
+          "question": "Q1"
+        },
+        {
+          "B": 1.0,
+          "C": 1.0,
+          "delta": 0.0,
+          "question": "Q2"
+        },
+        {
+          "B": 1.0,
+          "C": 1.0,
+          "delta": 0.0,
+          "question": "Q3"
+        },
+        {
+          "B": 1.0,
+          "C": 0.5,
+          "delta": -0.5,
+          "question": "Q4"
+        },
+        {
+          "B": 0.0,
+          "C": 0.0,
+          "delta": 0.0,
+          "question": "Q5"
+        },
+        {
+          "B": 1.0,
+          "C": 0.0,
+          "delta": -1.0,
+          "question": "Q6"
+        },
+        {
+          "B": 0.0,
+          "C": 0.0,
+          "delta": 0.0,
+          "question": "Q7"
+        },
+        {
+          "B": 0.0,
+          "C": 0.5,
+          "delta": 0.5,
+          "question": "Q8"
+        },
+        {
+          "B": 1.0,
+          "C": 1.0,
+          "delta": 0.0,
+          "question": "Q9"
+        },
+        {
+          "B": 0.0,
+          "C": 0.0,
+          "delta": 0.0,
+          "question": "Q10"
+        },
+        {
+          "B": 0.0,
+          "C": 0.0,
+          "delta": 0.0,
+          "question": "Q11"
+        },
+        {
+          "B": 1.0,
+          "C": 1.0,
+          "delta": 0.0,
+          "question": "Q12"
+        },
+        {
+          "B": 1.0,
+          "C": 1.0,
+          "delta": 0.0,
+          "question": "Q13"
+        }
+      ],
+      "total_delta": -0.5,
+      "unchanged_count": 9
+    },
+    "C-D": {
+      "contrast": "C - D",
+      "gains": [
+        {
+          "C": 1.0,
+          "D": 0.5,
+          "delta": 0.5,
+          "question": "Q1"
+        },
+        {
+          "C": 1.0,
+          "D": 0.0,
+          "delta": 1.0,
+          "question": "Q2"
+        },
+        {
+          "C": 0.5,
+          "D": 0.0,
+          "delta": 0.5,
+          "question": "Q4"
+        }
+      ],
+      "losses": [
+        {
+          "C": 0.0,
+          "D": 1.0,
+          "delta": -1.0,
+          "question": "Q6"
+        },
+        {
+          "C": 0.0,
+          "D": 1.0,
+          "delta": -1.0,
+          "question": "Q7"
+        },
+        {
+          "C": 0.0,
+          "D": 1.0,
+          "delta": -1.0,
+          "question": "Q10"
+        }
+      ],
+      "per_question": [
+        {
+          "C": 1.0,
+          "D": 0.5,
+          "delta": 0.5,
+          "question": "Q1"
+        },
+        {
+          "C": 1.0,
+          "D": 0.0,
+          "delta": 1.0,
+          "question": "Q2"
+        },
+        {
+          "C": 1.0,
+          "D": 1.0,
+          "delta": 0.0,
+          "question": "Q3"
+        },
+        {
+          "C": 0.5,
+          "D": 0.0,
+          "delta": 0.5,
+          "question": "Q4"
+        },
+        {
+          "C": 0.0,
+          "D": 0.0,
+          "delta": 0.0,
+          "question": "Q5"
+        },
+        {
+          "C": 0.0,
+          "D": 1.0,
+          "delta": -1.0,
+          "question": "Q6"
+        },
+        {
+          "C": 0.0,
+          "D": 1.0,
+          "delta": -1.0,
+          "question": "Q7"
+        },
+        {
+          "C": 0.5,
+          "D": 0.5,
+          "delta": 0.0,
+          "question": "Q8"
+        },
+        {
+          "C": 1.0,
+          "D": 1.0,
+          "delta": 0.0,
+          "question": "Q9"
+        },
+        {
+          "C": 0.0,
+          "D": 1.0,
+          "delta": -1.0,
+          "question": "Q10"
+        },
+        {
+          "C": 0.0,
+          "D": 0.0,
+          "delta": 0.0,
+          "question": "Q11"
+        },
+        {
+          "C": 1.0,
+          "D": 1.0,
+          "delta": 0.0,
+          "question": "Q12"
+        },
+        {
+          "C": 1.0,
+          "D": 1.0,
+          "delta": 0.0,
+          "question": "Q13"
+        }
+      ],
+      "total_delta": -1.0,
+      "unchanged_count": 7
+    }
+  },
+  "sections": [
+    "6.3",
+    "6.4"
+  ],
+  "study": "011",
+  "study_009_reference": {
+    "arm_L": 12.0,
+    "arm_S": 9.0,
+    "caveat": "Study 009 ran under recency-first packing and pre-DR-001 accounting, and its Arm L is the preserved Study 007 condition-C run. It is a reference point, not a comparison arm."
+  },
+  "treatment_scores": {
+    "per_question": {
+      "A": {
+        "Q1": 0.5,
+        "Q10": 1.0,
+        "Q11": 0.0,
+        "Q12": 1.0,
+        "Q13": 1.0,
+        "Q2": 0.0,
+        "Q3": 1.0,
+        "Q4": 0.0,
+        "Q5": 0.0,
+        "Q6": 1.0,
+        "Q7": 1.0,
+        "Q8": 0.5,
+        "Q9": 1.0
+      },
+      "B": {
+        "Q1": 0.5,
+        "Q10": 0.0,
+        "Q11": 0.0,
+        "Q12": 1.0,
+        "Q13": 1.0,
+        "Q2": 1.0,
+        "Q3": 1.0,
+        "Q4": 1.0,
+        "Q5": 0.0,
+        "Q6": 1.0,
+        "Q7": 0.0,
+        "Q8": 0.0,
+        "Q9": 1.0
+      },
+      "C": {
+        "Q1": 1.0,
+        "Q10": 0.0,
+        "Q11": 0.0,
+        "Q12": 1.0,
+        "Q13": 1.0,
+        "Q2": 1.0,
+        "Q3": 1.0,
+        "Q4": 0.5,
+        "Q5": 0.0,
+        "Q6": 0.0,
+        "Q7": 0.0,
+        "Q8": 0.5,
+        "Q9": 1.0
+      },
+      "D": {
+        "Q1": 0.5,
+        "Q10": 1.0,
+        "Q11": 0.0,
+        "Q12": 1.0,
+        "Q13": 1.0,
+        "Q2": 0.0,
+        "Q3": 1.0,
+        "Q4": 0.0,
+        "Q5": 0.0,
+        "Q6": 1.0,
+        "Q7": 1.0,
+        "Q8": 0.5,
+        "Q9": 1.0
+      }
+    },
+    "totals_out_of_13": {
+      "A": 8.0,
+      "B": 7.5,
+      "C": 7.0,
+      "D": 8.0
+    }
+  }
+}
