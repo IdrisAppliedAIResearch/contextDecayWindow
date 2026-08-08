@@ -121,11 +121,17 @@ undetectable without measuring it.
   competing with a baseline that already touches everything**, which is the most
   plausible reading of why 79% of Study 011's K-first arm's similarity
   candidates were material the rotation had already nominated. Three different
-  rules carry this name in the repository — most-recently-delivered at cap 10
-  (Study 009 and earlier), least-recently-delivered at cap 32 (corrected Tier 6,
-  Studies 010 and 011), and the extracted library's genuine last-N window at cap
-  32 (EC-002, CC-003, CC-005) — so an entry must name the path it was measured
-  against, not the tier. *(Constraint added August 8, 2026 - see
+  rules carry this name in the repository — the carried engines' rule at cap 10
+  (every live run through Study 010), `logical_n_key` at cap 32 (corrected Tier
+  6 and Study 011), and the extracted library's genuine last-N window at cap 32
+  (EC-002, CC-003, CC-005) — so an entry must name the path it was measured
+  against, not the tier. **The first two fail in opposite directions and no
+  baseline intuition transfers between them:** the rotation reaches every
+  episode and duplicates the similarity tier, while the carried rule locks onto
+  the conversation's first nine turns and holds them for the rest of the run,
+  reaching almost nothing. A breadth candidate benchmarked against the carried
+  rule was competing with a baseline that delivered 111 of 120 episodes exactly
+  once. *(Constraint added August 8, 2026 - see
   `experiments/study_011/amendments/AMENDMENT_002_n_tier_is_not_a_recency_window.md`.
   This does not establish what a real recency window would score.)*
 

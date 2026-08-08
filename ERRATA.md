@@ -372,8 +372,8 @@ Three distinct rules carry the name, and only the third is a window:
 
 | Path | Cap | Orders by | Where it ran |
 |---|---:|---|---|
-| `StmRetrievalEngine._n_retrieve` | 10 | most recently delivered first | Study 009 and earlier live runs |
-| `logical_n_key` | 32 | least recently delivered first | Corrected Tier 6, Studies 010 and 011 |
+| `RetrievalEngine._n_retrieve`, `StmRetrievalEngine._n_retrieve` | 10 | most recently delivered first | Every live run through Study 010 |
+| `logical_n_key` | 32 | least recently delivered first | Corrected Tier 6 and Study 011 |
 | `episodic._context._recency_window` | 32 | the last N in conversation order | The extracted library; EC-002, CC-003, CC-005 |
 
 **Corrected readings.**
@@ -392,11 +392,65 @@ Three distinct rules carry the name, and only the third is a window:
 **Unchanged.** Every contrast in which both arms carry the tier, which includes
 Study 011's B1 verdict (A 8.0, B 7.5, C 7.0, D 8.0; the packing correction is
 not adopted), every delivery and packing number, and every gate result. Study
-009's 3.0-point S-vs-L contrast is **not re-read here**; this entry records that
-the mechanism is not the one its report names.
+009's 3.0-point S-vs-L contrast is **not re-read here**; the entry below
+characterizes what it sat on.
 
 Nothing here establishes what a correctly-implemented recency window would
 score, in either direction.
+
+**Correction to this entry (2026-08-08, same day).** The table above originally
+placed Study 010 in the second row. Study 010 ran `src/study/runner.py`, which
+constructs `RetrievalEngine`; its arms replay exactly under the first row's rule
+and do not replay under the second. The row spans have been corrected.
+
+## The Carried N Rule Was a Locked Prefix (2026-08-08)
+
+**The architecture description changes; no measured number changes.** The entry
+above records the first row of that table as "most recently delivered first",
+which is what the ordering key says. It is not what the mechanism did.
+`retrieve()` refreshes every episode it delivered, in one call with one
+timestamp, so a rule that ranks the freshest delivery highest re-selects its own
+block every turn. The batch write leaves that block tied on the real key, and
+the tie breaks toward the order the store query returns — `turn_number ASC`.
+
+The block therefore settles on the oldest episodes in the store and cannot
+leave. Replay against the committed logs reproduces the ranking on 120 of 120
+turns for Study 009 Arm S, 120 of 120 for the Study 007 arm carried in as Arm L,
+and 34 of 34 for the ablation. From turn 11 both arms delivered source turns
+**1 through 9** plus whichever episode had not been delivered before, which is
+always turn *t*−1, and held it for 111 consecutive turns. Mean overlap with a
+true window of the same size 0.205; 82.6% of deliveries older than the cap of
+ten; 111 of 120 episodes delivered exactly once.
+
+Across the record: 40 run directories scanned, 17 replay exactly, 12 lock.
+**Every scored live run from Study 004 through Study 010 is among them.** Study
+010's arms held source turns 1–9 across 999 logged turns. Studies 001–003 do not
+replay and nothing is derived for them; three of their runs carry a
+corroborating store signature, which is not proof. Study 011's arms do not
+replay, which is correct.
+
+**Corrected readings.**
+
+- Study 009's Arm S is described in its pre-registration and report as the
+  **pure STM architecture**. It was nine fixed episodes and one recent one. The
+  3.0-point contrast is **not re-read and does not change**: Arm L carries the
+  identical block turn for turn, so the contrast still isolates the LTM tier.
+  What changes is the baseline's description.
+- Study 009's Summary cites Study 004's 11.0–7.0 as the only clean STM-vs-LTM
+  comparison ever run. `study_004_full_002` replays exactly and locks; both
+  sides of that comparison carried the locked prefix.
+- Study 011's inertness finding gains a mechanism it did not have. Arm D's
+  similarity tier produced 124 candidates over 121 turns, 95 of them (76.6%)
+  already nominated by N, and delivered a K-only episode on 1 turn in 121.
+  Duplication removes most of the tier's potential contribution before packing
+  is reached; starvation removes most of the rest. This **composes with IC-001
+  rather than replacing it** — it explains why relieving starvation did not pay.
+
+**Unchanged.** Every score, every gate, every bar, every delivery and packing
+number. No pre-registration is edited.
+
+Nothing here establishes what a correctly-implemented recency window would
+score, in either direction. No arm in the program ever ran one.
 
 Artifacts:
 `experiments/study_011/analysis/n_tier_characterization.json` and

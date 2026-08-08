@@ -13,7 +13,7 @@ every claim carries its committed artifact, and one headline number
 
 Ten pre-registered studies test that question, each adding one memory component and fixing the prior study's documented failures. Every result is published as found.
 
-> **Status:** Study 010 stopped at G2; exploratory continuation unaudited and LTM budget-noncompliant | retrieval bakeoff complete | retrieval mechanism ledger reopened for Family CS; E005 is killed by LV-001's live targeted-regression bar, DX-001 closes NO CHANGE, and RD-001 stops before correlation because unchanged rarity scores cover only 6/76 fact-bearing episodes; chained retrieval is not authorized | EC-001 LongMemEval complete: inversion not dominant, Codex-substituted score only | EC-002 complete: K-first packing raises any-session recall 109/470 -> 261/470 offline; no production promotion authorized | IC-001 Branch A: the same gate is closed internally — K delivered nothing at 8/8 probes under the deployed order; Q11 6/17 -> 7/17, targeted 14/21 -> 18/21, zero losses; cache clause substituted under authorized Amendment 001; no recalibration authorized | Study 011 tests both halves live and splits them: the deployed arm scores identically to recency-only on all 13 questions, so the similarity tier is inert in deployment, but K-first raises availability and scores 7.0 vs 8.0 — B1 FAILS and the packing correction is not adopted; post-unseal analysis finds the N tier is a least-recently-delivered rotation over the whole store, not a recency window, and three different rules carry that name | CC-002 extracts the deployable component into `episodic`; CC-006 adds exact hashed vector-cache reuse | deployment closeout complete | PAPER-001 revised through Study 011 | scoring/interpretation record corrected through 2026-08-05
+> **Status:** Study 010 stopped at G2; exploratory continuation unaudited and LTM budget-noncompliant | retrieval bakeoff complete | retrieval mechanism ledger reopened for Family CS; E005 is killed by LV-001's live targeted-regression bar, DX-001 closes NO CHANGE, and RD-001 stops before correlation because unchanged rarity scores cover only 6/76 fact-bearing episodes; chained retrieval is not authorized | EC-001 LongMemEval complete: inversion not dominant, Codex-substituted score only | EC-002 complete: K-first packing raises any-session recall 109/470 -> 261/470 offline; no production promotion authorized | IC-001 Branch A: the same gate is closed internally — K delivered nothing at 8/8 probes under the deployed order; Q11 6/17 -> 7/17, targeted 14/21 -> 18/21, zero losses; cache clause substituted under authorized Amendment 001; no recalibration authorized | Study 011 tests both halves live and splits them: the deployed arm scores identically to recency-only on all 13 questions, so the similarity tier is inert in deployment, but K-first raises availability and scores 7.0 vs 8.0 — B1 FAILS and the packing correction is not adopted; post-unseal analysis finds the N tier is a least-recently-delivered rotation over the whole store, not a recency window, and that the rule every live run through Study 010 used was a block locked onto the conversation's first nine turns; three different rules carry that name and only the extracted library's is a window | CC-002 extracts the deployable component into `episodic`; CC-006 adds exact hashed vector-cache reuse | deployment closeout complete | PAPER-001 revised through Study 011 | scoring/interpretation record corrected through 2026-08-05
 
 ## The Problem
 
@@ -246,6 +246,19 @@ turn. Three different rules carry the name, and the only genuine window is in th
 extracted library, which no scored live study ran. Contrasts where both arms carry
 the tier — including B1 — are untouched; what changes is that the similarity tier
 was being asked to improve on a baseline that already reaches everything.
+
+**And the rule before it was worse.** Every live run through Study 010 used a
+different key, which ranks the freshest delivery highest — and `retrieve()`
+refreshes everything it delivered, so the block re-selects itself every turn.
+From turn 11 it holds the same nine episodes, source turns 1 through 9, plus
+whichever episode has not been delivered before. Study 009's Arm S held that for
+111 consecutive turns; Study 010's arms held it across 999. Replay reproduces
+the logged ranking exactly on 17 run directories, of which 12 lock. Mean overlap
+with a true window of the same size 0.205; 111 of 120 episodes delivered exactly
+once. Study 009's 3.0-point LTM result does not change — Arm L carries the
+identical block turn for turn, so the contrast still isolates LTM — but the
+baseline it beat was not a recency baseline. Nothing in the program establishes
+what a correctly-implemented window would score, in either direction.
 
 The determinism spot-check bounds all of it. Re-running one arm under identical
 settings gave a byte-identical prompt at turn 1 and a **different answer** —
