@@ -143,7 +143,8 @@ ascending and does the opposite. Both put never-delivered material first; below
 that they are inverses.
 
 Neither is a recency window. **They are also not each other.** Any reading of
-Study 011 Arm A as a replication of Study 009 Arm S is withdrawn.
+Study 011 Arm A as a replication of Study 009 Arm S is withdrawn. §6 adds a third
+ordering, in the extracted library, which is the only genuine window of the three.
 
 ---
 
@@ -169,19 +170,46 @@ improved anything until it changes answers.
 
 ## 6. Scope beyond Study 011
 
-The mislabel is not confined to this study, and the correction is not either.
+The mislabel is not confined to this study, and it is not one mechanism
+mislabelled twice. **Three different mechanisms in this repository are all called
+the recency window, and only one of them is one.**
 
-Every study in the arc that ran `StmRetrievalEngine` described its N tier as
-recency. Study 009's 3.0-point S-vs-L contrast — the arc's "clean architectural
-number" — was measured with the most-recently-delivered ordering, not a window.
-**This amendment does not re-read that result**; it records that the mechanism it
-ran is not the mechanism its report names, and that establishing what the contrast
-measured requires its own work.
+| Path | Cap | Orders by | Where it ran |
+|---|---:|---|---|
+| `StmRetrievalEngine._n_retrieve` | 10 | most recently delivered first | Study 009 and earlier live runs |
+| `logical_n_key` | 32 | least recently delivered first | Corrected Tier 6, Study 010, Study 011 live runs |
+| `episodic._context._recency_window` | 32 | **the last N in conversation order** | The extracted library; EC-002, CC-003, CC-005 |
 
-`PAPER_001.md` describes the architecture as "an append-only verbatim store, a
-recency window, cosine-threshold similarity retrieval" in §8 and again in the
-summary. That description is wrong in one term. The paper is corrected in this
-branch; `ERRATA.md` carries the entry.
+The three orderings are probed on one store built so each reading gives a
+different answer, and the probe is committed with the artifact.
+
+**The only correct recency window in the program is in the component that no
+scored live study ran.** `src/memory/context_matched_stm.py` imports the library's
+packer and renderer and nothing else; the library's context composition is a
+separate path. The paper's description of the surviving component as "an
+append-only verbatim store, a recency window, similarity retrieval, and a
+coverage objective" is therefore **accurate about the library**. What does not
+hold is the implied continuity: the measured arc did not run that recency path.
+
+Two consequences follow, and both are recorded rather than resolved here.
+
+**Study 009's 3.0-point S-vs-L contrast** — the arc's "clean architectural
+number" — was measured with most-recently-delivered ordering at cap 10. This
+amendment does not re-read the result. It records that the mechanism is not the
+one the report names, and that establishing what the contrast measured is its own
+work.
+
+**EC-002 and IC-001 are not the same contrast on two corpora.** EC-002 imports
+`_recency_window` from the library, so both its arms pack K against a genuine
+window; IC-001 replays frozen candidate identities from a deployed run, so both
+of its arms pack K against the rotation. Each comparison is internally valid —
+within each, the tier is held fixed and only the order changes — and EC-002's
+152-gains-zero-losses stands as a statement about the library. Reading the two as
+replications of one another does not hold, because the tier K is being packed
+against differs between them.
+
+`PAPER_001.md` and the mechanism ledger are corrected in this branch;
+`ERRATA.md` carries the entry.
 
 ---
 
