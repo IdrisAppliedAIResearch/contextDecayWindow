@@ -352,3 +352,52 @@ retained caches only for runs made after its contract is adopted.
 Artifact:
 `experiments/external/longmemeval/runs/ec002_k_first/a1_k_first/paired_comparison.json`
 at commit `4168a05c`.
+
+## The N Tier Is Not a Recency Window (2026-08-08)
+
+**The architecture description changes; no measured number changes.** Post-unseal
+mechanism analysis of Study 011 found that the tier the program calls a recency
+window selects by delivery history, not by recency of formation. `logical_n_key`
+sorts the whole store by (has ever been delivered, turn last delivered, source
+turn, id) ascending — a least-recently-delivered coverage rotation, with source
+turn entering only as a third-level tiebreak and entering oldest-first.
+
+Replaying the deployed key against store state reconstructed from
+`retrieval_events` reproduces the live ranking on 120 of 120 testable turns in
+every Study 011 arm that has the tier. The delivered set overlaps a true window
+of the same size by 0.29; 36% of deliveries are older than the cap of 32 turns;
+the rotation reaches all 120 reachable episodes.
+
+Three distinct rules carry the name, and only the third is a window:
+
+| Path | Cap | Orders by | Where it ran |
+|---|---:|---|---|
+| `StmRetrievalEngine._n_retrieve` | 10 | most recently delivered first | Study 009 and earlier live runs |
+| `logical_n_key` | 32 | least recently delivered first | Corrected Tier 6, Studies 010 and 011 |
+| `episodic._context._recency_window` | 32 | the last N in conversation order | The extracted library; EC-002, CC-003, CC-005 |
+
+**Corrected readings.**
+
+- `PAPER_001.md` §6.2 and the closing summary describe the surviving component.
+  That description is accurate about the library. §5.2.4 is added to record that
+  the live arc ran a different rule under the same name.
+- Study 011's registered prediction 4, "Arm A ≈ Study 009's Arm S", is
+  **withdrawn as unscorable** rather than scored as near. The two arms differ in
+  ordering rule and in cap.
+- EC-002 and IC-001 are **not the same contrast on two corpora**. EC-002 packs K
+  against the library's genuine window; IC-001 packs it against the rotation.
+  Each is internally valid and EC-002's 152 gains with zero losses stands as a
+  statement about the library.
+
+**Unchanged.** Every contrast in which both arms carry the tier, which includes
+Study 011's B1 verdict (A 8.0, B 7.5, C 7.0, D 8.0; the packing correction is
+not adopted), every delivery and packing number, and every gate result. Study
+009's 3.0-point S-vs-L contrast is **not re-read here**; this entry records that
+the mechanism is not the one its report names.
+
+Nothing here establishes what a correctly-implemented recency window would
+score, in either direction.
+
+Artifacts:
+`experiments/study_011/analysis/n_tier_characterization.json` and
+`experiments/study_011/amendments/AMENDMENT_002_n_tier_is_not_a_recency_window.md`.

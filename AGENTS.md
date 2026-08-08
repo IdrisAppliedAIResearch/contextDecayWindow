@@ -66,6 +66,8 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **011 - Tier isolation.** RUN; B1 FAILS. Four live 121-turn arms behind the first binding pre-test (G1-G7, T=6/13). Deployed arm 8.0 = STM-only 8.0 on all 13 questions: the LTM tier is inert as shipped. K-first delivers 13 K episodes vs 1, raises Q11 to 10/17 and targeted to 10/21, scores 7.0. Not adopted. Same prompt, same seed, different answer: -1.0 sits in unmeasured noise.
 
+**N-tier mislabel (2026-08-08).** The tier the arc calls a recency window is a least-recently-delivered rotation over the whole store; replay matches the live ranking 120/120 turns per arm. Overlap with a real window 0.29, 36% of deliveries older than the cap, reaches all 120 episodes. Three rules carry the name; the only real window is in `episodic`, which no scored live study ran. B1 unchanged.
+
 **PAPER-001 (2026-08-07).** DRAFT, revised through Study 011. The pool/objective/floor decomposition stands, but Â§5's 6/17 is packing-conditioned: new Â§5.2.2 records that the internal K path delivered nothing at 8/8 probes. Naturalistic ranking lacks the dominant internal inversion. Corpus-artifact cause unresolved. Source is `paper/PAPER_001.md`; figures/PDF are generated.
 
 **Retrieval mechanism ledger (2026-08-03).** CLOSED. E002 KILL but exact-32k segmentation improved 6/17->10/17. AR-001 proves exact 14/17 costs 5,058 chars. E001 best-found .1204->.2103; 0/714 reached K=.48. F2 closed. EC-001 measures F3 externally: 0/500 component absence signals, but reader abstention 17/20. E003 unauthorized.

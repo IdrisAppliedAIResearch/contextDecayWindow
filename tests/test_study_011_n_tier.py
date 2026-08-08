@@ -264,6 +264,23 @@ def test_neither_engine_orders_by_recency_of_formation():
     assert carried["n_cap"] != current["n_cap"]
 
 
+def test_only_the_extracted_library_implements_a_recency_window():
+    """Three mechanisms, and the one named correctly was never scored.
+
+    The library the paper presents as what remains does implement the
+    last-N window its documentation claims. Neither engine that produced
+    a scored result does.
+    """
+    from src.analysis.study_011_n_tier import engine_ordering_probe
+
+    probe = engine_ordering_probe()
+    assert probe["extracted_library"]["matches_reading"] == (
+        "recency_of_formation"
+    )
+    for engine in ("study_009_engine", "study_011_engine"):
+        assert probe[engine]["matches_reading"] != "recency_of_formation"
+
+
 def test_committed_runs_are_not_recency_windows():
     result = analyze()
     verdict = result["verdict"]

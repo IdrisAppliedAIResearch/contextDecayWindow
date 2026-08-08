@@ -511,7 +511,49 @@ def engine_ordering_probe() -> dict:
             "ranking_returned": list(study_011),
             "matches_reading": _match_reading(study_011, readings),
         },
+        "extracted_library": {
+            "path": "episodic/src/episodic/_context.py::_recency_window",
+            "n_cap": _library_cap(),
+            "ranking_returned": _library_ordering(episodes),
+            "matches_reading": _match_reading(
+                _library_ordering(episodes),
+                readings,
+            ),
+            "note": (
+                "the component the paper presents as what remains. It takes "
+                "the last N of the supplied sequence, so on episodes in "
+                "conversation order it is a genuine recency window. It is "
+                "not the path any scored study in the arc ran: the harness "
+                "imports the library's packer and renderer, not its context "
+                "composition"
+            ),
+        },
     }
+
+
+def _library_ordering(episodes: list[dict]) -> list[str]:
+    """The extracted library's recency path, on the same probe store.
+
+    The library's contract is a sequence in conversation order, so the
+    probe is sorted that way before it is handed over; handing it the
+    unsorted list would test the caller rather than the mechanism. The
+    window comes back in conversation order and the readings above are
+    written highest-priority first, so it is reversed to be comparable.
+    """
+    from episodic._context import _recency_window
+
+    in_conversation_order = sorted(
+        episodes,
+        key=lambda episode: episode["turn_number"],
+    )
+    window = _recency_window(in_conversation_order, len(episodes))
+    return [episode["id"] for episode in reversed(window)]
+
+
+def _library_cap() -> int:
+    from episodic._config import EpisodicConfig
+
+    return EpisodicConfig().recency_window_n
 
 
 def _match_reading(ranking: list[str], readings: dict[str, list[str]]) -> str:

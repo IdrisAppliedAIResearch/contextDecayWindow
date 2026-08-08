@@ -813,6 +813,17 @@
     }
   },
   "engine_ordering_probe": {
+    "extracted_library": {
+      "matches_reading": "recency_of_formation",
+      "n_cap": 32,
+      "note": "the component the paper presents as what remains. It takes the last N of the supplied sequence, so on episodes in conversation order it is a genuine recency window. It is not the path any scored study in the arc ran: the harness imports the library's packer and renderer, not its context composition",
+      "path": "episodic/src/episodic/_context.py::_recency_window",
+      "ranking_returned": [
+        "newest-delivered-recently",
+        "middle-delivered-long-ago",
+        "oldest-never-delivered"
+      ]
+    },
     "readings": {
       "least_recently_delivered": [
         "oldest-never-delivered",
