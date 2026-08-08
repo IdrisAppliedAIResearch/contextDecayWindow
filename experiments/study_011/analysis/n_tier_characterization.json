@@ -1,0 +1,833 @@
+{
+  "arms": {
+    "A": {
+      "age_profile": {
+        "delivered_older_than_n_cap": 350,
+        "delivered_total": 964,
+        "max_age_turns": 117,
+        "mean_age_turns": 29.52,
+        "median_age_turns": 22.0,
+        "min_age_turns": 1,
+        "share_older_than_n_cap": 0.3631
+      },
+      "arm": "A",
+      "k_overlap": {
+        "k_candidates_additive": 0,
+        "k_candidates_already_nominated_by_n": 0,
+        "k_candidates_total": 0,
+        "share_already_nominated_by_n": 0.0,
+        "starved_turns": [],
+        "turns": 121,
+        "turns_delivering_a_k_only_episode": 0,
+        "turns_starved": 0,
+        "turns_with_at_least_one_k_candidate": 0
+      },
+      "n_cap": 32,
+      "novelty_priority": {
+        "delivered_never_delivered_before": 120,
+        "delivered_total": 964,
+        "share_novel": 0.1245
+      },
+      "recency_contrast": {
+        "at_probe_turns": {
+          "112": {
+            "delivered_overlap_with_recency": 0.1429,
+            "delivered_source_turns": [
+              6,
+              14,
+              31,
+              60,
+              70,
+              95,
+              111
+            ],
+            "recency_would_have_delivered": [
+              105,
+              106,
+              107,
+              108,
+              109,
+              110,
+              111
+            ]
+          },
+          "113": {
+            "delivered_overlap_with_recency": 0.125,
+            "delivered_source_turns": [
+              1,
+              16,
+              53,
+              61,
+              71,
+              82,
+              96,
+              112
+            ],
+            "recency_would_have_delivered": [
+              105,
+              106,
+              107,
+              108,
+              109,
+              110,
+              111,
+              112
+            ]
+          },
+          "114": {
+            "delivered_overlap_with_recency": 0.125,
+            "delivered_source_turns": [
+              10,
+              22,
+              41,
+              56,
+              83,
+              84,
+              97,
+              113
+            ],
+            "recency_would_have_delivered": [
+              106,
+              107,
+              108,
+              109,
+              110,
+              111,
+              112,
+              113
+            ]
+          },
+          "115": {
+            "delivered_overlap_with_recency": 0.125,
+            "delivered_source_turns": [
+              2,
+              28,
+              36,
+              54,
+              62,
+              72,
+              98,
+              114
+            ],
+            "recency_would_have_delivered": [
+              107,
+              108,
+              109,
+              110,
+              111,
+              112,
+              113,
+              114
+            ]
+          },
+          "116": {
+            "delivered_overlap_with_recency": 0.1429,
+            "delivered_source_turns": [
+              11,
+              20,
+              63,
+              73,
+              85,
+              99,
+              115
+            ],
+            "recency_would_have_delivered": [
+              109,
+              110,
+              111,
+              112,
+              113,
+              114,
+              115
+            ]
+          },
+          "117": {
+            "delivered_overlap_with_recency": 0.125,
+            "delivered_source_turns": [
+              13,
+              23,
+              47,
+              55,
+              74,
+              86,
+              100,
+              116
+            ],
+            "recency_would_have_delivered": [
+              109,
+              110,
+              111,
+              112,
+              113,
+              114,
+              115,
+              116
+            ]
+          },
+          "118": {
+            "delivered_overlap_with_recency": 0.1429,
+            "delivered_source_turns": [
+              15,
+              25,
+              32,
+              64,
+              75,
+              101,
+              117
+            ],
+            "recency_would_have_delivered": [
+              111,
+              112,
+              113,
+              114,
+              115,
+              116,
+              117
+            ]
+          },
+          "119": {
+            "delivered_overlap_with_recency": 0.1111,
+            "delivered_source_turns": [
+              3,
+              17,
+              26,
+              29,
+              42,
+              48,
+              87,
+              102,
+              118
+            ],
+            "recency_would_have_delivered": [
+              110,
+              111,
+              112,
+              113,
+              114,
+              115,
+              116,
+              117,
+              118
+            ]
+          },
+          "120": {
+            "delivered_overlap_with_recency": 0.125,
+            "delivered_source_turns": [
+              18,
+              37,
+              49,
+              65,
+              66,
+              88,
+              103,
+              119
+            ],
+            "recency_would_have_delivered": [
+              112,
+              113,
+              114,
+              115,
+              116,
+              117,
+              118,
+              119
+            ]
+          }
+        },
+        "mean_candidate_overlap_with_recency": 0.6091,
+        "mean_delivered_overlap_with_recency": 0.29,
+        "probe_turns_delivering_the_immediately_previous_turn": 9,
+        "probe_turns_measured": 9,
+        "turns_measured": 120,
+        "turns_where_candidates_equal_recency": 32,
+        "turns_where_delivered_equals_recency": 10,
+        "turns_where_store_fits_within_n_cap": 32
+      },
+      "replay": {
+        "identical": true,
+        "mismatches": [],
+        "turns_matched": 120,
+        "turns_testable": 120
+      },
+      "rotation_profile": {
+        "coverage_of_reachable": 1.0,
+        "delivery_events": 964,
+        "distinct_episodes_first_delivered": 120,
+        "episodes_ever_delivered": 120,
+        "max_deliveries_per_reachable_episode": 44,
+        "min_deliveries_per_reachable_episode": 1,
+        "reachable_episodes": 120,
+        "store_size": 121
+      },
+      "run_dir": "experiments/study_011/runs/study_011_live_a/arm_a",
+      "turns": 121
+    },
+    "B": {
+      "arm": "B",
+      "k_overlap": {
+        "k_candidates_additive": 105,
+        "k_candidates_already_nominated_by_n": 0,
+        "k_candidates_total": 105,
+        "share_already_nominated_by_n": 0.0,
+        "starved_turns": [],
+        "turns": 121,
+        "turns_delivering_a_k_only_episode": 65,
+        "turns_starved": 0,
+        "turns_with_at_least_one_k_candidate": 65
+      },
+      "n_cap": 0,
+      "n_tier": "disabled in this arm",
+      "replay": {
+        "identical": false,
+        "mismatches": [],
+        "turns_matched": 0,
+        "turns_testable": 0
+      },
+      "run_dir": "experiments/study_011/runs/study_011_live_b/arm_b",
+      "turns": 121
+    },
+    "C": {
+      "age_profile": {
+        "delivered_older_than_n_cap": 337,
+        "delivered_total": 945,
+        "max_age_turns": 113,
+        "mean_age_turns": 28.56,
+        "median_age_turns": 21,
+        "min_age_turns": 1,
+        "share_older_than_n_cap": 0.3566
+      },
+      "arm": "C",
+      "k_overlap": {
+        "k_candidates_additive": 28,
+        "k_candidates_already_nominated_by_n": 103,
+        "k_candidates_total": 131,
+        "share_already_nominated_by_n": 0.7863,
+        "starved_turns": [],
+        "turns": 121,
+        "turns_delivering_a_k_only_episode": 18,
+        "turns_starved": 0,
+        "turns_with_at_least_one_k_candidate": 53
+      },
+      "n_cap": 32,
+      "novelty_priority": {
+        "delivered_never_delivered_before": 120,
+        "delivered_total": 945,
+        "share_novel": 0.127
+      },
+      "recency_contrast": {
+        "at_probe_turns": {
+          "112": {
+            "delivered_overlap_with_recency": 0.1667,
+            "delivered_source_turns": [
+              12,
+              22,
+              39,
+              79,
+              93,
+              111
+            ],
+            "recency_would_have_delivered": [
+              106,
+              107,
+              108,
+              109,
+              110,
+              111
+            ]
+          },
+          "113": {
+            "delivered_overlap_with_recency": 0.2,
+            "delivered_source_turns": [
+              45,
+              59,
+              68,
+              80,
+              112
+            ],
+            "recency_would_have_delivered": [
+              108,
+              109,
+              110,
+              111,
+              112
+            ]
+          },
+          "114": {
+            "delivered_overlap_with_recency": 0.1429,
+            "delivered_source_turns": [
+              40,
+              46,
+              52,
+              69,
+              81,
+              94,
+              113
+            ],
+            "recency_would_have_delivered": [
+              107,
+              108,
+              109,
+              110,
+              111,
+              112,
+              113
+            ]
+          },
+          "115": {
+            "delivered_overlap_with_recency": 0.125,
+            "delivered_source_turns": [
+              2,
+              49,
+              60,
+              70,
+              82,
+              95,
+              96,
+              114
+            ],
+            "recency_would_have_delivered": [
+              107,
+              108,
+              109,
+              110,
+              111,
+              112,
+              113,
+              114
+            ]
+          },
+          "116": {
+            "delivered_overlap_with_recency": 0.1429,
+            "delivered_source_turns": [
+              10,
+              53,
+              62,
+              67,
+              83,
+              97,
+              115
+            ],
+            "recency_would_have_delivered": [
+              109,
+              110,
+              111,
+              112,
+              113,
+              114,
+              115
+            ]
+          },
+          "117": {
+            "delivered_overlap_with_recency": 0.1429,
+            "delivered_source_turns": [
+              21,
+              24,
+              28,
+              36,
+              61,
+              71,
+              116
+            ],
+            "recency_would_have_delivered": [
+              110,
+              111,
+              112,
+              113,
+              114,
+              115,
+              116
+            ]
+          },
+          "118": {
+            "delivered_overlap_with_recency": 0.125,
+            "delivered_source_turns": [
+              6,
+              14,
+              15,
+              37,
+              41,
+              84,
+              85,
+              117
+            ],
+            "recency_would_have_delivered": [
+              110,
+              111,
+              112,
+              113,
+              114,
+              115,
+              116,
+              117
+            ]
+          },
+          "119": {
+            "delivered_overlap_with_recency": 0.1667,
+            "delivered_source_turns": [
+              8,
+              11,
+              32,
+              72,
+              100,
+              118
+            ],
+            "recency_would_have_delivered": [
+              113,
+              114,
+              115,
+              116,
+              117,
+              118
+            ]
+          },
+          "120": {
+            "delivered_overlap_with_recency": 0.1429,
+            "delivered_source_turns": [
+              17,
+              54,
+              73,
+              86,
+              101,
+              102,
+              119
+            ],
+            "recency_would_have_delivered": [
+              113,
+              114,
+              115,
+              116,
+              117,
+              118,
+              119
+            ]
+          }
+        },
+        "mean_candidate_overlap_with_recency": 0.6044,
+        "mean_delivered_overlap_with_recency": 0.2943,
+        "probe_turns_delivering_the_immediately_previous_turn": 9,
+        "probe_turns_measured": 9,
+        "turns_measured": 120,
+        "turns_where_candidates_equal_recency": 32,
+        "turns_where_delivered_equals_recency": 10,
+        "turns_where_store_fits_within_n_cap": 32
+      },
+      "replay": {
+        "identical": true,
+        "mismatches": [],
+        "turns_matched": 120,
+        "turns_testable": 120
+      },
+      "rotation_profile": {
+        "coverage_of_reachable": 1.0,
+        "delivery_events": 945,
+        "distinct_episodes_first_delivered": 120,
+        "episodes_ever_delivered": 120,
+        "max_deliveries_per_reachable_episode": 44,
+        "min_deliveries_per_reachable_episode": 1,
+        "reachable_episodes": 120,
+        "store_size": 121
+      },
+      "run_dir": "experiments/study_011/runs/study_011_live_c/arm_c",
+      "turns": 121
+    },
+    "D": {
+      "age_profile": {
+        "delivered_older_than_n_cap": 348,
+        "delivered_total": 963,
+        "max_age_turns": 116,
+        "mean_age_turns": 29.33,
+        "median_age_turns": 22,
+        "min_age_turns": 1,
+        "share_older_than_n_cap": 0.3614
+      },
+      "arm": "D",
+      "k_overlap": {
+        "k_candidates_additive": 29,
+        "k_candidates_already_nominated_by_n": 95,
+        "k_candidates_total": 124,
+        "share_already_nominated_by_n": 0.7661,
+        "starved_turns": [
+          35,
+          52,
+          53,
+          57,
+          60,
+          79,
+          86,
+          97,
+          99,
+          100,
+          104,
+          106,
+          112,
+          113,
+          114,
+          116,
+          117,
+          118
+        ],
+        "turns": 121,
+        "turns_delivering_a_k_only_episode": 1,
+        "turns_starved": 18,
+        "turns_with_at_least_one_k_candidate": 53
+      },
+      "n_cap": 32,
+      "novelty_priority": {
+        "delivered_never_delivered_before": 120,
+        "delivered_total": 963,
+        "share_novel": 0.1246
+      },
+      "recency_contrast": {
+        "at_probe_turns": {
+          "112": {
+            "delivered_overlap_with_recency": 0.1429,
+            "delivered_source_turns": [
+              6,
+              14,
+              31,
+              60,
+              70,
+              95,
+              111
+            ],
+            "recency_would_have_delivered": [
+              105,
+              106,
+              107,
+              108,
+              109,
+              110,
+              111
+            ]
+          },
+          "113": {
+            "delivered_overlap_with_recency": 0.125,
+            "delivered_source_turns": [
+              1,
+              16,
+              53,
+              61,
+              71,
+              82,
+              96,
+              112
+            ],
+            "recency_would_have_delivered": [
+              105,
+              106,
+              107,
+              108,
+              109,
+              110,
+              111,
+              112
+            ]
+          },
+          "114": {
+            "delivered_overlap_with_recency": 0.125,
+            "delivered_source_turns": [
+              10,
+              22,
+              41,
+              56,
+              83,
+              84,
+              97,
+              113
+            ],
+            "recency_would_have_delivered": [
+              106,
+              107,
+              108,
+              109,
+              110,
+              111,
+              112,
+              113
+            ]
+          },
+          "115": {
+            "delivered_overlap_with_recency": 0.125,
+            "delivered_source_turns": [
+              2,
+              28,
+              36,
+              54,
+              62,
+              72,
+              98,
+              114
+            ],
+            "recency_would_have_delivered": [
+              107,
+              108,
+              109,
+              110,
+              111,
+              112,
+              113,
+              114
+            ]
+          },
+          "116": {
+            "delivered_overlap_with_recency": 0.1429,
+            "delivered_source_turns": [
+              11,
+              20,
+              63,
+              73,
+              85,
+              99,
+              115
+            ],
+            "recency_would_have_delivered": [
+              109,
+              110,
+              111,
+              112,
+              113,
+              114,
+              115
+            ]
+          },
+          "117": {
+            "delivered_overlap_with_recency": 0.125,
+            "delivered_source_turns": [
+              13,
+              23,
+              47,
+              55,
+              74,
+              86,
+              100,
+              116
+            ],
+            "recency_would_have_delivered": [
+              109,
+              110,
+              111,
+              112,
+              113,
+              114,
+              115,
+              116
+            ]
+          },
+          "118": {
+            "delivered_overlap_with_recency": 0.1429,
+            "delivered_source_turns": [
+              15,
+              25,
+              32,
+              64,
+              75,
+              101,
+              117
+            ],
+            "recency_would_have_delivered": [
+              111,
+              112,
+              113,
+              114,
+              115,
+              116,
+              117
+            ]
+          },
+          "119": {
+            "delivered_overlap_with_recency": 0.1111,
+            "delivered_source_turns": [
+              3,
+              17,
+              26,
+              29,
+              42,
+              48,
+              87,
+              102,
+              118
+            ],
+            "recency_would_have_delivered": [
+              110,
+              111,
+              112,
+              113,
+              114,
+              115,
+              116,
+              117,
+              118
+            ]
+          },
+          "120": {
+            "delivered_overlap_with_recency": 0.125,
+            "delivered_source_turns": [
+              18,
+              37,
+              49,
+              65,
+              66,
+              88,
+              103,
+              119
+            ],
+            "recency_would_have_delivered": [
+              112,
+              113,
+              114,
+              115,
+              116,
+              117,
+              118,
+              119
+            ]
+          }
+        },
+        "mean_candidate_overlap_with_recency": 0.6091,
+        "mean_delivered_overlap_with_recency": 0.2901,
+        "probe_turns_delivering_the_immediately_previous_turn": 9,
+        "probe_turns_measured": 9,
+        "turns_measured": 120,
+        "turns_where_candidates_equal_recency": 32,
+        "turns_where_delivered_equals_recency": 10,
+        "turns_where_store_fits_within_n_cap": 32
+      },
+      "replay": {
+        "identical": true,
+        "mismatches": [],
+        "turns_matched": 120,
+        "turns_testable": 120
+      },
+      "rotation_profile": {
+        "coverage_of_reachable": 1.0,
+        "delivery_events": 963,
+        "distinct_episodes_first_delivered": 120,
+        "episodes_ever_delivered": 120,
+        "max_deliveries_per_reachable_episode": 44,
+        "min_deliveries_per_reachable_episode": 1,
+        "reachable_episodes": 120,
+        "store_size": 121
+      },
+      "run_dir": "experiments/study_011/runs/study_011_live_d/context_matched_stm",
+      "turns": 121
+    }
+  },
+  "ordering_key": "logical_n_key: (has ever been delivered, turn last delivered, source turn, id) ascending, over every episode in the store",
+  "verdict": {
+    "arms_whose_ranking_replays_exactly": [
+      "A",
+      "C",
+      "D"
+    ],
+    "arms_with_an_n_tier": [
+      "A",
+      "C",
+      "D"
+    ],
+    "is_a_recency_window": false,
+    "max_mean_delivered_overlap_with_recency": 0.2943,
+    "min_coverage_of_reachable_store": 1.0,
+    "min_share_delivered_older_than_n_cap": 0.3566
+  },
+  "what_this_measures": "whether the N tier is the recency window the pre-registration names, or a least-recently-delivered rotation over the whole store"
+}
