@@ -362,6 +362,51 @@ def locate_divergence(
     return "neither: greedy decoding reproduced in both conditions"
 
 
+def sampler_took_effect(
+    standing: dict | None,
+    greedy: dict | None,
+) -> dict:
+    """Did changing the temperature change anything at all?
+
+    "Greedy decoding reproduces" is worthless if greedy never ran. The
+    server's loaded parameters are asserted at startup, but a settings
+    check is a claim about configuration; this is a check on behaviour.
+    If temp 0 and temp 1 produced the same text on every prompt, the two
+    conditions are one condition reported twice, and the greedy result
+    certifies nothing.
+    """
+    if standing is None or greedy is None:
+        return {"status": "NOT MEASURED"}
+    if "per_prompt" not in standing or "per_prompt" not in greedy:
+        # No per-prompt detail is a summary that cannot answer the
+        # question. An empty per-prompt list is a summary that answers it
+        # with nothing compared, which is a failure, not an abstention.
+        return {"status": "NOT MEASURED"}
+    first_of = {
+        name: {
+            row["turn"]: row["output_sha256"][0]
+            for row in summary["per_prompt"]
+            if row["output_sha256"]
+        }
+        for name, summary in (("standing", standing), ("greedy", greedy))
+    }
+    shared = sorted(set(first_of["standing"]) & set(first_of["greedy"]))
+    differing = [
+        turn
+        for turn in shared
+        if first_of["standing"][turn] != first_of["greedy"][turn]
+    ]
+    return {
+        "status": "PASS" if len(differing) == len(shared) and shared else "FAIL",
+        "prompts_compared": len(shared),
+        "prompts_where_the_temperature_changed_the_text": len(differing),
+        "what_this_rules_out": (
+            "That the temperature flag was ignored and the greedy conditions "
+            "re-ran the standing runtime under another name."
+        ),
+    }
+
+
 def describe_history_effect(
     fixed_history: dict | None,
     varied_history: dict | None,
@@ -459,6 +504,7 @@ def build_report(
             )
     return {
         "request_history_finding": describe_history_effect(standing, varied),
+        "sampler_setting_took_effect": sampler_took_effect(standing, within),
         "study": "011",
         "amendment": (
             "experiments/study_011/amendments/"

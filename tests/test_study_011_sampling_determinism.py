@@ -30,6 +30,7 @@ from src.analysis.study_011_sampling_determinism import (
     locate_divergence,
     describe_history_effect,
     run_condition,
+    sampler_took_effect,
     select_prompts,
     summarize_condition,
     visiting_order,
@@ -338,6 +339,52 @@ class TestVisitingOrder:
             for index in range(10)
         }
         assert len(orders) == 10
+
+
+class TestSamplerTookEffect:
+    def _summary(self, digests):
+        return {
+            "per_prompt": [
+                {"turn": turn, "output_sha256": [digest]}
+                for turn, digest in digests.items()
+            ]
+        }
+
+    def test_different_text_under_the_two_temperatures_passes(self):
+        result = sampler_took_effect(
+            self._summary({1: "aaa", 2: "bbb"}),
+            self._summary({1: "ccc", 2: "ddd"}),
+        )
+        assert result["status"] == "PASS"
+        assert result["prompts_where_the_temperature_changed_the_text"] == 2
+
+    def test_identical_text_under_both_temperatures_fails(self):
+        # If temp 0 and temp 1 produce the same text, the greedy condition
+        # re-ran the standing runtime under another name and "greedy
+        # reproduces" certifies nothing. A settings check would still pass
+        # here; this is a check on behaviour.
+        result = sampler_took_effect(
+            self._summary({1: "aaa", 2: "bbb"}),
+            self._summary({1: "aaa", 2: "bbb"}),
+        )
+        assert result["status"] == "FAIL"
+
+    def test_a_single_matching_prompt_is_enough_to_fail(self):
+        result = sampler_took_effect(
+            self._summary({1: "aaa", 2: "bbb"}),
+            self._summary({1: "ccc", 2: "bbb"}),
+        )
+        assert result["status"] == "FAIL"
+
+    def test_no_shared_prompts_is_not_a_pass(self):
+        assert sampler_took_effect(self._summary({}), self._summary({}))[
+            "status"
+        ] == "FAIL"
+
+    def test_a_missing_condition_is_not_measured(self):
+        assert sampler_took_effect(None, self._summary({1: "a"}))["status"] == (
+            "NOT MEASURED"
+        )
 
 
 class TestHistoryEffect:
