@@ -1,5 +1,14 @@
 {
   "aggregates_conceal_composition": "Totals are reported beside the per-question rows, never instead of them. IC-001's arms delivered identical episode totals in different compositions.",
+  "amendment_001_non_rescue_clause": {
+    "amendment": "experiments/study_011/amendments/AMENDMENT_001_determinism_and_noise_band.md",
+    "binding": true,
+    "clause": "B1 fired. Arm C scored 7.0 against Arm D's 8.0. The packing correction is not adopted. That verdict is final and Amendment 001 cannot change it.",
+    "enforcement": "The instrument noise band measured under Amendment 001 may not be cited in support of any adoption decision for K-first packing, in this study or elsewhere. Any future adoption of K-first requires a new study with its own pre-registration and its own bar.",
+    "scores_unchanged_by_this_key": true,
+    "status": "AUTHORIZED 2026-08-09",
+    "what_the_band_may_do": "It may change how a one-point difference on this instrument is read, applied uniformly to every committed result including those the program would prefer to keep. It may not be applied selectively in either direction."
+  },
   "b1": {
     "arm_c": 7.0,
     "arm_d": 8.0,
