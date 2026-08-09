@@ -244,15 +244,30 @@ class TestSealReplicates:
         }
         assert seal_replicates(runs) == seal_replicates(runs)
 
-    def test_two_identical_replicates_are_a_harness_fault(self, tmp_path):
-        # On a runtime that cannot reproduce a run, two byte-identical
-        # responses mean the second run did not happen.
+    def test_two_identical_replicates_are_a_result_not_a_fault(self, tmp_path):
+        # Phase 1 found this runtime reproducing 600 of 600 generations
+        # with request history held fixed. A band measurement that refused
+        # to report identical replicates could not report a band of zero,
+        # which is the row §4.3 opens with.
         runs = {
             "r1": self._run(tmp_path, "r1", "same"),
             "r2": self._run(tmp_path, "r2", "same"),
         }
+        sealed = seal_replicates(runs)
+        assert sealed["byte_identical_replicate_pairs"] == 1
+        assert set(sealed["mapping"].values()) == {"r1", "r2"}
+
+    def test_identical_replicates_still_get_a_deterministic_labelling(self, tmp_path):
+        runs = {
+            "r2": self._run(tmp_path, "r2", "same"),
+            "r1": self._run(tmp_path, "r1", "same"),
+        }
+        assert seal_replicates(runs) == seal_replicates(runs)
+
+    def test_the_same_directory_counted_twice_is_a_harness_fault(self, tmp_path):
+        directory = self._run(tmp_path, "r1", "body")
         with pytest.raises(NoiseBandError, match="harness fault"):
-            seal_replicates(runs)
+            seal_replicates({"r1": directory, "r1_again": directory})
 
     def test_a_missing_responses_file_is_refused(self, tmp_path):
         (tmp_path / "r1").mkdir()
