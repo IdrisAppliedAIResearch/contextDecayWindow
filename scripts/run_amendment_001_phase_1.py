@@ -45,7 +45,11 @@ from src.analysis.study_011_sampling_determinism import (  # noqa: E402
 
 STUDY_ROOT = REPO_ROOT / "experiments" / "study_011"
 DEFAULT_OUTPUT = STUDY_ROOT / "runtime" / "phase_1_sampling_determinism.json"
-DEFAULT_CHECKPOINT = STUDY_ROOT / "runtime" / "phase_1_checkpoint.jsonl"
+# Every generation, appended as it completes. Doubles as the resume
+# checkpoint and as the committed evidence the identity rates are
+# computed from; a rate that cannot be recomputed from an artifact is
+# not reportable.
+DEFAULT_CHECKPOINT = STUDY_ROOT / "runtime" / "phase_1_generations.jsonl"
 
 SERVER_BINARY = Path(
     os.environ.get(

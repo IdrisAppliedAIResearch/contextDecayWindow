@@ -1,0 +1,91 @@
+{
+  "amendment": "experiments/study_011/amendments/AMENDMENT_001_determinism_and_noise_band.md",
+  "committed_divergence_char": 79,
+  "committed_responses": {
+    "ablation": {
+      "characters": 343,
+      "path": "experiments/study_011/ablation_runs/study_011_ablation_a/arm_a/logs/turns.jsonl",
+      "sha256": "265ddd79f2cb6f029fcf1d116780285731d228ceaa06e0646d0c5baecc2953f4"
+    },
+    "determinism_rerun": {
+      "characters": 80,
+      "path": "experiments/study_011/ablation_runs/study_011_determinism_a/arm_a/logs/turns.jsonl",
+      "sha256": "9675ab02bc05cf3fd2f8e73e5d406b4e4a14ed1a03eea5b79979d8d5877198ad"
+    }
+  },
+  "finding": "The prompt reproduced a single response across every generation, and that response is one of the two committed ones. The runtime is stable here; whatever produced the other committed response is not present in this process.",
+  "matches_committed": {
+    "ablation": 20,
+    "determinism_rerun": 0
+  },
+  "phase": "1",
+  "prompt": {
+    "bytes": 745,
+    "path": "experiments/study_011/ablation_runs/study_011_ablation_a/arm_a/constructed_prompts/turn_001.txt",
+    "sha256": "44f00e6092afb746df252110cf5d2a59b1aea2be58ead5b3f585806ee7433a93"
+  },
+  "replay": {
+    "distinct_outputs": 1,
+    "generations": 20,
+    "identical_across_all_generations": true,
+    "most_common_count": 20,
+    "output_lengths": [
+      343,
+      343,
+      343,
+      343,
+      343,
+      343,
+      343,
+      343,
+      343,
+      343,
+      343,
+      343,
+      343,
+      343,
+      343,
+      343,
+      343,
+      343,
+      343,
+      343
+    ],
+    "output_sha256": [
+      "265ddd79f2cb6f029fcf1d116780285731d228ceaa06e0646d0c5baecc2953f4",
+      "265ddd79f2cb6f029fcf1d116780285731d228ceaa06e0646d0c5baecc2953f4",
+      "265ddd79f2cb6f029fcf1d116780285731d228ceaa06e0646d0c5baecc2953f4",
+      "265ddd79f2cb6f029fcf1d116780285731d228ceaa06e0646d0c5baecc2953f4",
+      "265ddd79f2cb6f029fcf1d116780285731d228ceaa06e0646d0c5baecc2953f4",
+      "265ddd79f2cb6f029fcf1d116780285731d228ceaa06e0646d0c5baecc2953f4",
+      "265ddd79f2cb6f029fcf1d116780285731d228ceaa06e0646d0c5baecc2953f4",
+      "265ddd79f2cb6f029fcf1d116780285731d228ceaa06e0646d0c5baecc2953f4",
+      "265ddd79f2cb6f029fcf1d116780285731d228ceaa06e0646d0c5baecc2953f4",
+      "265ddd79f2cb6f029fcf1d116780285731d228ceaa06e0646d0c5baecc2953f4",
+      "265ddd79f2cb6f029fcf1d116780285731d228ceaa06e0646d0c5baecc2953f4",
+      "265ddd79f2cb6f029fcf1d116780285731d228ceaa06e0646d0c5baecc2953f4",
+      "265ddd79f2cb6f029fcf1d116780285731d228ceaa06e0646d0c5baecc2953f4",
+      "265ddd79f2cb6f029fcf1d116780285731d228ceaa06e0646d0c5baecc2953f4",
+      "265ddd79f2cb6f029fcf1d116780285731d228ceaa06e0646d0c5baecc2953f4",
+      "265ddd79f2cb6f029fcf1d116780285731d228ceaa06e0646d0c5baecc2953f4",
+      "265ddd79f2cb6f029fcf1d116780285731d228ceaa06e0646d0c5baecc2953f4",
+      "265ddd79f2cb6f029fcf1d116780285731d228ceaa06e0646d0c5baecc2953f4",
+      "265ddd79f2cb6f029fcf1d116780285731d228ceaa06e0646d0c5baecc2953f4",
+      "265ddd79f2cb6f029fcf1d116780285731d228ceaa06e0646d0c5baecc2953f4"
+    ]
+  },
+  "runtime": {
+    "measured_at": "2026-08-09T23:14:01.743110+00:00",
+    "model": "C:\\Users\\muzaf\\.cache\\huggingface\\hub\\models--unsloth--Qwen3.6-27B-MTP-GGUF\\snapshots\\5cb35eb3dcbf52dbce5f87dbc64df6aaffadcace\\Qwen3.6-27B-UD-Q6_K_XL.gguf",
+    "parallel_slots": 1,
+    "seed": 5005,
+    "server_build_hash": "b9294-0f3cb3fc8",
+    "server_command": "C:\\Users\\muzaf\\.unsloth\\llama.cpp\\build\\bin\\Release\\llama-server.exe -m C:\\Users\\muzaf\\.cache\\huggingface\\hub\\models--unsloth--Qwen3.6-27B-MTP-GGUF\\snapshots\\5cb35eb3dcbf52dbce5f87dbc64df6aaffadcace\\Qwen3.6-27B-UD-Q6_K_XL.gguf --host 127.0.0.1 --port 8080 --ctx-size 50000 --parallel 1 --cache-type-k q8_0 --cache-type-v q8_0 --flash-attn on --jinja --metrics --top-p 0.95 --top-k 20 --min-p 0.0 --presence-penalty 0.0 --repeat-penalty 1.0 --seed 5005 --temp 1",
+    "server_pid": 9364,
+    "speculative_decoding": "none",
+    "temperature": 1.0
+  },
+  "scope": "Beyond \u00a73.2. Phase 1's registered prompt set is drawn from Arm D windows and reproduced on all 800 generations; the recorded divergence was observed on Arm A's ablation turn 1, which that set never issues. Disclosed as an addition; it can only find more divergence than the registered conditions found.",
+  "study": "011",
+  "title": "replay of the exact prompt whose divergence is recorded"
+}

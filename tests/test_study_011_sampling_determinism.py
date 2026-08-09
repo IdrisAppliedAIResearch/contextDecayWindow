@@ -419,3 +419,48 @@ class TestHistoryEffect:
             {"identity_rate": 1.0}, {"identity_rate": 0.3}
         )
         assert "Beyond" in result["scope"]
+
+
+class TestRecordedDivergenceEvidence:
+    """The premise the whole amendment rests on, asserted against the repo."""
+
+    def _turn_one(self, run: str) -> str:
+        import json
+        import pathlib
+
+        path = (
+            pathlib.Path("experiments/study_011/ablation_runs")
+            / run
+            / "arm_a"
+            / "logs"
+            / "turns.jsonl"
+        )
+        for line in path.read_text(encoding="utf-8").splitlines():
+            if line.strip():
+                row = json.loads(line)
+                if int(row["turn_number"]) == 1:
+                    return str(row.get("assistant_message") or "")
+        raise AssertionError(f"no turn 1 in {path}")
+
+    def test_the_two_committed_runs_share_a_byte_identical_turn_one_prompt(self):
+        import pathlib
+
+        left, right = (
+            pathlib.Path("experiments/study_011/ablation_runs")
+            / run
+            / "arm_a"
+            / "constructed_prompts"
+            / "turn_001.txt"
+            for run in ("study_011_ablation_a", "study_011_determinism_a")
+        )
+        assert left.read_bytes() == right.read_bytes()
+        assert len(left.read_bytes()) == 757
+
+    def test_the_two_committed_responses_really_do_differ(self):
+        # If these ever became equal, Amendment 001 would have no trigger
+        # and Phase 1 would be replaying a divergence that is not there.
+        ablation = self._turn_one("study_011_ablation_a")
+        rerun = self._turn_one("study_011_determinism_a")
+        assert ablation != rerun
+        assert first_divergence(ablation, rerun) == 79
+        assert (len(ablation), len(rerun)) == (343, 80)
