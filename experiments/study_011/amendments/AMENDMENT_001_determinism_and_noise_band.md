@@ -5,8 +5,11 @@
 **Type:** Standalone amendment. **The locked pre-registration is not edited.**
 **Amends:** `experiments/study_011/pre_registration.md`, SHA-256 `350d9763691c93b2e057cc0c10bdd7f19d8a78c7e169f9e40ef0571d69e5e7f4`
 **Repository:** `contextDecayWindow` · `experiments/study_011/amendments/`
-**Status:** DRAFT — requires explicit authorization before any phase runs
-**Raised:** August 6, 2026, **after results.** §1.2 states why, and what that costs.
+**Status:** **AUTHORIZED** — August 9, 2026. Both phases may run.
+**Raised:** August 7, 2026, **after results.** §1.2 states why, and what that costs.
+**Authorization note:** the two corrections the implementing agent flagged on commit
+were resolved in the text below before authorization, not after. The superseded
+draft is `69097caa`; the resolution record is at the foot of this file.
 
 ---
 
@@ -21,16 +24,28 @@ different responses at seed 5005 with `--parallel 1` and speculative decoding of
 in the same server process. The responses diverge at character 79 — 343 characters
 against 80.
 
-**The study proceeded past a failed gate and scored four arms.** Under the standing
-rule that a failed gate means STOP, that is a deviation, and it is disclosed here
-rather than absorbed into the report.
+**The gate was never run in its registered position.** It was implemented and
+executed last — after every arm was run, scored, unsealed and reported. Git order is
+the evidence:
 
-The deviation is defensible and the amendment does not pretend otherwise: the gate as
-written did not specify what to do when non-reproducibility is a property of the
-runtime rather than a defect in the harness, and stopping would have discarded four
-completed live runs whose **offline, deterministic** results — the gates, the delivery
-counts, the packing measurements, Arm D's identity to Arm A — reproduce exactly and
-are unaffected. **It is still a deviation.**
+| Commit | |
+|---|---|
+| `2fd90dbe` | scores unsealed and committed |
+| `29f34b30` | report written, B1 FAIL |
+| `3f4bf300` | determinism spot-check *implemented* |
+| `4b43ccfd` | determinism spot-check *run*; it fails |
+
+So the deviation is not that anyone proceeded past a known failure. The failure was
+not known, because the gate had not been executed. **A gate run after the fact cannot
+stop anything**, which makes this the more serious of the two deviations available to
+describe, and it is disclosed here rather than absorbed into the report.
+
+What is defensible is only what happened next: the gate as written did not specify
+what to do when non-reproducibility is a property of the runtime rather than a defect
+in the harness, and retracting would have discarded four completed live runs whose
+**offline, deterministic** results — the gates, the delivery counts, the packing
+measurements, Arm D's identity to Arm A — reproduce exactly and are unaffected.
+**It is still a deviation, and the sequencing failure is not excused by it.**
 
 ### 1.2 The bar does not move — permanently
 
@@ -219,8 +234,8 @@ exchange for an instrument that can reproduce a run. **That decision is not made
 
 ## 7. Deliverables
 
-- [ ] This amendment committed and **explicitly authorized** before any phase runs
-- [ ] §1.2's non-rescue clause recorded in `verdict.json` and the Study 011 report
+- [x] This amendment committed and **explicitly authorized** before any phase runs
+- [x] §1.2's non-rescue clause recorded in `verdict.json` and the Study 011 report
 - [ ] Phase 1: identity rates and divergence positions, all conditions
 - [ ] Phase 2 decision rule committed before any run is scored — SHA recorded
 - [ ] Phase 2: five runs, every individual score listed
@@ -234,48 +249,50 @@ exchange for an instrument that can reproduce a run. **That decision is not made
 
 ---
 
-*Drafted August 6, 2026. Study 011: A 8.0, B 7.5, C 7.0, D 8.0; B1 FAIL, correction not
+*Drafted August 7, 2026; authorized August 9, 2026. Study 011: A 8.0, B 7.5, C 7.0, D 8.0; B1 FAIL, correction not
 adopted. Determinism: byte-identical 757-byte prompt, divergence at character 79, seed
 5005. Arm D scored identically to Arm A on all thirteen questions with byte-identical
 windows at turns 117, 118, 119 — unaffected by this amendment.*
 
 ---
 
-## Implementer's note — two corrections to the record above
+## Resolution record — the two flagged corrections, resolved before authorization
 
-*Added on commit by the implementing agent. The author's text is unchanged; these
-are flagged rather than silently repaired, per the standing rule. **Both concern
-§1.3's honesty ledger, so they should be resolved before authorization.***
+*The implementing agent flagged two corrections on commit and left the author's
+text standing, per the standing rule against silent repair. Both concerned §1.3's
+honesty ledger, so both were resolved in the text above **before** the amendment
+was authorized. The superseded draft is commit `69097caa`; this record states what
+changed so the diff is not the only account of it.*
 
-**1. §1.1 mischaracterizes the deviation, in the study's favour.** It states that
-"the study proceeded past a failed gate and scored four arms." That is not what
-happened. The determinism spot-check was **not run before the arms at all** — it
-was implemented and executed last, after every arm was run, scored, unsealed and
-reported. Git order is the evidence:
+**1. §1.1 mischaracterized the deviation, in the study's favour — corrected.** The
+draft said "the study proceeded past a failed gate and scored four arms." That is
+not what happened, and it describes the lesser failure. The determinism spot-check
+was not run before the arms at all: it was implemented and executed after every arm
+was run, scored, unsealed and reported (`2fd90dbe` → `29f34b30` → `3f4bf300` →
+`4b43ccfd`). §1.1 now states the actual deviation — **a registered gate was not run
+in its registered position** — and says why that is worse: a gate run late cannot
+stop anything.
 
-| Commit | |
+**2. The date was wrong, in the direction that flattered the amendment — corrected.**
+The draft's header and footer said **August 6, 2026**, but the results it cites
+(A 8.0, B 7.5, C 7.0, D 8.0) did not exist until August 7, and the determinism
+failure it is built on was measured on August 7 (`4b43ccfd`). Both now read
+**August 7, 2026**. §1.3's *"raised before results where possible"* still answers
+**No**; the correction removes an inconsistency, not the failing clause.
+
+**Neither correction changed any phase, method, decision rule, or the §1.2
+non-rescue clause.** Authorization on August 9, 2026 covers Phase 1 and Phase 2 as
+written above, and nothing else.
+
+---
+
+## Execution record
+
+| Deliverable | Artifact |
 |---|---|
-| `2fd90dbe` | scores unsealed and committed |
-| `29f34b30` | report written, B1 FAIL |
-| `3f4bf300` | determinism spot-check *implemented* |
-| `4b43ccfd` | determinism spot-check *run*; it fails |
-
-So the disclosed deviation should read: **a registered gate was not run in its
-registered position — it was run after the fact, and then failed.** No one
-proceeded past a known failure; the failure was not known, because the gate had
-not been executed. This is a different deviation from the one §1.1 describes and
-arguably the more serious of the two, since a gate run late cannot stop anything.
-
-**2. The date is wrong, and wrong in the direction that flatters the amendment.**
-The header and footer both say **August 6, 2026**. The results the amendment
-cites — A 8.0, B 7.5, C 7.0, D 8.0 — did not exist until August 7, and the
-determinism failure it is built on was measured on August 7 (`4b43ccfd`). An
-amendment cannot have been raised on the 6th and cite the 7th's results.
-
-This matters only because §1.3 grades the amendment on *"raised before results
-where possible"* and answers **No**. The date as written would make that self-
-assessment look inconsistent rather than candid. The correct date is **August 7,
-2026 or later**, and the "No" in §1.3 remains correct.
-
-**Neither correction changes any phase, method, decision rule, or the §1.2
-non-rescue clause.**
+| §1.2 non-rescue clause recorded | `experiments/study_011/evaluation/verdict.json`, `experiments/study_011/study_011_report.md` |
+| Phase 1 | `experiments/study_011/runtime/phase_1_sampling_determinism.json` |
+| Phase 2 decision rule, committed before scoring | `experiments/study_011/noise_band/DECISION_RULE.md` |
+| Phase 2 runs | `experiments/study_011/noise_band/runs/` |
+| Phase 2 scoring | `experiments/study_011/noise_band/evaluation/` |
+| Band verdict and uniform application | `experiments/study_011/noise_band/band_verdict.json`, `experiments/study_011/noise_band/NOISE_BAND_REPORT.md` |

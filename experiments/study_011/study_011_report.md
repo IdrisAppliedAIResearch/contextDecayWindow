@@ -60,6 +60,23 @@ This also means the program's standing rule — *require a byte-identical
 seeded prefix rerun* — **is not satisfiable on this runtime**, and every
 prior study that assumed it should be read with that in mind.
 
+**A second deviation, disclosed separately: the gate was never run in its
+registered position.** §5 registers the determinism spot-check as a gate.
+It was implemented and executed after every arm was run, scored, unsealed
+and reported — `2fd90dbe` (scores) → `29f34b30` (report) → `3f4bf300`
+(implemented) → `4b43ccfd` (run, fails). Nobody proceeded past a known
+failure, because the failure was not known. A gate run after the fact
+cannot stop anything, which is why this is recorded as the more serious of
+the two deviations rather than folded into the first.
+
+**Non-rescue clause, binding (Amendment 001 §1.2).** Amendment 001 was
+authorized on August 9, 2026 to measure this instrument's noise band.
+**B1 fired; Arm C scored 7.0 against Arm D's 8.0; the packing correction is
+not adopted, and no band measurement may reopen that.** The band may not be
+cited in support of any adoption decision for K-first packing. Any future
+adoption requires a new study with its own pre-registration and its own
+bar. The clause is recorded in `evaluation/verdict.json` and is binding.
+
 ---
 
 ## 2. The single new claim, judged
@@ -396,7 +413,7 @@ either direction, and no result in this report may be cited for that.
 | Per-arm delivery | `analysis/delivery_by_arm.json` |
 | N-tier characterization (§3.2) | `analysis/n_tier_characterization.json` |
 | Amendment 002 — the N tier is not a recency window | `amendments/AMENDMENT_002_n_tier_is_not_a_recency_window.md` |
-| Amendment 001 — determinism and noise band, **DRAFT, unauthorized** | `amendments/AMENDMENT_001_determinism_and_noise_band.md` |
+| Amendment 001 — determinism and noise band, **AUTHORIZED 2026-08-09** | `amendments/AMENDMENT_001_determinism_and_noise_band.md` |
 
 **Git order is the evidence.** The pre-registration was committed alone
 before any implementation; T was locked before the ablation; the offline
