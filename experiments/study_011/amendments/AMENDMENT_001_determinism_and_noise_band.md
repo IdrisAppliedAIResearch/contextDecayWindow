@@ -236,8 +236,8 @@ exchange for an instrument that can reproduce a run. **That decision is not made
 
 - [x] This amendment committed and **explicitly authorized** before any phase runs
 - [x] §1.2's non-rescue clause recorded in `verdict.json` and the Study 011 report
-- [ ] Phase 1: identity rates and divergence positions, all conditions
-- [ ] Phase 2 decision rule committed before any run is scored — SHA recorded
+- [x] Phase 1: identity rates and divergence positions, all conditions
+- [x] Phase 2 decision rule committed before any run is scored — SHA recorded
 - [ ] Phase 2: five runs, every individual score listed
 - [ ] Full range, per-question variability, rater disagreement reported separately
 - [ ] Band verdict against §4.3
@@ -296,3 +296,27 @@ written above, and nothing else.
 | Phase 2 runs | `experiments/study_011/noise_band/runs/` |
 | Phase 2 scoring | `experiments/study_011/noise_band/evaluation/` |
 | Band verdict and uniform application | `experiments/study_011/noise_band/band_verdict.json`, `experiments/study_011/noise_band/NOISE_BAND_REPORT.md` |
+
+### Phase 1's outcome, recorded against this amendment's own premises
+
+*The text above is left as authorized. Phase 1 undercuts two of its statements, and
+those are recorded here rather than edited into the argument that produced them.*
+
+**820 generations, five conditions, zero divergence** — including twenty replays of
+the exact 757-byte prompt whose divergence §1.1 cites, all of which reproduced the
+ablation's committed response byte for byte.
+
+- **§1.3's second row** grades this amendment as fixing a registered contradiction
+  because "§5 registers a gate the runtime cannot satisfy." On the evidence the gate
+  *is* satisfiable in a fresh process. The row is left as graded; the legitimacy case
+  now rests on the first row alone — an instrument property that was assumed and never
+  measured, which Phase 1 measured.
+- **§2's premise** — "if the runtime does not reproduce, then every scored comparison
+  in the record is a single sample from a distribution that has never been measured" —
+  has a false antecedent on this evidence. The distribution is still unmeasured, which
+  is what Phase 2 is for, but not for the reason §2 gives.
+
+Neither changes a phase, a method, the §4.3 decision rule, or the §1.2 non-rescue
+clause. The observation §1.1 rests on stands: two different answers to a byte-identical
+prompt are committed and are not retracted. Phase 1 places it as an **outlier of
+unidentified cause**, not as a property of seeded sampling.

@@ -455,3 +455,51 @@ score, in either direction. No arm in the program ever ran one.
 Artifacts:
 `experiments/study_011/analysis/n_tier_characterization.json` and
 `experiments/study_011/amendments/AMENDMENT_002_n_tier_is_not_a_recency_window.md`.
+
+## "Not Satisfiable on This Runtime" Was Too Strong (2026-08-09)
+
+**A committed conclusion changes; no measured score changes.** Study 011's report
+§1.1 concluded that the program's standing rule — *require a byte-identical
+seeded prefix rerun* — **"is not satisfiable on this runtime"**, and Amendment
+001 §2 built on that to say every scored comparison in the record is a single
+sample from an unmeasured distribution.
+
+Amendment 001 Phase 1 measured it. **820 generations, five conditions, zero
+divergence.**
+
+| Condition | Prompts | Generations | Identity rate |
+|---|---:|---:|---:|
+| Standing runtime, temp 1, one process | 20 | 200 | 1.0 |
+| Greedy, temp 0, one process | 20 | 200 | 1.0 |
+| Greedy, temp 0, ten fresh processes | 20 | 200 | 1.0 |
+| Standing runtime, varied request history | 20 | 200 | 1.0 |
+| The exact prompt whose divergence is recorded | 1 | 20 | 1.0 |
+
+The last row is the one that decides it. Arm A's ablation turn 1 is 757 bytes and
+byte-identical between the two committed runs, whose responses are 343 and 80
+characters and diverge at character 79. Replayed twenty times in a fresh process,
+it produced **one** output, matching the ablation's committed response byte for
+byte. The determinism rerun's 80-character answer does not recur.
+
+**What is corrected:** the sentence "not satisfiable on this runtime." On this
+prompt, in a fresh process, the rule is satisfied 20 times out of 20.
+
+**What is not corrected:** the observation itself. Two different answers to a
+byte-identical prompt at seed 5005 are committed in the repository and stand.
+The divergence is real and is an **outlier**, not a property of seeded sampling.
+Its cause is not identified, and no mechanism is claimed. The rerun ran on a
+server the manifests record as having been up three and a half hours and having
+served roughly a thousand requests; accumulated process state is a candidate and
+nothing more.
+
+**A related limitation of the record, recorded rather than repaired:**
+`_server_pid()` reads `CDW_INFERENCE_SERVER_PID` from the environment and checks
+only that the PID is alive. It never discovers which process is serving the port.
+"The same server process" in §1.1 is therefore an operator-supplied assertion the
+harness did not independently establish. This does not explain the outlier and is
+not offered as an explanation.
+
+Artifacts: `experiments/study_011/runtime/PHASE_1_REPORT.md`,
+`phase_1_sampling_determinism.json`, `phase_1_recorded_prompt_replay.json`, and
+`phase_1_generations.jsonl` — 800 rows, every generation, so the identity rates
+can be recomputed rather than taken on trust.
