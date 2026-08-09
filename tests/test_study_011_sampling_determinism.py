@@ -16,7 +16,9 @@ import json
 import pytest
 
 from src.analysis.study_011_sampling_determinism import (
+    ADDITIONAL_CONDITIONS,
     CONDITIONS,
+    REGISTERED_CONDITIONS,
     PROMPT_COUNT,
     PROMPT_SOURCE,
     REPEATS,
@@ -26,9 +28,11 @@ from src.analysis.study_011_sampling_determinism import (
     build_report,
     first_divergence,
     locate_divergence,
+    describe_history_effect,
     run_condition,
     select_prompts,
     summarize_condition,
+    visiting_order,
     write_report,
 )
 
@@ -203,7 +207,9 @@ class TestBuildReport:
         del conditions["greedy_temp0_fresh_process"]
         report = build_report([], conditions, runtime={})
         assert report["status"] == "INCOMPLETE"
-        assert report["missing_conditions"] == ["greedy_temp0_fresh_process"]
+        assert report["missing_registered_conditions"] == [
+            "greedy_temp0_fresh_process"
+        ]
         assert report["sampling_amplifier_hypothesis"] is None
 
     def test_the_report_restates_what_phase_1_does_not_authorize(self):
@@ -264,9 +270,105 @@ class TestRegisteredParameters:
         assert PROMPT_COUNT >= 20
         assert REPEATS == 10
 
-    def test_all_three_registered_conditions_are_declared(self):
-        assert CONDITIONS == (
+    def test_the_registered_conditions_are_exactly_section_3_2s_three(self):
+        assert REGISTERED_CONDITIONS == (
             "standing_temp1_same_process",
             "greedy_temp0_same_process",
             "greedy_temp0_fresh_process",
         )
+
+    def test_the_addition_is_declared_separately_from_the_registered_three(self):
+        # An addition folded into the registered list would read as
+        # registered. It has to be visible as an addition or it is not
+        # disclosed.
+        assert ADDITIONAL_CONDITIONS == ("standing_temp1_varied_history",)
+        assert CONDITIONS == REGISTERED_CONDITIONS + ADDITIONAL_CONDITIONS
+
+    def test_the_addition_does_not_make_the_report_incomplete(self):
+        conditions = {
+            name: {"identity_rate": 1.0} for name in REGISTERED_CONDITIONS
+        }
+        report = build_report([], conditions, runtime={})
+        assert report["status"] == "COMPLETE"
+        assert report["conditions_beyond_registration"] == []
+
+    def test_a_missing_addition_is_not_reported_as_a_missing_registration(self):
+        conditions = {
+            name: {"identity_rate": 1.0} for name in REGISTERED_CONDITIONS
+        }
+        report = build_report([], conditions, runtime={})
+        assert report["missing_registered_conditions"] == []
+
+
+class TestVisitingOrder:
+    def _prompts(self, count=8):
+        return [
+            Prompt(turn=turn, text=f"p{turn}", sha256="x", characters=2)
+            for turn in range(1, count + 1)
+        ]
+
+    def test_the_first_round_is_the_committed_order(self):
+        prompts = self._prompts()
+        assert visiting_order(prompts, 0) == prompts
+
+    def test_later_rounds_change_which_request_precedes_which(self):
+        # A rotation would pass a naive "the order changed" check and
+        # change nothing that matters: rotating preserves adjacency, so
+        # every prompt keeps the same predecessor and the slot state the
+        # condition exists to move does not move.
+        prompts = self._prompts()
+        base = [p.turn for p in prompts]
+        pairs = {(base[i], base[i + 1]) for i in range(len(base) - 1)}
+        for round_index in range(1, 10):
+            order = [p.turn for p in visiting_order(prompts, round_index)]
+            assert sorted(order) == sorted(base)
+            new_pairs = {(order[i], order[i + 1]) for i in range(len(order) - 1)}
+            assert new_pairs - pairs, f"round {round_index} preserved adjacency"
+
+    def test_the_orders_are_a_property_of_the_code_not_the_invocation(self):
+        prompts = self._prompts()
+        assert [p.turn for p in visiting_order(prompts, 3)] == [
+            p.turn for p in visiting_order(prompts, 3)
+        ]
+
+    def test_different_rounds_get_different_orders(self):
+        prompts = self._prompts()
+        orders = {
+            tuple(p.turn for p in visiting_order(prompts, index))
+            for index in range(10)
+        }
+        assert len(orders) == 10
+
+
+class TestHistoryEffect:
+    def test_reproducing_fixed_and_diverging_varied_names_the_variable(self):
+        result = describe_history_effect(
+            {"identity_rate": 1.0}, {"identity_rate": 0.3}
+        )
+        assert result["status"] == "REQUEST HISTORY IS THE VARIABLE"
+
+    def test_reproducing_in_both_is_reported_as_the_probe_not_reaching_it(self):
+        # Not as a retraction of the committed observation. The probe
+        # failing to reproduce a failure is a fact about the probe.
+        result = describe_history_effect(
+            {"identity_rate": 1.0}, {"identity_rate": 1.0}
+        )
+        assert result["status"] == "NOT REPRODUCED"
+        assert "not a retraction" in result["detail"]
+
+    def test_divergence_without_varying_history_makes_the_condition_moot(self):
+        result = describe_history_effect(
+            {"identity_rate": 0.4}, {"identity_rate": 0.2}
+        )
+        assert result["status"] == "DIVERGES REGARDLESS"
+
+    def test_a_missing_condition_is_not_reported_as_a_measurement(self):
+        assert describe_history_effect({"identity_rate": 1.0}, None)["status"] == (
+            "NOT MEASURED"
+        )
+
+    def test_the_addition_is_labelled_as_beyond_the_registration(self):
+        result = describe_history_effect(
+            {"identity_rate": 1.0}, {"identity_rate": 0.3}
+        )
+        assert "Beyond" in result["scope"]

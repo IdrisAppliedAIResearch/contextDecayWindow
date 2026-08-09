@@ -39,6 +39,7 @@ from src.analysis.study_011_sampling_determinism import (  # noqa: E402
     build_report,
     select_prompts,
     summarize_condition,
+    visiting_order,
     write_report,
 )
 
@@ -87,8 +88,10 @@ CONDITION_TEMPERATURE = {
     "standing_temp1_same_process": "1",
     "greedy_temp0_same_process": "0",
     "greedy_temp0_fresh_process": "0",
+    "standing_temp1_varied_history": "1",
 }
 FRESH_PROCESS_CONDITION = "greedy_temp0_fresh_process"
+VARIED_HISTORY_CONDITION = "standing_temp1_varied_history"
 
 
 class Server:
@@ -258,10 +261,18 @@ def run_same_process_condition(
 ) -> tuple[list[PromptOutcome], dict]:
     outcomes = {prompt.turn: PromptOutcome(turn=prompt.turn) for prompt in prompts}
     server_record: dict = {}
+    # Visiting order is the variable the added condition moves; every
+    # other condition walks the prompts in their committed order.
+    rounds = [
+        visiting_order(prompts, round_index)
+        if condition == VARIED_HISTORY_CONDITION
+        else list(prompts)
+        for round_index in range(repeats)
+    ]
     pending = [
         (round_index, prompt)
         for round_index in range(repeats)
-        for prompt in prompts
+        for prompt in rounds[round_index]
         if checkpoint.get(condition, round_index, prompt.turn) is None
     ]
     if pending:
@@ -272,6 +283,9 @@ def run_same_process_condition(
                 "server_command": " ".join(server.command),
                 "temperature": float(server.temperature),
                 "processes": 1,
+                "visiting_order_per_round": [
+                    [prompt.turn for prompt in order] for order in rounds
+                ],
             }
             for round_index, prompt in pending:
                 output = _completion(prompt.text)
