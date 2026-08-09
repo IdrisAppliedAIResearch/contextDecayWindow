@@ -77,6 +77,44 @@ def replicate_env(server: Server) -> dict[str, str]:
     return environment
 
 
+def completed_replicate(index: int) -> dict | None:
+    """A replicate that already finished is reused, not re-run.
+
+    A 121-turn run is forty minutes of inference. If the driver falls over
+    after one — as it did on the first attempt, decoding the child's
+    output — re-running the completed replicate would throw that away and
+    would also change what is being measured, since the replicates share
+    one server process by design and a re-run would sit in a different
+    one.
+    """
+    run_id = RUN_ID.format(index=index)
+    manifest_path = RUNS_ROOT / f"{run_id}_launch_manifest.json"
+    if not manifest_path.is_file():
+        return None
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    if manifest.get("status") != "COMPLETE":
+        raise RuntimeError(
+            f"{run_id} has a manifest but did not complete; remove it "
+            "deliberately before re-running, so a partial run is never "
+            "silently overwritten"
+        )
+    return _summarize(index, run_id, manifest, manifest["launched_at"])
+
+
+def _summarize(index: int, run_id: str, manifest: dict, started: str) -> dict:
+    return {
+        "index": index,
+        "run_id": run_id,
+        "started_at": started,
+        "finished_at": manifest["finished_at"],
+        "output_dir": manifest["output_dir"],
+        "server_pid": manifest["server_pid"],
+        "engine_sha256": manifest["engine_sha256"],
+        "scoring_surface_sha256": manifest["scoring_surface_sha256"],
+        "control_isolation": manifest["control_isolation"]["status"],
+    }
+
+
 def launch_replicate(index: int, server: Server) -> dict:
     run_id = RUN_ID.format(index=index)
     command = [
@@ -96,9 +134,15 @@ def launch_replicate(index: int, server: Server) -> dict:
         env=replicate_env(server),
         capture_output=True,
         text=True,
+        # The child prints run output containing non-cp1252 bytes. Without
+        # an explicit codec Windows decodes it in the console default and
+        # the reader thread dies *after* a forty-minute run has already
+        # succeeded.
+        encoding="utf-8",
+        errors="replace",
     )
-    sys.stdout.write(completed.stdout)
-    sys.stderr.write(completed.stderr)
+    sys.stdout.write(completed.stdout or "")
+    sys.stderr.write(completed.stderr or "")
     if completed.returncode != 0:
         raise RuntimeError(
             f"replicate {run_id} failed with exit {completed.returncode}"
@@ -107,17 +151,7 @@ def launch_replicate(index: int, server: Server) -> dict:
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
     if manifest.get("status") != "COMPLETE":
         raise RuntimeError(f"replicate {run_id} did not complete")
-    return {
-        "index": index,
-        "run_id": run_id,
-        "started_at": started,
-        "finished_at": manifest["finished_at"],
-        "output_dir": manifest["output_dir"],
-        "server_pid": manifest["server_pid"],
-        "engine_sha256": manifest["engine_sha256"],
-        "scoring_surface_sha256": manifest["scoring_surface_sha256"],
-        "control_isolation": manifest["control_isolation"]["status"],
-    }
+    return _summarize(index, run_id, manifest, started)
 
 
 def parse_args() -> argparse.Namespace:
@@ -146,24 +180,51 @@ def main() -> int:
         raise SystemExit(f"embedding model missing: {EMBEDDING_MODEL}")
     RUNS_ROOT.mkdir(parents=True, exist_ok=True)
 
-    completed = []
-    log_dir = NOISE_BAND_ROOT / "server_logs"
-    with Server("1", log_dir, "phase_2") as server:
-        header = {
-            "server_pid": server.process.pid,
-            "server_build_hash": server.props["build_info"],
-            "server_command": " ".join(server.command),
-            "one_process_for_all_replicates": True,
-            "why": (
-                "Study 011's four arms ran back to back on one server "
-                "process. The band is measured against those differences, so "
-                "the replicates are produced the same way. Across-process "
-                "reproducibility is Phase 1's question, not a confound to "
-                "smuggle in here."
-            ),
-        }
-        for index in range(1, args.replicates + 1):
-            completed.append(launch_replicate(index, server))
+    reused = {
+        index: summary
+        for index in range(1, args.replicates + 1)
+        if (summary := completed_replicate(index)) is not None
+    }
+    outstanding = [
+        index for index in range(1, args.replicates + 1) if index not in reused
+    ]
+    for index, summary in sorted(reused.items()):
+        print(f"reusing completed replicate {index}: {summary['run_id']}")
+
+    header: dict = {}
+    completed = dict(reused)
+    if outstanding:
+        log_dir = NOISE_BAND_ROOT / "server_logs"
+        with Server("1", log_dir, "phase_2") as server:
+            header = {
+                "server_pid": server.process.pid,
+                "server_build_hash": server.props["build_info"],
+                "server_command": " ".join(server.command),
+                "replicates_in_this_process": outstanding,
+                "why_one_process": (
+                    "Study 011's four arms ran back to back on one server "
+                    "process. The band is measured against those differences, "
+                    "so the replicates are produced the same way. "
+                    "Across-process reproducibility is Phase 1's question, "
+                    "not a confound to smuggle in here."
+                ),
+            }
+            for index in outstanding:
+                completed[index] = launch_replicate(index, server)
+
+    ordered = [completed[index] for index in sorted(completed)]
+    # A resumed replicate ran in a process that is gone. That is a real
+    # deviation from the design above and the artifact says so rather than
+    # letting "one process" stand unqualified.
+    process_continuity = "INTACT" if not reused else "BROKEN"
+    if process_continuity == "BROKEN":
+        print(
+            "\nWARNING: replicates "
+            f"{sorted(reused)} were reused from earlier server processes. "
+            "The band now mixes across-process variation; this is recorded "
+            "in the manifest.",
+            file=sys.stderr,
+        )
 
     manifest = {
         "study": "011",
@@ -181,7 +242,16 @@ def main() -> int:
         "temperature": 1.0,
         "model": str(MODEL_PATH),
         "server": header,
-        "replicates": completed,
+        "process_continuity": process_continuity,
+        "process_continuity_note": (
+            "INTACT means every replicate ran back to back in the one server "
+            "process named above, as Study 011's four arms did. BROKEN means "
+            "at least one replicate was reused from an earlier process, so "
+            "the band mixes across-process variation with run-to-run "
+            "variation and must be read with that stated."
+        ),
+        "reused_replicates": sorted(reused),
+        "replicates": ordered,
         "scored": False,
         "note": (
             "No score exists at this commit. The decision rule committed "
@@ -195,7 +265,8 @@ def main() -> int:
         newline="\n",
     )
     print(f"\nwrote {args.output}")
-    for row in completed:
+    print(f"  process continuity: {process_continuity}")
+    for row in ordered:
         print(f"  {row['run_id']}: {row['output_dir']}")
     return 0
 
