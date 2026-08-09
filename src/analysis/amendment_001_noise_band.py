@@ -144,18 +144,25 @@ def seal_replicates(run_dirs: Mapping[str, Path]) -> dict:
         raise NoiseBandError(
             f"{len(run_dirs)} replicates exceeds the label vocabulary"
         )
+    resolved = {name: Path(directory).resolve() for name, directory in run_dirs.items()}
+    if len(set(resolved.values())) != len(resolved):
+        raise NoiseBandError(
+            "two replicates name the same directory; that is a harness fault, "
+            "not a measurement"
+        )
     digests = {}
-    for name, directory in run_dirs.items():
-        responses = Path(directory) / "responses.md"
+    for name, directory in resolved.items():
+        responses = directory / "responses.md"
         if not responses.is_file():
             raise NoiseBandError(f"no responses file for {name}: {responses}")
         digests[name] = hashlib.sha256(responses.read_bytes()).hexdigest()
-    if len(set(digests.values())) != len(digests):
-        raise NoiseBandError(
-            "two replicates produced byte-identical responses; on a runtime "
-            "that cannot reproduce a run this is a harness fault, not a result"
-        )
-    order = sorted(run_dirs, key=lambda name: digests[name])
+    # Byte-identical replicates from distinct directories are a result, not
+    # a fault. Phase 1 found this runtime reproducing 600 of 600 generations
+    # when request history was held fixed, so identical replicates are a
+    # state the measurement has to be able to report. Only the same
+    # directory counted twice is a harness fault, and that is checked above.
+    identical = len(digests) - len(set(digests.values()))
+    order = sorted(run_dirs, key=lambda name: (digests[name], name))
     mapping = {
         LABEL_VOCABULARY[index]: name for index, name in enumerate(order)
     }
@@ -171,6 +178,14 @@ def seal_replicates(run_dirs: Mapping[str, Path]) -> dict:
         ),
         "mapping": mapping,
         "response_sha256": digests,
+        "byte_identical_replicate_pairs": identical,
+        "byte_identical_note": (
+            "Replicates with the same response digest are reported, not "
+            "refused. Phase 1 found the standing runtime reproducing every "
+            "generation when request history was held fixed, so identical "
+            "replicates are a state this measurement must be able to report. "
+            "Ties break by run id so the labelling stays deterministic."
+        ),
         "combined_sha256": hashlib.sha256(
             "".join(digests[name] for name in sorted(digests)).encode("utf-8")
         ).hexdigest(),
