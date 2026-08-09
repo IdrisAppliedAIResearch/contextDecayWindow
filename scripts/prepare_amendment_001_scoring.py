@@ -17,6 +17,7 @@ first pass.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import sys
 from pathlib import Path
@@ -37,6 +38,10 @@ from src.analysis.study_011_scoring import build_packets  # noqa: E402
 RUNS_ROOT = NOISE_BAND_ROOT / "runs"
 EVALUATION = NOISE_BAND_ROOT / "evaluation"
 RUN_MANIFEST = NOISE_BAND_ROOT / "run_manifest.json"
+
+
+def _sha256_lf(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes().replace(b"\r\n", b"\n")).hexdigest()
 
 
 def discover_runs(manifest_path: Path) -> dict[str, Path]:
@@ -72,6 +77,16 @@ def main(argv: list[str] | None = None) -> int:
         print(f"STOP: {error}", file=sys.stderr)
         return 1
 
+    # The rater instructions are Study 011's file, referenced rather than
+    # copied. Two copies of a rubric are two rubrics waiting to drift, and
+    # the standing rule is that rubrics stay byte-identical.
+    packets["rater_instructions"] = (
+        "experiments/study_011/evaluation/RATER_INSTRUCTIONS.md"
+    )
+    packets["rater_instructions_sha256_lf"] = _sha256_lf(
+        REPO_ROOT / "experiments" / "study_011" / "evaluation"
+        / "RATER_INSTRUCTIONS.md"
+    )
     packets["phase"] = "2"
     packets["design"] = (
         f"Arm D, the deployed configuration, repeated N = {REPLICATES}. "
