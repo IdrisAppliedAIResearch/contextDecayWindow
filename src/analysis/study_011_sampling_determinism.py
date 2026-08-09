@@ -42,6 +42,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import random
 from collections import Counter
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -64,11 +65,37 @@ PROMPT_SOURCE = (
 PROMPT_COUNT = 20
 REPEATS = 10
 
-CONDITIONS = (
+#: §3.2's three conditions, exactly as registered.
+REGISTERED_CONDITIONS = (
     "standing_temp1_same_process",
     "greedy_temp0_same_process",
     "greedy_temp0_fresh_process",
 )
+
+#: One condition beyond §3.2, added after the registered three had run and
+#: disclosed as an addition rather than folded in.
+#:
+#: The registered design holds something constant that the observed
+#: failure varied. In `standing_temp1_same_process` every round visits the
+#: prompts in the same order, so a given prompt's request is always
+#: preceded by the same other request and meets the same slot state. The
+#: two runs whose divergence Study 011 recorded were **in the same server
+#: process** (PID 13088) but roughly a thousand requests apart, so their
+#: slot state differed. A probe that cannot vary the one thing that
+#: differed cannot report on it, and reporting "the standing runtime
+#: reproduced" without saying so would be the program's own surrogate
+#: failure class with the probe as the surrogate.
+#:
+#: This condition varies request history and nothing else: same prompts,
+#: same repeat count, same process, same sampler, a different visiting
+#: order each round. It can only find more divergence than the registered
+#: conditions, never less.
+ADDITIONAL_CONDITIONS = ("standing_temp1_varied_history",)
+
+CONDITIONS = REGISTERED_CONDITIONS + ADDITIONAL_CONDITIONS
+
+#: Fixed so the visiting orders are a property of the code.
+HISTORY_SHUFFLE_SEED = 5005
 
 
 class ProbeError(RuntimeError):
@@ -198,6 +225,25 @@ def select_prompts(
     return prompts
 
 
+def visiting_order(
+    prompts: Sequence[Prompt],
+    round_index: int,
+    seed: int = HISTORY_SHUFFLE_SEED,
+) -> list[Prompt]:
+    """The order one round visits the prompts in.
+
+    Rotation would be the obvious choice and would be useless: rotating a
+    sequence preserves adjacency, so every prompt would keep the same
+    predecessor and the slot state would not move. A seeded shuffle
+    changes adjacency, which is the whole variable.
+    """
+    if round_index == 0:
+        return list(prompts)
+    ordered = list(prompts)
+    random.Random(seed + round_index).shuffle(ordered)
+    return ordered
+
+
 def run_condition(
     prompts: Sequence[Prompt],
     complete: Callable[[str], str],
@@ -316,6 +362,71 @@ def locate_divergence(
     return "neither: greedy decoding reproduced in both conditions"
 
 
+def describe_history_effect(
+    fixed_history: dict | None,
+    varied_history: dict | None,
+) -> dict:
+    """What changes when request history changes and nothing else does.
+
+    The two conditions differ in one thing: whether every round visits the
+    prompts in the same order. Same prompts, same repeats, same process,
+    same sampler, same seed. So a difference between their identity rates
+    is attributable to slot state at request time and to nothing else on
+    offer here.
+    """
+    if fixed_history is None or varied_history is None:
+        return {
+            "status": "NOT MEASURED",
+            "detail": (
+                "Both standing-runtime conditions are required; request "
+                "history cannot be isolated from one of them."
+            ),
+        }
+    fixed_rate = fixed_history["identity_rate"]
+    varied_rate = varied_history["identity_rate"]
+    if fixed_rate == 1.0 and varied_rate < 1.0:
+        status = "REQUEST HISTORY IS THE VARIABLE"
+        detail = (
+            "The standing runtime reproduced every prompt when each request "
+            "met the same predecessor, and stopped reproducing when the "
+            "visiting order changed. Nothing else differs between the two "
+            "conditions, so the divergence Study 011 recorded is a property "
+            "of slot state at request time, not of the seed and not of "
+            "sampling as such."
+        )
+    elif fixed_rate == 1.0 and varied_rate == 1.0:
+        status = "NOT REPRODUCED"
+        detail = (
+            "The standing runtime reproduced under both request histories. "
+            "The probe did not reproduce the divergence Study 011 recorded, "
+            "which is a finding about the probe's reach, not a retraction of "
+            "that observation: those two runs sat hours and roughly a "
+            "thousand requests apart in one server process, and this probe "
+            "spans minutes and twenty."
+        )
+    elif fixed_rate < 1.0:
+        status = "DIVERGES REGARDLESS"
+        detail = (
+            "The standing runtime failed to reproduce even with a fixed "
+            "request history, so request history is not required for "
+            "divergence and this condition adds nothing to the diagnosis."
+        )
+    else:  # pragma: no cover - covered by the branches above
+        status = "UNDETERMINED"
+        detail = "The two identity rates do not fall into a described case."
+    return {
+        "status": status,
+        "detail": detail,
+        "fixed_history_identity_rate": fixed_rate,
+        "varied_history_identity_rate": varied_rate,
+        "scope": (
+            "Beyond §3.2. Added after the registered conditions had run, "
+            "disclosed as an addition, and able only to find more divergence "
+            "than they did."
+        ),
+    }
+
+
 def build_report(
     prompts: Sequence[Prompt],
     conditions: dict[str, dict],
@@ -326,10 +437,11 @@ def build_report(
     §3.3 is restated in the artifact rather than left in the amendment,
     because the artifact is what a later reader will find first.
     """
-    missing = [name for name in CONDITIONS if name not in conditions]
+    missing = [name for name in REGISTERED_CONDITIONS if name not in conditions]
     within = conditions.get("greedy_temp0_same_process")
     across = conditions.get("greedy_temp0_fresh_process")
     standing = conditions.get("standing_temp1_same_process")
+    varied = conditions.get("standing_temp1_varied_history")
     hypothesis = None
     if standing is not None and within is not None and across is not None:
         sampling_diverges = standing["identity_rate"] < 1.0
@@ -346,6 +458,7 @@ def build_report(
                 "set, so there is no divergence for greedy decoding to remove"
             )
     return {
+        "request_history_finding": describe_history_effect(standing, varied),
         "study": "011",
         "amendment": (
             "experiments/study_011/amendments/"
@@ -354,7 +467,21 @@ def build_report(
         "phase": "1",
         "title": "sampling-mode determinism probe",
         "status": "COMPLETE" if not missing else "INCOMPLETE",
-        "missing_conditions": missing,
+        "missing_registered_conditions": missing,
+        "registered_conditions": list(REGISTERED_CONDITIONS),
+        "conditions_beyond_registration": [
+            name for name in ADDITIONAL_CONDITIONS if name in conditions
+        ],
+        "addition_disclosure": (
+            "standing_temp1_varied_history is not in §3.2. It was added after "
+            "the three registered conditions had run, because the first of "
+            "them reproduced every prompt and the registered design holds "
+            "constant the one thing the observed failure varied: the request "
+            "history a prompt meets. No criterion, bar or gate is touched, "
+            "the addition feeds no decision rule, and it can only find more "
+            "divergence than the registered conditions found, never less. "
+            "Disclosed here rather than folded into the registered list."
+        ),
         "prompt_source": _repo_relative(PROMPT_SOURCE),
         "prompt_set": [prompt.as_record() for prompt in prompts],
         "prompt_selection_rule": (
