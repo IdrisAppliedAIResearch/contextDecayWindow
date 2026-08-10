@@ -174,6 +174,10 @@ a synthetic corpus; its additive cost matches the complete production
 renderer, and an independent output-directory rerun was byte-identical across
 all seven artifacts.
 
+E006 Part 3 closeout passes 54 focused Part 2/P3 integrity tests and the full
+repository suite, `1428/1428`. Explicit LF attributes preserve every hash-bound
+Part 2/P3 text input on Windows without changing any locked blob.
+
 ## Evidence
 
 - E002 design: `E002_segmented_query_protocol.md`

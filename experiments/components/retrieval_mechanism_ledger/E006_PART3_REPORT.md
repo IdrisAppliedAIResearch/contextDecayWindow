@@ -83,6 +83,9 @@ Two complete in-process evaluations produced the same result digest,
 All 24 payloads match their recorded raw UTF-8 SHA-256 and exact character
 count, and the artifact manifest covers all 27 result files.
 
+Closeout verification passes 54 focused E006 Part 2/P3 integrity tests and the
+complete repository suite, `1428/1428`.
+
 ## 4. Interpretation and Boundary
 
 Under the registered Q11 diagnostic, query-anchored local-frontier propagation
