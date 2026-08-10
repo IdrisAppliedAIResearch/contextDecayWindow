@@ -1,0 +1,22 @@
+{
+  "assignment_source": "SHA-256 of each replicate's responses.md, sorted; deterministic and not selected by the rater or by anyone who has seen a score",
+  "byte_identical_note": "Replicates with the same response digest are reported, not refused. Phase 1 found the standing runtime reproducing every generation when request history was held fixed, so identical replicates are a state this measurement must be able to report. Ties break by run id so the labelling stays deterministic.",
+  "byte_identical_replicate_pairs": 0,
+  "combined_sha256": "b67eddf8a1fa547e9800f13aa0d354c1810f7e3385c44bd23b139ad87603a983",
+  "do_not_open": "Open only after the aggregated blind scores are committed. Git history is the audit trail.",
+  "mapping": {
+    "run_alpha": "study_011_noise_band_d_02",
+    "run_beta": "study_011_noise_band_d_01",
+    "run_delta": "study_011_noise_band_d_05",
+    "run_epsilon": "study_011_noise_band_d_03",
+    "run_gamma": "study_011_noise_band_d_04"
+  },
+  "response_sha256": {
+    "study_011_noise_band_d_01": "462ede6c10fc4ec09564145ad6c9a10d470aae066084d7463b1197e2817def2a",
+    "study_011_noise_band_d_02": "21b56d9eab40dce207cb9f72dc1a0f7cbb8ff23fa78e86dc5f87e24f11d7a9a5",
+    "study_011_noise_band_d_03": "ec760facc36f85b9608109e7be7504d11b29da541819b62feacbfe03a61f83ca",
+    "study_011_noise_band_d_04": "a885d8bddd9908009294182bfff8361c414180b555af75f0218f5e50989a8335",
+    "study_011_noise_band_d_05": "d72603b3a12dd69fc3a09fe0c433f4a9240e080f9e9362f86907bffc56eb0668"
+  },
+  "sealed": true
+}
