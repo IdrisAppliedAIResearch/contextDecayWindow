@@ -1,0 +1,334 @@
+{
+  "rater": "claude-opus-5",
+  "calibration": {
+    "passed": true,
+    "disagreements": []
+  },
+  "scores": {
+    "9991a7eb94593009": {
+      "primary": 0.5,
+      "strict": 0.5,
+      "rationale": "Gives '847 meters' correctly but names the steel as 'ASTM A709 Grade 50W' (with 'EN 10025 S355J2+N' and 'Grade HPS 70W'), not S460ML: one of two facts."
+    },
+    "33bdcfba91018716": {
+      "primary": 0.5,
+      "strict": 0.5,
+      "rationale": "Gives '847 meters' correctly but names the steel as 'ASTM A709 Grade 50W' (with 'EN 10025 S355J2+N' and 'Grade HPS 70W'), not S460ML: one of two facts."
+    },
+    "350ec7866c89cfc9": {
+      "primary": 0.5,
+      "strict": 0.5,
+      "rationale": "Gives '847 meters' correctly but names the steel as 'ASTM A709 Grade 50W' (with 'EN 10025 S355J2+N' and 'Grade HPS 70W'), not S460ML: one of two facts."
+    },
+    "d4a6a9624843c7f6": {
+      "primary": 0.5,
+      "strict": 0.5,
+      "rationale": "Gives '847 meters' correctly but names the steel as 'ASTM A709 Grade 50W' (with 'EN 10025 S355J2+N' and 'Grade HPS 70W'), not S460ML: one of two facts."
+    },
+    "aa4ef2e5b7ec12ef": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "States '847 meters' and 'the established steel grade specification for the primary structural members is S460ML': both facts, unhedged."
+    },
+    "a7885c4f22d1efd7": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Names 'Dr. Elena Rostova' as lead engineer and '40 metric tons per axle' as the rating: neither required fact is present."
+    },
+    "c5401347f2247670": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Names 'Dr. Elena Rostova' as lead engineer and '40 metric tons per axle' as the rating: neither required fact is present."
+    },
+    "1533b0b3574b36f1": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Names 'Dr. Elena Rostova' as lead engineer and '40 metric tons per axle' as the rating: neither required fact is present."
+    },
+    "f0476575fa5e2843": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Names 'Dr. Elena Rostova' as lead engineer and '40 metric tons per axle' as the rating: neither required fact is present."
+    },
+    "78a195da8971c874": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "States 'the lead structural engineer ... is Dr. Anara Bekova' and 'maximum load rating is 92.4 metric tons per axle': both facts."
+    },
+    "e7efa635296a808a": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Both rules are stated precisely - 'Format specifications/items as numbered lists' and 'Conclude engineering/structural recommendations with risk classification ... (Risk: Low/Medium/High)' - notwithstanding the contradictory preamble claiming 'only one explicit ... rule'."
+    },
+    "f35b34fa4ab8ae72": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Both rules are stated precisely - 'Format specifications/items as numbered lists' and 'Conclude engineering/structural recommendations with risk classification ... (Risk: Low/Medium/High)' - notwithstanding the contradictory preamble claiming 'only one explicit ... rule'."
+    },
+    "6bf164bea9fef81a": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Both rules are stated precisely - 'Format specifications/items as numbered lists' and 'Conclude engineering/structural recommendations with risk classification ... (Risk: Low/Medium/High)' - notwithstanding the contradictory preamble claiming 'only one explicit ... rule'."
+    },
+    "17486e0e5c91ce97": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Both rules are stated precisely - 'Format specifications/items as numbered lists' and 'Conclude engineering/structural recommendations with risk classification ... (Risk: Low/Medium/High)' - notwithstanding the contradictory preamble claiming 'only one explicit ... rule'."
+    },
+    "197b5689d4e1ae75": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Both rules stated exactly: 'always format them as a numbered list' and 'conclude any structural or engineering recommendation with a risk classification in parentheses'."
+    },
+    "59c76388ad46aee8": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Title 'The Annunciation of Forli' is right, but the artist is given as 'Pietro Perugino', the commissioner as 'the local civic or religious authorities of the chapel', and the year as '1496': one of four."
+    },
+    "6eb81fbc481b10f8": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Title 'The Annunciation of Forli' is right, but the artist is given as 'Pietro Perugino', the commissioner as 'the local civic or religious authorities of the chapel', and the year as '1496': one of four."
+    },
+    "d6bebffb75976e55": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Title 'The Annunciation of Forli' is right, but the artist is given as 'Pietro Perugino', the commissioner as 'the local civic or religious authorities of the chapel', and the year as '1496': one of four."
+    },
+    "dd36711651ab53ca": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Title 'The Annunciation of Forli' is right, but the artist is given as 'Pietro Perugino', the commissioner as 'the local civic or religious authorities of the chapel', and the year as '1496': one of four."
+    },
+    "5134724becf581d3": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "All four present: 'The Annunciation of Forli', 'Melozzo da Forli', 'Cardinal Giuliano della Rovere', 'Completion Year: 1483'."
+    },
+    "eeb488587aad7fda": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Ground is given as 'gesso (a mixture of animal glue and fine white gypsum or calcium carbonate)' and the glaze as 'oil glazing (velatura) over egg tempera underpainting' - neither lead white nor ultramarine appears."
+    },
+    "d54fbc4232edf16d": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Ground is given as 'gesso (a mixture of animal glue and fine white gypsum or calcium carbonate)' and the glaze as 'oil glazing (velatura) over egg tempera underpainting' - neither lead white nor ultramarine appears."
+    },
+    "0e0a912519472862": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Ground is given as 'gesso (a mixture of animal glue and fine white gypsum or calcium carbonate)' and the glaze as 'oil glazing (velatura) over egg tempera underpainting' - neither lead white nor ultramarine appears."
+    },
+    "9087aa8fd29954fc": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Ground is given as 'gesso (a mixture of animal glue and fine white gypsum or calcium carbonate)' and the glaze as 'oil glazing (velatura) over egg tempera underpainting' - neither lead white nor ultramarine appears."
+    },
+    "abafa54e9025fbe9": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Ground given as 'white gesso ground ... gypsum (calcium sulfate) or chalk' and the glaze as 'thin, translucent layers of diluted tempera'; neither lead white nor ultramarine is named."
+    },
+    "7805499d483f812c": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Names della Rovere as 'the primary patron of The Annunciation ... by Melozzo da Forli' and 'the future Pope Julius II'; the whole answer stays inside Renaissance patronage with no monetary or marine material."
+    },
+    "9e477e30cca30730": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Names della Rovere as 'the primary patron of The Annunciation ... by Melozzo da Forli' and 'the future Pope Julius II'; the whole answer stays inside Renaissance patronage with no monetary or marine material."
+    },
+    "4b8c552927cf787a": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Names della Rovere as 'the primary patron of The Annunciation ... by Melozzo da Forli' and 'the future Pope Julius II'; the whole answer stays inside Renaissance patronage with no monetary or marine material."
+    },
+    "54a5f602d9e5cd53": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Names della Rovere as 'the primary patron of The Annunciation ... by Melozzo da Forli' and 'the future Pope Julius II'; the whole answer stays inside Renaissance patronage with no monetary or marine material."
+    },
+    "50d01deb5513760f": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "States he was 'the primary commissioner and financial patron of Melozzo da Forli's The Annunciation (c. 1483)' and that the commission 'predates della Rovere's election as Pope Julius II'; no cross-topic material."
+    },
+    "50fd8dbf8c15d74c": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "All four present: 'Dr. Kenji Watanabe's research group focused on Vampyroteuthis infernalis', 'depths ranging from 600 to 900 meters', and feeding on 'sinking particulate organic matter, often referred to as marine snow'."
+    },
+    "312c688a123f75e8": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "All four present: 'Dr. Kenji Watanabe's research group focused on Vampyroteuthis infernalis', 'depths ranging from 600 to 900 meters', and feeding on 'sinking particulate organic matter, often referred to as marine snow'."
+    },
+    "1cf7a493813d0169": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "All four present: 'Dr. Kenji Watanabe's research group focused on Vampyroteuthis infernalis', 'depths ranging from 600 to 900 meters', and feeding on 'sinking particulate organic matter, often referred to as marine snow'."
+    },
+    "65284cb62243b66e": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "All four present: 'Dr. Kenji Watanabe's research group focused on Vampyroteuthis infernalis', 'depths ranging from 600 to 900 meters', and feeding on 'sinking particulate organic matter, often referred to as marine snow'."
+    },
+    "a603d22e3dd59a5f": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "All four present: 'Dr. Kenji Watanabe's research group primarily studied ... Vampyroteuthis infernalis', 'depths ranging from approximately 600 to 900 meters', feeding on 'marine snow'."
+    },
+    "94f2ea72d356948b": {
+      "primary": 0.5,
+      "strict": 0.5,
+      "rationale": "Organ is right ('photophores') but the location given is 'the webbing connecting its eight arms', photophores 'on the lateral sides of the head, specifically adjacent to the eyes', and the ink sac - the mantle margin is never named: one of two."
+    },
+    "b754441404ceb9d8": {
+      "primary": 0.5,
+      "strict": 0.5,
+      "rationale": "Organ is right ('photophores') but the location given is 'the webbing connecting its eight arms', photophores 'on the lateral sides of the head, specifically adjacent to the eyes', and the ink sac - the mantle margin is never named: one of two."
+    },
+    "8ed5a9dbf0798805": {
+      "primary": 0.5,
+      "strict": 0.5,
+      "rationale": "Organ is right ('photophores') but the location given is 'the webbing connecting its eight arms', photophores 'on the lateral sides of the head, specifically adjacent to the eyes', and the ink sac - the mantle margin is never named: one of two."
+    },
+    "9305e3f202421feb": {
+      "primary": 0.5,
+      "strict": 0.5,
+      "rationale": "Organ is right ('photophores') but the location given is 'the webbing connecting its eight arms', photophores 'on the lateral sides of the head, specifically adjacent to the eyes', and the ink sac - the mantle margin is never named: one of two."
+    },
+    "51af7f66cd56cf33": {
+      "primary": 1.0,
+      "strict": 0.5,
+      "rationale": "Primary credits both: 'photophores, distributed across the exterior of its mantle'. Strict differs because that correct location sits among four other unresolved sites (eyecups, 'outer margins of the two large, vertical fins', arm web, ink sac) and the mantle margin itself is never specified."
+    },
+    "ce293659b706caa4": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Contains none of the bleed indicators - no Taylor Rule, Dr. Priya Mehta, inflation threshold, Vampyroteuthis or Dr. Kenji Watanabe; the content is entirely della Rovere, Melozzo and papal patronage."
+    },
+    "97af58ed9bdedd3e": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Contains none of the bleed indicators - no Taylor Rule, Dr. Priya Mehta, inflation threshold, Vampyroteuthis or Dr. Kenji Watanabe; the content is entirely della Rovere, Melozzo and papal patronage."
+    },
+    "0217072fb9a59d8b": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Contains none of the bleed indicators - no Taylor Rule, Dr. Priya Mehta, inflation threshold, Vampyroteuthis or Dr. Kenji Watanabe; the content is entirely della Rovere, Melozzo and papal patronage."
+    },
+    "d3d03623f685d096": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Contains none of the bleed indicators - no Taylor Rule, Dr. Priya Mehta, inflation threshold, Vampyroteuthis or Dr. Kenji Watanabe; the content is entirely della Rovere, Melozzo and papal patronage."
+    },
+    "d70c75442131739a": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Contains none of the bleed indicators - no Taylor Rule, Dr. Priya Mehta, inflation threshold, Vampyroteuthis or Dr. Kenji Watanabe; the content is entirely della Rovere, Melozzo and papal patronage."
+    },
+    "97b7508ef9e6b99d": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Attribution is correct and unmixed: 'Dr. Kenji Watanabe's research group focused on Vampyroteuthis infernalis'; neither Bekova nor Mehta appears anywhere in the answer."
+    },
+    "d0932f30d5f35443": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Attribution is correct and unmixed: 'Dr. Kenji Watanabe's research group focused on Vampyroteuthis infernalis'; neither Bekova nor Mehta appears anywhere in the answer."
+    },
+    "1c7e982a0576d7d7": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Attribution is correct and unmixed: 'Dr. Kenji Watanabe's research group focused on Vampyroteuthis infernalis'; neither Bekova nor Mehta appears anywhere in the answer."
+    },
+    "ea0f54ef4c93db95": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Attribution is correct and unmixed: 'Dr. Kenji Watanabe's research group focused on Vampyroteuthis infernalis'; neither Bekova nor Mehta appears anywhere in the answer."
+    },
+    "bb8334c54e0e95f2": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Ties the right researcher to the right organism - 'Dr. Kenji Watanabe's research group primarily studied the vampire squid, scientifically known as Vampyroteuthis infernalis' - with no other researcher named."
+    },
+    "78fedaef57d616c2": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Has 847 meters, S460ML, 92.4 tons, 2%, 2.3%, Halcyon Crossing, Fed, Taylor Rule, Dr. Priya Mehta and Vampyroteuthis infernalis, but omits 1483, 600-900 m, Bekova, The Annunciation of Forli, Melozzo da Forli, della Rovere and Watanabe - 10 of 17, below the 80% binary threshold."
+    },
+    "6c038c3a186abf20": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Has 847 meters, S460ML, 92.4 tons, 2%, 2.3%, Halcyon Crossing, Fed, Taylor Rule, Dr. Priya Mehta and Vampyroteuthis infernalis, but omits 1483, 600-900 m, Bekova, The Annunciation of Forli, Melozzo da Forli, della Rovere and Watanabe - 10 of 17, below the 80% binary threshold."
+    },
+    "33a87fb562253c41": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Has 847 meters, S460ML, 92.4 tons, 2%, 2.3%, Halcyon Crossing, Fed, Taylor Rule, Dr. Priya Mehta and Vampyroteuthis infernalis, but omits 1483, 600-900 m, Bekova, The Annunciation of Forli, Melozzo da Forli, della Rovere and Watanabe - 10 of 17, below the 80% binary threshold."
+    },
+    "8b6e324ab03aea34": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Has 847 meters, S460ML, 92.4 tons, 2%, 2.3%, Halcyon Crossing, Fed, Taylor Rule, Dr. Priya Mehta and Vampyroteuthis infernalis, but omits 1483, 600-900 m, Bekova, The Annunciation of Forli, Melozzo da Forli, della Rovere and Watanabe - 10 of 17, below the 80% binary threshold."
+    },
+    "f5fbe5627333b530": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Only 'Span: 847 meters', Federal Reserve, Taylor Rule and Vampyroteuthis infernalis appear; the bridge section is 'Pylon Geometry' with no S460ML or 92.4, and no 1483, 600-900 m, Bekova, Mehta, Watanabe, Annunciation, Melozzo or della Rovere - 4 of 17."
+    },
+    "a34531a62ffe663e": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Both rules recited correctly - numbered lists for 'specifications, itemized details, or distinct points' and '(Risk: Low/Medium/High)' on engineering/structural recommendations - so the binary criterion is met despite the preamble's miscount."
+    },
+    "6263ed8986823814": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Both rules recited correctly - numbered lists for 'specifications, itemized details, or distinct points' and '(Risk: Low/Medium/High)' on engineering/structural recommendations - so the binary criterion is met despite the preamble's miscount."
+    },
+    "594436f006c5ee69": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Both rules recited correctly - numbered lists for 'specifications, itemized details, or distinct points' and '(Risk: Low/Medium/High)' on engineering/structural recommendations - so the binary criterion is met despite the preamble's miscount."
+    },
+    "9ff3e86e50c1d065": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Both rules recited correctly - numbered lists for 'specifications, itemized details, or distinct points' and '(Risk: Low/Medium/High)' on engineering/structural recommendations - so the binary criterion is met despite the preamble's miscount."
+    },
+    "dbe23eeffe6d91fa": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Both rules given exactly: 'always format them as a numbered list' and 'conclude any structural or engineering recommendation with a risk classification in parentheses ... (Risk: Low), (Risk: Medium), or (Risk: High)'."
+    },
+    "937434fe4ba5f49f": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Every one of turns 112-120 opens with a numbered list ('1. **Main Span Length**', '1. **Organism Studied**', etc.), and the engineering turns 112 and 113 both close '(Risk: Low)'; turn 118's missing risk tag is marine biology, where Rule 2 is N/A. 9 of 9 applicable."
+    },
+    "8ce2728b08609e98": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Every one of turns 112-120 opens with a numbered list ('1. **Main Span Length**', '1. **Organism Studied**', etc.), and the engineering turns 112 and 113 both close '(Risk: Low)'; turn 118's missing risk tag is marine biology, where Rule 2 is N/A. 9 of 9 applicable."
+    },
+    "40ccb4189d399792": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Every one of turns 112-120 opens with a numbered list ('1. **Main Span Length**', '1. **Organism Studied**', etc.), and the engineering turns 112 and 113 both close '(Risk: Low)'; turn 118's missing risk tag is marine biology, where Rule 2 is N/A. 9 of 9 applicable."
+    },
+    "4a7653b22c76c905": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Every one of turns 112-120 opens with a numbered list ('1. **Main Span Length**', '1. **Organism Studied**', etc.), and the engineering turns 112 and 113 both close '(Risk: Low)'; turn 118's missing risk tag is marine biology, where Rule 2 is N/A. 9 of 9 applicable."
+    },
+    "649924fcf7df91d6": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "All nine turns are numbered lists and all nine close with an explicit risk tag - turns 112 and 113 end '(Risk: Low)' after the bridge specifications, and the non-engineering turns carry it too. 9 of 9 applicable."
+    }
+  }
+}
