@@ -570,7 +570,7 @@ def git_ordering() -> dict[str, Any]:
             ("git", "rev-parse", anchor), cwd=REPO_ROOT, text=True
         ).strip()
         full.append(value)
-    for left, right in zip(full, full[1:], strict=True):
+    for left, right in zip(full, full[1:]):
         subprocess.run(
             ("git", "merge-base", "--is-ancestor", left, right),
             cwd=REPO_ROOT,

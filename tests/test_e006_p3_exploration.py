@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from src.analysis.e006_p3_exploration import (
     degenerate_traces,
+    git_ordering,
     mechanism_seal,
     run_arm_cells,
 )
@@ -49,3 +50,11 @@ def test_all_registered_degenerate_states_are_executed() -> None:
 
 def test_exploration_mechanism_seal_passes() -> None:
     assert mechanism_seal()["status"] == "PASS"
+
+
+def test_exploration_git_order_is_anchored() -> None:
+    result = git_ordering()
+
+    assert result["status"] == "PASS"
+    assert len(result["ordered_commits"]) == 11
+    assert result["head_at_exploration_execution"]
