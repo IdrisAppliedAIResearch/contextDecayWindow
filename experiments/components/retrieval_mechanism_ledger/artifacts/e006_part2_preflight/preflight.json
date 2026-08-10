@@ -1,0 +1,515 @@
+{
+  "binding_failures": [
+    "No committed raw probe-query vectors exist for the eight probes; candidate identities reproduce X0 but cannot execute E-1 or the chained update.",
+    "The registered X1 control is structurally unequal to single-shot retrieval because exclude=seen accumulates m new episodes on each of D+1 iterations even when BETA=0.",
+    "The spec names two companion files that do not exist; near-matching files were not silently substituted."
+  ],
+  "checklist": {
+    "PF1": {
+      "evidence": "Store and candidate identities exist, but 0/8 probe q0 vectors were found in all committed caches; candidate identities cannot compute chained cue updates. Named companion resolution is FAIL.",
+      "status": "FAIL"
+    },
+    "PF10": {
+      "evidence": "S4 is delivery characterization only. S5 requires a separate registration and authorization and was not run.",
+      "status": "PASS"
+    },
+    "PF2": {
+      "evidence": "Existing components are behaviorally identified, but deployed X0 uses thresholded K plus rotating N-first packing while the proposed chain uses top_m; they are not one named retrieval operation.",
+      "status": "FAIL"
+    },
+    "PF3": {
+      "evidence": "design_commit is ancestor of s1_commit, which is ancestor of HEAD",
+      "status": "PASS"
+    },
+    "PF4": {
+      "evidence": "The 32,000-character capacity precedent is available, but maximum seed reachability by depth cannot be computed without q0 vectors.",
+      "status": "FAIL"
+    },
+    "PF5": {
+      "evidence": "All new identity comparisons use SHA-256 over canonical episode content; source UUIDs are used only to dereference committed rows.",
+      "status": "PASS"
+    },
+    "PF6": {
+      "evidence": "X0 reproduction is PASS, but the mandatory X1=X0 control is FAIL for every registered (D,m) cell.",
+      "status": "FAIL"
+    },
+    "PF7": {
+      "evidence": "A real chained trace, context-vector trace, cycle sweep, and per-step novelty calculation cannot run without q0 vectors.",
+      "status": "FAIL"
+    },
+    "PF8": {
+      "evidence": "Depth is fully exercised within one probe; a 35-turn ablation can detect depth-local cycles and drift but cannot estimate live answer variance or long-horizon cross-turn state.",
+      "status": "PASS"
+    },
+    "PF9": {
+      "evidence": "Availability can rise without answer quality; no-cycle can miss near-degeneracy; targeted aggregates can hide per-probe loss. The registered mitigations and one-corpus residual remain explicit.",
+      "status": "PASS"
+    }
+  },
+  "companion_resolution": {
+    "named": [
+      {
+        "exists": false,
+        "path": "experiments/components/retrieval_mechanism_ledger/NEUROSCIENCE_LANDSCAPE.md"
+      },
+      {
+        "exists": false,
+        "path": "STANDING_RULE_preflight.md"
+      }
+    ],
+    "near_matches_not_substituted": [
+      {
+        "exists": true,
+        "path": "experiments/components/retrieval_mechanism_ledger/LITERATURE_LANDSCAPE.md"
+      },
+      {
+        "exists": true,
+        "path": "PREFLIGHT.md"
+      }
+    ],
+    "status": "FAIL"
+  },
+  "decision": "STOP_BEFORE_S3",
+  "design_sha256": "84a5eb5b29a01f4027b4e18411f8d0d99d41c7eea3206e4ed329063d13b35dc1",
+  "execution": {
+    "auditor_source_sha256": "deb0d6b92609594049351cd3709ebc5924866746471e842db450447e46d2f47c",
+    "launch_command": ".venv/Scripts/python.exe -m src.analysis.e006_chained_retrieval_preflight experiments/components/retrieval_mechanism_ledger/artifacts/e006_part2_preflight/preflight.json",
+    "text_encoding": "UTF-8"
+  },
+  "exploration": {
+    "E1_current_cue": {
+      "all_probe_cosines_available": false,
+      "all_probe_fact_rank_distributions_available": false,
+      "embedding_cache_checks": [
+        {
+          "hit_count": 0,
+          "key_mode": "exact_text",
+          "path": "experiments/external/longmemeval/runs/ec002_k_first/ec002_exact_solo_embeddings.db",
+          "probe_hits": {
+            "112": false,
+            "113": false,
+            "115": false,
+            "116": false,
+            "117": false,
+            "118": false,
+            "119": false,
+            "120": false
+          },
+          "sha256": "e8a31513700a0a5d1cfe34b4703bbe3c8c85dc3ca29188d7cc480c2e2417a7ad"
+        },
+        {
+          "hit_count": 0,
+          "key_mode": "sha256_utf8_text",
+          "path": "experiments/surveys/retrieval_bakeoff/cache/c1000_l_span_embeddings.sqlite",
+          "probe_hits": {
+            "112": false,
+            "113": false,
+            "115": false,
+            "116": false,
+            "117": false,
+            "118": false,
+            "119": false,
+            "120": false
+          },
+          "sha256": "431521938e91c3ad806a382f7fb528d7dbce736318f91ddd0f585276cfef17c4"
+        },
+        {
+          "hit_count": 0,
+          "key_mode": "sha256_utf8_text",
+          "path": "experiments/surveys/retrieval_bakeoff/cache/c1000_s_span_embeddings.sqlite",
+          "probe_hits": {
+            "112": false,
+            "113": false,
+            "115": false,
+            "116": false,
+            "117": false,
+            "118": false,
+            "119": false,
+            "120": false
+          },
+          "sha256": "f096a2f7faa524eef067119c5e4a76c3d80fd6ac28b1a0cab650bc9a6321e509"
+        },
+        {
+          "hit_count": 0,
+          "key_mode": "sha256_utf8_text",
+          "path": "experiments/surveys/retrieval_bakeoff/cache/c121_l_span_embeddings.sqlite",
+          "probe_hits": {
+            "112": false,
+            "113": false,
+            "115": false,
+            "116": false,
+            "117": false,
+            "118": false,
+            "119": false,
+            "120": false
+          },
+          "sha256": "a58ee1163d3c2417962b1fcc4ab84dc4edc313c8254a967376a59558ee28a45d"
+        },
+        {
+          "hit_count": 0,
+          "key_mode": "sha256_utf8_text",
+          "path": "experiments/surveys/retrieval_bakeoff/cache/c121_s_span_embeddings.sqlite",
+          "probe_hits": {
+            "112": false,
+            "113": false,
+            "115": false,
+            "116": false,
+            "117": false,
+            "118": false,
+            "119": false,
+            "120": false
+          },
+          "sha256": "9b2e3bc03500c670a324e1e842344d099227136ba4d59c760e058a757dc4e972"
+        }
+      ],
+      "probe_query_sha256": {
+        "112": "77f8796ec5789368570a881e166f0e7d94b992b401beeaa7bd5e52df1490ba42",
+        "113": "691e0a63fbf06c877d7ef66a5b6175b0822a72f2656a56d87d7177d547b50ce5",
+        "115": "fa6eea2e45583f3d3c4d017598e5d8b1ffe0d60efa7ef4258ae5bb4769f41e5d",
+        "116": "f14e9e58c9e15b6d00ac5994b27bc3f27405265639b26776e00a2d91e1cc619c",
+        "117": "70b9467c7f979df47ce543863afc522ef07254a0e85885c45408d05d1e154f70",
+        "118": "7ddfc666158b6ef48c61bb7c827bdcf99053a287e344db6be5d89b549d827e46",
+        "119": "9eb53bf992bfa1ee3171c3f80a375eb47c61d8b447f8a3529c77bdea7a5f1bad",
+        "120": "078ea5363a93ebb88810b079b20c626dbb04c72e4c2b876deb824e69be03e110"
+      },
+      "probe_turns": [
+        112,
+        113,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120
+      ],
+      "q11_rank_inventory_available": true,
+      "q11_top_four_fact_counts": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "status": "FAIL_INCOMPLETE"
+    },
+    "E2_component_identity": {
+      "K_threshold": "K scans every eligible episode in store order and returns each cosine >= 0.48; it is not top_m.",
+      "packer": "The packer considers N before K, charges exact compact XML serialization, skips an overflow candidate, and continues.",
+      "proposed_chain": "The spec retrieves top_m unseen episodes per inclusive 0..D step and blends their mean episode vector into the next cue.",
+      "renderer": "The renderer emits compact recent_context and retrieved_stm XML blocks with escaped turn, user, and assistant content.",
+      "seeding_path": "The live runner embeds the raw current user message for K; stored vectors embed the full User/Assistant episode pair."
+    },
+    "E3_feedback_inventory": {
+      "absorbing_candidates": "seen cannot decay; BETA=0 fixes c at q0; missing q0 prevents the required real-trace cycle and near-degeneracy sweep.",
+      "state": [
+        "seen",
+        "c"
+      ],
+      "updates": "seen grows monotonically by retrieved identities; c is a normalized blend of prior c and mean(hit embeddings)."
+    },
+    "E4_return_distribution": {
+      "k_candidate_count_histogram": {
+        "0": 74,
+        "1": 17,
+        "2": 7,
+        "3": 8,
+        "4": 4,
+        "5": 6,
+        "6": 5
+      },
+      "probe_turns": {
+        "112": {
+          "k_candidate_count": 5,
+          "k_delivered_count": 2,
+          "n_candidate_count": 32,
+          "n_delivered_count": 16
+        },
+        "113": {
+          "k_candidate_count": 6,
+          "k_delivered_count": 4,
+          "n_candidate_count": 32,
+          "n_delivered_count": 16
+        },
+        "115": {
+          "k_candidate_count": 1,
+          "k_delivered_count": 0,
+          "n_candidate_count": 32,
+          "n_delivered_count": 15
+        },
+        "116": {
+          "k_candidate_count": 4,
+          "k_delivered_count": 3,
+          "n_candidate_count": 32,
+          "n_delivered_count": 16
+        },
+        "117": {
+          "k_candidate_count": 3,
+          "k_delivered_count": 0,
+          "n_candidate_count": 32,
+          "n_delivered_count": 15
+        },
+        "118": {
+          "k_candidate_count": 0,
+          "k_delivered_count": 0,
+          "n_candidate_count": 32,
+          "n_delivered_count": 16
+        },
+        "119": {
+          "k_candidate_count": 0,
+          "k_delivered_count": 0,
+          "n_candidate_count": 32,
+          "n_delivered_count": 17
+        },
+        "120": {
+          "k_candidate_count": 3,
+          "k_delivered_count": 0,
+          "n_candidate_count": 32,
+          "n_delivered_count": 17
+        }
+      },
+      "turn_count": 121
+    },
+    "store": {
+      "embedding_blob_bytes": {
+        "4096": 121
+      },
+      "embedding_dimension_float32": [
+        1024
+      ],
+      "episode_count": 121,
+      "interpretation": "The store vectors are episode-pair vectors. They are not raw probe-query vectors and cannot substitute for q0.",
+      "pair_text_binding_matches": 121,
+      "pair_text_binding_total": 121,
+      "turn_max": 121,
+      "turn_min": 1
+    },
+    "x0_reproduction": {
+      "checks": {
+        "content_hash_sequence_equal": true,
+        "payload_sha256_equal": true,
+        "serialized_chars_equal": true
+      },
+      "committed_payload_sha256": "64b19b96b44bb4745f4543a7824a18433e49131d1eeb9a9813760f15f8afe478",
+      "comparison_key": "episode_content_sha256",
+      "payload_sha256": "64b19b96b44bb4745f4543a7824a18433e49131d1eeb9a9813760f15f8afe478",
+      "selected_content_sha256": [
+        "f755a3d21d4cf3b34b3d611a56c271f55d4b5bf758977ab536f5b862a3e7bf34",
+        "739993d4063392ff410280c840dffa848f48191f123f15a6c64b3d5187267f5b",
+        "dc50a5b9d86f876f1818c90f4764b348385c79387e9f699f0705a6e0889fe115",
+        "f35fe7ed8dd00206e74563be6833efb5c431ade243da0362cf96cb431df5ffed",
+        "ba9a18b82941dc3237050bb059b770a85b392dd101d7f7a4330f169a68777bc2",
+        "2911766d04eb9355d341ef30f4c807a72ce58ecccf46a16db3275ef33d65aec5",
+        "5378ffd9a8b6769c4f670125d11b2c575453b2246dee8d3045d32fdb7d944432",
+        "59aea706f50e4ef5d8c4070adb845079dd79f853de7fa7c3efd60fd718a4a34e"
+      ],
+      "selected_episode_count": 8,
+      "selected_source_turns": [
+        119,
+        68,
+        73,
+        83,
+        89,
+        96,
+        103,
+        4
+      ],
+      "serialized_chars": 31946,
+      "status": "PASS"
+    },
+    "x1_disabled_chain": {
+      "cells": [
+        {
+          "D": 1,
+          "committed_x0_payload_sha256_equal": false,
+          "content_hash_sequence_equal": false,
+          "disabled_chain_episode_count": 6,
+          "disabled_chain_payload_sha256": "29b5b7e678707a7f3edeba958bf9ceae190bf0e790609b02ddee04a40cf623ba",
+          "loop_iterations": 2,
+          "m": 3,
+          "payload_sha256_equal": false,
+          "single_shot_episode_count": 3,
+          "single_shot_payload_sha256": "eab9b013844387ee04c0b122d19698c7895b0490defa2d703d93aeae79f2a8e1"
+        },
+        {
+          "D": 2,
+          "committed_x0_payload_sha256_equal": false,
+          "content_hash_sequence_equal": false,
+          "disabled_chain_episode_count": 9,
+          "disabled_chain_payload_sha256": "f7f6672811b7b5724936e1dd657e54eee4fc941a85b3593519d5baa581014dce",
+          "loop_iterations": 3,
+          "m": 3,
+          "payload_sha256_equal": false,
+          "single_shot_episode_count": 3,
+          "single_shot_payload_sha256": "eab9b013844387ee04c0b122d19698c7895b0490defa2d703d93aeae79f2a8e1"
+        },
+        {
+          "D": 3,
+          "committed_x0_payload_sha256_equal": false,
+          "content_hash_sequence_equal": false,
+          "disabled_chain_episode_count": 11,
+          "disabled_chain_payload_sha256": "9ace52257c15c247bd7cc10894efd607113f7be29fe2e9d7a735997c5661143c",
+          "loop_iterations": 4,
+          "m": 3,
+          "payload_sha256_equal": false,
+          "single_shot_episode_count": 3,
+          "single_shot_payload_sha256": "eab9b013844387ee04c0b122d19698c7895b0490defa2d703d93aeae79f2a8e1"
+        },
+        {
+          "D": 1,
+          "committed_x0_payload_sha256_equal": false,
+          "content_hash_sequence_equal": false,
+          "disabled_chain_episode_count": 10,
+          "disabled_chain_payload_sha256": "cd40ac08f1d0a49544832a204c2099118e77b597a43a4cb1b00eca1d0959f3e3",
+          "loop_iterations": 2,
+          "m": 5,
+          "payload_sha256_equal": false,
+          "single_shot_episode_count": 5,
+          "single_shot_payload_sha256": "e3230b063233e7fd87aa25ce1ef18443ac115d9f7cb3ade33ae95bc490072d67"
+        },
+        {
+          "D": 2,
+          "committed_x0_payload_sha256_equal": false,
+          "content_hash_sequence_equal": false,
+          "disabled_chain_episode_count": 11,
+          "disabled_chain_payload_sha256": "9ace52257c15c247bd7cc10894efd607113f7be29fe2e9d7a735997c5661143c",
+          "loop_iterations": 3,
+          "m": 5,
+          "payload_sha256_equal": false,
+          "single_shot_episode_count": 5,
+          "single_shot_payload_sha256": "e3230b063233e7fd87aa25ce1ef18443ac115d9f7cb3ade33ae95bc490072d67"
+        },
+        {
+          "D": 3,
+          "committed_x0_payload_sha256_equal": false,
+          "content_hash_sequence_equal": false,
+          "disabled_chain_episode_count": 11,
+          "disabled_chain_payload_sha256": "9ace52257c15c247bd7cc10894efd607113f7be29fe2e9d7a735997c5661143c",
+          "loop_iterations": 4,
+          "m": 5,
+          "payload_sha256_equal": false,
+          "single_shot_episode_count": 5,
+          "single_shot_payload_sha256": "e3230b063233e7fd87aa25ce1ef18443ac115d9f7cb3ade33ae95bc490072d67"
+        }
+      ],
+      "committed_x0_payload_sha256": "64b19b96b44bb4745f4543a7824a18433e49131d1eeb9a9813760f15f8afe478",
+      "comparison_key": "episode_content_sha256",
+      "mechanical_result": "BETA=0 fixes the cue at q0, but exclude=seen and the inclusive 0..D loop accumulate m*(D+1) candidates instead of m.",
+      "q11_top_four_fact_counts": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "registered_assertion": "X1 equals X0 across all probes by payload digest",
+      "status": "FAIL"
+    }
+  },
+  "gate_ordering": {
+    "assertion": "design_commit is ancestor of s1_commit, which is ancestor of HEAD",
+    "design_commit": "7fa09c62ff914f1c7deec11bf226de5e5997aa80",
+    "head_at_preflight_execution": "1dabee2a9e56be71a8c452523cca1faaf9568469",
+    "s1_commit": "1ef754a32542e2ed8ee32554b608949641e39f23",
+    "status": "PASS"
+  },
+  "input_inventory": [
+    {
+      "bytes": 16865,
+      "path": "experiments/components/retrieval_mechanism_ledger/E006_PART2_chained_retrieval.md",
+      "sha256": "84a5eb5b29a01f4027b4e18411f8d0d99d41c7eea3206e4ed329063d13b35dc1"
+    },
+    {
+      "bytes": 1136,
+      "path": "experiments/components/retrieval_mechanism_ledger/E006_PART2_AUTHORIZATION.md",
+      "sha256": "fcc8814d66f81411117c9779ad3ec003374f0e65e8885f180a661e531c81d808"
+    },
+    {
+      "bytes": 7516,
+      "path": "experiments/components/retrieval_mechanism_ledger/E006_PART2_S1_PRIOR_ART_SCAN.md",
+      "sha256": "333fbe0240d8c470a74ba4260f53f154c38732ff401c0762b2d3ee00e9973154"
+    },
+    {
+      "bytes": 6089,
+      "path": "PREFLIGHT.md",
+      "sha256": "bc6f517dc1e8f38793816a608306cac43fe82ddcc9406244f962f47d4ec26463"
+    },
+    {
+      "bytes": 568807,
+      "path": "experiments/surveys/retrieval_bakeoff/tier6/runs/tier6_live_121_corrected_001/context_matched_stm/logs/context_match.jsonl",
+      "sha256": "543441d5304a5d5c98b636c0338eb795f92fe7a8df8b3df2427a145f0eb7fff4"
+    },
+    {
+      "bytes": 7253157,
+      "path": "experiments/surveys/retrieval_bakeoff/tier6/runs/tier6_live_121_corrected_001/context_matched_stm/logs/turns.jsonl",
+      "sha256": "a1e6941c92b15d47f75fc44c5f833999ac1ef148cf4eeebd50b0c9f3204b86bd"
+    },
+    {
+      "bytes": 1978368,
+      "path": "experiments/surveys/retrieval_bakeoff/tier6/runs/tier6_live_121_corrected_001/context_matched_stm/study.db",
+      "sha256": "5da47ea3fc2c8e3dcc50fa380ff65202d82557905d9976117e9e5d82e55c1c41"
+    },
+    {
+      "bytes": 1894,
+      "path": "experiments/surveys/retrieval_bakeoff/tier6/analysis_corrected_121/targeted_fact_delivery.csv",
+      "sha256": "fac823b2ecbbabca0ed46238e8966fad135a40daa26cf1e774e6a6aac3667dba"
+    },
+    {
+      "bytes": 10642,
+      "path": "experiments/components/retrieval_mechanism_ledger/artifacts/rd001/full_rank_inventory.csv",
+      "sha256": "8d6f9eee6ebe232608981aac0c0d4816eaec4710ae551db028ae0b323253ac03"
+    },
+    {
+      "bytes": 2544,
+      "path": "experiments/components/retrieval_mechanism_ledger/artifacts/e005/a0_baseline.json",
+      "sha256": "07fd98b31bc8f05b53da0e292af5427306b8f08952a470c07899f5d5ad8dd29a"
+    },
+    {
+      "bytes": 5164,
+      "path": "episodic/src/episodic/_packing.py",
+      "sha256": "c5011dada056fa0106544925c75d849c3d5b4857b6c5010ed4b604f9c3d2af04"
+    },
+    {
+      "bytes": 2022,
+      "path": "episodic/src/episodic/_render.py",
+      "sha256": "d0bdc051695fe98064bad9ecc52afe0178bba1ba8a3edf7e3a1960d5f261cf6f"
+    },
+    {
+      "bytes": 11427,
+      "path": "src/memory/context_matched_stm.py",
+      "sha256": "041aaa94d2eb05f93eb301bd9c6ce91055d2978ae8842a162773c4b5ed3a4993"
+    },
+    {
+      "bytes": 15088,
+      "path": "src/study/retrieval_bakeoff_tier6_runner.py",
+      "sha256": "194de59b3ed4a22185809cfe1295ffdcac1da7b1dc7121440ede7d23d0012133"
+    },
+    {
+      "bytes": 1050013696,
+      "path": "experiments/external/longmemeval/runs/ec002_k_first/ec002_exact_solo_embeddings.db",
+      "sha256": "e8a31513700a0a5d1cfe34b4703bbe3c8c85dc3ca29188d7cc480c2e2417a7ad"
+    },
+    {
+      "bytes": 1937408,
+      "path": "experiments/surveys/retrieval_bakeoff/cache/c1000_l_span_embeddings.sqlite",
+      "sha256": "431521938e91c3ad806a382f7fb528d7dbce736318f91ddd0f585276cfef17c4"
+    },
+    {
+      "bytes": 2002944,
+      "path": "experiments/surveys/retrieval_bakeoff/cache/c1000_s_span_embeddings.sqlite",
+      "sha256": "f096a2f7faa524eef067119c5e4a76c3d80fd6ac28b1a0cab650bc9a6321e509"
+    },
+    {
+      "bytes": 13164544,
+      "path": "experiments/surveys/retrieval_bakeoff/cache/c121_l_span_embeddings.sqlite",
+      "sha256": "a58ee1163d3c2417962b1fcc4ab84dc4edc313c8254a967376a59558ee28a45d"
+    },
+    {
+      "bytes": 10862592,
+      "path": "experiments/surveys/retrieval_bakeoff/cache/c121_s_span_embeddings.sqlite",
+      "sha256": "9b2e3bc03500c670a324e1e842344d099227136ba4d59c760e058a757dc4e972"
+    }
+  ],
+  "stage": "S2 Preflight",
+  "status": "FAIL",
+  "study": "E006 Part 2 chained retrieval",
+  "zero_embedding_calls": true,
+  "zero_model_calls": true
+}
