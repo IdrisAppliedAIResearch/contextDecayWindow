@@ -429,7 +429,13 @@ an offline result; **no live run is authorized.** See
   exist for the eight probes, and X1 cannot equal X0 because `exclude=seen`
   accumulates `m` new episodes on each inclusive `0..D` iteration even when
   `BETA=0`. See `RD_001_report.md`, `E006_PART2_AUTHORIZATION.md`,
-  `E006_PART2_S1_PRIOR_ART_SCAN.md`, and `E006_PART2_S2_PREFLIGHT.md`.
+  `E006_PART2_S1_PRIOR_ART_SCAN.md`, and `E006_PART2_S2_PREFLIGHT.md`. Rev 3 was
+  separately authorized as a Q11-only zero-call repair and **STOPPED AT PF11**:
+  its registered mean-hit equations omit the mechanism's recursive `RHO`
+  context. Full rankings agree in 0/12 cells, score differences span
+  0.040-0.212, and 3/12 next `top_m` sets change. A corrected recurrence matches
+  the reconstructed-vector route to `9.5e-15` but is not registered and cannot
+  pass the gate. See `E006_PART2_REV3_PF11.md`.
 
 **Measurement correction applied before the outcome was accepted:** the
 no-regression numerator was keyed on `(turn, item)` while its denominator
@@ -561,7 +567,7 @@ eviction work in `CC_001`?
 
 ## 8. Scan disposition
 
-- Retrieved-context chained retrieval: **S2 FAIL; STOP BEFORE S3.**
+- Retrieved-context chained retrieval: **REV 3 PF11 FAIL; STOP.**
   Classical PRF establishes both the operation and query drift. Four recent
   conversational-memory preprints report positive iterative-retrieval results;
   RF-Mem is close mechanical prior art. No published negative in the registered
@@ -569,9 +575,12 @@ eviction work in `CC_001`?
   novel; E006's remaining distinction is the committed corpus, deterministic
   zero-model-call path, and absorbing-state discipline. Preflight reproduces X0
   exactly but finds 0/8 cached probe-query vectors and proves X1 differs from X0
-  for all six registered `(D,m)` cells on the committed Q11 rank trace. S3-S5
-  were not entered. See `E006_PART2_S1_PRIOR_ART_SCAN.md` and
-  `E006_PART2_S2_PREFLIGHT.md`.
+  for all six registered `(D,m)` cells on the committed Q11 rank trace. Rev 3
+  repaired those defects and narrowed scope to Q11, but PF11 found its Section 2
+  derivation is not the unchanged recursive mechanism: 0/12 full rankings agree
+  and 3/12 next sets change. Remaining Preflight and S3-S5 were not entered. See
+  `E006_PART2_S1_PRIOR_ART_SCAN.md`, `E006_PART2_S2_PREFLIGHT.md`, and
+  `E006_PART2_REV3_PF11.md`.
 - Diversity-aware / coverage selection: **COMPLETE, and its one owed
   verification is discharged.** The scan's unconfirmed claim that MMR lacks
   submodularity is **refuted** by Lin and Bilmes (2011) Section 3, Theorem 2:
@@ -588,7 +597,11 @@ eviction work in `CC_001`?
 
 ---
 
-*Opened July 29, 2026. Revision 13, August 10, 2026 - E006 Part 2 S2 fails and
+*Opened July 29, 2026. Revision 14, August 10, 2026 - E006 Part 2 Rev 3 is
+authorized, then stops at its first gate, PF11. Its registered mean-hit equations
+omit the recursive context and `RHO`; 0/12 full rankings agree with the unchanged
+mechanism, score gaps are 0.040-0.212, and 3/12 next sets change. A corrected
+recurrence agrees to `9.5e-15` but is unregistered. Revision 13, August 10, 2026 - E006 Part 2 S2 fails and
 stops before S3. X0 reproduces by content identity and payload digest, but no
 committed cache contains the eight raw probe-query vectors required for the
 chain, and the registered disabled-chain X1 is structurally unequal to X0
