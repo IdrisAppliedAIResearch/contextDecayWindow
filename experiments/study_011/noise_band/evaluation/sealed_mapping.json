@@ -1,9 +1,20 @@
 {
+  "answer_identical_groups": [
+    [
+      "study_011_noise_band_d_01"
+    ],
+    [
+      "study_011_noise_band_d_02",
+      "study_011_noise_band_d_03",
+      "study_011_noise_band_d_04",
+      "study_011_noise_band_d_05"
+    ]
+  ],
   "assignment_source": "SHA-256 of each replicate's responses.md, sorted; deterministic and not selected by the rater or by anyone who has seen a score",
-  "byte_identical_note": "Replicates with the same response digest are reported, not refused. Phase 1 found the standing runtime reproducing every generation when request history was held fixed, so identical replicates are a state this measurement must be able to report. Ties break by run id so the labelling stays deterministic.",
-  "byte_identical_replicate_pairs": 0,
   "combined_sha256": "b67eddf8a1fa547e9800f13aa0d354c1810f7e3385c44bd23b139ad87603a983",
+  "distinct_answer_trajectories": 2,
   "do_not_open": "Open only after the aggregated blind scores are committed. Git history is the audit trail.",
+  "identity_note": "`response_file_digest_collisions` counts collisions of responses.md, which carries a per-run header and therefore almost never collides; it is reported for completeness and is not the measure of anything. `answer_identical_groups` is the real one: replicates grouped by the scoreable answers a rater will see. Replicates in one group must receive identical scores, so a band computed across them is a band across fewer distinct outcomes than it has runs, and the report says so.",
   "mapping": {
     "run_alpha": "study_011_noise_band_d_02",
     "run_beta": "study_011_noise_band_d_01",
@@ -11,6 +22,7 @@
     "run_epsilon": "study_011_noise_band_d_03",
     "run_gamma": "study_011_noise_band_d_04"
   },
+  "response_file_digest_collisions": 0,
   "response_sha256": {
     "study_011_noise_band_d_01": "462ede6c10fc4ec09564145ad6c9a10d470aae066084d7463b1197e2817def2a",
     "study_011_noise_band_d_02": "21b56d9eab40dce207cb9f72dc1a0f7cbb8ff23fa78e86dc5f87e24f11d7a9a5",

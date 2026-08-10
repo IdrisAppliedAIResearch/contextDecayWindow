@@ -130,6 +130,30 @@ def assert_decision_rule(path: Path = DECISION_RULE) -> str:
     return digest
 
 
+def _answer_identical_groups(resolved: Mapping[str, Path]) -> list[list[str]]:
+    """Group replicates by the answers a rater will actually be shown.
+
+    Uses Study 011's own extraction, so "identical" here means identical
+    *as scored* — after reasoning blocks are stripped — rather than
+    identical as stored.
+    """
+    from src.analysis.study_011_scoring import answers_for, scoreable_answer
+
+    fingerprints: dict[str, list[str]] = {}
+    for name, directory in resolved.items():
+        answers = answers_for(directory)
+        payload = json.dumps(
+            {str(turn): scoreable_answer(text) for turn, text in sorted(answers.items())},
+            sort_keys=True,
+        )
+        digest = hashlib.sha256(payload.encode("utf-8")).hexdigest()
+        fingerprints.setdefault(digest, []).append(name)
+    return sorted(
+        (sorted(names) for names in fingerprints.values()),
+        key=lambda names: names[0],
+    )
+
+
 def seal_replicates(run_dirs: Mapping[str, Path]) -> dict:
     """Assign blind labels from response digests, never by choice.
 
@@ -157,11 +181,17 @@ def seal_replicates(run_dirs: Mapping[str, Path]) -> dict:
             raise NoiseBandError(f"no responses file for {name}: {responses}")
         digests[name] = hashlib.sha256(responses.read_bytes()).hexdigest()
     # Byte-identical replicates from distinct directories are a result, not
-    # a fault. Phase 1 found this runtime reproducing 600 of 600 generations
-    # when request history was held fixed, so identical replicates are a
-    # state the measurement has to be able to report. Only the same
-    # directory counted twice is a harness fault, and that is checked above.
+    # a fault. Only the same directory counted twice is a harness fault,
+    # and that is checked above.
+    #
+    # `responses.md` opens with a `**Run:** <run id>` header, so its digest
+    # differs between replicates whose *answers* are identical and can
+    # never detect the state this is here to report. Label assignment still
+    # uses it -- it is a stable, arbitrary, blind ordering and that is all
+    # a label needs to be -- but identity is measured over the scoreable
+    # answers, which is what a score can actually depend on.
     identical = len(digests) - len(set(digests.values()))
+    answer_groups = _answer_identical_groups(resolved)
     order = sorted(run_dirs, key=lambda name: (digests[name], name))
     mapping = {
         LABEL_VOCABULARY[index]: name for index, name in enumerate(order)
@@ -178,13 +208,18 @@ def seal_replicates(run_dirs: Mapping[str, Path]) -> dict:
         ),
         "mapping": mapping,
         "response_sha256": digests,
-        "byte_identical_replicate_pairs": identical,
-        "byte_identical_note": (
-            "Replicates with the same response digest are reported, not "
-            "refused. Phase 1 found the standing runtime reproducing every "
-            "generation when request history was held fixed, so identical "
-            "replicates are a state this measurement must be able to report. "
-            "Ties break by run id so the labelling stays deterministic."
+        "response_file_digest_collisions": identical,
+        "answer_identical_groups": answer_groups,
+        "distinct_answer_trajectories": len(answer_groups),
+        "identity_note": (
+            "`response_file_digest_collisions` counts collisions of "
+            "responses.md, which carries a per-run header and therefore "
+            "almost never collides; it is reported for completeness and is "
+            "not the measure of anything. `answer_identical_groups` is the "
+            "real one: replicates grouped by the scoreable answers a rater "
+            "will see. Replicates in one group must receive identical "
+            "scores, so a band computed across them is a band across fewer "
+            "distinct outcomes than it has runs, and the report says so."
         ),
         "combined_sha256": hashlib.sha256(
             "".join(digests[name] for name in sorted(digests)).encode("utf-8")

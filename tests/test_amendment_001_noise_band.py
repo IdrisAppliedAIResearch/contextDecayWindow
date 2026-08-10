@@ -224,8 +224,36 @@ class TestRaterDisagreement:
 class TestSealReplicates:
     def _run(self, tmp_path, name, body):
         directory = tmp_path / name
-        directory.mkdir()
+        (directory / "logs").mkdir(parents=True)
         (directory / "responses.md").write_text(body, encoding="utf-8")
+        # A real replicate always has a turn log; sealing reads it to group
+        # replicates by the answers a rater will see. A fixture without one
+        # would be testing a shape that cannot occur.
+        rows = [
+            {"turn_number": turn, "assistant_message": f"{body} turn {turn}"}
+            for turn in range(112, 122)
+        ]
+        (directory / "logs" / "turns.jsonl").write_text(
+            "\n".join(json.dumps(row) for row in rows) + "\n", encoding="utf-8"
+        )
+        return directory
+
+    def _answers(self, tmp_path, name, answer):
+        """A run whose responses.md differs by header but answers match."""
+        import json
+
+        directory = tmp_path / name
+        (directory / "logs").mkdir(parents=True)
+        (directory / "responses.md").write_text(
+            "**Run:** " + name + "\n" + answer, encoding="utf-8"
+        )
+        rows = [
+            {"turn_number": turn, "assistant_message": f"{answer} for turn {turn}"}
+            for turn in range(112, 122)
+        ]
+        (directory / "logs" / "turns.jsonl").write_text(
+            "\n".join(json.dumps(row) for row in rows) + "\n", encoding="utf-8"
+        )
         return directory
 
     def test_labels_follow_the_digest_order_not_the_run_order(self, tmp_path):
@@ -245,17 +273,30 @@ class TestSealReplicates:
         assert seal_replicates(runs) == seal_replicates(runs)
 
     def test_two_identical_replicates_are_a_result_not_a_fault(self, tmp_path):
-        # Phase 1 found this runtime reproducing 600 of 600 generations
-        # with request history held fixed. A band measurement that refused
-        # to report identical replicates could not report a band of zero,
-        # which is the row §4.3 opens with.
+        # A band measurement that refused to report identical replicates
+        # could not report a band of zero, which is the row §4.3 opens with.
         runs = {
             "r1": self._run(tmp_path, "r1", "same"),
             "r2": self._run(tmp_path, "r2", "same"),
         }
         sealed = seal_replicates(runs)
-        assert sealed["byte_identical_replicate_pairs"] == 1
+        assert sealed["response_file_digest_collisions"] == 1
         assert set(sealed["mapping"].values()) == {"r1", "r2"}
+
+    def test_identity_is_measured_over_answers_not_over_the_response_file(
+        self, tmp_path
+    ):
+        # responses.md carries a per-run header, so its digest differs
+        # between replicates whose answers are identical. A guard reading
+        # only that digest reports "no collisions" while four replicates
+        # answer identically -- a check that cannot see what it certifies.
+        same = self._answers(tmp_path, "r1", "identical text")
+        also = self._answers(tmp_path, "r2", "identical text")
+        other = self._answers(tmp_path, "r3", "different text")
+        sealed = seal_replicates({"r1": same, "r2": also, "r3": other})
+        assert sealed["response_file_digest_collisions"] == 0
+        assert sealed["distinct_answer_trajectories"] == 2
+        assert ["r1", "r2"] in sealed["answer_identical_groups"]
 
     def test_identical_replicates_still_get_a_deterministic_labelling(self, tmp_path):
         runs = {
