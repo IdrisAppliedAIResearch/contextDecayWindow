@@ -91,6 +91,42 @@ Before implementing any gate or criterion, ask whether it can pass while the cer
 - Never edit a locked pre-registration. Record changes in standalone amendments.
 - Parameters live in one authoritative place: the pre-registration.
 
+### Preflight — required in every spec, before any run
+
+**No spec is complete without a Preflight section, and no run begins before
+Preflight passes.** Studies, analyses, counterfactuals, diagnostics, engineering
+specs and benchmark adoptions alike. A spec without Preflight is returned, not
+run. Full wording and the failing precedent behind each check: `PREFLIGHT.md`.
+
+Two parts, in order.
+
+**Part 1 — Exploration.** Characterize the mechanism empirically before designing
+a test of it. Not by reading the code, not by trusting its name, not by citing a
+prior study. Run it and record what it does; findings may change the design
+before anything is locked. Minimum, for any spec touching an existing component:
+behavioral identity in one falsifiable sentence; a name-to-behavior check on
+every named component, block, tier and variable; the distribution rather than a
+summary; and degenerate or absorbing states demonstrated on a real trace.
+
+**Part 2 — Checklist.** Every item answered explicitly. *"Assumed" is not an
+answer; "verified at `<SHA>`" is.*
+
+| # | Check |
+|---|---|
+| **PF1** | Inputs exist — present, readable, hash-identified, counted |
+| **PF2** | Mechanism identity verified against its name and description, on committed data |
+| **PF3** | Gate ordering enforced, not assumed — proven to execute before what it gates |
+| **PF4** | Thresholds achievable — every bar and kill condition checked reachable before locking |
+| **PF5** | Comparison keys stable — content hashes, never generated ids, timestamps or paths |
+| **PF6** | Reproduction anchor — a replay reproduces a known result by identity and digest, not by count |
+| **PF7** | Absorbing-state proof for any mechanism with feedback, on a real trace of the intended length |
+| **PF8** | Ablation length adequate — state what it can and cannot detect |
+| **PF9** | Surrogate audit — can this pass while the property it certifies is false? Record residuals |
+| **PF10** | Live-evaluation requirement stated — availability is not a verdict |
+
+**Ticked boxes are not Preflight.** Each check names the artifact or the executed
+test that answers it.
+
 ### Gates and ablation
 
 - Offline gates are binding and run before full inference.
@@ -172,6 +208,7 @@ Items 2 and 3 are mandatory. A study is not closed and its PR must not merge wit
 - Score an answerless item above zero.
 - Expose rubric artifacts to mechanism code.
 - Run unseeded or use a flag-disabled control.
+- Run any spec without a passing Preflight (§4, `PREFLIGHT.md`).
 - start a 120-turn run without a passing 35-turn ablation.
 - Reopen a stopped study or bypass a binding gate without a new, authorized design.
 - Report a result that cannot be traced to a committed artifact.
@@ -182,6 +219,7 @@ Items 2 and 3 are mandatory. A study is not closed and its PR must not merge wit
 README.md                                      current front door
 AGENTS.md                                      this operating manual
 ERRATA.md                                      corrections to published results
+PREFLIGHT.md                                   mandatory preflight; §4 carries the mandate
 experiments/audits/scoring_integrity/          scoring protocol and 2026 audit
 experiments/study_NNN/
   pre_registration.md                          locked design and SHA anchor
