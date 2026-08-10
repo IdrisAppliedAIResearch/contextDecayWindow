@@ -127,4 +127,3 @@ path. Continuing with the corrected recurrence would silently repair a locked
 derivation after observing its gate result. A new authorized design or
 standalone amendment must register the recursive Gram equations before any
 further Preflight, parameter registration, or offline arm can run.
-
