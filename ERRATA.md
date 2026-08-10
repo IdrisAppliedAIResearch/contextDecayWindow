@@ -456,7 +456,11 @@ Artifacts:
 `experiments/study_011/analysis/n_tier_characterization.json` and
 `experiments/study_011/amendments/AMENDMENT_002_n_tier_is_not_a_recency_window.md`.
 
-## "Not Satisfiable on This Runtime" Was Too Strong (2026-08-09)
+## "Not Satisfiable on This Runtime": Corrected, Then Corrected Back (2026-08-09)
+
+> **This entry was wrong when first written and is superseded in place by §Reversal
+> below, added the same day after Phase 2 ran. The original text is kept so the
+> mistake is visible rather than tidied away. Superseded draft: `4e5520aa`.**
 
 **A committed conclusion changes; no measured score changes.** Study 011's report
 §1.1 concluded that the program's standing rule — *require a byte-identical
@@ -503,3 +507,81 @@ Artifacts: `experiments/study_011/runtime/PHASE_1_REPORT.md`,
 `phase_1_sampling_determinism.json`, `phase_1_recorded_prompt_replay.json`, and
 `phase_1_generations.jsonl` — 800 rows, every generation, so the identity rates
 can be recomputed rather than taken on trust.
+
+### Reversal — Phase 2 reproduced the divergence exactly
+
+**The correction above was wrong, in the direction that flattered it.** Phase 1
+reproduced 820 generations without divergence and I read that as showing Study
+011's "not satisfiable on this runtime" too strong. Phase 2 then ran five
+121-turn replicates of the deployed configuration and reproduced the divergence
+on the first turn, exactly: replicate 1 answers in 343 characters, replicates 2
+through 5 in 80, diverging at character 79, from a byte-identical 757-byte
+prompt. The digests match the two committed responses — `265ddd79` and
+`9675ab02`.
+
+**Why Phase 1 missed it.** The probe issued model calls in isolation: no store,
+no embedding model, no 121-turn sequence, no study runner. It reproduced 820
+times because it had removed whatever the trigger is. It measured the call, not
+the system that makes the call — this program's recurring surrogate failure
+class, with the probe in the surrogate seat.
+
+**The corrected reading, which is neither the original sentence nor my first
+correction.** The rule is satisfiable *between runs that share server process
+state*: replicates 2 through 5 are byte-identical across all 121 turns, three
+consecutive byte-identical seeded reruns. It is **not** satisfiable between a
+cold-start run and a warm-start one. The standing rule needs process state
+pinned, and no study in the arc pinned it — most manifests do not record a
+server PID at all, and `_server_pid()` reads one from the environment without
+discovering it.
+
+**What stands from the entry above:** the 820-generation measurement, the
+20-of-20 recorded-prompt replay in a fresh process, and the observation that the
+committed divergence is real. What falls: the claim that "not satisfiable" was
+too strong. On the case that matters — rerunning a study — it was closer to
+right than I made it.
+
+Artifact: `experiments/study_011/noise_band/NOISE_BAND_REPORT.md`.
+
+## The Instrument's Noise Band Is 3.0 (2026-08-09)
+
+**Three committed verdicts change their reading. No committed score changes.**
+
+Amendment 001 Phase 2 ran the deployed configuration five times under identical
+corpus, settings, seed and runtime, back to back in one server process. Four
+replicates scored **8.0**; one scored **11.0**. The band, `max − min` as the
+decision rule committed before the runs defines it, is **3.0** — the rule's
+worst row: *nothing below about three points is interpretable.*
+
+It is a switch, not a spread. Replicates 2–5 are byte-identical across all 121
+turns; replicate 1, the only one that met an empty server slot, diverges at turn
+1 and never re-converges. The movement is spread across four rubric questions
+(Q1, Q2, Q4, Q8), with nine stable. Rater disagreement is separately measured
+and near zero — 64 of 65 items unanimous — so the band is run-to-run variation,
+not raters reading one answer two ways.
+
+**Applied uniformly, by one expression, in whichever direction it points:**
+
+| Result | Gap | Re-read as |
+|---|---:|---|
+| Study 009 same-seed contrast, S vs L | 3.0 | **NOT DEMONSTRATED** |
+| LV-001 targeted regression | −2.0 | **NOT DEMONSTRATED** |
+| Study 011 B1, C vs D | −1.0 | **NOT DEMONSTRATED** |
+| Corrected treatment series, 8.5 → 12.0 | 3.5 | not excluded by the band |
+
+"Not demonstrated" is not "refuted." These results may well be real; a single run
+per arm on this instrument cannot tell, and neither could the studies that
+reported them.
+
+**Unaffected:** every offline, deterministic result — gate outcomes, delivery
+counts, character accounting, packing measurements, EC-002's 152 gains and zero
+losses, IC-001's zero K episodes at 8 of 8 probes, Arm D's per-question identity
+to Arm A, and the N-tier replays. Those are identity and count comparisons.
+
+**Binding:** B1 fired and stays fired. Arm C scored 7.0 against Arm D's 8.0, the
+packing correction is **not adopted**, and this band may not be cited toward
+adopting K-first packing. Amendment 001 §1.2.
+
+Artifacts: `experiments/study_011/noise_band/band_verdict.json`,
+`NOISE_BAND_REPORT.md`, `DECISION_RULE.md` (committed `c07e1e27`, before any
+replicate ran), and `evaluation/` — three blind passes, mapping sealed until the
+scores were committed.
