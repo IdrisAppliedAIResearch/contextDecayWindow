@@ -441,7 +441,13 @@ an offline result; **no live run is authorized.** See
   `BETA^2 * ||mu||^2`. The observed squared norms are 0.843 and 0.533. Score
   tolerance and full rankings pass in 0/12 cells, although all 12 immediate next
   sets agree. PF1-PF10 and S3-S4 were not entered. See
-  `E006_PART2_REV4_PF11.md`.
+  `E006_PART2_REV4_PF11.md`. Rev 5 prospectively registered the complete norm
+  expansion and **COMPLETED offline, CHARACTERIZED**. PF11 passes 12/12 at
+  `9.5e-15`; PF1-PF10 and all 48 PF7 cells pass. Chaining reaches 9/17 at D2/D3
+  versus X0's 6/17 and single-shot `top_m` at 3/17, so its kill does not fire.
+  The best cells use 15-20 candidates, select 12 episodes, and still deliver
+  0/4 art facts; they trail E005's 12/17. No targeted traces exist, so there is
+  no promotion, adoption, or live run. See `E006_PART2_REV5_REPORT.md`.
 
 **Measurement correction applied before the outcome was accepted:** the
 no-regression numerator was keyed on `(turn, item)` while its denominator
@@ -573,7 +579,7 @@ eviction work in `CC_001`?
 
 ## 8. Scan disposition
 
-- Retrieved-context chained retrieval: **REV 4 PF11 FAIL; STOP.**
+- Retrieved-context chained retrieval: **REV 5 COMPLETE; CHARACTERIZED.**
   Classical PRF establishes both the operation and query drift. Four recent
   conversational-memory preprints report positive iterative-retrieval results;
   RF-Mem is close mechanical prior art. No published negative in the registered
@@ -584,11 +590,14 @@ eviction work in `CC_001`?
   for all six registered `(D,m)` cells on the committed Q11 rank trace. Rev 3
   repaired those defects and narrowed scope to Q11, but PF11 found its Section 2
   derivation was not the unchanged recursive mechanism. Rev 4 then registered
-  the recursive structure but omitted the hit mean's squared norm from context
-  normalization: score tolerance and full rankings pass in 0/12 cells, while all
-  12 next sets agree. Remaining Preflight and S3-S4 were not entered. See
+  recursion but omitted the hit mean's squared norm and stopped at PF11. Rev 5
+  registers the complete norm: PF11 passes 12/12, remaining Preflight passes,
+  and the fixed offline grid reaches 9/17 at D2/D3 versus X0's 6/17. The best
+  cells still miss art 0/4 and return more material; without targeted traces the
+  ceiling is CHARACTERIZED. See
   `E006_PART2_S1_PRIOR_ART_SCAN.md`, `E006_PART2_S2_PREFLIGHT.md`, and
-  `E006_PART2_REV3_PF11.md`, and `E006_PART2_REV4_PF11.md`.
+  `E006_PART2_REV3_PF11.md`, `E006_PART2_REV4_PF11.md`, and
+  `E006_PART2_REV5_REPORT.md`.
 - Diversity-aware / coverage selection: **COMPLETE, and its one owed
   verification is discharged.** The scan's unconfirmed claim that MMR lacks
   submodularity is **refuted** by Lin and Bilmes (2011) Section 3, Theorem 2:
@@ -605,7 +614,11 @@ eviction work in `CC_001`?
 
 ---
 
-*Opened July 29, 2026. Revision 15, August 10, 2026 - E006 Part 2 Rev 4 is
+*Opened July 29, 2026. Revision 16, August 10, 2026 - E006 Part 2 Rev 5
+completes offline, CHARACTERIZED. PF11 passes 12/12 at `9.5e-15`; PF1-PF10 and
+PF7 48/48 pass. Chaining reaches 9/17 at D2/D3 versus X0 6/17 but uses 15-20
+candidates, selects 12, and misses art 0/4. No targeted traces; no promotion or
+live run. Revision 15, August 10, 2026 - E006 Part 2 Rev 4 is
 authorized, then stops at PF11. Its context norm treats the mean of hit vectors
 as unit length, but the observed squared norms are 0.843 and 0.533. Score
 tolerance and full-ranking identity pass in 0/12 cells; all 12 immediate next
