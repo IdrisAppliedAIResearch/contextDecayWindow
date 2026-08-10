@@ -3,6 +3,7 @@ from __future__ import annotations
 from src.analysis.e006_p3_preflight import (
     evidence_order_audit,
     surrogate_audit,
+    targeted_trace_hits,
     threshold_reachability,
 )
 
@@ -34,3 +35,7 @@ def test_surrogate_audit_has_every_gate_and_registered_metric() -> None:
     observations = {row["observation"] for row in rows}
     for index in range(1, 11):
         assert any(value.startswith(f"PF{index} ") for value in observations)
+
+
+def test_targeted_trace_absence_comes_from_committed_cache_audit() -> None:
+    assert targeted_trace_hits() == 0

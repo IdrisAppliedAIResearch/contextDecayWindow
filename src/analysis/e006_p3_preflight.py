@@ -43,7 +43,7 @@ from src.analysis.e006_p3_tier4a_capture import sha256_file
 
 REPRODUCTION = COMPONENT_ROOT / "artifacts" / "e006_p3_reproduction_rev2" / "reproduction.json"
 EVIDENCE_SOURCE = REPO_ROOT / "src" / "analysis" / "e006_p3_offline.py"
-PRIOR_PREFLIGHT = COMPONENT_ROOT / "artifacts" / "e006_rev5_preflight" / "preflight.json"
+PRIOR_PREFLIGHT = COMPONENT_ROOT / "artifacts" / "e006_part2_preflight" / "preflight.json"
 
 
 def _inventory(paths: tuple[Path, ...]) -> list[dict[str, Any]]:
@@ -267,6 +267,16 @@ def surrogate_audit() -> list[dict[str, str]]:
     ]
 
 
+def targeted_trace_hits() -> int:
+    prior = json.loads(PRIOR_PREFLIGHT.read_text(encoding="utf-8"))
+    return sum(
+        cache["hit_count"]
+        for cache in prior["exploration"]["E1_current_cue"][
+            "embedding_cache_checks"
+        ]
+    )
+
+
 def build_preflight() -> dict[str, Any]:
     if sha256_file(DESIGN) != DESIGN_SHA256:
         raise AssertionError("Final design digest changed")
@@ -290,11 +300,7 @@ def build_preflight() -> dict[str, Any]:
     order_audit = evidence_order_audit()
     primary = [row for row in records if row["D"] == 2 and row["m"] == 5]
     quotas_pass = len(primary) == 3 and all(row["candidate_count"] == 15 for row in primary)
-    prior = json.loads(PRIOR_PREFLIGHT.read_text(encoding="utf-8"))
-    targeted_hits = sum(
-        cache["hit_count"]
-        for cache in prior["exploration"]["E1_current_cue"]["embedding_cache_checks"]
-    )
+    targeted_hits = targeted_trace_hits()
     checks = {
         "PF1": {"status": "PASS", "evidence": "119 Q11 cosines, 119 unique content hashes, Gram 119x119; all files byte-hashed. Targeted vectors remain 0/8."},
         "PF2": {"status": seal["status"], "evidence": "A0/A1/A2, graph, frontier, quota, final ranking, and packer executed on committed data; Tier 4A/A1 non-identity is committed."},
