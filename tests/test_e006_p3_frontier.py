@@ -4,6 +4,7 @@ import numpy as np
 import pytest
 
 from src.retrieval_mechanism_ledger.e006_p3 import (
+    assert_mechanism_path_allowed,
     build_union_knn_graph,
     retrieve_associative_frontier,
     retrieve_fixed_query,
@@ -72,3 +73,8 @@ def test_exhausted_unseen_candidates_fail_before_selection() -> None:
             depth=1,
             per_step=2,
         )
+
+
+def test_frontier_mechanism_rejects_measurement_paths() -> None:
+    with pytest.raises(ValueError, match="measurement boundary"):
+        assert_mechanism_path_allowed("experiments/study_008/q_facts_key.md")
