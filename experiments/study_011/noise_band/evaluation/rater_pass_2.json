@@ -1,0 +1,334 @@
+{
+  "rater": "claude-sonnet-5",
+  "calibration": {
+    "passed": true,
+    "disagreements": []
+  },
+  "scores": {
+    "0217072fb9a59d8b": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Text is the same della Rovere/Renaissance passage as Q6's clean answer; none of the bleed indicators (Taylor Rule, Dr. Priya Mehta, inflation threshold, Vampyroteuthis, Dr. Kenji Watanabe) appear anywhere."
+    },
+    "0e0a912519472862": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Describes a \"gesso grounds\" ground (gypsum/animal glue) and an \"oil glazing (velatura) over egg tempera underpainting\" glaze -- neither \"lead white ground\" nor \"ultramarine glaze\" is mentioned anywhere."
+    },
+    "1533b0b3574b36f1": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Names \"Dr. Elena Rostova\" as lead engineer (expected Dr. Anara Bekova) and gives \"40 metric tons per axle\" as max load (expected 92.4) -- neither required fact matches."
+    },
+    "17486e0e5c91ce97": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Despite an internally confused preamble claiming \"only one explicit ... rule\", the answer's own numbered list gives both rules correctly: \"1. Format specifications/items as numbered lists\" and \"2. Conclude engineering/structural recommendations with risk classification\"."
+    },
+    "197b5689d4e1ae75": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Cleanly states \"Rule 1: ... always format them as a numbered list\" and \"Rule 2: Always conclude any structural or engineering recommendation with a risk classification\" -- both rules stated precisely."
+    },
+    "1c7e982a0576d7d7": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "\"Dr. Kenji Watanabe's research group focused on *Vampyroteuthis infernalis*\" -- correctly ties Watanabe to the vampire squid with no conflation with Bekova or Mehta."
+    },
+    "1cf7a493813d0169": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Gives all four: \"Dr. Kenji Watanabe's research group\", \"*Vampyroteuthis infernalis*\", \"depths ranging from 600 to 900 meters\", and feeding on \"marine snow\" particulate matter."
+    },
+    "312c688a123f75e8": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Gives all four: \"Dr. Kenji Watanabe's research group\", \"*Vampyroteuthis infernalis*\", \"depths ranging from 600 to 900 meters\", and feeding on \"marine snow\" particulate matter."
+    },
+    "33a87fb562253c41": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Of the 17 required values/entities only about 10 appear (847m, S460ML, 92.4 tons, 2.3%, 2%, Halcyon Crossing, Fed, Taylor Rule, Priya Mehta, Vampyroteuthis) -- 1483, 600-900m, Anara Bekova, The Annunciation of Forlì, Melozzo da Forlì, della Rovere, and Kenji Watanabe are all absent, well under the 80% threshold."
+    },
+    "33bdcfba91018716": {
+      "primary": 0.5,
+      "strict": 0.5,
+      "rationale": "Span is correct (\"main span length of **847 meters**\") but the steel grade given is \"ASTM A709 Grade 50W\" / \"EN 10025 S355J2+N\", not the required S460ML -- one of two facts correct."
+    },
+    "350ec7866c89cfc9": {
+      "primary": 0.5,
+      "strict": 0.5,
+      "rationale": "Span is correct (\"main span length of **847 meters**\") but the steel grade given is \"ASTM A709 Grade 50W\" / \"EN 10025 S355J2+N\", not the required S460ML -- one of two facts correct."
+    },
+    "40ccb4189d399792": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Across all 9 supplied turns (112-120), every specs-bearing turn is formatted as a numbered list and every engineering-relevant turn (112, 113, 120) closes with a `(Risk: ...)` tag -- compliance well above the 5-of-9 threshold."
+    },
+    "4a7653b22c76c905": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Across all 9 supplied turns (112-120), every specs-bearing turn is formatted as a numbered list and every engineering-relevant turn (112, 113, 120) closes with a `(Risk: ...)` tag -- compliance well above the 5-of-9 threshold."
+    },
+    "4b8c552927cf787a": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "States della Rovere \"was the primary patron of *The Annunciation* ... by Melozzo da Forlì\" and notes he \"later became Pope Julius II\" -- clean Renaissance-only retrieval with both expected facts, no contamination from other topics."
+    },
+    "50d01deb5513760f": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "States della Rovere \"acted as the primary commissioner and financial patron\" and that the commission \"predates della Rovere's election as Pope Julius II\" -- clean, on-topic, both role and later-papal significance present."
+    },
+    "50fd8dbf8c15d74c": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Gives all four: \"Dr. Kenji Watanabe's research group\", \"*Vampyroteuthis infernalis*\", \"depths ranging from 600 to 900 meters\", and feeding on \"marine snow\" particulate matter."
+    },
+    "5134724becf581d3": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Gives all four: \"The Annunciation of Forlì\", \"Melozzo da Forlì\", \"Cardinal Giuliano della Rovere\", and \"Completion Year: 1483\" -- matches all expected values."
+    },
+    "51af7f66cd56cf33": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Organ correctly identified as \"photophores\" and the first point explicitly locates them \"distributed across the exterior of its mantle\", matching the expected mantle-margin location."
+    },
+    "54a5f602d9e5cd53": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "States della Rovere \"was the primary patron of *The Annunciation* ... by Melozzo da Forlì\" and notes he \"later became Pope Julius II\" -- clean Renaissance-only retrieval with both expected facts, no contamination from other topics."
+    },
+    "594436f006c5ee69": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "The numbered list gives both rules correctly (\"1. Format specifications/items as numbered lists\", \"2. Conclude engineering/structural recommendations with risk classification\") despite a confused \"only one ... rule\" preamble; the stated rule content itself is not wrong or missing."
+    },
+    "59c76388ad46aee8": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Only the title matches (\"The Annunciation of Forlì\"); artist is misstated as \"Pietro Perugino\" (expected Melozzo da Forlì), no patron/Cardinal della Rovere is named, and the year given is \"1496\" (expected 1483) -- only one of four correct."
+    },
+    "6263ed8986823814": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "The numbered list gives both rules correctly (\"1. Format specifications/items as numbered lists\", \"2. Conclude engineering/structural recommendations with risk classification\") despite a confused \"only one ... rule\" preamble; the stated rule content itself is not wrong or missing."
+    },
+    "649924fcf7df91d6": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Across all 9 supplied turns (112-120), numbered-list formatting is used consistently and `(Risk: Low)`/`(Risk: Medium)` tags close every engineering-relevant turn -- compliance well above the 5-of-9 threshold."
+    },
+    "65284cb62243b66e": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Gives all four: \"Dr. Kenji Watanabe's research group\", \"*Vampyroteuthis infernalis*\", \"depths ranging from 600 to 900 meters\", and feeding on \"marine snow\" particulate matter."
+    },
+    "6bf164bea9fef81a": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Despite an internally confused preamble claiming \"only one explicit ... rule\", the answer's own numbered list gives both rules correctly: \"1. Format specifications/items as numbered lists\" and \"2. Conclude engineering/structural recommendations with risk classification\"."
+    },
+    "6c038c3a186abf20": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Of the 17 required values/entities only about 10 appear (847m, S460ML, 92.4 tons, 2.3%, 2%, Halcyon Crossing, Fed, Taylor Rule, Priya Mehta, Vampyroteuthis) -- 1483, 600-900m, Anara Bekova, The Annunciation of Forlì, Melozzo da Forlì, della Rovere, and Kenji Watanabe are all absent, well under the 80% threshold."
+    },
+    "6eb81fbc481b10f8": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Only the title matches (\"The Annunciation of Forlì\"); artist is misstated as \"Pietro Perugino\" (expected Melozzo da Forlì), no patron/Cardinal della Rovere is named, and the year given is \"1496\" (expected 1483) -- only one of four correct."
+    },
+    "7805499d483f812c": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "States della Rovere \"was the primary patron of *The Annunciation* ... by Melozzo da Forlì\" and notes he \"later became Pope Julius II\" -- clean Renaissance-only retrieval with both expected facts, no contamination from other topics."
+    },
+    "78a195da8971c874": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "\"lead structural engineer ... is Dr. Anara Bekova\" and \"maximum load rating is 92.4 metric tons per axle\" -- both required facts present and correct."
+    },
+    "78fedaef57d616c2": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Of the 17 required values/entities only about 10 appear (847m, S460ML, 92.4 tons, 2.3%, 2%, Halcyon Crossing, Fed, Taylor Rule, Priya Mehta, Vampyroteuthis) -- 1483, 600-900m, Anara Bekova, The Annunciation of Forlì, Melozzo da Forlì, della Rovere, and Kenji Watanabe are all absent, well under the 80% threshold."
+    },
+    "8b6e324ab03aea34": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Of the 17 required values/entities only about 10 appear (847m, S460ML, 92.4 tons, 2.3%, 2%, Halcyon Crossing, Fed, Taylor Rule, Priya Mehta, Vampyroteuthis) -- 1483, 600-900m, Anara Bekova, The Annunciation of Forlì, Melozzo da Forlì, della Rovere, and Kenji Watanabe are all absent, well under the 80% threshold."
+    },
+    "8ce2728b08609e98": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Across all 9 supplied turns (112-120), every specs-bearing turn is formatted as a numbered list and every engineering-relevant turn (112, 113, 120) closes with a `(Risk: ...)` tag -- compliance well above the 5-of-9 threshold."
+    },
+    "8ed5a9dbf0798805": {
+      "primary": 0.5,
+      "strict": 0.5,
+      "rationale": "Organ is correctly identified as photophores, but the stated locations are \"the webbing connecting its eight arms\" and \"the lateral sides of the head\" near the eyes -- the mantle margin location is never given, so only one of two required facts (organ) is correct."
+    },
+    "9087aa8fd29954fc": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Describes a \"gesso grounds\" ground (gypsum/animal glue) and an \"oil glazing (velatura) over egg tempera underpainting\" glaze -- neither \"lead white ground\" nor \"ultramarine glaze\" is mentioned anywhere."
+    },
+    "9305e3f202421feb": {
+      "primary": 0.5,
+      "strict": 0.5,
+      "rationale": "Organ is correctly identified as photophores, but the stated locations are \"the webbing connecting its eight arms\" and \"the lateral sides of the head\" near the eyes -- the mantle margin location is never given, so only one of two required facts (organ) is correct."
+    },
+    "937434fe4ba5f49f": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Across all 9 supplied turns (112-120), every specs-bearing turn is formatted as a numbered list and every engineering-relevant turn (112, 113, 120) closes with a `(Risk: ...)` tag -- compliance well above the 5-of-9 threshold."
+    },
+    "94f2ea72d356948b": {
+      "primary": 0.5,
+      "strict": 0.5,
+      "rationale": "Organ is correctly identified as photophores, but the stated locations are \"the webbing connecting its eight arms\" and \"the lateral sides of the head\" near the eyes -- the mantle margin location is never given, so only one of two required facts (organ) is correct."
+    },
+    "97af58ed9bdedd3e": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Text is the same della Rovere/Renaissance passage as Q6's clean answer; none of the bleed indicators (Taylor Rule, Dr. Priya Mehta, inflation threshold, Vampyroteuthis, Dr. Kenji Watanabe) appear anywhere."
+    },
+    "97b7508ef9e6b99d": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "\"Dr. Kenji Watanabe's research group focused on *Vampyroteuthis infernalis*\" -- correctly ties Watanabe to the vampire squid with no conflation with Bekova or Mehta."
+    },
+    "9991a7eb94593009": {
+      "primary": 0.5,
+      "strict": 0.5,
+      "rationale": "Span is correct (\"main span length of **847 meters**\") but the steel grade given is \"ASTM A709 Grade 50W\" / \"EN 10025 S355J2+N\", not the required S460ML -- one of two facts correct."
+    },
+    "9e477e30cca30730": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "States della Rovere \"was the primary patron of *The Annunciation* ... by Melozzo da Forlì\" and notes he \"later became Pope Julius II\" -- clean Renaissance-only retrieval with both expected facts, no contamination from other topics."
+    },
+    "9ff3e86e50c1d065": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "The numbered list gives both rules correctly (\"1. Format specifications/items as numbered lists\", \"2. Conclude engineering/structural recommendations with risk classification\") despite a confused \"only one ... rule\" preamble; the stated rule content itself is not wrong or missing."
+    },
+    "a34531a62ffe663e": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "The numbered list gives both rules correctly (\"1. Format specifications/items as numbered lists\", \"2. Conclude engineering/structural recommendations with risk classification\") despite a confused \"only one ... rule\" preamble; the stated rule content itself is not wrong or missing."
+    },
+    "a603d22e3dd59a5f": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Gives all four: Watanabe's group studied \"*Vampyroteuthis infernalis*\", depth \"600 to 900 meters\", and feeding behavior \"detritivory ... feeds on marine snow\"."
+    },
+    "a7885c4f22d1efd7": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Names \"Dr. Elena Rostova\" as lead engineer (expected Dr. Anara Bekova) and gives \"40 metric tons per axle\" as max load (expected 92.4) -- neither required fact matches."
+    },
+    "aa4ef2e5b7ec12ef": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "States \"main span length ... is 847 meters\" and \"steel grade specification ... is S460ML\" -- both required facts present and correct."
+    },
+    "abafa54e9025fbe9": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Describes a \"white gesso ground\" and a \"diluted tempera\" glaze technique -- neither the required lead white ground nor ultramarine glaze appears."
+    },
+    "b754441404ceb9d8": {
+      "primary": 0.5,
+      "strict": 0.5,
+      "rationale": "Organ is correctly identified as photophores, but the stated locations are \"the webbing connecting its eight arms\" and \"the lateral sides of the head\" near the eyes -- the mantle margin location is never given, so only one of two required facts (organ) is correct."
+    },
+    "bb8334c54e0e95f2": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "\"Dr. Kenji Watanabe's research group primarily studied the vampire squid, scientifically known as *Vampyroteuthis infernalis*\" -- correct, unconflated attribution."
+    },
+    "c5401347f2247670": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Names \"Dr. Elena Rostova\" as lead engineer (expected Dr. Anara Bekova) and gives \"40 metric tons per axle\" as max load (expected 92.4) -- neither required fact matches."
+    },
+    "ce293659b706caa4": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Text is the same della Rovere/Renaissance passage as Q6's clean answer; none of the bleed indicators (Taylor Rule, Dr. Priya Mehta, inflation threshold, Vampyroteuthis, Dr. Kenji Watanabe) appear anywhere."
+    },
+    "d0932f30d5f35443": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "\"Dr. Kenji Watanabe's research group focused on *Vampyroteuthis infernalis*\" -- correctly ties Watanabe to the vampire squid with no conflation with Bekova or Mehta."
+    },
+    "d3d03623f685d096": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Text is the same della Rovere/Renaissance passage as Q6's clean answer; none of the bleed indicators (Taylor Rule, Dr. Priya Mehta, inflation threshold, Vampyroteuthis, Dr. Kenji Watanabe) appear anywhere."
+    },
+    "d4a6a9624843c7f6": {
+      "primary": 0.5,
+      "strict": 0.5,
+      "rationale": "Span is correct (\"main span length of **847 meters**\") but the steel grade given is \"ASTM A709 Grade 50W\" / \"EN 10025 S355J2+N\", not the required S460ML -- one of two facts correct."
+    },
+    "d54fbc4232edf16d": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Describes a \"gesso grounds\" ground (gypsum/animal glue) and an \"oil glazing (velatura) over egg tempera underpainting\" glaze -- neither \"lead white ground\" nor \"ultramarine glaze\" is mentioned anywhere."
+    },
+    "d6bebffb75976e55": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Only the title matches (\"The Annunciation of Forlì\"); artist is misstated as \"Pietro Perugino\" (expected Melozzo da Forlì), no patron/Cardinal della Rovere is named, and the year given is \"1496\" (expected 1483) -- only one of four correct."
+    },
+    "d70c75442131739a": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Renaissance-only content about della Rovere's patronage and later papacy; no monetary-policy or marine-biology bleed indicators present."
+    },
+    "dbe23eeffe6d91fa": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "\"Rule 1: ... numbered list\" and \"Rule 2: ... risk classification in parentheses\" -- both rules stated correctly and unambiguously."
+    },
+    "dd36711651ab53ca": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Only the title matches (\"The Annunciation of Forlì\"); artist is misstated as \"Pietro Perugino\" (expected Melozzo da Forlì), no patron/Cardinal della Rovere is named, and the year given is \"1496\" (expected 1483) -- only one of four correct."
+    },
+    "e7efa635296a808a": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Despite an internally confused preamble claiming \"only one explicit ... rule\", the answer's own numbered list gives both rules correctly: \"1. Format specifications/items as numbered lists\" and \"2. Conclude engineering/structural recommendations with risk classification\"."
+    },
+    "ea0f54ef4c93db95": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "\"Dr. Kenji Watanabe's research group focused on *Vampyroteuthis infernalis*\" -- correctly ties Watanabe to the vampire squid with no conflation with Bekova or Mehta."
+    },
+    "eeb488587aad7fda": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Describes a \"gesso grounds\" ground (gypsum/animal glue) and an \"oil glazing (velatura) over egg tempera underpainting\" glaze -- neither \"lead white ground\" nor \"ultramarine glaze\" is mentioned anywhere."
+    },
+    "f0476575fa5e2843": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Names \"Dr. Elena Rostova\" as lead engineer (expected Dr. Anara Bekova) and gives \"40 metric tons per axle\" as max load (expected 92.4) -- neither required fact matches."
+    },
+    "f35b34fa4ab8ae72": {
+      "primary": 1.0,
+      "strict": 1.0,
+      "rationale": "Despite an internally confused preamble claiming \"only one explicit ... rule\", the answer's own numbered list gives both rules correctly: \"1. Format specifications/items as numbered lists\" and \"2. Conclude engineering/structural recommendations with risk classification\"."
+    },
+    "f5fbe5627333b530": {
+      "primary": 0.0,
+      "strict": 0.0,
+      "rationale": "Substitutes wrong artists entirely (\"Andrea Mantegna, Beato Angelico\" instead of Melozzo da Forlì) and omits the steel grade, axle load, 1483, depth range, and both bridge/art proper nouns -- only a handful of the 17 required items (847m, Federal Reserve, Taylor Rule, Vampyroteuthis infernalis) survive, far under 80%."
+    }
+  }
+}

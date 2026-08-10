@@ -64,7 +64,15 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **IC-001 internal packing (2026-08-06).** BRANCH A. K-first replay from frozen candidate identities; 0 model calls. B0 reproduces the deployed 6/17 at 31,946 chars exactly. Under the deployed order K delivered 0 episodes at 8/8 probes; K-first gives 9. Q11 6/17->7/17, targeted 14/21->18/21, zero losses. No CC-006 cache here; Amendment 001 authorized, enforced as a gate.
 
-**PAPER-001 (2026-08-06).** DRAFT, revised through IC-001. The pool/objective/floor decomposition stands, but §5's 6/17 is packing-conditioned: new §5.2.2 records that the internal K path delivered nothing at 8/8 probes. Naturalistic ranking lacks the dominant internal inversion. Corpus-artifact cause unresolved. Source is `paper/PAPER_001.md`; figures/PDF are generated.
+**011 - Tier isolation.** RUN; B1 FAILS. Four live 121-turn arms behind the first binding pre-test (G1-G7, T=6/13). Deployed arm 8.0 = STM-only 8.0 on all 13 questions: the LTM tier is inert as shipped. K-first delivers 13 K episodes vs 1, raises Q11 to 10/17 and targeted to 10/21, scores 7.0. Not adopted. Same prompt, same seed, different answer: -1.0 sits in unmeasured noise.
+
+**N-tier mislabel (2026-08-08).** The tier the arc calls a recency window is a least-recently-delivered rotation over the whole store; replay matches the live ranking 120/120 turns per arm. Overlap with a real window 0.29, 36% of deliveries older than the cap, reaches all 120 episodes. Three rules carry the name; the only real window is in `episodic`, which no scored live study ran. B1 unchanged.
+
+**Carried N rule was a locked prefix (2026-08-08).** Every live run through Study 010 ranked freshest-delivery-first and refreshed what it delivered, so the block re-selected itself: from turn 11 it held source turns 1-9 plus turn t-1, for 111 turns in Study 009 and 999 in Study 010. Replay exact on 17 runs, 12 lock. Overlap with a real window 0.205. Read the key AND what touches it.
+
+**Instrument band is 3.0 (2026-08-09).** Amendment 001 run. Five arm-D replicates, identical everything: four score 8.0, one 11.0. Not a spread but a switch - four are byte-identical across 121 turns; the one meeting an empty server slot diverges at turn 1. Study 009's 3.0, LV-001's -2.0 and 011's -1.0 are NOT DEMONSTRATED. Offline counts untouched. B1 stays fired.
+
+**PAPER-001 (2026-08-07).** DRAFT, revised through Study 011. The pool/objective/floor decomposition stands, but Â§5's 6/17 is packing-conditioned: new Â§5.2.2 records that the internal K path delivered nothing at 8/8 probes. Naturalistic ranking lacks the dominant internal inversion. Corpus-artifact cause unresolved. Source is `paper/PAPER_001.md`; figures/PDF are generated.
 
 **Retrieval mechanism ledger (2026-08-03).** CLOSED. E002 KILL but exact-32k segmentation improved 6/17->10/17. AR-001 proves exact 14/17 costs 5,058 chars. E001 best-found .1204->.2103; 0/714 reached K=.48. F2 closed. EC-001 measures F3 externally: 0/500 component absence signals, but reader abstention 17/20. E003 unauthorized.
 
@@ -82,6 +90,42 @@ Before implementing any gate or criterion, ask whether it can pass while the cer
 - Pre-registration commits contain no implementation files.
 - Never edit a locked pre-registration. Record changes in standalone amendments.
 - Parameters live in one authoritative place: the pre-registration.
+
+### Preflight — required in every spec, before any run
+
+**No spec is complete without a Preflight section, and no run begins before
+Preflight passes.** Studies, analyses, counterfactuals, diagnostics, engineering
+specs and benchmark adoptions alike. A spec without Preflight is returned, not
+run. Full wording and the failing precedent behind each check: `PREFLIGHT.md`.
+
+Two parts, in order.
+
+**Part 1 — Exploration.** Characterize the mechanism empirically before designing
+a test of it. Not by reading the code, not by trusting its name, not by citing a
+prior study. Run it and record what it does; findings may change the design
+before anything is locked. Minimum, for any spec touching an existing component:
+behavioral identity in one falsifiable sentence; a name-to-behavior check on
+every named component, block, tier and variable; the distribution rather than a
+summary; and degenerate or absorbing states demonstrated on a real trace.
+
+**Part 2 — Checklist.** Every item answered explicitly. *"Assumed" is not an
+answer; "verified at `<SHA>`" is.*
+
+| # | Check |
+|---|---|
+| **PF1** | Inputs exist — present, readable, hash-identified, counted |
+| **PF2** | Mechanism identity verified against its name and description, on committed data |
+| **PF3** | Gate ordering enforced, not assumed — proven to execute before what it gates |
+| **PF4** | Thresholds achievable — every bar and kill condition checked reachable before locking |
+| **PF5** | Comparison keys stable — content hashes, never generated ids, timestamps or paths |
+| **PF6** | Reproduction anchor — a replay reproduces a known result by identity and digest, not by count |
+| **PF7** | Absorbing-state proof for any mechanism with feedback, on a real trace of the intended length |
+| **PF8** | Ablation length adequate — state what it can and cannot detect |
+| **PF9** | Surrogate audit — can this pass while the property it certifies is false? Record residuals |
+| **PF10** | Live-evaluation requirement stated — availability is not a verdict |
+
+**Ticked boxes are not Preflight.** Each check names the artifact or the executed
+test that answers it.
 
 ### Gates and ablation
 
@@ -164,6 +208,7 @@ Items 2 and 3 are mandatory. A study is not closed and its PR must not merge wit
 - Score an answerless item above zero.
 - Expose rubric artifacts to mechanism code.
 - Run unseeded or use a flag-disabled control.
+- Run any spec without a passing Preflight (§4, `PREFLIGHT.md`).
 - start a 120-turn run without a passing 35-turn ablation.
 - Reopen a stopped study or bypass a binding gate without a new, authorized design.
 - Report a result that cannot be traced to a committed artifact.
@@ -174,6 +219,7 @@ Items 2 and 3 are mandatory. A study is not closed and its PR must not merge wit
 README.md                                      current front door
 AGENTS.md                                      this operating manual
 ERRATA.md                                      corrections to published results
+PREFLIGHT.md                                   mandatory preflight; §4 carries the mandate
 experiments/audits/scoring_integrity/          scoring protocol and 2026 audit
 experiments/study_NNN/
   pre_registration.md                          locked design and SHA anchor

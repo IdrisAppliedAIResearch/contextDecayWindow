@@ -1,0 +1,86 @@
+{
+  "amendment": "experiments/study_011/amendments/AMENDMENT_001_determinism_and_noise_band.md",
+  "control_commit": "4db83229",
+  "control_worktree": "C:\\Users\\muzaf\\PycharmProjects\\cdw-study011-control",
+  "design": "Arm D, the deployed configuration, repeated N = 5",
+  "model": "C:\\Users\\muzaf\\.cache\\huggingface\\hub\\models--unsloth--Qwen3.6-27B-MTP-GGUF\\snapshots\\5cb35eb3dcbf52dbce5f87dbc64df6aaffadcace\\Qwen3.6-27B-UD-Q6_K_XL.gguf",
+  "note": "No score exists at this commit. The decision rule committed before this run is DECISION_RULE.md; scoring follows.",
+  "phase": "2",
+  "process_continuity": "INTACT",
+  "process_continuity_note": "INTACT means every replicate ran back to back in the one server process named above, as Study 011's four arms did. BROKEN means at least one replicate was reused from an earlier process, so the band mixes across-process variation with run-to-run variation and must be read with that stated.",
+  "replicates": [
+    {
+      "control_isolation": "PASS",
+      "engine_sha256": "041aaa94d2eb05f93eb301bd9c6ce91055d2978ae8842a162773c4b5ed3a4993",
+      "finished_at": "2026-08-10T01:16:59.653817+00:00",
+      "index": 1,
+      "output_dir": "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\study_011\\noise_band\\runs\\study_011_noise_band_d_01\\context_matched_stm",
+      "run_id": "study_011_noise_band_d_01",
+      "scoring_surface_sha256": "d147936eb4447de62b627fcfb9922d445229edf2827096ab31726ca91b0590d0",
+      "server_pid": 29344,
+      "started_at": "2026-08-10T00:38:08.439716+00:00"
+    },
+    {
+      "control_isolation": "PASS",
+      "engine_sha256": "041aaa94d2eb05f93eb301bd9c6ce91055d2978ae8842a162773c4b5ed3a4993",
+      "finished_at": "2026-08-10T01:57:23.955010+00:00",
+      "index": 2,
+      "output_dir": "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\study_011\\noise_band\\runs\\study_011_noise_band_d_02\\context_matched_stm",
+      "run_id": "study_011_noise_band_d_02",
+      "scoring_surface_sha256": "39f5308b624699df315539974d83d549cde36daf0edb54f3b7f9be49efcf8787",
+      "server_pid": 29344,
+      "started_at": "2026-08-10T01:16:59.858225+00:00"
+    },
+    {
+      "control_isolation": "PASS",
+      "engine_sha256": "041aaa94d2eb05f93eb301bd9c6ce91055d2978ae8842a162773c4b5ed3a4993",
+      "finished_at": "2026-08-10T02:37:49.251924+00:00",
+      "index": 3,
+      "output_dir": "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\study_011\\noise_band\\runs\\study_011_noise_band_d_03\\context_matched_stm",
+      "run_id": "study_011_noise_band_d_03",
+      "scoring_surface_sha256": "3bd5e259a448185083a97aec06ee4cbda0154f8c3fc0105372a90612df32b233",
+      "server_pid": 29344,
+      "started_at": "2026-08-10T01:57:24.158013+00:00"
+    },
+    {
+      "control_isolation": "PASS",
+      "engine_sha256": "041aaa94d2eb05f93eb301bd9c6ce91055d2978ae8842a162773c4b5ed3a4993",
+      "finished_at": "2026-08-10T03:18:14.375191+00:00",
+      "index": 4,
+      "output_dir": "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\study_011\\noise_band\\runs\\study_011_noise_band_d_04\\context_matched_stm",
+      "run_id": "study_011_noise_band_d_04",
+      "scoring_surface_sha256": "938afc76e0817646b1618f3c4249315f5bbf1e124a696304cd16eeccdaf87852",
+      "server_pid": 29344,
+      "started_at": "2026-08-10T02:37:49.458485+00:00"
+    },
+    {
+      "control_isolation": "PASS",
+      "engine_sha256": "041aaa94d2eb05f93eb301bd9c6ce91055d2978ae8842a162773c4b5ed3a4993",
+      "finished_at": "2026-08-10T03:58:26.814227+00:00",
+      "index": 5,
+      "output_dir": "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\study_011\\noise_band\\runs\\study_011_noise_band_d_05\\context_matched_stm",
+      "run_id": "study_011_noise_band_d_05",
+      "scoring_surface_sha256": "279323b6bc9af8f02a59cdfe8111e227a21c25f7a64c6de9a8010bf474b9b8d5",
+      "server_pid": 29344,
+      "started_at": "2026-08-10T03:18:14.586719+00:00"
+    }
+  ],
+  "reused_replicates": [],
+  "scored": false,
+  "seed": 5005,
+  "server": {
+    "replicates_in_this_process": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "server_build_hash": "b9294-0f3cb3fc8",
+    "server_command": "C:\\Users\\muzaf\\.unsloth\\llama.cpp\\build\\bin\\Release\\llama-server.exe -m C:\\Users\\muzaf\\.cache\\huggingface\\hub\\models--unsloth--Qwen3.6-27B-MTP-GGUF\\snapshots\\5cb35eb3dcbf52dbce5f87dbc64df6aaffadcace\\Qwen3.6-27B-UD-Q6_K_XL.gguf --host 127.0.0.1 --port 8080 --ctx-size 50000 --parallel 1 --cache-type-k q8_0 --cache-type-v q8_0 --flash-attn on --jinja --metrics --top-p 0.95 --top-k 20 --min-p 0.0 --presence-penalty 0.0 --repeat-penalty 1.0 --seed 5005 --temp 1",
+    "server_pid": 29344,
+    "why_one_process": "Study 011's four arms ran back to back on one server process. The band is measured against those differences, so the replicates are produced the same way. Across-process reproducibility is Phase 1's question, not a confound to smuggle in here."
+  },
+  "study": "011",
+  "temperature": 1.0
+}

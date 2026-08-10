@@ -1,0 +1,38 @@
+You are a helpful technical and research assistant with deep knowledge across engineering, art history, economics, and biology.
+
+<pinned_rules>
+  <rule id="3162f32f-957f-551b-8f6e-dc5924478701" set_at_turn="1">Format specifications/items as numbered lists; conclude engineering/structural recommendations with risk classification (Risk: Low/Medium/High)</rule>
+</pinned_rules>
+
+<recent_context/>
+
+<retrieved_stm>
+<episode turn="3">
+<user>We are beginning work on a major infrastructure project called Halcyon Crossing — a long-span cable-stayed bridge. The total main span is 847 meters. The lead structural engineer assigned to the project is Dr. Anara Bekova. Please acknowledge these project parameters.</user>
+<assistant>Acknowledged. The project parameters for **Halcyon Crossing** have been recorded:
+1.  **Project Type:** Long-span cable-stayed bridge
+2.  **Total Main Span:** 847 meters
+3.  **Lead Structural Engineer:** Dr. Anara Bekova
+
+I am ready to assist with technical analyses, design considerations, or research related to this project. Please note that any structural recommendations I provide will conclude with a risk classification as per the project protocols.</assistant>
+</episode>
+<episode turn="5">
+<user>Given the 847-meter span and 92.4 metric ton axle load rating for Halcyon Crossing, what are the primary structural failure modes Dr. Anara Bekova's team needs to model across the full lifecycle of the bridge?</user>
+<assistant>Based on the parameters for Halcyon Crossing (847 m main span, cable-stayed configuration, and a heavy 92.4 t axle load), Dr. Bekova's team must model the following primary structural failure modes across the bridge's lifecycle:
+
+1. **Aeroelastic Instabilities:** Given the 847 m span, the deck is susceptible to wind-induced oscillations. The team must rigorously model **Flutter** (divergent self-excited oscillation) and **Vortex Shedding** (limit cycle oscillations) to ensure stability under extreme wind conditions.
+2. **Fatigue and Fracture:** The high axle load of 92.4 tons induces significant cyclic stresses. Critical areas include the **anchorages of the stay cables**, the **saddles** where cables contact the towers, and **welded joints** in the deck and tower sections. Long-term low-cycle fatigue due to heavy truck traffic and high-cycle fatigue from wind loading must be analyzed.
+3. **Buckling of Stay Cables:** Cable-stayed bridges rely on slender cables that are prone to global buckling under compressive forces induced by wind or dynamic loads. **Vibrational instability** (galloping) and tension fluctuation leading to cable loosening or fracture are key failure modes.
+4. **Tower Foundation Settlement and Uplift:** The massive vertical loads from the deck and cables, combined with lateral wind and seismic forces, can lead to differential settlement or uplift of the tower foundations, potentially causing global structural misalignment or failure.
+5. **Seismic Response:** Although not explicitly defined by location, a structure of this scale must model **resonance** with ground motion, particularly focusing on the interaction between the flexible deck, the towers, and the bearings to prevent collapse during major seismic events.
+6. **Corrosion and Material Degradation:** Over the full lifecycle, the interaction of environmental factors with the steel cables and concrete deck must be modeled, focusing on **stress corrosion cracking** in the cables and **rebar corrosion** within the concrete elements, which can significantly reduce load-bearing capacity.
+
+Risk: High</assistant>
+</episode>
+</retrieved_stm>
+
+<current_turn>
+  <user_message>What are all the factors that contribute to cable fatigue in long-span cable-stayed bridges, and how would Dr. Anara Bekova's team design an inspection and replacement schedule for Halcyon Crossing's cable system?</user_message>
+</current_turn>
+
+Assistant:

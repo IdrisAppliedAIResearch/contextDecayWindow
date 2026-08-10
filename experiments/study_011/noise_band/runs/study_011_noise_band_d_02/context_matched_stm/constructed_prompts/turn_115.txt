@@ -1,0 +1,184 @@
+You are a helpful technical and research assistant with deep knowledge across engineering, art history, economics, and biology.
+
+<pinned_rules>
+  <rule id="3162f32f-957f-551b-8f6e-dc5924478701" set_at_turn="1">Format specifications/items as numbered lists; conclude engineering/structural recommendations with risk classification (Risk: Low/Medium/High)</rule>
+</pinned_rules>
+
+<recent_context>
+<episode turn="114">
+<user>What are the two formatting rules I established at the very beginning of our conversation? Please state them precisely and confirm whether you have been applying them.</user>
+<assistant>Based on the pinned rules provided in our context, there is actually only **one** explicit formatting/behavioral rule established at the beginning of our conversation (Turn 1):
+
+1.  **Format specifications/items as numbered lists**: All specifications, itemized details, or distinct points in engineering or technical recommendations should be presented as a numbered list.
+2.  **Conclude engineering/structural recommendations with risk classification**: Any response containing engineering or structural recommendations must end with a specific risk classification in the format `(Risk: Low/Medium/High)`.
+
+**Confirmation of Application:**
+Yes, I have been applying these rules consistently throughout our recent exchanges:
+*   In **Turn 113** (Halcyon Crossing load rating), I used a numbered list and concluded with `(Risk: Low)`.
+*   In **Turn 10** (Corrosion protection), I used a detailed numbered list and concluded with `(Risk: High)` due to the critical nature of structural integrity in marine environments.
+*   In **Turn 22** (Cable arrangements), I used a numbered list and concluded with `(Risk: Medium)`.
+*   Note: In non-engineering turns (like Turn 83 on FTPL, Turn 97 on DVM, or Turn 41 on Art History), I still used numbered lists for clarity where appropriate, but the "Risk" tag was applied as `(Risk: Low)` as a standard footer, even though it is strictly mandated for "engineering/structural recommendations." For pure art/history/economics queries, the risk tag is less semantically relevant but I have included it to maintain the structural consistency of the "numbered list + conclusion" pattern, or omitted it if the prompt was purely analytical without engineering recommendations. However, looking closely at Turns 83, 84, 97, 41, and 56, I included `(Risk: Low)` at the end. The rule specifically says "conclude **engineering/structural** recommendations". Since those were not engineering recommendations, strictly speaking, the rule didn't apply, but I added it for consistency. I will adhere strictly to the rule: if it's an engineering/structural recommendation, I must include the risk classification.</assistant>
+</episode>
+<episode turn="62">
+<user>Analyze in detail how the Federal Reserve's dual mandate — maximum employment and stable prices — creates structural tensions in monetary policy decisions, and how the Fed has historically navigated these tensions during periods of simultaneous inflationary and employment pressure.</user>
+<assistant>1.  **The Structural Tension of the Dual Mandate**: The Federal Reserve’s dual mandate, codified by the Congress in the Federal Reserve Act amendments of 1978 and reaffirmed in 2012, requires the central bank to pursue both "maximum employment" and "stable prices." These goals are often inversely related due to the **Phillips Curve** trade-off, which suggests that lower unemployment is associated with higher inflation, and vice versa. This creates a structural tension: policies that stimulate employment (e.g., lowering interest rates, expanding the balance sheet) can overheat the economy and drive up inflation, while policies that curb inflation (e.g., raising rates) can suppress demand and increase unemployment.
+
+2.  **Historical Navigation: The Great Inflation and Volcker Shock (1970s–1980s)**:
+    *   **The Conflict**: In the 1970s, the US faced stagflation—simultaneously high inflation and high unemployment—challenging the traditional Phillips Curve view. The Fed initially prioritized employment, keeping rates low, which fueled inflationary expectations.
+    *   **Resolution**: Under Paul Volcker (1979–1987), the Fed prioritized **price stability** as the prerequisite for sustainable growth. Volcker aggressively raised the federal funds rate to over 20%, triggering a deep recession and unemployment peaking at 10.8% in 1982. This demonstrated that the Fed would endure significant employment pain to break inflationary expectations, effectively resetting the balance in favor of price stability for the next few decades.
+
+3.  **The Great Moderation and the Leaning Against the Wind Debate (1990s–2000s)**:
+    *   **The Conflict**: During the 1990s, the Fed under Alan Greenspan attempted to smooth both cycles. The challenge was determining whether inflation was transitory or embedded.
+    *   **Resolution**: The Fed largely followed the **Taylor Rule**, reacting to deviations from potential output and target inflation. In the late 1990s, despite a booming labor market, inflation remained low due to productivity gains and globalization. The Fed kept rates relatively low, successfully achieving a "soft landing" in 2000. This period suggested that the dual mandate could be harmonized if inflation expectations were well-anchored, though this was later challenged by the housing bubble.
+
+4.  **The Financial Crisis and the Zero Lower Bound (2008–2014)**:
+    *   **The Conflict**: Post-2008, the Fed faced deflationary pressures and massive unemployment. The tension shifted: how to support employment without reigniting inflation?
+    *   **Resolution**: The Fed prioritized **maximum employment** through unconventional measures: near-zero interest rates and Quantitative Easing (QE). For six years, inflation remained below the 2% target. The Fed explicitly tolerated "transitory" inflation overshoots, arguing that premature tightening would derail the labor market recovery. This was a clear prioritization of the employment mandate when prices were stable or low.
+
+5.  **The Post-Pandemic Shock and the "Transitory" Miscalculation (2021–2022)**:
+    *   **The Conflict**: In 2021, the US saw a rapid labor market recovery alongside a surge in inflation due to supply chain bottlenecks and fiscal stimulus. The Fed judged the inflation to be "transitory," maintaining an accommodative stance to support employment.
+    *   **Resolution**: This misjudgment led to entrenched inflation (peaking at 9.1% in 2022) while unemployment remained historically low (3.5%). The tension became acute: raising rates aggressively risked a recession, but failing to act risked de-anchoring inflation expectations. The Fed eventually pivoted to aggressive tightening (2022–2023), demonstrating a re-prioritization of **price stability** once inflation became embedded.
+
+6.  **Current Framework: Average Inflation Targeting (AIT) and Symmetry**:
+    *   **The Mechanism**: In August 2020, the Fed adopted AIT to navigate the tension more flexibly. Instead of targeting 2% inflation strictly, it allows inflation to run moderately above 2% for some time after periods where it has been persistently below target.
+    *   **Resolution**: This framework aims to **symmetrize** the mandate. It gives the Fed more room to support employment during downturns without immediately tightening if inflation temporarily overshoots. It acknowledges that the trade-off is not static and allows for "make-up" inflation to support labor markets, provided inflation expectations remain anchored.
+
+7.  **Ongoing Challenges and Asymmetries**:
+    *   **Measurement Issues**: "Maximum employment" is not a fixed number; it evolves with demographics and labor force participation, making it harder to define than the 2% inflation target. This creates a bias toward focusing on the more measurable inflation target.
+    *   **Political Pressure**: The employment mandate is often subject to greater political scrutiny than price stability, leading to potential short-termism. The Fed must navigate this by emphasizing data dependence and independence in its communications.
+    *   **Globalization and Disinflationary Forces**: Structural factors like globalization and technological change have suppressed inflation for decades, allowing the Fed to prioritize employment. However, recent deglobalization trends and climate-related supply shocks may reintroduce more frequent stagflationary risks, forcing the Fed to constantly recalibrate its priorities.
+
+(Risk: Medium)</assistant>
+</episode>
+<episode turn="72">
+<user>Analyze in detail how financial stability objectives interact with price stability objectives in central bank decision-making, and when these objectives conflict, how that conflict has been resolved in historical episodes.</user>
+<assistant>1.  **Theoretical Tension: The "Nexus" between Financial and Price Stability**:
+    *   **Independence Hypothesis**: Traditional mainstream theory (e.g., Bernanke 2000) posited that central banks should focus solely on price stability. The argument was that sound prudential regulation (handled by supervisory authorities) would ensure financial stability, and that monetary policy aimed at inflation would indirectly support financial stability by avoiding the distortions caused by high or volatile inflation.
+    *   **Interdependence Hypothesis**: Post-2008 literature emphasizes that financial and price stability are deeply linked. Asset price bubbles can lead to financial crises, which cause recessions and disinflationary pressure (the "Great Moderation" myth). Conversely, low interest rates intended to stabilize prices can encourage excessive risk-taking ("search for yield"), fueling asset bubbles. Thus, ignoring financial stability can undermine price stability over the medium term.
+
+2.  **Operational Conflicts in Policy Tools**:
+    *   **Interest Rate Dilemma**: The primary tool for price stability is the policy interest rate. If an asset bubble is forming (financial stability risk), raising rates may burst the bubble but also induce unnecessary economic pain if inflation is low. Conversely, if a bubble bursts and inflation is high, cutting rates to support the financial system (and avoid a deep recession) risks anchoring inflation expectations higher than target.
+    *   **Quantitative Easing (QE) and Balance Sheet Policy**: QE purchases assets to lower long-term rates (stimulating the economy/price stability) but simultaneously compresses term premiums and can distort asset prices, potentially inflating bubbles in equities or real estate, thereby threatening financial stability.
+
+3.  **Historical Episode 1: The 1990s Asset Bubbles (Japan and Dot-Com)**:
+    *   **Context**: In the late 1980s, Japan experienced a massive bubble in stocks and real estate. In the late 1990s/early 2000s, the US saw the Dot-Com bubble.
+    *   **Resolution**: Central banks largely adhered to the "Independence Hypothesis." The Bank of Japan kept rates high for too long, fearing inflation, which exacerbated the bubble's burst. Conversely, Greenspan-era Fed argued that central banks could not reliably identify bubbles ex-ante, so they should "lean against the wind" only if inflation appeared, but be ready to "clean up the mess" ex-post by cutting rates after the bust.
+    *   **Outcome**: This approach was criticized for failing to prevent the crises. The subsequent "Greenspan Put" (expectation of rate cuts after crashes) arguably incentivized the risk-taking that led to the 2008 Global Financial Crisis (GFC).
+
+4.  **Historical Episode 2: The Global Financial Crisis (2008)**:
+    *   **Context**: The financial crisis caused a severe credit crunch and deflationary pressure.
+    *   **Resolution**: Central banks prioritized **financial stability** via unconventional measures. The Fed, ECB, and BoE slashed rates to zero/near-zero and launched massive QE. They provided liquidity to financial institutions directly (acting as lender of last resort to markets, not just banks) to prevent systemic collapse, even though this risked future inflation.
+    *   **Outcome**: The immediate financial system was stabilized, and inflation did not spiral in the West, reinforcing the view that financial stability is a prerequisite for price stability. However, this led to a decade of low inflation and high asset prices, setting the stage for the next conflict.
+
+5.  **Historical Episode 3: The Post-Pandemic Inflation Surge (2021–2023)**:
+    *   **Context**: Following the pandemic, central banks maintained accommodative policies (low rates, large balance sheets) to support recovery (financial/economic stability). This coincided with supply shocks and fiscal stimulus, leading to high inflation.
+    *   **Resolution**: Central banks faced a stark choice: keep rates low to support debt-laden households and governments (financial stability) or raise rates aggressively to curb inflation (price stability). Most major central banks (Fed, ECB) chose **price stability** as the primary mandate, raising rates sharply despite warnings about the impact on commercial real estate, bank net interest margins, and sovereign debt sustainability.
+    *   **Outcome**: The "higher for longer" stance stabilized inflation expectations but increased financial stress (e.g., SVB collapse in 2023). Central banks responded with targeted liquidity facilities (financial stability tools) while keeping policy rates high (price stability tools), demonstrating a new "dual-track" approach.
+
+6.  **Modern Frameworks for Resolution: Macroprudential Policy**:
+    *   To avoid relying solely on interest rates (which affect the whole economy), central banks now use **macroprudential tools** specifically for financial stability. These include:
+        *   **Countercyclical Capital Buffers (CCyB)**: Requiring banks to hold more capital during booms.
+        *   **Loan-to-Value (LTV) Ratios**: Limiting mortgage sizes to cool housing bubbles without raising general interest rates.
+        *   **Stress Tests**: Ensuring banks can withstand shocks.
+    *   **Current Consensus**: The prevailing view (e.g., BIS, IMF) is that central banks should use macroprudential tools to address financial imbalances and reserve monetary policy (interest rates) primarily for price stability. However, in extreme crises, monetary policy may still be used to support financial stability, with the expectation that it will eventually be tightened to ensure price stability.
+
+(Risk: Medium)</assistant>
+</episode>
+<episode turn="98">
+<user>Walk me through the complete methodology for deep sea biological sampling — from ROV deployment through plankton net tows through in situ imaging — including what each method captures and misses, and how sampling bias shapes our understanding of deep sea communities.</user>
+<assistant>1.  **ROV (Remotely Operated Vehicle) Deployment and Video Transects**: ROVs are deployed via ship-based winch systems, tethered for power and high-bandwidth data transmission. They carry high-definition cameras, strobes, and manipulator arms. This method captures high-resolution visual data of the seafloor (benthos) and the water column (pelagic/nepelagic), allowing for species identification, behavior observation, and population density estimates based on transect paths. However, it misses non-visual cues (chemical, acoustic), small or cryptic organisms hidden in substrate, and organisms that are frightened away by the vehicle's lights and noise ("light avoidance bias"). It also suffers from limited spatial coverage compared to towed methods.
+
+2.  **Multinet Tows (e.g., MOCNESS, USP)**: These are large, coded plankton nets towed vertically or obliquely from the surface to depth and back up, often in multiple compartments that can be opened/closed at specific depths. They capture a wide range of pelagic organisms, from large zooplankton to nekton, providing quantitative data on biomass and species composition across depth gradients. They miss organisms that are too large to enter the net mesh, fragile gelatinous species that may break or be excluded, and organisms that actively avoid the net (behavioral avoidance). The "nighttime vs. daytime" timing significantly impacts results due to Diel Vertical Migration, introducing temporal bias if not standardized.
+
+3.  **In Situ Imaging (e.g., ZooCam, Deep-Sea Stereo-BPI)**: This involves deploying autonomous or tethered camera systems that capture high-resolution stereo images of organisms passing through a defined volume in the water column. It captures rare, delicate, or fragile organisms that would be destroyed by net tows, allowing for precise morphological identification and size measurements without physical collection. It misses organisms that do not swim through the camera's field of view, small organisms below the resolution limit, and organisms that change color or appearance significantly in artificial light. It provides non-lethal sampling but requires extensive post-processing and AI-assisted taxonomy, which can introduce classification errors.
+
+4.  **Sampling Bias and Impact on Understanding**: The combination of these methods reveals that deep-sea communities are more diverse and dynamic than previously thought, but each method introduces bias. Net tows overestimate robust, small-bodied species and underestimate large, fragile, or evasive ones. ROVs and visual census methods underestimate mobile, light-sensitive species and those in complex habitats. In situ imaging fills gaps for fragile fauna but is limited by visibility and range. These biases historically led to an underestimation of mesopelagic and bathypelagic biomass and biodiversity, particularly for gelatinous zooplankton and transparent organisms. Integrating multiple methods is essential to correct for these biases and build a comprehensive picture of deep-sea ecology, nutrient cycling, and the impacts of human activities like fishing and climate change.
+
+(Risk: Low)</assistant>
+</episode>
+<episode turn="28">
+<user>Compare and contrast the dehumidification systems used to protect stay cables from internal corrosion in long-span bridges. What does an 847-meter span imply for system design and energy requirements?</user>
+<assistant>1.  **Vacuum Drying (Vacuum-Packed Stay Cable Systems)**:
+    *   **Mechanism**: The internal voids of the cable (often bundled strands within a polyethylene sheath) are evacuated of air using vacuum pumps, creating a near-zero oxygen and humidity environment. The cable is then sealed with high-performance valves.
+    *   **Pros**: Eliminates the primary drivers of corrosion (oxygen and moisture) completely. Once sealed, it requires no ongoing energy input for maintenance.
+    *   **Cons**: Higher initial installation cost. If the seal is compromised (due to impact, UV degradation of the sheath, or valve failure), the vacuum is lost, and the system fails silently unless monitored. Re-establishing vacuum on an 847-meter span can be complex if leaks occur.
+
+2.  **Gas Purging / Nitrogen Blanketing**:
+    *   **Mechanism**: Dry nitrogen gas is continuously or periodically pumped through the cable ducts to displace moist air and maintain a positive pressure of inert gas.
+    *   **Pros**: Provides a continuous protective atmosphere. Can be easily monitored via pressure gauges.
+    *   **Cons**: Requires continuous or frequent energy input to maintain pressure and supply nitrogen. There is a risk of nitrogen leakage over time, requiring replenishment.
+
+3.  **Desiccant / Chemical Dehumidification**:
+    *   **Mechanism**: Silica gel or other moisture-absorbing chemicals are placed in permeable bags or containers at the top of the cable anchorage. Moisture migrating into the cable duct is absorbed by the desiccant.
+    *   **Pros**: Passive system with no energy requirements. Simple to install.
+    *   **Cons**: Limited capacity. Desiccants saturate over time and must be replaced, which is logistically difficult and expensive for stay cables on a high bridge. Not suitable for the long-term, high-volume moisture potential in large cables on an 847m span.
+
+4.  **Active Electric Heating / Ventilation**:
+    *   **Mechanism**: Low-voltage heating elements are installed inside the cable sheath to keep the internal temperature above the dew point, preventing condensation. Sometimes coupled with small fans for air circulation.
+    *   **Pros**: Active control of the internal climate.
+    *   **Cons**: High energy consumption. Requires reliable power supply and monitoring systems. Risk of electrical failure leading to rapid corrosion if dew point is exceeded.
+
+5.  **Implications for an 847-Meter Span**:
+    *   **Volume and Mass**: The stay cables on an 847-meter span will be significantly longer and have larger diameters (and thus larger internal volumes) than those on shorter bridges. This increases the total volume of air/moisture that must be removed or replaced, raising the initial commissioning time for vacuum or purging systems.
+    *   **Energy Requirements**: For active systems (gas purging or electric heating), the energy requirement scales with the length and number of cables. An 847m span implies a vast array of cables, leading to substantial operational costs for continuous nitrogen supply or electrical heating. This makes passive systems like Vacuum Drying more attractive from a lifecycle cost perspective, despite higher upfront costs.
+    *   **Monitoring Complexity**: Monitoring the integrity of hundreds of long cables is critical. The system design must include remote sensing capabilities (pressure, humidity, temperature) at each cable to allow for early detection of failures in the dehumidification system.
+    *   **Thermal Gradients**: The long length of the cables means significant temperature differences between the top (pylon) and bottom (deck) anchorages. The dehumidification system must be designed to handle condensation risks at the cooler ends, especially if using gas purging or ventilation.
+
+(Risk: Medium)</assistant>
+</episode>
+<episode turn="36">
+<user>Analyze in detail the iconographic program of Annunciation scenes in 15th-century Italian panel painting — what symbolic elements were required by convention, what patrons expected, and how individual artists differentiated their treatments.</user>
+<assistant>1.  **The Angel Gabriel and the Annunciate**: The composition is anchored by the interaction between the Archangel Gabriel (on the left) and the Virgin Mary (on the right). Gabriel is depicted kneeling or hovering, often holding a lily (symbolizing purity) and speaking the Salutation (*Ave Maria*). Mary is typically shown in a domestic interior, kneeling or seated in surprise, often with her hands raised in a gesture of acceptance or questioning (*Quomodo fiat hoc?*).
+
+2.  **The Dove of the Holy Spirit**: Descending from above, often framed by a burst of light or through an open window/lattice, the dove represents the Holy Spirit initiating the Incarnation. This element is crucial for the theological accuracy of the scene, linking the visual narrative to the Gospel of Luke. In 15th-century works, the rays of light often form a distinct "divine spotlight" connecting the dove, the lily, and Mary’s womb.
+
+3.  **The Holy Ghost and the Dove**: A distinct beam of light or a visible dove descending from a hole in the ceiling or through a window signifies the moment of conception. This architectural breach emphasizes the supernatural intrusion into the domestic sphere. The light often illuminates Mary’s face or lap, drawing the viewer’s eye to the theological center of the painting.
+
+4.  **The Empty Chair or Book**: Mary is often depicted with an empty chair (the *sedes sapientiae*) left for the unborn Christ, or with a book open on her lap, symbolizing her role as the vessel of divine wisdom and her preparation through scripture. The book often shows the prophecy of Isaiah: *"Behold, a virgin shall conceive..."*
+
+5.  **Domestic Interior and Architectural Realism**: The 15th-century Quattrocento shifted the setting from a generic garden (Byzantine tradition) to a detailed, recognizable domestic interior. This reflected the humanist interest in realism and the sanctity of everyday life. Architects like Brunelleschi influenced the use of linear perspective in these rooms, with tiled floors and arches guiding the eye. Patrons expected these spaces to reflect contemporary Florentine or Venetian architecture, serving as a subtle display of their own status and taste.
+
+6.  **The Closed Garden (*Hortus Conclusus*)**: If the scene is set outdoors or features a garden wall, it is often enclosed, symbolizing Mary’s perpetual virginity. Roses, lilies, and other flowers are arranged with symbolic precision: lilies for purity, roses for love and martyrdom, and myrtle for chastity.
+
+7.  **Artist Differentiation and Individual Style**:
+    *   **Fra Angelico**: Emphasized spiritual serenity and delicate color, often using gold leaf accents to maintain a link to the Byzantine tradition while embracing Renaissance perspective.
+    *   **Sandro Botticelli**: Introduced dynamic linearity, expressive gestures, and complex architectural frameworks, often infusing the scene with a sense of immediate psychological interaction.
+    *   **Raphael**: Later in the century, introduced a more harmonious balance, softer modeling (*sfumato*), and idealized naturalism, moving away from the rigid iconography toward emotional resonance.
+    *   **Piero della Francesca**: Utilized rigorous geometric perspective and monumental, static figures, creating a sense of timeless, sculptural calm.
+
+(Risk: Low)</assistant>
+</episode>
+<episode turn="54">
+<user>What are all the factors that have contributed to the uneven survival rate of 15th-century Italian panel paintings — which types of works survive in greatest numbers, which are most lost, and what does this survivorship bias do to our understanding of the period?</user>
+<assistant>1.  **Material Vulnerability and Substrate Choice**: The most significant factor is the difference in substrate durability. Early 15th-century Italian paintings were predominantly executed on wooden panels (poplar, cypress, pine), which are susceptible to rot, insect damage, warping, and fire. By contrast, paintings on canvas or those integrated into architectural frescoes have different survival profiles. Panels are fragile during transport and storage; many were discarded when their frames rotted or when the canvases were deemed easier to maintain than unstable wooden supports.
+
+2.  **Iconoclastic and Religious Persecution**: The 16th and 17th centuries saw periods of intense religious iconoclasm, particularly during the Reformation and the Counter-Reformation. Works with "theologically incorrect" or "superstitious" imagery were destroyed. Additionally, during political upheavals (such as the Sack of Rome in 1527 or French Revolutionary seizures), art was looted, destroyed, or repurposed. Panel paintings, being heavy and difficult to hide, were often more vulnerable to destruction in burning buildings than mobile easel paintings or frescoes embedded in walls.
+
+3.  **Overpainting and "Modernization"**: Many 15th-century panel paintings survive not in their original state but heavily overpainted. In the 17th–19th centuries, it was common practice to "update" outdated compositions by overpainting faces, changing garments to contemporary fashion, or adding varnishes to darken the tone to match oil painting aesthetics. This practice altered the visual record, making many surviving works appear more "Baroque" or "Renaissance" in style than they originally were, obscuring the early Quattrocento linear style.
+
+4.  **Survivorship Bias: Altarpieces vs. Easel Works**: Large-scale altarpieces (*polychromes*) commissioned by churches and confraternities survive in the greatest numbers. These works were often installed in stable, protected environments (church altars) and were valued for their religious function, leading to better preservation. Conversely, smaller devotional panels, private portraits, and secular subjects were more likely to be sold, moved, lost, or destroyed during family dispersals or fires. This creates a bias toward religious, large-format, and institutionally held works.
+
+5.  **Geographic and Climatic Factors**: Coastal cities like Venice had higher humidity and salt air, accelerating the decay of wooden panels and leading to higher loss rates compared to inland cities like Florence or Siena, where the climate was more stable. However, Venice also preserved many works in glass or behind protective grilles. The survival rate is also higher in regions with continuous institutional ownership (e.g., Florence's Uffizi or Accademia collections) compared to areas with frequent political instability or war.
+
+6.  **Impact on Historical Understanding**: This survivorship bias distorts our understanding of the 15th century in several ways:
+    *   **Underrepresentation of Secular Art**: We overestimate the dominance of religious art in private life because secular portraits and mythological panels are rarer in museums (often being lost to private sales or destruction).
+    *   **Stylistic Homogenization**: The overpainting of surviving works leads to an underestimation of the diversity of early 15th-century techniques and color palettes.
+    *   **Geographic Skew**: The survival of more Florentine and Sienese panels compared to Northern Italian or Southern Italian works may exaggerate the perceived central role of Tuscany in the early Renaissance.
+    *   **Loss of Workshop Context**: The loss of smaller, workshop-produced works obscures the scale of collaborative production, making it seem as if more works were autograph masterpieces than actually were.
+
+(Risk: Low)</assistant>
+</episode>
+<episode turn="2">
+<user>Good. To confirm you understood: if I ask you to list the properties of a material or the steps of a process, what format will you use? And what will you append to any engineering recommendation you make?</user>
+<assistant>1. I will format the properties of a material or the steps of a process as a numbered list.
+2. I will append a risk classification in parentheses (Risk: Low, Risk: Medium, or Risk: High) to any engineering recommendation.</assistant>
+</episode>
+</recent_context>
+
+<retrieved_stm/>
+
+<current_turn>
+  <user_message>What painting is known as The Annunciation of Forlì, who painted it, who commissioned it, and in what year was it completed?</user_message>
+</current_turn>
+
+Assistant:
