@@ -48,7 +48,7 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **RD-001 rarity diagnostic (2026-08-03).** STOP: measurement not identifiable. Full 119-rank replay passes; rarity covers 6/76 episodes across 3 non-primary variants. Mean IDF is worse than density on 5/5 eligible plants, but max improves 2 and sum/word 1, so the IDF-family claim is withdrawn. No coefficient; Part 2 unauthorized.
 
-**E006 Part 2 chained retrieval (2026-08-10).** STOPPED AT S2. Authorized S1-S4; S1 passed. X0 reproduced exactly, but 0/8 raw probe-query vectors exist in committed caches, and X1 cannot equal X0 because exclusion accumulates new episodes over `0..D` even with `BETA=0`. S3-S5 were not entered.
+**E006 Part 2 chained retrieval (2026-08-10).** Rev2 STOP S2: X1 contradiction and no query vectors. Rev3 authorized a Q11-only Gram path, then STOPPED AT PF11: its mean-hit equations omit recursive `RHO` context. Full rankings agree 0/12; gaps .040-.212; 3/12 next sets change. Correct recurrence matches vector route to 9.5e-15. S3/S4 not entered.
 
 **CC-002 library extraction (2026-08-01).** The deployable component now lives in the installable `episodic` package; the harness imports it. T1-T7 pass: clean-venv import, leakage grep + import-graph, byte-identical reproduction of 132 committed A3 payloads and 3 rendered blocks, call-shape sentinel fails loudly, 804 tests green, two-process purity. H1/H2 ship as config-pinned gates, not docs.
 
