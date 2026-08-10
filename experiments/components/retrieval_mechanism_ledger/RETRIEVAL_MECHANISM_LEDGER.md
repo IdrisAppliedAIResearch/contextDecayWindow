@@ -419,8 +419,35 @@ an offline result; **no live run is authorized.** See
   correlation stopped before computation. The prior rarity artifact scores
   only 6 of 76 fact-bearing episodes and exposes three variants without a
   registered primary or episode aggregation. No registered branch covers that
-  state. The vocabulary alternative remains unresolved and chained retrieval
-  is **not authorized**. See `RD_001_report.md`.
+  state. The vocabulary alternative remains unresolved. E006 Part 2 Rev 2 was
+  separately authorized for offline stages S1-S4 on August 10, 2026; it does
+  not alter RD-001's result or authorize live evaluation. S1 found no published
+  negative on conversational memory, so its registered kill did not fire.
+  RF-Mem is close positive prior art for iterative embedding-space memory/query
+  mixing, while MemR3, EviMem, and MGRetrieval are positive inference-driven
+  neighbors. **S2 FAILS and stops before S3:** no committed raw query vectors
+  exist for the eight probes, and X1 cannot equal X0 because `exclude=seen`
+  accumulates `m` new episodes on each inclusive `0..D` iteration even when
+  `BETA=0`. See `RD_001_report.md`, `E006_PART2_AUTHORIZATION.md`,
+  `E006_PART2_S1_PRIOR_ART_SCAN.md`, and `E006_PART2_S2_PREFLIGHT.md`. Rev 3 was
+  separately authorized as a Q11-only zero-call repair and **STOPPED AT PF11**:
+  its registered mean-hit equations omit the mechanism's recursive `RHO`
+  context. Full rankings agree in 0/12 cells, score differences span
+  0.040-0.212, and 3/12 next `top_m` sets change. A corrected recurrence matches
+  the reconstructed-vector route to `9.5e-15` but is not registered and cannot
+  pass the gate. See `E006_PART2_REV3_PF11.md`. Rev 4 prospectively registered
+  that recursive structure and was separately authorized, but **STOPPED AT PF11
+  again**: its context norm uses `BETA^2` where the mean hit vector requires
+  `BETA^2 * ||mu||^2`. The observed squared norms are 0.843 and 0.533. Score
+  tolerance and full rankings pass in 0/12 cells, although all 12 immediate next
+  sets agree. PF1-PF10 and S3-S4 were not entered. See
+  `E006_PART2_REV4_PF11.md`. Rev 5 prospectively registered the complete norm
+  expansion and **COMPLETED offline, CHARACTERIZED**. PF11 passes 12/12 at
+  `9.5e-15`; PF1-PF10 and all 48 PF7 cells pass. Chaining reaches 9/17 at D2/D3
+  versus X0's 6/17 and single-shot `top_m` at 3/17, so its kill does not fire.
+  The best cells use 15-20 candidates, select 12 episodes, and still deliver
+  0/4 art facts; they trail E005's 12/17. No targeted traces exist, so there is
+  no promotion, adoption, or live run. See `E006_PART2_REV5_REPORT.md`.
 
 **Measurement correction applied before the outcome was accepted:** the
 no-regression numerator was keyed on `(turn, item)` while its denominator
@@ -552,6 +579,25 @@ eviction work in `CC_001`?
 
 ## 8. Scan disposition
 
+- Retrieved-context chained retrieval: **REV 5 COMPLETE; CHARACTERIZED.**
+  Classical PRF establishes both the operation and query drift. Four recent
+  conversational-memory preprints report positive iterative-retrieval results;
+  RF-Mem is close mechanical prior art. No published negative in the registered
+  setting was located. Chaining and the conversational-memory setting are not
+  novel; E006's remaining distinction is the committed corpus, deterministic
+  zero-model-call path, and absorbing-state discipline. Preflight reproduces X0
+  exactly but finds 0/8 cached probe-query vectors and proves X1 differs from X0
+  for all six registered `(D,m)` cells on the committed Q11 rank trace. Rev 3
+  repaired those defects and narrowed scope to Q11, but PF11 found its Section 2
+  derivation was not the unchanged recursive mechanism. Rev 4 then registered
+  recursion but omitted the hit mean's squared norm and stopped at PF11. Rev 5
+  registers the complete norm: PF11 passes 12/12, remaining Preflight passes,
+  and the fixed offline grid reaches 9/17 at D2/D3 versus X0's 6/17. The best
+  cells still miss art 0/4 and return more material; without targeted traces the
+  ceiling is CHARACTERIZED. See
+  `E006_PART2_S1_PRIOR_ART_SCAN.md`, `E006_PART2_S2_PREFLIGHT.md`, and
+  `E006_PART2_REV3_PF11.md`, `E006_PART2_REV4_PF11.md`, and
+  `E006_PART2_REV5_REPORT.md`.
 - Diversity-aware / coverage selection: **COMPLETE, and its one owed
   verification is discharged.** The scan's unconfirmed claim that MMR lacks
   submodularity is **refuted** by Lin and Bilmes (2011) Section 3, Theorem 2:
@@ -568,7 +614,29 @@ eviction work in `CC_001`?
 
 ---
 
-*Opened July 29, 2026. Revision 11, August 3, 2026 - the IDF graveyard claim is
+*Opened July 29, 2026. Revision 16, August 10, 2026 - E006 Part 2 Rev 5
+completes offline, CHARACTERIZED. PF11 passes 12/12 at `9.5e-15`; PF1-PF10 and
+PF7 48/48 pass. Chaining reaches 9/17 at D2/D3 versus X0 6/17 but uses 15-20
+candidates, selects 12, and misses art 0/4. No targeted traces; no promotion or
+live run. Revision 15, August 10, 2026 - E006 Part 2 Rev 4 is
+authorized, then stops at PF11. Its context norm treats the mean of hit vectors
+as unit length, but the observed squared norms are 0.843 and 0.533. Score
+tolerance and full-ranking identity pass in 0/12 cells; all 12 immediate next
+sets agree. PF1-PF10 and S3-S4 were not entered. Revision 14, August 10, 2026 - E006 Part 2 Rev 3 is
+authorized, then stops at its first gate, PF11. Its registered mean-hit equations
+omit the recursive context and `RHO`; 0/12 full rankings agree with the unchanged
+mechanism, score gaps are 0.040-0.212, and 3/12 next sets change. A corrected
+recurrence agrees to `9.5e-15` but is unregistered. Revision 13, August 10, 2026 - E006 Part 2 S2 fails and
+stops before S3. X0 reproduces by content identity and payload digest, but no
+committed cache contains the eight raw probe-query vectors required for the
+chain, and the registered disabled-chain X1 is structurally unequal to X0
+because exclusion accumulates new episodes at every inclusive `0..D` step.
+Revision 12, August 10, 2026 - E006 Part 2 Rev 2 is
+authorized for offline S1-S4. S1 finds no published negative for chained
+retrieval on conversational memory, so the registered kill does not fire; four
+positive conversational-memory preprints, especially RF-Mem's iterative
+embedding-space alpha-mix, narrow the novelty position. Revision 11, August 3,
+2026 - the IDF graveyard claim is
 withdrawn after provenance review: no primary variant was registered, and only
 mean IDF ranks all five eligible hard-plant spans worse than density. Revision
 10, August 3, 2026 - RD-001 recovers the full

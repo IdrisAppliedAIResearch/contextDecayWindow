@@ -1,0 +1,234 @@
+{
+  "authorization_sha256": "a2a9d335bd271558e67694894f15db176c1175e334f81b71972653d44ea4b591",
+  "decision": "STOP_BEFORE_REMAINING_PREFLIGHT",
+  "design_sha256": "1a41013c3a079dd0bedd80307d4f6b699139f889cd705457e1d874bb3d24b325",
+  "execution": {
+    "auditor_source_sha256": "fa62c0ac2c34d94a6001574b7392ac14fbe9a115dfa3e3890eba62fec8dd0fb6",
+    "launch_command": ".venv/Scripts/python.exe -m src.analysis.e006_rev3_pf11 experiments/components/retrieval_mechanism_ledger/artifacts/e006_rev3_pf11/pf11.json",
+    "text_encoding": "UTF-8"
+  },
+  "gate_ordering": {
+    "authorization_commit": "38bdd1539d85e395d426130ed7c1b8ff9284a759",
+    "design_commit": "42f710a35c01413c17c4dfd78d390d8cae4d21e1",
+    "head_at_execution": "960c981077df78d85fa1bf963a2c12e8d0c8159b",
+    "status": "PASS"
+  },
+  "input_counts": {
+    "eligible_episode_vectors": 119,
+    "embedding_dimension": 1024,
+    "gram_shape": [
+      119,
+      119
+    ],
+    "q11_cosine_rows": 119
+  },
+  "input_inventory": [
+    {
+      "bytes": 14837,
+      "path": "experiments/components/retrieval_mechanism_ledger/E006_PART2_REV3_chained_retrieval.md",
+      "sha256": "1a41013c3a079dd0bedd80307d4f6b699139f889cd705457e1d874bb3d24b325"
+    },
+    {
+      "bytes": 969,
+      "path": "experiments/components/retrieval_mechanism_ledger/E006_PART2_REV3_AUTHORIZATION.md",
+      "sha256": "a2a9d335bd271558e67694894f15db176c1175e334f81b71972653d44ea4b591"
+    },
+    {
+      "bytes": 1978368,
+      "path": "experiments/surveys/retrieval_bakeoff/tier6/runs/tier6_live_121_corrected_001/context_matched_stm/study.db",
+      "sha256": "5da47ea3fc2c8e3dcc50fa380ff65202d82557905d9976117e9e5d82e55c1c41"
+    },
+    {
+      "bytes": 10642,
+      "path": "experiments/components/retrieval_mechanism_ledger/artifacts/rd001/full_rank_inventory.csv",
+      "sha256": "8d6f9eee6ebe232608981aac0c0d4816eaec4710ae551db028ae0b323253ac03"
+    }
+  ],
+  "leakage_audit": {
+    "forbidden_tokens": [
+      "q_facts_key",
+      "rubric",
+      "ATOMIC_ITEMS",
+      "TARGETED_ITEMS"
+    ],
+    "found": [],
+    "note": "The rank inventory is projected immediately to episode_id, source_turn, and cosine; fact/domain columns are not retained.",
+    "status": "PASS"
+  },
+  "pf11": {
+    "binding_interpretation": "The registered derivation replaces recursive c with the latest hit mean and therefore omits RHO. PF11 fails; Rev 3 requires a stop.",
+    "cell_count": 12,
+    "cells": [
+      {
+        "RHO": 0.5,
+        "W_Q": 0.3,
+        "corrected_full_ranking_equal": true,
+        "corrected_max_abs_score_difference": 7.244205235679146e-15,
+        "direct_ranking_sha256": "855aa381688ad7cbe6619ac5ca8d7197ade111a2a585ea5b6e0c5011be78bf01",
+        "m": 3,
+        "registered_full_ranking_equal": false,
+        "registered_max_abs_score_difference": 0.11786628975718882,
+        "registered_next_top_m_equal": true,
+        "registered_ranking_sha256": "22de67fe371ae226a61dc785892a332db0b87dd1dc0b4c40c8df3ddd9ab5a1da"
+      },
+      {
+        "RHO": 0.5,
+        "W_Q": 0.5,
+        "corrected_full_ranking_equal": true,
+        "corrected_max_abs_score_difference": 8.1601392309949e-15,
+        "direct_ranking_sha256": "62e1524edfa6c66c83397011d72fd602fdfef55e9382ebb15cba00fc2ce5a109",
+        "m": 3,
+        "registered_full_ranking_equal": false,
+        "registered_max_abs_score_difference": 0.11490356076268371,
+        "registered_next_top_m_equal": true,
+        "registered_ranking_sha256": "82d8437898590dc7b28e1d059abf0e01d58381e7d6dd7a2029c8e4c8377daa8a"
+      },
+      {
+        "RHO": 0.5,
+        "W_Q": 0.7,
+        "corrected_full_ranking_equal": true,
+        "corrected_max_abs_score_difference": 8.93729534823251e-15,
+        "direct_ranking_sha256": "758ca65bb6e42f161f64f197d275a47a6ced89b6ced2ca836efebecd05f0a470",
+        "m": 3,
+        "registered_full_ranking_equal": false,
+        "registered_max_abs_score_difference": 0.07860762890098139,
+        "registered_next_top_m_equal": true,
+        "registered_ranking_sha256": "f2423e360746d1d8969852e091115e590eab6c9f72a829390b99e21d0264deb5"
+      },
+      {
+        "RHO": 0.7,
+        "W_Q": 0.3,
+        "corrected_full_ranking_equal": true,
+        "corrected_max_abs_score_difference": 8.548717289613705e-15,
+        "direct_ranking_sha256": "85cc47acd07442c48cd45a09a1d4be3b11f6e3b1ef9c20c690330a1d506ab83c",
+        "m": 3,
+        "registered_full_ranking_equal": false,
+        "registered_max_abs_score_difference": 0.21240364988050986,
+        "registered_next_top_m_equal": true,
+        "registered_ranking_sha256": "22de67fe371ae226a61dc785892a332db0b87dd1dc0b4c40c8df3ddd9ab5a1da"
+      },
+      {
+        "RHO": 0.7,
+        "W_Q": 0.5,
+        "corrected_full_ranking_equal": true,
+        "corrected_max_abs_score_difference": 8.965050923848139e-15,
+        "direct_ranking_sha256": "1af89d43206d662986180b16ad57a1d7d38053f56969055cb336a05356ee7b14",
+        "m": 3,
+        "registered_full_ranking_equal": false,
+        "registered_max_abs_score_difference": 0.18693224075624915,
+        "registered_next_top_m_equal": true,
+        "registered_ranking_sha256": "82d8437898590dc7b28e1d059abf0e01d58381e7d6dd7a2029c8e4c8377daa8a"
+      },
+      {
+        "RHO": 0.7,
+        "W_Q": 0.7,
+        "corrected_full_ranking_equal": true,
+        "corrected_max_abs_score_difference": 9.409140133698202e-15,
+        "direct_ranking_sha256": "93d0c31698fdb7d97e8d99873c1566bd2515cdae097e8c2aab9da7eeaafcdd06",
+        "m": 3,
+        "registered_full_ranking_equal": false,
+        "registered_max_abs_score_difference": 0.12371678056635893,
+        "registered_next_top_m_equal": true,
+        "registered_ranking_sha256": "f2423e360746d1d8969852e091115e590eab6c9f72a829390b99e21d0264deb5"
+      },
+      {
+        "RHO": 0.5,
+        "W_Q": 0.3,
+        "corrected_full_ranking_equal": true,
+        "corrected_max_abs_score_difference": 7.521760991835436e-15,
+        "direct_ranking_sha256": "4becc01cfafd36b82361b1e137e534577e1cb6de4fc76a2b195a76221897cf7f",
+        "m": 5,
+        "registered_full_ranking_equal": false,
+        "registered_max_abs_score_difference": 0.0815247808183614,
+        "registered_next_top_m_equal": true,
+        "registered_ranking_sha256": "d5b9a625611e3f0fbbd07da551902f61c2dff493d84a0de4683617495e4c0765"
+      },
+      {
+        "RHO": 0.5,
+        "W_Q": 0.5,
+        "corrected_full_ranking_equal": true,
+        "corrected_max_abs_score_difference": 8.326672684688674e-15,
+        "direct_ranking_sha256": "ec4c6a90cd06a5f82364d9dbb864832e9b336db7ace1f70c473888b235283f0e",
+        "m": 5,
+        "registered_full_ranking_equal": false,
+        "registered_max_abs_score_difference": 0.043187658347084046,
+        "registered_next_top_m_equal": true,
+        "registered_ranking_sha256": "964bfc03e13a8e10c1ea7b05621b2f980bc5c49ecdbc466dcc51d9b4b6388b46"
+      },
+      {
+        "RHO": 0.5,
+        "W_Q": 0.7,
+        "corrected_full_ranking_equal": true,
+        "corrected_max_abs_score_difference": 9.020562075079397e-15,
+        "direct_ranking_sha256": "afce546791d9f4f7d4253d93f981bf8c81d22278ce42ce9a6870bf9d51bc0e21",
+        "m": 5,
+        "registered_full_ranking_equal": false,
+        "registered_max_abs_score_difference": 0.03995169866893922,
+        "registered_next_top_m_equal": false,
+        "registered_ranking_sha256": "9220a670bc931523e58807520155ce43589a7e8a2b5ed144333ae947d5409494"
+      },
+      {
+        "RHO": 0.7,
+        "W_Q": 0.3,
+        "corrected_full_ranking_equal": true,
+        "corrected_max_abs_score_difference": 8.798517470154366e-15,
+        "direct_ranking_sha256": "529dd72ae2e7db8201acea4497341aa6cb462371d18e1f607b71b50693e6579d",
+        "m": 5,
+        "registered_full_ranking_equal": false,
+        "registered_max_abs_score_difference": 0.08533912746506422,
+        "registered_next_top_m_equal": true,
+        "registered_ranking_sha256": "d5b9a625611e3f0fbbd07da551902f61c2dff493d84a0de4683617495e4c0765"
+      },
+      {
+        "RHO": 0.7,
+        "W_Q": 0.5,
+        "corrected_full_ranking_equal": true,
+        "corrected_max_abs_score_difference": 9.131584377541913e-15,
+        "direct_ranking_sha256": "b47cfae071fd4c6cbebab133e2e88c267e5abe90ac7081d5d642eaec9806fafc",
+        "m": 5,
+        "registered_full_ranking_equal": false,
+        "registered_max_abs_score_difference": 0.098056122014886,
+        "registered_next_top_m_equal": false,
+        "registered_ranking_sha256": "964bfc03e13a8e10c1ea7b05621b2f980bc5c49ecdbc466dcc51d9b4b6388b46"
+      },
+      {
+        "RHO": 0.7,
+        "W_Q": 0.7,
+        "corrected_full_ranking_equal": true,
+        "corrected_max_abs_score_difference": 9.492406860545088e-15,
+        "direct_ranking_sha256": "d13f3c79217e9c94a86404193ebf2821f6fe537bf8b626ebfc9b56fff7f65f27",
+        "m": 5,
+        "registered_full_ranking_equal": false,
+        "registered_max_abs_score_difference": 0.07415044481921462,
+        "registered_next_top_m_equal": false,
+        "registered_ranking_sha256": "9220a670bc931523e58807520155ce43589a7e8a2b5ed144333ae947d5409494"
+      }
+    ],
+    "comparison_key": "episode_content_sha256",
+    "corrected_recurrence_diagnostic": {
+      "full_ranking_equal_count": 12,
+      "max_abs_score_difference": 9.492406860545088e-15,
+      "purpose": "Localizes the failure to the registered derivation. It is not used to pass PF11 or authorize later stages.",
+      "status": "AGREES_NOT_REGISTERED"
+    },
+    "reconstruction": {
+      "max_abs_committed_cosine_fit_error": 9.96425164601078e-15,
+      "orthogonal_residual_norm2": 0.38488757341803304,
+      "projection_norm2": 0.615112426581967,
+      "unit_query_norm": 1.0
+    },
+    "registered_claim": "Section 2 scores from mean-hit products agree with the unchanged recursive mechanism.",
+    "registered_full_ranking_equal_count": 0,
+    "registered_max_abs_score_difference_range": [
+      0.03995169866893922,
+      0.21240364988050986
+    ],
+    "registered_next_top_m_equal_count": 9,
+    "status": "FAIL"
+  },
+  "stage": "PF11 computability verification",
+  "status": "FAIL",
+  "study": "E006 Part 2 Rev 3 chained retrieval",
+  "zero_embedding_calls": true,
+  "zero_model_calls": true
+}

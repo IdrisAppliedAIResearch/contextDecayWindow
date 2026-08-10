@@ -1,0 +1,235 @@
+{
+  "authorization_sha256": "80128dca2baeeec74da4b270f2eee542d47fd53b9f4d78393577031d332ae015",
+  "decision": "STOP_BEFORE_REMAINING_PREFLIGHT",
+  "design_sha256": "2a516fcdf86744b47b2df8bab74794edc73f8a66348caa61997b1a572659c474",
+  "execution": {
+    "auditor_source_sha256": "1bf4133070d0cda1601467b1a74898ec84886351e0ccd187cb686e40e6477738",
+    "launch_command": ".venv/Scripts/python.exe -m src.analysis.e006_rev4_pf11 experiments/components/retrieval_mechanism_ledger/artifacts/e006_rev4_pf11/pf11.json",
+    "text_encoding": "UTF-8"
+  },
+  "gate_ordering": {
+    "authorization_commit": "595e0a71b2de37e1867cde3a615efacdecfc76ff",
+    "design_commit": "71acbd35d6948fd865610d5d9c5c934749921187",
+    "head_at_execution": "a85f17084dc85f7c30ed545f62e6ee704f164a35",
+    "status": "PASS"
+  },
+  "input_counts": {
+    "eligible_episode_vectors": 119,
+    "embedding_dimension": 1024,
+    "gram_shape": [
+      119,
+      119
+    ],
+    "q11_cosine_rows": 119
+  },
+  "pf11": {
+    "cell_count": 12,
+    "cells": [
+      {
+        "RHO": 0.5,
+        "W_Q": 0.3,
+        "full_ranking_equal": false,
+        "hit_mean_norm_squared": 0.8426498393248191,
+        "m": 3,
+        "max_abs_score_difference": 0.011809261270966376,
+        "next_top_m_equal": true,
+        "registered_context_norm": 0.8679816129964967,
+        "score_tolerance_pass": false,
+        "section2_ranking_sha256": "c6d9cc1e791cae25d0d09ff3c180b2aff688d4e4c059cd64a886bf3e3290c019",
+        "vector_ranking_sha256": "855aa381688ad7cbe6619ac5ca8d7197ade111a2a585ea5b6e0c5011be78bf01"
+      },
+      {
+        "RHO": 0.5,
+        "W_Q": 0.5,
+        "full_ranking_equal": false,
+        "hit_mean_norm_squared": 0.8426498393248191,
+        "m": 3,
+        "max_abs_score_difference": 0.006920512070842544,
+        "next_top_m_equal": true,
+        "registered_context_norm": 0.8679816129964967,
+        "score_tolerance_pass": false,
+        "section2_ranking_sha256": "fa50a35ae27ffa513fa9b69329704b66dad7aa86d6523a5e1c5849a22ecf3afe",
+        "vector_ranking_sha256": "62e1524edfa6c66c83397011d72fd602fdfef55e9382ebb15cba00fc2ce5a109"
+      },
+      {
+        "RHO": 0.5,
+        "W_Q": 0.7,
+        "full_ranking_equal": false,
+        "hit_mean_norm_squared": 0.8426498393248191,
+        "m": 3,
+        "max_abs_score_difference": 0.003426971874332052,
+        "next_top_m_equal": true,
+        "registered_context_norm": 0.8679816129964967,
+        "score_tolerance_pass": false,
+        "section2_ranking_sha256": "4253af7d3cde05a4dd3887b85891247623c3baaa31e5f79b3cf6752389808c71",
+        "vector_ranking_sha256": "758ca65bb6e42f161f64f197d275a47a6ced89b6ced2ca836efebecd05f0a470"
+      },
+      {
+        "RHO": 0.7,
+        "W_Q": 0.3,
+        "full_ranking_equal": false,
+        "hit_mean_norm_squared": 0.8426498393248191,
+        "m": 3,
+        "max_abs_score_difference": 0.0033122285696460807,
+        "next_top_m_equal": true,
+        "registered_context_norm": 0.8904208822910658,
+        "score_tolerance_pass": false,
+        "section2_ranking_sha256": "2e484c9f470224bf0921bafccbf18a851cadcb1e90e297b6772c1498a8b42b19",
+        "vector_ranking_sha256": "85cc47acd07442c48cd45a09a1d4be3b11f6e3b1ef9c20c690330a1d506ab83c"
+      },
+      {
+        "RHO": 0.7,
+        "W_Q": 0.5,
+        "full_ranking_equal": false,
+        "hit_mean_norm_squared": 0.8426498393248191,
+        "m": 3,
+        "max_abs_score_difference": 0.001858222502149176,
+        "next_top_m_equal": true,
+        "registered_context_norm": 0.8904208822910658,
+        "score_tolerance_pass": false,
+        "section2_ranking_sha256": "e5a308529761e55fe3664a6f230d582b4dbb1785c1a9f9eb3389160e303ec125",
+        "vector_ranking_sha256": "1af89d43206d662986180b16ad57a1d7d38053f56969055cb336a05356ee7b14"
+      },
+      {
+        "RHO": 0.7,
+        "W_Q": 0.7,
+        "full_ranking_equal": false,
+        "hit_mean_norm_squared": 0.8426498393248191,
+        "m": 3,
+        "max_abs_score_difference": 0.000850478335188809,
+        "next_top_m_equal": true,
+        "registered_context_norm": 0.8904208822910658,
+        "score_tolerance_pass": false,
+        "section2_ranking_sha256": "7da15a2017e0d33af06d409662728d597b024caf4f42dc727953a0a8f89eceb8",
+        "vector_ranking_sha256": "93d0c31698fdb7d97e8d99873c1566bd2515cdae097e8c2aab9da7eeaafcdd06"
+      },
+      {
+        "RHO": 0.5,
+        "W_Q": 0.3,
+        "full_ranking_equal": false,
+        "hit_mean_norm_squared": 0.5330802255471974,
+        "m": 5,
+        "max_abs_score_difference": 0.033037699292064904,
+        "next_top_m_equal": true,
+        "registered_context_norm": 0.8543550583920013,
+        "score_tolerance_pass": false,
+        "section2_ranking_sha256": "31da090b37ee80aabc51157c0b1e988d89de70fc6096dc35155538b01507dc9f",
+        "vector_ranking_sha256": "4becc01cfafd36b82361b1e137e534577e1cb6de4fc76a2b195a76221897cf7f"
+      },
+      {
+        "RHO": 0.5,
+        "W_Q": 0.5,
+        "full_ranking_equal": false,
+        "hit_mean_norm_squared": 0.5330802255471974,
+        "m": 5,
+        "max_abs_score_difference": 0.018812956987760088,
+        "next_top_m_equal": true,
+        "registered_context_norm": 0.8543550583920013,
+        "score_tolerance_pass": false,
+        "section2_ranking_sha256": "18eb2a48f482ee2fadfeb8177b2111d8e4b444c1eb5827ba9a0795e4cf2baa85",
+        "vector_ranking_sha256": "ec4c6a90cd06a5f82364d9dbb864832e9b336db7ace1f70c473888b235283f0e"
+      },
+      {
+        "RHO": 0.5,
+        "W_Q": 0.7,
+        "full_ranking_equal": false,
+        "hit_mean_norm_squared": 0.5330802255471974,
+        "m": 5,
+        "max_abs_score_difference": 0.008817571152356818,
+        "next_top_m_equal": true,
+        "registered_context_norm": 0.8543550583920013,
+        "score_tolerance_pass": false,
+        "section2_ranking_sha256": "12c278ed2a139d3c0633ca43f96ddebb6558466180d9de3c35b8b0a94a9c9f3a",
+        "vector_ranking_sha256": "afce546791d9f4f7d4253d93f981bf8c81d22278ce42ce9a6870bf9d51bc0e21"
+      },
+      {
+        "RHO": 0.7,
+        "W_Q": 0.3,
+        "full_ranking_equal": false,
+        "hit_mean_norm_squared": 0.5330802255471974,
+        "m": 5,
+        "max_abs_score_difference": 0.009252540249754415,
+        "next_top_m_equal": true,
+        "registered_context_norm": 0.879280930801982,
+        "score_tolerance_pass": false,
+        "section2_ranking_sha256": "6cf7819cdc9f3f6149eaf5d48d9de7489b5c08ca1435e8428e453c8e3e7f38a1",
+        "vector_ranking_sha256": "529dd72ae2e7db8201acea4497341aa6cb462371d18e1f607b71b50693e6579d"
+      },
+      {
+        "RHO": 0.7,
+        "W_Q": 0.5,
+        "full_ranking_equal": false,
+        "hit_mean_norm_squared": 0.5330802255471974,
+        "m": 5,
+        "max_abs_score_difference": 0.005066868614144293,
+        "next_top_m_equal": true,
+        "registered_context_norm": 0.879280930801982,
+        "score_tolerance_pass": false,
+        "section2_ranking_sha256": "e3570f3ee7d890d28abc287f2db253e07aefa7a929782c647758218cf0ec1b50",
+        "vector_ranking_sha256": "b47cfae071fd4c6cbebab133e2e88c267e5abe90ac7081d5d642eaec9806fafc"
+      },
+      {
+        "RHO": 0.7,
+        "W_Q": 0.7,
+        "full_ranking_equal": false,
+        "hit_mean_norm_squared": 0.5330802255471974,
+        "m": 5,
+        "max_abs_score_difference": 0.0021971973928974764,
+        "next_top_m_equal": true,
+        "registered_context_norm": 0.879280930801982,
+        "score_tolerance_pass": false,
+        "section2_ranking_sha256": "101ea30be3ef543fab42407c21ee702cd622b8f37485f449663194aa28832627",
+        "vector_ranking_sha256": "d13f3c79217e9c94a86404193ebf2821f6fe537bf8b626ebfc9b56fff7f65f27"
+      }
+    ],
+    "comparison_key": "episode_content_sha256",
+    "full_ranking_equal_count": 0,
+    "hit_mean_norm_squared_by_m": {
+      "3": 0.8426498393248191,
+      "5": 0.5330802255471974
+    },
+    "max_abs_score_difference_range": [
+      0.000850478335188809,
+      0.033037699292064904
+    ],
+    "next_top_m_equal_count": 12,
+    "reconstruction": {
+      "max_abs_committed_cosine_fit_error": 9.96425164601078e-15,
+      "orthogonal_residual_norm2": 0.38488757341803304,
+      "projection_norm2": 0.615112426581967,
+      "unit_query_norm": 1.0
+    },
+    "registered_tolerance": {
+      "identical_full_rankings": true,
+      "identical_next_top_m": true,
+      "maximum_absolute_score_difference_strictly_less_than": 1e-10,
+      "required_cell_count": 12
+    },
+    "score_tolerance_pass_count": 0,
+    "status": "FAIL"
+  },
+  "stage": "PF11 computability verification",
+  "status": "FAIL",
+  "study": "E006 Part 2 Rev 4 chained retrieval",
+  "vector_route_independence": {
+    "assertion": "The vector route directly executes the Section 5.1 vector pseudocode and neither reads nor imports the Section 2 route.",
+    "forbidden_derivation_tokens": [
+      "registered_section2",
+      "gram",
+      "query_cosines",
+      "DESIGN",
+      "AUTHORIZATION"
+    ],
+    "found": [],
+    "imports": [
+      "__future__",
+      "numpy"
+    ],
+    "path": "src/analysis/e006_rev4_vector_reference.py",
+    "sha256": "f4bbfdec693f2c74c0fd6eddc7cbf247cac2d7aef3eb989701f5db9b0180963b",
+    "status": "PASS",
+    "unexpected_imports": []
+  },
+  "zero_embedding_calls": true,
+  "zero_model_calls": true
+}
