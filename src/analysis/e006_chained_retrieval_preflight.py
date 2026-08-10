@@ -575,6 +575,16 @@ def build_preflight() -> dict[str, Any]:
         else "FAIL",
         "decision": "STOP_BEFORE_S3",
         "design_sha256": DESIGN_SHA256,
+        "execution": {
+            "launch_command": (
+                ".venv/Scripts/python.exe -m "
+                "src.analysis.e006_chained_retrieval_preflight "
+                "experiments/components/retrieval_mechanism_ledger/artifacts/"
+                "e006_part2_preflight/preflight.json"
+            ),
+            "auditor_source_sha256": sha256_file(Path(__file__)),
+            "text_encoding": "UTF-8",
+        },
         "zero_model_calls": True,
         "zero_embedding_calls": True,
         "input_inventory": input_inventory(),

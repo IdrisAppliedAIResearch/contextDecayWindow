@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from src.analysis.e006_chained_retrieval_preflight import (
     DESIGN_SHA256,
+    build_preflight,
     content_sha256,
     disabled_chain_control,
     load_authoritative_packer,
@@ -70,3 +71,13 @@ def test_real_q11_disabled_chain_misses_both_anchor_interpretations() -> None:
         not cell["committed_x0_payload_sha256_equal"]
         for cell in result["cells"]
     )
+
+
+def test_run_header_records_launch_and_auditor_identity() -> None:
+    result = build_preflight()
+
+    assert "e006_chained_retrieval_preflight" in result["execution"][
+        "launch_command"
+    ]
+    assert len(result["execution"]["auditor_source_sha256"]) == 64
+    assert result["execution"]["text_encoding"] == "UTF-8"
