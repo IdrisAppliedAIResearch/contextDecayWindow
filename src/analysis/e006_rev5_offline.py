@@ -458,7 +458,7 @@ def write_outputs(output_dir: Path) -> dict[str, Any]:
     )
     write_csv(output_dir / "configuration_sweep.csv", records)
     for config_id, payload in payloads.items():
-        (payload_dir / f"{config_id}.txt").write_text(payload, encoding="utf-8")
+        (payload_dir / f"{config_id}.txt").write_bytes(payload.encode("utf-8"))
     manifest = artifact_manifest(output_dir)
     write_json(output_dir / "artifact_manifest.json", manifest)
     return result
