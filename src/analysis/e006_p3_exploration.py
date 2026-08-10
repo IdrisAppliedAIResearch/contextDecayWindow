@@ -576,7 +576,19 @@ def git_ordering() -> dict[str, Any]:
             cwd=REPO_ROOT,
             check=True,
         )
-    return {"status": "PASS", "ordered_commits": full}
+    head = subprocess.check_output(
+        ("git", "rev-parse", "HEAD"), cwd=REPO_ROOT, text=True
+    ).strip()
+    subprocess.run(
+        ("git", "merge-base", "--is-ancestor", full[-1], head),
+        cwd=REPO_ROOT,
+        check=True,
+    )
+    return {
+        "status": "PASS",
+        "ordered_commits": full,
+        "head_at_exploration_execution": head,
+    }
 
 
 def input_inventory(inputs: Any) -> list[dict[str, Any]]:
@@ -591,6 +603,7 @@ def input_inventory(inputs: Any) -> list[dict[str, Any]]:
         CAPTURE_MANIFEST,
         CAPTURE_CACHE,
         MECHANISM_SOURCE,
+        Path(__file__),
     )
     rows = [
         {
