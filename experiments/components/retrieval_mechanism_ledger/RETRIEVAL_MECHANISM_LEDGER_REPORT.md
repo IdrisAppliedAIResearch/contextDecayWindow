@@ -1,6 +1,6 @@
 # Retrieval Mechanism Ledger Closeout
 
-**Status:** CLOSED; extended through E006 Part 2 Rev 5
+**Status:** CLOSED; extended through E006 Part 3
 **Date:** 2026-08-10
 **Scope:** Offline retrieval mechanisms after the retrieval bakeoff
 **Prospective design anchors:** `b42f4f81` (ledger and E002 protocol);
@@ -142,6 +142,26 @@ no-regression arm exists. No answer was generated or scored, and no live run,
 promotion, or adoption is authorized. See `E006_PART2_REV5_REPORT.md` and
 `artifacts/e006_rev5_s4/results.json`.
 
+## E006 query-anchored associative frontier
+
+E006 Part 3 tests a local strongest-edge frontier on the exact-cosine top-8
+graph, with fixed-query A0 and E006 Rev 5 mean-context A1 controls. Tier 4A
+reproduces `144/144` rows and A1 reproduces `8/8` cells before A2 exploration;
+PF1-PF10 then pass. The graph has 119 nodes, 676 retained undirected edges, one
+component, and zero isolates.
+
+At primary `D=2, m=5`, every arm admits 15 candidates. A2 carries and packs
+5/17 facts, all civil. A0 carries 9 and packs 7; A1 carries and packs 9. A2
+therefore fails the first registered candidate threshold and closes
+`NO_DIFFERENTIATED_CUE - CHARACTERIZED`. Its best cell reaches 6/17, and all
+A2 cells recover art 0/4.
+
+Tier 4A's negative result for global PPR is not reopened. This is a different
+local propagation operator over the same broad cosine-graph family, and it does
+not separate positively once exact volume is exposed. No targeted claim, live
+run, promotion, adoption, or deployment change is authorized. See
+`E006_PART3_REPORT.md` and `artifacts/e006_p3_s4/results.json`.
+
 ## Verification
 
 The 19 focused E001/E002 tests pass. On 2026-07-31 the permanently failing
@@ -169,6 +189,9 @@ all seven artifacts.
 - E006 Rev 5 design: `E006_PART2_REV5_chained_retrieval.md`
 - E006 Rev 5 result: `E006_PART2_REV5_REPORT.md`
 - E006 Rev 5 artifacts: `artifacts/e006_rev5_s4/`
+- E006 Part 3 design: `E006_PART3_REV3_ASSOCIATIVE_FRONTIER_EVIDENCE.md`
+- E006 Part 3 result: `E006_PART3_REPORT.md`
+- E006 Part 3 artifacts: `artifacts/e006_p3_s4/`
 
 Design and disposition commits precede implementation and output. E002 output
 is anchored by `dfdb257e`; E001 capture by `dbbf7617`; E001 analysis by

@@ -50,6 +50,8 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **E006 Part 2 chained retrieval (2026-08-10).** Rev5 COMPLETE offline, CHARACTERIZED. Corrected Gram recurrence passes PF11 12/12 at 9.5e-15; PF1-PF10 and PF7 48/48 pass. Chaining raises single-shot top-m 3/17 and X0 6/17 to 9/17 at D2/D3, but uses 15-20 candidates, selects 12, misses art 0/4, and trails E005 12/17. No targeted traces; no promotion or live run.
 
+**E006 Part 3 associative frontier (2026-08-10).** COMPLETE offline, NO_DIFFERENTIATED_CUE; CHARACTERIZED. At D2,m5 all arms admit 15 candidates, but A2 has 5/17 candidate and packed facts in civil only, versus A0 9 candidate/7 packed and A1 9/9. Best A2 is 6/17; art 0 throughout. PF1-PF10 pass; no targeted/live run, promotion, or adoption.
+
 **CC-002 library extraction (2026-08-01).** The deployable component now lives in the installable `episodic` package; the harness imports it. T1-T7 pass: clean-venv import, leakage grep + import-graph, byte-identical reproduction of 132 committed A3 payloads and 3 rendered blocks, call-shape sentinel fails loudly, 804 tests green, two-process purity. H1/H2 ship as config-pinned gates, not docs.
 
 **DX-002 context growth (2026-08-02).** BRANCH B. LTM saturates ~52-54k from turn 500 (H-A confirmed); retrieved_stm never does: p95 +23,238 L / +28,701 S over the last five buckets, still setting records at turn 1,000. Rule pinning added 0 but was disabled, not cleared. Blocks CC-003. A slope-CI-only rule first said Branch A; the interval measured power, not flatness.
