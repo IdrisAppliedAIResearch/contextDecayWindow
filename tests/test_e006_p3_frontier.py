@@ -47,6 +47,9 @@ def test_frontier_selects_exact_quota_without_repeats() -> None:
     assert set(result.steps[0].hit_indices).isdisjoint(result.steps[1].hit_indices)
     assert 5 in result.steps[1].hit_indices
     assert len(result.ranked_seen_indices) == 4
+    assert all(
+        isinstance(step.query_only_fallback_count, int) for step in result.steps
+    )
 
 
 def test_no_edge_fallback_preserves_query_order_and_hash_ties() -> None:
