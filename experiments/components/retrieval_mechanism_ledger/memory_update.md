@@ -2,6 +2,23 @@
 
 **Status:** REOPENED on 2026-08-01 for Family CS. Family QR remains closed.
 
+## E006 Part 2 chained retrieval Rev 4 - STOP AT PF11
+
+Design anchor `71acbd35`; authorization `595e0a71`; auditor `a85f1708`. Rev 4
+registered a recursive Gram formulation for the unchanged chained-retrieval
+vector rule, but its normalization treats the mean hit vector as unit length.
+On the committed Q11 trace, the hit-mean squared norm is `0.84265` at `m=3` and
+`0.53308` at `m=5`.
+
+The independent vector route and Section 2 pass score tolerance in 0/12 cells
+and agree on full rankings in 0/12; score gaps are `0.000850-0.033038`. Immediate
+next `top_m` sets agree in 12/12, which cannot pass the conjunctive gate. PF1-PF10,
+parameter registration, and S4 were not entered. Zero model and embedding calls.
+
+Carry forward: a mean of unit vectors is not generally unit length. Any future
+design must register the full norm expansion prospectively and receive new
+authorization; Rev 4 remains locked and cannot be repaired in place.
+
 ## RD-001 rarity diagnostic - STOP, measurement not identifiable
 
 Design anchor `37d5bf2db418a0cc2e333faad47bb9c1965c28b4`. The carried
@@ -25,8 +42,9 @@ Carry forward:
 3. The full 119-rank inventory is valid descriptive evidence and replaces the
    paper's 16-point figure limitation.
 4. The vocabulary-versus-retrieval alternative remains unresolved.
-5. E006 Part 2 is not authorized. A future rarity study needs a new prospective
-   design with one score per registered unit and a named interval method.
+5. A future rarity study needs a new prospective design with one score per
+   registered unit and a named interval method. The separately authorized E006
+   Part 2 chained-retrieval path stopped at its Rev 4 PF11 gate.
 
 ## E005 diversity-aware selection - PROMOTION_ELIGIBLE offline
 

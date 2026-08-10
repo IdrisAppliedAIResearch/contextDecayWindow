@@ -435,7 +435,13 @@ an offline result; **no live run is authorized.** See
   context. Full rankings agree in 0/12 cells, score differences span
   0.040-0.212, and 3/12 next `top_m` sets change. A corrected recurrence matches
   the reconstructed-vector route to `9.5e-15` but is not registered and cannot
-  pass the gate. See `E006_PART2_REV3_PF11.md`.
+  pass the gate. See `E006_PART2_REV3_PF11.md`. Rev 4 prospectively registered
+  that recursive structure and was separately authorized, but **STOPPED AT PF11
+  again**: its context norm uses `BETA^2` where the mean hit vector requires
+  `BETA^2 * ||mu||^2`. The observed squared norms are 0.843 and 0.533. Score
+  tolerance and full rankings pass in 0/12 cells, although all 12 immediate next
+  sets agree. PF1-PF10 and S3-S4 were not entered. See
+  `E006_PART2_REV4_PF11.md`.
 
 **Measurement correction applied before the outcome was accepted:** the
 no-regression numerator was keyed on `(turn, item)` while its denominator
@@ -567,7 +573,7 @@ eviction work in `CC_001`?
 
 ## 8. Scan disposition
 
-- Retrieved-context chained retrieval: **REV 3 PF11 FAIL; STOP.**
+- Retrieved-context chained retrieval: **REV 4 PF11 FAIL; STOP.**
   Classical PRF establishes both the operation and query drift. Four recent
   conversational-memory preprints report positive iterative-retrieval results;
   RF-Mem is close mechanical prior art. No published negative in the registered
@@ -577,10 +583,12 @@ eviction work in `CC_001`?
   exactly but finds 0/8 cached probe-query vectors and proves X1 differs from X0
   for all six registered `(D,m)` cells on the committed Q11 rank trace. Rev 3
   repaired those defects and narrowed scope to Q11, but PF11 found its Section 2
-  derivation is not the unchanged recursive mechanism: 0/12 full rankings agree
-  and 3/12 next sets change. Remaining Preflight and S3-S5 were not entered. See
+  derivation was not the unchanged recursive mechanism. Rev 4 then registered
+  the recursive structure but omitted the hit mean's squared norm from context
+  normalization: score tolerance and full rankings pass in 0/12 cells, while all
+  12 next sets agree. Remaining Preflight and S3-S4 were not entered. See
   `E006_PART2_S1_PRIOR_ART_SCAN.md`, `E006_PART2_S2_PREFLIGHT.md`, and
-  `E006_PART2_REV3_PF11.md`.
+  `E006_PART2_REV3_PF11.md`, and `E006_PART2_REV4_PF11.md`.
 - Diversity-aware / coverage selection: **COMPLETE, and its one owed
   verification is discharged.** The scan's unconfirmed claim that MMR lacks
   submodularity is **refuted** by Lin and Bilmes (2011) Section 3, Theorem 2:
@@ -597,7 +605,11 @@ eviction work in `CC_001`?
 
 ---
 
-*Opened July 29, 2026. Revision 14, August 10, 2026 - E006 Part 2 Rev 3 is
+*Opened July 29, 2026. Revision 15, August 10, 2026 - E006 Part 2 Rev 4 is
+authorized, then stops at PF11. Its context norm treats the mean of hit vectors
+as unit length, but the observed squared norms are 0.843 and 0.533. Score
+tolerance and full-ranking identity pass in 0/12 cells; all 12 immediate next
+sets agree. PF1-PF10 and S3-S4 were not entered. Revision 14, August 10, 2026 - E006 Part 2 Rev 3 is
 authorized, then stops at its first gate, PF11. Its registered mean-hit equations
 omit the recursive context and `RHO`; 0/12 full rankings agree with the unchanged
 mechanism, score gaps are 0.040-0.212, and 3/12 next sets change. A corrected
