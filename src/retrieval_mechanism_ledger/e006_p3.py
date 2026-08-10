@@ -5,6 +5,8 @@ from typing import Sequence
 
 import numpy as np
 
+from .e006 import assert_mechanism_path_allowed
+
 
 @dataclass(frozen=True)
 class UnionKnnGraph:
