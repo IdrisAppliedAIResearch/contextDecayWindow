@@ -1,0 +1,102 @@
+{
+  "agreement": {
+    "split_items": 0,
+    "this_measures_the_raters": "Agreement is evidence about the raters, not about the arms. Three raters can agree because a score is right or because they share a bias, and same-family raters make the second more likely.",
+    "total_items": 65,
+    "unanimous_items": 64,
+    "unanimous_rate": 0.9846
+  },
+  "conflicts": [],
+  "rater_family_note": "Section 6.1 requires three raters from distinct model families. Three distinct models were used, but they belong to a single family. This is a departure from the registered design and is disclosed here and in the report rather than absorbed.",
+  "raters": [
+    "claude-opus-5",
+    "claude-sonnet-5",
+    "claude-haiku-4-5-20251001"
+  ],
+  "scores": {
+    "study_011_noise_band_d_01": {
+      "Q1": 1.0,
+      "Q10": 1.0,
+      "Q11": 0.0,
+      "Q12": 1.0,
+      "Q13": 1.0,
+      "Q2": 1.0,
+      "Q3": 1.0,
+      "Q4": 1.0,
+      "Q5": 0.0,
+      "Q6": 1.0,
+      "Q7": 1.0,
+      "Q8": 1.0,
+      "Q9": 1.0
+    },
+    "study_011_noise_band_d_02": {
+      "Q1": 0.5,
+      "Q10": 1.0,
+      "Q11": 0.0,
+      "Q12": 1.0,
+      "Q13": 1.0,
+      "Q2": 0.0,
+      "Q3": 1.0,
+      "Q4": 0.0,
+      "Q5": 0.0,
+      "Q6": 1.0,
+      "Q7": 1.0,
+      "Q8": 0.5,
+      "Q9": 1.0
+    },
+    "study_011_noise_band_d_03": {
+      "Q1": 0.5,
+      "Q10": 1.0,
+      "Q11": 0.0,
+      "Q12": 1.0,
+      "Q13": 1.0,
+      "Q2": 0.0,
+      "Q3": 1.0,
+      "Q4": 0.0,
+      "Q5": 0.0,
+      "Q6": 1.0,
+      "Q7": 1.0,
+      "Q8": 0.5,
+      "Q9": 1.0
+    },
+    "study_011_noise_band_d_04": {
+      "Q1": 0.5,
+      "Q10": 1.0,
+      "Q11": 0.0,
+      "Q12": 1.0,
+      "Q13": 1.0,
+      "Q2": 0.0,
+      "Q3": 1.0,
+      "Q4": 0.0,
+      "Q5": 0.0,
+      "Q6": 1.0,
+      "Q7": 1.0,
+      "Q8": 0.5,
+      "Q9": 1.0
+    },
+    "study_011_noise_band_d_05": {
+      "Q1": 0.5,
+      "Q10": 1.0,
+      "Q11": 0.0,
+      "Q12": 1.0,
+      "Q13": 1.0,
+      "Q2": 0.0,
+      "Q3": 1.0,
+      "Q4": 0.0,
+      "Q5": 0.0,
+      "Q6": 1.0,
+      "Q7": 1.0,
+      "Q8": 0.5,
+      "Q9": 1.0
+    }
+  },
+  "source": "three blind passes, majority-combined, committed before unsealing",
+  "study": "011",
+  "totals_out_of_13": {
+    "study_011_noise_band_d_01": 11.0,
+    "study_011_noise_band_d_02": 8.0,
+    "study_011_noise_band_d_03": 8.0,
+    "study_011_noise_band_d_04": 8.0,
+    "study_011_noise_band_d_05": 8.0
+  }
+}
