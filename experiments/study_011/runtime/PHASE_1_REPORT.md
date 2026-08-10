@@ -1,12 +1,23 @@
 # Amendment 001 — Phase 1 Report
 
-## The Runtime Is Reproducible. The Recorded Divergence Is an Outlier.
+## The Probe Reproduced Everything. Phase 2 Showed Why That Was the Wrong Conclusion.
 
 **Amendment:** `../amendments/AMENDMENT_001_determinism_and_noise_band.md`, authorized 2026-08-09
 **Measured:** 2026-08-09
 **Evidence:** `phase_1_sampling_determinism.json`, `phase_1_recorded_prompt_replay.json`,
 `phase_1_generations.jsonl` (800 rows, every generation)
 **Status:** COMPLETE. **§3.1's hypothesis is NOT TESTED, because the symptom did not appear.**
+
+> **SUPERSEDED IN PART, same day, by Phase 2.** This probe reproduced 820 generations
+> without divergence and concluded the recorded divergence was an outlier of
+> unidentified cause. Phase 2 then reproduced it exactly on the first turn of five
+> 121-turn replicates — 343 characters against 80, diverging at character 79, matching
+> both committed digests. **The probe missed it because it isolated the model call from
+> the runner around it**: no store, no embedding model, no 121-turn sequence. It
+> measured the call, not the system that makes the call, which is this program's
+> recurring surrogate failure class with the probe in the surrogate seat. Every number
+> below stands as measured; §4's third bullet and §5's framing do not. See
+> `../noise_band/NOISE_BAND_REPORT.md` and `ERRATA.md`.
 
 ---
 
@@ -88,13 +99,18 @@ byte. **The determinism rerun's 80-character answer does not recur.**
 - **The recorded divergence is real and is not retracted.** Two different answers to a
   byte-identical prompt are committed in the repository, and two tests now pin that
   premise so it cannot quietly stop being true.
-- **It is an outlier, not a property of seeded sampling.** 820 generations on this
-  machine, this build and this model reproduced exactly, including 20 replays of the
-  exact failing prompt.
-- **The standing rule is satisfiable here.** Study 011 §1.1 concluded that *require a
-  byte-identical seeded prefix rerun* "is not satisfiable on this runtime." On this
-  prompt, in a fresh process, it is satisfied 20 times out of 20. That committed
-  sentence is too strong and is corrected in `ERRATA.md`.
+- **It is not a property of seeded sampling.** 820 generations on this machine, this
+  build and this model reproduced exactly, including 20 replays of the exact failing
+  prompt. This report first called it an outlier; Phase 2 reproduced it deterministically
+  on five 121-turn replicates, so *outlier* was wrong. The trigger is present in the
+  full runner and absent from this probe.
+- **The standing rule is satisfiable between runs that share process state.** Study 011
+  §1.1 concluded that *require a byte-identical seeded prefix rerun* "is not satisfiable
+  on this runtime." On this prompt, in a fresh process, it is satisfied 20 times out of
+  20 — and Phase 2 later satisfied it across three consecutive byte-identical 121-turn
+  reruns. **It is not satisfiable between a cold-start run and a warm-start one**, which
+  Phase 2 also showed. This report originally concluded the committed sentence was simply
+  too strong; that reading was wrong and is reversed in `ERRATA.md`.
 
 ## 5. What this does not establish
 
@@ -130,6 +146,7 @@ failing case.
 | "Greedy reproduces" | **Yes** — greedy may never have run | Behavioural check: 20/20 prompts differ between temperatures |
 | Server settings asserted at startup | **Yes** — configuration is not behaviour | Same check, from the other side |
 | 800 generations with no divergence | **Yes** — a divergence rate of 1 in 1,000 would very likely show zero here | Stated as a bound, not as proof of impossibility |
+| The probe's prompt set and call shape | **Yes — and this is what happened** | Nothing. The probe issued model calls without the store, the embedding model or the 121-turn sequence around them. Phase 2 found the divergence immediately. **This row is the one that failed** |
 
 **Accepted residual:** zero divergence in 820 generations bounds the rate loosely, not
 tightly. It is consistent with a rare event, and the one recorded event is exactly that.
