@@ -59,6 +59,13 @@ loop somewhere before ten thousand.
 
 **What this does not establish.**
 
+- **The instrument's run-to-run band is 3.0 points on the 13-point rubric, and
+  it is now measured rather than assumed.** Five replicates of the deployed
+  configuration under identical corpus, settings, seed and runtime scored 8.0,
+  8.0, 8.0, 8.0 and 11.0. **No scored comparison in this arc below about three
+  points is demonstrated** — including the 3.0-point memory-tier contrast this
+  paper cites as its cleanest architectural number. They may be real; a single
+  run per arm cannot tell.
 - One internal conversation corpus and one external benchmark, still one model,
   one machine, one seed, and no error bars. EC-001's evaluator substitution
   forbids direct comparison against published LongMemEval systems.
@@ -188,9 +195,13 @@ baselines in favour of self-comparison. EC-001 later ran cleaned
 LongMemEval-S, but its substituted evaluator does not authorize an official
 score or published-system comparison. The internal decomposition still comes
 from one corpus, one rubric locked since Study 002, one local model at one
-quantization, one machine, one seed. Every comparison is a single run, so there
-is no variance estimate anywhere and no significance test that would mean
-anything.
+quantization, one machine, one seed. Every comparison is a single run. There is
+no significance test that would mean anything, and until Amendment 001 there was
+no variance estimate either. There is now: **3.0 points**, measured by running
+the deployed configuration five times under identical conditions
+(`experiments/study_011/noise_band/`). Scored differences smaller than that are
+reported here as *not demonstrated*, in both directions, including the ones this
+program would rather keep.
 
 Findings below are therefore stated as *on this corpus*, and where a result
 would be worth testing elsewhere the paper names the experiment rather than
@@ -214,6 +225,12 @@ re-stating them at every claim.
    written to catch a specific failure class nearly committed that exact failure.
 
 ### 1.3 What this paper does not claim
+
+**No claim that any scored difference below about three points in this arc is
+real.** The instrument's run-to-run band is 3.0 on the 13-point rubric (§8.1),
+so the memory-tier contrast, the live-validation kill and the tier-isolation
+kill are all reported as measured and none as demonstrated. What survives is the
+offline decomposition, which is counts and identities rather than scores.
 
 No comparison against HippoRAG, Mem0, Zep, or Letta; none were run. No general
 claim that similarity retrieval fails — §5.5 measures the opposite on eight of
@@ -295,7 +312,7 @@ Ten numbered studies and one registered bakeoff. The table is the record.
 | 006 | Length-normalized span selection | PARTIAL, 1 of 3 | Formation reached 4 of 4 domains; records shrank about 28×, and count-based retrieval budgets silently broke |
 | 007 | Character-budgeted retrieval | PARTIAL, 2 of 3 | Best of the series. The model used all 10 delivered facts and invented none; 7 required facts were absent from the store |
 | 008 | Rendering-by-floor factorial | STOPPED AT PRE-RUN GATES | No fill cap from 1 to 50 passed breadth and targeted gates jointly |
-| 009 | Pure-STM null test | PARTIAL, null decisive | Same seed: 9.0 without the memory tier, 12.0 with it |
+| 009 | Pure-STM null test | PARTIAL, null decisive | Same seed: 9.0 without the memory tier, 12.0 with it. **The 3.0 gap equals the measured instrument band and is not demonstrated** (§8.1); the baseline was also a locked prefix, not a recency window (§5.2.5) |
 | 010 | 1,000-turn endurance | STOPPED AT G2 | Post-stop arms were budget-noncompliant by 67.9% and 68.2%; scores unaudited; one bar not evaluable |
 | — | Retrieval bakeoff | MIXED | Query-time selection did not recover what formation missed |
 
@@ -1167,6 +1184,31 @@ measured: every number here comes from one model at one quantization on one
 machine, with §7.2 giving positive reason to expect a different embedder would
 move the §5 results.
 
+### 7.5 A probe that removed the thing it was built to find
+
+Amendment 001 raised a determinism gate failure: the same byte-identical prompt
+had produced two different answers at a fixed seed. Phase 1 was built to
+characterize that. It issued 20 committed windows ten times each under three
+sampler conditions, plus two conditions added beyond the registration, plus
+twenty replays of the exact prompt whose divergence was recorded. **820
+generations, zero divergence.** The probe concluded the runtime reproduced and
+the recorded failure was an outlier of unidentified cause.
+
+Phase 2 then ran the deployed configuration five times end to end and reproduced
+the divergence on the first turn of the second replicate: 343 characters against
+80, diverging at character 79, matching both committed response digests exactly.
+
+The probe missed it because it isolated the model call from the system that
+makes the call — no store, no embedding model, no 121-turn sequence, no
+alternating process lifecycle. It measured the component and reported on the
+system. That is this program's recurring surrogate failure class, arriving in a
+diagnostic written by an agent who had spent the previous day documenting the
+same failure class in three other places (§5.2.4, §5.2.5, §7.3).
+
+The Phase 1 report is superseded in part rather than rewritten, its numbers left
+standing and its conclusion marked wrong, and its own surrogate-audit table now
+carries the row that failed.
+
 ---
 
 ## 8. Limitations
@@ -1174,9 +1216,34 @@ move the §5 results.
 Each item names what would settle it. §5 states its own scope where it matters;
 this section is the complete list rather than a restatement.
 
-**8.1 One seed, no variance, and no official external comparison.** Every
-comparison is a single run at a fixed seed. There is no error bar anywhere and
-no meaningful significance test. EC-001 ran cleaned LongMemEval-S, removing the
+**8.1 The instrument's band is 3.0, and most scored comparisons here are below
+it.** Every comparison in this paper is a single run at a fixed seed. That was
+recorded as a missing variance estimate until the estimate was made.
+
+Five replicates of the deployed configuration — identical corpus, settings, seed
+and standing runtime, run back to back in one server process — scored **8.0,
+8.0, 8.0, 8.0 and 11.0**. Max minus min is **3.0** against a decision rule
+committed before the replicates ran. It is not a spread but a switch: four of
+the five are byte-identical across all 121 turns, and the fifth, the only one to
+meet an empty server slot, diverges at turn 1 and never re-converges. Rater
+disagreement was measured separately and is near zero (64 of 65 items
+unanimous), so this is run-to-run variation and not scoring noise.
+
+Applied uniformly and in both directions, the memory-tier contrast (3.0), the
+live-validation targeted regression (−2.0) and the tier-isolation kill (−1.0)
+are all **inside the band and not demonstrated**; the corrected treatment series
+(3.5) is the only scored result that exceeds it, and exceeding a band is not the
+same as being demonstrated. *Not demonstrated is not refuted* — these may be
+real, and a single run per arm cannot say.
+
+What the band does not touch is everything offline and deterministic: gate
+outcomes, delivery counts, character accounting, packing measurements, EC-002's
+152 gains and zero losses, IC-001's zero K deliveries at 8 of 8 probes, and the
+N-tier replays. Those are counts and identities, not scores, and §5's
+decomposition rests on them. *Settled by:* repeated runs at multiple seeds with
+process state pinned, which no study in this arc pinned.
+
+There is still no meaningful significance test. EC-001 ran cleaned LongMemEval-S, removing the
 claim that every result is self-authored, but API unavailability replaced the
 pinned benchmark evaluator with Phi, Mistral, and hosted GPT-5.4 raters plus
 hosted GPT-5.5 AI adjudication. Its 20.0% equal-quota and 12.22%

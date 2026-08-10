@@ -238,14 +238,14 @@ exchange for an instrument that can reproduce a run. **That decision is not made
 - [x] §1.2's non-rescue clause recorded in `verdict.json` and the Study 011 report
 - [x] Phase 1: identity rates and divergence positions, all conditions
 - [x] Phase 2 decision rule committed before any run is scored — SHA recorded
-- [ ] Phase 2: five runs, every individual score listed
-- [ ] Full range, per-question variability, rater disagreement reported separately
-- [ ] Band verdict against §4.3
-- [ ] **Uniform retrospective application** to Study 009, LV-001, Study 011, and the
+- [x] Phase 2: five runs, every individual score listed
+- [x] Full range, per-question variability, rater disagreement reported separately
+- [x] Band verdict against §4.3
+- [x] **Uniform retrospective application** to Study 009, LV-001, Study 011, and the
       corrected series — in whichever direction the band points
-- [ ] `PAPER_001.md` §8 limitations revised; structural revision if the band exceeds 1.5
-- [ ] `ERRATA.md` entries for any committed verdict whose reading changes
-- [ ] Ledger, `README.md`, `AGENTS.md` digest; one PR
+- [x] `PAPER_001.md` §8 limitations revised; structural revision if the band exceeds 1.5
+- [x] `ERRATA.md` entries for any committed verdict whose reading changes
+- [x] Ledger, `README.md`, `AGENTS.md` digest; one PR
 
 ---
 
