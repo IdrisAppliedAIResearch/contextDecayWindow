@@ -2,6 +2,25 @@
 
 **Status:** REOPENED on 2026-08-01 for Family CS. Family QR remains closed.
 
+## E006 Part 3 associative frontier - NO_DIFFERENTIATED_CUE
+
+Design `80a5886a`; authorization `5e905f15`; S4 execution `88ec1797`.
+PF1-PF10 pass after exact historical reproduction of Tier 4A `144/144` rows
+and A1 `8/8` cells. The required 48 Tier 4A query vectors were captured under
+Rev 1; the first `114/144` runtime failure remains committed, and Rev 2 repairs
+only the auditor's single-thread import order.
+
+At primary `D=2, m=5`, A0/A1/A2 each admit 15 candidates. A2 carries and packs
+5/17 facts, all civil, versus A0's 9 candidate and 7 packed facts and A1's 9/9.
+The candidate gate fails, so the ordered disposition is
+`NO_DIFFERENTIATED_CUE`. A2's best cell is 6/17; every A2 cell has art 0/4.
+
+Carry forward: equal candidate quotas do not equalize delivered volume or
+evidence opportunity. A strongest-edge local frontier can reinforce one domain
+rather than restore breadth. Tier 4A's global-PPR result remains closed; this
+different local operator over the same broad cosine-graph family is
+`CHARACTERIZED` only. No targeted claim, live run, promotion, or adoption.
+
 ## E006 Part 2 chained retrieval Rev 5 - CHARACTERIZED
 
 Design `764396b2`; authorization `ac81d8e1`; S4 execution `b101f040`. Rev 5
