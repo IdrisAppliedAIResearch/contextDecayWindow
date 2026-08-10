@@ -87,6 +87,16 @@ undetectable without measuring it.
 - **Must degrade gracefully under an enforced budget.** Untested for everything on record.
 - **Must not require a second resident model** or a quant that conflicts with the standing runtime. *(Constraint added July 30, 2026 - see E001.)*
 - **Surrogate audit before promotion.** Can the test pass while the property it certifies is false?
+- **A scored gain below 3.0 points is not a result on this instrument.** Amendment
+  001 Phase 2 ran the deployed configuration five times under identical corpus,
+  settings, seed and runtime: four scored 8.0 and one 11.0, so the measured
+  run-to-run band is **3.0 on the 13-point rubric**. Any candidate promoted on a
+  one- or two-point live gain would be promoted on noise. Offline counts —
+  delivery, availability, characters, identity — are unaffected and remain the
+  ledger's currency, which is what they always were. *(Constraint added August 9,
+  2026 - see `experiments/study_011/noise_band/NOISE_BAND_REPORT.md`. It cuts
+  against promotion only; it may not be cited to revive anything this program
+  killed, and Amendment 001 §1.2 makes that binding for K-first packing.)*
 - **Every number in this ledger was measured behind recency-first packing.** IC-001
   replayed the corrected 121-turn run under both orders and found the K path
   delivered **zero episodes and zero characters at 8 of 8 probes** under the

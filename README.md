@@ -13,7 +13,7 @@ every claim carries its committed artifact, and one headline number
 
 Ten pre-registered studies test that question, each adding one memory component and fixing the prior study's documented failures. Every result is published as found.
 
-> **Status:** Study 010 stopped at G2; exploratory continuation unaudited and LTM budget-noncompliant | retrieval bakeoff complete | retrieval mechanism ledger reopened for Family CS; E005 is killed by LV-001's live targeted-regression bar, DX-001 closes NO CHANGE, and RD-001 stops before correlation because unchanged rarity scores cover only 6/76 fact-bearing episodes; chained retrieval is not authorized | EC-001 LongMemEval complete: inversion not dominant, Codex-substituted score only | EC-002 complete: K-first packing raises any-session recall 109/470 -> 261/470 offline; no production promotion authorized | IC-001 Branch A: the same gate is closed internally — K delivered nothing at 8/8 probes under the deployed order; Q11 6/17 -> 7/17, targeted 14/21 -> 18/21, zero losses; cache clause substituted under authorized Amendment 001; no recalibration authorized | Study 011 tests both halves live and splits them: the deployed arm scores identically to recency-only on all 13 questions, so the similarity tier is inert in deployment, but K-first raises availability and scores 7.0 vs 8.0 — B1 FAILS and the packing correction is not adopted; post-unseal analysis finds the N tier is a least-recently-delivered rotation over the whole store, not a recency window, and that the rule every live run through Study 010 used was a block locked onto the conversation's first nine turns; three different rules carry that name and only the extracted library's is a window | CC-002 extracts the deployable component into `episodic`; CC-006 adds exact hashed vector-cache reuse | deployment closeout complete | PAPER-001 revised through Study 011 | scoring/interpretation record corrected through 2026-08-05
+> **Status:** Study 010 stopped at G2; exploratory continuation unaudited and LTM budget-noncompliant | retrieval bakeoff complete | retrieval mechanism ledger reopened for Family CS; E005 is killed by LV-001's live targeted-regression bar, DX-001 closes NO CHANGE, and RD-001 stops before correlation because unchanged rarity scores cover only 6/76 fact-bearing episodes; chained retrieval is not authorized | EC-001 LongMemEval complete: inversion not dominant, Codex-substituted score only | EC-002 complete: K-first packing raises any-session recall 109/470 -> 261/470 offline; no production promotion authorized | IC-001 Branch A: the same gate is closed internally — K delivered nothing at 8/8 probes under the deployed order; Q11 6/17 -> 7/17, targeted 14/21 -> 18/21, zero losses; cache clause substituted under authorized Amendment 001; no recalibration authorized | Study 011 tests both halves live and splits them: the deployed arm scores identically to recency-only on all 13 questions, so the similarity tier is inert in deployment, but K-first raises availability and scores 7.0 vs 8.0 — B1 FAILS and the packing correction is not adopted; post-unseal analysis finds the N tier is a least-recently-delivered rotation over the whole store, not a recency window, and that the rule every live run through Study 010 used was a block locked onto the conversation's first nine turns; three different rules carry that name and only the extracted library's is a window | Amendment 001 authorized and run: the instrument's run-to-run band is **3.0 points on 13**, measured by five identical arm-D replicates that score 8.0, 8.0, 8.0, 8.0 and 11.0 — a switch, not a spread, since four are byte-identical across 121 turns and the one meeting an empty server slot diverges at turn 1; Study 009's 3.0, LV-001's -2.0 and Study 011's -1.0 are all re-read as **not demonstrated**, while every offline count is untouched and B1 stays fired | CC-002 extracts the deployable component into `episodic`; CC-006 adds exact hashed vector-cache reuse | deployment closeout complete | PAPER-001 revised through Study 011 | scoring/interpretation record corrected through 2026-08-05
 
 ## The Problem
 
@@ -231,6 +231,25 @@ The loss is late-probe rather than uniform, and both losses at the marine probe
 fall on a turn that holds no similarity candidate at all, so the displacement
 mechanism is consistent but not established. Three of six registered predictions
 are refuted outright and a fourth is withdrawn as unscorable.
+
+**And then the instrument was measured, and it does not resolve any of it.**
+Amendment 001, authorized August 9, ran the deployed configuration five times
+under an identical corpus, settings, seed and runtime, back to back in one
+server process. Four scored **8.0**; one scored **11.0**. The band is **3.0
+points on a 13-point rubric**, against a decision rule committed before the
+replicates ran. It is not a spread but a switch: four of the five are
+byte-identical across all 121 turns, and the fifth — the only one that met an
+empty server slot — diverges at turn 1 and never re-converges, reproducing the
+exact divergence that raised the amendment. Applied uniformly and in both
+directions, **Study 009's 3.0-point memory-tier contrast, LV-001's −2.0 kill and
+Study 011's own −1.0 kill are all inside the band and none is demonstrated.**
+Only the 3.5-point corrected series exceeds it, and exceeding a band is not the
+same as being demonstrated. Not demonstrated is not refuted: these may be real,
+and one run per arm could never have said. Every offline result — delivery
+counts, character accounting, packing measurements, the replays below — is
+untouched, because those are counts and identities rather than scores. B1 stays
+fired and the packing correction stays unadopted; the band may not be cited to
+revive it.
 
 **Mechanism analysis after the mapping was unsealed found that the tier is not
 what the arc calls it.** The N tier does not select by recency. Its key sorts the
