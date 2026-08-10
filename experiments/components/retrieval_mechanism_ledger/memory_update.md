@@ -2,6 +2,24 @@
 
 **Status:** REOPENED on 2026-08-01 for Family CS. Family QR remains closed.
 
+## E006 Part 2 chained retrieval Rev 5 - CHARACTERIZED
+
+Design `764396b2`; authorization `ac81d8e1`; S4 execution `b101f040`. Rev 5
+prospectively added the hit mean's squared norm after Rev 4 stopped at PF11. The
+registered Gram route then matched the independent vector route in 12/12 cells
+at maximum error `9.5e-15`. PF1-PF10 pass; PF7 passes all 48 real-trace cells.
+
+Single-shot `top_m` reaches at most 3/17. Chaining reaches 7/17 at D1 and 9/17
+at D2/D3, exceeding X0's 6/17, so the kill does not fire. Four cells reach 9/17,
+all with 5 civil, 0 art, 1 monetary, and 3 marine facts. They consider 15-20
+candidates and select 12 episodes, versus X0's 8; this does not establish better
+ranking and remains below E005's 12/17.
+
+Carry forward: a mean of unit vectors is not generally unit length. Gate the
+derivation independently. More candidates can beat a sparse reference without
+solving domain coverage. No targeted query traces exist, so the result is
+`CHARACTERIZED`: no live run, promotion, or adoption.
+
 ## RD-001 rarity diagnostic - STOP, measurement not identifiable
 
 Design anchor `37d5bf2db418a0cc2e333faad47bb9c1965c28b4`. The carried
@@ -25,8 +43,9 @@ Carry forward:
 3. The full 119-rank inventory is valid descriptive evidence and replaces the
    paper's 16-point figure limitation.
 4. The vocabulary-versus-retrieval alternative remains unresolved.
-5. E006 Part 2 is not authorized. A future rarity study needs a new prospective
-   design with one score per registered unit and a named interval method.
+5. A future rarity study needs a new prospective design with one score per
+   registered unit and a named interval method. The separate chained-retrieval
+   path completed under Rev 5 but did not resolve the vocabulary alternative.
 
 ## E005 diversity-aware selection - PROMOTION_ELIGIBLE offline
 
