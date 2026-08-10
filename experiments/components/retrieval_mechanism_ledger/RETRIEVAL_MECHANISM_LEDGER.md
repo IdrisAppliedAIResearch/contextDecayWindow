@@ -419,8 +419,14 @@ an offline result; **no live run is authorized.** See
   correlation stopped before computation. The prior rarity artifact scores
   only 6 of 76 fact-bearing episodes and exposes three variants without a
   registered primary or episode aggregation. No registered branch covers that
-  state. The vocabulary alternative remains unresolved and chained retrieval
-  is **not authorized**. See `RD_001_report.md`.
+  state. The vocabulary alternative remains unresolved. E006 Part 2 Rev 2 was
+  separately authorized for offline stages S1-S4 on August 10, 2026; it does
+  not alter RD-001's result or authorize live evaluation. S1 found no published
+  negative on conversational memory, so its registered kill did not fire.
+  RF-Mem is close positive prior art for iterative embedding-space memory/query
+  mixing, while MemR3, EviMem, and MGRetrieval are positive inference-driven
+  neighbors. See `RD_001_report.md`, `E006_PART2_AUTHORIZATION.md`, and
+  `E006_PART2_S1_PRIOR_ART_SCAN.md`.
 
 **Measurement correction applied before the outcome was accepted:** the
 no-regression numerator was keyed on `(turn, item)` while its denominator
@@ -552,6 +558,14 @@ eviction work in `CC_001`?
 
 ## 8. Scan disposition
 
+- Retrieved-context chained retrieval: **S1 COMPLETE; NO REGISTERED KILL.**
+  Classical PRF establishes both the operation and query drift. Four recent
+  conversational-memory preprints report positive iterative-retrieval results;
+  RF-Mem is close mechanical prior art. No published negative in the registered
+  setting was located. Chaining and the conversational-memory setting are not
+  novel; E006's remaining distinction is the committed corpus, deterministic
+  zero-model-call path, and absorbing-state discipline. See
+  `E006_PART2_S1_PRIOR_ART_SCAN.md`.
 - Diversity-aware / coverage selection: **COMPLETE, and its one owed
   verification is discharged.** The scan's unconfirmed claim that MMR lacks
   submodularity is **refuted** by Lin and Bilmes (2011) Section 3, Theorem 2:
@@ -568,7 +582,12 @@ eviction work in `CC_001`?
 
 ---
 
-*Opened July 29, 2026. Revision 11, August 3, 2026 - the IDF graveyard claim is
+*Opened July 29, 2026. Revision 12, August 10, 2026 - E006 Part 2 Rev 2 is
+authorized for offline S1-S4. S1 finds no published negative for chained
+retrieval on conversational memory, so the registered kill does not fire; four
+positive conversational-memory preprints, especially RF-Mem's iterative
+embedding-space alpha-mix, narrow the novelty position. Revision 11, August 3,
+2026 - the IDF graveyard claim is
 withdrawn after provenance review: no primary variant was registered, and only
 mean IDF ranks all five eligible hard-plant spans worse than density. Revision
 10, August 3, 2026 - RD-001 recovers the full
