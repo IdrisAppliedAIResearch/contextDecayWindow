@@ -3,6 +3,7 @@ from __future__ import annotations
 from src.analysis.e006_chained_retrieval_preflight import (
     DESIGN_SHA256,
     content_sha256,
+    disabled_chain_control,
     load_authoritative_packer,
     sha256_file,
 )
@@ -56,3 +57,16 @@ def test_disabled_chain_control_is_structurally_not_single_shot() -> None:
 
     assert single.selected_ids != beta_zero_depth_one.selected_ids
     assert len(beta_zero_depth_one.selected_ids) == 2 * len(single.selected_ids)
+
+
+def test_real_q11_disabled_chain_misses_both_anchor_interpretations() -> None:
+    from src.analysis.e006_chained_retrieval_preflight import load_episodes
+
+    result = disabled_chain_control(load_episodes(), load_authoritative_packer())
+
+    assert result["status"] == "FAIL"
+    assert all(not cell["payload_sha256_equal"] for cell in result["cells"])
+    assert all(
+        not cell["committed_x0_payload_sha256_equal"]
+        for cell in result["cells"]
+    )

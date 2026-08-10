@@ -366,6 +366,8 @@ def disabled_chain_control(
     pack_stm_payload,
 ) -> dict[str, Any]:
     by_id = {str(episode["id"]): episode for episode in episodes}
+    committed_x0 = json.loads(COMMITTED_X0.read_text(encoding="utf-8"))
+    committed_x0_digest = str(committed_x0["payload_sha256"])
     with Q11_RANK_INVENTORY.open(encoding="utf-8", newline="") as handle:
         ranks = list(csv.DictReader(handle))
     ranked = [by_id[str(row["episode_id"])] for row in ranks]
@@ -397,9 +399,16 @@ def disabled_chain_control(
                     "disabled_chain_payload_sha256": chained_digest,
                     "content_hash_sequence_equal": single_hashes == chained_hashes,
                     "payload_sha256_equal": single_digest == chained_digest,
+                    "committed_x0_payload_sha256_equal": (
+                        committed_x0_digest == chained_digest
+                    ),
                 }
             )
-    all_equal = all(cell["payload_sha256_equal"] for cell in cells)
+    all_equal = all(
+        cell["payload_sha256_equal"]
+        and cell["committed_x0_payload_sha256_equal"]
+        for cell in cells
+    )
     return {
         "status": "PASS" if all_equal else "FAIL",
         "registered_assertion": "X1 equals X0 across all probes by payload digest",
@@ -408,6 +417,7 @@ def disabled_chain_control(
             "0..D loop accumulate m*(D+1) candidates instead of m."
         ),
         "comparison_key": "episode_content_sha256",
+        "committed_x0_payload_sha256": committed_x0_digest,
         "q11_top_four_fact_counts": top_four_fact_counts,
         "cells": cells,
     }
