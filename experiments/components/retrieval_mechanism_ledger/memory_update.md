@@ -2,22 +2,23 @@
 
 **Status:** REOPENED on 2026-08-01 for Family CS. Family QR remains closed.
 
-## E006 Part 2 chained retrieval Rev 4 - STOP AT PF11
+## E006 Part 2 chained retrieval Rev 5 - CHARACTERIZED
 
-Design anchor `71acbd35`; authorization `595e0a71`; auditor `a85f1708`. Rev 4
-registered a recursive Gram formulation for the unchanged chained-retrieval
-vector rule, but its normalization treats the mean hit vector as unit length.
-On the committed Q11 trace, the hit-mean squared norm is `0.84265` at `m=3` and
-`0.53308` at `m=5`.
+Design `764396b2`; authorization `ac81d8e1`; S4 execution `b101f040`. Rev 5
+prospectively added the hit mean's squared norm after Rev 4 stopped at PF11. The
+registered Gram route then matched the independent vector route in 12/12 cells
+at maximum error `9.5e-15`. PF1-PF10 pass; PF7 passes all 48 real-trace cells.
 
-The independent vector route and Section 2 pass score tolerance in 0/12 cells
-and agree on full rankings in 0/12; score gaps are `0.000850-0.033038`. Immediate
-next `top_m` sets agree in 12/12, which cannot pass the conjunctive gate. PF1-PF10,
-parameter registration, and S4 were not entered. Zero model and embedding calls.
+Single-shot `top_m` reaches at most 3/17. Chaining reaches 7/17 at D1 and 9/17
+at D2/D3, exceeding X0's 6/17, so the kill does not fire. Four cells reach 9/17,
+all with 5 civil, 0 art, 1 monetary, and 3 marine facts. They consider 15-20
+candidates and select 12 episodes, versus X0's 8; this does not establish better
+ranking and remains below E005's 12/17.
 
-Carry forward: a mean of unit vectors is not generally unit length. Any future
-design must register the full norm expansion prospectively and receive new
-authorization; Rev 4 remains locked and cannot be repaired in place.
+Carry forward: a mean of unit vectors is not generally unit length. Gate the
+derivation independently. More candidates can beat a sparse reference without
+solving domain coverage. No targeted query traces exist, so the result is
+`CHARACTERIZED`: no live run, promotion, or adoption.
 
 ## RD-001 rarity diagnostic - STOP, measurement not identifiable
 
@@ -43,8 +44,8 @@ Carry forward:
    paper's 16-point figure limitation.
 4. The vocabulary-versus-retrieval alternative remains unresolved.
 5. A future rarity study needs a new prospective design with one score per
-   registered unit and a named interval method. The separately authorized E006
-   Part 2 chained-retrieval path stopped at its Rev 4 PF11 gate.
+   registered unit and a named interval method. The separate chained-retrieval
+   path completed under Rev 5 but did not resolve the vocabulary alternative.
 
 ## E005 diversity-aware selection - PROMOTION_ELIGIBLE offline
 

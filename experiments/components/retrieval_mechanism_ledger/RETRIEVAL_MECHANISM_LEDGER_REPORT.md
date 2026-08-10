@@ -1,8 +1,8 @@
 # Retrieval Mechanism Ledger Closeout
 
-**Status:** CLOSED
-**Date:** 2026-07-30
-**Scope:** Offline query-representation mechanisms after the retrieval bakeoff
+**Status:** CLOSED; extended through E006 Part 2 Rev 5
+**Date:** 2026-08-10
+**Scope:** Offline retrieval mechanisms after the retrieval bakeoff
 **Prospective design anchors:** `b42f4f81` (ledger and E002 protocol);
 `fd880d88` (E001 protocol and dispositions)
 **Post-hoc bar-audit anchors:** `b48e7501` (AR-001 protocol);
@@ -123,6 +123,25 @@ abstention items. F3 is retired as a component requirement, not marked solved:
 the detector remains absent, and reader compensation is measured for only one
 reader, prompt, seed, and 20-item subset.
 
+## E006 chained retrieval
+
+E006 Part 2 Rev 5 completes the Q11-only zero-call chained-retrieval path after
+Rev 2 stopped in Preflight and Rev 3/Rev 4 stopped at independent derivation
+gates. The corrected recursive Gram equation matches the unchanged vector route
+in all 12 PF11 cells at maximum error `9.5e-15`. PF1-PF10 pass, including exact
+X0 reproduction, 12/12 single-shot controls, and 48/48 absorbing-state checks.
+
+Across the fixed 48-cell grid, single-shot `top_m` reaches 3/17, D1 reaches
+7/17, and D2/D3 reach 9/17. The kill against X0's 6/17 does not fire. However,
+the best chain cells consider 15-20 candidates and select 12 episodes versus
+X0's 8, miss all four art facts, and remain below E005's 12/17. This is
+`CHARACTERIZED` availability on one probe, not better-ranking evidence.
+
+The eight targeted probes have no committed full cosine traces, so no targeted
+no-regression arm exists. No answer was generated or scored, and no live run,
+promotion, or adoption is authorized. See `E006_PART2_REV5_REPORT.md` and
+`artifacts/e006_rev5_s4/results.json`.
+
 ## Verification
 
 The 19 focused E001/E002 tests pass. On 2026-07-31 the permanently failing
@@ -147,6 +166,9 @@ all seven artifacts.
 - Program landscape: `LITERATURE_LANDSCAPE.md`
 - Q11 achievability design: `AR_001_Q11_ACHIEVABILITY_PROTOCOL.md`
 - Q11 achievability result: `artifacts/ar_001/AR_001_report.md`
+- E006 Rev 5 design: `E006_PART2_REV5_chained_retrieval.md`
+- E006 Rev 5 result: `E006_PART2_REV5_REPORT.md`
+- E006 Rev 5 artifacts: `artifacts/e006_rev5_s4/`
 
 Design and disposition commits precede implementation and output. E002 output
 is anchored by `dfdb257e`; E001 capture by `dbbf7617`; E001 analysis by

@@ -48,7 +48,7 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **RD-001 rarity diagnostic (2026-08-03).** STOP: measurement not identifiable. Full 119-rank replay passes; rarity covers 6/76 episodes across 3 non-primary variants. Mean IDF is worse than density on 5/5 eligible plants, but max improves 2 and sum/word 1, so the IDF-family claim is withdrawn. No coefficient; Part 2 unauthorized.
 
-**E006 Part 2 chained retrieval (2026-08-10).** Rev2 STOP S2. Rev3 STOP PF11: recurrence dropped recursive context. Rev4 registered it but STOPPED PF11 again: normalization assumes the hit mean has unit norm (actual squared norms .843/.533). Scores pass 0/12 (<1e-10), rankings 0/12, next sets 12/12; gaps .00085-.0330. PF1-PF10/S3/S4 not entered.
+**E006 Part 2 chained retrieval (2026-08-10).** Rev5 COMPLETE offline, CHARACTERIZED. Corrected Gram recurrence passes PF11 12/12 at 9.5e-15; PF1-PF10 and PF7 48/48 pass. Chaining raises single-shot top-m 3/17 and X0 6/17 to 9/17 at D2/D3, but uses 15-20 candidates, selects 12, misses art 0/4, and trails E005 12/17. No targeted traces; no promotion or live run.
 
 **CC-002 library extraction (2026-08-01).** The deployable component now lives in the installable `episodic` package; the harness imports it. T1-T7 pass: clean-venv import, leakage grep + import-graph, byte-identical reproduction of 132 committed A3 payloads and 3 rendered blocks, call-shape sentinel fails loudly, 804 tests green, two-process purity. H1/H2 ship as config-pinned gates, not docs.
 
