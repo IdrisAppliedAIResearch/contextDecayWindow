@@ -1,5 +1,16 @@
 from __future__ import annotations
 
+import os
+
+THREAD_VARIABLES = (
+    "OMP_NUM_THREADS",
+    "OPENBLAS_NUM_THREADS",
+    "MKL_NUM_THREADS",
+    "NUMEXPR_NUM_THREADS",
+)
+for _thread_variable in THREAD_VARIABLES:
+    os.environ[_thread_variable] = "1"
+
 import argparse
 import hashlib
 import json
@@ -208,6 +219,9 @@ def build_reproduction_gate() -> dict[str, Any]:
         "status": "PASS" if decision == "CONTINUE_TO_A2_EXPLORATION" else "FAIL",
         "decision": decision,
         "zero_additional_embedding_calls": True,
+        "thread_environment": {
+            name: os.environ[name] for name in THREAD_VARIABLES
+        },
         "tier4a_e3_reproduction": tier4,
         "a1_reproduction": a1,
     }
