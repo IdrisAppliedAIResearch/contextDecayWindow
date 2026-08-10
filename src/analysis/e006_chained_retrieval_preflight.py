@@ -41,7 +41,6 @@ DESIGN = COMPONENT_ROOT / "E006_PART2_chained_retrieval.md"
 AUTHORIZATION = COMPONENT_ROOT / "E006_PART2_AUTHORIZATION.md"
 S1_REPORT = COMPONENT_ROOT / "E006_PART2_S1_PRIOR_ART_SCAN.md"
 PREFLIGHT_RULE = REPO_ROOT / "PREFLIGHT.md"
-LEDGER = COMPONENT_ROOT / "RETRIEVAL_MECHANISM_LEDGER.md"
 CONTEXT_LOG = RUN_ROOT / "logs" / "context_match.jsonl"
 TURN_LOG = RUN_ROOT / "logs" / "turns.jsonl"
 DATABASE = RUN_ROOT / "study.db"
@@ -197,7 +196,6 @@ def input_inventory() -> list[dict[str, Any]]:
         AUTHORIZATION,
         S1_REPORT,
         PREFLIGHT_RULE,
-        LEDGER,
         CONTEXT_LOG,
         TURN_LOG,
         DATABASE,
