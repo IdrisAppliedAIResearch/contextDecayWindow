@@ -1,0 +1,1495 @@
+{
+  "arms": {
+    "A": {
+      "arm": "A",
+      "not_an_outcome": "Delivery only. The registered outcome is the scored rubric (section 6.1); availability is never the bar.",
+      "oracle_overlap_at_q11": {
+        "exact_optimum_14_of_17": {
+          "delivered_from_oracle": 0,
+          "episode_ids": [],
+          "oracle_size": 5
+        },
+        "greedy_15_of_17": {
+          "delivered_from_oracle": 0,
+          "episode_ids": [],
+          "oracle_size": 5
+        }
+      },
+      "path_split": {
+        "per_probe": [
+          {
+            "k_candidates": 0,
+            "k_only_episodes": 0,
+            "n_candidates": 32,
+            "probe_turn": 112,
+            "questions": [
+              "Q1"
+            ],
+            "recency_episodes": 7,
+            "serialized_chars": 31673
+          },
+          {
+            "k_candidates": 0,
+            "k_only_episodes": 0,
+            "n_candidates": 32,
+            "probe_turn": 113,
+            "questions": [
+              "Q2"
+            ],
+            "recency_episodes": 8,
+            "serialized_chars": 31657
+          },
+          {
+            "k_candidates": 0,
+            "k_only_episodes": 0,
+            "n_candidates": 32,
+            "probe_turn": 114,
+            "questions": [
+              "Q12",
+              "Q3"
+            ],
+            "recency_episodes": 8,
+            "serialized_chars": 31687
+          },
+          {
+            "k_candidates": 0,
+            "k_only_episodes": 0,
+            "n_candidates": 32,
+            "probe_turn": 115,
+            "questions": [
+              "Q4"
+            ],
+            "recency_episodes": 8,
+            "serialized_chars": 30045
+          },
+          {
+            "k_candidates": 0,
+            "k_only_episodes": 0,
+            "n_candidates": 32,
+            "probe_turn": 116,
+            "questions": [
+              "Q5"
+            ],
+            "recency_episodes": 7,
+            "serialized_chars": 29787
+          },
+          {
+            "k_candidates": 0,
+            "k_only_episodes": 0,
+            "n_candidates": 32,
+            "probe_turn": 117,
+            "questions": [
+              "Q6",
+              "Q9"
+            ],
+            "recency_episodes": 8,
+            "serialized_chars": 31969
+          },
+          {
+            "k_candidates": 0,
+            "k_only_episodes": 0,
+            "n_candidates": 32,
+            "probe_turn": 118,
+            "questions": [
+              "Q10",
+              "Q7"
+            ],
+            "recency_episodes": 7,
+            "serialized_chars": 30588
+          },
+          {
+            "k_candidates": 0,
+            "k_only_episodes": 0,
+            "n_candidates": 32,
+            "probe_turn": 119,
+            "questions": [
+              "Q8"
+            ],
+            "recency_episodes": 9,
+            "serialized_chars": 31867
+          },
+          {
+            "k_candidates": 0,
+            "k_only_episodes": 0,
+            "n_candidates": 32,
+            "probe_turn": 120,
+            "questions": [
+              "Q11"
+            ],
+            "recency_episodes": 8,
+            "serialized_chars": 31002
+          }
+        ],
+        "totals": {
+          "k_only_episodes": 0,
+          "recency_episodes": 70,
+          "serialized_chars": 280275
+        },
+        "warning": "Totals conceal composition. IC-001 found both arms delivering exactly 71 recency episodes in different compositions; only the paired per-probe rows showed the change."
+      },
+      "q11_availability": {
+        "domain_count": 3,
+        "fact_count": 9,
+        "items": [
+          {
+            "available": true,
+            "domain": "civil",
+            "item": "Halcyon Crossing"
+          },
+          {
+            "available": true,
+            "domain": "civil",
+            "item": "847"
+          },
+          {
+            "available": false,
+            "domain": "civil",
+            "item": "Dr. Anara Bekova"
+          },
+          {
+            "available": true,
+            "domain": "civil",
+            "item": "S460ML"
+          },
+          {
+            "available": true,
+            "domain": "civil",
+            "item": "92.4"
+          },
+          {
+            "available": false,
+            "domain": "art",
+            "item": "The Annunciation of Forli"
+          },
+          {
+            "available": false,
+            "domain": "art",
+            "item": "Melozzo da Forli"
+          },
+          {
+            "available": false,
+            "domain": "art",
+            "item": "Cardinal Giuliano della Rovere"
+          },
+          {
+            "available": false,
+            "domain": "art",
+            "item": "1483"
+          },
+          {
+            "available": true,
+            "domain": "monetary",
+            "item": "Taylor Rule"
+          },
+          {
+            "available": true,
+            "domain": "monetary",
+            "item": "Federal Reserve"
+          },
+          {
+            "available": true,
+            "domain": "monetary",
+            "item": "Dr. Priya Mehta"
+          },
+          {
+            "available": true,
+            "domain": "monetary",
+            "item": "2.3%"
+          },
+          {
+            "available": true,
+            "domain": "marine",
+            "item": "Vampyroteuthis infernalis"
+          },
+          {
+            "available": false,
+            "domain": "marine",
+            "item": "Dr. Kenji Watanabe"
+          },
+          {
+            "available": false,
+            "domain": "marine",
+            "item": "600"
+          },
+          {
+            "available": false,
+            "domain": "marine",
+            "item": "marine snow"
+          }
+        ],
+        "per_domain": {
+          "art": 0,
+          "civil": 4,
+          "marine": 1,
+          "monetary": 4
+        }
+      },
+      "run_directory": "experiments/study_011/runs/study_011_live_a/arm_a",
+      "targeted_per_probe": {
+        "Q1": {
+          "available_count": 1,
+          "item_count": 2,
+          "items": [
+            {
+              "available": true,
+              "item": "847"
+            },
+            {
+              "available": false,
+              "item": "s460ml"
+            }
+          ],
+          "turn": 112
+        },
+        "Q10": {
+          "available_count": 1,
+          "item_count": 2,
+          "items": [
+            {
+              "available": true,
+              "item": "vampyroteuthis infernalis"
+            },
+            {
+              "available": false,
+              "item": "kenji watanabe"
+            }
+          ],
+          "turn": 118
+        },
+        "Q2": {
+          "available_count": 0,
+          "item_count": 2,
+          "items": [
+            {
+              "available": false,
+              "item": "anara bekova"
+            },
+            {
+              "available": false,
+              "item": "92.4"
+            }
+          ],
+          "turn": 113
+        },
+        "Q4": {
+          "available_count": 0,
+          "item_count": 4,
+          "items": [
+            {
+              "available": false,
+              "item": "annunciation of forli"
+            },
+            {
+              "available": false,
+              "item": "melozzo da forli"
+            },
+            {
+              "available": false,
+              "item": "giuliano della rovere"
+            },
+            {
+              "available": false,
+              "item": "1483"
+            }
+          ],
+          "turn": 115
+        },
+        "Q5": {
+          "available_count": 0,
+          "item_count": 2,
+          "items": [
+            {
+              "available": false,
+              "item": "lead white"
+            },
+            {
+              "available": false,
+              "item": "ultramarine glaze"
+            }
+          ],
+          "turn": 116
+        },
+        "Q6": {
+          "available_count": 2,
+          "item_count": 2,
+          "items": [
+            {
+              "available": true,
+              "item": "giuliano della rovere"
+            },
+            {
+              "available": true,
+              "item": "pope julius ii"
+            }
+          ],
+          "turn": 117
+        },
+        "Q7": {
+          "available_count": 3,
+          "item_count": 5,
+          "items": [
+            {
+              "available": true,
+              "item": "vampyroteuthis infernalis"
+            },
+            {
+              "available": false,
+              "item": "kenji watanabe"
+            },
+            {
+              "available": true,
+              "item": "600"
+            },
+            {
+              "available": true,
+              "item": "900"
+            },
+            {
+              "available": false,
+              "item": "marine snow"
+            }
+          ],
+          "turn": 118
+        },
+        "Q8": {
+          "available_count": 0,
+          "item_count": 2,
+          "items": [
+            {
+              "available": false,
+              "item": "photophores"
+            },
+            {
+              "available": false,
+              "item": "mantle margin"
+            }
+          ],
+          "turn": 119
+        }
+      },
+      "targeted_totals": {
+        "available": 7,
+        "items": 21
+      }
+    },
+    "B": {
+      "arm": "B",
+      "not_an_outcome": "Delivery only. The registered outcome is the scored rubric (section 6.1); availability is never the bar.",
+      "oracle_overlap_at_q11": {
+        "exact_optimum_14_of_17": {
+          "delivered_from_oracle": 0,
+          "episode_ids": [],
+          "oracle_size": 5
+        },
+        "greedy_15_of_17": {
+          "delivered_from_oracle": 0,
+          "episode_ids": [],
+          "oracle_size": 5
+        }
+      },
+      "path_split": {
+        "per_probe": [
+          {
+            "k_candidates": 3,
+            "k_only_episodes": 3,
+            "n_candidates": 0,
+            "probe_turn": 112,
+            "questions": [
+              "Q1"
+            ],
+            "recency_episodes": 0,
+            "serialized_chars": 4917
+          },
+          {
+            "k_candidates": 4,
+            "k_only_episodes": 4,
+            "n_candidates": 0,
+            "probe_turn": 113,
+            "questions": [
+              "Q2"
+            ],
+            "recency_episodes": 0,
+            "serialized_chars": 5768
+          },
+          {
+            "k_candidates": 1,
+            "k_only_episodes": 1,
+            "n_candidates": 0,
+            "probe_turn": 114,
+            "questions": [
+              "Q12",
+              "Q3"
+            ],
+            "recency_episodes": 0,
+            "serialized_chars": 685
+          },
+          {
+            "k_candidates": 1,
+            "k_only_episodes": 1,
+            "n_candidates": 0,
+            "probe_turn": 115,
+            "questions": [
+              "Q4"
+            ],
+            "recency_episodes": 0,
+            "serialized_chars": 2221
+          },
+          {
+            "k_candidates": 2,
+            "k_only_episodes": 2,
+            "n_candidates": 0,
+            "probe_turn": 116,
+            "questions": [
+              "Q5"
+            ],
+            "recency_episodes": 0,
+            "serialized_chars": 2669
+          },
+          {
+            "k_candidates": 4,
+            "k_only_episodes": 4,
+            "n_candidates": 0,
+            "probe_turn": 117,
+            "questions": [
+              "Q6",
+              "Q9"
+            ],
+            "recency_episodes": 0,
+            "serialized_chars": 12827
+          },
+          {
+            "k_candidates": 1,
+            "k_only_episodes": 1,
+            "n_candidates": 0,
+            "probe_turn": 118,
+            "questions": [
+              "Q10",
+              "Q7"
+            ],
+            "recency_episodes": 0,
+            "serialized_chars": 3828
+          },
+          {
+            "k_candidates": 1,
+            "k_only_episodes": 1,
+            "n_candidates": 0,
+            "probe_turn": 119,
+            "questions": [
+              "Q8"
+            ],
+            "recency_episodes": 0,
+            "serialized_chars": 4024
+          },
+          {
+            "k_candidates": 2,
+            "k_only_episodes": 2,
+            "n_candidates": 0,
+            "probe_turn": 120,
+            "questions": [
+              "Q11"
+            ],
+            "recency_episodes": 0,
+            "serialized_chars": 1330
+          }
+        ],
+        "totals": {
+          "k_only_episodes": 19,
+          "recency_episodes": 0,
+          "serialized_chars": 38269
+        },
+        "warning": "Totals conceal composition. IC-001 found both arms delivering exactly 71 recency episodes in different compositions; only the paired per-probe rows showed the change."
+      },
+      "q11_availability": {
+        "domain_count": 0,
+        "fact_count": 0,
+        "items": [
+          {
+            "available": false,
+            "domain": "civil",
+            "item": "Halcyon Crossing"
+          },
+          {
+            "available": false,
+            "domain": "civil",
+            "item": "847"
+          },
+          {
+            "available": false,
+            "domain": "civil",
+            "item": "Dr. Anara Bekova"
+          },
+          {
+            "available": false,
+            "domain": "civil",
+            "item": "S460ML"
+          },
+          {
+            "available": false,
+            "domain": "civil",
+            "item": "92.4"
+          },
+          {
+            "available": false,
+            "domain": "art",
+            "item": "The Annunciation of Forli"
+          },
+          {
+            "available": false,
+            "domain": "art",
+            "item": "Melozzo da Forli"
+          },
+          {
+            "available": false,
+            "domain": "art",
+            "item": "Cardinal Giuliano della Rovere"
+          },
+          {
+            "available": false,
+            "domain": "art",
+            "item": "1483"
+          },
+          {
+            "available": false,
+            "domain": "monetary",
+            "item": "Taylor Rule"
+          },
+          {
+            "available": false,
+            "domain": "monetary",
+            "item": "Federal Reserve"
+          },
+          {
+            "available": false,
+            "domain": "monetary",
+            "item": "Dr. Priya Mehta"
+          },
+          {
+            "available": false,
+            "domain": "monetary",
+            "item": "2.3%"
+          },
+          {
+            "available": false,
+            "domain": "marine",
+            "item": "Vampyroteuthis infernalis"
+          },
+          {
+            "available": false,
+            "domain": "marine",
+            "item": "Dr. Kenji Watanabe"
+          },
+          {
+            "available": false,
+            "domain": "marine",
+            "item": "600"
+          },
+          {
+            "available": false,
+            "domain": "marine",
+            "item": "marine snow"
+          }
+        ],
+        "per_domain": {
+          "art": 0,
+          "civil": 0,
+          "marine": 0,
+          "monetary": 0
+        }
+      },
+      "run_directory": "experiments/study_011/runs/study_011_live_b/arm_b",
+      "targeted_per_probe": {
+        "Q1": {
+          "available_count": 1,
+          "item_count": 2,
+          "items": [
+            {
+              "available": true,
+              "item": "847"
+            },
+            {
+              "available": false,
+              "item": "s460ml"
+            }
+          ],
+          "turn": 112
+        },
+        "Q10": {
+          "available_count": 0,
+          "item_count": 2,
+          "items": [
+            {
+              "available": false,
+              "item": "vampyroteuthis infernalis"
+            },
+            {
+              "available": false,
+              "item": "kenji watanabe"
+            }
+          ],
+          "turn": 118
+        },
+        "Q2": {
+          "available_count": 2,
+          "item_count": 2,
+          "items": [
+            {
+              "available": true,
+              "item": "anara bekova"
+            },
+            {
+              "available": true,
+              "item": "92.4"
+            }
+          ],
+          "turn": 113
+        },
+        "Q4": {
+          "available_count": 4,
+          "item_count": 4,
+          "items": [
+            {
+              "available": true,
+              "item": "annunciation of forli"
+            },
+            {
+              "available": true,
+              "item": "melozzo da forli"
+            },
+            {
+              "available": true,
+              "item": "giuliano della rovere"
+            },
+            {
+              "available": true,
+              "item": "1483"
+            }
+          ],
+          "turn": 115
+        },
+        "Q5": {
+          "available_count": 0,
+          "item_count": 2,
+          "items": [
+            {
+              "available": false,
+              "item": "lead white"
+            },
+            {
+              "available": false,
+              "item": "ultramarine glaze"
+            }
+          ],
+          "turn": 116
+        },
+        "Q6": {
+          "available_count": 2,
+          "item_count": 2,
+          "items": [
+            {
+              "available": true,
+              "item": "giuliano della rovere"
+            },
+            {
+              "available": true,
+              "item": "pope julius ii"
+            }
+          ],
+          "turn": 117
+        },
+        "Q7": {
+          "available_count": 1,
+          "item_count": 5,
+          "items": [
+            {
+              "available": false,
+              "item": "vampyroteuthis infernalis"
+            },
+            {
+              "available": false,
+              "item": "kenji watanabe"
+            },
+            {
+              "available": false,
+              "item": "600"
+            },
+            {
+              "available": false,
+              "item": "900"
+            },
+            {
+              "available": true,
+              "item": "marine snow"
+            }
+          ],
+          "turn": 118
+        },
+        "Q8": {
+          "available_count": 0,
+          "item_count": 2,
+          "items": [
+            {
+              "available": false,
+              "item": "photophores"
+            },
+            {
+              "available": false,
+              "item": "mantle margin"
+            }
+          ],
+          "turn": 119
+        }
+      },
+      "targeted_totals": {
+        "available": 10,
+        "items": 21
+      }
+    },
+    "C": {
+      "arm": "C",
+      "not_an_outcome": "Delivery only. The registered outcome is the scored rubric (section 6.1); availability is never the bar.",
+      "oracle_overlap_at_q11": {
+        "exact_optimum_14_of_17": {
+          "delivered_from_oracle": 0,
+          "episode_ids": [],
+          "oracle_size": 5
+        },
+        "greedy_15_of_17": {
+          "delivered_from_oracle": 0,
+          "episode_ids": [],
+          "oracle_size": 5
+        }
+      },
+      "path_split": {
+        "per_probe": [
+          {
+            "k_candidates": 5,
+            "k_only_episodes": 4,
+            "n_candidates": 32,
+            "probe_turn": 112,
+            "questions": [
+              "Q1"
+            ],
+            "recency_episodes": 6,
+            "serialized_chars": 31605
+          },
+          {
+            "k_candidates": 5,
+            "k_only_episodes": 4,
+            "n_candidates": 32,
+            "probe_turn": 113,
+            "questions": [
+              "Q2"
+            ],
+            "recency_episodes": 5,
+            "serialized_chars": 29863
+          },
+          {
+            "k_candidates": 1,
+            "k_only_episodes": 1,
+            "n_candidates": 32,
+            "probe_turn": 114,
+            "questions": [
+              "Q12",
+              "Q3"
+            ],
+            "recency_episodes": 7,
+            "serialized_chars": 29678
+          },
+          {
+            "k_candidates": 0,
+            "k_only_episodes": 0,
+            "n_candidates": 32,
+            "probe_turn": 115,
+            "questions": [
+              "Q4"
+            ],
+            "recency_episodes": 8,
+            "serialized_chars": 31871
+          },
+          {
+            "k_candidates": 1,
+            "k_only_episodes": 0,
+            "n_candidates": 32,
+            "probe_turn": 116,
+            "questions": [
+              "Q5"
+            ],
+            "recency_episodes": 7,
+            "serialized_chars": 30856
+          },
+          {
+            "k_candidates": 1,
+            "k_only_episodes": 1,
+            "n_candidates": 32,
+            "probe_turn": 117,
+            "questions": [
+              "Q6",
+              "Q9"
+            ],
+            "recency_episodes": 7,
+            "serialized_chars": 31759
+          },
+          {
+            "k_candidates": 0,
+            "k_only_episodes": 0,
+            "n_candidates": 32,
+            "probe_turn": 118,
+            "questions": [
+              "Q10",
+              "Q7"
+            ],
+            "recency_episodes": 8,
+            "serialized_chars": 31304
+          },
+          {
+            "k_candidates": 1,
+            "k_only_episodes": 1,
+            "n_candidates": 32,
+            "probe_turn": 119,
+            "questions": [
+              "Q8"
+            ],
+            "recency_episodes": 6,
+            "serialized_chars": 30323
+          },
+          {
+            "k_candidates": 2,
+            "k_only_episodes": 2,
+            "n_candidates": 32,
+            "probe_turn": 120,
+            "questions": [
+              "Q11"
+            ],
+            "recency_episodes": 7,
+            "serialized_chars": 31568
+          }
+        ],
+        "totals": {
+          "k_only_episodes": 13,
+          "recency_episodes": 61,
+          "serialized_chars": 278827
+        },
+        "warning": "Totals conceal composition. IC-001 found both arms delivering exactly 71 recency episodes in different compositions; only the paired per-probe rows showed the change."
+      },
+      "q11_availability": {
+        "domain_count": 3,
+        "fact_count": 10,
+        "items": [
+          {
+            "available": true,
+            "domain": "civil",
+            "item": "Halcyon Crossing"
+          },
+          {
+            "available": true,
+            "domain": "civil",
+            "item": "847"
+          },
+          {
+            "available": true,
+            "domain": "civil",
+            "item": "Dr. Anara Bekova"
+          },
+          {
+            "available": true,
+            "domain": "civil",
+            "item": "S460ML"
+          },
+          {
+            "available": true,
+            "domain": "civil",
+            "item": "92.4"
+          },
+          {
+            "available": false,
+            "domain": "art",
+            "item": "The Annunciation of Forli"
+          },
+          {
+            "available": false,
+            "domain": "art",
+            "item": "Melozzo da Forli"
+          },
+          {
+            "available": false,
+            "domain": "art",
+            "item": "Cardinal Giuliano della Rovere"
+          },
+          {
+            "available": false,
+            "domain": "art",
+            "item": "1483"
+          },
+          {
+            "available": false,
+            "domain": "monetary",
+            "item": "Taylor Rule"
+          },
+          {
+            "available": true,
+            "domain": "monetary",
+            "item": "Federal Reserve"
+          },
+          {
+            "available": false,
+            "domain": "monetary",
+            "item": "Dr. Priya Mehta"
+          },
+          {
+            "available": false,
+            "domain": "monetary",
+            "item": "2.3%"
+          },
+          {
+            "available": true,
+            "domain": "marine",
+            "item": "Vampyroteuthis infernalis"
+          },
+          {
+            "available": true,
+            "domain": "marine",
+            "item": "Dr. Kenji Watanabe"
+          },
+          {
+            "available": true,
+            "domain": "marine",
+            "item": "600"
+          },
+          {
+            "available": true,
+            "domain": "marine",
+            "item": "marine snow"
+          }
+        ],
+        "per_domain": {
+          "art": 0,
+          "civil": 5,
+          "marine": 4,
+          "monetary": 1
+        }
+      },
+      "run_directory": "experiments/study_011/runs/study_011_live_c/arm_c",
+      "targeted_per_probe": {
+        "Q1": {
+          "available_count": 2,
+          "item_count": 2,
+          "items": [
+            {
+              "available": true,
+              "item": "847"
+            },
+            {
+              "available": true,
+              "item": "s460ml"
+            }
+          ],
+          "turn": 112
+        },
+        "Q10": {
+          "available_count": 0,
+          "item_count": 2,
+          "items": [
+            {
+              "available": false,
+              "item": "vampyroteuthis infernalis"
+            },
+            {
+              "available": false,
+              "item": "kenji watanabe"
+            }
+          ],
+          "turn": 118
+        },
+        "Q2": {
+          "available_count": 2,
+          "item_count": 2,
+          "items": [
+            {
+              "available": true,
+              "item": "anara bekova"
+            },
+            {
+              "available": true,
+              "item": "92.4"
+            }
+          ],
+          "turn": 113
+        },
+        "Q4": {
+          "available_count": 4,
+          "item_count": 4,
+          "items": [
+            {
+              "available": true,
+              "item": "annunciation of forli"
+            },
+            {
+              "available": true,
+              "item": "melozzo da forli"
+            },
+            {
+              "available": true,
+              "item": "giuliano della rovere"
+            },
+            {
+              "available": true,
+              "item": "1483"
+            }
+          ],
+          "turn": 115
+        },
+        "Q5": {
+          "available_count": 0,
+          "item_count": 2,
+          "items": [
+            {
+              "available": false,
+              "item": "lead white"
+            },
+            {
+              "available": false,
+              "item": "ultramarine glaze"
+            }
+          ],
+          "turn": 116
+        },
+        "Q6": {
+          "available_count": 1,
+          "item_count": 2,
+          "items": [
+            {
+              "available": true,
+              "item": "giuliano della rovere"
+            },
+            {
+              "available": false,
+              "item": "pope julius ii"
+            }
+          ],
+          "turn": 117
+        },
+        "Q7": {
+          "available_count": 0,
+          "item_count": 5,
+          "items": [
+            {
+              "available": false,
+              "item": "vampyroteuthis infernalis"
+            },
+            {
+              "available": false,
+              "item": "kenji watanabe"
+            },
+            {
+              "available": false,
+              "item": "600"
+            },
+            {
+              "available": false,
+              "item": "900"
+            },
+            {
+              "available": false,
+              "item": "marine snow"
+            }
+          ],
+          "turn": 118
+        },
+        "Q8": {
+          "available_count": 1,
+          "item_count": 2,
+          "items": [
+            {
+              "available": true,
+              "item": "photophores"
+            },
+            {
+              "available": false,
+              "item": "mantle margin"
+            }
+          ],
+          "turn": 119
+        }
+      },
+      "targeted_totals": {
+        "available": 10,
+        "items": 21
+      }
+    },
+    "D": {
+      "arm": "D",
+      "not_an_outcome": "Delivery only. The registered outcome is the scored rubric (section 6.1); availability is never the bar.",
+      "oracle_overlap_at_q11": {
+        "exact_optimum_14_of_17": {
+          "delivered_from_oracle": 0,
+          "episode_ids": [],
+          "oracle_size": 5
+        },
+        "greedy_15_of_17": {
+          "delivered_from_oracle": 0,
+          "episode_ids": [],
+          "oracle_size": 5
+        }
+      },
+      "path_split": {
+        "per_probe": [
+          {
+            "k_candidates": 4,
+            "k_only_episodes": 0,
+            "n_candidates": 32,
+            "probe_turn": 112,
+            "questions": [
+              "Q1"
+            ],
+            "recency_episodes": 7,
+            "serialized_chars": 31673
+          },
+          {
+            "k_candidates": 5,
+            "k_only_episodes": 0,
+            "n_candidates": 32,
+            "probe_turn": 113,
+            "questions": [
+              "Q2"
+            ],
+            "recency_episodes": 8,
+            "serialized_chars": 31657
+          },
+          {
+            "k_candidates": 1,
+            "k_only_episodes": 0,
+            "n_candidates": 32,
+            "probe_turn": 114,
+            "questions": [
+              "Q12",
+              "Q3"
+            ],
+            "recency_episodes": 8,
+            "serialized_chars": 31687
+          },
+          {
+            "k_candidates": 0,
+            "k_only_episodes": 0,
+            "n_candidates": 32,
+            "probe_turn": 115,
+            "questions": [
+              "Q4"
+            ],
+            "recency_episodes": 8,
+            "serialized_chars": 30045
+          },
+          {
+            "k_candidates": 2,
+            "k_only_episodes": 0,
+            "n_candidates": 32,
+            "probe_turn": 116,
+            "questions": [
+              "Q5"
+            ],
+            "recency_episodes": 7,
+            "serialized_chars": 29787
+          },
+          {
+            "k_candidates": 3,
+            "k_only_episodes": 0,
+            "n_candidates": 32,
+            "probe_turn": 117,
+            "questions": [
+              "Q6",
+              "Q9"
+            ],
+            "recency_episodes": 8,
+            "serialized_chars": 31969
+          },
+          {
+            "k_candidates": 1,
+            "k_only_episodes": 0,
+            "n_candidates": 32,
+            "probe_turn": 118,
+            "questions": [
+              "Q10",
+              "Q7"
+            ],
+            "recency_episodes": 7,
+            "serialized_chars": 30588
+          },
+          {
+            "k_candidates": 0,
+            "k_only_episodes": 0,
+            "n_candidates": 32,
+            "probe_turn": 119,
+            "questions": [
+              "Q8"
+            ],
+            "recency_episodes": 9,
+            "serialized_chars": 31867
+          },
+          {
+            "k_candidates": 2,
+            "k_only_episodes": 1,
+            "n_candidates": 32,
+            "probe_turn": 120,
+            "questions": [
+              "Q11"
+            ],
+            "recency_episodes": 8,
+            "serialized_chars": 31652
+          }
+        ],
+        "totals": {
+          "k_only_episodes": 1,
+          "recency_episodes": 70,
+          "serialized_chars": 280925
+        },
+        "warning": "Totals conceal composition. IC-001 found both arms delivering exactly 71 recency episodes in different compositions; only the paired per-probe rows showed the change."
+      },
+      "q11_availability": {
+        "domain_count": 3,
+        "fact_count": 9,
+        "items": [
+          {
+            "available": true,
+            "domain": "civil",
+            "item": "Halcyon Crossing"
+          },
+          {
+            "available": true,
+            "domain": "civil",
+            "item": "847"
+          },
+          {
+            "available": false,
+            "domain": "civil",
+            "item": "Dr. Anara Bekova"
+          },
+          {
+            "available": true,
+            "domain": "civil",
+            "item": "S460ML"
+          },
+          {
+            "available": true,
+            "domain": "civil",
+            "item": "92.4"
+          },
+          {
+            "available": false,
+            "domain": "art",
+            "item": "The Annunciation of Forli"
+          },
+          {
+            "available": false,
+            "domain": "art",
+            "item": "Melozzo da Forli"
+          },
+          {
+            "available": false,
+            "domain": "art",
+            "item": "Cardinal Giuliano della Rovere"
+          },
+          {
+            "available": false,
+            "domain": "art",
+            "item": "1483"
+          },
+          {
+            "available": true,
+            "domain": "monetary",
+            "item": "Taylor Rule"
+          },
+          {
+            "available": true,
+            "domain": "monetary",
+            "item": "Federal Reserve"
+          },
+          {
+            "available": true,
+            "domain": "monetary",
+            "item": "Dr. Priya Mehta"
+          },
+          {
+            "available": true,
+            "domain": "monetary",
+            "item": "2.3%"
+          },
+          {
+            "available": true,
+            "domain": "marine",
+            "item": "Vampyroteuthis infernalis"
+          },
+          {
+            "available": false,
+            "domain": "marine",
+            "item": "Dr. Kenji Watanabe"
+          },
+          {
+            "available": false,
+            "domain": "marine",
+            "item": "600"
+          },
+          {
+            "available": false,
+            "domain": "marine",
+            "item": "marine snow"
+          }
+        ],
+        "per_domain": {
+          "art": 0,
+          "civil": 4,
+          "marine": 1,
+          "monetary": 4
+        }
+      },
+      "run_directory": "experiments/study_011/runs/study_011_live_d/context_matched_stm",
+      "targeted_per_probe": {
+        "Q1": {
+          "available_count": 1,
+          "item_count": 2,
+          "items": [
+            {
+              "available": true,
+              "item": "847"
+            },
+            {
+              "available": false,
+              "item": "s460ml"
+            }
+          ],
+          "turn": 112
+        },
+        "Q10": {
+          "available_count": 1,
+          "item_count": 2,
+          "items": [
+            {
+              "available": true,
+              "item": "vampyroteuthis infernalis"
+            },
+            {
+              "available": false,
+              "item": "kenji watanabe"
+            }
+          ],
+          "turn": 118
+        },
+        "Q2": {
+          "available_count": 0,
+          "item_count": 2,
+          "items": [
+            {
+              "available": false,
+              "item": "anara bekova"
+            },
+            {
+              "available": false,
+              "item": "92.4"
+            }
+          ],
+          "turn": 113
+        },
+        "Q4": {
+          "available_count": 0,
+          "item_count": 4,
+          "items": [
+            {
+              "available": false,
+              "item": "annunciation of forli"
+            },
+            {
+              "available": false,
+              "item": "melozzo da forli"
+            },
+            {
+              "available": false,
+              "item": "giuliano della rovere"
+            },
+            {
+              "available": false,
+              "item": "1483"
+            }
+          ],
+          "turn": 115
+        },
+        "Q5": {
+          "available_count": 0,
+          "item_count": 2,
+          "items": [
+            {
+              "available": false,
+              "item": "lead white"
+            },
+            {
+              "available": false,
+              "item": "ultramarine glaze"
+            }
+          ],
+          "turn": 116
+        },
+        "Q6": {
+          "available_count": 2,
+          "item_count": 2,
+          "items": [
+            {
+              "available": true,
+              "item": "giuliano della rovere"
+            },
+            {
+              "available": true,
+              "item": "pope julius ii"
+            }
+          ],
+          "turn": 117
+        },
+        "Q7": {
+          "available_count": 3,
+          "item_count": 5,
+          "items": [
+            {
+              "available": true,
+              "item": "vampyroteuthis infernalis"
+            },
+            {
+              "available": false,
+              "item": "kenji watanabe"
+            },
+            {
+              "available": true,
+              "item": "600"
+            },
+            {
+              "available": true,
+              "item": "900"
+            },
+            {
+              "available": false,
+              "item": "marine snow"
+            }
+          ],
+          "turn": 118
+        },
+        "Q8": {
+          "available_count": 0,
+          "item_count": 2,
+          "items": [
+            {
+              "available": false,
+              "item": "photophores"
+            },
+            {
+              "available": false,
+              "item": "mantle margin"
+            }
+          ],
+          "turn": 119
+        }
+      },
+      "targeted_totals": {
+        "available": 7,
+        "items": 21
+      }
+    }
+  },
+  "outcome_is_elsewhere": "Scores (item 1) and paired per-question gains and losses (item 6) are produced after the blind scores are committed.",
+  "section": "6.2",
+  "study": "011"
+}

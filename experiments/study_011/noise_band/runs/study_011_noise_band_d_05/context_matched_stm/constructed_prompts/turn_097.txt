@@ -1,0 +1,175 @@
+You are a helpful technical and research assistant with deep knowledge across engineering, art history, economics, and biology.
+
+<pinned_rules>
+  <rule id="3162f32f-957f-551b-8f6e-dc5924478701" set_at_turn="1">Format specifications/items as numbered lists; conclude engineering/structural recommendations with risk classification (Risk: Low/Medium/High)</rule>
+</pinned_rules>
+
+<recent_context>
+<episode turn="96">
+<user>Explain from first principles how bioluminescence functions at the biochemical level — the luciferin-luciferase reaction mechanism, the evolutionary origins of bioluminescence in different lineages, and its ecological functions in the deep sea.</user>
+<assistant>1.  **Biochemical Mechanism: The Luciferin-Luciferase Reaction**: At its core, bioluminescence is a chemiluminescent reaction where light is produced as a byproduct of a chemical reaction with high quantum efficiency (often near 100%, meaning almost all energy is emitted as light rather than heat). The general reaction involves a substrate called **luciferin** and an enzyme called **luciferase**, usually in the presence of oxygen and often ATP (adenosine triphosphate) and magnesium ions.
+    *   **Oxidation**: The luciferase enzyme catalyzes the oxidation of the luciferin molecule. This oxidation process creates a high-energy intermediate, typically a cyclic peroxide or an endoperoxide.
+    *   **Excited State**: This intermediate undergoes a chemical rearrangement (such as decarboxylation or ring fragmentation) that releases energy. A portion of this energy is transferred to an excited state of the product molecule (oxyluciferin or a similar emitter).
+    *   **Photon Emission**: As the excited product molecule relaxes back to its ground state, it emits a photon. The wavelength (color) of the light depends on the specific chemical structure of the luciferin and its interaction with the luciferase active site. In marine environments, this typically produces blue-green light (450–490 nm) because these wavelengths travel furthest in seawater.
+
+2.  **Evolutionary Origins: Convergent Evolution**: Bioluminescence is not a single inherited trait from a common luminescent ancestor of all life; rather, it has evolved independently multiple times across different lineages, a phenomenon known as **convergent evolution**.
+    *   **Coelenterazine Pathway**: In many marine organisms (jellyfish, crustaceans, fish), the luciferin is **coelenterazine**. This molecule is often obtained from the diet (e.g., by predating on copepods) rather than synthesized de novo. The luciferase enzymes in these organisms may have evolved from existing metabolic enzymes (like proteases or peroxidases) that were co-opted to catalyze the oxidation of coelenterazine.
+    *   **Bacterial Symbiosis**: Many fish (e.g., anglerfish) and cephalopods do not produce their own luciferin/luciferase. Instead, they host symbiotic bioluminescent bacteria (e.g., *Vibrio fischeri*). These bacteria possess a different luciferin system based on **long-chain fatty aldehyde**, **FMNH2** (reduced riboflavin mononucleotide), and oxygen, catalyzed by a bacterial luciferase complex. The host provides nutrients and oxygen; the bacteria provide light. This represents an evolutionary adaptation of host physiology to accommodate and regulate bacterial symbionts.
+    *   **Firefly-like Luciferins**: Some terrestrial and freshwater organisms (fireflies, beetles) use a completely different luciferin (firefly luciferin) that requires ATP. Marine counterparts like ostracods (sea fireflies) use a similar furazanyl luciferin. These lineages likely share a more distant common ancestor or represent separate convergences on ATP-dependent chemistry.
+
+3.  **Ecological Functions in the Deep Sea (600–900 Meters)**: In the bathypelagic zone (and the lower mesopelagic where OMZs often reside), sunlight is absent, making bioluminescence the primary source of light. Its ecological functions are diverse:
+    *   **Predation (Lures and Searchlights)**: Predators like the anglerfish use a bioluminescent esca (lure) to attract prey in the dark. Some sharks and squid use ventral photophores to illuminate their path ("searchlights") while hunting.
+    *   **Defense (Camouflage and Distraction)**:
+        *   **Counter-illumination**: Many mid-water fish and squid have photophores on their ventral side that emit light matching the intensity and spectral quality of downwelling sunlight from above. This eliminates their shadow, making them invisible to predators looking up from below.
+        *   **Burglar Alarm**: Prey like copepods emit bright flashes when disturbed, which may attract larger predators to their own predator, providing an escape opportunity.
+        *   **Ink Mimicry**: Some squid eject bioluminescent ink clouds to confuse predators, similar to non-luminescent ink but with a blinding flash.
+    *   **Communication and Mating**: Species-specific light patterns help individuals recognize conspecifics for mating in the vast, dark ocean. This is critical in low-density environments where visual contact is rare.
+    *   **Interspecific Signaling**: Some organisms mimic the light signals of prey to lure them (aggressive mimicry) or use specific patterns to deter predators by signaling toxicity or unpalatability (aposematism).
+
+(Risk: Low)</assistant>
+</episode>
+<episode turn="82">
+<user>Analyze in detail how the emergence of digital currencies — both central bank digital currencies and decentralized cryptocurrencies — poses challenges and opportunities for the transmission of monetary policy.</user>
+<assistant>1.  **Impact on the Monetary Transmission Mechanism**:
+    Traditional monetary policy operates through a transmission mechanism where changes in the central bank policy rate influence short-term market rates, which then filter down to loan and deposit rates, affecting consumption and investment. Digital currencies disrupt this chain by altering the structure of the financial system, the role of commercial banks, and the nature of money itself.
+
+2.  **Disintermediation of Commercial Banks (The "Bank Run" Risk)**:
+    *   **Challenge**: A widely adopted Central Bank Digital Currency (CBDC) that offers interest could act as a direct substitute for commercial bank deposits. If the policy rate rises, CBDC rates would likely follow immediately, potentially triggering rapid, large-scale withdrawals from commercial banks in favor of risk-free CBDC balances. This "digital bank run" could destabilize the banking sector, forcing banks to raise lending rates sharply or curtail credit, thereby exacerbating the economic slowdown the central bank intended to induce.
+    *   **Opportunity**: Central banks can mitigate this by designing CBDCs with tiered remuneration structures (paying interest only above a certain threshold) or holding limits, preserving the role of commercial banks as the primary intermediaries for credit creation.
+
+3.  **Direct Control vs. Indirect Guidance**:
+    *   **Opportunity**: CBDCs could allow for "helicopter money" or direct transfers to households, bypassing the banking sector entirely. This could make monetary policy more efficient during liquidity traps, where traditional interest rate cuts fail to stimulate demand because banks are unwilling to lend and households are unwilling to borrow. Programmed money (smart contracts) could theoretically time-limited spending to ensure immediate economic impact.
+    *   **Challenge**: This shifts the central bank's role from a lender of last resort and rate setter to a direct allocator of resources, raising significant political and operational risks regarding privacy, surveillance, and the distortion of market price signals.
+
+4.  **Fragmentation of the Monetary Base and Velocity**:
+    *   **Challenge**: The proliferation of decentralized cryptocurrencies and stablecoins introduces competing forms of money. If users shift assets into crypto-assets that are not backed by central bank liabilities, the central bank loses control over the monetary base and the velocity of money. This fragmentation can weaken the correlation between the policy rate and broader inflationary pressures, as a portion of the economy operates outside the traditional monetary circuit.
+    *   **Opportunity**: Blockchain technology could provide central banks with real-time data on transaction volumes and velocity, allowing for more precise and timely calibration of policy tools compared to the lagged data used in traditional frameworks.
+
+5.  **Exchange Rate Pass-Through and Capital Controls**:
+    *   **Challenge**: Decentralized cryptocurrencies operate globally and are largely immune to national capital controls. This can lead to "currency substitution" or dollarization (cryptoization) in emerging markets with high inflation, undermining the effectiveness of local monetary policy. If residents prefer holding stablecoins pegged to foreign currencies, local interest rate adjustments have diminished impact on domestic inflation.
+    *   **Opportunity**: CBDCs can facilitate more efficient cross-border payments and reduce reliance on foreign correspondent banking systems. This could strengthen the international role of the issuing currency (e.g., the Yuan or Euro), allowing the central bank to exert greater influence over global liquidity conditions and exchange rate stability.
+
+6.  **Privacy and the Shadow Economy**:
+    *   **Challenge**: Cryptocurrencies offer anonymity or pseudonymity, potentially facilitating tax evasion and illicit finance. This shrinks the taxable base and distorts economic data, making it harder for central banks and governments to assess the true state of the economy and implement effective fiscal-monetary coordination.
+    *   **Opportunity**: Regulated CBDCs can strike a balance between privacy and transparency, allowing authorities to monitor systemic risks and ensure compliance with sanctions or capital flow management measures without revealing individual transaction details to the public, thus enhancing the integrity of the monetary system.
+
+(Risk: Low)</assistant>
+</episode>
+<episode turn="6">
+<user>Compare and contrast in detail the aerodynamic behavior of cable-stayed versus suspension bridge designs at spans approaching 847 meters. Include specific design parameters that differentiate their responses to wind loading.</user>
+<assistant>1.  **Structural Stiffness and Natural Frequencies**: Cable-stayed bridges (like Halcyon Crossing) possess significantly higher overall stiffness compared to suspension bridges of similar span due to the direct transfer of deck loads to the pylons. At 847 meters, a cable-stayed design maintains higher natural frequencies for vertical and torsional modes, making it less susceptible to low-frequency aeroelastic phenomena. Suspension bridges, relying on flexible hangers and main cables, exhibit lower stiffness and lower natural frequencies, requiring more aggressive aerodynamic shaping to avoid resonance with wind excitation.
+2.  **Critical Wind Speed for Flutter**: For a cable-stayed bridge with an 847m span, the critical flutter wind speed is generally higher than that of a suspension bridge of equivalent span. The stay cables act as continuous elastic supports, damping out torsional oscillations. In contrast, suspension bridges rely heavily on aerodynamic stability; their longer spans (often exceeding 847m) mean they must be designed with extreme care to ensure the torsional frequency remains well above the vortex shedding frequency, often necessitating deeper decks or aerodynamic fairings to raise the flutter derivative thresholds.
+3.  **Vortex Shedding Response**: While both types are subject to vortex shedding, cable-stayed bridges at this span length are more prone to localized deck vibrations if the deck cross-section is not optimized, due to the discrete support points of the stays. However, the global response is less dramatic than in suspension bridges, where the entire span can synchronize with vortex shedding patterns. Suspension bridges require tuned mass dampers or aerodynamic spoilers more frequently to mitigate lock-in phenomena, whereas cable-stayed bridges often rely on their inherent structural damping and stay cable dampers.
+4.  **Deck Cross-Section Aerodynamics**: At 847 meters, the deck of a cable-stayed bridge can be designed with a more open truss or box-girder configuration with less emphasis on extreme aerodynamic smoothness compared to a suspension bridge. Suspension bridges at comparable spans often require streamlined box girders with wind lips, openings, or fairings to reduce drag coefficients and prevent flow separation. The cable-stayed deck can tolerate slightly higher drag forces because the stays provide vertical support stiffness, reducing the magnitude of wind-induced deflections.
+5.  **Pylon-Cable-Air Interaction**: A unique parameter for cable-stayed bridges is the aerodynamic interaction between the pylons, stay cables, and the deck. At 847 meters, the dense array of stay cables can create "wake effects" that influence the deck's aerodynamic stability. Dr. Bekova's team must model the shielding effect of the pylons and the potential for cable vibration (aeolian vibration) that can transmit energy to the deck. Suspension bridges lack this complex cable-deck aerodynamic coupling, as their main cables are typically positioned above the deck hangers and do not interact directly with the deck's airflow in the same way.
+6.  **Sensitivity to Wind Tunnel Testing**: Due to the complex aerodynamic interplay of stays and deck, cable-stayed bridges at this span require sophisticated wind tunnel tests focusing on coupled aeroelastic models. Suspension bridges at 847 meters (which is on the shorter end for suspension bridges) would behave more predictably but would still require rigorous testing for flutter derivatives. The key differentiator is that cable-stayed designs are more sensitive to the specific arrangement and tensioning of stays, whereas suspension bridges are more sensitive to the overall deck shape and cable sag.
+
+(Risk: Medium)</assistant>
+</episode>
+<episode turn="31">
+<user>Completely different subject. I want to discuss Italian Renaissance painting. Give me a comprehensive overview of how artistic patronage functioned in central Italy between 1450 and 1510, including who the major patrons were, what they commissioned, and how the patron-artist relationship shaped the works produced.</user>
+<assistant>1.  **The Shift from Ecclesiastical to Secular and Private Patronage**: While the Church remained a primary patron, the period between 1450 and 1510 saw the rise of powerful merchant families and republican governments in central Italy. Patronage became a tool for social climbing, political legitimacy, and personal piety. The patron was not just a financier but often an active collaborator, dictating subject matter, iconography, and sometimes even technical execution.
+
+2.  **The Medici Family of Florence**:
+    *   **Lorenzo de' Medici (Il Magnifico)**: Although his direct artistic commissions were modest in number compared to his political influence, his patronage of the Platonic Academy created an intellectual environment that infused art with humanist philosophy. He commissioned works from Botticelli (e.g., *Primavera*, *The Birth of Venus*) and Fra Filippo Lippi.
+    *   **The Medici Bank and Branch Families**: Wealthier branches commissioned religious works for private chapels to display piety and wealth, such as the Sassetti Chapel frescoes by Ghirlandaio, which included portraits of the patrons in biblical scenes, asserting their status within the divine narrative.
+
+3.  **The Papacy (The Popes)**: The papacy became the single most powerful artistic force, particularly after the return to Rome.
+    *   **Pope Nicholas V (1447–1455)**: Initiated the reconstruction of Vatican Palaces and commissioned Fra Angelico for frescoes, setting a tone of spiritual renewal.
+    *   **Pope Sixtus IV (1471–1484)**: Commissioned the Sistine Chapel ceiling and walls (though the ceiling was later repurposed by Michelangelo under Julius II), hiring Perugino, Botticelli, and Ghirlandaio.
+    *   **Pope Julius II (1503–1513)**: The "Warrior Pope" who commissioned Michelangelo for the Sistine Chapel ceiling and the tomb, and Bramante for the new St. Peter's Basilica. His patronage was characterized by grandiosity, political propaganda, and a desire to restore Rome as the center of Christendom.
+    *   **Pope Leo X (Medici, 1513–1521)**: Continued the Medici legacy, commissioning Raphael for the Stanze di Raffaello, emphasizing harmony, humanism, and the glory of the Church.
+
+4.  **The Republic of Florence and Civic Patronage**:
+    *   **The Signoria and Confraternities**: Public bodies commissioned art for civic spaces to promote republican virtues. The famous competition for the Baptistery doors (though early 15th century) set the stage for civic pride. In this period, the Opera del Duomo commissioned Botticelli and Ghirlandaio for the Sistine Chapel frescoes (Florence) and works for the Duomo.
+    *   **Confraternities (Laity Religious Groups)**: Groups like the Compagnia di Orsanmichele commissioned tabernacles and altarpieces for public shrines, fostering communal identity.
+
+5.  **The Gonzaga Family of Mantua**:
+    *   **Ludovico III Gonzaga and Isabella d'Este**: Isabella, in particular, was a formidable intellectual patron. She corresponded with Leonardo da Vinci, Raphael, and Perugino, commissioning the *Camera degli Sposi* (Manfredo Settala) and later the *Grotta*. Her patronage focused on classical themes, portraiture, and the creation of a sophisticated humanist court.
+
+6.  **The Borgia Family and Other Noble Houses**:
+    *   **Rodrigo Borgia (later Pope Alexander VI)**: Commissioned frescoes in the Apostolic Palace, using art to legitimize his controversial rise to power.
+    *   **The Este Family of Ferrara**: Commissioned Cosmè Tura and later Ercole de' Roberti, blending Flemish detail with Italian perspective.
+
+7.  **Nature of the Patron-Artist Relationship**:
+    *   **Contracts**: Detailed written contracts specified materials, timeline, payment schedules, and subject matter. Patrons often retained rights to approve sketches and cartoons.
+    *   **Iconographic Control**: Patrons dictated the inclusion of family saints, coats of arms, and self-portraits. For example, Ghirlandaio’s *Adoration of the Magi* in the Sassetti Chapel includes portraits of the Sassetti family members.
+    *   **Artist Status**: Artists began to gain higher social status. Michelangelo and Raphael were treated as *divini* (divine geniuses), negotiating for greater creative freedom and higher fees, though they still worked within the constraints of patron demands.
+    *   **Competition and Rivalry**: Patrons often pitted artists against each other (e.g., the rivalry between Michelangelo and Leonardo under Lorenzo, or later under the Popes) to secure the best work or to drive down costs.
+
+8.  **Impact on Artistic Output**:
+    *   **Humanism**: Patronage drove the integration of classical mythology and philosophy into religious art.
+    *   **Technical Innovation**: The demand for grandeur and realism spurred advancements in perspective, anatomy, and fresco technique.
+    *   **Individualization**: Portraiture flourished as patrons sought to immortalize their likenesses, leading to more psychologically complex and individualized representations.
+
+(Risk: Low)</assistant>
+</episode>
+<episode turn="53">
+<user>Compare and contrast the workshop practices of major Italian Renaissance masters — how assistants were trained, how hands were divided on major commissions, and how historians distinguish master from workshop production.</user>
+<assistant>1.  **Apprenticeship and Training Structure**: The workshop (*bottega*) system was guild-regulated and hierarchical. Training began with young boys (apprentices) living in the master's household for 7–10 years, performing menial tasks (preparing pigments, stretching panels, grinding colors) before progressing to drawing and minor painting tasks. As they advanced to "journeymen" status, they could execute specific parts of larger works under supervision. This system ensured the transmission of technical recipes and stylistic conventions but prioritized craft proficiency and workshop output over individual "genius" in the modern sense.
+
+2.  **Division of Labor in Major Commissions**: For large altarpieces or fresco cycles, the master (*maestro*) typically handled the most complex and prestigious areas: the faces and hands of central figures (especially the Madonna or Christ), key drapery folds, and the overall compositional design (*cartone*). Assistants executed less critical elements: background landscapes, secondary figures, architectural details, and patterned textiles. In some cases, the master would "bozzetto" (sketch out) entire figures in underpainting, which assistants then fleshed out with color and detail. This collaborative model allowed workshops to meet tight deadlines and scale up production while maintaining a consistent visual style.
+
+3.  **Stylistic Consistency vs. Individual Hand**: Masters exerted strict control over quality and style to ensure the workshop’s brand remained recognizable. However, variations in technique often reveal the hand of an assistant: less fluid brushwork in drapery, stiffer facial features, or inconsistent use of glazing. Historians analyze these discrepancies to identify contributions by known assistants (e.g., Leonardo’s workshop contributions by Marco d’Oggiono) or unknown pupils. The degree of "finish" and attention to anatomical detail are key indicators of the master’s direct involvement.
+
+4.  **Historical Attribution Methods**: Historians distinguish master from workshop production using a combination of connoisseurship and technical analysis.
+    *   **Stylistic Analysis**: Comparing brushwork, color handling, and figure drawing to documented autograph works.
+    *   **Underdrawing Examination**: Infrared reflectography can reveal differences in drawing quality; masters often used confident, finished underdrawings, while assistants might rely on pricked cartoons or less refined sketches.
+    *   **Pigment and Technique Analysis**: Cross-section microscopy can show if different layers were applied by different hands (e.g., a master’s glaze over an assistant’s underpainting).
+    *   **Documentation**: Guild records, payment contracts, and workshop accounts often specify roles, such as payments for "preparing panels" or "painting backgrounds," providing textual evidence of division of labor.
+
+5.  **Evolution of the Workshop Model**: In the early Renaissance (e.g., Fra Angelico, Fra Filippo Lippi), workshops were larger and more factory-like, with less emphasis on the master’s hand in every detail. By the High Renaissance (e.g., Raphael, Leonardo), the master’s personal style became a greater status symbol, leading to stricter quality control and more detailed master intervention in key areas. Raphael’s workshop, for instance, produced many portraits of Pope Julius II with his assistance, but only those with his direct input on the face and hands are considered autograph.
+
+6.  **Attribution Categories in Modern Scholarship**: Modern art history uses specific terminology to clarify authorship:
+    *   **Autograph**: Entirely by the master’s hand.
+    *   **Workshop**: Primarily by assistants, with minimal master input (often just the design).
+    *   **Circle of**: By an anonymous painter closely associated with the master’s style.
+    *   **After**: A copy or reproduction of the master’s design, made later or by someone outside the immediate workshop.
+    *   **Collaborative**: Explicitly documented joint work, often with defined roles (e.g., Botticelli and his workshop on the *Adoration of the Magi*).
+
+(Risk: Low)</assistant>
+</episode>
+<episode turn="61">
+<user>Completely different subject now. I want to discuss monetary policy and macroeconomic theory. Walk me through the full development of the Taylor Rule from its original 1993 formulation through to its current applications in central bank policy frameworks.</user>
+<assistant>1.  **Original Formulation (1993)**:
+    John B. Taylor introduced the rule in his 1993 paper, *Discretion versus Policy Rules in Practice*. The original equation was a reaction function for the Federal Funds Rate ($i_t$):
+    $i_t = r^* + \pi_t + 0.5(\pi_t - \pi^*) + 0.5(y_t - y^*)$
+    Where:
+    *   $r^*$ is the equilibrium real federal funds rate (typically assumed to be 2%).
+    *   $\pi_t$ is the current inflation rate (usually measured by CPI or GDP deflator).
+    *   $\pi^*$ is the target inflation rate (Taylor assumed 2%).
+    *   $y_t - y^*$ is the output gap (percentage deviation of real GDP from potential GDP).
+    The coefficients 0.5 for both the inflation gap and the output gap were chosen to match historical US monetary policy behavior reasonably well. The term $r^* + \pi_t$ represents the real neutral rate plus inflation, ensuring the real interest rate adjusts to inflation, while the additional terms provide tightening when inflation is above target or the economy is overheating.
+
+2.  **Theoretical Underpinnings and the "Taylor Principle"**:
+    The rule is grounded in the New Keynesian Phillips Curve framework. The critical condition for stability is the "Taylor Principle": the central bank must raise the nominal interest rate by *more* than the increase in inflation (i.e., the coefficient on $\pi_t - \pi^*$ must be &gt; 1). If the coefficient is less than 1, real interest rates fall when inflation rises, stimulating demand further and creating a destabilizing feedback loop. Taylor’s original coefficients sum to 1.5 ($0.5 + 1.0$ implicit in the $\pi_t$ term relative to base), satisfying this principle.
+
+3.  **Extensions and Modifications (1990s–2000s)**:
+    *   **Smoothing Term**: Estrella and Mishkin (1997) and later researchers added an interest rate smoothing term to account for the fact that central banks rarely change rates drastically period-to-period. The equation became: $i_t = \lambda i_{t-1} + (1-\lambda)[r^* + \pi_t + a(\pi_t - \pi^*) + b(y_t - y^*)]$.
+    *   **Alternative Measures**: Researchers debated the best measure for inflation (core vs. headline) and the output gap (Hodrick-Prescott filter vs. production function approaches). The output gap is unobservable in real-time, leading to significant uncertainty in policy decisions.
+    *   **International Application**: The rule was tested against other central banks (e.g., Bank of Japan, Bank of England). It generally performed well for inflation-targeting economies but required parameter adjustments (e.g., higher weight on inflation for countries with higher inflation volatility).
+
+4.  **The Zero Lower Bound (ZLB) Challenge (2008–2012)**:
+    During the Global Financial Crisis, the Taylor Rule suggested negative federal funds rates for a prolonged period because $\pi_t$ was low and the output gap ($y_t - y^*$) was deeply negative. Since nominal rates cannot easily go below zero, the rule highlighted a limitation of standard policy. This led to the development of "Taylor Rule with Inflation Targeting" variants that suggested forward guidance or quantitative easing when the rule prescribed negative rates. Some variants suggested using the cumulative output gap or expected inflation to mitigate this.
+
+5.  **Post-2010 Frameworks and "Rules of Thumb"**:
+    *   **Fed’s Use as a Benchmark**: While the Federal Reserve does not mechanically follow the rule, it uses the Taylor Rule as a benchmark to assess if policy is "accommodative" or "restrictive." If the actual rate is below the Taylor Rule implied rate, policy is considered stimulative.
+    *   **Balance Sheet Rules**: After 2008, central banks managed balance sheets (QE). Extensions of the Taylor Rule began to incorporate balance sheet size as a second policy instrument.
+    *   **Inflation Targeting Shifts**: As central banks adopted 2% inflation targets more formally, the $\pi^*$ parameter became fixed. However, with the rise of Average Inflation Targeting (AIT) by the Fed in 2020, the rule’s static $\pi^*$ became less relevant, as policy now depends on the average inflation over time, not just the current deviation.
+
+6.  **Current Applications and Criticisms**:
+    *   **Data Dependence**: The rule is highly sensitive to estimates of potential output ($y^*$) and the natural rate of interest ($r^*$), both of which are revised frequently.
+    *   **Financial Stability**: Modern frameworks often modify the Taylor Rule to include financial stress indicators (e.g., house prices, credit-to-GDP ratios) to address systemic risk, moving beyond pure inflation and output goals.
+    *   **Globalization and Secular Stagnation**: Some economists argue that the original coefficients are outdated due to structural changes in the economy (e.g., lower $r^*$ due to secular stagnation, globalization suppressing inflation). Newer empirical estimates often suggest a lower weight on the output gap and a higher weight on inflation.
+
+(Risk: Low)</assistant>
+</episode>
+</recent_context>
+
+<retrieved_stm/>
+
+<current_turn>
+  <user_message>Analyze in detail how diel vertical migration works — what organisms participate, what drives the behavior, what the energetic costs and benefits are, and what ecological functions this daily movement between depth zones serves.</user_message>
+</current_turn>
+
+Assistant:

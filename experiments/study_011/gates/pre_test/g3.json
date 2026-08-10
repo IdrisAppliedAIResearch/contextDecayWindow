@@ -1,0 +1,43 @@
+{
+  "T": 6,
+  "arm": "C",
+  "certifies": "both tiers reach the window together",
+  "delivery": {
+    "question_count": 8,
+    "questions": [
+      "Q1",
+      "Q11",
+      "Q12",
+      "Q2",
+      "Q3",
+      "Q5",
+      "Q6",
+      "Q9"
+    ],
+    "window_count": 6,
+    "windows": [
+      112,
+      113,
+      114,
+      116,
+      117,
+      120
+    ]
+  },
+  "deployed_order_for_comparison": {
+    "question_count": 2,
+    "questions": [
+      "Q12",
+      "Q3"
+    ],
+    "window_count": 1,
+    "windows": [
+      114
+    ]
+  },
+  "gate": "G3",
+  "label": "both, K-first",
+  "note": "The gate eleven studies did not run. Under the deployed order the same measurement gives the comparison recorded below.",
+  "requirement": ">=1 episode from each path at >=T of 13 probes (T = 6)",
+  "status": "PASS"
+}

@@ -1,0 +1,707 @@
+{
+  "agreement": {
+    "split_items": 0,
+    "this_measures_the_raters": "Agreement is evidence about the raters, not about the arms. Three raters can agree because a score is right or because they share a bias, and same-family raters make the second more likely.",
+    "total_items": 52,
+    "unanimous_items": 40,
+    "unanimous_rate": 0.7692
+  },
+  "blind_scores": {
+    "arm_W": {
+      "Q1": 0.5,
+      "Q10": 1.0,
+      "Q11": 0.0,
+      "Q12": 1.0,
+      "Q13": 1.0,
+      "Q2": 0.0,
+      "Q3": 1.0,
+      "Q4": 0.0,
+      "Q5": 0.0,
+      "Q6": 1.0,
+      "Q7": 1.0,
+      "Q8": 0.5,
+      "Q9": 1.0
+    },
+    "arm_X": {
+      "Q1": 0.5,
+      "Q10": 0.0,
+      "Q11": 0.0,
+      "Q12": 1.0,
+      "Q13": 1.0,
+      "Q2": 1.0,
+      "Q3": 1.0,
+      "Q4": 1.0,
+      "Q5": 0.0,
+      "Q6": 1.0,
+      "Q7": 0.0,
+      "Q8": 0.0,
+      "Q9": 1.0
+    },
+    "arm_Y": {
+      "Q1": 0.5,
+      "Q10": 1.0,
+      "Q11": 0.0,
+      "Q12": 1.0,
+      "Q13": 1.0,
+      "Q2": 0.0,
+      "Q3": 1.0,
+      "Q4": 0.0,
+      "Q5": 0.0,
+      "Q6": 1.0,
+      "Q7": 1.0,
+      "Q8": 0.5,
+      "Q9": 1.0
+    },
+    "arm_Z": {
+      "Q1": 1.0,
+      "Q10": 0.0,
+      "Q11": 0.0,
+      "Q12": 1.0,
+      "Q13": 1.0,
+      "Q2": 1.0,
+      "Q3": 1.0,
+      "Q4": 0.5,
+      "Q5": 0.0,
+      "Q6": 0.0,
+      "Q7": 0.0,
+      "Q8": 0.5,
+      "Q9": 1.0
+    }
+  },
+  "calibration": "all three raters reproduced the calibration set",
+  "conflicts": [],
+  "mapping_not_opened": "Blind labels are still blind. The sealed mapping is opened only after these scores are committed.",
+  "per_item": {
+    "0173d9b39ef14e83": {
+      "agreement": "majority",
+      "blind_label": "arm_Z",
+      "conflict": false,
+      "question": "Q9",
+      "rater_values": [
+        1.0,
+        1.0,
+        0.0
+      ],
+      "value": 1.0
+    },
+    "0daf5339b248d1dd": {
+      "agreement": "unanimous",
+      "blind_label": "arm_W",
+      "conflict": false,
+      "question": "Q13",
+      "rater_values": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "value": 1.0
+    },
+    "18cfc7974517c1ff": {
+      "agreement": "majority",
+      "blind_label": "arm_Y",
+      "conflict": false,
+      "question": "Q12",
+      "rater_values": [
+        1.0,
+        0.0,
+        1.0
+      ],
+      "value": 1.0
+    },
+    "1b0c223dc3453628": {
+      "agreement": "unanimous",
+      "blind_label": "arm_X",
+      "conflict": false,
+      "question": "Q5",
+      "rater_values": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "value": 0.0
+    },
+    "1bd1199858a5b82b": {
+      "agreement": "unanimous",
+      "blind_label": "arm_W",
+      "conflict": false,
+      "question": "Q10",
+      "rater_values": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "value": 1.0
+    },
+    "2631d68a2b2854f3": {
+      "agreement": "unanimous",
+      "blind_label": "arm_Y",
+      "conflict": false,
+      "question": "Q7",
+      "rater_values": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "value": 1.0
+    },
+    "26833da0f24109a8": {
+      "agreement": "unanimous",
+      "blind_label": "arm_Z",
+      "conflict": false,
+      "question": "Q7",
+      "rater_values": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "value": 0.0
+    },
+    "3e8e2429d1abb1d6": {
+      "agreement": "unanimous",
+      "blind_label": "arm_X",
+      "conflict": false,
+      "question": "Q9",
+      "rater_values": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "value": 1.0
+    },
+    "3fdf02c246a28cf9": {
+      "agreement": "majority",
+      "blind_label": "arm_W",
+      "conflict": false,
+      "question": "Q11",
+      "rater_values": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "value": 0.0
+    },
+    "47ef5a0ad6c08a8c": {
+      "agreement": "unanimous",
+      "blind_label": "arm_W",
+      "conflict": false,
+      "question": "Q1",
+      "rater_values": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "value": 0.5
+    },
+    "4bd84a627802e04a": {
+      "agreement": "unanimous",
+      "blind_label": "arm_Y",
+      "conflict": false,
+      "question": "Q2",
+      "rater_values": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "value": 0.0
+    },
+    "4f9873222cd1c799": {
+      "agreement": "unanimous",
+      "blind_label": "arm_X",
+      "conflict": false,
+      "question": "Q2",
+      "rater_values": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "value": 1.0
+    },
+    "51083081ef960bed": {
+      "agreement": "majority",
+      "blind_label": "arm_W",
+      "conflict": false,
+      "question": "Q12",
+      "rater_values": [
+        1.0,
+        0.0,
+        1.0
+      ],
+      "value": 1.0
+    },
+    "520637cfe396c7f0": {
+      "agreement": "unanimous",
+      "blind_label": "arm_X",
+      "conflict": false,
+      "question": "Q4",
+      "rater_values": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "value": 1.0
+    },
+    "5341b308c792e3af": {
+      "agreement": "unanimous",
+      "blind_label": "arm_X",
+      "conflict": false,
+      "question": "Q12",
+      "rater_values": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "value": 1.0
+    },
+    "5449da63464d2d1e": {
+      "agreement": "unanimous",
+      "blind_label": "arm_Y",
+      "conflict": false,
+      "question": "Q5",
+      "rater_values": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "value": 0.0
+    },
+    "545b4ea1d55118de": {
+      "agreement": "unanimous",
+      "blind_label": "arm_X",
+      "conflict": false,
+      "question": "Q11",
+      "rater_values": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "value": 0.0
+    },
+    "575cdfa1b47cddd2": {
+      "agreement": "majority",
+      "blind_label": "arm_W",
+      "conflict": false,
+      "question": "Q7",
+      "rater_values": [
+        1.0,
+        1.0,
+        0.5
+      ],
+      "value": 1.0
+    },
+    "68c92c1073928734": {
+      "agreement": "unanimous",
+      "blind_label": "arm_X",
+      "conflict": false,
+      "question": "Q3",
+      "rater_values": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "value": 1.0
+    },
+    "6efaa71b9fc53099": {
+      "agreement": "unanimous",
+      "blind_label": "arm_W",
+      "conflict": false,
+      "question": "Q8",
+      "rater_values": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "value": 0.5
+    },
+    "6f17056ee07df388": {
+      "agreement": "unanimous",
+      "blind_label": "arm_Z",
+      "conflict": false,
+      "question": "Q2",
+      "rater_values": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "value": 1.0
+    },
+    "727efe2ef8b73226": {
+      "agreement": "unanimous",
+      "blind_label": "arm_Z",
+      "conflict": false,
+      "question": "Q12",
+      "rater_values": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "value": 1.0
+    },
+    "7745a5d5459b577a": {
+      "agreement": "unanimous",
+      "blind_label": "arm_W",
+      "conflict": false,
+      "question": "Q5",
+      "rater_values": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "value": 0.0
+    },
+    "784d13fc2484564c": {
+      "agreement": "unanimous",
+      "blind_label": "arm_Y",
+      "conflict": false,
+      "question": "Q9",
+      "rater_values": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "value": 1.0
+    },
+    "794773a9906f2341": {
+      "agreement": "unanimous",
+      "blind_label": "arm_X",
+      "conflict": false,
+      "question": "Q6",
+      "rater_values": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "value": 1.0
+    },
+    "7b0dc6c9a0714832": {
+      "agreement": "unanimous",
+      "blind_label": "arm_Y",
+      "conflict": false,
+      "question": "Q1",
+      "rater_values": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "value": 0.5
+    },
+    "7c609ce666eeabb7": {
+      "agreement": "unanimous",
+      "blind_label": "arm_Y",
+      "conflict": false,
+      "question": "Q6",
+      "rater_values": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "value": 1.0
+    },
+    "7f5775e427eb877e": {
+      "agreement": "majority",
+      "blind_label": "arm_X",
+      "conflict": false,
+      "question": "Q8",
+      "rater_values": [
+        0.0,
+        0.0,
+        0.5
+      ],
+      "value": 0.0
+    },
+    "80bfab72d9a4a671": {
+      "agreement": "unanimous",
+      "blind_label": "arm_Z",
+      "conflict": false,
+      "question": "Q6",
+      "rater_values": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "value": 0.0
+    },
+    "82f062dad0de0da8": {
+      "agreement": "unanimous",
+      "blind_label": "arm_Y",
+      "conflict": false,
+      "question": "Q13",
+      "rater_values": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "value": 1.0
+    },
+    "94c8f6fb09b11535": {
+      "agreement": "majority",
+      "blind_label": "arm_W",
+      "conflict": false,
+      "question": "Q3",
+      "rater_values": [
+        1.0,
+        0.5,
+        1.0
+      ],
+      "value": 1.0
+    },
+    "979cfaccad4bb61d": {
+      "agreement": "unanimous",
+      "blind_label": "arm_Y",
+      "conflict": false,
+      "question": "Q4",
+      "rater_values": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "value": 0.0
+    },
+    "ab34ba291bc42b9b": {
+      "agreement": "unanimous",
+      "blind_label": "arm_X",
+      "conflict": false,
+      "question": "Q10",
+      "rater_values": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "value": 0.0
+    },
+    "ab600c8ad97576fe": {
+      "agreement": "unanimous",
+      "blind_label": "arm_Z",
+      "conflict": false,
+      "question": "Q3",
+      "rater_values": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "value": 1.0
+    },
+    "b3253b725b6e7852": {
+      "agreement": "unanimous",
+      "blind_label": "arm_Z",
+      "conflict": false,
+      "question": "Q1",
+      "rater_values": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "value": 1.0
+    },
+    "bd19d5420c0638b4": {
+      "agreement": "unanimous",
+      "blind_label": "arm_Z",
+      "conflict": false,
+      "question": "Q4",
+      "rater_values": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "value": 0.5
+    },
+    "c5d8b936c2695207": {
+      "agreement": "unanimous",
+      "blind_label": "arm_W",
+      "conflict": false,
+      "question": "Q9",
+      "rater_values": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "value": 1.0
+    },
+    "c5f3a53cda8e6a79": {
+      "agreement": "unanimous",
+      "blind_label": "arm_Z",
+      "conflict": false,
+      "question": "Q5",
+      "rater_values": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "value": 0.0
+    },
+    "c85e96ada0478381": {
+      "agreement": "unanimous",
+      "blind_label": "arm_X",
+      "conflict": false,
+      "question": "Q1",
+      "rater_values": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "value": 0.5
+    },
+    "cb4567429d9c5ff9": {
+      "agreement": "majority",
+      "blind_label": "arm_Y",
+      "conflict": false,
+      "question": "Q3",
+      "rater_values": [
+        1.0,
+        0.5,
+        1.0
+      ],
+      "value": 1.0
+    },
+    "d017606df0df8ed6": {
+      "agreement": "majority",
+      "blind_label": "arm_Z",
+      "conflict": false,
+      "question": "Q8",
+      "rater_values": [
+        0.5,
+        0.5,
+        1.0
+      ],
+      "value": 0.5
+    },
+    "d1abcc73b0cd8d1c": {
+      "agreement": "unanimous",
+      "blind_label": "arm_Y",
+      "conflict": false,
+      "question": "Q10",
+      "rater_values": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "value": 1.0
+    },
+    "d55fa8d1055953a3": {
+      "agreement": "majority",
+      "blind_label": "arm_Y",
+      "conflict": false,
+      "question": "Q8",
+      "rater_values": [
+        0.5,
+        0.5,
+        1.0
+      ],
+      "value": 0.5
+    },
+    "d5b1c8097e1ad712": {
+      "agreement": "unanimous",
+      "blind_label": "arm_X",
+      "conflict": false,
+      "question": "Q13",
+      "rater_values": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "value": 1.0
+    },
+    "e2c74133fffe210b": {
+      "agreement": "unanimous",
+      "blind_label": "arm_W",
+      "conflict": false,
+      "question": "Q6",
+      "rater_values": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "value": 1.0
+    },
+    "ebab64e9adddfc6d": {
+      "agreement": "unanimous",
+      "blind_label": "arm_Z",
+      "conflict": false,
+      "question": "Q13",
+      "rater_values": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "value": 1.0
+    },
+    "ebc6d00dda87cd62": {
+      "agreement": "majority",
+      "blind_label": "arm_Z",
+      "conflict": false,
+      "question": "Q11",
+      "rater_values": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "value": 0.0
+    },
+    "eeb51753b2880c75": {
+      "agreement": "unanimous",
+      "blind_label": "arm_X",
+      "conflict": false,
+      "question": "Q7",
+      "rater_values": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "value": 0.0
+    },
+    "f0658213d8b2b1c3": {
+      "agreement": "majority",
+      "blind_label": "arm_Y",
+      "conflict": false,
+      "question": "Q11",
+      "rater_values": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "value": 0.0
+    },
+    "f0f666266214c973": {
+      "agreement": "unanimous",
+      "blind_label": "arm_W",
+      "conflict": false,
+      "question": "Q4",
+      "rater_values": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "value": 0.0
+    },
+    "f698e558e8c06a81": {
+      "agreement": "unanimous",
+      "blind_label": "arm_Z",
+      "conflict": false,
+      "question": "Q10",
+      "rater_values": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "value": 0.0
+    },
+    "f99fac4a9eb777aa": {
+      "agreement": "unanimous",
+      "blind_label": "arm_W",
+      "conflict": false,
+      "question": "Q2",
+      "rater_values": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "value": 0.0
+    }
+  },
+  "rater_family_note": "Section 6.1 requires three raters from distinct model families. Three distinct models were used, but they belong to a single family. This is a departure from the registered design and is disclosed here and in the report rather than absorbed.",
+  "raters": [
+    "claude-opus-5",
+    "claude-sonnet-5",
+    "claude-haiku-4-5-20251001"
+  ],
+  "study": "011"
+}

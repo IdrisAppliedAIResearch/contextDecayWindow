@@ -59,6 +59,13 @@ loop somewhere before ten thousand.
 
 **What this does not establish.**
 
+- **The instrument's run-to-run band is 3.0 points on the 13-point rubric, and
+  it is now measured rather than assumed.** Five replicates of the deployed
+  configuration under identical corpus, settings, seed and runtime scored 8.0,
+  8.0, 8.0, 8.0 and 11.0. **No scored comparison in this arc below about three
+  points is demonstrated** — including the 3.0-point memory-tier contrast this
+  paper cites as its cleanest architectural number. They may be real; a single
+  run per arm cannot tell.
 - One internal conversation corpus and one external benchmark, still one model,
   one machine, one seed, and no error bars. EC-001's evaluator substitution
   forbids direct comparison against published LongMemEval systems.
@@ -128,6 +135,9 @@ What remains after every one of those removals is an append-only store, a
 recency window, similarity retrieval, and a coverage objective, with no
 generative model calls in the memory path — a design that is reproducible and free of generated
 intermediate text because the removed components were the ones that produced it.
+That description is accurate about the component; §5.2.4 and §5.2.5 record that
+the live studies behind these results ran two different rules under the same
+name, and that neither was a window.
 
 ---
 
@@ -185,9 +195,13 @@ baselines in favour of self-comparison. EC-001 later ran cleaned
 LongMemEval-S, but its substituted evaluator does not authorize an official
 score or published-system comparison. The internal decomposition still comes
 from one corpus, one rubric locked since Study 002, one local model at one
-quantization, one machine, one seed. Every comparison is a single run, so there
-is no variance estimate anywhere and no significance test that would mean
-anything.
+quantization, one machine, one seed. Every comparison is a single run. There is
+no significance test that would mean anything, and until Amendment 001 there was
+no variance estimate either. There is now: **3.0 points**, measured by running
+the deployed configuration five times under identical conditions
+(`experiments/study_011/noise_band/`). Scored differences smaller than that are
+reported here as *not demonstrated*, in both directions, including the ones this
+program would rather keep.
 
 Findings below are therefore stated as *on this corpus*, and where a result
 would be worth testing elsewhere the paper names the experiment rather than
@@ -211,6 +225,12 @@ re-stating them at every claim.
    written to catch a specific failure class nearly committed that exact failure.
 
 ### 1.3 What this paper does not claim
+
+**No claim that any scored difference below about three points in this arc is
+real.** The instrument's run-to-run band is 3.0 on the 13-point rubric (§8.1),
+so the memory-tier contrast, the live-validation kill and the tier-isolation
+kill are all reported as measured and none as demonstrated. What survives is the
+offline decomposition, which is counts and identities rather than scores.
 
 No comparison against HippoRAG, Mem0, Zep, or Letta; none were run. No general
 claim that similarity retrieval fails — §5.5 measures the opposite on eight of
@@ -292,7 +312,7 @@ Ten numbered studies and one registered bakeoff. The table is the record.
 | 006 | Length-normalized span selection | PARTIAL, 1 of 3 | Formation reached 4 of 4 domains; records shrank about 28×, and count-based retrieval budgets silently broke |
 | 007 | Character-budgeted retrieval | PARTIAL, 2 of 3 | Best of the series. The model used all 10 delivered facts and invented none; 7 required facts were absent from the store |
 | 008 | Rendering-by-floor factorial | STOPPED AT PRE-RUN GATES | No fill cap from 1 to 50 passed breadth and targeted gates jointly |
-| 009 | Pure-STM null test | PARTIAL, null decisive | Same seed: 9.0 without the memory tier, 12.0 with it |
+| 009 | Pure-STM null test | PARTIAL, null decisive | Same seed: 9.0 without the memory tier, 12.0 with it. **The 3.0 gap equals the measured instrument band and is not demonstrated** (§8.1); the baseline was also a locked prefix, not a recency window (§5.2.5) |
 | 010 | 1,000-turn endurance | STOPPED AT G2 | Post-stop arms were budget-noncompliant by 67.9% and 68.2%; scores unaudited; one bar not evaluable |
 | — | Retrieval bakeoff | MIXED | Query-time selection did not recover what formation missed |
 
@@ -524,6 +544,160 @@ joint readout of a selector and a fill order, and §5.3's within-pool selector
 comparisons inherit that: they compare objectives that were all run behind the
 same starved packing order. IC-001 is availability-only on one probe, one
 store, one run, with no variance, and authorizes no re-run of the arc.
+
+### 5.2.3 The gate was real, and opening it did not help
+
+Study 011 ran the arc live to find out. Four 121-turn runs at one seed —
+recency alone, similarity alone, both with similarity first, and both in the
+deployed order — scored blind by three raters who never saw which arm produced
+which answer.
+
+The suppression is confirmed at full strength. **The deployed arm scored
+identically to the recency-only arm on all thirteen questions**, with the same
+availability on both measures, and produced byte-identical windows at three
+consecutive late probes. A system carrying a similarity tier was
+indistinguishable from one with no similarity tier at all.
+
+Then the correction was applied, and the answers got worse.
+
+| | Recency only | Deployed | K-first |
+|---|---:|---:|---:|
+| K-path episodes delivered | 0 | 1 | **13** |
+| Q11 items available | 9 of 17 | 9 of 17 | **10 of 17** |
+| Targeted items available | 7 of 21 | 7 of 21 | **10 of 21** |
+| Scored rubric, out of 13 | 8.0 | 8.0 | **7.0** |
+
+The K-first arm had the best availability of any arm and the worst score. Its
+registered kill — *the corrected arm must not score below the deployed one* —
+fired, and the correction was not adopted.
+
+The shape matters more than the total. The point is built from three gains and
+three losses, not a uniform decline: the gains are the early and middle plants,
+where the similarity path had material to contribute, and every loss is late.
+Both losses at the marine-biology probe fall on a turn that holds **no
+similarity candidate at all**, so nothing the similarity tier did could have
+helped there; what changed was the recency context it displaced elsewhere. The
+mechanism is consistent with displacement and is not established — a single run
+per arm cannot separate it from ordinary variation in a live conversation.
+
+One caveat governs every scored number above. Re-running a single arm under
+identical settings produced a byte-identical prompt and a **different answer**
+at the same seed, with one slot and speculative decoding off. The mechanism
+reproduces exactly where it can be tested — but that is one turn, since a
+differing answer changes the store and every prompt after it. A one-point gap
+on a thirteen-point rubric, from one run per arm, therefore sits inside a noise
+band this program has never measured. The registered bar fired on the committed
+numbers, which is what a pre-registered kill is for; the defensible reading is
+that the correction did not demonstrate an improvement, not that it is worse.
+The delivery and packing numbers are offline and reproduce exactly.
+
+### 5.2.4 The tier the arc calls recency is not one
+
+Mechanism analysis after Study 011 was unsealed found that the tier every study
+above calls a recency window does not select by recency. Its ordering key sorts
+the **whole store** by delivery history — never-delivered material first, then
+the episode delivered longest ago — with the source turn entering only as a
+third-level tiebreak, oldest first. It is a least-recently-delivered coverage
+rotation. The only place recency appears is the name of the block it renders
+into.
+
+Replaying the deployed key against store state reconstructed from the delivery
+log reproduces the live ranking on **120 of 120 testable turns** in every arm
+that has the tier. On that licence: the delivered set overlaps a true window of
+the same size by **0.29**, **36%** of deliveries are older than the cap of 32
+turns and so lie outside anything a window could reach, and the rotation touches
+**every one of the 120 reachable episodes**, which a window never does.
+
+Two measurements explain how this survived eleven studies. The candidate list
+equals a recency window on exactly the 32 turns where the store still fits
+inside the cap, and never after — so at ablation length the tier genuinely *is*
+a window. And it delivers the immediately preceding turn at 9 of 9 probes,
+because that episode is the one thing never delivered before. The block opens on
+the previous turn and then rotates through the archive.
+
+Three distinct rules carry the name in this repository, and they are not
+variants of one mechanism:
+
+| Path | Cap | Orders by | Where it ran |
+|---|---:|---|---|
+| `RetrievalEngine`, `StmRetrievalEngine` | 10 | most recently delivered first | Every live run through Study 010 |
+| `logical_n_key` | 32 | least recently delivered first | Corrected Tier 6 and Study 011 |
+| `episodic` library | 32 | the last N in conversation order | The extracted component; EC-002, CC-003, CC-005 |
+
+The first row's span was corrected on 2026-08-08. An earlier version of this
+table placed Study 010 in the second row. Study 010 ran `src/study/runner.py`,
+which constructs `RetrievalEngine`; its arms replay exactly under the first
+row's rule and do not replay under the second. The two carried engines declare
+the N tier separately but behave identically, which a probe on shared inputs
+confirms rather than assumes.
+
+**The only genuine recency window is in the component no scored live study ran.**
+The harness imports the library's packer and renderer, not its context
+composition. §6.2's description of what remains is accurate about that component;
+what does not hold is the implied continuity between it and the measured arc.
+
+What this does and does not change. Every contrast in which both arms carry the
+tier is untouched, which includes §5.2.3's C-against-D packing result and every
+delivery and packing number in this paper. What changes is what the *marginal*
+contrasts mean: the similarity tier was being asked to add to a baseline that
+already reaches the entire store, not to a window over the last few turns — the
+most plausible reading of why 79% of the K-first arm's similarity candidates
+were material the other tier had already nominated. §5.2.5 does the same
+analysis for the first rule in the table above. **Nothing here establishes what
+a correctly-implemented recency window would score, in either direction.**
+
+For this paper the correction is narrow. §5.2.2's delivery finding stands
+unchanged and is now confirmed live. What does not survive is the inference a
+reader would naturally draw from it: that the starved fill order was holding
+back a working retrieval path. On this corpus, at this seed, giving that path
+the window space it had been denied moved availability up and answers did not
+follow. The pool, the objective and the floor still bind in the order §5.6
+gives them. Packing order gates delivery, and delivery was not the thing
+limiting answers.
+
+### 5.2.5 The rule that ran before it was a locked prefix
+
+The rule in the first row of §5.2.4's table has a third component the key
+does not show. `retrieve()` refreshes every episode it delivered, in one call,
+with one timestamp. Since the rule ranks the freshest delivery highest, what is
+in the block is the freshest thing in the store, so it is selected again, so it
+is refreshed again. The batch write leaves its whole set tied, and the tie
+breaks toward the order the store query returns, which is oldest first.
+
+The block therefore settles on the oldest episodes in the conversation and
+cannot leave them. Replayed against the committed logs it reproduces the ranking
+exactly — 120 of 120 turns for Study 009's Arm S, 120 of 120 for the Study 007
+arm carried in as its comparison, 34 of 34 for the ablation. From turn 11 both
+arms delivered **source turns 1 through 9** plus whichever episode had not been
+delivered before, which is always the immediately preceding turn, and they held
+that for 111 consecutive turns.
+
+| | Value |
+|---|---:|
+| Mean overlap with a true window of the same size | 0.205 |
+| Deliveries older than the cap of ten turns | 82.6% |
+| Mean age of a delivered episode | 53 turns |
+| Episodes delivered exactly once | 111 of 120 |
+
+At turn 120 the block held source turns 1–9 and 119; a last-ten window would
+have held 110–119. The first episode of the conversation was delivered on all
+120 turns; episodes 10 through 118 were delivered once each, on the turn after
+they formed, and never again. Across the committed record the scan replays 17
+run directories exactly, of which 12 lock; **every scored live run from Study
+004 through Study 010 is among them**, including Study 010's arms, which held
+source turns 1–9 across 999 logged turns.
+
+The two carried arms hold the identical block turn for turn, so the 3.0-point
+architectural contrast is not confounded and is not re-read here. What the
+measurement corrects is the baseline's description: that contrast is not a win
+over a recency baseline but over one slot of genuine recency in ten, above a
+frozen prefix of the conversation's opening. The same correction reaches the
+earlier 11.0–7.0 STM-versus-LTM comparison, whose arms carried the same prefix.
+
+The two failures are opposite and nothing transfers between them. The deployed
+rotation reaches every episode and duplicates the similarity tier; the carried
+prefix reaches almost nothing and repeats itself. Both were called a recency
+window, and in both the name was the only thing asserting it.
 
 ### 5.3 The objective binds second, and only after the pool
 
@@ -800,6 +974,13 @@ An append-only verbatim store. A recency window. Cosine-threshold similarity
 retrieval for targeted queries. A set-level coverage objective for selection.
 Everything packed at exact serialized cost against one budget.
 
+The recency window in that list is the component's own, and it is a genuine
+last-N window. The live studies that produced the results above ran two other
+rules under the same name: a least-recently-delivered rotation over the whole
+store in the most recent study, and before it a block that locked onto the
+conversation's first nine turns and held them. §5.2.4 and §5.2.5 give the
+measurements and the consequences.
+
 One formerly open item is no longer owed as a component mechanism. The
 component emitted no absence signal on any of 500 EC-001 questions, while the
 fixed reader correctly abstained on 17 of 20 registered abstention items. This
@@ -1003,6 +1184,31 @@ measured: every number here comes from one model at one quantization on one
 machine, with §7.2 giving positive reason to expect a different embedder would
 move the §5 results.
 
+### 7.5 A probe that removed the thing it was built to find
+
+Amendment 001 raised a determinism gate failure: the same byte-identical prompt
+had produced two different answers at a fixed seed. Phase 1 was built to
+characterize that. It issued 20 committed windows ten times each under three
+sampler conditions, plus two conditions added beyond the registration, plus
+twenty replays of the exact prompt whose divergence was recorded. **820
+generations, zero divergence.** The probe concluded the runtime reproduced and
+the recorded failure was an outlier of unidentified cause.
+
+Phase 2 then ran the deployed configuration five times end to end and reproduced
+the divergence on the first turn of the second replicate: 343 characters against
+80, diverging at character 79, matching both committed response digests exactly.
+
+The probe missed it because it isolated the model call from the system that
+makes the call — no store, no embedding model, no 121-turn sequence, no
+alternating process lifecycle. It measured the component and reported on the
+system. That is this program's recurring surrogate failure class, arriving in a
+diagnostic written by an agent who had spent the previous day documenting the
+same failure class in three other places (§5.2.4, §5.2.5, §7.3).
+
+The Phase 1 report is superseded in part rather than rewritten, its numbers left
+standing and its conclusion marked wrong, and its own surrogate-audit table now
+carries the row that failed.
+
 ---
 
 ## 8. Limitations
@@ -1010,9 +1216,34 @@ move the §5 results.
 Each item names what would settle it. §5 states its own scope where it matters;
 this section is the complete list rather than a restatement.
 
-**8.1 One seed, no variance, and no official external comparison.** Every
-comparison is a single run at a fixed seed. There is no error bar anywhere and
-no meaningful significance test. EC-001 ran cleaned LongMemEval-S, removing the
+**8.1 The instrument's band is 3.0, and most scored comparisons here are below
+it.** Every comparison in this paper is a single run at a fixed seed. That was
+recorded as a missing variance estimate until the estimate was made.
+
+Five replicates of the deployed configuration — identical corpus, settings, seed
+and standing runtime, run back to back in one server process — scored **8.0,
+8.0, 8.0, 8.0 and 11.0**. Max minus min is **3.0** against a decision rule
+committed before the replicates ran. It is not a spread but a switch: four of
+the five are byte-identical across all 121 turns, and the fifth, the only one to
+meet an empty server slot, diverges at turn 1 and never re-converges. Rater
+disagreement was measured separately and is near zero (64 of 65 items
+unanimous), so this is run-to-run variation and not scoring noise.
+
+Applied uniformly and in both directions, the memory-tier contrast (3.0), the
+live-validation targeted regression (−2.0) and the tier-isolation kill (−1.0)
+are all **inside the band and not demonstrated**; the corrected treatment series
+(3.5) is the only scored result that exceeds it, and exceeding a band is not the
+same as being demonstrated. *Not demonstrated is not refuted* — these may be
+real, and a single run per arm cannot say.
+
+What the band does not touch is everything offline and deterministic: gate
+outcomes, delivery counts, character accounting, packing measurements, EC-002's
+152 gains and zero losses, IC-001's zero K deliveries at 8 of 8 probes, and the
+N-tier replays. Those are counts and identities, not scores, and §5's
+decomposition rests on them. *Settled by:* repeated runs at multiple seeds with
+process state pinned, which no study in this arc pinned.
+
+There is still no meaningful significance test. EC-001 ran cleaned LongMemEval-S, removing the
 claim that every result is self-authored, but API unavailability replaced the
 pinned benchmark evaluator with Phi, Mistral, and hosted GPT-5.4 raters plus
 hosted GPT-5.5 AI adjudication. Its 20.0% equal-quota and 12.22%
@@ -1127,7 +1358,12 @@ program built failed its own gate; what is left is an append-only verbatim
 store, a recency window, similarity retrieval, and a set-level coverage
 objective, with no generative model calls in the memory path. That component is
 reproducible given a pinned embedder and auditable line by line, and §6.3 argues
-both properties followed from the removals rather than from foresight. If a
+both properties followed from the removals rather than from foresight. Read
+§5.2.4 and §5.2.5 before carrying that list across: the component's recency
+window is a genuine one, and no live study behind these results ran it — they
+ran a rotation over the whole store, and before that a block frozen on the
+conversation's opening. Whether a real window would do better is not something
+this program measured. If a
 memory component in your system makes generative calls, this program's
 experience is that they bought less than they cost — on one internal corpus,
 with one later external stress test that is not a published-system comparison.

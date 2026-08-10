@@ -1,0 +1,235 @@
+{
+  "check": "determinism spot-check (section 5)",
+  "first_divergence_turn": {
+    "payload": 2,
+    "prompt": 2,
+    "response": 1
+  },
+  "identical_counts": {
+    "payload_digest": 1,
+    "prompt": 1,
+    "response": 0
+  },
+  "limitation": "A short testable prefix is weak evidence about the mechanism. When the runtime is not bit-reproducible, a live rerun cannot test mechanism determinism beyond the first differing response, and the number of turns it did test is reported above rather than implied.",
+  "mechanism_deterministic": true,
+  "original": "experiments/study_011/ablation_runs/study_011_ablation_a/arm_a",
+  "per_turn": [
+    {
+      "payload_digest_identical": true,
+      "prompt_identical": true,
+      "response_identical": false,
+      "turn": 1
+    },
+    {
+      "payload_digest_identical": false,
+      "prompt_identical": false,
+      "response_identical": false,
+      "turn": 2
+    },
+    {
+      "payload_digest_identical": false,
+      "prompt_identical": false,
+      "response_identical": false,
+      "turn": 3
+    },
+    {
+      "payload_digest_identical": false,
+      "prompt_identical": false,
+      "response_identical": false,
+      "turn": 4
+    },
+    {
+      "payload_digest_identical": false,
+      "prompt_identical": false,
+      "response_identical": false,
+      "turn": 5
+    },
+    {
+      "payload_digest_identical": false,
+      "prompt_identical": false,
+      "response_identical": false,
+      "turn": 6
+    },
+    {
+      "payload_digest_identical": false,
+      "prompt_identical": false,
+      "response_identical": false,
+      "turn": 7
+    },
+    {
+      "payload_digest_identical": false,
+      "prompt_identical": false,
+      "response_identical": false,
+      "turn": 8
+    },
+    {
+      "payload_digest_identical": false,
+      "prompt_identical": false,
+      "response_identical": false,
+      "turn": 9
+    },
+    {
+      "payload_digest_identical": false,
+      "prompt_identical": false,
+      "response_identical": false,
+      "turn": 10
+    },
+    {
+      "payload_digest_identical": false,
+      "prompt_identical": false,
+      "response_identical": false,
+      "turn": 11
+    },
+    {
+      "payload_digest_identical": false,
+      "prompt_identical": false,
+      "response_identical": false,
+      "turn": 12
+    },
+    {
+      "payload_digest_identical": false,
+      "prompt_identical": false,
+      "response_identical": false,
+      "turn": 13
+    },
+    {
+      "payload_digest_identical": false,
+      "prompt_identical": false,
+      "response_identical": false,
+      "turn": 14
+    },
+    {
+      "payload_digest_identical": false,
+      "prompt_identical": false,
+      "response_identical": false,
+      "turn": 15
+    },
+    {
+      "payload_digest_identical": false,
+      "prompt_identical": false,
+      "response_identical": false,
+      "turn": 16
+    },
+    {
+      "payload_digest_identical": false,
+      "prompt_identical": false,
+      "response_identical": false,
+      "turn": 17
+    },
+    {
+      "payload_digest_identical": false,
+      "prompt_identical": false,
+      "response_identical": false,
+      "turn": 18
+    },
+    {
+      "payload_digest_identical": false,
+      "prompt_identical": false,
+      "response_identical": false,
+      "turn": 19
+    },
+    {
+      "payload_digest_identical": false,
+      "prompt_identical": false,
+      "response_identical": false,
+      "turn": 20
+    },
+    {
+      "payload_digest_identical": false,
+      "prompt_identical": false,
+      "response_identical": false,
+      "turn": 21
+    },
+    {
+      "payload_digest_identical": false,
+      "prompt_identical": false,
+      "response_identical": false,
+      "turn": 22
+    },
+    {
+      "payload_digest_identical": false,
+      "prompt_identical": false,
+      "response_identical": false,
+      "turn": 23
+    },
+    {
+      "payload_digest_identical": false,
+      "prompt_identical": false,
+      "response_identical": false,
+      "turn": 24
+    },
+    {
+      "payload_digest_identical": false,
+      "prompt_identical": false,
+      "response_identical": false,
+      "turn": 25
+    },
+    {
+      "payload_digest_identical": false,
+      "prompt_identical": false,
+      "response_identical": false,
+      "turn": 26
+    },
+    {
+      "payload_digest_identical": false,
+      "prompt_identical": false,
+      "response_identical": false,
+      "turn": 27
+    },
+    {
+      "payload_digest_identical": false,
+      "prompt_identical": false,
+      "response_identical": false,
+      "turn": 28
+    },
+    {
+      "payload_digest_identical": false,
+      "prompt_identical": false,
+      "response_identical": false,
+      "turn": 29
+    },
+    {
+      "payload_digest_identical": false,
+      "prompt_identical": false,
+      "response_identical": false,
+      "turn": 30
+    },
+    {
+      "payload_digest_identical": false,
+      "prompt_identical": false,
+      "response_identical": false,
+      "turn": 31
+    },
+    {
+      "payload_digest_identical": false,
+      "prompt_identical": false,
+      "response_identical": false,
+      "turn": 32
+    },
+    {
+      "payload_digest_identical": false,
+      "prompt_identical": false,
+      "response_identical": false,
+      "turn": 33
+    },
+    {
+      "payload_digest_identical": false,
+      "prompt_identical": false,
+      "response_identical": false,
+      "turn": 34
+    },
+    {
+      "payload_digest_identical": false,
+      "prompt_identical": false,
+      "response_identical": false,
+      "turn": 35
+    }
+  ],
+  "rerun": "experiments/study_011/ablation_runs/study_011_determinism_a/arm_a",
+  "response_deterministic": false,
+  "status": "PASS",
+  "study": "011",
+  "testable_prefix_turns": 1,
+  "turns_compared": 35,
+  "what_this_certifies": "The mechanism -- prompt construction and packing -- is what this gate binds, and only over the prefix where its inputs were identical. A model that is not bit-reproducible under a fixed seed produces an identical prompt and a different answer; after that the store diverges and later prompts must differ. That is reported separately and does not fail the mechanism check."
+}

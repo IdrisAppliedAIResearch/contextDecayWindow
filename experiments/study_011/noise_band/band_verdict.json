@@ -1,0 +1,411 @@
+{
+  "amendment": "experiments/study_011/amendments/AMENDMENT_001_determinism_and_noise_band.md",
+  "band": {
+    "band": 3.0,
+    "individual_totals": [
+      8.0,
+      8.0,
+      8.0,
+      8.0,
+      11.0
+    ],
+    "max": 11.0,
+    "min": 8.0,
+    "standard_deviation": 1.3416,
+    "standard_deviation_caveat": "n = 5 estimates a standard deviation poorly. The band is the range; this figure is indicative only and \u00a74.3 does not read it."
+  },
+  "decision_rule": {
+    "committed_before_scoring": true,
+    "path": "experiments/study_011/noise_band/DECISION_RULE.md",
+    "sha256_lf": "d412f8e0f713887bf8765a4c4075458c3bc74a54560e0a26dc46761f921c8e83"
+  },
+  "design": "Arm D, the deployed configuration, repeated N = 5. Identical corpus, settings, seed and standing runtime, temp 1.",
+  "individual_totals_by_replicate": {
+    "study_011_noise_band_d_01": 11.0,
+    "study_011_noise_band_d_02": 8.0,
+    "study_011_noise_band_d_03": 8.0,
+    "study_011_noise_band_d_04": 8.0,
+    "study_011_noise_band_d_05": 8.0
+  },
+  "limitations": [
+    "n = 5 on one configuration, one corpus, one seed, one machine.",
+    "Five runs can cluster by chance and understate the true spread; every individual total is listed above so the clustering is visible.",
+    "The band is measured on Arm D and applied to other arms by assumption. Noise may be configuration-dependent.",
+    "A gap wider than the band is not thereby demonstrated. It is only not excluded by this measurement.",
+    "Three raters, three distinct models, one family."
+  ],
+  "non_rescue_clause": "B1 fired. Arm C scored 7.0 against Arm D's 8.0 and the packing correction is not adopted. This band may not be cited in support of any adoption decision for K-first packing. Any future adoption requires a new study with its own pre-registration and its own bar. Amendment 001 \u00a71.2, binding.",
+  "per_question_variability": {
+    "concentration": "spread across the rubric",
+    "per_question": [
+      {
+        "distinct_values": [
+          0.5,
+          1.0
+        ],
+        "moved": true,
+        "question": "Q1",
+        "range": 0.5,
+        "values": [
+          0.5,
+          1.0,
+          0.5,
+          0.5,
+          0.5
+        ]
+      },
+      {
+        "distinct_values": [
+          0.0,
+          1.0
+        ],
+        "moved": true,
+        "question": "Q2",
+        "range": 1.0,
+        "values": [
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "distinct_values": [
+          1.0
+        ],
+        "moved": false,
+        "question": "Q3",
+        "range": 0.0,
+        "values": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "distinct_values": [
+          0.0,
+          1.0
+        ],
+        "moved": true,
+        "question": "Q4",
+        "range": 1.0,
+        "values": [
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "distinct_values": [
+          0.0
+        ],
+        "moved": false,
+        "question": "Q5",
+        "range": 0.0,
+        "values": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "distinct_values": [
+          1.0
+        ],
+        "moved": false,
+        "question": "Q6",
+        "range": 0.0,
+        "values": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "distinct_values": [
+          1.0
+        ],
+        "moved": false,
+        "question": "Q7",
+        "range": 0.0,
+        "values": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "distinct_values": [
+          0.5,
+          1.0
+        ],
+        "moved": true,
+        "question": "Q8",
+        "range": 0.5,
+        "values": [
+          0.5,
+          1.0,
+          0.5,
+          0.5,
+          0.5
+        ]
+      },
+      {
+        "distinct_values": [
+          1.0
+        ],
+        "moved": false,
+        "question": "Q9",
+        "range": 0.0,
+        "values": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "distinct_values": [
+          1.0
+        ],
+        "moved": false,
+        "question": "Q10",
+        "range": 0.0,
+        "values": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "distinct_values": [
+          0.0
+        ],
+        "moved": false,
+        "question": "Q11",
+        "range": 0.0,
+        "values": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "distinct_values": [
+          1.0
+        ],
+        "moved": false,
+        "question": "Q12",
+        "range": 0.0,
+        "values": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "distinct_values": [
+          1.0
+        ],
+        "moved": false,
+        "question": "Q13",
+        "range": 0.0,
+        "values": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    ],
+    "questions_stable_count": 9,
+    "questions_that_moved": [
+      "Q1",
+      "Q2",
+      "Q4",
+      "Q8"
+    ],
+    "questions_that_moved_count": 4,
+    "summed_per_question_range": 3.0,
+    "what_this_distinguishes": "A band carried by two or three items is a statement about those items. A band spread across the rubric is a statement about the instrument. \u00a74.2.4 requires the difference to be visible."
+  },
+  "phase": "2",
+  "rater_disagreement": {
+    "family_departure": "Three distinct models, one family. Shared-family bias inflates apparent agreement, and inflated agreement understates the band -- the direction that flatters the record. Disclosed in the decision rule before the measurement, not after it.",
+    "per_replicate": {
+      "run_alpha": {
+        "items": 13,
+        "majority": 0,
+        "mean_rater_spread_per_item": 0.0,
+        "split": 0,
+        "unanimous": 13,
+        "unanimous_rate": 1.0
+      },
+      "run_beta": {
+        "items": 13,
+        "majority": 1,
+        "mean_rater_spread_per_item": 0.0385,
+        "split": 0,
+        "unanimous": 12,
+        "unanimous_rate": 0.9231
+      },
+      "run_delta": {
+        "items": 13,
+        "majority": 0,
+        "mean_rater_spread_per_item": 0.0,
+        "split": 0,
+        "unanimous": 13,
+        "unanimous_rate": 1.0
+      },
+      "run_epsilon": {
+        "items": 13,
+        "majority": 0,
+        "mean_rater_spread_per_item": 0.0,
+        "split": 0,
+        "unanimous": 13,
+        "unanimous_rate": 1.0
+      },
+      "run_gamma": {
+        "items": 13,
+        "majority": 0,
+        "mean_rater_spread_per_item": 0.0,
+        "split": 0,
+        "unanimous": 13,
+        "unanimous_rate": 1.0
+      }
+    },
+    "this_is_not_the_band": "Rater disagreement is variation in reading one answer. The band is variation in producing one. \u00a74.2.5 keeps them apart; pooling them would let same-family agreement read as instrument stability."
+  },
+  "runs": [
+    {
+      "control_isolation": "PASS",
+      "engine_sha256": "041aaa94d2eb05f93eb301bd9c6ce91055d2978ae8842a162773c4b5ed3a4993",
+      "finished_at": "2026-08-10T01:16:59.653817+00:00",
+      "index": 1,
+      "output_dir": "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\study_011\\noise_band\\runs\\study_011_noise_band_d_01\\context_matched_stm",
+      "run_id": "study_011_noise_band_d_01",
+      "scoring_surface_sha256": "d147936eb4447de62b627fcfb9922d445229edf2827096ab31726ca91b0590d0",
+      "server_pid": 29344,
+      "started_at": "2026-08-10T00:38:08.439716+00:00"
+    },
+    {
+      "control_isolation": "PASS",
+      "engine_sha256": "041aaa94d2eb05f93eb301bd9c6ce91055d2978ae8842a162773c4b5ed3a4993",
+      "finished_at": "2026-08-10T01:57:23.955010+00:00",
+      "index": 2,
+      "output_dir": "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\study_011\\noise_band\\runs\\study_011_noise_band_d_02\\context_matched_stm",
+      "run_id": "study_011_noise_band_d_02",
+      "scoring_surface_sha256": "39f5308b624699df315539974d83d549cde36daf0edb54f3b7f9be49efcf8787",
+      "server_pid": 29344,
+      "started_at": "2026-08-10T01:16:59.858225+00:00"
+    },
+    {
+      "control_isolation": "PASS",
+      "engine_sha256": "041aaa94d2eb05f93eb301bd9c6ce91055d2978ae8842a162773c4b5ed3a4993",
+      "finished_at": "2026-08-10T02:37:49.251924+00:00",
+      "index": 3,
+      "output_dir": "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\study_011\\noise_band\\runs\\study_011_noise_band_d_03\\context_matched_stm",
+      "run_id": "study_011_noise_band_d_03",
+      "scoring_surface_sha256": "3bd5e259a448185083a97aec06ee4cbda0154f8c3fc0105372a90612df32b233",
+      "server_pid": 29344,
+      "started_at": "2026-08-10T01:57:24.158013+00:00"
+    },
+    {
+      "control_isolation": "PASS",
+      "engine_sha256": "041aaa94d2eb05f93eb301bd9c6ce91055d2978ae8842a162773c4b5ed3a4993",
+      "finished_at": "2026-08-10T03:18:14.375191+00:00",
+      "index": 4,
+      "output_dir": "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\study_011\\noise_band\\runs\\study_011_noise_band_d_04\\context_matched_stm",
+      "run_id": "study_011_noise_band_d_04",
+      "scoring_surface_sha256": "938afc76e0817646b1618f3c4249315f5bbf1e124a696304cd16eeccdaf87852",
+      "server_pid": 29344,
+      "started_at": "2026-08-10T02:37:49.458485+00:00"
+    },
+    {
+      "control_isolation": "PASS",
+      "engine_sha256": "041aaa94d2eb05f93eb301bd9c6ce91055d2978ae8842a162773c4b5ed3a4993",
+      "finished_at": "2026-08-10T03:58:26.814227+00:00",
+      "index": 5,
+      "output_dir": "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\study_011\\noise_band\\runs\\study_011_noise_band_d_05\\context_matched_stm",
+      "run_id": "study_011_noise_band_d_05",
+      "scoring_surface_sha256": "279323b6bc9af8f02a59cdfe8111e227a21c25f7a64c6de9a8010bf474b9b8d5",
+      "server_pid": 29344,
+      "started_at": "2026-08-10T03:18:14.586719+00:00"
+    }
+  ],
+  "study": "011",
+  "title": "noise band on the deployed configuration",
+  "unaffected_by_the_band": [
+    "gate outcomes",
+    "delivery counts",
+    "character accounting",
+    "packing measurements",
+    "EC-002's 152 gains and zero losses",
+    "IC-001's zero K episodes at 8 of 8 probes",
+    "Arm D's per-question identity to Arm A, with byte-identical windows at turns 117, 118 and 119"
+  ],
+  "uniform_application": [
+    {
+      "artifact": "experiments/study_009/study_009_report.md",
+      "currently_reads_as": "the arc's clean architectural number",
+      "exceeds_band": false,
+      "gap": 3.0,
+      "magnitude": 3.0,
+      "re_read_as": "NOT DEMONSTRATED: the gap is inside the measured run-to-run spread of one configuration",
+      "result": "Study 009 same-seed contrast, S vs L"
+    },
+    {
+      "artifact": "experiments/components/live_validation/",
+      "currently_reads_as": "the kill that un-promoted A3",
+      "exceeds_band": false,
+      "gap": -2.0,
+      "magnitude": 2.0,
+      "re_read_as": "NOT DEMONSTRATED: the gap is inside the measured run-to-run spread of one configuration",
+      "result": "LV-001 targeted regression"
+    },
+    {
+      "artifact": "experiments/study_011/evaluation/verdict.json",
+      "currently_reads_as": "the kill in this study",
+      "exceeds_band": false,
+      "gap": -1.0,
+      "magnitude": 1.0,
+      "re_read_as": "NOT DEMONSTRATED: the gap is inside the measured run-to-run spread of one configuration",
+      "result": "Study 011 B1, C vs D"
+    },
+    {
+      "artifact": "ERRATA.md",
+      "currently_reads_as": "the arc's headline improvement",
+      "exceeds_band": true,
+      "gap": 3.5,
+      "magnitude": 3.5,
+      "re_read_as": "not excluded by the band; the original reading survives",
+      "result": "The corrected treatment series, 8.5 to 12.0"
+    }
+  ],
+  "verdict": {
+    "consequence": "Most of the arc's scored verdicts are re-read as UNDETERMINED. Study 009's 3.0 is marginal.",
+    "paper_action": "PAPER_001.md requires a structural revision, not a caveat",
+    "reading": "Nothing below about 3 points is interpretable",
+    "row": "> 1.5"
+  }
+}

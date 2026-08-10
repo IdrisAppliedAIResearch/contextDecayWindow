@@ -352,3 +352,236 @@ retained caches only for runs made after its contract is adopted.
 Artifact:
 `experiments/external/longmemeval/runs/ec002_k_first/a1_k_first/paired_comparison.json`
 at commit `4168a05c`.
+
+## The N Tier Is Not a Recency Window (2026-08-08)
+
+**The architecture description changes; no measured number changes.** Post-unseal
+mechanism analysis of Study 011 found that the tier the program calls a recency
+window selects by delivery history, not by recency of formation. `logical_n_key`
+sorts the whole store by (has ever been delivered, turn last delivered, source
+turn, id) ascending — a least-recently-delivered coverage rotation, with source
+turn entering only as a third-level tiebreak and entering oldest-first.
+
+Replaying the deployed key against store state reconstructed from
+`retrieval_events` reproduces the live ranking on 120 of 120 testable turns in
+every Study 011 arm that has the tier. The delivered set overlaps a true window
+of the same size by 0.29; 36% of deliveries are older than the cap of 32 turns;
+the rotation reaches all 120 reachable episodes.
+
+Three distinct rules carry the name, and only the third is a window:
+
+| Path | Cap | Orders by | Where it ran |
+|---|---:|---|---|
+| `RetrievalEngine._n_retrieve`, `StmRetrievalEngine._n_retrieve` | 10 | most recently delivered first | Every live run through Study 010 |
+| `logical_n_key` | 32 | least recently delivered first | Corrected Tier 6 and Study 011 |
+| `episodic._context._recency_window` | 32 | the last N in conversation order | The extracted library; EC-002, CC-003, CC-005 |
+
+**Corrected readings.**
+
+- `PAPER_001.md` §6.2 and the closing summary describe the surviving component.
+  That description is accurate about the library. §5.2.4 is added to record that
+  the live arc ran a different rule under the same name.
+- Study 011's registered prediction 4, "Arm A ≈ Study 009's Arm S", is
+  **withdrawn as unscorable** rather than scored as near. The two arms differ in
+  ordering rule and in cap.
+- EC-002 and IC-001 are **not the same contrast on two corpora**. EC-002 packs K
+  against the library's genuine window; IC-001 packs it against the rotation.
+  Each is internally valid and EC-002's 152 gains with zero losses stands as a
+  statement about the library.
+
+**Unchanged.** Every contrast in which both arms carry the tier, which includes
+Study 011's B1 verdict (A 8.0, B 7.5, C 7.0, D 8.0; the packing correction is
+not adopted), every delivery and packing number, and every gate result. Study
+009's 3.0-point S-vs-L contrast is **not re-read here**; the entry below
+characterizes what it sat on.
+
+Nothing here establishes what a correctly-implemented recency window would
+score, in either direction.
+
+**Correction to this entry (2026-08-08, same day).** The table above originally
+placed Study 010 in the second row. Study 010 ran `src/study/runner.py`, which
+constructs `RetrievalEngine`; its arms replay exactly under the first row's rule
+and do not replay under the second. The row spans have been corrected.
+
+## The Carried N Rule Was a Locked Prefix (2026-08-08)
+
+**The architecture description changes; no measured number changes.** The entry
+above records the first row of that table as "most recently delivered first",
+which is what the ordering key says. It is not what the mechanism did.
+`retrieve()` refreshes every episode it delivered, in one call with one
+timestamp, so a rule that ranks the freshest delivery highest re-selects its own
+block every turn. The batch write leaves that block tied on the real key, and
+the tie breaks toward the order the store query returns — `turn_number ASC`.
+
+The block therefore settles on the oldest episodes in the store and cannot
+leave. Replay against the committed logs reproduces the ranking on 120 of 120
+turns for Study 009 Arm S, 120 of 120 for the Study 007 arm carried in as Arm L,
+and 34 of 34 for the ablation. From turn 11 both arms delivered source turns
+**1 through 9** plus whichever episode had not been delivered before, which is
+always turn *t*−1, and held it for 111 consecutive turns. Mean overlap with a
+true window of the same size 0.205; 82.6% of deliveries older than the cap of
+ten; 111 of 120 episodes delivered exactly once.
+
+Across the record: 40 run directories scanned, 17 replay exactly, 12 lock.
+**Every scored live run from Study 004 through Study 010 is among them.** Study
+010's arms held source turns 1–9 across 999 logged turns. Studies 001–003 do not
+replay and nothing is derived for them; three of their runs carry a
+corroborating store signature, which is not proof. Study 011's arms do not
+replay, which is correct.
+
+**Corrected readings.**
+
+- Study 009's Arm S is described in its pre-registration and report as the
+  **pure STM architecture**. It was nine fixed episodes and one recent one. The
+  3.0-point contrast is **not re-read and does not change**: Arm L carries the
+  identical block turn for turn, so the contrast still isolates the LTM tier.
+  What changes is the baseline's description.
+- Study 009's Summary cites Study 004's 11.0–7.0 as the only clean STM-vs-LTM
+  comparison ever run. `study_004_full_002` replays exactly and locks; both
+  sides of that comparison carried the locked prefix.
+- Study 011's inertness finding gains a mechanism it did not have. Arm D's
+  similarity tier produced 124 candidates over 121 turns, 95 of them (76.6%)
+  already nominated by N, and delivered a K-only episode on 1 turn in 121.
+  Duplication removes most of the tier's potential contribution before packing
+  is reached; starvation removes most of the rest. This **composes with IC-001
+  rather than replacing it** — it explains why relieving starvation did not pay.
+
+**Unchanged.** Every score, every gate, every bar, every delivery and packing
+number. No pre-registration is edited.
+
+Nothing here establishes what a correctly-implemented recency window would
+score, in either direction. No arm in the program ever ran one.
+
+Artifacts:
+`experiments/study_011/analysis/n_tier_characterization.json` and
+`experiments/study_011/amendments/AMENDMENT_002_n_tier_is_not_a_recency_window.md`.
+
+## "Not Satisfiable on This Runtime": Corrected, Then Corrected Back (2026-08-09)
+
+> **This entry was wrong when first written and is superseded in place by §Reversal
+> below, added the same day after Phase 2 ran. The original text is kept so the
+> mistake is visible rather than tidied away. Superseded draft: `4e5520aa`.**
+
+**A committed conclusion changes; no measured score changes.** Study 011's report
+§1.1 concluded that the program's standing rule — *require a byte-identical
+seeded prefix rerun* — **"is not satisfiable on this runtime"**, and Amendment
+001 §2 built on that to say every scored comparison in the record is a single
+sample from an unmeasured distribution.
+
+Amendment 001 Phase 1 measured it. **820 generations, five conditions, zero
+divergence.**
+
+| Condition | Prompts | Generations | Identity rate |
+|---|---:|---:|---:|
+| Standing runtime, temp 1, one process | 20 | 200 | 1.0 |
+| Greedy, temp 0, one process | 20 | 200 | 1.0 |
+| Greedy, temp 0, ten fresh processes | 20 | 200 | 1.0 |
+| Standing runtime, varied request history | 20 | 200 | 1.0 |
+| The exact prompt whose divergence is recorded | 1 | 20 | 1.0 |
+
+The last row is the one that decides it. Arm A's ablation turn 1 is 757 bytes and
+byte-identical between the two committed runs, whose responses are 343 and 80
+characters and diverge at character 79. Replayed twenty times in a fresh process,
+it produced **one** output, matching the ablation's committed response byte for
+byte. The determinism rerun's 80-character answer does not recur.
+
+**What is corrected:** the sentence "not satisfiable on this runtime." On this
+prompt, in a fresh process, the rule is satisfied 20 times out of 20.
+
+**What is not corrected:** the observation itself. Two different answers to a
+byte-identical prompt at seed 5005 are committed in the repository and stand.
+The divergence is real and is an **outlier**, not a property of seeded sampling.
+Its cause is not identified, and no mechanism is claimed. The rerun ran on a
+server the manifests record as having been up three and a half hours and having
+served roughly a thousand requests; accumulated process state is a candidate and
+nothing more.
+
+**A related limitation of the record, recorded rather than repaired:**
+`_server_pid()` reads `CDW_INFERENCE_SERVER_PID` from the environment and checks
+only that the PID is alive. It never discovers which process is serving the port.
+"The same server process" in §1.1 is therefore an operator-supplied assertion the
+harness did not independently establish. This does not explain the outlier and is
+not offered as an explanation.
+
+Artifacts: `experiments/study_011/runtime/PHASE_1_REPORT.md`,
+`phase_1_sampling_determinism.json`, `phase_1_recorded_prompt_replay.json`, and
+`phase_1_generations.jsonl` — 800 rows, every generation, so the identity rates
+can be recomputed rather than taken on trust.
+
+### Reversal — Phase 2 reproduced the divergence exactly
+
+**The correction above was wrong, in the direction that flattered it.** Phase 1
+reproduced 820 generations without divergence and I read that as showing Study
+011's "not satisfiable on this runtime" too strong. Phase 2 then ran five
+121-turn replicates of the deployed configuration and reproduced the divergence
+on the first turn, exactly: replicate 1 answers in 343 characters, replicates 2
+through 5 in 80, diverging at character 79, from a byte-identical 757-byte
+prompt. The digests match the two committed responses — `265ddd79` and
+`9675ab02`.
+
+**Why Phase 1 missed it.** The probe issued model calls in isolation: no store,
+no embedding model, no 121-turn sequence, no study runner. It reproduced 820
+times because it had removed whatever the trigger is. It measured the call, not
+the system that makes the call — this program's recurring surrogate failure
+class, with the probe in the surrogate seat.
+
+**The corrected reading, which is neither the original sentence nor my first
+correction.** The rule is satisfiable *between runs that share server process
+state*: replicates 2 through 5 are byte-identical across all 121 turns, three
+consecutive byte-identical seeded reruns. It is **not** satisfiable between a
+cold-start run and a warm-start one. The standing rule needs process state
+pinned, and no study in the arc pinned it — most manifests do not record a
+server PID at all, and `_server_pid()` reads one from the environment without
+discovering it.
+
+**What stands from the entry above:** the 820-generation measurement, the
+20-of-20 recorded-prompt replay in a fresh process, and the observation that the
+committed divergence is real. What falls: the claim that "not satisfiable" was
+too strong. On the case that matters — rerunning a study — it was closer to
+right than I made it.
+
+Artifact: `experiments/study_011/noise_band/NOISE_BAND_REPORT.md`.
+
+## The Instrument's Noise Band Is 3.0 (2026-08-09)
+
+**Three committed verdicts change their reading. No committed score changes.**
+
+Amendment 001 Phase 2 ran the deployed configuration five times under identical
+corpus, settings, seed and runtime, back to back in one server process. Four
+replicates scored **8.0**; one scored **11.0**. The band, `max − min` as the
+decision rule committed before the runs defines it, is **3.0** — the rule's
+worst row: *nothing below about three points is interpretable.*
+
+It is a switch, not a spread. Replicates 2–5 are byte-identical across all 121
+turns; replicate 1, the only one that met an empty server slot, diverges at turn
+1 and never re-converges. The movement is spread across four rubric questions
+(Q1, Q2, Q4, Q8), with nine stable. Rater disagreement is separately measured
+and near zero — 64 of 65 items unanimous — so the band is run-to-run variation,
+not raters reading one answer two ways.
+
+**Applied uniformly, by one expression, in whichever direction it points:**
+
+| Result | Gap | Re-read as |
+|---|---:|---|
+| Study 009 same-seed contrast, S vs L | 3.0 | **NOT DEMONSTRATED** |
+| LV-001 targeted regression | −2.0 | **NOT DEMONSTRATED** |
+| Study 011 B1, C vs D | −1.0 | **NOT DEMONSTRATED** |
+| Corrected treatment series, 8.5 → 12.0 | 3.5 | not excluded by the band |
+
+"Not demonstrated" is not "refuted." These results may well be real; a single run
+per arm on this instrument cannot tell, and neither could the studies that
+reported them.
+
+**Unaffected:** every offline, deterministic result — gate outcomes, delivery
+counts, character accounting, packing measurements, EC-002's 152 gains and zero
+losses, IC-001's zero K episodes at 8 of 8 probes, Arm D's per-question identity
+to Arm A, and the N-tier replays. Those are identity and count comparisons.
+
+**Binding:** B1 fired and stays fired. Arm C scored 7.0 against Arm D's 8.0, the
+packing correction is **not adopted**, and this band may not be cited toward
+adopting K-first packing. Amendment 001 §1.2.
+
+Artifacts: `experiments/study_011/noise_band/band_verdict.json`,
+`NOISE_BAND_REPORT.md`, `DECISION_RULE.md` (committed `c07e1e27`, before any
+replicate ran), and `evaluation/` — three blind passes, mapping sealed until the
+scores were committed.

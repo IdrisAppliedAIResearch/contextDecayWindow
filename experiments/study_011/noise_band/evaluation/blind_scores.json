@@ -1,0 +1,878 @@
+{
+  "agreement": {
+    "split_items": 0,
+    "this_measures_the_raters": "Agreement is evidence about the raters, not about the arms. Three raters can agree because a score is right or because they share a bias, and same-family raters make the second more likely.",
+    "total_items": 65,
+    "unanimous_items": 64,
+    "unanimous_rate": 0.9846
+  },
+  "blind_scores": {
+    "run_alpha": {
+      "Q1": 0.5,
+      "Q10": 1.0,
+      "Q11": 0.0,
+      "Q12": 1.0,
+      "Q13": 1.0,
+      "Q2": 0.0,
+      "Q3": 1.0,
+      "Q4": 0.0,
+      "Q5": 0.0,
+      "Q6": 1.0,
+      "Q7": 1.0,
+      "Q8": 0.5,
+      "Q9": 1.0
+    },
+    "run_beta": {
+      "Q1": 1.0,
+      "Q10": 1.0,
+      "Q11": 0.0,
+      "Q12": 1.0,
+      "Q13": 1.0,
+      "Q2": 1.0,
+      "Q3": 1.0,
+      "Q4": 1.0,
+      "Q5": 0.0,
+      "Q6": 1.0,
+      "Q7": 1.0,
+      "Q8": 1.0,
+      "Q9": 1.0
+    },
+    "run_delta": {
+      "Q1": 0.5,
+      "Q10": 1.0,
+      "Q11": 0.0,
+      "Q12": 1.0,
+      "Q13": 1.0,
+      "Q2": 0.0,
+      "Q3": 1.0,
+      "Q4": 0.0,
+      "Q5": 0.0,
+      "Q6": 1.0,
+      "Q7": 1.0,
+      "Q8": 0.5,
+      "Q9": 1.0
+    },
+    "run_epsilon": {
+      "Q1": 0.5,
+      "Q10": 1.0,
+      "Q11": 0.0,
+      "Q12": 1.0,
+      "Q13": 1.0,
+      "Q2": 0.0,
+      "Q3": 1.0,
+      "Q4": 0.0,
+      "Q5": 0.0,
+      "Q6": 1.0,
+      "Q7": 1.0,
+      "Q8": 0.5,
+      "Q9": 1.0
+    },
+    "run_gamma": {
+      "Q1": 0.5,
+      "Q10": 1.0,
+      "Q11": 0.0,
+      "Q12": 1.0,
+      "Q13": 1.0,
+      "Q2": 0.0,
+      "Q3": 1.0,
+      "Q4": 0.0,
+      "Q5": 0.0,
+      "Q6": 1.0,
+      "Q7": 1.0,
+      "Q8": 0.5,
+      "Q9": 1.0
+    }
+  },
+  "calibration": "all three raters reproduced the calibration set",
+  "conflicts": [],
+  "mapping_not_opened": "Blind labels are still blind. The sealed mapping is opened only after these scores are committed.",
+  "per_item": {
+    "0217072fb9a59d8b": {
+      "agreement": "unanimous",
+      "blind_label": "run_delta",
+      "conflict": false,
+      "question": "Q9",
+      "rater_values": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "value": 1.0
+    },
+    "0e0a912519472862": {
+      "agreement": "unanimous",
+      "blind_label": "run_delta",
+      "conflict": false,
+      "question": "Q5",
+      "rater_values": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "value": 0.0
+    },
+    "1533b0b3574b36f1": {
+      "agreement": "unanimous",
+      "blind_label": "run_delta",
+      "conflict": false,
+      "question": "Q2",
+      "rater_values": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "value": 0.0
+    },
+    "17486e0e5c91ce97": {
+      "agreement": "unanimous",
+      "blind_label": "run_epsilon",
+      "conflict": false,
+      "question": "Q3",
+      "rater_values": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "value": 1.0
+    },
+    "197b5689d4e1ae75": {
+      "agreement": "unanimous",
+      "blind_label": "run_beta",
+      "conflict": false,
+      "question": "Q3",
+      "rater_values": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "value": 1.0
+    },
+    "1c7e982a0576d7d7": {
+      "agreement": "unanimous",
+      "blind_label": "run_delta",
+      "conflict": false,
+      "question": "Q10",
+      "rater_values": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "value": 1.0
+    },
+    "1cf7a493813d0169": {
+      "agreement": "unanimous",
+      "blind_label": "run_delta",
+      "conflict": false,
+      "question": "Q7",
+      "rater_values": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "value": 1.0
+    },
+    "312c688a123f75e8": {
+      "agreement": "unanimous",
+      "blind_label": "run_gamma",
+      "conflict": false,
+      "question": "Q7",
+      "rater_values": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "value": 1.0
+    },
+    "33a87fb562253c41": {
+      "agreement": "unanimous",
+      "blind_label": "run_delta",
+      "conflict": false,
+      "question": "Q11",
+      "rater_values": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "value": 0.0
+    },
+    "33bdcfba91018716": {
+      "agreement": "unanimous",
+      "blind_label": "run_gamma",
+      "conflict": false,
+      "question": "Q1",
+      "rater_values": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "value": 0.5
+    },
+    "350ec7866c89cfc9": {
+      "agreement": "unanimous",
+      "blind_label": "run_delta",
+      "conflict": false,
+      "question": "Q1",
+      "rater_values": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "value": 0.5
+    },
+    "40ccb4189d399792": {
+      "agreement": "unanimous",
+      "blind_label": "run_delta",
+      "conflict": false,
+      "question": "Q13",
+      "rater_values": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "value": 1.0
+    },
+    "4a7653b22c76c905": {
+      "agreement": "unanimous",
+      "blind_label": "run_epsilon",
+      "conflict": false,
+      "question": "Q13",
+      "rater_values": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "value": 1.0
+    },
+    "4b8c552927cf787a": {
+      "agreement": "unanimous",
+      "blind_label": "run_delta",
+      "conflict": false,
+      "question": "Q6",
+      "rater_values": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "value": 1.0
+    },
+    "50d01deb5513760f": {
+      "agreement": "unanimous",
+      "blind_label": "run_beta",
+      "conflict": false,
+      "question": "Q6",
+      "rater_values": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "value": 1.0
+    },
+    "50fd8dbf8c15d74c": {
+      "agreement": "unanimous",
+      "blind_label": "run_alpha",
+      "conflict": false,
+      "question": "Q7",
+      "rater_values": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "value": 1.0
+    },
+    "5134724becf581d3": {
+      "agreement": "unanimous",
+      "blind_label": "run_beta",
+      "conflict": false,
+      "question": "Q4",
+      "rater_values": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "value": 1.0
+    },
+    "51af7f66cd56cf33": {
+      "agreement": "majority",
+      "blind_label": "run_beta",
+      "conflict": false,
+      "question": "Q8",
+      "rater_values": [
+        1.0,
+        1.0,
+        0.5
+      ],
+      "value": 1.0
+    },
+    "54a5f602d9e5cd53": {
+      "agreement": "unanimous",
+      "blind_label": "run_epsilon",
+      "conflict": false,
+      "question": "Q6",
+      "rater_values": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "value": 1.0
+    },
+    "594436f006c5ee69": {
+      "agreement": "unanimous",
+      "blind_label": "run_delta",
+      "conflict": false,
+      "question": "Q12",
+      "rater_values": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "value": 1.0
+    },
+    "59c76388ad46aee8": {
+      "agreement": "unanimous",
+      "blind_label": "run_alpha",
+      "conflict": false,
+      "question": "Q4",
+      "rater_values": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "value": 0.0
+    },
+    "6263ed8986823814": {
+      "agreement": "unanimous",
+      "blind_label": "run_gamma",
+      "conflict": false,
+      "question": "Q12",
+      "rater_values": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "value": 1.0
+    },
+    "649924fcf7df91d6": {
+      "agreement": "unanimous",
+      "blind_label": "run_beta",
+      "conflict": false,
+      "question": "Q13",
+      "rater_values": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "value": 1.0
+    },
+    "65284cb62243b66e": {
+      "agreement": "unanimous",
+      "blind_label": "run_epsilon",
+      "conflict": false,
+      "question": "Q7",
+      "rater_values": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "value": 1.0
+    },
+    "6bf164bea9fef81a": {
+      "agreement": "unanimous",
+      "blind_label": "run_delta",
+      "conflict": false,
+      "question": "Q3",
+      "rater_values": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "value": 1.0
+    },
+    "6c038c3a186abf20": {
+      "agreement": "unanimous",
+      "blind_label": "run_gamma",
+      "conflict": false,
+      "question": "Q11",
+      "rater_values": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "value": 0.0
+    },
+    "6eb81fbc481b10f8": {
+      "agreement": "unanimous",
+      "blind_label": "run_delta",
+      "conflict": false,
+      "question": "Q4",
+      "rater_values": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "value": 0.0
+    },
+    "7805499d483f812c": {
+      "agreement": "unanimous",
+      "blind_label": "run_alpha",
+      "conflict": false,
+      "question": "Q6",
+      "rater_values": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "value": 1.0
+    },
+    "78a195da8971c874": {
+      "agreement": "unanimous",
+      "blind_label": "run_beta",
+      "conflict": false,
+      "question": "Q2",
+      "rater_values": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "value": 1.0
+    },
+    "78fedaef57d616c2": {
+      "agreement": "unanimous",
+      "blind_label": "run_alpha",
+      "conflict": false,
+      "question": "Q11",
+      "rater_values": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "value": 0.0
+    },
+    "8b6e324ab03aea34": {
+      "agreement": "unanimous",
+      "blind_label": "run_epsilon",
+      "conflict": false,
+      "question": "Q11",
+      "rater_values": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "value": 0.0
+    },
+    "8ce2728b08609e98": {
+      "agreement": "unanimous",
+      "blind_label": "run_gamma",
+      "conflict": false,
+      "question": "Q13",
+      "rater_values": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "value": 1.0
+    },
+    "8ed5a9dbf0798805": {
+      "agreement": "unanimous",
+      "blind_label": "run_delta",
+      "conflict": false,
+      "question": "Q8",
+      "rater_values": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "value": 0.5
+    },
+    "9087aa8fd29954fc": {
+      "agreement": "unanimous",
+      "blind_label": "run_epsilon",
+      "conflict": false,
+      "question": "Q5",
+      "rater_values": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "value": 0.0
+    },
+    "9305e3f202421feb": {
+      "agreement": "unanimous",
+      "blind_label": "run_epsilon",
+      "conflict": false,
+      "question": "Q8",
+      "rater_values": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "value": 0.5
+    },
+    "937434fe4ba5f49f": {
+      "agreement": "unanimous",
+      "blind_label": "run_alpha",
+      "conflict": false,
+      "question": "Q13",
+      "rater_values": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "value": 1.0
+    },
+    "94f2ea72d356948b": {
+      "agreement": "unanimous",
+      "blind_label": "run_alpha",
+      "conflict": false,
+      "question": "Q8",
+      "rater_values": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "value": 0.5
+    },
+    "97af58ed9bdedd3e": {
+      "agreement": "unanimous",
+      "blind_label": "run_gamma",
+      "conflict": false,
+      "question": "Q9",
+      "rater_values": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "value": 1.0
+    },
+    "97b7508ef9e6b99d": {
+      "agreement": "unanimous",
+      "blind_label": "run_alpha",
+      "conflict": false,
+      "question": "Q10",
+      "rater_values": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "value": 1.0
+    },
+    "9991a7eb94593009": {
+      "agreement": "unanimous",
+      "blind_label": "run_alpha",
+      "conflict": false,
+      "question": "Q1",
+      "rater_values": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "value": 0.5
+    },
+    "9e477e30cca30730": {
+      "agreement": "unanimous",
+      "blind_label": "run_gamma",
+      "conflict": false,
+      "question": "Q6",
+      "rater_values": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "value": 1.0
+    },
+    "9ff3e86e50c1d065": {
+      "agreement": "unanimous",
+      "blind_label": "run_epsilon",
+      "conflict": false,
+      "question": "Q12",
+      "rater_values": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "value": 1.0
+    },
+    "a34531a62ffe663e": {
+      "agreement": "unanimous",
+      "blind_label": "run_alpha",
+      "conflict": false,
+      "question": "Q12",
+      "rater_values": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "value": 1.0
+    },
+    "a603d22e3dd59a5f": {
+      "agreement": "unanimous",
+      "blind_label": "run_beta",
+      "conflict": false,
+      "question": "Q7",
+      "rater_values": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "value": 1.0
+    },
+    "a7885c4f22d1efd7": {
+      "agreement": "unanimous",
+      "blind_label": "run_alpha",
+      "conflict": false,
+      "question": "Q2",
+      "rater_values": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "value": 0.0
+    },
+    "aa4ef2e5b7ec12ef": {
+      "agreement": "unanimous",
+      "blind_label": "run_beta",
+      "conflict": false,
+      "question": "Q1",
+      "rater_values": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "value": 1.0
+    },
+    "abafa54e9025fbe9": {
+      "agreement": "unanimous",
+      "blind_label": "run_beta",
+      "conflict": false,
+      "question": "Q5",
+      "rater_values": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "value": 0.0
+    },
+    "b754441404ceb9d8": {
+      "agreement": "unanimous",
+      "blind_label": "run_gamma",
+      "conflict": false,
+      "question": "Q8",
+      "rater_values": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "value": 0.5
+    },
+    "bb8334c54e0e95f2": {
+      "agreement": "unanimous",
+      "blind_label": "run_beta",
+      "conflict": false,
+      "question": "Q10",
+      "rater_values": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "value": 1.0
+    },
+    "c5401347f2247670": {
+      "agreement": "unanimous",
+      "blind_label": "run_gamma",
+      "conflict": false,
+      "question": "Q2",
+      "rater_values": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "value": 0.0
+    },
+    "ce293659b706caa4": {
+      "agreement": "unanimous",
+      "blind_label": "run_alpha",
+      "conflict": false,
+      "question": "Q9",
+      "rater_values": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "value": 1.0
+    },
+    "d0932f30d5f35443": {
+      "agreement": "unanimous",
+      "blind_label": "run_gamma",
+      "conflict": false,
+      "question": "Q10",
+      "rater_values": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "value": 1.0
+    },
+    "d3d03623f685d096": {
+      "agreement": "unanimous",
+      "blind_label": "run_epsilon",
+      "conflict": false,
+      "question": "Q9",
+      "rater_values": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "value": 1.0
+    },
+    "d4a6a9624843c7f6": {
+      "agreement": "unanimous",
+      "blind_label": "run_epsilon",
+      "conflict": false,
+      "question": "Q1",
+      "rater_values": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "value": 0.5
+    },
+    "d54fbc4232edf16d": {
+      "agreement": "unanimous",
+      "blind_label": "run_gamma",
+      "conflict": false,
+      "question": "Q5",
+      "rater_values": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "value": 0.0
+    },
+    "d6bebffb75976e55": {
+      "agreement": "unanimous",
+      "blind_label": "run_epsilon",
+      "conflict": false,
+      "question": "Q4",
+      "rater_values": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "value": 0.0
+    },
+    "d70c75442131739a": {
+      "agreement": "unanimous",
+      "blind_label": "run_beta",
+      "conflict": false,
+      "question": "Q9",
+      "rater_values": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "value": 1.0
+    },
+    "dbe23eeffe6d91fa": {
+      "agreement": "unanimous",
+      "blind_label": "run_beta",
+      "conflict": false,
+      "question": "Q12",
+      "rater_values": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "value": 1.0
+    },
+    "dd36711651ab53ca": {
+      "agreement": "unanimous",
+      "blind_label": "run_gamma",
+      "conflict": false,
+      "question": "Q4",
+      "rater_values": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "value": 0.0
+    },
+    "e7efa635296a808a": {
+      "agreement": "unanimous",
+      "blind_label": "run_alpha",
+      "conflict": false,
+      "question": "Q3",
+      "rater_values": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "value": 1.0
+    },
+    "ea0f54ef4c93db95": {
+      "agreement": "unanimous",
+      "blind_label": "run_epsilon",
+      "conflict": false,
+      "question": "Q10",
+      "rater_values": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "value": 1.0
+    },
+    "eeb488587aad7fda": {
+      "agreement": "unanimous",
+      "blind_label": "run_alpha",
+      "conflict": false,
+      "question": "Q5",
+      "rater_values": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "value": 0.0
+    },
+    "f0476575fa5e2843": {
+      "agreement": "unanimous",
+      "blind_label": "run_epsilon",
+      "conflict": false,
+      "question": "Q2",
+      "rater_values": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "value": 0.0
+    },
+    "f35b34fa4ab8ae72": {
+      "agreement": "unanimous",
+      "blind_label": "run_gamma",
+      "conflict": false,
+      "question": "Q3",
+      "rater_values": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "value": 1.0
+    },
+    "f5fbe5627333b530": {
+      "agreement": "unanimous",
+      "blind_label": "run_beta",
+      "conflict": false,
+      "question": "Q11",
+      "rater_values": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "value": 0.0
+    }
+  },
+  "rater_family_note": "Section 6.1 requires three raters from distinct model families. Three distinct models were used, but they belong to a single family. This is a departure from the registered design and is disclosed here and in the report rather than absorbed.",
+  "raters": [
+    "claude-opus-5",
+    "claude-sonnet-5",
+    "claude-haiku-4-5-20251001"
+  ],
+  "study": "011"
+}

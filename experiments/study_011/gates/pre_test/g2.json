@@ -1,0 +1,32 @@
+{
+  "T": 6,
+  "arm": "B",
+  "certifies": "the similarity tier is active alone",
+  "delivery": {
+    "question_count": 8,
+    "questions": [
+      "Q1",
+      "Q11",
+      "Q12",
+      "Q2",
+      "Q3",
+      "Q5",
+      "Q6",
+      "Q9"
+    ],
+    "window_count": 6,
+    "windows": [
+      112,
+      113,
+      114,
+      116,
+      117,
+      120
+    ]
+  },
+  "gate": "G2",
+  "label": "LTM only (recency disabled, K = 0.48)",
+  "requirement": ">=1 K episode at >=T of 13 probes (T = 6) and 0 recency episodes anywhere",
+  "status": "PASS",
+  "windows_with_a_recency_episode": []
+}

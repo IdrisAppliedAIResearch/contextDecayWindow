@@ -1,0 +1,191 @@
+You are a helpful technical and research assistant with deep knowledge across engineering, art history, economics, and biology.
+
+<pinned_rules>
+  <rule id="3162f32f-957f-551b-8f6e-dc5924478701" set_at_turn="1">Format specifications/items as numbered lists; conclude engineering/structural recommendations with risk classification (Risk: Low/Medium/High)</rule>
+</pinned_rules>
+
+<recent_context>
+<episode turn="83">
+<user>Walk me through the complete theoretical basis for the fiscal theory of the price level — how it differs from the quantity theory of money, what it implies about the interaction between fiscal and monetary policy, and what its critics argue.</user>
+<assistant>1.  **Core Premise: The Government Budget Constraint**:
+    *   The Fiscal Theory of the Price Level (FTPL), primarily associated with economists like Thomas Sargent and Neil Wallace, posits that the price level is determined by the interaction of fiscal and monetary policies through the intertemporal government budget constraint.
+    *   In present-value terms, the real value of government debt must equal the present discounted value of future primary surpluses (revenues minus non-interest expenditures).
+    *   Formulaically: $\frac{B_{t-1}}{P_t} = \sum_{j=0}^{\infty} \beta^j E_t [s_{t+j}]$, where $B_{t-1}$ is nominal debt, $P_t$ is the price level, $s_{t+j}$ is the primary surplus, and $\beta$ is the discount factor.
+    *   Crucially, FTPL treats the price level ($P_t$) as the equilibrating variable that satisfies this accounting identity. If the government issues more debt or promises fewer future surpluses, and monetary policy does not adjust to change the real value of money balances, the price level must rise to reduce the real value of the existing debt to match the reduced fiscal backing.
+
+2.  **Divergence from the Quantity Theory of Money (QTM)**:
+    *   **QTM Perspective**: Traditional QTM (and its modern IS-LM/Neo-Wicksellian successors) treats the price level as determined by monetary factors alone (specifically, the supply of money relative to demand for money). Fiscal policy is assumed to be "Ricardian" or "active" in a passive sense: the government is assumed to automatically adjust future taxes or spending to ensure its budget constraint holds for *any* price level determined by monetary policy.
+    *   **FTPL Perspective**: FTPL argues that fiscal policy is "active" and monetary policy is often "passive." The government’s fiscal operations (debt issuance and surplus paths) are independent of the current price level. The central bank then accommodates this fiscal stance by adjusting the money supply or interest rates to maintain its target, but the *level* of prices is anchored by the fiscal valuation equation. If fiscal policy expands (more debt, less surplus), the price level rises regardless of the current money supply, forcing the central bank to eventually expand the money supply to accommodate the new nominal equilibrium.
+
+3.  **Implications for Fiscal-Monetary Interaction**:
+    *   **Monetary Passivity**: Under FTPL, the central bank often acts as a "passive" accommodator. It sets interest rates to achieve output or inflation targets, but it cannot independently control the price level if fiscal policy dictates a higher nominal value for government liabilities. The central bank must print the money necessary to service the debt or buy the inflation away.
+    *   **Fiscal Dominance**: FTPL provides a rigorous theoretical foundation for "fiscal dominance." It suggests that unsustainable fiscal policies (large deficits, high debt-to-GDP ratios) will inevitably lead to inflation or currency devaluation, not because the central bank *chooses* to print money, but because it *must* do so to ensure the government’s budget constraint clears in nominal terms.
+    *   **The "Wallace Effect"**: If fiscal policy is fully Ricardian (taxes adjust to validate debt for any price path), then monetary policy becomes the sole determinant of the price level. FTPL assumes the opposite: fiscal policy is not Ricardian in the short-to-medium term; therefore, fiscal decisions directly impact inflation.
+
+4.  **Criticisms and Counter-Arguments**:
+    *   **The Ricardian Equivalence Challenge**: Critics (like Robert Barro’s school of thought) argue that if households are rational and forward-looking, they will internalize the government’s budget constraint. They will save more today to pay for future taxes required to service the debt. This "Ricardian Equivalence" neutralizes the impact of current fiscal deficits on aggregate demand and prices, reverting the system to a monetary determination of the price level.
+    *   **Identification Problem**: Empirically distinguishing between "active" and "passive" regimes is difficult. Critics argue that in practice, central banks and treasuries often coordinate in ways that blur the lines, making it hard to test FTPL predictions against QTM predictions.
+    *   **Stability Concerns**: Some economists argue that FTPL implies an indeterminate or unstable price level unless very specific conditions on fiscal reaction functions are met. If fiscal policy reacts too strongly to debt levels (trying to pay it down aggressively), it might destabilize the equilibrium rather than anchor it.
+    *   **Policy Prescriptions**: Critics warn that FTPL could be misused to justify fiscal irresponsibility under the guise that "inflation will take care of the debt," ignoring the welfare costs of hyperinflation or currency collapse. Conversely, it suggests that strict fiscal discipline is a prerequisite for price stability, which challenges the conventional view that central banks alone are responsible for inflation.
+
+(Risk: Low)</assistant>
+</episode>
+<episode turn="53">
+<user>Compare and contrast the workshop practices of major Italian Renaissance masters — how assistants were trained, how hands were divided on major commissions, and how historians distinguish master from workshop production.</user>
+<assistant>1.  **Apprenticeship and Training Structure**: The workshop (*bottega*) system was guild-regulated and hierarchical. Training began with young boys (apprentices) living in the master's household for 7–10 years, performing menial tasks (preparing pigments, stretching panels, grinding colors) before progressing to drawing and minor painting tasks. As they advanced to "journeymen" status, they could execute specific parts of larger works under supervision. This system ensured the transmission of technical recipes and stylistic conventions but prioritized craft proficiency and workshop output over individual "genius" in the modern sense.
+
+2.  **Division of Labor in Major Commissions**: For large altarpieces or fresco cycles, the master (*maestro*) typically handled the most complex and prestigious areas: the faces and hands of central figures (especially the Madonna or Christ), key drapery folds, and the overall compositional design (*cartone*). Assistants executed less critical elements: background landscapes, secondary figures, architectural details, and patterned textiles. In some cases, the master would "bozzetto" (sketch out) entire figures in underpainting, which assistants then fleshed out with color and detail. This collaborative model allowed workshops to meet tight deadlines and scale up production while maintaining a consistent visual style.
+
+3.  **Stylistic Consistency vs. Individual Hand**: Masters exerted strict control over quality and style to ensure the workshop’s brand remained recognizable. However, variations in technique often reveal the hand of an assistant: less fluid brushwork in drapery, stiffer facial features, or inconsistent use of glazing. Historians analyze these discrepancies to identify contributions by known assistants (e.g., Leonardo’s workshop contributions by Marco d’Oggiono) or unknown pupils. The degree of "finish" and attention to anatomical detail are key indicators of the master’s direct involvement.
+
+4.  **Historical Attribution Methods**: Historians distinguish master from workshop production using a combination of connoisseurship and technical analysis.
+    *   **Stylistic Analysis**: Comparing brushwork, color handling, and figure drawing to documented autograph works.
+    *   **Underdrawing Examination**: Infrared reflectography can reveal differences in drawing quality; masters often used confident, finished underdrawings, while assistants might rely on pricked cartoons or less refined sketches.
+    *   **Pigment and Technique Analysis**: Cross-section microscopy can show if different layers were applied by different hands (e.g., a master’s glaze over an assistant’s underpainting).
+    *   **Documentation**: Guild records, payment contracts, and workshop accounts often specify roles, such as payments for "preparing panels" or "painting backgrounds," providing textual evidence of division of labor.
+
+5.  **Evolution of the Workshop Model**: In the early Renaissance (e.g., Fra Angelico, Fra Filippo Lippi), workshops were larger and more factory-like, with less emphasis on the master’s hand in every detail. By the High Renaissance (e.g., Raphael, Leonardo), the master’s personal style became a greater status symbol, leading to stricter quality control and more detailed master intervention in key areas. Raphael’s workshop, for instance, produced many portraits of Pope Julius II with his assistance, but only those with his direct input on the face and hands are considered autograph.
+
+6.  **Attribution Categories in Modern Scholarship**: Modern art history uses specific terminology to clarify authorship:
+    *   **Autograph**: Entirely by the master’s hand.
+    *   **Workshop**: Primarily by assistants, with minimal master input (often just the design).
+    *   **Circle of**: By an anonymous painter closely associated with the master’s style.
+    *   **After**: A copy or reproduction of the master’s design, made later or by someone outside the immediate workshop.
+    *   **Collaborative**: Explicitly documented joint work, often with defined roles (e.g., Botticelli and his workshop on the *Adoration of the Magi*).
+
+(Risk: Low)</assistant>
+</episode>
+<episode turn="61">
+<user>Completely different subject now. I want to discuss monetary policy and macroeconomic theory. Walk me through the full development of the Taylor Rule from its original 1993 formulation through to its current applications in central bank policy frameworks.</user>
+<assistant>1.  **Original Formulation (1993)**:
+    John B. Taylor introduced the rule in his 1993 paper, *Discretion versus Policy Rules in Practice*. The original equation was a reaction function for the Federal Funds Rate ($i_t$):
+    $i_t = r^* + \pi_t + 0.5(\pi_t - \pi^*) + 0.5(y_t - y^*)$
+    Where:
+    *   $r^*$ is the equilibrium real federal funds rate (typically assumed to be 2%).
+    *   $\pi_t$ is the current inflation rate (usually measured by CPI or GDP deflator).
+    *   $\pi^*$ is the target inflation rate (Taylor assumed 2%).
+    *   $y_t - y^*$ is the output gap (percentage deviation of real GDP from potential GDP).
+    The coefficients 0.5 for both the inflation gap and the output gap were chosen to match historical US monetary policy behavior reasonably well. The term $r^* + \pi_t$ represents the real neutral rate plus inflation, ensuring the real interest rate adjusts to inflation, while the additional terms provide tightening when inflation is above target or the economy is overheating.
+
+2.  **Theoretical Underpinnings and the "Taylor Principle"**:
+    The rule is grounded in the New Keynesian Phillips Curve framework. The critical condition for stability is the "Taylor Principle": the central bank must raise the nominal interest rate by *more* than the increase in inflation (i.e., the coefficient on $\pi_t - \pi^*$ must be &gt; 1). If the coefficient is less than 1, real interest rates fall when inflation rises, stimulating demand further and creating a destabilizing feedback loop. Taylor’s original coefficients sum to 1.5 ($0.5 + 1.0$ implicit in the $\pi_t$ term relative to base), satisfying this principle.
+
+3.  **Extensions and Modifications (1990s–2000s)**:
+    *   **Smoothing Term**: Estrella and Mishkin (1997) and later researchers added an interest rate smoothing term to account for the fact that central banks rarely change rates drastically period-to-period. The equation became: $i_t = \lambda i_{t-1} + (1-\lambda)[r^* + \pi_t + a(\pi_t - \pi^*) + b(y_t - y^*)]$.
+    *   **Alternative Measures**: Researchers debated the best measure for inflation (core vs. headline) and the output gap (Hodrick-Prescott filter vs. production function approaches). The output gap is unobservable in real-time, leading to significant uncertainty in policy decisions.
+    *   **International Application**: The rule was tested against other central banks (e.g., Bank of Japan, Bank of England). It generally performed well for inflation-targeting economies but required parameter adjustments (e.g., higher weight on inflation for countries with higher inflation volatility).
+
+4.  **The Zero Lower Bound (ZLB) Challenge (2008–2012)**:
+    During the Global Financial Crisis, the Taylor Rule suggested negative federal funds rates for a prolonged period because $\pi_t$ was low and the output gap ($y_t - y^*$) was deeply negative. Since nominal rates cannot easily go below zero, the rule highlighted a limitation of standard policy. This led to the development of "Taylor Rule with Inflation Targeting" variants that suggested forward guidance or quantitative easing when the rule prescribed negative rates. Some variants suggested using the cumulative output gap or expected inflation to mitigate this.
+
+5.  **Post-2010 Frameworks and "Rules of Thumb"**:
+    *   **Fed’s Use as a Benchmark**: While the Federal Reserve does not mechanically follow the rule, it uses the Taylor Rule as a benchmark to assess if policy is "accommodative" or "restrictive." If the actual rate is below the Taylor Rule implied rate, policy is considered stimulative.
+    *   **Balance Sheet Rules**: After 2008, central banks managed balance sheets (QE). Extensions of the Taylor Rule began to incorporate balance sheet size as a second policy instrument.
+    *   **Inflation Targeting Shifts**: As central banks adopted 2% inflation targets more formally, the $\pi^*$ parameter became fixed. However, with the rise of Average Inflation Targeting (AIT) by the Fed in 2020, the rule’s static $\pi^*$ became less relevant, as policy now depends on the average inflation over time, not just the current deviation.
+
+6.  **Current Applications and Criticisms**:
+    *   **Data Dependence**: The rule is highly sensitive to estimates of potential output ($y^*$) and the natural rate of interest ($r^*$), both of which are revised frequently.
+    *   **Financial Stability**: Modern frameworks often modify the Taylor Rule to include financial stress indicators (e.g., house prices, credit-to-GDP ratios) to address systemic risk, moving beyond pure inflation and output goals.
+    *   **Globalization and Secular Stagnation**: Some economists argue that the original coefficients are outdated due to structural changes in the economy (e.g., lower $r^*$ due to secular stagnation, globalization suppressing inflation). Newer empirical estimates often suggest a lower weight on the output gap and a higher weight on inflation.
+
+(Risk: Low)</assistant>
+</episode>
+<episode turn="71">
+<user>Explain the full development of modern monetary theory as an alternative to mainstream macroeconomic frameworks, its core claims about government spending and inflation, and the primary theoretical and empirical criticisms it has attracted.</user>
+<assistant>1.  **Origins and Intellectual Lineage**: Modern Monetary Theory (MMT) emerged in the late 1980s and 1990s, primarily through the work of economists like Warren Mosler, L. Randall Wray, Stephanie Kelton, and Michael Norton. It draws heavily from earlier "Chartalist" or "State Theory of Money" traditions associated with Georg Friedrich Knapp and Abba Lerner’s functional finance, as well as Keynesian ideas about liquidity preference. MMT seeks to describe how modern fiat currency systems actually operate, arguing that mainstream macroeconomics mischaracterizes the relationship between the government, the central bank, and the banking system.
+
+2.  **Core Premise: The Currency Issuer vs. Currency Users**: The foundational claim of MMT is the distinction between currency issuers (sovereign governments with their own fiat currency) and currency users (households, businesses, and sub-national governments like states or municipalities). MMT argues that a sovereign government like the US, Japan, or the UK cannot "run out" of money or go bankrupt in its own currency because it has the authority to create it. Therefore, such governments are not revenue-constrained; they cannot face a solvency crisis in the same way a household does.
+
+3.  **Taxes Do Not Fund Spending**: A controversial but central tenet of MMT is that taxes do not fund government spending. Since the government can create money, it does not need to collect taxes to pay its bills. Instead, taxes serve two primary purposes in the MMT framework:
+    *   **Creating Demand for Currency**: Taxes create a need for the population to hold the government’s currency to settle their tax liabilities, thereby giving the money value.
+    *   **Controlling Aggregate Demand and Inflation**: By removing money from the private sector, taxation reduces spending power, which helps prevent the economy from overheating. This reverses the mainstream view that spending drives inflation; MMT argues spending is always possible, but real resource constraints are the limit.
+
+4.  **Inflation as the Real Constraint**: If government spending is not constrained by revenue, what constrains it? MMT posits that the only real constraint on sovereign spending is **inflation**, which arises from **real resource scarcity**. If the government spends more money into an economy that is already operating at full capacity (full employment, full resource utilization), it bids up prices, causing inflation. Therefore, the budget should be determined by the available real resources (labor, materials, technology) rather than arbitrary deficit targets.
+
+5.  **The Role of Deficits and Surpluses**: MMT argues that government deficits are the primary source of net financial assets in the private sector. When the government runs a deficit, it is injecting net financial assets into the economy; when it runs a surplus, it is withdrawing them. Consequently, MMT advocates for counter-cyclical fiscal policy: run deficits during recessions to provide assets and stimulate demand, and run surpluses (via taxation) during booms to cool down inflationary pressures.
+
+6.  **Employment Guarantee as an Automatic Stabilizer**: A key policy prescription of MMT is the implementation of a federal Job Guarantee (JG) program. The government would act as an employer of last resort, offering a job at a fixed baseline wage to anyone willing and able to work. MMT argues this would create a "buffer stock" of labor, eliminating involuntary unemployment and acting as an automatic stabilizer against inflation. During booms, workers would leave the JG for higher-paying private sector jobs, absorbing excess demand without bidding up wages; during busts, they would flow back into the JG, maintaining income and demand.
+
+7.  **Primary Theoretical Criticisms: Crowding Out and Time Inconsistency**:
+    *   **Crowding Out**: Mainstream economists argue that large government deficits, even for currency issuers, can crowd out private investment by driving up interest rates if the central bank tries to keep inflation low. While MMT argues the central bank can control rates via Yield Curve Control (YCC), critics contend this leads to financial repression and misallocation of capital.
+    *   **Time Inconsistency and Political Feasibility**: Critics, such as David Backus and Patrick Kehoe, argue that MMT is theoretically sound only if politicians are perfectly disciplined in raising taxes to curb inflation. In reality, it is politically easier to spend than to tax. This creates a time-inconsistency problem: governments may overspend, leading to high inflation, and then be unable to raise taxes politically, resulting in a loss of confidence in the currency.
+
+8.  **Empirical and Practical Criticisms: Inflation Blindness and Currency Confusion**:
+    *   **Underestimating Inflation**: Critics argue that MMT underestimates the speed and severity with which fiscal dominance can trigger inflation. The experience of the 1970s stagflation and recent post-pandemic inflationary spikes is cited as evidence that supply-side constraints (and excess demand) can lead to entrenched inflation expectations, not just mild price increases.
+    *   **Misapplication to Non-Sovereign Economies**: MMT is often criticized for being applied incorrectly to countries that are not true currency issuers, such as those in the Eurozone (e.g., Greece, Italy). These countries do not control their own monetary policy and are subject to external constraints, making the "spend without limit" argument dangerous and potentially leading to sovereign debt crises.
+    *   **Financial Stability Risks**: Critics argue that sustained large deficits and aggressive Yield Curve Control can distort financial markets, encourage excessive risk-taking by banks, and create asset bubbles, undermining long-term financial stability.
+
+(Risk: Medium)</assistant>
+</episode>
+<episode turn="6">
+<user>Compare and contrast in detail the aerodynamic behavior of cable-stayed versus suspension bridge designs at spans approaching 847 meters. Include specific design parameters that differentiate their responses to wind loading.</user>
+<assistant>1.  **Structural Stiffness and Natural Frequencies**: Cable-stayed bridges (like Halcyon Crossing) possess significantly higher overall stiffness compared to suspension bridges of similar span due to the direct transfer of deck loads to the pylons. At 847 meters, a cable-stayed design maintains higher natural frequencies for vertical and torsional modes, making it less susceptible to low-frequency aeroelastic phenomena. Suspension bridges, relying on flexible hangers and main cables, exhibit lower stiffness and lower natural frequencies, requiring more aggressive aerodynamic shaping to avoid resonance with wind excitation.
+2.  **Critical Wind Speed for Flutter**: For a cable-stayed bridge with an 847m span, the critical flutter wind speed is generally higher than that of a suspension bridge of equivalent span. The stay cables act as continuous elastic supports, damping out torsional oscillations. In contrast, suspension bridges rely heavily on aerodynamic stability; their longer spans (often exceeding 847m) mean they must be designed with extreme care to ensure the torsional frequency remains well above the vortex shedding frequency, often necessitating deeper decks or aerodynamic fairings to raise the flutter derivative thresholds.
+3.  **Vortex Shedding Response**: While both types are subject to vortex shedding, cable-stayed bridges at this span length are more prone to localized deck vibrations if the deck cross-section is not optimized, due to the discrete support points of the stays. However, the global response is less dramatic than in suspension bridges, where the entire span can synchronize with vortex shedding patterns. Suspension bridges require tuned mass dampers or aerodynamic spoilers more frequently to mitigate lock-in phenomena, whereas cable-stayed bridges often rely on their inherent structural damping and stay cable dampers.
+4.  **Deck Cross-Section Aerodynamics**: At 847 meters, the deck of a cable-stayed bridge can be designed with a more open truss or box-girder configuration with less emphasis on extreme aerodynamic smoothness compared to a suspension bridge. Suspension bridges at comparable spans often require streamlined box girders with wind lips, openings, or fairings to reduce drag coefficients and prevent flow separation. The cable-stayed deck can tolerate slightly higher drag forces because the stays provide vertical support stiffness, reducing the magnitude of wind-induced deflections.
+5.  **Pylon-Cable-Air Interaction**: A unique parameter for cable-stayed bridges is the aerodynamic interaction between the pylons, stay cables, and the deck. At 847 meters, the dense array of stay cables can create "wake effects" that influence the deck's aerodynamic stability. Dr. Bekova's team must model the shielding effect of the pylons and the potential for cable vibration (aeolian vibration) that can transmit energy to the deck. Suspension bridges lack this complex cable-deck aerodynamic coupling, as their main cables are typically positioned above the deck hangers and do not interact directly with the deck's airflow in the same way.
+6.  **Sensitivity to Wind Tunnel Testing**: Due to the complex aerodynamic interplay of stays and deck, cable-stayed bridges at this span require sophisticated wind tunnel tests focusing on coupled aeroelastic models. Suspension bridges at 847 meters (which is on the shorter end for suspension bridges) would behave more predictably but would still require rigorous testing for flutter derivatives. The key differentiator is that cable-stayed designs are more sensitive to the specific arrangement and tensioning of stays, whereas suspension bridges are more sensitive to the overall deck shape and cable sag.
+
+(Risk: Medium)</assistant>
+</episode>
+<episode turn="31">
+<user>Completely different subject. I want to discuss Italian Renaissance painting. Give me a comprehensive overview of how artistic patronage functioned in central Italy between 1450 and 1510, including who the major patrons were, what they commissioned, and how the patron-artist relationship shaped the works produced.</user>
+<assistant>1.  **The Shift from Ecclesiastical to Secular and Private Patronage**: While the Church remained a primary patron, the period between 1450 and 1510 saw the rise of powerful merchant families and republican governments in central Italy. Patronage became a tool for social climbing, political legitimacy, and personal piety. The patron was not just a financier but often an active collaborator, dictating subject matter, iconography, and sometimes even technical execution.
+
+2.  **The Medici Family of Florence**:
+    *   **Lorenzo de' Medici (Il Magnifico)**: Although his direct artistic commissions were modest in number compared to his political influence, his patronage of the Platonic Academy created an intellectual environment that infused art with humanist philosophy. He commissioned works from Botticelli (e.g., *Primavera*, *The Birth of Venus*) and Fra Filippo Lippi.
+    *   **The Medici Bank and Branch Families**: Wealthier branches commissioned religious works for private chapels to display piety and wealth, such as the Sassetti Chapel frescoes by Ghirlandaio, which included portraits of the patrons in biblical scenes, asserting their status within the divine narrative.
+
+3.  **The Papacy (The Popes)**: The papacy became the single most powerful artistic force, particularly after the return to Rome.
+    *   **Pope Nicholas V (1447–1455)**: Initiated the reconstruction of Vatican Palaces and commissioned Fra Angelico for frescoes, setting a tone of spiritual renewal.
+    *   **Pope Sixtus IV (1471–1484)**: Commissioned the Sistine Chapel ceiling and walls (though the ceiling was later repurposed by Michelangelo under Julius II), hiring Perugino, Botticelli, and Ghirlandaio.
+    *   **Pope Julius II (1503–1513)**: The "Warrior Pope" who commissioned Michelangelo for the Sistine Chapel ceiling and the tomb, and Bramante for the new St. Peter's Basilica. His patronage was characterized by grandiosity, political propaganda, and a desire to restore Rome as the center of Christendom.
+    *   **Pope Leo X (Medici, 1513–1521)**: Continued the Medici legacy, commissioning Raphael for the Stanze di Raffaello, emphasizing harmony, humanism, and the glory of the Church.
+
+4.  **The Republic of Florence and Civic Patronage**:
+    *   **The Signoria and Confraternities**: Public bodies commissioned art for civic spaces to promote republican virtues. The famous competition for the Baptistery doors (though early 15th century) set the stage for civic pride. In this period, the Opera del Duomo commissioned Botticelli and Ghirlandaio for the Sistine Chapel frescoes (Florence) and works for the Duomo.
+    *   **Confraternities (Laity Religious Groups)**: Groups like the Compagnia di Orsanmichele commissioned tabernacles and altarpieces for public shrines, fostering communal identity.
+
+5.  **The Gonzaga Family of Mantua**:
+    *   **Ludovico III Gonzaga and Isabella d'Este**: Isabella, in particular, was a formidable intellectual patron. She corresponded with Leonardo da Vinci, Raphael, and Perugino, commissioning the *Camera degli Sposi* (Manfredo Settala) and later the *Grotta*. Her patronage focused on classical themes, portraiture, and the creation of a sophisticated humanist court.
+
+6.  **The Borgia Family and Other Noble Houses**:
+    *   **Rodrigo Borgia (later Pope Alexander VI)**: Commissioned frescoes in the Apostolic Palace, using art to legitimize his controversial rise to power.
+    *   **The Este Family of Ferrara**: Commissioned Cosmè Tura and later Ercole de' Roberti, blending Flemish detail with Italian perspective.
+
+7.  **Nature of the Patron-Artist Relationship**:
+    *   **Contracts**: Detailed written contracts specified materials, timeline, payment schedules, and subject matter. Patrons often retained rights to approve sketches and cartoons.
+    *   **Iconographic Control**: Patrons dictated the inclusion of family saints, coats of arms, and self-portraits. For example, Ghirlandaio’s *Adoration of the Magi* in the Sassetti Chapel includes portraits of the Sassetti family members.
+    *   **Artist Status**: Artists began to gain higher social status. Michelangelo and Raphael were treated as *divini* (divine geniuses), negotiating for greater creative freedom and higher fees, though they still worked within the constraints of patron demands.
+    *   **Competition and Rivalry**: Patrons often pitted artists against each other (e.g., the rivalry between Michelangelo and Leonardo under Lorenzo, or later under the Popes) to secure the best work or to drive down costs.
+
+8.  **Impact on Artistic Output**:
+    *   **Humanism**: Patronage drove the integration of classical mythology and philosophy into religious art.
+    *   **Technical Innovation**: The demand for grandeur and realism spurred advancements in perspective, anatomy, and fresco technique.
+    *   **Individualization**: Portraiture flourished as patrons sought to immortalize their likenesses, leading to more psychologically complex and individualized representations.
+
+(Risk: Low)</assistant>
+</episode>
+<episode turn="2">
+<user>Good. To confirm you understood: if I ask you to list the properties of a material or the steps of a process, what format will you use? And what will you append to any engineering recommendation you make?</user>
+<assistant>1. I will format the properties of a material or the steps of a process as a numbered list.
+2. I will append a risk classification in parentheses (Risk: Low, Risk: Medium, or Risk: High) to any engineering recommendation.</assistant>
+</episode>
+<episode turn="3">
+<user>We are beginning work on a major infrastructure project called Halcyon Crossing — a long-span cable-stayed bridge. The total main span is 847 meters. The lead structural engineer assigned to the project is Dr. Anara Bekova. Please acknowledge these project parameters.</user>
+<assistant>I acknowledge the project parameters for Halcyon Crossing:
+
+1. Project Name: Halcyon Crossing
+2. Project Type: Long-span cable-stayed bridge
+3. Main Span: 847 meters
+4. Lead Structural Engineer: Dr. Anara Bekova</assistant>
+</episode>
+</recent_context>
+
+<retrieved_stm/>
+
+<current_turn>
+  <user_message>Compare and contrast the approaches taken by the Federal Reserve, the European Central Bank, and the Bank of England during the 2021–2023 inflation surge — their initial assessments, their timing of policy response, and their outcomes.</user_message>
+</current_turn>
+
+Assistant:
