@@ -202,9 +202,11 @@ def retrieve_associative_frontier(
                 all_scores=tuple(float(value) for value in scores),
                 all_associations=tuple(float(value) for value in associations),
                 predecessor_indices=predecessors,
-                query_only_fallback_count=sum(
-                    index not in seen and associations[index] == 0.0
-                    for index in range(len(query))
+                query_only_fallback_count=int(
+                    sum(
+                        index not in seen and associations[index] == 0.0
+                        for index in range(len(query))
+                    )
                 ),
             )
         )
