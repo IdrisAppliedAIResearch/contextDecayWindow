@@ -43,6 +43,7 @@ from scripts.run_amendment_001_phase_1 import (  # noqa: E402
 STUDY_ROOT = REPO_ROOT / "experiments" / "study_011"
 NOISE_BAND_ROOT = STUDY_ROOT / "noise_band"
 RUNS_ROOT = NOISE_BAND_ROOT / "runs"
+RUN_LOGS = NOISE_BAND_ROOT / "run_logs"
 CONTROL_WORKTREE = Path(r"C:\Users\muzaf\PycharmProjects\cdw-study011-control")
 CONTROL_COMMIT = "4db83229"
 ABLATION_GATE = STUDY_ROOT / "ablation" / "ablation_gate.json"
@@ -128,24 +129,26 @@ def launch_replicate(index: int, server: Server) -> dict:
     ]
     started = datetime.now(timezone.utc).isoformat()
     print(f"\n=== replicate {index}/{REPLICATES}: {run_id} ===", flush=True)
-    completed = subprocess.run(
-        command,
-        cwd=str(CONTROL_WORKTREE),
-        env=replicate_env(server),
-        capture_output=True,
-        text=True,
-        # The child prints run output containing non-cp1252 bytes. Without
-        # an explicit codec Windows decodes it in the console default and
-        # the reader thread dies *after* a forty-minute run has already
-        # succeeded.
-        encoding="utf-8",
-        errors="replace",
-    )
-    sys.stdout.write(completed.stdout or "")
-    sys.stderr.write(completed.stderr or "")
+    # The child's output goes to a file opened in UTF-8, never through this
+    # process's stdout. Twice now a forty-minute run finished and the
+    # driver died moving those bytes -- once decoding them in the console
+    # codepage, once encoding them back out to a redirected stream. A pipe
+    # the text never has to cross cannot fail that way.
+    RUN_LOGS.mkdir(parents=True, exist_ok=True)
+    log_path = RUN_LOGS / f"{run_id}.log"
+    with log_path.open("w", encoding="utf-8", errors="replace") as handle:
+        completed = subprocess.run(
+            command,
+            cwd=str(CONTROL_WORKTREE),
+            env=replicate_env(server),
+            stdout=handle,
+            stderr=subprocess.STDOUT,
+        )
+    print(f"    child exit {completed.returncode}; output in {log_path.name}", flush=True)
     if completed.returncode != 0:
         raise RuntimeError(
-            f"replicate {run_id} failed with exit {completed.returncode}"
+            f"replicate {run_id} failed with exit {completed.returncode}; "
+            f"see {log_path}"
         )
     manifest_path = RUNS_ROOT / f"{run_id}_launch_manifest.json"
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
