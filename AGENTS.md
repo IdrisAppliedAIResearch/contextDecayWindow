@@ -48,6 +48,8 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **RD-001 rarity diagnostic (2026-08-03).** STOP: measurement not identifiable. Full 119-rank replay passes; rarity covers 6/76 episodes across 3 non-primary variants. Mean IDF is worse than density on 5/5 eligible plants, but max improves 2 and sum/word 1, so the IDF-family claim is withdrawn. No coefficient; Part 2 unauthorized.
 
+**E006 Part 2 chained retrieval (2026-08-10).** STOPPED AT S2. Authorized S1-S4; S1 passed. X0 reproduced exactly, but 0/8 raw probe-query vectors exist in committed caches, and X1 cannot equal X0 because exclusion accumulates new episodes over `0..D` even with `BETA=0`. S3-S5 were not entered.
+
 **CC-002 library extraction (2026-08-01).** The deployable component now lives in the installable `episodic` package; the harness imports it. T1-T7 pass: clean-venv import, leakage grep + import-graph, byte-identical reproduction of 132 committed A3 payloads and 3 rendered blocks, call-shape sentinel fails loudly, 804 tests green, two-process purity. H1/H2 ship as config-pinned gates, not docs.
 
 **DX-002 context growth (2026-08-02).** BRANCH B. LTM saturates ~52-54k from turn 500 (H-A confirmed); retrieved_stm never does: p95 +23,238 L / +28,701 S over the last five buckets, still setting records at turn 1,000. Rule pinning added 0 but was disabled, not cleared. Blocks CC-003. A slope-CI-only rule first said Branch A; the interval measured power, not flatness.

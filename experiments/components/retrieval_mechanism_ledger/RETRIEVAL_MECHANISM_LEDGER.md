@@ -425,8 +425,11 @@ an offline result; **no live run is authorized.** See
   negative on conversational memory, so its registered kill did not fire.
   RF-Mem is close positive prior art for iterative embedding-space memory/query
   mixing, while MemR3, EviMem, and MGRetrieval are positive inference-driven
-  neighbors. See `RD_001_report.md`, `E006_PART2_AUTHORIZATION.md`, and
-  `E006_PART2_S1_PRIOR_ART_SCAN.md`.
+  neighbors. **S2 FAILS and stops before S3:** no committed raw query vectors
+  exist for the eight probes, and X1 cannot equal X0 because `exclude=seen`
+  accumulates `m` new episodes on each inclusive `0..D` iteration even when
+  `BETA=0`. See `RD_001_report.md`, `E006_PART2_AUTHORIZATION.md`,
+  `E006_PART2_S1_PRIOR_ART_SCAN.md`, and `E006_PART2_S2_PREFLIGHT.md`.
 
 **Measurement correction applied before the outcome was accepted:** the
 no-regression numerator was keyed on `(turn, item)` while its denominator
@@ -558,14 +561,17 @@ eviction work in `CC_001`?
 
 ## 8. Scan disposition
 
-- Retrieved-context chained retrieval: **S1 COMPLETE; NO REGISTERED KILL.**
+- Retrieved-context chained retrieval: **S2 FAIL; STOP BEFORE S3.**
   Classical PRF establishes both the operation and query drift. Four recent
   conversational-memory preprints report positive iterative-retrieval results;
   RF-Mem is close mechanical prior art. No published negative in the registered
   setting was located. Chaining and the conversational-memory setting are not
   novel; E006's remaining distinction is the committed corpus, deterministic
-  zero-model-call path, and absorbing-state discipline. See
-  `E006_PART2_S1_PRIOR_ART_SCAN.md`.
+  zero-model-call path, and absorbing-state discipline. Preflight reproduces X0
+  exactly but finds 0/8 cached probe-query vectors and proves X1 differs from X0
+  for all six registered `(D,m)` cells on the committed Q11 rank trace. S3-S5
+  were not entered. See `E006_PART2_S1_PRIOR_ART_SCAN.md` and
+  `E006_PART2_S2_PREFLIGHT.md`.
 - Diversity-aware / coverage selection: **COMPLETE, and its one owed
   verification is discharged.** The scan's unconfirmed claim that MMR lacks
   submodularity is **refuted** by Lin and Bilmes (2011) Section 3, Theorem 2:
@@ -582,7 +588,12 @@ eviction work in `CC_001`?
 
 ---
 
-*Opened July 29, 2026. Revision 12, August 10, 2026 - E006 Part 2 Rev 2 is
+*Opened July 29, 2026. Revision 13, August 10, 2026 - E006 Part 2 S2 fails and
+stops before S3. X0 reproduces by content identity and payload digest, but no
+committed cache contains the eight raw probe-query vectors required for the
+chain, and the registered disabled-chain X1 is structurally unequal to X0
+because exclusion accumulates new episodes at every inclusive `0..D` step.
+Revision 12, August 10, 2026 - E006 Part 2 Rev 2 is
 authorized for offline S1-S4. S1 finds no published negative for chained
 retrieval on conversational memory, so the registered kill does not fire; four
 positive conversational-memory preprints, especially RF-Mem's iterative
