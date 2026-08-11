@@ -1,0 +1,476 @@
+{
+  "arms": {
+    "C0": {
+      "all_contexts_in_budget": true,
+      "arm": "C0",
+      "evidence_present": 9,
+      "exact_current": 3,
+      "exact_history": 1,
+      "exact_total": 7,
+      "exact_unchanged": 3,
+      "natural_contexts_exactly_eight": true,
+      "natural_stale_payload_count": 4,
+      "prefix_byte_identical": true,
+      "rows": [
+        {
+          "answer": "Jasmine green",
+          "class": "current",
+          "evidence_present": true,
+          "exact": true,
+          "expected": "Jasmine green",
+          "payload_sha256": "ebc043c649ba3f7671fdad6aacff265ed65c9c2d677c93fb7b56fcc0ca7bc9e7",
+          "probe_id": "current:tea",
+          "selected_ids": [
+            "96f06cf6331c719852d83367f126f1a13404f52805f0a41622f5e42d8fd2b068",
+            "05c26cce83a5bb0b30f8bab5e226899d0d5adf4250c821ef2a9fc5ef55383339",
+            "752d15819c17adf87d93731c091039045317c1b22dcde19698f0805c1e6b6e3d",
+            "6571b873b1d740ff328d4c39d1a1cddd6644edab81ceffbf6f756b8470524f3a",
+            "44ff42d6c53bb3a9298486a6124a349d491cb5d9d45ef2cc5eb6a11ef262a2e0",
+            "d6170bb45eb455bbbd98cb1186e9db7b3ebb02d86fe48a49349bcc7c2c91f556",
+            "175af65c3dbd2e858bbd4d560ee9bf372d3b6377100a47077502fbca7dff08d5",
+            "16adc4c92a6db77c966adb96fd9bf7f9047e1d71f70a59b72e8332ccde867126"
+          ],
+          "serialized_chars": 1444,
+          "stale_in_answer": [],
+          "stale_in_payload": [
+            "Earl Grey",
+            "Sencha"
+          ]
+        },
+        {
+          "answer": "Riverside Suite",
+          "class": "current",
+          "evidence_present": true,
+          "exact": true,
+          "expected": "Riverside Suite",
+          "payload_sha256": "fa68c35e896e2020fb15c4382748a271d021cb0ce9e3ebe8fb506376bd5f1729",
+          "probe_id": "current:workshop",
+          "selected_ids": [
+            "175af65c3dbd2e858bbd4d560ee9bf372d3b6377100a47077502fbca7dff08d5",
+            "6571b873b1d740ff328d4c39d1a1cddd6644edab81ceffbf6f756b8470524f3a",
+            "f24848e0145af491a6a765dd6fdd64088dde3b20b073dcbe433bdc6a7a4711e8",
+            "44ff42d6c53bb3a9298486a6124a349d491cb5d9d45ef2cc5eb6a11ef262a2e0",
+            "409db6513fadc1f216699ec0b49ca429ec04d27368b897a435840100741bf2ee",
+            "0f7599215ed6b09b3c93219e5bd5a8921a8702d02f91c2f9a7d88a0236c29ff1",
+            "17f0eb9ab97aec0d9ef3aaafb25fad65ab1cf863c4a1c562b2d9a8d9371ed17b",
+            "05c26cce83a5bb0b30f8bab5e226899d0d5adf4250c821ef2a9fc5ef55383339"
+          ],
+          "serialized_chars": 1417,
+          "stale_in_answer": [],
+          "stale_in_payload": [
+            "North Hall",
+            "Cedar Room"
+          ]
+        },
+        {
+          "answer": "Friday 10:15 AM",
+          "class": "current",
+          "evidence_present": true,
+          "exact": true,
+          "expected": "Friday 10:15 AM",
+          "payload_sha256": "c94d373630c4ad1ac1895c0d1cb719935190e1723be7bee06b0eb11403319001",
+          "probe_id": "current:dentist",
+          "selected_ids": [
+            "16adc4c92a6db77c966adb96fd9bf7f9047e1d71f70a59b72e8332ccde867126",
+            "d6170bb45eb455bbbd98cb1186e9db7b3ebb02d86fe48a49349bcc7c2c91f556",
+            "43dca2cdd47394a00526b05329320cbb6d40cf6cb628e8404c465feaef11bb2d",
+            "09d27caec2fefffa6cabb381ca99bdd8a130cd90f3bf47e84decb311d559a052",
+            "752d15819c17adf87d93731c091039045317c1b22dcde19698f0805c1e6b6e3d",
+            "05c26cce83a5bb0b30f8bab5e226899d0d5adf4250c821ef2a9fc5ef55383339",
+            "175af65c3dbd2e858bbd4d560ee9bf372d3b6377100a47077502fbca7dff08d5",
+            "96f06cf6331c719852d83367f126f1a13404f52805f0a41622f5e42d8fd2b068"
+          ],
+          "serialized_chars": 1399,
+          "stale_in_answer": [],
+          "stale_in_payload": [
+            "Monday 8:00 AM",
+            "Wednesday 9:30 AM"
+          ]
+        },
+        {
+          "answer": "24 kilometers.",
+          "class": "current",
+          "evidence_present": true,
+          "exact": false,
+          "expected": "24 kilometers",
+          "payload_sha256": "80a874e422fd31dc5888686d95644d524beaba11351397833db3ed77c141600a",
+          "probe_id": "current:running",
+          "selected_ids": [
+            "409db6513fadc1f216699ec0b49ca429ec04d27368b897a435840100741bf2ee",
+            "0f7599215ed6b09b3c93219e5bd5a8921a8702d02f91c2f9a7d88a0236c29ff1",
+            "17f0eb9ab97aec0d9ef3aaafb25fad65ab1cf863c4a1c562b2d9a8d9371ed17b",
+            "d6170bb45eb455bbbd98cb1186e9db7b3ebb02d86fe48a49349bcc7c2c91f556",
+            "6dd60d257315fa5b066a039894c051bed7399ab83ec13518950d31a8db83cb0d",
+            "175af65c3dbd2e858bbd4d560ee9bf372d3b6377100a47077502fbca7dff08d5",
+            "16adc4c92a6db77c966adb96fd9bf7f9047e1d71f70a59b72e8332ccde867126",
+            "6571b873b1d740ff328d4c39d1a1cddd6644edab81ceffbf6f756b8470524f3a"
+          ],
+          "serialized_chars": 1452,
+          "stale_in_answer": [],
+          "stale_in_payload": [
+            "12 kilometers",
+            "18 kilometers"
+          ]
+        },
+        {
+          "answer": "312-555-0147",
+          "class": "unchanged",
+          "evidence_present": true,
+          "exact": true,
+          "expected": "312-555-0147",
+          "payload_sha256": "3cda69e5437b2bfa88ef8c8e6c986ac1c520f2a10290cf44541484ce5df009c8",
+          "probe_id": "unchanged:contact",
+          "selected_ids": [
+            "ec5041a1e9dfe8625ad178dcb5ea01c4a04215e2537a4669ce4fc5260628144c",
+            "09d27caec2fefffa6cabb381ca99bdd8a130cd90f3bf47e84decb311d559a052",
+            "409db6513fadc1f216699ec0b49ca429ec04d27368b897a435840100741bf2ee",
+            "d6170bb45eb455bbbd98cb1186e9db7b3ebb02d86fe48a49349bcc7c2c91f556",
+            "d357de48044dd33cee2ca8591802ef84dc1b5d458c212c40503f870f5808f820",
+            "f24848e0145af491a6a765dd6fdd64088dde3b20b073dcbe433bdc6a7a4711e8",
+            "44ff42d6c53bb3a9298486a6124a349d491cb5d9d45ef2cc5eb6a11ef262a2e0",
+            "43dca2cdd47394a00526b05329320cbb6d40cf6cb628e8404c465feaef11bb2d"
+          ],
+          "serialized_chars": 1181,
+          "stale_in_answer": [],
+          "stale_in_payload": []
+        },
+        {
+          "answer": "blue fireproof drawer",
+          "class": "unchanged",
+          "evidence_present": true,
+          "exact": true,
+          "expected": "blue fireproof drawer",
+          "payload_sha256": "9e3a54b2e95fe256d73634ac8674f036f47f580c02e3a52ffc69d3befae20161",
+          "probe_id": "unchanged:passport",
+          "selected_ids": [
+            "d357de48044dd33cee2ca8591802ef84dc1b5d458c212c40503f870f5808f820",
+            "f24848e0145af491a6a765dd6fdd64088dde3b20b073dcbe433bdc6a7a4711e8",
+            "44ff42d6c53bb3a9298486a6124a349d491cb5d9d45ef2cc5eb6a11ef262a2e0",
+            "d768d110381356a8cbd47390181209ba6a756cbbf9aba6f024ab7de728128f62",
+            "9ea1808da059f06effe829ff614a5ce80d70fa38b513ac459d0c76eeadf67fd8",
+            "175af65c3dbd2e858bbd4d560ee9bf372d3b6377100a47077502fbca7dff08d5",
+            "ec5041a1e9dfe8625ad178dcb5ea01c4a04215e2537a4669ce4fc5260628144c",
+            "5a9d34a57e9d2f1c197c308d6ae53e11959338ab22dea3ac58b679408d6d355f"
+          ],
+          "serialized_chars": 1123,
+          "stale_in_answer": [],
+          "stale_in_payload": []
+        },
+        {
+          "answer": "$35.00",
+          "class": "unchanged",
+          "evidence_present": true,
+          "exact": false,
+          "expected": "$35",
+          "payload_sha256": "f2b84f5301e71b84343f406e1db1ba60983f3f6e61cfc16e410252405848488f",
+          "probe_id": "unchanged:donation",
+          "selected_ids": [
+            "6dd60d257315fa5b066a039894c051bed7399ab83ec13518950d31a8db83cb0d",
+            "409db6513fadc1f216699ec0b49ca429ec04d27368b897a435840100741bf2ee",
+            "17f0eb9ab97aec0d9ef3aaafb25fad65ab1cf863c4a1c562b2d9a8d9371ed17b",
+            "0f7599215ed6b09b3c93219e5bd5a8921a8702d02f91c2f9a7d88a0236c29ff1",
+            "96f06cf6331c719852d83367f126f1a13404f52805f0a41622f5e42d8fd2b068",
+            "d357de48044dd33cee2ca8591802ef84dc1b5d458c212c40503f870f5808f820",
+            "5a9d34a57e9d2f1c197c308d6ae53e11959338ab22dea3ac58b679408d6d355f",
+            "752d15819c17adf87d93731c091039045317c1b22dcde19698f0805c1e6b6e3d"
+          ],
+          "serialized_chars": 1269,
+          "stale_in_answer": [],
+          "stale_in_payload": []
+        },
+        {
+          "answer": "6:40 AM",
+          "class": "unchanged",
+          "evidence_present": true,
+          "exact": true,
+          "expected": "6:40 AM",
+          "payload_sha256": "f2d549658f3aa5f8ff09357ab779eb2d9aa04358ea1c664aee3edf2bb17513c0",
+          "probe_id": "unchanged:alarm",
+          "selected_ids": [
+            "09d27caec2fefffa6cabb381ca99bdd8a130cd90f3bf47e84decb311d559a052",
+            "43dca2cdd47394a00526b05329320cbb6d40cf6cb628e8404c465feaef11bb2d",
+            "d6170bb45eb455bbbd98cb1186e9db7b3ebb02d86fe48a49349bcc7c2c91f556",
+            "44ff42d6c53bb3a9298486a6124a349d491cb5d9d45ef2cc5eb6a11ef262a2e0",
+            "16adc4c92a6db77c966adb96fd9bf7f9047e1d71f70a59b72e8332ccde867126",
+            "96f06cf6331c719852d83367f126f1a13404f52805f0a41622f5e42d8fd2b068",
+            "409db6513fadc1f216699ec0b49ca429ec04d27368b897a435840100741bf2ee",
+            "0f7599215ed6b09b3c93219e5bd5a8921a8702d02f91c2f9a7d88a0236c29ff1"
+          ],
+          "serialized_chars": 1309,
+          "stale_in_answer": [],
+          "stale_in_payload": []
+        },
+        {
+          "answer": "Earl Grey | Sencha | Jasmine green",
+          "class": "history",
+          "evidence_present": true,
+          "exact": true,
+          "expected": "Earl Grey | Sencha | Jasmine green",
+          "payload_sha256": "edb0495cc0f3c750710972432f6979b85c893cad2e1d54b608a340fa913dc81b",
+          "probe_id": "history:tea",
+          "selected_ids": [
+            "96f06cf6331c719852d83367f126f1a13404f52805f0a41622f5e42d8fd2b068",
+            "752d15819c17adf87d93731c091039045317c1b22dcde19698f0805c1e6b6e3d",
+            "05c26cce83a5bb0b30f8bab5e226899d0d5adf4250c821ef2a9fc5ef55383339",
+            "9ea1808da059f06effe829ff614a5ce80d70fa38b513ac459d0c76eeadf67fd8",
+            "175af65c3dbd2e858bbd4d560ee9bf372d3b6377100a47077502fbca7dff08d5",
+            "6571b873b1d740ff328d4c39d1a1cddd6644edab81ceffbf6f756b8470524f3a",
+            "ebb60719446222bbc695498a72c9ee6e3080b55db5eafb46da6a9c1b129dcdd3",
+            "44ff42d6c53bb3a9298486a6124a349d491cb5d9d45ef2cc5eb6a11ef262a2e0"
+          ],
+          "serialized_chars": 1298,
+          "stale_in_answer": [],
+          "stale_in_payload": []
+        }
+      ],
+      "runtime_identity": {
+        "model_sha256": "f3b4a622e06e8ade06ec5c0eb9b40ed7c9bd707b5fada46c0215f4ab4a6bc32b",
+        "seed": 5005,
+        "server_binary_sha256": "3827a6b634a88073dc63b97edf6e0dc575d33ecf58268803ece0ed23216095fa",
+        "server_build": "b9294-0f3cb3fc8",
+        "server_slots": 1,
+        "speculative": "none"
+      },
+      "source_unchanged": true,
+      "stale_answer_count": 0
+    },
+    "T1": {
+      "all_contexts_in_budget": true,
+      "arm": "T1",
+      "evidence_present": 9,
+      "exact_current": 4,
+      "exact_history": 1,
+      "exact_total": 8,
+      "exact_unchanged": 3,
+      "natural_contexts_exactly_eight": true,
+      "natural_stale_payload_count": 0,
+      "prefix_byte_identical": true,
+      "rows": [
+        {
+          "answer": "Jasmine green",
+          "class": "current",
+          "evidence_present": true,
+          "exact": true,
+          "expected": "Jasmine green",
+          "payload_sha256": "3bca04e984c1b3e441a1f6575c0b41a0820b8a3fd263ce6d975b1686900f442e",
+          "probe_id": "current:tea",
+          "selected_ids": [
+            "05c26cce83a5bb0b30f8bab5e226899d0d5adf4250c821ef2a9fc5ef55383339",
+            "44ff42d6c53bb3a9298486a6124a349d491cb5d9d45ef2cc5eb6a11ef262a2e0",
+            "175af65c3dbd2e858bbd4d560ee9bf372d3b6377100a47077502fbca7dff08d5",
+            "16adc4c92a6db77c966adb96fd9bf7f9047e1d71f70a59b72e8332ccde867126",
+            "09d27caec2fefffa6cabb381ca99bdd8a130cd90f3bf47e84decb311d559a052",
+            "ebb60719446222bbc695498a72c9ee6e3080b55db5eafb46da6a9c1b129dcdd3",
+            "9ea1808da059f06effe829ff614a5ce80d70fa38b513ac459d0c76eeadf67fd8",
+            "d768d110381356a8cbd47390181209ba6a756cbbf9aba6f024ab7de728128f62"
+          ],
+          "serialized_chars": 1225,
+          "stale_in_answer": [],
+          "stale_in_payload": []
+        },
+        {
+          "answer": "Riverside Suite",
+          "class": "current",
+          "evidence_present": true,
+          "exact": true,
+          "expected": "Riverside Suite",
+          "payload_sha256": "1a39a0678a2fb5d56e3fad2c91199094f5d2f5d5f5532b85e5a235dd13e8db7d",
+          "probe_id": "current:workshop",
+          "selected_ids": [
+            "175af65c3dbd2e858bbd4d560ee9bf372d3b6377100a47077502fbca7dff08d5",
+            "44ff42d6c53bb3a9298486a6124a349d491cb5d9d45ef2cc5eb6a11ef262a2e0",
+            "0f7599215ed6b09b3c93219e5bd5a8921a8702d02f91c2f9a7d88a0236c29ff1",
+            "05c26cce83a5bb0b30f8bab5e226899d0d5adf4250c821ef2a9fc5ef55383339",
+            "16adc4c92a6db77c966adb96fd9bf7f9047e1d71f70a59b72e8332ccde867126",
+            "d357de48044dd33cee2ca8591802ef84dc1b5d458c212c40503f870f5808f820",
+            "ebb60719446222bbc695498a72c9ee6e3080b55db5eafb46da6a9c1b129dcdd3",
+            "d768d110381356a8cbd47390181209ba6a756cbbf9aba6f024ab7de728128f62"
+          ],
+          "serialized_chars": 1308,
+          "stale_in_answer": [],
+          "stale_in_payload": []
+        },
+        {
+          "answer": "Friday 10:15 AM",
+          "class": "current",
+          "evidence_present": true,
+          "exact": true,
+          "expected": "Friday 10:15 AM",
+          "payload_sha256": "2009a3e580b51d561fc19c0620ad5de52ea83e5bb4d41e80f5d8498c9dc93bfa",
+          "probe_id": "current:dentist",
+          "selected_ids": [
+            "16adc4c92a6db77c966adb96fd9bf7f9047e1d71f70a59b72e8332ccde867126",
+            "09d27caec2fefffa6cabb381ca99bdd8a130cd90f3bf47e84decb311d559a052",
+            "05c26cce83a5bb0b30f8bab5e226899d0d5adf4250c821ef2a9fc5ef55383339",
+            "175af65c3dbd2e858bbd4d560ee9bf372d3b6377100a47077502fbca7dff08d5",
+            "0f7599215ed6b09b3c93219e5bd5a8921a8702d02f91c2f9a7d88a0236c29ff1",
+            "44ff42d6c53bb3a9298486a6124a349d491cb5d9d45ef2cc5eb6a11ef262a2e0",
+            "6dd60d257315fa5b066a039894c051bed7399ab83ec13518950d31a8db83cb0d",
+            "ec5041a1e9dfe8625ad178dcb5ea01c4a04215e2537a4669ce4fc5260628144c"
+          ],
+          "serialized_chars": 1298,
+          "stale_in_answer": [],
+          "stale_in_payload": []
+        },
+        {
+          "answer": "24 kilometers",
+          "class": "current",
+          "evidence_present": true,
+          "exact": true,
+          "expected": "24 kilometers",
+          "payload_sha256": "3bd6b412261cf5d476b3fa5720f5fe0cb0cbc532207c2cc0102a076e92ad8bde",
+          "probe_id": "current:running",
+          "selected_ids": [
+            "0f7599215ed6b09b3c93219e5bd5a8921a8702d02f91c2f9a7d88a0236c29ff1",
+            "6dd60d257315fa5b066a039894c051bed7399ab83ec13518950d31a8db83cb0d",
+            "175af65c3dbd2e858bbd4d560ee9bf372d3b6377100a47077502fbca7dff08d5",
+            "16adc4c92a6db77c966adb96fd9bf7f9047e1d71f70a59b72e8332ccde867126",
+            "09d27caec2fefffa6cabb381ca99bdd8a130cd90f3bf47e84decb311d559a052",
+            "05c26cce83a5bb0b30f8bab5e226899d0d5adf4250c821ef2a9fc5ef55383339",
+            "44ff42d6c53bb3a9298486a6124a349d491cb5d9d45ef2cc5eb6a11ef262a2e0",
+            "ec5041a1e9dfe8625ad178dcb5ea01c4a04215e2537a4669ce4fc5260628144c"
+          ],
+          "serialized_chars": 1298,
+          "stale_in_answer": [],
+          "stale_in_payload": []
+        },
+        {
+          "answer": "312-555-0147",
+          "class": "unchanged",
+          "evidence_present": true,
+          "exact": true,
+          "expected": "312-555-0147",
+          "payload_sha256": "29f596cf6f75453bca0a58d89fff702cf91c04a89e71df61c6272a69a5ade969",
+          "probe_id": "unchanged:contact",
+          "selected_ids": [
+            "ec5041a1e9dfe8625ad178dcb5ea01c4a04215e2537a4669ce4fc5260628144c",
+            "09d27caec2fefffa6cabb381ca99bdd8a130cd90f3bf47e84decb311d559a052",
+            "d357de48044dd33cee2ca8591802ef84dc1b5d458c212c40503f870f5808f820",
+            "44ff42d6c53bb3a9298486a6124a349d491cb5d9d45ef2cc5eb6a11ef262a2e0",
+            "16adc4c92a6db77c966adb96fd9bf7f9047e1d71f70a59b72e8332ccde867126",
+            "0f7599215ed6b09b3c93219e5bd5a8921a8702d02f91c2f9a7d88a0236c29ff1",
+            "ffdbdc542b1c6cccc2d832ea5b66a598e2a28577d35b57e73b2c5caef7c0fb16",
+            "175af65c3dbd2e858bbd4d560ee9bf372d3b6377100a47077502fbca7dff08d5"
+          ],
+          "serialized_chars": 1242,
+          "stale_in_answer": [],
+          "stale_in_payload": []
+        },
+        {
+          "answer": "blue fireproof drawer",
+          "class": "unchanged",
+          "evidence_present": true,
+          "exact": true,
+          "expected": "blue fireproof drawer",
+          "payload_sha256": "bb85c01afb452497e483cfed3914c7bf13c5ce0039a7d97d357ae268a0c5a456",
+          "probe_id": "unchanged:passport",
+          "selected_ids": [
+            "d357de48044dd33cee2ca8591802ef84dc1b5d458c212c40503f870f5808f820",
+            "44ff42d6c53bb3a9298486a6124a349d491cb5d9d45ef2cc5eb6a11ef262a2e0",
+            "d768d110381356a8cbd47390181209ba6a756cbbf9aba6f024ab7de728128f62",
+            "9ea1808da059f06effe829ff614a5ce80d70fa38b513ac459d0c76eeadf67fd8",
+            "175af65c3dbd2e858bbd4d560ee9bf372d3b6377100a47077502fbca7dff08d5",
+            "ec5041a1e9dfe8625ad178dcb5ea01c4a04215e2537a4669ce4fc5260628144c",
+            "5a9d34a57e9d2f1c197c308d6ae53e11959338ab22dea3ac58b679408d6d355f",
+            "ffdbdc542b1c6cccc2d832ea5b66a598e2a28577d35b57e73b2c5caef7c0fb16"
+          ],
+          "serialized_chars": 1099,
+          "stale_in_answer": [],
+          "stale_in_payload": []
+        },
+        {
+          "answer": "$35.00",
+          "class": "unchanged",
+          "evidence_present": true,
+          "exact": false,
+          "expected": "$35",
+          "payload_sha256": "9794dbb0f495188eb48f281ce51e8b750b47d3a8a59025fd6bb23e02af9985da",
+          "probe_id": "unchanged:donation",
+          "selected_ids": [
+            "6dd60d257315fa5b066a039894c051bed7399ab83ec13518950d31a8db83cb0d",
+            "0f7599215ed6b09b3c93219e5bd5a8921a8702d02f91c2f9a7d88a0236c29ff1",
+            "d357de48044dd33cee2ca8591802ef84dc1b5d458c212c40503f870f5808f820",
+            "5a9d34a57e9d2f1c197c308d6ae53e11959338ab22dea3ac58b679408d6d355f",
+            "44ff42d6c53bb3a9298486a6124a349d491cb5d9d45ef2cc5eb6a11ef262a2e0",
+            "d768d110381356a8cbd47390181209ba6a756cbbf9aba6f024ab7de728128f62",
+            "05c26cce83a5bb0b30f8bab5e226899d0d5adf4250c821ef2a9fc5ef55383339",
+            "db69ad5f13b5131ca6842dc1b5332885632200aca6b0a6d2d5a7f9a501b9690d"
+          ],
+          "serialized_chars": 1160,
+          "stale_in_answer": [],
+          "stale_in_payload": []
+        },
+        {
+          "answer": "6:40 AM",
+          "class": "unchanged",
+          "evidence_present": true,
+          "exact": true,
+          "expected": "6:40 AM",
+          "payload_sha256": "20dd9d23bf2a3ed70963071f8978bbe5154665931cb23c5eaca35d8fe8b5284a",
+          "probe_id": "unchanged:alarm",
+          "selected_ids": [
+            "09d27caec2fefffa6cabb381ca99bdd8a130cd90f3bf47e84decb311d559a052",
+            "44ff42d6c53bb3a9298486a6124a349d491cb5d9d45ef2cc5eb6a11ef262a2e0",
+            "16adc4c92a6db77c966adb96fd9bf7f9047e1d71f70a59b72e8332ccde867126",
+            "0f7599215ed6b09b3c93219e5bd5a8921a8702d02f91c2f9a7d88a0236c29ff1",
+            "ec5041a1e9dfe8625ad178dcb5ea01c4a04215e2537a4669ce4fc5260628144c",
+            "db69ad5f13b5131ca6842dc1b5332885632200aca6b0a6d2d5a7f9a501b9690d",
+            "175af65c3dbd2e858bbd4d560ee9bf372d3b6377100a47077502fbca7dff08d5",
+            "05c26cce83a5bb0b30f8bab5e226899d0d5adf4250c821ef2a9fc5ef55383339"
+          ],
+          "serialized_chars": 1303,
+          "stale_in_answer": [],
+          "stale_in_payload": []
+        },
+        {
+          "answer": "Earl Grey | Sencha | Jasmine green",
+          "class": "history",
+          "evidence_present": true,
+          "exact": true,
+          "expected": "Earl Grey | Sencha | Jasmine green",
+          "payload_sha256": "bbfa3b0adf8595258f01fecc3952d94437b152f74eaf4a14481c0468e3e27fce",
+          "probe_id": "history:tea",
+          "selected_ids": [
+            "96f06cf6331c719852d83367f126f1a13404f52805f0a41622f5e42d8fd2b068",
+            "752d15819c17adf87d93731c091039045317c1b22dcde19698f0805c1e6b6e3d",
+            "05c26cce83a5bb0b30f8bab5e226899d0d5adf4250c821ef2a9fc5ef55383339"
+          ],
+          "serialized_chars": 564,
+          "stale_in_answer": [],
+          "stale_in_payload": []
+        }
+      ],
+      "runtime_identity": {
+        "model_sha256": "f3b4a622e06e8ade06ec5c0eb9b40ed7c9bd707b5fada46c0215f4ab4a6bc32b",
+        "seed": 5005,
+        "server_binary_sha256": "3827a6b634a88073dc63b97edf6e0dc575d33ecf58268803ece0ed23216095fa",
+        "server_build": "b9294-0f3cb3fc8",
+        "server_slots": 1,
+        "speculative": "none"
+      },
+      "source_unchanged": true,
+      "stale_answer_count": 0
+    }
+  },
+  "disposition": "ABLATION_INTEGRATION_STOP",
+  "full_live_run_authorized": false,
+  "inputs": {
+    "C0_sha256": "d99b0f72708801a56689ac05e56b773f23dd805068dcfac783b97f686c0f832c",
+    "T1_sha256": "9b0f28cc6ad700e9c563eae0fd80051134da768840dcef287e3f8c9a4b931589",
+    "sealed_key_sha256": "23bf2df2fddcc115091cf0f69a23b724b7d250c425513615f8c84ae634cb64d2",
+    "source_sha256": "7e45cc6bd38d7e42c020de361c5135970f641bd4b5275149d9d7209d4d7670cc"
+  },
+  "registered_pass": false,
+  "runtime_pass": true,
+  "score_order_deviation": {
+    "description": "Mechanism context summaries were inspected during runtime validation before this score artifact was committed.",
+    "impact": "The scorer is fully mechanical exact-string equality with no adjudication; the deviation does not change any row, but violates the preferred score-before-mechanism-log order and is retained as a limitation.",
+    "present": true
+  },
+  "scoring_rule": "After runner whitespace trim, answer must equal sealed expected UTF-8 text exactly; no punctuation, numeric, case, or semantic normalization.",
+  "stage": "35-turn ablation mechanical scoring",
+  "status": "COMPLETE",
+  "study": "SUP-001",
+  "t1_invariants_pass": true,
+  "targeted_regressions": []
+}
