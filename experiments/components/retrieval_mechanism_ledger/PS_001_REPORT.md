@@ -212,3 +212,10 @@ separately registered live evaluation if cue binding first succeeds.
 - `artifacts/ps001_closeout/verification.json`
 
 `ERRATA.md` is unchanged because PS-001 changes no published prior number.
+
+## Pull request
+
+Study pull request: [#46](https://github.com/IdrisAppliedAIResearch/contextDecayWindow/pull/46).
+It records the outcome, bars, amendments, findings, artifact links, verification,
+and blocking closeout checklist. The PR is ready for review; no merge is
+performed by this study branch.
