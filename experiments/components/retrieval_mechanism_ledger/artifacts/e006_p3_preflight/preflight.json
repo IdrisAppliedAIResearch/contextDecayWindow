@@ -1,0 +1,626 @@
+{
+  "checklist": {
+    "PF1": {
+      "evidence": "119 Q11 cosines, 119 unique content hashes, Gram 119x119; all files byte-hashed. Targeted vectors remain 0/8.",
+      "status": "PASS"
+    },
+    "PF10": {
+      "evidence": "Targeted vectors are absent and no live inference is authorized; offline availability is not an answer verdict.",
+      "status": "PASS"
+    },
+    "PF2": {
+      "evidence": "A0/A1/A2, graph, frontier, quota, final ranking, and packer executed on committed data; Tier 4A/A1 non-identity is committed.",
+      "status": "PASS"
+    },
+    "PF3": {
+      "evidence": "Git ancestry and evidence call order place identity reproduction before function-local measurement import.",
+      "status": "PASS"
+    },
+    "PF4": {
+      "evidence": "All primary arms attain 15 unique candidates; all four dispositions have synthetic logic witnesses before labels.",
+      "status": "PASS"
+    },
+    "PF5": {
+      "evidence": "Canonical content SHA-256 is unique 119/119 and is the only exclusion, overlap, tie, and reproduction key.",
+      "status": "PASS"
+    },
+    "PF6": {
+      "evidence": "Tier 4A 144/144, A1 8/8, and exploration identities 24/24 reproduce exactly.",
+      "status": "PASS"
+    },
+    "PF7": {
+      "evidence": "All 16 feedback cells execute through D=3; graph cycle rank 558; repeated identity/frontier cells 0.",
+      "status": "PASS"
+    },
+    "PF8": {
+      "evidence": "D=0..3 fully exercises depth-local behavior on Q11 only; it cannot detect cross-turn persistence, targeted regressions, or live variance.",
+      "status": "PASS"
+    },
+    "PF9": {
+      "evidence": "Fifteen gate/metric surrogate rows are committed; one-probe, one-corpus, post-result, no-variance residuals are accepted.",
+      "status": "PASS"
+    }
+  },
+  "decision": "CONTINUE_TO_PARAMETER_LOCK",
+  "evidence_order_audit": {
+    "evaluate_calls": [
+      "selection_phase",
+      "measurement_phase",
+      "primary_thresholds",
+      "evaluate_predictions",
+      "len"
+    ],
+    "measurement_import_is_function_local": true,
+    "selection_before_measurement": true,
+    "status": "PASS"
+  },
+  "feedback_proof": {
+    "cell_count": 16,
+    "cells": [
+      {
+        "D": 0,
+        "arm": "A1",
+        "constant_association_state": false,
+        "m": 3,
+        "repeated_frontier": false,
+        "repeated_identity": false,
+        "selected_query_only_fallback_count": 0
+      },
+      {
+        "D": 0,
+        "arm": "A2",
+        "constant_association_state": false,
+        "m": 3,
+        "repeated_frontier": false,
+        "repeated_identity": false,
+        "selected_query_only_fallback_count": 0
+      },
+      {
+        "D": 0,
+        "arm": "A1",
+        "constant_association_state": false,
+        "m": 5,
+        "repeated_frontier": false,
+        "repeated_identity": false,
+        "selected_query_only_fallback_count": 0
+      },
+      {
+        "D": 0,
+        "arm": "A2",
+        "constant_association_state": false,
+        "m": 5,
+        "repeated_frontier": false,
+        "repeated_identity": false,
+        "selected_query_only_fallback_count": 0
+      },
+      {
+        "D": 1,
+        "arm": "A1",
+        "constant_association_state": false,
+        "m": 3,
+        "repeated_frontier": false,
+        "repeated_identity": false,
+        "selected_query_only_fallback_count": 0
+      },
+      {
+        "D": 1,
+        "arm": "A2",
+        "constant_association_state": false,
+        "m": 3,
+        "repeated_frontier": false,
+        "repeated_identity": false,
+        "selected_query_only_fallback_count": 0
+      },
+      {
+        "D": 1,
+        "arm": "A1",
+        "constant_association_state": false,
+        "m": 5,
+        "repeated_frontier": false,
+        "repeated_identity": false,
+        "selected_query_only_fallback_count": 0
+      },
+      {
+        "D": 1,
+        "arm": "A2",
+        "constant_association_state": false,
+        "m": 5,
+        "repeated_frontier": false,
+        "repeated_identity": false,
+        "selected_query_only_fallback_count": 0
+      },
+      {
+        "D": 2,
+        "arm": "A1",
+        "constant_association_state": false,
+        "m": 3,
+        "repeated_frontier": false,
+        "repeated_identity": false,
+        "selected_query_only_fallback_count": 0
+      },
+      {
+        "D": 2,
+        "arm": "A2",
+        "constant_association_state": false,
+        "m": 3,
+        "repeated_frontier": false,
+        "repeated_identity": false,
+        "selected_query_only_fallback_count": 0
+      },
+      {
+        "D": 2,
+        "arm": "A1",
+        "constant_association_state": false,
+        "m": 5,
+        "repeated_frontier": false,
+        "repeated_identity": false,
+        "selected_query_only_fallback_count": 0
+      },
+      {
+        "D": 2,
+        "arm": "A2",
+        "constant_association_state": false,
+        "m": 5,
+        "repeated_frontier": false,
+        "repeated_identity": false,
+        "selected_query_only_fallback_count": 0
+      },
+      {
+        "D": 3,
+        "arm": "A1",
+        "constant_association_state": false,
+        "m": 3,
+        "repeated_frontier": false,
+        "repeated_identity": false,
+        "selected_query_only_fallback_count": 0
+      },
+      {
+        "D": 3,
+        "arm": "A2",
+        "constant_association_state": false,
+        "m": 3,
+        "repeated_frontier": false,
+        "repeated_identity": false,
+        "selected_query_only_fallback_count": 0
+      },
+      {
+        "D": 3,
+        "arm": "A1",
+        "constant_association_state": false,
+        "m": 5,
+        "repeated_frontier": false,
+        "repeated_identity": false,
+        "selected_query_only_fallback_count": 0
+      },
+      {
+        "D": 3,
+        "arm": "A2",
+        "constant_association_state": false,
+        "m": 5,
+        "repeated_frontier": false,
+        "repeated_identity": false,
+        "selected_query_only_fallback_count": 0
+      }
+    ],
+    "constant_association_cells": 0,
+    "feedback_cycles_in_graph": true,
+    "graph_cyclomatic_number": 558,
+    "query_only_fallback_selected_total": 0,
+    "repeated_frontier_or_identity_cells": 0,
+    "status": "PASS"
+  },
+  "gate_ordering": {
+    "evidence_implementation_commit": "cc9033e673b62acad05437dab846fd6f89850a35",
+    "head_at_preflight_execution": "e796617d32468601c0ac844e4e61cbea028947de",
+    "ordered_commits": [
+      "12f5a3f2d59c3e6910d10b848566661f4d660503",
+      "ff8963a6c8bb86063dd17ca6f59e3f1db97b77af",
+      "0ee600f27a6c63c014cfdf668b9116377b084b6f",
+      "b56af45382e73350418b8d8eae713664722319d2",
+      "efab6605bfceb3d87dbc6f211572e29da536a9fe",
+      "1a2702eec9e4a344d95adfc261ac1c2e50efc088",
+      "e966f7df54b909c24ddca38b9df34216420b6b3e",
+      "230a2cd7a5f38d857d53d543ef572f9d79d3e6d5",
+      "086e5d94a963e658818aa213e647b6ca8645ae78",
+      "680ce6aa0e4d406f32ec25fee4b8b8d0ad2d9bcc",
+      "09631a0f1058139e9e71e293f8ee813effae2eb8",
+      "80a5886a2001ed20d7dbe92bd51fba9b7cff3366",
+      "5e905f1505d0aeb5d4f6910b6d056a962fa0f1ca"
+    ],
+    "status": "PASS"
+  },
+  "identity_reproduction": {
+    "cell_count": 24,
+    "cells": [
+      {
+        "D": 0,
+        "arm": "A0",
+        "candidate_sha256": true,
+        "m": 3,
+        "payload_sha256": true,
+        "selected_sha256": true
+      },
+      {
+        "D": 0,
+        "arm": "A1",
+        "candidate_sha256": true,
+        "m": 3,
+        "payload_sha256": true,
+        "selected_sha256": true
+      },
+      {
+        "D": 0,
+        "arm": "A2",
+        "candidate_sha256": true,
+        "m": 3,
+        "payload_sha256": true,
+        "selected_sha256": true
+      },
+      {
+        "D": 0,
+        "arm": "A0",
+        "candidate_sha256": true,
+        "m": 5,
+        "payload_sha256": true,
+        "selected_sha256": true
+      },
+      {
+        "D": 0,
+        "arm": "A1",
+        "candidate_sha256": true,
+        "m": 5,
+        "payload_sha256": true,
+        "selected_sha256": true
+      },
+      {
+        "D": 0,
+        "arm": "A2",
+        "candidate_sha256": true,
+        "m": 5,
+        "payload_sha256": true,
+        "selected_sha256": true
+      },
+      {
+        "D": 1,
+        "arm": "A0",
+        "candidate_sha256": true,
+        "m": 3,
+        "payload_sha256": true,
+        "selected_sha256": true
+      },
+      {
+        "D": 1,
+        "arm": "A1",
+        "candidate_sha256": true,
+        "m": 3,
+        "payload_sha256": true,
+        "selected_sha256": true
+      },
+      {
+        "D": 1,
+        "arm": "A2",
+        "candidate_sha256": true,
+        "m": 3,
+        "payload_sha256": true,
+        "selected_sha256": true
+      },
+      {
+        "D": 1,
+        "arm": "A0",
+        "candidate_sha256": true,
+        "m": 5,
+        "payload_sha256": true,
+        "selected_sha256": true
+      },
+      {
+        "D": 1,
+        "arm": "A1",
+        "candidate_sha256": true,
+        "m": 5,
+        "payload_sha256": true,
+        "selected_sha256": true
+      },
+      {
+        "D": 1,
+        "arm": "A2",
+        "candidate_sha256": true,
+        "m": 5,
+        "payload_sha256": true,
+        "selected_sha256": true
+      },
+      {
+        "D": 2,
+        "arm": "A0",
+        "candidate_sha256": true,
+        "m": 3,
+        "payload_sha256": true,
+        "selected_sha256": true
+      },
+      {
+        "D": 2,
+        "arm": "A1",
+        "candidate_sha256": true,
+        "m": 3,
+        "payload_sha256": true,
+        "selected_sha256": true
+      },
+      {
+        "D": 2,
+        "arm": "A2",
+        "candidate_sha256": true,
+        "m": 3,
+        "payload_sha256": true,
+        "selected_sha256": true
+      },
+      {
+        "D": 2,
+        "arm": "A0",
+        "candidate_sha256": true,
+        "m": 5,
+        "payload_sha256": true,
+        "selected_sha256": true
+      },
+      {
+        "D": 2,
+        "arm": "A1",
+        "candidate_sha256": true,
+        "m": 5,
+        "payload_sha256": true,
+        "selected_sha256": true
+      },
+      {
+        "D": 2,
+        "arm": "A2",
+        "candidate_sha256": true,
+        "m": 5,
+        "payload_sha256": true,
+        "selected_sha256": true
+      },
+      {
+        "D": 3,
+        "arm": "A0",
+        "candidate_sha256": true,
+        "m": 3,
+        "payload_sha256": true,
+        "selected_sha256": true
+      },
+      {
+        "D": 3,
+        "arm": "A1",
+        "candidate_sha256": true,
+        "m": 3,
+        "payload_sha256": true,
+        "selected_sha256": true
+      },
+      {
+        "D": 3,
+        "arm": "A2",
+        "candidate_sha256": true,
+        "m": 3,
+        "payload_sha256": true,
+        "selected_sha256": true
+      },
+      {
+        "D": 3,
+        "arm": "A0",
+        "candidate_sha256": true,
+        "m": 5,
+        "payload_sha256": true,
+        "selected_sha256": true
+      },
+      {
+        "D": 3,
+        "arm": "A1",
+        "candidate_sha256": true,
+        "m": 5,
+        "payload_sha256": true,
+        "selected_sha256": true
+      },
+      {
+        "D": 3,
+        "arm": "A2",
+        "candidate_sha256": true,
+        "m": 5,
+        "payload_sha256": true,
+        "selected_sha256": true
+      }
+    ],
+    "passing_cell_count": 24,
+    "status": "PASS"
+  },
+  "input_counts": {
+    "content_hashes": 119,
+    "gram_shape": [
+      119,
+      119
+    ],
+    "q11_cosines": 119,
+    "registered_cells": 24,
+    "targeted_query_vectors": 0,
+    "unique_content_hashes": 119
+  },
+  "input_inventory": [
+    {
+      "bytes": 5637,
+      "path": "experiments/components/retrieval_mechanism_ledger/E006_PART3_REV3_ASSOCIATIVE_FRONTIER_EVIDENCE.md",
+      "sha256": "50dc8f74ea08cd41a92e8dd40360496a79bfccb7c2f11da8c424a192f8227030"
+    },
+    {
+      "bytes": 1319,
+      "path": "experiments/components/retrieval_mechanism_ledger/E006_PART3_REV3_AUTHORIZATION.md",
+      "sha256": "3c2ed543ca79a5cef404d1af763044bbecd9cb94176c0390285d7126b3375253"
+    },
+    {
+      "bytes": 20543,
+      "path": "experiments/components/retrieval_mechanism_ledger/E006_PART3_S1_ASSOCIATIVE_FRONTIER_EXPLORATION.md",
+      "sha256": "4dd7f79de95e61becb7e8647505a9a08adff4d21a2c93b71dace5f978c941723"
+    },
+    {
+      "bytes": 1386,
+      "path": "experiments/components/retrieval_mechanism_ledger/E006_PART3_S1_EXPLORATION_AUTHORIZATION.md",
+      "sha256": "9c02218890bedbed2f18c9c0056721bb6aad6223b81dd3d8fd6f5643806b030c"
+    },
+    {
+      "bytes": 1140817,
+      "path": "experiments/components/retrieval_mechanism_ledger/artifacts/e006_p3_exploration/exploration.json",
+      "sha256": "90e1054cb9ab2408317d8d4c2cc2742183c144dc190d2ad8bbafe88b1f076ea3"
+    },
+    {
+      "bytes": 54722,
+      "path": "experiments/components/retrieval_mechanism_ledger/artifacts/e006_p3_reproduction_rev2/reproduction.json",
+      "sha256": "43650e5d6c20baa872eb9b71013cfed45c325ee55279c136a96df367d30f6281"
+    },
+    {
+      "bytes": 17131,
+      "path": "experiments/components/retrieval_mechanism_ledger/artifacts/e006_p3_tier4a_capture/capture_manifest.json",
+      "sha256": "2c24ea75d7551beb6658d8b9208225b985e25a9111cfd3766ec4f7980a7f18e4"
+    },
+    {
+      "bytes": 249856,
+      "path": "experiments/components/retrieval_mechanism_ledger/artifacts/e006_p3_tier4a_capture/query_vectors.sqlite",
+      "sha256": "d9741edb0545d8cfe050663340599a31813d6025c38f0467e0ec7671573a1e6a"
+    },
+    {
+      "bytes": 1978368,
+      "path": "experiments/surveys/retrieval_bakeoff/tier6/runs/tier6_live_121_corrected_001/context_matched_stm/study.db",
+      "sha256": "5da47ea3fc2c8e3dcc50fa380ff65202d82557905d9976117e9e5d82e55c1c41"
+    },
+    {
+      "bytes": 10642,
+      "path": "experiments/components/retrieval_mechanism_ledger/artifacts/rd001/full_rank_inventory.csv",
+      "sha256": "8d6f9eee6ebe232608981aac0c0d4816eaec4710ae551db028ae0b323253ac03"
+    },
+    {
+      "bytes": 5164,
+      "path": "episodic/src/episodic/_packing.py",
+      "sha256": "c5011dada056fa0106544925c75d849c3d5b4857b6c5010ed4b604f9c3d2af04"
+    },
+    {
+      "bytes": 2022,
+      "path": "episodic/src/episodic/_render.py",
+      "sha256": "d0bdc051695fe98064bad9ecc52afe0178bba1ba8a3edf7e3a1960d5f261cf6f"
+    },
+    {
+      "bytes": 7858,
+      "path": "src/retrieval_mechanism_ledger/e006_p3.py",
+      "sha256": "8bb02f16dd6d07cda0d050289dab6ab939e9cf7048d14564b8e71dfbd3347030"
+    },
+    {
+      "bytes": 15240,
+      "path": "src/analysis/e006_p3_offline.py",
+      "sha256": "2d94a6e5705cf42a58371f8071cb8606b3b1c7ef37f3f7c1faad5330e1656c30"
+    },
+    {
+      "bytes": 20538,
+      "path": "experiments/components/retrieval_mechanism_ledger/artifacts/e006_part2_preflight/preflight.json",
+      "sha256": "ae78582c4116800fcaabb9286af1af262c5f34b7f42ed2990fd3f11d51369fa9"
+    }
+  ],
+  "mechanism_seal": {
+    "forbidden_tokens_found": [],
+    "imports": [
+      "__future__",
+      "dataclasses",
+      "typing",
+      "numpy",
+      "e006"
+    ],
+    "path_interface": "none; mechanism accepts arrays and canonical hashes only",
+    "planted_measurement_path_rejected": true,
+    "source_sha256": "8bb02f16dd6d07cda0d050289dab6ab939e9cf7048d14564b8e71dfbd3347030",
+    "status": "PASS"
+  },
+  "outcome_labels_opened": false,
+  "stage": "PF1-PF10 after Part 1 exploration",
+  "status": "PASS",
+  "study": "E006-P3",
+  "surrogate_audit": [
+    {
+      "false_property": "Correct input identity",
+      "interpretation": "Counts can match altered bytes; require SHA-256.",
+      "observation": "PF1 input counts"
+    },
+    {
+      "false_property": "New mechanism",
+      "interpretation": "Monotone transforms can differ numerically; require recurrence and payload non-identity.",
+      "observation": "PF2 different ranking"
+    },
+    {
+      "false_property": "Correct gate order",
+      "interpretation": "Presence does not prove ancestry; enforce git ancestor order and call order.",
+      "observation": "PF3 committed files"
+    },
+    {
+      "false_property": "Likely empirical pass",
+      "interpretation": "Only proves logic is reachable, not that Q11 will pass.",
+      "observation": "PF4 synthetic reachability"
+    },
+    {
+      "false_property": "Correct content",
+      "interpretation": "Hashes certify equality identity, not factual relevance.",
+      "observation": "PF5 unique hashes"
+    },
+    {
+      "false_property": "General reproducibility",
+      "interpretation": "Only the two committed historical paths reproduce.",
+      "observation": "PF6 144/144 and 8/8"
+    },
+    {
+      "false_property": "No absorbing behavior",
+      "interpretation": "Query-only fallback or constant scores can absorb without repeated identities.",
+      "observation": "PF7 no repeats"
+    },
+    {
+      "false_property": "Cross-turn adequacy",
+      "interpretation": "One Q11 trace cannot detect cross-turn persistence.",
+      "observation": "PF8 full depth"
+    },
+    {
+      "false_property": "All surrogates eliminated",
+      "interpretation": "Accepted one-corpus and post-result residuals remain.",
+      "observation": "PF9 audit rows"
+    },
+    {
+      "false_property": "Answer validity",
+      "interpretation": "A caveat does not supply live evidence.",
+      "observation": "PF10 offline statement"
+    },
+    {
+      "false_property": "Equal delivered volume",
+      "interpretation": "Episodes and exact characters can differ after packing.",
+      "observation": "Equal candidate count"
+    },
+    {
+      "false_property": "Packed delivery gain",
+      "interpretation": "The packer can discard gained episodes.",
+      "observation": "Candidate fact gain"
+    },
+    {
+      "false_property": "Better associative cue",
+      "interpretation": "Greater characters or episodes remain a volume explanation.",
+      "observation": "Packed fact gain"
+    },
+    {
+      "false_property": "Targeted safety",
+      "interpretation": "No targeted traces exist.",
+      "observation": "Four-domain breadth"
+    },
+    {
+      "false_property": "Answer improvement",
+      "interpretation": "Availability is not answer correctness.",
+      "observation": "Deterministic replay"
+    }
+  ],
+  "threshold_reachability": {
+    "interpretation": "Logic reachability only; no Q11 labels were read.",
+    "status": "PASS",
+    "synthetic_witnesses": {
+      "DIFFERENTIATED_OFFLINE_DELIVERY": "DIFFERENTIATED_OFFLINE_DELIVERY",
+      "NO_DIFFERENTIATED_CUE": "NO_DIFFERENTIATED_CUE",
+      "REACH_ONLY_NOT_DELIVERED": "REACH_ONLY_NOT_DELIVERED",
+      "VOLUME_CONSISTENT_PACKED_GAIN": "VOLUME_CONSISTENT_PACKED_GAIN"
+    }
+  },
+  "zero_additional_embedding_calls": true,
+  "zero_model_generation_calls": true
+}

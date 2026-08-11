@@ -15,6 +15,16 @@ Ten pre-registered studies test that question, each adding one memory component 
 
 > **Status:** Study 010 stopped at G2; exploratory continuation unaudited and LTM budget-noncompliant | retrieval bakeoff complete | retrieval mechanism ledger reopened for Family CS; E005 is killed by LV-001's live targeted-regression bar, DX-001 closes NO CHANGE, RD-001 stops before correlation because unchanged rarity scores cover only 6/76 fact-bearing episodes, and chained retrieval Rev5 is CHARACTERIZED offline at 9/17 versus X0 6/17 but misses art 0/4 and has no targeted no-regression arm | EC-001 LongMemEval complete: inversion not dominant, Codex-substituted score only | EC-002 complete: K-first packing raises any-session recall 109/470 -> 261/470 offline; no production promotion authorized | IC-001 Branch A: the same gate is closed internally — K delivered nothing at 8/8 probes under the deployed order; Q11 6/17 -> 7/17, targeted 14/21 -> 18/21, zero losses; cache clause substituted under authorized Amendment 001; no recalibration authorized | Study 011 tests both halves live and splits them: the deployed arm scores identically to recency-only on all 13 questions, so the similarity tier is inert in deployment, but K-first raises availability and scores 7.0 vs 8.0 — B1 FAILS and the packing correction is not adopted; post-unseal analysis finds the N tier is a least-recently-delivered rotation over the whole store, not a recency window, and that the rule every live run through Study 010 used was a block locked onto the conversation's first nine turns; three different rules carry that name and only the extracted library's is a window | Amendment 001 authorized and run: the instrument's run-to-run band is **3.0 points on 13**, measured by five identical arm-D replicates that score 8.0, 8.0, 8.0, 8.0 and 11.0 — a switch, not a spread, since four are byte-identical across 121 turns and the one meeting an empty server slot diverges at turn 1; Study 009's 3.0, LV-001's -2.0 and Study 011's -1.0 are all re-read as **not demonstrated**, while every offline count is untouched and B1 stays fired | CC-002 extracts the deployable component into `episodic`; CC-006 adds exact hashed vector-cache reuse | deployment closeout complete | PAPER-001 revised through Study 011 | scoring/interpretation record corrected through 2026-08-05
 
+> **E006-P3 closeout:** Query-anchored associative-frontier retrieval is
+> `NO_DIFFERENTIATED_CUE - CHARACTERIZED`: 5/17 packed facts at primary
+> `D=2, m=5`, versus A0's 7/17 and A1's 9/17; no targeted claim, live run,
+> promotion, or adoption.
+
+> **E006-P3 Rev4 construct repair:** `PATTERNS_NOT_STORED - CHARACTERIZED`.
+> Canonical Hebbian recurrence stores 0/119 real episode codes as fixed points
+> and converges into six spurious attractors. Preflight stops at Part 1; the
+> original P3 result is unchanged and Q11 is not entered.
+
 ## The Problem
 
 A long conversation forces a bad trade. Keep the full transcript and the model gets slower and loses the middle. Summarise it and details disappear permanently.
@@ -143,6 +153,22 @@ independent vector route to `9.5e-15`; all remaining gates pass. Chaining raises
 single-shot `top_m` from 3/17 and deployed X0 from 6/17 to 9/17, but considers
 15-20 candidates, selects 12 episodes, and still delivers 0/4 art facts. With no
 targeted cosine traces, the result is `CHARACTERIZED`, not promoted or adopted.
+
+E006 Part 3 then tested a query-anchored associative frontier over the exact
+cosine top-8 graph. At the primary `D=2, m=5` cell, all three arms admitted 15
+candidates, but the frontier carried only 5/17 facts, all civil, versus A0's
+9 candidate/7 packed facts and A1's 9/9. Its best cell reached 6/17 and no cell
+recovered an art fact. The registered disposition is
+`NO_DIFFERENTIATED_CUE - CHARACTERIZED`; there is no targeted claim, live run,
+promotion, adoption, or deployment change.
+
+Rev 4 then repaired the construct rather than the result. A learned symmetric
+Hebbian recurrence passed its synthetic reachability fixture, but none of the
+119 population-centered episode codes was a fixed point. All trajectories
+converged with falling energy into six spurious attractors. The result is
+`PATTERNS_NOT_STORED - CHARACTERIZED` and stops at Preflight Part 1 before
+one-bit recovery or Q11. Balanced feature marginals were not pattern separation;
+the original semantic-frontier result remains unchanged.
 
 A provenance follow-up also withdraws the categorical claim that IDF ranked the
 hard plants worse than density. Mean IDF did so for all five eligible spans, but
