@@ -1,6 +1,6 @@
 # Retrieval Mechanism Ledger Closeout
 
-**Status:** CLOSED; extended through PS-003
+**Status:** CLOSED; extended through SR-001
 **Date:** 2026-08-11
 **Scope:** Offline retrieval mechanisms after the retrieval bakeoff
 **Prospective design anchors:** `b42f4f81` (ledger and E002 protocol);
@@ -236,6 +236,25 @@ has 2 gains, 6 losses, and 16 ties. Lookup macro recall falls
 ablation, live run, promotion, or adoption is authorized. See
 `TA_001_REPORT.md` and `artifacts/ta001_measurement/results.json`.
 
+## SR-001 extractive span representation
+
+SR-001 separates BA-001's representation and ranking changes. Both arms receive
+the same complete episode identities and source scores under 32,000 characters.
+C0 packs whole episodes; T1 packs every faithful sentence span while preserving
+source rank and grouping.
+
+The isolated representation change fails. Q11 falls 8/17->4/17 and targeted
+matched facts fall 19->17. Across 24 queries there are 0 gains, 2 losses, and
+22 ties; enumeration remains 0.0625. T1 fits 85-95 spans but reaches only 3-7
+unique sources, versus C0's 7-11 episodes, because exhaustive spans and markup
+consume the budget inside the highest-ranked sources.
+
+G3 closes `NO_BROAD_GAIN - CHARACTERIZED`; G4 and G5 also fail. No ablation,
+live run, promotion, or adoption is authorized. BA-001's historical 10 gains
+and 0.625 enumeration result therefore depend on span-level ranking or
+selection, not smaller serialization units alone. See `SR_001_REPORT.md` and
+`artifacts/sr001_measurement/results.json`.
+
 ## Verification
 
 The 19 focused E001/E002 tests pass. On 2026-07-31 the permanently failing
@@ -263,6 +282,15 @@ deterministic digest
 The full checkout passes 1,529 tests and has eight inherited CRLF-versus-LF
 hash failures in BA-001, PS-001, and PS-003; no locked check was weakened.
 
+SR-001 passes `18/18` focused tests. Two corrected fresh Part 1 processes
+reproduce deterministic digest
+`7F4F04FFF4937E81A75A1C44B4CC219497943BAFF7288E379EBDA835A5DD6776`;
+PF1-PF10 pass. Amendment 001 preserves the failed numerical-reproduction
+artifact and anchors three historical six-decimal display scores without
+changing source order or gates. The full checkout passes 1,544 tests and has
+11 inherited Windows CRLF-versus-LF hash failures in BA-001, PS-001, PS-003,
+and TA-001; no locked check was weakened.
+
 ## Evidence
 
 - E002 design: `E002_segmented_query_protocol.md`
@@ -288,6 +316,10 @@ hash failures in BA-001, PS-001, and PS-003; no locked check was weakened.
 - TA-001 result: `TA_001_REPORT.md`
 - TA-001 artifacts: `artifacts/ta001_exploration/`,
   `artifacts/ta001_preflight/`, and `artifacts/ta001_measurement/`
+- SR-001 design: `SR_001_EXTRACTIVE_SPAN_REPRESENTATION.md`
+- SR-001 result: `SR_001_REPORT.md`
+- SR-001 artifacts: `artifacts/sr001_exploration/`,
+  `artifacts/sr001_preflight/`, and `artifacts/sr001_measurement/`
 
 Design and disposition commits precede implementation and output. E002 output
 is anchored by `dfdb257e`; E001 capture by `dbbf7617`; E001 analysis by

@@ -2,7 +2,7 @@
 
 **Type:** Living working document. Not a pre-registration, not a spec, not a study.
 **Repository:** `contextDecayWindow` (memory track). **Track 2 only.**
-**Status:** OPEN - extended through TA-001 on August 11, 2026
+**Status:** OPEN - extended through SR-001 on August 11, 2026
 **Purpose:** One place where candidate retrieval mechanisms are recorded, checked against the failure data, and either promoted to a cheap test or buried. Replaces ad-hoc specs. **Nothing here is authorized work until it has a passing decisive test.**
 
 ---
@@ -566,6 +566,13 @@ eviction work in `CC_001`?
 
 ## 8. Scan disposition
 
+- Extractive span representation: **G3 FAIL; NO_BROAD_GAIN,
+  CHARACTERIZED.** SR-001 holds the complete source ranking and 32,000-character
+  ceiling fixed, then changes only the packable unit. Source-grouped spans
+  reduce Q11 8/17->4/17 and targeted matched facts 19->17, with 0 gains,
+  2 losses, and 22 ties; enumeration remains 0.0625. BA-001's span signal
+  therefore requires span-level ranking or selection. G3 blocks ablation, live
+  evaluation, promotion, and adoption. See `SR_001_REPORT.md`.
 - Temporal-adjacency bridge: **G5 FAIL; TARGETED_REGRESSION,
   CHARACTERIZED.** TA-001 interleaves each direct-query seed with its eligible
   radius-1 source-turn neighbors under matched 15-candidate and 32,000-character
@@ -655,7 +662,10 @@ eviction work in `CC_001`?
 
 ---
 
-*Opened July 29, 2026. Revision 22, August 11, 2026 - TA-001 recovers Q11 art
+*Opened July 29, 2026. Revision 23, August 11, 2026 - SR-001 isolates span
+representation from span ranking. Fixed-rank spans reduce Q11 8/17->4/17 and
+targeted facts 19->17, with zero gains; G3 blocks ablation and live evaluation.
+Revision 22, August 11, 2026 - TA-001 recovers Q11 art
 0/4->4/4 and packed facts 7/17->9/17 under matched opportunity, but targeted
 queries produce 2 gains, 6 losses, and 16 ties. G5 blocks ablation and live
 evaluation. Revision 21, August 11, 2026 - PS-003 passes safe
