@@ -1,0 +1,299 @@
+{
+  "check_order": [
+    "PF1",
+    "PF2",
+    "PF3",
+    "PF4",
+    "PF5",
+    "PF6",
+    "PF7",
+    "PF8",
+    "PF9",
+    "PF10"
+  ],
+  "checks": {
+    "PF1": {
+      "anchors": {
+        "answer_key": {
+          "bytes": 9832,
+          "path": "experiments/surveys/retrieval_bakeoff/holdout/answer_key_121.json",
+          "sha256": "2d43a31d3c04f4ad690ff2910abde71f508a3f6ce776545a9f2b16f90fae5320"
+        },
+        "database": {
+          "bytes": 1978368,
+          "path": "experiments/surveys/retrieval_bakeoff/tier6/runs/tier6_live_121_corrected_001/context_matched_stm/study.db",
+          "sha256": "5da47ea3fc2c8e3dcc50fa380ff65202d82557905d9976117e9e5d82e55c1c41"
+        },
+        "design": {
+          "bytes": 16275,
+          "path": "experiments/components/retrieval_mechanism_ledger/PS_003_AMBIGUOUS_CUE_RESOLUTION.md",
+          "sha256": "32cfe67eef9b21478faa40352c8d607e1fa6cf417ba9f89063f2b046306405a0"
+        },
+        "determinism": {
+          "bytes": 455,
+          "path": "experiments/components/retrieval_mechanism_ledger/artifacts/ps003_exploration/two_process_determinism.json",
+          "sha256": "dd9656e88356896571c83fe2f283ad809d1ce8130851f4aced0448e7694ffcbc"
+        },
+        "exploration": {
+          "bytes": 11157,
+          "path": "experiments/components/retrieval_mechanism_ledger/artifacts/ps003_exploration/part1_process_1/exploration.json",
+          "sha256": "9c1e2d08d92374eb6c51834b295fb5db041e24c3d837c5eccddc49195a483ca6"
+        },
+        "exploration_source": {
+          "bytes": 27216,
+          "path": "src/analysis/ps003_exploration.py",
+          "sha256": "42ac9d9228079af587d67b7cc85ffd3ea00c565c9d1e45edaaadde23cb302f0d"
+        },
+        "final_design": {
+          "bytes": 2469,
+          "path": "experiments/components/retrieval_mechanism_ledger/PS_003_FINAL_DESIGN.md",
+          "sha256": "194dc5b7cc296c5ad8814080310c52f288bb5216517263660136a0a274f05c14"
+        },
+        "manifest": {
+          "bytes": 1305,
+          "path": "experiments/components/retrieval_mechanism_ledger/artifacts/ps003_exploration/part1_process_1/artifact_manifest.json",
+          "sha256": "89a39897ad1101573e0525221f6c2eb7732ba83f1cf1cb5555bd552b6ec32764"
+        },
+        "mechanism_source": {
+          "bytes": 10677,
+          "path": "src/retrieval_mechanism_ledger/ps003.py",
+          "sha256": "c9646871737126a4fb131306245599f537de78c2b456a91ea61b6b9a43a85ccb"
+        },
+        "part1_authorization": {
+          "bytes": 968,
+          "path": "experiments/components/retrieval_mechanism_ledger/PS_003_AUTHORIZATION.md",
+          "sha256": "871a9a5f6b7351a5df493817032c88ea92f33f11125cb406c9c8d45b1c960497"
+        },
+        "part2_authorization": {
+          "bytes": 1000,
+          "path": "experiments/components/retrieval_mechanism_ledger/PS_003_PART2_AUTHORIZATION.md",
+          "sha256": "b909a9e2693bb8b4881bd2e1d713a6b54b949bca3d89430923e5c57d1b7bde35"
+        },
+        "preflight_source": {
+          "bytes": 20842,
+          "path": "src/analysis/ps003_preflight.py",
+          "sha256": "f4bc72437a39080071bcf85a74fdf4ee94a4a9e1679c941a8ac7eeb46074d97b"
+        },
+        "query_cache": {
+          "bytes": 249856,
+          "path": "experiments/components/retrieval_mechanism_ledger/artifacts/e006_p3_tier4a_capture/query_vectors.sqlite",
+          "sha256": "d9741edb0545d8cfe050663340599a31813d6025c38f0467e0ec7671573a1e6a"
+        },
+        "query_capture_manifest": {
+          "bytes": 17131,
+          "path": "experiments/components/retrieval_mechanism_ledger/artifacts/e006_p3_tier4a_capture/capture_manifest.json",
+          "sha256": "2c24ea75d7551beb6658d8b9208225b985e25a9111cfd3766ec4f7980a7f18e4"
+        },
+        "query_manifest": {
+          "bytes": 4231,
+          "path": "experiments/surveys/retrieval_bakeoff/holdout/queries_121.json",
+          "sha256": "ae950fda20dce9f519f31ee2670a815a5599648cab618d42309db7e3f23d36f4"
+        },
+        "selected_cell": {
+          "bytes": 1068,
+          "path": "experiments/components/retrieval_mechanism_ledger/artifacts/ps003_exploration/part1_process_1/cells/p5_s4/cell_result.json",
+          "sha256": "3e2d28cf743868d88eff3b984403018d1066a334ca1b73b95b0b4718d2855803"
+        },
+        "selected_traces": {
+          "bytes": 974356,
+          "path": "experiments/components/retrieval_mechanism_ledger/artifacts/ps003_exploration/part1_process_1/cells/p5_s4/traces.jsonl",
+          "sha256": "d3a86d8ba6f6d323e8275eeb2ba8ff2416d3008e3b799d4b7ab0c698dee275d0"
+        }
+      },
+      "answer_key_inventory": {
+        "classification": "MEASUREMENT_ONLY",
+        "fact_count": 28,
+        "query_count": 24,
+        "status": "LOCKED_BEFORE_REGISTERED_TESTS"
+      },
+      "episode_inventory": {
+        "content_sequence_sha256": "f566b2df774232d7778ec2ff105531ad2cdfb2f8e2ce15556713376b52cef751",
+        "database_bytes": 1978368,
+        "database_path": "experiments/surveys/retrieval_bakeoff/tier6/runs/tier6_live_121_corrected_001/context_matched_stm/study.db",
+        "database_sha256": "5da47ea3fc2c8e3dcc50fa380ff65202d82557905d9976117e9e5d82e55c1c41",
+        "episode_count": 119,
+        "normalized_float64_sha256": "2ed0cc29b0de9b54bf80bbd800123938ecaac2353b3e01ece37e397b6844e27b",
+        "normalized_float64_shape": [
+          119,
+          1024
+        ],
+        "raw_float32_sha256": "b4715d78d56b04254859ee7fad5343141f51da8caca98f1043d07c45fad30f08",
+        "raw_float32_shape": [
+          119,
+          1024
+        ],
+        "source_turn_max": 119,
+        "source_turn_min": 1,
+        "source_turn_sequence_sha256": "26505fa6c9441ee63dff2d869825bd8d20041174abdfaef2f47b9af80496e628"
+      },
+      "manifest": {
+        "failures": [],
+        "file_count": 10,
+        "status": "PASS"
+      },
+      "query_inventory": {
+        "cache_metadata": {
+          "cache_version": "episodic-embedding-cache-v1",
+          "call_shape": "solo",
+          "dimension": "1024",
+          "dtype": "float32",
+          "model_sha256": "06507c7b42688469c4e7298b0a1e16deff06caf291cf0a5b278c308249c3e439"
+        },
+        "query_count": 24,
+        "query_id_sequence_sha256": "a55312befcb7d338b17b3ffc03b4319a9e4195cb244b6b0eccaed59db3c0a939",
+        "query_text_sequence_sha256": "7094994922383bf3c2f71bb279298cd71d02ad2676196f452a44afbbe2b65caa",
+        "query_vector_sequence_sha256": "ef93fcf5ba0ab16bb89d67377c9f9fe6fb8729f7b2ab4c4f30770f3cd6263dac"
+      },
+      "status": "PASS"
+    },
+    "PF10": {
+      "generation_authorized": false,
+      "live_score_authorized": false,
+      "offline_availability_is_answer_verdict": false,
+      "separate_live_study_required": true,
+      "status": "PASS",
+      "zero_embedding_requests": 0,
+      "zero_model_generation_calls": 0
+    },
+    "PF2": {
+      "behavioral_identity": "one query -> repeated PS-002 mixed cue -> five local probes -> unanimous one-stored-code acceptance or rejection",
+      "byte_identical_committed_traces": true,
+      "executed_attempt_count": 197,
+      "executed_probe_count": 985,
+      "executed_query_count": 24,
+      "selected_configuration": {
+        "probe_count": 5,
+        "swap_count": 4
+      },
+      "status": "PASS"
+    },
+    "PF3": {
+      "adjacent_ancestry": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "commit_order": [
+        "63a0937bc303ee9eac595a84fb3780d12ebe6500",
+        "d77109bdfbc342104701e8b881d64f95127ee8af",
+        "1a40655fcdecfd9739e269e4a022bb051faf2792",
+        "fac01c426370fc7fc2be8644804190632c0bf782",
+        "2f370013e9f6d6c37cc7e684a7b2210d7980f696",
+        "4f5cdc4abb91dd69672c9aa7296fca1d2ef53c6b",
+        "bca34385f26a8f8fed511c12232bddfa65cbb877",
+        "cafc2660adc91223cff3847b5e55ae92bcb1dc74"
+      ],
+      "measurement_requires_committed_pass_preflight": true,
+      "planted_label_parse_short_circuit": {
+        "bad_selected_digest_rejected": true,
+        "label_reader_called": false,
+        "status": "PASS"
+      },
+      "status": "PASS"
+    },
+    "PF4": {
+      "bars_reachable": {
+        "eight_outputs": true,
+        "lookup_9_of_12": true,
+        "per_domain_2_of_3": true
+      },
+      "reachability": {
+        "chained_query_count": 8,
+        "domains": [
+          "art",
+          "marine",
+          "monetary",
+          "structural"
+        ],
+        "enumeration_query_count": 4,
+        "fact_count": 28,
+        "lookup_ceiling": 12,
+        "lookup_query_count": 12,
+        "output_capacity": 8,
+        "per_domain_lookup_ceiling": 3,
+        "query_count": 24,
+        "query_required_fact_count_distribution": {
+          "maximum": 4,
+          "minimum": 1,
+          "total": 44
+        },
+        "status": "PASS",
+        "unreachable_fact_ids": []
+      },
+      "status": "PASS"
+    },
+    "PF5": {
+      "comparison_keys": [
+        "query_text_sha256",
+        "episode_content_sha256",
+        "code_sha256",
+        "cue_sha256",
+        "terminal_sha256",
+        "fact_id"
+      ],
+      "generated_ids_timestamps_paths_used_as_comparison_keys": false,
+      "status": "PASS"
+    },
+    "PF6": {
+      "ps001_mechanism_digest": "0d45ddd45980dbf3989a543136bad52d4f743f650f3c0af76e370f049b6c80cc",
+      "ps002_mechanism_digest": "cfca813a79ee96ee2949e9f567f9c5360acb30d410e37afd847ef65d5666e15c",
+      "ps002_strongest_digest": "b815c066f62b1a493c1168c89ee99f16fdb14c69464521b37ca83773cdd97348",
+      "ps003_selected_digest": "70b23e1d5b06af7ec1da797dca829ce6248a5816d2f8ab6d31518cb02a2c985b",
+      "ps003_two_process_digest": "7fc45bc03fe51c053fa20e561bf028f8f1dc52d8678271aa35afa090580394fd",
+      "status": "PASS"
+    },
+    "PF7": {
+      "complete_trace_identity": true,
+      "cycle_probe_count": 9,
+      "independently_replayed_probe_count": 985,
+      "runtime_guard_count": 0,
+      "spurious_probe_count": 5,
+      "status": "PASS",
+      "unsafe_base_cues": {
+        "bb2ccca6baafa7920e0e112cc4a34aded69c3b1d7e5370f52e77c33bfcada256": 1,
+        "daf89fd2e81596c34e742709e811b34d860e3c862a5337f224729f33da5ad662": 1
+      }
+    },
+    "PF8": {
+      "35_turn_live_ablation": "NOT_APPLICABLE_NO_INFERENCE_AUTHORIZED",
+      "cannot_detect": [
+        "other language or query wording",
+        "other stores or code seeds",
+        "long-run drift",
+        "live answer use"
+      ],
+      "detects": "lookup, two-memory, and four-memory cue behavior for 24 queries on this fixed 119-episode store",
+      "status": "PASS"
+    },
+    "PF9": {
+      "controls_retained": [
+        "direct cosine top-eight from semantic_order",
+        "PS-002 base cue and base terminal",
+        "five-probe consensus terminals",
+        "final eight emitted identities"
+      ],
+      "residuals": [
+        "unanimous stored identity can be irrelevant",
+        "local probes can be too similar to generalize",
+        "bounded retry can merely search farther down cosine order",
+        "offline evidence can be unused by a reader"
+      ],
+      "status": "PASS"
+    }
+  },
+  "outcome_ceiling": "CHARACTERIZED",
+  "preflight_payload_sha256": "29c5e47ed652e3ed62e53f903de3d97d57c678fff2c4638034b4890c41fa0e56",
+  "selected_configuration": {
+    "probe_count": 5,
+    "swap_count": 4
+  },
+  "stage": "Preflight Part 2 PF1-PF10",
+  "status": "PASS",
+  "study": "PS-003",
+  "zero_embedding_requests": 0,
+  "zero_model_generation_calls": 0
+}
