@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import hashlib
+from functools import lru_cache
 from pathlib import Path
 from typing import Iterable, Sequence
 
@@ -66,7 +67,8 @@ def rank_sources(
     return ranked
 
 
-def episode_to_spans(episode: Candidate) -> list[Candidate]:
+@lru_cache(maxsize=None)
+def _episode_to_spans_cached(episode: Candidate) -> tuple[Candidate, ...]:
     if episode.unit_type != "episode":
         raise ValueError("Only source episodes can be segmented")
     source_text = f"User: {episode.user_message}\nAssistant: {episode.assistant_message}"
@@ -81,7 +83,7 @@ def episode_to_spans(episode: Candidate) -> list[Candidate]:
     assert_span_offsets_faithful(source, spans)
     role_order = {"user": 0, "assistant": 1}
     spans.sort(key=lambda span: (role_order[span.role], span.start, span.end))
-    return [
+    return tuple(
         Candidate(
             candidate_id=(
                 f"span:{episode.source_episode_id}:{span.role}:"
@@ -98,7 +100,11 @@ def episode_to_spans(episode: Candidate) -> list[Candidate]:
             topic_label=episode.topic_label,
         )
         for span in spans
-    ]
+    )
+
+
+def episode_to_spans(episode: Candidate) -> list[Candidate]:
+    return list(_episode_to_spans_cached(episode))
 
 
 def source_rank_preserving_spans(
