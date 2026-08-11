@@ -54,6 +54,8 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **E006 Part 3 Rev4 autoassociation (2026-08-10).** STOP at Part 1, PATTERNS_NOT_STORED; CHARACTERIZED. Hebbian 1024-bit recurrence passes synthetic reachability but stores 0/119 real episode codes as fixed points. All converge into 6 spurious attractors; G4 and Q11 not entered. Balanced marginals did not provide pattern separation. Original P3 result unchanged.
 
+**BA-001 benchmark causal audit (2026-08-11).** COMPLETE, CHARACTERIZED. At matched 15 candidates, fixed query and chain contain identical 9/17 facts; the chain's 7->9 gain is packing only. Radius-1 adjacency reaches turn 55 and all 4 art facts (oracle only). Span vs whole episode gives 10 gains/0 losses. Art was stored/directly recalled; prior-conflict cause unidentified. No live run.
+
 **PS-001 pattern-separated engram formation (2026-08-11).** CHARACTERIZED. Nine deterministic sparse cells on 119 episodes; only D=4096,K=41 passed G3-G5: 119/119 fixed points and exact 1/10/30/50% swap recovery. Six of seven degenerates reached stored codes; the union-biased cue cycled. Code-space result only; no natural cue, retrieval, live run, promotion, or adoption.
 
 **PS-002 natural-language cue binding (2026-08-11).** STOP AT PART 1; NATURAL_CUES_NOT_BOUND, CHARACTERIZED. Nine label-blind cells ran 24 sealed queries x8 rounds. Best M=4,tau=.025 reached stored codes 190/192 but one cue cycled and one reached a spurious fixed point; no cell emitted 8 clean ids/query. Labels, PF1-PF10, answers, live run, promotion and adoption not entered.

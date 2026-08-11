@@ -311,6 +311,33 @@ Carry forward:
     unrecoverable. A0 is an aggregate reproduction under recomputed embeddings;
     A1 uses the retained CC-006-bound cache with zero misses/model calls.
 
+## BA-001 benchmark causal audit, 2026-08-11
+
+Carry forward:
+
+16. **E006's matched-volume gain is packing, not discovery.** At `D=2,m=5`,
+    fixed-query A0 and chained A1 each expose the exact same 9/17 facts in 15
+    candidates. A0 packs 7; A1 packs 9 because its order retains two civil
+    facts under 32,000 characters. The original X0 comparison also changed
+    candidate and selected volume. Do not cite 6/17 -> 9/17 as associative
+    evidence discovery.
+17. **The chain never implemented the reference model's storage substrate.**
+    E006 is iterative cosine pseudo-relevance feedback. It has no temporal or
+    learned episode edges, independent accessibility, replay mutation, capture,
+    or retrieval plasticity. Sequential cue updates are only a partial
+    resemblance to sequential replay.
+18. **Art is stored and directly recallable but not broadly cued.** Turn 55's
+    all-four bundle is cosine rank 87 for Q11. The chain reaches adjacent turn
+    54, so radius-1 adjacency exposes all four art facts as an oracle ceiling.
+    Corrected Study 007 and Study 009 L each score Q4-Q6 fully when directly
+    cued. LV-001 fabricates when both arms lack art evidence. Prior-conflict
+    causality remains unidentified.
+19. **Granularity is part of the benchmark mechanism.** On frozen `c121_l`,
+    span-dense versus whole-episode dense raises enumeration recall
+    0.0625 -> 0.6250 and art-domain macro recall 0.375 -> 0.750, with 10 query
+    gains and zero losses overall. This is offline association, not a live
+    effect, and must not be bundled with an adjacency component.
+
 Authoritative files:
 
 - `E006_rarity_diagnostic_and_chained_retrieval.md`
@@ -335,3 +362,7 @@ Authoritative files:
 - `artifacts/e002/e002_results.json`
 - `artifacts/e001/capture_001/capture_manifest.json`
 - `artifacts/e001/analysis_001/e001_results.json`
+- `BA_001_BENCHMARK_CAUSAL_AUDIT.md`
+- `BA_001_REPORT.md`
+- `artifacts/ba001/results.json`
+- `artifacts/ba001/manifest.json`
