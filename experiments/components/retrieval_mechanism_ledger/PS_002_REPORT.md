@@ -194,3 +194,7 @@ the targeted conflict-marker scan, and the 378-character AGENTS digest cap pass.
 ## ERRATA review
 
 No previously published number changes. `ERRATA.md` is unchanged.
+
+## Pull request
+
+Study PR: [#47](https://github.com/IdrisAppliedAIResearch/contextDecayWindow/pull/47)
