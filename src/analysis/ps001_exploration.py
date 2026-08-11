@@ -9,6 +9,7 @@ import importlib.util
 import json
 import os
 import platform
+import shutil
 import sqlite3
 import subprocess
 import sys
@@ -90,6 +91,7 @@ AMENDMENT_007_COMMIT = "637cb4129a98663368ee15aea5e46e5fc60bb8ab"
 AMENDMENT_008_COMMIT = "a8056e37d07d4503e7f2e5034e15ce7d4e9cbe8f"
 REV4_COMMIT = "0d98be7967329dd21b4aefbf706a3aaf435cd6f3"
 REV4_RESULT_SHA256 = "1942950078e0a7eb30619f66356e0373208372415b401b61a49dae6fe8cdaa78"
+REV4_DATABASE_SHA256 = "5da47ea3fc2c8e3dcc50fa380ff65202d82557905d9976117e9e5d82e55c1c41"
 PROJECTION_SEED = bytes.fromhex(
     "0448cb7290b285bf85aa856004bd6ccbe8124aa8e3f83eaaa0225519dd626362"
 )
@@ -315,6 +317,21 @@ def reproduce_rev4(worktree: Path, output: Path) -> dict[str, Any]:
         raise RuntimeError("Rev 4 control worktree is at the wrong commit")
     if _git("status", "--porcelain", cwd=worktree):
         raise RuntimeError("Rev 4 control worktree is dirty")
+    if sha256_file(DATABASE) != REV4_DATABASE_SHA256:
+        raise RuntimeError("Retained Rev 4 database source has the wrong digest")
+    control_database = worktree / DATABASE.relative_to(REPO_ROOT)
+    if control_database.exists():
+        if sha256_file(control_database) != REV4_DATABASE_SHA256:
+            raise RuntimeError(
+                "Rev 4 control database exists with an unexpected digest"
+            )
+    else:
+        control_database.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(DATABASE, control_database)
+    if sha256_file(control_database) != REV4_DATABASE_SHA256:
+        raise RuntimeError("Provisioned Rev 4 control database failed identity check")
+    if _git("status", "--porcelain", cwd=worktree):
+        raise RuntimeError("Provisioned Rev 4 input made the control worktree dirty")
     module_paths = _module_paths_in_worktree(worktree)
     generated = output.with_suffix(".generated.json")
     env = os.environ.copy()
@@ -386,8 +403,15 @@ def reproduce_rev4(worktree: Path, output: Path) -> dict[str, Any]:
             ),
         },
         "database_sha256": sha256_file(
-            worktree / DATABASE.relative_to(REPO_ROOT)
+            control_database
         ),
+        "database_provenance": {
+            "retained_source_path": str(DATABASE),
+            "control_path": str(control_database),
+            "sha256": REV4_DATABASE_SHA256,
+            "git_tracked_at_control_commit": False,
+            "control_status_after_provisioning": "clean_ignored_input",
+        },
         "expected_result_sha256": REV4_RESULT_SHA256,
         "generated_result_sha256": digest,
         "exact_reproduction": exact,
