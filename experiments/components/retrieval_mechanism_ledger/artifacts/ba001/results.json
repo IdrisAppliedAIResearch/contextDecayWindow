@@ -1,0 +1,1464 @@
+{
+  "amendment_commit": "dcb33a5639fa3a81248b3a53ea0b1dc7944e388d",
+  "calls": {
+    "embedding": 0,
+    "live_runs": 0,
+    "model_generation": 0
+  },
+  "claims_not_identified": [
+    "live answer improvement",
+    "causal benefit from temporal adjacency",
+    "biological architecture validity",
+    "pretrained-prior conflict as the cause of art substitutions"
+  ],
+  "d0_implementation_gap": {
+    "rows": [
+      {
+        "mechanism": "tag decay",
+        "principle": "P1",
+        "reason": "No per-episode tag or expiry state.",
+        "source_evidence": "retrieve_chained line 59; ordered feedback loop line 93; seen exclusion line 108; context update line 144",
+        "status": "ABSENT"
+      },
+      {
+        "mechanism": "symmetric capture",
+        "principle": "P2",
+        "reason": "No salience event or temporal capture.",
+        "source_evidence": "retrieve_chained line 59; ordered feedback loop line 93; seen exclusion line 108; context update line 144",
+        "status": "ABSENT"
+      },
+      {
+        "mechanism": "retroactive selection",
+        "principle": "P3",
+        "reason": "No later event mutates prior consolidation state.",
+        "source_evidence": "retrieve_chained line 59; ordered feedback loop line 93; seen exclusion line 108; context update line 144",
+        "status": "ABSENT"
+      },
+      {
+        "mechanism": "sequential/recombinant replay",
+        "principle": "P4",
+        "reason": "Ordered hit feedback exists, but it neither replays stored sequences nor mutates connectivity.",
+        "source_evidence": "retrieve_chained line 59; ordered feedback loop line 93; seen exclusion line 108; context update line 144",
+        "status": "PARTIAL"
+      },
+      {
+        "mechanism": "storage/retrieval separation",
+        "principle": "P5",
+        "reason": "No persisted edges or accessibility gate.",
+        "source_evidence": "retrieve_chained line 59; ordered feedback loop line 93; seen exclusion line 108; context update line 144",
+        "status": "ABSENT"
+      },
+      {
+        "mechanism": "competitive plasticity",
+        "principle": "P6",
+        "reason": "Seen exclusion is not competitor suppression and no state is written.",
+        "source_evidence": "retrieve_chained line 59; ordered feedback loop line 93; seen exclusion line 108; context update line 144",
+        "status": "ABSENT"
+      },
+      {
+        "mechanism": "update lineage",
+        "principle": "P7/P9",
+        "reason": "No contradiction, supersession, or lineage state.",
+        "source_evidence": "retrieve_chained line 59; ordered feedback loop line 93; seen exclusion line 108; context update line 144",
+        "status": "ABSENT"
+      },
+      {
+        "mechanism": "transformation",
+        "principle": "P8",
+        "reason": "No detail decay or extractive gist store.",
+        "source_evidence": "retrieve_chained line 59; ordered feedback loop line 93; seen exclusion line 108; context update line 144",
+        "status": "ABSENT"
+      },
+      {
+        "mechanism": "fast/slow stores",
+        "principle": "P10",
+        "reason": "One frozen episode embedding store is read.",
+        "source_evidence": "retrieve_chained line 59; ordered feedback loop line 93; seen exclusion line 108; context update line 144",
+        "status": "ABSENT"
+      }
+    ]
+  },
+  "d1_chain_decomposition": {
+    "a0_a1_candidate_fact_sets_equal": true,
+    "a0_a1_candidate_overlap": 13,
+    "disposition": "CHAIN_PACKING_ONLY_GAIN",
+    "rows": [
+      {
+        "arm": "A0",
+        "candidate_count": 15,
+        "candidate_fact_count": 9,
+        "candidate_facts": [
+          "civil:847",
+          "civil:92.4",
+          "civil:Dr. Anara Bekova",
+          "civil:Halcyon Crossing",
+          "civil:S460ML",
+          "marine:600",
+          "marine:Vampyroteuthis infernalis",
+          "marine:marine snow",
+          "monetary:Federal Reserve"
+        ],
+        "candidate_sha256": "335d5add0754a7277cd1ddb7c4f532c33951389e7a33ae8f56c2097023fa91b4",
+        "configuration_id": "A0_D2_m5",
+        "delivered_chars": 31957,
+        "facts_lost_at_packing": [
+          "civil:92.4",
+          "civil:S460ML"
+        ],
+        "packed_fact_count": 7,
+        "packed_facts": [
+          "civil:847",
+          "civil:Dr. Anara Bekova",
+          "civil:Halcyon Crossing",
+          "marine:600",
+          "marine:Vampyroteuthis infernalis",
+          "marine:marine snow",
+          "monetary:Federal Reserve"
+        ],
+        "payload_sha256": "9ace52257c15c247bd7cc10894efd607113f7be29fe2e9d7a735997c5661143c",
+        "selected_episode_count": 11
+      },
+      {
+        "arm": "A1",
+        "candidate_count": 15,
+        "candidate_fact_count": 9,
+        "candidate_facts": [
+          "civil:847",
+          "civil:92.4",
+          "civil:Dr. Anara Bekova",
+          "civil:Halcyon Crossing",
+          "civil:S460ML",
+          "marine:600",
+          "marine:Vampyroteuthis infernalis",
+          "marine:marine snow",
+          "monetary:Federal Reserve"
+        ],
+        "candidate_sha256": "5c5d42e6605bec56590f2443aea3dd66cd041f372a00ce65f36b9330d8d09c0b",
+        "configuration_id": "A1_D2_m5",
+        "delivered_chars": 28562,
+        "facts_lost_at_packing": [],
+        "packed_fact_count": 9,
+        "packed_facts": [
+          "civil:847",
+          "civil:92.4",
+          "civil:Dr. Anara Bekova",
+          "civil:Halcyon Crossing",
+          "civil:S460ML",
+          "marine:600",
+          "marine:Vampyroteuthis infernalis",
+          "marine:marine snow",
+          "monetary:Federal Reserve"
+        ],
+        "payload_sha256": "42faccd7572afe4982959393f5e208746ea13d0eb74cb254324451595f732349",
+        "selected_episode_count": 12
+      },
+      {
+        "arm": "A2",
+        "candidate_count": 15,
+        "candidate_fact_count": 5,
+        "candidate_facts": [
+          "civil:847",
+          "civil:92.4",
+          "civil:Dr. Anara Bekova",
+          "civil:Halcyon Crossing",
+          "civil:S460ML"
+        ],
+        "candidate_sha256": "d6ffaa86024e5438b1bbb1dd293c19ff825f7c252eccdb86db522c044acc1388",
+        "configuration_id": "A2_D2_m5",
+        "delivered_chars": 29987,
+        "facts_lost_at_packing": [],
+        "packed_fact_count": 5,
+        "packed_facts": [
+          "civil:847",
+          "civil:92.4",
+          "civil:Dr. Anara Bekova",
+          "civil:Halcyon Crossing",
+          "civil:S460ML"
+        ],
+        "payload_sha256": "a4efd9028da3ca15fb69659090fcc5155350cf7dbf301983bc439e341a0ed954",
+        "selected_episode_count": 15
+      }
+    ],
+    "selection_seal_sha256": "c924c2a8c6ee4ad7871502bb30a8bb28516e5ba991dfbdbfdcfbab4f0251f337"
+  },
+  "d2_adjacency_opportunity": {
+    "1": {
+      "new_art_fact_count": 4,
+      "new_art_facts": [
+        "1483",
+        "Cardinal Giuliano della Rovere",
+        "Melozzo da Forli",
+        "The Annunciation of Forli"
+      ],
+      "new_episode_count": 15,
+      "new_fact_count": 14,
+      "new_facts": [
+        "1483",
+        "600",
+        "847",
+        "92.4",
+        "Cardinal Giuliano della Rovere",
+        "Dr. Kenji Watanabe",
+        "Federal Reserve",
+        "Halcyon Crossing",
+        "Melozzo da Forli",
+        "S460ML",
+        "Taylor Rule",
+        "The Annunciation of Forli",
+        "Vampyroteuthis infernalis",
+        "marine snow"
+      ],
+      "rows": [
+        {
+          "content_sha256": "59aea706f50e4ef5d8c4070adb845079dd79f853de7fa7c3efd60fd718a4a34e",
+          "cosine_rank": 66,
+          "distance": 1,
+          "domains": [
+            "civil"
+          ],
+          "fact_count": 4,
+          "items": [
+            "Halcyon Crossing",
+            "847",
+            "S460ML",
+            "92.4"
+          ],
+          "nearest_candidate_turn": 3,
+          "radius": 1,
+          "source_turn": 4
+        },
+        {
+          "content_sha256": "ee3851d5865b836c150562ea17bad5385ef1bfa2dded03619303f9a9eafb0a55",
+          "cosine_rank": 78,
+          "distance": 1,
+          "domains": [
+            "civil"
+          ],
+          "fact_count": 3,
+          "items": [
+            "Halcyon Crossing",
+            "847",
+            "S460ML"
+          ],
+          "nearest_candidate_turn": 26,
+          "radius": 1,
+          "source_turn": 25
+        },
+        {
+          "content_sha256": "a2930abf7df53f00d16c09bd2ca89a6a76f78d0c71bd9a489496c9da0f0ad3c3",
+          "cosine_rank": 18,
+          "distance": 1,
+          "domains": [
+            "civil"
+          ],
+          "fact_count": 3,
+          "items": [
+            "Halcyon Crossing",
+            "S460ML",
+            "92.4"
+          ],
+          "nearest_candidate_turn": 28,
+          "radius": 1,
+          "source_turn": 29
+        },
+        {
+          "content_sha256": "d6ba079a9b63a293dd478b253e4ad6c4b5e62d94573e887266a01640532cd596",
+          "cosine_rank": 97,
+          "distance": 1,
+          "domains": [],
+          "fact_count": 0,
+          "items": [],
+          "nearest_candidate_turn": 43,
+          "radius": 1,
+          "source_turn": 42
+        },
+        {
+          "content_sha256": "8e9f2cabf8293bafbabe0654b937710af26b5f0c89022282ad0001b803c50157",
+          "cosine_rank": 25,
+          "distance": 1,
+          "domains": [
+            "art"
+          ],
+          "fact_count": 1,
+          "items": [
+            "Melozzo da Forli"
+          ],
+          "nearest_candidate_turn": 43,
+          "radius": 1,
+          "source_turn": 44
+        },
+        {
+          "content_sha256": "d212685c00f218e66f1a45f7064cbec160c4d93ad3f238ec020ed4e98aa9418e",
+          "cosine_rank": 104,
+          "distance": 1,
+          "domains": [],
+          "fact_count": 0,
+          "items": [],
+          "nearest_candidate_turn": 45,
+          "radius": 1,
+          "source_turn": 46
+        },
+        {
+          "content_sha256": "7e0be212d94b78d95ce5828ba029e1662232004f12104d9603d890f52490b4e3",
+          "cosine_rank": 68,
+          "distance": 1,
+          "domains": [],
+          "fact_count": 0,
+          "items": [],
+          "nearest_candidate_turn": 54,
+          "radius": 1,
+          "source_turn": 53
+        },
+        {
+          "content_sha256": "a0e8afd8211205c293d39a540b7061fd3698f220e11d32634be561c3ab98cfc1",
+          "cosine_rank": 87,
+          "distance": 1,
+          "domains": [
+            "art"
+          ],
+          "fact_count": 4,
+          "items": [
+            "The Annunciation of Forli",
+            "Melozzo da Forli",
+            "Cardinal Giuliano della Rovere",
+            "1483"
+          ],
+          "nearest_candidate_turn": 54,
+          "radius": 1,
+          "source_turn": 55
+        },
+        {
+          "content_sha256": "39b15f1e911182c4c18a5a98763fd1b94250624e8b7acd146c28d1751d9e2612",
+          "cosine_rank": 80,
+          "distance": 1,
+          "domains": [
+            "monetary"
+          ],
+          "fact_count": 1,
+          "items": [
+            "Federal Reserve"
+          ],
+          "nearest_candidate_turn": 78,
+          "radius": 1,
+          "source_turn": 77
+        },
+        {
+          "content_sha256": "bba6bbe4a1cf9a49b37c36e2d67b9a47466789b16d55c257663ec431afdda86d",
+          "cosine_rank": 19,
+          "distance": 1,
+          "domains": [
+            "monetary"
+          ],
+          "fact_count": 1,
+          "items": [
+            "Taylor Rule"
+          ],
+          "nearest_candidate_turn": 78,
+          "radius": 1,
+          "source_turn": 79
+        },
+        {
+          "content_sha256": "f35fe7ed8dd00206e74563be6833efb5c431ade243da0362cf96cb431df5ffed",
+          "cosine_rank": 43,
+          "distance": 1,
+          "domains": [],
+          "fact_count": 0,
+          "items": [],
+          "nearest_candidate_turn": 84,
+          "radius": 1,
+          "source_turn": 83
+        },
+        {
+          "content_sha256": "cf7dff26468d19c7bc2c4f019c9f1a1690ce90cf4d2fa25dd6003cde6bbf992d",
+          "cosine_rank": 75,
+          "distance": 1,
+          "domains": [],
+          "fact_count": 0,
+          "items": [],
+          "nearest_candidate_turn": 84,
+          "radius": 1,
+          "source_turn": 85
+        },
+        {
+          "content_sha256": "08077f8b1d3e04e503782c4248bff84987a0567c2bfcbc5e135698db113bba93",
+          "cosine_rank": 89,
+          "distance": 1,
+          "domains": [
+            "marine"
+          ],
+          "fact_count": 3,
+          "items": [
+            "Vampyroteuthis infernalis",
+            "600",
+            "marine snow"
+          ],
+          "nearest_candidate_turn": 110,
+          "radius": 1,
+          "source_turn": 109
+        },
+        {
+          "content_sha256": "6bf1370082a746f756855f844f7b378c8495277264741fbe5d7ffb900fb5cd81",
+          "cosine_rank": 90,
+          "distance": 1,
+          "domains": [
+            "marine"
+          ],
+          "fact_count": 4,
+          "items": [
+            "Vampyroteuthis infernalis",
+            "Dr. Kenji Watanabe",
+            "600",
+            "marine snow"
+          ],
+          "nearest_candidate_turn": 110,
+          "radius": 1,
+          "source_turn": 111
+        },
+        {
+          "content_sha256": "2991a15fc8a419f5a7f296f0643bc09ab4733fb75ba3ae9b434afc71363fa010",
+          "cosine_rank": 50,
+          "distance": 1,
+          "domains": [
+            "art"
+          ],
+          "fact_count": 1,
+          "items": [
+            "The Annunciation of Forli"
+          ],
+          "nearest_candidate_turn": 114,
+          "radius": 1,
+          "source_turn": 115
+        }
+      ],
+      "turn_55_reachable": true
+    },
+    "2": {
+      "new_art_fact_count": 4,
+      "new_art_facts": [
+        "1483",
+        "Cardinal Giuliano della Rovere",
+        "Melozzo da Forli",
+        "The Annunciation of Forli"
+      ],
+      "new_episode_count": 28,
+      "new_fact_count": 15,
+      "new_facts": [
+        "1483",
+        "600",
+        "847",
+        "92.4",
+        "Cardinal Giuliano della Rovere",
+        "Dr. Anara Bekova",
+        "Dr. Kenji Watanabe",
+        "Federal Reserve",
+        "Halcyon Crossing",
+        "Melozzo da Forli",
+        "S460ML",
+        "Taylor Rule",
+        "The Annunciation of Forli",
+        "Vampyroteuthis infernalis",
+        "marine snow"
+      ],
+      "rows": [
+        {
+          "content_sha256": "59aea706f50e4ef5d8c4070adb845079dd79f853de7fa7c3efd60fd718a4a34e",
+          "cosine_rank": 66,
+          "distance": 1,
+          "domains": [
+            "civil"
+          ],
+          "fact_count": 4,
+          "items": [
+            "Halcyon Crossing",
+            "847",
+            "S460ML",
+            "92.4"
+          ],
+          "nearest_candidate_turn": 3,
+          "radius": 2,
+          "source_turn": 4
+        },
+        {
+          "content_sha256": "4c05cb930343a21b9014bb8696265cc16b43fa903f803f2396df1ffc233e637d",
+          "cosine_rank": 103,
+          "distance": 2,
+          "domains": [
+            "civil"
+          ],
+          "fact_count": 5,
+          "items": [
+            "Halcyon Crossing",
+            "847",
+            "Dr. Anara Bekova",
+            "S460ML",
+            "92.4"
+          ],
+          "nearest_candidate_turn": 3,
+          "radius": 2,
+          "source_turn": 5
+        },
+        {
+          "content_sha256": "83ae8a17487d43a8c09243876ad6f8735c978c9f3bbee5eef1d6e38ee5cf6d64",
+          "cosine_rank": 60,
+          "distance": 2,
+          "domains": [
+            "civil"
+          ],
+          "fact_count": 4,
+          "items": [
+            "Halcyon Crossing",
+            "847",
+            "Dr. Anara Bekova",
+            "S460ML"
+          ],
+          "nearest_candidate_turn": 26,
+          "radius": 2,
+          "source_turn": 24
+        },
+        {
+          "content_sha256": "ee3851d5865b836c150562ea17bad5385ef1bfa2dded03619303f9a9eafb0a55",
+          "cosine_rank": 78,
+          "distance": 1,
+          "domains": [
+            "civil"
+          ],
+          "fact_count": 3,
+          "items": [
+            "Halcyon Crossing",
+            "847",
+            "S460ML"
+          ],
+          "nearest_candidate_turn": 26,
+          "radius": 2,
+          "source_turn": 25
+        },
+        {
+          "content_sha256": "a2930abf7df53f00d16c09bd2ca89a6a76f78d0c71bd9a489496c9da0f0ad3c3",
+          "cosine_rank": 18,
+          "distance": 1,
+          "domains": [
+            "civil"
+          ],
+          "fact_count": 3,
+          "items": [
+            "Halcyon Crossing",
+            "S460ML",
+            "92.4"
+          ],
+          "nearest_candidate_turn": 28,
+          "radius": 2,
+          "source_turn": 29
+        },
+        {
+          "content_sha256": "abc8ca6cfbfeb8de6338d442e4e98039e54a7d706d82e1ad68a229c627381938",
+          "cosine_rank": 59,
+          "distance": 2,
+          "domains": [
+            "civil"
+          ],
+          "fact_count": 5,
+          "items": [
+            "Halcyon Crossing",
+            "847",
+            "Dr. Anara Bekova",
+            "S460ML",
+            "92.4"
+          ],
+          "nearest_candidate_turn": 28,
+          "radius": 2,
+          "source_turn": 30
+        },
+        {
+          "content_sha256": "56123a7743d22c2694c0f144e106065f31b124ba705d8d94e620e287c5225b0d",
+          "cosine_rank": 110,
+          "distance": 2,
+          "domains": [],
+          "fact_count": 0,
+          "items": [],
+          "nearest_candidate_turn": 43,
+          "radius": 2,
+          "source_turn": 41
+        },
+        {
+          "content_sha256": "d6ba079a9b63a293dd478b253e4ad6c4b5e62d94573e887266a01640532cd596",
+          "cosine_rank": 97,
+          "distance": 1,
+          "domains": [],
+          "fact_count": 0,
+          "items": [],
+          "nearest_candidate_turn": 43,
+          "radius": 2,
+          "source_turn": 42
+        },
+        {
+          "content_sha256": "8e9f2cabf8293bafbabe0654b937710af26b5f0c89022282ad0001b803c50157",
+          "cosine_rank": 25,
+          "distance": 1,
+          "domains": [
+            "art"
+          ],
+          "fact_count": 1,
+          "items": [
+            "Melozzo da Forli"
+          ],
+          "nearest_candidate_turn": 43,
+          "radius": 2,
+          "source_turn": 44
+        },
+        {
+          "content_sha256": "d212685c00f218e66f1a45f7064cbec160c4d93ad3f238ec020ed4e98aa9418e",
+          "cosine_rank": 104,
+          "distance": 1,
+          "domains": [],
+          "fact_count": 0,
+          "items": [],
+          "nearest_candidate_turn": 45,
+          "radius": 2,
+          "source_turn": 46
+        },
+        {
+          "content_sha256": "989cdddd0547f8b28fd429a848eeedf7ced961da6a4f948720cd423ff0b50db1",
+          "cosine_rank": 36,
+          "distance": 2,
+          "domains": [],
+          "fact_count": 0,
+          "items": [],
+          "nearest_candidate_turn": 45,
+          "radius": 2,
+          "source_turn": 47
+        },
+        {
+          "content_sha256": "e94bf38e33b0e693efd1cef086099e87c9f2db24fc9af8f0f5903f0c30c3985a",
+          "cosine_rank": 49,
+          "distance": 2,
+          "domains": [],
+          "fact_count": 0,
+          "items": [],
+          "nearest_candidate_turn": 54,
+          "radius": 2,
+          "source_turn": 52
+        },
+        {
+          "content_sha256": "7e0be212d94b78d95ce5828ba029e1662232004f12104d9603d890f52490b4e3",
+          "cosine_rank": 68,
+          "distance": 1,
+          "domains": [],
+          "fact_count": 0,
+          "items": [],
+          "nearest_candidate_turn": 54,
+          "radius": 2,
+          "source_turn": 53
+        },
+        {
+          "content_sha256": "a0e8afd8211205c293d39a540b7061fd3698f220e11d32634be561c3ab98cfc1",
+          "cosine_rank": 87,
+          "distance": 1,
+          "domains": [
+            "art"
+          ],
+          "fact_count": 4,
+          "items": [
+            "The Annunciation of Forli",
+            "Melozzo da Forli",
+            "Cardinal Giuliano della Rovere",
+            "1483"
+          ],
+          "nearest_candidate_turn": 54,
+          "radius": 2,
+          "source_turn": 55
+        },
+        {
+          "content_sha256": "f0f6bdffa3f2b2a8525ff2a1fa3ca1c1d1482e9f5bd0efe74d12d4741a79c4a8",
+          "cosine_rank": 27,
+          "distance": 2,
+          "domains": [
+            "art"
+          ],
+          "fact_count": 3,
+          "items": [
+            "The Annunciation of Forli",
+            "Melozzo da Forli",
+            "Cardinal Giuliano della Rovere"
+          ],
+          "nearest_candidate_turn": 54,
+          "radius": 2,
+          "source_turn": 56
+        },
+        {
+          "content_sha256": "a2ee91467756bfa162b379803da418dd6cc9fe8658741d16cf017dcc58ab6e13",
+          "cosine_rank": 46,
+          "distance": 2,
+          "domains": [],
+          "fact_count": 0,
+          "items": [],
+          "nearest_candidate_turn": 78,
+          "radius": 2,
+          "source_turn": 76
+        },
+        {
+          "content_sha256": "39b15f1e911182c4c18a5a98763fd1b94250624e8b7acd146c28d1751d9e2612",
+          "cosine_rank": 80,
+          "distance": 1,
+          "domains": [
+            "monetary"
+          ],
+          "fact_count": 1,
+          "items": [
+            "Federal Reserve"
+          ],
+          "nearest_candidate_turn": 78,
+          "radius": 2,
+          "source_turn": 77
+        },
+        {
+          "content_sha256": "bba6bbe4a1cf9a49b37c36e2d67b9a47466789b16d55c257663ec431afdda86d",
+          "cosine_rank": 19,
+          "distance": 1,
+          "domains": [
+            "monetary"
+          ],
+          "fact_count": 1,
+          "items": [
+            "Taylor Rule"
+          ],
+          "nearest_candidate_turn": 78,
+          "radius": 2,
+          "source_turn": 79
+        },
+        {
+          "content_sha256": "4af38e40c2fd15846966254a70e5f32d84118ff268f68ff796dd35bca3ec34e9",
+          "cosine_rank": 65,
+          "distance": 2,
+          "domains": [
+            "monetary"
+          ],
+          "fact_count": 1,
+          "items": [
+            "Taylor Rule"
+          ],
+          "nearest_candidate_turn": 78,
+          "radius": 2,
+          "source_turn": 80
+        },
+        {
+          "content_sha256": "e6b7f537fa39f07d605574e3065bf23d1738d9c2e3a39b15609636c363e7da9b",
+          "cosine_rank": 39,
+          "distance": 2,
+          "domains": [],
+          "fact_count": 0,
+          "items": [],
+          "nearest_candidate_turn": 84,
+          "radius": 2,
+          "source_turn": 82
+        },
+        {
+          "content_sha256": "f35fe7ed8dd00206e74563be6833efb5c431ade243da0362cf96cb431df5ffed",
+          "cosine_rank": 43,
+          "distance": 1,
+          "domains": [],
+          "fact_count": 0,
+          "items": [],
+          "nearest_candidate_turn": 84,
+          "radius": 2,
+          "source_turn": 83
+        },
+        {
+          "content_sha256": "cf7dff26468d19c7bc2c4f019c9f1a1690ce90cf4d2fa25dd6003cde6bbf992d",
+          "cosine_rank": 75,
+          "distance": 1,
+          "domains": [],
+          "fact_count": 0,
+          "items": [],
+          "nearest_candidate_turn": 84,
+          "radius": 2,
+          "source_turn": 85
+        },
+        {
+          "content_sha256": "71496308445d0502e60fceb3d66b5b3c75da488f0ffc259ada0b589ad1b4a80c",
+          "cosine_rank": 24,
+          "distance": 2,
+          "domains": [
+            "monetary"
+          ],
+          "fact_count": 1,
+          "items": [
+            "Taylor Rule"
+          ],
+          "nearest_candidate_turn": 84,
+          "radius": 2,
+          "source_turn": 86
+        },
+        {
+          "content_sha256": "a703b9f300c99e820306adc0ef15537dc9473fb91b971ef919bbb002be916c3d",
+          "cosine_rank": 58,
+          "distance": 2,
+          "domains": [
+            "marine"
+          ],
+          "fact_count": 4,
+          "items": [
+            "Vampyroteuthis infernalis",
+            "Dr. Kenji Watanabe",
+            "600",
+            "marine snow"
+          ],
+          "nearest_candidate_turn": 110,
+          "radius": 2,
+          "source_turn": 108
+        },
+        {
+          "content_sha256": "08077f8b1d3e04e503782c4248bff84987a0567c2bfcbc5e135698db113bba93",
+          "cosine_rank": 89,
+          "distance": 1,
+          "domains": [
+            "marine"
+          ],
+          "fact_count": 3,
+          "items": [
+            "Vampyroteuthis infernalis",
+            "600",
+            "marine snow"
+          ],
+          "nearest_candidate_turn": 110,
+          "radius": 2,
+          "source_turn": 109
+        },
+        {
+          "content_sha256": "6bf1370082a746f756855f844f7b378c8495277264741fbe5d7ffb900fb5cd81",
+          "cosine_rank": 90,
+          "distance": 1,
+          "domains": [
+            "marine"
+          ],
+          "fact_count": 4,
+          "items": [
+            "Vampyroteuthis infernalis",
+            "Dr. Kenji Watanabe",
+            "600",
+            "marine snow"
+          ],
+          "nearest_candidate_turn": 110,
+          "radius": 2,
+          "source_turn": 111
+        },
+        {
+          "content_sha256": "2991a15fc8a419f5a7f296f0643bc09ab4733fb75ba3ae9b434afc71363fa010",
+          "cosine_rank": 50,
+          "distance": 1,
+          "domains": [
+            "art"
+          ],
+          "fact_count": 1,
+          "items": [
+            "The Annunciation of Forli"
+          ],
+          "nearest_candidate_turn": 114,
+          "radius": 2,
+          "source_turn": 115
+        },
+        {
+          "content_sha256": "efb431a2c88d0e5437a1e954e8f30bcc52d6fd6c5a2c051eb147ea134c33205b",
+          "cosine_rank": 86,
+          "distance": 2,
+          "domains": [
+            "art"
+          ],
+          "fact_count": 2,
+          "items": [
+            "The Annunciation of Forli",
+            "Melozzo da Forli"
+          ],
+          "nearest_candidate_turn": 114,
+          "radius": 2,
+          "source_turn": 116
+        }
+      ],
+      "turn_55_reachable": true
+    },
+    "disposition": "ADJACENCY_OPPORTUNITY_PRESENT",
+    "interpretation_ceiling": "ORACLE_REACHABILITY_ONLY"
+  },
+  "d3_representation": {
+    "class_rows": [
+      {
+        "macro_fact_recall": 0.75,
+        "mean_delivered_chars": 31409.0,
+        "method": "M2",
+        "query_class": "lookup",
+        "query_count": 12
+      },
+      {
+        "macro_fact_recall": 0.5625,
+        "mean_delivered_chars": 31573.125,
+        "method": "M2",
+        "query_class": "chained",
+        "query_count": 8
+      },
+      {
+        "macro_fact_recall": 0.0625,
+        "mean_delivered_chars": 31036.5,
+        "method": "M2",
+        "query_class": "enumeration",
+        "query_count": 4
+      },
+      {
+        "macro_fact_recall": 1.0,
+        "mean_delivered_chars": 31934.333333333332,
+        "method": "M5_span",
+        "query_class": "lookup",
+        "query_count": 12
+      },
+      {
+        "macro_fact_recall": 0.8125,
+        "mean_delivered_chars": 31906.75,
+        "method": "M5_span",
+        "query_class": "chained",
+        "query_count": 8
+      },
+      {
+        "macro_fact_recall": 0.625,
+        "mean_delivered_chars": 31901.5,
+        "method": "M5_span",
+        "query_class": "enumeration",
+        "query_count": 4
+      }
+    ],
+    "disposition": "ENUMERATION_GRANULARITY_GAP",
+    "domain_rows": [
+      {
+        "domain": "art",
+        "macro_fact_recall": 0.375,
+        "method": "M2",
+        "query_count": 10
+      },
+      {
+        "domain": "marine",
+        "macro_fact_recall": 0.625,
+        "method": "M2",
+        "query_count": 10
+      },
+      {
+        "domain": "monetary",
+        "macro_fact_recall": 0.225,
+        "method": "M2",
+        "query_count": 10
+      },
+      {
+        "domain": "structural",
+        "macro_fact_recall": 0.475,
+        "method": "M2",
+        "query_count": 10
+      },
+      {
+        "domain": "art",
+        "macro_fact_recall": 0.75,
+        "method": "M5_span",
+        "query_count": 10
+      },
+      {
+        "domain": "marine",
+        "macro_fact_recall": 0.85,
+        "method": "M5_span",
+        "query_count": 10
+      },
+      {
+        "domain": "monetary",
+        "macro_fact_recall": 0.75,
+        "method": "M5_span",
+        "query_count": 10
+      },
+      {
+        "domain": "structural",
+        "macro_fact_recall": 0.85,
+        "method": "M5_span",
+        "query_count": 10
+      }
+    ],
+    "interpretation_ceiling": "FROZEN_CORPUS_ASSOCIATION",
+    "query_comparisons": [
+      {
+        "delta": 1.0,
+        "direction": "GAIN",
+        "m2_chars": 31450,
+        "m2_recall": 0.0,
+        "m5_span_chars": 31998,
+        "m5_span_recall": 1.0,
+        "query_class": "chained",
+        "query_id": "h121_c01",
+        "required_domains": [
+          "structural"
+        ]
+      },
+      {
+        "delta": 0.0,
+        "direction": "TIE",
+        "m2_chars": 31483,
+        "m2_recall": 0.5,
+        "m5_span_chars": 31799,
+        "m5_span_recall": 0.5,
+        "query_class": "chained",
+        "query_id": "h121_c02",
+        "required_domains": [
+          "art"
+        ]
+      },
+      {
+        "delta": 0.0,
+        "direction": "TIE",
+        "m2_chars": 31793,
+        "m2_recall": 0.5,
+        "m5_span_chars": 31985,
+        "m5_span_recall": 0.5,
+        "query_class": "chained",
+        "query_id": "h121_c03",
+        "required_domains": [
+          "monetary"
+        ]
+      },
+      {
+        "delta": 0.0,
+        "direction": "TIE",
+        "m2_chars": 31775,
+        "m2_recall": 1.0,
+        "m5_span_chars": 31859,
+        "m5_span_recall": 1.0,
+        "query_class": "chained",
+        "query_id": "h121_c04",
+        "required_domains": [
+          "marine"
+        ]
+      },
+      {
+        "delta": 0.0,
+        "direction": "TIE",
+        "m2_chars": 31896,
+        "m2_recall": 1.0,
+        "m5_span_chars": 31931,
+        "m5_span_recall": 1.0,
+        "query_class": "chained",
+        "query_id": "h121_c05",
+        "required_domains": [
+          "art",
+          "marine"
+        ]
+      },
+      {
+        "delta": 0.5,
+        "direction": "GAIN",
+        "m2_chars": 31798,
+        "m2_recall": 0.5,
+        "m5_span_chars": 31802,
+        "m5_span_recall": 1.0,
+        "query_class": "chained",
+        "query_id": "h121_c06",
+        "required_domains": [
+          "structural",
+          "monetary"
+        ]
+      },
+      {
+        "delta": 0.5,
+        "direction": "GAIN",
+        "m2_chars": 31130,
+        "m2_recall": 0.0,
+        "m5_span_chars": 31902,
+        "m5_span_recall": 0.5,
+        "query_class": "chained",
+        "query_id": "h121_c07",
+        "required_domains": [
+          "art",
+          "monetary"
+        ]
+      },
+      {
+        "delta": 0.0,
+        "direction": "TIE",
+        "m2_chars": 31260,
+        "m2_recall": 1.0,
+        "m5_span_chars": 31978,
+        "m5_span_recall": 1.0,
+        "query_class": "chained",
+        "query_id": "h121_c08",
+        "required_domains": [
+          "structural",
+          "marine"
+        ]
+      },
+      {
+        "delta": 0.5,
+        "direction": "GAIN",
+        "m2_chars": 31432,
+        "m2_recall": 0.0,
+        "m5_span_chars": 31787,
+        "m5_span_recall": 0.5,
+        "query_class": "enumeration",
+        "query_id": "h121_e01",
+        "required_domains": [
+          "structural",
+          "art",
+          "monetary",
+          "marine"
+        ]
+      },
+      {
+        "delta": 0.25,
+        "direction": "GAIN",
+        "m2_chars": 31028,
+        "m2_recall": 0.0,
+        "m5_span_chars": 31954,
+        "m5_span_recall": 0.25,
+        "query_class": "enumeration",
+        "query_id": "h121_e02",
+        "required_domains": [
+          "structural",
+          "art",
+          "monetary",
+          "marine"
+        ]
+      },
+      {
+        "delta": 0.75,
+        "direction": "GAIN",
+        "m2_chars": 30457,
+        "m2_recall": 0.0,
+        "m5_span_chars": 31873,
+        "m5_span_recall": 0.75,
+        "query_class": "enumeration",
+        "query_id": "h121_e03",
+        "required_domains": [
+          "structural",
+          "art",
+          "monetary",
+          "marine"
+        ]
+      },
+      {
+        "delta": 0.75,
+        "direction": "GAIN",
+        "m2_chars": 31229,
+        "m2_recall": 0.25,
+        "m5_span_chars": 31992,
+        "m5_span_recall": 1.0,
+        "query_class": "enumeration",
+        "query_id": "h121_e04",
+        "required_domains": [
+          "structural",
+          "art",
+          "monetary",
+          "marine"
+        ]
+      },
+      {
+        "delta": 0.0,
+        "direction": "TIE",
+        "m2_chars": 31725,
+        "m2_recall": 1.0,
+        "m5_span_chars": 31927,
+        "m5_span_recall": 1.0,
+        "query_class": "lookup",
+        "query_id": "h121_l01",
+        "required_domains": [
+          "structural"
+        ]
+      },
+      {
+        "delta": 0.0,
+        "direction": "TIE",
+        "m2_chars": 30779,
+        "m2_recall": 1.0,
+        "m5_span_chars": 31862,
+        "m5_span_recall": 1.0,
+        "query_class": "lookup",
+        "query_id": "h121_l02",
+        "required_domains": [
+          "structural"
+        ]
+      },
+      {
+        "delta": 0.0,
+        "direction": "TIE",
+        "m2_chars": 31821,
+        "m2_recall": 1.0,
+        "m5_span_chars": 31951,
+        "m5_span_recall": 1.0,
+        "query_class": "lookup",
+        "query_id": "h121_l03",
+        "required_domains": [
+          "structural"
+        ]
+      },
+      {
+        "delta": 0.0,
+        "direction": "TIE",
+        "m2_chars": 31513,
+        "m2_recall": 1.0,
+        "m5_span_chars": 31987,
+        "m5_span_recall": 1.0,
+        "query_class": "lookup",
+        "query_id": "h121_l04",
+        "required_domains": [
+          "art"
+        ]
+      },
+      {
+        "delta": 1.0,
+        "direction": "GAIN",
+        "m2_chars": 31672,
+        "m2_recall": 0.0,
+        "m5_span_chars": 32000,
+        "m5_span_recall": 1.0,
+        "query_class": "lookup",
+        "query_id": "h121_l05",
+        "required_domains": [
+          "art"
+        ]
+      },
+      {
+        "delta": 0.0,
+        "direction": "TIE",
+        "m2_chars": 31888,
+        "m2_recall": 1.0,
+        "m5_span_chars": 31879,
+        "m5_span_recall": 1.0,
+        "query_class": "lookup",
+        "query_id": "h121_l06",
+        "required_domains": [
+          "art"
+        ]
+      },
+      {
+        "delta": 1.0,
+        "direction": "GAIN",
+        "m2_chars": 30768,
+        "m2_recall": 0.0,
+        "m5_span_chars": 31951,
+        "m5_span_recall": 1.0,
+        "query_class": "lookup",
+        "query_id": "h121_l07",
+        "required_domains": [
+          "monetary"
+        ]
+      },
+      {
+        "delta": 0.0,
+        "direction": "TIE",
+        "m2_chars": 31793,
+        "m2_recall": 1.0,
+        "m5_span_chars": 31992,
+        "m5_span_recall": 1.0,
+        "query_class": "lookup",
+        "query_id": "h121_l08",
+        "required_domains": [
+          "monetary"
+        ]
+      },
+      {
+        "delta": 1.0,
+        "direction": "GAIN",
+        "m2_chars": 31640,
+        "m2_recall": 0.0,
+        "m5_span_chars": 31834,
+        "m5_span_recall": 1.0,
+        "query_class": "lookup",
+        "query_id": "h121_l09",
+        "required_domains": [
+          "monetary"
+        ]
+      },
+      {
+        "delta": 0.0,
+        "direction": "TIE",
+        "m2_chars": 30612,
+        "m2_recall": 1.0,
+        "m5_span_chars": 31931,
+        "m5_span_recall": 1.0,
+        "query_class": "lookup",
+        "query_id": "h121_l10",
+        "required_domains": [
+          "marine"
+        ]
+      },
+      {
+        "delta": 0.0,
+        "direction": "TIE",
+        "m2_chars": 31872,
+        "m2_recall": 1.0,
+        "m5_span_chars": 31988,
+        "m5_span_recall": 1.0,
+        "query_class": "lookup",
+        "query_id": "h121_l11",
+        "required_domains": [
+          "marine"
+        ]
+      },
+      {
+        "delta": 0.0,
+        "direction": "TIE",
+        "m2_chars": 30825,
+        "m2_recall": 1.0,
+        "m5_span_chars": 31910,
+        "m5_span_recall": 1.0,
+        "query_class": "lookup",
+        "query_id": "h121_l12",
+        "required_domains": [
+          "marine"
+        ]
+      }
+    ],
+    "query_outcomes": {
+      "gains": 10,
+      "losses": 0,
+      "ties": 14
+    }
+  },
+  "d4_art_recall": {
+    "art_source_turns_and_ranks": [
+      {
+        "cosine": 0.207375377,
+        "cosine_rank": 25,
+        "items": [
+          "Melozzo da Forli"
+        ],
+        "source_turn": 44
+      },
+      {
+        "cosine": 0.204402789,
+        "cosine_rank": 27,
+        "items": [
+          "The Annunciation of Forli",
+          "Melozzo da Forli",
+          "Cardinal Giuliano della Rovere"
+        ],
+        "source_turn": 56
+      },
+      {
+        "cosine": 0.19974345,
+        "cosine_rank": 30,
+        "items": [
+          "The Annunciation of Forli",
+          "Melozzo da Forli",
+          "Cardinal Giuliano della Rovere"
+        ],
+        "source_turn": 60
+      },
+      {
+        "cosine": 0.168529496,
+        "cosine_rank": 41,
+        "items": [
+          "Melozzo da Forli"
+        ],
+        "source_turn": 39
+      },
+      {
+        "cosine": 0.155650616,
+        "cosine_rank": 50,
+        "items": [
+          "The Annunciation of Forli"
+        ],
+        "source_turn": 115
+      },
+      {
+        "cosine": 0.122363217,
+        "cosine_rank": 79,
+        "items": [
+          "The Annunciation of Forli",
+          "Melozzo da Forli",
+          "Cardinal Giuliano della Rovere"
+        ],
+        "source_turn": 57
+      },
+      {
+        "cosine": 0.109355569,
+        "cosine_rank": 86,
+        "items": [
+          "The Annunciation of Forli",
+          "Melozzo da Forli"
+        ],
+        "source_turn": 116
+      },
+      {
+        "cosine": 0.109122396,
+        "cosine_rank": 87,
+        "items": [
+          "The Annunciation of Forli",
+          "Melozzo da Forli",
+          "Cardinal Giuliano della Rovere",
+          "1483"
+        ],
+        "source_turn": 55
+      },
+      {
+        "cosine": 0.107198961,
+        "cosine_rank": 88,
+        "items": [
+          "The Annunciation of Forli",
+          "Melozzo da Forli",
+          "Cardinal Giuliano della Rovere"
+        ],
+        "source_turn": 117
+      },
+      {
+        "cosine": 0.067933828,
+        "cosine_rank": 108,
+        "items": [
+          "The Annunciation of Forli",
+          "Melozzo da Forli",
+          "1483"
+        ],
+        "source_turn": 58
+      },
+      {
+        "cosine": 0.045726188,
+        "cosine_rank": 115,
+        "items": [
+          "The Annunciation of Forli",
+          "Melozzo da Forli",
+          "1483"
+        ],
+        "source_turn": 59
+      }
+    ],
+    "best_chain_candidate_art_facts": [],
+    "comparison_status": "CROSS_RUN_CONFOUNDED",
+    "dispositions": [
+      "STORED_BUT_NOT_BROADLY_CUED",
+      "DIRECT_CUE_RECALL_OBSERVED",
+      "PRIOR_CONFLICT_NOT_IDENTIFIED"
+    ],
+    "lv_art_absent_both_arms": true,
+    "lv_art_fabrication_both_arms": true,
+    "prior_conflict_status": "NOT_IDENTIFIED",
+    "reader_rows": [
+      {
+        "all_targeted_art_correct": true,
+        "arm_id": "s007_treatment",
+        "comparison_status": "CROSS_RUN_CONFOUNDED",
+        "q4": 1.0,
+        "q5": 1.0,
+        "q6": 1.0
+      },
+      {
+        "all_targeted_art_correct": true,
+        "arm_id": "s009_l",
+        "comparison_status": "CROSS_RUN_CONFOUNDED",
+        "q4": 1.0,
+        "q5": 1.0,
+        "q6": 1.0
+      }
+    ],
+    "stored_art_fact_count": 4,
+    "stored_art_facts": [
+      "1483",
+      "Cardinal Giuliano della Rovere",
+      "Melozzo da Forli",
+      "The Annunciation of Forli"
+    ]
+  },
+  "design_commit": "94ed623a67fe5a893521323796b74d68aa4feebd",
+  "implementation_sha256": "1f8488d2ede95004c23561d937ee88b2290c5ed4a23db5a8362b3625771e21c2",
+  "outcome_ceiling": "CHARACTERIZED",
+  "primary_disposition": "CHAIN_PACKING_ONLY_GAIN",
+  "result_digest_sha256": "6e2ae2cba14509805ac35abd916db5d577595bff3cb3b3dd9359f791a378c20e",
+  "status": "COMPLETE",
+  "study": "BA-001 Retrieval Benchmark Causal Audit"
+}
