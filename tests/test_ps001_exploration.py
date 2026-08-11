@@ -22,6 +22,7 @@ from src.analysis.ps001_exploration import (
     execute_ordered_gates,
     load_episode_population,
     load_historical_gate,
+    process_rss_bytes,
     synthetic_reachability,
     trace_record,
     StageResult,
@@ -259,6 +260,10 @@ def test_mechanism_source_and_import_graph_are_label_blind() -> None:
 
     assert result["status"] == "PASS"
     assert "planted forbidden import rejected" in result["planted_forbidden_import"]
+
+
+def test_process_rss_measurement_is_available() -> None:
+    assert process_rss_bytes() > 0
 
 
 def test_historical_gate_requires_exact_commit_digest_and_basins(tmp_path: Path) -> None:

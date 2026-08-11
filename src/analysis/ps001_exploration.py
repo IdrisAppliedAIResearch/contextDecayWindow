@@ -528,11 +528,21 @@ def process_rss_bytes() -> int:
 
         counters = ProcessMemoryCounters()
         counters.cb = ctypes.sizeof(counters)
-        handle = ctypes.windll.kernel32.GetCurrentProcess()
-        if not ctypes.windll.psapi.GetProcessMemoryInfo(
+        kernel32 = ctypes.WinDLL("kernel32", use_last_error=True)
+        psapi = ctypes.WinDLL("psapi", use_last_error=True)
+        kernel32.GetCurrentProcess.restype = ctypes.c_void_p
+        kernel32.GetCurrentProcess.argtypes = []
+        psapi.GetProcessMemoryInfo.restype = ctypes.c_int
+        psapi.GetProcessMemoryInfo.argtypes = [
+            ctypes.c_void_p,
+            ctypes.POINTER(ProcessMemoryCounters),
+            ctypes.c_ulong,
+        ]
+        handle = kernel32.GetCurrentProcess()
+        if not psapi.GetProcessMemoryInfo(
             handle, ctypes.byref(counters), counters.cb
         ):
-            raise OSError("GetProcessMemoryInfo failed")
+            raise ctypes.WinError(ctypes.get_last_error())
         return int(counters.WorkingSetSize)
     try:
         import resource
