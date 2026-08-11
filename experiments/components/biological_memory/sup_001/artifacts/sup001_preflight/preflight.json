@@ -1,0 +1,922 @@
+{
+  "ablation_authorized": false,
+  "canonical_digest": "1e4ec5d2e97e4ebb2c2808780359709db494c0f5ff18ed88a277c96f3ed9a9ee",
+  "checks": {
+    "PF1": {
+      "evidence": {
+        "anchor_checks": {
+          "cache": true,
+          "control": true,
+          "final_design": true,
+          "hypothetical": true,
+          "mechanism": true,
+          "model": true,
+          "part1": true,
+          "pre_registration": true,
+          "vectors": true
+        },
+        "counts": {
+          "episodes": 256,
+          "queries": 96,
+          "registrations": 192,
+          "vectors": 352
+        },
+        "inventory": [
+          {
+            "bytes": 17505,
+            "path": "HYPOTHETICAL_001_MECHANICAL_BIOLOGICAL_MEMORY_MODEL.md",
+            "sha256": "dbc6a1c4134df37877d6f5a77acdf61db4ce8361a1f7b2a2810b6182a6d6f926"
+          },
+          {
+            "bytes": 6089,
+            "path": "PREFLIGHT.md",
+            "sha256": "bc6f517dc1e8f38793816a608306cac43fe82ddcc9406244f962f47d4ec26463"
+          },
+          {
+            "bytes": 25391,
+            "path": "AGENTS.md",
+            "sha256": "f0850b45c780ec6da8949019e08cdfca33a23e4b29feb5c517e660c141b4ab79"
+          },
+          {
+            "bytes": 10788,
+            "path": "experiments/components/biological_memory/sup_001/SUP_001_PRE_REGISTRATION.md",
+            "sha256": "3651403d754eaecaa2f9baa7fe2de44f3eba48e0d9a2a4078491598ee41e3ebd"
+          },
+          {
+            "bytes": 3175,
+            "path": "experiments/components/biological_memory/sup_001/SUP_001_FINAL_DESIGN.json",
+            "sha256": "82fbd81b011e6183a9f9a5ab67724a41716a99eec47545ba097dc0b4b47b3c6c"
+          },
+          {
+            "bytes": 134127,
+            "path": "experiments/components/biological_memory/sup_001/artifacts/sup001_corpus/mechanism_manifest.json",
+            "sha256": "090587f5fad66bc1f36c983455a309df026855d5b91e58462619b372aaba9b5f"
+          },
+          {
+            "bytes": 315,
+            "path": "experiments/components/biological_memory/sup_001/artifacts/sup001_corpus/corpus_lock.json",
+            "sha256": "b918ee7b66c7d8bf487a513b0b1699037b490b0a8d6fc5fcb0f2466a5d6edb40"
+          },
+          {
+            "bytes": 103314,
+            "path": "experiments/components/biological_memory/sup_001/artifacts/sup001_corpus/SEALED_KEY_DO_NOT_OPEN.json",
+            "sha256": "03de8895800aad9916440a01b43ccdbd93b82166ac1259d1a055724672ce8a26"
+          },
+          {
+            "bytes": 133159,
+            "path": "experiments/components/biological_memory/sup_001/artifacts/sup001_vectors/vector_manifest.json",
+            "sha256": "11be8e2783588df229663202995c9df6f909bdbce5a962288ac5be443528fb99"
+          },
+          {
+            "bytes": 1695744,
+            "path": "experiments/components/biological_memory/sup_001/artifacts/sup001_vectors/sup001_vectors.sqlite",
+            "sha256": "4bc3543ae7fd969efd74c70f3435b44a1fbdab869676e2d644e0579dfe84edab"
+          },
+          {
+            "bytes": 4202129,
+            "path": "experiments/components/biological_memory/sup_001/artifacts/sup001_control/c0_frozen.json",
+            "sha256": "6d2ae32e8d13b85b70d8aa602c427c60a96ed1fe2c5d8584c775c283682fd911"
+          },
+          {
+            "bytes": 152351,
+            "path": "experiments/components/biological_memory/sup_001/artifacts/sup001_part1/part1.json",
+            "sha256": "912cbae47b18dc46067275d6433d043950be616e3c0b3c52ef7f745b28a0a767"
+          },
+          {
+            "bytes": 639150592,
+            "path": "C:\\Users\\muzaf\\.cache\\huggingface\\hub\\Qwen3-Embedding-0.6B-GGUF\\Qwen3-Embedding-0.6B-Q8_0.gguf",
+            "sha256": "06507c7b42688469c4e7298b0a1e16deff06caf291cf0a5b278c308249c3e439"
+          },
+          {
+            "bytes": 8921,
+            "path": "src/biological_memory/supersession.py",
+            "sha256": "66d42032ca5436ac92c677e2d939243a74b2ce51115c6d713b1527f31ea8cb4f"
+          },
+          {
+            "bytes": 4804,
+            "path": "src/analysis/sup001_control.py",
+            "sha256": "6d15ed7cbde96fad9c9236a6edde06f1429245d51200fdf3fb1c810adcbd9c60"
+          },
+          {
+            "bytes": 6027,
+            "path": "src/analysis/sup001_vectors.py",
+            "sha256": "2655f556be23be0102c17c206a8876f964a60a5406491dffa5aa7c95015b49fa"
+          },
+          {
+            "bytes": 9806,
+            "path": "src/analysis/sup001_part1.py",
+            "sha256": "17b6e4fb37abe0510cb0e9814a10304ade8caccda2a1782f14aa538c97497469"
+          },
+          {
+            "bytes": 15730,
+            "path": "src/analysis/sup001_preflight.py",
+            "sha256": "384ea58a4c45c8cf4459462a065aa30eee384c3f95d36f287dfddb8a5738184c"
+          }
+        ]
+      },
+      "pass": true
+    },
+    "PF10": {
+      "evidence": {
+        "availability_is_answer_verdict": false,
+        "full_live_run_authorized": false,
+        "offline_pass_authorizes": "registered 35-turn ablation only",
+        "production_authorized": false,
+        "reader_required": "fixed Qwen reader with scored current, unchanged, and history answers"
+      },
+      "pass": true
+    },
+    "PF2": {
+      "evidence": {
+        "final_distribution": {
+          "accessible_count": 64,
+          "lineage_count": 64,
+          "record_count": 192,
+          "silent_count": 128
+        },
+        "lineage_accessibility": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "lineage_bypasses_accessibility": true,
+        "lineage_versions": 3,
+        "natural_excludes_first_two_versions": true,
+        "reads_state_pure": true,
+        "registrations_executed": 192
+      },
+      "pass": true
+    },
+    "PF3": {
+      "evidence": {
+        "leakage": {
+          "imports": {
+            "src/analysis/sup001_control.py": [
+              "__future__",
+              "episodic",
+              "episodic._packing",
+              "hashlib",
+              "json",
+              "numpy",
+              "pathlib",
+              "src.analysis.sup001_benchmark",
+              "src.analysis.sup001_vectors",
+              "src.retrieval_bakeoff.config",
+              "typing"
+            ],
+            "src/analysis/sup001_part1.py": [
+              "__future__",
+              "copy",
+              "hashlib",
+              "json",
+              "pathlib",
+              "src.analysis.sup001_benchmark",
+              "src.analysis.sup001_control",
+              "src.analysis.sup001_vectors",
+              "src.biological_memory.supersession",
+              "subprocess",
+              "sys",
+              "typing"
+            ],
+            "src/analysis/sup001_vectors.py": [
+              "__future__",
+              "dataclasses",
+              "episodic",
+              "hashlib",
+              "importlib.metadata",
+              "json",
+              "numpy",
+              "os",
+              "pathlib",
+              "platform",
+              "src.analysis.sup001_benchmark",
+              "src.retrieval_bakeoff.config",
+              "src.retrieval_bakeoff.embedding",
+              "subprocess",
+              "sys",
+              "typing"
+            ],
+            "src/biological_memory/supersession.py": [
+              "__future__",
+              "dataclasses",
+              "hashlib",
+              "json",
+              "pathlib",
+              "typing"
+            ]
+          },
+          "pass": true,
+          "paths": [
+            "src/biological_memory/supersession.py",
+            "src/analysis/sup001_control.py",
+            "src/analysis/sup001_vectors.py",
+            "src/analysis/sup001_part1.py"
+          ],
+          "planted_forbidden_reference_rejected": true,
+          "violations": {}
+        },
+        "ordering": {
+          "T1_absent_before_preflight": true,
+          "adjacent_ancestry": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "all_ancestry_pass": true,
+          "commits": [
+            "22abfc42",
+            "8a08c20c",
+            "683faf65",
+            "4168a80b",
+            "321c5280",
+            "0c267a9e",
+            "09f3f664",
+            "6ef282ea",
+            "3562f364",
+            "b81d01c6459008b1e7e5e420056a77a6fc9860a8",
+            "deb111ae4078aed20251ea2d6836f77baffb8f52"
+          ],
+          "final_design_last_commit": "b81d01c6459008b1e7e5e420056a77a6fc9860a8",
+          "preflight_source_last_commit": "deb111ae4078aed20251ea2d6836f77baffb8f52"
+        },
+        "sealed_key": {
+          "bytes": 103314,
+          "handling": "hashed only; JSON not parsed",
+          "path": "experiments/components/biological_memory/sup_001/artifacts/sup001_corpus/SEALED_KEY_DO_NOT_OPEN.json",
+          "sha256": "03de8895800aad9916440a01b43ccdbd93b82166ac1259d1a055724672ce8a26"
+        }
+      },
+      "pass": true
+    },
+    "PF4": {
+      "evidence": {
+        "gate_reachability": {
+          "all_reachable": true,
+          "expected": {
+            "G1": "INTEGRITY_STOP",
+            "G2": "CURRENT_VALUE_NOT_SURFACED",
+            "G3": "UNCHANGED_FACT_REGRESSION",
+            "G4": "LINEAGE_OR_SILENCE_FAILURE",
+            "G5": "PROVENANCE_OR_INVARIANT_FAILURE",
+            "pass": "SUPERSESSION_OFFLINE_ELIGIBLE"
+          },
+          "observed": {
+            "G1": "INTEGRITY_STOP",
+            "G2": "CURRENT_VALUE_NOT_SURFACED",
+            "G3": "UNCHANGED_FACT_REGRESSION",
+            "G4": "LINEAGE_OR_SILENCE_FAILURE",
+            "G5": "PROVENANCE_OR_INVARIANT_FAILURE",
+            "pass": "SUPERSESSION_OFFLINE_ELIGIBLE"
+          }
+        },
+        "lineage_versions": [
+          3
+        ],
+        "target_coverage": {
+          "all_subjects_planted": true,
+          "match_distribution": {
+            "counts": {
+              "1": 32,
+              "3": 64
+            },
+            "maximum": 3,
+            "minimum": 1
+          },
+          "query_count": 96,
+          "rows": [
+            {
+              "episode_matches": 1,
+              "query_id": "natural:unchanged:location:00",
+              "subject_sha256": "166fe985f550cd4d657ec86b58602fa39781d4a31b5d3170573effa39bd4cc6e"
+            },
+            {
+              "episode_matches": 1,
+              "query_id": "natural:unchanged:location:01",
+              "subject_sha256": "0f7b76f02fe746ebbe181c61bf03dc2221986b8733162aad593471b55c10338e"
+            },
+            {
+              "episode_matches": 1,
+              "query_id": "natural:unchanged:location:02",
+              "subject_sha256": "79b1cb0dfc8f54abc9747c676b74d95622ce337851b47f08699f661bab90e57f"
+            },
+            {
+              "episode_matches": 1,
+              "query_id": "natural:unchanged:location:03",
+              "subject_sha256": "3a3d42b2ddccbac3eaa4227d1a95652cee4d6c0d7c7359ccc2eef3433a41f254"
+            },
+            {
+              "episode_matches": 1,
+              "query_id": "natural:unchanged:location:04",
+              "subject_sha256": "9ea920ba610f6d18cc67aefbb98b6b265a82b472c59305a16f230bc88d691e69"
+            },
+            {
+              "episode_matches": 1,
+              "query_id": "natural:unchanged:location:05",
+              "subject_sha256": "2ecb8d112f9ef5dfd4f5d5f97dc3a54a315ed8e4502bcdded28c0519e1a40046"
+            },
+            {
+              "episode_matches": 1,
+              "query_id": "natural:unchanged:location:06",
+              "subject_sha256": "dc5bbb9b848ee6ef64f63b5cff0003cbbeb1176449697e06ee0b38c93c3cc985"
+            },
+            {
+              "episode_matches": 1,
+              "query_id": "natural:unchanged:location:07",
+              "subject_sha256": "7b41a7aab1edd601ebd931c65f41cac1ee951c88c021dbb4a7e59714f879eddf"
+            },
+            {
+              "episode_matches": 1,
+              "query_id": "natural:unchanged:preference:00",
+              "subject_sha256": "4b97151e591c7212aa2dd629f593e7f2c79c09f044771e34138c61eebf958a5d"
+            },
+            {
+              "episode_matches": 1,
+              "query_id": "natural:unchanged:preference:01",
+              "subject_sha256": "a3f85dcc167d616edb67e65f210de8c3671f91079426f91c77f743082cb34e95"
+            },
+            {
+              "episode_matches": 1,
+              "query_id": "natural:unchanged:preference:02",
+              "subject_sha256": "418d68e1e8fc84b1670b2cb36d1957848b1ce8ade04e20183b75304c88b9bc30"
+            },
+            {
+              "episode_matches": 1,
+              "query_id": "natural:unchanged:preference:03",
+              "subject_sha256": "7d0e3b8312dd068bf274e6907f25ce5a6576fe07dfc3d6b47acb65198d7a0ff5"
+            },
+            {
+              "episode_matches": 1,
+              "query_id": "natural:unchanged:preference:04",
+              "subject_sha256": "3c722d895a84ca0c2656370da182cbeaba4dbcd060a997470f012d51d53793c3"
+            },
+            {
+              "episode_matches": 1,
+              "query_id": "natural:unchanged:preference:05",
+              "subject_sha256": "f5e6dfeec1aadc1ae8fbb55cd2f9eb1f9d41eedab9de6578500141021d006331"
+            },
+            {
+              "episode_matches": 1,
+              "query_id": "natural:unchanged:preference:06",
+              "subject_sha256": "f03d7bff659a312b7b9c4f137f7ffaaae9c887b60ef388a3232c046da6a542ca"
+            },
+            {
+              "episode_matches": 1,
+              "query_id": "natural:unchanged:preference:07",
+              "subject_sha256": "dd27f29a81aa3ba0251356f3024e9a0762d85cbdc4805ce69597de5eb2e25c17"
+            },
+            {
+              "episode_matches": 1,
+              "query_id": "natural:unchanged:quantity:00",
+              "subject_sha256": "cefe42368a697059acdce4021e5e902d00a04973f338c9b6a27193a88ec77b8d"
+            },
+            {
+              "episode_matches": 1,
+              "query_id": "natural:unchanged:quantity:01",
+              "subject_sha256": "c341bc84576c4b6d382b5aafd79b59d6226d4e5db649601bfc87158f3d1cf0d4"
+            },
+            {
+              "episode_matches": 1,
+              "query_id": "natural:unchanged:quantity:02",
+              "subject_sha256": "771ca1dcfed04d6005a4a50d63c96f2f345bcc972f0791069a36d3d5e53391e2"
+            },
+            {
+              "episode_matches": 1,
+              "query_id": "natural:unchanged:quantity:03",
+              "subject_sha256": "e143a11d02ee6a4f3b30e528abdeebef224224b8a7fff5d2000fa458f165a3b0"
+            },
+            {
+              "episode_matches": 1,
+              "query_id": "natural:unchanged:quantity:04",
+              "subject_sha256": "d3fa3c42903ebf3cc986c93bff0dc32ecbd606fed87b0d6bb22f32d34ac19d90"
+            },
+            {
+              "episode_matches": 1,
+              "query_id": "natural:unchanged:quantity:05",
+              "subject_sha256": "52752fad905c72c2df3b40574cf90c995eb1c81bc1b50dd6bb2ec446b53e1677"
+            },
+            {
+              "episode_matches": 1,
+              "query_id": "natural:unchanged:quantity:06",
+              "subject_sha256": "157f87fdc24c9d41d84b49a4ba53815d4d67682ebe1a574bd193aa0b5ee20020"
+            },
+            {
+              "episode_matches": 1,
+              "query_id": "natural:unchanged:quantity:07",
+              "subject_sha256": "e71404ca15f59ca0e4259456cd10e870ee32b750262fac154df975e7efa5d739"
+            },
+            {
+              "episode_matches": 1,
+              "query_id": "natural:unchanged:schedule:00",
+              "subject_sha256": "61df75d6d40c35022b44a70a64fb35eae390c3ad2a35720c3b782d42ee3f0373"
+            },
+            {
+              "episode_matches": 1,
+              "query_id": "natural:unchanged:schedule:01",
+              "subject_sha256": "12cc496e84c5b49a31813d0ee2e884d1eabbe9572cca0c851f8f28f61ba2c13c"
+            },
+            {
+              "episode_matches": 1,
+              "query_id": "natural:unchanged:schedule:02",
+              "subject_sha256": "6c1dcd6d3fefe538c52044b5c9014b612f93cd3e4517665ec4c724fc0382bead"
+            },
+            {
+              "episode_matches": 1,
+              "query_id": "natural:unchanged:schedule:03",
+              "subject_sha256": "25beeefa329ead487c5e05b406d291ae67cb3147c03c494368dc5d3e193a7def"
+            },
+            {
+              "episode_matches": 1,
+              "query_id": "natural:unchanged:schedule:04",
+              "subject_sha256": "848eb15fd11c5b6afd8c99b79d7e53b740b0ca610cf3786dfbb410cfa4bc47ac"
+            },
+            {
+              "episode_matches": 1,
+              "query_id": "natural:unchanged:schedule:05",
+              "subject_sha256": "c33021495a4afe46dae17ece525caded8cc687ec4e840e15e97ce55fbf3d9ef6"
+            },
+            {
+              "episode_matches": 1,
+              "query_id": "natural:unchanged:schedule:06",
+              "subject_sha256": "a24a90d9042bf781d493c0b0fec0d14a572308afebcdf64f101167e35ee17af8"
+            },
+            {
+              "episode_matches": 1,
+              "query_id": "natural:unchanged:schedule:07",
+              "subject_sha256": "06447fa8e8234b87d30bffe7c9bb65c329e5e4c72342962998f2251a638bad94"
+            },
+            {
+              "episode_matches": 3,
+              "query_id": "natural:updated:location:00",
+              "subject_sha256": "618afed7a5e311aa4817cebb7c55b4627c58cf2b9cf0a2a3e048ec5ba32efe32"
+            },
+            {
+              "episode_matches": 3,
+              "query_id": "natural:updated:location:01",
+              "subject_sha256": "6d427a58121f14cd209e0981f124503707838f34bd02145994c1ef6e41c9221f"
+            },
+            {
+              "episode_matches": 3,
+              "query_id": "natural:updated:location:02",
+              "subject_sha256": "8f74142d2db625561fb21104dd89dfa0ad9adc30f7fa9815b92fb5a1e789fd71"
+            },
+            {
+              "episode_matches": 3,
+              "query_id": "natural:updated:location:03",
+              "subject_sha256": "c16518d2643abac3397b64c7bb06611d77afe763795753bd6de5ee0f4aaf7b3a"
+            },
+            {
+              "episode_matches": 3,
+              "query_id": "natural:updated:location:04",
+              "subject_sha256": "0d31555e2cd6f783fad3a12fbbbeae8956b7f7c72dd7cb82656e1788dd6c0a8b"
+            },
+            {
+              "episode_matches": 3,
+              "query_id": "natural:updated:location:05",
+              "subject_sha256": "c223fe2228bdb7fcd4e39e8ff7a515f78092bcdab37c229a77beb88ca5ff733c"
+            },
+            {
+              "episode_matches": 3,
+              "query_id": "natural:updated:location:06",
+              "subject_sha256": "ad56f58b94a77e2523ae5b2ce2eeebdff361e59b3d67df5d3cddb6dd5d9347dd"
+            },
+            {
+              "episode_matches": 3,
+              "query_id": "natural:updated:location:07",
+              "subject_sha256": "ce59961e5202a8fbe51ac1cbf45bb3fe1d73ae94cf8d16dc3ab9b84dc034c7f1"
+            },
+            {
+              "episode_matches": 3,
+              "query_id": "natural:updated:location:08",
+              "subject_sha256": "33309481528bf899482476f6f81ec8de633046a4a99dba5c7a986260f1663198"
+            },
+            {
+              "episode_matches": 3,
+              "query_id": "natural:updated:location:09",
+              "subject_sha256": "71ee3341f1cc1f8cff6faa7b56e806f7a5070a1eb867e2c5f59c8687277c4951"
+            },
+            {
+              "episode_matches": 3,
+              "query_id": "natural:updated:location:10",
+              "subject_sha256": "85d1410a0988b9fdbcb43ba9af79dc960e1df63b978e4b4a715b8ced178ba93b"
+            },
+            {
+              "episode_matches": 3,
+              "query_id": "natural:updated:location:11",
+              "subject_sha256": "9801df76b8600e05059557456db0e89d1412e308bdc5e6efdf94aaa9b6a6e25a"
+            },
+            {
+              "episode_matches": 3,
+              "query_id": "natural:updated:location:12",
+              "subject_sha256": "62609b5402e1a5092ce5d6dbcaa57986b0387aa206a777849a1548bd0381deee"
+            },
+            {
+              "episode_matches": 3,
+              "query_id": "natural:updated:location:13",
+              "subject_sha256": "290fbd65716f432d139a85766c646bb9c61699210de8844758edcdc005d0f9b1"
+            },
+            {
+              "episode_matches": 3,
+              "query_id": "natural:updated:location:14",
+              "subject_sha256": "a5f32f89268bce9d6afe87942fe153e0bde7d5c28538b2af804cbbec2c734eb9"
+            },
+            {
+              "episode_matches": 3,
+              "query_id": "natural:updated:location:15",
+              "subject_sha256": "35f5dfb2b5568a7109f91af566f41fcad6d36684c5ad72f475d53d0a6d26b5a6"
+            },
+            {
+              "episode_matches": 3,
+              "query_id": "natural:updated:preference:00",
+              "subject_sha256": "4f1e73733b1f92534a2250956992e413aee2402f12dfe3e15177b684a320aa5b"
+            },
+            {
+              "episode_matches": 3,
+              "query_id": "natural:updated:preference:01",
+              "subject_sha256": "de75582e47e90d8058303a21933728b119a1861e66900f73645a56ea2cabd8d1"
+            },
+            {
+              "episode_matches": 3,
+              "query_id": "natural:updated:preference:02",
+              "subject_sha256": "247714f5ce8f3a615bdd5d938b09c960c81b49feb778b18d4719cecedd1f9a88"
+            },
+            {
+              "episode_matches": 3,
+              "query_id": "natural:updated:preference:03",
+              "subject_sha256": "d7141cf2953281478e6604185a6cfed95a294c2f78db6cde5b3f8e6355488b18"
+            },
+            {
+              "episode_matches": 3,
+              "query_id": "natural:updated:preference:04",
+              "subject_sha256": "05335c8359bfbb392f90f7b0ce5a1c1cb6ca4fa8ce9f9b4a1a206871b9698900"
+            },
+            {
+              "episode_matches": 3,
+              "query_id": "natural:updated:preference:05",
+              "subject_sha256": "f9d55991281ee7ed2e310b8a526d826b62b790c1dde62c7b1c715720f9d5911c"
+            },
+            {
+              "episode_matches": 3,
+              "query_id": "natural:updated:preference:06",
+              "subject_sha256": "f0ad45518af89846566e587e4ca34867e4567a18eaca41ca338bd95f02be676f"
+            },
+            {
+              "episode_matches": 3,
+              "query_id": "natural:updated:preference:07",
+              "subject_sha256": "87946e758f8363d82fc7661b0e41b7128570022cba0eaecae431523356b1f646"
+            },
+            {
+              "episode_matches": 3,
+              "query_id": "natural:updated:preference:08",
+              "subject_sha256": "3517a47a25b3754b34100c990e05bd837570fffe81949b4ff12c6d1cee375e0a"
+            },
+            {
+              "episode_matches": 3,
+              "query_id": "natural:updated:preference:09",
+              "subject_sha256": "1eb33fcad1c889aab7bbaaf97454ad7c5648f196b65b2588f17a23d9bd367c06"
+            },
+            {
+              "episode_matches": 3,
+              "query_id": "natural:updated:preference:10",
+              "subject_sha256": "b657901553abc0a07001be0e4239155b2602f35eee5790bafe7658af05bd3110"
+            },
+            {
+              "episode_matches": 3,
+              "query_id": "natural:updated:preference:11",
+              "subject_sha256": "4fdcc53e16fd2efac070e77ba7b365274b9de0003b55fea99e1bee990c2fc570"
+            },
+            {
+              "episode_matches": 3,
+              "query_id": "natural:updated:preference:12",
+              "subject_sha256": "f8bafbf951875f29aa322479bfd9b3adf1d7106141a31b8d3e010a6daed2415c"
+            },
+            {
+              "episode_matches": 3,
+              "query_id": "natural:updated:preference:13",
+              "subject_sha256": "be91a275289fae47a3826cf36609f1339eb476252d1682343b02ff6b7792e0ea"
+            },
+            {
+              "episode_matches": 3,
+              "query_id": "natural:updated:preference:14",
+              "subject_sha256": "ffd69fbfdf3aa4c413f88a41a262ccdc754cbebc6353ca83dfc37cfdaf3d1de6"
+            },
+            {
+              "episode_matches": 3,
+              "query_id": "natural:updated:preference:15",
+              "subject_sha256": "13c3e42a2f0cc44f489289e28790e203a64b4d160019311be4bdf71cfac9880b"
+            },
+            {
+              "episode_matches": 3,
+              "query_id": "natural:updated:quantity:00",
+              "subject_sha256": "2925fd0980965a63a34453b365de5427ba2098a756bbdb7716509a373e7e9162"
+            },
+            {
+              "episode_matches": 3,
+              "query_id": "natural:updated:quantity:01",
+              "subject_sha256": "ce78171a0b5e920943b7d1d09650e15e6fd1d6537a487bf90793d08b63e9ef77"
+            },
+            {
+              "episode_matches": 3,
+              "query_id": "natural:updated:quantity:02",
+              "subject_sha256": "77291a87de088d0d5fd3cd8b4e3f17114250f1ac9be7485685326b79ab4a22fc"
+            },
+            {
+              "episode_matches": 3,
+              "query_id": "natural:updated:quantity:03",
+              "subject_sha256": "e8c679c97af7e09ebb7fee633eae28ef8f878fda483e035fcaf94c5e3e7a0b03"
+            },
+            {
+              "episode_matches": 3,
+              "query_id": "natural:updated:quantity:04",
+              "subject_sha256": "af5dffdc0089dbc5fa0efd7cabfc070d7392df805563ba9e94754f0e637f5d41"
+            },
+            {
+              "episode_matches": 3,
+              "query_id": "natural:updated:quantity:05",
+              "subject_sha256": "16c83f7fc0b1158961dceabf7a5fdf5fdeae2cf85ca02126f8ee257b3b9dd50d"
+            },
+            {
+              "episode_matches": 3,
+              "query_id": "natural:updated:quantity:06",
+              "subject_sha256": "7504a05882e8daa5751638231dd8023684d94a71b73d0ee315cfeec56493e2ce"
+            },
+            {
+              "episode_matches": 3,
+              "query_id": "natural:updated:quantity:07",
+              "subject_sha256": "78b5c3c860c937eff29abd5a94d9c6978681592ca65b1ffd528b2334a49f9663"
+            },
+            {
+              "episode_matches": 3,
+              "query_id": "natural:updated:quantity:08",
+              "subject_sha256": "cde59213137ed205c9499e97a3da9c33290f9bae4cf9e1caf301eeccad426319"
+            },
+            {
+              "episode_matches": 3,
+              "query_id": "natural:updated:quantity:09",
+              "subject_sha256": "8e895b1910ab74f3dfbb4bed1788535ee8fb36c6b31f1b2f29d74262a0cf09b7"
+            },
+            {
+              "episode_matches": 3,
+              "query_id": "natural:updated:quantity:10",
+              "subject_sha256": "2b085626c9f1bbef409420c3472201adcb1b8e8d448698b8d8ddaeb3d4de5808"
+            },
+            {
+              "episode_matches": 3,
+              "query_id": "natural:updated:quantity:11",
+              "subject_sha256": "ec710e040f37d8cf21e353f357c4df1da6c66ef858cb89258e365da4d6cfec33"
+            },
+            {
+              "episode_matches": 3,
+              "query_id": "natural:updated:quantity:12",
+              "subject_sha256": "1cb519cb64cbb055096b0ef0f41c56846a9fa7df667d66174ad8db6888913233"
+            },
+            {
+              "episode_matches": 3,
+              "query_id": "natural:updated:quantity:13",
+              "subject_sha256": "1b15b9361c63c41a90b5fda0166fe9252b8af09698764d86d45dcba0a80ed52a"
+            },
+            {
+              "episode_matches": 3,
+              "query_id": "natural:updated:quantity:14",
+              "subject_sha256": "d6b153b7c6c145e1f97d3958bf62dc6832c4604caf1ff5382845a1740661fa7e"
+            },
+            {
+              "episode_matches": 3,
+              "query_id": "natural:updated:quantity:15",
+              "subject_sha256": "53946309ad550644f7922ba27f1c9eefc1b1976129d93820000a14ae060297f8"
+            },
+            {
+              "episode_matches": 3,
+              "query_id": "natural:updated:schedule:00",
+              "subject_sha256": "e17a70f04fd8235d2d9ae3ad00ef546a1f49714bb66c3203534d1aa6bc94dfa1"
+            },
+            {
+              "episode_matches": 3,
+              "query_id": "natural:updated:schedule:01",
+              "subject_sha256": "d323bcf6031a7ea8e34243b38c1393f9589fc92664866f10a5d8a50537bbcd89"
+            },
+            {
+              "episode_matches": 3,
+              "query_id": "natural:updated:schedule:02",
+              "subject_sha256": "30b57ad752de31b0686c30841b52b18eac96e6f88d5973c60fea4257fcb30771"
+            },
+            {
+              "episode_matches": 3,
+              "query_id": "natural:updated:schedule:03",
+              "subject_sha256": "c7cf65ffdd8be5000f0d901bfeba1729bece8f7cb2a1e2b230d4df4e1ad36971"
+            },
+            {
+              "episode_matches": 3,
+              "query_id": "natural:updated:schedule:04",
+              "subject_sha256": "aaf3e9bffff05336991ea1dc588c9b9e9cb434dfdf023277385b20f3480b302e"
+            },
+            {
+              "episode_matches": 3,
+              "query_id": "natural:updated:schedule:05",
+              "subject_sha256": "70596b626a332ae01a7b36a798ddcab668345c5617ec44a3272e61e272e1a8a6"
+            },
+            {
+              "episode_matches": 3,
+              "query_id": "natural:updated:schedule:06",
+              "subject_sha256": "1e9a85af4a088a1433e483f71a6550844f7f00ab9ffe9bac692b40d2fd76b8b5"
+            },
+            {
+              "episode_matches": 3,
+              "query_id": "natural:updated:schedule:07",
+              "subject_sha256": "395a9065bbc6f421f3c4178214a9661f19fece225b8f45ee2569140d9944582d"
+            },
+            {
+              "episode_matches": 3,
+              "query_id": "natural:updated:schedule:08",
+              "subject_sha256": "7f5580f8af197022d6444bf7f58f2e778e461c0462ae7f1fe4cd4d804d4e94da"
+            },
+            {
+              "episode_matches": 3,
+              "query_id": "natural:updated:schedule:09",
+              "subject_sha256": "303b046397d9f28ada9ced36d023fc3654eb147b983a1e439ed7b42c0d233be2"
+            },
+            {
+              "episode_matches": 3,
+              "query_id": "natural:updated:schedule:10",
+              "subject_sha256": "6fb897541728850fd810c28b622300984ea12533ba9010a2ebbe59c2b5170bad"
+            },
+            {
+              "episode_matches": 3,
+              "query_id": "natural:updated:schedule:11",
+              "subject_sha256": "95ebd5e488d5d81cd8a36f2688abf90e96dbcc2b3dc36a967a752e2573c984f8"
+            },
+            {
+              "episode_matches": 3,
+              "query_id": "natural:updated:schedule:12",
+              "subject_sha256": "5423bc863174abb2fbeae8820b3c7e1e93220c85de166ffcd65f758f39357b42"
+            },
+            {
+              "episode_matches": 3,
+              "query_id": "natural:updated:schedule:13",
+              "subject_sha256": "cba59c5b084b0a37d50bc47ba78957a826136e50b4ee54b78c0f1ebb48a8d4f6"
+            },
+            {
+              "episode_matches": 3,
+              "query_id": "natural:updated:schedule:14",
+              "subject_sha256": "6d19d7f84196d56a66868899bd94c012b6a7154eb180c76d75ee737428246e79"
+            },
+            {
+              "episode_matches": 3,
+              "query_id": "natural:updated:schedule:15",
+              "subject_sha256": "148da2aa7160d67ca0238dcac91bf46d76b9838a9199432336d9516b20d5fac4"
+            }
+          ]
+        }
+      },
+      "pass": true
+    },
+    "PF5": {
+      "evidence": "Comparisons use canonical episode content SHA-256 and explicit memory_key only; no UUID, timestamp, or path keys.",
+      "pass": true
+    },
+    "PF6": {
+      "evidence": {
+        "cache_replay": {
+          "bytes": 1695744,
+          "call_shape": "solo",
+          "content_sha256": "94ed803ba7b5d0e2740a7ae48f75585346af11ec62c000cd1a698fada68f34cb",
+          "dimension": 1024,
+          "dtype": "float32",
+          "entries": 352,
+          "file_sha256": "4bc3543ae7fd969efd74c70f3435b44a1fbdab869676e2d644e0579dfe84edab",
+          "hits": 352,
+          "misses": 0,
+          "mode": "reuse",
+          "model_sha256": "06507c7b42688469c4e7298b0a1e16deff06caf291cf0a5b278c308249c3e439",
+          "path": "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\components\\biological_memory\\sup_001\\artifacts\\sup001_vectors\\sup001_vectors.sqlite"
+        },
+        "complete_C0_object_equal": true,
+        "population_per_query": 256,
+        "queries": 96
+      },
+      "pass": true
+    },
+    "PF7": {
+      "evidence": {
+        "degenerate_states": [
+          {
+            "case": "duplicate identity/key",
+            "error": "Memory key already exists: preference:00",
+            "status": "PASS"
+          },
+          {
+            "case": "unknown parent",
+            "error": "Unknown supersedes parent",
+            "status": "PASS"
+          },
+          {
+            "case": "cross-key edge",
+            "error": "Cross-key supersession is prohibited",
+            "status": "PASS"
+          },
+          {
+            "case": "fork from non-leaf",
+            "error": "Updates must supersede the unique current leaf",
+            "status": "PASS"
+          },
+          {
+            "case": "cycle",
+            "error": "Lineage links are not reciprocal and ordered",
+            "status": "PASS"
+          },
+          {
+            "case": "zero accessible leaves",
+            "error": "Lineage does not have one accessible leaf",
+            "status": "PASS"
+          },
+          {
+            "case": "multiple accessible leaves",
+            "error": "Lineage does not have one accessible leaf",
+            "status": "PASS"
+          },
+          {
+            "case": "duplicate retrieval candidate",
+            "error": "Duplicate natural-retrieval candidate",
+            "status": "PASS"
+          }
+        ],
+        "feedback": "explicit registration only; reads have no feedback",
+        "final_distribution": {
+          "accessible_count": 64,
+          "lineage_count": 64,
+          "record_count": 192,
+          "silent_count": 128
+        },
+        "fresh_process": {
+          "command": [
+            "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\.venv\\Scripts\\python.exe",
+            "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\scripts\\run_sup001_part1.py",
+            "--digest-only"
+          ],
+          "fresh": {
+            "final_distribution": {
+              "accessible_count": 64,
+              "lineage_count": 64,
+              "record_count": 192,
+              "silent_count": 128
+            },
+            "ledger_digest": "75ee42d1feab55d2aae19fcbf2abbd47e14f29d846042e3169aea4ab9460ce43",
+            "mechanism_digest": "22ba821429a9cf516ed78f383a4ed05c4d8c9e3a2cec5c228708a1ccc667c5c6",
+            "transition_count": 192,
+            "transition_digest": "68a712905d2e3d89060a703f66535c384a3d2174605e48094bb784f34aba09e7"
+          },
+          "identity_equal": true,
+          "local": {
+            "final_distribution": {
+              "accessible_count": 64,
+              "lineage_count": 64,
+              "record_count": 192,
+              "silent_count": 128
+            },
+            "ledger_digest": "75ee42d1feab55d2aae19fcbf2abbd47e14f29d846042e3169aea4ab9460ce43",
+            "mechanism_digest": "22ba821429a9cf516ed78f383a4ed05c4d8c9e3a2cec5c228708a1ccc667c5c6",
+            "transition_count": 192,
+            "transition_digest": "68a712905d2e3d89060a703f66535c384a3d2174605e48094bb784f34aba09e7"
+          }
+        },
+        "read_purity": {
+          "lineage_count": 64,
+          "lineage_reads_identity_equal": true,
+          "natural_reads_identity_equal": true,
+          "query_count": 96,
+          "state_digest_after": "75ee42d1feab55d2aae19fcbf2abbd47e14f29d846042e3169aea4ab9460ce43",
+          "state_digest_before": "75ee42d1feab55d2aae19fcbf2abbd47e14f29d846042e3169aea4ab9460ce43",
+          "state_digest_middle": "75ee42d1feab55d2aae19fcbf2abbd47e14f29d846042e3169aea4ab9460ce43",
+          "state_unchanged": true
+        }
+      },
+      "pass": true
+    },
+    "PF8": {
+      "evidence": "The 96-query offline study detects selection, silence, backfill, and provenance. The conditional 35-turn ablation can detect reader use and short integration regressions, but cannot detect long-run behavior, inferred contradictions, or production ecology.",
+      "pass": true
+    },
+    "PF9": {
+      "evidence": [
+        "G1 can pass while the reader ignores delivered context; the ablation owns that residual.",
+        "G2 can pass because explicit metadata is correct while contradiction inference remains absent and excluded.",
+        "G3 can pass on the 32 unchanged fixtures while other query distributions regress.",
+        "G4 can pass lineage recovery while natural current retrieval fails; G2 is independent.",
+        "G5 can pass structural provenance while answer correctness fails.",
+        "A 32k ceiling can pass trivially because payloads are 1,394-1,732 chars; selected identities and zero losses remain separate checks."
+      ],
+      "pass": true
+    }
+  },
+  "full_live_run_authorized": false,
+  "measurement_authorized": true,
+  "stage": "Preflight Part 2 PF1-PF10",
+  "status": "PASS",
+  "study": "SUP-001"
+}
