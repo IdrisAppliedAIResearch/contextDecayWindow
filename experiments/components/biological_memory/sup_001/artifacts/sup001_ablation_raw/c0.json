@@ -1,0 +1,1637 @@
+{
+  "arm": "C0",
+  "frozen_episode_count": 26,
+  "generation_calls": 11,
+  "inputs": {
+    "cache_sha256": "54cce6b0e0545ceb274dbe006405604c8db7556a993551db587bc2680938233a",
+    "script_sha256_post_decode_lf": "911fa59e3a85134225ddf066a049fcf4c68fdeff84c60e720bda89ce190a2547",
+    "vector_manifest_sha256": "4da2f487795065724ae21898d2a41503e2f09b5fdf8571749aabff01ef944f7a"
+  },
+  "isolation": {
+    "commit": "69b33275795965cf8aa3445f2aaef7f21cb41bde",
+    "imports": {
+      "expected_root": "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow_sup001_control\\episodic\\src",
+      "packing_path": "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow_sup001_control\\episodic\\src\\episodic\\_packing.py",
+      "render_path": "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow_sup001_control\\episodic\\src\\episodic\\_render.py"
+    },
+    "resident_treatment_modules": [],
+    "status": "PASS"
+  },
+  "probe_count": 9,
+  "responses": [
+    {
+      "answer": "Jasmine green",
+      "context": {
+        "payload": "<recent_context/>\n\n<retrieved_stm>\n<episode turn=\"1\">\n<user>For my afternoon tea, the recorded preference value is Earl Grey.</user>\n<assistant>Recorded.</assistant>\n</episode>\n<episode turn=\"21\">\n<user>Update for my afternoon tea: the preference value is now Jasmine green. This replaces the value I gave earlier.</user>\n<assistant>Recorded.</assistant>\n</episode>\n<episode turn=\"13\">\n<user>Update for my afternoon tea: the preference value is now Sencha. This replaces the value I gave earlier.</user>\n<assistant>Recorded.</assistant>\n</episode>\n<episode turn=\"14\">\n<user>Update for my team workshop: the location value is now Cedar Room. This replaces the value I gave earlier.</user>\n<assistant>Recorded.</assistant>\n</episode>\n<episode turn=\"11\">\n<user>The kitchen timer is stored beside the flour jar.</user>\n<assistant>Recorded.</assistant>\n</episode>\n<episode turn=\"15\">\n<user>Update for my dentist visit: the schedule value is now Wednesday 9:30 AM. This replaces the value I gave earlier.</user>\n<assistant>Recorded.</assistant>\n</episode>\n<episode turn=\"22\">\n<user>Update for my team workshop: the location value is now Riverside Suite. This replaces the value I gave earlier.</user>\n<assistant>Recorded.</assistant>\n</episode>\n<episode turn=\"23\">\n<user>Update for my dentist visit: the schedule value is now Friday 10:15 AM. This replaces the value I gave earlier.</user>\n<assistant>Recorded.</assistant>\n</episode>\n</retrieved_stm>",
+        "payload_sha256": "ebc043c649ba3f7671fdad6aacff265ed65c9c2d677c93fb7b56fcc0ca7bc9e7",
+        "population": [
+          {
+            "cosine": 0.8105677962303162,
+            "episode_sha256": "96f06cf6331c719852d83367f126f1a13404f52805f0a41622f5e42d8fd2b068"
+          },
+          {
+            "cosine": 0.7198734879493713,
+            "episode_sha256": "05c26cce83a5bb0b30f8bab5e226899d0d5adf4250c821ef2a9fc5ef55383339"
+          },
+          {
+            "cosine": 0.6949257850646973,
+            "episode_sha256": "752d15819c17adf87d93731c091039045317c1b22dcde19698f0805c1e6b6e3d"
+          },
+          {
+            "cosine": 0.4261101484298706,
+            "episode_sha256": "6571b873b1d740ff328d4c39d1a1cddd6644edab81ceffbf6f756b8470524f3a"
+          },
+          {
+            "cosine": 0.40745487809181213,
+            "episode_sha256": "44ff42d6c53bb3a9298486a6124a349d491cb5d9d45ef2cc5eb6a11ef262a2e0"
+          },
+          {
+            "cosine": 0.4000036120414734,
+            "episode_sha256": "d6170bb45eb455bbbd98cb1186e9db7b3ebb02d86fe48a49349bcc7c2c91f556"
+          },
+          {
+            "cosine": 0.3966580927371979,
+            "episode_sha256": "175af65c3dbd2e858bbd4d560ee9bf372d3b6377100a47077502fbca7dff08d5"
+          },
+          {
+            "cosine": 0.3907630741596222,
+            "episode_sha256": "16adc4c92a6db77c966adb96fd9bf7f9047e1d71f70a59b72e8332ccde867126"
+          },
+          {
+            "cosine": 0.3770431876182556,
+            "episode_sha256": "09d27caec2fefffa6cabb381ca99bdd8a130cd90f3bf47e84decb311d559a052"
+          },
+          {
+            "cosine": 0.3694610893726349,
+            "episode_sha256": "ebb60719446222bbc695498a72c9ee6e3080b55db5eafb46da6a9c1b129dcdd3"
+          },
+          {
+            "cosine": 0.36250540614128113,
+            "episode_sha256": "9ea1808da059f06effe829ff614a5ce80d70fa38b513ac459d0c76eeadf67fd8"
+          },
+          {
+            "cosine": 0.3575229346752167,
+            "episode_sha256": "43dca2cdd47394a00526b05329320cbb6d40cf6cb628e8404c465feaef11bb2d"
+          },
+          {
+            "cosine": 0.3451719880104065,
+            "episode_sha256": "f24848e0145af491a6a765dd6fdd64088dde3b20b073dcbe433bdc6a7a4711e8"
+          },
+          {
+            "cosine": 0.33527255058288574,
+            "episode_sha256": "d768d110381356a8cbd47390181209ba6a756cbbf9aba6f024ab7de728128f62"
+          },
+          {
+            "cosine": 0.3212772011756897,
+            "episode_sha256": "409db6513fadc1f216699ec0b49ca429ec04d27368b897a435840100741bf2ee"
+          },
+          {
+            "cosine": 0.3180153965950012,
+            "episode_sha256": "6dd60d257315fa5b066a039894c051bed7399ab83ec13518950d31a8db83cb0d"
+          },
+          {
+            "cosine": 0.30581602454185486,
+            "episode_sha256": "ffdbdc542b1c6cccc2d832ea5b66a598e2a28577d35b57e73b2c5caef7c0fb16"
+          },
+          {
+            "cosine": 0.30493971705436707,
+            "episode_sha256": "0f7599215ed6b09b3c93219e5bd5a8921a8702d02f91c2f9a7d88a0236c29ff1"
+          },
+          {
+            "cosine": 0.3036305010318756,
+            "episode_sha256": "5a9d34a57e9d2f1c197c308d6ae53e11959338ab22dea3ac58b679408d6d355f"
+          },
+          {
+            "cosine": 0.29974639415740967,
+            "episode_sha256": "db69ad5f13b5131ca6842dc1b5332885632200aca6b0a6d2d5a7f9a501b9690d"
+          },
+          {
+            "cosine": 0.296979159116745,
+            "episode_sha256": "17f0eb9ab97aec0d9ef3aaafb25fad65ab1cf863c4a1c562b2d9a8d9371ed17b"
+          },
+          {
+            "cosine": 0.29599475860595703,
+            "episode_sha256": "bdc1d3e5fa5862a775ede07093f07a60cb4c2f7858cb2c60dacb29af4c5e9b5b"
+          },
+          {
+            "cosine": 0.27892884612083435,
+            "episode_sha256": "d357de48044dd33cee2ca8591802ef84dc1b5d458c212c40503f870f5808f820"
+          },
+          {
+            "cosine": 0.26751837134361267,
+            "episode_sha256": "490f77a98a030835c2dc738696cf9f040c8bc4d7a958857c4e52d7c0d25ecd1c"
+          },
+          {
+            "cosine": 0.2382124811410904,
+            "episode_sha256": "942f54b92d3a0c50ab52f8ddaf208e4e803c0228b97ef6391f795b2b10bb555c"
+          },
+          {
+            "cosine": 0.23110100626945496,
+            "episode_sha256": "ec5041a1e9dfe8625ad178dcb5ea01c4a04215e2537a4669ce4fc5260628144c"
+          }
+        ],
+        "selected": [
+          {
+            "cosine": 0.8105677962303162,
+            "episode_sha256": "96f06cf6331c719852d83367f126f1a13404f52805f0a41622f5e42d8fd2b068"
+          },
+          {
+            "cosine": 0.7198734879493713,
+            "episode_sha256": "05c26cce83a5bb0b30f8bab5e226899d0d5adf4250c821ef2a9fc5ef55383339"
+          },
+          {
+            "cosine": 0.6949257850646973,
+            "episode_sha256": "752d15819c17adf87d93731c091039045317c1b22dcde19698f0805c1e6b6e3d"
+          },
+          {
+            "cosine": 0.4261101484298706,
+            "episode_sha256": "6571b873b1d740ff328d4c39d1a1cddd6644edab81ceffbf6f756b8470524f3a"
+          },
+          {
+            "cosine": 0.40745487809181213,
+            "episode_sha256": "44ff42d6c53bb3a9298486a6124a349d491cb5d9d45ef2cc5eb6a11ef262a2e0"
+          },
+          {
+            "cosine": 0.4000036120414734,
+            "episode_sha256": "d6170bb45eb455bbbd98cb1186e9db7b3ebb02d86fe48a49349bcc7c2c91f556"
+          },
+          {
+            "cosine": 0.3966580927371979,
+            "episode_sha256": "175af65c3dbd2e858bbd4d560ee9bf372d3b6377100a47077502fbca7dff08d5"
+          },
+          {
+            "cosine": 0.3907630741596222,
+            "episode_sha256": "16adc4c92a6db77c966adb96fd9bf7f9047e1d71f70a59b72e8332ccde867126"
+          }
+        ],
+        "selected_ids": [
+          "96f06cf6331c719852d83367f126f1a13404f52805f0a41622f5e42d8fd2b068",
+          "05c26cce83a5bb0b30f8bab5e226899d0d5adf4250c821ef2a9fc5ef55383339",
+          "752d15819c17adf87d93731c091039045317c1b22dcde19698f0805c1e6b6e3d",
+          "6571b873b1d740ff328d4c39d1a1cddd6644edab81ceffbf6f756b8470524f3a",
+          "44ff42d6c53bb3a9298486a6124a349d491cb5d9d45ef2cc5eb6a11ef262a2e0",
+          "d6170bb45eb455bbbd98cb1186e9db7b3ebb02d86fe48a49349bcc7c2c91f556",
+          "175af65c3dbd2e858bbd4d560ee9bf372d3b6377100a47077502fbca7dff08d5",
+          "16adc4c92a6db77c966adb96fd9bf7f9047e1d71f70a59b72e8332ccde867126"
+        ],
+        "serialized_chars": 1444
+      },
+      "elapsed_seconds": 0.38833150002756156,
+      "prefix_repeat": {
+        "byte_identical": true,
+        "raw_answer": "Jasmine green",
+        "tokens_predicted": 4
+      },
+      "probe_id": "current:tea",
+      "prompt_sha256": "23b8082f1a2e260be9924335326e8cef799024eaeb053478bc4306824d2a69a2",
+      "query": "What is the current preference value for my afternoon tea?",
+      "raw_answer": "Jasmine green",
+      "route": "natural",
+      "tokens_predicted": 4,
+      "turn": 27
+    },
+    {
+      "answer": "Riverside Suite",
+      "context": {
+        "payload": "<recent_context/>\n\n<retrieved_stm>\n<episode turn=\"22\">\n<user>Update for my team workshop: the location value is now Riverside Suite. This replaces the value I gave earlier.</user>\n<assistant>Recorded.</assistant>\n</episode>\n<episode turn=\"14\">\n<user>Update for my team workshop: the location value is now Cedar Room. This replaces the value I gave earlier.</user>\n<assistant>Recorded.</assistant>\n</episode>\n<episode turn=\"2\">\n<user>For my team workshop, the recorded location value is North Hall.</user>\n<assistant>Recorded.</assistant>\n</episode>\n<episode turn=\"11\">\n<user>The kitchen timer is stored beside the flour jar.</user>\n<assistant>Recorded.</assistant>\n</episode>\n<episode turn=\"4\">\n<user>For my weekly running goal, the recorded quantity value is 12 kilometers.</user>\n<assistant>Recorded.</assistant>\n</episode>\n<episode turn=\"24\">\n<user>Update for my weekly running goal: the quantity value is now 24 kilometers. This replaces the value I gave earlier.</user>\n<assistant>Recorded.</assistant>\n</episode>\n<episode turn=\"16\">\n<user>Update for my weekly running goal: the quantity value is now 18 kilometers. This replaces the value I gave earlier.</user>\n<assistant>Recorded.</assistant>\n</episode>\n<episode turn=\"21\">\n<user>Update for my afternoon tea: the preference value is now Jasmine green. This replaces the value I gave earlier.</user>\n<assistant>Recorded.</assistant>\n</episode>\n</retrieved_stm>",
+        "payload_sha256": "fa68c35e896e2020fb15c4382748a271d021cb0ce9e3ebe8fb506376bd5f1729",
+        "population": [
+          {
+            "cosine": 0.7077517509460449,
+            "episode_sha256": "175af65c3dbd2e858bbd4d560ee9bf372d3b6377100a47077502fbca7dff08d5"
+          },
+          {
+            "cosine": 0.702557384967804,
+            "episode_sha256": "6571b873b1d740ff328d4c39d1a1cddd6644edab81ceffbf6f756b8470524f3a"
+          },
+          {
+            "cosine": 0.6649274230003357,
+            "episode_sha256": "f24848e0145af491a6a765dd6fdd64088dde3b20b073dcbe433bdc6a7a4711e8"
+          },
+          {
+            "cosine": 0.4336937963962555,
+            "episode_sha256": "44ff42d6c53bb3a9298486a6124a349d491cb5d9d45ef2cc5eb6a11ef262a2e0"
+          },
+          {
+            "cosine": 0.4307746887207031,
+            "episode_sha256": "409db6513fadc1f216699ec0b49ca429ec04d27368b897a435840100741bf2ee"
+          },
+          {
+            "cosine": 0.42465710639953613,
+            "episode_sha256": "0f7599215ed6b09b3c93219e5bd5a8921a8702d02f91c2f9a7d88a0236c29ff1"
+          },
+          {
+            "cosine": 0.4190253019332886,
+            "episode_sha256": "17f0eb9ab97aec0d9ef3aaafb25fad65ab1cf863c4a1c562b2d9a8d9371ed17b"
+          },
+          {
+            "cosine": 0.4159306287765503,
+            "episode_sha256": "05c26cce83a5bb0b30f8bab5e226899d0d5adf4250c821ef2a9fc5ef55383339"
+          },
+          {
+            "cosine": 0.41335704922676086,
+            "episode_sha256": "d6170bb45eb455bbbd98cb1186e9db7b3ebb02d86fe48a49349bcc7c2c91f556"
+          },
+          {
+            "cosine": 0.4130095839500427,
+            "episode_sha256": "752d15819c17adf87d93731c091039045317c1b22dcde19698f0805c1e6b6e3d"
+          },
+          {
+            "cosine": 0.40180280804634094,
+            "episode_sha256": "16adc4c92a6db77c966adb96fd9bf7f9047e1d71f70a59b72e8332ccde867126"
+          },
+          {
+            "cosine": 0.3851386606693268,
+            "episode_sha256": "96f06cf6331c719852d83367f126f1a13404f52805f0a41622f5e42d8fd2b068"
+          },
+          {
+            "cosine": 0.3716375529766083,
+            "episode_sha256": "d357de48044dd33cee2ca8591802ef84dc1b5d458c212c40503f870f5808f820"
+          },
+          {
+            "cosine": 0.37034347653388977,
+            "episode_sha256": "ebb60719446222bbc695498a72c9ee6e3080b55db5eafb46da6a9c1b129dcdd3"
+          },
+          {
+            "cosine": 0.36958348751068115,
+            "episode_sha256": "d768d110381356a8cbd47390181209ba6a756cbbf9aba6f024ab7de728128f62"
+          },
+          {
+            "cosine": 0.36345911026000977,
+            "episode_sha256": "db69ad5f13b5131ca6842dc1b5332885632200aca6b0a6d2d5a7f9a501b9690d"
+          },
+          {
+            "cosine": 0.36127370595932007,
+            "episode_sha256": "43dca2cdd47394a00526b05329320cbb6d40cf6cb628e8404c465feaef11bb2d"
+          },
+          {
+            "cosine": 0.3592659831047058,
+            "episode_sha256": "9ea1808da059f06effe829ff614a5ce80d70fa38b513ac459d0c76eeadf67fd8"
+          },
+          {
+            "cosine": 0.34199172258377075,
+            "episode_sha256": "ec5041a1e9dfe8625ad178dcb5ea01c4a04215e2537a4669ce4fc5260628144c"
+          },
+          {
+            "cosine": 0.33139675855636597,
+            "episode_sha256": "5a9d34a57e9d2f1c197c308d6ae53e11959338ab22dea3ac58b679408d6d355f"
+          },
+          {
+            "cosine": 0.3282172977924347,
+            "episode_sha256": "490f77a98a030835c2dc738696cf9f040c8bc4d7a958857c4e52d7c0d25ecd1c"
+          },
+          {
+            "cosine": 0.32610324025154114,
+            "episode_sha256": "ffdbdc542b1c6cccc2d832ea5b66a598e2a28577d35b57e73b2c5caef7c0fb16"
+          },
+          {
+            "cosine": 0.3149072527885437,
+            "episode_sha256": "bdc1d3e5fa5862a775ede07093f07a60cb4c2f7858cb2c60dacb29af4c5e9b5b"
+          },
+          {
+            "cosine": 0.3088436424732208,
+            "episode_sha256": "09d27caec2fefffa6cabb381ca99bdd8a130cd90f3bf47e84decb311d559a052"
+          },
+          {
+            "cosine": 0.2931084930896759,
+            "episode_sha256": "6dd60d257315fa5b066a039894c051bed7399ab83ec13518950d31a8db83cb0d"
+          },
+          {
+            "cosine": 0.23794446885585785,
+            "episode_sha256": "942f54b92d3a0c50ab52f8ddaf208e4e803c0228b97ef6391f795b2b10bb555c"
+          }
+        ],
+        "selected": [
+          {
+            "cosine": 0.7077517509460449,
+            "episode_sha256": "175af65c3dbd2e858bbd4d560ee9bf372d3b6377100a47077502fbca7dff08d5"
+          },
+          {
+            "cosine": 0.702557384967804,
+            "episode_sha256": "6571b873b1d740ff328d4c39d1a1cddd6644edab81ceffbf6f756b8470524f3a"
+          },
+          {
+            "cosine": 0.6649274230003357,
+            "episode_sha256": "f24848e0145af491a6a765dd6fdd64088dde3b20b073dcbe433bdc6a7a4711e8"
+          },
+          {
+            "cosine": 0.4336937963962555,
+            "episode_sha256": "44ff42d6c53bb3a9298486a6124a349d491cb5d9d45ef2cc5eb6a11ef262a2e0"
+          },
+          {
+            "cosine": 0.4307746887207031,
+            "episode_sha256": "409db6513fadc1f216699ec0b49ca429ec04d27368b897a435840100741bf2ee"
+          },
+          {
+            "cosine": 0.42465710639953613,
+            "episode_sha256": "0f7599215ed6b09b3c93219e5bd5a8921a8702d02f91c2f9a7d88a0236c29ff1"
+          },
+          {
+            "cosine": 0.4190253019332886,
+            "episode_sha256": "17f0eb9ab97aec0d9ef3aaafb25fad65ab1cf863c4a1c562b2d9a8d9371ed17b"
+          },
+          {
+            "cosine": 0.4159306287765503,
+            "episode_sha256": "05c26cce83a5bb0b30f8bab5e226899d0d5adf4250c821ef2a9fc5ef55383339"
+          }
+        ],
+        "selected_ids": [
+          "175af65c3dbd2e858bbd4d560ee9bf372d3b6377100a47077502fbca7dff08d5",
+          "6571b873b1d740ff328d4c39d1a1cddd6644edab81ceffbf6f756b8470524f3a",
+          "f24848e0145af491a6a765dd6fdd64088dde3b20b073dcbe433bdc6a7a4711e8",
+          "44ff42d6c53bb3a9298486a6124a349d491cb5d9d45ef2cc5eb6a11ef262a2e0",
+          "409db6513fadc1f216699ec0b49ca429ec04d27368b897a435840100741bf2ee",
+          "0f7599215ed6b09b3c93219e5bd5a8921a8702d02f91c2f9a7d88a0236c29ff1",
+          "17f0eb9ab97aec0d9ef3aaafb25fad65ab1cf863c4a1c562b2d9a8d9371ed17b",
+          "05c26cce83a5bb0b30f8bab5e226899d0d5adf4250c821ef2a9fc5ef55383339"
+        ],
+        "serialized_chars": 1417
+      },
+      "elapsed_seconds": 0.3744902999897022,
+      "prefix_repeat": {
+        "byte_identical": true,
+        "raw_answer": "Riverside Suite",
+        "tokens_predicted": 5
+      },
+      "probe_id": "current:workshop",
+      "prompt_sha256": "9765c34f1c8953d7753313e21c52bc6dbe28474c2cbd906d0939533bf54c54fa",
+      "query": "What is the current location value for my team workshop?",
+      "raw_answer": "Riverside Suite",
+      "route": "natural",
+      "tokens_predicted": 5,
+      "turn": 28
+    },
+    {
+      "answer": "Friday 10:15 AM",
+      "context": {
+        "payload": "<recent_context/>\n\n<retrieved_stm>\n<episode turn=\"23\">\n<user>Update for my dentist visit: the schedule value is now Friday 10:15 AM. This replaces the value I gave earlier.</user>\n<assistant>Recorded.</assistant>\n</episode>\n<episode turn=\"15\">\n<user>Update for my dentist visit: the schedule value is now Wednesday 9:30 AM. This replaces the value I gave earlier.</user>\n<assistant>Recorded.</assistant>\n</episode>\n<episode turn=\"3\">\n<user>For my dentist visit, the recorded schedule value is Monday 8:00 AM.</user>\n<assistant>Recorded.</assistant>\n</episode>\n<episode turn=\"8\">\n<user>My weekday morning alarm is set for 6:40 AM.</user>\n<assistant>Recorded.</assistant>\n</episode>\n<episode turn=\"13\">\n<user>Update for my afternoon tea: the preference value is now Sencha. This replaces the value I gave earlier.</user>\n<assistant>Recorded.</assistant>\n</episode>\n<episode turn=\"21\">\n<user>Update for my afternoon tea: the preference value is now Jasmine green. This replaces the value I gave earlier.</user>\n<assistant>Recorded.</assistant>\n</episode>\n<episode turn=\"22\">\n<user>Update for my team workshop: the location value is now Riverside Suite. This replaces the value I gave earlier.</user>\n<assistant>Recorded.</assistant>\n</episode>\n<episode turn=\"1\">\n<user>For my afternoon tea, the recorded preference value is Earl Grey.</user>\n<assistant>Recorded.</assistant>\n</episode>\n</retrieved_stm>",
+        "payload_sha256": "c94d373630c4ad1ac1895c0d1cb719935190e1723be7bee06b0eb11403319001",
+        "population": [
+          {
+            "cosine": 0.7117555737495422,
+            "episode_sha256": "16adc4c92a6db77c966adb96fd9bf7f9047e1d71f70a59b72e8332ccde867126"
+          },
+          {
+            "cosine": 0.6984153985977173,
+            "episode_sha256": "d6170bb45eb455bbbd98cb1186e9db7b3ebb02d86fe48a49349bcc7c2c91f556"
+          },
+          {
+            "cosine": 0.6829954981803894,
+            "episode_sha256": "43dca2cdd47394a00526b05329320cbb6d40cf6cb628e8404c465feaef11bb2d"
+          },
+          {
+            "cosine": 0.3871706426143646,
+            "episode_sha256": "09d27caec2fefffa6cabb381ca99bdd8a130cd90f3bf47e84decb311d559a052"
+          },
+          {
+            "cosine": 0.38461872935295105,
+            "episode_sha256": "752d15819c17adf87d93731c091039045317c1b22dcde19698f0805c1e6b6e3d"
+          },
+          {
+            "cosine": 0.3753093481063843,
+            "episode_sha256": "05c26cce83a5bb0b30f8bab5e226899d0d5adf4250c821ef2a9fc5ef55383339"
+          },
+          {
+            "cosine": 0.3711857199668884,
+            "episode_sha256": "175af65c3dbd2e858bbd4d560ee9bf372d3b6377100a47077502fbca7dff08d5"
+          },
+          {
+            "cosine": 0.36102816462516785,
+            "episode_sha256": "96f06cf6331c719852d83367f126f1a13404f52805f0a41622f5e42d8fd2b068"
+          },
+          {
+            "cosine": 0.35652318596839905,
+            "episode_sha256": "6571b873b1d740ff328d4c39d1a1cddd6644edab81ceffbf6f756b8470524f3a"
+          },
+          {
+            "cosine": 0.3500894606113434,
+            "episode_sha256": "409db6513fadc1f216699ec0b49ca429ec04d27368b897a435840100741bf2ee"
+          },
+          {
+            "cosine": 0.3456691801548004,
+            "episode_sha256": "0f7599215ed6b09b3c93219e5bd5a8921a8702d02f91c2f9a7d88a0236c29ff1"
+          },
+          {
+            "cosine": 0.32117167115211487,
+            "episode_sha256": "17f0eb9ab97aec0d9ef3aaafb25fad65ab1cf863c4a1c562b2d9a8d9371ed17b"
+          },
+          {
+            "cosine": 0.3193790912628174,
+            "episode_sha256": "44ff42d6c53bb3a9298486a6124a349d491cb5d9d45ef2cc5eb6a11ef262a2e0"
+          },
+          {
+            "cosine": 0.307251900434494,
+            "episode_sha256": "6dd60d257315fa5b066a039894c051bed7399ab83ec13518950d31a8db83cb0d"
+          },
+          {
+            "cosine": 0.2835365831851959,
+            "episode_sha256": "f24848e0145af491a6a765dd6fdd64088dde3b20b073dcbe433bdc6a7a4711e8"
+          },
+          {
+            "cosine": 0.2763887941837311,
+            "episode_sha256": "ec5041a1e9dfe8625ad178dcb5ea01c4a04215e2537a4669ce4fc5260628144c"
+          },
+          {
+            "cosine": 0.2626512944698334,
+            "episode_sha256": "ebb60719446222bbc695498a72c9ee6e3080b55db5eafb46da6a9c1b129dcdd3"
+          },
+          {
+            "cosine": 0.23901301622390747,
+            "episode_sha256": "db69ad5f13b5131ca6842dc1b5332885632200aca6b0a6d2d5a7f9a501b9690d"
+          },
+          {
+            "cosine": 0.2349749654531479,
+            "episode_sha256": "d768d110381356a8cbd47390181209ba6a756cbbf9aba6f024ab7de728128f62"
+          },
+          {
+            "cosine": 0.22568894922733307,
+            "episode_sha256": "d357de48044dd33cee2ca8591802ef84dc1b5d458c212c40503f870f5808f820"
+          },
+          {
+            "cosine": 0.20805247128009796,
+            "episode_sha256": "9ea1808da059f06effe829ff614a5ce80d70fa38b513ac459d0c76eeadf67fd8"
+          },
+          {
+            "cosine": 0.19776327908039093,
+            "episode_sha256": "5a9d34a57e9d2f1c197c308d6ae53e11959338ab22dea3ac58b679408d6d355f"
+          },
+          {
+            "cosine": 0.19674865901470184,
+            "episode_sha256": "bdc1d3e5fa5862a775ede07093f07a60cb4c2f7858cb2c60dacb29af4c5e9b5b"
+          },
+          {
+            "cosine": 0.19602131843566895,
+            "episode_sha256": "ffdbdc542b1c6cccc2d832ea5b66a598e2a28577d35b57e73b2c5caef7c0fb16"
+          },
+          {
+            "cosine": 0.19601352512836456,
+            "episode_sha256": "490f77a98a030835c2dc738696cf9f040c8bc4d7a958857c4e52d7c0d25ecd1c"
+          },
+          {
+            "cosine": 0.13976450264453888,
+            "episode_sha256": "942f54b92d3a0c50ab52f8ddaf208e4e803c0228b97ef6391f795b2b10bb555c"
+          }
+        ],
+        "selected": [
+          {
+            "cosine": 0.7117555737495422,
+            "episode_sha256": "16adc4c92a6db77c966adb96fd9bf7f9047e1d71f70a59b72e8332ccde867126"
+          },
+          {
+            "cosine": 0.6984153985977173,
+            "episode_sha256": "d6170bb45eb455bbbd98cb1186e9db7b3ebb02d86fe48a49349bcc7c2c91f556"
+          },
+          {
+            "cosine": 0.6829954981803894,
+            "episode_sha256": "43dca2cdd47394a00526b05329320cbb6d40cf6cb628e8404c465feaef11bb2d"
+          },
+          {
+            "cosine": 0.3871706426143646,
+            "episode_sha256": "09d27caec2fefffa6cabb381ca99bdd8a130cd90f3bf47e84decb311d559a052"
+          },
+          {
+            "cosine": 0.38461872935295105,
+            "episode_sha256": "752d15819c17adf87d93731c091039045317c1b22dcde19698f0805c1e6b6e3d"
+          },
+          {
+            "cosine": 0.3753093481063843,
+            "episode_sha256": "05c26cce83a5bb0b30f8bab5e226899d0d5adf4250c821ef2a9fc5ef55383339"
+          },
+          {
+            "cosine": 0.3711857199668884,
+            "episode_sha256": "175af65c3dbd2e858bbd4d560ee9bf372d3b6377100a47077502fbca7dff08d5"
+          },
+          {
+            "cosine": 0.36102816462516785,
+            "episode_sha256": "96f06cf6331c719852d83367f126f1a13404f52805f0a41622f5e42d8fd2b068"
+          }
+        ],
+        "selected_ids": [
+          "16adc4c92a6db77c966adb96fd9bf7f9047e1d71f70a59b72e8332ccde867126",
+          "d6170bb45eb455bbbd98cb1186e9db7b3ebb02d86fe48a49349bcc7c2c91f556",
+          "43dca2cdd47394a00526b05329320cbb6d40cf6cb628e8404c465feaef11bb2d",
+          "09d27caec2fefffa6cabb381ca99bdd8a130cd90f3bf47e84decb311d559a052",
+          "752d15819c17adf87d93731c091039045317c1b22dcde19698f0805c1e6b6e3d",
+          "05c26cce83a5bb0b30f8bab5e226899d0d5adf4250c821ef2a9fc5ef55383339",
+          "175af65c3dbd2e858bbd4d560ee9bf372d3b6377100a47077502fbca7dff08d5",
+          "96f06cf6331c719852d83367f126f1a13404f52805f0a41622f5e42d8fd2b068"
+        ],
+        "serialized_chars": 1399
+      },
+      "elapsed_seconds": 0.4603988000017125,
+      "prefix_repeat": null,
+      "probe_id": "current:dentist",
+      "prompt_sha256": "6a57f0bfe819a0aa5bcbf0cad06b9793073dd8b9f2f46c40d6a9e50f09439368",
+      "query": "What is the current schedule value for my dentist visit?",
+      "raw_answer": "Friday 10:15 AM",
+      "route": "natural",
+      "tokens_predicted": 9,
+      "turn": 29
+    },
+    {
+      "answer": "24 kilometers.",
+      "context": {
+        "payload": "<recent_context/>\n\n<retrieved_stm>\n<episode turn=\"4\">\n<user>For my weekly running goal, the recorded quantity value is 12 kilometers.</user>\n<assistant>Recorded.</assistant>\n</episode>\n<episode turn=\"24\">\n<user>Update for my weekly running goal: the quantity value is now 24 kilometers. This replaces the value I gave earlier.</user>\n<assistant>Recorded.</assistant>\n</episode>\n<episode turn=\"16\">\n<user>Update for my weekly running goal: the quantity value is now 18 kilometers. This replaces the value I gave earlier.</user>\n<assistant>Recorded.</assistant>\n</episode>\n<episode turn=\"15\">\n<user>Update for my dentist visit: the schedule value is now Wednesday 9:30 AM. This replaces the value I gave earlier.</user>\n<assistant>Recorded.</assistant>\n</episode>\n<episode turn=\"7\">\n<user>My monthly library donation is $35.</user>\n<assistant>Recorded.</assistant>\n</episode>\n<episode turn=\"22\">\n<user>Update for my team workshop: the location value is now Riverside Suite. This replaces the value I gave earlier.</user>\n<assistant>Recorded.</assistant>\n</episode>\n<episode turn=\"23\">\n<user>Update for my dentist visit: the schedule value is now Friday 10:15 AM. This replaces the value I gave earlier.</user>\n<assistant>Recorded.</assistant>\n</episode>\n<episode turn=\"14\">\n<user>Update for my team workshop: the location value is now Cedar Room. This replaces the value I gave earlier.</user>\n<assistant>Recorded.</assistant>\n</episode>\n</retrieved_stm>",
+        "payload_sha256": "80a874e422fd31dc5888686d95644d524beaba11351397833db3ed77c141600a",
+        "population": [
+          {
+            "cosine": 0.833585262298584,
+            "episode_sha256": "409db6513fadc1f216699ec0b49ca429ec04d27368b897a435840100741bf2ee"
+          },
+          {
+            "cosine": 0.8007635474205017,
+            "episode_sha256": "0f7599215ed6b09b3c93219e5bd5a8921a8702d02f91c2f9a7d88a0236c29ff1"
+          },
+          {
+            "cosine": 0.7846075892448425,
+            "episode_sha256": "17f0eb9ab97aec0d9ef3aaafb25fad65ab1cf863c4a1c562b2d9a8d9371ed17b"
+          },
+          {
+            "cosine": 0.4462040662765503,
+            "episode_sha256": "d6170bb45eb455bbbd98cb1186e9db7b3ebb02d86fe48a49349bcc7c2c91f556"
+          },
+          {
+            "cosine": 0.44602537155151367,
+            "episode_sha256": "6dd60d257315fa5b066a039894c051bed7399ab83ec13518950d31a8db83cb0d"
+          },
+          {
+            "cosine": 0.44594332575798035,
+            "episode_sha256": "175af65c3dbd2e858bbd4d560ee9bf372d3b6377100a47077502fbca7dff08d5"
+          },
+          {
+            "cosine": 0.4321592450141907,
+            "episode_sha256": "16adc4c92a6db77c966adb96fd9bf7f9047e1d71f70a59b72e8332ccde867126"
+          },
+          {
+            "cosine": 0.4301740527153015,
+            "episode_sha256": "6571b873b1d740ff328d4c39d1a1cddd6644edab81ceffbf6f756b8470524f3a"
+          },
+          {
+            "cosine": 0.4221944808959961,
+            "episode_sha256": "09d27caec2fefffa6cabb381ca99bdd8a130cd90f3bf47e84decb311d559a052"
+          },
+          {
+            "cosine": 0.41108378767967224,
+            "episode_sha256": "05c26cce83a5bb0b30f8bab5e226899d0d5adf4250c821ef2a9fc5ef55383339"
+          },
+          {
+            "cosine": 0.4053042232990265,
+            "episode_sha256": "752d15819c17adf87d93731c091039045317c1b22dcde19698f0805c1e6b6e3d"
+          },
+          {
+            "cosine": 0.3811858594417572,
+            "episode_sha256": "43dca2cdd47394a00526b05329320cbb6d40cf6cb628e8404c465feaef11bb2d"
+          },
+          {
+            "cosine": 0.3768523931503296,
+            "episode_sha256": "96f06cf6331c719852d83367f126f1a13404f52805f0a41622f5e42d8fd2b068"
+          },
+          {
+            "cosine": 0.35159796476364136,
+            "episode_sha256": "44ff42d6c53bb3a9298486a6124a349d491cb5d9d45ef2cc5eb6a11ef262a2e0"
+          },
+          {
+            "cosine": 0.33736199140548706,
+            "episode_sha256": "ec5041a1e9dfe8625ad178dcb5ea01c4a04215e2537a4669ce4fc5260628144c"
+          },
+          {
+            "cosine": 0.3363313674926758,
+            "episode_sha256": "f24848e0145af491a6a765dd6fdd64088dde3b20b073dcbe433bdc6a7a4711e8"
+          },
+          {
+            "cosine": 0.33348748087882996,
+            "episode_sha256": "5a9d34a57e9d2f1c197c308d6ae53e11959338ab22dea3ac58b679408d6d355f"
+          },
+          {
+            "cosine": 0.3331238329410553,
+            "episode_sha256": "ebb60719446222bbc695498a72c9ee6e3080b55db5eafb46da6a9c1b129dcdd3"
+          },
+          {
+            "cosine": 0.3127387762069702,
+            "episode_sha256": "db69ad5f13b5131ca6842dc1b5332885632200aca6b0a6d2d5a7f9a501b9690d"
+          },
+          {
+            "cosine": 0.2994620203971863,
+            "episode_sha256": "d768d110381356a8cbd47390181209ba6a756cbbf9aba6f024ab7de728128f62"
+          },
+          {
+            "cosine": 0.29035115242004395,
+            "episode_sha256": "9ea1808da059f06effe829ff614a5ce80d70fa38b513ac459d0c76eeadf67fd8"
+          },
+          {
+            "cosine": 0.27465584874153137,
+            "episode_sha256": "490f77a98a030835c2dc738696cf9f040c8bc4d7a958857c4e52d7c0d25ecd1c"
+          },
+          {
+            "cosine": 0.2734491527080536,
+            "episode_sha256": "bdc1d3e5fa5862a775ede07093f07a60cb4c2f7858cb2c60dacb29af4c5e9b5b"
+          },
+          {
+            "cosine": 0.27139922976493835,
+            "episode_sha256": "ffdbdc542b1c6cccc2d832ea5b66a598e2a28577d35b57e73b2c5caef7c0fb16"
+          },
+          {
+            "cosine": 0.23337513208389282,
+            "episode_sha256": "d357de48044dd33cee2ca8591802ef84dc1b5d458c212c40503f870f5808f820"
+          },
+          {
+            "cosine": 0.1935305893421173,
+            "episode_sha256": "942f54b92d3a0c50ab52f8ddaf208e4e803c0228b97ef6391f795b2b10bb555c"
+          }
+        ],
+        "selected": [
+          {
+            "cosine": 0.833585262298584,
+            "episode_sha256": "409db6513fadc1f216699ec0b49ca429ec04d27368b897a435840100741bf2ee"
+          },
+          {
+            "cosine": 0.8007635474205017,
+            "episode_sha256": "0f7599215ed6b09b3c93219e5bd5a8921a8702d02f91c2f9a7d88a0236c29ff1"
+          },
+          {
+            "cosine": 0.7846075892448425,
+            "episode_sha256": "17f0eb9ab97aec0d9ef3aaafb25fad65ab1cf863c4a1c562b2d9a8d9371ed17b"
+          },
+          {
+            "cosine": 0.4462040662765503,
+            "episode_sha256": "d6170bb45eb455bbbd98cb1186e9db7b3ebb02d86fe48a49349bcc7c2c91f556"
+          },
+          {
+            "cosine": 0.44602537155151367,
+            "episode_sha256": "6dd60d257315fa5b066a039894c051bed7399ab83ec13518950d31a8db83cb0d"
+          },
+          {
+            "cosine": 0.44594332575798035,
+            "episode_sha256": "175af65c3dbd2e858bbd4d560ee9bf372d3b6377100a47077502fbca7dff08d5"
+          },
+          {
+            "cosine": 0.4321592450141907,
+            "episode_sha256": "16adc4c92a6db77c966adb96fd9bf7f9047e1d71f70a59b72e8332ccde867126"
+          },
+          {
+            "cosine": 0.4301740527153015,
+            "episode_sha256": "6571b873b1d740ff328d4c39d1a1cddd6644edab81ceffbf6f756b8470524f3a"
+          }
+        ],
+        "selected_ids": [
+          "409db6513fadc1f216699ec0b49ca429ec04d27368b897a435840100741bf2ee",
+          "0f7599215ed6b09b3c93219e5bd5a8921a8702d02f91c2f9a7d88a0236c29ff1",
+          "17f0eb9ab97aec0d9ef3aaafb25fad65ab1cf863c4a1c562b2d9a8d9371ed17b",
+          "d6170bb45eb455bbbd98cb1186e9db7b3ebb02d86fe48a49349bcc7c2c91f556",
+          "6dd60d257315fa5b066a039894c051bed7399ab83ec13518950d31a8db83cb0d",
+          "175af65c3dbd2e858bbd4d560ee9bf372d3b6377100a47077502fbca7dff08d5",
+          "16adc4c92a6db77c966adb96fd9bf7f9047e1d71f70a59b72e8332ccde867126",
+          "6571b873b1d740ff328d4c39d1a1cddd6644edab81ceffbf6f756b8470524f3a"
+        ],
+        "serialized_chars": 1452
+      },
+      "elapsed_seconds": 0.3801789999997709,
+      "prefix_repeat": null,
+      "probe_id": "current:running",
+      "prompt_sha256": "142ce82385c3fd5c22aa499cf664310562f2b7ae260f1452e2876e01889ba149",
+      "query": "What is the current quantity value for my weekly running goal?",
+      "raw_answer": "24 kilometers.",
+      "route": "natural",
+      "tokens_predicted": 5,
+      "turn": 30
+    },
+    {
+      "answer": "312-555-0147",
+      "context": {
+        "payload": "<recent_context/>\n\n<retrieved_stm>\n<episode turn=\"5\">\n<user>My emergency contact phone number is 312-555-0147.</user>\n<assistant>Recorded.</assistant>\n</episode>\n<episode turn=\"8\">\n<user>My weekday morning alarm is set for 6:40 AM.</user>\n<assistant>Recorded.</assistant>\n</episode>\n<episode turn=\"4\">\n<user>For my weekly running goal, the recorded quantity value is 12 kilometers.</user>\n<assistant>Recorded.</assistant>\n</episode>\n<episode turn=\"15\">\n<user>Update for my dentist visit: the schedule value is now Wednesday 9:30 AM. This replaces the value I gave earlier.</user>\n<assistant>Recorded.</assistant>\n</episode>\n<episode turn=\"6\">\n<user>My passport folder is in the blue fireproof drawer.</user>\n<assistant>Recorded.</assistant>\n</episode>\n<episode turn=\"2\">\n<user>For my team workshop, the recorded location value is North Hall.</user>\n<assistant>Recorded.</assistant>\n</episode>\n<episode turn=\"11\">\n<user>The kitchen timer is stored beside the flour jar.</user>\n<assistant>Recorded.</assistant>\n</episode>\n<episode turn=\"3\">\n<user>For my dentist visit, the recorded schedule value is Monday 8:00 AM.</user>\n<assistant>Recorded.</assistant>\n</episode>\n</retrieved_stm>",
+        "payload_sha256": "3cda69e5437b2bfa88ef8c8e6c986ac1c520f2a10290cf44541484ce5df009c8",
+        "population": [
+          {
+            "cosine": 0.6649266481399536,
+            "episode_sha256": "ec5041a1e9dfe8625ad178dcb5ea01c4a04215e2537a4669ce4fc5260628144c"
+          },
+          {
+            "cosine": 0.35347211360931396,
+            "episode_sha256": "09d27caec2fefffa6cabb381ca99bdd8a130cd90f3bf47e84decb311d559a052"
+          },
+          {
+            "cosine": 0.3386130928993225,
+            "episode_sha256": "409db6513fadc1f216699ec0b49ca429ec04d27368b897a435840100741bf2ee"
+          },
+          {
+            "cosine": 0.331887423992157,
+            "episode_sha256": "d6170bb45eb455bbbd98cb1186e9db7b3ebb02d86fe48a49349bcc7c2c91f556"
+          },
+          {
+            "cosine": 0.32773879170417786,
+            "episode_sha256": "d357de48044dd33cee2ca8591802ef84dc1b5d458c212c40503f870f5808f820"
+          },
+          {
+            "cosine": 0.32496827840805054,
+            "episode_sha256": "f24848e0145af491a6a765dd6fdd64088dde3b20b073dcbe433bdc6a7a4711e8"
+          },
+          {
+            "cosine": 0.324205219745636,
+            "episode_sha256": "44ff42d6c53bb3a9298486a6124a349d491cb5d9d45ef2cc5eb6a11ef262a2e0"
+          },
+          {
+            "cosine": 0.3184579014778137,
+            "episode_sha256": "43dca2cdd47394a00526b05329320cbb6d40cf6cb628e8404c465feaef11bb2d"
+          },
+          {
+            "cosine": 0.3175692558288574,
+            "episode_sha256": "16adc4c92a6db77c966adb96fd9bf7f9047e1d71f70a59b72e8332ccde867126"
+          },
+          {
+            "cosine": 0.3160419464111328,
+            "episode_sha256": "0f7599215ed6b09b3c93219e5bd5a8921a8702d02f91c2f9a7d88a0236c29ff1"
+          },
+          {
+            "cosine": 0.3154546022415161,
+            "episode_sha256": "ffdbdc542b1c6cccc2d832ea5b66a598e2a28577d35b57e73b2c5caef7c0fb16"
+          },
+          {
+            "cosine": 0.31191548705101013,
+            "episode_sha256": "175af65c3dbd2e858bbd4d560ee9bf372d3b6377100a47077502fbca7dff08d5"
+          },
+          {
+            "cosine": 0.3108391761779785,
+            "episode_sha256": "6571b873b1d740ff328d4c39d1a1cddd6644edab81ceffbf6f756b8470524f3a"
+          },
+          {
+            "cosine": 0.3068000376224518,
+            "episode_sha256": "17f0eb9ab97aec0d9ef3aaafb25fad65ab1cf863c4a1c562b2d9a8d9371ed17b"
+          },
+          {
+            "cosine": 0.2830568552017212,
+            "episode_sha256": "96f06cf6331c719852d83367f126f1a13404f52805f0a41622f5e42d8fd2b068"
+          },
+          {
+            "cosine": 0.2824682593345642,
+            "episode_sha256": "490f77a98a030835c2dc738696cf9f040c8bc4d7a958857c4e52d7c0d25ecd1c"
+          },
+          {
+            "cosine": 0.27654829621315,
+            "episode_sha256": "d768d110381356a8cbd47390181209ba6a756cbbf9aba6f024ab7de728128f62"
+          },
+          {
+            "cosine": 0.24477484822273254,
+            "episode_sha256": "6dd60d257315fa5b066a039894c051bed7399ab83ec13518950d31a8db83cb0d"
+          },
+          {
+            "cosine": 0.24092434346675873,
+            "episode_sha256": "05c26cce83a5bb0b30f8bab5e226899d0d5adf4250c821ef2a9fc5ef55383339"
+          },
+          {
+            "cosine": 0.2392614185810089,
+            "episode_sha256": "db69ad5f13b5131ca6842dc1b5332885632200aca6b0a6d2d5a7f9a501b9690d"
+          },
+          {
+            "cosine": 0.2322338968515396,
+            "episode_sha256": "5a9d34a57e9d2f1c197c308d6ae53e11959338ab22dea3ac58b679408d6d355f"
+          },
+          {
+            "cosine": 0.21566081047058105,
+            "episode_sha256": "752d15819c17adf87d93731c091039045317c1b22dcde19698f0805c1e6b6e3d"
+          },
+          {
+            "cosine": 0.20073065161705017,
+            "episode_sha256": "9ea1808da059f06effe829ff614a5ce80d70fa38b513ac459d0c76eeadf67fd8"
+          },
+          {
+            "cosine": 0.19227071106433868,
+            "episode_sha256": "bdc1d3e5fa5862a775ede07093f07a60cb4c2f7858cb2c60dacb29af4c5e9b5b"
+          },
+          {
+            "cosine": 0.1783401370048523,
+            "episode_sha256": "ebb60719446222bbc695498a72c9ee6e3080b55db5eafb46da6a9c1b129dcdd3"
+          },
+          {
+            "cosine": 0.1421852707862854,
+            "episode_sha256": "942f54b92d3a0c50ab52f8ddaf208e4e803c0228b97ef6391f795b2b10bb555c"
+          }
+        ],
+        "selected": [
+          {
+            "cosine": 0.6649266481399536,
+            "episode_sha256": "ec5041a1e9dfe8625ad178dcb5ea01c4a04215e2537a4669ce4fc5260628144c"
+          },
+          {
+            "cosine": 0.35347211360931396,
+            "episode_sha256": "09d27caec2fefffa6cabb381ca99bdd8a130cd90f3bf47e84decb311d559a052"
+          },
+          {
+            "cosine": 0.3386130928993225,
+            "episode_sha256": "409db6513fadc1f216699ec0b49ca429ec04d27368b897a435840100741bf2ee"
+          },
+          {
+            "cosine": 0.331887423992157,
+            "episode_sha256": "d6170bb45eb455bbbd98cb1186e9db7b3ebb02d86fe48a49349bcc7c2c91f556"
+          },
+          {
+            "cosine": 0.32773879170417786,
+            "episode_sha256": "d357de48044dd33cee2ca8591802ef84dc1b5d458c212c40503f870f5808f820"
+          },
+          {
+            "cosine": 0.32496827840805054,
+            "episode_sha256": "f24848e0145af491a6a765dd6fdd64088dde3b20b073dcbe433bdc6a7a4711e8"
+          },
+          {
+            "cosine": 0.324205219745636,
+            "episode_sha256": "44ff42d6c53bb3a9298486a6124a349d491cb5d9d45ef2cc5eb6a11ef262a2e0"
+          },
+          {
+            "cosine": 0.3184579014778137,
+            "episode_sha256": "43dca2cdd47394a00526b05329320cbb6d40cf6cb628e8404c465feaef11bb2d"
+          }
+        ],
+        "selected_ids": [
+          "ec5041a1e9dfe8625ad178dcb5ea01c4a04215e2537a4669ce4fc5260628144c",
+          "09d27caec2fefffa6cabb381ca99bdd8a130cd90f3bf47e84decb311d559a052",
+          "409db6513fadc1f216699ec0b49ca429ec04d27368b897a435840100741bf2ee",
+          "d6170bb45eb455bbbd98cb1186e9db7b3ebb02d86fe48a49349bcc7c2c91f556",
+          "d357de48044dd33cee2ca8591802ef84dc1b5d458c212c40503f870f5808f820",
+          "f24848e0145af491a6a765dd6fdd64088dde3b20b073dcbe433bdc6a7a4711e8",
+          "44ff42d6c53bb3a9298486a6124a349d491cb5d9d45ef2cc5eb6a11ef262a2e0",
+          "43dca2cdd47394a00526b05329320cbb6d40cf6cb628e8404c465feaef11bb2d"
+        ],
+        "serialized_chars": 1181
+      },
+      "elapsed_seconds": 0.5349832999927457,
+      "prefix_repeat": null,
+      "probe_id": "unchanged:contact",
+      "prompt_sha256": "243049f29b2df219c3ed7b8ef6c3efa92faa0d4b07c96dd36e85d86faed615f0",
+      "query": "What is my emergency contact phone number?",
+      "raw_answer": "312-555-0147",
+      "route": "natural",
+      "tokens_predicted": 13,
+      "turn": 31
+    },
+    {
+      "answer": "blue fireproof drawer",
+      "context": {
+        "payload": "<recent_context/>\n\n<retrieved_stm>\n<episode turn=\"6\">\n<user>My passport folder is in the blue fireproof drawer.</user>\n<assistant>Recorded.</assistant>\n</episode>\n<episode turn=\"2\">\n<user>For my team workshop, the recorded location value is North Hall.</user>\n<assistant>Recorded.</assistant>\n</episode>\n<episode turn=\"11\">\n<user>The kitchen timer is stored beside the flour jar.</user>\n<assistant>Recorded.</assistant>\n</episode>\n<episode turn=\"17\">\n<user>The bicycle pump adapter is in the side pocket.</user>\n<assistant>Recorded.</assistant>\n</episode>\n<episode turn=\"19\">\n<user>The old recipe box uses green dividers.</user>\n<assistant>Recorded.</assistant>\n</episode>\n<episode turn=\"22\">\n<user>Update for my team workshop: the location value is now Riverside Suite. This replaces the value I gave earlier.</user>\n<assistant>Recorded.</assistant>\n</episode>\n<episode turn=\"5\">\n<user>My emergency contact phone number is 312-555-0147.</user>\n<assistant>Recorded.</assistant>\n</episode>\n<episode turn=\"12\">\n<user>The garden notebook has a yellow ribbon.</user>\n<assistant>Recorded.</assistant>\n</episode>\n</retrieved_stm>",
+        "payload_sha256": "9e3a54b2e95fe256d73634ac8674f036f47f580c02e3a52ffc69d3befae20161",
+        "population": [
+          {
+            "cosine": 0.761670708656311,
+            "episode_sha256": "d357de48044dd33cee2ca8591802ef84dc1b5d458c212c40503f870f5808f820"
+          },
+          {
+            "cosine": 0.3653216063976288,
+            "episode_sha256": "f24848e0145af491a6a765dd6fdd64088dde3b20b073dcbe433bdc6a7a4711e8"
+          },
+          {
+            "cosine": 0.3652442991733551,
+            "episode_sha256": "44ff42d6c53bb3a9298486a6124a349d491cb5d9d45ef2cc5eb6a11ef262a2e0"
+          },
+          {
+            "cosine": 0.3544010519981384,
+            "episode_sha256": "d768d110381356a8cbd47390181209ba6a756cbbf9aba6f024ab7de728128f62"
+          },
+          {
+            "cosine": 0.30870717763900757,
+            "episode_sha256": "9ea1808da059f06effe829ff614a5ce80d70fa38b513ac459d0c76eeadf67fd8"
+          },
+          {
+            "cosine": 0.3050488233566284,
+            "episode_sha256": "175af65c3dbd2e858bbd4d560ee9bf372d3b6377100a47077502fbca7dff08d5"
+          },
+          {
+            "cosine": 0.3040858209133148,
+            "episode_sha256": "ec5041a1e9dfe8625ad178dcb5ea01c4a04215e2537a4669ce4fc5260628144c"
+          },
+          {
+            "cosine": 0.3007463812828064,
+            "episode_sha256": "5a9d34a57e9d2f1c197c308d6ae53e11959338ab22dea3ac58b679408d6d355f"
+          },
+          {
+            "cosine": 0.30028027296066284,
+            "episode_sha256": "6571b873b1d740ff328d4c39d1a1cddd6644edab81ceffbf6f756b8470524f3a"
+          },
+          {
+            "cosine": 0.29926908016204834,
+            "episode_sha256": "ffdbdc542b1c6cccc2d832ea5b66a598e2a28577d35b57e73b2c5caef7c0fb16"
+          },
+          {
+            "cosine": 0.2933873236179352,
+            "episode_sha256": "6dd60d257315fa5b066a039894c051bed7399ab83ec13518950d31a8db83cb0d"
+          },
+          {
+            "cosine": 0.26728758215904236,
+            "episode_sha256": "bdc1d3e5fa5862a775ede07093f07a60cb4c2f7858cb2c60dacb29af4c5e9b5b"
+          },
+          {
+            "cosine": 0.2671196162700653,
+            "episode_sha256": "ebb60719446222bbc695498a72c9ee6e3080b55db5eafb46da6a9c1b129dcdd3"
+          },
+          {
+            "cosine": 0.2613984942436218,
+            "episode_sha256": "db69ad5f13b5131ca6842dc1b5332885632200aca6b0a6d2d5a7f9a501b9690d"
+          },
+          {
+            "cosine": 0.25453928112983704,
+            "episode_sha256": "96f06cf6331c719852d83367f126f1a13404f52805f0a41622f5e42d8fd2b068"
+          },
+          {
+            "cosine": 0.22489534318447113,
+            "episode_sha256": "409db6513fadc1f216699ec0b49ca429ec04d27368b897a435840100741bf2ee"
+          },
+          {
+            "cosine": 0.22392494976520538,
+            "episode_sha256": "09d27caec2fefffa6cabb381ca99bdd8a130cd90f3bf47e84decb311d559a052"
+          },
+          {
+            "cosine": 0.22389966249465942,
+            "episode_sha256": "43dca2cdd47394a00526b05329320cbb6d40cf6cb628e8404c465feaef11bb2d"
+          },
+          {
+            "cosine": 0.22131036221981049,
+            "episode_sha256": "490f77a98a030835c2dc738696cf9f040c8bc4d7a958857c4e52d7c0d25ecd1c"
+          },
+          {
+            "cosine": 0.21044619381427765,
+            "episode_sha256": "d6170bb45eb455bbbd98cb1186e9db7b3ebb02d86fe48a49349bcc7c2c91f556"
+          },
+          {
+            "cosine": 0.20728163421154022,
+            "episode_sha256": "16adc4c92a6db77c966adb96fd9bf7f9047e1d71f70a59b72e8332ccde867126"
+          },
+          {
+            "cosine": 0.20685884356498718,
+            "episode_sha256": "0f7599215ed6b09b3c93219e5bd5a8921a8702d02f91c2f9a7d88a0236c29ff1"
+          },
+          {
+            "cosine": 0.20670334994792938,
+            "episode_sha256": "05c26cce83a5bb0b30f8bab5e226899d0d5adf4250c821ef2a9fc5ef55383339"
+          },
+          {
+            "cosine": 0.19350820779800415,
+            "episode_sha256": "17f0eb9ab97aec0d9ef3aaafb25fad65ab1cf863c4a1c562b2d9a8d9371ed17b"
+          },
+          {
+            "cosine": 0.18599547445774078,
+            "episode_sha256": "752d15819c17adf87d93731c091039045317c1b22dcde19698f0805c1e6b6e3d"
+          },
+          {
+            "cosine": 0.1323290318250656,
+            "episode_sha256": "942f54b92d3a0c50ab52f8ddaf208e4e803c0228b97ef6391f795b2b10bb555c"
+          }
+        ],
+        "selected": [
+          {
+            "cosine": 0.761670708656311,
+            "episode_sha256": "d357de48044dd33cee2ca8591802ef84dc1b5d458c212c40503f870f5808f820"
+          },
+          {
+            "cosine": 0.3653216063976288,
+            "episode_sha256": "f24848e0145af491a6a765dd6fdd64088dde3b20b073dcbe433bdc6a7a4711e8"
+          },
+          {
+            "cosine": 0.3652442991733551,
+            "episode_sha256": "44ff42d6c53bb3a9298486a6124a349d491cb5d9d45ef2cc5eb6a11ef262a2e0"
+          },
+          {
+            "cosine": 0.3544010519981384,
+            "episode_sha256": "d768d110381356a8cbd47390181209ba6a756cbbf9aba6f024ab7de728128f62"
+          },
+          {
+            "cosine": 0.30870717763900757,
+            "episode_sha256": "9ea1808da059f06effe829ff614a5ce80d70fa38b513ac459d0c76eeadf67fd8"
+          },
+          {
+            "cosine": 0.3050488233566284,
+            "episode_sha256": "175af65c3dbd2e858bbd4d560ee9bf372d3b6377100a47077502fbca7dff08d5"
+          },
+          {
+            "cosine": 0.3040858209133148,
+            "episode_sha256": "ec5041a1e9dfe8625ad178dcb5ea01c4a04215e2537a4669ce4fc5260628144c"
+          },
+          {
+            "cosine": 0.3007463812828064,
+            "episode_sha256": "5a9d34a57e9d2f1c197c308d6ae53e11959338ab22dea3ac58b679408d6d355f"
+          }
+        ],
+        "selected_ids": [
+          "d357de48044dd33cee2ca8591802ef84dc1b5d458c212c40503f870f5808f820",
+          "f24848e0145af491a6a765dd6fdd64088dde3b20b073dcbe433bdc6a7a4711e8",
+          "44ff42d6c53bb3a9298486a6124a349d491cb5d9d45ef2cc5eb6a11ef262a2e0",
+          "d768d110381356a8cbd47390181209ba6a756cbbf9aba6f024ab7de728128f62",
+          "9ea1808da059f06effe829ff614a5ce80d70fa38b513ac459d0c76eeadf67fd8",
+          "175af65c3dbd2e858bbd4d560ee9bf372d3b6377100a47077502fbca7dff08d5",
+          "ec5041a1e9dfe8625ad178dcb5ea01c4a04215e2537a4669ce4fc5260628144c",
+          "5a9d34a57e9d2f1c197c308d6ae53e11959338ab22dea3ac58b679408d6d355f"
+        ],
+        "serialized_chars": 1123
+      },
+      "elapsed_seconds": 0.35624120000284165,
+      "prefix_repeat": null,
+      "probe_id": "unchanged:passport",
+      "prompt_sha256": "6ca7810545b81093913859a31f04c2614fbc19e363343e5aac9df732a34a5c47",
+      "query": "Where is my passport folder?",
+      "raw_answer": "blue fireproof drawer",
+      "route": "natural",
+      "tokens_predicted": 5,
+      "turn": 32
+    },
+    {
+      "answer": "$35.00",
+      "context": {
+        "payload": "<recent_context/>\n\n<retrieved_stm>\n<episode turn=\"7\">\n<user>My monthly library donation is $35.</user>\n<assistant>Recorded.</assistant>\n</episode>\n<episode turn=\"4\">\n<user>For my weekly running goal, the recorded quantity value is 12 kilometers.</user>\n<assistant>Recorded.</assistant>\n</episode>\n<episode turn=\"16\">\n<user>Update for my weekly running goal: the quantity value is now 18 kilometers. This replaces the value I gave earlier.</user>\n<assistant>Recorded.</assistant>\n</episode>\n<episode turn=\"24\">\n<user>Update for my weekly running goal: the quantity value is now 24 kilometers. This replaces the value I gave earlier.</user>\n<assistant>Recorded.</assistant>\n</episode>\n<episode turn=\"1\">\n<user>For my afternoon tea, the recorded preference value is Earl Grey.</user>\n<assistant>Recorded.</assistant>\n</episode>\n<episode turn=\"6\">\n<user>My passport folder is in the blue fireproof drawer.</user>\n<assistant>Recorded.</assistant>\n</episode>\n<episode turn=\"12\">\n<user>The garden notebook has a yellow ribbon.</user>\n<assistant>Recorded.</assistant>\n</episode>\n<episode turn=\"13\">\n<user>Update for my afternoon tea: the preference value is now Sencha. This replaces the value I gave earlier.</user>\n<assistant>Recorded.</assistant>\n</episode>\n</retrieved_stm>",
+        "payload_sha256": "f2b84f5301e71b84343f406e1db1ba60983f3f6e61cfc16e410252405848488f",
+        "population": [
+          {
+            "cosine": 0.8425127863883972,
+            "episode_sha256": "6dd60d257315fa5b066a039894c051bed7399ab83ec13518950d31a8db83cb0d"
+          },
+          {
+            "cosine": 0.3833206295967102,
+            "episode_sha256": "409db6513fadc1f216699ec0b49ca429ec04d27368b897a435840100741bf2ee"
+          },
+          {
+            "cosine": 0.3540214002132416,
+            "episode_sha256": "17f0eb9ab97aec0d9ef3aaafb25fad65ab1cf863c4a1c562b2d9a8d9371ed17b"
+          },
+          {
+            "cosine": 0.35196277499198914,
+            "episode_sha256": "0f7599215ed6b09b3c93219e5bd5a8921a8702d02f91c2f9a7d88a0236c29ff1"
+          },
+          {
+            "cosine": 0.3423909544944763,
+            "episode_sha256": "96f06cf6331c719852d83367f126f1a13404f52805f0a41622f5e42d8fd2b068"
+          },
+          {
+            "cosine": 0.3248060345649719,
+            "episode_sha256": "d357de48044dd33cee2ca8591802ef84dc1b5d458c212c40503f870f5808f820"
+          },
+          {
+            "cosine": 0.3247200548648834,
+            "episode_sha256": "5a9d34a57e9d2f1c197c308d6ae53e11959338ab22dea3ac58b679408d6d355f"
+          },
+          {
+            "cosine": 0.32189542055130005,
+            "episode_sha256": "752d15819c17adf87d93731c091039045317c1b22dcde19698f0805c1e6b6e3d"
+          },
+          {
+            "cosine": 0.3145328164100647,
+            "episode_sha256": "44ff42d6c53bb3a9298486a6124a349d491cb5d9d45ef2cc5eb6a11ef262a2e0"
+          },
+          {
+            "cosine": 0.3081916570663452,
+            "episode_sha256": "d768d110381356a8cbd47390181209ba6a756cbbf9aba6f024ab7de728128f62"
+          },
+          {
+            "cosine": 0.306447833776474,
+            "episode_sha256": "05c26cce83a5bb0b30f8bab5e226899d0d5adf4250c821ef2a9fc5ef55383339"
+          },
+          {
+            "cosine": 0.305717408657074,
+            "episode_sha256": "db69ad5f13b5131ca6842dc1b5332885632200aca6b0a6d2d5a7f9a501b9690d"
+          },
+          {
+            "cosine": 0.2943900525569916,
+            "episode_sha256": "6571b873b1d740ff328d4c39d1a1cddd6644edab81ceffbf6f756b8470524f3a"
+          },
+          {
+            "cosine": 0.2943814992904663,
+            "episode_sha256": "43dca2cdd47394a00526b05329320cbb6d40cf6cb628e8404c465feaef11bb2d"
+          },
+          {
+            "cosine": 0.2936919927597046,
+            "episode_sha256": "ebb60719446222bbc695498a72c9ee6e3080b55db5eafb46da6a9c1b129dcdd3"
+          },
+          {
+            "cosine": 0.29159337282180786,
+            "episode_sha256": "d6170bb45eb455bbbd98cb1186e9db7b3ebb02d86fe48a49349bcc7c2c91f556"
+          },
+          {
+            "cosine": 0.2900368571281433,
+            "episode_sha256": "16adc4c92a6db77c966adb96fd9bf7f9047e1d71f70a59b72e8332ccde867126"
+          },
+          {
+            "cosine": 0.28834694623947144,
+            "episode_sha256": "09d27caec2fefffa6cabb381ca99bdd8a130cd90f3bf47e84decb311d559a052"
+          },
+          {
+            "cosine": 0.2835947871208191,
+            "episode_sha256": "175af65c3dbd2e858bbd4d560ee9bf372d3b6377100a47077502fbca7dff08d5"
+          },
+          {
+            "cosine": 0.28138747811317444,
+            "episode_sha256": "490f77a98a030835c2dc738696cf9f040c8bc4d7a958857c4e52d7c0d25ecd1c"
+          },
+          {
+            "cosine": 0.2793554663658142,
+            "episode_sha256": "ffdbdc542b1c6cccc2d832ea5b66a598e2a28577d35b57e73b2c5caef7c0fb16"
+          },
+          {
+            "cosine": 0.27625757455825806,
+            "episode_sha256": "9ea1808da059f06effe829ff614a5ce80d70fa38b513ac459d0c76eeadf67fd8"
+          },
+          {
+            "cosine": 0.26903319358825684,
+            "episode_sha256": "f24848e0145af491a6a765dd6fdd64088dde3b20b073dcbe433bdc6a7a4711e8"
+          },
+          {
+            "cosine": 0.2662063241004944,
+            "episode_sha256": "ec5041a1e9dfe8625ad178dcb5ea01c4a04215e2537a4669ce4fc5260628144c"
+          },
+          {
+            "cosine": 0.26010316610336304,
+            "episode_sha256": "bdc1d3e5fa5862a775ede07093f07a60cb4c2f7858cb2c60dacb29af4c5e9b5b"
+          },
+          {
+            "cosine": 0.11810524761676788,
+            "episode_sha256": "942f54b92d3a0c50ab52f8ddaf208e4e803c0228b97ef6391f795b2b10bb555c"
+          }
+        ],
+        "selected": [
+          {
+            "cosine": 0.8425127863883972,
+            "episode_sha256": "6dd60d257315fa5b066a039894c051bed7399ab83ec13518950d31a8db83cb0d"
+          },
+          {
+            "cosine": 0.3833206295967102,
+            "episode_sha256": "409db6513fadc1f216699ec0b49ca429ec04d27368b897a435840100741bf2ee"
+          },
+          {
+            "cosine": 0.3540214002132416,
+            "episode_sha256": "17f0eb9ab97aec0d9ef3aaafb25fad65ab1cf863c4a1c562b2d9a8d9371ed17b"
+          },
+          {
+            "cosine": 0.35196277499198914,
+            "episode_sha256": "0f7599215ed6b09b3c93219e5bd5a8921a8702d02f91c2f9a7d88a0236c29ff1"
+          },
+          {
+            "cosine": 0.3423909544944763,
+            "episode_sha256": "96f06cf6331c719852d83367f126f1a13404f52805f0a41622f5e42d8fd2b068"
+          },
+          {
+            "cosine": 0.3248060345649719,
+            "episode_sha256": "d357de48044dd33cee2ca8591802ef84dc1b5d458c212c40503f870f5808f820"
+          },
+          {
+            "cosine": 0.3247200548648834,
+            "episode_sha256": "5a9d34a57e9d2f1c197c308d6ae53e11959338ab22dea3ac58b679408d6d355f"
+          },
+          {
+            "cosine": 0.32189542055130005,
+            "episode_sha256": "752d15819c17adf87d93731c091039045317c1b22dcde19698f0805c1e6b6e3d"
+          }
+        ],
+        "selected_ids": [
+          "6dd60d257315fa5b066a039894c051bed7399ab83ec13518950d31a8db83cb0d",
+          "409db6513fadc1f216699ec0b49ca429ec04d27368b897a435840100741bf2ee",
+          "17f0eb9ab97aec0d9ef3aaafb25fad65ab1cf863c4a1c562b2d9a8d9371ed17b",
+          "0f7599215ed6b09b3c93219e5bd5a8921a8702d02f91c2f9a7d88a0236c29ff1",
+          "96f06cf6331c719852d83367f126f1a13404f52805f0a41622f5e42d8fd2b068",
+          "d357de48044dd33cee2ca8591802ef84dc1b5d458c212c40503f870f5808f820",
+          "5a9d34a57e9d2f1c197c308d6ae53e11959338ab22dea3ac58b679408d6d355f",
+          "752d15819c17adf87d93731c091039045317c1b22dcde19698f0805c1e6b6e3d"
+        ],
+        "serialized_chars": 1269
+      },
+      "elapsed_seconds": 0.4119811000127811,
+      "prefix_repeat": null,
+      "probe_id": "unchanged:donation",
+      "prompt_sha256": "1c2251d2e6d5be33c786ed686e63c795d1f399e230cd751be2bd83180135368c",
+      "query": "What is my monthly library donation?",
+      "raw_answer": "$35.00",
+      "route": "natural",
+      "tokens_predicted": 7,
+      "turn": 33
+    },
+    {
+      "answer": "6:40 AM",
+      "context": {
+        "payload": "<recent_context/>\n\n<retrieved_stm>\n<episode turn=\"8\">\n<user>My weekday morning alarm is set for 6:40 AM.</user>\n<assistant>Recorded.</assistant>\n</episode>\n<episode turn=\"3\">\n<user>For my dentist visit, the recorded schedule value is Monday 8:00 AM.</user>\n<assistant>Recorded.</assistant>\n</episode>\n<episode turn=\"15\">\n<user>Update for my dentist visit: the schedule value is now Wednesday 9:30 AM. This replaces the value I gave earlier.</user>\n<assistant>Recorded.</assistant>\n</episode>\n<episode turn=\"11\">\n<user>The kitchen timer is stored beside the flour jar.</user>\n<assistant>Recorded.</assistant>\n</episode>\n<episode turn=\"23\">\n<user>Update for my dentist visit: the schedule value is now Friday 10:15 AM. This replaces the value I gave earlier.</user>\n<assistant>Recorded.</assistant>\n</episode>\n<episode turn=\"1\">\n<user>For my afternoon tea, the recorded preference value is Earl Grey.</user>\n<assistant>Recorded.</assistant>\n</episode>\n<episode turn=\"4\">\n<user>For my weekly running goal, the recorded quantity value is 12 kilometers.</user>\n<assistant>Recorded.</assistant>\n</episode>\n<episode turn=\"24\">\n<user>Update for my weekly running goal: the quantity value is now 24 kilometers. This replaces the value I gave earlier.</user>\n<assistant>Recorded.</assistant>\n</episode>\n</retrieved_stm>",
+        "payload_sha256": "f2d549658f3aa5f8ff09357ab779eb2d9aa04358ea1c664aee3edf2bb17513c0",
+        "population": [
+          {
+            "cosine": 0.8193135261535645,
+            "episode_sha256": "09d27caec2fefffa6cabb381ca99bdd8a130cd90f3bf47e84decb311d559a052"
+          },
+          {
+            "cosine": 0.563507080078125,
+            "episode_sha256": "43dca2cdd47394a00526b05329320cbb6d40cf6cb628e8404c465feaef11bb2d"
+          },
+          {
+            "cosine": 0.4574773609638214,
+            "episode_sha256": "d6170bb45eb455bbbd98cb1186e9db7b3ebb02d86fe48a49349bcc7c2c91f556"
+          },
+          {
+            "cosine": 0.4399113655090332,
+            "episode_sha256": "44ff42d6c53bb3a9298486a6124a349d491cb5d9d45ef2cc5eb6a11ef262a2e0"
+          },
+          {
+            "cosine": 0.4347020387649536,
+            "episode_sha256": "16adc4c92a6db77c966adb96fd9bf7f9047e1d71f70a59b72e8332ccde867126"
+          },
+          {
+            "cosine": 0.4173968434333801,
+            "episode_sha256": "96f06cf6331c719852d83367f126f1a13404f52805f0a41622f5e42d8fd2b068"
+          },
+          {
+            "cosine": 0.3980301022529602,
+            "episode_sha256": "409db6513fadc1f216699ec0b49ca429ec04d27368b897a435840100741bf2ee"
+          },
+          {
+            "cosine": 0.35535499453544617,
+            "episode_sha256": "0f7599215ed6b09b3c93219e5bd5a8921a8702d02f91c2f9a7d88a0236c29ff1"
+          },
+          {
+            "cosine": 0.3521144986152649,
+            "episode_sha256": "f24848e0145af491a6a765dd6fdd64088dde3b20b073dcbe433bdc6a7a4711e8"
+          },
+          {
+            "cosine": 0.3516561686992645,
+            "episode_sha256": "17f0eb9ab97aec0d9ef3aaafb25fad65ab1cf863c4a1c562b2d9a8d9371ed17b"
+          },
+          {
+            "cosine": 0.3481331169605255,
+            "episode_sha256": "ec5041a1e9dfe8625ad178dcb5ea01c4a04215e2537a4669ce4fc5260628144c"
+          },
+          {
+            "cosine": 0.3399622142314911,
+            "episode_sha256": "db69ad5f13b5131ca6842dc1b5332885632200aca6b0a6d2d5a7f9a501b9690d"
+          },
+          {
+            "cosine": 0.33655479550361633,
+            "episode_sha256": "175af65c3dbd2e858bbd4d560ee9bf372d3b6377100a47077502fbca7dff08d5"
+          },
+          {
+            "cosine": 0.332296758890152,
+            "episode_sha256": "05c26cce83a5bb0b30f8bab5e226899d0d5adf4250c821ef2a9fc5ef55383339"
+          },
+          {
+            "cosine": 0.3297266960144043,
+            "episode_sha256": "6571b873b1d740ff328d4c39d1a1cddd6644edab81ceffbf6f756b8470524f3a"
+          },
+          {
+            "cosine": 0.32205483317375183,
+            "episode_sha256": "490f77a98a030835c2dc738696cf9f040c8bc4d7a958857c4e52d7c0d25ecd1c"
+          },
+          {
+            "cosine": 0.30560430884361267,
+            "episode_sha256": "752d15819c17adf87d93731c091039045317c1b22dcde19698f0805c1e6b6e3d"
+          },
+          {
+            "cosine": 0.3047575056552887,
+            "episode_sha256": "d768d110381356a8cbd47390181209ba6a756cbbf9aba6f024ab7de728128f62"
+          },
+          {
+            "cosine": 0.29882296919822693,
+            "episode_sha256": "5a9d34a57e9d2f1c197c308d6ae53e11959338ab22dea3ac58b679408d6d355f"
+          },
+          {
+            "cosine": 0.2976725399494171,
+            "episode_sha256": "ffdbdc542b1c6cccc2d832ea5b66a598e2a28577d35b57e73b2c5caef7c0fb16"
+          },
+          {
+            "cosine": 0.2967120409011841,
+            "episode_sha256": "ebb60719446222bbc695498a72c9ee6e3080b55db5eafb46da6a9c1b129dcdd3"
+          },
+          {
+            "cosine": 0.29038289189338684,
+            "episode_sha256": "9ea1808da059f06effe829ff614a5ce80d70fa38b513ac459d0c76eeadf67fd8"
+          },
+          {
+            "cosine": 0.2780846655368805,
+            "episode_sha256": "6dd60d257315fa5b066a039894c051bed7399ab83ec13518950d31a8db83cb0d"
+          },
+          {
+            "cosine": 0.277198851108551,
+            "episode_sha256": "bdc1d3e5fa5862a775ede07093f07a60cb4c2f7858cb2c60dacb29af4c5e9b5b"
+          },
+          {
+            "cosine": 0.24547582864761353,
+            "episode_sha256": "d357de48044dd33cee2ca8591802ef84dc1b5d458c212c40503f870f5808f820"
+          },
+          {
+            "cosine": 0.2453412115573883,
+            "episode_sha256": "942f54b92d3a0c50ab52f8ddaf208e4e803c0228b97ef6391f795b2b10bb555c"
+          }
+        ],
+        "selected": [
+          {
+            "cosine": 0.8193135261535645,
+            "episode_sha256": "09d27caec2fefffa6cabb381ca99bdd8a130cd90f3bf47e84decb311d559a052"
+          },
+          {
+            "cosine": 0.563507080078125,
+            "episode_sha256": "43dca2cdd47394a00526b05329320cbb6d40cf6cb628e8404c465feaef11bb2d"
+          },
+          {
+            "cosine": 0.4574773609638214,
+            "episode_sha256": "d6170bb45eb455bbbd98cb1186e9db7b3ebb02d86fe48a49349bcc7c2c91f556"
+          },
+          {
+            "cosine": 0.4399113655090332,
+            "episode_sha256": "44ff42d6c53bb3a9298486a6124a349d491cb5d9d45ef2cc5eb6a11ef262a2e0"
+          },
+          {
+            "cosine": 0.4347020387649536,
+            "episode_sha256": "16adc4c92a6db77c966adb96fd9bf7f9047e1d71f70a59b72e8332ccde867126"
+          },
+          {
+            "cosine": 0.4173968434333801,
+            "episode_sha256": "96f06cf6331c719852d83367f126f1a13404f52805f0a41622f5e42d8fd2b068"
+          },
+          {
+            "cosine": 0.3980301022529602,
+            "episode_sha256": "409db6513fadc1f216699ec0b49ca429ec04d27368b897a435840100741bf2ee"
+          },
+          {
+            "cosine": 0.35535499453544617,
+            "episode_sha256": "0f7599215ed6b09b3c93219e5bd5a8921a8702d02f91c2f9a7d88a0236c29ff1"
+          }
+        ],
+        "selected_ids": [
+          "09d27caec2fefffa6cabb381ca99bdd8a130cd90f3bf47e84decb311d559a052",
+          "43dca2cdd47394a00526b05329320cbb6d40cf6cb628e8404c465feaef11bb2d",
+          "d6170bb45eb455bbbd98cb1186e9db7b3ebb02d86fe48a49349bcc7c2c91f556",
+          "44ff42d6c53bb3a9298486a6124a349d491cb5d9d45ef2cc5eb6a11ef262a2e0",
+          "16adc4c92a6db77c966adb96fd9bf7f9047e1d71f70a59b72e8332ccde867126",
+          "96f06cf6331c719852d83367f126f1a13404f52805f0a41622f5e42d8fd2b068",
+          "409db6513fadc1f216699ec0b49ca429ec04d27368b897a435840100741bf2ee",
+          "0f7599215ed6b09b3c93219e5bd5a8921a8702d02f91c2f9a7d88a0236c29ff1"
+        ],
+        "serialized_chars": 1309
+      },
+      "elapsed_seconds": 0.41435619999538176,
+      "prefix_repeat": null,
+      "probe_id": "unchanged:alarm",
+      "prompt_sha256": "92539c19fc1b91988dc546c12c6ccfbb1cf9fc4ef8b2b253306dcd9b83a5ea87",
+      "query": "What time is my weekday morning alarm?",
+      "raw_answer": "6:40 AM",
+      "route": "natural",
+      "tokens_predicted": 6,
+      "turn": 34
+    },
+    {
+      "answer": "Earl Grey | Sencha | Jasmine green",
+      "context": {
+        "payload": "<recent_context/>\n\n<retrieved_stm>\n<episode turn=\"1\">\n<user>For my afternoon tea, the recorded preference value is Earl Grey.</user>\n<assistant>Recorded.</assistant>\n</episode>\n<episode turn=\"13\">\n<user>Update for my afternoon tea: the preference value is now Sencha. This replaces the value I gave earlier.</user>\n<assistant>Recorded.</assistant>\n</episode>\n<episode turn=\"21\">\n<user>Update for my afternoon tea: the preference value is now Jasmine green. This replaces the value I gave earlier.</user>\n<assistant>Recorded.</assistant>\n</episode>\n<episode turn=\"19\">\n<user>The old recipe box uses green dividers.</user>\n<assistant>Recorded.</assistant>\n</episode>\n<episode turn=\"22\">\n<user>Update for my team workshop: the location value is now Riverside Suite. This replaces the value I gave earlier.</user>\n<assistant>Recorded.</assistant>\n</episode>\n<episode turn=\"14\">\n<user>Update for my team workshop: the location value is now Cedar Room. This replaces the value I gave earlier.</user>\n<assistant>Recorded.</assistant>\n</episode>\n<episode turn=\"26\">\n<user>The guest towel set has silver stripes.</user>\n<assistant>Recorded.</assistant>\n</episode>\n<episode turn=\"11\">\n<user>The kitchen timer is stored beside the flour jar.</user>\n<assistant>Recorded.</assistant>\n</episode>\n</retrieved_stm>",
+        "payload_sha256": "edb0495cc0f3c750710972432f6979b85c893cad2e1d54b608a340fa913dc81b",
+        "population": [
+          {
+            "cosine": 0.6670024394989014,
+            "episode_sha256": "96f06cf6331c719852d83367f126f1a13404f52805f0a41622f5e42d8fd2b068"
+          },
+          {
+            "cosine": 0.6519647836685181,
+            "episode_sha256": "752d15819c17adf87d93731c091039045317c1b22dcde19698f0805c1e6b6e3d"
+          },
+          {
+            "cosine": 0.6380645632743835,
+            "episode_sha256": "05c26cce83a5bb0b30f8bab5e226899d0d5adf4250c821ef2a9fc5ef55383339"
+          },
+          {
+            "cosine": 0.42831653356552124,
+            "episode_sha256": "9ea1808da059f06effe829ff614a5ce80d70fa38b513ac459d0c76eeadf67fd8"
+          },
+          {
+            "cosine": 0.42746037244796753,
+            "episode_sha256": "175af65c3dbd2e858bbd4d560ee9bf372d3b6377100a47077502fbca7dff08d5"
+          },
+          {
+            "cosine": 0.42314088344573975,
+            "episode_sha256": "6571b873b1d740ff328d4c39d1a1cddd6644edab81ceffbf6f756b8470524f3a"
+          },
+          {
+            "cosine": 0.4156571626663208,
+            "episode_sha256": "ebb60719446222bbc695498a72c9ee6e3080b55db5eafb46da6a9c1b129dcdd3"
+          },
+          {
+            "cosine": 0.4150713086128235,
+            "episode_sha256": "44ff42d6c53bb3a9298486a6124a349d491cb5d9d45ef2cc5eb6a11ef262a2e0"
+          },
+          {
+            "cosine": 0.404642254114151,
+            "episode_sha256": "09d27caec2fefffa6cabb381ca99bdd8a130cd90f3bf47e84decb311d559a052"
+          },
+          {
+            "cosine": 0.39563876390457153,
+            "episode_sha256": "43dca2cdd47394a00526b05329320cbb6d40cf6cb628e8404c465feaef11bb2d"
+          },
+          {
+            "cosine": 0.39554262161254883,
+            "episode_sha256": "d6170bb45eb455bbbd98cb1186e9db7b3ebb02d86fe48a49349bcc7c2c91f556"
+          },
+          {
+            "cosine": 0.3915367126464844,
+            "episode_sha256": "16adc4c92a6db77c966adb96fd9bf7f9047e1d71f70a59b72e8332ccde867126"
+          },
+          {
+            "cosine": 0.38435298204421997,
+            "episode_sha256": "bdc1d3e5fa5862a775ede07093f07a60cb4c2f7858cb2c60dacb29af4c5e9b5b"
+          },
+          {
+            "cosine": 0.37763169407844543,
+            "episode_sha256": "0f7599215ed6b09b3c93219e5bd5a8921a8702d02f91c2f9a7d88a0236c29ff1"
+          },
+          {
+            "cosine": 0.3747403621673584,
+            "episode_sha256": "f24848e0145af491a6a765dd6fdd64088dde3b20b073dcbe433bdc6a7a4711e8"
+          },
+          {
+            "cosine": 0.37361687421798706,
+            "episode_sha256": "409db6513fadc1f216699ec0b49ca429ec04d27368b897a435840100741bf2ee"
+          },
+          {
+            "cosine": 0.36321786046028137,
+            "episode_sha256": "17f0eb9ab97aec0d9ef3aaafb25fad65ab1cf863c4a1c562b2d9a8d9371ed17b"
+          },
+          {
+            "cosine": 0.35895463824272156,
+            "episode_sha256": "5a9d34a57e9d2f1c197c308d6ae53e11959338ab22dea3ac58b679408d6d355f"
+          },
+          {
+            "cosine": 0.34926939010620117,
+            "episode_sha256": "ffdbdc542b1c6cccc2d832ea5b66a598e2a28577d35b57e73b2c5caef7c0fb16"
+          },
+          {
+            "cosine": 0.34281378984451294,
+            "episode_sha256": "d357de48044dd33cee2ca8591802ef84dc1b5d458c212c40503f870f5808f820"
+          },
+          {
+            "cosine": 0.3346627354621887,
+            "episode_sha256": "db69ad5f13b5131ca6842dc1b5332885632200aca6b0a6d2d5a7f9a501b9690d"
+          },
+          {
+            "cosine": 0.32448795437812805,
+            "episode_sha256": "6dd60d257315fa5b066a039894c051bed7399ab83ec13518950d31a8db83cb0d"
+          },
+          {
+            "cosine": 0.31847262382507324,
+            "episode_sha256": "d768d110381356a8cbd47390181209ba6a756cbbf9aba6f024ab7de728128f62"
+          },
+          {
+            "cosine": 0.31119483709335327,
+            "episode_sha256": "490f77a98a030835c2dc738696cf9f040c8bc4d7a958857c4e52d7c0d25ecd1c"
+          },
+          {
+            "cosine": 0.2942805588245392,
+            "episode_sha256": "ec5041a1e9dfe8625ad178dcb5ea01c4a04215e2537a4669ce4fc5260628144c"
+          },
+          {
+            "cosine": 0.22087854146957397,
+            "episode_sha256": "942f54b92d3a0c50ab52f8ddaf208e4e803c0228b97ef6391f795b2b10bb555c"
+          }
+        ],
+        "selected": [
+          {
+            "cosine": 0.6670024394989014,
+            "episode_sha256": "96f06cf6331c719852d83367f126f1a13404f52805f0a41622f5e42d8fd2b068"
+          },
+          {
+            "cosine": 0.6519647836685181,
+            "episode_sha256": "752d15819c17adf87d93731c091039045317c1b22dcde19698f0805c1e6b6e3d"
+          },
+          {
+            "cosine": 0.6380645632743835,
+            "episode_sha256": "05c26cce83a5bb0b30f8bab5e226899d0d5adf4250c821ef2a9fc5ef55383339"
+          },
+          {
+            "cosine": 0.42831653356552124,
+            "episode_sha256": "9ea1808da059f06effe829ff614a5ce80d70fa38b513ac459d0c76eeadf67fd8"
+          },
+          {
+            "cosine": 0.42746037244796753,
+            "episode_sha256": "175af65c3dbd2e858bbd4d560ee9bf372d3b6377100a47077502fbca7dff08d5"
+          },
+          {
+            "cosine": 0.42314088344573975,
+            "episode_sha256": "6571b873b1d740ff328d4c39d1a1cddd6644edab81ceffbf6f756b8470524f3a"
+          },
+          {
+            "cosine": 0.4156571626663208,
+            "episode_sha256": "ebb60719446222bbc695498a72c9ee6e3080b55db5eafb46da6a9c1b129dcdd3"
+          },
+          {
+            "cosine": 0.4150713086128235,
+            "episode_sha256": "44ff42d6c53bb3a9298486a6124a349d491cb5d9d45ef2cc5eb6a11ef262a2e0"
+          }
+        ],
+        "selected_ids": [
+          "96f06cf6331c719852d83367f126f1a13404f52805f0a41622f5e42d8fd2b068",
+          "752d15819c17adf87d93731c091039045317c1b22dcde19698f0805c1e6b6e3d",
+          "05c26cce83a5bb0b30f8bab5e226899d0d5adf4250c821ef2a9fc5ef55383339",
+          "9ea1808da059f06effe829ff614a5ce80d70fa38b513ac459d0c76eeadf67fd8",
+          "175af65c3dbd2e858bbd4d560ee9bf372d3b6377100a47077502fbca7dff08d5",
+          "6571b873b1d740ff328d4c39d1a1cddd6644edab81ceffbf6f756b8470524f3a",
+          "ebb60719446222bbc695498a72c9ee6e3080b55db5eafb46da6a9c1b129dcdd3",
+          "44ff42d6c53bb3a9298486a6124a349d491cb5d9d45ef2cc5eb6a11ef262a2e0"
+        ],
+        "serialized_chars": 1298
+      },
+      "elapsed_seconds": 0.4817060999921523,
+      "prefix_repeat": null,
+      "probe_id": "history:tea",
+      "prompt_sha256": "94d0738548f5c1c1a917c1be25db16f5d2d4b4e34157f4300a5aac6753753840",
+      "query": "List every recorded preference value for my afternoon tea, oldest to newest.",
+      "raw_answer": "Earl Grey | Sencha | Jasmine green",
+      "route": "lineage",
+      "tokens_predicted": 10,
+      "turn": 35
+    }
+  ],
+  "runtime": {
+    "model_path": "C:\\Users\\muzaf\\.cache\\huggingface\\hub\\models--unsloth--Qwen3.6-27B-MTP-GGUF\\snapshots\\5cb35eb3dcbf52dbce5f87dbc64df6aaffadcace\\Qwen3.6-27B-UD-Q6_K_XL.gguf",
+    "model_sha256": "f3b4a622e06e8ade06ec5c0eb9b40ed7c9bd707b5fada46c0215f4ab4a6bc32b",
+    "server_binary": "C:\\Users\\muzaf\\.unsloth\\llama.cpp\\build\\bin\\Release\\llama-server.exe",
+    "server_binary_sha256": "3827a6b634a88073dc63b97edf6e0dc575d33ecf58268803ece0ed23216095fa",
+    "server_command": "llama-server.exe -m Qwen3.6-27B-UD-Q6_K_XL.gguf --host 127.0.0.1 --port 8080 --ctx-size 50000 --parallel 1 --cache-type-k q8_0 --cache-type-v q8_0 --flash-attn on --jinja --metrics --temp 1 --top-p 0.95 --top-k 20 --min-p 0.0 --presence-penalty 0.0 --repeat-penalty 1.0 --seed 5005",
+    "server_pid": 19940,
+    "server_props": {
+      "bos_token": "<|endoftext|>",
+      "build_info": "b9294-0f3cb3fc8",
+      "chat_template": "{%- set image_count = namespace(value=0) %}\n{%- set video_count = namespace(value=0) %}\n{%- macro render_content(content, do_vision_count, is_system_content=false) %}\n    {%- if content is string %}\n        {{- content }}\n    {%- elif content is iterable and content is not mapping %}\n        {%- for item in content %}\n            {%- if 'image' in item or 'image_url' in item or item.type == 'image' %}\n                {%- if is_system_content %}\n                    {{- raise_exception('System message cannot contain images.') }}\n                {%- endif %}\n                {%- if do_vision_count %}\n                    {%- set image_count.value = image_count.value + 1 %}\n                {%- endif %}\n                {%- if add_vision_id %}\n                    {{- 'Picture ' ~ image_count.value ~ ': ' }}\n                {%- endif %}\n                {{- '<|vision_start|><|image_pad|><|vision_end|>' }}\n            {%- elif 'video' in item or item.type == 'video' %}\n                {%- if is_system_content %}\n                    {{- raise_exception('System message cannot contain videos.') }}\n                {%- endif %}\n                {%- if do_vision_count %}\n                    {%- set video_count.value = video_count.value + 1 %}\n                {%- endif %}\n                {%- if add_vision_id %}\n                    {{- 'Video ' ~ video_count.value ~ ': ' }}\n                {%- endif %}\n                {{- '<|vision_start|><|video_pad|><|vision_end|>' }}\n            {%- elif 'text' in item %}\n                {{- item.text }}\n            {%- else %}\n                {{- raise_exception('Unexpected item type in content.') }}\n            {%- endif %}\n        {%- endfor %}\n    {%- elif content is none or content is undefined %}\n        {{- '' }}\n    {%- else %}\n        {{- raise_exception('Unexpected content type.') }}\n    {%- endif %}\n{%- endmacro %}\n{%- if not messages %}\n    {{- raise_exception('No messages provided.') }}\n{%- endif %}\n{%- set num_sys = 0 %}\n{%- set merged_system = '' %}\n{%- if messages[0].role == 'system' or messages[0].role == 'developer' %}\n    {%- set first = render_content(messages[0].content, false, true)|trim %}\n    {%- if messages|length > 1 and (messages[1].role == 'system' or messages[1].role == 'developer') %}\n        {%- set second = render_content(messages[1].content, false, true)|trim %}\n        {%- set merged_system = first + '\\n' + second %}\n        {%- set num_sys = 2 %}\n    {%- else %}\n        {%- set merged_system = first %}\n        {%- set num_sys = 1 %}\n    {%- endif %}\n{%- endif %}\n{%- if tools and tools is iterable and tools is not mapping %}\n    {{- '<|im_start|>system\\n' }}\n    {{- \"# Tools\\n\\nYou have access to the following functions:\\n\\n<tools>\" }}\n    {%- for tool in tools %}\n        {{- \"\\n\" }}\n        {{- tool | tojson }}\n    {%- endfor %}\n    {{- \"\\n</tools>\" }}\n    {{- '\\n\\nIf you choose to call a function ONLY reply in the following format with NO suffix:\\n\\n<tool_call>\\n<function=example_function_name>\\n<parameter=example_parameter_1>\\nvalue_1\\n</parameter>\\n<parameter=example_parameter_2>\\nThis is the value for the second parameter\\nthat can span\\nmultiple lines\\n</parameter>\\n</function>\\n</tool_call>\\n\\n<IMPORTANT>\\nReminder:\\n- Function calls MUST follow the specified format: an inner <function=...></function> block must be nested within <tool_call></tool_call> XML tags\\n- Required parameters MUST be specified\\n- You may provide optional reasoning for your function call in natural language BEFORE the function call, but NOT after\\n- If there is no function call available, answer the question like normal with your current knowledge and do not tell the user about function calls\\n</IMPORTANT>' }}\n    {%- if merged_system %}\n        {{- '\\n\\n' + merged_system }}\n    {%- endif %}\n    {{- '<|im_end|>\\n' }}\n{%- else %}\n    {%- if merged_system %}\n        {{- '<|im_start|>system\\n' + merged_system + '<|im_end|>\\n' }}\n    {%- endif %}\n{%- endif %}\n{%- set ns = namespace(multi_step_tool=true, last_query_index=messages|length - 1) %}\n{%- for message in messages[::-1] %}\n    {%- set index = (messages|length - 1) - loop.index0 %}\n    {%- if ns.multi_step_tool and message.role == \"user\" %}\n        {%- set content = render_content(message.content, false)|trim %}\n        {%- if not(content.startswith('<tool_response>') and content.endswith('</tool_response>')) %}\n            {%- set ns.multi_step_tool = false %}\n            {%- set ns.last_query_index = index %}\n        {%- endif %}\n    {%- endif %}\n{%- endfor %}\n{%- for message in messages %}\n    {%- if loop.index0 >= num_sys and message.role != \"system\" and message.role != \"developer\" %}\n    {%- set content = render_content(message.content, true)|trim %}\n    {%- if message.role == \"user\" %}\n        {{- '<|im_start|>' + message.role + '\\n' + content + '<|im_end|>' + '\\n' }}\n    {%- elif message.role == \"assistant\" %}\n        {%- set reasoning_content = '' %}\n        {%- if message.reasoning_content is string %}\n            {%- set reasoning_content = message.reasoning_content %}\n        {%- else %}\n            {%- if '</think>' in content %}\n                {%- set reasoning_content = content.split('</think>')[0].rstrip('\\n').split('<think>')[-1].lstrip('\\n') %}\n                {%- set content = content.split('</think>')[-1].lstrip('\\n') %}\n            {%- endif %}\n        {%- endif %}\n        {%- set reasoning_content = reasoning_content|trim %}\n        {%- if (preserve_thinking is defined and preserve_thinking is true) or (loop.index0 > ns.last_query_index) %}\n            {{- '<|im_start|>' + message.role + '\\n<think>\\n' + reasoning_content + '\\n</think>\\n\\n' + content }}\n        {%- else %}\n            {{- '<|im_start|>' + message.role + '\\n' + content }}\n        {%- endif %}\n        {%- if message.tool_calls and message.tool_calls is iterable and message.tool_calls is not mapping %}\n            {%- for tool_call in message.tool_calls %}\n                {%- if tool_call.function is defined %}\n                    {%- set tool_call = tool_call.function %}\n                {%- endif %}\n                {%- if loop.first %}\n                    {%- if content|trim %}\n                        {{- '\\n\\n<tool_call>\\n<function=' + tool_call.name + '>\\n' }}\n                    {%- else %}\n                        {{- '<tool_call>\\n<function=' + tool_call.name + '>\\n' }}\n                    {%- endif %}\n                {%- else %}\n                    {{- '\\n<tool_call>\\n<function=' + tool_call.name + '>\\n' }}\n                {%- endif %}\n                {%- if tool_call.arguments is mapping %}\n                    {%- for args_name in tool_call.arguments %}\n                        {%- set args_value = tool_call.arguments[args_name] %}\n                        {{- '<parameter=' + args_name + '>\\n' }}\n                        {%- set args_value = args_value | tojson | safe if args_value is mapping or (args_value is sequence and args_value is not string) else args_value | string %}\n                        {{- args_value }}\n                        {{- '\\n</parameter>\\n' }}\n                    {%- endfor %}\n                {%- endif %}\n                {{- '</function>\\n</tool_call>' }}\n            {%- endfor %}\n        {%- endif %}\n        {{- '<|im_end|>\\n' }}\n    {%- elif message.role == \"tool\" %}\n        {%- if loop.previtem and loop.previtem.role != \"tool\" %}\n            {{- '<|im_start|>user' }}\n        {%- endif %}\n        {{- '\\n<tool_response>\\n' }}\n        {{- content }}\n        {{- '\\n</tool_response>' }}\n        {%- if not loop.last and loop.nextitem.role != \"tool\" %}\n            {{- '<|im_end|>\\n' }}\n        {%- elif loop.last %}\n            {{- '<|im_end|>\\n' }}\n        {%- endif %}\n    {%- endif %}\n    {%- endif %}\n{%- endfor %}\n{%- if add_generation_prompt %}\n    {{- '<|im_start|>assistant\\n' }}\n    {%- if enable_thinking is defined and enable_thinking is false %}\n        {{- '<think>\\n\\n</think>\\n\\n' }}\n    {%- else %}\n        {{- '<think>\\n' }}\n    {%- endif %}\n{%- endif %}\n{#- Unsloth fixes - developer role, tool calling #}",
+      "chat_template_caps": {
+        "supports_object_arguments": true,
+        "supports_parallel_tool_calls": true,
+        "supports_preserve_reasoning": true,
+        "supports_string_content": true,
+        "supports_system_role": true,
+        "supports_tool_calls": true,
+        "supports_tools": true,
+        "supports_typed_content": false
+      },
+      "cors_proxy_enabled": false,
+      "default_generation_settings": {
+        "n_ctx": 50176,
+        "params": {
+          "backend_sampling": false,
+          "chat_format": "Content-only",
+          "dry_allowed_length": 2,
+          "dry_base": 1.75,
+          "dry_multiplier": 0.0,
+          "dry_penalty_last_n": -1,
+          "dynatemp_exponent": 1.0,
+          "dynatemp_range": 0.0,
+          "frequency_penalty": 0.0,
+          "generation_prompt": "",
+          "ignore_eos": false,
+          "lora": [],
+          "max_tokens": -1,
+          "min_keep": 0,
+          "min_p": 0.0,
+          "mirostat": 0,
+          "mirostat_eta": 0.10000000149011612,
+          "mirostat_tau": 5.0,
+          "n_discard": 0,
+          "n_keep": 0,
+          "n_predict": -1,
+          "n_probs": 0,
+          "post_sampling_probs": false,
+          "presence_penalty": 0.0,
+          "reasoning_format": "none",
+          "reasoning_in_content": false,
+          "repeat_last_n": 64,
+          "repeat_penalty": 1.0,
+          "samplers": [
+            "penalties",
+            "dry",
+            "top_n_sigma",
+            "top_k",
+            "typ_p",
+            "top_p",
+            "min_p",
+            "xtc",
+            "temperature"
+          ],
+          "seed": 5005,
+          "speculative.types": "none",
+          "stream": true,
+          "temperature": 1.0,
+          "timings_per_token": false,
+          "top_k": 20,
+          "top_n_sigma": -1.0,
+          "top_p": 0.949999988079071,
+          "typical_p": 1.0,
+          "xtc_probability": 0.0,
+          "xtc_threshold": 0.10000000149011612
+        }
+      },
+      "endpoint_metrics": true,
+      "endpoint_props": false,
+      "endpoint_slots": true,
+      "eos_token": "<|im_end|>",
+      "is_sleeping": false,
+      "media_marker": "<__media_9jQWonfOlJTZHeA1Oq5eKGp8MLG49DIh__>",
+      "modalities": {
+        "audio": false,
+        "vision": false
+      },
+      "model_alias": "Qwen3.6-27B-UD-Q6_K_XL.gguf",
+      "model_path": "C:\\Users\\muzaf\\.cache\\huggingface\\hub\\models--unsloth--Qwen3.6-27B-MTP-GGUF\\snapshots\\5cb35eb3dcbf52dbce5f87dbc64df6aaffadcace\\Qwen3.6-27B-UD-Q6_K_XL.gguf",
+      "total_slots": 1,
+      "ui": true,
+      "ui_settings": {},
+      "webui": true,
+      "webui_settings": {}
+    }
+  },
+  "sealed_key_opened": false,
+  "source_sha256_after": "06739dffada0fc916ca312a95f4adafa1330c689bec686118ee4a5ef35f273b6",
+  "source_sha256_before": "06739dffada0fc916ca312a95f4adafa1330c689bec686118ee4a5ef35f273b6",
+  "stage": "35-turn reader ablation",
+  "status": "COMPLETE_UNSCORED",
+  "study": "SUP-001",
+  "turns": 35
+}
