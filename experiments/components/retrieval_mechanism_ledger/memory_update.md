@@ -2,6 +2,45 @@
 
 **Status:** REOPENED on 2026-08-01 for Family CS. Family QR remains closed.
 
+## E006 Part 3 Rev 4 autoassociation - PATTERNS_NOT_STORED
+
+Design `a4f952f6`; authorization `27313b66`; input amendment `8c2c0a16`;
+exploration result `47bcc882`. The completed P3 result remains immutable. Rev 4
+replaced semantic graph walking with 1,024-bit population-centered episode
+patterns, symmetric zero-diagonal Hebbian weights, and asynchronous recurrence.
+
+The synthetic fixture passes exact storage and `16/16` one-bit recoveries. The
+real store fails G3 at `0/119` fixed points. All 119 traces converge with
+non-increasing energy, but into six spurious attractors with basin sizes
+5/13/15/20/29/37. First sweeps change 18-294 bits (median 214); terminal states
+are 194-531 bits from their source (median 467). G4, Q11, and PF1-PF10 are not
+entered.
+
+Carry forward: balancing each coordinate at 60/119 positives did not separate
+the episode codes; pair overlap still reaches 0.699. Dense semantic embeddings
+are not automatically engrams, Hebbian learning does not make arbitrary
+correlated codes stable, and one-memory completion is not four-memory
+enumeration. A pattern-separation encoder is a new component, not a Rev 4 tune.
+
+## E006 Part 3 associative frontier - NO_DIFFERENTIATED_CUE
+
+Design `80a5886a`; authorization `5e905f15`; S4 execution `88ec1797`.
+PF1-PF10 pass after exact historical reproduction of Tier 4A `144/144` rows
+and A1 `8/8` cells. The required 48 Tier 4A query vectors were captured under
+Rev 1; the first `114/144` runtime failure remains committed, and Rev 2 repairs
+only the auditor's single-thread import order.
+
+At primary `D=2, m=5`, A0/A1/A2 each admit 15 candidates. A2 carries and packs
+5/17 facts, all civil, versus A0's 9 candidate and 7 packed facts and A1's 9/9.
+The candidate gate fails, so the ordered disposition is
+`NO_DIFFERENTIATED_CUE`. A2's best cell is 6/17; every A2 cell has art 0/4.
+
+Carry forward: equal candidate quotas do not equalize delivered volume or
+evidence opportunity. A strongest-edge local frontier can reinforce one domain
+rather than restore breadth. Tier 4A's global-PPR result remains closed; this
+different local operator over the same broad cosine-graph family is
+`CHARACTERIZED` only. No targeted claim, live run, promotion, or adoption.
+
 ## E006 Part 2 chained retrieval Rev 5 - CHARACTERIZED
 
 Design `764396b2`; authorization `ac81d8e1`; S4 execution `b101f040`. Rev 5

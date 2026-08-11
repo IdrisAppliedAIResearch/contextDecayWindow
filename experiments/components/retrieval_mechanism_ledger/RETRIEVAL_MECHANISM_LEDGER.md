@@ -579,6 +579,24 @@ eviction work in `CC_001`?
 
 ## 8. Scan disposition
 
+- Autoassociative construct repair: **STOP AT PREFLIGHT PART 1;
+  PATTERNS_NOT_STORED, CHARACTERIZED.** Rev 4 leaves the completed associative
+  frontier result immutable and tests the intended attractor property directly.
+  A symmetric zero-diagonal Hebbian recurrence passes the synthetic storage and
+  one-bit recovery fixture but stores `0/119` real population-centered episode
+  codes as fixed points. All 119 traces converge with non-increasing energy into
+  six spurious attractors. Balanced coordinate marginals did not provide pattern
+  separation. G4, PF1-PF10, Q11, live evaluation, promotion, and adoption are not
+  entered. See `E006_PART3_REV4_REPORT.md`.
+- Query-anchored associative-frontier retrieval: **COMPLETE;
+  NO_DIFFERENTIATED_CUE, CHARACTERIZED.** This local strongest-edge frontier
+  differs mechanically from Tier 4A's global PPR, but it does not reopen Tier
+  4A's negative result. At primary `D=2, m=5`, A0/A1/A2 each admit 15
+  candidates; A2 carries and packs 5/17 facts in civil only, versus A0's 9
+  candidate/7 packed and A1's 9/9. Best A2 is 6/17 and every A2 cell has art
+  0/4. Equal candidate quotas do not equalize volume or evidence opportunity;
+  the local frontier reinforces a single-domain neighborhood. No targeted
+  claim, live run, promotion, or adoption. See `E006_PART3_REPORT.md`.
 - Retrieved-context chained retrieval: **REV 5 COMPLETE; CHARACTERIZED.**
   Classical PRF establishes both the operation and query drift. Four recent
   conversational-memory preprints report positive iterative-retrieval results;
@@ -614,7 +632,16 @@ eviction work in `CC_001`?
 
 ---
 
-*Opened July 29, 2026. Revision 16, August 10, 2026 - E006 Part 2 Rev 5
+*Opened July 29, 2026. Revision 18, August 10, 2026 - E006 Part 3 Rev 4 stops
+at Preflight Part 1, PATTERNS_NOT_STORED, CHARACTERIZED. The Hebbian recurrence
+stores 0/119 real episode codes and converges into six spurious attractors; G4,
+PF1-PF10, and Q11 are not entered. Original P3 remains unchanged. Revision 17,
+August 10, 2026 - E006 Part 3 closes
+NO_DIFFERENTIATED_CUE, CHARACTERIZED. The query-anchored local frontier packs
+5/17 facts in civil only at primary D2,m5 versus A0 7/17 and A1 9/17, peaks at
+6/17, and retrieves art 0/4 throughout. Tier 4A's global-PPR boundary remains
+closed; no targeted/live claim, promotion, or adoption. Revision 16, August 10,
+2026 - E006 Part 2 Rev 5
 completes offline, CHARACTERIZED. PF11 passes 12/12 at `9.5e-15`; PF1-PF10 and
 PF7 48/48 pass. Chaining reaches 9/17 at D2/D3 versus X0 6/17 but uses 15-20
 candidates, selects 12, and misses art 0/4. No targeted traces; no promotion or
