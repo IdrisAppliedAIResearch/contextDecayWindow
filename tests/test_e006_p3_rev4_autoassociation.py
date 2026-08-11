@@ -109,6 +109,27 @@ def test_hash_derived_corruption_is_deterministic_unique_and_exact() -> None:
 
     assert first_indices == second_indices
     assert first_indices == deterministic_flip_indices(hashes(1)[0], 64, 19)
+    assert first_indices == (
+        55,
+        22,
+        47,
+        7,
+        49,
+        48,
+        10,
+        31,
+        15,
+        14,
+        20,
+        24,
+        52,
+        56,
+        29,
+        43,
+        21,
+        9,
+        37,
+    )
     assert len(first_indices) == len(set(first_indices)) == 19
     assert np.array_equal(first, second)
     assert np.count_nonzero(first != pattern) == 19
