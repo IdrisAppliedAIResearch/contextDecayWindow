@@ -1,6 +1,6 @@
 # Retrieval Mechanism Ledger Closeout
 
-**Status:** CLOSED; extended through PS-002
+**Status:** CLOSED; extended through PS-003
 **Date:** 2026-08-11
 **Scope:** Offline retrieval mechanisms after the retrieval bakeoff
 **Prospective design anchors:** `b42f4f81` (ledger and E002 protocol);
@@ -9,6 +9,19 @@
 `15cdb177` (AR-001 implementation)
 
 ## Outcome
+
+PS-003 repairs PS-002's narrow output-safety failure but stops at the first
+relevance gate. All four label-blind probe cells emit eight unique stored
+identities for all 24 queries. Selected `(P=5,S=4)` rejects three cyclic, one
+spurious, and one disagreeing family, with exact two-process determinism.
+PF1-PF10 and G1/G2 pass.
+
+G3 fails: PS-003 delivers 7/12 lookup facts, with structural 2/3, art 2/3,
+monetary 1/3, and marine 2/3, against bars 9/12 and 2/3/domain. Direct cosine
+top-eight and PS-002 produce the identical count and distribution. Safe basin
+consensus therefore does not differentiate semantic binding. G4/G5, chained
+and enumeration stress measurement, answers, scoring, live evaluation,
+promotion, and adoption are not reached. See `PS_003_REPORT.md`.
 
 PS-002 stops at Preflight Part 1 with `NATURAL_CUES_NOT_BOUND`, capped at
 `CHARACTERIZED`. Nine label-blind semantic-to-engram cells ran 24 sealed
