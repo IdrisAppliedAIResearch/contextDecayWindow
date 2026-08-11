@@ -1,6 +1,31 @@
 # Retrieval Mechanism Ledger Memory Update
 
-**Status:** Extended through PS-002 on 2026-08-11. Family QR remains closed.
+**Status:** Extended through PS-003 on 2026-08-11. Family QR remains closed.
+
+## PS-003 ambiguous cue resolution - LOOKUP_BINDING_INSUFFICIENT
+
+Design `63a0937b`; implementation `1a40655f`; first process `fac01c42`;
+determinism `2f370013`; final design `4f5cdc4a`; PF1-PF10 `7e26e443`;
+measurement `0535d7e1`. All four label-blind cells emit eight unique stored
+identities for all 24 queries. Selected `(P=5,S=4)` rejects three cyclic, one
+spurious, and one disagreeing family; two processes reproduce exact traces.
+
+G1/G2 pass. G3 fails at 7/12 lookup facts and monetary 1/3, versus bars 9/12
+and 2/3/domain. Direct cosine, PS-002, and PS-003 are identical at 7/12 with
+the same 2/2/1/2 domain distribution. G4/G5 and chained/enumeration measurement
+are not reached. No answer, score, ablation, live run, promotion, or adoption.
+Amendment 009 accepts the two known LF/CRLF forms of one carried PS-001 artifact
+while retaining its exact parsed mechanism digest; no result changes.
+
+Carry forward:
+
+1. Local unanimous basin probes repair the observed output-safety failure under
+   a bounded retry policy.
+2. Safe attractor identity is not relevant binding. The resolver walks the same
+   cosine-led stream and changes no lookup evidence outcome.
+3. The next gap is semantic differentiation, especially monetary evidence, not
+   more attractor certification. A new study must change selection and retain a
+   direct-cosine control.
 
 ## PS-002 natural-language cue binding - NATURAL_CUES_NOT_BOUND
 
