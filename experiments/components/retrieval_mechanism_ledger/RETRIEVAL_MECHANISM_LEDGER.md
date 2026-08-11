@@ -566,6 +566,16 @@ eviction work in `CC_001`?
 
 ## 8. Scan disposition
 
+- Natural-language cue binding: **STOP AT PREFLIGHT PART 1;
+  NATURAL_CUES_NOT_BOUND, CHARACTERIZED.** PS-002 applies nine label-blind
+  semantic-to-engram cells to 24 sealed query vectors for eight rounds each.
+  No cell meets the registered all-query mechanical bar. Best `(M=4,
+  TAU=0.025)` reaches stored codes in 190/192 rounds but one cue enters a cycle
+  and one reaches a spurious fixed point; one query emits six rather than eight
+  identities. Wider or softer mixtures produce more cue changes and more unsafe
+  terminals. The answer key remains unopened by PS-002 measurement; final
+  design, PF1-PF10, relevance, answers, live evaluation, promotion, and adoption
+  are not entered. See `PS_002_REPORT.md`.
 - Pattern-separated sparse engram formation: **COMPLETE;
   SPARSE_ENGRAM_CANDIDATE_CHARACTERIZED.** PS-001 reproduces Rev 4 exactly,
   then characterizes nine deterministic sparse cells on the same 119 episodes.
@@ -630,7 +640,11 @@ eviction work in `CC_001`?
 
 ---
 
-*Opened July 29, 2026. Revision 19, August 11, 2026 - PS-001 completes
+*Opened July 29, 2026. Revision 20, August 11, 2026 - PS-002 stops at Preflight
+Part 1, NATURAL_CUES_NOT_BOUND, CHARACTERIZED. Best `(M=4,TAU=.025)` reaches
+stored codes in 190/192 natural-language cue rounds but retains one cycle and
+one spurious fixed point, so no cell emits eight clean identities/query. Labels,
+PF1-PF10, answers, and live use are not entered. Revision 19, August 11, 2026 - PS-001 completes
 CHARACTERIZED. One of nine sparse cells, `(4096,41)`, stores and recovers
 119/119 codes through the registered 50% swaps. Degenerate cues retain a
 zero-margin two-cycle; natural cue binding, retrieval, live use, promotion, and
