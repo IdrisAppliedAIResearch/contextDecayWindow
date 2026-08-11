@@ -1,0 +1,247 @@
+{
+  "amendment_commit": "dcb33a5639fa3a81248b3a53ea0b1dc7944e388d",
+  "checks": {
+    "PF1": {
+      "evidence": [
+        {
+          "bytes": 17186,
+          "path": "HYPOTHETICAL_001_MECHANICAL_BIOLOGICAL_MEMORY_MODEL.md",
+          "sha256": "db61a0dea104627f4e47c1d0352ec00ec1fcdbda58fa090c13e6629887bd0665",
+          "status": "PASS"
+        },
+        {
+          "bytes": 5801,
+          "path": "src/retrieval_mechanism_ledger/e006.py",
+          "sha256": "12281717dd9ab64d4bab4743b9595617978fee383a81a59ffb9e344a88fa8b8d",
+          "status": "PASS"
+        },
+        {
+          "bytes": 8953,
+          "path": "experiments/components/retrieval_mechanism_ledger/E006_PART2_REV5_chained_retrieval.md",
+          "sha256": "6a674682dd60370631caa834de43fe07e59f2e0683e2d0c435dfc1003cebe444",
+          "status": "PASS"
+        },
+        {
+          "bytes": 1592,
+          "path": "experiments/components/retrieval_mechanism_ledger/E006_PART2_REV5_S3_PARAMETERS.md",
+          "sha256": "82ee2663fd4e8d01bdba1b0779112e3d465f217b68619f807d531b41e8321139",
+          "status": "PASS"
+        },
+        {
+          "bytes": 306894,
+          "path": "experiments/components/retrieval_mechanism_ledger/artifacts/e006_rev5_s4/results.json",
+          "sha256": "bbeae9cc6cb6ef830ef8cfeb7d4fe9f8bd710361927ac6ed1816dfae1c86ec00",
+          "status": "PASS"
+        },
+        {
+          "bytes": 5637,
+          "path": "experiments/components/retrieval_mechanism_ledger/E006_PART3_REV3_ASSOCIATIVE_FRONTIER_EVIDENCE.md",
+          "sha256": "50dc8f74ea08cd41a92e8dd40360496a79bfccb7c2f11da8c424a192f8227030",
+          "status": "PASS"
+        },
+        {
+          "bytes": 1906,
+          "path": "experiments/components/retrieval_mechanism_ledger/E006_PART3_S3_PARAMETER_LOCK.json",
+          "sha256": "8f50da0c78abc3bce3a338b9a83e906b10d9c3f2a57376c45d3d2e83d1f6e879",
+          "status": "PASS"
+        },
+        {
+          "bytes": 741804,
+          "path": "experiments/components/retrieval_mechanism_ledger/artifacts/e006_p3_s4/results.json",
+          "sha256": "5a6b8a6731b813e0bf63071838d1b14ceaf41362d6548c0bced9777e2bbe49ef",
+          "status": "PASS"
+        },
+        {
+          "bytes": 10642,
+          "path": "experiments/components/retrieval_mechanism_ledger/artifacts/rd001/full_rank_inventory.csv",
+          "sha256": "8d6f9eee6ebe232608981aac0c0d4816eaec4710ae551db028ae0b323253ac03",
+          "status": "PASS"
+        },
+        {
+          "bytes": 674786,
+          "path": "experiments/surveys/retrieval_bakeoff/tier2/evaluation_results.jsonl",
+          "sha256": "4dd8aecc17b8f21d7f5dbcd2ee40249532662205d5a262f7180452d2587e8e50",
+          "status": "PASS"
+        },
+        {
+          "bytes": 4231,
+          "path": "experiments/surveys/retrieval_bakeoff/holdout/queries_121.json",
+          "sha256": "ae950fda20dce9f519f31ee2670a815a5599648cab618d42309db7e3f23d36f4",
+          "status": "PASS"
+        },
+        {
+          "bytes": 9832,
+          "path": "experiments/surveys/retrieval_bakeoff/holdout/answer_key_121.json",
+          "sha256": "2d43a31d3c04f4ad690ff2910abde71f508a3f6ce776545a9f2b16f90fae5320",
+          "status": "PASS"
+        },
+        {
+          "bytes": 1978368,
+          "path": "experiments/surveys/retrieval_bakeoff/tier6/runs/tier6_live_121_corrected_001/context_matched_stm/study.db",
+          "sha256": "5da47ea3fc2c8e3dcc50fa380ff65202d82557905d9976117e9e5d82e55c1c41",
+          "status": "PASS"
+        },
+        {
+          "bytes": 3694,
+          "path": "experiments/audits/scoring_integrity/corrected_scores/arms/s007_treatment_corrected.json",
+          "sha256": "a6a797b69f099d9c6fc2c62427ba177e8b323dfd430fd530c289f4d5216a6791",
+          "status": "PASS"
+        },
+        {
+          "bytes": 3413,
+          "path": "experiments/audits/scoring_integrity/corrected_scores/arms/s009_l_corrected.json",
+          "sha256": "57e410a43d90da9e75239a956af996256393dc5b281a293587dc71930bc0e781",
+          "status": "PASS"
+        },
+        {
+          "bytes": 4954,
+          "path": "experiments/components/live_validation/scoring/blind_scores.md",
+          "sha256": "e38dc31206041a51814d84dc8ac24c41728733acd490a27f22d5fbc3680a85f1",
+          "status": "PASS"
+        },
+        {
+          "bytes": 8269,
+          "path": "experiments/components/live_validation/LV_001_report.md",
+          "sha256": "a8359ed40bad7a9f7c3180662058e90d0afea0fbfec05404c056349fe387ea97",
+          "status": "PASS"
+        },
+        {
+          "bytes": 15931,
+          "path": "experiments/components/retrieval_mechanism_ledger/BA_001_BENCHMARK_CAUSAL_AUDIT.md",
+          "sha256": "9510dbcdba33f4646140c9ab5a81031fdd5d3e77092f0efdaaaf526ab1828c74",
+          "status": "PASS"
+        },
+        {
+          "bytes": 503,
+          "path": "experiments/components/retrieval_mechanism_ledger/BA_001_AUTHORIZATION.md",
+          "sha256": "af073b5433bac48741917b574416d87ef2fe23bfc2fb783d9e563a59d4bf5274",
+          "status": "PASS"
+        },
+        {
+          "bytes": 2053,
+          "path": "experiments/components/retrieval_mechanism_ledger/amendments/BA_001_AMENDMENT_001_TIER2_CORPUS_SCOPE.md",
+          "sha256": "582fe7d4bad3c029ae660bd45cffcee4ae0f9372a3137bb94c1b913c487f7cf9",
+          "status": "PASS"
+        }
+      ],
+      "pass": true
+    },
+    "PF10": {
+      "evidence": {
+        "answer_correctness_evaluated": false,
+        "live_run_authorized": false,
+        "outcome_ceiling": "CHARACTERIZED"
+      },
+      "pass": true
+    },
+    "PF2": {
+      "evidence": "AST and ordered-feedback loop verified",
+      "pass": true
+    },
+    "PF3": {
+      "evidence": {
+        "bad_hash_stopped": true,
+        "early_label_stopped": true
+      },
+      "pass": true
+    },
+    "PF4": {
+      "evidence": {
+        "primary_counts": {
+          "A0": [
+            15,
+            9,
+            7
+          ],
+          "A1": [
+            15,
+            9,
+            9
+          ],
+          "A2": [
+            15,
+            5,
+            5
+          ]
+        },
+        "reachable_dispositions": [
+          "CHAIN_DISCOVERY_GAIN",
+          "CHAIN_NO_GAIN",
+          "CHAIN_PACKING_ONLY_GAIN",
+          "CHAIN_REGRESSION"
+        ]
+      },
+      "pass": true
+    },
+    "PF5": {
+      "evidence": "Canonical content SHA-256 identities",
+      "pass": true
+    },
+    "PF6": {
+      "evidence": {
+        "p3_primary_counts": {
+          "A0": [
+            15,
+            9,
+            7
+          ],
+          "A1": [
+            15,
+            9,
+            9
+          ],
+          "A2": [
+            15,
+            5,
+            5
+          ]
+        },
+        "rev5_best_candidate_count": 15,
+        "rev5_best_payload_sha256": "42faccd7572afe4982959393f5e208746ea13d0eb74cb254324451595f732349",
+        "rev5_best_q11": 9
+      },
+      "pass": true
+    },
+    "PF7": {
+      "evidence": {
+        "a2_primary_candidate_per_domain": {
+          "art": 0,
+          "civil": 5,
+          "marine": 0,
+          "monetary": 0
+        },
+        "all_unique_nonfixed_positive_novelty": true,
+        "feedback_cells": 48
+      },
+      "pass": true
+    },
+    "PF8": {
+      "evidence": "One Q11 trace plus 24 frozen queries; no population or live-answer inference.",
+      "pass": true
+    },
+    "PF9": {
+      "evidence": [
+        {
+          "property_can_be_false": "evidence discovery",
+          "surrogate": "candidate count"
+        },
+        {
+          "property_can_be_false": "reader use",
+          "surrogate": "packed fact count"
+        },
+        {
+          "property_can_be_false": "partial recall",
+          "surrogate": "Q11 binary score"
+        },
+        {
+          "property_can_be_false": "benchmark benefit",
+          "surrogate": "biological resemblance"
+        }
+      ],
+      "pass": true
+    }
+  },
+  "design_commit": "94ed623a67fe5a893521323796b74d68aa4feebd",
+  "implementation_sha256": "1f8488d2ede95004c23561d937ee88b2290c5ed4a23db5a8362b3625771e21c2",
+  "status": "PASS"
+}

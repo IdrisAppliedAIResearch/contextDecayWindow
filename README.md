@@ -24,6 +24,11 @@ Ten pre-registered studies test that question, each adding one memory component 
 > `D=2, m=5`, versus A0's 7/17 and A1's 9/17; no targeted claim, live run,
 > promotion, or adoption.
 
+> **BA-001 causal audit:** `CHAIN_PACKING_ONLY_GAIN - CHARACTERIZED`. At
+> matched 15-candidate volume, fixed-query and chained retrieval expose the
+> same 9/17 facts; chaining packs 9 instead of 7. Radius-1 adjacency reaches
+> turn 55 and all four art facts as an oracle ceiling. No live run or adoption.
+
 > **E006-P3 Rev4 construct repair:** `PATTERNS_NOT_STORED - CHARACTERIZED`.
 > Canonical Hebbian recurrence stores 0/119 real episode codes as fixed points
 > and converges into six spurious attractors. Preflight stops at Part 1; the
@@ -76,6 +81,7 @@ Runs use a scripted 120-turn conversation with facts planted at known positions 
 | PS-001 | Sparse pattern-separated engram formation | CHARACTERIZED | One of nine cells stored and recovered 119/119 codes through 50% registered swaps; natural cues and retrieval remain untested |
 | PS-002 | Natural-language cue binding to sparse engrams | STOPPED AT PART 1; CHARACTERIZED | Best cell reached stored codes in 190/192 rounds but retained one cycle and one spurious fixed point; relevance and answers not entered |
 | PS-003 | Ambiguous natural-language cue resolution | G3 FAIL; CHARACTERIZED | Five-probe consensus safely emitted 8 identities/query, but lookup stayed 7/12, identical to cosine and PS-002; monetary 1/3 |
+| BA-001 | Chained-retrieval and benchmark causal audit | CHARACTERIZED | Matched-volume chaining discovered no new facts; its 7/17 to 9/17 gain was packing only. Art was stored and directly recallable but not broadly cued |
 
 Full reports live under `experiments/study_NNN/`; external evaluation reports
 live under `experiments/external/`.
