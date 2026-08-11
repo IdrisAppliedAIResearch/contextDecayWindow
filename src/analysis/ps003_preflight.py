@@ -22,6 +22,9 @@ from src.analysis.ps002_exploration import (
 from src.analysis.ps003_exploration import (
     ANSWER_KEY,
     CYCLE_CUE_SHA256,
+    PS001_EXPLORATION,
+    PS001_EXPLORATION_LF_SHA256,
+    PS001_EXPLORATION_SHA256,
     SPURIOUS_CUE_SHA256,
     _trace_record,
     assert_carried_artifacts,
@@ -322,6 +325,8 @@ def build_preflight() -> dict[str, Any]:
     reachability = fact_reachability(key, episodes)
     reproduction = reproduce_selected_cell()
     manifest = verify_manifest()
+    ps001_exploration_identity = sha256_file(PS001_EXPLORATION)
+    ps001_exploration_payload = _read_json(PS001_EXPLORATION)
     anchors = {
         "design": _artifact(DESIGN),
         "part1_authorization": _artifact(PART1_AUTHORIZATION),
@@ -340,6 +345,14 @@ def build_preflight() -> dict[str, Any]:
         "mechanism_source": _artifact(MECHANISM_SOURCE),
         "exploration_source": _artifact(EXPLORATION_SOURCE),
         "preflight_source": _artifact(PREFLIGHT_SOURCE),
+        "ps001_exploration": {
+            **_artifact(PS001_EXPLORATION),
+            "representation": (
+                "CRLF"
+                if ps001_exploration_identity == PS001_EXPLORATION_SHA256
+                else "LF"
+            ),
+        },
     }
 
     pf1_pass = bool(
@@ -350,6 +363,10 @@ def build_preflight() -> dict[str, Any]:
         and reproduction["query_inventory"]["query_count"] == EXPECTED_QUERIES
         and len(key["facts"]) == EXPECTED_FACTS
         and len(key["queries"]) == EXPECTED_QUERIES
+        and ps001_exploration_identity
+        in {PS001_EXPLORATION_SHA256, PS001_EXPLORATION_LF_SHA256}
+        and ps001_exploration_payload["determinism"]["mechanism_digest"]
+        == reproduction["carried_ps001"]["committed_mechanism_digest"]
     )
     pf1 = {
         "status": "PASS" if pf1_pass else "FAIL",
