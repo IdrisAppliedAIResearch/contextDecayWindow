@@ -579,6 +579,15 @@ eviction work in `CC_001`?
 
 ## 8. Scan disposition
 
+- Autoassociative construct repair: **STOP AT PREFLIGHT PART 1;
+  PATTERNS_NOT_STORED, CHARACTERIZED.** Rev 4 leaves the completed associative
+  frontier result immutable and tests the intended attractor property directly.
+  A symmetric zero-diagonal Hebbian recurrence passes the synthetic storage and
+  one-bit recovery fixture but stores `0/119` real population-centered episode
+  codes as fixed points. All 119 traces converge with non-increasing energy into
+  six spurious attractors. Balanced coordinate marginals did not provide pattern
+  separation. G4, PF1-PF10, Q11, live evaluation, promotion, and adoption are not
+  entered. See `E006_PART3_REV4_REPORT.md`.
 - Query-anchored associative-frontier retrieval: **COMPLETE;
   NO_DIFFERENTIATED_CUE, CHARACTERIZED.** This local strongest-edge frontier
   differs mechanically from Tier 4A's global PPR, but it does not reopen Tier
@@ -623,7 +632,11 @@ eviction work in `CC_001`?
 
 ---
 
-*Opened July 29, 2026. Revision 17, August 10, 2026 - E006 Part 3 closes
+*Opened July 29, 2026. Revision 18, August 10, 2026 - E006 Part 3 Rev 4 stops
+at Preflight Part 1, PATTERNS_NOT_STORED, CHARACTERIZED. The Hebbian recurrence
+stores 0/119 real episode codes and converges into six spurious attractors; G4,
+PF1-PF10, and Q11 are not entered. Original P3 remains unchanged. Revision 17,
+August 10, 2026 - E006 Part 3 closes
 NO_DIFFERENTIATED_CUE, CHARACTERIZED. The query-anchored local frontier packs
 5/17 facts in civil only at primary D2,m5 versus A0 7/17 and A1 9/17, peaks at
 6/17, and retrieves art 0/4 throughout. Tier 4A's global-PPR boundary remains

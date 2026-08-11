@@ -2,6 +2,26 @@
 
 **Status:** REOPENED on 2026-08-01 for Family CS. Family QR remains closed.
 
+## E006 Part 3 Rev 4 autoassociation - PATTERNS_NOT_STORED
+
+Design `a4f952f6`; authorization `27313b66`; input amendment `8c2c0a16`;
+exploration result `47bcc882`. The completed P3 result remains immutable. Rev 4
+replaced semantic graph walking with 1,024-bit population-centered episode
+patterns, symmetric zero-diagonal Hebbian weights, and asynchronous recurrence.
+
+The synthetic fixture passes exact storage and `16/16` one-bit recoveries. The
+real store fails G3 at `0/119` fixed points. All 119 traces converge with
+non-increasing energy, but into six spurious attractors with basin sizes
+5/13/15/20/29/37. First sweeps change 18-294 bits (median 214); terminal states
+are 194-531 bits from their source (median 467). G4, Q11, and PF1-PF10 are not
+entered.
+
+Carry forward: balancing each coordinate at 60/119 positives did not separate
+the episode codes; pair overlap still reaches 0.699. Dense semantic embeddings
+are not automatically engrams, Hebbian learning does not make arbitrary
+correlated codes stable, and one-memory completion is not four-memory
+enumeration. A pattern-separation encoder is a new component, not a Rev 4 tune.
+
 ## E006 Part 3 associative frontier - NO_DIFFERENTIATED_CUE
 
 Design `80a5886a`; authorization `5e905f15`; S4 execution `88ec1797`.

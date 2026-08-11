@@ -20,6 +20,11 @@ Ten pre-registered studies test that question, each adding one memory component 
 > `D=2, m=5`, versus A0's 7/17 and A1's 9/17; no targeted claim, live run,
 > promotion, or adoption.
 
+> **E006-P3 Rev4 construct repair:** `PATTERNS_NOT_STORED - CHARACTERIZED`.
+> Canonical Hebbian recurrence stores 0/119 real episode codes as fixed points
+> and converges into six spurious attractors. Preflight stops at Part 1; the
+> original P3 result is unchanged and Q11 is not entered.
+
 ## The Problem
 
 A long conversation forces a bad trade. Keep the full transcript and the model gets slower and loses the middle. Summarise it and details disappear permanently.
@@ -156,6 +161,14 @@ candidates, but the frontier carried only 5/17 facts, all civil, versus A0's
 recovered an art fact. The registered disposition is
 `NO_DIFFERENTIATED_CUE - CHARACTERIZED`; there is no targeted claim, live run,
 promotion, adoption, or deployment change.
+
+Rev 4 then repaired the construct rather than the result. A learned symmetric
+Hebbian recurrence passed its synthetic reachability fixture, but none of the
+119 population-centered episode codes was a fixed point. All trajectories
+converged with falling energy into six spurious attractors. The result is
+`PATTERNS_NOT_STORED - CHARACTERIZED` and stops at Preflight Part 1 before
+one-bit recovery or Q11. Balanced feature marginals were not pattern separation;
+the original semantic-frontier result remains unchanged.
 
 A provenance follow-up also withdraws the categorical claim that IDF ranked the
 hard plants worse than density. Mean IDF did so for all five eligible spans, but
