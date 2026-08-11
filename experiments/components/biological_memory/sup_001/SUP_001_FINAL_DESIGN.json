@@ -1,0 +1,77 @@
+{
+  "study": "SUP-001",
+  "date": "2026-08-11",
+  "status": "FINAL_DESIGN_LOCK_NO_LABEL_OUTCOMES_OPENED",
+  "decision": "NO_CHANGE_AFTER_PART1",
+  "mechanism": "Explicit supersession lineage with binary natural accessibility and deliberate lineage bypass",
+  "biological_scope": {
+    "principles": [
+      "P5 storage and retrieval are separate substrates",
+      "P9 retrieval/update may create a new trace rather than overwrite the old trace"
+    ],
+    "falsification_target": "F6 supersession-by-decay surfaces current values while preserving recoverable history",
+    "excluded": [
+      "P1-P4 salience, tagging, capture, and replay",
+      "P6 retrieval-induced suppression",
+      "P7 reconsolidation rewriting",
+      "P8 gist transformation",
+      "P10 fast/slow consolidation",
+      "contradiction inference"
+    ]
+  },
+  "parameters": {
+    "accessibility_current": 1.0,
+    "accessibility_superseded": 0.0,
+    "candidate_population": 256,
+    "top_k": 8,
+    "budget_chars": 32000,
+    "ranking": "descending cosine then episode content SHA-256",
+    "embedding_model_sha256": "06507c7b42688469c4e7298b0a1e16deff06caf291cf0a5b278c308249c3e439"
+  },
+  "anchors": {
+    "hypothetical_reference": {
+      "path": "HYPOTHETICAL_001_MECHANICAL_BIOLOGICAL_MEMORY_MODEL.md",
+      "sha256": "dbc6a1c4134df37877d6f5a77acdf61db4ce8361a1f7b2a2810b6182a6d6f926"
+    },
+    "upstream_neuroscience_landscape": {
+      "path": "NEUROSCIENCE_LANDSCAPE.md",
+      "status": "NOT_PRESENT_IN_CHECKOUT_AND_NOT_USED_AS_AN_EXECUTION_INPUT"
+    },
+    "pre_registration": {
+      "commit": "22abfc42",
+      "sha256": "3651403d754eaecaa2f9baa7fe2de44f3eba48e0d9a2a4078491598ee41e3ebd"
+    },
+    "mechanism_implementation_commit": "8a08c20c",
+    "benchmark_implementation_commit": "683faf65",
+    "corpus_lock_commit": "4168a80b",
+    "vector_control_implementation_commit": "321c5280",
+    "vector_lock_commit": "0c267a9e",
+    "control_lock_commit": "09f3f664",
+    "part1_implementation_commit": "6ef282ea",
+    "part1_artifact_commit": "3562f364",
+    "mechanism_manifest_sha256": "090587f5fad66bc1f36c983455a309df026855d5b91e58462619b372aaba9b5f",
+    "vector_manifest_sha256": "11be8e2783588df229663202995c9df6f909bdbce5a962288ac5be443528fb99",
+    "vector_cache_sha256": "4bc3543ae7fd969efd74c70f3435b44a1fbdab869676e2d644e0579dfe84edab",
+    "control_sha256": "6d2ae32e8d13b85b70d8aa602c427c60a96ed1fe2c5d8584c775c283682fd911",
+    "part1_sha256": "912cbae47b18dc46067275d6433d043950be616e3c0b3c52ef7f745b28a0a767"
+  },
+  "part1_findings": {
+    "transitions": 192,
+    "lineages": 64,
+    "accessible_leaves": 64,
+    "silent_ancestors": 128,
+    "store_episodes_unchanged": 256,
+    "fresh_process_identity": true,
+    "read_state_pure": true,
+    "all_degenerate_states_fail_closed": true
+  },
+  "binding_gates": [
+    "G1 integrity",
+    "G2 current-value retrieval",
+    "G3 unchanged safety",
+    "G4 history recovery",
+    "G5 provenance"
+  ],
+  "measurement": "T1 and the sealed key remain conditional on a committed passing PF1-PF10 artifact",
+  "live_scope": "Offline success authorizes only the registered 35-turn ablation, not a 120-turn or production run"
+}
