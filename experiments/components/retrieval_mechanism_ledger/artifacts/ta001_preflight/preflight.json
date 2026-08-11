@@ -1,0 +1,432 @@
+{
+  "checks": {
+    "PF1": {
+      "evidence": {
+        "episode_counts": {
+          "holdout": 111,
+          "q11": 119
+        },
+        "inputs": [
+          {
+            "bytes": 17505,
+            "path": "HYPOTHETICAL_001_MECHANICAL_BIOLOGICAL_MEMORY_MODEL.md",
+            "sha256": "dbc6a1c4134df37877d6f5a77acdf61db4ce8361a1f7b2a2810b6182a6d6f926"
+          },
+          {
+            "bytes": 6861,
+            "path": "experiments/components/retrieval_mechanism_ledger/BA_001_REPORT.md",
+            "sha256": "efaa03b10a90da68c7f284bb092a80d1edbbb724a84d871cb89a5e4a4a18d14c"
+          },
+          {
+            "bytes": 41619,
+            "path": "experiments/components/retrieval_mechanism_ledger/artifacts/ba001/results.json",
+            "sha256": "1c0d6fb6ef01e991fd7f14ebba2900d0770325c564b64648b9d716a84e1630f1"
+          },
+          {
+            "bytes": 741804,
+            "path": "experiments/components/retrieval_mechanism_ledger/artifacts/e006_p3_s4/results.json",
+            "sha256": "5a6b8a6731b813e0bf63071838d1b14ceaf41362d6548c0bced9777e2bbe49ef"
+          },
+          {
+            "bytes": 7858,
+            "path": "src/retrieval_mechanism_ledger/e006_p3.py",
+            "sha256": "8bb02f16dd6d07cda0d050289dab6ab939e9cf7048d14564b8e71dfbd3347030"
+          },
+          {
+            "bytes": 10642,
+            "path": "experiments/components/retrieval_mechanism_ledger/artifacts/rd001/full_rank_inventory.csv",
+            "sha256": "8d6f9eee6ebe232608981aac0c0d4816eaec4710ae551db028ae0b323253ac03"
+          },
+          {
+            "bytes": 1978368,
+            "path": "experiments/surveys/retrieval_bakeoff/tier6/runs/tier6_live_121_corrected_001/context_matched_stm/study.db",
+            "sha256": "5da47ea3fc2c8e3dcc50fa380ff65202d82557905d9976117e9e5d82e55c1c41"
+          },
+          {
+            "bytes": 4231,
+            "path": "experiments/surveys/retrieval_bakeoff/holdout/queries_121.json",
+            "sha256": "ae950fda20dce9f519f31ee2670a815a5599648cab618d42309db7e3f23d36f4"
+          },
+          {
+            "bytes": 13164544,
+            "path": "experiments/surveys/retrieval_bakeoff/cache/c121_l_span_embeddings.sqlite",
+            "sha256": "a58ee1163d3c2417962b1fcc4ab84dc4edc313c8254a967376a59558ee28a45d"
+          },
+          {
+            "bytes": 249856,
+            "path": "experiments/components/retrieval_mechanism_ledger/artifacts/e006_p3_tier4a_capture/query_vectors.sqlite",
+            "sha256": "d9741edb0545d8cfe050663340599a31813d6025c38f0467e0ec7671573a1e6a"
+          },
+          {
+            "bytes": 17131,
+            "path": "experiments/components/retrieval_mechanism_ledger/artifacts/e006_p3_tier4a_capture/capture_manifest.json",
+            "sha256": "2c24ea75d7551beb6658d8b9208225b985e25a9111cfd3766ec4f7980a7f18e4"
+          },
+          {
+            "bytes": 9832,
+            "path": "experiments/surveys/retrieval_bakeoff/holdout/answer_key_121.json",
+            "sha256": "2d43a31d3c04f4ad690ff2910abde71f508a3f6ce776545a9f2b16f90fae5320"
+          },
+          {
+            "bytes": 5164,
+            "path": "episodic/src/episodic/_packing.py",
+            "sha256": "c5011dada056fa0106544925c75d849c3d5b4857b6c5010ed4b604f9c3d2af04"
+          },
+          {
+            "bytes": 2022,
+            "path": "episodic/src/episodic/_render.py",
+            "sha256": "d0bdc051695fe98064bad9ecc52afe0178bba1ba8a3edf7e3a1960d5f261cf6f"
+          }
+        ],
+        "query_cache_hits": 24,
+        "vector_dimension": 1024
+      },
+      "pass": true
+    },
+    "PF10": {
+      "evidence": {
+        "conditional_next": "registered 35-turn ablation",
+        "full_live_run_authorized": false,
+        "offline_is_verdict": false
+      },
+      "pass": true
+    },
+    "PF2": {
+      "evidence": {
+        "committed_record_digest": "d0f6a4770306891f15e03b9bded04d36707fe2e8ec810a46db3d305f1053ed25",
+        "query_count": 25,
+        "record_digest": "d0f6a4770306891f15e03b9bded04d36707fe2e8ec810a46db3d305f1053ed25"
+      },
+      "pass": true
+    },
+    "PF3": {
+      "evidence": {
+        "early_measurement_stopped": true,
+        "ordered_commits": [
+          "23cff2d8da6e864363b05d2438398f9b60c8893b",
+          "43d4e764ef95cd1b89a6037d925824a686221991",
+          "6ffe9b7c382b486e0d77dcd170e966b8aa507670",
+          "1c786b758ad8dfce76d675d8a125958ffb6e02a2",
+          "0ea39da6fa66b23773593fdff36bdc28a433bad5",
+          "6e3e839f62fa0cb37f09e5900bf16e5ef841e22e"
+        ]
+      },
+      "pass": true
+    },
+    "PF4": {
+      "evidence": {
+        "holdout_all_sources_present": true,
+        "holdout_fact_checks": [
+          {
+            "fact_id": "f121_structural_service_life",
+            "matching_source_turns": [
+              12
+            ],
+            "pass": true
+          },
+          {
+            "fact_id": "f121_structural_spherical_bearings",
+            "matching_source_turns": [
+              14
+            ],
+            "pass": true
+          },
+          {
+            "fact_id": "f121_structural_dehumidification",
+            "matching_source_turns": [
+              28
+            ],
+            "pass": true
+          },
+          {
+            "fact_id": "f121_structural_wind_tunnel",
+            "matching_source_turns": [
+              16
+            ],
+            "pass": true
+          },
+          {
+            "fact_id": "f121_structural_orthotropic_deck",
+            "matching_source_turns": [
+              18
+            ],
+            "pass": true
+          },
+          {
+            "fact_id": "f121_art_lapis_ultramarine",
+            "matching_source_turns": [
+              34
+            ],
+            "pass": true
+          },
+          {
+            "fact_id": "f121_art_intonaco",
+            "matching_source_turns": [
+              37
+            ],
+            "pass": true
+          },
+          {
+            "fact_id": "f121_art_infrared_reflectography",
+            "matching_source_turns": [
+              52
+            ],
+            "pass": true
+          },
+          {
+            "fact_id": "f121_art_sacra_conversazione",
+            "matching_source_turns": [
+              40
+            ],
+            "pass": true
+          },
+          {
+            "fact_id": "f121_art_gold_leaf",
+            "matching_source_turns": [
+              43
+            ],
+            "pass": true
+          },
+          {
+            "fact_id": "f121_art_xray_radiography",
+            "matching_source_turns": [
+              52
+            ],
+            "pass": true
+          },
+          {
+            "fact_id": "f121_art_date_span",
+            "matching_source_turns": [
+              31,
+              50
+            ],
+            "pass": true
+          },
+          {
+            "fact_id": "f121_monetary_gfc_2008",
+            "matching_source_turns": [
+              64
+            ],
+            "pass": true
+          },
+          {
+            "fact_id": "f121_monetary_near_zero",
+            "matching_source_turns": [
+              68
+            ],
+            "pass": true
+          },
+          {
+            "fact_id": "f121_monetary_great_moderation",
+            "matching_source_turns": [
+              75
+            ],
+            "pass": true
+          },
+          {
+            "fact_id": "f121_monetary_price_level_target",
+            "matching_source_turns": [
+              80
+            ],
+            "pass": true
+          },
+          {
+            "fact_id": "f121_monetary_fiscal_price_level",
+            "matching_source_turns": [
+              83
+            ],
+            "pass": true
+          },
+          {
+            "fact_id": "f121_monetary_open_market_operations",
+            "matching_source_turns": [
+              73
+            ],
+            "pass": true
+          },
+          {
+            "fact_id": "f121_monetary_quantitative_easing",
+            "matching_source_turns": [
+              63
+            ],
+            "pass": true
+          },
+          {
+            "fact_id": "f121_monetary_stress_testing",
+            "matching_source_turns": [
+              88
+            ],
+            "pass": true
+          },
+          {
+            "fact_id": "f121_marine_zones",
+            "matching_source_turns": [
+              91
+            ],
+            "pass": true
+          },
+          {
+            "fact_id": "f121_marine_luciferin_luciferase",
+            "matching_source_turns": [
+              96
+            ],
+            "pass": true
+          },
+          {
+            "fact_id": "f121_marine_diel_migration",
+            "matching_source_turns": [
+              97
+            ],
+            "pass": true
+          },
+          {
+            "fact_id": "f121_marine_plankton_nets",
+            "matching_source_turns": [
+              98
+            ],
+            "pass": true
+          },
+          {
+            "fact_id": "f121_marine_in_situ_imaging",
+            "matching_source_turns": [
+              98
+            ],
+            "pass": true
+          },
+          {
+            "fact_id": "f121_marine_rov",
+            "matching_source_turns": [
+              98
+            ],
+            "pass": true
+          },
+          {
+            "fact_id": "f121_marine_oxygen_minimum",
+            "matching_source_turns": [
+              95
+            ],
+            "pass": true
+          },
+          {
+            "fact_id": "f121_marine_gelatinous_zooplankton",
+            "matching_source_turns": [
+              99
+            ],
+            "pass": true
+          }
+        ],
+        "holdout_fact_count": 28,
+        "holdout_query_requirement_count": 44,
+        "q11_art_ceiling": 4,
+        "q11_art_items": [
+          "1483",
+          "Cardinal Giuliano della Rovere",
+          "Melozzo da Forli",
+          "The Annunciation of Forli"
+        ],
+        "q11_item_ceiling": 17,
+        "q11_items": [
+          "1483",
+          "2.3%",
+          "600",
+          "847",
+          "92.4",
+          "Cardinal Giuliano della Rovere",
+          "Dr. Anara Bekova",
+          "Dr. Kenji Watanabe",
+          "Dr. Priya Mehta",
+          "Federal Reserve",
+          "Halcyon Crossing",
+          "Melozzo da Forli",
+          "S460ML",
+          "Taylor Rule",
+          "The Annunciation of Forli",
+          "Vampyroteuthis infernalis",
+          "marine snow"
+        ]
+      },
+      "pass": true
+    },
+    "PF5": {
+      "evidence": {
+        "comparison_key": "episode_content_sha256",
+        "identity_count": 750
+      },
+      "pass": true
+    },
+    "PF6": {
+      "evidence": {
+        "c0": {
+          "expected_packed_fact_count": 7,
+          "expected_payload_sha256": "9ace52257c15c247bd7cc10894efd607113f7be29fe2e9d7a735997c5661143c",
+          "packed_fact_count": 7,
+          "pass": true,
+          "payload_sha256": "9ace52257c15c247bd7cc10894efd607113f7be29fe2e9d7a735997c5661143c"
+        },
+        "fresh_process": {
+          "first_digest": "54983e565475afd17862c9aee46d12018dc344206ed9ccb3a60c2e3774da50a5",
+          "first_path": "experiments/components/retrieval_mechanism_ledger/artifacts/ta001_exploration/part1_process_1",
+          "second_digest": "54983e565475afd17862c9aee46d12018dc344206ed9ccb3a60c2e3774da50a5",
+          "second_path": "experiments/components/retrieval_mechanism_ledger/artifacts/ta001_exploration/part1_process_2",
+          "status": "PASS"
+        },
+        "part1_digest": "54983e565475afd17862c9aee46d12018dc344206ed9ccb3a60c2e3774da50a5"
+      },
+      "pass": true
+    },
+    "PF7": {
+      "evidence": {
+        "first_digest": "d0f6a4770306891f15e03b9bded04d36707fe2e8ec810a46db3d305f1053ed25",
+        "query_history_feedback": false,
+        "repeat_digest": "d0f6a4770306891f15e03b9bded04d36707fe2e8ec810a46db3d305f1053ed25",
+        "stateless": true
+      },
+      "pass": true
+    },
+    "PF8": {
+      "evidence": "Twenty-five offline queries identify this 119-episode lineage. A 35-turn prefix can test integration, leakage, budgets, and deterministic replay, but not turn-55 art recovery or endurance.",
+      "pass": true
+    },
+    "PF9": {
+      "evidence": [
+        {
+          "can_miss": "semantic opportunity",
+          "surrogate": "candidate count"
+        },
+        {
+          "can_miss": "useful evidence",
+          "surrogate": "neighbor count"
+        },
+        {
+          "can_miss": "reader use",
+          "surrogate": "broad facts"
+        },
+        {
+          "can_miss": "packed art",
+          "surrogate": "art candidates"
+        },
+        {
+          "can_miss": "other wording and corpora",
+          "surrogate": "targeted no-loss"
+        },
+        {
+          "can_miss": "equal delivered characters",
+          "surrogate": "payload <=32k"
+        },
+        {
+          "can_miss": "120-turn endurance",
+          "surrogate": "35-turn stability"
+        }
+      ],
+      "pass": true
+    }
+  },
+  "failed_checks": [],
+  "final_design_commit": "6e3e839f62fa0cb37f09e5900bf16e5ef841e22e",
+  "final_design_sha256": "bc8c4152ed92bb72c8c3d8fde574c4265c6a93f9593c9b6e4fa15c0191b60011",
+  "implementation_sha256": "99b6927e92f9026670d84b5c449760a838f7059ce3965c9513c86998c645a381",
+  "measurement_boundary": "SEALED",
+  "preflight_seal_sha256": "a5659a42f0eb2ee21c52e91ca905d7cd4a61e03c17fead306b8b5c9654f815f1",
+  "status": "PASS",
+  "study": "TA-001 temporal-adjacency bridge"
+}
