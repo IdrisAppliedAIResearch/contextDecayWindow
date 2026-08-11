@@ -62,6 +62,8 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **SAL-001 surprisal proximity (2026-08-11).** G2 FAIL; NO_INDEPENDENT_PROXIMITY. On 92 held-out sessions, adjusted neighbor AUC=.416 (95% .351-.484; p=.991), raw=.300; prior=.399, next=.477, 5/6 strata below .50. Posthoc self AUC=.621: surprise stays local, not transferred. P1-P4 capture killed; no accessibility/ablation/live.
 
+**SUP-001 explicit supersession (2026-08-11).** OFFLINE PASS; ABLATION STOP. Binary accessibility makes current-only 0/64->64/64, unchanged 32/32, histories 64/64, with zero stale natural selections. In the 35-turn Qwen ablation C0 scored 7/9 and T1 8/9; T1 failed unchanged 3/4 because `$35.00` != `$35`. Zero regressions; no 120-turn run or adoption.
+
 **PS-001 pattern-separated engram formation (2026-08-11).** CHARACTERIZED. Nine deterministic sparse cells on 119 episodes; only D=4096,K=41 passed G3-G5: 119/119 fixed points and exact 1/10/30/50% swap recovery. Six of seven degenerates reached stored codes; the union-biased cue cycled. Code-space result only; no natural cue, retrieval, live run, promotion, or adoption.
 
 **PS-002 natural-language cue binding (2026-08-11).** STOP AT PART 1; NATURAL_CUES_NOT_BOUND, CHARACTERIZED. Nine label-blind cells ran 24 sealed queries x8 rounds. Best M=4,tau=.025 reached stored codes 190/192 but one cue cycled and one reached a spurious fixed point; no cell emitted 8 clean ids/query. Labels, PF1-PF10, answers, live run, promotion and adoption not entered.
