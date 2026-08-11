@@ -1,0 +1,111 @@
+{
+  "adjusted_salience_quantiles": [
+    -3.28348624549431,
+    -2.7131940790630344,
+    -1.5607818258841724,
+    -0.9463024576124752,
+    -0.13799651802957413,
+    0.697114704042904,
+    1.5352488608037629,
+    5.2941326698660855,
+    10.541238436011938
+  ],
+  "adjustment": {
+    "coefficients": [
+      6.870899244751936,
+      0.5029784294222291,
+      -0.6325812487526181,
+      1.6576637007290902,
+      0.0368533703485149
+    ],
+    "condition_number": 119.70879078227753,
+    "feature_names": [
+      "intercept",
+      "log1p_content_token_count",
+      "mean_content_token_idf",
+      "normalized_exchange_position",
+      "log1p_preceding_rendered_token_count"
+    ],
+    "rank": 5,
+    "residual_feature_correlations": {
+      "log1p_content_token_count": -2.0249044009895447e-16,
+      "log1p_preceding_rendered_token_count": -2.730196047696552e-16,
+      "mean_content_token_idf": -4.067664584724315e-16,
+      "normalized_exchange_position": -2.2866305009722355e-16
+    },
+    "residual_mean": 2.1055532445001133e-15,
+    "residual_std": 1.495540025814087
+  },
+  "canonical_digest": "e6b0a59285e60e164353088f2c81c4e13d6ff9162cdce660acdf2521eb8aca19",
+  "content_token_count_quantiles": [
+    5.0,
+    12.0,
+    26.0,
+    33.0,
+    45.0,
+    63.0,
+    82.0,
+    117.11999999999989,
+    640.0
+  ],
+  "distribution_quantile_probabilities": [
+    0,
+    0.01,
+    0.1,
+    0.25,
+    0.5,
+    0.75,
+    0.9,
+    0.99,
+    1
+  ],
+  "full_deterministic_digest": "90985b155e170a8e115167400c04227b8b3dd8e46b16773a43295eaff9dafeee",
+  "inputs": {
+    "full_scores": {
+      "bytes": 365355,
+      "path": "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\components\\biological_memory\\sal_001\\artifacts\\sal001_scores\\scores.json",
+      "sha256": "84ccf6307a65bb90e85cc40c0ebd3aa2f1bf18e2e8247e0b3a611b520da832fe"
+    },
+    "repeat_scores": {
+      "bytes": 14929,
+      "path": "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\components\\biological_memory\\sal_001\\artifacts\\sal001_scores\\repeat_first_three.json",
+      "sha256": "a47dea7f7ff759c5923f7b490dcb132ab9ed17cf7a2d119a9714fc53f31dcacd"
+    }
+  },
+  "labels_opened": false,
+  "maximum_session_tokens": 5499,
+  "mean_nll_quantiles": [
+    3.684247533134555,
+    4.752297768252172,
+    5.710867659987029,
+    6.608784632510054,
+    7.6228053298645,
+    8.529190070111959,
+    9.545438162136852,
+    12.511040116404734,
+    18.62989190232365
+  ],
+  "phase": "Part 1 label-blind characterization",
+  "raw_prefix_byte_equal": true,
+  "raw_prefix_digest_full": "047c0534950965252a9378f6e2b394b9afd38eb7a9a9817484312f131bfdbfea",
+  "raw_prefix_digest_repeat": "047c0534950965252a9378f6e2b394b9afd38eb7a9a9817484312f131bfdbfea",
+  "records": 545,
+  "rendered_tokens": 286152,
+  "repeat_deterministic_digest": "bb3b6b9c323ea6a68818806f110d98ee393c2d7fab831861425f1996b7630e71",
+  "repeated_session_sha256": [
+    "03ff14a938a47fed00db37a1e674cf5a12e23988d2b142fb34454b07e52b8941",
+    "0d4b5811846c0317ac71a09a21e50c65b9717e8d348ab858f4f7fcfe93b3808f",
+    "0eaa6bd70ef86ffcfc830cf1511ed93666b21414b4e72ff21d444d4aa5c534d8"
+  ],
+  "sessions": 93,
+  "status": "PASS",
+  "study": "SAL-001",
+  "synthetic_probe": {
+    "predictable_mean_nll": 4.6384821217893855,
+    "predictable_repeat_mean_nll": 4.6384821217893855,
+    "repeat_exact": true,
+    "surprising_higher": true,
+    "surprising_mean_nll": 11.088347410991723
+  },
+  "unique_mean_nll": 545
+}
