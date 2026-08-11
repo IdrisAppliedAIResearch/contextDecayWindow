@@ -216,6 +216,26 @@ marginals did not provide pattern separation. See
 `E006_PART3_REV4_REPORT.md` and
 `artifacts/e006_p3_rev4_exploration/exploration.json`.
 
+## TA-001 temporal-adjacency bridge
+
+TA-001 turns BA-001's radius-1 oracle opportunity into a label-blind retrieval
+component. C0 and T1 each admit exactly 15 whole episodes and use the same
+authoritative 32,000-character packer. T1 admits every unseen direct-query seed
+and then its eligible `t-1` and `t+1` episodes, without recursive expansion.
+
+The broad result is positive but redistributive. Q11 candidate facts rise
+9/17->10/17 and packed facts 7/17->9/17. Turn 54 bridges to turn 55, so both
+candidate and packed art move 0/4->4/4. At the same time, Q11 loses all three
+marine facts at candidate level; after packing it loses those three plus one
+monetary fact, while gaining two civil and four art facts.
+
+The registered targeted gate catches the trade. Across 24 sealed queries, T1
+has 2 gains, 6 losses, and 16 ties. Lookup macro recall falls
+0.5833->0.5000 and enumeration falls 0.3125->0.1250; chained recall ties at
+0.5625. G5 therefore closes `TARGETED_REGRESSION - CHARACTERIZED`. No 35-turn
+ablation, live run, promotion, or adoption is authorized. See
+`TA_001_REPORT.md` and `artifacts/ta001_measurement/results.json`.
+
 ## Verification
 
 The 19 focused E001/E002 tests pass. On 2026-07-31 the permanently failing
@@ -236,6 +256,12 @@ Rev 4 passes its independent slow-oracle and synthetic reachability tests. A
 byte-identical exploration rerun reproduces SHA-256
 `1942950078E0A7EB30619F66356E0373208372415B401B61A49DAE6FE8CDAA78`,
 and the extended full suite passes `1439/1439`.
+
+TA-001 passes `20/20` focused tests. Its two fresh Part 1 processes reproduce
+deterministic digest
+`54983E565475AFD17862C9AEE46D12018DC344206ED9CCB3A60C2E3774DA50A5`.
+The full checkout passes 1,529 tests and has eight inherited CRLF-versus-LF
+hash failures in BA-001, PS-001, and PS-003; no locked check was weakened.
 
 ## Evidence
 
@@ -258,6 +284,10 @@ and the extended full suite passes `1439/1439`.
 - E006 Part 3 Rev 4 design: `E006_PART3_REV4_NEUROSCIENCE_CONSTRUCT_REPAIR.md`
 - E006 Part 3 Rev 4 result: `E006_PART3_REV4_REPORT.md`
 - E006 Part 3 Rev 4 artifacts: `artifacts/e006_p3_rev4_exploration/`
+- TA-001 design: `TA_001_TEMPORAL_ADJACENCY_BRIDGE.md`
+- TA-001 result: `TA_001_REPORT.md`
+- TA-001 artifacts: `artifacts/ta001_exploration/`,
+  `artifacts/ta001_preflight/`, and `artifacts/ta001_measurement/`
 
 Design and disposition commits precede implementation and output. E002 output
 is anchored by `dfdb257e`; E001 capture by `dbbf7617`; E001 analysis by
