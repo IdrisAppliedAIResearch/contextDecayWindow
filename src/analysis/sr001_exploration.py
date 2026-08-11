@@ -18,7 +18,7 @@ import numpy as np
 
 from src.retrieval_bakeoff.config import corpus_spec
 from src.retrieval_bakeoff.corpus import load_raw_episodes
-from src.retrieval_bakeoff.models import Candidate
+from src.retrieval_bakeoff.models import Candidate, RankedCandidate
 from src.retrieval_mechanism_ledger.sr001 import (
     BUDGET_CHARS,
     assert_mechanism_path_allowed,
@@ -167,7 +167,45 @@ def rank_holdout_sources(
     return rank_sources(episodes, [float(score) for score in scores])
 
 
+def anchor_committed_display_scores(
+    ranked: Sequence[RankedCandidate], committed: dict[str, Any]
+) -> tuple[list[RankedCandidate], dict[str, Any]]:
+    committed_scores = {
+        str(row["candidate_id"]): float(row["score"])
+        for row in committed["selected"]
+    }
+    before = source_identity_sequence(ranked)
+    anchored = [
+        RankedCandidate(
+            candidate=row.candidate,
+            score=committed_scores.get(row.candidate.source_episode_id, row.score),
+            component_scores={
+                "dense": committed_scores.get(row.candidate.source_episode_id, row.score)
+            },
+        )
+        for row in ranked
+    ]
+    after = source_identity_sequence(anchored)
+    if before != after:
+        raise AssertionError("Display-score anchoring changed source identity order")
+    positions = {
+        row.candidate.source_episode_id: index for index, row in enumerate(anchored)
+    }
+    committed_ids = [str(row["candidate_id"]) for row in committed["selected"]]
+    anchored_positions = [positions[candidate_id] for candidate_id in committed_ids]
+    if anchored_positions != sorted(anchored_positions):
+        raise AssertionError("Committed M2 selected identities changed relative order")
+    return anchored, {
+        "anchored_count": len(committed_scores),
+        "source_order_unchanged": before == after,
+        "committed_selected_order_preserved": anchored_positions == sorted(anchored_positions),
+    }
+
+
 def query_record(query_id: str, ranked: Sequence, committed: dict[str, Any] | None) -> dict[str, Any]:
+    score_anchor = None
+    if committed is not None:
+        ranked, score_anchor = anchor_committed_display_scores(ranked, committed)
     control = pack_control(ranked)
     treatment = pack_treatment(ranked)
     spans = [episode_to_spans(row.candidate) for row in ranked]
@@ -208,6 +246,7 @@ def query_record(query_id: str, ranked: Sequence, committed: dict[str, Any] | No
         },
     }
     if committed is not None:
+        record["score_anchor"] = score_anchor
         record["C0"]["committed_reproduction"] = {
             "selected_ids_equal": record["C0"]["selected_unit_ids"] == [row["candidate_id"] for row in committed["selected"]],
             "delivered_chars_equal": record["C0"]["delivered_chars"] == committed["delivered_characters"],
