@@ -1,0 +1,54 @@
+{
+  "canonical_digests": {
+    "scorer_manifest": "987eb6b4c4c06b91119616ab487f7902a823263a42b1f858d032739ac37b2dae",
+    "sealed_labels": "d313b0995120e35f45d4787dbf93bfd3409e98d4b6ef3a12e4dde4d821769ae7",
+    "selection_manifest": "efb75e74efbd16f0c08460410374ab1100196169d73ef8318596d64681b947f9"
+  },
+  "counts": {
+    "auc_sessions": 92,
+    "eligible_exchanges": 545,
+    "eligible_sessions": 93,
+    "evidence_exchanges": 98,
+    "evidence_with_any_neighbor": 97,
+    "evidence_with_both": 43,
+    "evidence_with_next": 91,
+    "evidence_with_prior": 49,
+    "irregular_named_sessions": 1,
+    "named_evidence_sessions": 95,
+    "named_sessions_without_marker": 1,
+    "selected_items": 60,
+    "unmarked_exchanges": 447
+  },
+  "inputs": {
+    "dataset": {
+      "bytes": 277383467,
+      "path": "C:\\Users\\muzaf\\Downloads\\longmemeval_s_cleaned.json",
+      "sha256": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442"
+    },
+    "tier2_registration": {
+      "bytes": 7265,
+      "path": "experiments/external/longmemeval/EC_001_TIER2_SUBSET.json",
+      "sha256": "7cd0550f96a7ffa18751a0dfcba0fe8a66b299d327f4e10f8ea7b886ecd1b741"
+    }
+  },
+  "outputs": {
+    "scorer_manifest": {
+      "bytes": 1395857,
+      "path": "experiments/components/biological_memory/sal_001/artifacts/sal001_seal/scorer_manifest.json",
+      "sha256": "e04fb809823d2cb92d48ebb39ef9f8e2fdd89980eb5f18e25be99e66484a6cee"
+    },
+    "sealed_labels": {
+      "bytes": 23918,
+      "path": "experiments/components/biological_memory/sal_001/artifacts/sal001_seal/SEALED_LABELS_DO_NOT_OPEN.json",
+      "sha256": "787b4efa61a6da7c9a29908046e204fbb09d58c99480b865bf2032be560d9c46"
+    },
+    "selection_manifest": {
+      "bytes": 12797,
+      "path": "experiments/components/biological_memory/sal_001/artifacts/sal001_seal/selection_manifest.json",
+      "sha256": "ab254a93d8e1027d4fd51be190331e0d65ecafa88ceebdd4495b814284e75763"
+    }
+  },
+  "scorer_manifest_contains_labels": false,
+  "status": "PASS",
+  "study": "SAL-001"
+}
