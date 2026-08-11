@@ -26,6 +26,7 @@ import numpy as np
 from src.analysis.ps001_exploration import process_rss_bytes
 from src.analysis.ps002_exploration import (
     DATABASE,
+    PS001_MECHANISM_DIGEST,
     PS001_EXPLORATION,
     QUERY_CACHE,
     QUERY_CAPTURE_MANIFEST,
@@ -75,6 +76,7 @@ PS002_SOURCE_SHA256 = "866429bf10096756340b536f2b952dd5d95f6979f4d145120fe42b256
 PS001_REPORT_SHA256 = "fd7df65335b1ce60822ca5114c1a5b832960d6f10659a6e9776564728de29412"
 PS002_REPORT_SHA256 = "ff2d22c3cef426332e0be0784f02b2d245c901f789b047a7cea67abd63906b35"
 PS001_EXPLORATION_SHA256 = "a78922ca25f0ca5027f695b2a12e8059ee83597366f1b87ecf7b7ef6c5ffdc1d"
+PS001_EXPLORATION_LF_SHA256 = "b1645ecb4991ed7b3bd84729779ccaeb7306b39a035dfc196e901f54e52b154d"
 PS002_EXPLORATION_SHA256 = "c7b12a4e3250366d7fc37765a73e783fb688991900b4abb47bd50a3def4a3825"
 PS002_DETERMINISM_SHA256 = "128242740c0aea40e03759667bfb17f0507228e8505f374abdd34a5c3dd9142c"
 DATABASE_SHA256 = "5da47ea3fc2c8e3dcc50fa380ff65202d82557905d9976117e9e5d82e55c1c41"
@@ -160,7 +162,6 @@ def assert_anchors() -> dict[str, str]:
         "ps002_source": PS002_SOURCE_SHA256,
         "ps001_report": PS001_REPORT_SHA256,
         "ps002_report": PS002_REPORT_SHA256,
-        "ps001_exploration": PS001_EXPLORATION_SHA256,
         "ps002_exploration": PS002_EXPLORATION_SHA256,
         "ps002_determinism": PS002_DETERMINISM_SHA256,
         "database": DATABASE_SHA256,
@@ -172,6 +173,20 @@ def assert_anchors() -> dict[str, str]:
     for name, expected_identity in expected.items():
         if anchors[name] != expected_identity:
             raise AssertionError(f"PS-003 {name} anchor changed")
+    ps001_payload = json.loads(PS001_EXPLORATION.read_text(encoding="utf-8"))
+    if anchors["ps001_exploration"] not in {
+        PS001_EXPLORATION_SHA256,
+        PS001_EXPLORATION_LF_SHA256,
+    }:
+        raise AssertionError("PS-003 PS-001 exploration representation changed")
+    if (
+        ps001_payload["determinism"]["mechanism_digest"]
+        != PS001_MECHANISM_DIGEST
+    ):
+        raise AssertionError("PS-003 PS-001 parsed mechanism identity changed")
+    anchors["ps001_exploration_representation"] = (
+        "CRLF" if anchors["ps001_exploration"] == PS001_EXPLORATION_SHA256 else "LF"
+    )
     return anchors
 
 

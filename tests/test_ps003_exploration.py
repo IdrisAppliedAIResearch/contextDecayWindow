@@ -53,6 +53,7 @@ def test_locked_inputs_and_carried_artifacts_match() -> None:
     carried = assert_carried_artifacts()
 
     assert anchors["design"].startswith("32cfe67e")
+    assert anchors["ps001_exploration_representation"] in {"CRLF", "LF"}
     assert carried["status"] == "PASS"
 
 
