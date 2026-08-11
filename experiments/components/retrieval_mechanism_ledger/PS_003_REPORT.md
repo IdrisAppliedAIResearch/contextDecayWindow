@@ -154,3 +154,7 @@ digest. No mechanism, parameter, gate, label, criterion, or result changed.
 One pre-output implementation defect used the wrong EpisodePopulation field
 name; commit `d2d1af2a` corrected it. The failed run wrote no artifact. No
 previously published number changes, so `ERRATA.md` is unchanged.
+
+## Pull request
+
+Study PR: [#48](https://github.com/IdrisAppliedAIResearch/contextDecayWindow/pull/48)
