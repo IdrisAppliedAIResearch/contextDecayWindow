@@ -15,6 +15,10 @@ Ten pre-registered studies test that question, each adding one memory component 
 
 > **Status:** Study 010 stopped at G2; exploratory continuation unaudited and LTM budget-noncompliant | retrieval bakeoff complete | retrieval mechanism ledger reopened for Family CS; E005 is killed by LV-001's live targeted-regression bar, DX-001 closes NO CHANGE, RD-001 stops before correlation because unchanged rarity scores cover only 6/76 fact-bearing episodes, and chained retrieval Rev5 is CHARACTERIZED offline at 9/17 versus X0 6/17 but misses art 0/4 and has no targeted no-regression arm | EC-001 LongMemEval complete: inversion not dominant, Codex-substituted score only | EC-002 complete: K-first packing raises any-session recall 109/470 -> 261/470 offline; no production promotion authorized | IC-001 Branch A: the same gate is closed internally — K delivered nothing at 8/8 probes under the deployed order; Q11 6/17 -> 7/17, targeted 14/21 -> 18/21, zero losses; cache clause substituted under authorized Amendment 001; no recalibration authorized | Study 011 tests both halves live and splits them: the deployed arm scores identically to recency-only on all 13 questions, so the similarity tier is inert in deployment, but K-first raises availability and scores 7.0 vs 8.0 — B1 FAILS and the packing correction is not adopted; post-unseal analysis finds the N tier is a least-recently-delivered rotation over the whole store, not a recency window, and that the rule every live run through Study 010 used was a block locked onto the conversation's first nine turns; three different rules carry that name and only the extracted library's is a window | Amendment 001 authorized and run: the instrument's run-to-run band is **3.0 points on 13**, measured by five identical arm-D replicates that score 8.0, 8.0, 8.0, 8.0 and 11.0 — a switch, not a spread, since four are byte-identical across 121 turns and the one meeting an empty server slot diverges at turn 1; Study 009's 3.0, LV-001's -2.0 and Study 011's -1.0 are all re-read as **not demonstrated**, while every offline count is untouched and B1 stays fired | CC-002 extracts the deployable component into `episodic`; CC-006 adds exact hashed vector-cache reuse | PS-001 CHARACTERIZED: the selected sparse cell stores and recovers 119/119 codes through 50% registered swaps | PS-002 stops at Part 1: best natural-language binder reaches stored codes in 190/192 rounds but retains one cycle and one spurious fixed point, so labels, answers, and live scoring are not entered | deployment closeout complete | PAPER-001 revised through Study 011 | scoring/interpretation record corrected through 2026-08-05
 
+> **PS-003 status:** Safe ambiguity resolution passes, but G3 fails. Lookup
+> remains `7/12`, identical to direct cosine and PS-002, with monetary at
+> `1/3`. No answer generation, live score, promotion, or adoption follows.
+
 > **E006-P3 closeout:** Query-anchored associative-frontier retrieval is
 > `NO_DIFFERENTIATED_CUE - CHARACTERIZED`: 5/17 packed facts at primary
 > `D=2, m=5`, versus A0's 7/17 and A1's 9/17; no targeted claim, live run,
@@ -37,6 +41,13 @@ Ten pre-registered studies test that question, each adding one memory component 
 > `190/192` rounds, but one cue cycled and one reached a spurious fixed point.
 > No cell emitted eight clean identities for every query, so relevance labels,
 > answers, live scoring, promotion, and adoption were not entered.
+
+> **PS-003 ambiguous cue resolution:** `LOOKUP_BINDING_INSUFFICIENT -
+> CHARACTERIZED`. The selected five-probe, four-swap resolver emitted eight
+> unanimous stored identities for all 24 queries while rejecting unsafe or
+> disagreeing families. Lookup evidence remained `7/12`, exactly matching
+> direct cosine and PS-002; monetary remained `1/3`. G4/G5, stress tests,
+> answers, live scoring, promotion, and adoption were not reached.
 
 ## The Problem
 
@@ -64,6 +75,7 @@ Runs use a scripted 120-turn conversation with facts planted at known positions 
 | 010 | 1,000-turn endurance | STOPPED AT G2; EXPLORATORY CONTINUATION COMPLETE | LTM won breadth in a budget-noncompliant arm; targeted tied; Bar 3 NOT EVALUABLE |
 | PS-001 | Sparse pattern-separated engram formation | CHARACTERIZED | One of nine cells stored and recovered 119/119 codes through 50% registered swaps; natural cues and retrieval remain untested |
 | PS-002 | Natural-language cue binding to sparse engrams | STOPPED AT PART 1; CHARACTERIZED | Best cell reached stored codes in 190/192 rounds but retained one cycle and one spurious fixed point; relevance and answers not entered |
+| PS-003 | Ambiguous natural-language cue resolution | G3 FAIL; CHARACTERIZED | Five-probe consensus safely emitted 8 identities/query, but lookup stayed 7/12, identical to cosine and PS-002; monetary 1/3 |
 
 Full reports live under `experiments/study_NNN/`; external evaluation reports
 live under `experiments/external/`.

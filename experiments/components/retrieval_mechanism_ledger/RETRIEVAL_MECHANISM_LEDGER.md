@@ -2,7 +2,7 @@
 
 **Type:** Living working document. Not a pre-registration, not a spec, not a study.
 **Repository:** `contextDecayWindow` (memory track). **Track 2 only.**
-**Status:** OPEN - extended through PS-001 on August 11, 2026
+**Status:** OPEN - extended through PS-003 on August 11, 2026
 **Purpose:** One place where candidate retrieval mechanisms are recorded, checked against the failure data, and either promoted to a cheap test or buried. Replaces ad-hoc specs. **Nothing here is authorized work until it has a passing decisive test.**
 
 ---
@@ -566,6 +566,14 @@ eviction work in `CC_001`?
 
 ## 8. Scan disposition
 
+- Ambiguous natural-language cue resolution: **G3 FAIL;
+  LOOKUP_BINDING_INSUFFICIENT, CHARACTERIZED.** PS-003's selected five-probe,
+  four-swap consensus cell emits eight unanimous stored identities for all 24
+  queries and rejects three cyclic, one spurious, and one disagreeing family.
+  G1/G2 and PF1-PF10 pass. Lookup remains 7/12, identical to direct cosine and
+  PS-002, with monetary 1/3 against the 2/3 domain bar. G4/G5, stress tests,
+  answers, live evaluation, promotion, and adoption are not reached. See
+  `PS_003_REPORT.md`.
 - Natural-language cue binding: **STOP AT PREFLIGHT PART 1;
   NATURAL_CUES_NOT_BOUND, CHARACTERIZED.** PS-002 applies nine label-blind
   semantic-to-engram cells to 24 sealed query vectors for eight rounds each.
@@ -640,7 +648,10 @@ eviction work in `CC_001`?
 
 ---
 
-*Opened July 29, 2026. Revision 20, August 11, 2026 - PS-002 stops at Preflight
+*Opened July 29, 2026. Revision 21, August 11, 2026 - PS-003 passes safe
+ambiguity resolution but fails G3 with 7/12 lookup facts and monetary 1/3.
+Direct cosine and PS-002 are also 7/12; G4/G5, stress, answers, and live use are
+not reached. Revision 20, August 11, 2026 - PS-002 stops at Preflight
 Part 1, NATURAL_CUES_NOT_BOUND, CHARACTERIZED. Best `(M=4,TAU=.025)` reaches
 stored codes in 190/192 natural-language cue rounds but retains one cycle and
 one spurious fixed point, so no cell emits eight clean identities/query. Labels,
