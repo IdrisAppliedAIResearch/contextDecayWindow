@@ -13,7 +13,7 @@ every claim carries its committed artifact, and one headline number
 
 Ten pre-registered studies test that question, each adding one memory component and fixing the prior study's documented failures. Every result is published as found.
 
-> **Status:** Study 010 stopped at G2; exploratory continuation unaudited and LTM budget-noncompliant | retrieval bakeoff complete | retrieval mechanism ledger reopened for Family CS; E005 is killed by LV-001's live targeted-regression bar, DX-001 closes NO CHANGE, RD-001 stops before correlation because unchanged rarity scores cover only 6/76 fact-bearing episodes, and chained retrieval Rev5 is CHARACTERIZED offline at 9/17 versus X0 6/17 but misses art 0/4 and has no targeted no-regression arm | EC-001 LongMemEval complete: inversion not dominant, Codex-substituted score only | EC-002 complete: K-first packing raises any-session recall 109/470 -> 261/470 offline; no production promotion authorized | IC-001 Branch A: the same gate is closed internally — K delivered nothing at 8/8 probes under the deployed order; Q11 6/17 -> 7/17, targeted 14/21 -> 18/21, zero losses; cache clause substituted under authorized Amendment 001; no recalibration authorized | Study 011 tests both halves live and splits them: the deployed arm scores identically to recency-only on all 13 questions, so the similarity tier is inert in deployment, but K-first raises availability and scores 7.0 vs 8.0 — B1 FAILS and the packing correction is not adopted; post-unseal analysis finds the N tier is a least-recently-delivered rotation over the whole store, not a recency window, and that the rule every live run through Study 010 used was a block locked onto the conversation's first nine turns; three different rules carry that name and only the extracted library's is a window | Amendment 001 authorized and run: the instrument's run-to-run band is **3.0 points on 13**, measured by five identical arm-D replicates that score 8.0, 8.0, 8.0, 8.0 and 11.0 — a switch, not a spread, since four are byte-identical across 121 turns and the one meeting an empty server slot diverges at turn 1; Study 009's 3.0, LV-001's -2.0 and Study 011's -1.0 are all re-read as **not demonstrated**, while every offline count is untouched and B1 stays fired | CC-002 extracts the deployable component into `episodic`; CC-006 adds exact hashed vector-cache reuse | deployment closeout complete | PAPER-001 revised through Study 011 | scoring/interpretation record corrected through 2026-08-05
+> **Status:** Study 010 stopped at G2; exploratory continuation unaudited and LTM budget-noncompliant | retrieval bakeoff complete | retrieval mechanism ledger reopened for Family CS; E005 is killed by LV-001's live targeted-regression bar, DX-001 closes NO CHANGE, RD-001 stops before correlation because unchanged rarity scores cover only 6/76 fact-bearing episodes, and chained retrieval Rev5 is CHARACTERIZED offline at 9/17 versus X0 6/17 but misses art 0/4 and has no targeted no-regression arm | EC-001 LongMemEval complete: inversion not dominant, Codex-substituted score only | EC-002 complete: K-first packing raises any-session recall 109/470 -> 261/470 offline; no production promotion authorized | IC-001 Branch A: the same gate is closed internally — K delivered nothing at 8/8 probes under the deployed order; Q11 6/17 -> 7/17, targeted 14/21 -> 18/21, zero losses; cache clause substituted under authorized Amendment 001; no recalibration authorized | Study 011 tests both halves live and splits them: the deployed arm scores identically to recency-only on all 13 questions, so the similarity tier is inert in deployment, but K-first raises availability and scores 7.0 vs 8.0 — B1 FAILS and the packing correction is not adopted; post-unseal analysis finds the N tier is a least-recently-delivered rotation over the whole store, not a recency window, and that the rule every live run through Study 010 used was a block locked onto the conversation's first nine turns; three different rules carry that name and only the extracted library's is a window | Amendment 001 authorized and run: the instrument's run-to-run band is **3.0 points on 13**, measured by five identical arm-D replicates that score 8.0, 8.0, 8.0, 8.0 and 11.0 — a switch, not a spread, since four are byte-identical across 121 turns and the one meeting an empty server slot diverges at turn 1; Study 009's 3.0, LV-001's -2.0 and Study 011's -1.0 are all re-read as **not demonstrated**, while every offline count is untouched and B1 stays fired | CC-002 extracts the deployable component into `episodic`; CC-006 adds exact hashed vector-cache reuse | PS-001 CHARACTERIZED: the selected sparse cell stores and recovers 119/119 codes through 50% registered swaps, with no natural-cue, retrieval, live, or adoption claim | deployment closeout complete | PAPER-001 revised through Study 011 | scoring/interpretation record corrected through 2026-08-05
 
 > **E006-P3 closeout:** Query-anchored associative-frontier retrieval is
 > `NO_DIFFERENTIATED_CUE - CHARACTERIZED`: 5/17 packed facts at primary
@@ -24,6 +24,13 @@ Ten pre-registered studies test that question, each adding one memory component 
 > Canonical Hebbian recurrence stores 0/119 real episode codes as fixed points
 > and converges into six spurious attractors. Preflight stops at Part 1; the
 > original P3 result is unchanged and Q11 is not entered.
+
+> **PS-001 pattern-separated engram formation:**
+> `SPARSE_ENGRAM_CANDIDATE_CHARACTERIZED`. Of nine deterministic sparse cells,
+> only `(4096, 41)` passes G3-G5: `119/119` fixed points and exact recovery at
+> one swap, 10%, 30%, and 50%. The union-biased degenerate cue cycles. This is
+> code-space characterization only; no natural cue, retrieval, live run,
+> promotion, or adoption follows.
 
 ## The Problem
 
@@ -49,6 +56,7 @@ Runs use a scripted 120-turn conversation with facts planted at known positions 
 | 008 | Rendering by selection factorial | STOPPED AT GATES | No jointly feasible operating point existed |
 | 009 | Pure-STM null test and topic digest | PARTIAL; null decisive | LTM beat STM by 3.0; digest failed its offline gate |
 | 010 | 1,000-turn endurance | STOPPED AT G2; EXPLORATORY CONTINUATION COMPLETE | LTM won breadth in a budget-noncompliant arm; targeted tied; Bar 3 NOT EVALUABLE |
+| PS-001 | Sparse pattern-separated engram formation | CHARACTERIZED | One of nine cells stored and recovered 119/119 codes through 50% registered swaps; natural cues and retrieval remain untested |
 
 Full reports live under `experiments/study_NNN/`; external evaluation reports
 live under `experiments/external/`.
@@ -189,15 +197,11 @@ LongMemEval-S and generated answers for a prospectively registered
 seven-by-20 subset. The internal cosine inversion does not reproduce as a
 dominant external pattern: the top four ranked sessions contain no evidence on
 69 of 470 answerable questions (14.7%), while the median evidence-session rank
-<<<<<<< HEAD
 is 2. That rank result does not describe delivery: 401 questions have evidence
 in the top four, but only 96 retrieve any evidence session. Every block is
 truncated; median composition is 16 recency, 0 non-recency K, and 1 coverage
 exchange. Of 109 session hits, 91 come from recency. Exact answer-turn
 availability is 79 of 470 (16.8%).
-=======
-is 2. Exact answer-turn availability is 79 of 470 (16.8%).
->>>>>>> 39d49c3e (docs(ec-001): close external calibration study)
 
 End-to-end scoring is deliberately bounded. The equal-quota subset scores
 28/140 (20.0%), and post-stratification to the verified benchmark population
@@ -206,13 +210,9 @@ benchmark-comparable LongMemEval scores: API access to the pinned evaluator was
 unavailable, so Amendment 010 substituted Phi, Mistral, and hosted GPT-5.4
 raters with hosted GPT-5.5 AI adjudication. Multi-session and temporal reasoning
 score 0/20; abstention scores 17/20 even though the component emits no absence
-<<<<<<< HEAD
 signal on any of 500 questions. F3 is therefore retired as a component
 requirement under this tested reader, not marked solved as a component
 capability. The registered exact
-=======
-signal on any of 500 questions. The registered exact
->>>>>>> 39d49c3e (docs(ec-001): close external calibration study)
 availability-minus-correctness gap is −2.54 percentage points, opposite the
 predicted large positive gap.
 

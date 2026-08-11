@@ -1,7 +1,7 @@
 # Retrieval Mechanism Ledger Closeout
 
-**Status:** CLOSED; extended through E006 Part 3 Rev 4
-**Date:** 2026-08-10
+**Status:** CLOSED; extended through PS-001
+**Date:** 2026-08-11
 **Scope:** Offline retrieval mechanisms after the retrieval bakeoff
 **Prospective design anchors:** `b42f4f81` (ledger and E002 protocol);
 `fd880d88` (E001 protocol and dispositions)
@@ -9,6 +9,21 @@
 `15cdb177` (AR-001 implementation)
 
 ## Outcome
+
+PS-001 repairs Rev 4's failed dense bipolar formation construct with one
+integrated sparse expansion and compatible centered recurrence. It first
+reproduces Rev 4's exact `PATTERNS_NOT_STORED` artifact, then characterizes nine
+fixed cells on the same 119 episodes. Only `(D_CODE=4096, K_ACTIVE=41)` passes
+G3-G5. It forms 119 unique codes, stores 119/119 as fixed points, and recovers
+119/119 exactly after one swap and the registered 10%, 30%, and 50% swaps.
+
+The result is `SPARSE_ENGRAM_CANDIDATE_CHARACTERIZED`, capped at
+`CHARACTERIZED`. It is deterministic across two processes and PF1-PF10 pass.
+It also retains important residuals: 1,351/4,096 code units are unused, the
+conceptual recurrent matrix is 99.976% nonzero, and the union-biased degenerate
+cue enters a zero-margin two-cycle with a spurious terminal state. No natural
+language cue, Q11, retrieval score, model call, live evaluation, promotion, or
+adoption is authorized. See `PS_001_REPORT.md`.
 
 E002 mechanical query segmentation was killed. Its exhaustive 992-cell sweep
 peaked at 10/17 Q11 items across 3/4 domains while preserving 14/16 targeted
