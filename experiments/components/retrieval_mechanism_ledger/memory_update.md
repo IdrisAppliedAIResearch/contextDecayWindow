@@ -1,6 +1,33 @@
 # Retrieval Mechanism Ledger Memory Update
 
-**Status:** Extended through PS-001 on 2026-08-11. Family QR remains closed.
+**Status:** Extended through PS-002 on 2026-08-11. Family QR remains closed.
+
+## PS-002 natural-language cue binding - NATURAL_CUES_NOT_BOUND
+
+Design `e6b9c5cf`; authorization `b535c66d`; implementation `5f972ee0`; first
+process `cd4ff5e7`; determinism `3ed41b45`. Nine label-blind cells use 24 sealed
+query vectors for eight rounds each. Carried PS-001 reproduces 119/119 fixed
+points and exact mechanism/code digests before every cell.
+
+No cell passes Part 1 mechanical eligibility. Best `(M=4, TAU=.025)` reaches
+stored engrams in 190/192 rounds: 114 cues are already fixed, 76 change and
+complete, one enters a six-sweep two-cycle, and one reaches a spurious fixed
+point. One query emits six identities; the other 23 emit eight. Wider or softer
+mixtures raise changed completion but also spurious, cyclic, and duplicate
+terminals. Two processes reproduce exact canonical traces.
+
+Carry forward:
+
+1. Source-centered PS-001 basin recovery does not imply safe semantic-mixture
+   recovery. The new binder reaches stored codes often but cannot guarantee a
+   complete output.
+2. More recurrent change is not a positive surrogate: softer mixtures change
+   more cues while producing more unsafe states.
+3. Do not report 190/192 as cue-binding success. The registered property was
+   eight clean identities for every query, and it failed.
+4. Relevance labels, PF1-PF10, answers, score effects, and live evaluation were
+   not entered. A next mechanism must prospectively address ambiguous/mixed
+   cues and the one-attractor versus multi-memory mismatch.
 
 ## PS-001 pattern-separated engram formation - CHARACTERIZED
 
