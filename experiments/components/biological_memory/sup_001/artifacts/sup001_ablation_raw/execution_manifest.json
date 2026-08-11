@@ -1,0 +1,31 @@
+{
+  "study": "SUP-001",
+  "stage": "35-turn ablation execution manifest",
+  "status": "COMPLETE",
+  "recorded_post_run": true,
+  "control": {
+    "commit": "69b33275795965cf8aa3445f2aaef7f21cb41bde",
+    "worktree": "C:/Users/muzaf/PycharmProjects/contextDecayWindow_sup001_control",
+    "command": "C:/Users/muzaf/PycharmProjects/contextDecayWindow/.venv/Scripts/python.exe scripts/run_sup001_ablation_control.py --output %TEMP%/sup001-ablation-20260811/c0.json --expected-commit 69b33275795965cf8aa3445f2aaef7f21cb41bde --server-binary C:/Users/muzaf/.unsloth/llama.cpp/build/bin/Release/llama-server.exe",
+    "raw_sha256": "d99b0f72708801a56689ac05e56b773f23dd805068dcfac783b97f686c0f832c"
+  },
+  "treatment": {
+    "commit": "c87d962e75a98dbad1a4c9d389a1c78f67585aa3",
+    "worktree": "C:/Users/muzaf/PycharmProjects/contextDecayWindow_sup001_treatment",
+    "command": "C:/Users/muzaf/PycharmProjects/contextDecayWindow/.venv/Scripts/python.exe scripts/run_sup001_ablation_treatment.py --output %TEMP%/sup001-ablation-20260811/t1.json --expected-commit c87d962e75a98dbad1a4c9d389a1c78f67585aa3 --server-binary C:/Users/muzaf/.unsloth/llama.cpp/build/bin/Release/llama-server.exe",
+    "raw_sha256": "9b0f28cc6ad700e9c563eae0fd80051134da768840dcef287e3f8c9a4b931589"
+  },
+  "server": {
+    "pid": 19940,
+    "build": "b9294-0f3cb3fc8",
+    "binary_sha256": "3827a6b634a88073dc63b97edf6e0dc575d33ecf58268803ece0ed23216095fa",
+    "model_sha256": "f3b4a622e06e8ade06ec5c0eb9b40ed7c9bd707b5fada46c0215f4ab4a6bc32b",
+    "command": "llama-server.exe -m Qwen3.6-27B-UD-Q6_K_XL.gguf --host 127.0.0.1 --port 8080 --ctx-size 50000 --parallel 1 --cache-type-k q8_0 --cache-type-v q8_0 --flash-attn on --jinja --metrics --temp 1 --top-p 0.95 --top-k 20 --min-p 0.0 --presence-penalty 0.0 --repeat-penalty 1.0 --seed 5005",
+    "speculative_decoding": "none",
+    "parallel_slots": 1,
+    "seed": 5005
+  },
+  "script_sha256_post_decode_lf": "911fa59e3a85134225ddf066a049fcf4c68fdeff84c60e720bda89ce190a2547",
+  "vector_cache_sha256": "54cce6b0e0545ceb274dbe006405604c8db7556a993551db587bc2680938233a",
+  "score_sha256": "611fffe348ce8ac4061104ef452d033f6eb0c87075ea04ab466189a6a96499bf"
+}
