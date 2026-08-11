@@ -2,7 +2,7 @@
 
 **Type:** Living working document. Not a pre-registration, not a spec, not a study.
 **Repository:** `contextDecayWindow` (memory track). **Track 2 only.**
-**Status:** OPEN - current Family QR queue disposition recorded July 30, 2026
+**Status:** OPEN - extended through PS-001 on August 11, 2026
 **Purpose:** One place where candidate retrieval mechanisms are recorded, checked against the failure data, and either promoted to a cheap test or buried. Replaces ad-hoc specs. **Nothing here is authorized work until it has a passing decisive test.**
 
 ---
@@ -551,7 +551,6 @@ eviction work in `CC_001`?
 
 ## 7. Retired slot
 
-<<<<<<< HEAD
 - **F3 (absence detection): retired as a component requirement.**
   EC-001 records 0 component abstention signals on 500 cleaned LongMemEval-S
   questions, confirming the architectural absence. The fixed reader nonetheless
@@ -564,21 +563,20 @@ eviction work in `CC_001`?
   slots yielded 10 unique episodes and eight duplicates; two of nine segments
   added no unique episode, but that signal did not certify completeness because
   the result still missed 7/17 facts and one domain.
-=======
-- **F3 (absence detection): externally measured, no mechanism proposed.**
-  EC-001 records 0 component abstention signals on 500 cleaned LongMemEval-S
-  questions, confirming the architectural absence. The fixed reader nonetheless
-  scores 17/20 abstention items under Codex-substituted integrity, so component
-  absence detection and end-to-end refusal are different properties. E002's 18
-  slots yielded 10 unique episodes and eight duplicates; two of nine segments
-  added no unique episode, but that signal did not certify completeness because
-  the result still missed 7/17 facts and one domain. Candidate signals remain
-  unentered: retrieval-score distribution shape; generation-time confidence
-  (FLARE-style, scanned, breaks the one-shot contract).
->>>>>>> 39d49c3e (docs(ec-001): close external calibration study)
 
 ## 8. Scan disposition
 
+- Pattern-separated sparse engram formation: **COMPLETE;
+  SPARSE_ENGRAM_CANDIDATE_CHARACTERIZED.** PS-001 reproduces Rev 4 exactly,
+  then characterizes nine deterministic sparse cells on the same 119 episodes.
+  Only `(D_CODE=4096, K_ACTIVE=41)` passes G3-G5: 119/119 fixed points and
+  119/119 exact recovery at one swap, 10%, 30%, and 50%. Eight cells fail G3.
+  The selected cell's registered corruptions have no cycles, spurious terminals,
+  or tie-sensitive sweeps, but 1,351/4,096 units are unused, the conceptual
+  recurrent matrix is 99.976% nonzero, and the union-biased degenerate cue
+  enters a zero-margin two-cycle. This is same-store code-space completion, not
+  natural-language cue binding, retrieval, a live result, biological
+  replication, promotion, or adoption. See `PS_001_REPORT.md`.
 - Autoassociative construct repair: **STOP AT PREFLIGHT PART 1;
   PATTERNS_NOT_STORED, CHARACTERIZED.** Rev 4 leaves the completed associative
   frontier result immutable and tests the intended attractor property directly.
@@ -632,7 +630,11 @@ eviction work in `CC_001`?
 
 ---
 
-*Opened July 29, 2026. Revision 18, August 10, 2026 - E006 Part 3 Rev 4 stops
+*Opened July 29, 2026. Revision 19, August 11, 2026 - PS-001 completes
+CHARACTERIZED. One of nine sparse cells, `(4096,41)`, stores and recovers
+119/119 codes through the registered 50% swaps. Degenerate cues retain a
+zero-margin two-cycle; natural cue binding, retrieval, live use, promotion, and
+adoption remain untested and unauthorized. Revision 18, August 10, 2026 - E006 Part 3 Rev 4 stops
 at Preflight Part 1, PATTERNS_NOT_STORED, CHARACTERIZED. The Hebbian recurrence
 stores 0/119 real episode codes and converges into six spurious attractors; G4,
 PF1-PF10, and Q11 are not entered. Original P3 remains unchanged. Revision 17,

@@ -54,6 +54,8 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **E006 Part 3 Rev4 autoassociation (2026-08-10).** STOP at Part 1, PATTERNS_NOT_STORED; CHARACTERIZED. Hebbian 1024-bit recurrence passes synthetic reachability but stores 0/119 real episode codes as fixed points. All converge into 6 spurious attractors; G4 and Q11 not entered. Balanced marginals did not provide pattern separation. Original P3 result unchanged.
 
+**PS-001 pattern-separated engram formation (2026-08-11).** CHARACTERIZED. Nine deterministic sparse cells on 119 episodes; only D=4096,K=41 passed G3-G5: 119/119 fixed points and exact 1/10/30/50% swap recovery. Six of seven degenerates reached stored codes; the union-biased cue cycled. Code-space result only; no natural cue, retrieval, live run, promotion, or adoption.
+
 **CC-002 library extraction (2026-08-01).** The deployable component now lives in the installable `episodic` package; the harness imports it. T1-T7 pass: clean-venv import, leakage grep + import-graph, byte-identical reproduction of 132 committed A3 payloads and 3 rendered blocks, call-shape sentinel fails loudly, 804 tests green, two-process purity. H1/H2 ship as config-pinned gates, not docs.
 
 **DX-002 context growth (2026-08-02).** BRANCH B. LTM saturates ~52-54k from turn 500 (H-A confirmed); retrieved_stm never does: p95 +23,238 L / +28,701 S over the last five buckets, still setting records at turn 1,000. Rule pinning added 0 but was disabled, not cleared. Blocks CC-003. A slope-CI-only rule first said Branch A; the interval measured power, not flatness.
