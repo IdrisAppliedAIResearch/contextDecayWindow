@@ -1,0 +1,58 @@
+{
+  "study": "SAL-001 independent surprisal-proximity diagnostic",
+  "date": "2026-08-11",
+  "status": "FINAL_DESIGN_LOCK_NO_LABEL_OUTCOMES_OPENED",
+  "commit_anchors": {
+    "design_commit": "15b718e3456027a60f370790588b976df6353f02",
+    "implementation_commit": "9a5d58ad4c19936152533b2459a996de32c12642",
+    "seal_artifact_commit": "665b021e03bd622488018977f2739b07eb1a3765",
+    "score_artifact_commit": "8700fbfc543beb511dba062cf05f6cefba98fac5"
+  },
+  "artifact_sha256": {
+    "analysis_source": "130aafb15316065ed4d4e5dcedf6e1d50132e34fef3cb4b05c5dfc9f6c40aa61",
+    "design": "64999fabd6b88b605b413809219106399c47bd8862de311fda7c2863bedb25c8",
+    "exploration": "7a795bf287560f30cca70e1974ea38fc92247f02eea37d5555f3b74703e389bd",
+    "repeat_scores": "a47dea7f7ff759c5923f7b490dcb132ab9ed17cf7a2d119a9714fc53f31dcacd",
+    "score_source": "2f15386bc6f4363efbfb95e4abb0117199d78ba44473a1fdb358a5f27585b9c7",
+    "scorer_manifest": "e04fb809823d2cb92d48ebb39ef9f8e2fdd89980eb5f18e25be99e66484a6cee",
+    "scores": "84ccf6307a65bb90e85cc40c0ebd3aa2f1bf18e2e8247e0b3a611b520da832fe",
+    "seal_report": "a05e1252d28d0547df5040218c14b48eb1aa0f6f9f4c85394929641f849cb45f",
+    "sealed_labels": "787b4efa61a6da7c9a29908046e204fbb09d58c99480b865bf2032be560d9c46",
+    "selection_manifest": "ab254a93d8e1027d4fd51be190331e0d65ecafa88ceebdd4495b814284e75763"
+  },
+  "part1": {
+    "status": "PASS",
+    "labels_opened": false,
+    "sessions": 93,
+    "exchanges": 545,
+    "rendered_tokens": 286152,
+    "maximum_session_tokens": 5499,
+    "full_score_deterministic_digest": "90985b155e170a8e115167400c04227b8b3dd8e46b16773a43295eaff9dafeee",
+    "raw_prefix_repeat_equal": true,
+    "part1_report_digest": "e6b0a59285e60e164353088f2c81c4e13d6ff9162cdce660acdf2521eb8aca19"
+  },
+  "locked_design": {
+    "population": "LongMemEval answerable strata, EC-001 seed 5005 ranks 21-30",
+    "target": "has_answer marker aggregated to strict user-assistant exchange",
+    "event": "mean teacher-forced NLL of rendered user-content tokens",
+    "independence": "target exchange excluded from prior and next event scores",
+    "adjustment": "OLS residual for token count, model-token IDF, exchange position, and preceding rendered tokens",
+    "primary": "macro within-session adjusted symmetric-neighbor AUC",
+    "permutations": 100000,
+    "bootstrap_resamples": 10000,
+    "seed": 5005,
+    "gates": {
+      "G1": "Part 1 and PF1-PF10 pass",
+      "G2": "adjusted symmetric AUC >= 0.60 and permutation p <= 0.01",
+      "G3": "raw symmetric AUC >= 0.55 and adjusted AUC >= raw AUC - 0.02",
+      "G4": "prior and next AUC each >= 0.55 and absolute difference <= 0.10",
+      "G5": "at least five of six stratum AUCs > 0.50 and none < 0.45"
+    }
+  },
+  "authorization": {
+    "measurement": "conditional on a committed passing PF1-PF10 artifact",
+    "accessibility_study": "conditional on G1-G5; separate pre-registration required",
+    "ablation": false,
+    "live_run": false
+  }
+}
