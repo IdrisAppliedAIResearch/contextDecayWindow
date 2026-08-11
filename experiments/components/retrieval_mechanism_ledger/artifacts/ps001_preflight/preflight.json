@@ -1,0 +1,633 @@
+{
+  "additional_real_mechanism_run": false,
+  "check_order": [
+    "PF1",
+    "PF2",
+    "PF3",
+    "PF4",
+    "PF5",
+    "PF6",
+    "PF7",
+    "PF8",
+    "PF9",
+    "PF10"
+  ],
+  "checks": {
+    "PF1": {
+      "anchors": {
+        "amendment_006": {
+          "bytes": 4649,
+          "path": "experiments/components/retrieval_mechanism_ledger/amendments/AMENDMENT_006_ps001_numerical_identity.md",
+          "sha256": "015dc08daa70d0a7874a013ac7979d12d1f3d3d8980e987a20ee6b5b9905d794"
+        },
+        "amendment_006_authorization": {
+          "bytes": 1265,
+          "path": "experiments/components/retrieval_mechanism_ledger/PS_001_AMENDMENT_006_AUTHORIZATION.md",
+          "sha256": "e5bf20aa6b9bd85a6558d66f93ea1cd9da4fca86dd1fe1d254fcc24ccd63a026"
+        },
+        "amendment_007": {
+          "bytes": 3536,
+          "path": "experiments/components/retrieval_mechanism_ledger/amendments/AMENDMENT_007_ps001_trace_identity.md",
+          "sha256": "140d4fab38e1833d6de44ad805193af1541ad9b3704c3aa5d306594b627cc165"
+        },
+        "amendment_007_authorization": {
+          "bytes": 1152,
+          "path": "experiments/components/retrieval_mechanism_ledger/PS_001_AMENDMENT_007_AUTHORIZATION.md",
+          "sha256": "af37f0320d20256fb71deed76c489c07aa1e39ef690e600306e719eb92e473dd"
+        },
+        "amendment_008": {
+          "bytes": 3145,
+          "path": "experiments/components/retrieval_mechanism_ledger/amendments/AMENDMENT_008_ps001_carried_normalization.md",
+          "sha256": "c664a4c5725e359db38d3e11d0d45a09020da29d9bc501c7fddfd1381b5a80c7"
+        },
+        "amendment_008_authorization": {
+          "bytes": 1051,
+          "path": "experiments/components/retrieval_mechanism_ledger/PS_001_AMENDMENT_008_AUTHORIZATION.md",
+          "sha256": "b9d48cc1d7b565e22bd60909221791641039382959b681e6a68f5d5bc4fc06c1"
+        },
+        "authorization": {
+          "bytes": 1576,
+          "path": "experiments/components/retrieval_mechanism_ledger/PS_001_AUTHORIZATION.md",
+          "sha256": "171dfc38f79de73c10ad9c5a74a0e750e9551d2a6e09c87b7f2c633ab9c1df3a"
+        },
+        "component_test": {
+          "bytes": 9778,
+          "path": "tests/test_ps001_component.py",
+          "sha256": "f6fa7ed8582d2abb21c8d09fbee84ef090390602ccbe2d8cfd5a71e2d40ca522"
+        },
+        "design": {
+          "bytes": 35886,
+          "path": "experiments/components/retrieval_mechanism_ledger/PS_001_PATTERN_SEPARATED_ENGRAM_FORMATION.md",
+          "sha256": "b525452743673bec8fbd45e80e81ae2a6342872b2bb58d858f2c544ca315fc6a"
+        },
+        "exploration_source": {
+          "bytes": 75491,
+          "path": "src/analysis/ps001_exploration.py",
+          "sha256": "cc68da2a56ee124edf3697466da4c94758ec7de76457d90a811bf7ac639824e7"
+        },
+        "exploration_test": {
+          "bytes": 9744,
+          "path": "tests/test_ps001_exploration.py",
+          "sha256": "31ce905fcb41b340482cde9dd90a1bd74eb3930c732eedc19b7030e707dd4a2d"
+        },
+        "final_authorization": {
+          "bytes": 1134,
+          "path": "experiments/components/retrieval_mechanism_ledger/PS_001_FINAL_DESIGN_AUTHORIZATION.md",
+          "sha256": "f3c382417e2307f89df8383d1d43d840d4c790254f336676f5157266ca64d66d"
+        },
+        "final_design": {
+          "bytes": 3587,
+          "path": "experiments/components/retrieval_mechanism_ledger/PS_001_FINAL_DESIGN_REVISION.md",
+          "sha256": "22404732fb2fc39ccf1cc84c2b5d24c16ee1bba6f8bcdef314a2d30c20f7c430"
+        },
+        "mechanism_source": {
+          "bytes": 20525,
+          "path": "src/retrieval_mechanism_ledger/ps001.py",
+          "sha256": "c2d2b5575623ce419475f91132103e8d7eae2576d5a4d688e97fa140d20f4a8d"
+        },
+        "preflight_source": {
+          "bytes": 21895,
+          "path": "src/analysis/ps001_preflight.py",
+          "sha256": "94f08f824e66c377f06fc8e94bff5b40283350ba9a47b82afed02c543b6f8df3"
+        },
+        "preflight_test": {
+          "bytes": 3770,
+          "path": "tests/test_ps001_preflight.py",
+          "sha256": "ac30a923b0ddd8a65ef362d0fe7e78196f71404276c597a7243670ae5240c0ed"
+        }
+      },
+      "corruption_fixture": {
+        "activated": [
+          2,
+          7
+        ],
+        "active_count": 3,
+        "deactivated": [
+          4,
+          1
+        ]
+      },
+      "fixed_hashes": {
+        "determinism": true,
+        "exploration": true,
+        "final_authorization": true,
+        "final_design": true,
+        "manifest": true,
+        "selected_cell": true
+      },
+      "manifest": {
+        "actual_file_count": 52,
+        "file_sequence_sha256": "ae1bce43c1b496bc03b3e64105690138abd88095490e666c413950020a90d268",
+        "identity_mismatches": [],
+        "listed_file_count": 52,
+        "missing": [],
+        "status": "PASS",
+        "unexpected": []
+      },
+      "population": {
+        "content_sequence_sha256": "f566b2df774232d7778ec2ff105531ad2cdfb2f8e2ce15556713376b52cef751",
+        "database_bytes": 1978368,
+        "database_path": "experiments/surveys/retrieval_bakeoff/tier6/runs/tier6_live_121_corrected_001/context_matched_stm/study.db",
+        "database_sha256": "5da47ea3fc2c8e3dcc50fa380ff65202d82557905d9976117e9e5d82e55c1c41",
+        "episode_count": 119,
+        "normalized_float64_sha256": "2ed0cc29b0de9b54bf80bbd800123938ecaac2353b3e01ece37e397b6844e27b",
+        "normalized_float64_shape": [
+          119,
+          1024
+        ],
+        "raw_float32_sha256": "b4715d78d56b04254859ee7fad5343141f51da8caca98f1043d07c45fad30f08",
+        "raw_float32_shape": [
+          119,
+          1024
+        ],
+        "source_turn_max": 119,
+        "source_turn_min": 1,
+        "source_turn_sequence_sha256": "26505fa6c9441ee63dff2d869825bd8d20041174abdfaef2f47b9af80496e628"
+      },
+      "projection_fixture": [
+        [
+          -1,
+          -1,
+          1
+        ],
+        [
+          -1,
+          1,
+          1
+        ],
+        [
+          -1,
+          -1,
+          -1
+        ],
+        [
+          -1,
+          1,
+          1
+        ],
+        [
+          -1,
+          1,
+          -1
+        ]
+      ],
+      "status": "PASS",
+      "trace_schema": {
+        "required_fields": [
+          "activated_indices",
+          "active_count_per_state",
+          "changed_units_per_sweep",
+          "converged",
+          "cue_level",
+          "cycle",
+          "deactivated_indices",
+          "exact_source_recovery",
+          "field_margin_trace",
+          "fixed_point",
+          "initial_state_sha256",
+          "quadratic_score_trace",
+          "repeated_state_witness",
+          "runtime_guard",
+          "source_code_sha256",
+          "source_content_sha256",
+          "state_sha256_trace",
+          "swap_count",
+          "sweeps",
+          "terminal_hamming_distance",
+          "terminal_state_sha256",
+          "terminal_status",
+          "terminal_stored_content_sha256"
+        ],
+        "status": "PASS"
+      }
+    },
+    "PF10": {
+      "either_authorized_here": false,
+      "natural_language_cue_study_required": true,
+      "offline_formation_and_recovery_are_answer_verdicts": false,
+      "separate_live_evaluation_required": true,
+      "status": "PASS",
+      "zero_embedding_requests": 0,
+      "zero_model_generation_calls": 0
+    },
+    "PF2": {
+      "behavioral_identity": "At (4096, 41), the encoder formed 119/119 unique exact-sparsity codes; the recurrence stored 119/119 as fixed points and recovered 119/119 deterministic one-swap cues exactly.",
+      "name_checks": [
+        {
+          "demonstrated": true,
+          "evidence": "all formed and traced states retain exact active count",
+          "name": "sparse"
+        },
+        {
+          "demonstrated": true,
+          "evidence": "1024->4096",
+          "name": "expansion"
+        },
+        {
+          "demonstrated": true,
+          "evidence": "complete 7021-pair cosine/overlap/Hamming artifact; uniqueness is not the sole evidence",
+          "name": "pattern separation"
+        },
+        {
+          "demonstrated": true,
+          "evidence": "term limited to formed internal sparse code",
+          "name": "engram"
+        },
+        {
+          "demonstrated": true,
+          "evidence": "independent conceptual centered-weight reconstruction",
+          "name": "learned"
+        },
+        {
+          "demonstrated": true,
+          "evidence": "each synchronous output is the next sweep input",
+          "name": "recurrent"
+        },
+        {
+          "demonstrated": true,
+          "evidence": "119/119 unchanged additional sweeps",
+          "name": "fixed point"
+        },
+        {
+          "demonstrated": true,
+          "evidence": "119/119 exact one-swap source recoveries",
+          "name": "pattern completion"
+        },
+        {
+          "demonstrated": true,
+          "evidence": "all serialized state active counts equal the registered K_ACTIVE",
+          "name": "competition"
+        },
+        {
+          "demonstrated": true,
+          "evidence": "claim limited to registered swaps and seven degenerates",
+          "name": "basin"
+        }
+      ],
+      "nearest_code_decoding_not_used": true,
+      "pairwise_distribution": {
+        "bytes": 60003,
+        "path": "cells/d4096_k41/formation_distribution.json",
+        "sha256": "4ee3510ad39dc65377f430cbe197f3ba94067de26639dcf441743ac450cb2f53"
+      },
+      "status": "PASS",
+      "unique_codes_not_sufficient_alone": true
+    },
+    "PF3": {
+      "adjacent_ancestry": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "commit_order": [
+        "e20d0c0",
+        "90e88f86",
+        "9712a5b4",
+        "ea6a9a20",
+        "2c755034",
+        "04ff100",
+        "56442f70",
+        "df4718f1"
+      ],
+      "executed_gate_order": [
+        "historical_reproduction",
+        "leakage",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "interpretation"
+      ],
+      "planted_short_circuits": {
+        "outcomes": [
+          {
+            "executed": [
+              "G1"
+            ],
+            "later_stages_unreachable": true,
+            "planted_failure": "G1"
+          },
+          {
+            "executed": [
+              "G1",
+              "G2"
+            ],
+            "later_stages_unreachable": true,
+            "planted_failure": "G2"
+          },
+          {
+            "executed": [
+              "G1",
+              "G2",
+              "G3"
+            ],
+            "later_stages_unreachable": true,
+            "planted_failure": "G3"
+          },
+          {
+            "executed": [
+              "G1",
+              "G2",
+              "G3",
+              "G4"
+            ],
+            "later_stages_unreachable": true,
+            "planted_failure": "G4"
+          }
+        ],
+        "status": "PASS"
+      },
+      "q11_import_stage": "ABSENT",
+      "status": "PASS"
+    },
+    "PF4": {
+      "later_reporting_is_characterization_not_confirmation": true,
+      "reachability": {
+        "observed": {
+          "NO_STORED_SPARSE_CODE": "NO_STORED_SPARSE_CODE",
+          "NO_VALID_IMPLEMENTATION": "NO_VALID_IMPLEMENTATION",
+          "NO_VIABLE_SPARSE_CODE": "NO_VIABLE_SPARSE_CODE",
+          "SPARSE_ENGRAM_CANDIDATE_CHARACTERIZED": "SPARSE_ENGRAM_CANDIDATE_CHARACTERIZED"
+        },
+        "status": "PASS",
+        "synthetic_g3_g4": {
+          "one_swap_recoveries": 12,
+          "one_swap_required": 12,
+          "status": "PASS",
+          "stored_fixed_points": 1
+        }
+      },
+      "selected_configuration": {
+        "active_count": 41,
+        "code_dimension": 4096
+      },
+      "selected_real_configuration_already_passed_exploration": true,
+      "status": "PASS"
+    },
+    "PF5": {
+      "fit_parameters": [
+        "vectors",
+        "code_dimension",
+        "active_count",
+        "projection_seed"
+      ],
+      "generated_ids_timestamps_paths_as_comparison_keys": false,
+      "status": "PASS",
+      "trace_identities": {
+        "code_identity_sequence_sha256": "a8d1364a58de6d6c70db2dd771ba96e59fcf931d36cfb28ea69c780b55e3a3b8",
+        "content_identity_sequence_sha256": "f566b2df774232d7778ec2ff105531ad2cdfb2f8e2ce15556713376b52cef751",
+        "stable_content_code_state_hashes": true,
+        "state_identity_sequence_sha256": "8eef75cb01e8d74e629bbf61ba2b271ab74b217a99f3d4f5bf32dca29c7324d7"
+      }
+    },
+    "PF6": {
+      "exact_reproduction": {
+        "basin_sizes": [
+          5,
+          13,
+          15,
+          20,
+          29,
+          37
+        ],
+        "converged_count": 119,
+        "source_identity_sequence_sha256": "f566b2df774232d7778ec2ff105531ad2cdfb2f8e2ce15556713376b52cef751",
+        "stored_fixed_point_count": 0,
+        "terminal_identity_sequence_sha256": "9f8c4c45447051b16b7d1689e473a041ec23fb6c1870a6cb6b16c9a00495f470",
+        "unique_terminal_count": 6
+      },
+      "historical_gate": {
+        "bytes": 3266,
+        "path": "experiments/components/retrieval_mechanism_ledger/artifacts/ps001_exploration/rev4_reproduction.json",
+        "sha256": "644f8079a1ad7986d66bcea9436f2c4208922dfeda42ff5e07b0f3f8a50cf09f"
+      },
+      "result_sha256": "1942950078e0a7eb30619f66356e0373208372415b401b61a49dae6fe8cdaa78",
+      "status": "PASS"
+    },
+    "PF7": {
+      "cycles": 1,
+      "intended_stored_attractors": 119,
+      "resource_ceilings_pass": true,
+      "runtime_guards": 0,
+      "spurious_terminals": 1,
+      "status": "PASS",
+      "trace_inventory": {
+        "all_traces_reach_fixed_cycle_or_guard": true,
+        "code_identity_sequence_sha256": "a8d1364a58de6d6c70db2dd771ba96e59fcf931d36cfb28ea69c780b55e3a3b8",
+        "content_identity_sequence_sha256": "f566b2df774232d7778ec2ff105531ad2cdfb2f8e2ce15556713376b52cef751",
+        "expected_total_trace_count": 602,
+        "levels": {
+          "10_percent": {
+            "artifact": {
+              "bytes": 165592,
+              "path": "experiments/components/retrieval_mechanism_ledger/artifacts/ps001_exploration/part1_process_1/traces/d4096_k41/10_percent.jsonl",
+              "sha256": "bc3c4b89c324156f58d96d93abd15d2326850e3029a446f027a30cecc5b3d490"
+            },
+            "cycles": 0,
+            "exact_recoveries": 119,
+            "expected_count": 119,
+            "fixed_points": 119,
+            "row_count": 119,
+            "runtime_guards": 0,
+            "spurious_terminals": 0,
+            "wrong_stored_attractors": 0
+          },
+          "30_percent": {
+            "artifact": {
+              "bytes": 174767,
+              "path": "experiments/components/retrieval_mechanism_ledger/artifacts/ps001_exploration/part1_process_1/traces/d4096_k41/30_percent.jsonl",
+              "sha256": "87e6cee432988d703729eb6eb415668800245d36ad37be049a1dd01e16593980"
+            },
+            "cycles": 0,
+            "exact_recoveries": 119,
+            "expected_count": 119,
+            "fixed_points": 119,
+            "row_count": 119,
+            "runtime_guards": 0,
+            "spurious_terminals": 0,
+            "wrong_stored_attractors": 0
+          },
+          "50_percent": {
+            "artifact": {
+              "bytes": 183801,
+              "path": "experiments/components/retrieval_mechanism_ledger/artifacts/ps001_exploration/part1_process_1/traces/d4096_k41/50_percent.jsonl",
+              "sha256": "a78fb5a9cc6a27a114ffd04c06c000d5bac6ca01d8385deff68666b713c3021c"
+            },
+            "cycles": 0,
+            "exact_recoveries": 119,
+            "expected_count": 119,
+            "fixed_points": 119,
+            "row_count": 119,
+            "runtime_guards": 0,
+            "spurious_terminals": 0,
+            "wrong_stored_attractors": 0
+          },
+          "degenerate": {
+            "artifact": {
+              "bytes": 10622,
+              "path": "experiments/components/retrieval_mechanism_ledger/artifacts/ps001_exploration/part1_process_1/traces/d4096_k41/degenerate.jsonl",
+              "sha256": "ab2d6cfbf1f6d4f2b08b71b042c2c7c773230fae90e9c51818f7392d680f71a5"
+            },
+            "cycles": 1,
+            "exact_recoveries": 0,
+            "expected_count": 7,
+            "fixed_points": 6,
+            "row_count": 7,
+            "runtime_guards": 0,
+            "spurious_terminals": 1,
+            "wrong_stored_attractors": 6
+          },
+          "one_swap": {
+            "artifact": {
+              "bytes": 161996,
+              "path": "experiments/components/retrieval_mechanism_ledger/artifacts/ps001_exploration/part1_process_1/traces/d4096_k41/one_swap.jsonl",
+              "sha256": "45e4c0736ad872e2c776e7d88018c777aaac3bded23d83543b6976c2d3e9744a"
+            },
+            "cycles": 0,
+            "exact_recoveries": 119,
+            "expected_count": 119,
+            "fixed_points": 119,
+            "row_count": 119,
+            "runtime_guards": 0,
+            "spurious_terminals": 0,
+            "wrong_stored_attractors": 0
+          },
+          "uncorrupted": {
+            "artifact": {
+              "bytes": 142958,
+              "path": "experiments/components/retrieval_mechanism_ledger/artifacts/ps001_exploration/part1_process_1/traces/d4096_k41/uncorrupted.jsonl",
+              "sha256": "79da3b8880bd642688d589d32e0e27a9178ad526718988b18fa7db1e3c6178e0"
+            },
+            "cycles": 0,
+            "exact_recoveries": 119,
+            "expected_count": 119,
+            "fixed_points": 119,
+            "row_count": 119,
+            "runtime_guards": 0,
+            "spurious_terminals": 0,
+            "wrong_stored_attractors": 0
+          }
+        },
+        "schema_failures": [],
+        "stable_content_code_state_hashes": true,
+        "state_identity_sequence_sha256": "8eef75cb01e8d74e629bbf61ba2b271ab74b217a99f3d4f5bf32dca29c7324d7",
+        "status": "PASS",
+        "total_trace_count": 602
+      },
+      "wrong_stored_attractors": 6
+    },
+    "PF8": {
+      "35_turn_live_ablation": "NOT_APPLICABLE_NO_INFERENCE_AUTHORIZED",
+      "cannot_detect": [
+        "capacity at 1,000 episodes",
+        "natural-language cue robustness",
+        "new-episode generalization",
+        "biological realism",
+        "live answer use"
+      ],
+      "detects": "failures on this fixed 119-episode store and registered corruption set",
+      "status": "PASS"
+    },
+    "PF9": {
+      "accepted_residuals": [
+        "same-store grid selection can overfit",
+        "bit swaps need not transfer to natural-language cues",
+        "untested cues can cycle or reach spurious attractors",
+        "one deterministic seed does not generalize",
+        "exact tie behavior need not be perturbation robust",
+        "offline completion need not improve retrieval or answers"
+      ],
+      "status": "PASS",
+      "surrogate_audit": [
+        {
+          "control_or_residual": "all 7,021 pairwise overlaps and Hamming distances committed",
+          "observation": "exact K_ACTIVE",
+          "property_still_false": "codes can remain poorly separated"
+        },
+        {
+          "control_or_residual": "closest-input joint distributions committed per cell",
+          "observation": "119 unique code hashes",
+          "property_still_false": "nearby episodes can collide functionally"
+        },
+        {
+          "control_or_residual": "registered bit swaps tested; natural embedding perturbations remain outside scope",
+          "observation": "large Hamming distance",
+          "property_still_false": "small perturbations can destroy identity"
+        },
+        {
+          "control_or_residual": "G4 exact one-swap bar reached by any cell: True",
+          "observation": "all fixed points",
+          "property_still_false": "basins can have zero useful radius"
+        },
+        {
+          "control_or_residual": "10/30/50 percent distributions required only after G4",
+          "observation": "one-swap recovery",
+          "property_still_false": "10 percent cues can fail"
+        },
+        {
+          "control_or_residual": "accepted residual; later cue-binding study required",
+          "observation": "bit-swap recovery",
+          "property_still_false": "natural-language partial cues can fail"
+        },
+        {
+          "control_or_residual": "one seed characterized; seed sweep prohibited",
+          "observation": "deterministic projection",
+          "property_still_false": "the one seed can be fortuitous"
+        },
+        {
+          "control_or_residual": "outcome remains exploratory and CHARACTERIZED",
+          "observation": "passing grid cell",
+          "property_still_false": "same-store parameter selection can overfit"
+        },
+        {
+          "control_or_residual": "exact source identity required",
+          "observation": "recurrent convergence",
+          "property_still_false": "terminal can be spurious"
+        },
+        {
+          "control_or_residual": "claim limited to registered cues and degenerates",
+          "observation": "no registered cycles",
+          "property_still_false": "untested cues can cycle"
+        },
+        {
+          "control_or_residual": "complete margins committed; observed tie-sensitive sweep count 78",
+          "observation": "exact recovery with deterministic ties",
+          "property_still_false": "learned field support can be perturbation-fragile"
+        },
+        {
+          "control_or_residual": "biological claim prohibited",
+          "observation": "sparse component pass",
+          "property_still_false": "dentate gyrus replication"
+        },
+        {
+          "control_or_residual": "Q11 and live claims prohibited",
+          "observation": "offline memory pass",
+          "property_still_false": "retrieval or answers improve"
+        },
+        {
+          "control_or_residual": "at least one G3 pass observed: True; G4 remains independently binding",
+          "observation": "stored-code pass",
+          "property_still_false": "minimal completion"
+        }
+      ]
+    }
+  },
+  "outcome_ceiling": "CHARACTERIZED",
+  "part1_disposition": "SPARSE_ENGRAM_CANDIDATE_CHARACTERIZED",
+  "part1_mechanism_digest": "0d45ddd45980dbf3989a543136bad52d4f743f650f3c0af76e370f049b6c80cc",
+  "preflight_payload_sha256": "a2e6f37fbba28022b151d153cca9914bce0c05281b1427f626d10c02cf9fed6a",
+  "selected_configuration": {
+    "active_count": 41,
+    "code_dimension": 4096
+  },
+  "stage": "Preflight Part 2 PF1-PF10",
+  "status": "PASS",
+  "study": "PS-001",
+  "zero_embedding_requests": 0,
+  "zero_model_generation_calls": 0
+}

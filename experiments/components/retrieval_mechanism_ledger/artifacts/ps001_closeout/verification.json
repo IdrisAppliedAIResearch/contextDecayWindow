@@ -1,0 +1,29 @@
+{
+  "study": "PS-001",
+  "stage": "closeout_verification",
+  "status": "PASS",
+  "date": "2026-08-11",
+  "focused": {
+    "command": ".\\.venv\\Scripts\\python.exe -m pytest tests\\test_ps001_component.py tests\\test_ps001_exploration.py tests\\test_ps001_preflight.py -q",
+    "passed": 31,
+    "failed": 0,
+    "duration_seconds": 0.58
+  },
+  "full_repository": {
+    "command": ".\\.venv\\Scripts\\python.exe -m pytest -q",
+    "passed": 1470,
+    "failed": 0,
+    "duration_seconds": 103.08
+  },
+  "pre_output_implementation_full_repository": {
+    "command": ".\\.venv\\Scripts\\python.exe -m pytest -q",
+    "passed": 1466,
+    "failed": 0,
+    "duration_seconds": 120.21
+  },
+  "git_diff_check": "PASS",
+  "conflict_marker_check": "PASS",
+  "agents_digest_characters": 369,
+  "embedding_requests": 0,
+  "model_generation_calls": 0
+}
