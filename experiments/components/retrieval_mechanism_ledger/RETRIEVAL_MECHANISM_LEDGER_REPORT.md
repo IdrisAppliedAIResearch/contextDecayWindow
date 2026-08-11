@@ -1,6 +1,6 @@
 # Retrieval Mechanism Ledger Closeout
 
-**Status:** CLOSED; extended through PS-001
+**Status:** CLOSED; extended through PS-002
 **Date:** 2026-08-11
 **Scope:** Offline retrieval mechanisms after the retrieval bakeoff
 **Prospective design anchors:** `b42f4f81` (ledger and E002 protocol);
@@ -9,6 +9,16 @@
 `15cdb177` (AR-001 implementation)
 
 ## Outcome
+
+PS-002 stops at Preflight Part 1 with `NATURAL_CUES_NOT_BOUND`, capped at
+`CHARACTERIZED`. Nine label-blind semantic-to-engram cells ran 24 sealed
+natural-language queries for eight output rounds each. The strongest cell,
+`(M=4, TAU=0.025)`, reached stored PS-001 codes in 190/192 rounds but retained
+one cycle and one spurious fixed point, leaving one query with six identities.
+No cell met the all-query mechanical gate. Wider or softer mixtures changed
+more cues but produced more unsafe terminals. Final design, PF1-PF10, relevance
+labels, answers, live scoring, promotion, and adoption were not entered. See
+`PS_002_REPORT.md`.
 
 PS-001 repairs Rev 4's failed dense bipolar formation construct with one
 integrated sparse expansion and compatible centered recurrence. It first
