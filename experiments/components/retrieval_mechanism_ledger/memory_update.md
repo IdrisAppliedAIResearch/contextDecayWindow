@@ -338,6 +338,24 @@ Carry forward:
     gains and zero losses overall. This is offline association, not a live
     effect, and must not be bundled with an adjacency component.
 
+## TA-001 temporal-adjacency bridge, 2026-08-11
+
+Carry forward:
+
+20. **Temporal adjacency can recover evidence that semantic similarity misses.**
+    With 15 candidates and 32,000 characters held fixed, turn 54 bridges to
+    turn 55 and moves Q11 art from 0/4 to 4/4 in both candidates and the packed
+    payload. Q11 packed availability rises 7/17->9/17.
+21. **The gain is an exchange, not a free expansion.** T1 spends 8-10 of 15
+    slots on neighbors and retains only 5-7 direct-query seeds. On Q11 it gains
+    four art and two civil facts but loses three marine and one monetary fact
+    after packing. Net count hides domain replacement.
+22. **Broad recovery does not certify targeted retrieval.** Across 24 targeted
+    queries, adjacency produces 2 gains, 6 losses, and 16 ties; enumeration
+    falls 0.3125->0.125. G5 blocks ablation and live evaluation. Any reserved
+    seed quota, conditional bridge, or spare-budget policy is a new component,
+    not a TA-001 repair.
+
 Authoritative files:
 
 - `E006_rarity_diagnostic_and_chained_retrieval.md`
@@ -366,3 +384,6 @@ Authoritative files:
 - `BA_001_REPORT.md`
 - `artifacts/ba001/results.json`
 - `artifacts/ba001/manifest.json`
+- `TA_001_TEMPORAL_ADJACENCY_BRIDGE.md`
+- `TA_001_REPORT.md`
+- `artifacts/ta001_measurement/results.json`
