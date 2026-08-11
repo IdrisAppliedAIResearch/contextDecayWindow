@@ -41,6 +41,12 @@ def sha256_file(path: Path) -> str:
     return digest.hexdigest()
 
 
+def sha256_post_decode_lf(path: Path) -> str:
+    text = path.read_text(encoding="utf-8")
+    canonical = text.replace("\r\n", "\n").replace("\r", "\n").encode("utf-8")
+    return hashlib.sha256(canonical).hexdigest()
+
+
 def content_sha256(user: str, assistant: str) -> str:
     payload = json.dumps(
         [["user", user], ["assistant", assistant]],
@@ -55,7 +61,7 @@ def episode_text(episode: dict[str, Any]) -> str:
 
 
 def load_script() -> dict[str, Any]:
-    if sha256_file(SCRIPT_PATH) != SCRIPT_SHA256:
+    if sha256_post_decode_lf(SCRIPT_PATH) != SCRIPT_SHA256:
         raise AssertionError("SUP-001 ablation script hash changed")
     script = json.loads(SCRIPT_PATH.read_text(encoding="utf-8"))
     if script["turn_count"] != 35 or len(script["turns"]) != 35:
