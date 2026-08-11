@@ -12,6 +12,7 @@ from src.analysis.ps001_exploration import (
     EXPECTED_NORMALIZED_VECTOR_SHA256,
     GRID,
     REV4_COMMIT,
+    REV4_DATABASE_SHA256,
     REV4_RESULT_SHA256,
     apply_selection_rule,
     assert_imports_label_blind,
@@ -25,6 +26,8 @@ from src.analysis.ps001_exploration import (
     trace_record,
     StageResult,
     MECHANISM_SOURCE,
+    DATABASE,
+    sha256_file,
 )
 from src.retrieval_mechanism_ledger.ps001 import (
     SparseEngramAutoassociator,
@@ -277,6 +280,10 @@ def test_historical_gate_requires_exact_commit_digest_and_basins(tmp_path: Path)
     path.write_text(json.dumps(gate), encoding="utf-8")
     with pytest.raises(RuntimeError, match="digest"):
         load_historical_gate(path)
+
+
+def test_retained_rev4_database_matches_immutable_artifact_digest() -> None:
+    assert sha256_file(DATABASE) == REV4_DATABASE_SHA256
 
 
 def test_comparison_accepts_only_identical_canonical_outputs(tmp_path: Path) -> None:
