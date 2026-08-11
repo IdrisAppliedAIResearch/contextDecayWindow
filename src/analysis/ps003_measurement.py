@@ -141,7 +141,7 @@ def load_episodes() -> list[dict[str, Any]]:
             "turn_number": int(row[0]),
             "user_message": str(row[1]),
             "assistant_message": str(row[2]),
-            "content_sha256": population.hashes[index],
+            "content_sha256": population.content_hashes[index],
         }
         for index, row in enumerate(rows)
     ]
