@@ -23,6 +23,7 @@ from src.analysis.sup001_ablation_common import (
     runtime_identity,
     server_props,
     sha256_file,
+    sha256_post_decode_lf,
 )
 from src.biological_memory.supersession import SupersessionLedger
 
@@ -178,7 +179,7 @@ def run(output_path: Path, expected_commit: str, server_url: str, server_binary:
         "source_sha256_before": source_before,
         "source_sha256_after": source_after,
         "inputs": {
-            "script_sha256": sha256_file(SCRIPT_PATH),
+            "script_sha256_post_decode_lf": sha256_post_decode_lf(SCRIPT_PATH),
             "cache_sha256": sha256_file(CACHE_PATH),
             "vector_manifest_sha256": sha256_file(VECTOR_MANIFEST_PATH),
         },
