@@ -2,7 +2,7 @@
 
 **Type:** Living working document. Not a pre-registration, not a spec, not a study.
 **Repository:** `contextDecayWindow` (memory track). **Track 2 only.**
-**Status:** OPEN - extended through PS-003 on August 11, 2026
+**Status:** OPEN - extended through TA-001 on August 11, 2026
 **Purpose:** One place where candidate retrieval mechanisms are recorded, checked against the failure data, and either promoted to a cheap test or buried. Replaces ad-hoc specs. **Nothing here is authorized work until it has a passing decisive test.**
 
 ---
@@ -566,6 +566,13 @@ eviction work in `CC_001`?
 
 ## 8. Scan disposition
 
+- Temporal-adjacency bridge: **G5 FAIL; TARGETED_REGRESSION,
+  CHARACTERIZED.** TA-001 interleaves each direct-query seed with its eligible
+  radius-1 source-turn neighbors under matched 15-candidate and 32,000-character
+  limits. Q11 candidate facts rise 9/17->10/17, packed facts 7/17->9/17, and
+  art 0/4->4/4. But 24 targeted queries yield 2 gains, 6 losses, and 16 ties;
+  enumeration falls 0.3125->0.125. G5 blocks the 35-turn ablation, live run,
+  promotion, and adoption. See `TA_001_REPORT.md`.
 - Ambiguous natural-language cue resolution: **G3 FAIL;
   LOOKUP_BINDING_INSUFFICIENT, CHARACTERIZED.** PS-003's selected five-probe,
   four-swap consensus cell emits eight unanimous stored identities for all 24
@@ -648,7 +655,10 @@ eviction work in `CC_001`?
 
 ---
 
-*Opened July 29, 2026. Revision 21, August 11, 2026 - PS-003 passes safe
+*Opened July 29, 2026. Revision 22, August 11, 2026 - TA-001 recovers Q11 art
+0/4->4/4 and packed facts 7/17->9/17 under matched opportunity, but targeted
+queries produce 2 gains, 6 losses, and 16 ties. G5 blocks ablation and live
+evaluation. Revision 21, August 11, 2026 - PS-003 passes safe
 ambiguity resolution but fails G3 with 7/12 lookup facts and monetary 1/3.
 Direct cosine and PS-002 are also 7/12; G4/G5, stress, answers, and live use are
 not reached. Revision 20, August 11, 2026 - PS-002 stops at Preflight
