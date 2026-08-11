@@ -169,6 +169,17 @@ It must also decide whether one attractor should represent one memory or whether
 multi-memory questions require a different architecture. Those are new design
 choices, not amendments to this stopped study.
 
+## Verification
+
+The 13 PS-002 focused tests pass. The combined carried PS-001 and PS-002 set
+passes 44/44. The complete repository suite passes `1483/1483` in 99.90 seconds
+from the primary workspace at closeout commit `2053d665`, with PS-001's
+hash-bound LF evidence temporarily overlaid from a detached worktree and then
+restored byte-for-byte. This mixed representation is required because older
+historical fixtures bind CRLF bytes while PS-001 binds LF bytes; a global
+newline conversion is not a valid verification environment. `git diff --check`,
+the targeted conflict-marker scan, and the 378-character AGENTS digest cap pass.
+
 ## Evidence
 
 - Design: `PS_002_NATURAL_LANGUAGE_CUE_BINDING.md`
@@ -178,6 +189,7 @@ choices, not amendments to this stopped study.
 - Complete traces: `artifacts/ps002_exploration/part1_process_1/cells/*/traces.jsonl`
 - Artifact manifest: `artifacts/ps002_exploration/part1_process_1/artifact_manifest.json`
 - Two-process comparison: `artifacts/ps002_exploration/two_process_determinism.json`
+- Closeout verification: `artifacts/ps002_closeout/verification.json`
 
 ## ERRATA review
 

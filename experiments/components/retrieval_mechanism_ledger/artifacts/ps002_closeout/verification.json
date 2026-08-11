@@ -1,0 +1,72 @@
+{
+  "artifacts": {
+    "exploration_mechanism_digest": "cfca813a79ee96ee2949e9f567f9c5360acb30d410e37afd847ef65d5666e15c",
+    "exploration_raw_sha256_at_closeout": "c7b12a4e3250366d7fc37765a73e783fb688991900b4abb47bd50a3def4a3825",
+    "trace_sequence_digest": "df47bbbc1e6b7a21bb8ec48bf81d7661b494fd693ea0905a544874ca142d9194",
+    "two_process_comparison_raw_sha256_at_closeout": "128242740c0aea40e03759667bfb17f0507228e8505f374abdd34a5c3dd9142c"
+  },
+  "closeout_commit_before_verification_artifact": "2053d66539dd8065e7d4c6903441814eab435ea0",
+  "disposition": "NATURAL_CUES_NOT_BOUND",
+  "documentation": {
+    "agents_digest_characters": 378,
+    "agents_digest_limit": 400,
+    "errata_review": "UNCHANGED_NO_PRIOR_NUMBER_CHANGED",
+    "required_closeout_files_updated": true
+  },
+  "newline_verification": {
+    "full_suite_location": "primary workspace",
+    "historical_requirement": "legacy fixtures require CRLF while PS-001 evidence requires LF",
+    "ps001_lf_overlay_restored_after_test": true,
+    "representative_restored_hashes": {
+      "artifact_manifest": "e90ee02fd7071272befca96a22c5c6f2f4f507e8a5e605dfabaa2273280b2735",
+      "exploration": "a78922ca25f0ca5027f695b2a12e8059ee83597366f1b87ecf7b7ef6c5ffdc1d",
+      "final_authorization": "8fc9cd94dd8f6135b261d4e65a5cff16937d39ef440f58e40d9b07a4cccd53cb",
+      "final_design": "b7cd49835ccf5ade3e450d10f785e64026fd5b2fb53ffb8c505651fff29764d2",
+      "two_process_determinism": "e9dbcf8408c5640ba1d8a9c64ca4891ba6dcaf9b825c460744cb8475e4085bc"
+    }
+  },
+  "outcome_ceiling": "CHARACTERIZED",
+  "source": {
+    "exploration_sha256": "310b0c20f132d2ef5b2afc025bed278b1caf90d9fa7d3af0e7942835516a1ae9",
+    "mechanism_sha256": "866429bf10096756340b536f2b952dd5d95f6979f4d145120fe42b256d7d5489"
+  },
+  "stage_reach": {
+    "answer_generation": "NOT_AUTHORIZED",
+    "final_design": "NOT_REACHED",
+    "live_evaluation": "NOT_AUTHORIZED",
+    "pf1_pf10": "NOT_REACHED",
+    "relevance_measurement": "NOT_REACHED"
+  },
+  "status": "PASS",
+  "study": "PS-002",
+  "tests": {
+    "combined_ps001_ps002": {
+      "command": "python -m pytest tests/test_ps001_component.py tests/test_ps001_exploration.py tests/test_ps001_preflight.py tests/test_ps002_component.py tests/test_ps002_exploration.py -q",
+      "passed": 44,
+      "seconds": 1.79,
+      "status": "PASS"
+    },
+    "full_suite": {
+      "command": "python -m pytest -q",
+      "failed": 0,
+      "passed": 1483,
+      "seconds": 99.90,
+      "skipped": 0,
+      "status": "PASS"
+    },
+    "ps002_focused": {
+      "command": "python -m pytest tests/test_ps002_component.py tests/test_ps002_exploration.py -q",
+      "passed": 13,
+      "seconds": 0.99,
+      "status": "PASS"
+    }
+  },
+  "verification": {
+    "conflict_marker_scan": "PASS",
+    "git_diff_check": "PASS",
+    "primary_worktree_restored_clean": true,
+    "two_process_determinism": "PASS",
+    "zero_embedding_requests": 0,
+    "zero_model_generation_calls": 0
+  }
+}
