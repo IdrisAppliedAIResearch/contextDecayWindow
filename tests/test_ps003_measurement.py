@@ -11,6 +11,7 @@ from src.analysis.ps003_measurement import (
     PS003_MECHANISM_SOURCE,
     episode_matches_fact,
     execute_ordered_gates,
+    load_episodes,
     measurement_prerequisites,
 )
 
@@ -52,6 +53,14 @@ def test_same_episode_match_requires_terms_turn_and_source_role() -> None:
         dict(episode, user_message="No term here", assistant_message="100-year service life"),
         fact,
     )
+
+
+def test_measurement_episode_inventory_has_stable_content_identities() -> None:
+    episodes = load_episodes()
+
+    assert len(episodes) == 119
+    assert len({row["content_sha256"] for row in episodes}) == 119
+    assert all(len(row["content_sha256"]) == 64 for row in episodes)
 
 
 def test_ordered_gates_stop_at_first_failure() -> None:
