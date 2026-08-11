@@ -1,6 +1,6 @@
 # Retrieval Mechanism Ledger Closeout
 
-**Status:** CLOSED; extended through E006 Part 3
+**Status:** CLOSED; extended through E006 Part 3 Rev 4
 **Date:** 2026-08-10
 **Scope:** Offline retrieval mechanisms after the retrieval bakeoff
 **Prospective design anchors:** `b42f4f81` (ledger and E002 protocol);
@@ -162,6 +162,22 @@ not separate positively once exact volume is exposed. No targeted claim, live
 run, promotion, adoption, or deployment change is authorized. See
 `E006_PART3_REPORT.md` and `artifacts/e006_p3_s4/results.json`.
 
+## E006 Part 3 Rev 4 autoassociative construct repair
+
+The completed Part 3 result remains unchanged. Rev 4 prospectively tests the
+intended attractor property with population-centered bipolar episode patterns,
+symmetric zero-diagonal Hebbian weights, and asynchronous recurrence. Its
+synthetic fixture passes storage and all `16/16` one-bit recoveries.
+
+The real 119-episode store fails the first construct gate: `0/119` encoded
+episodes are fixed points. All trajectories converge with non-increasing energy
+into six spurious attractors, so the disposition is
+`PATTERNS_NOT_STORED - CHARACTERIZED`. Preflight stops at Part 1; G4, PF1-PF10,
+Q11, live evaluation, promotion, and adoption are not entered. Balanced feature
+marginals did not provide pattern separation. See
+`E006_PART3_REV4_REPORT.md` and
+`artifacts/e006_p3_rev4_exploration/exploration.json`.
+
 ## Verification
 
 The 19 focused E001/E002 tests pass. On 2026-07-31 the permanently failing
@@ -177,6 +193,11 @@ all seven artifacts.
 E006 Part 3 closeout passes 54 focused Part 2/P3 integrity tests and the full
 repository suite, `1428/1428`. Explicit LF attributes preserve every hash-bound
 Part 2/P3 text input on Windows without changing any locked blob.
+
+Rev 4 passes its independent slow-oracle and synthetic reachability tests. A
+byte-identical exploration rerun reproduces SHA-256
+`1942950078E0A7EB30619F66356E0373208372415B401B61A49DAE6FE8CDAA78`,
+and the extended full suite passes `1439/1439`.
 
 ## Evidence
 
@@ -196,6 +217,9 @@ Part 2/P3 text input on Windows without changing any locked blob.
 - E006 Part 3 design: `E006_PART3_REV3_ASSOCIATIVE_FRONTIER_EVIDENCE.md`
 - E006 Part 3 result: `E006_PART3_REPORT.md`
 - E006 Part 3 artifacts: `artifacts/e006_p3_s4/`
+- E006 Part 3 Rev 4 design: `E006_PART3_REV4_NEUROSCIENCE_CONSTRUCT_REPAIR.md`
+- E006 Part 3 Rev 4 result: `E006_PART3_REV4_REPORT.md`
+- E006 Part 3 Rev 4 artifacts: `artifacts/e006_p3_rev4_exploration/`
 
 Design and disposition commits precede implementation and output. E002 output
 is anchored by `dfdb257e`; E001 capture by `dbbf7617`; E001 analysis by
