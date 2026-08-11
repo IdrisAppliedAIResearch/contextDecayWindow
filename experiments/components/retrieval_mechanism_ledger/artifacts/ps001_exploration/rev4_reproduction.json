@@ -1,0 +1,63 @@
+{
+  "control_clean": true,
+  "control_commit": "0d98be7967329dd21b4aefbf706a3aaf435cd6f3",
+  "control_worktree": "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow_ps001_rev4_control_lf",
+  "database_provenance": {
+    "control_path": "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow_ps001_rev4_control_lf\\experiments\\surveys\\retrieval_bakeoff\\tier6\\runs\\tier6_live_121_corrected_001\\context_matched_stm\\study.db",
+    "control_status_after_provisioning": "clean_ignored_input",
+    "git_tracked_at_control_commit": false,
+    "retained_source_path": "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\surveys\\retrieval_bakeoff\\tier6\\runs\\tier6_live_121_corrected_001\\context_matched_stm\\study.db",
+    "sha256": "5da47ea3fc2c8e3dcc50fa380ff65202d82557905d9976117e9e5d82e55c1c41"
+  },
+  "database_sha256": "5da47ea3fc2c8e3dcc50fa380ff65202d82557905d9976117e9e5d82e55c1c41",
+  "exact_reproduction": {
+    "basin_sizes": [
+      5,
+      13,
+      15,
+      20,
+      29,
+      37
+    ],
+    "converged_count": 119,
+    "source_identity_sequence_sha256": "f566b2df774232d7778ec2ff105531ad2cdfb2f8e2ce15556713376b52cef751",
+    "stored_fixed_point_count": 0,
+    "terminal_identity_sequence_sha256": "9f8c4c45447051b16b7d1689e473a041ec23fb6c1870a6cb6b16c9a00495f470",
+    "unique_terminal_count": 6
+  },
+  "expected_result_sha256": "1942950078e0a7eb30619f66356e0373208372415b401b61a49dae6fe8cdaa78",
+  "generated_result_sha256": "1942950078e0a7eb30619f66356e0373208372415b401b61a49dae6fe8cdaa78",
+  "module_paths": {
+    "exploration": "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow_ps001_rev4_control_lf\\src\\analysis\\e006_p3_rev4_exploration.py",
+    "mechanism": "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow_ps001_rev4_control_lf\\src\\retrieval_mechanism_ledger\\e006_p3_rev4.py",
+    "numpy": "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\.venv\\Lib\\site-packages\\numpy\\__init__.py"
+  },
+  "runtime": {
+    "command": [
+      "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\.venv\\Scripts\\python.exe",
+      "-m",
+      "src.analysis.e006_p3_rev4_exploration",
+      "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\components\\retrieval_mechanism_ledger\\artifacts\\ps001_exploration\\rev4_reproduction.generated.json"
+    ],
+    "numpy": "2.4.6",
+    "pid": 7188,
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.13.13 (tags/v3.13.13:01104ce, Apr  7 2026, 19:25:48) [MSC v.1944 64 bit (AMD64)]",
+    "stderr": "",
+    "stdout": "{\"status\": \"COMPLETE\", \"output\": \"C:\\\\Users\\\\muzaf\\\\PycharmProjects\\\\contextDecayWindow\\\\experiments\\\\components\\\\retrieval_mechanism_ledger\\\\artifacts\\\\ps001_exploration\\\\rev4_reproduction.generated.json\"}",
+    "thread_environment": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1"
+    },
+    "wall_seconds": 0.7093184000113979
+  },
+  "source_hashes": {
+    "mechanism": "cc9f34eaf2634b5ad9b23665f7352f07a6f5723e7375055c5943239cf5a2b733",
+    "runner": "7d762b8e4fc9f4804df6482168dd76d6f6395841227d94046ff737864761fd48"
+  },
+  "stage": "historical_reproduction",
+  "status": "PASS",
+  "study": "PS-001"
+}

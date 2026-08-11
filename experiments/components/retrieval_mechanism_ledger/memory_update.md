@@ -1,6 +1,36 @@
 # Retrieval Mechanism Ledger Memory Update
 
-**Status:** REOPENED on 2026-08-01 for Family CS. Family QR remains closed.
+**Status:** Extended through PS-001 on 2026-08-11. Family QR remains closed.
+
+## PS-001 pattern-separated engram formation - CHARACTERIZED
+
+Design `e20d0c00`; initial authorization `90e88f86`; selected-cell design
+`56442f70`; Part 1 artifact `2c755034`; determinism `04ff100`; PF1-PF10
+`d7776d7f`. Rev 4 reproduces exactly before PS-001 output: 119/119 converged,
+0/119 stored, six basins 5/13/15/20/29/37, result SHA `19429500...`.
+
+Nine deterministic sparse cells use the same 119 normalized 1,024-dimensional
+episodes. All pass encoder and recurrence identity. Eight fail G3 with 92-118
+fixed points. Only `(D_CODE=4096, K_ACTIVE=41)` passes: 119/119 unique sparse
+codes, 119/119 fixed points, and 119/119 exact recovery after one swap and at
+10%, 30%, and 50% swaps. Two complete processes reproduce the same mechanism
+and artifact-sequence digests.
+
+Carry forward:
+
+1. Sparse formation plus compatible recurrence repairs Rev 4 on this store,
+   but sparsity alone is not the result: eight nearby grid cells still fail
+   storage, including all three 8,192-unit cells.
+2. Exact source-centered completion does not certify a clean global landscape.
+   Six of seven degenerate cues reach stored codes, while the union-biased cue
+   enters a zero-margin two-cycle with a spurious terminal state.
+3. Sparse states do not imply sparse infrastructure. The selected conceptual
+   weight matrix is 99.976% nonzero; only its implicit low-rank operator keeps
+   live arrays below 59 MB. Also, 1,351/4,096 code units are unused.
+4. This is same-store code-space characterization. Natural-language cue
+   binding, multi-memory search, retrieval, answers, generalization, live use,
+   promotion, adoption, and biological replication remain untested. A later
+   cue-binding study requires a new prospective design.
 
 ## E006 Part 3 Rev 4 autoassociation - PATTERNS_NOT_STORED
 
