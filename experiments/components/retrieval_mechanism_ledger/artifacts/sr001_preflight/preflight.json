@@ -1,0 +1,223 @@
+{
+  "ablation_authorized": false,
+  "canonical_digest": "2f7dd4d7e39095516724315869d3a4c1653b268dd490cb34d594976a6301d8df",
+  "checks": {
+    "PF1": {
+      "evidence": {
+        "holdout_facts": 28,
+        "inputs": [
+          {
+            "bytes_equal": true,
+            "path": "HYPOTHETICAL_001_MECHANICAL_BIOLOGICAL_MEMORY_MODEL.md",
+            "sha256_equal": true
+          },
+          {
+            "bytes_equal": true,
+            "path": "experiments/components/retrieval_mechanism_ledger/BA_001_REPORT.md",
+            "sha256_equal": true
+          },
+          {
+            "bytes_equal": true,
+            "path": "experiments/components/retrieval_mechanism_ledger/artifacts/ba001/results.json",
+            "sha256_equal": true
+          },
+          {
+            "bytes_equal": true,
+            "path": "experiments/surveys/retrieval_bakeoff/tier2/retrieval_results.jsonl",
+            "sha256_equal": true
+          },
+          {
+            "bytes_equal": true,
+            "path": "experiments/surveys/retrieval_bakeoff/tier2/evaluation_results.jsonl",
+            "sha256_equal": true
+          },
+          {
+            "bytes_equal": true,
+            "path": "experiments/components/retrieval_mechanism_ledger/artifacts/rd001/full_rank_inventory.csv",
+            "sha256_equal": true
+          },
+          {
+            "bytes_equal": true,
+            "path": "experiments/surveys/retrieval_bakeoff/tier6/runs/tier6_live_121_corrected_001/context_matched_stm/study.db",
+            "sha256_equal": true
+          },
+          {
+            "bytes_equal": true,
+            "path": "experiments/surveys/retrieval_bakeoff/holdout/queries_121.json",
+            "sha256_equal": true
+          },
+          {
+            "bytes_equal": true,
+            "path": "experiments/components/retrieval_mechanism_ledger/artifacts/e006_p3_tier4a_capture/query_vectors.sqlite",
+            "sha256_equal": true
+          },
+          {
+            "bytes_equal": true,
+            "path": "experiments/surveys/retrieval_bakeoff/holdout/answer_key_121.json",
+            "sha256_equal": true
+          },
+          {
+            "bytes_equal": true,
+            "path": "src/memory/span_segmenter.py",
+            "sha256_equal": true
+          },
+          {
+            "bytes_equal": true,
+            "path": "src/retrieval_bakeoff/serialization.py",
+            "sha256_equal": true
+          },
+          {
+            "bytes_equal": true,
+            "path": "src/retrieval_bakeoff/corpus.py",
+            "sha256_equal": true
+          }
+        ],
+        "queries": 25
+      },
+      "pass": true
+    },
+    "PF10": {
+      "evidence": {
+        "answer_correctness_evaluated": false,
+        "conditional_ablation": "35-turn integration only",
+        "full_live_run_authorized": false,
+        "offline_availability_is_verdict": false
+      },
+      "pass": true
+    },
+    "PF2": {
+      "evidence": {
+        "behavioral_identity_digest": "7f4f04fff4937e81a75a1c44b4cc219497943baff7288e379ebda835a5dd6776",
+        "distribution": {
+          "control_selected_counts": {
+            "10": 10,
+            "11": 3,
+            "7": 1,
+            "8": 3,
+            "9": 8
+          },
+          "partial_source_counts": {
+            "0": 2,
+            "1": 23
+          },
+          "treatment_selected_unit_counts": {
+            "85": 1,
+            "86": 2,
+            "87": 1,
+            "88": 1,
+            "89": 4,
+            "90": 2,
+            "91": 3,
+            "92": 4,
+            "93": 4,
+            "94": 1,
+            "95": 2
+          },
+          "treatment_unique_source_counts": {
+            "3": 7,
+            "4": 11,
+            "5": 6,
+            "7": 1
+          }
+        }
+      },
+      "pass": true
+    },
+    "PF3": {
+      "evidence": {
+        "ordered_before_measurement": true,
+        "required_commits": [
+          "baa317db41cb45b90087f4ec1cb1d4bd558cf55a",
+          "f99b86a4",
+          "5828147c98afdd542a6fe4233af8e0e7220bb04a",
+          "bbef505c648371e7761e0bedb9a35da21f4ccda6",
+          "13fe470e"
+        ]
+      },
+      "pass": true
+    },
+    "PF4": {
+      "evidence": {
+        "holdout": {
+          "complete": true,
+          "fact_count": 28,
+          "missing": []
+        },
+        "q11": {
+          "fact_count": 17,
+          "per_domain": {
+            "art": 4,
+            "civil": 5,
+            "marine": 4,
+            "monetary": 4
+          }
+        },
+        "synthetic_dispositions": {
+          "CLASS_OR_DOMAIN_REGRESSION": "CLASS_OR_DOMAIN_REGRESSION",
+          "INTEGRITY_STOP": "INTEGRITY_STOP",
+          "NO_BROAD_GAIN": "NO_BROAD_GAIN",
+          "RETRIEVAL_IDENTITY_MISMATCH": "RETRIEVAL_IDENTITY_MISMATCH",
+          "SPAN_REPRESENTATION_OFFLINE_ELIGIBLE": "SPAN_REPRESENTATION_OFFLINE_ELIGIBLE",
+          "TARGETED_REGRESSION": "TARGETED_REGRESSION"
+        }
+      },
+      "pass": true
+    },
+    "PF5": {
+      "evidence": "25 traces use canonical source SHA-256; span IDs bind source, role, and offsets",
+      "pass": true
+    },
+    "PF6": {
+      "evidence": {
+        "m2_exact_queries": 24,
+        "part1_digest": "7f4f04fff4937e81a75a1c44b4cc219497943baff7288e379ebda835a5dd6776"
+      },
+      "pass": true
+    },
+    "PF7": {
+      "evidence": {
+        "feedback": "none; repeated complete pass identity-equal",
+        "process_2": "7f4f04fff4937e81a75a1c44b4cc219497943baff7288e379ebda835a5dd6776",
+        "process_3": "7f4f04fff4937e81a75a1c44b4cc219497943baff7288e379ebda835a5dd6776"
+      },
+      "pass": true
+    },
+    "PF8": {
+      "evidence": "25 frozen queries identify this lineage's offline delivery. A 35-turn ablation tests integration, provenance, budget, leakage, and prefix determinism; it cannot test turn-55 art or 120-turn efficacy.",
+      "pass": true
+    },
+    "PF9": {
+      "evidence": [
+        {
+          "can_be_false": "distinct fact breadth",
+          "surrogate": "selected span count"
+        },
+        {
+          "can_be_false": "reader use and correctness",
+          "surrogate": "Q11 availability"
+        },
+        {
+          "can_be_false": "individual-query safety; G4 remains separate",
+          "surrogate": "domain macro"
+        },
+        {
+          "can_be_false": "equal delivered evidence",
+          "surrogate": "32k fit"
+        }
+      ],
+      "pass": true
+    }
+  },
+  "input_sha256": {
+    "amendment": "bb0fe6c0895fc8e28e2da76650600e73e29c69943400b38c771851b79a71e74b",
+    "answer_key": "2d43a31d3c04f4ad690ff2910abde71f508a3f6ce776545a9f2b16f90fae5320",
+    "database_q11": "5da47ea3fc2c8e3dcc50fa380ff65202d82557905d9976117e9e5d82e55c1c41",
+    "exploration_2": "abc349a47f2a40b7d195b3843a59cea2d4f48c974aa7bf8f049e0aca74c50926",
+    "exploration_3": "e40acdfc83ba1675e505263a2e78746d5dbeb53bb2232ac0168917bdc3de4f55",
+    "final_lock": "4a4550dcb5d0d4c1f92a12110c5ab82ef4aaae95eb67d1f3abab33d4334f2a2a"
+  },
+  "live_run_authorized": false,
+  "measurement_authorized": true,
+  "status": "PASS",
+  "study": "SR-001 extractive span representation"
+}

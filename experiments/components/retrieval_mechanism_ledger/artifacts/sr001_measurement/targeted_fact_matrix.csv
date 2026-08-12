@@ -1,0 +1,89 @@
+query_id,query_class,required_domains,arm,fact_id,packed_available,match_unit_ids
+h121_l01,lookup,"[""structural""]",C0,f121_structural_service_life,True,"[""78203e87-14b9-454a-9471-2911898d1d05""]"
+h121_l01,lookup,"[""structural""]",T1,f121_structural_service_life,True,"[""span:78203e87-14b9-454a-9471-2911898d1d05:user:6:204""]"
+h121_l02,lookup,"[""structural""]",C0,f121_structural_spherical_bearings,True,"[""761e828b-48bb-4424-9d65-e17ab7e6b813""]"
+h121_l02,lookup,"[""structural""]",T1,f121_structural_spherical_bearings,True,"[""span:761e828b-48bb-4424-9d65-e17ab7e6b813:user:6:176""]"
+h121_l03,lookup,"[""structural""]",C0,f121_structural_dehumidification,True,"[""98872452-010e-45d4-965b-c34e338812b0""]"
+h121_l03,lookup,"[""structural""]",T1,f121_structural_dehumidification,False,[]
+h121_l04,lookup,"[""art""]",C0,f121_art_lapis_ultramarine,True,"[""364f0cd2-42ff-4706-8b6c-4c5ce5b1d298""]"
+h121_l04,lookup,"[""art""]",T1,f121_art_lapis_ultramarine,True,"[""span:364f0cd2-42ff-4706-8b6c-4c5ce5b1d298:user:6:233""]"
+h121_l05,lookup,"[""art""]",C0,f121_art_intonaco,False,[]
+h121_l05,lookup,"[""art""]",T1,f121_art_intonaco,False,[]
+h121_l06,lookup,"[""art""]",C0,f121_art_infrared_reflectography,True,"[""14ea86d2-a1d9-4b80-bff3-74f13efe6a11""]"
+h121_l06,lookup,"[""art""]",T1,f121_art_infrared_reflectography,True,"[""span:14ea86d2-a1d9-4b80-bff3-74f13efe6a11:user:6:241""]"
+h121_l07,lookup,"[""monetary""]",C0,f121_monetary_gfc_2008,False,[]
+h121_l07,lookup,"[""monetary""]",T1,f121_monetary_gfc_2008,False,[]
+h121_l08,lookup,"[""monetary""]",C0,f121_monetary_near_zero,True,"[""a0033e57-f0e0-43fb-889c-0b1578f57f66""]"
+h121_l08,lookup,"[""monetary""]",T1,f121_monetary_near_zero,True,"[""span:a0033e57-f0e0-43fb-889c-0b1578f57f66:user:6:261""]"
+h121_l09,lookup,"[""monetary""]",C0,f121_monetary_great_moderation,False,[]
+h121_l09,lookup,"[""monetary""]",T1,f121_monetary_great_moderation,False,[]
+h121_l10,lookup,"[""marine""]",C0,f121_marine_zones,True,"[""ee321e5a-8414-4d1a-9571-95db474009fd""]"
+h121_l10,lookup,"[""marine""]",T1,f121_marine_zones,True,"[""span:ee321e5a-8414-4d1a-9571-95db474009fd:user:79:293""]"
+h121_l11,lookup,"[""marine""]",C0,f121_marine_luciferin_luciferase,True,"[""228dd4e4-eb95-4aea-a00d-a54c2d2bcf33""]"
+h121_l11,lookup,"[""marine""]",T1,f121_marine_luciferin_luciferase,True,"[""span:228dd4e4-eb95-4aea-a00d-a54c2d2bcf33:user:6:250""]"
+h121_l12,lookup,"[""marine""]",C0,f121_marine_diel_migration,True,"[""3e6095a3-ccf3-4aa9-aa04-7b8f0702200d""]"
+h121_l12,lookup,"[""marine""]",T1,f121_marine_diel_migration,True,"[""span:3e6095a3-ccf3-4aa9-aa04-7b8f0702200d:user:6:234""]"
+h121_c01,chained,"[""structural""]",C0,f121_structural_service_life,False,[]
+h121_c01,chained,"[""structural""]",C0,f121_structural_dehumidification,False,[]
+h121_c01,chained,"[""structural""]",T1,f121_structural_service_life,False,[]
+h121_c01,chained,"[""structural""]",T1,f121_structural_dehumidification,False,[]
+h121_c02,chained,"[""art""]",C0,f121_art_lapis_ultramarine,True,"[""364f0cd2-42ff-4706-8b6c-4c5ce5b1d298""]"
+h121_c02,chained,"[""art""]",C0,f121_art_intonaco,False,[]
+h121_c02,chained,"[""art""]",T1,f121_art_lapis_ultramarine,True,"[""span:364f0cd2-42ff-4706-8b6c-4c5ce5b1d298:user:6:233""]"
+h121_c02,chained,"[""art""]",T1,f121_art_intonaco,False,[]
+h121_c03,chained,"[""monetary""]",C0,f121_monetary_near_zero,True,"[""a0033e57-f0e0-43fb-889c-0b1578f57f66""]"
+h121_c03,chained,"[""monetary""]",C0,f121_monetary_great_moderation,False,[]
+h121_c03,chained,"[""monetary""]",T1,f121_monetary_near_zero,True,"[""span:a0033e57-f0e0-43fb-889c-0b1578f57f66:user:6:261""]"
+h121_c03,chained,"[""monetary""]",T1,f121_monetary_great_moderation,False,[]
+h121_c04,chained,"[""marine""]",C0,f121_marine_diel_migration,True,"[""3e6095a3-ccf3-4aa9-aa04-7b8f0702200d""]"
+h121_c04,chained,"[""marine""]",C0,f121_marine_plankton_nets,True,"[""14047a25-628c-41ed-818b-341135abd99b""]"
+h121_c04,chained,"[""marine""]",T1,f121_marine_diel_migration,False,[]
+h121_c04,chained,"[""marine""]",T1,f121_marine_plankton_nets,True,"[""span:14047a25-628c-41ed-818b-341135abd99b:user:6:273""]"
+h121_c05,chained,"[""art"", ""marine""]",C0,f121_art_infrared_reflectography,True,"[""14ea86d2-a1d9-4b80-bff3-74f13efe6a11""]"
+h121_c05,chained,"[""art"", ""marine""]",C0,f121_marine_in_situ_imaging,True,"[""14047a25-628c-41ed-818b-341135abd99b""]"
+h121_c05,chained,"[""art"", ""marine""]",T1,f121_art_infrared_reflectography,True,"[""span:14ea86d2-a1d9-4b80-bff3-74f13efe6a11:user:6:241""]"
+h121_c05,chained,"[""art"", ""marine""]",T1,f121_marine_in_situ_imaging,True,"[""span:14047a25-628c-41ed-818b-341135abd99b:user:6:273""]"
+h121_c06,chained,"[""structural"", ""monetary""]",C0,f121_structural_spherical_bearings,True,"[""761e828b-48bb-4424-9d65-e17ab7e6b813""]"
+h121_c06,chained,"[""structural"", ""monetary""]",C0,f121_monetary_price_level_target,False,[]
+h121_c06,chained,"[""structural"", ""monetary""]",T1,f121_structural_spherical_bearings,True,"[""span:761e828b-48bb-4424-9d65-e17ab7e6b813:user:6:176""]"
+h121_c06,chained,"[""structural"", ""monetary""]",T1,f121_monetary_price_level_target,False,[]
+h121_c07,chained,"[""art"", ""monetary""]",C0,f121_art_sacra_conversazione,False,[]
+h121_c07,chained,"[""art"", ""monetary""]",C0,f121_monetary_fiscal_price_level,False,[]
+h121_c07,chained,"[""art"", ""monetary""]",T1,f121_art_sacra_conversazione,False,[]
+h121_c07,chained,"[""art"", ""monetary""]",T1,f121_monetary_fiscal_price_level,False,[]
+h121_c08,chained,"[""structural"", ""marine""]",C0,f121_structural_wind_tunnel,True,"[""ad341f74-2541-4269-9be4-494ec86f3454""]"
+h121_c08,chained,"[""structural"", ""marine""]",C0,f121_marine_rov,True,"[""14047a25-628c-41ed-818b-341135abd99b""]"
+h121_c08,chained,"[""structural"", ""marine""]",T1,f121_structural_wind_tunnel,True,"[""span:ad341f74-2541-4269-9be4-494ec86f3454:user:6:226""]"
+h121_c08,chained,"[""structural"", ""marine""]",T1,f121_marine_rov,True,"[""span:14047a25-628c-41ed-818b-341135abd99b:user:6:273""]"
+h121_e01,enumeration,"[""structural"", ""art"", ""monetary"", ""marine""]",C0,f121_structural_dehumidification,False,[]
+h121_e01,enumeration,"[""structural"", ""art"", ""monetary"", ""marine""]",C0,f121_art_infrared_reflectography,False,[]
+h121_e01,enumeration,"[""structural"", ""art"", ""monetary"", ""marine""]",C0,f121_monetary_open_market_operations,False,[]
+h121_e01,enumeration,"[""structural"", ""art"", ""monetary"", ""marine""]",C0,f121_marine_diel_migration,False,[]
+h121_e01,enumeration,"[""structural"", ""art"", ""monetary"", ""marine""]",T1,f121_structural_dehumidification,False,[]
+h121_e01,enumeration,"[""structural"", ""art"", ""monetary"", ""marine""]",T1,f121_art_infrared_reflectography,False,[]
+h121_e01,enumeration,"[""structural"", ""art"", ""monetary"", ""marine""]",T1,f121_monetary_open_market_operations,False,[]
+h121_e01,enumeration,"[""structural"", ""art"", ""monetary"", ""marine""]",T1,f121_marine_diel_migration,False,[]
+h121_e02,enumeration,"[""structural"", ""art"", ""monetary"", ""marine""]",C0,f121_structural_service_life,False,[]
+h121_e02,enumeration,"[""structural"", ""art"", ""monetary"", ""marine""]",C0,f121_art_date_span,False,[]
+h121_e02,enumeration,"[""structural"", ""art"", ""monetary"", ""marine""]",C0,f121_monetary_gfc_2008,False,[]
+h121_e02,enumeration,"[""structural"", ""art"", ""monetary"", ""marine""]",C0,f121_marine_oxygen_minimum,False,[]
+h121_e02,enumeration,"[""structural"", ""art"", ""monetary"", ""marine""]",T1,f121_structural_service_life,False,[]
+h121_e02,enumeration,"[""structural"", ""art"", ""monetary"", ""marine""]",T1,f121_art_date_span,False,[]
+h121_e02,enumeration,"[""structural"", ""art"", ""monetary"", ""marine""]",T1,f121_monetary_gfc_2008,False,[]
+h121_e02,enumeration,"[""structural"", ""art"", ""monetary"", ""marine""]",T1,f121_marine_oxygen_minimum,False,[]
+h121_e03,enumeration,"[""structural"", ""art"", ""monetary"", ""marine""]",C0,f121_structural_orthotropic_deck,False,[]
+h121_e03,enumeration,"[""structural"", ""art"", ""monetary"", ""marine""]",C0,f121_art_gold_leaf,False,[]
+h121_e03,enumeration,"[""structural"", ""art"", ""monetary"", ""marine""]",C0,f121_monetary_quantitative_easing,False,[]
+h121_e03,enumeration,"[""structural"", ""art"", ""monetary"", ""marine""]",C0,f121_marine_gelatinous_zooplankton,False,[]
+h121_e03,enumeration,"[""structural"", ""art"", ""monetary"", ""marine""]",T1,f121_structural_orthotropic_deck,False,[]
+h121_e03,enumeration,"[""structural"", ""art"", ""monetary"", ""marine""]",T1,f121_art_gold_leaf,False,[]
+h121_e03,enumeration,"[""structural"", ""art"", ""monetary"", ""marine""]",T1,f121_monetary_quantitative_easing,False,[]
+h121_e03,enumeration,"[""structural"", ""art"", ""monetary"", ""marine""]",T1,f121_marine_gelatinous_zooplankton,False,[]
+h121_e04,enumeration,"[""structural"", ""art"", ""monetary"", ""marine""]",C0,f121_structural_wind_tunnel,True,"[""ad341f74-2541-4269-9be4-494ec86f3454""]"
+h121_e04,enumeration,"[""structural"", ""art"", ""monetary"", ""marine""]",C0,f121_art_xray_radiography,False,[]
+h121_e04,enumeration,"[""structural"", ""art"", ""monetary"", ""marine""]",C0,f121_monetary_stress_testing,False,[]
+h121_e04,enumeration,"[""structural"", ""art"", ""monetary"", ""marine""]",C0,f121_marine_rov,False,[]
+h121_e04,enumeration,"[""structural"", ""art"", ""monetary"", ""marine""]",T1,f121_structural_wind_tunnel,True,"[""span:ad341f74-2541-4269-9be4-494ec86f3454:user:6:226""]"
+h121_e04,enumeration,"[""structural"", ""art"", ""monetary"", ""marine""]",T1,f121_art_xray_radiography,False,[]
+h121_e04,enumeration,"[""structural"", ""art"", ""monetary"", ""marine""]",T1,f121_monetary_stress_testing,False,[]
+h121_e04,enumeration,"[""structural"", ""art"", ""monetary"", ""marine""]",T1,f121_marine_rov,False,[]
