@@ -70,6 +70,8 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **Study 010 corpus composition (2026-08-12).** Found by DMR-001. The 1,000-turn endurance script holds only 156 distinct user/assistant pairs: about 11 substantive turns per topical block plus ~70 exact repeats of a stay-on-thread filler. 844/1,000 episodes are exact duplicates. No published number changes; DX-002's saturation reading is qualified.
 
+**DMR-001B adaptive drift formation (2026-08-12).** PASS, CHARACTERIZED; does NOT unblock DMR-002. A percentile-of-recent-drift bar holds fire-rate swing at 1.42-1.65x across all five grid cells where the fixed rule swung 9x-inf. Cap 128 never bound; 0 capped closures in 3,724 episodes. Worst family .419->.487, but the 1,000-turn family fell .733->.583. No sealed holdout; DEVIATION_001 recorded.
+
 **PS-001 pattern-separated engram formation (2026-08-11).** CHARACTERIZED. Nine deterministic sparse cells on 119 episodes; only D=4096,K=41 passed G3-G5: 119/119 fixed points and exact 1/10/30/50% swap recovery. Six of seven degenerates reached stored codes; the union-biased cue cycled. Code-space result only; no natural cue, retrieval, live run, promotion, or adoption.
 
 **PS-002 natural-language cue binding (2026-08-11).** STOP AT PART 1; NATURAL_CUES_NOT_BOUND, CHARACTERIZED. Nine label-blind cells ran 24 sealed queries x8 rounds. Best M=4,tau=.025 reached stored codes 190/192 but one cue cycled and one reached a spurious fixed point; no cell emitted 8 clean ids/query. Labels, PF1-PF10, answers, live run, promotion and adoption not entered.

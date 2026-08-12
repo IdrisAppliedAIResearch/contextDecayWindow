@@ -1,0 +1,75 @@
+{
+  "study": "DMR-001B",
+  "date": "2026-08-12",
+  "status": "DESIGN_LOCK_DIAGNOSTIC_NO_SEALED_HOLDOUT",
+  "mechanism": "Adaptive drift event formation with typed cap closures",
+  "component": "src/biological_memory/adaptive_event_context.py::AdaptiveEventContextFormer",
+  "design_source": "DMR_001B_PRE_REGISTRATION.md",
+  "design_sha256": "ad6f9451a1be1519820a18f1ac1dae5dbc9ce38819671c8537061a6dc5ecc5e6",
+  "design_sha256_normalization": "file bytes with CRLF and CR rewritten to LF",
+  "pre_registration_commit": "74690eda",
+  "predecessor": {
+    "study": "DMR-001",
+    "disposition": "DEGENERATE_FORMATION",
+    "design_sha256": "f563b6c5f9a98413b3a00135600f6d4dc3f9203242190d30c2bf0b2e03d28c41"
+  },
+  "deviations": [
+    {
+      "id": "DEVIATION_001",
+      "file": "DEVIATION_001_implementation_preceded_registration.md",
+      "summary": "The component was written before the pre-registration and both were committed together. PF3 reports the ordering check as FAILED.",
+      "affects_confirmatory_standing": true
+    }
+  ],
+  "parameters": {
+    "drift_percentile": 0.975,
+    "history_window": 16,
+    "warmup": 16,
+    "min_event_size": 5,
+    "max_event_size": 128,
+    "rho": 0.5,
+    "boundary_tolerance": 1
+  },
+  "percentile_grid": [0.8, 0.85, 0.9, 0.95, 0.975],
+  "substantive_families": ["family_1000_61311041", "family_121_36adce29"],
+  "excluded_from_family_statistics": {
+    "family_30_be065cb7": "5 annotated boundaries; F1 identical at 0.286 across every relative configuration, so it carries no signal for a worst-of ranking. Still formed and still bound by G1, G2, G3."
+  },
+  "corpus": {
+    "lock": "../dmr_001/artifacts/dmr001_corpus/corpus_lock.json",
+    "digest": "be939cbebc0e9e9f33906ffc92047e114372852bbc578bb4376efd0e061d3bf9",
+    "sealed_holdout": false,
+    "reason": "both corpora were read by DMR-001; arc invariant 7 makes them development sets"
+  },
+  "anchors": {
+    "part1_record": "exploration/DMR_001B_PART1_EXPLORATION.json",
+    "part1_sha256": "232d3f3652c1669d8d1b8b42ae78efb95a11f8fed14585e637522a8508f05575",
+    "part1_commit": "8a8daeb7"
+  },
+  "binding_gates": [
+    "G1 integrity",
+    "G2 partition",
+    "G3 nondegeneracy",
+    "G4 transfer stability",
+    "G5 improvement over the predecessor"
+  ],
+  "part1_reachability": {
+    "swing_percentile_w16": {
+      "0.8": 1.4759,
+      "0.85": 1.5867,
+      "0.9": 1.6139,
+      "0.95": 1.6491,
+      "0.975": 1.4243
+    },
+    "locked_cell_worst_family_f1": 0.4871,
+    "predecessor_worst_family_f1_claims_only": 0.4194,
+    "locked_cell_max_event_size": 77,
+    "locked_cell_singleton_fraction": 0.0
+  },
+  "outcome_ceiling": "CHARACTERIZED",
+  "cannot_authorize": [
+    "DMR-002 or any downstream stage",
+    "any retrieval, ranking, packing, or reader call",
+    "any ablation, live run, promotion, or adoption"
+  ]
+}
