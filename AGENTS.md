@@ -64,7 +64,11 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **SUP-001 explicit supersession (2026-08-11).** FACTUAL PASS; byte-identity criterion withdrawn. Binary accessibility makes current-only 0/64->64/64, unchanged 32/32, histories 64/64, zero stale natural selections. Value interpretation gives C0 8/9, T1 9/9; `$35`=`$35.00`. Zero regressions. No 120-turn run or adoption is automatic.
 
-**DMR deterministic multi-route arc (2026-08-11).** DESIGN ONLY; no implementation or run authorized. Six staged specs separate event formation, typed completion, encoding-context recurrence, query obligations, route control, and one-reader validation. Every stage repeats the full roadmap and requires exploration, pre-registration, PF1-PF10, and its own branch/PR.
+**DMR deterministic multi-route arc (2026-08-12).** BLOCKED AT DMR-001. Six staged specs separate event formation, typed completion, encoding-context recurrence, query obligations, route control, and one-reader validation. DMR-001 ran and stopped, so there is no validated event substrate; DMR-002-006 require a new upstream design, not a retune.
+
+**DMR-001 event-context formation (2026-08-12).** G3 FAIL; DEGENERATE_FORMATION. On the 2,000-episode holdout 52/74 events close on the size cap (.703 vs bar .35). All 20 drift boundaries match an annotation, precision 1.000; the 52 forced ones match none. Threshold .70 is above holdout drift's p95 but fires on 18.5% of dev: no transferable scale. G1/G2, PF1-PF10 pass.
+
+**Study 010 corpus composition (2026-08-12).** Found by DMR-001. The 1,000-turn endurance script holds only 156 distinct user/assistant pairs: about 11 substantive turns per topical block plus ~70 exact repeats of a stay-on-thread filler. 844/1,000 episodes are exact duplicates. No published number changes; DX-002's saturation reading is qualified.
 
 **PS-001 pattern-separated engram formation (2026-08-11).** CHARACTERIZED. Nine deterministic sparse cells on 119 episodes; only D=4096,K=41 passed G3-G5: 119/119 fixed points and exact 1/10/30/50% swap recovery. Six of seven degenerates reached stored codes; the union-biased cue cycled. Code-space result only; no natural cue, retrieval, live run, promotion, or adoption.
 
