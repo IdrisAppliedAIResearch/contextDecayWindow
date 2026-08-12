@@ -1,0 +1,1109 @@
+{
+ "classes": {
+  "R1": {
+   "all": {
+    "CONJUNCT": {
+     "count": 2,
+     "share": 0.003816793893129771
+    },
+    "ENUMERATE_N": {
+     "count": 28,
+     "share": 0.05343511450381679
+    },
+    "HISTORY": {
+     "count": 106,
+     "share": 0.20229007633587787
+    },
+    "LOOKUP": {
+     "count": 356,
+     "share": 0.6793893129770993
+    },
+    "OPEN": {
+     "count": 32,
+     "share": 0.061068702290076333
+    }
+   },
+   "ambiguity_codes": {
+    "NO_INTERROGATIVE_FRAME": 32
+   },
+   "by_source": {
+    "internal": {
+     "CONJUNCT": {
+      "count": 0,
+      "share": 0.0
+     },
+     "ENUMERATE_N": {
+      "count": 1,
+      "share": 0.041666666666666664
+     },
+     "HISTORY": {
+      "count": 5,
+      "share": 0.20833333333333334
+     },
+     "LOOKUP": {
+      "count": 7,
+      "share": 0.2916666666666667
+     },
+     "OPEN": {
+      "count": 11,
+      "share": 0.4583333333333333
+     }
+    },
+    "longmemeval": {
+     "CONJUNCT": {
+      "count": 2,
+      "share": 0.004
+     },
+     "ENUMERATE_N": {
+      "count": 27,
+      "share": 0.054
+     },
+     "HISTORY": {
+      "count": 101,
+      "share": 0.202
+     },
+     "LOOKUP": {
+      "count": 349,
+      "share": 0.698
+     },
+     "OPEN": {
+      "count": 21,
+      "share": 0.042
+     }
+    }
+   },
+   "span_coverage": {
+    "median_fraction_of_query": 0.9142857142857143,
+    "p90_fraction_of_query": 0.95,
+    "share_covering_90_percent_or_more": 0.6479481641468683,
+    "spans": 463
+   }
+  },
+  "R2": {
+   "all": {
+    "CONJUNCT": {
+     "count": 1,
+     "share": 0.0019083969465648854
+    },
+    "ENUMERATE_N": {
+     "count": 10,
+     "share": 0.019083969465648856
+    },
+    "HISTORY": {
+     "count": 35,
+     "share": 0.06679389312977099
+    },
+    "LOOKUP": {
+     "count": 173,
+     "share": 0.3301526717557252
+    },
+    "OPEN": {
+     "count": 305,
+     "share": 0.5820610687022901
+    }
+   },
+   "ambiguity_codes": {
+    "AGGREGATE_FRAME": 261,
+    "DISCOURSE_POINTER_NOT_HISTORY": 41,
+    "NO_INTERROGATIVE_FRAME": 44,
+    "NUMERAL_NOT_CARDINALITY": 27
+   },
+   "by_source": {
+    "internal": {
+     "CONJUNCT": {
+      "count": 0,
+      "share": 0.0
+     },
+     "ENUMERATE_N": {
+      "count": 1,
+      "share": 0.041666666666666664
+     },
+     "HISTORY": {
+      "count": 5,
+      "share": 0.20833333333333334
+     },
+     "LOOKUP": {
+      "count": 7,
+      "share": 0.2916666666666667
+     },
+     "OPEN": {
+      "count": 11,
+      "share": 0.4583333333333333
+     }
+    },
+    "longmemeval": {
+     "CONJUNCT": {
+      "count": 1,
+      "share": 0.002
+     },
+     "ENUMERATE_N": {
+      "count": 9,
+      "share": 0.018
+     },
+     "HISTORY": {
+      "count": 30,
+      "share": 0.06
+     },
+     "LOOKUP": {
+      "count": 166,
+      "share": 0.332
+     },
+     "OPEN": {
+      "count": 294,
+      "share": 0.588
+     }
+    }
+   },
+   "span_coverage": {
+    "median_fraction_of_query": 0.8888888888888888,
+    "p90_fraction_of_query": 0.9401709401709402,
+    "share_covering_90_percent_or_more": 0.4174757281553398,
+    "spans": 206
+   }
+  },
+  "R2_RAW": {
+   "all": {
+    "CONJUNCT": {
+     "count": 1,
+     "share": 0.0019083969465648854
+    },
+    "ENUMERATE_N": {
+     "count": 10,
+     "share": 0.019083969465648856
+    },
+    "HISTORY": {
+     "count": 35,
+     "share": 0.06679389312977099
+    },
+    "LOOKUP": {
+     "count": 173,
+     "share": 0.3301526717557252
+    },
+    "OPEN": {
+     "count": 305,
+     "share": 0.5820610687022901
+    }
+   },
+   "ambiguity_codes": {
+    "AGGREGATE_FRAME": 261,
+    "DISCOURSE_POINTER_NOT_HISTORY": 41,
+    "NO_INTERROGATIVE_FRAME": 44,
+    "NUMERAL_NOT_CARDINALITY": 27
+   },
+   "by_source": {
+    "internal": {
+     "CONJUNCT": {
+      "count": 0,
+      "share": 0.0
+     },
+     "ENUMERATE_N": {
+      "count": 1,
+      "share": 0.041666666666666664
+     },
+     "HISTORY": {
+      "count": 5,
+      "share": 0.20833333333333334
+     },
+     "LOOKUP": {
+      "count": 7,
+      "share": 0.2916666666666667
+     },
+     "OPEN": {
+      "count": 11,
+      "share": 0.4583333333333333
+     }
+    },
+    "longmemeval": {
+     "CONJUNCT": {
+      "count": 1,
+      "share": 0.002
+     },
+     "ENUMERATE_N": {
+      "count": 9,
+      "share": 0.018
+     },
+     "HISTORY": {
+      "count": 30,
+      "share": 0.06
+     },
+     "LOOKUP": {
+      "count": 166,
+      "share": 0.332
+     },
+     "OPEN": {
+      "count": 294,
+      "share": 0.588
+     }
+    }
+   },
+   "span_coverage": {
+    "median_fraction_of_query": 0.8888888888888888,
+    "p90_fraction_of_query": 0.9401709401709402,
+    "share_covering_90_percent_or_more": 0.4174757281553398,
+    "spans": 206
+   }
+  }
+ },
+ "corpus": {
+  "count": 524,
+  "dataset_sha256": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+  "digest": "16e06f6d363ddc9d6743452713fc642b0cedf52c0f86fa62fff8e280f094daa9"
+ },
+ "degenerate": {
+  "R1:every_query_lookup": {
+   "observed_share": 0.6793893129770993,
+   "reached": false
+  },
+  "R1:every_query_open": {
+   "observed_share": 0.061068702290076333,
+   "reached": false
+  },
+  "R2:every_query_lookup": {
+   "observed_share": 0.3301526717557252,
+   "reached": false
+  },
+  "R2:every_query_open": {
+   "observed_share": 0.5820610687022901,
+   "reached": false
+  },
+  "R2_RAW:every_query_lookup": {
+   "observed_share": 0.3301526717557252,
+   "reached": false
+  },
+  "R2_RAW:every_query_open": {
+   "observed_share": 0.5820610687022901,
+   "reached": false
+  },
+  "duplicate_query_text": {
+   "max_repeats": 1,
+   "reached": false
+  },
+  "excessive_cardinality": {
+   "count": 0,
+   "largest_requested_count": 6,
+   "reached": false,
+   "threshold": 10
+  },
+  "no_interrogative_frame": {
+   "count": 44,
+   "example": "For structural engineering, name the project and lead, then state the primary value, technical specification, and decision threshold exactly.",
+   "reached": true
+  },
+  "span_covers_whole_query": {
+   "count": 11,
+   "example": "What is the exact main span length of the Halcyon Crossing bridge project, and what steel grade specification was established for its primary structural members?",
+   "note": "the surrogate the specification's §9 warns about, realized",
+   "reached": true,
+   "share_of_spanned": 0.05339805825242718
+  },
+  "zero_length_span": {
+   "example": null,
+   "note": "the span rule returns None rather than an empty span; the state is unreachable by construction",
+   "reached": false
+  }
+ },
+ "leakage": {
+  "benchmark_label_confusion": {
+   "R1": {
+    "knowledge-update": {
+     "CONJUNCT": 1,
+     "ENUMERATE_N": 2,
+     "HISTORY": 12,
+     "LOOKUP": 62,
+     "OPEN": 1
+    },
+    "multi-session": {
+     "CONJUNCT": 0,
+     "ENUMERATE_N": 8,
+     "HISTORY": 11,
+     "LOOKUP": 111,
+     "OPEN": 3
+    },
+    "single-session-assistant": {
+     "CONJUNCT": 0,
+     "ENUMERATE_N": 0,
+     "HISTORY": 49,
+     "LOOKUP": 3,
+     "OPEN": 4
+    },
+    "single-session-preference": {
+     "CONJUNCT": 1,
+     "ENUMERATE_N": 0,
+     "HISTORY": 0,
+     "LOOKUP": 16,
+     "OPEN": 13
+    },
+    "single-session-user": {
+     "CONJUNCT": 0,
+     "ENUMERATE_N": 0,
+     "HISTORY": 7,
+     "LOOKUP": 63,
+     "OPEN": 0
+    },
+    "temporal-reasoning": {
+     "CONJUNCT": 0,
+     "ENUMERATE_N": 17,
+     "HISTORY": 22,
+     "LOOKUP": 94,
+     "OPEN": 0
+    }
+   },
+   "R2": {
+    "knowledge-update": {
+     "CONJUNCT": 0,
+     "ENUMERATE_N": 0,
+     "HISTORY": 8,
+     "LOOKUP": 21,
+     "OPEN": 49
+    },
+    "multi-session": {
+     "CONJUNCT": 0,
+     "ENUMERATE_N": 1,
+     "HISTORY": 2,
+     "LOOKUP": 11,
+     "OPEN": 119
+    },
+    "single-session-assistant": {
+     "CONJUNCT": 0,
+     "ENUMERATE_N": 1,
+     "HISTORY": 8,
+     "LOOKUP": 23,
+     "OPEN": 24
+    },
+    "single-session-preference": {
+     "CONJUNCT": 1,
+     "ENUMERATE_N": 0,
+     "HISTORY": 0,
+     "LOOKUP": 16,
+     "OPEN": 13
+    },
+    "single-session-user": {
+     "CONJUNCT": 0,
+     "ENUMERATE_N": 0,
+     "HISTORY": 6,
+     "LOOKUP": 41,
+     "OPEN": 23
+    },
+    "temporal-reasoning": {
+     "CONJUNCT": 0,
+     "ENUMERATE_N": 7,
+     "HISTORY": 6,
+     "LOOKUP": 54,
+     "OPEN": 66
+    }
+   },
+   "R2_RAW": {
+    "knowledge-update": {
+     "CONJUNCT": 0,
+     "ENUMERATE_N": 0,
+     "HISTORY": 8,
+     "LOOKUP": 21,
+     "OPEN": 49
+    },
+    "multi-session": {
+     "CONJUNCT": 0,
+     "ENUMERATE_N": 1,
+     "HISTORY": 2,
+     "LOOKUP": 11,
+     "OPEN": 119
+    },
+    "single-session-assistant": {
+     "CONJUNCT": 0,
+     "ENUMERATE_N": 1,
+     "HISTORY": 8,
+     "LOOKUP": 23,
+     "OPEN": 24
+    },
+    "single-session-preference": {
+     "CONJUNCT": 1,
+     "ENUMERATE_N": 0,
+     "HISTORY": 0,
+     "LOOKUP": 16,
+     "OPEN": 13
+    },
+    "single-session-user": {
+     "CONJUNCT": 0,
+     "ENUMERATE_N": 0,
+     "HISTORY": 6,
+     "LOOKUP": 41,
+     "OPEN": 23
+    },
+    "temporal-reasoning": {
+     "CONJUNCT": 0,
+     "ENUMERATE_N": 7,
+     "HISTORY": 6,
+     "LOOKUP": 54,
+     "OPEN": 66
+    }
+   }
+  },
+  "corpus_separation": [
+   {
+    "internal_count": 5,
+    "internal_share": 0.20833333333333334,
+    "longmemeval_count": 0,
+    "longmemeval_share": 0.0,
+    "probe": "coordinated_interrogative",
+    "separation": 0.20833333333333334
+   },
+   {
+    "internal_count": 12,
+    "internal_share": 0.5,
+    "longmemeval_count": 0,
+    "longmemeval_share": 0.0,
+    "probe": "imperative_sequence",
+    "separation": 0.5
+   },
+   {
+    "internal_count": 16,
+    "internal_share": 0.6666666666666666,
+    "longmemeval_count": 2,
+    "longmemeval_share": 0.004,
+    "probe": "coordinated_imperative",
+    "separation": 0.6626666666666666
+   },
+   {
+    "internal_count": 16,
+    "internal_share": 0.6666666666666666,
+    "longmemeval_count": 10,
+    "longmemeval_share": 0.02,
+    "probe": "comma_list_of_three",
+    "separation": 0.6466666666666666
+   },
+   {
+    "internal_count": 0,
+    "internal_share": 0.0,
+    "longmemeval_count": 1,
+    "longmemeval_share": 0.002,
+    "probe": "top_level_semicolon",
+    "separation": 0.002
+   }
+  ]
+ },
+ "migration": {
+  "false_finite": {
+   "count": 272,
+   "examples": [
+    "How long is my daily commute to work?",
+    "How much did I spend on a designer handbag?",
+    "How many playlists do I have on Spotify?",
+    "How long did it take me to assemble the IKEA bookshelf?",
+    "How many shirts did I pack for my 5-day trip to Costa Rica?",
+    "How many bikes do I own?",
+    "How many largemouth bass did I catch on my fishing trip to Lake Michigan?",
+    "How many amateur comedians did I watch perform at the open mic night?",
+    "How much RAM did I upgrade my laptop to?",
+    "How much is the painting of a sunset worth in terms of the amount I paid for it?",
+    "How long did it take to move to the new apartment?",
+    "How many copies of my favorite artist's debut album were released worldwide?"
+   ],
+   "share": 0.5190839694656488
+  },
+  "transitions": [
+   {
+    "count": 214,
+    "from": "LOOKUP",
+    "to": "OPEN"
+   },
+   {
+    "count": 142,
+    "from": "LOOKUP",
+    "to": "LOOKUP"
+   },
+   {
+    "count": 48,
+    "from": "HISTORY",
+    "to": "OPEN"
+   },
+   {
+    "count": 35,
+    "from": "HISTORY",
+    "to": "HISTORY"
+   },
+   {
+    "count": 32,
+    "from": "OPEN",
+    "to": "OPEN"
+   },
+   {
+    "count": 21,
+    "from": "HISTORY",
+    "to": "LOOKUP"
+   },
+   {
+    "count": 10,
+    "from": "ENUMERATE_N",
+    "to": "OPEN"
+   },
+   {
+    "count": 10,
+    "from": "ENUMERATE_N",
+    "to": "LOOKUP"
+   },
+   {
+    "count": 8,
+    "from": "ENUMERATE_N",
+    "to": "ENUMERATE_N"
+   },
+   {
+    "count": 2,
+    "from": "HISTORY",
+    "to": "ENUMERATE_N"
+   },
+   {
+    "count": 1,
+    "from": "CONJUNCT",
+    "to": "CONJUNCT"
+   },
+   {
+    "count": 1,
+    "from": "CONJUNCT",
+    "to": "OPEN"
+   }
+  ]
+ },
+ "names": {
+  "CONJUNCT": {
+   "claim": "two or more independently valid lookup clauses",
+   "evidence": [
+    "I am planning another theme park weekend; do you have any suggestions?"
+   ],
+   "instances": 1,
+   "verdict": "not measurable"
+  },
+  "ENUMERATE_N / requested_count": {
+   "claim": "an explicit finite cardinality of requested list members",
+   "evidence": [
+    "How many times did I bake something in the past two weeks?",
+    "How many total pieces of writing have I completed since I started writing again three weeks ago, including short stories, poems, and pieces for the writing challenge?",
+    "How many graduation ceremonies have I attended in the past three months?"
+   ],
+   "note": "prices, dates, model numbers and ordinals all match an integer-plus-plural-noun rule",
+   "of_which_not_a_cardinality": 20,
+   "r1_instances": 28,
+   "verdict": "FAILS its name under R1"
+  },
+  "HISTORY": {
+   "claim": "an explicit request for how a value changed over time",
+   "evidence": [
+    "I'm checking our previous chat about the shift rotation sheet for GM social media agents. Can you remind me what was the rotation for Admon on a Sunday?",
+    "I'm going back to our previous conversation about the children's book on dinosaurs. Can you remind me what color was the scaly body of the Plesiosaur in the image?",
+    "In our previous chat, you suggested 'sexual compulsions' and a few other options for alternative terms for certain behaviors. Can you remind me what the other four options were?"
+   ],
+   "note": "'our previous conversation about X' names where to look, not what changed",
+   "of_which_discourse_pointers": 41,
+   "r1_instances": 106,
+   "verdict": "FAILS its name under R1"
+  },
+  "LOOKUP / ONE_EVIDENCE": {
+   "aggregate_frames_remaining": 0,
+   "claim": "one interrogative frame satisfied by one stored evidence item",
+   "instances": 173,
+   "verdict": "holds under R2 by construction; R1's version is the false-finite set"
+  },
+  "completeness_mode": {
+   "claim": "FINITE means a fixed number of evidence items completes the request",
+   "r2_finite_share": 0.4179389312977099,
+   "verdict": "holds only once aggregate frames are excluded"
+  },
+  "source_span": {
+   "claim": "the contiguous substring the query asks about",
+   "median_fraction_of_query": 0.8888888888888888,
+   "verdict": "WEAK - a span this wide overlaps any gold span"
+  }
+ },
+ "perturbation": {
+  "R1": {
+   "case": {
+    "applicable": 524,
+    "changed": 0,
+    "examples": [],
+    "rate": 0.0
+   },
+   "decimal": {
+    "applicable": 18,
+    "changed": 2,
+    "examples": [
+     {
+      "from": "ENUMERATE_N",
+      "query": "What kitchen appliance did I buy 10 days ago?",
+      "to": "LOOKUP"
+     },
+     {
+      "from": "ENUMERATE_N",
+      "query": "What was the social media activity I participated 5 days ago?",
+      "to": "LOOKUP"
+     }
+    ],
+    "rate": 0.1111111111111111
+   },
+   "punctuation": {
+    "applicable": 524,
+    "changed": 0,
+    "examples": [],
+    "rate": 0.0
+   },
+   "quotes": {
+    "applicable": 107,
+    "changed": 0,
+    "examples": [],
+    "rate": 0.0
+   },
+   "reorder_conjuncts": {
+    "applicable": 1,
+    "changed": 0,
+    "examples": [],
+    "rate": 0.0
+   },
+   "whitespace": {
+    "applicable": 524,
+    "changed": 0,
+    "examples": [],
+    "rate": 0.0
+   }
+  },
+  "R2": {
+   "case": {
+    "applicable": 524,
+    "changed": 0,
+    "examples": [],
+    "rate": 0.0
+   },
+   "decimal": {
+    "applicable": 18,
+    "changed": 0,
+    "examples": [],
+    "rate": 0.0
+   },
+   "punctuation": {
+    "applicable": 524,
+    "changed": 0,
+    "examples": [],
+    "rate": 0.0
+   },
+   "quotes": {
+    "applicable": 107,
+    "changed": 0,
+    "examples": [],
+    "rate": 0.0
+   },
+   "reorder_conjuncts": {
+    "applicable": 1,
+    "changed": 0,
+    "examples": [],
+    "rate": 0.0
+   },
+   "whitespace": {
+    "applicable": 524,
+    "changed": 0,
+    "examples": [],
+    "rate": 0.0
+   }
+  },
+  "R2_RAW": {
+   "case": {
+    "applicable": 524,
+    "changed": 0,
+    "examples": [],
+    "rate": 0.0
+   },
+   "decimal": {
+    "applicable": 18,
+    "changed": 0,
+    "examples": [],
+    "rate": 0.0
+   },
+   "punctuation": {
+    "applicable": 524,
+    "changed": 0,
+    "examples": [],
+    "rate": 0.0
+   },
+   "quotes": {
+    "applicable": 107,
+    "changed": 0,
+    "examples": [],
+    "rate": 0.0
+   },
+   "reorder_conjuncts": {
+    "applicable": 1,
+    "changed": 0,
+    "examples": [],
+    "rate": 0.0
+   },
+   "whitespace": {
+    "applicable": 524,
+    "changed": 221,
+    "examples": [
+     {
+      "from": "OPEN",
+      "query": "How long is my daily commute to work?",
+      "to": "LOOKUP"
+     },
+     {
+      "from": "OPEN",
+      "query": "How much did I spend on a designer handbag?",
+      "to": "LOOKUP"
+     },
+     {
+      "from": "OPEN",
+      "query": "How many playlists do I have on Spotify?",
+      "to": "LOOKUP"
+     }
+    ],
+    "rate": 0.4217557251908397
+   }
+  }
+ },
+ "reachability": {
+  "minimum_instances_for_a_rate_bar": 30,
+  "rows": [
+   {
+    "class": "LOOKUP",
+    "finest_resolvable_rate": 0.0028089887640449437,
+    "grammar": "R1",
+    "instances": 356,
+    "share": 0.6793893129770993,
+    "supports_rate_bar": true
+   },
+   {
+    "class": "CONJUNCT",
+    "finest_resolvable_rate": 0.5,
+    "grammar": "R1",
+    "instances": 2,
+    "share": 0.003816793893129771,
+    "supports_rate_bar": false
+   },
+   {
+    "class": "ENUMERATE_N",
+    "finest_resolvable_rate": 0.03571428571428571,
+    "grammar": "R1",
+    "instances": 28,
+    "share": 0.05343511450381679,
+    "supports_rate_bar": false
+   },
+   {
+    "class": "HISTORY",
+    "finest_resolvable_rate": 0.009433962264150943,
+    "grammar": "R1",
+    "instances": 106,
+    "share": 0.20229007633587787,
+    "supports_rate_bar": true
+   },
+   {
+    "class": "OPEN",
+    "finest_resolvable_rate": 0.03125,
+    "grammar": "R1",
+    "instances": 32,
+    "share": 0.061068702290076333,
+    "supports_rate_bar": true
+   },
+   {
+    "class": "LOOKUP",
+    "finest_resolvable_rate": 0.005780346820809248,
+    "grammar": "R2",
+    "instances": 173,
+    "share": 0.3301526717557252,
+    "supports_rate_bar": true
+   },
+   {
+    "class": "CONJUNCT",
+    "finest_resolvable_rate": 1.0,
+    "grammar": "R2",
+    "instances": 1,
+    "share": 0.0019083969465648854,
+    "supports_rate_bar": false
+   },
+   {
+    "class": "ENUMERATE_N",
+    "finest_resolvable_rate": 0.1,
+    "grammar": "R2",
+    "instances": 10,
+    "share": 0.019083969465648856,
+    "supports_rate_bar": false
+   },
+   {
+    "class": "HISTORY",
+    "finest_resolvable_rate": 0.02857142857142857,
+    "grammar": "R2",
+    "instances": 35,
+    "share": 0.06679389312977099,
+    "supports_rate_bar": true
+   },
+   {
+    "class": "OPEN",
+    "finest_resolvable_rate": 0.003278688524590164,
+    "grammar": "R2",
+    "instances": 305,
+    "share": 0.5820610687022901,
+    "supports_rate_bar": true
+   },
+   {
+    "class": "LOOKUP",
+    "finest_resolvable_rate": 0.005780346820809248,
+    "grammar": "R2_RAW",
+    "instances": 173,
+    "share": 0.3301526717557252,
+    "supports_rate_bar": true
+   },
+   {
+    "class": "CONJUNCT",
+    "finest_resolvable_rate": 1.0,
+    "grammar": "R2_RAW",
+    "instances": 1,
+    "share": 0.0019083969465648854,
+    "supports_rate_bar": false
+   },
+   {
+    "class": "ENUMERATE_N",
+    "finest_resolvable_rate": 0.1,
+    "grammar": "R2_RAW",
+    "instances": 10,
+    "share": 0.019083969465648856,
+    "supports_rate_bar": false
+   },
+   {
+    "class": "HISTORY",
+    "finest_resolvable_rate": 0.02857142857142857,
+    "grammar": "R2_RAW",
+    "instances": 35,
+    "share": 0.06679389312977099,
+    "supports_rate_bar": true
+   },
+   {
+    "class": "OPEN",
+    "finest_resolvable_rate": 0.003278688524590164,
+    "grammar": "R2_RAW",
+    "instances": 305,
+    "share": 0.5820610687022901,
+    "supports_rate_bar": true
+   }
+  ]
+ },
+ "record_sha256": "d34e50c5ba6bf6127b3a219e7959bdb95be991be223d642e3cc5032fdf4c6e61",
+ "schema": "dmr004-part1-v1",
+ "shape": {
+  "sources": {
+   "internal": {
+    "chars": {
+     "max": 388,
+     "median": 139,
+     "min": 108,
+     "p95": 254
+    },
+    "count": 24,
+    "distinct": 24,
+    "features": {
+     "aggregate_frame": {
+      "count": 0,
+      "share": 0.0
+     },
+     "bullet": {
+      "count": 0,
+      "share": 0.0
+     },
+     "canonicalization_changes_length": {
+      "count": 0,
+      "share": 0.0
+     },
+     "cardinality_like": {
+      "count": 3,
+      "share": 0.125
+     },
+     "change_word": {
+      "count": 0,
+      "share": 0.0
+     },
+     "coord_and": {
+      "count": 23,
+      "share": 0.9583333333333334
+     },
+     "coord_or": {
+      "count": 1,
+      "share": 0.041666666666666664
+     },
+     "digit": {
+      "count": 2,
+      "share": 0.08333333333333333
+     },
+     "discourse_pointer": {
+      "count": 0,
+      "share": 0.0
+     },
+     "first_person": {
+      "count": 2,
+      "share": 0.08333333333333333
+     },
+     "history_word": {
+      "count": 3,
+      "share": 0.125
+     },
+     "list_verb": {
+      "count": 2,
+      "share": 0.08333333333333333
+     },
+     "multi_question_mark": {
+      "count": 0,
+      "share": 0.0
+     },
+     "newline": {
+      "count": 0,
+      "share": 0.0
+     },
+     "ordinal_digit": {
+      "count": 0,
+      "share": 0.0
+     },
+     "prior_word": {
+      "count": 2,
+      "share": 0.08333333333333333
+     },
+     "question_mark": {
+      "count": 8,
+      "share": 0.3333333333333333
+     },
+     "quote": {
+      "count": 5,
+      "share": 0.20833333333333334
+     },
+     "remind_frame": {
+      "count": 1,
+      "share": 0.041666666666666664
+     },
+     "semicolon": {
+      "count": 0,
+      "share": 0.0
+     },
+     "spelled_number": {
+      "count": 4,
+      "share": 0.16666666666666666
+     },
+     "two_or_more_interrogative_frames": {
+      "count": 0,
+      "share": 0.0
+     },
+     "universal": {
+      "count": 4,
+      "share": 0.16666666666666666
+     }
+    },
+    "words": {
+     "max": 71,
+     "median": 19,
+     "min": 17,
+     "p95": 40
+    }
+   },
+   "longmemeval": {
+    "chars": {
+     "max": 355,
+     "median": 72,
+     "min": 21,
+     "p95": 192
+    },
+    "count": 500,
+    "distinct": 500,
+    "features": {
+     "aggregate_frame": {
+      "count": 267,
+      "share": 0.534
+     },
+     "bullet": {
+      "count": 0,
+      "share": 0.0
+     },
+     "canonicalization_changes_length": {
+      "count": 0,
+      "share": 0.0
+     },
+     "cardinality_like": {
+      "count": 37,
+      "share": 0.074
+     },
+     "change_word": {
+      "count": 3,
+      "share": 0.006
+     },
+     "coord_and": {
+      "count": 92,
+      "share": 0.184
+     },
+     "coord_or": {
+      "count": 52,
+      "share": 0.104
+     },
+     "digit": {
+      "count": 26,
+      "share": 0.052
+     },
+     "discourse_pointer": {
+      "count": 41,
+      "share": 0.082
+     },
+     "first_person": {
+      "count": 480,
+      "share": 0.96
+     },
+     "history_word": {
+      "count": 4,
+      "share": 0.008
+     },
+     "list_verb": {
+      "count": 5,
+      "share": 0.01
+     },
+     "multi_question_mark": {
+      "count": 5,
+      "share": 0.01
+     },
+     "newline": {
+      "count": 0,
+      "share": 0.0
+     },
+     "ordinal_digit": {
+      "count": 4,
+      "share": 0.008
+     },
+     "prior_word": {
+      "count": 97,
+      "share": 0.194
+     },
+     "question_mark": {
+      "count": 500,
+      "share": 1.0
+     },
+     "quote": {
+      "count": 103,
+      "share": 0.206
+     },
+     "remind_frame": {
+      "count": 44,
+      "share": 0.088
+     },
+     "semicolon": {
+      "count": 1,
+      "share": 0.002
+     },
+     "spelled_number": {
+      "count": 49,
+      "share": 0.098
+     },
+     "two_or_more_interrogative_frames": {
+      "count": 2,
+      "share": 0.004
+     },
+     "universal": {
+      "count": 10,
+      "share": 0.02
+     }
+    },
+    "words": {
+     "max": 57,
+     "median": 14,
+     "min": 4,
+     "p95": 33
+    }
+   }
+  }
+ }
+}
