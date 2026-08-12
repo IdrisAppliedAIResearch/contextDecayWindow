@@ -225,6 +225,22 @@ def _is_ancestor(root: Path, ancestor: str, descendant: str) -> bool:
     )
 
 
+def _dirty_paths(root: Path) -> list[str]:
+    """Working-tree changes, excluding the artifact this run is writing.
+
+    The preflight cannot require a spotlessly clean tree: it dirties the tree
+    itself by writing its own report. Everything else must be committed.
+    """
+    ignored = "experiments/components/biological_memory/dmr_001/artifacts/dmr001_preflight"
+    dirty = []
+    for line in _git(root, "status", "--porcelain").splitlines():
+        path = line[3:].strip().strip('"')
+        if path.startswith(ignored):
+            continue
+        dirty.append(line)
+    return dirty
+
+
 def pf3_ordering(root: Path, anchors: dict[str, Any]) -> dict[str, Any]:
     head = _git(root, "rev-parse", "HEAD")
     mechanism = _git(
@@ -259,9 +275,9 @@ def pf3_ordering(root: Path, anchors: dict[str, Any]) -> dict[str, Any]:
             head,
         ),
         _ok(
-            "the working tree is clean",
-            _git(root, "status", "--porcelain") == "",
-            _git(root, "status", "--porcelain") or "(clean)",
+            "the working tree is clean apart from this artifact",
+            not _dirty_paths(root),
+            _dirty_paths(root) or "(clean)",
             "(clean)",
         ),
     ]
