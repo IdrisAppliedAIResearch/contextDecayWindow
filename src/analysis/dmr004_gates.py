@@ -154,6 +154,7 @@ def evaluate(repository_root: Path, split: str) -> dict[str, Any]:
             "pass": not malformed,
         },
     }
+    gates["G6"] = benchmark_independence(repository_root)
     joint = all(gates[name]["pass"] for name in ("G_J", "G3", "G4"))
 
     return {
@@ -170,6 +171,53 @@ def evaluate(repository_root: Path, split: str) -> dict[str, Any]:
         "gold_class_distribution": dict(Counter(row["plan_class"] for row in gold)),
         "ungated_classes": UNGATED_CLASSES,
         "structural_controls": structural_controls(truth, [row["plan_class"] for row in gold]),
+    }
+
+
+def benchmark_independence(repository_root: Path) -> dict[str, Any]:
+    """G6: a marker that only this program's own probes trigger is a corpus detector.
+
+    Part 1 found every conjunction rule with usable support fired on 66.7% of
+    internal probes and 0.4% of natural questions. This checks the markers that
+    were actually registered, and also records which never fire at all - untested
+    vocabulary the report must not claim coverage for.
+    """
+    import re
+
+    from biological_memory import query_obligations as grammar
+
+    records = corpus.read_cache(repository_root)
+    internal = [grammar.canonical_map(r.text)[0] for r in records if r.source == "internal"]
+    external = [grammar.canonical_map(r.text)[0] for r in records if r.source == "longmemeval"]
+
+    groups = {
+        "HISTORY_MARKERS": grammar.HISTORY_MARKERS,
+        "AGGREGATE_MARKERS": grammar.AGGREGATE_MARKERS,
+        "SUPERLATIVE_MARKERS": grammar.SUPERLATIVE_MARKERS,
+        "LIST_MARKERS": grammar.LIST_MARKERS,
+    }
+    internal_only: list[str] = []
+    unexercised: list[str] = []
+    total = 0
+    for group, phrases in groups.items():
+        for phrase in phrases:
+            total += 1
+            pattern = re.compile(r"\b" + re.escape(phrase) + r"\b")
+            fires_internal = any(pattern.search(text) for text in internal)
+            fires_external = any(pattern.search(text) for text in external)
+            if fires_internal and not fires_external:
+                internal_only.append(f"{group}:{phrase}")
+            if not fires_internal and not fires_external:
+                unexercised.append(f"{group}:{phrase}")
+    return {
+        "statistic": "internal_only_markers",
+        "value": len(internal_only),
+        "bar": BARS["G6"]["max_internal_only_markers"],
+        "markers_total": total,
+        "internal_only": internal_only,
+        "unexercised": unexercised,
+        "unexercised_count": len(unexercised),
+        "pass": not internal_only,
     }
 
 
