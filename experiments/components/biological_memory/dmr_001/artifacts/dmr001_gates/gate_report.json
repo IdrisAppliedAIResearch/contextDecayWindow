@@ -1,0 +1,2777 @@
+{
+  "corpus_digest": "be939cbebc0e9e9f33906ffc92047e114372852bbc578bb4376efd0e061d3bf9",
+  "design_sha256": "f563b6c5f9a98413b3a00135600f6d4dc3f9203242190d30c2bf0b2e03d28c41",
+  "integrity": {
+    "causal_rejection_passed": true,
+    "committed_corpus_digest": "be939cbebc0e9e9f33906ffc92047e114372852bbc578bb4376efd0e061d3bf9",
+    "corpus_digest": "be939cbebc0e9e9f33906ffc92047e114372852bbc578bb4376efd0e061d3bf9",
+    "corpus_digest_matches": true,
+    "design_anchor_matches": true,
+    "design_sha256": "f563b6c5f9a98413b3a00135600f6d4dc3f9203242190d30c2bf0b2e03d28c41",
+    "first_process_digest": "826fc1ff3554882d97c6a3ad451a593295d7619cbd2c8e8dafd9389acca4370c",
+    "leakage_clean": true,
+    "no_generation_call": true,
+    "reachable_modules": [
+      "src.biological_memory",
+      "src.biological_memory.event_context",
+      "src.biological_memory.supersession"
+    ],
+    "second_process_digest": "826fc1ff3554882d97c6a3ad451a593295d7619cbd2c8e8dafd9389acca4370c",
+    "two_process_identical": true
+  },
+  "partition": {
+    "append_ordered": true,
+    "episodes": 3724,
+    "expected_episodes": 3724,
+    "members": 3724,
+    "no_cross_session_event": true,
+    "per_split": {
+      "development": {
+        "append_ordered": true,
+        "distinct_event_sessions": 15,
+        "episodes": 1724,
+        "expected_episodes": 1724,
+        "expected_sessions": 15,
+        "members": 1724,
+        "no_cross_session_event": true,
+        "positions_contiguous": true
+      },
+      "holdout": {
+        "append_ordered": true,
+        "distinct_event_sessions": 2,
+        "episodes": 2000,
+        "expected_episodes": 2000,
+        "expected_sessions": 2,
+        "members": 2000,
+        "no_cross_session_event": true,
+        "positions_contiguous": true
+      }
+    },
+    "positions_contiguous": true
+  },
+  "preflight_status": "PASS",
+  "schema": "dmr001-gates-v1",
+  "splits": {
+    "development": {
+      "annotated_boundaries": 75,
+      "annotated_internal_boundaries": 60,
+      "arms": {
+        "C_ALL": {
+          "agreement": {
+            "0": {
+              "annotated": 75,
+              "f1": 0.33333333333333337,
+              "matched": 15,
+              "precision": 1.0,
+              "predicted": 15,
+              "recall": 0.2,
+              "recalled": 15,
+              "stream_length": 1724,
+              "tolerance": 0
+            },
+            "1": {
+              "annotated": 75,
+              "f1": 0.33333333333333337,
+              "matched": 15,
+              "precision": 1.0,
+              "predicted": 15,
+              "recall": 0.2,
+              "recalled": 15,
+              "stream_length": 1724,
+              "tolerance": 1
+            },
+            "2": {
+              "annotated": 75,
+              "f1": 0.33333333333333337,
+              "matched": 15,
+              "precision": 1.0,
+              "predicted": 15,
+              "recall": 0.2,
+              "recalled": 15,
+              "stream_length": 1724,
+              "tolerance": 2
+            }
+          },
+          "boundary_count": 15,
+          "kind": "session",
+          "period": null,
+          "policy": "C_ALL",
+          "sizes": {
+            "distribution": {
+              "count": 15,
+              "histogram_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                15
+              ],
+              "histogram_edges": [
+                0.0,
+                0.05,
+                0.1,
+                0.15,
+                0.2,
+                0.25,
+                0.3,
+                0.35,
+                0.4,
+                0.45,
+                0.5,
+                0.55,
+                0.6,
+                0.65,
+                0.7,
+                0.75,
+                0.8,
+                0.85,
+                0.9,
+                0.95,
+                1.0
+              ],
+              "max": 121.0,
+              "mean": 114.93333333333334,
+              "median": 121.0,
+              "min": 30.0,
+              "p01": 42.74,
+              "p05": 93.7,
+              "p10": 121.0,
+              "p25": 121.0,
+              "p75": 121.0,
+              "p90": 121.0,
+              "p95": 121.0,
+              "p99": 121.0,
+              "stdev": 22.69938814642858
+            },
+            "drift_fraction": 0.0,
+            "event_count": 15,
+            "forced_fraction": 0.0,
+            "hard_fraction": 0.9333333333333333,
+            "largest_event_share_of_session": 1.0,
+            "open_reasons": {
+              "hard": 14,
+              "stream_start": 1
+            },
+            "singleton_fraction": 0.0
+          },
+          "snapshot_digest": "7d1373b6d4327eaad0427967a60e4b8754289f17785d70f2c94e1390dff6f44a"
+        },
+        "C_PAIR": {
+          "agreement": {
+            "0": {
+              "annotated": 75,
+              "f1": 0.08337965536409117,
+              "matched": 75,
+              "precision": 0.043503480278422275,
+              "predicted": 1724,
+              "recall": 1.0,
+              "recalled": 75,
+              "stream_length": 1724,
+              "tolerance": 0
+            },
+            "1": {
+              "annotated": 75,
+              "f1": 0.08337965536409117,
+              "matched": 75,
+              "precision": 0.043503480278422275,
+              "predicted": 1724,
+              "recall": 1.0,
+              "recalled": 75,
+              "stream_length": 1724,
+              "tolerance": 1
+            },
+            "2": {
+              "annotated": 75,
+              "f1": 0.08337965536409117,
+              "matched": 75,
+              "precision": 0.043503480278422275,
+              "predicted": 1724,
+              "recall": 1.0,
+              "recalled": 75,
+              "stream_length": 1724,
+              "tolerance": 2
+            }
+          },
+          "boundary_count": 1724,
+          "kind": "pair",
+          "period": null,
+          "policy": "C_PAIR",
+          "sizes": {
+            "distribution": {
+              "count": 1724,
+              "histogram_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1724
+              ],
+              "histogram_edges": [
+                0.0,
+                0.05,
+                0.1,
+                0.15,
+                0.2,
+                0.25,
+                0.3,
+                0.35,
+                0.4,
+                0.45,
+                0.5,
+                0.55,
+                0.6,
+                0.65,
+                0.7,
+                0.75,
+                0.8,
+                0.85,
+                0.9,
+                0.95,
+                1.0
+              ],
+              "max": 1.0,
+              "mean": 1.0,
+              "median": 1.0,
+              "min": 1.0,
+              "p01": 1.0,
+              "p05": 1.0,
+              "p10": 1.0,
+              "p25": 1.0,
+              "p75": 1.0,
+              "p90": 1.0,
+              "p95": 1.0,
+              "p99": 1.0,
+              "stdev": 0.0
+            },
+            "drift_fraction": 0.0,
+            "event_count": 1724,
+            "forced_fraction": 0.9912993039443155,
+            "hard_fraction": 0.008120649651972157,
+            "largest_event_share_of_session": 0.03333333333333333,
+            "open_reasons": {
+              "forced": 1709,
+              "hard": 14,
+              "stream_start": 1
+            },
+            "singleton_fraction": 1.0
+          },
+          "snapshot_digest": "cf02171139f03e0337f841b658fcc99bb803804a9fa6c17f26d80778b19b199d"
+        },
+        "C_PERIODIC_16": {
+          "agreement": {
+            "0": {
+              "annotated": 75,
+              "f1": 0.1587301587301587,
+              "matched": 15,
+              "precision": 0.13157894736842105,
+              "predicted": 114,
+              "recall": 0.2,
+              "recalled": 15,
+              "stream_length": 1724,
+              "tolerance": 0
+            },
+            "1": {
+              "annotated": 75,
+              "f1": 0.3068783068783069,
+              "matched": 29,
+              "precision": 0.2543859649122807,
+              "predicted": 114,
+              "recall": 0.38666666666666666,
+              "recalled": 29,
+              "stream_length": 1724,
+              "tolerance": 1
+            },
+            "2": {
+              "annotated": 75,
+              "f1": 0.4656084656084656,
+              "matched": 44,
+              "precision": 0.38596491228070173,
+              "predicted": 114,
+              "recall": 0.5866666666666667,
+              "recalled": 44,
+              "stream_length": 1724,
+              "tolerance": 2
+            }
+          },
+          "boundary_count": 114,
+          "kind": "periodic",
+          "period": 16,
+          "policy": "C_PERIODIC_16",
+          "sizes": {
+            "distribution": {
+              "count": 114,
+              "histogram_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                114
+              ],
+              "histogram_edges": [
+                0.0,
+                0.05,
+                0.1,
+                0.15,
+                0.2,
+                0.25,
+                0.3,
+                0.35,
+                0.4,
+                0.45,
+                0.5,
+                0.55,
+                0.6,
+                0.65,
+                0.7,
+                0.75,
+                0.8,
+                0.85,
+                0.9,
+                0.95,
+                1.0
+              ],
+              "max": 16.0,
+              "mean": 15.12280701754386,
+              "median": 16.0,
+              "min": 9.0,
+              "p01": 9.0,
+              "p05": 9.0,
+              "p10": 9.0,
+              "p25": 16.0,
+              "p75": 16.0,
+              "p90": 16.0,
+              "p95": 16.0,
+              "p99": 16.0,
+              "stdev": 2.298513443614605
+            },
+            "drift_fraction": 0.0,
+            "event_count": 114,
+            "forced_fraction": 0.868421052631579,
+            "hard_fraction": 0.12280701754385964,
+            "largest_event_share_of_session": 0.5333333333333333,
+            "open_reasons": {
+              "forced": 99,
+              "hard": 14,
+              "stream_start": 1
+            },
+            "singleton_fraction": 0.0
+          },
+          "snapshot_digest": "8c35214601639297e641f620fc8be630a91cbd233d0165726552b09d909ce12a"
+        },
+        "C_PERIODIC_2": {
+          "agreement": {
+            "0": {
+              "annotated": 75,
+              "f1": 0.12499999999999999,
+              "matched": 59,
+              "precision": 0.06789413118527042,
+              "predicted": 869,
+              "recall": 0.7866666666666666,
+              "recalled": 59,
+              "stream_length": 1724,
+              "tolerance": 0
+            },
+            "1": {
+              "annotated": 75,
+              "f1": 0.15889830508474578,
+              "matched": 75,
+              "precision": 0.08630609896432681,
+              "predicted": 869,
+              "recall": 1.0,
+              "recalled": 75,
+              "stream_length": 1724,
+              "tolerance": 1
+            },
+            "2": {
+              "annotated": 75,
+              "f1": 0.15889830508474578,
+              "matched": 75,
+              "precision": 0.08630609896432681,
+              "predicted": 869,
+              "recall": 1.0,
+              "recalled": 75,
+              "stream_length": 1724,
+              "tolerance": 2
+            }
+          },
+          "boundary_count": 869,
+          "kind": "periodic",
+          "period": 2,
+          "policy": "C_PERIODIC_2",
+          "sizes": {
+            "distribution": {
+              "count": 869,
+              "histogram_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                869
+              ],
+              "histogram_edges": [
+                0.0,
+                0.05,
+                0.1,
+                0.15,
+                0.2,
+                0.25,
+                0.3,
+                0.35,
+                0.4,
+                0.45,
+                0.5,
+                0.55,
+                0.6,
+                0.65,
+                0.7,
+                0.75,
+                0.8,
+                0.85,
+                0.9,
+                0.95,
+                1.0
+              ],
+              "max": 2.0,
+              "mean": 1.9838895281933258,
+              "median": 2.0,
+              "min": 1.0,
+              "p01": 1.0,
+              "p05": 2.0,
+              "p10": 2.0,
+              "p25": 2.0,
+              "p75": 2.0,
+              "p90": 2.0,
+              "p95": 2.0,
+              "p99": 2.0,
+              "stdev": 0.12590045474437608
+            },
+            "drift_fraction": 0.0,
+            "event_count": 869,
+            "forced_fraction": 0.9827387802071347,
+            "hard_fraction": 0.01611047180667434,
+            "largest_event_share_of_session": 0.06666666666666667,
+            "open_reasons": {
+              "forced": 854,
+              "hard": 14,
+              "stream_start": 1
+            },
+            "singleton_fraction": 0.01611047180667434
+          },
+          "snapshot_digest": "9cb7bd05520afe75d98b7958d187c3c4f6ba4c6559afff96ce515138c9355229"
+        },
+        "C_PERIODIC_32": {
+          "agreement": {
+            "0": {
+              "annotated": 75,
+              "f1": 0.22727272727272727,
+              "matched": 15,
+              "precision": 0.2631578947368421,
+              "predicted": 57,
+              "recall": 0.2,
+              "recalled": 15,
+              "stream_length": 1724,
+              "tolerance": 0
+            },
+            "1": {
+              "annotated": 75,
+              "f1": 0.22727272727272727,
+              "matched": 15,
+              "precision": 0.2631578947368421,
+              "predicted": 57,
+              "recall": 0.2,
+              "recalled": 15,
+              "stream_length": 1724,
+              "tolerance": 1
+            },
+            "2": {
+              "annotated": 75,
+              "f1": 0.4393939393939394,
+              "matched": 29,
+              "precision": 0.5087719298245614,
+              "predicted": 57,
+              "recall": 0.38666666666666666,
+              "recalled": 29,
+              "stream_length": 1724,
+              "tolerance": 2
+            }
+          },
+          "boundary_count": 57,
+          "kind": "periodic",
+          "period": 32,
+          "policy": "C_PERIODIC_32",
+          "sizes": {
+            "distribution": {
+              "count": 57,
+              "histogram_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                57
+              ],
+              "histogram_edges": [
+                0.0,
+                0.05,
+                0.1,
+                0.15,
+                0.2,
+                0.25,
+                0.3,
+                0.35,
+                0.4,
+                0.45,
+                0.5,
+                0.55,
+                0.6,
+                0.65,
+                0.7,
+                0.75,
+                0.8,
+                0.85,
+                0.9,
+                0.95,
+                1.0
+              ],
+              "max": 32.0,
+              "mean": 30.24561403508772,
+              "median": 32.0,
+              "min": 25.0,
+              "p01": 25.0,
+              "p05": 25.0,
+              "p10": 25.0,
+              "p25": 30.0,
+              "p75": 32.0,
+              "p90": 32.0,
+              "p95": 32.0,
+              "p99": 32.0,
+              "stdev": 3.0045620386361707
+            },
+            "drift_fraction": 0.0,
+            "event_count": 57,
+            "forced_fraction": 0.7368421052631579,
+            "hard_fraction": 0.24561403508771928,
+            "largest_event_share_of_session": 1.0,
+            "open_reasons": {
+              "forced": 42,
+              "hard": 14,
+              "stream_start": 1
+            },
+            "singleton_fraction": 0.0
+          },
+          "snapshot_digest": "b154a2e314ba66cd35cf63010ee1ff3bc5016b11bb4032ce497baf3d1d9f5764"
+        },
+        "C_PERIODIC_4": {
+          "agreement": {
+            "0": {
+              "annotated": 75,
+              "f1": 0.1160541586073501,
+              "matched": 30,
+              "precision": 0.06787330316742081,
+              "predicted": 442,
+              "recall": 0.4,
+              "recalled": 30,
+              "stream_length": 1724,
+              "tolerance": 0
+            },
+            "1": {
+              "annotated": 75,
+              "f1": 0.17794970986460348,
+              "matched": 46,
+              "precision": 0.10407239819004525,
+              "predicted": 442,
+              "recall": 0.6133333333333333,
+              "recalled": 46,
+              "stream_length": 1724,
+              "tolerance": 1
+            },
+            "2": {
+              "annotated": 75,
+              "f1": 0.2901353965183752,
+              "matched": 75,
+              "precision": 0.16968325791855204,
+              "predicted": 442,
+              "recall": 1.0,
+              "recalled": 75,
+              "stream_length": 1724,
+              "tolerance": 2
+            }
+          },
+          "boundary_count": 442,
+          "kind": "periodic",
+          "period": 4,
+          "policy": "C_PERIODIC_4",
+          "sizes": {
+            "distribution": {
+              "count": 442,
+              "histogram_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                442
+              ],
+              "histogram_edges": [
+                0.0,
+                0.05,
+                0.1,
+                0.15,
+                0.2,
+                0.25,
+                0.3,
+                0.35,
+                0.4,
+                0.45,
+                0.5,
+                0.55,
+                0.6,
+                0.65,
+                0.7,
+                0.75,
+                0.8,
+                0.85,
+                0.9,
+                0.95,
+                1.0
+              ],
+              "max": 4.0,
+              "mean": 3.9004524886877827,
+              "median": 4.0,
+              "min": 1.0,
+              "p01": 1.0,
+              "p05": 4.0,
+              "p10": 4.0,
+              "p25": 4.0,
+              "p75": 4.0,
+              "p90": 4.0,
+              "p95": 4.0,
+              "p99": 4.0,
+              "stdev": 0.5331115643562495
+            },
+            "drift_fraction": 0.0,
+            "event_count": 442,
+            "forced_fraction": 0.9660633484162896,
+            "hard_fraction": 0.03167420814479638,
+            "largest_event_share_of_session": 0.13333333333333333,
+            "open_reasons": {
+              "forced": 427,
+              "hard": 14,
+              "stream_start": 1
+            },
+            "singleton_fraction": 0.03167420814479638
+          },
+          "snapshot_digest": "4c7e14b14d20c9227c684b520a07fd2e5d8354ea6cfec4af85a55ef8e68dbf50"
+        },
+        "C_PERIODIC_64": {
+          "agreement": {
+            "0": {
+              "annotated": 75,
+              "f1": 0.28846153846153844,
+              "matched": 15,
+              "precision": 0.5172413793103449,
+              "predicted": 29,
+              "recall": 0.2,
+              "recalled": 15,
+              "stream_length": 1724,
+              "tolerance": 0
+            },
+            "1": {
+              "annotated": 75,
+              "f1": 0.28846153846153844,
+              "matched": 15,
+              "precision": 0.5172413793103449,
+              "predicted": 29,
+              "recall": 0.2,
+              "recalled": 15,
+              "stream_length": 1724,
+              "tolerance": 1
+            },
+            "2": {
+              "annotated": 75,
+              "f1": 0.28846153846153844,
+              "matched": 15,
+              "precision": 0.5172413793103449,
+              "predicted": 29,
+              "recall": 0.2,
+              "recalled": 15,
+              "stream_length": 1724,
+              "tolerance": 2
+            }
+          },
+          "boundary_count": 29,
+          "kind": "periodic",
+          "period": 64,
+          "policy": "C_PERIODIC_64",
+          "sizes": {
+            "distribution": {
+              "count": 29,
+              "histogram_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                29
+              ],
+              "histogram_edges": [
+                0.0,
+                0.05,
+                0.1,
+                0.15,
+                0.2,
+                0.25,
+                0.3,
+                0.35,
+                0.4,
+                0.45,
+                0.5,
+                0.55,
+                0.6,
+                0.65,
+                0.7,
+                0.75,
+                0.8,
+                0.85,
+                0.9,
+                0.95,
+                1.0
+              ],
+              "max": 64.0,
+              "mean": 59.44827586206897,
+              "median": 57.0,
+              "min": 30.0,
+              "p01": 37.56,
+              "p05": 57.0,
+              "p10": 57.0,
+              "p25": 57.0,
+              "p75": 64.0,
+              "p90": 64.0,
+              "p95": 64.0,
+              "p99": 64.0,
+              "stdev": 6.542098191825488
+            },
+            "drift_fraction": 0.0,
+            "event_count": 29,
+            "forced_fraction": 0.4827586206896552,
+            "hard_fraction": 0.4827586206896552,
+            "largest_event_share_of_session": 1.0,
+            "open_reasons": {
+              "forced": 14,
+              "hard": 14,
+              "stream_start": 1
+            },
+            "singleton_fraction": 0.0
+          },
+          "snapshot_digest": "e7a44a024a8c32b165afa8b358406e7d837eb2865f1c5509bb22c7311d345aaf"
+        },
+        "C_PERIODIC_8": {
+          "agreement": {
+            "0": {
+              "annotated": 75,
+              "f1": 0.099009900990099,
+              "matched": 15,
+              "precision": 0.06578947368421052,
+              "predicted": 228,
+              "recall": 0.2,
+              "recalled": 15,
+              "stream_length": 1724,
+              "tolerance": 0
+            },
+            "1": {
+              "annotated": 75,
+              "f1": 0.198019801980198,
+              "matched": 30,
+              "precision": 0.13157894736842105,
+              "predicted": 228,
+              "recall": 0.4,
+              "recalled": 30,
+              "stream_length": 1724,
+              "tolerance": 1
+            },
+            "2": {
+              "annotated": 75,
+              "f1": 0.3894389438943895,
+              "matched": 59,
+              "precision": 0.25877192982456143,
+              "predicted": 228,
+              "recall": 0.7866666666666666,
+              "recalled": 59,
+              "stream_length": 1724,
+              "tolerance": 2
+            }
+          },
+          "boundary_count": 228,
+          "kind": "periodic",
+          "period": 8,
+          "policy": "C_PERIODIC_8",
+          "sizes": {
+            "distribution": {
+              "count": 228,
+              "histogram_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                228
+              ],
+              "histogram_edges": [
+                0.0,
+                0.05,
+                0.1,
+                0.15,
+                0.2,
+                0.25,
+                0.3,
+                0.35,
+                0.4,
+                0.45,
+                0.5,
+                0.55,
+                0.6,
+                0.65,
+                0.7,
+                0.75,
+                0.8,
+                0.85,
+                0.9,
+                0.95,
+                1.0
+              ],
+              "max": 8.0,
+              "mean": 7.56140350877193,
+              "median": 8.0,
+              "min": 1.0,
+              "p01": 1.0,
+              "p05": 1.0,
+              "p10": 8.0,
+              "p25": 8.0,
+              "p75": 8.0,
+              "p90": 8.0,
+              "p95": 8.0,
+              "p99": 8.0,
+              "stdev": 1.6834336658615656
+            },
+            "drift_fraction": 0.0,
+            "event_count": 228,
+            "forced_fraction": 0.9342105263157895,
+            "hard_fraction": 0.06140350877192982,
+            "largest_event_share_of_session": 0.26666666666666666,
+            "open_reasons": {
+              "forced": 213,
+              "hard": 14,
+              "stream_start": 1
+            },
+            "singleton_fraction": 0.06140350877192982
+          },
+          "snapshot_digest": "0b3ab9b8b4a228bbf8f4b685a97a20d5ba85ae07139639bb78f400e590afacbc"
+        },
+        "C_SESSION": {
+          "agreement": {
+            "0": {
+              "annotated": 75,
+              "f1": 0.33333333333333337,
+              "matched": 15,
+              "precision": 1.0,
+              "predicted": 15,
+              "recall": 0.2,
+              "recalled": 15,
+              "stream_length": 1724,
+              "tolerance": 0
+            },
+            "1": {
+              "annotated": 75,
+              "f1": 0.33333333333333337,
+              "matched": 15,
+              "precision": 1.0,
+              "predicted": 15,
+              "recall": 0.2,
+              "recalled": 15,
+              "stream_length": 1724,
+              "tolerance": 1
+            },
+            "2": {
+              "annotated": 75,
+              "f1": 0.33333333333333337,
+              "matched": 15,
+              "precision": 1.0,
+              "predicted": 15,
+              "recall": 0.2,
+              "recalled": 15,
+              "stream_length": 1724,
+              "tolerance": 2
+            }
+          },
+          "boundary_count": 15,
+          "kind": "session",
+          "period": null,
+          "policy": "C_SESSION",
+          "sizes": {
+            "distribution": {
+              "count": 15,
+              "histogram_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                15
+              ],
+              "histogram_edges": [
+                0.0,
+                0.05,
+                0.1,
+                0.15,
+                0.2,
+                0.25,
+                0.3,
+                0.35,
+                0.4,
+                0.45,
+                0.5,
+                0.55,
+                0.6,
+                0.65,
+                0.7,
+                0.75,
+                0.8,
+                0.85,
+                0.9,
+                0.95,
+                1.0
+              ],
+              "max": 121.0,
+              "mean": 114.93333333333334,
+              "median": 121.0,
+              "min": 30.0,
+              "p01": 42.74,
+              "p05": 93.7,
+              "p10": 121.0,
+              "p25": 121.0,
+              "p75": 121.0,
+              "p90": 121.0,
+              "p95": 121.0,
+              "p99": 121.0,
+              "stdev": 22.69938814642858
+            },
+            "drift_fraction": 0.0,
+            "event_count": 15,
+            "forced_fraction": 0.0,
+            "hard_fraction": 0.9333333333333333,
+            "largest_event_share_of_session": 1.0,
+            "open_reasons": {
+              "hard": 14,
+              "stream_start": 1
+            },
+            "singleton_fraction": 0.0
+          },
+          "snapshot_digest": "0bd40ad44bd29cb52a900ee23206d6a1bd5685116ce202a2236afe8623abd160"
+        },
+        "T_EVENT": {
+          "agreement": {
+            "0": {
+              "annotated": 75,
+              "f1": 0.3595505617977528,
+              "matched": 48,
+              "precision": 0.25,
+              "predicted": 192,
+              "recall": 0.64,
+              "recalled": 48,
+              "stream_length": 1724,
+              "tolerance": 0
+            },
+            "1": {
+              "annotated": 75,
+              "f1": 0.41947565543071164,
+              "matched": 56,
+              "precision": 0.2916666666666667,
+              "predicted": 192,
+              "recall": 0.7466666666666667,
+              "recalled": 56,
+              "stream_length": 1724,
+              "tolerance": 1
+            },
+            "2": {
+              "annotated": 75,
+              "f1": 0.47191011235955066,
+              "matched": 63,
+              "precision": 0.328125,
+              "predicted": 192,
+              "recall": 0.84,
+              "recalled": 63,
+              "stream_length": 1724,
+              "tolerance": 2
+            }
+          },
+          "boundary_count": 192,
+          "boundary_set_digest": "a15acb569d9eec92097ae1d179b8d6af6cb8a5d6b71309b96a0274f8084f261e",
+          "context_separation": {
+            "context_auc_macro": 0.8233385806132281,
+            "context_auc_min_session": 0.7692558516638466,
+            "context_minus_raw": 0.051033866318499266,
+            "lag_max": 8,
+            "per_session": [
+              {
+                "across_pairs": 144,
+                "context_auc": 0.8391056824591089,
+                "raw_auc": 0.7520886209813875,
+                "session_sha256": "166b68a85942d6f0d9fdc9dbfe12311f652ff637f1bd4d445280f72cf4a517c8",
+                "within_pairs": 788
+              },
+              {
+                "across_pairs": 144,
+                "context_auc": 0.8148530033840947,
+                "raw_auc": 0.745540750141004,
+                "session_sha256": "1ddc21b4ad04e41d97c990d0b398d01b74364f989870b6b8e173983d1dd15295",
+                "within_pairs": 788
+              },
+              {
+                "across_pairs": 144,
+                "context_auc": 0.7807829244218838,
+                "raw_auc": 0.7274305555555556,
+                "session_sha256": "2b3488c125fd6ec799af531a08ab2f12674e5b7d8fc774af393df46f475abaf0",
+                "within_pairs": 788
+              },
+              {
+                "across_pairs": 144,
+                "context_auc": 0.8774587563451777,
+                "raw_auc": 0.8002062182741116,
+                "session_sha256": "35499e23a0cfd635593161507dffa7030216a9e68c0d2ba250490e35542a3b8c",
+                "within_pairs": 788
+              },
+              {
+                "across_pairs": 144,
+                "context_auc": 0.8049386632825719,
+                "raw_auc": 0.7470301043429216,
+                "session_sha256": "3e14020452998da3ca406f76a8ce281765133d2dcb778149a738b934111557fa",
+                "within_pairs": 788
+              },
+              {
+                "across_pairs": 144,
+                "context_auc": 0.831235899605189,
+                "raw_auc": 0.7586188663282571,
+                "session_sha256": "7521a657251d761d8c045b1ededb568feb4447037f792f854a23f75594b316f5",
+                "within_pairs": 788
+              },
+              {
+                "across_pairs": 144,
+                "context_auc": 0.9023812041737168,
+                "raw_auc": 0.8132931472081218,
+                "session_sha256": "7ff168875652eb108dd3e742fc972f3c2302379d17486c2ac73cb7293a295115",
+                "within_pairs": 788
+              },
+              {
+                "across_pairs": 144,
+                "context_auc": 0.8432124224478286,
+                "raw_auc": 0.8023565284827975,
+                "session_sha256": "852706410173a960e0764af3a0bcf84e32f3f031303f7a993ca825abc42de470",
+                "within_pairs": 788
+              },
+              {
+                "across_pairs": 144,
+                "context_auc": 0.7692558516638466,
+                "raw_auc": 0.7433728144388043,
+                "session_sha256": "8f2342d35bfea297d2b45b150515e6891682bf2bff47531c69e7cb8725a77695",
+                "within_pairs": 788
+              },
+              {
+                "across_pairs": 144,
+                "context_auc": 0.7908294557247603,
+                "raw_auc": 0.7335377890580936,
+                "session_sha256": "91662b515f7423b0d529d4f8e7a13da9944938d18a9ac13bde7e67a14a782f4e",
+                "within_pairs": 788
+              },
+              {
+                "across_pairs": 144,
+                "context_auc": 0.8302400592216582,
+                "raw_auc": 0.762029399323181,
+                "session_sha256": "98fec0e2b00fcb1c8c7edee112c9345770b7df637a5e7142d96ad7e16ccac5e1",
+                "within_pairs": 788
+              },
+              {
+                "across_pairs": 144,
+                "context_auc": 0.8236128736604625,
+                "raw_auc": 0.7595618302312465,
+                "session_sha256": "ac46d26a3903076f5a2d69e7fb05035888147122b7e09f2280b9320a5bcb31e4",
+                "within_pairs": 788
+              },
+              {
+                "across_pairs": 144,
+                "context_auc": 0.8074767343485617,
+                "raw_auc": 0.8164128595600677,
+                "session_sha256": "baf306cf5207ac8ab49c3aead6b16f9b5390ec09ca296ea457086021d4527ffa",
+                "within_pairs": 788
+              },
+              {
+                "across_pairs": 144,
+                "context_auc": 0.7905033840947546,
+                "raw_auc": 0.7339167371686407,
+                "session_sha256": "bb074c93be80be256649e9c76799b3aca2a2b51a38c3001fc193ae7eeb3bb8f5",
+                "within_pairs": 788
+              },
+              {
+                "across_pairs": 119,
+                "context_auc": 0.8441917943648047,
+                "raw_auc": 0.8891744933267425,
+                "session_sha256": "10278ee1c353921c6584a300e7ac6d3aace65340c033e72bcc554f1df41cb648",
+                "within_pairs": 85
+              }
+            ],
+            "raw_auc_macro": 0.7723047142947288,
+            "sessions_scored": 15
+          },
+          "identical_to": [],
+          "kind": "drift",
+          "period": null,
+          "policy": "T_EVENT",
+          "sizes": {
+            "distribution": {
+              "count": 192,
+              "histogram_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                192
+              ],
+              "histogram_edges": [
+                0.0,
+                0.05,
+                0.1,
+                0.15,
+                0.2,
+                0.25,
+                0.3,
+                0.35,
+                0.4,
+                0.45,
+                0.5,
+                0.55,
+                0.6,
+                0.65,
+                0.7,
+                0.75,
+                0.8,
+                0.85,
+                0.9,
+                0.95,
+                1.0
+              ],
+              "max": 32.0,
+              "mean": 8.979166666666666,
+              "median": 7.0,
+              "min": 2.0,
+              "p01": 2.91,
+              "p05": 4.0,
+              "p10": 5.0,
+              "p25": 5.0,
+              "p75": 11.0,
+              "p90": 16.0,
+              "p95": 20.0,
+              "p99": 28.360000000000014,
+              "stdev": 5.380286482975501
+            },
+            "drift_fraction": 0.9166666666666666,
+            "event_count": 192,
+            "forced_fraction": 0.005208333333333333,
+            "hard_fraction": 0.07291666666666667,
+            "largest_event_share_of_session": 0.7666666666666667,
+            "open_reasons": {
+              "drift": 176,
+              "forced": 1,
+              "hard": 14,
+              "stream_start": 1
+            },
+            "singleton_fraction": 0.0
+          },
+          "snapshot_digest": "408277bda797f74bb5e0826184b15492d01df4d0f9c06be9a87148c9919438ae"
+        }
+      },
+      "episodes": 1724,
+      "sessions": 15
+    },
+    "holdout": {
+      "annotated_boundaries": 38,
+      "annotated_internal_boundaries": 36,
+      "arms": {
+        "C_ALL": {
+          "agreement": {
+            "0": {
+              "annotated": 38,
+              "f1": 0.1,
+              "matched": 2,
+              "precision": 1.0,
+              "predicted": 2,
+              "recall": 0.05263157894736842,
+              "recalled": 2,
+              "stream_length": 2000,
+              "tolerance": 0
+            },
+            "1": {
+              "annotated": 38,
+              "f1": 0.1,
+              "matched": 2,
+              "precision": 1.0,
+              "predicted": 2,
+              "recall": 0.05263157894736842,
+              "recalled": 2,
+              "stream_length": 2000,
+              "tolerance": 1
+            },
+            "2": {
+              "annotated": 38,
+              "f1": 0.1,
+              "matched": 2,
+              "precision": 1.0,
+              "predicted": 2,
+              "recall": 0.05263157894736842,
+              "recalled": 2,
+              "stream_length": 2000,
+              "tolerance": 2
+            }
+          },
+          "boundary_count": 2,
+          "kind": "session",
+          "period": null,
+          "policy": "C_ALL",
+          "sizes": {
+            "distribution": {
+              "count": 2,
+              "histogram_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                2
+              ],
+              "histogram_edges": [
+                0.0,
+                0.05,
+                0.1,
+                0.15,
+                0.2,
+                0.25,
+                0.3,
+                0.35,
+                0.4,
+                0.45,
+                0.5,
+                0.55,
+                0.6,
+                0.65,
+                0.7,
+                0.75,
+                0.8,
+                0.85,
+                0.9,
+                0.95,
+                1.0
+              ],
+              "max": 1000.0,
+              "mean": 1000.0,
+              "median": 1000.0,
+              "min": 1000.0,
+              "p01": 1000.0,
+              "p05": 1000.0,
+              "p10": 1000.0,
+              "p25": 1000.0,
+              "p75": 1000.0,
+              "p90": 1000.0,
+              "p95": 1000.0,
+              "p99": 1000.0,
+              "stdev": 0.0
+            },
+            "drift_fraction": 0.0,
+            "event_count": 2,
+            "forced_fraction": 0.0,
+            "hard_fraction": 0.5,
+            "largest_event_share_of_session": 1.0,
+            "open_reasons": {
+              "hard": 1,
+              "stream_start": 1
+            },
+            "singleton_fraction": 0.0
+          },
+          "snapshot_digest": "d374cdbd166df29f3d0c43bff421abc2befecc2c433952652724630e814bcbfc"
+        },
+        "C_PAIR": {
+          "agreement": {
+            "0": {
+              "annotated": 38,
+              "f1": 0.03729146221786065,
+              "matched": 38,
+              "precision": 0.019,
+              "predicted": 2000,
+              "recall": 1.0,
+              "recalled": 38,
+              "stream_length": 2000,
+              "tolerance": 0
+            },
+            "1": {
+              "annotated": 38,
+              "f1": 0.03729146221786065,
+              "matched": 38,
+              "precision": 0.019,
+              "predicted": 2000,
+              "recall": 1.0,
+              "recalled": 38,
+              "stream_length": 2000,
+              "tolerance": 1
+            },
+            "2": {
+              "annotated": 38,
+              "f1": 0.03729146221786065,
+              "matched": 38,
+              "precision": 0.019,
+              "predicted": 2000,
+              "recall": 1.0,
+              "recalled": 38,
+              "stream_length": 2000,
+              "tolerance": 2
+            }
+          },
+          "boundary_count": 2000,
+          "kind": "pair",
+          "period": null,
+          "policy": "C_PAIR",
+          "sizes": {
+            "distribution": {
+              "count": 2000,
+              "histogram_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                2000
+              ],
+              "histogram_edges": [
+                0.0,
+                0.05,
+                0.1,
+                0.15,
+                0.2,
+                0.25,
+                0.3,
+                0.35,
+                0.4,
+                0.45,
+                0.5,
+                0.55,
+                0.6,
+                0.65,
+                0.7,
+                0.75,
+                0.8,
+                0.85,
+                0.9,
+                0.95,
+                1.0
+              ],
+              "max": 1.0,
+              "mean": 1.0,
+              "median": 1.0,
+              "min": 1.0,
+              "p01": 1.0,
+              "p05": 1.0,
+              "p10": 1.0,
+              "p25": 1.0,
+              "p75": 1.0,
+              "p90": 1.0,
+              "p95": 1.0,
+              "p99": 1.0,
+              "stdev": 0.0
+            },
+            "drift_fraction": 0.0,
+            "event_count": 2000,
+            "forced_fraction": 0.999,
+            "hard_fraction": 0.0005,
+            "largest_event_share_of_session": 0.001,
+            "open_reasons": {
+              "forced": 1998,
+              "hard": 1,
+              "stream_start": 1
+            },
+            "singleton_fraction": 1.0
+          },
+          "snapshot_digest": "5960eaf0d7124691e99d5ab75c1596c2ac2269b34fa4aa2fd9c9bdfb8087f83a"
+        },
+        "C_PERIODIC_16": {
+          "agreement": {
+            "0": {
+              "annotated": 38,
+              "f1": 0.07317073170731707,
+              "matched": 6,
+              "precision": 0.047619047619047616,
+              "predicted": 126,
+              "recall": 0.15789473684210525,
+              "recalled": 6,
+              "stream_length": 2000,
+              "tolerance": 0
+            },
+            "1": {
+              "annotated": 38,
+              "f1": 0.07317073170731707,
+              "matched": 6,
+              "precision": 0.047619047619047616,
+              "predicted": 126,
+              "recall": 0.15789473684210525,
+              "recalled": 6,
+              "stream_length": 2000,
+              "tolerance": 1
+            },
+            "2": {
+              "annotated": 38,
+              "f1": 0.12195121951219512,
+              "matched": 10,
+              "precision": 0.07936507936507936,
+              "predicted": 126,
+              "recall": 0.2631578947368421,
+              "recalled": 10,
+              "stream_length": 2000,
+              "tolerance": 2
+            }
+          },
+          "boundary_count": 126,
+          "kind": "periodic",
+          "period": 16,
+          "policy": "C_PERIODIC_16",
+          "sizes": {
+            "distribution": {
+              "count": 126,
+              "histogram_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                126
+              ],
+              "histogram_edges": [
+                0.0,
+                0.05,
+                0.1,
+                0.15,
+                0.2,
+                0.25,
+                0.3,
+                0.35,
+                0.4,
+                0.45,
+                0.5,
+                0.55,
+                0.6,
+                0.65,
+                0.7,
+                0.75,
+                0.8,
+                0.85,
+                0.9,
+                0.95,
+                1.0
+              ],
+              "max": 16.0,
+              "mean": 15.873015873015873,
+              "median": 16.0,
+              "min": 8.0,
+              "p01": 10.0,
+              "p05": 16.0,
+              "p10": 16.0,
+              "p25": 16.0,
+              "p75": 16.0,
+              "p90": 16.0,
+              "p95": 16.0,
+              "p99": 16.0,
+              "stdev": 0.9998740157475315
+            },
+            "drift_fraction": 0.0,
+            "event_count": 126,
+            "forced_fraction": 0.9841269841269841,
+            "hard_fraction": 0.007936507936507936,
+            "largest_event_share_of_session": 0.016,
+            "open_reasons": {
+              "forced": 124,
+              "hard": 1,
+              "stream_start": 1
+            },
+            "singleton_fraction": 0.0
+          },
+          "snapshot_digest": "2f36e0c147b6ee5e3ca3fdc5b97e64d909536172e19374eb3da40b9e819331ac"
+        },
+        "C_PERIODIC_2": {
+          "agreement": {
+            "0": {
+              "annotated": 38,
+              "f1": 0.038535645472061654,
+              "matched": 20,
+              "precision": 0.02,
+              "predicted": 1000,
+              "recall": 0.5263157894736842,
+              "recalled": 20,
+              "stream_length": 2000,
+              "tolerance": 0
+            },
+            "1": {
+              "annotated": 38,
+              "f1": 0.07321772639691715,
+              "matched": 38,
+              "precision": 0.038,
+              "predicted": 1000,
+              "recall": 1.0,
+              "recalled": 38,
+              "stream_length": 2000,
+              "tolerance": 1
+            },
+            "2": {
+              "annotated": 38,
+              "f1": 0.07321772639691715,
+              "matched": 38,
+              "precision": 0.038,
+              "predicted": 1000,
+              "recall": 1.0,
+              "recalled": 38,
+              "stream_length": 2000,
+              "tolerance": 2
+            }
+          },
+          "boundary_count": 1000,
+          "kind": "periodic",
+          "period": 2,
+          "policy": "C_PERIODIC_2",
+          "sizes": {
+            "distribution": {
+              "count": 1000,
+              "histogram_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1000
+              ],
+              "histogram_edges": [
+                0.0,
+                0.05,
+                0.1,
+                0.15,
+                0.2,
+                0.25,
+                0.3,
+                0.35,
+                0.4,
+                0.45,
+                0.5,
+                0.55,
+                0.6,
+                0.65,
+                0.7,
+                0.75,
+                0.8,
+                0.85,
+                0.9,
+                0.95,
+                1.0
+              ],
+              "max": 2.0,
+              "mean": 2.0,
+              "median": 2.0,
+              "min": 2.0,
+              "p01": 2.0,
+              "p05": 2.0,
+              "p10": 2.0,
+              "p25": 2.0,
+              "p75": 2.0,
+              "p90": 2.0,
+              "p95": 2.0,
+              "p99": 2.0,
+              "stdev": 0.0
+            },
+            "drift_fraction": 0.0,
+            "event_count": 1000,
+            "forced_fraction": 0.998,
+            "hard_fraction": 0.001,
+            "largest_event_share_of_session": 0.002,
+            "open_reasons": {
+              "forced": 998,
+              "hard": 1,
+              "stream_start": 1
+            },
+            "singleton_fraction": 0.0
+          },
+          "snapshot_digest": "636f47a3adcffd194e2f84f83932ccddf3ed7cf0863120d6dd90ac9f8ae93489"
+        },
+        "C_PERIODIC_32": {
+          "agreement": {
+            "0": {
+              "annotated": 38,
+              "f1": 0.0784313725490196,
+              "matched": 4,
+              "precision": 0.0625,
+              "predicted": 64,
+              "recall": 0.10526315789473684,
+              "recalled": 4,
+              "stream_length": 2000,
+              "tolerance": 0
+            },
+            "1": {
+              "annotated": 38,
+              "f1": 0.0784313725490196,
+              "matched": 4,
+              "precision": 0.0625,
+              "predicted": 64,
+              "recall": 0.10526315789473684,
+              "recalled": 4,
+              "stream_length": 2000,
+              "tolerance": 1
+            },
+            "2": {
+              "annotated": 38,
+              "f1": 0.0784313725490196,
+              "matched": 4,
+              "precision": 0.0625,
+              "predicted": 64,
+              "recall": 0.10526315789473684,
+              "recalled": 4,
+              "stream_length": 2000,
+              "tolerance": 2
+            }
+          },
+          "boundary_count": 64,
+          "kind": "periodic",
+          "period": 32,
+          "policy": "C_PERIODIC_32",
+          "sizes": {
+            "distribution": {
+              "count": 64,
+              "histogram_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                64
+              ],
+              "histogram_edges": [
+                0.0,
+                0.05,
+                0.1,
+                0.15,
+                0.2,
+                0.25,
+                0.3,
+                0.35,
+                0.4,
+                0.45,
+                0.5,
+                0.55,
+                0.6,
+                0.65,
+                0.7,
+                0.75,
+                0.8,
+                0.85,
+                0.9,
+                0.95,
+                1.0
+              ],
+              "max": 32.0,
+              "mean": 31.25,
+              "median": 32.0,
+              "min": 8.0,
+              "p01": 8.0,
+              "p05": 32.0,
+              "p10": 32.0,
+              "p25": 32.0,
+              "p75": 32.0,
+              "p90": 32.0,
+              "p95": 32.0,
+              "p99": 32.0,
+              "stdev": 4.175823272122517
+            },
+            "drift_fraction": 0.0,
+            "event_count": 64,
+            "forced_fraction": 0.96875,
+            "hard_fraction": 0.015625,
+            "largest_event_share_of_session": 0.032,
+            "open_reasons": {
+              "forced": 62,
+              "hard": 1,
+              "stream_start": 1
+            },
+            "singleton_fraction": 0.0
+          },
+          "snapshot_digest": "4a964f21f2c34cc305a973ef8dcfc4a2ef4f5be2b32b7cc7d1bc8f3aa47de211"
+        },
+        "C_PERIODIC_4": {
+          "agreement": {
+            "0": {
+              "annotated": 38,
+              "f1": 0.04460966542750929,
+              "matched": 12,
+              "precision": 0.024,
+              "predicted": 500,
+              "recall": 0.3157894736842105,
+              "recalled": 12,
+              "stream_length": 2000,
+              "tolerance": 0
+            },
+            "1": {
+              "annotated": 38,
+              "f1": 0.11152416356877323,
+              "matched": 30,
+              "precision": 0.06,
+              "predicted": 500,
+              "recall": 0.7894736842105263,
+              "recalled": 30,
+              "stream_length": 2000,
+              "tolerance": 1
+            },
+            "2": {
+              "annotated": 38,
+              "f1": 0.14126394052044608,
+              "matched": 38,
+              "precision": 0.076,
+              "predicted": 500,
+              "recall": 1.0,
+              "recalled": 38,
+              "stream_length": 2000,
+              "tolerance": 2
+            }
+          },
+          "boundary_count": 500,
+          "kind": "periodic",
+          "period": 4,
+          "policy": "C_PERIODIC_4",
+          "sizes": {
+            "distribution": {
+              "count": 500,
+              "histogram_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                500
+              ],
+              "histogram_edges": [
+                0.0,
+                0.05,
+                0.1,
+                0.15,
+                0.2,
+                0.25,
+                0.3,
+                0.35,
+                0.4,
+                0.45,
+                0.5,
+                0.55,
+                0.6,
+                0.65,
+                0.7,
+                0.75,
+                0.8,
+                0.85,
+                0.9,
+                0.95,
+                1.0
+              ],
+              "max": 4.0,
+              "mean": 4.0,
+              "median": 4.0,
+              "min": 4.0,
+              "p01": 4.0,
+              "p05": 4.0,
+              "p10": 4.0,
+              "p25": 4.0,
+              "p75": 4.0,
+              "p90": 4.0,
+              "p95": 4.0,
+              "p99": 4.0,
+              "stdev": 0.0
+            },
+            "drift_fraction": 0.0,
+            "event_count": 500,
+            "forced_fraction": 0.996,
+            "hard_fraction": 0.002,
+            "largest_event_share_of_session": 0.004,
+            "open_reasons": {
+              "forced": 498,
+              "hard": 1,
+              "stream_start": 1
+            },
+            "singleton_fraction": 0.0
+          },
+          "snapshot_digest": "35117a69b65b0d9a014ebdbc6111e365360af77be76e5c8573776d4e65f85113"
+        },
+        "C_PERIODIC_64": {
+          "agreement": {
+            "0": {
+              "annotated": 38,
+              "f1": 0.11428571428571428,
+              "matched": 4,
+              "precision": 0.125,
+              "predicted": 32,
+              "recall": 0.10526315789473684,
+              "recalled": 4,
+              "stream_length": 2000,
+              "tolerance": 0
+            },
+            "1": {
+              "annotated": 38,
+              "f1": 0.11428571428571428,
+              "matched": 4,
+              "precision": 0.125,
+              "predicted": 32,
+              "recall": 0.10526315789473684,
+              "recalled": 4,
+              "stream_length": 2000,
+              "tolerance": 1
+            },
+            "2": {
+              "annotated": 38,
+              "f1": 0.11428571428571428,
+              "matched": 4,
+              "precision": 0.125,
+              "predicted": 32,
+              "recall": 0.10526315789473684,
+              "recalled": 4,
+              "stream_length": 2000,
+              "tolerance": 2
+            }
+          },
+          "boundary_count": 32,
+          "kind": "periodic",
+          "period": 64,
+          "policy": "C_PERIODIC_64",
+          "sizes": {
+            "distribution": {
+              "count": 32,
+              "histogram_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                32
+              ],
+              "histogram_edges": [
+                0.0,
+                0.05,
+                0.1,
+                0.15,
+                0.2,
+                0.25,
+                0.3,
+                0.35,
+                0.4,
+                0.45,
+                0.5,
+                0.55,
+                0.6,
+                0.65,
+                0.7,
+                0.75,
+                0.8,
+                0.85,
+                0.9,
+                0.95,
+                1.0
+              ],
+              "max": 64.0,
+              "mean": 62.5,
+              "median": 64.0,
+              "min": 40.0,
+              "p01": 40.0,
+              "p05": 53.2,
+              "p10": 64.0,
+              "p25": 64.0,
+              "p75": 64.0,
+              "p90": 64.0,
+              "p95": 64.0,
+              "p99": 64.0,
+              "stdev": 5.809475019311125
+            },
+            "drift_fraction": 0.0,
+            "event_count": 32,
+            "forced_fraction": 0.9375,
+            "hard_fraction": 0.03125,
+            "largest_event_share_of_session": 0.064,
+            "open_reasons": {
+              "forced": 30,
+              "hard": 1,
+              "stream_start": 1
+            },
+            "singleton_fraction": 0.0
+          },
+          "snapshot_digest": "ef681dff882446e74719bdbd1b0b7a2a93304d13166ff6cfec42ff5b9b21923a"
+        },
+        "C_PERIODIC_8": {
+          "agreement": {
+            "0": {
+              "annotated": 38,
+              "f1": 0.05555555555555555,
+              "matched": 8,
+              "precision": 0.032,
+              "predicted": 250,
+              "recall": 0.21052631578947367,
+              "recalled": 8,
+              "stream_length": 2000,
+              "tolerance": 0
+            },
+            "1": {
+              "annotated": 38,
+              "f1": 0.09722222222222222,
+              "matched": 14,
+              "precision": 0.056,
+              "predicted": 250,
+              "recall": 0.3684210526315789,
+              "recalled": 14,
+              "stream_length": 2000,
+              "tolerance": 1
+            },
+            "2": {
+              "annotated": 38,
+              "f1": 0.15277777777777776,
+              "matched": 22,
+              "precision": 0.088,
+              "predicted": 250,
+              "recall": 0.5789473684210527,
+              "recalled": 22,
+              "stream_length": 2000,
+              "tolerance": 2
+            }
+          },
+          "boundary_count": 250,
+          "kind": "periodic",
+          "period": 8,
+          "policy": "C_PERIODIC_8",
+          "sizes": {
+            "distribution": {
+              "count": 250,
+              "histogram_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                250
+              ],
+              "histogram_edges": [
+                0.0,
+                0.05,
+                0.1,
+                0.15,
+                0.2,
+                0.25,
+                0.3,
+                0.35,
+                0.4,
+                0.45,
+                0.5,
+                0.55,
+                0.6,
+                0.65,
+                0.7,
+                0.75,
+                0.8,
+                0.85,
+                0.9,
+                0.95,
+                1.0
+              ],
+              "max": 8.0,
+              "mean": 8.0,
+              "median": 8.0,
+              "min": 8.0,
+              "p01": 8.0,
+              "p05": 8.0,
+              "p10": 8.0,
+              "p25": 8.0,
+              "p75": 8.0,
+              "p90": 8.0,
+              "p95": 8.0,
+              "p99": 8.0,
+              "stdev": 0.0
+            },
+            "drift_fraction": 0.0,
+            "event_count": 250,
+            "forced_fraction": 0.992,
+            "hard_fraction": 0.004,
+            "largest_event_share_of_session": 0.008,
+            "open_reasons": {
+              "forced": 248,
+              "hard": 1,
+              "stream_start": 1
+            },
+            "singleton_fraction": 0.0
+          },
+          "snapshot_digest": "b70af720588373212833fc035634337688f9fcbe09cbaa5df6499edff92ef3d6"
+        },
+        "C_SESSION": {
+          "agreement": {
+            "0": {
+              "annotated": 38,
+              "f1": 0.1,
+              "matched": 2,
+              "precision": 1.0,
+              "predicted": 2,
+              "recall": 0.05263157894736842,
+              "recalled": 2,
+              "stream_length": 2000,
+              "tolerance": 0
+            },
+            "1": {
+              "annotated": 38,
+              "f1": 0.1,
+              "matched": 2,
+              "precision": 1.0,
+              "predicted": 2,
+              "recall": 0.05263157894736842,
+              "recalled": 2,
+              "stream_length": 2000,
+              "tolerance": 1
+            },
+            "2": {
+              "annotated": 38,
+              "f1": 0.1,
+              "matched": 2,
+              "precision": 1.0,
+              "predicted": 2,
+              "recall": 0.05263157894736842,
+              "recalled": 2,
+              "stream_length": 2000,
+              "tolerance": 2
+            }
+          },
+          "boundary_count": 2,
+          "kind": "session",
+          "period": null,
+          "policy": "C_SESSION",
+          "sizes": {
+            "distribution": {
+              "count": 2,
+              "histogram_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                2
+              ],
+              "histogram_edges": [
+                0.0,
+                0.05,
+                0.1,
+                0.15,
+                0.2,
+                0.25,
+                0.3,
+                0.35,
+                0.4,
+                0.45,
+                0.5,
+                0.55,
+                0.6,
+                0.65,
+                0.7,
+                0.75,
+                0.8,
+                0.85,
+                0.9,
+                0.95,
+                1.0
+              ],
+              "max": 1000.0,
+              "mean": 1000.0,
+              "median": 1000.0,
+              "min": 1000.0,
+              "p01": 1000.0,
+              "p05": 1000.0,
+              "p10": 1000.0,
+              "p25": 1000.0,
+              "p75": 1000.0,
+              "p90": 1000.0,
+              "p95": 1000.0,
+              "p99": 1000.0,
+              "stdev": 0.0
+            },
+            "drift_fraction": 0.0,
+            "event_count": 2,
+            "forced_fraction": 0.0,
+            "hard_fraction": 0.5,
+            "largest_event_share_of_session": 1.0,
+            "open_reasons": {
+              "hard": 1,
+              "stream_start": 1
+            },
+            "singleton_fraction": 0.0
+          },
+          "snapshot_digest": "010c5f73dac2bf019c0f628e0f41d3364e67a3e3a117286db62f138e8a187444"
+        },
+        "T_EVENT": {
+          "agreement": {
+            "0": {
+              "annotated": 38,
+              "f1": 0.39285714285714285,
+              "matched": 22,
+              "precision": 0.2972972972972973,
+              "predicted": 74,
+              "recall": 0.5789473684210527,
+              "recalled": 22,
+              "stream_length": 2000,
+              "tolerance": 0
+            },
+            "1": {
+              "annotated": 38,
+              "f1": 0.39285714285714285,
+              "matched": 22,
+              "precision": 0.2972972972972973,
+              "predicted": 74,
+              "recall": 0.5789473684210527,
+              "recalled": 22,
+              "stream_length": 2000,
+              "tolerance": 1
+            },
+            "2": {
+              "annotated": 38,
+              "f1": 0.42857142857142855,
+              "matched": 24,
+              "precision": 0.32432432432432434,
+              "predicted": 74,
+              "recall": 0.631578947368421,
+              "recalled": 24,
+              "stream_length": 2000,
+              "tolerance": 2
+            }
+          },
+          "boundary_count": 74,
+          "boundary_set_digest": "55311cd063ed7711d94a8c2d4aa4d1cf5e75eb46b02034c4c42c28bb9fa27e06",
+          "context_separation": {
+            "context_auc_macro": 0.9699239773210542,
+            "context_auc_min_session": 0.9697029758325879,
+            "context_minus_raw": 0.06972705800618861,
+            "lag_max": 8,
+            "per_session": [
+              {
+                "across_pairs": 592,
+                "context_auc": 0.9697029758325879,
+                "raw_auc": 0.8967657251323489,
+                "session_sha256": "5c4144d05ef0353b58d95972c7a30c03dfc43743a482d1c72a459a6bed234dc3",
+                "within_pairs": 7372
+              },
+              {
+                "across_pairs": 592,
+                "context_auc": 0.9701449788095203,
+                "raw_auc": 0.9036281134973824,
+                "session_sha256": "d7d21c88465095d1b3482f442c2f4747812c411c74079430faf163da23a37124",
+                "within_pairs": 7372
+              }
+            ],
+            "raw_auc_macro": 0.9001969193148656,
+            "sessions_scored": 2
+          },
+          "identical_to": [],
+          "kind": "drift",
+          "period": null,
+          "policy": "T_EVENT",
+          "sizes": {
+            "distribution": {
+              "count": 74,
+              "histogram_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                74
+              ],
+              "histogram_edges": [
+                0.0,
+                0.05,
+                0.1,
+                0.15,
+                0.2,
+                0.25,
+                0.3,
+                0.35,
+                0.4,
+                0.45,
+                0.5,
+                0.55,
+                0.6,
+                0.65,
+                0.7,
+                0.75,
+                0.8,
+                0.85,
+                0.9,
+                0.95,
+                1.0
+              ],
+              "max": 32.0,
+              "mean": 27.027027027027028,
+              "median": 32.0,
+              "min": 6.0,
+              "p01": 6.0,
+              "p05": 9.600000000000001,
+              "p10": 13.900000000000002,
+              "p25": 18.0,
+              "p75": 32.0,
+              "p90": 32.0,
+              "p95": 32.0,
+              "p99": 32.0,
+              "stdev": 8.231404879883314
+            },
+            "drift_fraction": 0.2702702702702703,
+            "event_count": 74,
+            "forced_fraction": 0.7027027027027027,
+            "hard_fraction": 0.013513513513513514,
+            "largest_event_share_of_session": 0.032,
+            "open_reasons": {
+              "drift": 20,
+              "forced": 52,
+              "hard": 1,
+              "stream_start": 1
+            },
+            "singleton_fraction": 0.0
+          },
+          "snapshot_digest": "da30bd88bd139f7b968e1e7742ea5f7b456e5c49a24965b34ed6c5acd6a6f5d2"
+        }
+      },
+      "episodes": 2000,
+      "sessions": 2
+    }
+  },
+  "study": "DMR-001",
+  "verdict": {
+    "bars": {
+      "G3": {
+        "max_forced_fraction": 0.35,
+        "max_largest_event_share_of_session": 0.25,
+        "max_singleton_fraction": 0.2
+      },
+      "G4": {
+        "margin_over_best_periodic": 0.05,
+        "margin_over_c_session": 0.05,
+        "min_precision": 0.2,
+        "min_recall": 0.5,
+        "tolerance": 1
+      },
+      "G5": {
+        "min_context_auc_macro": 0.7,
+        "min_context_minus_raw": 0.0,
+        "min_per_session_context_auc": 0.6
+      }
+    },
+    "disposition": "DEGENERATE_FORMATION",
+    "gates": [
+      {
+        "checks": [
+          {
+            "bar": true,
+            "check": "two fresh processes agree bit for bit",
+            "observed": true,
+            "passed": true
+          },
+          {
+            "bar": "be939cbebc0e9e9f33906ffc92047e114372852bbc578bb4376efd0e061d3bf9",
+            "check": "frozen corpus replays to the committed digest",
+            "observed": "be939cbebc0e9e9f33906ffc92047e114372852bbc578bb4376efd0e061d3bf9",
+            "passed": true
+          },
+          {
+            "bar": true,
+            "check": "causal input rejection tests pass",
+            "observed": true,
+            "passed": true
+          },
+          {
+            "bar": "src.biological_memory only",
+            "check": "no import path to keys, rubrics, readers, packers, or scorers",
+            "observed": [
+              "src.biological_memory",
+              "src.biological_memory.event_context",
+              "src.biological_memory.supersession"
+            ],
+            "passed": true
+          },
+          {
+            "bar": true,
+            "check": "no generation call in the process",
+            "observed": true,
+            "passed": true
+          },
+          {
+            "bar": "f563b6c5f9a98413b3a00135600f6d4dc3f9203242190d30c2bf0b2e03d28c41",
+            "check": "the design anchor matches the pre-registration on disk",
+            "observed": "f563b6c5f9a98413b3a00135600f6d4dc3f9203242190d30c2bf0b2e03d28c41",
+            "passed": true
+          }
+        ],
+        "evaluated": true,
+        "gate": "G1",
+        "name": "Integrity",
+        "passed": true
+      },
+      {
+        "checks": [
+          {
+            "bar": 3724,
+            "check": "every episode appears exactly once",
+            "observed": 3724,
+            "passed": true
+          },
+          {
+            "bar": 3724,
+            "check": "member count equals episode count",
+            "observed": 3724,
+            "passed": true
+          },
+          {
+            "bar": true,
+            "check": "positions are contiguous from zero in every event",
+            "observed": true,
+            "passed": true
+          },
+          {
+            "bar": true,
+            "check": "no event spans two sessions",
+            "observed": true,
+            "passed": true
+          },
+          {
+            "bar": true,
+            "check": "event order is append order",
+            "observed": true,
+            "passed": true
+          }
+        ],
+        "evaluated": true,
+        "gate": "G2",
+        "name": "Partition",
+        "passed": true
+      },
+      {
+        "checks": [
+          {
+            "bar": "<= 0.2",
+            "check": "development: singleton fraction",
+            "observed": 0.0,
+            "passed": true
+          },
+          {
+            "bar": "<= 0.35",
+            "check": "development: forced fraction",
+            "observed": 0.005208333333333333,
+            "passed": true
+          },
+          {
+            "bar": "<= 0.25",
+            "check": "development: largest event share of its session",
+            "observed": 0.7666666666666667,
+            "passed": false
+          },
+          {
+            "bar": "no identical control",
+            "check": "development: boundary set differs from every structural control",
+            "observed": [],
+            "passed": true
+          },
+          {
+            "bar": "<= 0.2",
+            "check": "holdout: singleton fraction",
+            "observed": 0.0,
+            "passed": true
+          },
+          {
+            "bar": "<= 0.35",
+            "check": "holdout: forced fraction",
+            "observed": 0.7027027027027027,
+            "passed": false
+          },
+          {
+            "bar": "<= 0.25",
+            "check": "holdout: largest event share of its session",
+            "observed": 0.032,
+            "passed": true
+          },
+          {
+            "bar": "no identical control",
+            "check": "holdout: boundary set differs from every structural control",
+            "observed": [],
+            "passed": true
+          }
+        ],
+        "evaluated": true,
+        "gate": "G3",
+        "name": "Nondegeneracy",
+        "passed": false
+      },
+      {
+        "best_periodic": {
+          "arm": "C_PERIODIC_64",
+          "f1": 0.11428571428571428
+        },
+        "c_session_f1": 0.1,
+        "checks": [
+          {
+            "bar": ">= 0.05",
+            "check": "F1 margin over C_SESSION",
+            "observed": 0.2928571428571428,
+            "passed": true
+          },
+          {
+            "bar": ">= 0.05",
+            "check": "F1 margin over best periodic (C_PERIODIC_64)",
+            "observed": 0.2785714285714286,
+            "passed": true
+          },
+          {
+            "bar": ">= 0.5",
+            "check": "recall",
+            "observed": 0.5789473684210527,
+            "passed": true
+          },
+          {
+            "bar": ">= 0.2",
+            "check": "precision",
+            "observed": 0.2972972972972973,
+            "passed": true
+          }
+        ],
+        "evaluated": false,
+        "gate": "G4",
+        "name": "Boundary evidence",
+        "passed": true,
+        "periodic_f1": {
+          "C_PERIODIC_16": 0.07317073170731707,
+          "C_PERIODIC_2": 0.07321772639691715,
+          "C_PERIODIC_32": 0.0784313725490196,
+          "C_PERIODIC_4": 0.11152416356877323,
+          "C_PERIODIC_64": 0.11428571428571428,
+          "C_PERIODIC_8": 0.09722222222222222
+        },
+        "tolerance": 1,
+        "treatment_f1": 0.39285714285714285
+      },
+      {
+        "checks": [
+          {
+            "bar": ">= 0.7",
+            "check": "macro context AUC",
+            "observed": 0.9699239773210542,
+            "passed": true
+          },
+          {
+            "bar": ">= 0.0",
+            "check": "context AUC is at least the raw-vector control",
+            "observed": 0.06972705800618861,
+            "passed": true
+          },
+          {
+            "bar": ">= 0.6",
+            "check": "every session's context AUC",
+            "observed": 0.9697029758325879,
+            "passed": true
+          }
+        ],
+        "context_auc_macro": 0.9699239773210542,
+        "evaluated": false,
+        "gate": "G5",
+        "name": "Context separation",
+        "passed": true,
+        "raw_auc_macro": 0.9001969193148656
+      }
+    ],
+    "passed": false,
+    "stopped_at": "G3"
+  }
+}

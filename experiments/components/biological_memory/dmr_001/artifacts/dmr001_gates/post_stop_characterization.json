@@ -1,0 +1,283 @@
+{
+  "bar_reachability_defect": {
+    "affects_disposition": false,
+    "bar": "G3 largest event share of its session <= 0.25",
+    "problem": "PF4 verified the singleton and forced-fraction bars reachable on development but never verified this one. A session shorter than four times max_event_size cannot satisfy it under any setting of the locked rule, so the bar was unreachable by construction on the shortest selected session.",
+    "short_sessions": [
+      {
+        "episode_count": 121,
+        "max_share_a_single_event_could_avoid": 0.2644628099173554,
+        "session_sha256": "166b68a85942d6f0d9fdc9dbfe12311f652ff637f1bd4d445280f72cf4a517c8"
+      },
+      {
+        "episode_count": 121,
+        "max_share_a_single_event_could_avoid": 0.2644628099173554,
+        "session_sha256": "1ddc21b4ad04e41d97c990d0b398d01b74364f989870b6b8e173983d1dd15295"
+      },
+      {
+        "episode_count": 121,
+        "max_share_a_single_event_could_avoid": 0.2644628099173554,
+        "session_sha256": "2b3488c125fd6ec799af531a08ab2f12674e5b7d8fc774af393df46f475abaf0"
+      },
+      {
+        "episode_count": 121,
+        "max_share_a_single_event_could_avoid": 0.2644628099173554,
+        "session_sha256": "35499e23a0cfd635593161507dffa7030216a9e68c0d2ba250490e35542a3b8c"
+      },
+      {
+        "episode_count": 121,
+        "max_share_a_single_event_could_avoid": 0.2644628099173554,
+        "session_sha256": "3e14020452998da3ca406f76a8ce281765133d2dcb778149a738b934111557fa"
+      },
+      {
+        "episode_count": 121,
+        "max_share_a_single_event_could_avoid": 0.2644628099173554,
+        "session_sha256": "7521a657251d761d8c045b1ededb568feb4447037f792f854a23f75594b316f5"
+      },
+      {
+        "episode_count": 121,
+        "max_share_a_single_event_could_avoid": 0.2644628099173554,
+        "session_sha256": "7ff168875652eb108dd3e742fc972f3c2302379d17486c2ac73cb7293a295115"
+      },
+      {
+        "episode_count": 121,
+        "max_share_a_single_event_could_avoid": 0.2644628099173554,
+        "session_sha256": "852706410173a960e0764af3a0bcf84e32f3f031303f7a993ca825abc42de470"
+      },
+      {
+        "episode_count": 121,
+        "max_share_a_single_event_could_avoid": 0.2644628099173554,
+        "session_sha256": "8f2342d35bfea297d2b45b150515e6891682bf2bff47531c69e7cb8725a77695"
+      },
+      {
+        "episode_count": 121,
+        "max_share_a_single_event_could_avoid": 0.2644628099173554,
+        "session_sha256": "91662b515f7423b0d529d4f8e7a13da9944938d18a9ac13bde7e67a14a782f4e"
+      },
+      {
+        "episode_count": 121,
+        "max_share_a_single_event_could_avoid": 0.2644628099173554,
+        "session_sha256": "98fec0e2b00fcb1c8c7edee112c9345770b7df637a5e7142d96ad7e16ccac5e1"
+      },
+      {
+        "episode_count": 121,
+        "max_share_a_single_event_could_avoid": 0.2644628099173554,
+        "session_sha256": "ac46d26a3903076f5a2d69e7fb05035888147122b7e09f2280b9320a5bcb31e4"
+      },
+      {
+        "episode_count": 121,
+        "max_share_a_single_event_could_avoid": 0.2644628099173554,
+        "session_sha256": "baf306cf5207ac8ab49c3aead6b16f9b5390ec09ca296ea457086021d4527ffa"
+      },
+      {
+        "episode_count": 121,
+        "max_share_a_single_event_could_avoid": 0.2644628099173554,
+        "session_sha256": "bb074c93be80be256649e9c76799b3aca2a2b51a38c3001fc193ae7eeb3bb8f5"
+      },
+      {
+        "episode_count": 30,
+        "max_share_a_single_event_could_avoid": 1.0,
+        "session_sha256": "10278ee1c353921c6584a300e7ac6d3aace65340c033e72bcc554f1df41cb648"
+      }
+    ],
+    "why_not": "the holdout forced-fraction check fails independently at 0.703 against a bar of 0.35 that PF4 did verify reachable at 0.005, so G3 fails and the disposition is DEGENERATE_FORMATION with or without this check"
+  },
+  "design_sha256": "f563b6c5f9a98413b3a00135600f6d4dc3f9203242190d30c2bf0b2e03d28c41",
+  "disposition": "DEGENERATE_FORMATION",
+  "schema": "dmr001-poststop-v1",
+  "splits": {
+    "development": {
+      "drift": {
+        "drift_distribution": {
+          "count": 1724,
+          "histogram_counts": [
+            1,
+            0,
+            0,
+            3,
+            2,
+            12,
+            39,
+            78,
+            120,
+            173,
+            191,
+            231,
+            178,
+            172,
+            151,
+            120,
+            123,
+            83,
+            37,
+            10
+          ],
+          "histogram_edges": [
+            0.0,
+            0.05,
+            0.1,
+            0.15,
+            0.2,
+            0.25,
+            0.3,
+            0.35,
+            0.4,
+            0.45,
+            0.5,
+            0.55,
+            0.6,
+            0.65,
+            0.7,
+            0.75,
+            0.8,
+            0.85,
+            0.9,
+            0.95,
+            1.0
+          ],
+          "max": 0.9882290352447085,
+          "mean": 0.6154175911385472,
+          "median": 0.6022022155113793,
+          "min": 0.0,
+          "p01": 0.2997698795438514,
+          "p05": 0.37404847355044635,
+          "p10": 0.4146470336633449,
+          "p25": 0.5008714882327253,
+          "p75": 0.7293907303593482,
+          "p90": 0.8373420029881116,
+          "p95": 0.876851284160329,
+          "p99": 0.9261435698141991,
+          "stdev": 0.1548934608789583
+        },
+        "eligible_above_threshold": 178,
+        "eligible_above_threshold_fraction": 0.18522372528616024,
+        "eligible_for_drift_predicate": 961,
+        "episodes": 1724,
+        "near_zero_drift_against_prototype": 1,
+        "near_zero_drift_fraction": 0.000580046403712297
+      },
+      "matches": {
+        "annotated": 75,
+        "matched_by_reason": {
+          "drift": 41,
+          "hard": 14,
+          "stream_start": 1
+        },
+        "precision_by_reason": {
+          "drift": 0.23295454545454544,
+          "forced": 0.0,
+          "hard": 1.0,
+          "stream_start": 1.0
+        },
+        "predicted_by_reason": {
+          "drift": 176,
+          "forced": 1,
+          "hard": 14,
+          "stream_start": 1
+        },
+        "recalled": 56,
+        "share_of_boundaries_from_forced": 0.005208333333333333,
+        "share_of_matches_from_drift": 0.7321428571428571,
+        "tolerance": 1
+      }
+    },
+    "holdout": {
+      "drift": {
+        "drift_distribution": {
+          "count": 2000,
+          "histogram_counts": [
+            1,
+            0,
+            0,
+            4,
+            74,
+            255,
+            534,
+            384,
+            290,
+            170,
+            100,
+            60,
+            56,
+            36,
+            19,
+            17,
+            0,
+            0,
+            0,
+            0
+          ],
+          "histogram_edges": [
+            0.0,
+            0.05,
+            0.1,
+            0.15,
+            0.2,
+            0.25,
+            0.3,
+            0.35,
+            0.4,
+            0.45,
+            0.5,
+            0.55,
+            0.6,
+            0.65,
+            0.7,
+            0.75,
+            0.8,
+            0.85,
+            0.9,
+            0.95,
+            1.0
+          ],
+          "max": 0.7989171652431944,
+          "mean": 0.3917193566388962,
+          "median": 0.3622412855117818,
+          "min": 0.0,
+          "p01": 0.22062040523572987,
+          "p05": 0.2561532469972835,
+          "p10": 0.28086458668944864,
+          "p25": 0.3202818293155145,
+          "p75": 0.4431180925177156,
+          "p90": 0.5459950728651737,
+          "p95": 0.6259817479079898,
+          "p99": 0.7299895267292079,
+          "stdev": 0.1094474906900887
+        },
+        "eligible_above_threshold": 20,
+        "eligible_above_threshold_fraction": 0.011743981209630064,
+        "eligible_for_drift_predicate": 1703,
+        "episodes": 2000,
+        "near_zero_drift_against_prototype": 1,
+        "near_zero_drift_fraction": 0.0005
+      },
+      "matches": {
+        "annotated": 38,
+        "matched_by_reason": {
+          "drift": 20,
+          "hard": 1,
+          "stream_start": 1
+        },
+        "precision_by_reason": {
+          "drift": 1.0,
+          "forced": 0.0,
+          "hard": 1.0,
+          "stream_start": 1.0
+        },
+        "predicted_by_reason": {
+          "drift": 20,
+          "forced": 52,
+          "hard": 1,
+          "stream_start": 1
+        },
+        "recalled": 22,
+        "share_of_boundaries_from_forced": 0.7027027027027027,
+        "share_of_matches_from_drift": 0.9090909090909091,
+        "tolerance": 1
+      }
+    }
+  },
+  "status": "POST_STOP_DESCRIPTIVE_ONLY",
+  "stopped_at": "G3",
+  "study": "DMR-001"
+}
