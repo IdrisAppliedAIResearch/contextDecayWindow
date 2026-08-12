@@ -1,0 +1,879 @@
+{
+  "controls": {
+    "family_1000_61311041": {
+      "identical_controls": []
+    },
+    "family_121_36adce29": {
+      "identical_controls": []
+    },
+    "family_30_be065cb7": {
+      "identical_controls": []
+    }
+  },
+  "design_sha256": "ad6f9451a1be1519820a18f1ac1dae5dbc9ce38819671c8537061a6dc5ecc5e6",
+  "deviations": [
+    {
+      "affects_confirmatory_standing": true,
+      "file": "DEVIATION_001_implementation_preceded_registration.md",
+      "id": "DEVIATION_001",
+      "summary": "The component was written before the pre-registration and both were committed together. PF3 reports the ordering check as FAILED."
+    }
+  ],
+  "families": {
+    "family_1000_61311041": {
+      "adaptive_boundaries": 63,
+      "adaptive_fire_rate": 0.0315,
+      "agreement_all_closures": {
+        "annotated": 38,
+        "f1": 0.5825242718446603,
+        "matched": 30,
+        "precision": 0.46153846153846156,
+        "predicted": 65,
+        "recall": 0.7894736842105263,
+        "recalled": 30,
+        "stream_length": 2000,
+        "tolerance": 1
+      },
+      "agreement_claims_only": {
+        "annotated": 38,
+        "f1": 0.5825242718446603,
+        "matched": 30,
+        "precision": 0.46153846153846156,
+        "predicted": 65,
+        "recall": 0.7894736842105263,
+        "recalled": 30,
+        "stream_length": 2000,
+        "tolerance": 1
+      },
+      "annotated_boundaries": 38,
+      "capped_closures": 0,
+      "claimed_boundary_indices": [
+        0,
+        39,
+        74,
+        82,
+        121,
+        156,
+        163,
+        202,
+        245,
+        322,
+        329,
+        368,
+        411,
+        450,
+        485,
+        492,
+        499,
+        534,
+        576,
+        615,
+        650,
+        658,
+        697,
+        732,
+        739,
+        749,
+        781,
+        824,
+        863,
+        898,
+        905,
+        944,
+        986,
+        1000,
+        1039,
+        1074,
+        1082,
+        1121,
+        1163,
+        1202,
+        1245,
+        1322,
+        1329,
+        1368,
+        1411,
+        1450,
+        1485,
+        1492,
+        1499,
+        1534,
+        1576,
+        1615,
+        1650,
+        1658,
+        1697,
+        1732,
+        1739,
+        1749,
+        1781,
+        1824,
+        1863,
+        1898,
+        1905,
+        1944,
+        1986
+      ],
+      "counts": {
+        "capped_closures": 0,
+        "claimed_boundaries": 65,
+        "episodes": 2000,
+        "events": 65,
+        "members": 2000,
+        "sessions": 2
+      },
+      "episodes": 2000,
+      "event_count": 65,
+      "open_reasons": {
+        "adaptive": 63,
+        "hard": 1,
+        "stream_start": 1
+      },
+      "sessions": 2,
+      "singleton_fraction": 0.0,
+      "size_distribution": {
+        "count": 65,
+        "histogram_counts": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          65
+        ],
+        "histogram_edges": [
+          0.0,
+          0.05,
+          0.1,
+          0.15,
+          0.2,
+          0.25,
+          0.3,
+          0.35,
+          0.4,
+          0.45,
+          0.5,
+          0.55,
+          0.6,
+          0.65,
+          0.7,
+          0.75,
+          0.8,
+          0.85,
+          0.9,
+          0.95,
+          1.0
+        ],
+        "max": 77.0,
+        "mean": 30.76923076923077,
+        "median": 35.0,
+        "min": 7.0,
+        "p01": 7.0,
+        "p05": 7.0,
+        "p10": 7.0,
+        "p25": 10.0,
+        "p75": 39.0,
+        "p90": 43.0,
+        "p95": 43.0,
+        "p99": 77.0,
+        "stdev": 16.158607356946835
+      },
+      "snapshot_digest": "17b61463d307b695dd6c9d6a1a4d625862789aa5a27370ead7886990c1e4730f"
+    },
+    "family_121_36adce29": {
+      "adaptive_boundaries": 76,
+      "adaptive_fire_rate": 0.0448642266824085,
+      "agreement_all_closures": {
+        "annotated": 70,
+        "f1": 0.4875,
+        "matched": 39,
+        "precision": 0.43333333333333335,
+        "predicted": 90,
+        "recall": 0.5571428571428572,
+        "recalled": 39,
+        "stream_length": 1694,
+        "tolerance": 1
+      },
+      "agreement_claims_only": {
+        "annotated": 70,
+        "f1": 0.4875,
+        "matched": 39,
+        "precision": 0.43333333333333335,
+        "predicted": 90,
+        "recall": 0.5571428571428572,
+        "recalled": 39,
+        "stream_length": 1694,
+        "tolerance": 1
+      },
+      "annotated_boundaries": 70,
+      "capped_closures": 0,
+      "claimed_boundary_indices": [
+        0,
+        19,
+        67,
+        90,
+        101,
+        111,
+        121,
+        140,
+        160,
+        184,
+        211,
+        224,
+        235,
+        242,
+        261,
+        281,
+        287,
+        319,
+        341,
+        353,
+        363,
+        394,
+        410,
+        446,
+        468,
+        474,
+        480,
+        484,
+        514,
+        544,
+        574,
+        590,
+        605,
+        624,
+        659,
+        693,
+        698,
+        716,
+        726,
+        757,
+        774,
+        799,
+        825,
+        831,
+        847,
+        870,
+        900,
+        907,
+        941,
+        955,
+        961,
+        968,
+        991,
+        999,
+        1029,
+        1034,
+        1061,
+        1070,
+        1079,
+        1089,
+        1119,
+        1126,
+        1176,
+        1187,
+        1200,
+        1210,
+        1240,
+        1249,
+        1270,
+        1300,
+        1316,
+        1331,
+        1349,
+        1371,
+        1396,
+        1421,
+        1442,
+        1452,
+        1474,
+        1515,
+        1522,
+        1542,
+        1560,
+        1566,
+        1573,
+        1603,
+        1610,
+        1660,
+        1671,
+        1684
+      ],
+      "counts": {
+        "capped_closures": 0,
+        "claimed_boundaries": 90,
+        "episodes": 1694,
+        "events": 90,
+        "members": 1694,
+        "sessions": 14
+      },
+      "episodes": 1694,
+      "event_count": 90,
+      "open_reasons": {
+        "adaptive": 76,
+        "hard": 13,
+        "stream_start": 1
+      },
+      "sessions": 14,
+      "singleton_fraction": 0.0,
+      "size_distribution": {
+        "count": 90,
+        "histogram_counts": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          90
+        ],
+        "histogram_edges": [
+          0.0,
+          0.05,
+          0.1,
+          0.15,
+          0.2,
+          0.25,
+          0.3,
+          0.35,
+          0.4,
+          0.45,
+          0.5,
+          0.55,
+          0.6,
+          0.65,
+          0.7,
+          0.75,
+          0.8,
+          0.85,
+          0.9,
+          0.95,
+          1.0
+        ],
+        "max": 50.0,
+        "mean": 18.822222222222223,
+        "median": 18.0,
+        "min": 4.0,
+        "p01": 4.89,
+        "p05": 6.0,
+        "p10": 6.9,
+        "p25": 10.0,
+        "p75": 25.75,
+        "p90": 31.10000000000001,
+        "p95": 35.55,
+        "p99": 50.0,
+        "stdev": 10.755440770737362
+      },
+      "snapshot_digest": "248322a8fd7f99ca8fdb8b50f5f5c5f6e50228865dd372eb1a6d28a9147494b1"
+    },
+    "family_30_be065cb7": {
+      "adaptive_boundaries": 1,
+      "adaptive_fire_rate": 0.03333333333333333,
+      "agreement_all_closures": {
+        "annotated": 5,
+        "f1": 0.28571428571428575,
+        "matched": 1,
+        "precision": 0.5,
+        "predicted": 2,
+        "recall": 0.2,
+        "recalled": 1,
+        "stream_length": 30,
+        "tolerance": 1
+      },
+      "agreement_claims_only": {
+        "annotated": 5,
+        "f1": 0.28571428571428575,
+        "matched": 1,
+        "precision": 0.5,
+        "predicted": 2,
+        "recall": 0.2,
+        "recalled": 1,
+        "stream_length": 30,
+        "tolerance": 1
+      },
+      "annotated_boundaries": 5,
+      "capped_closures": 0,
+      "claimed_boundary_indices": [
+        0,
+        28
+      ],
+      "counts": {
+        "capped_closures": 0,
+        "claimed_boundaries": 2,
+        "episodes": 30,
+        "events": 2,
+        "members": 30,
+        "sessions": 1
+      },
+      "episodes": 30,
+      "event_count": 2,
+      "open_reasons": {
+        "adaptive": 1,
+        "stream_start": 1
+      },
+      "sessions": 1,
+      "singleton_fraction": 0.0,
+      "size_distribution": {
+        "count": 2,
+        "histogram_counts": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        "histogram_edges": [
+          0.0,
+          0.05,
+          0.1,
+          0.15,
+          0.2,
+          0.25,
+          0.3,
+          0.35,
+          0.4,
+          0.45,
+          0.5,
+          0.55,
+          0.6,
+          0.65,
+          0.7,
+          0.75,
+          0.8,
+          0.85,
+          0.9,
+          0.95,
+          1.0
+        ],
+        "max": 28.0,
+        "mean": 15.0,
+        "median": 15.0,
+        "min": 2.0,
+        "p01": 2.26,
+        "p05": 3.3,
+        "p10": 4.6,
+        "p25": 8.5,
+        "p75": 21.5,
+        "p90": 25.400000000000002,
+        "p95": 26.7,
+        "p99": 27.74,
+        "stdev": 13.0
+      },
+      "snapshot_digest": "d946792a5a3fb84fc150eda4ff48af59b928e8dd9c39cc26aacc6dab0c6945cc"
+    }
+  },
+  "integrity": {
+    "causal_rejection_passed": true,
+    "committed_corpus_digest": "be939cbebc0e9e9f33906ffc92047e114372852bbc578bb4376efd0e061d3bf9",
+    "corpus_digest": "be939cbebc0e9e9f33906ffc92047e114372852bbc578bb4376efd0e061d3bf9",
+    "corpus_digest_matches": true,
+    "design_anchor_matches": true,
+    "first_process_digest": "28253081f49d44e6540b278c01da06f6ab6bab631b099dcc3cbf38e1d8f633ce",
+    "leakage_clean": true,
+    "no_generation_call": true,
+    "predecessor_component_expected_sha256": "ca128e135581f8f267b5b1367cc9ef64fc625c06",
+    "predecessor_component_note": "the last commit touching event_context.py; DMR-001B adds no commit to it",
+    "predecessor_component_sha256": "ca128e135581f8f267b5b1367cc9ef64fc625c06",
+    "predecessor_component_unmodified": true,
+    "reachable_modules": [
+      "src.biological_memory",
+      "src.biological_memory.adaptive_event_context",
+      "src.biological_memory.event_context",
+      "src.biological_memory.supersession"
+    ],
+    "second_process_digest": "28253081f49d44e6540b278c01da06f6ab6bab631b099dcc3cbf38e1d8f633ce",
+    "two_process_identical": true
+  },
+  "predecessor": {
+    "family_1000_61311041": {
+      "agreement_claims_only": {
+        "annotated": 38,
+        "f1": 0.7333333333333334,
+        "matched": 22,
+        "precision": 1.0,
+        "predicted": 22,
+        "recall": 0.5789473684210527,
+        "recalled": 22,
+        "stream_length": 2000,
+        "tolerance": 1
+      },
+      "capped_fraction": 0.7027027027027027,
+      "event_count": 74
+    },
+    "family_121_36adce29": {
+      "agreement_claims_only": {
+        "annotated": 70,
+        "f1": 0.4186046511627907,
+        "matched": 54,
+        "precision": 0.2872340425531915,
+        "predicted": 188,
+        "recall": 0.7714285714285715,
+        "recalled": 54,
+        "stream_length": 1694,
+        "tolerance": 1
+      },
+      "capped_fraction": 0.005291005291005291,
+      "event_count": 189
+    },
+    "family_30_be065cb7": {
+      "agreement_claims_only": {
+        "annotated": 5,
+        "f1": 0.5,
+        "matched": 2,
+        "precision": 0.6666666666666666,
+        "predicted": 3,
+        "recall": 0.4,
+        "recalled": 2,
+        "stream_length": 30,
+        "tolerance": 1
+      },
+      "capped_fraction": 0.0,
+      "event_count": 3
+    }
+  },
+  "preflight_status": "PASS_WITH_RECORDED_DEVIATION",
+  "schema": "dmr001b-gates-v1",
+  "study": "DMR-001B",
+  "verdict": {
+    "bars": {
+      "G3": {
+        "max_capped_closures": 0,
+        "max_singleton_fraction": 0.2
+      },
+      "G4": {
+        "max_swing": 2.0,
+        "percentile_grid": [
+          0.8,
+          0.85,
+          0.9,
+          0.95,
+          0.975
+        ]
+      },
+      "G5": {
+        "predecessor_cap": 32,
+        "predecessor_threshold": 0.7
+      }
+    },
+    "disposition": "ADAPTIVE_FORMATION_TRANSFERS_OFFLINE",
+    "gates": [
+      {
+        "checks": [
+          {
+            "bar": true,
+            "check": "two fresh processes agree bit for bit",
+            "observed": true,
+            "passed": true
+          },
+          {
+            "bar": "be939cbebc0e9e9f33906ffc92047e114372852bbc578bb4376efd0e061d3bf9",
+            "check": "corpus replays to the committed digest",
+            "observed": "be939cbebc0e9e9f33906ffc92047e114372852bbc578bb4376efd0e061d3bf9",
+            "passed": true
+          },
+          {
+            "bar": true,
+            "check": "malformed and acausal inputs raise",
+            "observed": true,
+            "passed": true
+          },
+          {
+            "bar": "src.biological_memory only",
+            "check": "no import path to keys, rubrics, readers, packers, or scorers",
+            "observed": [
+              "src.biological_memory",
+              "src.biological_memory.adaptive_event_context",
+              "src.biological_memory.event_context",
+              "src.biological_memory.supersession"
+            ],
+            "passed": true
+          },
+          {
+            "bar": true,
+            "check": "no generation call in the process",
+            "observed": true,
+            "passed": true
+          },
+          {
+            "bar": true,
+            "check": "the design anchor matches the pre-registration on disk",
+            "observed": true,
+            "passed": true
+          },
+          {
+            "bar": "ca128e135581f8f267b5b1367cc9ef64fc625c06",
+            "check": "DMR-001's frozen component is unmodified",
+            "observed": "ca128e135581f8f267b5b1367cc9ef64fc625c06",
+            "passed": true
+          }
+        ],
+        "evaluated": true,
+        "gate": "G1",
+        "name": "Integrity",
+        "passed": true
+      },
+      {
+        "checks": [
+          {
+            "bar": 2000,
+            "check": "family_1000_61311041: every episode in exactly one event",
+            "observed": [
+              2000,
+              2000
+            ],
+            "passed": true
+          },
+          {
+            "bar": 1694,
+            "check": "family_121_36adce29: every episode in exactly one event",
+            "observed": [
+              1694,
+              1694
+            ],
+            "passed": true
+          },
+          {
+            "bar": 30,
+            "check": "family_30_be065cb7: every episode in exactly one event",
+            "observed": [
+              30,
+              30
+            ],
+            "passed": true
+          }
+        ],
+        "evaluated": true,
+        "gate": "G2",
+        "name": "Partition",
+        "passed": true
+      },
+      {
+        "checks": [
+          {
+            "bar": "<= 0.2",
+            "check": "family_1000_61311041: singleton fraction",
+            "observed": 0.0,
+            "passed": true
+          },
+          {
+            "bar": 0,
+            "check": "family_1000_61311041: the cap never binds",
+            "observed": 0,
+            "passed": true
+          },
+          {
+            "bar": "no identical control",
+            "check": "family_1000_61311041: claimed boundaries differ from every structural control",
+            "observed": [],
+            "passed": true
+          },
+          {
+            "bar": "<= 0.2",
+            "check": "family_121_36adce29: singleton fraction",
+            "observed": 0.0,
+            "passed": true
+          },
+          {
+            "bar": 0,
+            "check": "family_121_36adce29: the cap never binds",
+            "observed": 0,
+            "passed": true
+          },
+          {
+            "bar": "no identical control",
+            "check": "family_121_36adce29: claimed boundaries differ from every structural control",
+            "observed": [],
+            "passed": true
+          },
+          {
+            "bar": "<= 0.2",
+            "check": "family_30_be065cb7: singleton fraction",
+            "observed": 0.0,
+            "passed": true
+          },
+          {
+            "bar": 0,
+            "check": "family_30_be065cb7: the cap never binds",
+            "observed": 0,
+            "passed": true
+          },
+          {
+            "bar": "no identical control",
+            "check": "family_30_be065cb7: claimed boundaries differ from every structural control",
+            "observed": [],
+            "passed": true
+          }
+        ],
+        "evaluated": true,
+        "gate": "G3",
+        "name": "Nondegeneracy",
+        "passed": true
+      },
+      {
+        "checks": [
+          {
+            "bar": "<= 2.0",
+            "check": "percentile 0.8: fire-rate swing across substantive families",
+            "observed": 1.4757969303423848,
+            "passed": true
+          },
+          {
+            "bar": "<= 2.0",
+            "check": "percentile 0.85: fire-rate swing across substantive families",
+            "observed": 1.5868784197229944,
+            "passed": true
+          },
+          {
+            "bar": "<= 2.0",
+            "check": "percentile 0.9: fire-rate swing across substantive families",
+            "observed": 1.614036136475722,
+            "passed": true
+          },
+          {
+            "bar": "<= 2.0",
+            "check": "percentile 0.95: fire-rate swing across substantive families",
+            "observed": 1.6491445062873635,
+            "passed": true
+          },
+          {
+            "bar": "<= 2.0",
+            "check": "percentile 0.975: fire-rate swing across substantive families",
+            "observed": 1.4242611645209047,
+            "passed": true
+          },
+          {
+            "bar": "> 0",
+            "check": "family_1000_61311041: adaptive rule fires at all",
+            "observed": 63,
+            "passed": true
+          },
+          {
+            "bar": "> 0",
+            "check": "family_121_36adce29: adaptive rule fires at all",
+            "observed": 76,
+            "passed": true
+          }
+        ],
+        "evaluated": true,
+        "gate": "G4",
+        "name": "Transfer stability",
+        "passed": true,
+        "swings": {
+          "0.8": {
+            "fire_rates": {
+              "family_1000_61311041": 0.058,
+              "family_121_36adce29": 0.08559622195985832
+            },
+            "swing": 1.4757969303423848
+          },
+          "0.85": {
+            "fire_rates": {
+              "family_1000_61311041": 0.0465,
+              "family_121_36adce29": 0.07378984651711924
+            },
+            "swing": 1.5868784197229944
+          },
+          "0.9": {
+            "fire_rates": {
+              "family_1000_61311041": 0.0395,
+              "family_121_36adce29": 0.06375442739079103
+            },
+            "swing": 1.614036136475722
+          },
+          "0.95": {
+            "fire_rates": {
+              "family_1000_61311041": 0.0315,
+              "family_121_36adce29": 0.05194805194805195
+            },
+            "swing": 1.6491445062873635
+          },
+          "0.975": {
+            "fire_rates": {
+              "family_1000_61311041": 0.0315,
+              "family_121_36adce29": 0.0448642266824085
+            },
+            "swing": 1.4242611645209047
+          }
+        }
+      },
+      {
+        "checks": [
+          {
+            "bar": ">= 0.4186046511627907",
+            "check": "worst substantive-family F1 against the predecessor",
+            "observed": 0.4875,
+            "passed": true
+          },
+          {
+            "bar": "< 0.7027027027027027",
+            "check": "family_1000_61311041: capped fraction below the predecessor's",
+            "observed": 0.0,
+            "passed": true
+          },
+          {
+            "bar": "< 0.005291005291005291",
+            "check": "family_121_36adce29: capped fraction below the predecessor's",
+            "observed": 0.0,
+            "passed": true
+          },
+          {
+            "bar": "< 0.0",
+            "check": "family_30_be065cb7: capped fraction below the predecessor's",
+            "observed": 0.0,
+            "passed": true
+          }
+        ],
+        "evaluated": true,
+        "gate": "G5",
+        "name": "Improvement over the predecessor",
+        "passed": true,
+        "predecessor_worst_f1": 0.4186046511627907,
+        "treatment_worst_f1": 0.4875
+      }
+    ],
+    "passed": true,
+    "stopped_at": null
+  }
+}
