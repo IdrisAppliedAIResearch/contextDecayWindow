@@ -1,0 +1,268 @@
+{
+  "ablation_authorized": false,
+  "canonical_digest": "e641bbbdf94d794e84be4f3b1a7dd47314301e423858cc52d155f0496e584581",
+  "checks": {
+    "PF1": {
+      "evidence": {
+        "final_design_artifact_hashes": true,
+        "fixed_external": {
+          "dataset_bytes": true,
+          "dataset_sha256": true,
+          "model_bytes": true,
+          "model_sha256": true
+        },
+        "inputs": {
+          "analysis_source": {
+            "bytes": 5631,
+            "path": "src/analysis/sal001_analyze.py",
+            "sha256": "130aafb15316065ed4d4e5dcedf6e1d50132e34fef3cb4b05c5dfc9f6c40aa61"
+          },
+          "dataset": {
+            "bytes": 277383467,
+            "path": "C:\\Users\\muzaf\\Downloads\\longmemeval_s_cleaned.json",
+            "sha256": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442"
+          },
+          "design": {
+            "bytes": 17298,
+            "path": "experiments/components/biological_memory/sal_001/SAL_001_PRE_REGISTRATION.md",
+            "sha256": "64999fabd6b88b605b413809219106399c47bd8862de311fda7c2863bedb25c8"
+          },
+          "exploration": {
+            "bytes": 3508,
+            "path": "experiments/components/biological_memory/sal_001/exploration/SAL_001_PART1_EXPLORATION.json",
+            "sha256": "7a795bf287560f30cca70e1974ea38fc92247f02eea37d5555f3b74703e389bd"
+          },
+          "final_design": {
+            "bytes": 2981,
+            "path": "experiments/components/biological_memory/sal_001/SAL_001_FINAL_DESIGN.json",
+            "sha256": "783cc8ad7f5796ac49bcc39e914cb2b935d9075a211eee338eac53fec908fa01"
+          },
+          "model": {
+            "bytes": 26015429760,
+            "path": "C:\\Users\\muzaf\\.cache\\huggingface\\hub\\models--unsloth--Qwen3.6-27B-MTP-GGUF\\snapshots\\5cb35eb3dcbf52dbce5f87dbc64df6aaffadcace\\Qwen3.6-27B-UD-Q6_K_XL.gguf",
+            "sha256": "f3b4a622e06e8ade06ec5c0eb9b40ed7c9bd707b5fada46c0215f4ab4a6bc32b"
+          },
+          "repeat_scores": {
+            "bytes": 14929,
+            "path": "experiments/components/biological_memory/sal_001/artifacts/sal001_scores/repeat_first_three.json",
+            "sha256": "a47dea7f7ff759c5923f7b490dcb132ab9ed17cf7a2d119a9714fc53f31dcacd"
+          },
+          "score_source": {
+            "bytes": 15856,
+            "path": "src/analysis/sal001_score.py",
+            "sha256": "2f15386bc6f4363efbfb95e4abb0117199d78ba44473a1fdb358a5f27585b9c7"
+          },
+          "scorer_manifest": {
+            "bytes": 1395857,
+            "path": "experiments/components/biological_memory/sal_001/artifacts/sal001_seal/scorer_manifest.json",
+            "sha256": "e04fb809823d2cb92d48ebb39ef9f8e2fdd89980eb5f18e25be99e66484a6cee"
+          },
+          "scores": {
+            "bytes": 365355,
+            "path": "experiments/components/biological_memory/sal_001/artifacts/sal001_scores/scores.json",
+            "sha256": "84ccf6307a65bb90e85cc40c0ebd3aa2f1bf18e2e8247e0b3a611b520da832fe"
+          },
+          "seal_report": {
+            "bytes": 2031,
+            "path": "experiments/components/biological_memory/sal_001/artifacts/sal001_seal/seal_report.json",
+            "sha256": "a05e1252d28d0547df5040218c14b48eb1aa0f6f9f4c85394929641f849cb45f"
+          },
+          "sealed_labels": {
+            "bytes": 23918,
+            "path": "experiments/components/biological_memory/sal_001/artifacts/sal001_seal/SEALED_LABELS_DO_NOT_OPEN.json",
+            "sha256": "787b4efa61a6da7c9a29908046e204fbb09d58c99480b865bf2032be560d9c46"
+          },
+          "selection_manifest": {
+            "bytes": 12797,
+            "path": "experiments/components/biological_memory/sal_001/artifacts/sal001_seal/selection_manifest.json",
+            "sha256": "ab254a93d8e1027d4fd51be190331e0d65ecafa88ceebdd4495b814284e75763"
+          }
+        },
+        "selection": true
+      },
+      "pass": true
+    },
+    "PF10": {
+      "evidence": {
+        "answer_correctness_evaluated": false,
+        "delivery_evaluated": false,
+        "diagnostic_only": true,
+        "later_accessibility_requires_new_registration": true,
+        "later_delivery_requires_35_turn_ablation_and_live_decision": true
+      },
+      "pass": true
+    },
+    "PF2": {
+      "evidence": {
+        "adjustment": {
+          "coefficients": [
+            6.870899244751936,
+            0.5029784294222291,
+            -0.6325812487526181,
+            1.6576637007290902,
+            0.0368533703485149
+          ],
+          "condition_number": 119.70879078227753,
+          "feature_names": [
+            "intercept",
+            "log1p_content_token_count",
+            "mean_content_token_idf",
+            "normalized_exchange_position",
+            "log1p_preceding_rendered_token_count"
+          ],
+          "rank": 5,
+          "residual_feature_correlations": {
+            "log1p_content_token_count": -2.0249044009895447e-16,
+            "log1p_preceding_rendered_token_count": -2.730196047696552e-16,
+            "mean_content_token_idf": -4.067664584724315e-16,
+            "normalized_exchange_position": -2.2866305009722355e-16
+          },
+          "residual_mean": 2.1055532445001133e-15,
+          "residual_std": 1.495540025814087
+        },
+        "behavioral_identity": "Teacher-forced mean negative log probability of rendered user-content tokens conditioned on earlier messages in the same session; no embedding, generation sample, evidence label, answer, or retrieval state contributes.",
+        "population": {
+          "maximum_rendered_tokens": 5499,
+          "records": 545,
+          "rendered_tokens": 286152,
+          "sessions": 93
+        },
+        "synthetic_probe": {
+          "predictable_mean_nll": 4.6384821217893855,
+          "predictable_repeat_mean_nll": 4.6384821217893855,
+          "repeat_exact": true,
+          "surprising_higher": true,
+          "surprising_mean_nll": 11.088347410991723
+        }
+      },
+      "pass": true
+    },
+    "PF3": {
+      "evidence": {
+        "adjacent_ancestry": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "commit_order": [
+          "15b718e3456027a60f370790588b976df6353f02",
+          "9a5d58ad4c19936152533b2459a996de32c12642",
+          "665b021e03bd622488018977f2739b07eb1a3765",
+          "8700fbfc543beb511dba062cf05f6cefba98fac5",
+          "b4302374009378502d7b5c2d9bbe49eabb4ae440"
+        ],
+        "labels_hashed_not_parsed": {
+          "bytes": 23918,
+          "path": "experiments/components/biological_memory/sal_001/artifacts/sal001_seal/SEALED_LABELS_DO_NOT_OPEN.json",
+          "sha256": "787b4efa61a6da7c9a29908046e204fbb09d58c99480b865bf2032be560d9c46"
+        },
+        "manifest_unauthorized_keys": [],
+        "score_unauthorized_keys": [],
+        "scorer_imports": [
+          "__future__",
+          "collections",
+          "llama_cpp",
+          "llama_cpp",
+          "llama_cpp.llama_chat_format",
+          "math",
+          "numpy",
+          "os",
+          "pathlib",
+          "platform",
+          "src.analysis.sal001_shared",
+          "subprocess",
+          "time",
+          "typing"
+        ],
+        "unauthorized_imports": []
+      },
+      "pass": true
+    },
+    "PF4": {
+      "evidence": {
+        "auc_points": {
+          "half_tie": 0.5,
+          "one": 1.0,
+          "zero": 0.0
+        },
+        "auc_range_reached": true,
+        "dispositions": {
+          "g2": "NO_INDEPENDENT_PROXIMITY",
+          "g3": "LENGTH_RARITY_OR_POSITION_CONFOUND",
+          "g4": "ASYMMETRIC_TEXT_SIGNAL",
+          "g5": "NON_GENERAL_SIGNAL",
+          "pass": "SALIENCE_PROXY_SUPPORTED_OFFLINE"
+        },
+        "dispositions_match": true,
+        "expected_dispositions": {
+          "g2": "NO_INDEPENDENT_PROXIMITY",
+          "g3": "LENGTH_RARITY_OR_POSITION_CONFOUND",
+          "g4": "ASYMMETRIC_TEXT_SIGNAL",
+          "g5": "NON_GENERAL_SIGNAL",
+          "pass": "SALIENCE_PROXY_SUPPORTED_OFFLINE"
+        },
+        "permutation_bar_resolvable": true,
+        "permutation_resolution": 9.99990000099999e-06
+      },
+      "pass": true
+    },
+    "PF5": {
+      "evidence": "Session-content SHA-256, exchange index, content SHA-256, rendered-token SHA-256; no path or generated ID compares records.",
+      "pass": true
+    },
+    "PF6": {
+      "evidence": {
+        "ec001_first_twenty_reproduced": {
+          "knowledge-update": true,
+          "multi-session": true,
+          "single-session-assistant": true,
+          "single-session-preference": true,
+          "single-session-user": true,
+          "temporal-reasoning": true
+        },
+        "prefix_rows_byte_equal": true,
+        "prefix_sessions": [
+          "03ff14a938a47fed00db37a1e674cf5a12e23988d2b142fb34454b07e52b8941",
+          "0d4b5811846c0317ac71a09a21e50c65b9717e8d348ab858f4f7fcfe93b3808f",
+          "0eaa6bd70ef86ffcfc830cf1511ed93666b21414b4e72ff21d444d4aa5c534d8"
+        ],
+        "synthetic_probe": {
+          "predictable_mean_nll": 4.6384821217893855,
+          "predictable_repeat_mean_nll": 4.6384821217893855,
+          "repeat_exact": true,
+          "surprising_higher": true,
+          "surprising_mean_nll": 11.088347410991723
+        }
+      },
+      "pass": true
+    },
+    "PF7": {
+      "evidence": {
+        "adjusted_zero_variance": false,
+        "constant_score": false,
+        "feedback": false,
+        "fresh_process_prefix_equal": true
+      },
+      "pass": true
+    },
+    "PF8": {
+      "evidence": "Sixty histories and 92 AUC sessions test immediate within-session adjacency. They cannot test longer tag windows, retrieval, a 35-turn integration, endurance, or live answer correctness.",
+      "pass": true
+    },
+    "PF9": {
+      "evidence": [
+        "Surprisal can pass without biological reward equivalence.",
+        "Markers can pass without complete relevance labels.",
+        "Within-session AUC can pass without natural conversation ecology.",
+        "Adjustment removes only four registered observed covariates.",
+        "F2 can pass while tags, capture, accessibility, replay, and retrieval fail."
+      ],
+      "pass": true
+    }
+  },
+  "live_run_authorized": false,
+  "measurement_authorized": true,
+  "status": "PASS",
+  "study": "SAL-001"
+}
