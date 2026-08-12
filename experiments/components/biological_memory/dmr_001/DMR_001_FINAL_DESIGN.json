@@ -1,0 +1,95 @@
+{
+  "study": "DMR-001",
+  "date": "2026-08-12",
+  "status": "DESIGN_LOCK_NO_HOLDOUT_OUTCOME_OPENED",
+  "mechanism": "Online event-context formation over pinned episode embeddings",
+  "component": "src/biological_memory/event_context.py::OnlineEventContextFormer",
+  "design_source": "DMR_001_PRE_REGISTRATION.md",
+  "design_sha256": "f563b6c5f9a98413b3a00135600f6d4dc3f9203242190d30c2bf0b2e03d28c41",
+  "design_sha256_normalization": "file bytes with CRLF and CR rewritten to LF",
+  "pre_registration_commit": "33ed8c5db558fba9c9e88a2e37342b3a37f9b6e6",
+  "parameters": {
+    "rho": 0.5,
+    "drift_threshold": 0.7,
+    "min_event_size": 5,
+    "max_event_size": 32,
+    "boundary_tolerance": 1,
+    "context_lag_max": 8
+  },
+  "numeric_contract": {
+    "vector_dtype": "float32",
+    "vector_dimension": 1024,
+    "vector_byte_order": "little",
+    "reductions": "math.fsum over float64 products; no BLAS participates",
+    "accumulation": "element-wise float32 running sum in append order",
+    "normalization_required": true,
+    "pinned_vectors_are_unit_norm": false
+  },
+  "identity": {
+    "event_id": "sha256('dmr-event-v1\\0' + design_sha256 + '\\0' + session_hash + '\\0' + first_episode_hash)",
+    "episode_hash": "sha256('dmr-episode-v1\\0' + session_hash + '\\0' + stream_index + '\\0' + pair_sha256)",
+    "session_hash": "sha256('dmr-session-v1\\0' + sha256(ordered pair hashes of the session))",
+    "pair_sha256": "sha256(canonical ASCII JSON of [['user', u], ['assistant', a]])"
+  },
+  "arms": [
+    "T_EVENT",
+    "C_SESSION",
+    "C_ALL",
+    "C_PAIR",
+    "C_PERIODIC_2",
+    "C_PERIODIC_4",
+    "C_PERIODIC_8",
+    "C_PERIODIC_16",
+    "C_PERIODIC_32",
+    "C_PERIODIC_64"
+  ],
+  "anchors": {
+    "implementation_spec": "../deterministic_retrieval/DMR_001_EVENT_CONTEXT_FORMATION_IMPLEMENTATION_SPEC.md",
+    "corpus_lock": "artifacts/dmr001_corpus/corpus_lock.json",
+    "corpus_digest": "be939cbebc0e9e9f33906ffc92047e114372852bbc578bb4376efd0e061d3bf9",
+    "corpus_lock_commit": "2625be9a",
+    "part1_record": "exploration/DMR_001_PART1_EXPLORATION.json",
+    "part1_sha256": "8ccde5a47adb0d33143f4af8341e169adb737945c438a7a001a081fea9e68c4d",
+    "part1_commit": "929588c3"
+  },
+  "splits": {
+    "development": {
+      "sessions": 15,
+      "episodes": 1724,
+      "internal_annotated_boundaries": 60
+    },
+    "holdout": {
+      "sessions": 2,
+      "episodes": 2000,
+      "internal_annotated_boundaries": 36,
+      "sealed_until": "the preflight artifact and the mechanism commit are ancestors"
+    }
+  },
+  "binding_gates": [
+    "G1 integrity",
+    "G2 partition",
+    "G3 nondegeneracy",
+    "G4 boundary evidence",
+    "G5 context separation"
+  ],
+  "development_reachability": {
+    "treatment_f1_tolerance_1": 0.4195402298850575,
+    "c_session_f1_tolerance_1": 0.3333333333333333,
+    "best_periodic_f1_tolerance_1": 0.30693069306930687,
+    "c_pair_f1_tolerance_1": 0.08341189674523008,
+    "recall": 0.7466666666666667,
+    "precision": 0.2916666666666667,
+    "singleton_fraction": 0.0,
+    "forced_fraction": 0.005208333333333333,
+    "context_auc": 0.8232869875222816,
+    "context_minus_raw": 0.05104574928113468,
+    "context_auc_min_session": 0.7801896733403583
+  },
+  "outcome_ceiling": "CHARACTERIZED",
+  "excluded": [
+    "retrieval, ranking, pattern completion, packing",
+    "answer generation, scoring, rubrics, answer keys",
+    "salience, consolidation, supersession, retrieval-induced plasticity",
+    "any reader call, ablation, live run, promotion, or adoption"
+  ]
+}
