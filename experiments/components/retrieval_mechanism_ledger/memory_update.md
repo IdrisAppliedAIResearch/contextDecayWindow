@@ -1,6 +1,6 @@
 # Retrieval Mechanism Ledger Memory Update
 
-**Status:** Extended through PS-003 on 2026-08-11. Family QR remains closed.
+**Status:** Extended through SR-001 on 2026-08-11. Family QR remains closed.
 
 ## PS-003 ambiguous cue resolution - LOOKUP_BINDING_INSUFFICIENT
 
@@ -355,6 +355,23 @@ Carry forward:
     falls 0.3125->0.125. G5 blocks ablation and live evaluation. Any reserved
     seed quota, conditional bridge, or spare-budget policy is a new component,
     not a TA-001 repair.
+
+## SR-001 extractive span representation, 2026-08-11
+
+Carry forward:
+
+23. **BA-001's span signal was not representation alone.** Its historical M5
+    arm ranked 3,268 spans directly while M2 ranked 111 episodes. With the full
+    source order fixed, spans produce 0 gains, 2 losses, and 22 ties; Q11 falls
+    8/17->4/17 and targeted facts 19->17.
+24. **Exhaustive source-grouped spans reduce source breadth.** The 32k payload
+    holds 85-95 spans but only 3-7 unique sources, versus 7-11 whole episodes.
+    Span tags and complete high-ranked sources consume the budget before later
+    sources; enumeration remains 0.0625.
+25. **The remaining hypothesis is ranking or selection.** Span-level query
+    scoring or within-source selection may move fact-bearing sentences forward,
+    but either is a new component. Source-rank-preserving span packing fails G3,
+    receives no ablation, and must not be live-tested or promoted.
 
 Authoritative files:
 
