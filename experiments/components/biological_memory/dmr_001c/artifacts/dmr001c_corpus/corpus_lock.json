@@ -1,0 +1,492 @@
+{
+  "blinding": "one stream token per haystack, so the hard-boundary predicate can never fire and every boundary the former opens is one it detected; source session indices are measurement only",
+  "corpus_digest": "97507ddea1fc354edf92a8eae537e28c037d0286af704afeec23cff09f586ff4",
+  "counts": {
+    "episodes": 11453,
+    "seams": 2128,
+    "source_sessions": 2178,
+    "streams": 50
+  },
+  "dataset": {
+    "bytes": 277383467,
+    "commit": "98d7416c24c778c2fee6e6f3006e7a073259d48f",
+    "path": "C:\\Users\\muzaf\\datasets\\longmemeval\\longmemeval_s_cleaned.json",
+    "sha256": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442"
+  },
+  "excluded": {
+    "irregular_sessions": 186,
+    "streams_below_minimum": [],
+    "uncached_episodes": 0
+  },
+  "schema": "dmr001c-corpus-v1",
+  "selection": {
+    "minimum_episodes": 64,
+    "minimum_sessions": 8,
+    "note": "EC-001 took ranks 1-20 and SAL-001 ranks 21-30; this slice overlaps neither",
+    "ranks": [
+      31,
+      40
+    ],
+    "seed": "5005",
+    "strata": [
+      "single-session-user",
+      "single-session-assistant",
+      "single-session-preference",
+      "temporal-reasoning",
+      "knowledge-update",
+      "multi-session"
+    ]
+  },
+  "streams": [
+    {
+      "episode_count": 205,
+      "seam_count": 38,
+      "source_session_count": 39,
+      "stratum": "knowledge-update",
+      "stream_digest": "0062200423d73761c1fcaad32f0b7061171a7b48a803b711f36a043d9280526c",
+      "stream_token": "00801f54ebfe00b92dc4b7258a4508bacdf753fd869f2d0aea88e1ada943c6b8",
+      "vector_digest": "7629da716f2d75b43517af09e94938bb54d01944f09e3dd9674340a2331ae5c1"
+    },
+    {
+      "episode_count": 234,
+      "seam_count": 42,
+      "source_session_count": 43,
+      "stratum": "single-session-user",
+      "stream_digest": "097085f678d7fd4187da242553291fb26d61bbb0a763c7bc2aee4d0a3635e0ef",
+      "stream_token": "0b0f790b2f4ccb1392d234006575626810b6d5d5365409448a03bc2aa791887d",
+      "vector_digest": "682a4b99012124338d6ee518cbfab3a3364227f801677ac4a3d676ca370c80ee"
+    },
+    {
+      "episode_count": 205,
+      "seam_count": 40,
+      "source_session_count": 41,
+      "stratum": "knowledge-update",
+      "stream_digest": "42cbe122fa9c674b2f82baad04f973b84b3eb0f8d671bbb47ee38643801802e0",
+      "stream_token": "14d179e0a126502f9c0d1819c489e10d300b1377fc686e20b50f41eea7831995",
+      "vector_digest": "6b123d54f0e2483f10c01721ca52b337a47aacdeebb038d298bb95cdbb612d08"
+    },
+    {
+      "episode_count": 241,
+      "seam_count": 40,
+      "source_session_count": 41,
+      "stratum": "single-session-user",
+      "stream_digest": "a88cf43dc8aa53384d6de66916cb84208e19f4db8f967979f4ce6c8026bc23d0",
+      "stream_token": "20a0c2871be5a428825fa4d9932ddc057622b31015c439da5d6ebd74e9982d6b",
+      "vector_digest": "8b11851b9123583ade92e2d6e4efede0ba0b59e58220ea51e5fdd60b6d372599"
+    },
+    {
+      "episode_count": 246,
+      "seam_count": 48,
+      "source_session_count": 49,
+      "stratum": "knowledge-update",
+      "stream_digest": "72184e8914f5c5ebbbfeca09ba33b3080a02a5e937cd76cf36f6f978c3037f4d",
+      "stream_token": "27e998c4f33396d2fc52681c25592b35626db165f2b826007334c141801ae01f",
+      "vector_digest": "bde52a2129b95c2ed0f21ac2f65cd5180142a7d829632d20d0ecd3ac35e55833"
+    },
+    {
+      "episode_count": 206,
+      "seam_count": 40,
+      "source_session_count": 41,
+      "stratum": "multi-session",
+      "stream_digest": "4b2fe0df9813e44bba8cad8448655b10e962c7ed63acffc8967ce0e3f34490af",
+      "stream_token": "287daa2ef5f926ac682c6199cba3b2eb09a768049fbefd3b868d65b519ab328b",
+      "vector_digest": "08569dbd0105d8505107027da2d8bb68efe9e484d214a11099114004ce278e4e"
+    },
+    {
+      "episode_count": 210,
+      "seam_count": 41,
+      "source_session_count": 42,
+      "stratum": "single-session-assistant",
+      "stream_digest": "dd596034e3088503431ebfa93cfdb6cb857b7c73814fd8daf9fc6b464c8dfa5f",
+      "stream_token": "299005a44176a95156d2f94b29b2634a39ad39b6e8b02e5140405f6b391724ae",
+      "vector_digest": "dc944663a1ff4c34bc1086b92c4fbfa13ea69f325d9adf47afa2d350c980ca48"
+    },
+    {
+      "episode_count": 212,
+      "seam_count": 40,
+      "source_session_count": 41,
+      "stratum": "multi-session",
+      "stream_digest": "5eca608c32950217ce2a265c2178f3f0d4124e4c4dfbad8f15a93465b98cf6ac",
+      "stream_token": "31b6631a8ce79a5d746950c5cd42fa07fd1f5865a88487b98d26bed892f1ee22",
+      "vector_digest": "ac5ea87b9f4b5940fd7d6ffe9fb75ebf999d5a12c78b81f8063f223053a7b953"
+    },
+    {
+      "episode_count": 235,
+      "seam_count": 43,
+      "source_session_count": 44,
+      "stratum": "knowledge-update",
+      "stream_digest": "db8ebbfc32a9277e22cbad84eb9f1b3acbd64c69c5f874028eced3153b4c5712",
+      "stream_token": "3cbb0a1a025f605db13bf1a8eb0a936aee39e3428e15e5f5957851cb46292bdf",
+      "vector_digest": "d3fd662cac0f298ceb4f6f51c46a676f1ec9fc2fb340d66fec3067038684f78f"
+    },
+    {
+      "episode_count": 226,
+      "seam_count": 44,
+      "source_session_count": 45,
+      "stratum": "knowledge-update",
+      "stream_digest": "b9cbecd31b569a08f398c503911e2f2b87a160dc51c2c98cd6d0db2eed961d73",
+      "stream_token": "43e8d7efc386a458fc3ad0d9871e0615947613cca50c0815ef5f94a71077c8f2",
+      "vector_digest": "1678ea5e3b0edd67d0cf8bced5cb32b9b951b1d8d1f851ca8fa63a3e8e4061d2"
+    },
+    {
+      "episode_count": 245,
+      "seam_count": 45,
+      "source_session_count": 46,
+      "stratum": "multi-session",
+      "stream_digest": "054770c1910af8a0232c52a10da118de6b39327168923c41b8af5ee62733e5aa",
+      "stream_token": "55540b5e1eec38c4189b44c99379486aef1f5d3510d3fb86a9f6bb6200612b54",
+      "vector_digest": "88aa369b6d236133e6b73983b70f9c183c5e0a87bd990537ca8227498f5ef8a0"
+    },
+    {
+      "episode_count": 216,
+      "seam_count": 42,
+      "source_session_count": 43,
+      "stratum": "single-session-user",
+      "stream_digest": "1bf06641d1f238554a316262c674703c669bfca2085aaa1137ea9ae4187a1073",
+      "stream_token": "57518f2752b0c482c888a993a32624cb74479d1a6b65e5427fbf1751b327169f",
+      "vector_digest": "c9db9ae6afa1d7784919f58c96c9729aace1e9c2da8ecfec14ea06b90bc120f9"
+    },
+    {
+      "episode_count": 204,
+      "seam_count": 36,
+      "source_session_count": 37,
+      "stratum": "multi-session",
+      "stream_digest": "7ffebc671cbf2d65993f11a926c13455403eec9dd3b187e75f91f4e1663ff365",
+      "stream_token": "592f6d24c5ba39472a7f134db3af1b8ca2edb5eea456ef4759f69623a7606a72",
+      "vector_digest": "40c08e7c51d2e9f2ff972e6f475324427904186c7e372c9999f28ddf820930d8"
+    },
+    {
+      "episode_count": 248,
+      "seam_count": 45,
+      "source_session_count": 46,
+      "stratum": "single-session-user",
+      "stream_digest": "6717856db7dfd3bf18cf3f21218368d1a3c12f86d11ac4680cc634844b70f025",
+      "stream_token": "5c55856736783ee8323fb106c8304f60c5a4efa922ba9fe2bb1668f6c52d43f8",
+      "vector_digest": "a33fe68959a40a415f71a801d153bb7d3e9933fbbe662b1a30fd9a80524163bc"
+    },
+    {
+      "episode_count": 223,
+      "seam_count": 41,
+      "source_session_count": 42,
+      "stratum": "single-session-user",
+      "stream_digest": "c7fa7eb2b6a5fc309b45c7f5bf4c587134a9cd7823ec7279faa77ac0eb132c53",
+      "stream_token": "5f6d3b10cb3488329191d391e8718abc318a7d9b76ecb452287f49f884c252d1",
+      "vector_digest": "8f9a3a005bcf908ce31f8ed80d2b697827da9d75d9558104786c22962d782d76"
+    },
+    {
+      "episode_count": 203,
+      "seam_count": 40,
+      "source_session_count": 41,
+      "stratum": "knowledge-update",
+      "stream_digest": "007c3838828e9f734d7d1dbc86ea89c54e45c5439479449f966f34f9e5396a51",
+      "stream_token": "60abd10aee64f3168f51eee42676babf70ab91ae72b95669c3df7025fd3ca3a3",
+      "vector_digest": "d9ba4d48f400c89c5674230d290e8716a612070aef61835790c519b0dbc1bd2c"
+    },
+    {
+      "episode_count": 219,
+      "seam_count": 41,
+      "source_session_count": 42,
+      "stratum": "temporal-reasoning",
+      "stream_digest": "fa343c79ac7a9c9df81990bcc5298691a0a79e4e98212632fb14777ccd93add8",
+      "stream_token": "61bcf2a03d8dad157b8997bc2f1b46573fb42bac505481c591c88eb1a48838b5",
+      "vector_digest": "c6362be2f4593d05e561f2d3c3c3e293728248d5dd7b0bc64a5771a625c574e8"
+    },
+    {
+      "episode_count": 231,
+      "seam_count": 44,
+      "source_session_count": 45,
+      "stratum": "knowledge-update",
+      "stream_digest": "7568406ad61caaebf4b38b5bece7f7a9901c745013efa19f8c44a626d8c7ab61",
+      "stream_token": "61f18aa46bdc342f2766b3a4e97d66eb17b42687a740e3641f205cd1ddb9ae7a",
+      "vector_digest": "35ebc77533043229c53ed8584027abcd2a8ef3532fc92684062c6319e26c03cf"
+    },
+    {
+      "episode_count": 240,
+      "seam_count": 44,
+      "source_session_count": 45,
+      "stratum": "single-session-user",
+      "stream_digest": "7e90701dadf2273278c62869971851c7da7f8bad0d6317ddbb6f98518ae0bde7",
+      "stream_token": "66d373acd426a14a39f8b96d0d7c0d18b67d5a86a743da5b96fd9a4bb9d45551",
+      "vector_digest": "5802ed84eca9ed634b6a5f17b773f697c16dc65c538527913357e045885990f1"
+    },
+    {
+      "episode_count": 212,
+      "seam_count": 39,
+      "source_session_count": 40,
+      "stratum": "temporal-reasoning",
+      "stream_digest": "b94f50d4c4520ce6a414ea161afd42cab542e83f6831a0e6e0bcb91df1a0a92b",
+      "stream_token": "67879cf0d1e44d6eb22757fa8058d9be5ffee68e8bf484aa03b96d9728373fe1",
+      "vector_digest": "a9241e92bc9b04a1d2eb200e070eadc1360448ddb6921caa4ee7a71f5936a6c6"
+    },
+    {
+      "episode_count": 208,
+      "seam_count": 36,
+      "source_session_count": 37,
+      "stratum": "single-session-assistant",
+      "stream_digest": "91781616de281d89ed36b684e6a9d1f429e7bc83def2cdba6b77b1f7a72800e0",
+      "stream_token": "691d63b3756d5742ceda7d4fc81d36ae5e88507275eb96813772dfc522b71713",
+      "vector_digest": "2385f45f09fcd9cf6b77c5fd70c09761b154891babbd9c9738a18a4bca213b7a"
+    },
+    {
+      "episode_count": 242,
+      "seam_count": 43,
+      "source_session_count": 44,
+      "stratum": "multi-session",
+      "stream_digest": "9b830c76c6ca2edd0d35fabd4ae813874cdd0058ac2439a6a5e005ad6bd638d5",
+      "stream_token": "6d19b8220b8fece07da153868ff2de9e813a041ac24c5f103b545783ebd45150",
+      "vector_digest": "e7fe75a3fbb26378022f30a3e4b2618c5ae21b62e194cf02e13dd0d0677159e6"
+    },
+    {
+      "episode_count": 217,
+      "seam_count": 41,
+      "source_session_count": 42,
+      "stratum": "single-session-assistant",
+      "stream_digest": "8f6f7732b078c83d940ae4b6c7b00266d6a1dc94cc72f847f8651d887265dafd",
+      "stream_token": "6f339929ae42cca1d4f27e2cee40a440af1ee73c33d89492b384835143e7511b",
+      "vector_digest": "a01bef689268a1fe0c863591b6f06cf720f19e21eced6ebd034a7b64f7f19be9"
+    },
+    {
+      "episode_count": 230,
+      "seam_count": 43,
+      "source_session_count": 44,
+      "stratum": "temporal-reasoning",
+      "stream_digest": "06f40628be409954aced6dbf5e27c3740f1d95ac1b7f9b18d697e6ded1ccba0a",
+      "stream_token": "78f58a643b29cdf01fd6870da76df62af59c0b6c279badee496cfc6e511a96a6",
+      "vector_digest": "d7eae6c2d67da3d5291380e56b3adc4929b33e5fff104a102845ee7c6c65e8dd"
+    },
+    {
+      "episode_count": 226,
+      "seam_count": 43,
+      "source_session_count": 44,
+      "stratum": "temporal-reasoning",
+      "stream_digest": "09ba4026d0766be8b5c1a4c5ae015accd8fa22f4b059d9b15b5fe46c91022b32",
+      "stream_token": "7e40f7fd76bd74dfc899ded6f7bb48b421ab498e681557c2d7cf10baa43deed7",
+      "vector_digest": "0c6a122cd269faa9e168067b281a1a7c8a031f8001e88342814fc8d03d504ec4"
+    },
+    {
+      "episode_count": 212,
+      "seam_count": 41,
+      "source_session_count": 42,
+      "stratum": "single-session-assistant",
+      "stream_digest": "aaf184c4dd22f2d1c8bbcdba8f4fec6b583a9d6d540970cff82b800473c111cb",
+      "stream_token": "7e8d4090b92ad541ee5f524247eae1d5068dc59a8c3409e5312e50dd01e7f0e2",
+      "vector_digest": "ff5e02e966f8f2e18c5d0ed43d8e523e14f1debaab236a46ad81371f3d0a39e9"
+    },
+    {
+      "episode_count": 233,
+      "seam_count": 43,
+      "source_session_count": 44,
+      "stratum": "single-session-user",
+      "stream_digest": "2b9f723beca61cbc777440871b09cc1deecb0d9a79f87f6c313ab3f1f89ad0f4",
+      "stream_token": "8007a898202175460976453a2c1dc8b72dffeaeeb7157bb8f8a9f2698f15c05f",
+      "vector_digest": "4b2b9dcfefe1d142744f9cca1f3cd47ef74a752bd281fc15036d9626f25d5fe8"
+    },
+    {
+      "episode_count": 234,
+      "seam_count": 42,
+      "source_session_count": 43,
+      "stratum": "single-session-assistant",
+      "stream_digest": "d9d53ce6d230d0bd06f35f00e946df1255e6205c1b8ca9ca7a11eceafc4f0e03",
+      "stream_token": "894fec0b912d754fe4ac2464725ac9a7be4d25b7013a6f200565a47b577cb2e7",
+      "vector_digest": "8cb59da8e8545df78ad4b73ef631ad4472965892321c1860e026c6fea4e82ba5"
+    },
+    {
+      "episode_count": 233,
+      "seam_count": 44,
+      "source_session_count": 45,
+      "stratum": "multi-session",
+      "stream_digest": "6c479f753b9135c3093541abd3bd7c362b40cbffa09331200f1621bb2c8d8519",
+      "stream_token": "8c31ada824ac935ccee8ff01305b8aac3158ac09bf7ab1eb7b2fc4d276bd9a38",
+      "vector_digest": "ddfa814aa53ea37f70a010f8151fe3cad0259d5b1bc27a0c0c8ee7c9b7883b12"
+    },
+    {
+      "episode_count": 224,
+      "seam_count": 47,
+      "source_session_count": 48,
+      "stratum": "single-session-assistant",
+      "stream_digest": "b7656290e1011a44ce48ddedce0d2bb4df89d36ca34b4cf177c22657af5953c8",
+      "stream_token": "93a34a2c10137a729424146e1532c7c400ce0fe69832b25316957c208740d17d",
+      "vector_digest": "e26c3025789b31756ff87b2c4cb6ef4cb74f92b5ad94683fa26524ca3a66441f"
+    },
+    {
+      "episode_count": 231,
+      "seam_count": 44,
+      "source_session_count": 45,
+      "stratum": "multi-session",
+      "stream_digest": "ef3b566ade7e736c31ef1ebf5a8cbf5223d748dddcfb4720edcedfaa3bfc1a91",
+      "stream_token": "98e6ab18def1316f1f96524ba7c46ed40bc55bbeba129dd1f20d753292bc6ad5",
+      "vector_digest": "d5c308c478bb2fbf635ddd38005035e26bf20ece243bcdee5d51f27ff3f4e915"
+    },
+    {
+      "episode_count": 250,
+      "seam_count": 42,
+      "source_session_count": 43,
+      "stratum": "knowledge-update",
+      "stream_digest": "78d710ea235804ed4c4e4d71853550ad11c1792a62b22141ea9b05be345caddb",
+      "stream_token": "a053a88e54c12d5bb7fd2369b9b36143f945f31fcdbb6989781168083eac79d7",
+      "vector_digest": "ee05e9919643d3dd1413144942d91be6eda8d68236a87e4476c389a2c90f3dca"
+    },
+    {
+      "episode_count": 252,
+      "seam_count": 47,
+      "source_session_count": 48,
+      "stratum": "multi-session",
+      "stream_digest": "792e4eaf6606f28ac3d21f6d6dc9dd0a8d29e7a0004b473ad6d29191fea78760",
+      "stream_token": "a2397b99ca94cc8317f69cb8d94055cf0f61fa3e5f9698fe23aea0d2076c01ca",
+      "vector_digest": "e3f7ea656930e45fb6fdf284387ebc721d923ddbbc3ef21ac6e8144533e54671"
+    },
+    {
+      "episode_count": 234,
+      "seam_count": 44,
+      "source_session_count": 45,
+      "stratum": "temporal-reasoning",
+      "stream_digest": "c08681caf1053c20220a8f298b747d6f5d9d6a2a836d8586b3fc0c968719f42d",
+      "stream_token": "a2cc186fa5c8d301ebebd6d3c8888cf4465fd2a948b550b7f4cbb927cdf907f8",
+      "vector_digest": "0e31ce375c7d438544f1312088745a0d31ce60c488a8bcffa6d0a5ade6db199d"
+    },
+    {
+      "episode_count": 228,
+      "seam_count": 40,
+      "source_session_count": 41,
+      "stratum": "single-session-assistant",
+      "stream_digest": "d27f8d427e1cea619263f5ff1e4c395a2958e53ad8d059fe06c7f232aea756dd",
+      "stream_token": "b15ab6b557d22ebfc6afaa8aeeb4983a49c4f57ec960781f33c291d2b2c17538",
+      "vector_digest": "7c5633051490e5c37f91b0cb930bcdf049145a5d130994e00cb0c7796427a2d0"
+    },
+    {
+      "episode_count": 223,
+      "seam_count": 40,
+      "source_session_count": 41,
+      "stratum": "temporal-reasoning",
+      "stream_digest": "e469df797a91a9b64c248deedf9c616b64c00e07286fd80b5381ba99ae522f4e",
+      "stream_token": "b251f1a2d9ea780dc2187145b758c10a4ea5d7b9e83c4e45479bd64475da37e0",
+      "vector_digest": "48ce53bff717ae1a17497dd375789d00e8e06f9974386dd5779627585a009042"
+    },
+    {
+      "episode_count": 227,
+      "seam_count": 39,
+      "source_session_count": 40,
+      "stratum": "temporal-reasoning",
+      "stream_digest": "09cd1ae37ea8c5a4efdc31204581a086f00a89830ba7ad4cd1cd23afd6277152",
+      "stream_token": "b8cb4fa83891cf10bb5d3d19b7316cf3bfd3e0f0ea19f47fe09d506b32f7e16b",
+      "vector_digest": "5946d4929aa8d84007a1932060cc6879473c9fad268f6c6baeaad746b04164fd"
+    },
+    {
+      "episode_count": 253,
+      "seam_count": 49,
+      "source_session_count": 50,
+      "stratum": "single-session-user",
+      "stream_digest": "549cec0e63c2b7e0e8e421bb8db80a12011395aa54120a43a87da15e0de9cb66",
+      "stream_token": "c91fcbf1e60274cc6b832229ef5fc064537dd3acb9986fae12afa2e116a5667c",
+      "vector_digest": "6b1f44b5ba195c9d560d80f5be73cf0721b9cbd0c199f8c74b53ccb57131b99d"
+    },
+    {
+      "episode_count": 233,
+      "seam_count": 45,
+      "source_session_count": 46,
+      "stratum": "knowledge-update",
+      "stream_digest": "c7b98f8e241d208a200a04a62d9628bdd5cd1075028a217dbd2203e5efca50fb",
+      "stream_token": "c9dd9b375a005f32bec523fef69341eaecb981316537f96b6e3dc14604969ad9",
+      "vector_digest": "bcd3a5625a05534ea299a12d0776f56ef83923a57ffd6ee74092d01a88cfb204"
+    },
+    {
+      "episode_count": 250,
+      "seam_count": 49,
+      "source_session_count": 50,
+      "stratum": "single-session-assistant",
+      "stream_digest": "90075414fee91243a4ea598ec4b0edec994e393d192473f95b005e04ad099cc7",
+      "stream_token": "cdddfb9798e7f872462743d676201e5a8f46cb07abaf6a314fd9fd9b63b37af4",
+      "vector_digest": "00adce69c869655f4b5cda0f2656b78778c8c644910c85fd4e5bc08d94dfea30"
+    },
+    {
+      "episode_count": 227,
+      "seam_count": 41,
+      "source_session_count": 42,
+      "stratum": "temporal-reasoning",
+      "stream_digest": "127ac8081aff142f5e87acaf4b605a1dece3ea1589f5f4a3ebc10dcd6f759f84",
+      "stream_token": "cf14c1dccbc71dad2c71ecea4110e30537edfa5ff4bcedda47188fecb13f9cc2",
+      "vector_digest": "b0c1460b4ea60e5f0aeeac2ed2138832d8066652d86c278a461a4c20f64439d5"
+    },
+    {
+      "episode_count": 233,
+      "seam_count": 44,
+      "source_session_count": 45,
+      "stratum": "temporal-reasoning",
+      "stream_digest": "53e975a90c9440319f56ffee88b5a88f8c9156ba1050b54a21c993e34bf0ca9b",
+      "stream_token": "d37d079a6989082233efe9edcbd489894219f73274a939b1972594af745af91f",
+      "vector_digest": "c9518d7ee710026726b6d23467aa8ff925085ccdaf68305a92f0bcd8074fe678"
+    },
+    {
+      "episode_count": 266,
+      "seam_count": 45,
+      "source_session_count": 46,
+      "stratum": "single-session-assistant",
+      "stream_digest": "5777fadd037ea2a3711084459c8bee38a8ce45b74b6d3bc77edeb031c780e26e",
+      "stream_token": "d49dcdbfb846a91fe32bc754aa4cd7b4dbb46fbf60a05d3ef2438047a7d0fece",
+      "vector_digest": "94e776aef7e502f097bc7e7a0e54e352f0fde2ad20379171ab9da85ac6b6476f"
+    },
+    {
+      "episode_count": 228,
+      "seam_count": 42,
+      "source_session_count": 43,
+      "stratum": "single-session-user",
+      "stream_digest": "08b665a730db65cbdf6becff89a2bc57e76763dc590e97987a3b0e90f87df0c6",
+      "stream_token": "db68e69ab852362f08d28b66bb6d5e7a7837b7df4ed935941c134e2f0f133b9f",
+      "vector_digest": "39df01c4bcfe2c5c901e0a81e813a60b10ff5246568210070cfa8e354eb997d3"
+    },
+    {
+      "episode_count": 234,
+      "seam_count": 44,
+      "source_session_count": 45,
+      "stratum": "temporal-reasoning",
+      "stream_digest": "c19cf8c1c833f2822250fabf1db16c86fee267f07670b59a829eea019bfa8ee2",
+      "stream_token": "e434236f1cd649ec1357865e1be1882d0226980ea6cc3860fe847de3e5f01b96",
+      "vector_digest": "cbf2cae3455458e3d782d343f6fa4dec7fffbe2b6963bf99f2097d9e346c77bd"
+    },
+    {
+      "episode_count": 244,
+      "seam_count": 46,
+      "source_session_count": 47,
+      "stratum": "knowledge-update",
+      "stream_digest": "427f5db834e5160954896f3684e716320bf75e40d44d709acc2b646f28799430",
+      "stream_token": "e9585f935c3a7d650e3c573445b23663e41ef8bb6208bac18d1a262213936b1b",
+      "vector_digest": "beeb6e66553f219e75ee31ffbfe2e3707d2ec2b57b7aed36825c7a71c3c39090"
+    },
+    {
+      "episode_count": 225,
+      "seam_count": 40,
+      "source_session_count": 41,
+      "stratum": "single-session-assistant",
+      "stream_digest": "9ed1dc0f23ff6512410274c740c3c5459918228f2fd607e79775e90f85efb6ae",
+      "stream_token": "eb5ac824bab3934ae192f3de34d6d93c30c716d2d9921e1c722be08a6aeffa57",
+      "vector_digest": "7a64e59195766aa1e61ffba86ac2e1e4b66a0671fce49d69a643eee4a13f102a"
+    },
+    {
+      "episode_count": 234,
+      "seam_count": 45,
+      "source_session_count": 46,
+      "stratum": "single-session-user",
+      "stream_digest": "8a1a41f48b86fb2d37ebdf8d5da91d0f9a28a621bf048d193ea31dc2cdb566cf",
+      "stream_token": "ece9d8436ebaae2f9c2164319e7b31616690f4f247bc7eb112a418a18a2db295",
+      "vector_digest": "d74abb196272b1e559a03503387ddcb47d8167b6632f497ff39a4a53f182c494"
+    },
+    {
+      "episode_count": 230,
+      "seam_count": 43,
+      "source_session_count": 44,
+      "stratum": "multi-session",
+      "stream_digest": "950e06eb94cd6f041b98248d07d878d3369f96200ca5b54fb23b9e3f03a7e4ed",
+      "stream_token": "f94cc9870ab4e3ba5b484c629960fc37f2f6c48c8facd0d85c9a8738e2115110",
+      "vector_digest": "19a8d67bf47ced63973f09d94662cb30396ffb63239f7a31ba0b45e57e13ce6d"
+    },
+    {
+      "episode_count": 231,
+      "seam_count": 43,
+      "source_session_count": 44,
+      "stratum": "multi-session",
+      "stream_digest": "1f22938c3e51ed2cf08c15a0f5c92e2cdd0794004bd762d2506f7f1b60e34f19",
+      "stream_token": "fa537fcf658ea3c58ef5120af886cdfef7d31f6e2074c55345ac8f135660df04",
+      "vector_digest": "4c694182159e7792a352d342d54bef2d209086c96c24691579653adfae8f8574"
+    }
+  ]
+}
