@@ -304,4 +304,94 @@ def run_split(
         "annotated_boundaries": len(annotated),
         "annotated_internal_boundaries": len(annotated) - len(sessions),
         "arms": arms,
+        "treatment_result": treatment,
+    }
+
+
+def build_study_report(root, design_path, preflight_path) -> dict[str, Any]:
+    """Run every arm on both splits and evaluate the registered gates.
+
+    The preflight artifact is the runtime sentinel: this refuses to produce a
+    gate report unless a passing PF1-PF10 record already exists on disk.
+    """
+    import json
+    from pathlib import Path
+
+    from src.analysis.dmr001_corpus import select_sessions
+    from src.analysis.dmr001_gates import evaluate_gates, partition_facts
+    from src.analysis.dmr001_part1 import _sessions_by_split
+    from src.analysis.dmr001_preflight import integrity_facts
+    from src.biological_memory.event_context import load_design
+
+    root = Path(root)
+    preflight = json.loads(Path(preflight_path).read_text(encoding="utf-8"))
+    if preflight.get("status") != "PASS":
+        raise RuntimeError(
+            "Refusing to evaluate gates: the committed preflight artifact is not PASS"
+        )
+
+    design_anchor, config, design = load_design(Path(design_path))
+    if preflight["design_sha256"] != design_anchor:
+        raise RuntimeError("The preflight artifact was produced against a different design")
+
+    lag_max = int(design["parameters"]["context_lag_max"])
+    sessions = select_sessions(root)
+    development, heldout = _sessions_by_split(sessions)
+
+    committed = json.loads(
+        (
+            root
+            / "experiments/components/biological_memory/dmr_001/artifacts/dmr001_corpus/corpus_lock.json"
+        ).read_text(encoding="utf-8")
+    )
+    integrity = integrity_facts(
+        root,
+        sessions,
+        committed,
+        design_sha256=design_anchor,
+        design_path=Path(design_path),
+        config=config,
+    )
+
+    split_reports: dict[str, Any] = {}
+    partition: dict[str, Any] = {}
+    for name, split in (("development", development), ("holdout", heldout)):
+        report = run_split(
+            split, design_sha256=design_anchor, config=config, lag_max=lag_max
+        )
+        treatment = report.pop("treatment_result")
+        partition[name] = partition_facts(
+            treatment.snapshot,
+            sum(session.episode_count for session in split),
+            [session.session_hash for session in split],
+        )
+        split_reports[name] = report
+
+    merged_partition = {
+        "episodes": partition["development"]["episodes"] + partition["holdout"]["episodes"],
+        "members": partition["development"]["members"] + partition["holdout"]["members"],
+        "expected_episodes": partition["development"]["expected_episodes"]
+        + partition["holdout"]["expected_episodes"],
+        "positions_contiguous": all(row["positions_contiguous"] for row in partition.values()),
+        "no_cross_session_event": all(
+            row["no_cross_session_event"] for row in partition.values()
+        ),
+        "append_ordered": all(row["append_ordered"] for row in partition.values()),
+        "per_split": partition,
+    }
+
+    verdict = evaluate_gates(
+        integrity=integrity, partition=merged_partition, split_reports=split_reports
+    )
+
+    return {
+        "schema": "dmr001-gates-v1",
+        "study": "DMR-001",
+        "design_sha256": design_anchor,
+        "preflight_status": preflight["status"],
+        "corpus_digest": committed["corpus_digest"],
+        "integrity": integrity,
+        "partition": merged_partition,
+        "splits": split_reports,
+        "verdict": verdict,
     }
