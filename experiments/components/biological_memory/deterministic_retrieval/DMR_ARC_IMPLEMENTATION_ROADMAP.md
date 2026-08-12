@@ -1,7 +1,13 @@
 # DMR Arc - Deterministic Multi-Route Retrieval Implementation Roadmap
 
 **Document type:** Prospective implementation specification
-**Status:** `DESIGN ONLY - NOT PRE-REGISTERED - NO IMPLEMENTATION AUTHORIZED`
+**Status:** `BLOCKED AT DMR-001`. DMR-001 was approved, pre-registered,
+implemented, and run on August 12, 2026. It stopped at G3 with disposition
+`DEGENERATE_FORMATION`, so the arc has no validated event substrate and
+DMR-002 through DMR-006 are blocked by this roadmap's own dependency rule 4.
+Stages 2 through 6 remain `DESIGN ONLY - NOT PRE-REGISTERED - NO
+IMPLEMENTATION AUTHORIZED`. See
+`../dmr_001/DMR_001_REPORT.md`.
 **Reference architecture:** `HYPOTHETICAL_001_MECHANICAL_BIOLOGICAL_MEMORY_MODEL.md`
 **Thesis constraint:** Retrieval completes before exactly one final reader
 generation call. No generative model writes a query, summary, route, stopping

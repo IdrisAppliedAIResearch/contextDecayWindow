@@ -25,11 +25,23 @@ Ten pre-registered studies test that question, each adding one memory component 
 > and T1 9/9 with zero regressions. Explicit supersession passes integration;
 > broader live evaluation remains a separate decision.
 
-> **DMR arc status:** `DESIGN ONLY - NO IMPLEMENTATION OR RUN AUTHORIZED`.
-> Six implementation specifications separate event formation, typed pattern
-> completion, encoding-context recurrence, query-obligation compilation,
-> deterministic route control, and single-reader validation. The roadmap starts
-> at `experiments/components/biological_memory/deterministic_retrieval/DMR_ARC_IMPLEMENTATION_ROADMAP.md`.
+> **DMR arc status:** `BLOCKED AT DMR-001`. Six implementation specifications
+> separate event formation, typed pattern completion, encoding-context
+> recurrence, query-obligation compilation, deterministic route control, and
+> single-reader validation. DMR-001 was approved, pre-registered, implemented,
+> and run; it stopped at G3, so the arc has no validated event substrate and
+> DMR-002 through DMR-006 are blocked. The roadmap starts at
+> `experiments/components/biological_memory/deterministic_retrieval/DMR_ARC_IMPLEMENTATION_ROADMAP.md`.
+
+> **DMR-001 status:** `DEGENERATE_FORMATION - G3 FAIL - CHARACTERIZED`. On the
+> 2,000-episode sealed holdout, 52 of 74 events close because the size cap
+> binds, a forced fraction of 0.703 against a bar of 0.35. The drift predicate
+> is precise and barely fires: all 20 of its holdout boundaries match an
+> annotation, while none of the 52 forced boundaries do. The locked threshold
+> of 0.70 sits above the holdout's 95th drift percentile yet fires on 18.5% of
+> eligible development episodes, so an absolute drift threshold is not a
+> transferable quantity and the safety cap becomes the partitioner. G1, G2 and
+> PF1-PF10 pass; G4 and G5 were not evaluated.
 
 > **SAL-001 status:** `NO_INDEPENDENT_PROXIMITY - CHARACTERIZED`. On 92
 > held-out LongMemEval sessions, adjusted neighbor AUC is 0.416 (95% interval
@@ -118,6 +130,7 @@ Runs use a scripted 120-turn conversation with facts planted at known positions 
 | TA-001 | Radius-1 temporal-adjacency bridge | G5 FAIL; CHARACTERIZED | Q11 packed facts rose 7/17 to 9/17 and art 0/4 to 4/4, but targeted queries had 6 losses versus 2 gains; no ablation or live run |
 | SR-001 | Source-rank-preserving extractive spans | G3 FAIL; CHARACTERIZED | Fixed-rank spans reduced Q11 8/17 to 4/17 and targeted matched facts 19 to 17, with zero gains. BA-001's span signal came from span-level ranking, not representation alone |
 | SAL-001 | Independent surprisal-proximity diagnostic | G2 FAIL; CHARACTERIZED | Adjusted neighbor AUC was 0.416, raw 0.300, prior 0.399, and next 0.477. Own-exchange surprisal was 0.621 posthoc, so surprise marked content locally but did not transfer value to temporal neighbors |
+| DMR-001 | Online event-context formation over pinned embeddings | G3 FAIL; DEGENERATE_FORMATION; CHARACTERIZED | The size cap, not the drift detector, did the partitioning: 52 of 74 holdout events closed on `max_event_size` and matched no annotation, while all 20 drift boundaries matched one. The locked threshold fires on 18.5% of development episodes and 1.2% of holdout episodes, so drift has no transferable scale. DMR-002 through DMR-006 are blocked |
 | SUP-001 | Explicit supersession lineage and accessibility | FACTUAL PASS; byte-identity criterion withdrawn | Current-only retrieval rose 0/64 to 64/64 with 32/32 unchanged and 64/64 histories. T1 scored 9/9 under numeric-value equivalence, with zero regressions and zero stale natural payloads; no larger run or adoption is automatic |
 
 Full reports live under `experiments/study_NNN/`; external evaluation reports
