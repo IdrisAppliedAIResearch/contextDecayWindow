@@ -1,0 +1,42 @@
+{
+  "record": "SUP-001 pre-registration exploration",
+  "date": "2026-08-11",
+  "status": "DESIGN_INPUT_NO_STUDY_OUTCOME",
+  "carried_store": {
+    "component": "episodic.EpisodeStore",
+    "behavioral_identity": "Verbatim append-only episodes; context is a pure function and has no lineage or current-value state.",
+    "real_trace": {
+      "episodes": 3,
+      "query": "What is my preferred tea?",
+      "budget_chars": 32000,
+      "delivered_episodes": 3,
+      "delivered_chars": 407,
+      "old_value": "Earl Grey",
+      "new_value": "Sencha",
+      "old_present": true,
+      "new_present": true,
+      "old_before_new": true
+    }
+  },
+  "benchmark_audit": {
+    "longmemeval_knowledge_update_is_lineage_ground_truth": false,
+    "reason": "The class mixes replacement, accumulation, and multi-session reasoning; answer_session_ids names evidence sessions but does not identify supersedes edges."
+  },
+  "name_to_behavior": {
+    "supersession": "an explicit old-to-new content-hash edge, not text inference",
+    "accessibility": "a binary natural-retrieval gate independent of cosine",
+    "silent": "excluded from natural retrieval while content and edges remain",
+    "lineage": "deliberate oldest-to-newest traversal that bypasses accessibility",
+    "contradiction_detection": "absent and out of scope"
+  },
+  "degenerate_states_to_gate": [
+    "duplicate content identity",
+    "unknown parent",
+    "cross-key edge",
+    "fork from a non-leaf",
+    "cycle",
+    "zero accessible leaves",
+    "multiple accessible leaves",
+    "query-history mutation"
+  ]
+}

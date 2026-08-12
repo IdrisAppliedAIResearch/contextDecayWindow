@@ -1,5 +1,24 @@
 # Errata
 
+## SUP-001 Numeric Value Interpretation (2026-08-11)
+
+**Headline change:** SUP-001's reader result is C0 8/9 and T1 9/9 for factual
+correctness. The byte-identity criterion is withdrawn as a factual measure.
+
+Both readers returned `$35.00` where the sealed expected representation was
+`$35`. These strings encode the same currency value. The row is correct; it is
+not an unchanged-memory miss. C0's separate punctuation-only response remains
+nonmatching, so the corrected totals are 8/9 and 9/9. T1 has zero targeted
+regressions and zero stale natural payloads.
+
+The locked registration, raw responses, scorer, tests, and score artifact are
+preserved unchanged. This erratum corrects the interpretation rather than
+rewriting a post-result gate. The exact contract for future studies must be
+locked before results and accept integer/decimal representation differences
+only when numeric value, sign, unit or currency marker, and surrounding factual
+content agree. See
+`experiments/components/biological_memory/sup_001/SUP_001_SCORING_CORRECTION.md`.
+
 ## Scoring Integrity Audit (2026-07-26)
 
 **Headline change:** Study 001 changes from VALIDATED to PARTIAL.
