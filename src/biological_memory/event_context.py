@@ -437,6 +437,18 @@ class OnlineEventContextFormer:
             self._store.record(decision, self._open_record("open"), self._prototype, self._context)
         return decision
 
+    def context_vector(self) -> np.ndarray:
+        """A copy of the open event's encoding-context vector."""
+        if self._context is None:
+            raise EventContextError("No episode has been observed yet")
+        return self._context.copy()
+
+    def prototype_vector(self) -> np.ndarray:
+        """A copy of the open event's prototype vector."""
+        if self._prototype is None:
+            raise EventContextError("No episode has been observed yet")
+        return self._prototype.copy()
+
     def snapshot(self) -> EventContextSnapshot:
         events = list(self._events)
         if self._event_id is not None:
