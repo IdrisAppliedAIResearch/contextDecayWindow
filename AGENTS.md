@@ -60,6 +60,8 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **SR-001 extractive spans (2026-08-11).** G3 FAIL; NO_BROAD_GAIN, CHARACTERIZED. With identical full source ranks/32k, source-grouped spans reduce Q11 8/17->4/17 and targeted facts 19->17: 0 gains, 2 losses, 22 ties; enumeration stays .0625. BA's 10-gain signal required span reranking, not representation alone. No ablation/live run.
 
+**SAL-001 surprisal proximity (2026-08-11).** G2 FAIL; NO_INDEPENDENT_PROXIMITY. On 92 held-out sessions, adjusted neighbor AUC=.416 (95% .351-.484; p=.991), raw=.300; prior=.399, next=.477, 5/6 strata below .50. Posthoc self AUC=.621: surprise stays local, not transferred. P1-P4 capture killed; no accessibility/ablation/live.
+
 **PS-001 pattern-separated engram formation (2026-08-11).** CHARACTERIZED. Nine deterministic sparse cells on 119 episodes; only D=4096,K=41 passed G3-G5: 119/119 fixed points and exact 1/10/30/50% swap recovery. Six of seven degenerates reached stored codes; the union-biased cue cycled. Code-space result only; no natural cue, retrieval, live run, promotion, or adoption.
 
 **PS-002 natural-language cue binding (2026-08-11).** STOP AT PART 1; NATURAL_CUES_NOT_BOUND, CHARACTERIZED. Nine label-blind cells ran 24 sealed queries x8 rounds. Best M=4,tau=.025 reached stored codes 190/192 but one cue cycled and one reached a spurious fixed point; no cell emitted 8 clean ids/query. Labels, PF1-PF10, answers, live run, promotion and adoption not entered.
