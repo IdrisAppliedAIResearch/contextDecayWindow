@@ -1,0 +1,220 @@
+{
+  "PF10_live_requirement": {
+    "statement": "DMR-001B has no live verdict and cannot authorize one. It cannot unblock DMR-002. A pass licenses only seeking a sealed corpus on which the rule could be confirmed."
+  },
+  "PF1_inputs": {
+    "checks": [
+      {
+        "check": "the corpus lock replays exactly",
+        "expected": "be939cbebc0e9e9f33906ffc92047e114372852bbc578bb4376efd0e061d3bf9",
+        "observed": "be939cbebc0e9e9f33906ffc92047e114372852bbc578bb4376efd0e061d3bf9",
+        "passed": true
+      },
+      {
+        "check": "session count",
+        "expected": 17,
+        "observed": 17,
+        "passed": true
+      },
+      {
+        "check": "episode count",
+        "expected": 3724,
+        "observed": 3724,
+        "passed": true
+      }
+    ]
+  },
+  "PF2_identity": {
+    "checks": [
+      {
+        "check": "two independent implementations claim the same boundaries",
+        "expected": 0,
+        "observed": 0,
+        "passed": true
+      }
+    ],
+    "compared_decisions": 3724
+  },
+  "PF3_ordering": {
+    "checks": [
+      {
+        "check": "the pre-registration commit contains no implementation file",
+        "expected": "distinct commits, registration first",
+        "observed": "registration 74690eda and mechanism 74690eda are the same commit",
+        "passed": false
+      },
+      {
+        "check": "the deviation is recorded",
+        "expected": "DEVIATION_001 present",
+        "observed": [
+          "DEVIATION_001"
+        ],
+        "passed": true
+      }
+    ],
+    "note": "This section is expected to fail. The failure is the honest record of DEVIATION_001 and is carried into the study report rather than redefined away."
+  },
+  "PF4_reachability": {
+    "checks": [
+      {
+        "check": "percentile 0.8 swing is reachable under the bar",
+        "expected": "<= 2.0",
+        "observed": 1.4757969303423848,
+        "passed": true
+      },
+      {
+        "check": "percentile 0.85 swing is reachable under the bar",
+        "expected": "<= 2.0",
+        "observed": 1.5868784197229944,
+        "passed": true
+      },
+      {
+        "check": "percentile 0.9 swing is reachable under the bar",
+        "expected": "<= 2.0",
+        "observed": 1.614036136475722,
+        "passed": true
+      },
+      {
+        "check": "percentile 0.95 swing is reachable under the bar",
+        "expected": "<= 2.0",
+        "observed": 1.6491445062873635,
+        "passed": true
+      },
+      {
+        "check": "percentile 0.975 swing is reachable under the bar",
+        "expected": "<= 2.0",
+        "observed": 1.4242611645209047,
+        "passed": true
+      },
+      {
+        "check": "failure is reachable: the predecessor's fixed rule breaches the same bar",
+        "expected": "> 2.0",
+        "observed": 10.38961038961039,
+        "passed": true
+      }
+    ]
+  },
+  "PF5_stable_keys": {
+    "checks": [
+      {
+        "check": "percentile interpolation is implemented locally, not by a library",
+        "expected": 0.5,
+        "observed": 0.5,
+        "passed": true
+      },
+      {
+        "check": "identity carries no path, timestamp, or row id",
+        "expected": "content-addressed only",
+        "observed": "sha256 over design anchor, session token, and first episode",
+        "passed": true
+      },
+      {
+        "check": "the run is reproducible within one process",
+        "expected": "f06953a4f98dadf05a9c53bdf01af9eb39fb0af544fea4d9405159faa2014fbd",
+        "observed": "f06953a4f98dadf05a9c53bdf01af9eb39fb0af544fea4d9405159faa2014fbd",
+        "passed": true
+      }
+    ]
+  },
+  "PF6_reproduction": {
+    "checks": [
+      {
+        "check": "the committed Part 1 decision digests reproduce exactly",
+        "expected": {
+          "family_1000_61311041": "0ed75e6de0936d32f3b9ced4c6f74d02cfd0737b0533ebc511206c584db13bf6",
+          "family_121_36adce29": "e1f24271cc13dcff78f6c24635374d84a3b3ea6e7221eb50db23702f5c3c94a9",
+          "family_30_be065cb7": "e747d3eef2380396436dea640a7d4c8779ed4302d8c6905af198c6c805ddb8d3"
+        },
+        "observed": {
+          "family_1000_61311041": "0ed75e6de0936d32f3b9ced4c6f74d02cfd0737b0533ebc511206c584db13bf6",
+          "family_121_36adce29": "e1f24271cc13dcff78f6c24635374d84a3b3ea6e7221eb50db23702f5c3c94a9",
+          "family_30_be065cb7": "e747d3eef2380396436dea640a7d4c8779ed4302d8c6905af198c6c805ddb8d3"
+        },
+        "passed": true
+      }
+    ]
+  },
+  "PF7_absorbing_state": {
+    "checks": [
+      {
+        "check": "the rule does not latch shut: it keeps firing over 1,000 turns",
+        "expected": ">= 10",
+        "observed": 63,
+        "passed": true
+      },
+      {
+        "check": "the rule does not latch open: no singleton runaway",
+        "expected": 0.0,
+        "observed": 0.0,
+        "passed": true
+      },
+      {
+        "check": "no event grows without bound",
+        "expected": "< 128",
+        "observed": 77.0,
+        "passed": true
+      },
+      {
+        "check": "the cap never binds, so it cannot become the mechanism",
+        "expected": 0,
+        "observed": 0,
+        "passed": true
+      }
+    ],
+    "profile": {
+      "adaptive_fire_rate": 0.0315,
+      "capped_closures": 0,
+      "episodes": 2000,
+      "events": 65,
+      "max_event_size": 77.0,
+      "median_event_size": 35.0,
+      "min_event_size": 7.0
+    }
+  },
+  "PF8_adequacy": {
+    "cannot_detect": [
+      "whether these events improve retrieval or any answer",
+      "whether the rule transfers to a third corpus; both here were read by DMR-001",
+      "whether the boundaries match human event perception",
+      "any cross-platform determinism claim; one platform was executed"
+    ],
+    "statement": "No reader ablation occurs. DMR-001B makes no generation call and scores no answer."
+  },
+  "PF9_surrogates": {
+    "table": [
+      {
+        "may_remain_false": "the rule transfers",
+        "observed_pass": "low fire-rate swing",
+        "residual": "two synthetic corpora, both already read"
+      },
+      {
+        "may_remain_false": "the mechanism improved",
+        "observed_pass": "claims-only precision rises",
+        "residual": "partly reflects not scoring cap closures; with the cap inert there are none, but downstream must honor the record type"
+      },
+      {
+        "may_remain_false": "the boundaries are good",
+        "observed_pass": "beats the predecessor",
+        "residual": "agreement is against a scripted topic schedule"
+      },
+      {
+        "may_remain_false": "the feedback loop is safe generally",
+        "observed_pass": "PF7 shows no absorbing state",
+        "residual": "shown on one 1,000-turn stream at one configuration"
+      }
+    ]
+  },
+  "design_sha256": "ad6f9451a1be1519820a18f1ac1dae5dbc9ce38819671c8537061a6dc5ecc5e6",
+  "failed_checks": [
+    {
+      "check": "the pre-registration commit contains no implementation file",
+      "expected": "distinct commits, registration first",
+      "observed": "registration 74690eda and mechanism 74690eda are the same commit",
+      "passed": false,
+      "section": "PF3_ordering"
+    }
+  ],
+  "schema": "dmr001b-preflight-v1",
+  "status": "PASS_WITH_RECORDED_DEVIATION",
+  "study": "DMR-001B"
+}
