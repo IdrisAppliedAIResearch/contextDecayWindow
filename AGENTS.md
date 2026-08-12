@@ -72,6 +72,8 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **DMR-001B adaptive drift formation (2026-08-12).** PASS, CHARACTERIZED; does NOT unblock DMR-002. A percentile-of-recent-drift bar holds fire-rate swing at 1.42-1.65x across all five grid cells where the fixed rule swung 9x-inf. Cap 128 never bound; 0 capped closures in 3,724 episodes. Worst family .419->.487, but the 1,000-turn family fell .733->.583. No sealed holdout; DEVIATION_001 recorded.
 
+**DMR-001C sealed holdout (2026-08-12).** G5 FAIL; NO_BOUNDARY_EVIDENCE, but G4 CONFIRMS transfer. On 50 unread LongMemEval haystacks, 11,453 episodes, 2,128 real seams, the frozen relative rule holds fire-rate p95/p05 at 1.67x. Precision .837 vs .186 base rate, but recall .253 (min_event_size 5 vs 6-exchange sessions), so F1 .387 loses to C_PERIODIC_4's .606. F1 on a dense corpus rewards firing.
+
 **PS-001 pattern-separated engram formation (2026-08-11).** CHARACTERIZED. Nine deterministic sparse cells on 119 episodes; only D=4096,K=41 passed G3-G5: 119/119 fixed points and exact 1/10/30/50% swap recovery. Six of seven degenerates reached stored codes; the union-biased cue cycled. Code-space result only; no natural cue, retrieval, live run, promotion, or adoption.
 
 **PS-002 natural-language cue binding (2026-08-11).** STOP AT PART 1; NATURAL_CUES_NOT_BOUND, CHARACTERIZED. Nine label-blind cells ran 24 sealed queries x8 rounds. Best M=4,tau=.025 reached stored codes 190/192 but one cue cycled and one reached a spurious fixed point; no cell emitted 8 clean ids/query. Labels, PF1-PF10, answers, live run, promotion and adoption not entered.
