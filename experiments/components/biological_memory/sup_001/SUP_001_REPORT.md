@@ -5,9 +5,9 @@
 **Final design anchor:** `b81d01c6`  
 **Passing Preflight anchor:** `a79925bb`  
 **Offline outcome anchor:** `125d65b1`  
-**Ablation stop anchor:** `713149c7`  
+**Legacy byte-exact score anchor:** `713149c7`
 **Date:** August 11, 2026  
-**Status:** `ABLATION_INTEGRATION_STOP - OFFLINE MECHANISM SUPPORTED`
+**Status:** `FACTUAL PASS - BYTE-IDENTITY CRITERION WITHDRAWN`
 
 ## Result
 
@@ -31,22 +31,28 @@ retrieved both stale versions every time. T1 did not improve semantic matching;
 it removed a stale-conflict class. Every current leaf ranked first after the
 128 silent ancestors were excluded.
 
-The required 35-turn Qwen reader ablation then stopped promotion:
+The required 35-turn Qwen reader ablation passed:
 
 | Reader measure | C0 | T1 |
 |---|---:|---:|
-| Exact answers | 7/9 | **8/9** |
+| Correct answers | 8/9 | **9/9** |
 | Current values | 3/4 | **4/4** |
-| Unchanged values | 3/4 | **3/4** |
+| Unchanged values | 4/4 | **4/4** |
 | Ordered history | 1/1 | **1/1** |
 | Targeted regressions | - | **0** |
 | Stale natural payloads | 4/4 | **0/4** |
 
-T1's only failure was the unchanged donation probe. Its payload contained the
-registered `$35`, but the reader output `$35.00`. The locked exact-string rule
-does not normalize numeric formatting, so 3/4 unchanged answers fails the
-all-four bar. The binding disposition is `ABLATION_INTEGRATION_STOP`; no
-120-turn run, production promotion, or adoption is authorized.
+The donation probe expected `$35` and both readers returned `$35.00`. Those are
+the same currency value. The original byte-identity scorer treated a redundant
+decimal representation as incorrect; that scorer measured serialization, not
+factual correctness. The deterministic correction rule accepts only one finite
+decimal value with equal sign, unit or currency marker, and surrounding text.
+It does not normalize punctuation, units, currency markers, signs, words, or
+multiple-number expressions. Under the corrected factual interpretation, C0
+is 8/9 and T1 is 9/9. The mechanism and reader result is a success. The
+observed byte-identity criterion is withdrawn as a factual correctness measure
+rather than retroactively edited inside the locked registration. This does not
+itself authorize a 120-turn run, production promotion, or adoption.
 
 ## Plain-language meaning
 
@@ -56,11 +62,11 @@ the full history when explicitly asked. This closed a real mechanical gap in
 the prior append-only store, which had no way to distinguish current from
 stale values.
 
-That did not earn deployment. Once a reader was added, the system missed one
-strict output contract even though it had delivered the right evidence. This
-is not a stale-memory failure; it is a representation/answer-format failure.
-The study's bar intentionally required both retrieval and reader behavior, so
-the promising mechanism remains characterized rather than promoted.
+This is a successful reader integration result, not merely an offline result.
+T1 answered every current and unchanged query, recovered ordered history,
+introduced no targeted regression, and attributed no stale value. It supports
+a separate decision about broader live testing. It does not establish inferred
+contradiction detection, long-run behavior, or production readiness.
 
 ## Integrity
 
@@ -82,11 +88,15 @@ user turns and nine reader calls. C0 ran from separate prior code at
 packing. The first two prompts in each arm repeated byte-identically.
 
 One protocol deviation is retained: mechanism context summaries were inspected
-during runtime validation before the mechanical score artifact was committed.
-The scorer was fixed exact-string equality with no adjudication, so inspection
-could not change a row, and the study fails independently. It nevertheless
-violates the preferred score-before-mechanism-log ordering and limits the
-ablation's procedural cleanliness.
+during runtime validation before the legacy score artifact was committed. The
+correction is a deterministic reclassification of unchanged raw answers, so
+inspection cannot alter it. No corrected executable comparator was run. The
+ordering still violates the preferred
+score-before-mechanism-log sequence and limits procedural cleanliness.
+
+The original raw arms, scorer, tests, and byte-exact score remain unchanged as
+historical provenance. `SUP_001_SCORING_CORRECTION.md` is the authoritative
+interpretation record. No executable scoring implementation was changed.
 
 `NEUROSCIENCE_LANDSCAPE.md`, named by the hypothetical reference, was not
 present in this checkout and was not silently substituted. The executed study
@@ -98,8 +108,7 @@ was bound directly to the root hypothetical document's P5/P9/F6 claims.
   excluded and remains unsolved.
 - Binary accessibility was tested on four template domains and one 35-turn
   integration, not long-run or natural conversation ecology.
-- The ablation failure does not refute supersession; it shows that correct
-  delivery alone does not guarantee exact reader formatting.
+- The ablation is a nine-probe integration success, not a population estimate.
 - No retrieval-induced suppression, consolidation, gist, temporal capture,
   rewrite, deletion, or production integration was tested.
 
@@ -118,7 +127,9 @@ Primary artifacts:
 - `artifacts/sup001_ablation_vectors/`
 - `artifacts/sup001_ablation_raw/`
 - `artifacts/sup001_ablation_score/score.json`
+- `SUP_001_SCORING_CORRECTION.md`
 
-Focused SUP-001 suite: 32 passed. Full repository suite: 1,593 passed and 11
+Prior focused SUP-001 suite: 32 passed. Full repository suite at study close:
+1,593 passed and 11
 inherited Windows/hash-anchor failures, exactly the pre-study failure set. No
 historical locked hash was changed to hide them.
