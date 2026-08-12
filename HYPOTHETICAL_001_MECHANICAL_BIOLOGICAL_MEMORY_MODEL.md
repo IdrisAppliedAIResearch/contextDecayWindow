@@ -32,6 +32,11 @@
 | **P8** | Consolidation **transforms**: gist strengthens, contextual detail weakens, and remote traces gain illusory content | Yassa & Reagh (2013); Moscovitch et al. (2007) |
 | **P9** | Retrieval may create a **new trace** rather than reactivating the old one | Nadel & Moscovitch (1997) multiple trace theory |
 | **P10** | Fast and slow systems exist to prevent catastrophic interference | McClelland, McNaughton & O'Reilly (1995) |
+| **P11** | The actively attended workspace is small and chunk-based; it is not a byte-addressed copy of long-term storage | Cowan et al. (2005), doi:10.1016/j.cogpsych.2004.12.001 |
+| **P12** | A partial element of a bound event can reinstate other event elements through hippocampal pattern completion and cortical reinstatement | Horner et al. (2015), doi:10.1038/ncomms8462 |
+| **P13** | Recall changes the retrieval context. The recovered context then cues temporally and semantically associated memories, so memory search can be iterative without an external reasoner constructing each step | Kahana (1996), doi:10.3758/BF03197276; Polyn, Norman & Kahana (2009), doi:10.1037/a0014420 |
+| **P14** | Retrieval is under top-down control: goal- and category-specific cortical states can precede recall and bias which stored representation is recovered | Tomita et al. (1999), doi:10.1038/44372; Polyn et al. (2005), doi:10.1126/science.1117645; Rajasethupathy et al. (2015), doi:10.1038/nature15389 |
+| **P15** | Temporarily unattended working-memory content can remain recoverable in a latent or transformed state and can be reactivated by an internal cue or perturbation | Wolff et al. (2017), doi:10.1038/nn.4546 |
 
 ---
 
@@ -77,10 +82,23 @@ SemanticNode:                        # the slow store (P10)
     strength        : float          # grows with each replay (P8)
 ```
 
+```
+RetrievalState:                      # transient; never written as generated text
+    goal_features   : sparse_vec     # deterministic lexical/entity/query features
+    active_ids      : [episode_id]   # small foreground, not the whole payload
+    context_vec     : vec            # reinstated encoding context (P13)
+    route           : enum           # DIRECT, EPISODIC, CONTEXT, STOP
+    unresolved      : bitset         # mechanically testable query obligations
+    visited         : set[episode_id]
+    step            : int
+```
+
 **Invariants**
 - `content` is never rewritten. Transformation acts on `accessibility` and `edges`, never on stored text.
 - `accessibility == 0` with `edges` intact is a **silent engram**: stored, connected, unreachable by cue. A legal and expected state, not a bug.
 - `SemanticNode.content` contains only spans copied from `support` episodes. **No generated text anywhere in the memory path.**
+- `RetrievalState` is computed from the user turn and stored metadata. It cannot contain a generated search query, chain-of-thought, summary, or model-authored routing decision.
+- The active foreground has a small item/count ceiling independent of the larger serialization ceiling used to deliver provenance to the final reader.
 
 ---
 
@@ -183,50 +201,132 @@ Options, none satisfying: after N turns of inactivity; on session boundary; on a
 
 ---
 
-## 6. Read path — spreading activation with competition (P5, P6)
+## 6. Read path - controlled multi-route retrieval (P5, P6, P11-P15)
+
+The load-bearing addition is a distinction between **retrieval capacity** and
+**delivery capacity**. Biology does not appear to make a transcript-sized block
+simultaneously active. A small foreground is repeatedly updated while much
+larger distributed representations remain latent. Therefore a large engineering
+context ceiling cannot stand in for a retrieval mechanism.
+
+The controller below is mechanical. It does not ask a language model whether to
+continue, does not generate a new query, and does not call the final reader until
+retrieval has terminated.
 
 ```
-retrieve(query, budget):
+retrieve(query, delivery_budget):
     q = embed(query)
+    state = RetrievalState(
+        goal_features = parse_features(query),
+        context_vec   = q,
+        unresolved    = obligations(query),
+        route         = DIRECT,
+        visited       = set(),
+        step          = 0,
+    )
 
-    # 1. seeding — the ONLY place similarity is used
-    seeds = {ep: sim(q, ep.embedding) * ep.accessibility
-             for ep in store if sim(q, ep.embedding) > K}
+    # Route 1: fast direct access to current semantic and episodic traces.
+    direct = top_k_accessible(q, K_DIRECT)
+    foreground = compete(direct, ACTIVE_CAP)
+    state.active_ids = ids(foreground)
+    state.visited |= state.active_ids
+    state.unresolved -= mechanically_supported(foreground, state.goal_features)
 
-    # 2. spread over the storage substrate, P5
-    act = seeds
-    for depth in 1..D:
-        for ep, a in act.items():
-            for (tgt, w) in ep.edges:
-                act[tgt] += a * w * DECAY**depth
+    while state.unresolved and state.step < MAX_RETRIEVAL_STEPS:
+        state.step += 1
 
-    # 3. competition, P6
-    for group in cue_groups(act):
-        winner = argmax(group)
-        for loser in group - {winner}:
-            act[loser] *= SUPPRESS          # < 1
+        # Route 2: episodic pattern completion. A seed reinstates the
+        # event-bound elements and encoding context, not arbitrary neighbours.
+        if state.route == DIRECT:
+            episode = strongest_event_seed(foreground, state.visited)
+            completed = event_edges(episode, EDGE_EVENT, MAX_EVENT_ITEMS)
+            state.context_vec = reinstate_context(episode)
+            candidates = completed
+            state.route = EPISODIC
 
-    # 4. pack under budget
-    selected = pack(sorted(act, desc), budget)
+        # Route 3: retrieved-context search. Recovered context, plus the
+        # unchanged goal, cues the next item. No generated intermediate query.
+        else:
+            cue = normalize(GOAL_WEIGHT * q
+                            + CONTEXT_WEIGHT * state.context_vec
+                            + NEED_WEIGHT * vectorize(state.unresolved))
+            candidates = top_k_unvisited(cue, K_CONTEXT, state.visited)
+            state.route = CONTEXT
 
-    # 5. retrieval-induced plasticity, P6 — the read path WRITES
+        winners = compete(candidates, ACTIVE_CAP)
+        if no_novel_support(winners, state.unresolved):
+            state.route = STOP
+            break
+
+        foreground = replace_foreground(foreground, winners, ACTIVE_CAP)
+        state.active_ids = ids(foreground)
+        state.unresolved -= mechanically_supported(foreground,
+                                                    state.goal_features)
+        state.context_vec = update_context(state.context_vec, winners)
+        state.visited |= ids(winners)
+
+    # Serialize only resolved evidence plus minimum provenance. Delivery is
+    # downstream of retrieval and cannot decide what was reachable.
+    selected = pack_evidence(foreground, delivery_budget)
+
+    # Retrieval-induced plasticity, P6 - the read path WRITES.
     for ep in selected:
         ep.accessibility += RETRIEVE_GAIN
-    for ep in suppressed_this_query:
+    for ep in suppressed_during_search:
         ep.accessibility *= RIF_PENALTY     # < 1
 
-    return selected
+    return selected, state.route, state.unresolved
 ```
 
-**Similarity appears exactly once, at seeding.** Everything after is graph traversal weighted by accessibility. That is P5 taken seriously: the storage substrate is connectivity, and similarity is only a way in.
+### 6.1 What the three routes mean
 
-**Step 5 makes the read path stateful**, which breaks the pure-function property most memory components have. Retrieval changes the store. That is P6, and it means:
+1. **Direct route.** Similarity/familiarity provides fast access when the natural
+   cue is already diagnostic. This is the cheap path and may terminate retrieval.
+2. **Episodic route.** A selected event seed activates only edges recorded as
+   belonging to the same encoded event. This is pattern completion, not generic
+   nearest-neighbour expansion.
+3. **Retrieved-context route.** The recovered event context changes the cue for
+   the next attempt while the original goal remains anchored. This supplies the
+   chain, but the chain is over reinstated context rather than a mean of retrieved
+   text embeddings.
 
-- Frequently retrieved material becomes progressively easier to reach.
-- Competitors of frequently retrieved material become progressively harder to reach, and can be driven to silence.
-- **Two identical queries in sequence do not return identical results.**
+The controller is **multi-route but not multi-model**. Its compute consists of
+feature extraction, vector arithmetic, indexed lookup, typed edge traversal,
+competition, bitset updates, and exact packing. The final language model sees the
+result once. Adding a model call to decide the route or write the next cue would
+replace the memory hypothesis with an agentic query-rewriting architecture.
 
-The last is a serious engineering cost — no replay, no deterministic reproduction, no cache. It is also exactly what the literature describes.
+### 6.2 Stopping without a second model call
+
+The difficult engineering joint is `obligations(query)`. It may use only
+deterministic features available before inference: interrogative type, named
+entities, explicit dates/units, requested list cardinality, conjunctions, and
+stored schema keys. The controller stops when one of three conditions fires:
+
+- all mechanically identifiable obligations have evidence;
+- a step produces no new evidence for an unresolved obligation; or
+- `MAX_RETRIEVAL_STEPS` is reached.
+
+This is intentionally weaker than asking a model, "Do you have enough context?"
+Open-ended prompts may expose no reliable obligations and terminate too early.
+That limitation is falsifiable and preferable to hiding a second reasoner inside
+the retriever.
+
+### 6.3 Capacity is not a character count
+
+`ACTIVE_CAP` limits foreground representations; `delivery_budget` limits the
+serialized evidence shown to the final reader. They are independent. A compact
+event node can stand for many bound details, so neither quantity maps cleanly to
+human chunks. The biological claim is only that active access is selective and
+small relative to latent storage, not that humans possess a particular token
+window.
+
+**Retrieval-induced plasticity makes the read path stateful**, which breaks the
+pure-function property most memory components have. Frequently retrieved material
+becomes easier to reach, while suppressed competitors can become harder to reach.
+Two identical queries can therefore diverge after different retrieval histories.
+That engineering cost is retained from P6 and must be tested independently of the
+route controller.
 
 ---
 
@@ -268,9 +368,29 @@ Deliberately withheld from the derivation.
 | **Consolidation *lowers* episode accessibility** | Summarization systems raise the summary's prominence and keep or drop the source. Here the source is retained at full fidelity and quietly recedes |
 | **Read path writes** | Retrieval is universally a pure function. P6 makes it a plasticity event |
 | **Supersession by accessibility decay** | Append-only stores return both old and new values with no signal about which is current; overwriting stores destroy provenance. P9 gives a third option |
-| **Similarity used once, at seeding** | Similarity is usually the entire ranking function |
+| **Similarity is one route, not the controller** | Similarity is usually the entire ranking function or is recursively applied by an LLM-generated query |
+| **Small foreground, separate delivery ceiling** | Context-window systems usually equate what can be serialized with what has been retrieved |
+| **Direct, episodic, and context routes** | Chained RAG usually applies one similarity operator repeatedly over a homogeneous store |
+| **Mechanical retrieval controller** | Agentic retrieval commonly delegates query rewriting and stopping to another model call |
 
 **The supersession mechanism (§7) is the element most likely to be independently valuable**, because it addresses a concrete failure mode — a memory that confidently returns a stale value — without either deleting history or calling a model.
+
+### 8.1 The program's fixed 32,000-character ceiling
+
+The program's 32,000-character retrieval allowance is an experimental control,
+not a biological parameter. It was calibrated in Study 007 against one corpus,
+renderer, model context, breadth gate, and targeted fixture. Later exact
+achievability analysis found that at least 14/17 benchmark facts fit in 5,058
+serialized characters and all 17 fit in 7,592. Therefore the benchmark's
+remaining misses cannot generally be attributed to the raw 32,000-character
+capacity. They are failures to reach and select evidence that would fit.
+
+E006's chained retrieval repeatedly expanded a similarity-derived candidate
+pool. The mechanism is not equivalent to P12-P14: it lacked typed event binding,
+did not reinstate an encoding-context state, did not maintain unresolved query
+obligations, and had no controller that could switch retrieval routes. The new
+design does not explain away that result; it identifies a mechanically different
+hypothesis.
 
 ---
 
@@ -285,7 +405,7 @@ Instrument both on any existing corpus. If accessibility (however initialized) n
 Correlate distance-to-surprisal-spike against whether an episode is needed by a later query. **If null, §4 is dead and the architecture loses its formation mechanism.** Cheapest decisive test in the document; run it first.
 
 **F3 — Does retrieval-induced suppression help or hurt?**
-Ablate step 5's penalty. RIF is adaptive under cue overload in humans; whether an artificial store has that problem is unknown. **Suppressing material a later query needs is the obvious catastrophic failure.**
+Ablate the read-path penalty. RIF is adaptive under cue overload in humans; whether an artificial store has that problem is unknown. **Suppressing material a later query needs is the obvious catastrophic failure.**
 
 **F4 — Does sequential replay beat co-occurrence edges?**
 P4 specifies sequential replay. Compare against edges built from plain co-occurrence.
@@ -296,24 +416,70 @@ SemanticNodes plus full episodes cost more than episodes alone. If gist never di
 **F6 — Does supersession-by-decay actually surface current values?**
 Directly testable against any knowledge-update benchmark.
 
+**F7 - Does event-bound completion beat generic similarity chaining?**
+Hold first-hop seeds, candidate opportunity, delivery budget, and reader fixed.
+Compare typed event-edge completion against repeated embedding expansion. If
+the same identities are recovered in the same order, P12 adds no mechanism.
+
+**F8 - Does a deterministic route controller improve retrieval?**
+Compare direct-only retrieval with DIRECT -> EPISODIC -> CONTEXT switching. The
+controller must improve required-evidence availability with zero targeted-query
+losses and without any generated cue or additional inference call.
+
+**F9 - Can mechanical sufficiency stop at the right time?**
+Measure false-stop and needless-retry rates separately on explicit, enumerative,
+and open-ended queries. If `obligations(query)` cannot distinguish missing
+evidence from an inherently open request, the controller is not a general
+retrieval solution.
+
 ---
 
 ## 10. Honest accounting
 
-**Free parameters:** `A_INIT`, `TAG_WINDOW`, `REACH`, `S_THRESHOLD`, `CAPTURE_GAIN`, kernel shape, `C_THRESHOLD`, `REPLAY_GAIN`, `DETAIL_DECAY`, `K`, `D`, `DECAY`, `SUPPRESS`, `RETRIEVE_GAIN`, `RIF_PENALTY`, `SUPERSEDE_DECAY`, `W_ADJ`, `W_LINEAGE`. **Eighteen.** No principled way to set most of them, and several interact multiplicatively. This is the design's most serious practical objection: it has more knobs than any experiment could tune, and a system with eighteen free parameters can be made to produce almost any result.
+**Free parameters:** `A_INIT`, `TAG_WINDOW`, `REACH`, `S_THRESHOLD`, `CAPTURE_GAIN`, kernel shape, `C_THRESHOLD`, `REPLAY_GAIN`, `DETAIL_DECAY`, `K_DIRECT`, `K_CONTEXT`, `ACTIVE_CAP`, `MAX_EVENT_ITEMS`, `MAX_RETRIEVAL_STEPS`, `GOAL_WEIGHT`, `CONTEXT_WEIGHT`, `NEED_WEIGHT`, `SUPPRESS`, `RETRIEVE_GAIN`, `RIF_PENALTY`, `SUPERSEDE_DECAY`, `W_ADJ`, `W_LINEAGE`. **Twenty-three.** No principled way to set most of them, and several interact multiplicatively. This is the design's most serious practical objection: it has more knobs than any experiment could tune, and a system with this many free parameters can be made to produce almost any result.
 
-**Compute:** spreading activation over a growing edge set per query, with edge density rising as replay adds connections. Cost grows superlinearly in stored episodes unless traversal is bounded — and bounding it is the thing depth `D` already does, which caps reach.
+**Compute:** indexed direct search plus bounded typed-edge traversal and context retries. Cost is bounded by `MAX_RETRIEVAL_STEPS`, `K_CONTEXT`, and `MAX_EVENT_ITEMS`, but those same bounds can stop immediately before the needed trace.
 
-**Loss of reproducibility:** §6 step 5 makes the store a function of its own query history. Two deployments given identical inputs in different order diverge permanently. Debugging, replay, and cache invalidation all become harder.
+**Loss of reproducibility:** retrieval-induced plasticity makes the store a function of its own query history. Two deployments given identical inputs in different order diverge permanently. Debugging, replay, and cache invalidation all become harder. The route controller itself remains deterministic given the same store state.
 
 **Unresolved:**
 - Salience without reward (§3.1).
 - When consolidation runs (§5.1).
 - Contradiction detection without a model call (§7).
 - Whether RIF is adaptive here at all (F3).
+- Deterministic extraction of retrieval obligations for open-ended language (§6.2).
+- How event-bound edges are formed without smuggling task labels into storage.
 
 **What survives even if the whole design fails:** the two-substrate model (§2) and supersession-by-decay (§7). Both are small, both are independently implementable, and both address failure modes that single-score relevance systems cannot express.
 
 ---
 
-*Drafted August 7, 2026. Speculative. No mechanism herein is authorized; each would require a ledger entry, a decisive test, a kill condition, and live evaluation. Biological plausibility has no standing as evidence.*
+## 11. Added retrieval sources
+
+- Cowan, N. et al. (2005). *On the capacity of attention: Its estimation and its
+  role in working memory and cognitive aptitudes.* Cognitive Psychology 51,
+  42-100. https://doi.org/10.1016/j.cogpsych.2004.12.001
+- Horner, A. J. et al. (2015). *Evidence for holistic episodic recollection via
+  hippocampal pattern completion.* Nature Communications 6, 7462.
+  https://doi.org/10.1038/ncomms8462
+- Kahana, M. J. (1996). *Associative retrieval processes in free recall.* Memory
+  & Cognition 24, 103-109. https://doi.org/10.3758/BF03197276
+- Polyn, S. M., Norman, K. A. & Kahana, M. J. (2009). *A context maintenance and
+  retrieval model of organizational processes in free recall.* Psychological
+  Review 116, 129-156. https://doi.org/10.1037/a0014420
+- Tomita, H. et al. (1999). *Top-down signal from prefrontal cortex in executive
+  control of memory retrieval.* Nature 401, 699-703.
+  https://doi.org/10.1038/44372
+- Polyn, S. M. et al. (2005). *Category-specific cortical activity precedes
+  retrieval during memory search.* Science 310, 1963-1966.
+  https://doi.org/10.1126/science.1117645
+- Rajasethupathy, P. et al. (2015). *Projections from neocortex mediate top-down
+  control of memory retrieval.* Nature 526, 653-659.
+  https://doi.org/10.1038/nature15389
+- Wolff, M. J. et al. (2017). *Dynamic hidden states underlying working-memory-
+  guided behavior.* Nature Neuroscience 20, 864-871.
+  https://doi.org/10.1038/nn.4546
+
+---
+
+*Drafted August 7, 2026; retrieval architecture revised August 11, 2026. Speculative. No mechanism herein is authorized; each would require a ledger entry, a decisive test, a kill condition, and live evaluation. Biological plausibility has no standing as evidence.*
