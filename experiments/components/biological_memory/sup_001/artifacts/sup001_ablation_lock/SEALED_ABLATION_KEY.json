@@ -1,0 +1,14 @@
+{
+  "schema": "sup001-ablation-key-v1",
+  "probes": [
+    {"probe_id": "current:tea", "class": "current", "expected": "Jasmine green", "stale": ["Earl Grey", "Sencha"]},
+    {"probe_id": "current:workshop", "class": "current", "expected": "Riverside Suite", "stale": ["North Hall", "Cedar Room"]},
+    {"probe_id": "current:dentist", "class": "current", "expected": "Friday 10:15 AM", "stale": ["Monday 8:00 AM", "Wednesday 9:30 AM"]},
+    {"probe_id": "current:running", "class": "current", "expected": "24 kilometers", "stale": ["12 kilometers", "18 kilometers"]},
+    {"probe_id": "unchanged:contact", "class": "unchanged", "expected": "312-555-0147", "stale": []},
+    {"probe_id": "unchanged:passport", "class": "unchanged", "expected": "blue fireproof drawer", "stale": []},
+    {"probe_id": "unchanged:donation", "class": "unchanged", "expected": "$35", "stale": []},
+    {"probe_id": "unchanged:alarm", "class": "unchanged", "expected": "6:40 AM", "stale": []},
+    {"probe_id": "history:tea", "class": "history", "expected": "Earl Grey | Sencha | Jasmine green", "stale": []}
+  ]
+}
