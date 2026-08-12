@@ -25,15 +25,17 @@ Ten pre-registered studies test that question, each adding one memory component 
 > and T1 9/9 with zero regressions. Explicit supersession passes integration;
 > broader live evaluation remains a separate decision.
 
-> **DMR arc status:** `STOPPED AT DMR-001 AND DMR-004`. Six implementation
-> specifications separate event formation, typed pattern completion,
-> encoding-context recurrence, query-obligation compilation, deterministic route
-> control, and single-reader validation. DMR-001 stopped at G3, so there is no
-> validated event substrate and DMR-002, DMR-003, DMR-005 and DMR-006 are
-> blocked. DMR-004 was independent of those by its own header, ran to
-> completion, and stopped on its sealed holdout, so there is no mechanical
-> sufficiency signal either. Both formation and control are now closed by
-> evidence rather than by dependency. The roadmap starts at
+> **DMR arc status:** `STOPPED AT DMR-001 AND DMR-004; DMR-002/003 RUNNABLE`.
+> Six implementation specifications separate event formation, typed pattern
+> completion, encoding-context recurrence, query-obligation compilation,
+> deterministic route control, and single-reader validation. DMR-001 stopped at
+> G3 and DMR-004 stopped on its sealed holdout. A blocking review
+> (`DMR_ARC_BLOCKING_REVIEW.md`) re-read every dependency line and found two
+> stages had been blocked in error: DMR-002 and DMR-003 consume the frozen
+> DMR-001B former, whose operating point DMR-001C confirmed on a sealed
+> holdout, and neither needs the boundary claim that failed. DMR-005 remains
+> blocked by its own dependency line, since DMR-004 produced no passing plans,
+> and DMR-006 needs DMR-005. The roadmap starts at
 > `experiments/components/biological_memory/deterministic_retrieval/DMR_ARC_IMPLEMENTATION_ROADMAP.md`.
 
 > **DMR-001 status:** `DEGENERATE_FORMATION - G3 FAIL - CHARACTERIZED`. On the
