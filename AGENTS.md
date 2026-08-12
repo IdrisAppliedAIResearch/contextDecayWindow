@@ -62,7 +62,9 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **SAL-001 surprisal proximity (2026-08-11).** G2 FAIL; NO_INDEPENDENT_PROXIMITY. On 92 held-out sessions, adjusted neighbor AUC=.416 (95% .351-.484; p=.991), raw=.300; prior=.399, next=.477, 5/6 strata below .50. Posthoc self AUC=.621: surprise stays local, not transferred. P1-P4 capture killed; no accessibility/ablation/live.
 
-**SUP-001 explicit supersession (2026-08-11).** OFFLINE PASS; ABLATION STOP. Binary accessibility makes current-only 0/64->64/64, unchanged 32/32, histories 64/64, with zero stale natural selections. In the 35-turn Qwen ablation C0 scored 7/9 and T1 8/9; T1 failed unchanged 3/4 because `$35.00` != `$35`. Zero regressions; no 120-turn run or adoption.
+**SUP-001 explicit supersession (2026-08-11).** FACTUAL PASS; byte-identity criterion withdrawn. Binary accessibility makes current-only 0/64->64/64, unchanged 32/32, histories 64/64, zero stale natural selections. Value interpretation gives C0 8/9, T1 9/9; `$35`=`$35.00`. Zero regressions. No 120-turn run or adoption is automatic.
+
+**DMR deterministic multi-route arc (2026-08-11).** DESIGN ONLY; no implementation or run authorized. Six staged specs separate event formation, typed completion, encoding-context recurrence, query obligations, route control, and one-reader validation. Every stage repeats the full roadmap and requires exploration, pre-registration, PF1-PF10, and its own branch/PR.
 
 **PS-001 pattern-separated engram formation (2026-08-11).** CHARACTERIZED. Nine deterministic sparse cells on 119 episodes; only D=4096,K=41 passed G3-G5: 119/119 fixed points and exact 1/10/30/50% swap recovery. Six of seven degenerates reached stored codes; the union-biased cue cycled. Code-space result only; no natural cue, retrieval, live run, promotion, or adoption.
 
@@ -264,6 +266,8 @@ paper/
   reviews/                                     two adversarial cycles, slop audit, three-reader review
 experiments/components/live_validation/
   LV_001_pre_registration.md                   live validation of the shipping selector; PRE-REGISTERED, NOT RUN
+experiments/components/biological_memory/deterministic_retrieval/
+  DMR_ARC_IMPLEMENTATION_ROADMAP.md            design-only six-stage deterministic retrieval arc
 scripts/generate_paper_001_figures.py          rebuilds paper/figures/ from committed artifacts
 scripts/build_paper_pdf.py                     rebuilds the PDF from PAPER_001.md; needs `pip install typst`
 ```

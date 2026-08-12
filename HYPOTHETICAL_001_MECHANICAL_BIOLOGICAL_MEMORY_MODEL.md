@@ -33,10 +33,13 @@
 | **P9** | Retrieval may create a **new trace** rather than reactivating the old one | Nadel & Moscovitch (1997) multiple trace theory |
 | **P10** | Fast and slow systems exist to prevent catastrophic interference | McClelland, McNaughton & O'Reilly (1995) |
 | **P11** | The actively attended workspace is small and chunk-based; it is not a byte-addressed copy of long-term storage | Cowan et al. (2005), doi:10.1016/j.cogpsych.2004.12.001 |
-| **P12** | A partial element of a bound event can reinstate other event elements through hippocampal pattern completion and cortical reinstatement | Horner et al. (2015), doi:10.1038/ncomms8462 |
+| **P12** | A partial element of a bound event can reinstate other event elements through hippocampal pattern completion and cortical reinstatement | Horner et al. (2015), doi:10.1038/ncomms8462; Grande et al. (2019), doi:10.1523/JNEUROSCI.0722-19.2019 |
 | **P13** | Recall changes the retrieval context. The recovered context then cues temporally and semantically associated memories, so memory search can be iterative without an external reasoner constructing each step | Kahana (1996), doi:10.3758/BF03197276; Polyn, Norman & Kahana (2009), doi:10.1037/a0014420 |
 | **P14** | Retrieval is under top-down control: goal- and category-specific cortical states can precede recall and bias which stored representation is recovered | Tomita et al. (1999), doi:10.1038/44372; Polyn et al. (2005), doi:10.1126/science.1117645; Rajasethupathy et al. (2015), doi:10.1038/nature15389 |
 | **P15** | Temporarily unattended working-memory content can remain recoverable in a latent or transformed state and can be reactivated by an internal cue or perturbation | Wolff et al. (2017), doi:10.1038/nn.4546 |
+| **P16** | Continuous experience is segmented into events. Event boundaries shape hippocampal encoding and temporal context, and event patterns can be reinstated during later recall | Baldassano et al. (2017), doi:10.1016/j.neuron.2017.06.041; Ben-Yakov & Henson (2018), doi:10.1523/JNEUROSCI.0524-18.2018; Lohnas et al. (2023), doi:10.1037/xge0001354 |
+| **P17** | Controlled retrieval and post-retrieval selection are dissociable operations rather than one undifferentiated relevance computation | Badre et al. (2005), doi:10.1016/j.neuron.2005.07.023 |
+| **P18** | Direct and generative autobiographical retrieval are both observed, but behavioral evidence does not establish that they are fundamentally different cognitive processes | Harris & Berntsen (2019), doi:10.1016/j.concog.2019.102793 |
 
 ---
 
@@ -93,12 +96,22 @@ RetrievalState:                      # transient; never written as generated tex
     step            : int
 ```
 
+```
+EventRecord:                         # encoding-time binding substrate
+    id              : sha256
+    member_ids      : ordered[episode_id]
+    prototype       : vec            # event-content state
+    encoding_context: vec            # context stored before any query exists
+    boundary_evidence: record         # causal, replayable, label-blind
+```
+
 **Invariants**
 - `content` is never rewritten. Transformation acts on `accessibility` and `edges`, never on stored text.
 - `accessibility == 0` with `edges` intact is a **silent engram**: stored, connected, unreachable by cue. A legal and expected state, not a bug.
 - `SemanticNode.content` contains only spans copied from `support` episodes. **No generated text anywhere in the memory path.**
 - `RetrievalState` is computed from the user turn and stored metadata. It cannot contain a generated search query, chain-of-thought, summary, or model-authored routing decision.
 - The active foreground has a small item/count ceiling independent of the larger serialization ceiling used to deliver provenance to the final reader.
+- Event membership and encoding context are fixed on the write path. Retrieval outcomes cannot retroactively move episodes between events.
 
 ---
 
@@ -282,6 +295,8 @@ retrieve(query, delivery_budget):
 
 1. **Direct route.** Similarity/familiarity provides fast access when the natural
    cue is already diagnostic. This is the cheap path and may terminate retrieval.
+   P18 supports retaining direct and generative modes as observed retrieval
+   forms, but not treating them as proven independent biological systems.
 2. **Episodic route.** A selected event seed activates only edges recorded as
    belonging to the same encoded event. This is pattern completion, not generic
    nearest-neighbour expansion.
@@ -298,7 +313,9 @@ replace the memory hypothesis with an agentic query-rewriting architecture.
 
 ### 6.2 Stopping without a second model call
 
-The difficult engineering joint is `obligations(query)`. It may use only
+The difficult engineering joint is `obligations(query)`. P14 and P17 support
+goal-sensitive control and a retrieval/selection distinction; they do not
+supply a natural-language obligation parser. It may use only
 deterministic features available before inference: interrogative type, named
 entities, explicit dates/units, requested list cardinality, conjunctions, and
 stored schema keys. The controller stops when one of three conditions fires:
@@ -436,7 +453,7 @@ retrieval solution.
 
 ## 10. Honest accounting
 
-**Free parameters:** `A_INIT`, `TAG_WINDOW`, `REACH`, `S_THRESHOLD`, `CAPTURE_GAIN`, kernel shape, `C_THRESHOLD`, `REPLAY_GAIN`, `DETAIL_DECAY`, `K_DIRECT`, `K_CONTEXT`, `ACTIVE_CAP`, `MAX_EVENT_ITEMS`, `MAX_RETRIEVAL_STEPS`, `GOAL_WEIGHT`, `CONTEXT_WEIGHT`, `NEED_WEIGHT`, `SUPPRESS`, `RETRIEVE_GAIN`, `RIF_PENALTY`, `SUPERSEDE_DECAY`, `W_ADJ`, `W_LINEAGE`. **Twenty-three.** No principled way to set most of them, and several interact multiplicatively. This is the design's most serious practical objection: it has more knobs than any experiment could tune, and a system with this many free parameters can be made to produce almost any result.
+**Free parameters:** `A_INIT`, `TAG_WINDOW`, `REACH`, `S_THRESHOLD`, `CAPTURE_GAIN`, kernel shape, `C_THRESHOLD`, `REPLAY_GAIN`, `DETAIL_DECAY`, event-boundary rule, event minimum and maximum size, context persistence, `K_DIRECT`, `K_CONTEXT`, `ACTIVE_CAP`, `MAX_EVENT_ITEMS`, `MAX_RETRIEVAL_STEPS`, `GOAL_WEIGHT`, `CONTEXT_WEIGHT`, `NEED_WEIGHT`, support and novelty floors, `SUPPRESS`, `RETRIEVE_GAIN`, `RIF_PENALTY`, `SUPERSEDE_DECAY`, `W_ADJ`, `W_LINEAGE`. **At least twenty-nine.** No principled way to set most of them, and several interact multiplicatively. This is the design's most serious practical objection: it has more knobs than any experiment could tune, and a system with this many free parameters can be made to produce almost any result.
 
 **Compute:** indexed direct search plus bounded typed-edge traversal and context retries. Cost is bounded by `MAX_RETRIEVAL_STEPS`, `K_CONTEXT`, and `MAX_EVENT_ITEMS`, but those same bounds can stop immediately before the needed trace.
 
@@ -459,11 +476,34 @@ retrieval solution.
 - Cowan, N. et al. (2005). *On the capacity of attention: Its estimation and its
   role in working memory and cognitive aptitudes.* Cognitive Psychology 51,
   42-100. https://doi.org/10.1016/j.cogpsych.2004.12.001
+- Baldassano, C. et al. (2017). *Discovering event structure in continuous
+  narrative perception and memory.* Neuron 95, 709-721.e5.
+  https://doi.org/10.1016/j.neuron.2017.06.041
+- Ben-Yakov, A. & Henson, R. N. (2018). *The hippocampal film editor:
+  sensitivity and specificity to event boundaries in continuous experience.*
+  Journal of Neuroscience 38, 10057-10068.
+  https://doi.org/10.1523/JNEUROSCI.0524-18.2018
+- Badre, D. et al. (2005). *Dissociable controlled retrieval and generalized
+  selection mechanisms in ventrolateral prefrontal cortex.* Neuron 47,
+  907-918. https://doi.org/10.1016/j.neuron.2005.07.023
+- Grande, X. et al. (2019). *Holistic recollection via pattern completion
+  involves hippocampal subfield CA3.* Journal of Neuroscience 39, 8100-8111.
+  https://doi.org/10.1523/JNEUROSCI.0722-19.2019
+- Harris, C. B. & Berntsen, D. (2019). *Direct and generative autobiographical
+  memory retrieval: How different are they?* Consciousness and Cognition 74,
+  102793. https://doi.org/10.1016/j.concog.2019.102793
 - Horner, A. J. et al. (2015). *Evidence for holistic episodic recollection via
   hippocampal pattern completion.* Nature Communications 6, 7462.
   https://doi.org/10.1038/ncomms8462
 - Kahana, M. J. (1996). *Associative retrieval processes in free recall.* Memory
   & Cognition 24, 103-109. https://doi.org/10.3758/BF03197276
+- Lohnas, L. J., Healey, M. K. & Davachi, L. (2023). *Neural temporal context
+  reinstatement of event structure during memory recall.* Journal of
+  Experimental Psychology: General 152, 1840-1872.
+  https://doi.org/10.1037/xge0001354
+- Manning, J. R. et al. (2011). *Oscillatory patterns in temporal lobe reveal
+  context reinstatement during memory search.* PNAS 108, 12893-12897.
+  https://doi.org/10.1073/pnas.1015174108
 - Polyn, S. M., Norman, K. A. & Kahana, M. J. (2009). *A context maintenance and
   retrieval model of organizational processes in free recall.* Psychological
   Review 116, 129-156. https://doi.org/10.1037/a0014420
