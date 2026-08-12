@@ -1,5 +1,30 @@
 # Errata
 
+## Study 010 Endurance Corpus Composition (2026-08-12)
+
+**Headline change:** none. No published number moves. This entry records a
+corpus fact that qualifies how several published numbers should be read.
+
+DMR-001's corpus lock found that the 1,000-turn endurance script contains only
+**156 distinct user-plus-assistant pairs across 1,000 episodes**. Each roughly
+82-turn topical block holds about 11 substantive turns and about 70 exact
+repeats of a "stay within the X thread" filler prompt, and the assistant
+replies repeat exactly too. 844 of the 1,000 episodes are exact content
+duplicates of an earlier episode.
+
+This was not recorded anywhere in the program before DMR-001 read the committed
+run databases. It bears on any claim derived from that stream, in particular
+DX-002's finding that LTM saturates near 52-54k from turn 500: a store fed 156
+distinct episodes over 1,000 turns has a mechanical reason to saturate that is
+independent of any consolidation behavior. DX-002's measurements are unchanged
+and its `retrieved_stm` growth finding is untouched; its saturation reading
+should be qualified by this composition rather than treated as evidence about
+the mechanism alone.
+
+No artifact is rewritten. See
+`experiments/components/biological_memory/dmr_001/DMR_001_REPORT.md` section 7
+and `artifacts/dmr001_corpus/corpus_lock.json`.
+
 ## SUP-001 Numeric Value Interpretation (2026-08-11)
 
 **Headline change:** SUP-001's reader result is C0 8/9 and T1 9/9 for factual

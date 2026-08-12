@@ -1,0 +1,564 @@
+{
+  "PF10_live_requirement": {
+    "statement": "DMR-001 has no live verdict and cannot authorize one. Passing every gate authorizes only that DMR-002 may import this frozen event map and add its own single component. It does not authorize a reader call, an ablation, a 120-turn run, a promotion, or an adoption. Offline availability is not an answer verdict."
+  },
+  "PF1_inputs": {
+    "checks": [
+      {
+        "check": "session count",
+        "expected": 17,
+        "observed": 17,
+        "passed": true
+      },
+      {
+        "check": "episode count",
+        "expected": 3724,
+        "observed": 3724,
+        "passed": true
+      },
+      {
+        "check": "development episodes",
+        "expected": 1724,
+        "observed": 1724,
+        "passed": true
+      },
+      {
+        "check": "holdout episodes",
+        "expected": 2000,
+        "observed": 2000,
+        "passed": true
+      },
+      {
+        "check": "development internal annotated boundaries",
+        "expected": 60,
+        "observed": 60,
+        "passed": true
+      },
+      {
+        "check": "holdout internal annotated boundaries",
+        "expected": 36,
+        "observed": 36,
+        "passed": true
+      },
+      {
+        "check": "every source database, stream digest, and vector digest",
+        "expected": 17,
+        "observed": 17,
+        "passed": true
+      },
+      {
+        "check": "corpus digest",
+        "expected": "be939cbebc0e9e9f33906ffc92047e114372852bbc578bb4376efd0e061d3bf9",
+        "observed": "be939cbebc0e9e9f33906ffc92047e114372852bbc578bb4376efd0e061d3bf9",
+        "passed": true
+      }
+    ],
+    "sessions": [
+      {
+        "episode_count_matches": true,
+        "session_sha256": "5c4144d05ef0353b58d95972c7a30c03dfc43743a482d1c72a459a6bed234dc3",
+        "source_present": true,
+        "source_sha256_matches": true,
+        "split_matches": true,
+        "stream_digest_matches": true,
+        "vector_digest_matches": true
+      },
+      {
+        "episode_count_matches": true,
+        "session_sha256": "d7d21c88465095d1b3482f442c2f4747812c411c74079430faf163da23a37124",
+        "source_present": true,
+        "source_sha256_matches": true,
+        "split_matches": true,
+        "stream_digest_matches": true,
+        "vector_digest_matches": true
+      },
+      {
+        "episode_count_matches": true,
+        "session_sha256": "166b68a85942d6f0d9fdc9dbfe12311f652ff637f1bd4d445280f72cf4a517c8",
+        "source_present": true,
+        "source_sha256_matches": true,
+        "split_matches": true,
+        "stream_digest_matches": true,
+        "vector_digest_matches": true
+      },
+      {
+        "episode_count_matches": true,
+        "session_sha256": "1ddc21b4ad04e41d97c990d0b398d01b74364f989870b6b8e173983d1dd15295",
+        "source_present": true,
+        "source_sha256_matches": true,
+        "split_matches": true,
+        "stream_digest_matches": true,
+        "vector_digest_matches": true
+      },
+      {
+        "episode_count_matches": true,
+        "session_sha256": "2b3488c125fd6ec799af531a08ab2f12674e5b7d8fc774af393df46f475abaf0",
+        "source_present": true,
+        "source_sha256_matches": true,
+        "split_matches": true,
+        "stream_digest_matches": true,
+        "vector_digest_matches": true
+      },
+      {
+        "episode_count_matches": true,
+        "session_sha256": "35499e23a0cfd635593161507dffa7030216a9e68c0d2ba250490e35542a3b8c",
+        "source_present": true,
+        "source_sha256_matches": true,
+        "split_matches": true,
+        "stream_digest_matches": true,
+        "vector_digest_matches": true
+      },
+      {
+        "episode_count_matches": true,
+        "session_sha256": "3e14020452998da3ca406f76a8ce281765133d2dcb778149a738b934111557fa",
+        "source_present": true,
+        "source_sha256_matches": true,
+        "split_matches": true,
+        "stream_digest_matches": true,
+        "vector_digest_matches": true
+      },
+      {
+        "episode_count_matches": true,
+        "session_sha256": "7521a657251d761d8c045b1ededb568feb4447037f792f854a23f75594b316f5",
+        "source_present": true,
+        "source_sha256_matches": true,
+        "split_matches": true,
+        "stream_digest_matches": true,
+        "vector_digest_matches": true
+      },
+      {
+        "episode_count_matches": true,
+        "session_sha256": "7ff168875652eb108dd3e742fc972f3c2302379d17486c2ac73cb7293a295115",
+        "source_present": true,
+        "source_sha256_matches": true,
+        "split_matches": true,
+        "stream_digest_matches": true,
+        "vector_digest_matches": true
+      },
+      {
+        "episode_count_matches": true,
+        "session_sha256": "852706410173a960e0764af3a0bcf84e32f3f031303f7a993ca825abc42de470",
+        "source_present": true,
+        "source_sha256_matches": true,
+        "split_matches": true,
+        "stream_digest_matches": true,
+        "vector_digest_matches": true
+      },
+      {
+        "episode_count_matches": true,
+        "session_sha256": "8f2342d35bfea297d2b45b150515e6891682bf2bff47531c69e7cb8725a77695",
+        "source_present": true,
+        "source_sha256_matches": true,
+        "split_matches": true,
+        "stream_digest_matches": true,
+        "vector_digest_matches": true
+      },
+      {
+        "episode_count_matches": true,
+        "session_sha256": "91662b515f7423b0d529d4f8e7a13da9944938d18a9ac13bde7e67a14a782f4e",
+        "source_present": true,
+        "source_sha256_matches": true,
+        "split_matches": true,
+        "stream_digest_matches": true,
+        "vector_digest_matches": true
+      },
+      {
+        "episode_count_matches": true,
+        "session_sha256": "98fec0e2b00fcb1c8c7edee112c9345770b7df637a5e7142d96ad7e16ccac5e1",
+        "source_present": true,
+        "source_sha256_matches": true,
+        "split_matches": true,
+        "stream_digest_matches": true,
+        "vector_digest_matches": true
+      },
+      {
+        "episode_count_matches": true,
+        "session_sha256": "ac46d26a3903076f5a2d69e7fb05035888147122b7e09f2280b9320a5bcb31e4",
+        "source_present": true,
+        "source_sha256_matches": true,
+        "split_matches": true,
+        "stream_digest_matches": true,
+        "vector_digest_matches": true
+      },
+      {
+        "episode_count_matches": true,
+        "session_sha256": "baf306cf5207ac8ab49c3aead6b16f9b5390ec09ca296ea457086021d4527ffa",
+        "source_present": true,
+        "source_sha256_matches": true,
+        "split_matches": true,
+        "stream_digest_matches": true,
+        "vector_digest_matches": true
+      },
+      {
+        "episode_count_matches": true,
+        "session_sha256": "bb074c93be80be256649e9c76799b3aca2a2b51a38c3001fc193ae7eeb3bb8f5",
+        "source_present": true,
+        "source_sha256_matches": true,
+        "split_matches": true,
+        "stream_digest_matches": true,
+        "vector_digest_matches": true
+      },
+      {
+        "episode_count_matches": true,
+        "session_sha256": "10278ee1c353921c6584a300e7ac6d3aace65340c033e72bcc554f1df41cb648",
+        "source_present": true,
+        "source_sha256_matches": true,
+        "split_matches": true,
+        "stream_digest_matches": true,
+        "vector_digest_matches": true
+      }
+    ]
+  },
+  "PF2_identity": {
+    "behavioral_identity": "At the locked design the former opens a new event at episode t if and only if the session token changed, or the open event already holds 5 members and 1 - cosine(x_t, p_(t-1)) >= 0.70, or the open event already holds 32 members. It reads no text, no future episode, and no annotation.",
+    "checks": [
+      {
+        "check": "two independent implementations agree on every decision",
+        "expected": 0,
+        "observed": 0,
+        "passed": true
+      },
+      {
+        "check": "decision counts match",
+        "expected": 1724,
+        "observed": 1724,
+        "passed": true
+      }
+    ],
+    "compared_decisions": 1724,
+    "first_mismatch": null
+  },
+  "PF3_ordering": {
+    "checks": [
+      {
+        "check": "corpus lock precedes the pre-registration",
+        "expected": "33ed8c5db558fba9c9e88a2e37342b3a37f9b6e6",
+        "observed": "2625be9a",
+        "passed": true
+      },
+      {
+        "check": "Part 1 precedes the pre-registration",
+        "expected": "33ed8c5db558fba9c9e88a2e37342b3a37f9b6e6",
+        "observed": "929588c3",
+        "passed": true
+      },
+      {
+        "check": "the pre-registration precedes the mechanism",
+        "expected": "ca128e135581f8f267b5b1367cc9ef64fc625c06",
+        "observed": "33ed8c5db558fba9c9e88a2e37342b3a37f9b6e6",
+        "passed": true
+      },
+      {
+        "check": "the mechanism precedes this preflight",
+        "expected": "98d22f3290e408ea7517ce55b2a487490c4406b9",
+        "observed": "ca128e135581f8f267b5b1367cc9ef64fc625c06",
+        "passed": true
+      },
+      {
+        "check": "the working tree is clean apart from this artifact",
+        "expected": "(clean)",
+        "observed": "(clean)",
+        "passed": true
+      }
+    ],
+    "head": "98d22f3290e408ea7517ce55b2a487490c4406b9",
+    "mechanism_commit": "ca128e135581f8f267b5b1367cc9ef64fc625c06",
+    "runtime_sentinel": "scripts/run_dmr001_gates.py refuses to run unless a passing preflight artifact already exists on disk; the gate script asserts its status field"
+  },
+  "PF4_reachability": {
+    "checks": [
+      {
+        "check": "F1 margin over C_SESSION is reachable",
+        "expected": ">= 0.05",
+        "observed": 0.08614232209737827,
+        "passed": true
+      },
+      {
+        "check": "F1 margin over the best periodic control is reachable",
+        "expected": ">= 0.05",
+        "observed": 0.11259734855240472,
+        "passed": true
+      },
+      {
+        "check": "singleton bar is reachable",
+        "expected": "<= 0.2",
+        "observed": 0.0,
+        "passed": true
+      },
+      {
+        "check": "forced bar is reachable",
+        "expected": "<= 0.35",
+        "observed": 0.005208333333333333,
+        "passed": true
+      },
+      {
+        "check": "context AUC bar is reachable",
+        "expected": ">= 0.7",
+        "observed": 0.8233385806132281,
+        "passed": true
+      },
+      {
+        "check": "context minus raw bar is reachable",
+        "expected": ">= 0.0",
+        "observed": 0.051033866318499266,
+        "passed": true
+      },
+      {
+        "check": "failure is reachable: C_PAIR falls below every G4 margin",
+        "expected": "< 0.33333333333333337",
+        "observed": 0.08337965536409117,
+        "passed": true
+      },
+      {
+        "check": "pass disposition fires",
+        "expected": "EVENT_SUBSTRATE_SUPPORTED_OFFLINE",
+        "observed": "EVENT_SUBSTRATE_SUPPORTED_OFFLINE",
+        "passed": true
+      },
+      {
+        "check": "G1 failure fires INTEGRITY_STOP",
+        "expected": "INTEGRITY_STOP",
+        "observed": "INTEGRITY_STOP",
+        "passed": true
+      },
+      {
+        "check": "G2 failure fires PARTITION_VIOLATION",
+        "expected": "PARTITION_VIOLATION",
+        "observed": "PARTITION_VIOLATION",
+        "passed": true
+      },
+      {
+        "check": "G3 failure fires DEGENERATE_FORMATION",
+        "expected": "DEGENERATE_FORMATION",
+        "observed": "DEGENERATE_FORMATION",
+        "passed": true
+      },
+      {
+        "check": "G3 failure also fires on identity with a periodic control",
+        "expected": "DEGENERATE_FORMATION",
+        "observed": "DEGENERATE_FORMATION",
+        "passed": true
+      },
+      {
+        "check": "G4 failure fires NO_BOUNDARY_EVIDENCE",
+        "expected": "NO_BOUNDARY_EVIDENCE",
+        "observed": "NO_BOUNDARY_EVIDENCE",
+        "passed": true
+      },
+      {
+        "check": "G5 failure fires NO_CONTEXT_SEPARATION",
+        "expected": "NO_CONTEXT_SEPARATION",
+        "observed": "NO_CONTEXT_SEPARATION",
+        "passed": true
+      },
+      {
+        "check": "G5 failure also fires when the raw-vector control is not beaten",
+        "expected": "NO_CONTEXT_SEPARATION",
+        "observed": "NO_CONTEXT_SEPARATION",
+        "passed": true
+      }
+    ]
+  },
+  "PF5_stable_keys": {
+    "checks": [
+      {
+        "check": "episode identity recomputes from content, session, and position alone",
+        "expected": "3b9078cdff5e8a81a10c04aed2877bb315dd87bf2c232dd5f48ebfcd787ac34c",
+        "observed": "3b9078cdff5e8a81a10c04aed2877bb315dd87bf2c232dd5f48ebfcd787ac34c",
+        "passed": true
+      },
+      {
+        "check": "moving an episode one position changes its identity",
+        "expected": true,
+        "observed": true,
+        "passed": true
+      },
+      {
+        "check": "shifting every turn number by 10,000 changes no event identity",
+        "expected": 3,
+        "observed": 3,
+        "passed": true
+      },
+      {
+        "check": "no identity contains a path, timestamp, or row id",
+        "expected": "content-addressed only",
+        "observed": "sha256 over content, session token, position, design anchor",
+        "passed": true
+      }
+    ]
+  },
+  "PF6_reproduction": {
+    "checks": [
+      {
+        "check": "the frozen corpus replays to the committed digest",
+        "expected": "be939cbebc0e9e9f33906ffc92047e114372852bbc578bb4376efd0e061d3bf9",
+        "observed": "be939cbebc0e9e9f33906ffc92047e114372852bbc578bb4376efd0e061d3bf9",
+        "passed": true
+      },
+      {
+        "check": "the Part 1 development decision digest reproduces exactly",
+        "expected": "25ddb164519b5c5bbfcb9a5a10e60c6f4ffa1e2301784ea4d7fdf2aa8b59d851",
+        "observed": "25ddb164519b5c5bbfcb9a5a10e60c6f4ffa1e2301784ea4d7fdf2aa8b59d851",
+        "passed": true
+      },
+      {
+        "check": "the committed Part 1 record still hashes to its recorded value",
+        "expected": "dmr001-part1-v1",
+        "observed": "dmr001-part1-v1",
+        "passed": true
+      }
+    ]
+  },
+  "PF7_absorbing_state": {
+    "all_one_event_reference": {
+      "event_count": 2,
+      "max_event_size": 1000,
+      "min_event_size": 1000,
+      "singleton_fraction": 0.0
+    },
+    "all_singleton_reference": {
+      "event_count": 2000,
+      "max_event_size": 1,
+      "min_event_size": 1,
+      "singleton_fraction": 1.0
+    },
+    "checks": [
+      {
+        "check": "all-singleton is entered only by C_PAIR, not by the locked setting",
+        "expected": "< 1.0 at the locked setting",
+        "observed": 0.0,
+        "passed": true
+      },
+      {
+        "check": "one-giant-event is entered only at an unreachable threshold",
+        "expected": "> 2 at the locked setting",
+        "observed": 74,
+        "passed": true
+      },
+      {
+        "check": "forced-periodic is entered only when max_event_size binds",
+        "expected": 8,
+        "observed": 8,
+        "passed": true
+      },
+      {
+        "check": "the locked setting cannot oscillate: min_event_size 5 forbids it",
+        "expected": ">= 2",
+        "observed": 5,
+        "passed": true
+      },
+      {
+        "check": "no state is absorbing: every event closes and a new one opens",
+        "expected": "> 1",
+        "observed": 74,
+        "passed": true
+      }
+    ],
+    "forced_periodic_reference": {
+      "event_count": 250,
+      "max_event_size": 8,
+      "min_event_size": 8,
+      "singleton_fraction": 0.0
+    },
+    "locked": {
+      "event_count": 74,
+      "max_event_size": 32,
+      "min_event_size": 6,
+      "singleton_fraction": 0.0
+    },
+    "stream_length": 2000
+  },
+  "PF8_adequacy": {
+    "can_detect": [
+      "whether the rule partitions 3,724 committed episodes without degenerating",
+      "whether it agrees with a scripted topic schedule better than session-only or fixed periodic chopping",
+      "whether the stored context separates same-block from cross-block pairs at lag 1 to 8",
+      "whether two fresh processes reproduce every decision bit for bit"
+    ],
+    "cannot_detect": [
+      "whether any of this improves a retrieved block or a reader answer",
+      "whether the boundaries match human event perception",
+      "whether the rule generalizes to naturalistic conversation: both scripts are synthetic study corpora and 1,995 of 3,724 episodes are exact duplicates",
+      "whether the holdout's two realizations are independent; they share all user text and differ only in assistant text",
+      "any cross-platform determinism claim; one platform was executed"
+    ],
+    "statement": "No reader ablation occurs. DMR-001 makes no generation call, delivers no block, and scores no answer, so no 35-turn ablation applies and none is claimed."
+  },
+  "PF9_surrogates": {
+    "table": [
+      {
+        "control_or_residual": "it may be tracking the lexical template that opens each scripted block; periodic and raw-vector controls bound this and external replication does not exist",
+        "may_remain_false": "the detector found event structure",
+        "observed_pass": "boundary F1 beats every control"
+      },
+      {
+        "control_or_residual": "the annotation is corpus provenance, a scripted topic schedule, not human judgment",
+        "may_remain_false": "the boundaries are psychologically real",
+        "observed_pass": "agreement with the annotation"
+      },
+      {
+        "control_or_residual": "context resets at formed boundaries that correlate with annotated ones, which is partly tautological; the gate requires the raw-vector control to be beaten, not merely matched",
+        "may_remain_false": "the context state adds information",
+        "observed_pass": "context AUC is high"
+      },
+      {
+        "control_or_residual": "DMR-001 measures no retrieval at all",
+        "may_remain_false": "the partition is useful for retrieval",
+        "observed_pass": "nondegeneracy passes"
+      },
+      {
+        "control_or_residual": "determinism certifies reproducibility, not validity",
+        "may_remain_false": "the mechanism is correct",
+        "observed_pass": "byte-identical replay"
+      },
+      {
+        "control_or_residual": "the holdout is one script in two realizations sharing all user text",
+        "may_remain_false": "the rule generalizes",
+        "observed_pass": "two 1,000-turn sessions pass"
+      }
+    ]
+  },
+  "bars": {
+    "G3": {
+      "max_forced_fraction": 0.35,
+      "max_largest_event_share_of_session": 0.25,
+      "max_singleton_fraction": 0.2
+    },
+    "G4": {
+      "margin_over_best_periodic": 0.05,
+      "margin_over_c_session": 0.05,
+      "min_precision": 0.2,
+      "min_recall": 0.5,
+      "tolerance": 1
+    },
+    "G5": {
+      "min_context_auc_macro": 0.7,
+      "min_context_minus_raw": 0.0,
+      "min_per_session_context_auc": 0.6
+    }
+  },
+  "design_sha256": "f563b6c5f9a98413b3a00135600f6d4dc3f9203242190d30c2bf0b2e03d28c41",
+  "design_source": "DMR_001_PRE_REGISTRATION.md",
+  "failed_checks": [],
+  "integrity_facts": {
+    "causal_rejection_passed": true,
+    "committed_corpus_digest": "be939cbebc0e9e9f33906ffc92047e114372852bbc578bb4376efd0e061d3bf9",
+    "corpus_digest": "be939cbebc0e9e9f33906ffc92047e114372852bbc578bb4376efd0e061d3bf9",
+    "corpus_digest_matches": true,
+    "design_anchor_matches": true,
+    "design_sha256": "f563b6c5f9a98413b3a00135600f6d4dc3f9203242190d30c2bf0b2e03d28c41",
+    "first_process_digest": "826fc1ff3554882d97c6a3ad451a593295d7619cbd2c8e8dafd9389acca4370c",
+    "leakage_clean": true,
+    "no_generation_call": true,
+    "reachable_modules": [
+      "src.biological_memory",
+      "src.biological_memory.event_context",
+      "src.biological_memory.supersession"
+    ],
+    "second_process_digest": "826fc1ff3554882d97c6a3ad451a593295d7619cbd2c8e8dafd9389acca4370c",
+    "two_process_identical": true
+  },
+  "schema": "dmr001-preflight-v1",
+  "status": "PASS",
+  "study": "DMR-001"
+}
