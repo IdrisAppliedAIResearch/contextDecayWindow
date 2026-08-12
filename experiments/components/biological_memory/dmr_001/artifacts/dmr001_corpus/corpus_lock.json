@@ -1,0 +1,364 @@
+{
+  "corpus_digest": "be939cbebc0e9e9f33906ffc92047e114372852bbc578bb4376efd0e061d3bf9",
+  "counts": {
+    "annotated_boundaries": 96,
+    "development_annotated_boundaries": 60,
+    "development_episodes": 1724,
+    "development_sessions": 15,
+    "episodes": 3724,
+    "holdout_annotated_boundaries": 36,
+    "holdout_episodes": 2000,
+    "holdout_sessions": 2,
+    "sessions": 17
+  },
+  "embedding": {
+    "byte_order": "little",
+    "dimension": 1024,
+    "dtype": "float32",
+    "source": "pinned episode embedding stored by the committed run"
+  },
+  "holdout_script_sha256": "61311041bc769f94b96a2cac54a1d9b43673da8b8eeabe53d02b5860111ccb3b",
+  "schema": "dmr001-corpus-v1",
+  "selection_rule": "structurally qualifying committed episode streams, prefix-maximal by user script, one session per distinct realization, longest script sealed as the holdout",
+  "sessions": [
+    {
+      "annotated_boundary_count": 18,
+      "annotation_domains": [
+        "archives",
+        "astronomy",
+        "battery",
+        "conservation",
+        "cryptography",
+        "ecology",
+        "epidemiology",
+        "geophysics",
+        "linguistics",
+        "monetary",
+        "probe",
+        "robotics",
+        "structural"
+      ],
+      "episode_count": 1000,
+      "realization_sha256": "07e8718e2b42c76cec991e1e2f57d58b7f0521319cf367396a15b6fe8bd0631f",
+      "script_sha256": "61311041bc769f94b96a2cac54a1d9b43673da8b8eeabe53d02b5860111ccb3b",
+      "session_sha256": "5c4144d05ef0353b58d95972c7a30c03dfc43743a482d1c72a459a6bed234dc3",
+      "source_path": "experiments/study_010/runs/study_010_full_001/arm_l/checkpoints/turn_1000/study.db",
+      "source_sha256": "2fdf1fcee2d4e024066f6f37becd98299cfc0ee293bfe8c220ccef77d2ad68e6",
+      "split": "holdout",
+      "stream_digest": "734e6c0d951f104674e7bb1c6d92bc079e83d36d0725d7305b2e0c6b4d31ebec",
+      "vector_digest": "b81dbefb5370a1f89247c3ccd848c59bab1986c7c374322606dc0b9d5aa93cd4"
+    },
+    {
+      "annotated_boundary_count": 18,
+      "annotation_domains": [
+        "archives",
+        "astronomy",
+        "battery",
+        "conservation",
+        "cryptography",
+        "ecology",
+        "epidemiology",
+        "geophysics",
+        "linguistics",
+        "monetary",
+        "probe",
+        "robotics",
+        "structural"
+      ],
+      "episode_count": 1000,
+      "realization_sha256": "a746c2ef731b5079656d25eb241f51c4ef72744028d6a3782bad008b53fc033a",
+      "script_sha256": "61311041bc769f94b96a2cac54a1d9b43673da8b8eeabe53d02b5860111ccb3b",
+      "session_sha256": "d7d21c88465095d1b3482f442c2f4747812c411c74079430faf163da23a37124",
+      "source_path": "experiments/study_010/runs/study_010_full_001/arm_s/checkpoints/turn_1000/study.db",
+      "source_sha256": "f671e4c0bedc0319bbddca5adbadf4389aaa5c28adf46e9fcd062031e6c4dacc",
+      "split": "holdout",
+      "stream_digest": "133318a9e67286d62e81a8a12babec418d4314f1ab5becc24d93492223313a9f",
+      "vector_digest": "4c2a0c17f68d285ad642bc2e62b62003f528f81ae84e344dd23365b449e25b21"
+    },
+    {
+      "annotated_boundary_count": 4,
+      "annotation_domains": [
+        "civil_engineering",
+        "marine_biology",
+        "monetary_policy",
+        "probe",
+        "renaissance_art"
+      ],
+      "episode_count": 121,
+      "realization_sha256": "b7b30e19f5e32b598bc550ef06cfe53074f211a61c306d642e0565550ca9b6a3",
+      "script_sha256": "36adce29fa517cc9c61de0d4d09ef2812cebde543ad8c6884bc80eb24ee96cf5",
+      "session_sha256": "166b68a85942d6f0d9fdc9dbfe12311f652ff637f1bd4d445280f72cf4a517c8",
+      "source_path": "experiments/study_005/runs/study_005_full_001/condition_c/study.db",
+      "source_sha256": "c98eecafcb4d579f671694c4bb28481e0d24d6d48d6d6a81bc66200f312af04c",
+      "split": "development",
+      "stream_digest": "3c23677886142a10602551eb8b7aac35d700eb212b3791da3fa474fdd5cfc827",
+      "vector_digest": "50612a16b309314616366546b3a196688e76e12be09933148b6465e639a0eb3b"
+    },
+    {
+      "annotated_boundary_count": 4,
+      "annotation_domains": [
+        "civil_engineering",
+        "marine_biology",
+        "monetary_policy",
+        "probe",
+        "renaissance_art"
+      ],
+      "episode_count": 121,
+      "realization_sha256": "0e723ea7951b0ceab7e86e6a0fbe1dc151500fd6e92b1ec94c1283b7b2370046",
+      "script_sha256": "36adce29fa517cc9c61de0d4d09ef2812cebde543ad8c6884bc80eb24ee96cf5",
+      "session_sha256": "1ddc21b4ad04e41d97c990d0b398d01b74364f989870b6b8e173983d1dd15295",
+      "source_path": "experiments/study_007/runs/study_007_full_001/condition_c/study.db",
+      "source_sha256": "8847e946d1b2c49e0952ad4257d3e8da487e74de7a7e80dd1199ee1dd45aa359",
+      "split": "development",
+      "stream_digest": "c6432d7cf836c0736ff5d23df228fe872cedaa64c9fb55550fbc9dca1b5d2194",
+      "vector_digest": "50abeba969334a25afa8cf2f9743edb72a1f84ba415acb6c1ff531b9260d81cf"
+    },
+    {
+      "annotated_boundary_count": 4,
+      "annotation_domains": [
+        "civil_engineering",
+        "marine_biology",
+        "monetary_policy",
+        "probe",
+        "renaissance_art"
+      ],
+      "episode_count": 121,
+      "realization_sha256": "7b9883e7749c58a0c11c1f776890b3a37e680d06f558182ff9a387f14501998a",
+      "script_sha256": "36adce29fa517cc9c61de0d4d09ef2812cebde543ad8c6884bc80eb24ee96cf5",
+      "session_sha256": "2b3488c125fd6ec799af531a08ab2f12674e5b7d8fc774af393df46f475abaf0",
+      "source_path": "experiments/study_005/controls/promotion_seeded/promotion_seeded_001/condition_c/study.db",
+      "source_sha256": "c2d49df936f82759073f333124bf2679f4d5ab42a7f505a48fc6244b6b91970e",
+      "split": "development",
+      "stream_digest": "65e9d3306ac97ed549b854801da2fb209d1b137f8a19db060a63836c2595fce3",
+      "vector_digest": "288f13adf6340d0ba07b169852d8b484804e3928e34e7414b1dc351674b2d20b"
+    },
+    {
+      "annotated_boundary_count": 4,
+      "annotation_domains": [
+        "civil_engineering",
+        "marine_biology",
+        "monetary_policy",
+        "probe",
+        "renaissance_art"
+      ],
+      "episode_count": 121,
+      "realization_sha256": "e1709a81fc29e4d1c48bcc9275be9f647ec5512dfccac49759645cb841bd9fbf",
+      "script_sha256": "36adce29fa517cc9c61de0d4d09ef2812cebde543ad8c6884bc80eb24ee96cf5",
+      "session_sha256": "35499e23a0cfd635593161507dffa7030216a9e68c0d2ba250490e35542a3b8c",
+      "source_path": "experiments/study_011/runs/study_011_live_b/arm_b/study.db",
+      "source_sha256": "2ab87dd1dfc96a36f6030db5b0ddba84e9e2bbe09ea86d3837da300fa3838fed",
+      "split": "development",
+      "stream_digest": "94da32208f6cb6613ea787edccdd254ba7d48443f90674974179f73e4d05cf60",
+      "vector_digest": "a1e7111c42977fb007673ad0d206f30e9582fba28cf50fcfa3bc23a2a61dafa3"
+    },
+    {
+      "annotated_boundary_count": 4,
+      "annotation_domains": [
+        "civil_engineering",
+        "marine_biology",
+        "monetary_policy",
+        "probe",
+        "renaissance_art"
+      ],
+      "episode_count": 121,
+      "realization_sha256": "264cb7e7e0051452a5c8327b441af10a2746d7a589b34028423313008b79b6d3",
+      "script_sha256": "36adce29fa517cc9c61de0d4d09ef2812cebde543ad8c6884bc80eb24ee96cf5",
+      "session_sha256": "3e14020452998da3ca406f76a8ce281765133d2dcb778149a738b934111557fa",
+      "source_path": "experiments/study_011/runs/study_011_live_c/arm_c/study.db",
+      "source_sha256": "a4d8c5d92f3b6fce3f9b101b8a0e0257317c920cdd3192e51d653422274ef7b5",
+      "split": "development",
+      "stream_digest": "5abfa3b0928660c48bed98feed6ac8d71e01bcb9f2ef252c4c5a57928879b31c",
+      "vector_digest": "43a4340f0fc3c9187d34aef05dc5d24e5c78df9beef12e9e22d938728473465a"
+    },
+    {
+      "annotated_boundary_count": 4,
+      "annotation_domains": [
+        "civil_engineering",
+        "marine_biology",
+        "monetary_policy",
+        "probe",
+        "renaissance_art"
+      ],
+      "episode_count": 121,
+      "realization_sha256": "ed78ad7f9281cda93f4b689d39984c16d055c6fa6474286fa4da7f0d980a3462",
+      "script_sha256": "36adce29fa517cc9c61de0d4d09ef2812cebde543ad8c6884bc80eb24ee96cf5",
+      "session_sha256": "7521a657251d761d8c045b1ededb568feb4447037f792f854a23f75594b316f5",
+      "source_path": "experiments/study_006/runs/study_006_full_001/condition_c/study.db",
+      "source_sha256": "7b34664638331dae59c1c6b8dedd532f7fe01ae1df5f39331943f82d3e1a8eaa",
+      "split": "development",
+      "stream_digest": "58e66a341f112172f80aedb95a700990454ed94883a81be32d4dd6bec005e012",
+      "vector_digest": "ac38b644712c9f370179d3f329a8ab700cb0e7bde9367b7fa3ebb63274725522"
+    },
+    {
+      "annotated_boundary_count": 4,
+      "annotation_domains": [
+        "civil_engineering",
+        "marine_biology",
+        "monetary_policy",
+        "probe",
+        "renaissance_art"
+      ],
+      "episode_count": 121,
+      "realization_sha256": "ca0c8e57a375e8a1a34f43255c67d212b47fc8663a1dc19c2b5a20af769af122",
+      "script_sha256": "36adce29fa517cc9c61de0d4d09ef2812cebde543ad8c6884bc80eb24ee96cf5",
+      "session_sha256": "7ff168875652eb108dd3e742fc972f3c2302379d17486c2ac73cb7293a295115",
+      "source_path": "experiments/surveys/retrieval_bakeoff/tier6/runs/tier6_live_121/context_matched_stm/study.db",
+      "source_sha256": "ffeabcc46be95a248f16a172814babe15d0a6c55173a1326b24bb28b9480cbb3",
+      "split": "development",
+      "stream_digest": "3a6b3a22e68501095c1261811af4675b6021057e83fbb29247f31e146e3c67e5",
+      "vector_digest": "73ef9de0b79cb4581597b32a6a3ecfcdd42aa6b59ab98475fafeec5c7e7bef93"
+    },
+    {
+      "annotated_boundary_count": 4,
+      "annotation_domains": [
+        "civil_engineering",
+        "marine_biology",
+        "monetary_policy",
+        "probe",
+        "renaissance_art"
+      ],
+      "episode_count": 121,
+      "realization_sha256": "b5ecaca25710a7a8d5a65f2bfc718f1526e631ba1317c5e9f5b98b3588f51ac1",
+      "script_sha256": "36adce29fa517cc9c61de0d4d09ef2812cebde543ad8c6884bc80eb24ee96cf5",
+      "session_sha256": "852706410173a960e0764af3a0bcf84e32f3f031303f7a993ca825abc42de470",
+      "source_path": "experiments/study_004/runs/study_004_full_002/condition_c/study.db",
+      "source_sha256": "ba6575e1335011764f43fbcce5ff3440bac1ee25402194e7454c3283be63768b",
+      "split": "development",
+      "stream_digest": "1e782fb906fcac7ac555e96cb7a83a18619bf5ed92e553eb6b967edbb73847f5",
+      "vector_digest": "366f2eb55ee1c4a4233cc9d7616a872535f1689eac15c0b55dbb217edaf10007"
+    },
+    {
+      "annotated_boundary_count": 4,
+      "annotation_domains": [
+        "civil_engineering",
+        "marine_biology",
+        "monetary_policy",
+        "probe",
+        "renaissance_art"
+      ],
+      "episode_count": 121,
+      "realization_sha256": "13a61445c0bac8eb9fcb8654c54726848593788ed6d820c48e0894bb905f7f72",
+      "script_sha256": "36adce29fa517cc9c61de0d4d09ef2812cebde543ad8c6884bc80eb24ee96cf5",
+      "session_sha256": "8f2342d35bfea297d2b45b150515e6891682bf2bff47531c69e7cb8725a77695",
+      "source_path": "experiments/study_011/noise_band/discarded/attempt_1/study_011_noise_band_d_01/context_matched_stm/study.db",
+      "source_sha256": "6d30dff8912050c07c8dc64a788db98df24769654acfccd03956bd4158ef88e3",
+      "split": "development",
+      "stream_digest": "dcf31cd2ebb68a3fc82a06b0f203a3c5e63d62ea9e9947d43e77c68674b3f5bb",
+      "vector_digest": "c1921f97c853d580300ff1706a23b0750b9a45d2bfd0fbfe18966266752791d2"
+    },
+    {
+      "annotated_boundary_count": 4,
+      "annotation_domains": [
+        "civil_engineering",
+        "marine_biology",
+        "monetary_policy",
+        "probe",
+        "renaissance_art"
+      ],
+      "episode_count": 121,
+      "realization_sha256": "4e4fa345df504a42a7b71e52ae3d2bd5789554a7e82b6faa107766001bd6fa47",
+      "script_sha256": "36adce29fa517cc9c61de0d4d09ef2812cebde543ad8c6884bc80eb24ee96cf5",
+      "session_sha256": "91662b515f7423b0d529d4f8e7a13da9944938d18a9ac13bde7e67a14a782f4e",
+      "source_path": "experiments/study_011/noise_band/runs/study_011_noise_band_d_02/context_matched_stm/study.db",
+      "source_sha256": "d8d4c0c9db2880707d9f3df86477dbf6924623e992819d0230c1ad4f9165f93f",
+      "split": "development",
+      "stream_digest": "e650cf469e67974e63b51cd17e4e8915984b1916df3fa90592507179e8a326f7",
+      "vector_digest": "9e96abf194e7557c502c6d86e2165254bd2ada19bf0f82257d920bec1d9a596b"
+    },
+    {
+      "annotated_boundary_count": 4,
+      "annotation_domains": [
+        "civil_engineering",
+        "marine_biology",
+        "monetary_policy",
+        "probe",
+        "renaissance_art"
+      ],
+      "episode_count": 121,
+      "realization_sha256": "ae6751c0df0f7161f9a08d790a698f6620879a04562455d6fabddb09ba0122bb",
+      "script_sha256": "36adce29fa517cc9c61de0d4d09ef2812cebde543ad8c6884bc80eb24ee96cf5",
+      "session_sha256": "98fec0e2b00fcb1c8c7edee112c9345770b7df637a5e7142d96ad7e16ccac5e1",
+      "source_path": "experiments/surveys/retrieval_bakeoff/tier6/runs/tier6_live_121_corrected_001/context_matched_stm/study.db",
+      "source_sha256": "5da47ea3fc2c8e3dcc50fa380ff65202d82557905d9976117e9e5d82e55c1c41",
+      "split": "development",
+      "stream_digest": "e4a35d61e9bb1e8bc419ad404c049b79222604930b93ce9f48016c60707ceceb",
+      "vector_digest": "e112062db24a9a5b8d655a840ebe1637d119efa519df3aad4c9d9d1916ece451"
+    },
+    {
+      "annotated_boundary_count": 4,
+      "annotation_domains": [
+        "civil_engineering",
+        "marine_biology",
+        "monetary_policy",
+        "probe",
+        "renaissance_art"
+      ],
+      "episode_count": 121,
+      "realization_sha256": "58830443279bc97b41674549184a5f3018830d7f12215db29d14f2eef0f5c57a",
+      "script_sha256": "36adce29fa517cc9c61de0d4d09ef2812cebde543ad8c6884bc80eb24ee96cf5",
+      "session_sha256": "ac46d26a3903076f5a2d69e7fb05035888147122b7e09f2280b9320a5bcb31e4",
+      "source_path": "experiments/study_004/controls/v3_same_settings/v3_control_001_invalid_import_resolution/iterative/study.db",
+      "source_sha256": "cb53a06f9c79012f26dd36d04229ae00e8a9b1668fe790e7f731cf89ec6c9fde",
+      "split": "development",
+      "stream_digest": "f0bf2051821e9e50e9aad7b0f833dfafa2aaeac78c64397cbb6966603420e1e9",
+      "vector_digest": "564e19a4ab773d47e5360c6bb71f28c599a0adb6bba5b4c42e83ec2b8af2e22b"
+    },
+    {
+      "annotated_boundary_count": 4,
+      "annotation_domains": [
+        "civil_engineering",
+        "marine_biology",
+        "monetary_policy",
+        "probe",
+        "renaissance_art"
+      ],
+      "episode_count": 121,
+      "realization_sha256": "33b91f4c84df4ae7da9b1e7194e8d2c476f8b8f95cbc637823a051c42a3d4f97",
+      "script_sha256": "36adce29fa517cc9c61de0d4d09ef2812cebde543ad8c6884bc80eb24ee96cf5",
+      "session_sha256": "baf306cf5207ac8ab49c3aead6b16f9b5390ec09ca296ea457086021d4527ffa",
+      "source_path": "experiments/study_009/runs/study_009_full_001/arm_s/study.db",
+      "source_sha256": "404efbdb38d1abe729a1ab43ef697b1aea4247f476a24625b4120944bd519bac",
+      "split": "development",
+      "stream_digest": "6e928cc6e4364057fc3d97555d4113162f93b0485ce32879affcb77e6e56a77e",
+      "vector_digest": "3b26cba8517067eb1a507a2ad580009b3fd68bc0281a858511b7857d714545be"
+    },
+    {
+      "annotated_boundary_count": 4,
+      "annotation_domains": [
+        "civil_engineering",
+        "marine_biology",
+        "monetary_policy",
+        "probe",
+        "renaissance_art"
+      ],
+      "episode_count": 121,
+      "realization_sha256": "0f0e5506dc5b94db6cf6aa914bd2cc5a9ac65e03b49b390afc9c7114a8bdd1b4",
+      "script_sha256": "36adce29fa517cc9c61de0d4d09ef2812cebde543ad8c6884bc80eb24ee96cf5",
+      "session_sha256": "bb074c93be80be256649e9c76799b3aca2a2b51a38c3001fc193ae7eeb3bb8f5",
+      "source_path": "experiments/study_011/runs/study_011_live_a/arm_a/study.db",
+      "source_sha256": "d97a5a291124ca7435f5a5da9b217f374703d2d798ab22cda96da21412103492",
+      "split": "development",
+      "stream_digest": "75d5494adcd079143b4d7ff10f45e329561954a9a67c52358615b9a222cbcac6",
+      "vector_digest": "75558aa754855b70f53281a4e681bcd304e7d10eb89103bfe6e55b5a24b7356e"
+    },
+    {
+      "annotated_boundary_count": 4,
+      "annotation_domains": [
+        "acknowledgments",
+        "maritime_treaty",
+        "orchid_germination",
+        "probe",
+        "pulsar_timing"
+      ],
+      "episode_count": 30,
+      "realization_sha256": "731f04b81e9a77124ef59f8a2702c836756b4445a9667f1ac1f6fcbc6085d477",
+      "script_sha256": "be065cb737c813a5c6482287a18426360960acb5cab7b63de4b880067e45f5c8",
+      "session_sha256": "10278ee1c353921c6584a300e7ac6d3aace65340c033e72bcc554f1df41cb648",
+      "source_path": "experiments/study_005/tests/runs/synthetic_study005_001/iterative/study.db",
+      "source_sha256": "a703d6b42a0776144ac2e3adac5afd1e692b13de1669ae768268bdbbd9346a8b",
+      "split": "development",
+      "stream_digest": "b9757fe1698c4ec988e2a5b0dbdcdf0f07a2e04e22ecc846437b3d9def90ba21",
+      "vector_digest": "316dc155d2edc8798fd02f53626ad9af703aa36c374aa442a9fbb478de809a9e"
+    }
+  ]
+}
