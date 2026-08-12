@@ -53,6 +53,18 @@ Ten pre-registered studies test that question, each adding one memory component 
 > deviation `DEVIATION_001` is recorded, so this is not confirmatory and does
 > **not** unblock DMR-002.
 
+> **DMR-001C status:** `NO_BOUNDARY_EVIDENCE - G5 FAIL, G4 CONFIRMED`. A
+> genuine sealed holdout: the rule was frozen at DMR-001B's anchor before
+> LongMemEval was re-fetched, and the registration commit carries no
+> implementation file. Across 50 unread haystacks, 11,453 episodes and 2,128
+> real session seams, the relative bar holds its per-stream fire rate at a
+> p95/p05 ratio of 1.67x, confirming transfer on real conversation where the
+> fixed threshold swung tenfold on synthetic scripts. Boundary agreement fails:
+> precision is .837 against a .186 base rate but recall is only .253, because
+> `min_event_size` 5 cannot resolve seams in six-exchange sessions, so macro F1
+> .387 loses to fixed chopping at .606. Macro F1 was a poor statistic for a
+> corpus with an 18.6% base rate; that defect is recorded, not re-scored.
+
 > **SAL-001 status:** `NO_INDEPENDENT_PROXIMITY - CHARACTERIZED`. On 92
 > held-out LongMemEval sessions, adjusted neighbor AUC is 0.416 (95% interval
 > 0.351-0.484; one-sided p=0.991), raw AUC 0.300, prior 0.399, and next 0.477.
@@ -142,6 +154,7 @@ Runs use a scripted 120-turn conversation with facts planted at known positions 
 | SAL-001 | Independent surprisal-proximity diagnostic | G2 FAIL; CHARACTERIZED | Adjusted neighbor AUC was 0.416, raw 0.300, prior 0.399, and next 0.477. Own-exchange surprisal was 0.621 posthoc, so surprise marked content locally but did not transfer value to temporal neighbors |
 | DMR-001 | Online event-context formation over pinned embeddings | G3 FAIL; DEGENERATE_FORMATION; CHARACTERIZED | The size cap, not the drift detector, did the partitioning: 52 of 74 holdout events closed on `max_event_size` and matched no annotation, while all 20 drift boundaries matched one. The locked threshold fires on 18.5% of development episodes and 1.2% of holdout episodes, so drift has no transferable scale. DMR-002 through DMR-006 are blocked |
 | DMR-001B | Adaptive drift event formation | PASS; CHARACTERIZED | A percentile-of-recent-drift bar held the cross-corpus fire-rate swing at 1.42-1.65x where the fixed threshold swung tenfold, and the size cap never bound. Worst-family agreement .419 to .487; the 1,000-turn family fell .733 to .583. No sealed holdout, ordering deviation recorded, DMR-002 still blocked |
+| DMR-001C | Sealed confirmation of the relative drift rule | G5 FAIL; G4 CONFIRMED | On 50 unread LongMemEval haystacks the frozen rule held its fire rate at a 1.67x p95/p05 ratio, confirming transfer. Precision .837 against a .186 base rate, but recall .253 and macro F1 .387 lost to periodic chopping at .606. min_event_size, not the threshold, is the binding constraint |
 | SUP-001 | Explicit supersession lineage and accessibility | FACTUAL PASS; byte-identity criterion withdrawn | Current-only retrieval rose 0/64 to 64/64 with 32/32 unchanged and 64/64 histories. T1 scored 9/9 under numeric-value equivalence, with zero regressions and zero stale natural payloads; no larger run or adoption is automatic |
 
 Full reports live under `experiments/study_NNN/`; external evaluation reports
