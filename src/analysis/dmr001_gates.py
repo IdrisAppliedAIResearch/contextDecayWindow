@@ -230,6 +230,9 @@ def evaluate_g5(holdout: Mapping[str, Any]) -> dict[str, Any]:
     separation = holdout["arms"]["T_EVENT"]["context_separation"]
     per_session = separation["per_session"]
     worst = min((row["context_auc"] for row in per_session), default=float("nan"))
+    # Derived here rather than read from the report: a gate that trusts a
+    # precomputed difference can be handed an inconsistent pair and pass.
+    margin = separation["context_auc_macro"] - separation["raw_auc_macro"]
     checks = [
         _check(
             "macro context AUC",
@@ -239,8 +242,8 @@ def evaluate_g5(holdout: Mapping[str, Any]) -> dict[str, Any]:
         ),
         _check(
             "context AUC is at least the raw-vector control",
-            separation["context_minus_raw"] >= bars["min_context_minus_raw"],
-            separation["context_minus_raw"],
+            margin >= bars["min_context_minus_raw"],
+            margin,
             f">= {bars['min_context_minus_raw']}",
         ),
         _check(
