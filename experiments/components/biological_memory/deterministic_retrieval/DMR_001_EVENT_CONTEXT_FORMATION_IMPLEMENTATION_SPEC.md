@@ -1,7 +1,12 @@
 # DMR-001 - Event-Context Formation Implementation Specification
 
 **Document type:** Prospective implementation specification
-**Status:** `DESIGN ONLY - NOT PRE-REGISTERED - NO IMPLEMENTATION AUTHORIZED`
+**Status:** `APPROVED - PRE-REGISTERED - IMPLEMENTATION AUTHORIZED`
+**Approved:** August 12, 2026 by the program author, who directed end-to-end
+implementation of this stage
+**Pre-registration:** `../dmr_001/DMR_001_PRE_REGISTRATION.md`, which governs
+wherever it and this file disagree, and which records three registered
+revisions to sections 5.1, 6, and 8 that Part 1 forced
 **One proposed component:** `OnlineEventContextFormer`
 **Depends on:** Frozen append-only episode records and pinned episode embeddings
 **Reference:** `DMR_ARC_IMPLEMENTATION_ROADMAP.md`
@@ -305,8 +310,12 @@ biological context. Both residuals must be stated in the report.
 
 ## 10. Stage Preflight
 
-**State:** `NOT RUN`. No implementation may begin until this section is replaced
-with committed evidence in the DMR-001 pre-registration.
+**State:** `RUN`. Part 1 is committed at
+`../dmr_001/exploration/DMR_001_PART1_EXPLORATION.json` and PF1-PF10 are
+executed into `../dmr_001/artifacts/dmr001_preflight/preflight.json`. The
+binding evidence for both parts, and the numeric bars this file deliberately
+declined to invent, live in `../dmr_001/DMR_001_PRE_REGISTRATION.md` sections
+7 and 8.
 
 ### Part 1 Deliverables
 
