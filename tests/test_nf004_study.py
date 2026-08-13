@@ -9,12 +9,16 @@ from analysis.nf004_measurement import paired_counts
 from analysis.nf004_mechanism import Candidate, pack, ranking_orders, retrieve
 from analysis.nf004_study import (
     NF004GateStop,
+    REPO_ROOT,
+    SOURCE_MANIFEST,
+    SOURCE_MANIFEST_SHA256,
     _disposition,
     enforce_gate_order,
     leakage_gate,
     mechanism_violations,
     registration_identity,
 )
+from analysis.nf004_measurement import sha256_file
 
 
 def candidate(
@@ -117,6 +121,10 @@ def test_registration_identity_is_checked_before_corpus_access() -> None:
     result = registration_identity()
     assert result["pass"]
     assert result["corpus_accessed"] is False
+
+
+def test_artifact_identity_uses_raw_bytes() -> None:
+    assert sha256_file(REPO_ROOT / SOURCE_MANIFEST) == SOURCE_MANIFEST_SHA256
 
 
 def comparison_rows(gains: int, losses: int, ties: int) -> list[dict]:
