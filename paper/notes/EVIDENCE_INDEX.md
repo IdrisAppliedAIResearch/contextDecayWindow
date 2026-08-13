@@ -19,6 +19,13 @@ episode/episode 351. The artifact is
 `experiments/components/biological_memory/nf_003/artifacts/three_arm_summary.json`.
 This is posthoc characterization on exhausted LongMemEval, not confirmation.
 
+**Post-draft update, NF-004 (2026-08-13).** A prospectively registered LoCoMo
+holdout confirms the corpus-specific opposite ranking direction at 16k. Complete
+exact evidence rises 843/1,098 to 935/1,098: 140 gains, 48 losses, ratio 2.92,
+one-sided exact p=6.19e-12. All six conversations are net positive; source order
+is 258 and 32k is 961 to 1,024. G0-G7 and byte replay pass with zero measurement
+calls. The claim is availability only, not reader correctness or adoption.
+
 ---
 
 ## 1. Spec-versus-artifact discrepancies
@@ -260,7 +267,7 @@ differently from the spec, per §1 above.
 | Item | Value | Artifact |
 |---|---|---|
 | No error bars anywhere | every comparison single-run, one seed | program-wide; `AGENTS.md` runtime rules |
-| External calibration boundary | LongMemEval-S run in EC-001; LoCoMo unrun; substituted evaluator forbids official comparator score | `external/longmemeval/EC_001_REPORT.md` §§1,7 |
+| External calibration boundary | LongMemEval-S run in EC-001; LoCoMo availability holdout run in NF-004; substituted evaluator forbids official comparator score | `external/longmemeval/EC_001_REPORT.md` §§1,7; `biological_memory/nf_004/artifacts/g7_result_integrity.json` |
 | One literal breadth probe | Q11 is the program's only enumeration question; LongMemEval multi-session is an analogue, not an identical task | `DR_002_report.md` §3.5; `EC_001_REPORT.md` §6 |
 | AI raters, AI adjudicators | self-consistency 97.47%, control disagreement 11.54% | `audits/scoring_integrity/` — **verify 97.47 before use** |
 | Oracle contains prior probe answers | 4 of 5; registered rule is `source_turn < 120` | `artifacts/e005/prior_answer_fraction.csv` — **verify before use** |
