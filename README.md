@@ -86,6 +86,20 @@ Ten pre-registered studies test that question, each adding one memory component 
 > other at J≈0.76. Per specification §12 a model-free adaptive controller is not
 > authorized, and the compiler must not be replaced with a second model call.
 
+> **NF-002 status:** `CARRIES_SIGNAL - CHARACTERIZED`. Same ranking, same
+> 32,000-char budget, same skip-on-overflow policy; the only change is the
+> candidate unit. Episodes instead of sessions raise any-evidence recall on 470
+> LongMemEval items from 380 to 396 and all-evidence from 210 to 261. On the
+> registered holdout the primary measure is 14 gains against 6 losses, ratio
+> 2.33 over a bar of 2.0, p=0.058 against 0.05 - the lower tier, which was
+> registered before the number existed and whose firing was predicted verbatim
+> in the registration. All six losses in the entire study sit in
+> `single-session-assistant`, which records zero gains; the other five strata
+> are gains-only. Marginal novelty filtering is a measured null, recovering 0 of
+> the 90-item headroom at every floor. 89 of 90 baseline misses have evidence
+> within reach at median rank 7, skipped on cost. `DEVIATION_001` caps this at
+> characterization: the holdout counts were seen before the bars were locked.
+
 > **SAL-001 status:** `NO_INDEPENDENT_PROXIMITY - CHARACTERIZED`. On 92
 > held-out LongMemEval sessions, adjusted neighbor AUC is 0.416 (95% interval
 > 0.351-0.484; one-sided p=0.991), raw AUC 0.300, prior 0.399, and next 0.477.
@@ -177,6 +191,7 @@ Runs use a scripted 120-turn conversation with facts planted at known positions 
 | DMR-001B | Adaptive drift event formation | PASS; CHARACTERIZED | A percentile-of-recent-drift bar held the cross-corpus fire-rate swing at 1.42-1.65x where the fixed threshold swung tenfold, and the size cap never bound. Worst-family agreement .419 to .487; the 1,000-turn family fell .733 to .583. No sealed holdout, ordering deviation recorded, DMR-002 still blocked |
 | DMR-001C | Sealed confirmation of the relative drift rule | G5 FAIL; G4 CONFIRMED | On 50 unread LongMemEval haystacks the frozen rule held its fire rate at a 1.67x p95/p05 ratio, confirming transfer. Precision .837 against a .186 base rate, but recall .253 and macro F1 .387 lost to periodic chopping at .606. min_event_size, not the threshold, is the binding constraint |
 | DMR-004 | Deterministic query-obligation compiler | STOP; NO_MECHANICAL_SUFFICIENCY_SIGNAL | On 180 sealed queries labelled by two blind raters, Youden's J was .320 against a bar of .50 and the false-finite rate .188 against .15. LOOKUP recall .800, span integrity 1.000 and marker independence 0-of-48 passed. 12 of 31 misses are "which happened first, A or B", a bounded obligation the registered class set cannot name |
+| NF-002 | Candidate granularity under a binding budget | CARRIES_SIGNAL; CHARACTERIZED | Episodes instead of sessions raise any-evidence recall 380->396/470 and all-evidence 210->261, same ranking and budget. Holdout 14 gains/6 losses, p=.058 against a .05 bar. All six losses are in single-session-assistant, which has zero gains. Novelty filtering recovers 0 of 90 |
 | SUP-001 | Explicit supersession lineage and accessibility | FACTUAL PASS; byte-identity criterion withdrawn | Current-only retrieval rose 0/64 to 64/64 with 32/32 unchanged and 64/64 histories. T1 scored 9/9 under numeric-value equivalence, with zero regressions and zero stale natural payloads; no larger run or adoption is automatic |
 
 Full reports live under `experiments/study_NNN/`; external evaluation reports
