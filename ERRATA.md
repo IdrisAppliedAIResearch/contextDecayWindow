@@ -1,5 +1,27 @@
 # Errata
 
+## NF-003 Part 1 Evaluated Population (2026-08-13)
+
+**Headline change:** the paired effect remains 49 gains and 0 losses, but the
+measured comparison is 396/465 to 445/465, not 396/470 to 445/470. The measured
+deep-rank residual is 20 items; five additional items were never episode-ranked.
+
+`nf003_ranking.analyse()` skips records with no turn carrying LongMemEval's
+`has_answer` flag. Five of the 470 NF-002 items meet that condition, so the
+committed Part 1 artifact contains 465 treatment rows. All five omitted items
+are baseline misses, which is why treating them as treatment misses preserved
+the 49-gain, zero-loss paired count while making `445/470` look like measured
+recall. It is only a conservative lower bound.
+
+Among the 465 evaluated items, baseline and treatment deliver any evidence on
+396 and 445 respectively. Twenty treatment misses have measured best-evidence
+ranks from 12 to 168 (median 50.5, p90 148.7). The other five have unknown
+treatment outcomes and no measured evidence-episode rank. The claim that all 25
+remaining items are deep similarity failures is withdrawn.
+
+The committed Part 1 record and JSON remain unchanged. See
+`experiments/components/biological_memory/nf_003/NF_003_PART1_CORRECTION.md`.
+
 ## Study 010 Endurance Corpus Composition (2026-08-12)
 
 **Headline change:** none. No published number moves. This entry records a
