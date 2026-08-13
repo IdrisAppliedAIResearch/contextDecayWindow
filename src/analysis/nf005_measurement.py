@@ -108,6 +108,9 @@ def adapt_population(
         for session_order, (session_id, session) in enumerate(
             zip(item["haystack_session_ids"], item["haystack_sessions"], strict=True)
         ):
+            source_session_identity = identity(
+                question_id, str(session_order), str(session_id)
+            )
             accepted_in_session = 0
             for start in range(0, len(session) - 1, 2):
                 first, second = session[start : start + 2]
@@ -118,7 +121,7 @@ def adapt_population(
                 )
                 episode_identity = identity(
                     question_id,
-                    str(session_id),
+                    source_session_identity,
                     str(accepted_in_session),
                     "episode",
                     episode_rendering,
@@ -137,7 +140,7 @@ def adapt_population(
                     text = rendered_turn(turn)
                     turn_identity = identity(
                         question_id,
-                        str(session_id),
+                        source_session_identity,
                         str(accepted_in_session),
                         str(turn_offset),
                         str(turn["role"]),
