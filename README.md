@@ -94,26 +94,31 @@ calls.**
 - **NF-003 Part 1** stopped at its pre-registration surrogate audit. Session-touch
   reproduced 396 → 445 and 49 gains/0 losses, but strict answer-episode delivery
   fell 388 → 351 with **26 gains and 63 losses**. It remains unregistered.
+- **LoCoMo development** supplies the untouched-corpus successor signal. Across
+  871 unique questions, strict exact-evidence delivery rose 820 → 855 with
+  **44 gains and 9 losses**; all four development conversations were positive.
+  This is exploration only, with no locked bars or disposition.
 
 **One constraint governs that whole line.** Every LongMemEval item has now been
 used by this program, so nothing in it can be *confirmed* on that corpus.
-Characterization is the ceiling there. LoCoMo is now acquired and split by whole
-conversation, with six conversations sealed for a confirmatory successor.
+Characterization is the ceiling there. LoCoMo is acquired, split by whole
+conversation, and characterized on development; six conversations remain sealed
+for a confirmatory successor.
 
 ---
 
 ## Next Steps
 
-1. **Explore only the locked LoCoMo development conversations.** Four are open
-   for Preflight Part 1; six remain sealed until the successor registration is
-   committed. Its primary metric must be strict answer-episode delivery.
+1. **Register the LoCoMo successor before opening its holdout.** Lock the claim,
+   exact-evidence endpoint, canonical-QA deduplication, both disposition bars,
+   and live answer-quality stage. Six conversations remain sealed until then.
 
 2. **Run DMR-002 on the frozen DMR-001B former.** The blocking review cleared it.
    It is the arc's next real stage and it is unblocked today.
 
-3. **Revisit similarity only after the strict LoCoMo test.** NF-003's session-touch
-   metric obscured 63 strict losses, so its old H2 residual cannot justify a new
-   mechanism by itself.
+3. **Revisit similarity only after the registered LoCoMo holdout.** NF-003's
+   session-touch metric obscured 63 strict losses, so its old H2 residual cannot
+   justify a new mechanism by itself.
 
 ---
 ---
@@ -231,6 +236,13 @@ Eleven pre-registered studies test that question, each adding one memory compone
 > losses**. Five unflagged items were not ranked. The proposed registration
 > closed before lock; no posthoc disposition, live run, or adoption follows.
 
+> **LoCoMo ranking-granularity development status:** `DEVELOPMENT SIGNAL;
+> HOLDOUT SEALED`. On 871 unique questions, exact evidence-pair delivery rises
+> 820 -> 855 with 44 gains/9 losses (descriptive exact sign p=1.22e-6); complete
+> evidence delivery rises 773 -> 826 with 71/18. All four conversations are net
+> positive. Session-touch hides all nine strict losses. No bars or disposition
+> were registered; six holdout conversations remain unopened.
+
 > **SAL-001 status:** `NO_INDEPENDENT_PROXIMITY - CHARACTERIZED`. On 92
 > held-out LongMemEval sessions, adjusted neighbor AUC is 0.416 (95% interval
 > 0.351-0.484; one-sided p=0.991), raw AUC 0.300, prior 0.399, and next 0.477.
@@ -324,6 +336,7 @@ Runs use a scripted 120-turn conversation with facts planted at known positions 
 | DMR-004 | Deterministic query-obligation compiler | STOP; NO_MECHANICAL_SUFFICIENCY_SIGNAL | On 180 sealed queries labelled by two blind raters, Youden's J was .320 against a bar of .50 and the false-finite rate .188 against .15. LOOKUP recall .800, span integrity 1.000 and marker independence 0-of-48 passed. 12 of 31 misses are "which happened first, A or B", a bounded obligation the registered class set cannot name |
 | NF-002 | Candidate granularity under a binding budget | CARRIES_SIGNAL; CHARACTERIZED | Episodes instead of sessions raise any-evidence recall 380->396/470 and all-evidence 210->261, same ranking and budget. Holdout 14 gains/6 losses, p=.058 against a .05 bar. All six losses are in single-session-assistant, which has zero gains. Novelty filtering recovers 0 of 90 |
 | NF-003 | Ranking granularity under the same budget | PREFLIGHT SURROGATE FAIL; UNREGISTERED | Session-touch reproduces 396->445 and 49/0, but 94 treatment hits contain no answer episode. Strict delivery falls 388->351: 26 gains, 63 losses. Five items lack turn labels. Proposed registration closed before lock |
+| LoCoMo development | Ranking granularity on an untouched-corpus development split | DEVELOPMENT SIGNAL; HOLDOUT SEALED | On 871 unique questions, strict evidence delivery rises 820->855 with 44 gains/9 losses; complete evidence rises 773->826 with 71/18. All four development conversations are net positive. No registered bars or disposition; six conversations remain sealed |
 | SUP-001 | Explicit supersession lineage and accessibility | FACTUAL PASS; byte-identity criterion withdrawn | Current-only retrieval rose 0/64 to 64/64 with 32/32 unchanged and 64/64 histories. T1 scored 9/9 under numeric-value equivalence, with zero regressions and zero stale natural payloads; no larger run or adoption is automatic |
 
 Full reports live under `experiments/study_NNN/`; external evaluation reports
@@ -639,9 +652,19 @@ could pass without answer-bearing evidence. `ERRATA.md`,
 `NF_003_PART1_CORRECTION.md`, and `NF_003_PREFLIGHT_SURROGATE_AUDIT.md` carry the
 correction and strict reconstruction.
 
+The untouched-corpus successor now has a development-only mechanism signal.
+On LoCoMo's four locked development conversations, ranking adjacent-turn pairs
+by their own cosine raises exact any-evidence delivery from 820/871 to 855/871
+(44 gains, 9 losses) and complete-evidence delivery from 773/868 to 826/868
+(71 gains, 18 losses). Session-touch again hides every strict loss. These are
+development numbers with no registered bars; all six holdout conversations
+remain sealed pending a complete successor registration.
+
 See `experiments/components/biological_memory/nf_001/`,
 `experiments/components/biological_memory/nf_002/NF_002_REPORT.md`, and
 `experiments/components/biological_memory/nf_003/NF_003_PART1_RECORD.md`.
+The LoCoMo development record is
+`experiments/external/locomo/LOCOMO_DEVELOPMENT_EXPLORATION.md`.
 
 ## The Extracted Library
 
