@@ -1,0 +1,81 @@
+{
+ "arms": [
+  {
+   "packing_unit": "whole_session",
+   "ranking_unit": "session",
+   "strict_delivery": 375
+  },
+  {
+   "packing_unit": "episode",
+   "ranking_unit": "session",
+   "strict_delivery": 388
+  },
+  {
+   "packing_unit": "episode",
+   "ranking_unit": "episode",
+   "strict_delivery": 351
+  }
+ ],
+ "design_rule": "rank coarse, pack fine",
+ "embedding_calls": 0,
+ "inputs": {
+  "part1_record": {
+   "lf_sha256": "2d29387251b109f780d7a2fe86e7a1d3244eb0f5a73515b1be1d8e7dda7e506f",
+   "path": "experiments/components/biological_memory/nf_003/artifacts/part1_record.json"
+  },
+  "surrogate_audit": {
+   "lf_sha256": "c71b7556b47397431aad01b5a1434d91af0fa9c2a27a3e51fb52ff478a619a5b",
+   "path": "experiments/components/biological_memory/nf_003/artifacts/surrogate_audit.json"
+  }
+ },
+ "model_calls": 0,
+ "one_factor_contrasts": {
+  "pack_fine_at_session_rank": {
+   "gains": 17,
+   "losses": 4,
+   "net": 13,
+   "ties": 444
+  },
+  "rank_fine_at_episode_pack": {
+   "gains": 26,
+   "losses": 63,
+   "net": -37,
+   "ties": 376
+  }
+ },
+ "own_cosine_rank_by_episode_pack_outcome": {
+  "both_deliver": {
+   "max": 24,
+   "min": 1,
+   "n": 325,
+   "p50": 2,
+   "p90": 8
+  },
+  "coarse_rank_rescues": {
+   "max": 178,
+   "min": 9,
+   "n": 63,
+   "p50": 46,
+   "p90": 135
+  },
+  "fine_rank_gains": {
+   "max": 24,
+   "min": 2,
+   "n": 26,
+   "p50": 10,
+   "p90": 21
+  },
+  "neither_delivers": {
+   "max": 238,
+   "min": 12,
+   "n": 51,
+   "p50": 74,
+   "p90": 168
+  }
+ },
+ "population": {
+  "evaluated_items": 465,
+  "excluded_without_turn_level_flags": 5
+ },
+ "schema": "nf003-three-arm-summary-v1"
+}
