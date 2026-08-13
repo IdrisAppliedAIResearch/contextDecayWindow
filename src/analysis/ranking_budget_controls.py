@@ -142,6 +142,92 @@ def _arm_summary(
     }
 
 
+def _sign(net: int) -> int:
+    return (net > 0) - (net < 0)
+
+
+def _stable_crossovers(rows: Sequence[dict[str, Any]], comparison_path: Sequence[str]) -> list[dict[str, int]]:
+    def value(row: dict[str, Any]) -> int:
+        current: Any = row
+        for key in comparison_path:
+            current = current[key]
+        return int(current)
+
+    signs = [_sign(value(row)) for row in rows]
+    found: list[dict[str, int]] = []
+    for index in range(2, len(rows) - 1):
+        before = signs[index - 2 : index]
+        after = signs[index : index + 2]
+        if before[0] == before[1] != 0 and after[0] == after[1] == -before[0]:
+            found.append(
+                {
+                    "lower_budget": rows[index - 1]["budget"],
+                    "upper_budget": rows[index]["budget"],
+                    "lower_sign": before[0],
+                    "upper_sign": after[0],
+                }
+            )
+    return found
+
+
+def _overlap(left: dict[str, float], right: dict[str, float]) -> bool:
+    return max(left["p10"], right["p10"]) <= min(left["p90"], right["p90"])
+
+
+def _interpret(locomo: dict[str, Any], longmemeval: dict[str, Any]) -> dict[str, Any]:
+    locomo_32k = next(row for row in locomo["budgets"] if row["budget"] == 32_000)
+    source_gap = (
+        locomo_32k["arms"]["session_rank"]["all_evidence"]["hits"]
+        - locomo_32k["arms"]["source"]["all_evidence"]["hits"]
+    )
+    off_ceiling = []
+    for row in locomo["budgets"]:
+        measure = row["arms"]["session_rank"]["all_evidence"]
+        rate = measure["hits"] / measure["n"]
+        if 0.60 <= rate <= 0.85:
+            off_ceiling.append({"budget": row["budget"], "rate": rate})
+
+    conflicts = []
+    for left in locomo["budgets"]:
+        left_net = left["comparisons"]["all"]["pair_vs_session"]["net"]
+        for right in longmemeval["budgets"]:
+            right_net = right["comparisons"]["all"]["net"]
+            if (
+                _overlap(left["oversubscription"], right["oversubscription"])
+                and _sign(left_net) != 0
+                and _sign(right_net) != 0
+                and _sign(left_net) != _sign(right_net)
+            ):
+                conflicts.append(
+                    {
+                        "locomo_budget": left["budget"],
+                        "locomo_net": left_net,
+                        "longmemeval_budget": right["budget"],
+                        "longmemeval_net": right_net,
+                    }
+                )
+    return {
+        "locomo_32k_source_order_control": {
+            "session_minus_source_all_evidence_hits": source_gap,
+            "non_discriminating_within_five": abs(source_gap) <= 5,
+        },
+        "locomo_off_ceiling_budgets": off_ceiling,
+        "locomo_all_evidence_stable_crossovers": _stable_crossovers(
+            locomo["budgets"], ("comparisons", "all", "pair_vs_session", "net")
+        ),
+        "longmemeval_all_evidence_stable_crossovers": _stable_crossovers(
+            longmemeval["budgets"], ("comparisons", "all", "net")
+        ),
+        "longmemeval_any_evidence_stable_crossovers": _stable_crossovers(
+            longmemeval["budgets"], ("comparisons", "any", "net")
+        ),
+        "cross_corpus_binding_ratio_scope": {
+            "supported": not conflicts,
+            "opposite_sign_overlaps": conflicts,
+        },
+    }
+
+
 def _locomo_controls(
     conversations: Sequence[ConversationCase],
     cache_path: Path,
@@ -430,6 +516,7 @@ def run(
         },
         "locomo": locomo,
         "longmemeval": longmemeval,
+        "registered_interpretation": _interpret(locomo, longmemeval),
         "model_calls": 0,
         "embedding_calls": 0,
     }
