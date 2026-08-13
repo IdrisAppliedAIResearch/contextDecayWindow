@@ -92,14 +92,14 @@ calls.**
 - **NF-002** built an instrument that prices displacement, and found novelty
   filtering to be a measured null while the *unit* gained 16 items.
   `CARRIES_SIGNAL`, capped at `CHARACTERIZED` by a recorded deviation.
-- **NF-003 Part 1** ranked at episode granularity: any-evidence recall 396 → 445
-  of 470, **49 gains and 0 losses**, p < 1e-5. This is unregistered exploration,
-  not a result.
+- **NF-003 Part 1** ranked at episode granularity: on 465 items with turn-level
+  evidence labels, any-evidence recall rose 396 → 445, **49 gains and 0 losses**,
+  p < 1e-5. This is unregistered exploration, not a result.
 
 **One constraint governs that whole line.** Every LongMemEval item has now been
 used by this program, so nothing in it can be *confirmed* on that corpus.
-Characterization is the ceiling until a corpus arrives that this work has never
-touched.
+Characterization is the ceiling there. LoCoMo is now acquired and split by whole
+conversation, with six conversations sealed for a confirmatory successor.
 
 ---
 
@@ -110,17 +110,17 @@ touched.
    Registering it accepts the `CHARACTERIZED` ceiling up front; the alternative is
    leaving a 49-gain, zero-loss result with no locked design behind it.
 
-2. **Acquire a corpus this program has never touched.** This is the only step
-   that lifts the ceiling above characterization, and it is the one that needs
-   authorization, since it means a new external dataset.
+2. **Explore only the locked LoCoMo development conversations.** Four are open
+   for Preflight Part 1; six remain sealed until the successor registration is
+   committed. This is the route above the characterization ceiling.
 
 3. **Run DMR-002 on the frozen DMR-001B former.** The blocking review cleared it.
    It is the arc's next real stage and it is unblocked today.
 
-4. **Decide what to do about the H2 residual.** 25 of 470 items have evidence
-   that sits deep in the ordering even at episode granularity. No unit or packing
-   change reaches them. That is where a similarity or composition mechanism would
-   have to earn its place — and it is a proposal, not a plan.
+4. **Decide what to do about the H2 residual.** Twenty evaluated items have
+   evidence deep in the episode ordering; five more lacked turn-level labels and
+   were never ranked. A similarity or composition mechanism would have to earn
+   its place on the measured 20 — and it is a proposal, not a plan.
 
 ---
 ---
@@ -232,11 +232,12 @@ Eleven pre-registered studies test that question, each adding one memory compone
 > the packing unit and left the ranking unit alone, so episodes still inherited
 > their session's rank; 74 of 90 baseline misses survived every unit and packing
 > change. Ranking at episode granularity, same budget and same packing policy,
-> raises any-evidence recall 396 -> 445 of 470 with **49 gains and 0 losses**,
+> raises any-evidence recall 396 -> 445 of 465 evaluated items with **49 gains and 0 losses**,
 > p < 1e-5, at zero model calls. The discriminator was fixed in advance: the
 > cosine rank of the true evidence episode is 2 of ~229 on items already
 > reached and 41 on the misses, so dilution is confirmed as dominant and
-> similarity failure remains a residual on 25 items. Nothing here is registered
+> similarity failure remains a measured residual on 20 items; five more lacked
+> turn-level labels and were not ranked. Nothing here is registered
 > and `AGENTS.md` §9.4 applies. A first pass reported this as a 45-item
 > regression by comparing evidence *episodes* against evidence *sessions*; the
 > error is recorded and `pack()` now returns both units.
@@ -333,7 +334,7 @@ Runs use a scripted 120-turn conversation with facts planted at known positions 
 | DMR-001C | Sealed confirmation of the relative drift rule | G5 FAIL; G4 CONFIRMED | On 50 unread LongMemEval haystacks the frozen rule held its fire rate at a 1.67x p95/p05 ratio, confirming transfer. Precision .837 against a .186 base rate, but recall .253 and macro F1 .387 lost to periodic chopping at .606. min_event_size, not the threshold, is the binding constraint |
 | DMR-004 | Deterministic query-obligation compiler | STOP; NO_MECHANICAL_SUFFICIENCY_SIGNAL | On 180 sealed queries labelled by two blind raters, Youden's J was .320 against a bar of .50 and the false-finite rate .188 against .15. LOOKUP recall .800, span integrity 1.000 and marker independence 0-of-48 passed. 12 of 31 misses are "which happened first, A or B", a bounded obligation the registered class set cannot name |
 | NF-002 | Candidate granularity under a binding budget | CARRIES_SIGNAL; CHARACTERIZED | Episodes instead of sessions raise any-evidence recall 380->396/470 and all-evidence 210->261, same ranking and budget. Holdout 14 gains/6 losses, p=.058 against a .05 bar. All six losses are in single-session-assistant, which has zero gains. Novelty filtering recovers 0 of 90 |
-| NF-003 | Ranking granularity under the same budget | PART 1; UNREGISTERED | Ranking episodes by their own cosine instead of inheriting a session rank raises any-evidence recall 396->445/470: 49 gains, 0 losses, p<1e-5, zero model calls. Evidence rank is 2 of ~229 on items already reached and 41 on the misses, so dilution dominates and 25 items remain a similarity residual |
+| NF-003 | Ranking granularity under the same budget | PART 1; UNREGISTERED | On 465 turn-labelled items, ranking episodes by their own cosine instead of inheriting a session rank raises any-evidence recall 396->445: 49 gains, 0 losses, p<1e-5, zero model calls. Dilution dominates; 20 measured misses remain deep-ranked and five items were not ranked |
 | SUP-001 | Explicit supersession lineage and accessibility | FACTUAL PASS; byte-identity criterion withdrawn | Current-only retrieval rose 0/64 to 64/64 with 32/32 unchanged and 64/64 histories. T1 scored 9/9 under numeric-value equivalence, with zero regressions and zero stale natural payloads; no larger run or adoption is automatic |
 
 Full reports live under `experiments/study_NNN/`; external evaluation reports
@@ -627,9 +628,10 @@ NF-002 had left alone. The discriminator was committed in advance and is not
 LongMemEval's own `has_answer` turn flag. On items the previous arm already
 reached, evidence ranks 2 of ~229; on the misses it ranks 41. Dilution is
 confirmed as the dominant mechanism, and ranking episodes by their own cosine
-raises any-evidence recall 396 → 445 of 470 — **49 gains, 0 losses, p < 1e-5,
-zero model calls**. Similarity failure survives as a genuine residual on 25
-items whose evidence is deep even at episode granularity.
+raises any-evidence recall 396 → 445 among 465 evaluated items — **49 gains,
+0 losses, p < 1e-5, zero model calls**. Similarity failure survives as a
+measured residual on 20 deep-ranked items; five additional records lacked
+turn-level labels and were never ranked.
 
 Two integrity notes belong with these numbers. NF-002's `DEVIATION_001` records
 that holdout discordant counts were printed in the same command as development
@@ -642,6 +644,11 @@ NF-003 Part 1's first pass reported the ranking comparison as a 45-item
 regression. It was comparing evidence *episodes* against evidence *sessions* —
 the unit-mismatch failure this program has recorded repeatedly, appearing inside
 the study whose subject is units. `pack()` now returns both measures.
+
+A second unit audit found the reported `445/470` denominator counted five
+unrun treatment items as misses. The paired 49/0 effect is unchanged, but the
+measured comparison is 396/465 to 445/465 and the measured deep-rank residual
+is 20, not 25. `ERRATA.md` and `NF_003_PART1_CORRECTION.md` carry the correction.
 
 See `experiments/components/biological_memory/nf_001/`,
 `experiments/components/biological_memory/nf_002/NF_002_REPORT.md`, and
