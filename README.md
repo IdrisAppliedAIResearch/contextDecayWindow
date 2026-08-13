@@ -2,16 +2,144 @@
 
 ### → [**Read the paper: *Selection, Not Capacity***](paper/PAPER_001.md) · [**Download the PDF**](paper/Selection_Not_Capacity.pdf)
 
-A measured decomposition of retrieval failure across eleven pre-registered
-efforts, what survived them, and why. Opens with a one-page executive summary;
-every claim carries its committed artifact, and one headline number
-[reproduces in a clean environment](paper/REPRODUCTION.md). Draft.
+*Idris Applied AI Research — independent, non-profit. Failures are published with the results.*
 
 ---
 
+## Executive Summary
+
+**The question.** A long conversation forces a bad trade. Keep the whole
+transcript and the model slows down and loses the middle. Summarise it and the
+details are gone for good. This repository tests a third option: store every
+exchange as an episode, and rebuild a small, relevant context from scratch on
+every turn.
+
+**How it is tested.** Eleven pre-registered studies on a scripted 120-turn
+conversation with facts planted at known positions, scored against a rubric
+locked since Study 002 — plus component work on an extracted library, and
+external calibration against LongMemEval. Each study adds one memory component
+and fixes the previous study's documented failures. Designs are committed before
+the run, gates are binding, and results are published as found, including the
+ones that killed the thing being tested.
+
+**Four findings carry the work.**
+
+1. **The model is not the bottleneck.** At the hardest probe it used 10 of 10
+   delivered facts and invented none. What fails is delivery — what reaches the
+   context window, not what the model does with it once it arrives.
+
+2. **Selection, not capacity.** Budget was never the binding constraint. All 17
+   target facts fit in 7,592 characters of a 32,000-character window, and the
+   minimum for the breadth bar is 5,058. What binds is *which* candidates get
+   chosen and *in what order* they are packed. On the internal corpus the
+   similarity tier delivered zero episodes at all eight probes because recency
+   consumed the entire budget first.
+
+3. **The unit beats the cleverness.** The largest measured effects in the
+   program come from changing what a candidate *is*, not from smarter scoring.
+   Packing episodes instead of sessions gained 16 items; ranking at episode
+   granularity instead of inheriting a session's rank gained 49 with zero
+   losses. Over the same period, novelty filtering, associative graph frontiers,
+   extractive spans, and temporal-adjacency bridges each returned null or
+   harmful.
+
+4. **The live instrument is coarser than most verdicts placed on it.** Five
+   byte-identical replicates of one configuration scored 8.0, 8.0, 8.0, 8.0 and
+   11.0 on a 13-point rubric. Any live scored contrast under 3.0 points is *not
+   demonstrated* — which re-reads several of this program's own verdicts, in
+   both directions. Offline results are untouched by this: delivery counts,
+   episode identities and character accounting are counts, not scores, and they
+   reproduce exactly.
+
+**The honest limit.** The breadth question requires 14 of 17 facts. The best
+configuration reaches 12, all four domains, at 31,569 characters. That gap is a
+selection failure that has been characterized rather than tuned away.
+
+---
+
+## Current State of Work
+
+*Last updated 2026-08-13, at merge of
+[PR #55](https://github.com/IdrisAppliedAIResearch/contextDecayWindow/pull/55).*
+
+**The deployable component is done.** `episodic/` is an installable library with
+a public store, report, config and embedding-cache API. Extraction is certified
+behavior-preserving against committed artifacts rather than assumed; the budget
+is an enforced ceiling; `append()` is durable against real process kills; and the
+vector cache retains exact float32 bytes and refuses read-only misses.
+
+**The 120-turn live arc is retired for fine contrasts.** Its measured run-to-run
+band is 3.0 points on 13, and the runtime is not bit-reproducible — the same
+prompt at the same seed can produce a different answer. New work is offline,
+where results are counts and identities.
+
+**Deterministic memory retrieval (DMR) arc — 6 specifications, 4 run.**
+
+| stage | state |
+|---|---|
+| DMR-001 event formation | stopped at G3; the size cap became the partitioner |
+| DMR-001B adaptive drift | passes all gates, no sealed holdout, characterized |
+| DMR-001C sealed confirmation | transfer confirmed on 50 real conversations; boundary claim fails on recall |
+| DMR-004 query-obligation compiler | stopped on its sealed holdout; J .320 against a .50 bar |
+| DMR-002, DMR-003 | **runnable** — cleared by a blocking review; both consume the frozen DMR-001B former and neither needs the boundary claim that failed |
+| DMR-005, DMR-006 | blocked by their own dependency lines |
+
+**Novelty-floor (NF) diagnostic line — offline, on LongMemEval, zero model
+calls.**
+
+- **NF-001** stopped on the instrument, not the mechanism: never-stop was optimal
+  under the tested rule, so the rule could not be measured.
+- **NF-002** built an instrument that prices displacement, and found novelty
+  filtering to be a measured null while the *unit* gained 16 items.
+  `CARRIES_SIGNAL`, capped at `CHARACTERIZED` by a recorded deviation.
+- **NF-003 Part 1** ranked at episode granularity: any-evidence recall 396 → 445
+  of 470, **49 gains and 0 losses**, p < 1e-5. This is unregistered exploration,
+  not a result.
+
+**One constraint governs that whole line.** Every LongMemEval item has now been
+used by this program, so nothing in it can be *confirmed* on that corpus.
+Characterization is the ceiling until a corpus arrives that this work has never
+touched.
+
+---
+
+## Next Steps
+
+1. **Register NF-003 and run it for the record.** It is the largest zero-model-call
+   effect measured in this program, and it currently exists only as exploration.
+   Registering it accepts the `CHARACTERIZED` ceiling up front; the alternative is
+   leaving a 49-gain, zero-loss result with no locked design behind it.
+
+2. **Acquire a corpus this program has never touched.** This is the only step
+   that lifts the ceiling above characterization, and it is the one that needs
+   authorization, since it means a new external dataset.
+
+3. **Run DMR-002 on the frozen DMR-001B former.** The blocking review cleared it.
+   It is the arc's next real stage and it is unblocked today.
+
+4. **Decide what to do about the H2 residual.** 25 of 470 items have evidence
+   that sits deep in the ordering even at episode granularity. No unit or packing
+   change reaches them. That is where a similarity or composition mechanism would
+   have to earn its place — and it is a proposal, not a plan.
+
+---
+---
+
+# For LLM Context
+
+**Everything below this line is the full record.** It is written for an agent
+picking up this work with no prior context, and it is deliberately dense: every
+claim carries its numbers and its artifact path so that a result can be checked
+without opening the study. It is not meant to be read top to bottom by a human.
+
+Start with `AGENTS.md` — it is the operating manual and the study digest — and
+read `ERRATA.md` before quoting any number.
+
+## Status Ledger
+
 **Can a language model hold a long conversation by rebuilding a small, relevant context every turn, instead of re-reading the whole transcript or summarising it away?**
 
-Ten pre-registered studies test that question, each adding one memory component and fixing the prior study's documented failures. Every result is published as found.
+Eleven pre-registered studies test that question, each adding one memory component and fixing the prior study's documented failures. Every result is published as found.
 
 > **Status:** Study 010 stopped at G2; exploratory continuation unaudited and LTM budget-noncompliant | retrieval bakeoff complete | retrieval mechanism ledger reopened for Family CS; E005 is killed by LV-001's live targeted-regression bar, DX-001 closes NO CHANGE, RD-001 stops before correlation because unchanged rarity scores cover only 6/76 fact-bearing episodes, and chained retrieval Rev5 is CHARACTERIZED offline at 9/17 versus X0 6/17 but misses art 0/4 and has no targeted no-regression arm | EC-001 LongMemEval complete: inversion not dominant, Codex-substituted score only | EC-002 complete: K-first packing raises any-session recall 109/470 -> 261/470 offline; no production promotion authorized | IC-001 Branch A: the same gate is closed internally — K delivered nothing at 8/8 probes under the deployed order; Q11 6/17 -> 7/17, targeted 14/21 -> 18/21, zero losses; cache clause substituted under authorized Amendment 001; no recalibration authorized | Study 011 tests both halves live and splits them: the deployed arm scores identically to recency-only on all 13 questions, so the similarity tier is inert in deployment, but K-first raises availability and scores 7.0 vs 8.0 — B1 FAILS and the packing correction is not adopted; post-unseal analysis finds the N tier is a least-recently-delivered rotation over the whole store, not a recency window, and that the rule every live run through Study 010 used was a block locked onto the conversation's first nine turns; three different rules carry that name and only the extracted library's is a window | Amendment 001 authorized and run: the instrument's run-to-run band is **3.0 points on 13**, measured by five identical arm-D replicates that score 8.0, 8.0, 8.0, 8.0 and 11.0 — a switch, not a spread, since four are byte-identical across 121 turns and the one meeting an empty server slot diverges at turn 1; Study 009's 3.0, LV-001's -2.0 and Study 011's -1.0 are all re-read as **not demonstrated**, while every offline count is untouched and B1 stays fired | CC-002 extracts the deployable component into `episodic`; CC-006 adds exact hashed vector-cache reuse | PS-001 CHARACTERIZED: the selected sparse cell stores and recovers 119/119 codes through 50% registered swaps | PS-002 stops at Part 1: best natural-language binder reaches stored codes in 190/192 rounds but retains one cycle and one spurious fixed point, so labels, answers, and live scoring are not entered | deployment closeout complete | PAPER-001 revised through Study 011 | scoring/interpretation record corrected through 2026-08-05
 
@@ -99,6 +227,19 @@ Ten pre-registered studies test that question, each adding one memory component 
 > the 90-item headroom at every floor. 89 of 90 baseline misses have evidence
 > within reach at median rank 7, skipped on cost. `DEVIATION_001` caps this at
 > characterization: the holdout counts were seen before the bars were locked.
+
+> **NF-003 status:** `PART 1 COMPLETE - UNREGISTERED EXPLORATION`. NF-002 changed
+> the packing unit and left the ranking unit alone, so episodes still inherited
+> their session's rank; 74 of 90 baseline misses survived every unit and packing
+> change. Ranking at episode granularity, same budget and same packing policy,
+> raises any-evidence recall 396 -> 445 of 470 with **49 gains and 0 losses**,
+> p < 1e-5, at zero model calls. The discriminator was fixed in advance: the
+> cosine rank of the true evidence episode is 2 of ~229 on items already
+> reached and 41 on the misses, so dilution is confirmed as dominant and
+> similarity failure remains a residual on 25 items. Nothing here is registered
+> and `AGENTS.md` §9.4 applies. A first pass reported this as a 45-item
+> regression by comparing evidence *episodes* against evidence *sessions*; the
+> error is recorded and `pack()` now returns both units.
 
 > **SAL-001 status:** `NO_INDEPENDENT_PROXIMITY - CHARACTERIZED`. On 92
 > held-out LongMemEval sessions, adjusted neighbor AUC is 0.416 (95% interval
@@ -192,6 +333,7 @@ Runs use a scripted 120-turn conversation with facts planted at known positions 
 | DMR-001C | Sealed confirmation of the relative drift rule | G5 FAIL; G4 CONFIRMED | On 50 unread LongMemEval haystacks the frozen rule held its fire rate at a 1.67x p95/p05 ratio, confirming transfer. Precision .837 against a .186 base rate, but recall .253 and macro F1 .387 lost to periodic chopping at .606. min_event_size, not the threshold, is the binding constraint |
 | DMR-004 | Deterministic query-obligation compiler | STOP; NO_MECHANICAL_SUFFICIENCY_SIGNAL | On 180 sealed queries labelled by two blind raters, Youden's J was .320 against a bar of .50 and the false-finite rate .188 against .15. LOOKUP recall .800, span integrity 1.000 and marker independence 0-of-48 passed. 12 of 31 misses are "which happened first, A or B", a bounded obligation the registered class set cannot name |
 | NF-002 | Candidate granularity under a binding budget | CARRIES_SIGNAL; CHARACTERIZED | Episodes instead of sessions raise any-evidence recall 380->396/470 and all-evidence 210->261, same ranking and budget. Holdout 14 gains/6 losses, p=.058 against a .05 bar. All six losses are in single-session-assistant, which has zero gains. Novelty filtering recovers 0 of 90 |
+| NF-003 | Ranking granularity under the same budget | PART 1; UNREGISTERED | Ranking episodes by their own cosine instead of inheriting a session rank raises any-evidence recall 396->445/470: 49 gains, 0 losses, p<1e-5, zero model calls. Evidence rank is 2 of ~229 on items already reached and 41 on the misses, so dilution dominates and 25 items remain a similarity residual |
 | SUP-001 | Explicit supersession lineage and accessibility | FACTUAL PASS; byte-identity criterion withdrawn | Current-only retrieval rose 0/64 to 64/64 with 32/32 unchanged and 64/64 histories. T1 scored 9/9 under numeric-value equivalence, with zero regressions and zero stale natural payloads; no larger run or adoption is automatic |
 
 Full reports live under `experiments/study_NNN/`; external evaluation reports
@@ -460,6 +602,51 @@ reproduce exactly.
 
 See `experiments/study_011/study_011_report.md`.
 
+## The Novelty-Floor Diagnostic Line
+
+NF-001 asked whether a marginal-novelty floor could stop a retrieval chain
+before it packed redundant material. It stopped on the instrument rather than
+the mechanism: under the tested rule never stopping was optimal, so the rule
+could not be measured at all. `AGENTS.md` §9.2 requires that distinction to be
+stated, and this is the case it was written for.
+
+NF-002 built an instrument that prices displacement — under a truncating budget
+a candidate taken displaces one not taken — and asked the novelty question
+again on 470 LongMemEval items at a 32,000-character budget with 14.5×
+oversubscription. **Marginal novelty filtering is a measured null** at every
+floor from .05 to .50, recovering none of the 90-item headroom and doing harm
+above it. What moved was the candidate unit: packing episodes rather than
+sessions raised any-evidence recall 380 → 396 and all-evidence 210 → 261. The
+mechanism is size, not staleness — 89 of 90 baseline misses had evidence within
+reach at median rank 7 and were skipped because a 13–23k character session
+could not fit once ranks 1–6 ate the budget.
+
+NF-003 Part 1 then separated the *ranking* unit from the packing unit, which
+NF-002 had left alone. The discriminator was committed in advance and is not
+"try it and see": the cosine rank of the true evidence episode, identified by
+LongMemEval's own `has_answer` turn flag. On items the previous arm already
+reached, evidence ranks 2 of ~229; on the misses it ranks 41. Dilution is
+confirmed as the dominant mechanism, and ranking episodes by their own cosine
+raises any-evidence recall 396 → 445 of 470 — **49 gains, 0 losses, p < 1e-5,
+zero model calls**. Similarity failure survives as a genuine residual on 25
+items whose evidence is deep even at episode granularity.
+
+Two integrity notes belong with these numbers. NF-002's `DEVIATION_001` records
+that holdout discordant counts were printed in the same command as development
+counts before the bars were locked; the disposition is capped at
+`CHARACTERIZED` and the split was deliberately not redrawn. And because every
+LongMemEval item has now been used, **no confirmatory claim is available from
+that corpus again** — a registration written today inherits that ceiling.
+
+NF-003 Part 1's first pass reported the ranking comparison as a 45-item
+regression. It was comparing evidence *episodes* against evidence *sessions* —
+the unit-mismatch failure this program has recorded repeatedly, appearing inside
+the study whose subject is units. `pack()` now returns both measures.
+
+See `experiments/components/biological_memory/nf_001/`,
+`experiments/components/biological_memory/nf_002/NF_002_REPORT.md`, and
+`experiments/components/biological_memory/nf_003/NF_003_PART1_RECORD.md`.
+
 ## The Extracted Library
 
 CC-002 moved the deployable memory component into `episodic/`, an
@@ -557,6 +744,24 @@ recompute under the registered `characters // 4` estimator, with L peaking at
 
 See `experiments/components/rendering_expansion/DR_001_report.md`.
 
+## Repository Integrity
+
+The suite carries integrity gates that hash committed artifacts against
+registered SHA-256 constants. Fourteen of them failed unconditionally for an
+extended period, and the cause was not drift in the artifacts: most constants
+were recorded on LF bytes while `core.autocrlf=true` rewrites those files to
+CRLF on Windows checkout, and a minority were recorded on CRLF by studies that
+happened to run under it. Two incompatible hashing conventions coexist, so no
+single global setting satisfies both. `.gitattributes` now pins each hashed
+file to the rendering its own constant expects — 400 LF and 59 CRLF.
+
+The cost was not fourteen red tests but fourteen disabled gates: TA-001,
+BA-001 and PS-003's checks could not have detected real drift, and one real
+drift was sitting behind them. `HYPOTHETICAL_001_MECHANICAL_BIOLOGICAL_MEMORY_MODEL.md`
+is frozen at 17,186 bytes by BA-001 and 17,505 by SR-001 and TA-001, and had
+been expanded twice to 30,900. That anchor is updated with an explanatory
+comment; no committed artifact content was changed.
+
 ## What We Learned
 
 **The model uses what it receives.** At the hardest probe it used 10 of 10 available facts and invented none. Failures were delivery failures.
@@ -568,6 +773,8 @@ See `experiments/components/rendering_expansion/DR_001_report.md`.
 **Offline gates save expensive runs.** Study 008 stopped before inference because replay proved no registered configuration could work.
 
 **Measurements can be unwinnable.** The breadth question requires 14 of 17 facts, while only 11 are reachable in the current architecture.
+
+**The unit is a lever, and it is usually checked last.** Count-based budgets break silently when the unit changes size; a candidate whose median member is half the budget cannot be selected into it; and comparing a count in one unit against a count in another has produced spurious results inside this program more than once.
 
 ## Reading This Repository
 
@@ -583,6 +790,8 @@ Also read:
 - `ERRATA.md` before quoting any number.
 - `experiments/audits/scoring_integrity/` for the 2026-07-26 corpus audit.
 - `AGENTS.md` before contributing; it is the operating manual and study digest.
+  §9, *Reading a Result*, governs how a stop, a weak signal, and an instrument
+  failure are each to be reported.
 
 ## Corrected Numbers
 
@@ -603,5 +812,12 @@ corrected series.
 ## Runtime
 
 Local inference uses llama.cpp with Qwen3.6 27B UD-Q6_K_XL, one slot, fixed seed, and speculative decoding disabled. Embeddings use Qwen3-Embedding-0.6B; storage uses SQLite and sqlite-vec. Exact flags are registered per study and recorded in run headers.
+
+The runtime is not bit-reproducible: the same prompt at the same seed can
+produce a different answer, so the program's standing byte-identical-rerun rule
+cannot be satisfied here. Offline results — counts, identities, character
+accounting — reproduce exactly.
+
+---
 
 *Idris Applied AI Research | independent, non-profit | failures published with the results*
