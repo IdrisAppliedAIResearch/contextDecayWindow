@@ -79,7 +79,7 @@ where results are counts and identities.
 | DMR-001B adaptive drift | passes all gates, no sealed holdout, characterized |
 | DMR-001C sealed confirmation | transfer confirmed on 50 real conversations; boundary claim fails on recall |
 | DMR-004 query-obligation compiler | stopped on its sealed holdout; J .320 against a .50 bar |
-| DMR-002, DMR-003 | **runnable** — cleared by a blocking review; both consume the frozen DMR-001B former and neither needs the boundary claim that failed |
+| DMR-002, DMR-003 | upstream dependency cleared, but **not executable yet** — both remain design-only with no Part 1 or pre-registration |
 | DMR-005, DMR-006 | blocked by their own dependency lines |
 
 **Novelty-floor (NF) diagnostic line — offline, on LongMemEval, zero model
@@ -101,6 +101,13 @@ calls.**
   871 unique questions, strict exact-evidence delivery rose 820 → 855 with
   **44 gains and 9 losses**; all four development conversations were positive.
   This is exploration only, with no locked bars or disposition.
+- **Budget controls** reject the slack-budget explanation and a universal
+  binding-ratio rule. At 32k, LoCoMo source/session/pair all-evidence is
+  279/773/826; LongMemEval all-evidence changes sign between 16k and 24k while
+  LoCoMo remains positive at overlapping ratios.
+- **NF-004** is pre-registered at `c9d55b71`: 1,098 sealed LoCoMo questions,
+  16k, complete exact evidence, pair ranking versus session-score inheritance.
+  The holdout has not run.
 
 **One constraint governs that whole line.** Every LongMemEval item has now been
 used by this program, so nothing in it can be *confirmed* on that corpus.
@@ -112,12 +119,11 @@ for a confirmatory successor.
 
 ## Next Steps
 
-1. **Register the LoCoMo successor before opening its holdout.** Lock the claim,
-   exact-evidence endpoint, canonical-QA deduplication, both disposition bars,
-   and live answer-quality stage. Six conversations remain sealed until then.
+1. **Execute NF-004's preflight before opening its holdout.** Capture and seal
+   holdout vectors, run G0-G5, and commit the passing preflight before G6.
 
-2. **Run DMR-002 on the frozen DMR-001B former.** The blocking review cleared it.
-   It is the arc's next real stage and it is unblocked today.
+2. **Write DMR-002 Part 1 and its final pre-registration before implementation.**
+   The former is upstream-cleared, but the only spec still forbids execution.
 
 3. **Revisit similarity only after the registered LoCoMo holdout.** NF-003's
    session-touch metric obscured 63 strict losses, so its old H2 residual cannot
@@ -154,17 +160,18 @@ Eleven pre-registered studies test that question, each adding one memory compone
 > and T1 9/9 with zero regressions. Explicit supersession passes integration;
 > broader live evaluation remains a separate decision.
 
-> **DMR arc status:** `STOPPED AT DMR-001 AND DMR-004; DMR-002/003 RUNNABLE`.
+> **DMR arc status:** `DMR-002/003 UPSTREAM-CLEARED; NOT PRE-REGISTERED`.
 > Six implementation specifications separate event formation, typed pattern
 > completion, encoding-context recurrence, query-obligation compilation,
 > deterministic route control, and single-reader validation. DMR-001 stopped at
 > G3 and DMR-004 stopped on its sealed holdout. A blocking review
 > (`DMR_ARC_BLOCKING_REVIEW.md`) re-read every dependency line and found two
-> stages had been blocked in error: DMR-002 and DMR-003 consume the frozen
+> stages had been blocked upstream in error: DMR-002 and DMR-003 consume the frozen
 > DMR-001B former, whose operating point DMR-001C confirmed on a sealed
 > holdout, and neither needs the boundary claim that failed. DMR-005 remains
-> blocked by its own dependency line, since DMR-004 produced no passing plans,
-> and DMR-006 needs DMR-005. The roadmap starts at
+> blocked by its own dependency line, since DMR-004 produced no passing plans.
+> Both cleared stages remain design-only and cannot execute before Part 1 and
+> final pre-registration, and DMR-006 needs DMR-005. The roadmap starts at
 > `experiments/components/biological_memory/deterministic_retrieval/DMR_ARC_IMPLEMENTATION_ROADMAP.md`.
 
 > **DMR-001 status:** `DEGENERATE_FORMATION - G3 FAIL - CHARACTERIZED`. On the
@@ -253,6 +260,19 @@ Eleven pre-registered studies test that question, each adding one memory compone
 > positive. Session-touch hides all nine strict losses. No bars or disposition
 > were registered; six holdout conversations remain unopened.
 
+> **LoCoMo control status:** `COMPLETE - CORPUS-SPECIFIC REGISTRATION
+> JUSTIFIED`. At 32k, source/session/pair complete-evidence delivery is
+> 279/773/826. Pair ranking beats session ranking at every truncated LoCoMo
+> budget, while LongMemEval complete-evidence crosses sign between 16k and 24k.
+> Opposite signs occur at overlapping binding ratios, so ratio alone does not
+> transfer. Zero model calls; byte-identical replay.
+
+> **NF-004 status:** `PRE-REGISTERED - HOLDOUT NOT RUN`. Registration
+> `c9d55b71` fixes 1,098 fully resolvable sealed LoCoMo questions, a 16k budget,
+> complete exact evidence, and pair ranking versus session-score inheritance.
+> WORKS requires gains >= 2x losses and p <= .05; CARRIES_SIGNAL requires gains
+> > losses and p <= .20. Availability only; no live or adoption claim follows.
+
 > **SAL-001 status:** `NO_INDEPENDENT_PROXIMITY - CHARACTERIZED`. On 92
 > held-out LongMemEval sessions, adjusted neighbor AUC is 0.416 (95% interval
 > 0.351-0.484; one-sided p=0.991), raw AUC 0.300, prior 0.399, and next 0.477.
@@ -340,14 +360,16 @@ Runs use a scripted 120-turn conversation with facts planted at known positions 
 | TA-001 | Radius-1 temporal-adjacency bridge | G5 FAIL; CHARACTERIZED | Q11 packed facts rose 7/17 to 9/17 and art 0/4 to 4/4, but targeted queries had 6 losses versus 2 gains; no ablation or live run |
 | SR-001 | Source-rank-preserving extractive spans | G3 FAIL; CHARACTERIZED | Fixed-rank spans reduced Q11 8/17 to 4/17 and targeted matched facts 19 to 17, with zero gains. BA-001's span signal came from span-level ranking, not representation alone |
 | SAL-001 | Independent surprisal-proximity diagnostic | G2 FAIL; CHARACTERIZED | Adjusted neighbor AUC was 0.416, raw 0.300, prior 0.399, and next 0.477. Own-exchange surprisal was 0.621 posthoc, so surprise marked content locally but did not transfer value to temporal neighbors |
-| DMR-001 | Online event-context formation over pinned embeddings | G3 FAIL; DEGENERATE_FORMATION; CHARACTERIZED | The size cap, not the drift detector, did the partitioning: 52 of 74 holdout events closed on `max_event_size` and matched no annotation, while all 20 drift boundaries matched one. The locked threshold fires on 18.5% of development episodes and 1.2% of holdout episodes, so drift has no transferable scale. DMR-002 through DMR-006 are blocked |
-| DMR-001B | Adaptive drift event formation | PASS; CHARACTERIZED | A percentile-of-recent-drift bar held the cross-corpus fire-rate swing at 1.42-1.65x where the fixed threshold swung tenfold, and the size cap never bound. Worst-family agreement .419 to .487; the 1,000-turn family fell .733 to .583. No sealed holdout, ordering deviation recorded, DMR-002 still blocked |
+| DMR-001 | Online event-context formation over pinned embeddings | G3 FAIL; DEGENERATE_FORMATION; CHARACTERIZED | The size cap, not the drift detector, did the partitioning: 52 of 74 holdout events closed on `max_event_size` and matched no annotation, while all 20 drift boundaries matched one. The locked threshold fires on 18.5% of development episodes and 1.2% of holdout episodes, so drift has no transferable scale. Its original absolute rule is closed |
+| DMR-001B | Adaptive drift event formation | PASS; CHARACTERIZED | A percentile-of-recent-drift bar held the cross-corpus fire-rate swing at 1.42-1.65x where the fixed threshold swung tenfold, and the size cap never bound. Worst-family agreement .419 to .487; the 1,000-turn family fell .733 to .583. Its frozen former clears DMR-002/003's upstream dependency, not their missing registrations |
 | DMR-001C | Sealed confirmation of the relative drift rule | G5 FAIL; G4 CONFIRMED | On 50 unread LongMemEval haystacks the frozen rule held its fire rate at a 1.67x p95/p05 ratio, confirming transfer. Precision .837 against a .186 base rate, but recall .253 and macro F1 .387 lost to periodic chopping at .606. min_event_size, not the threshold, is the binding constraint |
 | DMR-004 | Deterministic query-obligation compiler | STOP; NO_MECHANICAL_SUFFICIENCY_SIGNAL | On 180 sealed queries labelled by two blind raters, Youden's J was .320 against a bar of .50 and the false-finite rate .188 against .15. LOOKUP recall .800, span integrity 1.000 and marker independence 0-of-48 passed. 12 of 31 misses are "which happened first, A or B", a bounded obligation the registered class set cannot name |
 | NF-002 | Candidate granularity under a binding budget | CARRIES_SIGNAL; CHARACTERIZED | Episodes instead of sessions raise any-evidence recall 380->396/470 and all-evidence 210->261, same ranking and budget. Holdout 14 gains/6 losses, p=.058 against a .05 bar. All six losses are in single-session-assistant, which has zero gains. Novelty filtering recovers 0 of 90 |
 | NF-003 | Ranking granularity under the same budget | PREFLIGHT SURROGATE FAIL; UNREGISTERED | Session-touch reproduces 396->445 and 49/0, but 94 treatment hits contain no answer episode. Strict delivery falls 388->351: 26 gains, 63 losses. Five items lack turn labels. Proposed registration closed before lock |
 | NF-003 three-arm synthesis | Ranking and packing granularity on one strict measure | CHARACTERIZED | Session/session 375, session/episode 388, episode/episode 351 on the same 465 items. Fine packing is +13; fine ranking is -37. Coarse-rank rescues have median own-cosine rank 46. Observed rule: rank coarse, pack fine |
 | LoCoMo development | Ranking granularity on an untouched-corpus development split | DEVELOPMENT SIGNAL; HOLDOUT SEALED | On 871 unique questions, strict evidence delivery rises 820->855 with 44 gains/9 losses; complete evidence rises 773->826 with 71/18. All four development conversations are net positive. No registered bars or disposition; six conversations remain sealed |
+| LoCoMo budget controls | Source-order null and fixed budget sweeps | COMPLETE; DEVELOPMENT ONLY | Source/session/pair complete evidence is 279/773/826 at 32k. Pair ranking stays positive at every truncated LoCoMo budget; LongMemEval complete evidence crosses between 16k and 24k. Binding ratio alone does not transfer |
+| NF-004 | LoCoMo ranking-granularity confirmation | PRE-REGISTERED; HOLDOUT NOT RUN | Registration c9d55b71 fixes 1,098 fully resolvable QAs, 16k, complete evidence, pair ranking versus session-score inheritance, inherited WORKS/CARRIES_SIGNAL bars, and no live-verdict boundary |
 | SUP-001 | Explicit supersession lineage and accessibility | FACTUAL PASS; byte-identity criterion withdrawn | Current-only retrieval rose 0/64 to 64/64 with 32/32 unchanged and 64/64 histories. T1 scored 9/9 under numeric-value equivalence, with zero regressions and zero stale natural payloads; no larger run or adoption is automatic |
 
 Full reports live under `experiments/study_NNN/`; external evaluation reports
