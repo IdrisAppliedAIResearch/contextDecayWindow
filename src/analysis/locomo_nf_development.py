@@ -10,6 +10,7 @@ from __future__ import annotations
 import hashlib
 import importlib.metadata
 import json
+import math
 import re
 from collections import Counter
 from dataclasses import dataclass
@@ -321,6 +322,71 @@ def _paired(rows: Sequence[dict[str, Any]], baseline: str, treatment: str) -> di
     return {"gains": gains, "losses": losses, "ties": len(rows) - gains - losses}
 
 
+def _exact_sign_p(gains: int, losses: int) -> float:
+    discordant = gains + losses
+    if discordant == 0:
+        return 1.0
+    tail = sum(
+        math.comb(discordant, index)
+        for index in range(min(gains, losses) + 1)
+    )
+    return min(1.0, 2.0 * tail / (2**discordant))
+
+
+def _strict_summary(rows: Sequence[dict[str, Any]]) -> dict[str, Any]:
+    paired = _paired(rows, "baseline_any_answer_pair", "treatment_any_answer_pair")
+    return {
+        "n": len(rows),
+        "baseline_hits": sum(row["baseline_any_answer_pair"] for row in rows),
+        "treatment_hits": sum(row["treatment_any_answer_pair"] for row in rows),
+        "paired": paired,
+        "exact_sign_p_two_sided": _exact_sign_p(
+            paired["gains"], paired["losses"]
+        ),
+    }
+
+
+def _distribution(values: Iterable[int]) -> dict[str, int]:
+    ordered = sorted(values)
+    if not ordered:
+        raise LocomoDevelopmentError("Cannot summarize an empty distribution")
+
+    def nearest_rank(percentile: float) -> int:
+        return ordered[max(0, math.ceil(percentile * len(ordered)) - 1)]
+
+    return {
+        "min": ordered[0],
+        "p50": nearest_rank(0.50),
+        "p95": nearest_rank(0.95),
+        "max": ordered[-1],
+    }
+
+
+def _candidate_structure(
+    conversations: Sequence[ConversationCase],
+) -> dict[str, Any]:
+    pairs = [pair for case in conversations for pair in case.pairs]
+    questions = [question for case in conversations for question in case.questions]
+    singleton_dialog_ids = {
+        pair.dialog_ids[0] for pair in pairs if len(pair.dialog_ids) == 1
+    }
+    return {
+        "sessions": len({(pair.sample_id, pair.session_id) for pair in pairs}),
+        "dialogue_turns": sum(len(pair.dialog_ids) for pair in pairs),
+        "singleton_pairs": sum(len(pair.dialog_ids) == 1 for pair in pairs),
+        "resolved_evidence_references_to_singleton_pairs": sum(
+            evidence_id in singleton_dialog_ids
+            for question in questions
+            for evidence_id in question.resolved_evidence_ids
+        ),
+        "questions_with_resolved_evidence_in_singleton_pairs": sum(
+            bool(set(question.resolved_evidence_ids) & singleton_dialog_ids)
+            for question in questions
+        ),
+        "pair_chars": _distribution(pair.chars for pair in pairs),
+    }
+
+
 def analyse(
     conversations: Sequence[ConversationCase], cache_path: Path, vector_manifest: dict[str, Any]
 ) -> dict[str, Any]:
@@ -401,30 +467,50 @@ def analyse(
                 )
         reuse_record = cache.record()
 
+    unique_rows = [row for row in rows if row["duplicate_ordinal"] == 0]
     by_category: dict[str, Any] = {}
-    for category in sorted({row["category"] for row in rows}):
-        group = [row for row in rows if row["category"] == category]
+    for category in sorted({row["category"] for row in unique_rows}):
+        group = [row for row in unique_rows if row["category"] == category]
         by_category[category] = {
             "n": len(group),
             "strict_any": _paired(
                 group, "baseline_any_answer_pair", "treatment_any_answer_pair"
             ),
         }
+    all_evidence_rows = [row for row in unique_rows if row["all_evidence_evaluable"]]
+    all_evidence_paired = _paired(
+        all_evidence_rows, "baseline_all_answer_pairs", "treatment_all_answer_pairs"
+    )
+    by_conversation = {
+        sample_id: _strict_summary(
+            [row for row in unique_rows if row["sample_id"] == sample_id]
+        )
+        for sample_id in sorted({row["sample_id"] for row in unique_rows})
+    }
     return {
         "schema": SCHEMA,
         "status": "DEVELOPMENT_EXPLORATION_ONLY",
         "inventory": inventory(conversations),
+        "candidate_structure": _candidate_structure(conversations),
         "arms": {
             "baseline": "pairs inherit max constituent-pair cosine of their session",
             "treatment": "pairs rank by their own cosine",
             "packing": "32000-char skip-on-overflow over identical pair candidates",
             "primary_measure": "at least one pair containing an exact evidence dia_id",
         },
-        "strict_any": {
-            "baseline_hits": sum(row["baseline_any_answer_pair"] for row in rows),
-            "treatment_hits": sum(row["treatment_any_answer_pair"] for row in rows),
-            "paired": _paired(
-                rows, "baseline_any_answer_pair", "treatment_any_answer_pair"
+        "strict_any": _strict_summary(rows),
+        "unique_question_strict_any": _strict_summary(unique_rows),
+        "all_evidence": {
+            "evaluable_unique_questions": len(all_evidence_rows),
+            "baseline_all_hits": sum(
+                row["baseline_all_answer_pairs"] for row in all_evidence_rows
+            ),
+            "treatment_all_hits": sum(
+                row["treatment_all_answer_pairs"] for row in all_evidence_rows
+            ),
+            "paired": all_evidence_paired,
+            "exact_sign_p_two_sided": _exact_sign_p(
+                all_evidence_paired["gains"], all_evidence_paired["losses"]
             ),
         },
         "session_touch": {
@@ -440,7 +526,45 @@ def analyse(
                 for row in rows
             ),
         },
-        "by_category": by_category,
+        "session_touch_unique_questions": {
+            "baseline_hits": sum(
+                row["baseline_session_touch"] for row in unique_rows
+            ),
+            "treatment_hits": sum(
+                row["treatment_session_touch"] for row in unique_rows
+            ),
+            "paired": _paired(
+                unique_rows, "baseline_session_touch", "treatment_session_touch"
+            ),
+            "baseline_false_hits": sum(
+                row["baseline_session_touch"] and not row["baseline_any_answer_pair"]
+                for row in unique_rows
+            ),
+            "treatment_false_hits": sum(
+                row["treatment_session_touch"] and not row["treatment_any_answer_pair"]
+                for row in unique_rows
+            ),
+        },
+        "by_category_unique_questions": by_category,
+        "by_conversation_unique_questions": by_conversation,
+        "delivery_distribution_unique_questions": {
+            arm: _distribution(
+                row[f"{arm}_delivered_pairs"] for row in unique_rows
+            )
+            for arm in ("baseline", "treatment")
+        },
+        "packed_chars_distribution_unique_questions": {
+            arm: _distribution(row[f"{arm}_chars"] for row in unique_rows)
+            for arm in ("baseline", "treatment")
+        },
+        "best_evidence_rank_distribution_unique_questions": {
+            arm: _distribution(
+                row[f"{arm}_best_evidence_rank"]
+                for row in unique_rows
+                if row[f"{arm}_best_evidence_rank"] is not None
+            )
+            for arm in ("baseline", "treatment")
+        },
         "cache": reuse_record,
         "model_calls": 0,
         "embedding_calls": 0,

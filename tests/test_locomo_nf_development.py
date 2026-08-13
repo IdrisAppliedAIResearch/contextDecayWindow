@@ -1,9 +1,12 @@
 from __future__ import annotations
 
 import numpy as np
+import pytest
 
 from analysis.locomo_nf_development import (
     PairCandidate,
+    _distribution,
+    _exact_sign_p,
     pack_indices,
     ranking_orders,
 )
@@ -34,3 +37,18 @@ def test_skip_on_overflow_keeps_scanning() -> None:
     delivered, used = pack_indices(pairs, [0, 1, 2], budget=10)
     assert delivered == [0, 2]
     assert used == 10
+
+
+def test_exact_sign_test_is_two_sided_and_caps_at_one() -> None:
+    assert _exact_sign_p(1, 0) == 1.0
+    assert _exact_sign_p(2, 0) == 0.5
+    assert _exact_sign_p(44, 9) == pytest.approx(1.2208510176137105e-06)
+
+
+def test_distribution_uses_nearest_rank_percentiles() -> None:
+    assert _distribution(range(1, 21)) == {
+        "min": 1,
+        "p50": 10,
+        "p95": 19,
+        "max": 20,
+    }
