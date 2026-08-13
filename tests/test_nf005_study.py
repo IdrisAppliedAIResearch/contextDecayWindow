@@ -3,7 +3,7 @@ from __future__ import annotations
 import numpy as np
 import pytest
 
-from analysis.nf005_measurement import paired_counts
+from analysis.nf005_measurement import identity, paired_counts
 from analysis.nf005_mechanism import (
     Candidate,
     NF005MechanismError,
@@ -103,6 +103,12 @@ def test_non_finite_and_zero_vectors_fail_closed() -> None:
     bad_query[5] = np.nan
     with pytest.raises(NF005MechanismError, match="finite and non-zero"):
         own_score_order(candidates, np.vstack((vector(1),)), bad_query)
+
+
+def test_repeated_corpus_session_labels_gain_distinct_source_identities() -> None:
+    first = identity("question", "0", "repeated-session")
+    second = identity("question", "1", "repeated-session")
+    assert first != second
 
 
 def comparison_rows(gains: int, losses: int, ties: int) -> list[dict]:

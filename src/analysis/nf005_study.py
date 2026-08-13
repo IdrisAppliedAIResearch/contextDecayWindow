@@ -62,6 +62,7 @@ OLD_CACHE_FILE_SHA256 = (
     "e8a31513700a0a5d1cfe34b4703bbe3c8c85dc3ca29188d7cc480c2e2417a7ad"
 )
 MECHANISM = Path("src/analysis/nf005_mechanism.py")
+MEASUREMENT = Path("src/analysis/nf005_measurement.py")
 VECTOR_CACHE = Path(
     "experiments/components/biological_memory/nf_005/artifacts/"
     "nf005_turn_embeddings.db"
@@ -120,6 +121,20 @@ def _committed_identity(path: Path) -> dict[str, Any]:
     return {
         "path": path.as_posix(),
         "first_commit": commit,
+        "sha256": hashlib.sha256(committed).hexdigest(),
+    }
+
+
+def _head_file_identity(path: Path) -> dict[str, Any]:
+    absolute = REPO_ROOT / path
+    committed = subprocess.check_output(
+        ("git", "show", f"HEAD:{path.as_posix()}"), cwd=REPO_ROOT
+    )
+    if committed != absolute.read_bytes():
+        raise NF005GateStop("G4", f"{path} is not committed at HEAD")
+    return {
+        "path": path.as_posix(),
+        "last_commit": _git("log", "-1", "--format=%H", "--", path.as_posix()),
         "sha256": hashlib.sha256(committed).hexdigest(),
     }
 
@@ -304,12 +319,14 @@ def implementation_gate(dataset_path: Path) -> dict[str, Any]:
         for record in records
         for source in (*record.episodes, *record.turns)
     )
-    mechanism_identity = _committed_identity(MECHANISM)
+    mechanism_identity = _head_file_identity(MECHANISM)
+    measurement_identity = _head_file_identity(MEASUREMENT)
     return {
         "pass": len(candidate_ids) == len(set(candidate_ids))
         and parent_links
         and exact_costs,
         "mechanism": mechanism_identity,
+        "measurement": measurement_identity,
         "candidate_identities": len(candidate_ids),
         "unique_candidate_identities": len(set(candidate_ids)),
         "parent_links_exact": parent_links,
