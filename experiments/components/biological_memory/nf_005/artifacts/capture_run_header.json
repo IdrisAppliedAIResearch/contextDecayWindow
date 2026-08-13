@@ -1,0 +1,25 @@
+{
+ "background": true,
+ "command": ".venv\\Scripts\\python.exe -m analysis.nf005_study capture --dataset C:\\Users\\muzaf\\datasets\\longmemeval\\longmemeval_s_cleaned.json --model C:\\Users\\muzaf\\.cache\\huggingface\\hub\\Qwen3-Embedding-0.6B-GGUF\\Qwen3-Embedding-0.6B-Q8_0.gguf",
+ "database_existed_before_launch": false,
+ "foreground_attempt_discarded": true,
+ "foreground_partial_cache_reused": false,
+ "launch_local": "2026-08-13T15:17:03-05:00",
+ "launcher_pid": 7100,
+ "manifest_existed_before_launch": false,
+ "model_generation_calls": 0,
+ "model_sha256": "06507c7b42688469c4e7298b0a1e16deff06caf291cf0a5b278c308249c3e439",
+ "n_gpu_layers": 0,
+ "n_threads": 1,
+ "n_threads_batch": 1,
+ "power": {
+  "ac_hibernate_timeout_seconds": 0,
+  "ac_sleep_timeout_seconds": 0,
+  "free_disk_gb": 1289.82,
+  "pending_reboot_detected": false
+ },
+ "registration_commit": "04d3713880419a970d71c098a03b4df0965b18f0",
+ "stderr": "experiments/components/biological_memory/nf_005/artifacts/capture_stderr.txt",
+ "stdout": "experiments/components/biological_memory/nf_005/artifacts/capture_stdout.txt",
+ "worker_pid": 3876
+}
