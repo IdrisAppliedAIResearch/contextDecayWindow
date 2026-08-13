@@ -228,7 +228,7 @@ The PR body must state the outcome, bars, findings, amendments, artifact links, 
 ### Blocking Study Close Checklist
 
 1. Commit the report with the pre-registration SHA in its header.
-2. Update the root `README.md` status line and study table.
+2. Update the root `README.md` (see *README structure* below).
 3. Add or update the root `AGENTS.md` digest entry, keeping it at most 400 characters.
 4. Update `ERRATA.md` when any published number changes.
 5. Update memory files.
@@ -236,6 +236,35 @@ The PR body must state the outcome, bars, findings, amendments, artifact links, 
 7. Open the study PR.
 
 Items 2 and 3 are mandatory. A study is not closed and its PR must not merge without them.
+
+### README Structure
+
+The root `README.md` has two halves and they have different readers. Everything
+above the `# For LLM Context` divider is written for a person deciding whether
+this work is worth their time; everything below it is written for an agent
+picking the work up with no prior context.
+
+**Above the divider — keep it short.** Paper link, executive summary, current
+state of work, next steps. Closing a study means:
+
+- Update *Current State of Work* — its date, its arc table row, its constraints.
+  Replace what is stale rather than appending to it. This section describes the
+  present, not the history.
+- Rewrite *Next Steps* so the top item is what a reader should do next. A step
+  that has been taken is deleted, not marked done.
+- Touch the *Executive Summary* only when a finding changes what the program
+  claims. It is four findings and a stated limit; it does not grow by one
+  paragraph per study.
+
+**Below the divider — this is where detail belongs.** Add the study's status
+blockquote to the ledger and its row to *What Has Been Tested*, with numbers
+and artifact paths. Density is correct here. If a result needs more than a
+blockquote, give it a section, as the arcs have.
+
+Never resolve a length problem by moving detail above the divider or by
+compressing a status blockquote until its numbers are gone. The two halves fail
+in opposite directions: the top becomes unreadable, the bottom becomes
+unciteable.
 
 ## 7. Never
 
