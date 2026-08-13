@@ -1,0 +1,150 @@
+{
+ "anchor": {
+  "anchor_holds": true,
+  "dataset_sha256_expected": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+  "evidence_ranks_reproduced": 470,
+  "excluded_abstention_stratum": 30,
+  "items_seen": 500,
+  "mismatched": 30
+ },
+ "arms": {
+  "A0_sessions": {
+   "any_evidence": 380,
+   "rate": 0.8085106382978723
+  },
+  "A1_episodes": {
+   "any_evidence": 396,
+   "rate": 0.8425531914893617
+  },
+  "oracle_ceiling": {
+   "any_evidence": 470,
+   "rate": 1.0
+  }
+ },
+ "deviation": "DEVIATION_001: holdout observed before the bars were locked; the highest available disposition is CHARACTERIZED, not confirmatory.",
+ "per_stratum_any_evidence": {
+  "knowledge-update": {
+   "gains": 3,
+   "losses": 0,
+   "n": 72,
+   "p_one_sided": 0.125,
+   "ties": 69
+  },
+  "multi-session": {
+   "gains": 6,
+   "losses": 0,
+   "n": 121,
+   "p_one_sided": 0.015625,
+   "ties": 115
+  },
+  "single-session-assistant": {
+   "gains": 0,
+   "losses": 6,
+   "n": 56,
+   "p_one_sided": 1.0,
+   "ties": 50
+  },
+  "single-session-preference": {
+   "gains": 6,
+   "losses": 0,
+   "n": 30,
+   "p_one_sided": 0.015625,
+   "ties": 24
+  },
+  "single-session-user": {
+   "gains": 4,
+   "losses": 0,
+   "n": 64,
+   "p_one_sided": 0.0625,
+   "ties": 60
+  },
+  "temporal-reasoning": {
+   "gains": 3,
+   "losses": 0,
+   "n": 127,
+   "p_one_sided": 0.125,
+   "ties": 124
+  }
+ },
+ "results": {
+  "all": {
+   "all_evidence": {
+    "discordant_pairs": 63,
+    "disposition": "WORKS",
+    "gains": 57,
+    "losses": 6,
+    "net": 51,
+    "p_one_sided": 8.197843554165474e-12,
+    "ties": 407
+   },
+   "any_evidence": {
+    "discordant_pairs": 28,
+    "disposition": "WORKS",
+    "gains": 22,
+    "losses": 6,
+    "net": 16,
+    "p_one_sided": 0.0018595829606056213,
+    "ties": 442
+   },
+   "n": 470
+  },
+  "development": {
+   "all_evidence": {
+    "discordant_pairs": 23,
+    "disposition": "WORKS",
+    "gains": 23,
+    "losses": 0,
+    "net": 23,
+    "p_one_sided": 1.1920928955078125e-07,
+    "ties": 162
+   },
+   "any_evidence": {
+    "discordant_pairs": 8,
+    "disposition": "WORKS",
+    "gains": 8,
+    "losses": 0,
+    "net": 8,
+    "p_one_sided": 0.00390625,
+    "ties": 177
+   },
+   "n": 185
+  },
+  "holdout": {
+   "all_evidence": {
+    "discordant_pairs": 40,
+    "disposition": "WORKS",
+    "gains": 34,
+    "losses": 6,
+    "net": 28,
+    "p_one_sided": 4.182292286714073e-06,
+    "ties": 245
+   },
+   "any_evidence": {
+    "discordant_pairs": 20,
+    "disposition": "CARRIES_SIGNAL",
+    "gains": 14,
+    "losses": 6,
+    "net": 8,
+    "p_one_sided": 0.057659149169921875,
+    "ties": 265
+   },
+   "n": 285
+  }
+ },
+ "schema": "nf002-gates-v1",
+ "split": {
+  "development_share": 0.4,
+  "seed": "5005",
+  "stratified_by": "question_type"
+ },
+ "tiers": {
+  "CARRIES_SIGNAL": {
+   "max_p": 0.2,
+   "min_gain_ratio": 1.0
+  },
+  "WORKS": {
+   "max_p": 0.05,
+   "min_gain_ratio": 2.0
+  }
+ }
+}
