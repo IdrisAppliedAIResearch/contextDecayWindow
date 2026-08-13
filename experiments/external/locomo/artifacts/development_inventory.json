@@ -1,0 +1,74 @@
+{
+ "budget": {
+  "chars": 32000,
+  "conversation_pair_chars": {
+   "conv-41": 94365,
+   "conv-42": 76549,
+   "conv-47": 85758,
+   "conv-48": 79381
+  }
+ },
+ "category_counts": {
+  "1": 109,
+  "2": 143,
+  "3": 42,
+  "4": 398,
+  "5": 190
+ },
+ "counts": {
+  "conversations": 4,
+  "duplicate_qa_records": 11,
+  "pairs": 1365,
+  "questions": 882,
+  "questions_with_resolved_evidence": 882,
+  "questions_with_unresolved_evidence": 3,
+  "unique_vector_texts": 2236,
+  "unresolved_evidence_references": 3
+ },
+ "schema": "locomo-nf-development-v1",
+ "source": {
+  "bytes": 2805274,
+  "development_ids": [
+   "conv-41",
+   "conv-42",
+   "conv-47",
+   "conv-48"
+  ],
+  "sha256": "79fa87e90f04081343b8c8debecb80a9a6842b76a7aa537dc9fdf651ea698ff4"
+ },
+ "unresolved_evidence": [
+  {
+   "category": "1",
+   "evidence_count": 7,
+   "question_id": "a3551164d7362aaf94fedeb8917cc1d76259749ed7535c204934bcc21cacded5",
+   "resolved_count": 6,
+   "sample_id": "conv-42",
+   "source_index": 58,
+   "unresolved_ids": [
+    "D10:19"
+   ]
+  },
+  {
+   "category": "4",
+   "evidence_count": 3,
+   "question_id": "7b0556250b6a62f8473eab04eb4376ed2f41ba1fe940a4e2c76ca00838c49673",
+   "resolved_count": 2,
+   "sample_id": "conv-42",
+   "source_index": 88,
+   "unresolved_ids": [
+    "D"
+   ]
+  },
+  {
+   "category": "1",
+   "evidence_count": 3,
+   "question_id": "f14e773493bb70c33f7cad451646155d8ff4ec2ee236e21a15f1fe1a2c93ee72",
+   "resolved_count": 2,
+   "sample_id": "conv-47",
+   "source_index": 38,
+   "unresolved_ids": [
+    "D4:36"
+   ]
+  }
+ ]
+}
