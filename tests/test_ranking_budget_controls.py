@@ -1,6 +1,11 @@
 from __future__ import annotations
 
-from analysis.ranking_budget_controls import _distribution, _pack_episode_order, _paired
+from analysis.ranking_budget_controls import (
+    _distribution,
+    _pack_episode_order,
+    _paired,
+    _stable_crossovers,
+)
 from analysis.nf003_ranking import Episode
 
 
@@ -38,3 +43,13 @@ def test_distribution_uses_registered_nearest_rank_percentiles() -> None:
         "p90": 9,
         "max": 10,
     }
+
+
+def test_stable_crossover_requires_two_cells_on_each_side() -> None:
+    rows = [
+        {"budget": budget, "comparison": {"net": net}}
+        for budget, net in zip((8, 16, 24, 32, 40), (8, 8, -14, -21, -25), strict=True)
+    ]
+    assert _stable_crossovers(rows, ("comparison", "net")) == [
+        {"lower_budget": 16, "upper_budget": 24, "lower_sign": 1, "upper_sign": -1}
+    ]
