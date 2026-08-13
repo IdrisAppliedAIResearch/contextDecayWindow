@@ -82,6 +82,8 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **NF-003 ranking granularity (2026-08-13).** PREFLIGHT SURROGATE FAIL; UNREGISTERED. Session-touch said 396->445 (49/0), but 94 treatment hits carried no `has_answer` episode. Strict delivery fell 388->351: 26 gains/63 losses. Five unflagged items were never ranked. Proposed registration closed; LoCoMo successor stays sealed.
 
+**NF-003 three-arm synthesis (2026-08-13).** CHARACTERIZED. Same 465 items/32k/strict measure: session-rank/session-pack 375, session-rank/episode-pack 388, episode-rank/episode-pack 351. Fine packing +13; fine ranking -37. The 63 coarse-rank rescues have median own-cosine rank 46 vs 10 for 26 fine-rank gains. Rule: rank coarse, pack fine.
+
 **LoCoMo ranking development (2026-08-13).** DEVELOPMENT ONLY. On 871 unique questions, strict evidence delivery rose 820->855, 44 gains/9 losses, p=1.22e-6; complete evidence 773->826, 71/18. All four conversations were positive. Session-touch hid all 9 losses. Six holdout conversations remain sealed; no bars, registration, disposition or holdout run.
 
 **PS-001 pattern-separated engram formation (2026-08-11).** CHARACTERIZED. Nine deterministic sparse cells on 119 episodes; only D=4096,K=41 passed G3-G5: 119/119 fixed points and exact 1/10/30/50% swap recovery. Six of seven degenerates reached stored codes; the union-biased cue cycled. Code-space result only; no natural cue, retrieval, live run, promotion, or adoption.

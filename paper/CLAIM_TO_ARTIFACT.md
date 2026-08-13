@@ -71,11 +71,14 @@ Verified against two independently published values: `e005_results.json`
 | R40 | `…/final_codex_integrity/codex_integrity_score_summary.json` | `e59f86cd` | `178321282e180792` |
 | R41 | `…/final_codex_integrity/codex_integrity_score_ledger.jsonl` | `e59f86cd` | `3a293c0973637b45` |
 | R42 | `…/runs/tier1_001/retrieval_path_diagnostic.json` | `7b38badb` | `fc6589071af5a092` |
+| R43 | `experiments/components/biological_memory/nf_003/artifacts/three_arm_summary.json` | `8a41bce4` | `4473c8c5c4ed5337` |
 
 Path prefix `…` is `experiments/components/retrieval_mechanism_ledger` for
 R1–R21 and R33–R36, and `experiments/components` for R22–R29.
 For R37 it is `experiments`; for R38–R42 it is
 `experiments/external/longmemeval`.
+
+R43 is outside those prefixes and is written in full above.
 
 ---
 
@@ -262,6 +265,7 @@ For R37 it is `experiments`; for R38–R42 it is
 | C128 | Study 009's 3.0, LV-001's -2.0 and Study 011's -1.0 are not demonstrated | each gap's magnitude is compared to the 3.0 band by one expression applied to all four recorded gaps | `study_011/noise_band/band_verdict.json` | VERIFIED - not demonstrated is not refuted; the 3.5-point corrected series is the only gap exceeding the band, and exceeding it is not being demonstrated |
 | C129 | The band is run-to-run variation, not rater disagreement | 64 of 65 items unanimous across three raters, zero splits, mean per-item rater spread 0.038 on the single replicate where it is non-zero | `study_011/noise_band/evaluation/blind_scores.json` | VERIFIED - the two noise sources are reported separately and never pooled; three distinct models from one family, a disclosed departure that inflates agreement and therefore understates the band |
 | C130 | Phase 1's probe reproduced 820 generations and still missed the divergence | 20 committed windows x 10 repeats across four sampler and process conditions, plus 20 replays of the exact recorded prompt, all identical | `study_011/runtime/phase_1_generations.jsonl` | VERIFIED - and superseded in part: the probe isolated the model call from the runner, so it measured the component and reported on the system |
+| C131 | Ranking and packing granularity have opposite signs on one strict outcome | session/session 375, session/episode 388, episode/episode 351 on 465 items; packing contrast +13 net (17/4), ranking contrast -37 net (26/63); 63 coarse-rank rescues have median own-cosine rank 46 versus 10 for 26 fine-rank gains | R43 | VERIFIED - posthoc synthesis on exhausted LongMemEval, no registered disposition or universal moderator claim |
 
 ---
 
