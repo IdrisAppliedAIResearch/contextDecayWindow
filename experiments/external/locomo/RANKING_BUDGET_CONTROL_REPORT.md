@@ -115,7 +115,8 @@ binding. The inherited NF-002 disposition tiers remain the proposed bars:
 `WORKS` at gains >= 2x losses and one-sided exact p <= .05; `CARRIES_SIGNAL` at
 gains > losses and p <= .20. The final pre-registration must still inventory
 the holdout mechanically, prove these bars reachable at its actual N, and bind
-a separate live answer-quality stage before the holdout can open.
+a separate live answer-quality requirement before any answer-quality or
+promotion claim.
 
 ## 6. Integrity
 
