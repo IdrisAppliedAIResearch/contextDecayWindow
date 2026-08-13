@@ -78,7 +78,9 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **DMR-004 query obligations (2026-08-12).** STOP; NO_MECHANICAL_SUFFICIENCY_SIGNAL. 180 sealed queries, two blind raters (finite kappa .770). Youden J .320 vs .50 and false-finite .188 vs .15 fail; LOOKUP recall .800, spans 1.000, 0/48 internal-only markers pass. Always-OPEN accuracy .650 vs .706. 12/31 misses are "which happened first, A or B", flagged pre-lock, not patched.
 
-**NF-002 candidate granularity (2026-08-12).** CARRIES_SIGNAL; CHARACTERIZED. Same ranking, budget and policy; only the unit changes. Episodes beat sessions 380->396/470 any-evidence and 210->261 all. Holdout 14 gains/6 losses, ratio 2.33 over 2.0, p=.058 over .05 - the lower tier, predicted verbatim pre-run. All 6 losses in single-session-assistant, 0 gains. Novelty null: 0 of 90.
+**NF-002 candidate granularity (2026-08-12).** CARRIES_SIGNAL; CHARACTERIZED. Registered session-touch rose 380->396/470; holdout 14 gains/6 losses, p=.058. Posthoc strict audit on 465 labelled items retains a smaller 375->388, 17 gains/4 losses. Formal disposition unchanged. Novelty null: 0/90.
+
+**NF-003 ranking granularity (2026-08-13).** PREFLIGHT SURROGATE FAIL; UNREGISTERED. Session-touch said 396->445 (49/0), but 94 treatment hits carried no `has_answer` episode. Strict delivery fell 388->351: 26 gains/63 losses. Five unflagged items were never ranked. Proposed registration closed; LoCoMo successor stays sealed.
 
 **PS-001 pattern-separated engram formation (2026-08-11).** CHARACTERIZED. Nine deterministic sparse cells on 119 episodes; only D=4096,K=41 passed G3-G5: 119/119 fixed points and exact 1/10/30/50% swap recovery. Six of seven degenerates reached stored codes; the union-biased cue cycled. Code-space result only; no natural cue, retrieval, live run, promotion, or adoption.
 

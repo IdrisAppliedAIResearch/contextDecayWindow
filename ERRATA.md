@@ -2,25 +2,32 @@
 
 ## NF-003 Part 1 Evaluated Population (2026-08-13)
 
-**Headline change:** the paired effect remains 49 gains and 0 losses, but the
-measured comparison is 396/465 to 445/465, not 396/470 to 445/470. The measured
-deep-rank residual is 20 items; five additional items were never episode-ranked.
+**Headline change:** NF-003's 49-gain, zero-loss evidence-delivery claim is
+withdrawn. It is a session-touch result. Strict answer-episode delivery falls
+388/465 to 351/465, with 26 gains and 63 losses.
 
 `nf003_ranking.analyse()` skips records with no turn carrying LongMemEval's
 `has_answer` flag. Five of the 470 NF-002 items meet that condition, so the
 committed Part 1 artifact contains 465 treatment rows. All five omitted items
 are baseline misses, which is why treating them as treatment misses preserved
-the 49-gain, zero-loss paired count while making `445/470` look like measured
-recall. It is only a conservative lower bound.
+the 49-gain, zero-loss session-touch count while making `445/470` look like
+measured recall. It is only a conservative lower bound.
 
-Among the 465 evaluated items, baseline and treatment deliver any evidence on
-396 and 445 respectively. Twenty treatment misses have measured best-evidence
-ranks from 12 to 168 (median 50.5, p90 148.7). The other five have unknown
-treatment outcomes and no measured evidence-episode rank. The claim that all 25
-remaining items are deep similarity failures is withdrawn.
+The deeper defect is the evidence unit. Part 1 counted any delivered episode
+from an `answer_session_id` as evidence. On 94 treatment items that episode does
+not contain a turn marked `has_answer`. Reconstructing both arms at the strict
+answer-episode unit first reproduces session-touch at 396 to 445 and 49/0, then
+reverses the result: 388 to 351, 26 gains and 63 losses. The proposed NF-003
+registration stopped at this preflight surrogate failure.
+
+NF-002's candidate-unit contrast survives the same posthoc strict audit on the
+465 labelled items, but narrows from the registered session-touch framing: whole
+sessions deliver strict evidence on 375 items and session-ranked episodes on
+388, with 17 gains and 4 losses. NF-002's formal disposition is unchanged.
 
 The committed Part 1 record and JSON remain unchanged. See
-`experiments/components/biological_memory/nf_003/NF_003_PART1_CORRECTION.md`.
+`experiments/components/biological_memory/nf_003/NF_003_PART1_CORRECTION.md`
+and `NF_003_PREFLIGHT_SURROGATE_AUDIT.md`.
 
 ## Study 010 Endurance Corpus Composition (2026-08-12)
 

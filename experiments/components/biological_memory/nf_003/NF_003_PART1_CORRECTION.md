@@ -17,7 +17,7 @@ session-inherited episode arm misses all five, but NF-003 never ran its treatmen
 on them. Counting them as treatment misses is a conservative lower bound, not an
 observed treatment result.
 
-## Correct reading
+## First correction: evaluated population
 
 - Evaluated population: 465 items with turn-level evidence flags.
 - Baseline: 396/465 have any evidence session delivered.
@@ -33,14 +33,20 @@ by treating every unrun item as a miss. It is not the treatment's measured
 recall. The claim that all 25 residual items have deep episode ranks is
 withdrawn; only 20 were ranked.
 
-## Why the paired effect survives
+## Second correction: the paired effect is a surrogate
 
-The five omitted items are baseline misses and are absent from the treatment
-rows. Removing them from both arms leaves the same 49 gains and 0 losses. The
-mechanism finding therefore survives, while its denominator and residual claim
-become precise.
+The population correction is not the final reading. A subsequent PF9 audit
+found that touching an annotated answer session can pass without delivering
+the episode marked `has_answer`. That happens on 8 baseline items and 94
+treatment items.
 
-No locked registration, score, or run artifact is edited. NF-003's successor
-registration uses the 465-item flagged population and preserves NF-002's split:
-185 development and 280 holdout. The five omitted items all belong to the old
-holdout and remain outside the registered population.
+Measured like-for-like at the answer-episode unit, baseline delivery is 388/465
+and treatment delivery is 351/465, with 26 gains and 63 losses. The 49-gain,
+zero-loss pair survives only as an exact description of session-touch, not as a
+mechanism finding about evidence delivery. See
+`NF_003_PREFLIGHT_SURROGATE_AUDIT.md` and `artifacts/surrogate_audit.json`.
+
+No locked registration, score, or run artifact is edited. The proposed NF-003
+registration stopped before lock because its primary instrument failed the
+surrogate audit. The five omitted items all belong to the old holdout and remain
+unmeasured.

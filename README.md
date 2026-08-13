@@ -35,13 +35,11 @@ ones that killed the thing being tested.
    similarity tier delivered zero episodes at all eight probes because recency
    consumed the entire budget first.
 
-3. **The unit beats the cleverness.** The largest measured effects in the
-   program come from changing what a candidate *is*, not from smarter scoring.
-   Packing episodes instead of sessions gained 16 items; ranking at episode
-   granularity instead of inheriting a session's rank gained 49 with zero
-   losses. Over the same period, novelty filtering, associative graph frontiers,
-   extractive spans, and temporal-adjacency bridges each returned null or
-   harmful.
+3. **Granularity only helps when evidence is measured at the same unit.** On 465
+   turn-labelled questions, packing episodes instead of sessions retains a
+   strict 375 → 388 gain. Ranking episodes by their own cosine looked like
+   396 → 445 under session-touch, but strict answer-episode delivery fell
+   388 → 351. A coarser evidence unit manufactured the program's largest win.
 
 4. **The live instrument is coarser than most verdicts placed on it.** Five
    byte-identical replicates of one configuration scored 8.0, 8.0, 8.0, 8.0 and
@@ -90,11 +88,12 @@ calls.**
 - **NF-001** stopped on the instrument, not the mechanism: never-stop was optimal
   under the tested rule, so the rule could not be measured.
 - **NF-002** built an instrument that prices displacement, and found novelty
-  filtering to be a measured null while the *unit* gained 16 items.
+  filtering to be a measured null. Its registered session-touch contrast gained
+  16 items; the posthoc strict audit retains a 13-item net gain.
   `CARRIES_SIGNAL`, capped at `CHARACTERIZED` by a recorded deviation.
-- **NF-003 Part 1** ranked at episode granularity: on 465 items with turn-level
-  evidence labels, any-evidence recall rose 396 → 445, **49 gains and 0 losses**,
-  p < 1e-5. This is unregistered exploration, not a result.
+- **NF-003 Part 1** stopped at its pre-registration surrogate audit. Session-touch
+  reproduced 396 → 445 and 49 gains/0 losses, but strict answer-episode delivery
+  fell 388 → 351 with **26 gains and 63 losses**. It remains unregistered.
 
 **One constraint governs that whole line.** Every LongMemEval item has now been
 used by this program, so nothing in it can be *confirmed* on that corpus.
@@ -105,22 +104,16 @@ conversation, with six conversations sealed for a confirmatory successor.
 
 ## Next Steps
 
-1. **Register NF-003 and run it for the record.** It is the largest zero-model-call
-   effect measured in this program, and it currently exists only as exploration.
-   Registering it accepts the `CHARACTERIZED` ceiling up front; the alternative is
-   leaving a 49-gain, zero-loss result with no locked design behind it.
-
-2. **Explore only the locked LoCoMo development conversations.** Four are open
+1. **Explore only the locked LoCoMo development conversations.** Four are open
    for Preflight Part 1; six remain sealed until the successor registration is
-   committed. This is the route above the characterization ceiling.
+   committed. Its primary metric must be strict answer-episode delivery.
 
-3. **Run DMR-002 on the frozen DMR-001B former.** The blocking review cleared it.
+2. **Run DMR-002 on the frozen DMR-001B former.** The blocking review cleared it.
    It is the arc's next real stage and it is unblocked today.
 
-4. **Decide what to do about the H2 residual.** Twenty evaluated items have
-   evidence deep in the episode ordering; five more lacked turn-level labels and
-   were never ranked. A similarity or composition mechanism would have to earn
-   its place on the measured 20 — and it is a proposal, not a plan.
+3. **Revisit similarity only after the strict LoCoMo test.** NF-003's session-touch
+   metric obscured 63 strict losses, so its old H2 residual cannot justify a new
+   mechanism by itself.
 
 ---
 ---
@@ -228,19 +221,15 @@ Eleven pre-registered studies test that question, each adding one memory compone
 > within reach at median rank 7, skipped on cost. `DEVIATION_001` caps this at
 > characterization: the holdout counts were seen before the bars were locked.
 
-> **NF-003 status:** `PART 1 COMPLETE - UNREGISTERED EXPLORATION`. NF-002 changed
+> **NF-003 status:** `PREFLIGHT SURROGATE FAIL - UNREGISTERED`. NF-002 changed
 > the packing unit and left the ranking unit alone, so episodes still inherited
 > their session's rank; 74 of 90 baseline misses survived every unit and packing
 > change. Ranking at episode granularity, same budget and same packing policy,
-> raises any-evidence recall 396 -> 445 of 465 evaluated items with **49 gains and 0 losses**,
-> p < 1e-5, at zero model calls. The discriminator was fixed in advance: the
-> cosine rank of the true evidence episode is 2 of ~229 on items already
-> reached and 41 on the misses, so dilution is confirmed as dominant and
-> similarity failure remains a measured residual on 20 items; five more lacked
-> turn-level labels and were not ranked. Nothing here is registered
-> and `AGENTS.md` §9.4 applies. A first pass reported this as a 45-item
-> regression by comparing evidence *episodes* against evidence *sessions*; the
-> error is recorded and `pack()` now returns both units.
+> session-touch rises 396 -> 445 on 465 evaluated items with 49 gains/0 losses.
+> PF9 found that 94 treatment hits contain no `has_answer` episode. Under strict
+> answer-episode delivery, baseline 388 falls to 351, with **26 gains and 63
+> losses**. Five unflagged items were not ranked. The proposed registration
+> closed before lock; no posthoc disposition, live run, or adoption follows.
 
 > **SAL-001 status:** `NO_INDEPENDENT_PROXIMITY - CHARACTERIZED`. On 92
 > held-out LongMemEval sessions, adjusted neighbor AUC is 0.416 (95% interval
@@ -334,7 +323,7 @@ Runs use a scripted 120-turn conversation with facts planted at known positions 
 | DMR-001C | Sealed confirmation of the relative drift rule | G5 FAIL; G4 CONFIRMED | On 50 unread LongMemEval haystacks the frozen rule held its fire rate at a 1.67x p95/p05 ratio, confirming transfer. Precision .837 against a .186 base rate, but recall .253 and macro F1 .387 lost to periodic chopping at .606. min_event_size, not the threshold, is the binding constraint |
 | DMR-004 | Deterministic query-obligation compiler | STOP; NO_MECHANICAL_SUFFICIENCY_SIGNAL | On 180 sealed queries labelled by two blind raters, Youden's J was .320 against a bar of .50 and the false-finite rate .188 against .15. LOOKUP recall .800, span integrity 1.000 and marker independence 0-of-48 passed. 12 of 31 misses are "which happened first, A or B", a bounded obligation the registered class set cannot name |
 | NF-002 | Candidate granularity under a binding budget | CARRIES_SIGNAL; CHARACTERIZED | Episodes instead of sessions raise any-evidence recall 380->396/470 and all-evidence 210->261, same ranking and budget. Holdout 14 gains/6 losses, p=.058 against a .05 bar. All six losses are in single-session-assistant, which has zero gains. Novelty filtering recovers 0 of 90 |
-| NF-003 | Ranking granularity under the same budget | PART 1; UNREGISTERED | On 465 turn-labelled items, ranking episodes by their own cosine instead of inheriting a session rank raises any-evidence recall 396->445: 49 gains, 0 losses, p<1e-5, zero model calls. Dilution dominates; 20 measured misses remain deep-ranked and five items were not ranked |
+| NF-003 | Ranking granularity under the same budget | PREFLIGHT SURROGATE FAIL; UNREGISTERED | Session-touch reproduces 396->445 and 49/0, but 94 treatment hits contain no answer episode. Strict delivery falls 388->351: 26 gains, 63 losses. Five items lack turn labels. Proposed registration closed before lock |
 | SUP-001 | Explicit supersession lineage and accessibility | FACTUAL PASS; byte-identity criterion withdrawn | Current-only retrieval rose 0/64 to 64/64 with 32/32 unchanged and 64/64 histories. T1 scored 9/9 under numeric-value equivalence, with zero regressions and zero stale natural payloads; no larger run or adoption is automatic |
 
 Full reports live under `experiments/study_NNN/`; external evaluation reports
@@ -626,12 +615,11 @@ NF-003 Part 1 then separated the *ranking* unit from the packing unit, which
 NF-002 had left alone. The discriminator was committed in advance and is not
 "try it and see": the cosine rank of the true evidence episode, identified by
 LongMemEval's own `has_answer` turn flag. On items the previous arm already
-reached, evidence ranks 2 of ~229; on the misses it ranks 41. Dilution is
-confirmed as the dominant mechanism, and ranking episodes by their own cosine
-raises any-evidence recall 396 → 445 among 465 evaluated items — **49 gains,
-0 losses, p < 1e-5, zero model calls**. Similarity failure survives as a
-measured residual on 20 deep-ranked items; five additional records lacked
-turn-level labels and were never ranked.
+reached, evidence ranks 2 of ~229; on the misses it ranks 41. Dilution therefore
+initially appeared dominant: session-touch rose 396 → 445 among 465 evaluated
+items, with 49 gains and no losses. PF9 then showed that 94 treatment hits
+delivered no episode carrying `has_answer`. The like-for-like strict measure
+reverses the result: **388 → 351, 26 gains, 63 losses, zero model calls**.
 
 Two integrity notes belong with these numbers. NF-002's `DEVIATION_001` records
 that holdout discordant counts were printed in the same command as development
@@ -646,9 +634,10 @@ the unit-mismatch failure this program has recorded repeatedly, appearing inside
 the study whose subject is units. `pack()` now returns both measures.
 
 A second unit audit found the reported `445/470` denominator counted five
-unrun treatment items as misses. The paired 49/0 effect is unchanged, but the
-measured comparison is 396/465 to 445/465 and the measured deep-rank residual
-is 20, not 25. `ERRATA.md` and `NF_003_PART1_CORRECTION.md` carry the correction.
+unrun treatment items as misses. More importantly, its session-touch outcome
+could pass without answer-bearing evidence. `ERRATA.md`,
+`NF_003_PART1_CORRECTION.md`, and `NF_003_PREFLIGHT_SURROGATE_AUDIT.md` carry the
+correction and strict reconstruction.
 
 See `experiments/components/biological_memory/nf_001/`,
 `experiments/components/biological_memory/nf_002/NF_002_REPORT.md`, and
