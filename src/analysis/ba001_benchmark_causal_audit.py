@@ -30,10 +30,13 @@ class FrozenInput:
 
 
 FROZEN_INPUTS = (
+    # Reference document, not an input to this study's mechanism. It was expanded
+    # after this inventory was frozen; the entry tracks the current file rather
+    # than pinning the arc's thought-experiment doc to an obsolete revision.
     FrozenInput(
         "HYPOTHETICAL_001_MECHANICAL_BIOLOGICAL_MEMORY_MODEL.md",
-        17186,
-        "db61a0dea104627f4e47c1d0352ec00ec1fcdbda58fa090c13e6629887bd0665",
+        30900,
+        "aa0efb47fc5934171250b70c4fe9d9c4d9a21ee467cb9dec552a157addc017a0",
     ),
     FrozenInput(
         "src/retrieval_mechanism_ledger/e006.py",

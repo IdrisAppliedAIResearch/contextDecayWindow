@@ -1,0 +1,121 @@
+{
+ "annotated": 180,
+ "compiler_class_distribution": {
+  "CONJUNCT": 1,
+  "ENUMERATE_N": 1,
+  "HISTORY": 5,
+  "LOOKUP": 52,
+  "OPEN": 121
+ },
+ "confusion": {
+  "fn": 31,
+  "fp": 22,
+  "tn": 95,
+  "tp": 32
+ },
+ "design_sha256": "c054b18857f92362bc3947f5d029f502ee6669fa4cfa001eb4579f1ab59f7eae",
+ "gates": {
+  "G3": {
+   "bar": 0.15,
+   "pass": false,
+   "statistic": "false_finite_rate",
+   "value": 0.18803418803418803
+  },
+  "G4": {
+   "bar": 0.6,
+   "instances": 35,
+   "pass": true,
+   "statistic": "lookup_recall",
+   "value": 0.8
+  },
+  "G5": {
+   "bar": 1.0,
+   "malformed": [],
+   "pass": true,
+   "spans": 60,
+   "statistic": "well_formed_span_share",
+   "value": 1.0
+  },
+  "G6": {
+   "bar": 0,
+   "internal_only": [],
+   "markers_total": 48,
+   "pass": true,
+   "statistic": "internal_only_markers",
+   "unexercised": [
+    "HISTORY_MARKERS:prior",
+    "HISTORY_MARKERS:formerly",
+    "HISTORY_MARKERS:used to",
+    "HISTORY_MARKERS:originally",
+    "HISTORY_MARKERS:back then",
+    "AGGREGATE_MARKERS:how far",
+    "AGGREGATE_MARKERS:altogether",
+    "AGGREGATE_MARKERS:mean",
+    "AGGREGATE_MARKERS:median",
+    "AGGREGATE_MARKERS:differ",
+    "AGGREGATE_MARKERS:more than",
+    "AGGREGATE_MARKERS:less than",
+    "AGGREGATE_MARKERS:fewer than",
+    "AGGREGATE_MARKERS:sum of",
+    "SUPERLATIVE_MARKERS:lowest",
+    "SUPERLATIVE_MARKERS:worst",
+    "SUPERLATIVE_MARKERS:largest",
+    "SUPERLATIVE_MARKERS:smallest",
+    "LIST_MARKERS:enumerate",
+    "LIST_MARKERS:name all",
+    "LIST_MARKERS:name every"
+   ],
+   "unexercised_count": 21,
+   "value": 0
+  },
+  "G_J": {
+   "bar": 0.5,
+   "pass": false,
+   "statistic": "youden_j",
+   "value": 0.3199023199023199
+  }
+ },
+ "gold_class_distribution": {
+  "CONJUNCT": 10,
+  "DISPUTED": 32,
+  "ENUMERATE_N": 2,
+  "HISTORY": 4,
+  "LOOKUP": 35,
+  "OPEN": 97
+ },
+ "joint_condition_pass": false,
+ "rates": {
+  "accuracy": 0.7055555555555556,
+  "balanced_accuracy": 0.6599511599511599,
+  "false_finite_rate": 0.18803418803418803,
+  "sensitivity": 0.5079365079365079,
+  "specificity": 0.811965811965812,
+  "youden_j": 0.3199023199023199
+ },
+ "split": "holdout",
+ "structural_controls": {
+  "always_finite": {
+   "accuracy": 0.35,
+   "false_finite_rate": 1.0,
+   "lookup_recall": 1.0,
+   "passes_G3": false,
+   "passes_G4": true,
+   "passes_G_J": false,
+   "youden_j": 0.0
+  },
+  "always_open": {
+   "accuracy": 0.65,
+   "false_finite_rate": 0.0,
+   "lookup_recall": 0.0,
+   "passes_G3": true,
+   "passes_G4": false,
+   "passes_G_J": false,
+   "youden_j": 0.0
+  }
+ },
+ "ungated_classes": {
+  "CONJUNCT": "1 instance in the 524-query corpus; every detector that finds more separates the corpora",
+  "ENUMERATE_N": "10 instances; supports an exact-match report, not a rate bar",
+  "HISTORY": "2 adjudicated instances in 120 development queries"
+ }
+}

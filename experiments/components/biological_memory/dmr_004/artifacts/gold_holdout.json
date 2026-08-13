@@ -1,0 +1,1356 @@
+{
+ "annotated": 180,
+ "finite": {
+  "agreed": 160,
+  "cohen_kappa": 0.7702909647779479,
+  "rated": 180,
+  "rater_a_true": 78,
+  "rater_b_true": 68,
+  "raw_agreement": 0.8888888888888888
+ },
+ "gold": {
+  "classes": {
+   "CONJUNCT": 10,
+   "DISPUTED": 32,
+   "ENUMERATE_N": 2,
+   "HISTORY": 4,
+   "LOOKUP": 35,
+   "OPEN": 97
+  },
+  "finite_false": 117,
+  "finite_true": 63,
+  "labels": [
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "01af91301cf8620580fd17ede34cc4981e3e53d1216893ce7d60d60eafac8cae",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": true,
+    "plan_class": "LOOKUP",
+    "query_id": "0315a6df258dda1da98fd1f09c285fdac5f3df13fa0cc9101a4273cbf7bc3712",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "04c19a4dc386652170e01c643a0e3ce86920a3e7bef5020b149e1b0930cfadb2",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "0522b21a710e45b4b7a09c0842ee3f020334203d738dc5d55c6093038029b909",
+    "requested_count": null
+   },
+   {
+    "basis": "class_disputed",
+    "finite": false,
+    "plan_class": "DISPUTED",
+    "query_id": "0532fffdc10ac5f3b5f180205ea5a5bc71ebc558556b6a363fe17489d8476002",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": true,
+    "plan_class": "LOOKUP",
+    "query_id": "05a1369a483f93fc67235e3c843bff414a9784fb118223ae1518b0de23787550",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "05a9867e475ee5a4f0b0f697376ce69751b836ee0226f2850e790af63f66665d",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": true,
+    "plan_class": "LOOKUP",
+    "query_id": "0651a98d8ddc091cd17bbfa62105a25ce9c4a72a30f603f2bbac3789736291d7",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": true,
+    "plan_class": "OPEN",
+    "query_id": "067d5dcdae974b12cdeebdd20caf10232dac77bd5ff085cd310511047d8a1801",
+    "requested_count": null
+   },
+   {
+    "basis": "class_disputed",
+    "finite": false,
+    "plan_class": "DISPUTED",
+    "query_id": "068e64cb24155a64fdfadc8a3fb671faea4752f19696f696995a88452a8485db",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "06b9a853b6b074fccbe6a45dc5f3806f23adca6635ae174e0a97bfbf5da80617",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": true,
+    "plan_class": "HISTORY",
+    "query_id": "082bdd2ec9071d5b61a2b61d47b0f1fb93bd46e2dea786d2cf461377e141f991",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "HISTORY",
+    "query_id": "0a19131f5bafe8f38fba7281af7e3bbe8fe05aca8685e2873b11579d19e6fb04",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": true,
+    "plan_class": "LOOKUP",
+    "query_id": "0b17af20d561a79fe152f7f9bfa6d68267c7db8f2e30f0e4f9189154110a4e86",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": true,
+    "plan_class": "CONJUNCT",
+    "query_id": "0b54e4806ed9e053abe7d4e0ffa964ae55ab39525aa39cceff881ccdfd18a929",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": true,
+    "plan_class": "CONJUNCT",
+    "query_id": "0bac9c2ac2a73d86188343f842d052bd540297c6be81c5b01e5c10d3eb16c206",
+    "requested_count": null
+   },
+   {
+    "basis": "class_disputed",
+    "finite": false,
+    "plan_class": "DISPUTED",
+    "query_id": "0c35c680894733426ef23b28dd3aef08daa22ce1756030d5dd1f91f2f84d028c",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "10e74f90cdb429cb1ff433add38778ddbf54e9b42832cef8c1bd7a54b869af07",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "16f6e739283becd94dc184884840ecde7b4222c98e3e05ddd6a4502304a28050",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "1c26e707d831af4507162006f8e6c00a54e91ad8eb6f2618f69332234e97a7aa",
+    "requested_count": null
+   },
+   {
+    "basis": "class_disputed",
+    "finite": true,
+    "plan_class": "DISPUTED",
+    "query_id": "1f16514a200edc4097e8da74aed4f8b63e23edc7f3d98c317b4d6fbdbd639303",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "1fbbb38d4625b9182e0a56d966d8b3cd47038d49f6c8e4500f8075490516907f",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": true,
+    "plan_class": "LOOKUP",
+    "query_id": "1ff41365d7178eea8583b85da9490452fcd3dd6647d74d33f5e2791c8f384bca",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "2096458e85ac26de241c0ef29399b78b71d5660c0673af9dd5c141f4f757f302",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": true,
+    "plan_class": "LOOKUP",
+    "query_id": "2540ac1969751f284e926b470eb83ec2b7bbd912e51c6a9dbe7bb3ebdb00f992",
+    "requested_count": null
+   },
+   {
+    "basis": "class_disputed",
+    "finite": false,
+    "plan_class": "DISPUTED",
+    "query_id": "25a98087bafbf2179b8baf1a7010fb615f2adda57d4d34f05262c8c73f018869",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "28f63444e442657cc9849bdb7579347d9b374b86ebef0b2735ac171051eac803",
+    "requested_count": null
+   },
+   {
+    "basis": "class_disputed",
+    "finite": false,
+    "plan_class": "DISPUTED",
+    "query_id": "2ad94c6b65d693041eeae74c243e7b3d8c09b06ed097d61d754fc6a831c04660",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": true,
+    "plan_class": "LOOKUP",
+    "query_id": "2c5d915c1c81d5b5013d38cf20ff22a090cfd4f34a0a975dbc3531f96b0ac7c3",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "2c619796ac7fb47bf02e219fc5efb516ad022da6aaa3e35d6599a11c2256afea",
+    "requested_count": null
+   },
+   {
+    "basis": "class_disputed",
+    "finite": false,
+    "plan_class": "DISPUTED",
+    "query_id": "2e3bd3503fb054f823178e437171baaa0cadc250f88ffec956738bc7b34d12ed",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": true,
+    "plan_class": "LOOKUP",
+    "query_id": "2f37ec255de0ba33a7872a3d59c7eda9bb1993b77e529106b740206dcb774957",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "2f7daefc63104977dcae9a97780e69595f96a94c9c608c93bec9a8acaf3b56ee",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": true,
+    "plan_class": "LOOKUP",
+    "query_id": "2f84cd83680f84d6b55ea5fdcc1b4f2c5b92593b8fea2aa8470853b7bd0b23ab",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "31d0f9fe9fe4f8d063be7eceddcf8b99432ec850fb45053cb14afe3ef3002c2d",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": true,
+    "plan_class": "LOOKUP",
+    "query_id": "3365a7de4a434140c664f58b14061c16ec9f391cf957d1036d3698a6c10ba84a",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "38089453f34ae1dec79e43f90ba40aa6cb56381467e94abe720b3495e535487d",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": true,
+    "plan_class": "LOOKUP",
+    "query_id": "3857615cf86cd0231f2693bfd92a4de38c37911a8b7f777e89860f228026ee43",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "3afce17ed87c3a71cbb836cbbbe60c6791c1e6cab1eec21fde805f90d50db4eb",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": true,
+    "plan_class": "ENUMERATE_N",
+    "query_id": "3cb9f669ee1e49b59d559f1cc04ab77762eaa0b064fde578175d8a1a48474360",
+    "requested_count": 2
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "3f4bac09c415b572cc9a57393d3ad6c26eb31060432720703859792f31987918",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": true,
+    "plan_class": "LOOKUP",
+    "query_id": "4059e5c68ca30b9b7369446efc8a5f95961d290ef3bcd92d587e52a3d81359c2",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": true,
+    "plan_class": "OPEN",
+    "query_id": "40ae35a5a971a4d1989ef6fb0785c7e4eaab182a57109fc81ef9c6f67db14e10",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "40cfaa1e4184eedb9264163ef85cc47f0b09fd8fc26cebe2d9cd979c86dea050",
+    "requested_count": null
+   },
+   {
+    "basis": "class_disputed",
+    "finite": false,
+    "plan_class": "DISPUTED",
+    "query_id": "41e61c1bf12a8d63ee591b3309fb758383df0c4ebd11b03df4cddb94d3bc0a99",
+    "requested_count": null
+   },
+   {
+    "basis": "class_disputed",
+    "finite": false,
+    "plan_class": "DISPUTED",
+    "query_id": "457b5bcd505614bd014a0f8cf9f63ca80f586650ab926bd7839c3653d8970276",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "4700789d117ef865116339069863f2154cedc14d6b3bd07f6356de71592b7a9a",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "47cc6ebb3e345e478c6e9d47f1b24bf8e9b78b735af62a1e8c6e89d9e91fe069",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "499c52a67a8d074eaff4f676b4f8cf31e4e0b77c99664d9d586fd798a09596ba",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "4bc312dba781c8fdf8b5f9e3e716f7cb3213de3b4a1042671b6cba9dd1f7814d",
+    "requested_count": null
+   },
+   {
+    "basis": "class_disputed",
+    "finite": false,
+    "plan_class": "DISPUTED",
+    "query_id": "4d797c93f17b4c4e733b5a3833815df27850855936ef5d7bee6e1db5b54aa7fb",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "50f0eb5f0c215589923887d408c844c9afce15d7c7f3f0767b8c32ead7245c5b",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": true,
+    "plan_class": "OPEN",
+    "query_id": "51d63ed6b2c844b2b4c347357b0e4dc512fe3a3738eaf26fcf23e2b8f22dff04",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "544f61f1aebc82a745cbe0b0dd1324f752478dbceca2653e6f1749f0a1f12617",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": true,
+    "plan_class": "LOOKUP",
+    "query_id": "55c3eca476d26e1baafeb99993338a736d981b2c5705c5d16ef40fe6a0b4357b",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "LOOKUP",
+    "query_id": "56cbf4e67d90dbf74ebcf06c6977f83a1dfd30c2b3ada586521f004830b6b60e",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": true,
+    "plan_class": "CONJUNCT",
+    "query_id": "571bb7afe63421ff6a9c309dc38c8d2dc428b484e05322eb50f1e8462aeceb99",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "573d1f413f957f3782b119141eabf3a39f25aabde217bda6f777cada63253503",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": true,
+    "plan_class": "OPEN",
+    "query_id": "5799963a69fd7ef344edce8b512959a9c418b94bee9d3cf45444cc2f963953c0",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "57e43c6519f46bf009056431dde114c4665e6345ba1b94d22b8df613a1d0e1e0",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "5c1254bff55c5e1e609ce2f076dc6dbe19296a02e9caac5230710b79d9e084d0",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "5c91cf718dbeffe3d14abc1c52ab454aeb601fc6eb50c52fda7f24e5183df81c",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "5d12bc8a3666b70f290177ce5c6abd5feef8fee115a67b536731cc6de6879f74",
+    "requested_count": null
+   },
+   {
+    "basis": "class_disputed",
+    "finite": false,
+    "plan_class": "DISPUTED",
+    "query_id": "61c53997a0f39fea0cd790a3230e65da3eeab4276e91203462cca5511a3ec9e2",
+    "requested_count": null
+   },
+   {
+    "basis": "class_disputed",
+    "finite": false,
+    "plan_class": "DISPUTED",
+    "query_id": "638516dfd5226c99789bdd86ff6bd0caf337ee7d623089f4c11226794bcc5ec6",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "644a2c6d2184aa9f5949bc8950da5a060089d4af5248f213471e46800898870f",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "648df4d0a93826be5891c9492a5f402b1e4664d4225b1e24222de7055c096127",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "665e64318ad8f8cc16f80cb034c427a24aaed7f5c11922e3827aa73611fea0a8",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": true,
+    "plan_class": "LOOKUP",
+    "query_id": "679a72be4dac7f20c3461900f43ed034c4d10b691dc1d8bd32125f18fcc0c288",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "6a7a7f802d84198b29143e998d316411cb15653b7f521553136ab635ee6073b4",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "6c44e74f6f5831d3428ddc23c4749394cdb1cddc5bb02a1d175c12d2879fcd43",
+    "requested_count": null
+   },
+   {
+    "basis": "class_disputed",
+    "finite": false,
+    "plan_class": "DISPUTED",
+    "query_id": "6c568f4f34e6378d03444ec8a0297ea5fd6521a85edaeb0ace0eef38c058acc1",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "6c86ba9d1481039efa65a1b53da81009628a48bb4bc902343f6653b112628b03",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "6dbd2fdc7f566364ad6de3acb91956cb9760b77dd1491c0242308e6e10e3cc1d",
+    "requested_count": null
+   },
+   {
+    "basis": "class_disputed",
+    "finite": false,
+    "plan_class": "DISPUTED",
+    "query_id": "71af8767107662d5bf7517a1976b9d507bff7131e099b333bbcd7a4b60f98f8a",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "721ed8b50a1791a543224a4763fb7b93315f57bd62efc2c8d5b894d42186bbc3",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": true,
+    "plan_class": "LOOKUP",
+    "query_id": "732919e7203d4e53534d27309d49a15d1634749fc0159c2cee3fffb893da9d55",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": true,
+    "plan_class": "CONJUNCT",
+    "query_id": "77266ea8246425c40ba37d92a1d86dca36a55bcc6ba2dc16f523b864dca557fd",
+    "requested_count": null
+   },
+   {
+    "basis": "class_disputed",
+    "finite": true,
+    "plan_class": "DISPUTED",
+    "query_id": "77ee74532595ff307e0a2f1dbcda7d6f277585e0468932e133b6daa313fbfe35",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": true,
+    "plan_class": "LOOKUP",
+    "query_id": "7954530421e67afcb7e451f7aef598a8e8de31bd5e47169c0d0d706af86f0727",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": true,
+    "plan_class": "CONJUNCT",
+    "query_id": "7959c73e4e55bd679281d39f17578c7ba348f126a7d17a692648a695a69c9143",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": true,
+    "plan_class": "OPEN",
+    "query_id": "797725eb87fbceaece4c85f0d4067d296f3bb6b4a046c914fa8763eb92ca047d",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "7a78920677b1f48e35969d06719b81ddae1c60a5d2c3fa1c386c03bc51616e27",
+    "requested_count": null
+   },
+   {
+    "basis": "class_disputed",
+    "finite": true,
+    "plan_class": "DISPUTED",
+    "query_id": "7ac8bc2cdaf27ce54e7f5985b3ec0ac5aa9829abf2c7b633df2d412e0fbb99d8",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": true,
+    "plan_class": "CONJUNCT",
+    "query_id": "7b147bf48153e3e60ea17f7b2e8913b0fdfe9daff68dfbf67c48e5e25e9058e3",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "7da04c5b5a470924507d4e56d3b54d0e0444e12144105a776a91253fc2b9ed12",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "7f3f4dec992e559e7d40917f98c6c35e0c612509246ea73581f2eb2a337f6539",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": true,
+    "plan_class": "HISTORY",
+    "query_id": "7fea41fee98dc48746aab35429cfcdc4ad25acd6f6d73ea4bfafb81f22098d9e",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": true,
+    "plan_class": "LOOKUP",
+    "query_id": "814e1158d6db7547fec07016f5949a8b3730264372f8b9fef26b44fcafa4f12c",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": true,
+    "plan_class": "LOOKUP",
+    "query_id": "81d14f86476878505d3903875efc67c1b176bce653bfaf5b0f409ac0ef1292f7",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": true,
+    "plan_class": "LOOKUP",
+    "query_id": "84fab90a61e92bb99767be94751ed08a8a0c042a2fac0a318034a54ae6623b32",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "88c37d2b015b808c8bc2d16a40a7b4a84c212ed637676a65d42c62c74e09200f",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "89ae917445add92706c6b5cd19149c893303c78966fc9fb308747fc98a7abbbb",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "8c725de51535130aecc4f67a5784ce4561324a6bd12be8c4894313226c902fc6",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "8d1395ee9232dd3a0ebfefdc439235fef6e2f4266723b03ac4ab21f3b2e4e68b",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": true,
+    "plan_class": "LOOKUP",
+    "query_id": "8d2db19ed5a243da5fe12efabeedf79ef9fee4b620449f8f5d6cadc437d6f656",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "8d59923a71ebf3254717b83510da074d7873651e563834c71b5a53c60f6bc538",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "8d770fce74fc53106a2055c778d8a3dbac45d36baadc5f500efc8107abe8b25d",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "90947b78a9553161fb11c425d901483aad6ae0d0c027dab76f2c0ed3f5866dfc",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "938da817896161deb56958bae5ae3998eda441377cada4ff0c78038fbb721bfe",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "94bb66680c98874d5845ea2f84f5c20d9f0de18243354c3b8c97a2a42b3b2487",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": true,
+    "plan_class": "CONJUNCT",
+    "query_id": "955190908cea97390466e3360bd509b9fe20bd6781471939729e43c5ed1d817b",
+    "requested_count": null
+   },
+   {
+    "basis": "class_disputed",
+    "finite": true,
+    "plan_class": "DISPUTED",
+    "query_id": "98f06bf5ec372ed2a6f515937baeed0bda01fa394ac25c7ad8be11d5ff1a1904",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": true,
+    "plan_class": "LOOKUP",
+    "query_id": "994835aa0fd62131870121305fb3c3c58429b79e17798925602762ffafac7e29",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "9a9cb1231810e8c2f5a58c99bc81b095874bb9825b262a573613691e7e447c8f",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "9bf1eb175f188ef548e5e368a1255b3e08c21ac319d7c68098d727ec8e783ef3",
+    "requested_count": null
+   },
+   {
+    "basis": "class_disputed",
+    "finite": false,
+    "plan_class": "DISPUTED",
+    "query_id": "9d7e943ed13f69a27407f019ddf0351b33846ed0e47f8b879baf6501b4e8a2d0",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "9dd80937437399ede7ff886e5f5e4228f89005bfb1eac190ae176fdeb1f61849",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "9e1d544acc972d72115e4bedc3d241f6c49471605b006ee0928d61cd759afb31",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": true,
+    "plan_class": "LOOKUP",
+    "query_id": "9f106f5807da6fcc2533482c1e69f0e50736a7396da2ff2e8e15fa6f329d89d6",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "a07dc72eb85ac0aaf7e084a37eb12843c9c4a1454808b8d75f4dee2bd2556760",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "HISTORY",
+    "query_id": "a0c05b0ae479b157f479225a1a8c1e610271ecb7e41e3413eb635ab4413ce89d",
+    "requested_count": null
+   },
+   {
+    "basis": "class_disputed",
+    "finite": true,
+    "plan_class": "DISPUTED",
+    "query_id": "a1f0ef696899b2d26727d8df45ba2fad2512e9039afd06785cc0ddcb34838ebf",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": true,
+    "plan_class": "LOOKUP",
+    "query_id": "a2a881cbe0e36532b89018128c8e2fb9ea5cba01edb83b0864dafed2c897bbb7",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "a329b34467f9c5c13b104a7b6974ee381e455d87f3e56e07059c47c1fd6ae405",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "a34d3a64fc8434b375f82b89a273c859ae7a8e0aabde9f1ecd578fd239b197a5",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "a39adf0050c586bf6a5fceaad0459cf1af6b8da5687714d717769053be2d41fd",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "a65fd32ab90c9f49e188e60a2a3b93071f0d7124f37418fab83a55f4415515de",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "a6abb4cb9ccc3cd248943a8c2f1cc85e5a193f0ae667a488dcf30b1b31a99215",
+    "requested_count": null
+   },
+   {
+    "basis": "class_disputed",
+    "finite": false,
+    "plan_class": "DISPUTED",
+    "query_id": "a7a918659e0c2fd482a588529c73fdd7ee961a6545baa8390740bcc03d1f6ef6",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "a815531819de5ef68420256724081a846c54fc5f336a466c9e123e69e04ec815",
+    "requested_count": null
+   },
+   {
+    "basis": "class_disputed",
+    "finite": false,
+    "plan_class": "DISPUTED",
+    "query_id": "aac23260fbf07d94416d704f48667746c1e1aa45d64c8f22aafdb6fe86103c38",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "b17d9196099564eaffd07d1300f584ceec05e60440fe653996b6034e49e96a28",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "b2237ecd64068c1b859c978eac11edd17774ee7e3aca34e077a9e523052e53e2",
+    "requested_count": null
+   },
+   {
+    "basis": "class_disputed",
+    "finite": true,
+    "plan_class": "DISPUTED",
+    "query_id": "b260915af235431a59307ad725279845a32a1d2b6ed0e0203da4638eb3ff6358",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": true,
+    "plan_class": "LOOKUP",
+    "query_id": "b2bd054c3f0d05ce8b1e73ff6c49e6fe3c35b0e19556c05f5d278a3a7d5056b5",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": true,
+    "plan_class": "LOOKUP",
+    "query_id": "b435bcb650f70c1d93e9e318bd0ae480503e2e6a6b005fbef3ac4889f8f9f269",
+    "requested_count": null
+   },
+   {
+    "basis": "class_disputed",
+    "finite": false,
+    "plan_class": "DISPUTED",
+    "query_id": "b557709e212e8d931e0be59a4d4b766bac1cc760477bea3a0913664adfb02c57",
+    "requested_count": null
+   },
+   {
+    "basis": "class_disputed",
+    "finite": true,
+    "plan_class": "DISPUTED",
+    "query_id": "b5bedc4ce01ac5aefae16e745253a849cbd5992a7545db92c21c3f6791922832",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "b6466b6af59b09201346ac2b90690329e69d7fdd45a19a38e9802995aa94b9a0",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": true,
+    "plan_class": "LOOKUP",
+    "query_id": "b8436de22f9900864d977c494dcb01835e7156dc8de356435796f506ee276b92",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "b8505856636ceb6310d3d71ece751153391a0d6562d78bf5f4c82fd44f593b3a",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "ba2f573496e62cfae97eb33ce42b271800ac533df3d9600b95bf4ba9aeb584c7",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "bb2d29096e6e59d610ddea238e490724de5e4a504e131b59942c17ec608df986",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": true,
+    "plan_class": "LOOKUP",
+    "query_id": "bcaedd630b556bd0d4e6b3684d940b475c235416355e3a3838ed25a5e9b0db2c",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "be5928e93d9a01a4cca8f61e0f355f8bccf94239872e69bb3190ff9b6dc555c6",
+    "requested_count": null
+   },
+   {
+    "basis": "class_disputed",
+    "finite": false,
+    "plan_class": "DISPUTED",
+    "query_id": "bf79ffd355feb244ad4c9a6a338d299000dbebf19a57199aa2c119d9d9773b5c",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": true,
+    "plan_class": "LOOKUP",
+    "query_id": "c282caf33953db043c21352082269731e7768bf19af2bfef96a5ac07a68eb959",
+    "requested_count": null
+   },
+   {
+    "basis": "class_disputed",
+    "finite": false,
+    "plan_class": "DISPUTED",
+    "query_id": "c40a5ea30320bcaf19548bb9d1ed16f0b3975b08154c4f3ab28283bc442cc750",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": true,
+    "plan_class": "CONJUNCT",
+    "query_id": "c8223d3f38965258a0242bc04f2f4719aeaacfb483f82feb5aef48677b64ff50",
+    "requested_count": null
+   },
+   {
+    "basis": "class_disputed",
+    "finite": false,
+    "plan_class": "DISPUTED",
+    "query_id": "caadfc30f4614d70f1ad6474cf6eb621c503b1ea7773ce7d2079151269f363d8",
+    "requested_count": null
+   },
+   {
+    "basis": "class_disputed",
+    "finite": false,
+    "plan_class": "DISPUTED",
+    "query_id": "caf70ab942fb809bc065abb12e56cf6ce82952d6714d997a6c61d9271274c09d",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "cbd4437ac089e8098fd91465159172e4cdd1fde35b131a490f946fbac99a4f05",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "cc97a65d7e398cce157b8823996a3651928fabec0dade549e9f1f1e361267bcd",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "cd7f66ea2a6be05d0cc513075316745beef65bcdbc3de87185a7f479aede77ac",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "ce101b5be02ad8abbafd6185d1c55802f5e361c73efd735bb3578830aebcd4c4",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "ce9389210f3bb625a1c87432a24cc8d9e86521c6f0451068f9200c8428ca8510",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "cec03bc9e320c94ece1c8a508bfdd7341ec01e1d9e5cc51e53aaa0416019e570",
+    "requested_count": null
+   },
+   {
+    "basis": "class_disputed",
+    "finite": false,
+    "plan_class": "DISPUTED",
+    "query_id": "cfc981a4e71dc333362734315395291c2ce8f1dcc578e13f390d5d8c3690e0c4",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "d01d31d46913d865ce07fa6c4884f688d678e2732a40bd0dd23af07a0a9cda36",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "d224702fac231ab792bf4d5de2b510454eef7ed91403d6201e0357ee275f2287",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "d224ff0f358f88b6394e5fd1c763b0921a9374c4af71d200b76bf28b7ad25c4c",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "d29b9a51d7d47269ad06eadeabd912c4fa747a4d47a2588c13a97f6aa057f9fc",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "d3a810da5cb824fd5c352d2d1aa154f2c66d9172ca5900b6addae703654c7dfe",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": true,
+    "plan_class": "OPEN",
+    "query_id": "d55bce8588c75465708a95c2b970d39c392ae8bdd251a57484a3308875a918e9",
+    "requested_count": null
+   },
+   {
+    "basis": "class_disputed",
+    "finite": false,
+    "plan_class": "DISPUTED",
+    "query_id": "d907cbef49ac359bafedc5749d552d07e5f953ccc81b80d055193a6f2ba198ab",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "db26041a3d8396dea2fad97e7fcb5f3532ba724f00341180d3ce826e96a5306b",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "db3e2210787ab61e0fd4303d390802df22a86e1f2d1fa7dbd23d7bea6b3e5a74",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "dc3d3ee9d983a2788c4d31a054980a9bf0425ceb3ffd86ba133c8c81ba5dfa26",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": true,
+    "plan_class": "CONJUNCT",
+    "query_id": "de3ca48a56fd13c468e2f0bdc78f52334c1196ccc05de0ef9c91cbcc2c0df8f7",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": true,
+    "plan_class": "OPEN",
+    "query_id": "e297f02fe69050c3e0eee6977a91d81b6947cc4d180b53bd870c151f95de1a06",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "e50cd50d6f3d1ed93525345ad2d03b072ea5b522605d807a98b98450402dd34c",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": true,
+    "plan_class": "OPEN",
+    "query_id": "e5ed1933f348e4d4e457d577815d3690d97499840bac97676517a9aff60dfc10",
+    "requested_count": null
+   },
+   {
+    "basis": "class_disputed",
+    "finite": false,
+    "plan_class": "DISPUTED",
+    "query_id": "e60e61131ebc9cf0518e263ff6a077d7f9e8934cb01a0dff258a6a7cef9b21fb",
+    "requested_count": null
+   },
+   {
+    "basis": "class_disputed",
+    "finite": false,
+    "plan_class": "DISPUTED",
+    "query_id": "e661821afd950e9a068ad6fdd56dcef8ea8c41230fa06e96839a9a866def35a0",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "e6ffd36e0e5aafb7a5ec062a65ae22d0a6b7c328a3ff87a70bd95d83b710099c",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": true,
+    "plan_class": "LOOKUP",
+    "query_id": "eb1e57c14519ca81f5a828eda762bc9c430dc5f6cf7181cb79cf6999a2e779c9",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": true,
+    "plan_class": "ENUMERATE_N",
+    "query_id": "f17779eb91cd541c5523640c834b29f23c0c69b11ad76c03113292f7810405f8",
+    "requested_count": 12
+   },
+   {
+    "basis": "agreed",
+    "finite": true,
+    "plan_class": "LOOKUP",
+    "query_id": "f1c3bd6dcc45b4a488d0bf384cb118ed66ef61c23bb25fa5467d1be22dd1fc5d",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": true,
+    "plan_class": "LOOKUP",
+    "query_id": "f1f7b02ce24b8abb0d8b07dd7005eed9d064d957ef530351325d3aa05437a507",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "f5bc52ed6d564531603f49e00dbca69ed8373b5fffa5aad66c95c019f0eb8b9f",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "f755560963c50426dd2bd9cb1724d6a715a9fe8fa4a994f3b2dbb7c698486b39",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "f7fa01feb0efdbfcad68f41618a9a8ee5f39c851a388223c02a16cae9914fc05",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "f8ad67cff64ff2b435e3dd434c1714492e92169a93a0e0b90542aeab78a16afb",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "f8e9ac42998dac5ddcff568ecfda7339fb6a3fb57bc77e20d08b4571fdc6bb93",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": true,
+    "plan_class": "LOOKUP",
+    "query_id": "fb30d86ca39c18a500deeef40e8e78f81a5133b04848cfa99dbb884d5af5eef4",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": true,
+    "plan_class": "LOOKUP",
+    "query_id": "fb6d5e689b60084461fbfed8433b6c262d23fc253ab3e42f18cb8541bf78db09",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": false,
+    "plan_class": "OPEN",
+    "query_id": "fbb248df9418259f9fc7c090d6a489b522a1f617eed70de3743baf169c1a3aee",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": true,
+    "plan_class": "LOOKUP",
+    "query_id": "fe3ee0e8b1655def1c142ddf3122dad99c331df61962be99fddef5aa3a2e909b",
+    "requested_count": null
+   },
+   {
+    "basis": "agreed",
+    "finite": true,
+    "plan_class": "CONJUNCT",
+    "query_id": "ff7e64b2ef48ad3146b47abfd17a1f1044ba3462adcf605c025dec1d0baea07c",
+    "requested_count": null
+   }
+  ]
+ },
+ "plan_class": {
+  "agreed": 148,
+  "cohen_kappa": 0.668088048864815,
+  "confusion": [
+   {
+    "count": 97,
+    "rater_a": "OPEN",
+    "rater_b": "OPEN"
+   },
+   {
+    "count": 35,
+    "rater_a": "LOOKUP",
+    "rater_b": "LOOKUP"
+   },
+   {
+    "count": 15,
+    "rater_a": "OPEN",
+    "rater_b": "LOOKUP"
+   },
+   {
+    "count": 10,
+    "rater_a": "CONJUNCT",
+    "rater_b": "CONJUNCT"
+   },
+   {
+    "count": 10,
+    "rater_a": "LOOKUP",
+    "rater_b": "OPEN"
+   },
+   {
+    "count": 4,
+    "rater_a": "HISTORY",
+    "rater_b": "HISTORY"
+   },
+   {
+    "count": 2,
+    "rater_a": "ENUMERATE_N",
+    "rater_b": "ENUMERATE_N"
+   },
+   {
+    "count": 2,
+    "rater_a": "OPEN",
+    "rater_b": "CONJUNCT"
+   },
+   {
+    "count": 2,
+    "rater_a": "HISTORY",
+    "rater_b": "OPEN"
+   },
+   {
+    "count": 1,
+    "rater_a": "HISTORY",
+    "rater_b": "LOOKUP"
+   },
+   {
+    "count": 1,
+    "rater_a": "ENUMERATE_N",
+    "rater_b": "OPEN"
+   },
+   {
+    "count": 1,
+    "rater_a": "CONJUNCT",
+    "rater_b": "LOOKUP"
+   }
+  ],
+  "dispute_rate": 0.17777777777777778,
+  "rated": 180,
+  "raw_agreement": 0.8222222222222222
+ },
+ "rater_b_unparsed": 0,
+ "split": "holdout"
+}
