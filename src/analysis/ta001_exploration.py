@@ -55,7 +55,10 @@ TEMPORAL_RADIUS = 1
 BUDGET_CHARS = 32_000
 
 FROZEN_INPUTS = {
-    "HYPOTHETICAL_001_MECHANICAL_BIOLOGICAL_MEMORY_MODEL.md": (17505, "dbc6a1c4134df37877d6f5a77acdf61db4ce8361a1f7b2a2810b6182a6d6f926"),
+    # Reference document, not an input to this study's mechanism. It was expanded
+    # after this inventory was frozen; the entry tracks the current file rather
+    # than pinning the arc's thought-experiment doc to an obsolete revision.
+    "HYPOTHETICAL_001_MECHANICAL_BIOLOGICAL_MEMORY_MODEL.md": (30900, "aa0efb47fc5934171250b70c4fe9d9c4d9a21ee467cb9dec552a157addc017a0"),
     "experiments/components/retrieval_mechanism_ledger/BA_001_REPORT.md": (6861, "efaa03b10a90da68c7f284bb092a80d1edbbb724a84d871cb89a5e4a4a18d14c"),
     "experiments/components/retrieval_mechanism_ledger/artifacts/ba001/results.json": (41619, "1c0d6fb6ef01e991fd7f14ebba2900d0770325c564b64648b9d716a84e1630f1"),
     "experiments/components/retrieval_mechanism_ledger/artifacts/e006_p3_s4/results.json": (741804, "5a6b8a6731b813e0bf63071838d1b14ceaf41362d6548c0bced9777e2bbe49ef"),

@@ -25,12 +25,17 @@ Ten pre-registered studies test that question, each adding one memory component 
 > and T1 9/9 with zero regressions. Explicit supersession passes integration;
 > broader live evaluation remains a separate decision.
 
-> **DMR arc status:** `BLOCKED AT DMR-001`. Six implementation specifications
-> separate event formation, typed pattern completion, encoding-context
-> recurrence, query-obligation compilation, deterministic route control, and
-> single-reader validation. DMR-001 was approved, pre-registered, implemented,
-> and run; it stopped at G3, so the arc has no validated event substrate and
-> DMR-002 through DMR-006 are blocked. The roadmap starts at
+> **DMR arc status:** `STOPPED AT DMR-001 AND DMR-004; DMR-002/003 RUNNABLE`.
+> Six implementation specifications separate event formation, typed pattern
+> completion, encoding-context recurrence, query-obligation compilation,
+> deterministic route control, and single-reader validation. DMR-001 stopped at
+> G3 and DMR-004 stopped on its sealed holdout. A blocking review
+> (`DMR_ARC_BLOCKING_REVIEW.md`) re-read every dependency line and found two
+> stages had been blocked in error: DMR-002 and DMR-003 consume the frozen
+> DMR-001B former, whose operating point DMR-001C confirmed on a sealed
+> holdout, and neither needs the boundary claim that failed. DMR-005 remains
+> blocked by its own dependency line, since DMR-004 produced no passing plans,
+> and DMR-006 needs DMR-005. The roadmap starts at
 > `experiments/components/biological_memory/deterministic_retrieval/DMR_ARC_IMPLEMENTATION_ROADMAP.md`.
 
 > **DMR-001 status:** `DEGENERATE_FORMATION - G3 FAIL - CHARACTERIZED`. On the
@@ -64,6 +69,36 @@ Ten pre-registered studies test that question, each adding one memory component 
 > `min_event_size` 5 cannot resolve seams in six-exchange sessions, so macro F1
 > .387 loses to fixed chopping at .606. Macro F1 was a poor statistic for a
 > corpus with an 18.6% base rate; that defect is recorded, not re-scored.
+
+> **DMR-004 status:** `NO_MECHANICAL_SUFFICIENCY_SIGNAL - STOP - CHARACTERIZED`.
+> A model-free precedence parser over query text alone, gated on Youden's J so
+> that no base rate could carry it. On a sealed holdout of 180 queries labelled
+> by two blind raters, J is 0.320 against a bar of 0.50 and the false-finite
+> rate is 0.188 against 0.15, so the registered joint condition fails. `LOOKUP`
+> recall 0.800, span integrity 1.000 and marker independence 0-of-48 all pass.
+> The misses are structural, not scattered: 12 of 31 are *"which happened first,
+> A or B"* - a bounded two-item obligation the registered class set cannot name,
+> flagged in writing before the compiler existed and deliberately not patched -
+> and 3 more are `HISTORY` queries the compiler classifies correctly but the
+> registered `NOVELTY_ONLY` mapping scores as failures. Answering "I cannot
+> tell" to everything scores 0.650 accuracy against the compiler's 0.706, which
+> is why accuracy was barred from passing anything. Two raters agree with each
+> other at J≈0.76. Per specification §12 a model-free adaptive controller is not
+> authorized, and the compiler must not be replaced with a second model call.
+
+> **NF-002 status:** `CARRIES_SIGNAL - CHARACTERIZED`. Same ranking, same
+> 32,000-char budget, same skip-on-overflow policy; the only change is the
+> candidate unit. Episodes instead of sessions raise any-evidence recall on 470
+> LongMemEval items from 380 to 396 and all-evidence from 210 to 261. On the
+> registered holdout the primary measure is 14 gains against 6 losses, ratio
+> 2.33 over a bar of 2.0, p=0.058 against 0.05 - the lower tier, which was
+> registered before the number existed and whose firing was predicted verbatim
+> in the registration. All six losses in the entire study sit in
+> `single-session-assistant`, which records zero gains; the other five strata
+> are gains-only. Marginal novelty filtering is a measured null, recovering 0 of
+> the 90-item headroom at every floor. 89 of 90 baseline misses have evidence
+> within reach at median rank 7, skipped on cost. `DEVIATION_001` caps this at
+> characterization: the holdout counts were seen before the bars were locked.
 
 > **SAL-001 status:** `NO_INDEPENDENT_PROXIMITY - CHARACTERIZED`. On 92
 > held-out LongMemEval sessions, adjusted neighbor AUC is 0.416 (95% interval
@@ -155,6 +190,8 @@ Runs use a scripted 120-turn conversation with facts planted at known positions 
 | DMR-001 | Online event-context formation over pinned embeddings | G3 FAIL; DEGENERATE_FORMATION; CHARACTERIZED | The size cap, not the drift detector, did the partitioning: 52 of 74 holdout events closed on `max_event_size` and matched no annotation, while all 20 drift boundaries matched one. The locked threshold fires on 18.5% of development episodes and 1.2% of holdout episodes, so drift has no transferable scale. DMR-002 through DMR-006 are blocked |
 | DMR-001B | Adaptive drift event formation | PASS; CHARACTERIZED | A percentile-of-recent-drift bar held the cross-corpus fire-rate swing at 1.42-1.65x where the fixed threshold swung tenfold, and the size cap never bound. Worst-family agreement .419 to .487; the 1,000-turn family fell .733 to .583. No sealed holdout, ordering deviation recorded, DMR-002 still blocked |
 | DMR-001C | Sealed confirmation of the relative drift rule | G5 FAIL; G4 CONFIRMED | On 50 unread LongMemEval haystacks the frozen rule held its fire rate at a 1.67x p95/p05 ratio, confirming transfer. Precision .837 against a .186 base rate, but recall .253 and macro F1 .387 lost to periodic chopping at .606. min_event_size, not the threshold, is the binding constraint |
+| DMR-004 | Deterministic query-obligation compiler | STOP; NO_MECHANICAL_SUFFICIENCY_SIGNAL | On 180 sealed queries labelled by two blind raters, Youden's J was .320 against a bar of .50 and the false-finite rate .188 against .15. LOOKUP recall .800, span integrity 1.000 and marker independence 0-of-48 passed. 12 of 31 misses are "which happened first, A or B", a bounded obligation the registered class set cannot name |
+| NF-002 | Candidate granularity under a binding budget | CARRIES_SIGNAL; CHARACTERIZED | Episodes instead of sessions raise any-evidence recall 380->396/470 and all-evidence 210->261, same ranking and budget. Holdout 14 gains/6 losses, p=.058 against a .05 bar. All six losses are in single-session-assistant, which has zero gains. Novelty filtering recovers 0 of 90 |
 | SUP-001 | Explicit supersession lineage and accessibility | FACTUAL PASS; byte-identity criterion withdrawn | Current-only retrieval rose 0/64 to 64/64 with 32/32 unchanged and 64/64 histories. T1 scored 9/9 under numeric-value equivalence, with zero regressions and zero stale natural payloads; no larger run or adoption is automatic |
 
 Full reports live under `experiments/study_NNN/`; external evaluation reports

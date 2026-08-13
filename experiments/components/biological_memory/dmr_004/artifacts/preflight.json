@@ -1,0 +1,283 @@
+{
+ "checks": {
+  "PF1": {
+   "check": "PF1 inputs exist - present, readable, hash-identified, counted",
+   "corpus_count": 524,
+   "corpus_digest": "16e06f6d363ddc9d6743452713fc642b0cedf52c0f86fa62fff8e280f094daa9",
+   "counts_by_source": {
+    "internal": {
+     "development": 9,
+     "holdout": 15
+    },
+    "longmemeval": {
+     "development": 200,
+     "holdout": 300
+    }
+   },
+   "dataset_sha256": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+   "files": {
+    "annotations_dev_rater_a.json": {
+     "bytes": 20809,
+     "present": true,
+     "sha256": "805138978c0e8aec63c1ac0d330161256454e3b0fd3ab875afe2880f356ee380"
+    },
+    "annotations_dev_rater_b.json": {
+     "bytes": 34053,
+     "present": true,
+     "sha256": "1acd0aa9bf946451e857f52f5885952cd84f1666067234102735a0cae89a2d12"
+    },
+    "annotations_holdout_rater_a.json": {
+     "bytes": 29953,
+     "present": true,
+     "sha256": "07c4bb7aa6e98621d99b6e2bbeacc5290c7414566c45b3e1b36df4b1d0a359ca"
+    },
+    "annotations_holdout_rater_b.json": {
+     "bytes": 50636,
+     "present": true,
+     "sha256": "ee48ff9ea672a392ae55f41eb80449d7ec5be9a7835e805849b94f74b1d8c1d6"
+    },
+    "gold_development.json": {
+     "bytes": 24954,
+     "present": true,
+     "sha256": "11eb53bf028fbc4e8cfb5513d469de56ba96e7998d825dc46200eb01579689ef"
+    },
+    "query_corpus.json": {
+     "bytes": 147988,
+     "present": true,
+     "sha256": "ff41acbf42381245d741773bede79839617124bdc8fe0b772ce56d434e7dcebf"
+    },
+    "split_manifest.json": {
+     "bytes": 65449,
+     "present": true,
+     "sha256": "b4f6d1f90bb050469bd24f10d0b795a03172ecfb4012005366ef9f3dc8202aea"
+    }
+   },
+   "pass": true,
+   "split_manifest_sha256": "3007aa3a8af1ea8494b37c3cd9923657093fe649600791475631c44db61b19cf"
+  },
+  "PF10": {
+   "check": "PF10 live-evaluation requirement stated - availability is not a verdict",
+   "pass": true,
+   "statement": "Query representation alone authorizes no retrieval, no ablation, and no live run. A passing gate here means a plan can be computed from query text, not that any answer improves. Nothing in this stage changes what is delivered to a reader."
+  },
+  "PF2": {
+   "check": "PF2 mechanism identity verified against its name, on committed data",
+   "name_checks": {
+    "FINITE": {
+     "aggregate_frames_marked_finite": 1,
+     "claim": "a fixed number of evidence items closes the request"
+    },
+    "HISTORY": {
+     "claim": "asks how a value changed, never a pointer at a prior conversation",
+     "discourse_pointers_classified_history": 0
+    },
+    "NOVELTY_ONLY": {
+     "claim": "a lineage obligation does not claim completeness",
+     "history_plans_claiming_completeness": 0
+    }
+   },
+   "pass": true,
+   "queries": 524,
+   "violations": []
+  },
+  "PF3": {
+   "check": "PF3 gate ordering enforced, proven to execute before what it gates",
+   "commits": {
+    "compiler": "42b45222ebf407d37731ba4393086b86647d4ccd",
+    "dev_labels": "29b5cb18079140bf4ace10fb08a0fabcc350f294",
+    "holdout_gates": null,
+    "holdout_labels": "1b4e1f2f80aaeb22a5b3b90e4462ad9759653df5",
+    "protocol": "29319a92618dd74e347c20bded97d89ee45c4d1e",
+    "registration": "6ea982facc09bc7eb1480535c3546d98158e3bec"
+   },
+   "ordering": {
+    "compiler_before_holdout_labels": true,
+    "holdout_labels_before_gates": null,
+    "labels_before_registration": true,
+    "protocol_before_any_label": true,
+    "registration_before_compiler": true
+   },
+   "pass": true,
+   "registration_commit_carries_no_implementation": true,
+   "registration_commit_files": [
+    "experiments/components/biological_memory/dmr_004/DMR_004_PRE_REGISTRATION.md"
+   ]
+  },
+  "PF4": {
+   "check": "PF4 thresholds achievable - every bar reachable in both directions before locking",
+   "gold_lookups": 35,
+   "gold_negatives": 117,
+   "gold_positives": 63,
+   "pass": true,
+   "rows": [
+    {
+     "bar": "G_J youden_j >= 0.50",
+     "can_fail": true,
+     "can_pass": true,
+     "finest_resolvable": 0.02442002442002442
+    },
+    {
+     "bar": "G3 false_finite_rate <= 0.15",
+     "can_fail": true,
+     "can_pass": true,
+     "finest_resolvable": 0.008547008547008548
+    },
+    {
+     "bar": "G4 lookup_recall >= 0.60",
+     "can_fail": true,
+     "can_pass": true,
+     "finest_resolvable": 0.02857142857142857
+    },
+    {
+     "bar": "G5 well_formed_span_share == 1.0",
+     "can_fail": true,
+     "can_pass": true,
+     "finest_resolvable": null,
+     "note": "one malformed span fails it; the corpus test shows a passing result exists"
+    },
+    {
+     "bar": "G6 internal_only_markers == 0",
+     "can_fail": true,
+     "can_pass": true,
+     "finest_resolvable": 1.0,
+     "note": "measured at 0 of 45 markers on the committed corpus"
+    }
+   ],
+   "split": "holdout",
+   "structural_controls": {
+    "always_finite": {
+     "accuracy": 0.35,
+     "false_finite_rate": 1.0,
+     "lookup_recall": 1.0,
+     "passes_G3": false,
+     "passes_G4": true,
+     "passes_G_J": false,
+     "youden_j": 0.0
+    },
+    "always_open": {
+     "accuracy": 0.65,
+     "false_finite_rate": 0.0,
+     "lookup_recall": 0.0,
+     "passes_G3": true,
+     "passes_G4": false,
+     "passes_G_J": false,
+     "youden_j": 0.0
+    }
+   }
+  },
+  "PF5": {
+   "check": "PF5 comparison keys stable - content hashes, never ids, timestamps or paths",
+   "design_sha256": "c054b18857f92362bc3947f5d029f502ee6669fa4cfa001eb4579f1ab59f7eae",
+   "pass": true,
+   "queries": 524,
+   "unstable": []
+  },
+  "PF6": {
+   "check": "PF6 reproduction anchor - a replay reproduces a known result by identity",
+   "note": "this stage imports no frozen artifact from DMR-001 through DMR-003; its header says it is independent of them, so the anchor is its own Part 1 corpus digest",
+   "part1_record_sha256": "d34e50c5ba6bf6127b3a219e7959bdb95be991be223d642e3cc5032fdf4c6e61",
+   "pass": true,
+   "recomputed_corpus_digest": "16e06f6d363ddc9d6743452713fc642b0cedf52c0f86fa62fff8e280f094daa9",
+   "recorded_corpus_digest": "16e06f6d363ddc9d6743452713fc642b0cedf52c0f86fa62fff8e280f094daa9"
+  },
+  "PF7": {
+   "check": "PF7 absorbing-state proof - the compiler has no feedback; bounds proven instead",
+   "max_query_characters": 4096,
+   "note": "compile() is a pure function of one string with no state carried between calls, so no absorbing state exists to demonstrate; what can be demonstrated is that output cardinality is bounded at the intended maximum length",
+   "observed": [
+    {
+     "case": "filler",
+     "characters": 4096,
+     "obligations": 0,
+     "plan_class": "OPEN"
+    },
+    {
+     "case": "many_clauses",
+     "characters": 4096,
+     "obligations": 241,
+     "plan_class": "CONJUNCT"
+    }
+   ],
+   "over_length_refused": true,
+   "pass": true
+  },
+  "PF8": {
+   "cannot_detect": [
+    "retrieval loops, reader regressions, or any delivered-answer effect",
+    "whether an obligation, once represented, helps a controller stop correctly",
+    "whether the classes are the right classes: the gold is two raters, one of",
+    "which is not independent of the mechanism"
+   ],
+   "check": "PF8 ablation length adequate - state what it can and cannot detect",
+   "detects": [
+    "parsing errors: a query assigned a class its text does not support",
+    "false completeness claims against an adjudicated gold standard",
+    "nondeterminism across processes and under the registered perturbations",
+    "grammar markers that fire only on this program's own probes"
+   ],
+   "pass": true
+  },
+  "PF9": {
+   "check": "PF9 surrogate audit - can this pass while the property it certifies is false?",
+   "pass": true,
+   "residual": "rater A is not independent of the mechanism. The adjudication rule resolves finite disagreements to false, which biases the gold toward the conservative label and therefore against the compiler, not for it.",
+   "table": [
+    {
+     "false_pass_mode": "the majority class carries it",
+     "majority_class": "OPEN",
+     "majority_share": 0.5388888888888889,
+     "metric": "raw accuracy",
+     "protection": "accuracy is reported and barred from passing any gate"
+    },
+    {
+     "always_open": {
+      "accuracy": 0.65,
+      "false_finite_rate": 0.0,
+      "lookup_recall": 0.0,
+      "passes_G3": true,
+      "passes_G4": false,
+      "passes_G_J": false,
+      "youden_j": 0.0
+     },
+     "false_pass_mode": "answering OPEN always gives perfect precision with no coverage",
+     "metric": "finite precision",
+     "protection": "G4 lookup recall and G_J must pass jointly"
+    },
+    {
+     "always_finite": {
+      "accuracy": 0.35,
+      "false_finite_rate": 1.0,
+      "lookup_recall": 1.0,
+      "passes_G3": false,
+      "passes_G4": true,
+      "passes_G_J": false,
+      "youden_j": 0.0
+     },
+     "false_pass_mode": "answering LOOKUP always gives perfect recall",
+     "metric": "class coverage",
+     "protection": "G3 false-finite and G_J must pass jointly"
+    },
+    {
+     "false_pass_mode": "a whole-query span overlaps every gold span",
+     "metric": "span overlap",
+     "protection": "spans are not scored against gold; exact offsets and the length distribution are reported instead"
+    },
+    {
+     "false_pass_mode": "raters can agree on structure retrieval cannot use",
+     "metric": "annotator agreement",
+     "protection": "this stage claims representation only; DMR-005 tests control utility"
+    },
+    {
+     "false_pass_mode": "a learned service could still be reachable",
+     "metric": "no model call",
+     "protection": "fresh-interpreter import closure against sys.stdlib_module_names, plus socket and subprocess tripwires"
+    }
+   ]
+  }
+ },
+ "design_sha256": "c054b18857f92362bc3947f5d029f502ee6669fa4cfa001eb4579f1ab59f7eae",
+ "failed": [],
+ "pass": true,
+ "schema": "dmr004-preflight-v1",
+ "split": "holdout"
+}

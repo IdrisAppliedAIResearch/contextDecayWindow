@@ -10,6 +10,8 @@ This repository contains ten pre-registered studies testing whether a language m
 
 The coding agent implements the registered design. Do not design studies, choose parameters, reinterpret criteria, or silently repair conflicts.
 
+**This program is building something that does not exist yet.** Read §9 before reporting any result. Discipline is what makes a finding trustworthy; it is not a licence to report every stop as a dead end.
+
 ## 2. Study Digest
 
 **Cap: 400 characters per entry.** Rewrite entries to stay below the cap; never expand the cap. Scores below are post-audit corrected values.
@@ -73,6 +75,10 @@ The coding agent implements the registered design. Do not design studies, choose
 **DMR-001B adaptive drift formation (2026-08-12).** PASS, CHARACTERIZED; does NOT unblock DMR-002. A percentile-of-recent-drift bar holds fire-rate swing at 1.42-1.65x across all five grid cells where the fixed rule swung 9x-inf. Cap 128 never bound; 0 capped closures in 3,724 episodes. Worst family .419->.487, but the 1,000-turn family fell .733->.583. No sealed holdout; DEVIATION_001 recorded.
 
 **DMR-001C sealed holdout (2026-08-12).** G5 FAIL; NO_BOUNDARY_EVIDENCE, but G4 CONFIRMS transfer. On 50 unread LongMemEval haystacks, 11,453 episodes, 2,128 real seams, the frozen relative rule holds fire-rate p95/p05 at 1.67x. Precision .837 vs .186 base rate, but recall .253 (min_event_size 5 vs 6-exchange sessions), so F1 .387 loses to C_PERIODIC_4's .606. F1 on a dense corpus rewards firing.
+
+**DMR-004 query obligations (2026-08-12).** STOP; NO_MECHANICAL_SUFFICIENCY_SIGNAL. 180 sealed queries, two blind raters (finite kappa .770). Youden J .320 vs .50 and false-finite .188 vs .15 fail; LOOKUP recall .800, spans 1.000, 0/48 internal-only markers pass. Always-OPEN accuracy .650 vs .706. 12/31 misses are "which happened first, A or B", flagged pre-lock, not patched.
+
+**NF-002 candidate granularity (2026-08-12).** CARRIES_SIGNAL; CHARACTERIZED. Same ranking, budget and policy; only the unit changes. Episodes beat sessions 380->396/470 any-evidence and 210->261 all. Holdout 14 gains/6 losses, ratio 2.33 over 2.0, p=.058 over .05 - the lower tier, predicted verbatim pre-run. All 6 losses in single-session-assistant, 0 gains. Novelty null: 0 of 90.
 
 **PS-001 pattern-separated engram formation (2026-08-11).** CHARACTERIZED. Nine deterministic sparse cells on 119 episodes; only D=4096,K=41 passed G3-G5: 119/119 fixed points and exact 1/10/30/50% swap recovery. Six of seven degenerates reached stored codes; the union-biased cue cycled. Code-space result only; no natural cue, retrieval, live run, promotion, or adoption.
 
@@ -244,6 +250,8 @@ Items 2 and 3 are mandatory. A study is not closed and its PR must not merge wit
 - start a 120-turn run without a passing 35-turn ablation.
 - Reopen a stopped study or bypass a binding gate without a new, authorized design.
 - Report a result that cannot be traced to a committed artifact.
+- Introduce a lower disposition bar, or a "this carries signal" reading, after a number is on the table. Both tiers are registered before the run or neither exists (§9).
+- Report `STOPPED` without saying whether the mechanism failed or the instrument could not test it (§9).
 
 ## 8. Repository Map
 
@@ -293,3 +301,72 @@ figures and the PDF are build outputs of the two scripts above.
   order disagree, fix the numbering rather than the placement.
 - Every figure caption carries its artifacts' SHA-256 prefixes. If an artifact
   changes, the caption and `figure_manifest.json` change with it.
+
+## 9. Reading a Result
+
+Nobody has built this. A memory layer whose formation, ranking, routing and
+stopping are all deterministic does not exist in the field; the industry
+comparison — Mem0 and its neighbours — spends a language-model call on exactly
+this layer. So the question is rarely *does the deterministic version win*. It
+is **how much of that layer survives without the call.** A mechanism that
+recovers most of it and still loses head-to-head is a finding. Reporting it as
+a failure throws the finding away.
+
+Three habits follow. They are obligations, not encouragement.
+
+### 9.1 A stop closes a design, not a question
+
+DMR-001 stopped on an absolute drift threshold. DMR-001B replaced it with a
+relative one and passed every gate. DMR-001C confirmed the operating point on a
+sealed holdout. The blocking claim written the day DMR-001 stopped was carried
+forward through two more stages after the evidence beneath it had changed, and
+it wrongly blocked two runnable stages.
+
+When a stage stops, write down **what exactly is closed** — this rule, this
+instrument, this corpus, this parameter — and never more than that. When new
+evidence lands, re-read every downstream blocking claim against it. A blocking
+claim inherits no authority from age.
+
+### 9.2 Separate an instrument failure from a mechanism failure
+
+NF-001 stopped because `NEVER_STOP` scored zero regret on 32-candidate streams:
+the rig could not make stopping cost anything, so it could not rank a stopping
+rule. DMR-004's span gate was unfalsifiable because the extracted span covered
+a median 0.91 of the query. In both cases **the mechanism was never tested.**
+
+A report that says `STOPPED` without saying which of the two happened is not a
+finding, it is a tombstone. Say which. If the instrument failed, name the
+instrument that would work.
+
+### 9.3 A weak signal is a result when it was registered as one
+
+Register **two dispositions before the run**:
+
+- the bar for *this works*, and
+- a separate, lower, explicitly numbered bar for *this carries signal worth a
+  successor*.
+
+Both fixed in advance, both in the pre-registration, both reachable in each
+direction under PF4. A result landing between them is reported as signal, with
+its margin, its sample size, and the successor it justifies — not rounded down
+to a failure and not rounded up to a pass.
+
+Weak means weak. Say so: NF-001's novelty rule beat matched fixed depth 11 times
+in 14 by under one fact on 16 streams, and "suggestive, not demonstrated" is the
+honest description of that.
+
+### 9.4 The guardrail
+
+None of this licenses reinterpreting a result after seeing it.
+
+The lower bar counts **only if it was registered before the run**. The moment a
+"carries signal" reading is applied to a number already on the table, it stops
+being research and becomes rescue — and rescue is the exact failure this
+program's pre-registration discipline exists to prevent. §3's question has a
+mirror image, and both must be asked:
+
+- Can this gate **pass** while the property it certifies is false?
+- Can this gate **fail** while the property it certifies is true?
+
+§7 forbids introducing either tier late. That prohibition is what makes the
+lower tier worth anything.

@@ -1,0 +1,114 @@
+{
+ "anchor": {
+  "anchor_holds": true,
+  "dataset_sha256_expected": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+  "evidence_ranks_reproduced": 470,
+  "excluded_abstention_stratum": 30,
+  "items_seen": 500,
+  "mismatched": 30
+ },
+ "arms": {
+  "novelty_floor_0.05": {
+   "all_evidence": 210,
+   "all_evidence_rate": 0.44680851063829785,
+   "any_evidence": 380,
+   "any_evidence_rate": 0.8085106382978723,
+   "median_chars_used": 31446
+  },
+  "novelty_floor_0.10": {
+   "all_evidence": 210,
+   "all_evidence_rate": 0.44680851063829785,
+   "any_evidence": 380,
+   "any_evidence_rate": 0.8085106382978723,
+   "median_chars_used": 31440
+  },
+  "novelty_floor_0.20": {
+   "all_evidence": 210,
+   "all_evidence_rate": 0.44680851063829785,
+   "any_evidence": 380,
+   "any_evidence_rate": 0.8085106382978723,
+   "median_chars_used": 31438
+  },
+  "novelty_floor_0.30": {
+   "all_evidence": 210,
+   "all_evidence_rate": 0.44680851063829785,
+   "any_evidence": 380,
+   "any_evidence_rate": 0.8085106382978723,
+   "median_chars_used": 31412
+  },
+  "novelty_floor_0.40": {
+   "all_evidence": 209,
+   "all_evidence_rate": 0.44468085106382976,
+   "any_evidence": 380,
+   "any_evidence_rate": 0.8085106382978723,
+   "median_chars_used": 31371
+  },
+  "novelty_floor_0.50": {
+   "all_evidence": 195,
+   "all_evidence_rate": 0.4148936170212766,
+   "any_evidence": 380,
+   "any_evidence_rate": 0.8085106382978723,
+   "median_chars_used": 31255
+  },
+  "novelty_floor_0.60": {
+   "all_evidence": 161,
+   "all_evidence_rate": 0.3425531914893617,
+   "any_evidence": 376,
+   "any_evidence_rate": 0.8,
+   "median_chars_used": 30578
+  },
+  "novelty_floor_0.70": {
+   "all_evidence": 135,
+   "all_evidence_rate": 0.2872340425531915,
+   "any_evidence": 374,
+   "any_evidence_rate": 0.7957446808510639,
+   "median_chars_used": 28838
+  },
+  "oracle_ceiling": {
+   "all_evidence": 341,
+   "all_evidence_rate": 0.725531914893617,
+   "any_evidence": 470,
+   "any_evidence_rate": 1.0,
+   "median_chars_used": 20191
+  },
+  "rank_order_episodes": {
+   "all_evidence": 261,
+   "all_evidence_rate": 0.5553191489361702,
+   "any_evidence": 396,
+   "any_evidence_rate": 0.8425531914893617,
+   "median_chars_used": 31923
+  },
+  "rank_order_sessions": {
+   "all_evidence": 210,
+   "all_evidence_rate": 0.44680851063829785,
+   "any_evidence": 380,
+   "any_evidence_rate": 0.8085106382978723,
+   "median_chars_used": 31450
+  },
+  "shortest_first": {
+   "all_evidence": 35,
+   "all_evidence_rate": 0.07446808510638298,
+   "any_evidence": 39,
+   "any_evidence_rate": 0.08297872340425531,
+   "median_chars_used": 29505
+  }
+ },
+ "budget_chars": 32000,
+ "candidates_per_stream": {
+  "max": 62,
+  "median": 47,
+  "min": 38
+ },
+ "granularity_paired": {
+  "gains": 22,
+  "losses": 6,
+  "net": 16
+ },
+ "miss_diagnosis": {
+  "ranked_deeper_than_anything_that_fit": 1,
+  "within_reach_but_skipped_on_cost": 89
+ },
+ "oversubscription_median": 14.5025625,
+ "schema": "nf002-streams-v1",
+ "streams": 470
+}
