@@ -146,6 +146,15 @@ therefore **rank coarse, pack fine**: use the broader context to score relevance
 and the narrower unit to spend the context budget. This is a posthoc
 characterization on an exhausted corpus, not a registered universal law.
 
+A prospective LoCoMo holdout confirms why that scope matters. At a registered
+16,000-character operating point, ranking adjacent-turn pairs by their own
+cosine raises complete exact-evidence delivery from **843/1,098 to 935/1,098**
+over assigning every pair its session's maximum score: 140 gains, 48 losses,
+gain/loss ratio 2.92, one-sided exact p=6.19e-12. All six conversations are net
+positive, and source order reaches only 258. The registered disposition is
+`WORKS`, bounded to availability. It does not establish reader correctness or
+replace LongMemEval's opposite corpus-specific mechanism.
+
 What remains after every one of those removals is an append-only store, a
 recency window, similarity retrieval, and a coverage objective, with no
 generative model calls in the memory path — a design that is reproducible and free of generated
@@ -926,8 +935,18 @@ coarse context can rescue evidence below the practical fine-rank frontier.
 The result is a posthoc synthesis on a corpus whose items are exhausted, so it
 does not establish a universal direction. In particular, it does not show that
 coarse ranking wins when the budget admits most candidates. Development-only
-budget sweeps on LoCoMo and LongMemEval test that binding-ratio moderator before
-any external holdout registration.
+budget sweeps on LoCoMo and LongMemEval rejected binding ratio as a portable
+moderator before the external holdout was opened.
+
+NF-004 then registered the corpus-specific opposite direction on six sealed
+LoCoMo conversations. At 16,000 characters, pair ranking raises complete exact
+evidence from **843/1,098 to 935/1,098**, with 140 gains, 48 losses, ratio 2.92,
+and one-sided exact p=6.19e-12. It also stays positive at the secondary 32k
+point, 961 to 1,024; source order reaches only 258 at 16k. All six conversations
+are net positive. This passes the prospective `WORKS` bar and demonstrates that
+ranking granularity is corpus-scoped under the tested instrument. The endpoint
+is availability, not reader correctness, and authorizes no live or adoption
+claim.
 
 ### 5.6 The three constraints, and why the order is forced
 

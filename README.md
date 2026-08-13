@@ -40,6 +40,8 @@ ones that killed the thing being tested.
    session/episode, and episode/episode ranking/packing. Fine packing helps
    (+13); fine ranking hurts (-37). The 63 coarse-rank rescues have median own
    cosine rank 46, so session context carries evidence its own text cannot rank.
+   This is corpus-specific: a prospective LoCoMo holdout confirms the opposite
+   ranking direction at 16k, from 843 to 935 complete-evidence items.
 
 4. **The live instrument is coarser than most verdicts placed on it.** Five
    byte-identical replicates of one configuration scored 8.0, 8.0, 8.0, 8.0 and
@@ -57,8 +59,8 @@ selection failure that has been characterized rather than tuned away.
 
 ## Current State of Work
 
-*Last updated 2026-08-13, at merge of
-[PR #55](https://github.com/IdrisAppliedAIResearch/contextDecayWindow/pull/55).*
+*Last updated 2026-08-13, at NF-004 completion on draft
+[PR #57](https://github.com/IdrisAppliedAIResearch/contextDecayWindow/pull/57).*
 
 **The deployable component is done.** `episodic/` is an installable library with
 a public store, report, config and embedding-cache API. Extraction is certified
@@ -105,29 +107,33 @@ calls.**
   binding-ratio rule. At 32k, LoCoMo source/session/pair all-evidence is
   279/773/826; LongMemEval all-evidence changes sign between 16k and 24k while
   LoCoMo remains positive at overlapping ratios.
-- **NF-004** is pre-registered at `95f0d25c`: 1,098 sealed LoCoMo questions,
-  16k, complete exact evidence, pair ranking versus session-score inheritance.
-  The holdout has not run.
+- **NF-004** is `WORKS`, availability only. On 1,098 sealed LoCoMo questions at
+  16k, pair ranking raises complete evidence from 843 to 935 over session-score
+  inheritance: **140 gains, 48 losses, ratio 2.92, p=6.19e-12**. All six
+  conversations are net positive; source order reaches only 258, and the 32k
+  secondary remains positive at 961 to 1,024. G0-G7 and byte replay pass.
 
 **One constraint governs that whole line.** Every LongMemEval item has now been
 used by this program, so nothing in it can be *confirmed* on that corpus.
-Characterization is the ceiling there. LoCoMo is acquired, split by whole
-conversation, and characterized on development; six conversations remain sealed
-for a confirmatory successor.
+Characterization is the ceiling there. LoCoMo was split by whole conversation
+before content inspection and its six-conversation holdout has now been used by
+NF-004; further work on these ten conversations is characterization, not a new
+confirmation.
 
 ---
 
 ## Next Steps
 
-1. **Execute NF-004's preflight before opening its holdout.** Capture and seal
-   holdout vectors, run G0-G5, and commit the passing preflight before G6.
-
-2. **Write DMR-002 Part 1 and its final pre-registration before implementation.**
+1. **Write DMR-002 Part 1 and its final pre-registration before implementation.**
    The former is upstream-cleared, but the only spec still forbids execution.
 
-3. **Revisit similarity only after the registered LoCoMo holdout.** NF-003's
-   session-touch metric obscured 63 strict losses, so its old H2 residual cannot
-   justify a new mechanism by itself.
+2. **If reader value is the next question, register it separately.** NF-004
+   confirms evidence availability only; a live successor must lock the reader,
+   prompt, rubric, determinism check, and no-regression bar before inference.
+
+3. **Treat ranking granularity as corpus-scoped.** LongMemEval supports coarse
+   ranking at 32k while LoCoMo confirms fine ranking at 16k; the development
+   controls already reject binding ratio as a portable explanation.
 
 ---
 ---
@@ -254,11 +260,11 @@ Eleven pre-registered studies test that question, each adding one memory compone
 > gains. Design rule: **rank coarse, pack fine**. No posthoc verdict is assigned.
 
 > **LoCoMo ranking-granularity development status:** `DEVELOPMENT SIGNAL;
-> HOLDOUT SEALED`. On 871 unique questions, exact evidence-pair delivery rises
+> HOLDOUT LATER USED BY NF-004`. On 871 unique questions, exact evidence-pair delivery rises
 > 820 -> 855 with 44 gains/9 losses (descriptive exact sign p=1.22e-6); complete
 > evidence delivery rises 773 -> 826 with 71/18. All four conversations are net
 > positive. Session-touch hides all nine strict losses. No bars or disposition
-> were registered; six holdout conversations remain unopened.
+> were registered at this stage; NF-004 later opened the locked holdout.
 
 > **LoCoMo control status:** `COMPLETE - CORPUS-SPECIFIC REGISTRATION
 > JUSTIFIED`. At 32k, source/session/pair complete-evidence delivery is
@@ -267,11 +273,13 @@ Eleven pre-registered studies test that question, each adding one memory compone
 > Opposite signs occur at overlapping binding ratios, so ratio alone does not
 > transfer. Zero model calls; byte-identical replay.
 
-> **NF-004 status:** `PRE-REGISTERED - HOLDOUT NOT RUN`. Registration
-> `95f0d25c` fixes 1,098 fully resolvable sealed LoCoMo questions, a 16k budget,
-> complete exact evidence, and pair ranking versus session-score inheritance.
-> WORKS requires gains >= 2x losses and p <= .05; CARRIES_SIGNAL requires gains
-> > losses and p <= .20. Availability only; no live or adoption claim follows.
+> **NF-004 status:** `WORKS - CONFIRMED AVAILABILITY DIRECTION`. On 1,098
+> sealed LoCoMo questions at 16k, pair ranking raises complete exact-evidence
+> delivery from 843 to 935 over session-score inheritance: 140 gains, 48
+> losses, ratio 2.92, one-sided exact p=6.19e-12. All six conversations are net
+> positive; source order is 258 and 32k remains positive at 961 to 1,024.
+> G0-G7 pass with a byte-identical holdout replay and zero measurement calls.
+> Availability is not reader correctness; no live run or adoption follows.
 
 > **SAL-001 status:** `NO_INDEPENDENT_PROXIMITY - CHARACTERIZED`. On 92
 > held-out LongMemEval sessions, adjusted neighbor AUC is 0.416 (95% interval
@@ -367,9 +375,9 @@ Runs use a scripted 120-turn conversation with facts planted at known positions 
 | NF-002 | Candidate granularity under a binding budget | CARRIES_SIGNAL; CHARACTERIZED | Episodes instead of sessions raise any-evidence recall 380->396/470 and all-evidence 210->261, same ranking and budget. Holdout 14 gains/6 losses, p=.058 against a .05 bar. All six losses are in single-session-assistant, which has zero gains. Novelty filtering recovers 0 of 90 |
 | NF-003 | Ranking granularity under the same budget | PREFLIGHT SURROGATE FAIL; UNREGISTERED | Session-touch reproduces 396->445 and 49/0, but 94 treatment hits contain no answer episode. Strict delivery falls 388->351: 26 gains, 63 losses. Five items lack turn labels. Proposed registration closed before lock |
 | NF-003 three-arm synthesis | Ranking and packing granularity on one strict measure | CHARACTERIZED | Session/session 375, session/episode 388, episode/episode 351 on the same 465 items. Fine packing is +13; fine ranking is -37. Coarse-rank rescues have median own-cosine rank 46. Observed rule: rank coarse, pack fine |
-| LoCoMo development | Ranking granularity on an untouched-corpus development split | DEVELOPMENT SIGNAL; HOLDOUT SEALED | On 871 unique questions, strict evidence delivery rises 820->855 with 44 gains/9 losses; complete evidence rises 773->826 with 71/18. All four development conversations are net positive. No registered bars or disposition; six conversations remain sealed |
+| LoCoMo development | Ranking granularity on an untouched-corpus development split | DEVELOPMENT SIGNAL; HOLDOUT LATER USED | On 871 unique questions, strict evidence delivery rises 820->855 with 44 gains/9 losses; complete evidence rises 773->826 with 71/18. All four development conversations are net positive. No registered bars or disposition at this stage; NF-004 later opened the locked holdout |
 | LoCoMo budget controls | Source-order null and fixed budget sweeps | COMPLETE; DEVELOPMENT ONLY | Source/session/pair complete evidence is 279/773/826 at 32k. Pair ranking stays positive at every truncated LoCoMo budget; LongMemEval complete evidence crosses between 16k and 24k. Binding ratio alone does not transfer |
-| NF-004 | LoCoMo ranking-granularity confirmation | PRE-REGISTERED; HOLDOUT NOT RUN | Registration 95f0d25c fixes 1,098 fully resolvable QAs, 16k, complete evidence, pair ranking versus session-score inheritance, inherited WORKS/CARRIES_SIGNAL bars, and no live-verdict boundary; Amendment 001 maps the byte-identical pre-PR56 SHA |
+| NF-004 | LoCoMo ranking-granularity confirmation | WORKS; AVAILABILITY ONLY | At 16k, complete evidence rises 843->935/1,098: 140 gains, 48 losses, ratio 2.92, p=6.19e-12. All six conversations net positive; source order 258; 32k 961->1,024. G0-G7 and byte replay pass with zero measurement calls. No live/adoption claim |
 | SUP-001 | Explicit supersession lineage and accessibility | FACTUAL PASS; byte-identity criterion withdrawn | Current-only retrieval rose 0/64 to 64/64 with 32/32 unchanged and 64/64 histories. T1 scored 9/9 under numeric-value equivalence, with zero regressions and zero stale natural payloads; no larger run or adoption is automatic |
 
 Full reports live under `experiments/study_NNN/`; external evaluation reports
@@ -696,13 +704,23 @@ could pass without answer-bearing evidence. `ERRATA.md`,
 `NF_003_PART1_CORRECTION.md`, and `NF_003_PREFLIGHT_SURROGATE_AUDIT.md` carry the
 correction and strict reconstruction.
 
-The untouched-corpus successor now has a development-only mechanism signal.
+The untouched-corpus successor first produced a development-only mechanism signal.
 On LoCoMo's four locked development conversations, ranking adjacent-turn pairs
 by their own cosine raises exact any-evidence delivery from 820/871 to 855/871
 (44 gains, 9 losses) and complete-evidence delivery from 773/868 to 826/868
-(71 gains, 18 losses). Session-touch again hides every strict loss. These are
-development numbers with no registered bars; all six holdout conversations
-remain sealed pending a complete successor registration.
+(71 gains, 18 losses). Session-touch again hides every strict loss. These were
+development numbers with no registered bars or disposition.
+
+NF-004 then locked the complete-evidence endpoint, a 16k budget, and inherited
+WORKS/CARRIES_SIGNAL bars before opening the six-conversation holdout. Pair
+ranking raises complete evidence from **843/1,098 to 935/1,098**, with **140
+gains, 48 losses, ratio 2.92, and one-sided exact p=6.19e-12**. All six
+conversations are net positive. The source-order control reaches only 258, and
+the 32k secondary remains positive at 961 to 1,024. The registered disposition
+is `WORKS`, bounded to evidence availability: no reader, live, or adoption
+claim follows. LongMemEval's coarse-ranking mechanism and LoCoMo's opposite
+prospective result therefore coexist as corpus-scoped findings; delivery ratio
+alone did not explain their difference.
 
 See `experiments/components/biological_memory/nf_001/`,
 `experiments/components/biological_memory/nf_002/NF_002_REPORT.md`, and
@@ -711,6 +729,8 @@ The synthesis is `experiments/components/biological_memory/nf_003/
 NF_003_THREE_ARM_FINDING.md`.
 The LoCoMo development record is
 `experiments/external/locomo/LOCOMO_DEVELOPMENT_EXPLORATION.md`.
+The confirmatory record is
+`experiments/components/biological_memory/nf_004/NF_004_REPORT.md`.
 
 ## The Extracted Library
 

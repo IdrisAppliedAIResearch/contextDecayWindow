@@ -84,11 +84,11 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **NF-003 three-arm synthesis (2026-08-13).** CHARACTERIZED. Same 465 items/32k/strict measure: session-rank/session-pack 375, session-rank/episode-pack 388, episode-rank/episode-pack 351. Fine packing +13; fine ranking -37. The 63 coarse-rank rescues have median own-cosine rank 46 vs 10 for 26 fine-rank gains. Rule: rank coarse, pack fine.
 
-**LoCoMo ranking development (2026-08-13).** DEVELOPMENT ONLY. On 871 unique questions, strict evidence delivery rose 820->855, 44 gains/9 losses, p=1.22e-6; complete evidence 773->826, 71/18. All four conversations were positive. Session-touch hid all 9 losses. Six holdout conversations remain sealed; no bars, registration, disposition or holdout run.
+**LoCoMo ranking development (2026-08-13).** DEVELOPMENT ONLY. On 871 unique questions, strict evidence delivery rose 820->855, 44 gains/9 losses, p=1.22e-6; complete evidence 773->826, 71/18. All four conversations were positive. Session-touch hid all 9 losses. No bars or disposition at this stage; NF-004 later opened the holdout.
 
 **Ranking-budget controls (2026-08-13).** COMPLETE dev-only. LoCoMo source/session/pair at 32k: 279/773/826 all-evidence; pair beats session at every truncated 4k-80k budget. LongMem all-evidence crosses +8 at 16k to -14 at 24k, but overlapping corpus ratios have opposite signs. Binding ratio alone does not transfer.
 
-**NF-004 LoCoMo confirmation (2026-08-13).** PRE-REGISTERED at 95f0d25c after byte-identical PR56 rebase amendment; HOLDOUT NOT RUN. On 1,098 sealed QAs, 16k all-evidence tests pair rank over session-score inheritance. WORKS: gains>=2x losses,p<=.05; CARRIES: gains>losses,p<=.20. Availability only; no live/adoption claim.
+**NF-004 LoCoMo confirmation (2026-08-13).** WORKS, availability only. On 1,098 sealed QAs at 16k, pair rank raises complete evidence 843->935 vs session inheritance: 140 gains/48 losses, ratio 2.92, p=6.19e-12. All 6 conversations net positive; source order 258, and 32k stays positive 961->1,024. G0-G7 pass, byte-identical replay, zero measurement calls. No live/adoption claim.
 
 **PS-001 pattern-separated engram formation (2026-08-11).** CHARACTERIZED. Nine deterministic sparse cells on 119 episodes; only D=4096,K=41 passed G3-G5: 119/119 fixed points and exact 1/10/30/50% swap recovery. Six of seven degenerates reached stored codes; the union-biased cue cycled. Code-space result only; no natural cue, retrieval, live run, promotion, or adoption.
 
