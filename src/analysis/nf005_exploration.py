@@ -46,6 +46,15 @@ def lf_sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes().replace(b"\r\n", b"\n")).hexdigest()
 
 
+def content_digest(values: Iterable[str]) -> str:
+    digest = hashlib.sha256()
+    for value in sorted(values):
+        encoded = value.encode("utf-8")
+        digest.update(len(encoded).to_bytes(8, byteorder="big", signed=False))
+        digest.update(encoded)
+    return digest.hexdigest()
+
+
 def distribution(values: Iterable[int]) -> dict[str, float | int]:
     ordered = sorted(values)
     if not ordered:
@@ -202,6 +211,14 @@ def _episode_rank_turn_pack_baseline(
         "min_total_chars": min(row["total_chars"] for row in rows),
         "packed_chars": distribution(row["packed_chars"] for row in rows),
         "delivered_turns": distribution(row["delivered_turns"] for row in rows),
+        "row_digest": hashlib.sha256(
+            json.dumps(
+                rows,
+                ensure_ascii=True,
+                sort_keys=True,
+                separators=(",", ":"),
+            ).encode("utf-8")
+        ).hexdigest(),
     }
 
 
@@ -330,6 +347,7 @@ def explore(
         "population": {
             "items": len(items),
             "comparison_key": "question_id",
+            "comparison_key_digest": content_digest(part1_rows),
             "malformed_source_pairs": malformed_pairs,
             "evidence_flags_per_item": {
                 str(key): value for key, value in sorted(evidence_flags_per_item.items())
@@ -356,6 +374,7 @@ def explore(
             "unique_queries": len(questions),
             "query_hits": query_hits,
             "unique_turn_texts": len(unique_turn_texts),
+            "unique_turn_text_digest": content_digest(unique_turn_texts),
             "turn_hits": turn_hits,
             "turn_misses": len(unique_turn_texts) - turn_hits,
         },
