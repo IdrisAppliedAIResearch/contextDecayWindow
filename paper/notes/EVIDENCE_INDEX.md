@@ -12,6 +12,13 @@ correlation remains not identifiable: the prior audit scores only 6 of 76
 fact-bearing episodes across three variants. PAPER-001 is revised on the
 separate `e006/rarity-diagnostic` branch.
 
+**Post-draft update, NF-003 (2026-08-13).** A hash-bound synthesis of NF-002 and
+NF-003 puts three arms on the same 465 items, budget, packing policy, and strict
+answer-episode outcome: session/session 375, session/episode 388, and
+episode/episode 351. The artifact is
+`experiments/components/biological_memory/nf_003/artifacts/three_arm_summary.json`.
+This is posthoc characterization on exhausted LongMemEval, not confirmation.
+
 ---
 
 ## 1. Spec-versus-artifact discrepancies

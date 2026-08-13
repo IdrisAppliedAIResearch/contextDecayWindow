@@ -35,11 +35,11 @@ ones that killed the thing being tested.
    similarity tier delivered zero episodes at all eight probes because recency
    consumed the entire budget first.
 
-3. **Granularity only helps when evidence is measured at the same unit.** On 465
-   turn-labelled questions, packing episodes instead of sessions retains a
-   strict 375 → 388 gain. Ranking episodes by their own cosine looked like
-   396 → 445 under session-touch, but strict answer-episode delivery fell
-   388 → 351. A coarser evidence unit manufactured the program's largest win.
+3. **Rank coarse, pack fine.** On the same 465 turn-labelled questions, strict
+   delivery moves 375 → 388 → 351 across session/session,
+   session/episode, and episode/episode ranking/packing. Fine packing helps
+   (+13); fine ranking hurts (-37). The 63 coarse-rank rescues have median own
+   cosine rank 46, so session context carries evidence its own text cannot rank.
 
 4. **The live instrument is coarser than most verdicts placed on it.** Five
    byte-identical replicates of one configuration scored 8.0, 8.0, 8.0, 8.0 and
@@ -94,6 +94,9 @@ calls.**
 - **NF-003 Part 1** stopped at its pre-registration surrogate audit. Session-touch
   reproduced 396 → 445 and 49 gains/0 losses, but strict answer-episode delivery
   fell 388 → 351 with **26 gains and 63 losses**. It remains unregistered.
+- **Three-arm synthesis** puts both levers on one strict scale: session/session
+  375, session/episode 388, episode/episode 351. The deployed middle corner is
+  the observed optimum: **rank coarse, pack fine**.
 - **LoCoMo development** supplies the untouched-corpus successor signal. Across
   871 unique questions, strict exact-evidence delivery rose 820 → 855 with
   **44 gains and 9 losses**; all four development conversations were positive.
@@ -236,6 +239,13 @@ Eleven pre-registered studies test that question, each adding one memory compone
 > losses**. Five unflagged items were not ranked. The proposed registration
 > closed before lock; no posthoc disposition, live run, or adoption follows.
 
+> **NF-003 three-arm finding:** `CHARACTERIZED ON EXHAUSTED LONGMEMEVAL`.
+> Strict delivery is 375/465 for session-rank/session-pack, 388/465 for
+> session-rank/episode-pack, and 351/465 for episode-rank/episode-pack. Fine
+> packing is net +13; fine ranking is net -37. The 63 coarse-rank rescues have
+> median own-cosine rank 46 (p90 135), versus 10 (p90 21) for the 26 fine-rank
+> gains. Design rule: **rank coarse, pack fine**. No posthoc verdict is assigned.
+
 > **LoCoMo ranking-granularity development status:** `DEVELOPMENT SIGNAL;
 > HOLDOUT SEALED`. On 871 unique questions, exact evidence-pair delivery rises
 > 820 -> 855 with 44 gains/9 losses (descriptive exact sign p=1.22e-6); complete
@@ -336,6 +346,7 @@ Runs use a scripted 120-turn conversation with facts planted at known positions 
 | DMR-004 | Deterministic query-obligation compiler | STOP; NO_MECHANICAL_SUFFICIENCY_SIGNAL | On 180 sealed queries labelled by two blind raters, Youden's J was .320 against a bar of .50 and the false-finite rate .188 against .15. LOOKUP recall .800, span integrity 1.000 and marker independence 0-of-48 passed. 12 of 31 misses are "which happened first, A or B", a bounded obligation the registered class set cannot name |
 | NF-002 | Candidate granularity under a binding budget | CARRIES_SIGNAL; CHARACTERIZED | Episodes instead of sessions raise any-evidence recall 380->396/470 and all-evidence 210->261, same ranking and budget. Holdout 14 gains/6 losses, p=.058 against a .05 bar. All six losses are in single-session-assistant, which has zero gains. Novelty filtering recovers 0 of 90 |
 | NF-003 | Ranking granularity under the same budget | PREFLIGHT SURROGATE FAIL; UNREGISTERED | Session-touch reproduces 396->445 and 49/0, but 94 treatment hits contain no answer episode. Strict delivery falls 388->351: 26 gains, 63 losses. Five items lack turn labels. Proposed registration closed before lock |
+| NF-003 three-arm synthesis | Ranking and packing granularity on one strict measure | CHARACTERIZED | Session/session 375, session/episode 388, episode/episode 351 on the same 465 items. Fine packing is +13; fine ranking is -37. Coarse-rank rescues have median own-cosine rank 46. Observed rule: rank coarse, pack fine |
 | LoCoMo development | Ranking granularity on an untouched-corpus development split | DEVELOPMENT SIGNAL; HOLDOUT SEALED | On 871 unique questions, strict evidence delivery rises 820->855 with 44 gains/9 losses; complete evidence rises 773->826 with 71/18. All four development conversations are net positive. No registered bars or disposition; six conversations remain sealed |
 | SUP-001 | Explicit supersession lineage and accessibility | FACTUAL PASS; byte-identity criterion withdrawn | Current-only retrieval rose 0/64 to 64/64 with 32/32 unchanged and 64/64 histories. T1 scored 9/9 under numeric-value equivalence, with zero regressions and zero stale natural payloads; no larger run or adoption is automatic |
 
@@ -634,6 +645,17 @@ items, with 49 gains and no losses. PF9 then showed that 94 treatment hits
 delivered no episode carrying `has_answer`. The like-for-like strict measure
 reverses the result: **388 → 351, 26 gains, 63 losses, zero model calls**.
 
+Together with NF-002, this forms a three-arm one-factor-at-a-time comparison on
+the same strict outcome: session-rank/session-pack delivers 375, session-rank/
+episode-pack 388, and episode-rank/episode-pack 351. The signs oppose each
+other: finer packing is net +13, while finer ranking is net -37. The 63 items
+rescued by session ranking have median own-episode cosine rank 46 (p90 135),
+against rank 10 (p90 21) for the 26 episode-ranking gains. Session pooling is
+therefore doing visible work: it supplies a retrieval cue for evidence whose
+own text ranks too deeply, while episode packing avoids paying for the whole
+context that supplied that cue. The observed design rule is **rank coarse,
+pack fine**.
+
 Two integrity notes belong with these numbers. NF-002's `DEVIATION_001` records
 that holdout discordant counts were printed in the same command as development
 counts before the bars were locked; the disposition is capped at
@@ -663,6 +685,8 @@ remain sealed pending a complete successor registration.
 See `experiments/components/biological_memory/nf_001/`,
 `experiments/components/biological_memory/nf_002/NF_002_REPORT.md`, and
 `experiments/components/biological_memory/nf_003/NF_003_PART1_RECORD.md`.
+The synthesis is `experiments/components/biological_memory/nf_003/
+NF_003_THREE_ARM_FINDING.md`.
 The LoCoMo development record is
 `experiments/external/locomo/LOCOMO_DEVELOPMENT_EXPLORATION.md`.
 
