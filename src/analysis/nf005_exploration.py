@@ -114,6 +114,97 @@ def _locomo_pair_lengths(dataset_path: Path) -> list[int]:
     return lengths
 
 
+def _episode_rank_turn_pack_baseline(
+    items: Sequence[dict[str, Any]],
+    part1_rows: dict[str, dict[str, Any]],
+    connection: sqlite3.Connection,
+) -> dict[str, Any]:
+    rows: list[dict[str, Any]] = []
+
+    def vector(text: str) -> np.ndarray:
+        found = connection.execute(
+            "select embedding from cache where text=?", (text,)
+        ).fetchone()
+        if found is None:
+            raise NF005ExplorationError("Baseline reproduction encountered a cache miss")
+        value = np.frombuffer(found[0], dtype=np.float32).astype(np.float64)
+        norm = float(np.linalg.norm(value))
+        if norm == 0.0:
+            raise NF005ExplorationError("Baseline reproduction encountered a zero vector")
+        return value / norm
+
+    for item in items:
+        episodes: list[str] = []
+        turns: list[tuple[str, bool]] = []
+        for session in item["haystack_sessions"]:
+            for start in range(0, len(session) - 1, 2):
+                first, second = session[start : start + 2]
+                if first.get("role") != "user" or second.get("role") != "assistant":
+                    continue
+                episodes.append(
+                    episode_text(
+                        str(first.get("content", "")),
+                        str(second.get("content", "")),
+                    )
+                )
+                turns.extend(
+                    (
+                        (turn_text(first), bool(first.get("has_answer"))),
+                        (turn_text(second), bool(second.get("has_answer"))),
+                    )
+                )
+
+        query = vector(str(item["question"]))
+        scores = np.vstack([vector(text) for text in episodes]) @ query
+        order = np.lexsort((np.arange(len(episodes)), -scores))
+        used = 0
+        delivered_evidence = 0
+        delivered_turns = 0
+        evidence_total = sum(is_evidence for _, is_evidence in turns)
+        for episode_position in order:
+            for turn_position in (2 * int(episode_position), 2 * int(episode_position) + 1):
+                text, is_evidence = turns[turn_position]
+                if used + len(text) > 32_000:
+                    continue
+                used += len(text)
+                delivered_turns += 1
+                delivered_evidence += is_evidence
+        rows.append(
+            {
+                "question_id": item["question_id"],
+                "any_evidence": delivered_evidence > 0,
+                "all_evidence": delivered_evidence == evidence_total,
+                "packed_chars": used,
+                "delivered_turns": delivered_turns,
+                "total_chars": sum(len(text) for text, _ in turns),
+            }
+        )
+
+    old = {
+        question_id: row["episode_ranked_episodes_delivered"] > 0
+        for question_id, row in part1_rows.items()
+    }
+    gains = sum(not old[row["question_id"]] and row["any_evidence"] for row in rows)
+    losses = sum(old[row["question_id"]] and not row["any_evidence"] for row in rows)
+    return {
+        "items": len(rows),
+        "episode_rank_episode_pack_any": sum(old.values()),
+        "episode_rank_turn_pack_any": sum(row["any_evidence"] for row in rows),
+        "episode_rank_turn_pack_all": sum(row["all_evidence"] for row in rows),
+        "packing_contrast": {
+            "gains": gains,
+            "losses": losses,
+            "ties": len(rows) - gains - losses,
+            "net": gains - losses,
+        },
+        "any_evidence_misses": sum(not row["any_evidence"] for row in rows),
+        "full_store_fits": sum(row["total_chars"] <= 32_000 for row in rows),
+        "min_total_chars": min(row["total_chars"] for row in rows),
+        "packed_chars": distribution(row["packed_chars"] for row in rows),
+        "delivered_turns": distribution(row["delivered_turns"] for row in rows),
+    }
+
+
 def explore(
     repository_root: Path,
     longmemeval_path: Path,
@@ -190,6 +281,9 @@ def explore(
         cache_entries = int(
             connection.execute("select count(*) from cache").fetchone()[0]
         )
+        baseline = _episode_rank_turn_pack_baseline(
+            items, part1_rows, connection
+        )
     finally:
         connection.close()
 
@@ -265,6 +359,7 @@ def explore(
             "turn_hits": turn_hits,
             "turn_misses": len(unique_turn_texts) - turn_hits,
         },
+        "registered_baseline_feasibility": baseline,
         "degenerate_states": {
             "turn_candidates_over_32000_chars": sum(
                 length > 32_000 for length in turn_lengths

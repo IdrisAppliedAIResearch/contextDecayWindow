@@ -52,6 +52,14 @@ described as a zero-call replay. Any registered test needs a post-lock vector
 capture phase with the pinned embedder, exact solo calls, a call-shape
 sentinel, and a sealed content-addressed cache before measurement.
 
+The prospective control arm can be run without those new vectors: source turns
+inherit their parent episode's retained cosine and pack separately. It delivers
+any exact evidence turn on **361/465** items and all exact evidence turns on
+**208/465**. Relative to episode packing, finer packing gives 10 gains and zero
+losses, net +10. All 465 stores exceed 32k (minimum 400,126 characters), the
+control leaves 104 any-evidence misses, and both planned directional tiers are
+therefore reachable before the treatment is computed.
+
 ## Surrogate audit
 
 Counting any span from an answer episode would let a non-evidence assistant

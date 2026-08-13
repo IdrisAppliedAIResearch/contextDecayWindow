@@ -148,5 +148,38 @@
   "items": 465,
   "malformed_source_pairs": 7255
  },
+ "registered_baseline_feasibility": {
+  "any_evidence_misses": 104,
+  "delivered_turns": {
+   "max": 94,
+   "mean": 47.28172,
+   "min": 21,
+   "n": 465,
+   "p10": 36,
+   "p50": 46,
+   "p90": 60
+  },
+  "episode_rank_episode_pack_any": 351,
+  "episode_rank_turn_pack_all": 208,
+  "episode_rank_turn_pack_any": 361,
+  "full_store_fits": 0,
+  "items": 465,
+  "min_total_chars": 400126,
+  "packed_chars": {
+   "max": 32000,
+   "mean": 31989.623656,
+   "min": 31939,
+   "n": 465,
+   "p10": 31977,
+   "p50": 31992,
+   "p90": 31999
+  },
+  "packing_contrast": {
+   "gains": 10,
+   "losses": 0,
+   "net": 10,
+   "ties": 455
+  }
+ },
  "schema": "nf005-exploration-v1"
 }
