@@ -1,8 +1,9 @@
 # Ranking and Budget Development Control Report
 
 **Status:** `COMPLETE - CORPUS-SPECIFIC REGISTRATION JUSTIFIED`
-**Specification:** `RANKING_BUDGET_CONTROL_PLAN.md`, commit `cddb1a86`
-**Implementation:** commit `7eeee27f`
+**Specification:** `RANKING_BUDGET_CONTROL_PLAN.md`, original commit `cddb1a86`,
+rebased byte-identically to `8c940d8b`
+**Implementation:** original commit `7eeee27f`, rebased to `735096a5`
 **Artifact:** `artifacts/ranking_budget_controls.json`
 **Artifact SHA-256:** `8ff8bd529f1af00331147b345915dc128ef45acf6c633d04be9d0f9243a79e3b`
 **Model calls:** 0

@@ -71,7 +71,7 @@ Verified against two independently published values: `e005_results.json`
 | R40 | `…/final_codex_integrity/codex_integrity_score_summary.json` | `e59f86cd` | `178321282e180792` |
 | R41 | `…/final_codex_integrity/codex_integrity_score_ledger.jsonl` | `e59f86cd` | `3a293c0973637b45` |
 | R42 | `…/runs/tier1_001/retrieval_path_diagnostic.json` | `7b38badb` | `fc6589071af5a092` |
-| R43 | `experiments/components/biological_memory/nf_003/artifacts/three_arm_summary.json` | `8a41bce4` | `4473c8c5c4ed5337` |
+| R43 | `experiments/components/biological_memory/nf_003/artifacts/three_arm_summary.json` | `0b6993c3` | `4473c8c5c4ed5337` |
 
 Path prefix `…` is `experiments/components/retrieval_mechanism_ledger` for
 R1–R21 and R33–R36, and `experiments/components` for R22–R29.

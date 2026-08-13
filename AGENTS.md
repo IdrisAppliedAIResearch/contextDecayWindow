@@ -88,7 +88,7 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **Ranking-budget controls (2026-08-13).** COMPLETE dev-only. LoCoMo source/session/pair at 32k: 279/773/826 all-evidence; pair beats session at every truncated 4k-80k budget. LongMem all-evidence crosses +8 at 16k to -14 at 24k, but overlapping corpus ratios have opposite signs. Binding ratio alone does not transfer.
 
-**NF-004 LoCoMo confirmation (2026-08-13).** PRE-REGISTERED at c9d55b71; HOLDOUT NOT RUN. On 1,098 sealed fully resolvable QAs, 16k all-evidence tests pair ranking over session-score inheritance. WORKS: gains>=2x losses and p<=.05; CARRIES: gains>losses and p<=.20. Availability only; no live/adoption claim.
+**NF-004 LoCoMo confirmation (2026-08-13).** PRE-REGISTERED at 95f0d25c after byte-identical PR56 rebase amendment; HOLDOUT NOT RUN. On 1,098 sealed QAs, 16k all-evidence tests pair rank over session-score inheritance. WORKS: gains>=2x losses,p<=.05; CARRIES: gains>losses,p<=.20. Availability only; no live/adoption claim.
 
 **PS-001 pattern-separated engram formation (2026-08-11).** CHARACTERIZED. Nine deterministic sparse cells on 119 episodes; only D=4096,K=41 passed G3-G5: 119/119 fixed points and exact 1/10/30/50% swap recovery. Six of seven degenerates reached stored codes; the union-biased cue cycled. Code-space result only; no natural cue, retrieval, live run, promotion, or adoption.
 

@@ -105,7 +105,7 @@ calls.**
   binding-ratio rule. At 32k, LoCoMo source/session/pair all-evidence is
   279/773/826; LongMemEval all-evidence changes sign between 16k and 24k while
   LoCoMo remains positive at overlapping ratios.
-- **NF-004** is pre-registered at `c9d55b71`: 1,098 sealed LoCoMo questions,
+- **NF-004** is pre-registered at `95f0d25c`: 1,098 sealed LoCoMo questions,
   16k, complete exact evidence, pair ranking versus session-score inheritance.
   The holdout has not run.
 
@@ -268,7 +268,7 @@ Eleven pre-registered studies test that question, each adding one memory compone
 > transfer. Zero model calls; byte-identical replay.
 
 > **NF-004 status:** `PRE-REGISTERED - HOLDOUT NOT RUN`. Registration
-> `c9d55b71` fixes 1,098 fully resolvable sealed LoCoMo questions, a 16k budget,
+> `95f0d25c` fixes 1,098 fully resolvable sealed LoCoMo questions, a 16k budget,
 > complete exact evidence, and pair ranking versus session-score inheritance.
 > WORKS requires gains >= 2x losses and p <= .05; CARRIES_SIGNAL requires gains
 > > losses and p <= .20. Availability only; no live or adoption claim follows.
@@ -369,7 +369,7 @@ Runs use a scripted 120-turn conversation with facts planted at known positions 
 | NF-003 three-arm synthesis | Ranking and packing granularity on one strict measure | CHARACTERIZED | Session/session 375, session/episode 388, episode/episode 351 on the same 465 items. Fine packing is +13; fine ranking is -37. Coarse-rank rescues have median own-cosine rank 46. Observed rule: rank coarse, pack fine |
 | LoCoMo development | Ranking granularity on an untouched-corpus development split | DEVELOPMENT SIGNAL; HOLDOUT SEALED | On 871 unique questions, strict evidence delivery rises 820->855 with 44 gains/9 losses; complete evidence rises 773->826 with 71/18. All four development conversations are net positive. No registered bars or disposition; six conversations remain sealed |
 | LoCoMo budget controls | Source-order null and fixed budget sweeps | COMPLETE; DEVELOPMENT ONLY | Source/session/pair complete evidence is 279/773/826 at 32k. Pair ranking stays positive at every truncated LoCoMo budget; LongMemEval complete evidence crosses between 16k and 24k. Binding ratio alone does not transfer |
-| NF-004 | LoCoMo ranking-granularity confirmation | PRE-REGISTERED; HOLDOUT NOT RUN | Registration c9d55b71 fixes 1,098 fully resolvable QAs, 16k, complete evidence, pair ranking versus session-score inheritance, inherited WORKS/CARRIES_SIGNAL bars, and no live-verdict boundary |
+| NF-004 | LoCoMo ranking-granularity confirmation | PRE-REGISTERED; HOLDOUT NOT RUN | Registration 95f0d25c fixes 1,098 fully resolvable QAs, 16k, complete evidence, pair ranking versus session-score inheritance, inherited WORKS/CARRIES_SIGNAL bars, and no live-verdict boundary; Amendment 001 maps the byte-identical pre-PR56 SHA |
 | SUP-001 | Explicit supersession lineage and accessibility | FACTUAL PASS; byte-identity criterion withdrawn | Current-only retrieval rose 0/64 to 64/64 with 32/32 unchanged and 64/64 histories. T1 scored 9/9 under numeric-value equivalence, with zero regressions and zero stale natural payloads; no larger run or adoption is automatic |
 
 Full reports live under `experiments/study_NNN/`; external evaluation reports
