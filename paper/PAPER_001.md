@@ -40,11 +40,13 @@ model calls anywhere in the memory path.
    selection rule of any kind could cover all four from it. Improving the rule
    before widening the shortlist cannot work, and measured once, it made things
    slightly worse than the baseline.
-4. **Rank coarse, pack fine.** On 465 externally sourced, turn-labelled
-   questions, strict evidence delivery is 375 with session ranking and session
-   packing, 388 with session ranking and episode packing, and 351 with episode
-   ranking and episode packing. Fine packing helps while fine ranking removes
-   the session context that rescues weakly matching evidence.
+4. **Rank at the finest informative unit; pack fine.** On 465 externally
+   sourced questions, episode-level ranking loses evidence whose broad text
+   dilutes the query match. Splitting those episodes into 298-character median
+   source turns and ranking each turn by its own cosine raises exact delivery
+   from 361 to 461, with 100 gains and zero losses. This supports candidate
+   informativeness as the scope condition, while leaving raw length and semantic
+   localization joined.
 
 **Three operational instructions.**
 
@@ -152,8 +154,17 @@ cosine raises complete exact-evidence delivery from **843/1,098 to 935/1,098**
 over assigning every pair its session's maximum score: 140 gains, 48 losses,
 gain/loss ratio 2.92, one-sided exact p=6.19e-12. All six conversations are net
 positive, and source order reaches only 258. The registered disposition is
-`WORKS`, bounded to availability. It does not establish reader correctness or
-replace LongMemEval's opposite corpus-specific mechanism.
+`WORKS`, bounded to availability. It does not establish reader correctness.
+
+A registered within-corpus successor then splits LongMemEval episodes into
+their exact source turns. With turn packing fixed, own-turn ranking raises any
+exact evidence delivery from **361/465 to 461/465**, 100 gains and zero losses
+(one-sided exact p=7.89e-31); all-evidence rises from 208 to 454. Evidence turns
+have median 298 characters versus 2,550 for parent evidence episodes. This
+supports candidate information dilution as the moderator and yields the
+conditional rule: rank at the finest unit whose embedding remains informative,
+pack fine. Because splitting changes length and semantic localization together,
+it does not isolate raw character count.
 
 What remains after every one of those removals is an append-only store, a
 recency window, similarity retrieval, and a coverage objective, with no
@@ -290,7 +301,8 @@ its advancement gate (§4).
 LoCoMo and LongMemEval were the calibration this program lacked. EC-001 has now
 run the unchanged component on cleaned LongMemEval-S, but its Codex-substituted
 evaluation is not the benchmark's official score and cannot be compared
-directly with published systems. LoCoMo remains unrun.
+directly with published systems. NF-004 and NF-005 use benchmark corpora only
+as deterministic evidence-availability instruments, not official scores.
 
 The placement is narrow: every system above consumes a candidate set produced
 upstream by similarity ranking, and this paper measures that set rather than
@@ -938,15 +950,26 @@ coarse ranking wins when the budget admits most candidates. Development-only
 budget sweeps on LoCoMo and LongMemEval rejected binding ratio as a portable
 moderator before the external holdout was opened.
 
-NF-004 then registered the corpus-specific opposite direction on six sealed
+NF-004 then registered the opposite direction on six sealed
 LoCoMo conversations. At 16,000 characters, pair ranking raises complete exact
 evidence from **843/1,098 to 935/1,098**, with 140 gains, 48 losses, ratio 2.92,
 and one-sided exact p=6.19e-12. It also stays positive at the secondary 32k
 point, 961 to 1,024; source order reaches only 258 at 16k. All six conversations
-are net positive. This passes the prospective `WORKS` bar and demonstrates that
-ranking granularity is corpus-scoped under the tested instrument. The endpoint
-is availability, not reader correctness, and authorizes no live or adoption
-claim.
+are net positive. This passes the prospective `WORKS` bar and establishes the
+opposite sign before NF-005's moderator test. The endpoint is availability, not
+reader correctness, and authorizes no live or adoption claim.
+
+NF-005 then tests candidate information dilution within the same exhausted
+LongMemEval corpus. Holding source-turn packing fixed, ranking each source turn
+by its own cosine raises any exact evidence delivery from **361/465 to 461/465**:
+100 gains, zero losses, and one-sided exact p=7.89e-31. All-evidence rises from
+208 to 454, while source order reaches 64 any and 7 all. The exact evidence
+turns have median 298 characters versus 2,550 for their parent evidence
+episodes. The registered `INFORMATION_DILUTION_SUPPORTED` disposition is capped
+at `CHARACTERIZED`, but it reconciles the signs into a conditional rule: rank at
+the finest unit whose embedding remains informative, then pack at the finest
+affordable unit. Splitting changes length and semantic localization together,
+so the result does not identify a universal character threshold.
 
 ### 5.6 The three constraints, and why the order is forced
 
@@ -1314,7 +1337,9 @@ claim that every result is self-authored, but API unavailability replaced the
 pinned benchmark evaluator with Phi, Mistral, and hosted GPT-5.4 raters plus
 hosted GPT-5.5 AI adjudication. Its 20.0% equal-quota and 12.22%
 post-stratified results are Codex-substituted integrity scores, not official or
-benchmark-comparable LongMemEval scores. LoCoMo remains unrun. Boundedness
+benchmark-comparable LongMemEval scores. NF-004 and NF-005 add deterministic
+availability measurements on LoCoMo and LongMemEval, not official benchmark
+scores. Boundedness
 claims are statements about a 1,000-turn horizon and say nothing about 10,000.
 *Settled by:* repeated runs at multiple seeds and the official evaluator on the
 registered answers.

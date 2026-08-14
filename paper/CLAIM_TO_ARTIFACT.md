@@ -73,13 +73,14 @@ Verified against two independently published values: `e005_results.json`
 | R42 | `…/runs/tier1_001/retrieval_path_diagnostic.json` | `7b38badb` | `fc6589071af5a092` |
 | R43 | `experiments/components/biological_memory/nf_003/artifacts/three_arm_summary.json` | `0b6993c3` | `4473c8c5c4ed5337` |
 | R44 | `experiments/components/biological_memory/nf_004/artifacts/g7_result_integrity.json` | `7a1f82f1` | `890b4831d530e9a7` |
+| R45 | `experiments/components/biological_memory/nf_005/artifacts/g8_integrity.json` | `f09544ae` | `17cbdbad274c1863` |
 
 Path prefix `…` is `experiments/components/retrieval_mechanism_ledger` for
 R1–R21 and R33–R36, and `experiments/components` for R22–R29.
 For R37 it is `experiments`; for R38–R42 it is
 `experiments/external/longmemeval`.
 
-R43-R44 are outside those prefixes and are written in full above.
+R43-R45 are outside those prefixes and are written in full above.
 
 ---
 
@@ -208,7 +209,7 @@ R43-R44 are outside those prefixes and are written in full above.
 | # | Claim | Value | Source | Status |
 |---|---|---|---|---|
 | C85 | No error bars anywhere in the program | every comparison single-run, one seed | `AGENTS.md` §4 runtime rules; absence across all reports | VERIFIED — stated as an absence, which is what it is |
-| C86 | External calibration boundary | LongMemEval-S and the NF-004 LoCoMo availability holdout are run; no official comparator score | R37 §7; R40; R44 | VERIFIED — NF-004 is an internal availability instrument, not an official benchmark score |
+| C86 | External calibration boundary | LongMemEval-S and the NF-004/NF-005 availability instruments are run; no official comparator score | R37 §7; R40; R44; R45 | VERIFIED — NF-004 and NF-005 are internal availability instruments, not official benchmark scores |
 | C87 | Literal enumeration rests on one probe | Q11 is the only literal enumeration question; EC-001 adds multi-session reasoning as an analogue | R13 §3.5; R37 §6 | VERIFIED |
 | C88 | The known optimum contains prior probe answers | 4 of 5 | R15 probe-turn map + R1 oracle set | DERIVED — probe turns are 112, 113, 115, 116, 117, 118, 119, 120; oracle turns are 90, 112, 113, 116, 118; four intersect. **Not** from `prior_answer_fraction.csv`, which measures a different quantity (fraction of *selected* episodes that are prior answers, per configuration) |
 | C89 | Achievability holds under `source_turn < 120`, not a plant-source-only bound | — | R1 §Interpretation Boundary | VERIFIED |
@@ -268,6 +269,7 @@ R43-R44 are outside those prefixes and are written in full above.
 | C130 | Phase 1's probe reproduced 820 generations and still missed the divergence | 20 committed windows x 10 repeats across four sampler and process conditions, plus 20 replays of the exact recorded prompt, all identical | `study_011/runtime/phase_1_generations.jsonl` | VERIFIED - and superseded in part: the probe isolated the model call from the runner, so it measured the component and reported on the system |
 | C131 | Ranking and packing granularity have opposite signs on one strict outcome | session/session 375, session/episode 388, episode/episode 351 on 465 items; packing contrast +13 net (17/4), ranking contrast -37 net (26/63); 63 coarse-rank rescues have median own-cosine rank 46 versus 10 for 26 fine-rank gains | R43 | VERIFIED - posthoc synthesis on exhausted LongMemEval, no registered disposition or universal moderator claim |
 | C132 | Pair ranking prospectively improves complete evidence on LoCoMo | 843/1,098 -> 935/1,098 at 16k; 140 gains, 48 losses, ratio 2.92, one-sided exact p=6.19e-12; all six conversations net positive; source order 258; 32k 961->1,024 | R44 | VERIFIED - registered `WORKS`, availability only; no reader, live, universal-rule, or adoption claim |
+| C133 | Source-turn ranking supports candidate information dilution on LongMemEval | any exact evidence 361/465 -> 461/465 with turn packing fixed; 100 gains, 0 losses, p=7.89e-31; all-evidence 208->454; evidence turns p50 298 chars vs parent episodes 2,550 | R45 | VERIFIED - registered direction on exhausted corpus, capped `CHARACTERIZED`; localization and raw length not separated; availability only |
 
 ---
 

@@ -35,13 +35,14 @@ ones that killed the thing being tested.
    similarity tier delivered zero episodes at all eight probes because recency
    consumed the entire budget first.
 
-3. **Rank coarse, pack fine.** On the same 465 turn-labelled questions, strict
-   delivery moves 375 → 388 → 351 across session/session,
-   session/episode, and episode/episode ranking/packing. Fine packing helps
-   (+13); fine ranking hurts (-37). The 63 coarse-rank rescues have median own
-   cosine rank 46, so session context carries evidence its own text cannot rank.
-   This is corpus-specific: a prospective LoCoMo holdout confirms the opposite
-   ranking direction at 16k, from 843 to 935 complete-evidence items.
+3. **Rank at the finest informative unit; pack fine.** On 465 LongMemEval
+   questions, session/session, session/episode and episode/episode strict
+   delivery is 375/388/351: episode ranking loses evidence whose broad text
+   dilutes the query match. Splitting those episodes into 298-character median
+   evidence turns reverses the sign, raising exact delivery 361 to 461 with 100
+   gains and zero losses. LoCoMo's already short pairs independently show the
+   fine-ranking direction. Candidate informativeness, not corpus identity alone,
+   reconciles the results; raw length and semantic localization remain joined.
 
 4. **The live instrument is coarser than most verdicts placed on it.** Five
    byte-identical replicates of one configuration scored 8.0, 8.0, 8.0, 8.0 and
@@ -59,8 +60,7 @@ selection failure that has been characterized rather than tuned away.
 
 ## Current State of Work
 
-*Last updated 2026-08-13, at NF-004 completion on draft
-[PR #57](https://github.com/IdrisAppliedAIResearch/contextDecayWindow/pull/57).*
+*Last updated 2026-08-13, at NF-005 completion.*
 
 **The deployable component is done.** `episodic/` is an installable library with
 a public store, report, config and embedding-cache API. Extraction is certified
@@ -112,6 +112,12 @@ calls.**
   inheritance: **140 gains, 48 losses, ratio 2.92, p=6.19e-12**. All six
   conversations are net positive; source order reaches only 258, and the 32k
   secondary remains positive at 961 to 1,024. G0-G7 and byte replay pass.
+- **NF-005** is `INFORMATION_DILUTION_SUPPORTED`, capped at `CHARACTERIZED`.
+  On the same 465 LongMemEval items and 32k budget, with turn packing fixed,
+  ranking 298-character median source turns by their own cosine raises any exact
+  evidence from 361 to 461: **100 gains, zero losses, p=7.89e-31**. All-evidence
+  rises 208 to 454; source order reaches only 64/7. This supports candidate
+  localization/dilution as the moderator, not a raw character threshold.
 
 **One constraint governs that whole line.** Every LongMemEval item has now been
 used by this program, so nothing in it can be *confirmed* on that corpus.
@@ -127,13 +133,14 @@ confirmation.
 1. **Write DMR-002 Part 1 and its final pre-registration before implementation.**
    The former is upstream-cleared, but the only spec still forbids execution.
 
-2. **If reader value is the next question, register it separately.** NF-004
-   confirms evidence availability only; a live successor must lock the reader,
+2. **If reader value is the next question, register it separately.** NF-004 and
+   NF-005 measure evidence availability only; a live successor must lock the reader,
    prompt, rubric, determinism check, and no-regression bar before inference.
 
-3. **Treat ranking granularity as corpus-scoped.** LongMemEval supports coarse
-   ranking at 32k while LoCoMo confirms fine ranking at 16k; the development
-   controls already reject binding ratio as a portable explanation.
+3. **Treat candidate informativeness as the ranking scope condition.** Rank at
+   the finest unit whose embedding remains informative and pack at the finest
+   affordable unit. A controlled padding/aggregation study on an untouched
+   corpus is still needed to separate raw length from semantic localization.
 
 ---
 ---
@@ -281,6 +288,15 @@ Eleven pre-registered studies test that question, each adding one memory compone
 > G0-G7 pass with a byte-identical holdout replay and zero measurement calls.
 > Availability is not reader correctness; no live run or adoption follows.
 
+> **NF-005 status:** `INFORMATION_DILUTION_SUPPORTED - CHARACTERIZED`. On the
+> same 465 LongMemEval items at 32k, with source-turn packing fixed, own-turn
+> ranking raises any exact evidence delivery from 361 to 461: 100 gains, zero
+> losses, one-sided exact p=7.89e-31. All-evidence rises 208 to 454; source order
+> reaches 64 any and 7 all. Evidence turns have median 298 characters versus
+> 2,550 for parent evidence episodes. G0-G8 and byte-identical outcome replay
+> pass. This supports information dilution/localization, not raw-length
+> causality, reader correctness, a live run, or adoption.
+
 > **SAL-001 status:** `NO_INDEPENDENT_PROXIMITY - CHARACTERIZED`. On 92
 > held-out LongMemEval sessions, adjusted neighbor AUC is 0.416 (95% interval
 > 0.351-0.484; one-sided p=0.991), raw AUC 0.300, prior 0.399, and next 0.477.
@@ -378,6 +394,7 @@ Runs use a scripted 120-turn conversation with facts planted at known positions 
 | LoCoMo development | Ranking granularity on an untouched-corpus development split | DEVELOPMENT SIGNAL; HOLDOUT LATER USED | On 871 unique questions, strict evidence delivery rises 820->855 with 44 gains/9 losses; complete evidence rises 773->826 with 71/18. All four development conversations are net positive. No registered bars or disposition at this stage; NF-004 later opened the locked holdout |
 | LoCoMo budget controls | Source-order null and fixed budget sweeps | COMPLETE; DEVELOPMENT ONLY | Source/session/pair complete evidence is 279/773/826 at 32k. Pair ranking stays positive at every truncated LoCoMo budget; LongMemEval complete evidence crosses between 16k and 24k. Binding ratio alone does not transfer |
 | NF-004 | LoCoMo ranking-granularity confirmation | WORKS; AVAILABILITY ONLY | At 16k, complete evidence rises 843->935/1,098: 140 gains, 48 losses, ratio 2.92, p=6.19e-12. All six conversations net positive; source order 258; 32k 961->1,024. G0-G7 and byte replay pass with zero measurement calls. No live/adoption claim |
+| NF-005 | Source-turn candidate information dilution | INFORMATION_DILUTION_SUPPORTED; CHARACTERIZED | At 32k with turn packing fixed, own-turn ranking raises any exact evidence 361->461/465: 100 gains, 0 losses, p=7.89e-31; all-evidence 208->454. Evidence turns p50 298 chars vs parent episodes 2,550. G0-G8 and byte replay pass; no raw-length, live, or adoption claim |
 | SUP-001 | Explicit supersession lineage and accessibility | FACTUAL PASS; byte-identity criterion withdrawn | Current-only retrieval rose 0/64 to 64/64 with 32/32 unchanged and 64/64 histories. T1 scored 9/9 under numeric-value equivalence, with zero regressions and zero stale natural payloads; no larger run or adoption is automatic |
 
 Full reports live under `experiments/study_NNN/`; external evaluation reports
@@ -718,9 +735,18 @@ gains, 48 losses, ratio 2.92, and one-sided exact p=6.19e-12**. All six
 conversations are net positive. The source-order control reaches only 258, and
 the 32k secondary remains positive at 961 to 1,024. The registered disposition
 is `WORKS`, bounded to evidence availability: no reader, live, or adoption
-claim follows. LongMemEval's coarse-ranking mechanism and LoCoMo's opposite
-prospective result therefore coexist as corpus-scoped findings; delivery ratio
-alone did not explain their difference.
+claim follows. Delivery ratio alone did not explain why LongMemEval and LoCoMo
+had opposite signs.
+
+NF-005 tests candidate information dilution within LongMemEval by splitting
+episodes into their exact source turns. With turn packing fixed, own-turn
+ranking raises any exact evidence from **361/465 to 461/465**, with **100 gains,
+zero losses, and one-sided exact p=7.89e-31**; all-evidence rises 208 to 454.
+Evidence turns have median 298 characters versus 2,550 for parent episodes.
+The registered result supports the conditional rule to rank at the finest unit
+whose embedding remains informative and pack at the finest affordable unit.
+It is capped at `CHARACTERIZED` and does not separate raw length from semantic
+localization.
 
 See `experiments/components/biological_memory/nf_001/`,
 `experiments/components/biological_memory/nf_002/NF_002_REPORT.md`, and
@@ -729,6 +755,8 @@ The synthesis is `experiments/components/biological_memory/nf_003/
 NF_003_THREE_ARM_FINDING.md`.
 The LoCoMo development record is
 `experiments/external/locomo/LOCOMO_DEVELOPMENT_EXPLORATION.md`.
+The NF-005 closeout is
+`experiments/components/biological_memory/nf_005/NF_005_REPORT.md`.
 The confirmatory record is
 `experiments/components/biological_memory/nf_004/NF_004_REPORT.md`.
 
