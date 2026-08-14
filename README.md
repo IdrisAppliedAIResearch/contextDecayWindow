@@ -60,7 +60,7 @@ selection failure that has been characterized rather than tuned away.
 
 ## Current State of Work
 
-*Last updated 2026-08-13, at NF-005 completion.*
+*Last updated 2026-08-13, at NF-006 completion.*
 
 **The deployable component is done.** `episodic/` is an installable library with
 a public store, report, config and embedding-cache API. Extraction is certified
@@ -118,6 +118,12 @@ calls.**
   evidence from 361 to 461: **100 gains, zero losses, p=7.89e-31**. All-evidence
   rises 208 to 454; source order reaches only 64/7. This supports candidate
   localization/dilution as the moderator, not a raw character threshold.
+- **NF-006** is `INTERNAL_DILUTION_RESCUES_Q11`, capped at `CHARACTERIZED`.
+  On the internal 121-turn store, episode/inherited-statement/own-statement
+  availability is **12/7/14 of 17**. Own-statement ranking restores monetary
+  4/4 and ties the episode control at 21/21 targeted items with zero losses.
+  No selected treatment statement comes from turn 90, so the store-level
+  moderator is supported while DX-001's exact carrier remains unresolved.
 
 **One constraint governs that whole line.** Every LongMemEval item has now been
 used by this program, so nothing in it can be *confirmed* on that corpus.
@@ -133,8 +139,8 @@ confirmation.
 1. **Write DMR-002 Part 1 and its final pre-registration before implementation.**
    The former is upstream-cleared, but the only spec still forbids execution.
 
-2. **If reader value is the next question, register it separately.** NF-004 and
-   NF-005 measure evidence availability only; a live successor must lock the reader,
+2. **If reader value is the next question, register it separately.** NF-004,
+   NF-005, and NF-006 measure evidence availability only; a live successor must lock the reader,
    prompt, rubric, determinism check, and no-regression bar before inference.
 
 3. **Treat candidate informativeness as the ranking scope condition.** Rank at
@@ -297,6 +303,14 @@ Eleven pre-registered studies test that question, each adding one memory compone
 > pass. This supports information dilution/localization, not raw-length
 > causality, reader correctness, a live run, or adoption.
 
+> **NF-006 status:** `INTERNAL_DILUTION_RESCUES_Q11 - CHARACTERIZED`. On the
+> internal 121-turn store at 32k, Q11 availability is 12/17 for episode
+> rank/pack, 7/17 for inherited rank with statement packing, and 14/17 for
+> own-statement rank/pack. T1 restores monetary 4/4; targeted is 21/21 in both
+> C0 and T1 with zero losses. No selected T1 statement is from turn 90, so the
+> store-level dilution result does not identify DX-001's exact carrier. No
+> reader, live, or adoption claim follows.
+
 > **SAL-001 status:** `NO_INDEPENDENT_PROXIMITY - CHARACTERIZED`. On 92
 > held-out LongMemEval sessions, adjusted neighbor AUC is 0.416 (95% interval
 > 0.351-0.484; one-sided p=0.991), raw AUC 0.300, prior 0.399, and next 0.477.
@@ -395,6 +409,7 @@ Runs use a scripted 120-turn conversation with facts planted at known positions 
 | LoCoMo budget controls | Source-order null and fixed budget sweeps | COMPLETE; DEVELOPMENT ONLY | Source/session/pair complete evidence is 279/773/826 at 32k. Pair ranking stays positive at every truncated LoCoMo budget; LongMemEval complete evidence crosses between 16k and 24k. Binding ratio alone does not transfer |
 | NF-004 | LoCoMo ranking-granularity confirmation | WORKS; AVAILABILITY ONLY | At 16k, complete evidence rises 843->935/1,098: 140 gains, 48 losses, ratio 2.92, p=6.19e-12. All six conversations net positive; source order 258; 32k 961->1,024. G0-G7 and byte replay pass with zero measurement calls. No live/adoption claim |
 | NF-005 | Source-turn candidate information dilution | INFORMATION_DILUTION_SUPPORTED; CHARACTERIZED | At 32k with turn packing fixed, own-turn ranking raises any exact evidence 361->461/465: 100 gains, 0 losses, p=7.89e-31; all-evidence 208->454. Evidence turns p50 298 chars vs parent episodes 2,550. G0-G8 and byte replay pass; no raw-length, live, or adoption claim |
+| NF-006 | Internal statement ranking | INTERNAL_DILUTION_RESCUES_Q11; CHARACTERIZED | At 32k, episode/inherited-statement/own-statement Q11 availability is 12/7/14 of 17. T1 restores monetary 4/4 and targeted ties 21/21 with zero losses. No T1 selection comes from turn 90; exact DX-001 carrier unresolved. No live/adoption claim |
 | SUP-001 | Explicit supersession lineage and accessibility | FACTUAL PASS; byte-identity criterion withdrawn | Current-only retrieval rose 0/64 to 64/64 with 32/32 unchanged and 64/64 histories. T1 scored 9/9 under numeric-value equivalence, with zero regressions and zero stale natural payloads; no larger run or adoption is automatic |
 
 Full reports live under `experiments/study_NNN/`; external evaluation reports
@@ -757,6 +772,8 @@ The LoCoMo development record is
 `experiments/external/locomo/LOCOMO_DEVELOPMENT_EXPLORATION.md`.
 The NF-005 closeout is
 `experiments/components/biological_memory/nf_005/NF_005_REPORT.md`.
+The NF-006 internal transfer is
+`experiments/components/biological_memory/nf_006/NF_006_REPORT.md`.
 The confirmatory record is
 `experiments/components/biological_memory/nf_004/NF_004_REPORT.md`.
 
