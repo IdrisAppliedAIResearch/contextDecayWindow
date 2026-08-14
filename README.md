@@ -59,6 +59,91 @@ one-per-cluster floor is already satisfied rather than a route beyond it.
 
 ---
 
+## How It Works
+
+What actually happens, end to end, traced from the shipped library source rather
+than from a design document. Two of these boxes are marked red because
+measurement found the system does not behave the way its own naming suggests.
+
+```mermaid
+flowchart TD
+
+    subgraph WRITE["SAVING — happens once after every reply"]
+        direction TB
+        UM["You send a message"]
+        AM["The model replies"]
+        UM --> PEND["Set aside on its own<br/>Nothing is stored yet"]
+        UM ~~~ AM
+        PEND --> FORM["The two are joined into one exchange"]
+        AM --> FORM
+        FORM --> EMBW["The exchange is turned into a list of numbers<br/>that stands for its meaning<br/>Measured on its own, never in a batch"]
+        EMBW --> STORE[("Written to disk<br/>Both messages, their position in the conversation,<br/>and those numbers<br/>On disk before the call returns")]
+    end
+
+    STORE -.-> GATE{"Start-up check<br/>Re-measure one fixed sentence and<br/>compare it to what was saved"}
+    GATE -.->|"they differ"| HALT["Refuse to open<br/>The saved numbers can no longer be trusted"]
+
+    subgraph READ["REMEMBERING — happens before every reply"]
+        direction TB
+        Q["You send a new message"] --> QE["Turn your message into<br/>the same kind of numbers"]
+        ALL["Load every exchange ever stored"]
+        QE --> REL["Score every stored exchange<br/>against what you just asked"]
+        ALL --> REL
+
+        REL --> KTEST{"Does it score<br/>at least 0.48?"}
+        ALL --> POOL["Everything stays eligible<br/>Nothing is filtered out beforehand"]
+        REL ~~~ POOL
+
+        KTEST -->|"no"| KDROP["Passed over"]
+        POOL --> CLUST["Sort the exchanges into 16 topic groups<br/>Same grouping every time — no randomness"]
+
+        ALL --> TIERN["RECENT<br/>The last 32 exchanges, in order.<br/>No scoring involved."]
+        KTEST -->|"yes"| TIERK["RELATED<br/>Exchanges that clear the bar"]
+        CLUST --> A3["SPREAD<br/>Take the best-scoring exchanges, with a small<br/>bonus for touching a topic not covered yet.<br/>Chooses as if it had the whole box to itself."]
+        CLUST ~~~ TIERN
+        CLUST ~~~ TIERK
+
+        TIERN --> PACK
+        TIERK --> PACK
+        A3 --> PACK["FILL THE BOX — recent first, then related, then spread<br/>Each one charged its true size once written out.<br/>Too big to fit? Skip it and carry on down the list."]
+
+        PACK --> CEIL{"Does it all fit<br/>in 32,000 characters?"}
+        CEIL -->|"no"| ERR["Stop. The limit is never exceeded,<br/>under any circumstances."]
+        CEIL -->|"yes"| RENDER["Write it out as two labelled sections:<br/>what was recent, and what was dug up"]
+        RENDER --> OUT["Handed to the model as part of its prompt"]
+        PACK --> REP["A receipt<br/>What went in, what was dropped, why,<br/>how many came from each of the three routes"]
+    end
+
+    classDef broken fill:#fdecea,stroke:#c0392b,stroke-width:2px,color:#7b1f14;
+    classDef store fill:#eef2f7,stroke:#41689a,color:#1e3a5f;
+    classDef guard fill:#f3f4f0,stroke:#8a9490,color:#3d4744;
+
+    class KTEST,PACK broken;
+    class STORE store;
+    class GATE,CEIL,HALT,ERR guard;
+```
+
+**"Does it score at least 0.48?"** The similarity route is switched off, not
+underperforming. The highest score ever recorded for content known to be
+relevant is 0.2779, and a separate effort that tried 714 ways to raise these
+scores topped out at 0.2103. The bar sits at roughly twice the height genuine
+relevance reaches, so the route almost never fires — measured at zero exchanges
+delivered on 8 of 8 test questions, and a live comparison found the full system
+scored identically to one with this route removed entirely.
+
+**"Fill the box — recent first."** Recent exchanges spend the whole allowance
+before anything else is considered. With 32 recent exchanges and a
+32,000-character box, recent routinely consumes all of it. There is a subtler
+version of the same fault: the *spread* step chooses its set as though it has
+the entire box to itself, and only afterwards does filling begin with recent
+taking priority — so the set it picked is not the set it would have picked had
+it known what it would actually be given.
+
+The settings behind each box, and where each value came from, are recorded below
+the divider under *Deployed Settings*.
+
+---
+
 ## Current State of Work
 
 *Last updated 2026-08-13, at the NF-007 anti-vacuity stop.*
@@ -803,6 +888,40 @@ The documentation-only live reader successor preparation is
 `experiments/components/biological_memory/nf_008/NF_008_DESIGN_BRIEF.md`.
 The confirmatory record is
 `experiments/components/biological_memory/nf_004/NF_004_REPORT.md`.
+
+## Deployed Settings
+
+Every value that shapes the read path is a field on `EpisodicConfig`, not a
+module global. The graph above the divider is the same path in plain language.
+
+| What it controls | Field | Value | Why it is that value |
+|---|---|---|---|
+| Recent exchanges always included | `recency_window_n` | 32 | carried from the corrected 121-turn run |
+| Score an exchange must beat to count as related | `k_threshold` | 0.48 | carried; **measured unreachable** — best observed relevance is 0.2779, E001 swept 714 configurations to 0.2103 |
+| Whether weak candidates are filtered out early | `candidate_policy` | `full_store` | DR-002 — dropping the 19 lowest-cosine of 119 cost an entire domain, because the selector clusters over the pool and tail removal reshuffles the objective |
+| Coverage selector | `selector` | A3 | E005 — relevance plus cluster diversity; A1/A2 build an O(n²) matrix and were disqualified at scale |
+| Cluster-coverage bonus | `selector_lambda` | 0.1 | E005 primary `A3_l0.1_r0.0_k16` of 146 swept |
+| Cost exponent | `selector_cost_exponent` | 0.0 | E005 primary |
+| Topic groups | `selector_cluster_count` | 16 | E005 primary; NF-007 confirmed the deployed selection already enters all 16 |
+| Size accounting | `budget_accounting` | `exact_serialized` | DR-001 — the prior method under-charged by 67.9%/68.2% |
+| Embedding call shape | `embed_call_shape` | `solo` | DX-001 — the same text embedded alone versus in a batch yields materially different vectors, so call shape is part of the model identity |
+| Seed | `seed` | 5005 | provenance only; no code path in the package draws randomness |
+
+Packing order is `DROP_POLICY = "marginal_gain_order_skip_on_overflow"` — a named
+policy, not an artifact of iteration order. Skipping rather than stopping is
+deliberate: with gains [10, 9, 8] where the budget fits the second and third but
+not the first, this admits 9 and 8 where a strict rank-prefix would keep only 10
+and leave the budget mostly empty.
+
+| Box on the graph | Where it lives |
+|---|---|
+| Saving, start-up check | `episodic/src/episodic/_store.py` — `append`, sentinel verify |
+| Text into numbers | `_embedding.py` — `embed_solo` |
+| Scoring, the three routes | `_context.py` — `build_context` |
+| Topic groups, the spread step | `_selection.py` — `deterministic_clusters`, `ClusterDiversitySelector` |
+| Filling the box | `_packing.py` — `pack_stm_payload` |
+| The two written sections | `_render.py` — `render_stm_payload` |
+| Every setting above | `_config.py` — `EpisodicConfig` |
 
 ## The Extracted Library
 

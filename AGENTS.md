@@ -267,8 +267,15 @@ above the `# For LLM Context` divider is written for a person deciding whether
 this work is worth their time; everything below it is written for an agent
 picking the work up with no prior context.
 
-**Above the divider — keep it short.** Paper link, executive summary, current
-state of work, next steps. Closing a study means:
+**Above the divider — keep it short.** Paper link, executive summary, how it
+works, current state of work, next steps. Closing a study means:
+
+- Leave *How It Works* alone unless the deployed read path actually changed. It
+  is the mermaid graph of the shipped architecture in plain language, and it is
+  the only place a newcomer learns what the system does before meeting a result.
+  Node labels carry no identifiers by deliberate choice; the field names, values
+  and provenance live below the divider under *Deployed Settings*. If a study
+  changes a setting, the graph stays and the table moves.
 
 - Update *Current State of Work* — its date, its arc table row, its constraints.
   Replace what is stale rather than appending to it. This section describes the
