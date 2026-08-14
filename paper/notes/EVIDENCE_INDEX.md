@@ -40,6 +40,10 @@ inherited-score statement packing, and 14/17 for own-statement ranking. T1
 restores monetary 4/4 and ties targeted 21/21 with zero losses. No selected T1
 statement is from turn 90, so store-level dilution is supported while DX-001's
 exact carrier remains unresolved. Availability only; no live or adoption claim.
+T1 spends 31,991 characters against AR-001's committed 7,592-character all-17
+reference, a 4.21x ratio, while art falls 2/4 to 1/4. This bounds the ceiling to
+selection rather than capacity; differing render units prevent interpreting the
+24,399-character difference as individually fact-free content.
 
 ---
 

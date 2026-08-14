@@ -175,6 +175,14 @@ with zero losses. This is not a direct rescue of DX-001's turn-90 episode: no
 selected treatment statement comes from turn 90. The registered result supports
 store-level dilution/localization while leaving that exact carrier unresolved.
 
+The sharper ceiling is selection rather than capacity. T1 spends **31,991
+characters** while AR-001's committed all-17 episode context costs **7,592**:
+the selected payload is 4.21x a known sufficient context, with 24,399
+characters beyond that reference, yet art falls from 2/4 to 1/4. The render
+units differ, so this subtraction does not label every excess character
+fact-free. It does establish that capacity was more than fourfold sufficient at
+the point where the selector abandoned part of a domain.
+
 What remains after every one of those removals is an append-only store, a
 recency window, similarity retrieval, and a coverage objective, with no
 generative model calls in the memory path — a design that is reproducible and free of generated
@@ -998,12 +1006,21 @@ store and can change the packed breadth composition: three monetary gains and
 one art loss versus the episode control. Reader value, raw-length causality, and
 the exact turn-90 carrier remain untested.
 
+The zero-margin 14/17 result also exposes the next binding ceiling. T1 spends
+**31,991 characters** while AR-001's committed exact frontier places all 17
+items in **7,592** characters. Its payload is therefore 4.21x a known
+sufficient all-item context and consumes 24,399 characters beyond that
+reference, yet it gives up one of the episode control's two art items. The two
+figures use different render units, so the difference is not a measurement of
+24,399 individually fact-free characters. It is a capacity bound: capacity was
+more than fourfold sufficient when the objective abandoned part of a domain.
+
 ### 5.6 The three constraints, and why the order is forced
 
 | Constraint | Binds on | Bound, on this corpus |
 |---|---|---|
 | **Candidate pool** | domain coverage, and part of the fact gap | The art domain has no representative in the deployed 34-episode pool, so no rule of any kind reaches four domains there. With the selector frozen, 34 → 119 candidates moves 5/17 across 2 domains to 12/17 across 4 |
-| **Selection objective** | the remaining recoverable facts | Holding the deployed pool fixed, the best set-level configuration reaches 13/17 against the baseline's 6/17. Greedy runs at 0.9548–0.9996 of a data-dependent bound on the primary pool, so the objective and not the search is the limit |
+| **Selection objective** | the remaining recoverable facts | Holding the deployed pool fixed, the best set-level configuration reaches 13/17 against the baseline's 6/17. Greedy runs at 0.9548–0.9996 of a data-dependent bound on the primary pool. NF-006 then spends 31,991 chars, 4.21x the 7,592-char all-17 reference, while art falls 2/4→1/4; capacity is sufficient and composition remains objective-bound |
 | **Episode-level similarity floor** | the residual under whole-episode representation | 0.056 against the 0.225 required, a shortfall of 0.169; only 20 of 119 episodes clear the bar; unreachable by reweighting that episode-level objective. NF-006 changes the ranking unit and reaches 14/17 without selecting turn 90 |
 
 The order is forced, and the argument for it is structural rather than
