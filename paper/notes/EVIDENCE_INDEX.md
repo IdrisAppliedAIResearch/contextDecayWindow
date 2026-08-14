@@ -26,6 +26,14 @@ one-sided exact p=6.19e-12. All six conversations are net positive; source order
 is 258 and 32k is 961 to 1,024. G0-G7 and byte replay pass with zero measurement
 calls. The claim is availability only, not reader correctness or adoption.
 
+**Post-draft update, NF-005 (2026-08-13).** A registered within-corpus test on
+465 exhausted LongMemEval items holds source-turn packing fixed and raises any
+exact evidence from 361 to 461 under own-turn ranking: 100 gains, zero losses,
+one-sided exact p=7.89e-31; all-evidence rises 208 to 454. Evidence turns have
+median 298 characters versus 2,550 for parent episodes. The result supports
+information dilution/localization, but does not isolate raw character length or
+establish reader value.
+
 ---
 
 ## 1. Spec-versus-artifact discrepancies
@@ -267,7 +275,7 @@ differently from the spec, per §1 above.
 | Item | Value | Artifact |
 |---|---|---|
 | No error bars anywhere | every comparison single-run, one seed | program-wide; `AGENTS.md` runtime rules |
-| External calibration boundary | LongMemEval-S run in EC-001; LoCoMo availability holdout run in NF-004; substituted evaluator forbids official comparator score | `external/longmemeval/EC_001_REPORT.md` §§1,7; `biological_memory/nf_004/artifacts/g7_result_integrity.json` |
+| External calibration boundary | LongMemEval-S run in EC-001; LoCoMo and LongMemEval availability instruments run in NF-004/NF-005; substituted evaluator forbids official comparator score | `external/longmemeval/EC_001_REPORT.md` §§1,7; `biological_memory/nf_004/artifacts/g7_result_integrity.json`; `biological_memory/nf_005/artifacts/g8_integrity.json` |
 | One literal breadth probe | Q11 is the program's only enumeration question; LongMemEval multi-session is an analogue, not an identical task | `DR_002_report.md` §3.5; `EC_001_REPORT.md` §6 |
 | AI raters, AI adjudicators | self-consistency 97.47%, control disagreement 11.54% | `audits/scoring_integrity/` — **verify 97.47 before use** |
 | Oracle contains prior probe answers | 4 of 5; registered rule is `source_turn < 120` | `artifacts/e005/prior_answer_fraction.csv` — **verify before use** |
