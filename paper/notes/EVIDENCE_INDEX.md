@@ -45,6 +45,15 @@ reference, a 4.21x ratio, while art falls 2/4 to 1/4. This bounds the ceiling to
 selection rather than capacity; differing render units prevent interpreting the
 24,399-character difference as individually fact-free content.
 
+**Post-draft update, NF-007 (2026-08-13).** Part 1 finds that 194/791 statement
+candidates (24.5%) inherit the renaissance-art domain label. A supplemental
+registered anti-vacuity control maps NF-006's sealed 80-statement T1 selection
+to the committed assignments and finds all 16 clusters already touched. A hard
+floor of one per nonempty cluster therefore forces zero admissions and stops
+before selector implementation or outcome measurement. Candidate scarcity and
+cluster-entry failure do not explain the 1/4 art delivery; the finer allocation
+cause remains open.
+
 ---
 
 ## 1. Spec-versus-artifact discrepancies
