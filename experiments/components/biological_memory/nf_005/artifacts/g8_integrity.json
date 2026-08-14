@@ -1,0 +1,135 @@
+{
+ "arm_totals": {
+  "E_EPISODE_RANK_EPISODE_PACK": {
+   "all_targets": 201,
+   "any_target": 351,
+   "best_target_rank": {
+    "max": 238,
+    "min": 1,
+    "n": 465,
+    "p50": 3,
+    "p90": 66
+   },
+   "delivered_candidates": {
+    "max": 48,
+    "min": 8,
+    "n": 465,
+    "p50": 23,
+    "p90": 29
+   },
+   "packed_chars": {
+    "max": 32000,
+    "min": 31574,
+    "n": 465,
+    "p50": 31916,
+    "p90": 31987
+   }
+  },
+  "E_EPISODE_RANK_TURN_PACK": {
+   "all_targets": 208,
+   "any_target": 361,
+   "best_target_rank": {
+    "max": 475,
+    "min": 1,
+    "n": 465,
+    "p50": 5,
+    "p90": 131
+   },
+   "delivered_candidates": {
+    "max": 94,
+    "min": 21,
+    "n": 465,
+    "p50": 46,
+    "p90": 60
+   },
+   "packed_chars": {
+    "max": 32000,
+    "min": 31939,
+    "n": 465,
+    "p50": 31992,
+    "p90": 31999
+   }
+  },
+  "SOURCE_ORDER_TURN_PACK": {
+   "all_targets": 7,
+   "any_target": 64,
+   "best_target_rank": {
+    "max": 535,
+    "min": 1,
+    "n": 465,
+    "p50": 153,
+    "p90": 375
+   },
+   "delivered_candidates": {
+    "max": 69,
+    "min": 22,
+    "n": 465,
+    "p50": 37,
+    "p90": 47
+   },
+   "packed_chars": {
+    "max": 32000,
+    "min": 31955,
+    "n": 465,
+    "p50": 31993,
+    "p90": 32000
+   }
+  },
+  "T_TURN_RANK_TURN_PACK": {
+   "all_targets": 454,
+   "any_target": 461,
+   "best_target_rank": {
+    "max": 354,
+    "min": 1,
+    "n": 465,
+    "p50": 1,
+    "p90": 7
+   },
+   "delivered_candidates": {
+    "max": 173,
+    "min": 41,
+    "n": 465,
+    "p50": 109,
+    "p90": 138
+   },
+   "packed_chars": {
+    "max": 32000,
+    "min": 31936,
+    "n": 465,
+    "p50": 31988,
+    "p90": 31999
+   }
+  }
+ },
+ "disposition": "INFORMATION_DILUTION_SUPPORTED",
+ "embedding_calls_during_measurement": 0,
+ "items": 465,
+ "model_generation_calls": 0,
+ "outcome": {
+  "first_commit": "c5c7e8d78d35ea61bef81fe06f09d76927605c8d",
+  "path": "experiments/components/biological_memory/nf_005/artifacts/g7_outcomes.json",
+  "sha256": "06e4cbeacc2952b5ec0fd93cebf9bfc3483166f6a1f72da232e5f371d7b7b322"
+ },
+ "outcome_sha256": "06e4cbeacc2952b5ec0fd93cebf9bfc3483166f6a1f72da232e5f371d7b7b322",
+ "primary_comparison": {
+  "discordant": 100,
+  "gain_loss_ratio": null,
+  "gains": 100,
+  "losses": 0,
+  "net": 100,
+  "one_sided_exact_p": 7.888609052210118e-31,
+  "ties": 365
+ },
+ "question_type_counts": {
+  "knowledge-update": 72,
+  "multi-session": 121,
+  "single-session-assistant": 51,
+  "single-session-preference": 30,
+  "single-session-user": 64,
+  "temporal-reasoning": 127
+ },
+ "registration_commit": "04d3713880419a970d71c098a03b4df0965b18f0",
+ "replay_sha256": "06e4cbeacc2952b5ec0fd93cebf9bfc3483166f6a1f72da232e5f371d7b7b322",
+ "schema": "nf005-g8-integrity-v1",
+ "status": "PASS"
+}

@@ -1,0 +1,188 @@
+{
+ "behavioral_identity": "A LongMemEval episode pairs a usually short evidence-bearing user turn with a much longer assistant turn before one cosine is computed.",
+ "cache_coverage": {
+  "query_hits": 465,
+  "turn_hits": 0,
+  "turn_misses": 167918,
+  "unique_queries": 465,
+  "unique_turn_text_digest": "92f6c7201bfc5f09c5b9c3bfb4bc83a34537ab52e524e331eecc988cb4726598",
+  "unique_turn_texts": 167918
+ },
+ "candidate_lengths": {
+  "evidence_episode_to_evidence_turn_p50_ratio": 8.557047,
+  "evidence_episode_to_locomo_pair_p50_ratio": 10.580913,
+  "locomo_adjacent_pairs": {
+   "max": 780,
+   "mean": 255.903354,
+   "min": 8,
+   "n": 3011,
+   "p10": 126,
+   "p50": 241,
+   "p90": 417
+  },
+  "longmemeval_assistant_turns": {
+   "max": 5237,
+   "mean": 1759.673129,
+   "min": 12,
+   "n": 106412,
+   "p10": 608,
+   "p50": 1760,
+   "p90": 2879
+  },
+  "longmemeval_episodes": {
+   "max": 78135,
+   "mean": 2022.290804,
+   "min": 24,
+   "n": 106412,
+   "p10": 778,
+   "p50": 2006,
+   "p90": 3175
+  },
+  "longmemeval_evidence_episodes": {
+   "max": 5591,
+   "mean": 2440.921412,
+   "min": 335,
+   "n": 878,
+   "p10": 1307,
+   "p50": 2550,
+   "p90": 3358
+  },
+  "longmemeval_evidence_turns": {
+   "max": 5431,
+   "mean": 367.110102,
+   "min": 27,
+   "n": 881,
+   "p10": 190,
+   "p50": 298,
+   "p90": 472
+  },
+  "longmemeval_source_turns": {
+   "max": 76566,
+   "mean": 1010.645402,
+   "min": 6,
+   "n": 212824,
+   "p10": 116,
+   "p50": 435,
+   "p90": 2570
+  },
+  "longmemeval_user_turns": {
+   "max": 76566,
+   "mean": 261.617675,
+   "min": 6,
+   "n": 106412,
+   "p10": 87,
+   "p50": 196,
+   "p90": 375
+  }
+ },
+ "degenerate_states": {
+  "feedback": false,
+  "full_store_fit_is_the_only_absorbing_delivery_ceiling": true,
+  "max_turn_chars": 76566,
+  "turn_candidates_over_32000_chars": 4
+ },
+ "embedding_calls": 0,
+ "evidence_roles": {
+  "assistant": 50,
+  "user": 831
+ },
+ "inputs": {
+  "embedding_cache": {
+   "entries": 96585,
+   "path": "experiments/external/longmemeval/runs/ec002_k_first/ec002_exact_solo_embeddings.db"
+  },
+  "locomo": {
+   "path": "C:\\Users\\muzaf\\Downloads\\locomo10.json",
+   "sha256": "79fa87e90f04081343b8c8debecb80a9a6842b76a7aa537dc9fdf651ea698ff4"
+  },
+  "longmemeval": {
+   "items": 500,
+   "path": "C:\\Users\\muzaf\\datasets\\longmemeval\\longmemeval_s_cleaned.json",
+   "sha256": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442"
+  },
+  "nf003_part1": {
+   "lf_sha256": "2d29387251b109f780d7a2fe86e7a1d3244eb0f5a73515b1be1d8e7dda7e506f",
+   "path": "experiments/components/biological_memory/nf_003/artifacts/part1_record.json"
+  }
+ },
+ "length_rank_association": {
+  "all": {
+   "n": 465,
+   "spearman_episode_chars_vs_best_rank_fraction": 0.483887
+  },
+  "knowledge-update": {
+   "n": 72,
+   "spearman_episode_chars_vs_best_rank_fraction": 0.419887
+  },
+  "multi-session": {
+   "n": 121,
+   "spearman_episode_chars_vs_best_rank_fraction": 0.422898
+  },
+  "single-session-assistant": {
+   "n": 51,
+   "spearman_episode_chars_vs_best_rank_fraction": 0.442609
+  },
+  "single-session-preference": {
+   "n": 30,
+   "spearman_episode_chars_vs_best_rank_fraction": 0.133496
+  },
+  "single-session-user": {
+   "n": 64,
+   "spearman_episode_chars_vs_best_rank_fraction": 0.792229
+  },
+  "temporal-reasoning": {
+   "n": 127,
+   "spearman_episode_chars_vs_best_rank_fraction": 0.310831
+  }
+ },
+ "model_calls": 0,
+ "population": {
+  "comparison_key": "question_id",
+  "comparison_key_digest": "88fdf20a6ebe7321583d37c0d4f23d852edccd8a299756a5b2dcd32b2d3a414b",
+  "evidence_flags_per_item": {
+   "1": 169,
+   "2": 228,
+   "3": 38,
+   "4": 14,
+   "5": 10,
+   "6": 6
+  },
+  "items": 465,
+  "malformed_source_pairs": 7255
+ },
+ "registered_baseline_feasibility": {
+  "any_evidence_misses": 104,
+  "delivered_turns": {
+   "max": 94,
+   "mean": 47.28172,
+   "min": 21,
+   "n": 465,
+   "p10": 36,
+   "p50": 46,
+   "p90": 60
+  },
+  "episode_rank_episode_pack_any": 351,
+  "episode_rank_turn_pack_all": 208,
+  "episode_rank_turn_pack_any": 361,
+  "full_store_fits": 0,
+  "items": 465,
+  "min_total_chars": 400126,
+  "packed_chars": {
+   "max": 32000,
+   "mean": 31989.623656,
+   "min": 31939,
+   "n": 465,
+   "p10": 31977,
+   "p50": 31992,
+   "p90": 31999
+  },
+  "packing_contrast": {
+   "gains": 10,
+   "losses": 0,
+   "net": 10,
+   "ties": 455
+  },
+  "row_digest": "e2cd15311f38a699e345c8068473e091d862ee77bab3e499b4edb575acea2609"
+ },
+ "schema": "nf005-exploration-v1"
+}

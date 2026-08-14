@@ -90,6 +90,8 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **NF-004 LoCoMo confirmation (2026-08-13).** WORKS, availability only. On 1,098 sealed QAs at 16k, pair rank raises complete evidence 843->935 vs session inheritance: 140 gains/48 losses, ratio 2.92, p=6.19e-12. All 6 conversations net positive; source order 258, and 32k stays positive 961->1,024. G0-G7 pass, byte-identical replay, zero measurement calls. No live/adoption claim.
 
+**NF-005 information dilution (2026-08-13).** SUPPORTED; CHARACTERIZED. Same 465 LongMemEval items/32k/turn packing: own-turn rank raises any exact evidence 361->461, 100 gains/0 losses, p=7.89e-31; all 208->454. Evidence turns p50 298 chars vs parent episodes 2,550. Supports localization/dilution moderator, not raw-length causality or reader value.
+
 **PS-001 pattern-separated engram formation (2026-08-11).** CHARACTERIZED. Nine deterministic sparse cells on 119 episodes; only D=4096,K=41 passed G3-G5: 119/119 fixed points and exact 1/10/30/50% swap recovery. Six of seven degenerates reached stored codes; the union-biased cue cycled. Code-space result only; no natural cue, retrieval, live run, promotion, or adoption.
 
 **PS-002 natural-language cue binding (2026-08-11).** STOP AT PART 1; NATURAL_CUES_NOT_BOUND, CHARACTERIZED. Nine label-blind cells ran 24 sealed queries x8 rounds. Best M=4,tau=.025 reached stored codes 190/192 but one cue cycled and one reached a spurious fixed point; no cell emitted 8 clean ids/query. Labels, PF1-PF10, answers, live run, promotion and adoption not entered.

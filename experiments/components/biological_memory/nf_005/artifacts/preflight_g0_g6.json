@@ -1,0 +1,113 @@
+{
+ "gates": {
+  "G0": {
+   "expected_first_commit": "04d3713880419a970d71c098a03b4df0965b18f0",
+   "expected_lf_sha256": "69ba2e52753a2cde9db9e7fdc462c57753123337fac6bd9abb9c70b853bcf83e",
+   "observed_first_commit": "04d3713880419a970d71c098a03b4df0965b18f0",
+   "observed_lf_sha256": "69ba2e52753a2cde9db9e7fdc462c57753123337fac6bd9abb9c70b853bcf83e",
+   "pass": true,
+   "path": "experiments/components/biological_memory/nf_005/NF_005_PRE_REGISTRATION.md",
+   "treatment_vectors_accessed": false
+  },
+  "G1": {
+   "artifact_lf_sha256": {
+    "experiments/components/biological_memory/nf_003/artifacts/part1_record.json": "2d29387251b109f780d7a2fe86e7a1d3244eb0f5a73515b1be1d8e7dda7e506f",
+    "experiments/components/biological_memory/nf_003/artifacts/three_arm_summary.json": "4473c8c5c4ed5337f912b6de665bb131d7cb3a00bc38cd67502be5572a16c1b6",
+    "experiments/components/biological_memory/nf_005/artifacts/exploration.json": "00d78ad3bd113abb2fd39c8419ccd0a1e6e6513db6d52c01fadd572a9021bec7",
+    "experiments/components/embedding_cache/artifacts/cc006/ec002_legacy_adoption.json": "baadf6cced1c1728860dbe635bd5fc314587a7a1d85272db6acec9ec51883f24"
+   },
+   "comparison_key_digest": "88fdf20a6ebe7321583d37c0d4f23d852edccd8a299756a5b2dcd32b2d3a414b",
+   "counts": {
+    "episodes": 106412,
+    "items": 465,
+    "over_budget_turns": 4,
+    "target_flags": 881,
+    "turn_occurrences": 212824,
+    "unique_turn_texts": 167918
+   },
+   "dataset_sha256": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+   "old_cache_file_sha256": "e8a31513700a0a5d1cfe34b4703bbe3c8c85dc3ca29188d7cc480c2e2417a7ad",
+   "pass": true,
+   "turn_text_digest": "92f6c7201bfc5f09c5b9c3bfb4bc83a34537ab52e524e331eecc988cb4726598"
+  },
+  "G2": {
+   "imports": [
+    "__future__",
+    "dataclasses",
+    "numpy",
+    "typing"
+   ],
+   "mechanism_path": "src/analysis/nf005_mechanism.py",
+   "pass": true,
+   "planted_field_rejected": true,
+   "planted_import_rejected": true,
+   "violations": []
+  },
+  "G3": {
+   "episode_rank_episode_pack_any": 351,
+   "episode_rank_turn_pack_all": 208,
+   "episode_rank_turn_pack_any": 361,
+   "expected_row_digest": "e2cd15311f38a699e345c8068473e091d862ee77bab3e499b4edb575acea2609",
+   "items": 465,
+   "old_cache_hits": 106877,
+   "packing_gains": 10,
+   "packing_losses": 0,
+   "pass": true,
+   "row_digest": "e2cd15311f38a699e345c8068473e091d862ee77bab3e499b4edb575acea2609"
+  },
+  "G4": {
+   "candidate_identities": 319236,
+   "character_costs_exact": true,
+   "measurement": {
+    "last_commit": "b7b14e7ebf151fc8765b610c245449040e746de8",
+    "path": "src/analysis/nf005_measurement.py",
+    "sha256": "afd26537ad05b36116b80636ce2c16008c42f392aff4c2db8101ba8c2675e89f"
+   },
+   "mechanism": {
+    "last_commit": "9e96269546d92b1ac41e044e03934df203b257fa",
+    "path": "src/analysis/nf005_mechanism.py",
+    "sha256": "2014e890e9a6a1fdfb55e2724efd02c9b00c9384457df8d32999706f19a0efd3"
+   },
+   "parent_links_exact": true,
+   "pass": true,
+   "unique_candidate_identities": 319236
+  },
+  "G5": {
+   "cache": {
+    "bytes": 1289318400,
+    "call_shape": "solo",
+    "content_sha256": "1a616a9a95da31eea0592d4fdec7af7f73d23d57f4e6d0f745c7145aa318c527",
+    "dimension": 1024,
+    "dtype": "float32",
+    "entries": 167918,
+    "file_sha256": "9c3321a524a7e92b928ff9eb4da241d1081b09ec3ee962a0b89189f5315dbf47",
+    "hits": 0,
+    "misses": 167918,
+    "mode": "populate",
+    "model_sha256": "06507c7b42688469c4e7298b0a1e16deff06caf291cf0a5b278c308249c3e439",
+    "path": "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\components\\biological_memory\\nf_005\\artifacts\\nf005_turn_embeddings.db"
+   },
+   "coverage_hits": 167918,
+   "coverage_misses": 0,
+   "manifest": {
+    "first_commit": "b918d9963b13318cac584a3ba2752e065bb9740c",
+    "path": "experiments/components/biological_memory/nf_005/artifacts/turn_vector_manifest.json",
+    "sha256": "8b85f45df3bdd28e2ad7b94722f18753bc7f1298def957959806b90f173cf13c"
+   },
+   "pass": true
+  },
+  "G6": {
+   "items": 465,
+   "old_cache_hits_per_replay": 106877,
+   "pass": true,
+   "selection_sha256_a": "e5cf8fad043175a537de592c672f466e8109975a4347be984ce5d497a38272f3",
+   "selection_sha256_b": "e5cf8fad043175a537de592c672f466e8109975a4347be984ce5d497a38272f3",
+   "target_fields_joined": false,
+   "turn_cache_hits_per_replay": 212824,
+   "turn_cache_misses_per_replay": 0
+  }
+ },
+ "registration_commit": "04d3713880419a970d71c098a03b4df0965b18f0",
+ "schema": "nf005-preflight-g0-g6-v1",
+ "status": "PASS"
+}
