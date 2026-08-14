@@ -75,13 +75,17 @@ Verified against two independently published values: `e005_results.json`
 | R44 | `experiments/components/biological_memory/nf_004/artifacts/g7_result_integrity.json` | `7a1f82f1` | `890b4831d530e9a7` |
 | R45 | `experiments/components/biological_memory/nf_005/artifacts/g8_integrity.json` | `f09544ae` | `17cbdbad274c1863` |
 | R46 | `experiments/components/biological_memory/nf_006/artifacts/g8_g9_measurement.json` | `0af32ee0` | `d20dffd563e5777e` |
+| R47 | `experiments/components/biological_memory/nf_007/artifacts/part1_cluster_reachability.json` | `7522d0bb` | `bc51b33796c45b5d` |
+| R48 | `experiments/components/biological_memory/nf_007/artifacts/t1_cluster_coverage_control.json` | `3acdeb92` | `91804a13049253a6` |
+| R49 | `experiments/components/retrieval_mechanism_ledger/BA_001_REPORT.md` | `61db329d` | `46bd5f14675e01ef` |
+| R50 | `experiments/components/retrieval_mechanism_ledger/TA_001_REPORT.md` | `cb74c9d2` | `8466962e31e76bb6` |
 
 Path prefix `…` is `experiments/components/retrieval_mechanism_ledger` for
 R1–R21 and R33–R36, and `experiments/components` for R22–R29.
 For R37 it is `experiments`; for R38–R42 it is
 `experiments/external/longmemeval`.
 
-R43-R46 are outside those prefixes and are written in full above.
+R43-R50 are outside those prefixes and are written in full above.
 
 ---
 
@@ -273,6 +277,9 @@ R43-R46 are outside those prefixes and are written in full above.
 | C133 | Source-turn ranking supports candidate information dilution on LongMemEval | any exact evidence 361/465 -> 461/465 with turn packing fixed; 100 gains, 0 losses, p=7.89e-31; all-evidence 208->454; evidence turns p50 298 chars vs parent episodes 2,550 | R45 | VERIFIED - registered direction on exhausted corpus, capped `CHARACTERIZED`; localization and raw length not separated; availability only |
 | C134 | Own-statement ranking transfers the dilution signal to the internal store without targeted loss | Q11 episode/inherited-statement/own-statement availability 12/7/14 of 17 at 32k; T1 monetary 4/4; targeted C0=T1=21/21 with zero losses; no selected T1 statement from turn 90 | R46 | VERIFIED - registered `INTERNAL_DILUTION_RESCUES_Q11`, capped `CHARACTERIZED`; store-level signal does not identify DX-001's exact carrier; availability only |
 | C135 | NF-006 is objective-bound despite surplus capacity | T1 spends 31,991 chars, 4.21x AR-001's 7,592-char all-17 reference and 24,399 chars beyond it, while art falls 2/4->1/4 | R5 `secondary_reference_points.ar_001_exact_frontier_17`; R46 `G9.q11.T1_OWN_STATEMENT` | VERIFIED - the render units differ, so the subtraction bounds capacity but does not classify every excess character as fact-free |
+| C136 | The internal art loss is not candidate scarcity | Renaissance-art episodes contribute 194/791 statement candidates (24.5%), while NF-006 T1 delivers 1/4 art facts | R47 `clusters`; R46 `G9.q11.T1_OWN_STATEMENT` | VERIFIED - domain is inherited episode metadata, so 194 measures candidate provenance rather than 194 target-bearing statements |
+| C137 | A hard one-per-cluster floor is inert on sealed NF-006 T1 | T1 already touches 16/16 clusters; forced admissions 0; cluster 0 is sampled 30/91 (33.0%), cluster 12 14/137 (10.2%), and five art-majority clusters 9/168 (5.4%) | R47 `clusters`; R48 `coverage.selected_counts_by_cluster` | VERIFIED - registered anti-vacuity stop before selector implementation or outcome measurement; grouped densities are deterministic derivations from committed rows |
+| C138 | The carried coverage-count family is closed on the internal store | NF-006 statement ranking leaves art at 1/4; NF-007 shows all 16 clusters entered but art-majority regions under-sampled; BA-001 says stored but not broadly cued; DR-002 places art at ranks 50/86; TA-001 reaches art 4/4 through adjacency but fails targeted safety 2 gains/6 losses | R46; R47; R48; R49 §3; R13 §2; R50 | VERIFIED - scoped to this exhausted probe, carried embedding space, and count-of-carried-region coverage; not a universal claim about all embeddings or adjacency |
 
 ---
 

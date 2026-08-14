@@ -45,6 +45,25 @@ reference, a 4.21x ratio, while art falls 2/4 to 1/4. This bounds the ceiling to
 selection rather than capacity; differing render units prevent interpreting the
 24,399-character difference as individually fact-free content.
 
+**Post-draft update, NF-007 (2026-08-13).** Part 1 finds that 194/791 statement
+candidates (24.5%) inherit the renaissance-art domain label. A supplemental
+registered anti-vacuity control maps NF-006's sealed 80-statement T1 selection
+to the committed assignments and finds all 16 clusters already touched. A hard
+floor of one per nonempty cluster therefore forces zero admissions and stops
+before selector implementation or outcome measurement. Candidate scarcity and
+cluster-entry failure do not explain the 1/4 art delivery; the finer allocation
+cause remains open.
+
+The selection-density readout closes that earlier open wording. Cluster 0 is
+sampled 30/91 (33.0%) and cluster 12 14/137 (10.2%), while art-majority clusters
+3, 5, 8, 9, and 15 are sampled 9/168 (5.4%); 44/80 slots go to clusters 0 and
+12. NF-006 already showed that statement granularity leaves art at 1/4. BA-001,
+DR-002, and TA-001 independently place the same boundary at broad cosine cueing:
+art is stored and directly recallable, lies at episode ranks 50/86, and reaches
+4/4 only through adjacency that fails targeted safety 2 gains/6 losses. The
+carried coverage-count family is closed on this store. NF-008 is design-only
+preparation for live item-level reader validation; it authorizes no run.
+
 ---
 
 ## 1. Spec-versus-artifact discrepancies

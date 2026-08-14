@@ -52,15 +52,101 @@ ones that killed the thing being tested.
    episode identities and character accounting are counts, not scores, and they
    reproduce exactly.
 
-**The honest limit.** The breadth question requires 14 of 17 facts. The best
-configuration reaches 12, all four domains, at 31,569 characters. That gap is a
-selection failure that has been characterized rather than tuned away.
+**The honest limit.** The breadth question requires 14 of 17 facts. NF-006
+reaches exactly 14 with zero margin by trading one art loss for three monetary
+gains. It is an availability result, not reader correctness, and NF-007 shows a
+one-per-cluster floor is already satisfied rather than a route beyond it.
+
+---
+
+## How It Works
+
+What actually happens, end to end, traced from the shipped library source rather
+than from a design document. Two of these boxes are marked red because
+measurement found the system does not behave the way its own naming suggests.
+
+```mermaid
+flowchart TD
+
+    subgraph WRITE["SAVING — happens once after every reply"]
+        direction TB
+        UM["You send a message"]
+        AM["The model replies"]
+        UM --> PEND["Set aside on its own<br/>Nothing is stored yet"]
+        UM ~~~ AM
+        PEND --> FORM["The two are joined into one exchange"]
+        AM --> FORM
+        FORM --> EMBW["The exchange is turned into a list of numbers<br/>that stands for its meaning<br/>Measured on its own, never in a batch"]
+        EMBW --> STORE[("Written to disk<br/>Both messages, their position in the conversation,<br/>and those numbers<br/>On disk before the call returns")]
+    end
+
+    STORE -.-> GATE{"Start-up check<br/>Re-measure one fixed sentence and<br/>compare it to what was saved"}
+    GATE -.->|"they differ"| HALT["Refuse to open<br/>The saved numbers can no longer be trusted"]
+
+    subgraph READ["REMEMBERING — happens before every reply"]
+        direction TB
+        Q["You send a new message"] --> QE["Turn your message into<br/>the same kind of numbers"]
+        ALL["Load every exchange ever stored"]
+        QE --> REL["Score every stored exchange<br/>against what you just asked"]
+        ALL --> REL
+
+        REL --> KTEST{"Does it score<br/>at least 0.48?"}
+        ALL --> POOL["Everything stays eligible<br/>Nothing is filtered out beforehand"]
+        REL ~~~ POOL
+
+        KTEST -->|"no"| KDROP["Passed over"]
+        POOL --> CLUST["Sort the exchanges into 16 topic groups<br/>Same grouping every time — no randomness"]
+
+        ALL --> TIERN["RECENT<br/>The last 32 exchanges, in order.<br/>No scoring involved."]
+        KTEST -->|"yes"| TIERK["RELATED<br/>Exchanges that clear the bar"]
+        CLUST --> A3["SPREAD<br/>Take the best-scoring exchanges, with a small<br/>bonus for touching a topic not covered yet.<br/>Chooses as if it had the whole box to itself."]
+        CLUST ~~~ TIERN
+        CLUST ~~~ TIERK
+
+        TIERN --> PACK
+        TIERK --> PACK
+        A3 --> PACK["FILL THE BOX — recent first, then related, then spread<br/>Each one charged its true size once written out.<br/>Too big to fit? Skip it and carry on down the list."]
+
+        PACK --> CEIL{"Does it all fit<br/>in 32,000 characters?"}
+        CEIL -->|"no"| ERR["Stop. The limit is never exceeded,<br/>under any circumstances."]
+        CEIL -->|"yes"| RENDER["Write it out as two labelled sections:<br/>what was recent, and what was dug up"]
+        RENDER --> OUT["Handed to the model as part of its prompt"]
+        PACK --> REP["A receipt<br/>What went in, what was dropped, why,<br/>how many came from each of the three routes"]
+    end
+
+    classDef broken fill:#fdecea,stroke:#c0392b,stroke-width:2px,color:#7b1f14;
+    classDef store fill:#eef2f7,stroke:#41689a,color:#1e3a5f;
+    classDef guard fill:#f3f4f0,stroke:#8a9490,color:#3d4744;
+
+    class KTEST,PACK broken;
+    class STORE store;
+    class GATE,CEIL,HALT,ERR guard;
+```
+
+**"Does it score at least 0.48?"** The similarity route is switched off, not
+underperforming. The highest score ever recorded for content known to be
+relevant is 0.2779, and a separate effort that tried 714 ways to raise these
+scores topped out at 0.2103. The bar sits at roughly twice the height genuine
+relevance reaches, so the route almost never fires — measured at zero exchanges
+delivered on 8 of 8 test questions, and a live comparison found the full system
+scored identically to one with this route removed entirely.
+
+**"Fill the box — recent first."** Recent exchanges spend the whole allowance
+before anything else is considered. With 32 recent exchanges and a
+32,000-character box, recent routinely consumes all of it. There is a subtler
+version of the same fault: the *spread* step chooses its set as though it has
+the entire box to itself, and only afterwards does filling begin with recent
+taking priority — so the set it picked is not the set it would have picked had
+it known what it would actually be given.
+
+The settings behind each box, and where each value came from, are recorded below
+the divider under *Deployed Settings*.
 
 ---
 
 ## Current State of Work
 
-*Last updated 2026-08-13, at NF-006 completion.*
+*Last updated 2026-08-13, at the NF-007 anti-vacuity stop.*
 
 **The deployable component is done.** `episodic/` is an installable library with
 a public store, report, config and embedding-cache API. Extraction is certified
@@ -84,8 +170,7 @@ where results are counts and identities.
 | DMR-002, DMR-003 | upstream dependency cleared, but **not executable yet** — both remain design-only with no Part 1 or pre-registration |
 | DMR-005, DMR-006 | blocked by their own dependency lines |
 
-**Novelty-floor (NF) diagnostic line — offline, on LongMemEval, zero model
-calls.**
+**Novelty-floor (NF) diagnostic line — offline, zero model calls.**
 
 - **NF-001** stopped on the instrument, not the mechanism: never-stop was optimal
   under the tested rule, so the rule could not be measured.
@@ -124,6 +209,13 @@ calls.**
   4/4 and ties the episode control at 21/21 targeted items with zero losses.
   No selected treatment statement comes from turn 90, so the store-level
   moderator is supported while DX-001's exact carrier remains unresolved.
+- **NF-007** stops as `FLOOR_INERT` before full registration. The sealed NF-006
+  T1 selection already touches all 16 carried clusters, so a hard floor of one
+  per nonempty cluster forces zero admissions. Renaissance-art episodes supply
+  194/791 statement candidates (24.5%) while T1 delivers 1/4 art facts. Cluster
+  0 is sampled 30/91 (33.0%), versus 9/168 (5.4%) across the five art-majority
+  clusters. Candidate scarcity, statement subdivision, and cluster entry do not
+  explain the remaining art loss; the carried coverage-count family is closed.
 
 **One constraint governs that whole line.** Every LongMemEval item has now been
 used by this program, so nothing in it can be *confirmed* on that corpus.
@@ -136,17 +228,23 @@ confirmation.
 
 ## Next Steps
 
-1. **Write DMR-002 Part 1 and its final pre-registration before implementation.**
-   The former is upstream-cleared, but the only spec still forbids execution.
+1. **Register item-level reader validation before any live inference.** Compare
+   NF-006's frozen 12/17 and 14/17 Q11 contexts using five replicates per arm and
+   a 17-item fact-use instrument. The reader, exact prompt, replicate schedule,
+   scorer, and paired bar remain to be locked; `nf_008/` is design-only.
 
-2. **If reader value is the next question, register it separately.** NF-004,
-   NF-005, and NF-006 measure evidence availability only; a live successor must lock the reader,
-   prompt, rubric, determinism check, and no-regression bar before inference.
+2. **Write DMR-002 Part 1 and its final pre-registration before implementation.**
+   The former is upstream-cleared, but the only spec still forbids execution.
 
 3. **Treat candidate informativeness as the ranking scope condition.** Rank at
    the finest unit whose embedding remains informative and pack at the finest
    affordable unit. A controlled padding/aggregation study on an untouched
    corpus is still needed to separate raw length from semantic localization.
+
+4. **Stop optimizing Q11 with coverage counts on this store.** The carried
+   `k=16` selection already enters every region, and finer statements do not
+   repair art. Statement-grain temporal adjacency is a grounded but separate
+   availability successor; it is not part of the prepared live reader study.
 
 ---
 ---
@@ -311,6 +409,15 @@ Eleven pre-registered studies test that question, each adding one memory compone
 > store-level dilution result does not identify DX-001's exact carrier. No
 > reader, live, or adoption claim follows.
 
+> **NF-007 status:** `STOP - FLOOR_INERT`. Part 1 finds 194/791 statement
+> candidates inherit the renaissance-art label, but NF-006's sealed T1 already
+> touches all 16 carried clusters. A hard floor of one per nonempty cluster
+> forces zero admissions and cannot distinguish treatment from control. Cluster
+> 0 supplies 30/80 selections while five art-majority clusters supply 9/80 from
+> comparable candidate mass. The carried coverage-count family is closed. The
+> study stops before full registration, selector implementation, or Q11 outcome
+> measurement; this is an instrument/design stop, not a binding-floor failure.
+
 > **SAL-001 status:** `NO_INDEPENDENT_PROXIMITY - CHARACTERIZED`. On 92
 > held-out LongMemEval sessions, adjusted neighbor AUC is 0.416 (95% interval
 > 0.351-0.484; one-sided p=0.991), raw AUC 0.300, prior 0.399, and next 0.477.
@@ -410,6 +517,7 @@ Runs use a scripted 120-turn conversation with facts planted at known positions 
 | NF-004 | LoCoMo ranking-granularity confirmation | WORKS; AVAILABILITY ONLY | At 16k, complete evidence rises 843->935/1,098: 140 gains, 48 losses, ratio 2.92, p=6.19e-12. All six conversations net positive; source order 258; 32k 961->1,024. G0-G7 and byte replay pass with zero measurement calls. No live/adoption claim |
 | NF-005 | Source-turn candidate information dilution | INFORMATION_DILUTION_SUPPORTED; CHARACTERIZED | At 32k with turn packing fixed, own-turn ranking raises any exact evidence 361->461/465: 100 gains, 0 losses, p=7.89e-31; all-evidence 208->454. Evidence turns p50 298 chars vs parent episodes 2,550. G0-G8 and byte replay pass; no raw-length, live, or adoption claim |
 | NF-006 | Internal statement ranking | INTERNAL_DILUTION_RESCUES_Q11; CHARACTERIZED | At 32k, episode/inherited-statement/own-statement Q11 availability is 12/7/14 of 17. T1 restores monetary 4/4 and targeted ties 21/21 with zero losses. No T1 selection comes from turn 90; exact DX-001 carrier unresolved. No live/adoption claim |
+| NF-007 | Hard cluster-floor anti-vacuity | STOP; FLOOR_INERT | T1 touches 16/16 clusters, but cluster 0 is sampled 30/91 versus 9/168 across five art-majority clusters. Floor size 1 forces 0 admissions. Candidate scarcity and region entry are eliminated; the carried coverage-count family is closed. No selector, outcome, sweep, live run, or adoption |
 | SUP-001 | Explicit supersession lineage and accessibility | FACTUAL PASS; byte-identity criterion withdrawn | Current-only retrieval rose 0/64 to 64/64 with 32/32 unchanged and 64/64 histories. T1 scored 9/9 under numeric-value equivalence, with zero regressions and zero stale natural payloads; no larger run or adoption is automatic |
 
 Full reports live under `experiments/study_NNN/`; external evaluation reports
@@ -774,8 +882,46 @@ The NF-005 closeout is
 `experiments/components/biological_memory/nf_005/NF_005_REPORT.md`.
 The NF-006 internal transfer is
 `experiments/components/biological_memory/nf_006/NF_006_REPORT.md`.
+The NF-007 anti-vacuity stop is
+`experiments/components/biological_memory/nf_007/NF_007_REPORT.md`.
+The documentation-only live reader successor preparation is
+`experiments/components/biological_memory/nf_008/NF_008_DESIGN_BRIEF.md`.
 The confirmatory record is
 `experiments/components/biological_memory/nf_004/NF_004_REPORT.md`.
+
+## Deployed Settings
+
+Every value that shapes the read path is a field on `EpisodicConfig`, not a
+module global. The graph above the divider is the same path in plain language.
+
+| What it controls | Field | Value | Why it is that value |
+|---|---|---|---|
+| Recent exchanges always included | `recency_window_n` | 32 | carried from the corrected 121-turn run |
+| Score an exchange must beat to count as related | `k_threshold` | 0.48 | carried; **measured unreachable** — best observed relevance is 0.2779, E001 swept 714 configurations to 0.2103 |
+| Whether weak candidates are filtered out early | `candidate_policy` | `full_store` | DR-002 — dropping the 19 lowest-cosine of 119 cost an entire domain, because the selector clusters over the pool and tail removal reshuffles the objective |
+| Coverage selector | `selector` | A3 | E005 — relevance plus cluster diversity; A1/A2 build an O(n²) matrix and were disqualified at scale |
+| Cluster-coverage bonus | `selector_lambda` | 0.1 | E005 primary `A3_l0.1_r0.0_k16` of 146 swept |
+| Cost exponent | `selector_cost_exponent` | 0.0 | E005 primary |
+| Topic groups | `selector_cluster_count` | 16 | E005 primary; NF-007 confirmed the deployed selection already enters all 16 |
+| Size accounting | `budget_accounting` | `exact_serialized` | DR-001 — the prior method under-charged by 67.9%/68.2% |
+| Embedding call shape | `embed_call_shape` | `solo` | DX-001 — the same text embedded alone versus in a batch yields materially different vectors, so call shape is part of the model identity |
+| Seed | `seed` | 5005 | provenance only; no code path in the package draws randomness |
+
+Packing order is `DROP_POLICY = "marginal_gain_order_skip_on_overflow"` — a named
+policy, not an artifact of iteration order. Skipping rather than stopping is
+deliberate: with gains [10, 9, 8] where the budget fits the second and third but
+not the first, this admits 9 and 8 where a strict rank-prefix would keep only 10
+and leave the budget mostly empty.
+
+| Box on the graph | Where it lives |
+|---|---|
+| Saving, start-up check | `episodic/src/episodic/_store.py` — `append`, sentinel verify |
+| Text into numbers | `_embedding.py` — `embed_solo` |
+| Scoring, the three routes | `_context.py` — `build_context` |
+| Topic groups, the spread step | `_selection.py` — `deterministic_clusters`, `ClusterDiversitySelector` |
+| Filling the box | `_packing.py` — `pack_stm_payload` |
+| The two written sections | `_render.py` — `render_stm_payload` |
+| Every setting above | `_config.py` — `EpisodicConfig` |
 
 ## The Extracted Library
 
