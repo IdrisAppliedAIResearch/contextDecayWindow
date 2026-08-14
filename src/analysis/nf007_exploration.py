@@ -231,6 +231,12 @@ def run_exploration() -> dict[str, object]:
     return {
         "schema": "nf007-part1-cluster-reachability-v1",
         "registration_commit": REGISTRATION_COMMIT,
+        "analysis_source": {
+            "path": str(Path(__file__).resolve().relative_to(REPO_ROOT)).replace(
+                "\\", "/"
+            ),
+            "sha256": sha256_file(Path(__file__)),
+        },
         "status": reachability["status"],
         "integrity": integrity,
         "mechanism_identity": {
