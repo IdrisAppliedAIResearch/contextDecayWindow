@@ -175,13 +175,22 @@ with zero losses. This is not a direct rescue of DX-001's turn-90 episode: no
 selected treatment statement comes from turn 90. The registered result supports
 store-level dilution/localization while leaving that exact carrier unresolved.
 
-The sharper ceiling is selection rather than capacity. T1 spends **31,991
-characters** while AR-001's committed all-17 episode context costs **7,592**:
+The sharper ceiling is selection rather than capacity. Renaissance-art episodes
+contribute **194 of 791 statement candidates (24.5%)**, yet T1 delivers only
+one of four art facts. T1 spends **31,991 characters** while AR-001's committed
+all-17 episode context costs **7,592**:
 the selected payload is 4.21x a known sufficient context, with 24,399
 characters beyond that reference, yet art falls from 2/4 to 1/4. The render
 units differ, so this subtraction does not label every excess character
 fact-free. It does establish that capacity was more than fourfold sufficient at
 the point where the selector abandoned part of a domain.
+
+A registered hard-floor successor then stopped before outcome measurement:
+the sealed T1 selection already touches all 16 carried clusters, including one
+statement each from small art-heavy clusters 5, 8, and 15. A one-per-cluster
+floor therefore forces zero admissions. The art loss is not candidate scarcity
+or failure to enter an art-heavy cluster; the unresolved choice is finer than
+cluster coverage.
 
 What remains after every one of those removals is an append-only store, a
 recency window, similarity retrieval, and a coverage objective, with no
@@ -1006,14 +1015,24 @@ store and can change the packed breadth composition: three monetary gains and
 one art loss versus the episode control. Reader value, raw-length causality, and
 the exact turn-90 carrier remain untested.
 
-The zero-margin 14/17 result also exposes the next binding ceiling. T1 spends
-**31,991 characters** while AR-001's committed exact frontier places all 17
+The zero-margin 14/17 result also exposes the next binding ceiling.
+Renaissance-art episodes contribute **194 of 791 statement candidates
+(24.5%)**, yet T1 delivers only one of four art facts. T1 spends **31,991
+characters** while AR-001's committed exact frontier places all 17
 items in **7,592** characters. Its payload is therefore 4.21x a known
 sufficient all-item context and consumes 24,399 characters beyond that
 reference, yet it gives up one of the episode control's two art items. The two
 figures use different render units, so the difference is not a measurement of
 24,399 individually fact-free characters. It is a capacity bound: capacity was
 more than fourfold sufficient when the objective abandoned part of a domain.
+
+NF-007 tested whether a hard floor of one statement per nonempty carried
+cluster could bind before implementing it. It cannot: NF-006's sealed T1
+selection already touches all 16 clusters, including one statement each from
+the small art-heavy clusters 5, 8, and 15. The registered stop fired with zero
+forced admissions, so no selector or Q11 outcome was opened. This rules out
+candidate scarcity and cluster-entry failure as explanations for the art loss;
+it does not identify the finer within-cluster allocation rule that would help.
 
 ### 5.6 The three constraints, and why the order is forced
 
