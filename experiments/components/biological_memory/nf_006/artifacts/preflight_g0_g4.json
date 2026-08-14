@@ -1,0 +1,186 @@
+{
+ "gates": {
+  "G0": {
+   "amendment_first_commit": "dfea8c9691358b6a53826f6514833ee03a08ab3c",
+   "pass": true,
+   "registration_commit_files": [
+    "experiments/components/biological_memory/nf_006/NF_006_PRE_REGISTRATION.md"
+   ],
+   "registration_first_commit": "ebb3ebf3d103e7ceaa62576879e0825fbfc11ee1",
+   "registration_lf_sha256": "134822f97bcc6286dd9b1b11060f5056cff9a5efb57f1b878d73fde3d7828ead"
+  },
+  "G1": {
+   "eligible_q11_parents": 119,
+   "file_sha256": {
+    "C:/Users/muzaf/PycharmProjects/contextDecayWindow/experiments/components/biological_memory/nf_006/artifacts/part1_exploration.json": "ea4f6779e24c0be828a04404bb81a211a34b2c5297d0c6c2e6dc91cf82cf94e2",
+    "C:/Users/muzaf/PycharmProjects/contextDecayWindow/experiments/components/retrieval_mechanism_ledger/artifacts/e005/configuration_sweep.csv": "1ad625d10fb988f9b17f81e799b3ca84eb8ec2c32ec91c04551c36b088eb937b",
+    "C:/Users/muzaf/PycharmProjects/contextDecayWindow/experiments/components/retrieval_mechanism_ledger/artifacts/e005/raw/q11_selection.jsonl": "71d7d1a6f4d46d231a0ddd3ee11bea285f659456707f0754cae211d992dba9b7",
+    "C:/Users/muzaf/PycharmProjects/contextDecayWindow/experiments/components/retrieval_mechanism_ledger/artifacts/e005/raw/targeted_selection.jsonl": "568cfef2051fd19126a51b92aea69c87134761b5d96062809d733bd97749dc4e",
+    "C:/Users/muzaf/PycharmProjects/contextDecayWindow/experiments/internal/packing_priority/runs/ic001/b1_k_first/b1_arm.json": "439f428693010316e9f09b602ec155ad894393e0271404b52c5acc04b27c7bcf",
+    "C:/Users/muzaf/PycharmProjects/contextDecayWindow/experiments/internal/packing_priority/runs/ic001/b1_k_first/targeted_item_matrix.csv": "369c3e7393814bc16846f165d9d08c631d2a2ca99e3fca0d2b6d7ceed09a8559",
+    "C:/Users/muzaf/PycharmProjects/contextDecayWindow/experiments/internal/packing_priority/runs/ic001/b1_k_first/targeted_per_probe.csv": "e2c1f79cc9a856a86c2758e1b98ead3f4381e704cc8ea884b2cf7c5469c13001",
+    "C:/Users/muzaf/PycharmProjects/contextDecayWindow/experiments/surveys/retrieval_bakeoff/tier6/runs/tier6_live_121_corrected_001/context_matched_stm/logs/turns.jsonl": "a1e6941c92b15d47f75fc44c5f833999ac1ef148cf4eeebd50b0c9f3204b86bd",
+    "C:/Users/muzaf/PycharmProjects/contextDecayWindow/experiments/surveys/retrieval_bakeoff/tier6/runs/tier6_live_121_corrected_001/context_matched_stm/study.db": "5da47ea3fc2c8e3dcc50fa380ff65202d82557905d9976117e9e5d82e55c1c41"
+   },
+   "model_sha256": "06507c7b42688469c4e7298b0a1e16deff06caf291cf0a5b278c308249c3e439",
+   "parent_rows": 121,
+   "pass": true,
+   "scored_probe_labels_including_q11": 9,
+   "targeted_item_rows": 21,
+   "targeted_probe_labels": 8,
+   "unique_probe_texts": 8
+  },
+  "G2": {
+   "observed_violations": [],
+   "pass": true,
+   "planted_violations": [
+    "forbidden import:analysis.nf006_measurement"
+   ]
+  },
+  "G3": {
+   "pass": true,
+   "replay": {
+    "112": {
+     "checks": {
+      "no_affordable_remainder": true,
+      "payload_sha256": true,
+      "selected_ids": true,
+      "serialized_chars": true
+     },
+     "pass": true
+    },
+    "113": {
+     "checks": {
+      "no_affordable_remainder": true,
+      "payload_sha256": true,
+      "selected_ids": true,
+      "serialized_chars": true
+     },
+     "pass": true
+    },
+    "115": {
+     "checks": {
+      "no_affordable_remainder": true,
+      "payload_sha256": true,
+      "selected_ids": true,
+      "serialized_chars": true
+     },
+     "pass": true
+    },
+    "116": {
+     "checks": {
+      "no_affordable_remainder": true,
+      "payload_sha256": true,
+      "selected_ids": true,
+      "serialized_chars": true
+     },
+     "pass": true
+    },
+    "117": {
+     "checks": {
+      "no_affordable_remainder": true,
+      "payload_sha256": true,
+      "selected_ids": true,
+      "serialized_chars": true
+     },
+     "pass": true
+    },
+    "118": {
+     "checks": {
+      "no_affordable_remainder": true,
+      "payload_sha256": true,
+      "selected_ids": true,
+      "serialized_chars": true
+     },
+     "pass": true
+    },
+    "119": {
+     "checks": {
+      "no_affordable_remainder": true,
+      "payload_sha256": true,
+      "selected_ids": true,
+      "serialized_chars": true
+     },
+     "pass": true
+    },
+    "120": {
+     "checks": {
+      "no_affordable_remainder": true,
+      "payload_sha256": true,
+      "selected_ids": true,
+      "serialized_chars": true
+     },
+     "pass": true
+    }
+   },
+   "turn_90_parent_cosine": 0.05599034205079079,
+   "turn_90_tolerance": 1e-07,
+   "validation_call_shape": "one sorted eight-text batch"
+  },
+  "G4": {
+   "checks": {
+    "assistant_count": true,
+    "content_parent_ids": true,
+    "count": true,
+    "exact_cost": true,
+    "median": true,
+    "p90": true,
+    "turn90": true,
+    "unique_ids": true,
+    "user_count": true
+   },
+   "pass": true
+  }
+ },
+ "generation_calls": 0,
+ "outcome_measurement_opened": false,
+ "preflight": {
+  "PF1": {
+   "evidence": "G1 hash and count table",
+   "pass": true
+  },
+  "PF10": {
+   "evidence": "No live run, adoption, or reader claim is authorized",
+   "pass": true
+  },
+  "PF2": {
+   "evidence": "G3 real C0 replay plus G4 real statement population; focused tests cover C1/T1 source separation",
+   "pass": true
+  },
+  "PF3": {
+   "evidence": "A planted absent G7 selection artifact fails the same commit-verification function used by measurement",
+   "pass": true
+  },
+  "PF4": {
+   "evidence": "Amendment 001 re-derives every bar at n=8; no result threshold changes",
+   "pass": true
+  },
+  "PF5": {
+   "evidence": {
+    "local_digest": "701b519b760a551927bac6352806bdf68620f76c1aeffca2a4550a2e5394ffd7",
+    "second_process_digest": "701b519b760a551927bac6352806bdf68620f76c1aeffca2a4550a2e5394ffd7"
+   },
+   "pass": true
+  },
+  "PF6": {
+   "evidence": "G3 byte-identical E005 replay at all eight prefixes and parent cosine tolerance",
+   "pass": true
+  },
+  "PF7": {
+   "evidence": "Every G3 replay has no affordable candidate after termination at all eight prefixes",
+   "pass": true
+  },
+  "PF8": {
+   "evidence": "One Q11 plus 21 targeted rows detects this corpus trade only",
+   "pass": true
+  },
+  "PF9": {
+   "evidence": "Targeted G8 remains binding; availability is not reader correctness",
+   "pass": true
+  }
+ },
+ "probe_embedding_calls": 1,
+ "schema": "nf006-preflight-v1",
+ "statement_embedding_calls": 0,
+ "status": "PASS"
+}

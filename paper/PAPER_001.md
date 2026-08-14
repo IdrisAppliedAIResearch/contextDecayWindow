@@ -166,6 +166,23 @@ conditional rule: rank at the finest unit whose embedding remains informative,
 pack fine. Because splitting changes length and semantic localization together,
 it does not isolate raw character count.
 
+The same moderator reaches the internal 121-turn store in NF-006. At the same
+32,000-character budget, Q11 exact availability is **12/17** for episode
+ranking and packing, **7/17** when statements inherit their episode score, and
+**14/17** when each statement receives its own cosine. The treatment restores
+all four monetary items and ties the episode control at 21/21 targeted items,
+with zero losses. This is not a direct rescue of DX-001's turn-90 episode: no
+selected treatment statement comes from turn 90. The registered result supports
+store-level dilution/localization while leaving that exact carrier unresolved.
+
+The sharper ceiling is selection rather than capacity. T1 spends **31,991
+characters** while AR-001's committed all-17 episode context costs **7,592**:
+the selected payload is 4.21x a known sufficient context, with 24,399
+characters beyond that reference, yet art falls from 2/4 to 1/4. The render
+units differ, so this subtraction does not label every excess character
+fact-free. It does establish that capacity was more than fourfold sufficient at
+the point where the selector abandoned part of a domain.
+
 What remains after every one of those removals is an append-only store, a
 recency window, similarity retrieval, and a coverage objective, with no
 generative model calls in the memory path — a design that is reproducible and free of generated
@@ -301,7 +318,7 @@ its advancement gate (§4).
 LoCoMo and LongMemEval were the calibration this program lacked. EC-001 has now
 run the unchanged component on cleaned LongMemEval-S, but its Codex-substituted
 evaluation is not the benchmark's official score and cannot be compared
-directly with published systems. NF-004 and NF-005 use benchmark corpora only
+directly with published systems. NF-004, NF-005, and NF-006 use corpora only
 as deterministic evidence-availability instruments, not official scores.
 
 The placement is narrow: every system above consumes a candidate set produced
@@ -971,13 +988,40 @@ the finest unit whose embedding remains informative, then pack at the finest
 affordable unit. Splitting changes length and semantic localization together,
 so the result does not identify a universal character threshold.
 
+NF-006 then tests the same ranking-unit mechanism on the internal 121-turn
+store, with the A3 objective, 32,000-character budget, and targeted safety bar
+held fixed. Q11 availability is **12/17** under episode ranking and packing,
+**7/17** when statement candidates inherit their parent score, and **14/17**
+when statements use their own cosine. The treatment restores monetary 4/4 and
+passes the binding targeted gate at 21/21 versus 21/21 with zero item, probe, or
+domain losses. Fine packing alone is not an explanation: the inherited-score
+statement arm is the worst of the three.
+
+The result receives the registered `INTERNAL_DILUTION_RESCUES_Q11` disposition,
+capped at `CHARACTERIZED`. Its causal scope is narrower than the motivating
+story. The treatment selects no statement from turn 90, so the study does not
+show that subdividing DX-001's characterized rank-112 episode caused the gain.
+It establishes that informative statement vectors exist elsewhere in the same
+store and can change the packed breadth composition: three monetary gains and
+one art loss versus the episode control. Reader value, raw-length causality, and
+the exact turn-90 carrier remain untested.
+
+The zero-margin 14/17 result also exposes the next binding ceiling. T1 spends
+**31,991 characters** while AR-001's committed exact frontier places all 17
+items in **7,592** characters. Its payload is therefore 4.21x a known
+sufficient all-item context and consumes 24,399 characters beyond that
+reference, yet it gives up one of the episode control's two art items. The two
+figures use different render units, so the difference is not a measurement of
+24,399 individually fact-free characters. It is a capacity bound: capacity was
+more than fourfold sufficient when the objective abandoned part of a domain.
+
 ### 5.6 The three constraints, and why the order is forced
 
 | Constraint | Binds on | Bound, on this corpus |
 |---|---|---|
 | **Candidate pool** | domain coverage, and part of the fact gap | The art domain has no representative in the deployed 34-episode pool, so no rule of any kind reaches four domains there. With the selector frozen, 34 → 119 candidates moves 5/17 across 2 domains to 12/17 across 4 |
-| **Selection objective** | the remaining recoverable facts | Holding the deployed pool fixed, the best set-level configuration reaches 13/17 against the baseline's 6/17. Greedy runs at 0.9548–0.9996 of a data-dependent bound on the primary pool, so the objective and not the search is the limit |
-| **Similarity floor** | the irreducible residual | 0.056 against the 0.225 required, a shortfall of 0.169; only 20 of 119 episodes clear the bar; unreachable by any reweighting of this objective |
+| **Selection objective** | the remaining recoverable facts | Holding the deployed pool fixed, the best set-level configuration reaches 13/17 against the baseline's 6/17. Greedy runs at 0.9548–0.9996 of a data-dependent bound on the primary pool. NF-006 then spends 31,991 chars, 4.21x the 7,592-char all-17 reference, while art falls 2/4→1/4; capacity is sufficient and composition remains objective-bound |
+| **Episode-level similarity floor** | the residual under whole-episode representation | 0.056 against the 0.225 required, a shortfall of 0.169; only 20 of 119 episodes clear the bar; unreachable by reweighting that episode-level objective. NF-006 changes the ranking unit and reaches 14/17 without selecting turn 90 |
 
 The order is forced, and the argument for it is structural rather than
 numerical. **The art domain has no representative anywhere in the deployed
@@ -1337,8 +1381,8 @@ claim that every result is self-authored, but API unavailability replaced the
 pinned benchmark evaluator with Phi, Mistral, and hosted GPT-5.4 raters plus
 hosted GPT-5.5 AI adjudication. Its 20.0% equal-quota and 12.22%
 post-stratified results are Codex-substituted integrity scores, not official or
-benchmark-comparable LongMemEval scores. NF-004 and NF-005 add deterministic
-availability measurements on LoCoMo and LongMemEval, not official benchmark
+benchmark-comparable LongMemEval scores. NF-004, NF-005, and NF-006 add deterministic
+availability measurements on LoCoMo, LongMemEval, and the internal store, not official benchmark
 scores. Boundedness
 claims are statements about a 1,000-turn horizon and say nothing about 10,000.
 *Settled by:* repeated runs at multiple seeds and the official evaluator on the

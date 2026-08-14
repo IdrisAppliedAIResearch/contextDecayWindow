@@ -34,6 +34,17 @@ median 298 characters versus 2,550 for parent episodes. The result supports
 information dilution/localization, but does not isolate raw character length or
 establish reader value.
 
+**Post-draft update, NF-006 (2026-08-13).** A registered internal-store test at
+32k yields Q11 exact availability 12/17 for episode rank/pack, 7/17 for
+inherited-score statement packing, and 14/17 for own-statement ranking. T1
+restores monetary 4/4 and ties targeted 21/21 with zero losses. No selected T1
+statement is from turn 90, so store-level dilution is supported while DX-001's
+exact carrier remains unresolved. Availability only; no live or adoption claim.
+T1 spends 31,991 characters against AR-001's committed 7,592-character all-17
+reference, a 4.21x ratio, while art falls 2/4 to 1/4. This bounds the ceiling to
+selection rather than capacity; differing render units prevent interpreting the
+24,399-character difference as individually fact-free content.
+
 ---
 
 ## 1. Spec-versus-artifact discrepancies
@@ -275,7 +286,7 @@ differently from the spec, per §1 above.
 | Item | Value | Artifact |
 |---|---|---|
 | No error bars anywhere | every comparison single-run, one seed | program-wide; `AGENTS.md` runtime rules |
-| External calibration boundary | LongMemEval-S run in EC-001; LoCoMo and LongMemEval availability instruments run in NF-004/NF-005; substituted evaluator forbids official comparator score | `external/longmemeval/EC_001_REPORT.md` §§1,7; `biological_memory/nf_004/artifacts/g7_result_integrity.json`; `biological_memory/nf_005/artifacts/g8_integrity.json` |
+| External calibration boundary | LongMemEval-S run in EC-001; LoCoMo, LongMemEval, and internal availability instruments run in NF-004/NF-005/NF-006; substituted evaluator forbids official comparator score | `external/longmemeval/EC_001_REPORT.md` §§1,7; `biological_memory/nf_004/artifacts/g7_result_integrity.json`; `biological_memory/nf_005/artifacts/g8_integrity.json`; `biological_memory/nf_006/artifacts/g8_g9_measurement.json` |
 | One literal breadth probe | Q11 is the program's only enumeration question; LongMemEval multi-session is an analogue, not an identical task | `DR_002_report.md` §3.5; `EC_001_REPORT.md` §6 |
 | AI raters, AI adjudicators | self-consistency 97.47%, control disagreement 11.54% | `audits/scoring_integrity/` — **verify 97.47 before use** |
 | Oracle contains prior probe answers | 4 of 5; registered rule is `source_turn < 120` | `artifacts/e005/prior_answer_fraction.csv` — **verify before use** |
