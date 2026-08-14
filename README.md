@@ -35,13 +35,13 @@ ones that killed the thing being tested.
    similarity tier delivered zero episodes at all eight probes because recency
    consumed the entire budget first.
 
-3. **The unit beats the cleverness.** The largest measured effects in the
-   program come from changing what a candidate *is*, not from smarter scoring.
-   Packing episodes instead of sessions gained 16 items; ranking at episode
-   granularity instead of inheriting a session's rank gained 49 with zero
-   losses. Over the same period, novelty filtering, associative graph frontiers,
-   extractive spans, and temporal-adjacency bridges each returned null or
-   harmful.
+3. **Rank coarse, pack fine.** On the same 465 turn-labelled questions, strict
+   delivery moves 375 → 388 → 351 across session/session,
+   session/episode, and episode/episode ranking/packing. Fine packing helps
+   (+13); fine ranking hurts (-37). The 63 coarse-rank rescues have median own
+   cosine rank 46, so session context carries evidence its own text cannot rank.
+   This is corpus-specific: a prospective LoCoMo holdout confirms the opposite
+   ranking direction at 16k, from 843 to 935 complete-evidence items.
 
 4. **The live instrument is coarser than most verdicts placed on it.** Five
    byte-identical replicates of one configuration scored 8.0, 8.0, 8.0, 8.0 and
@@ -59,8 +59,8 @@ selection failure that has been characterized rather than tuned away.
 
 ## Current State of Work
 
-*Last updated 2026-08-13, at merge of
-[PR #55](https://github.com/IdrisAppliedAIResearch/contextDecayWindow/pull/55).*
+*Last updated 2026-08-13, at NF-004 completion on draft
+[PR #57](https://github.com/IdrisAppliedAIResearch/contextDecayWindow/pull/57).*
 
 **The deployable component is done.** `episodic/` is an installable library with
 a public store, report, config and embedding-cache API. Extraction is certified
@@ -81,7 +81,7 @@ where results are counts and identities.
 | DMR-001B adaptive drift | passes all gates, no sealed holdout, characterized |
 | DMR-001C sealed confirmation | transfer confirmed on 50 real conversations; boundary claim fails on recall |
 | DMR-004 query-obligation compiler | stopped on its sealed holdout; J .320 against a .50 bar |
-| DMR-002, DMR-003 | **runnable** — cleared by a blocking review; both consume the frozen DMR-001B former and neither needs the boundary claim that failed |
+| DMR-002, DMR-003 | upstream dependency cleared, but **not executable yet** — both remain design-only with no Part 1 or pre-registration |
 | DMR-005, DMR-006 | blocked by their own dependency lines |
 
 **Novelty-floor (NF) diagnostic line — offline, on LongMemEval, zero model
@@ -90,37 +90,50 @@ calls.**
 - **NF-001** stopped on the instrument, not the mechanism: never-stop was optimal
   under the tested rule, so the rule could not be measured.
 - **NF-002** built an instrument that prices displacement, and found novelty
-  filtering to be a measured null while the *unit* gained 16 items.
+  filtering to be a measured null. Its registered session-touch contrast gained
+  16 items; the posthoc strict audit retains a 13-item net gain.
   `CARRIES_SIGNAL`, capped at `CHARACTERIZED` by a recorded deviation.
-- **NF-003 Part 1** ranked at episode granularity: any-evidence recall 396 → 445
-  of 470, **49 gains and 0 losses**, p < 1e-5. This is unregistered exploration,
-  not a result.
+- **NF-003 Part 1** stopped at its pre-registration surrogate audit. Session-touch
+  reproduced 396 → 445 and 49 gains/0 losses, but strict answer-episode delivery
+  fell 388 → 351 with **26 gains and 63 losses**. It remains unregistered.
+- **Three-arm synthesis** puts both levers on one strict scale: session/session
+  375, session/episode 388, episode/episode 351. The deployed middle corner is
+  the observed optimum: **rank coarse, pack fine**.
+- **LoCoMo development** supplies the untouched-corpus successor signal. Across
+  871 unique questions, strict exact-evidence delivery rose 820 → 855 with
+  **44 gains and 9 losses**; all four development conversations were positive.
+  This is exploration only, with no locked bars or disposition.
+- **Budget controls** reject the slack-budget explanation and a universal
+  binding-ratio rule. At 32k, LoCoMo source/session/pair all-evidence is
+  279/773/826; LongMemEval all-evidence changes sign between 16k and 24k while
+  LoCoMo remains positive at overlapping ratios.
+- **NF-004** is `WORKS`, availability only. On 1,098 sealed LoCoMo questions at
+  16k, pair ranking raises complete evidence from 843 to 935 over session-score
+  inheritance: **140 gains, 48 losses, ratio 2.92, p=6.19e-12**. All six
+  conversations are net positive; source order reaches only 258, and the 32k
+  secondary remains positive at 961 to 1,024. G0-G7 and byte replay pass.
 
 **One constraint governs that whole line.** Every LongMemEval item has now been
 used by this program, so nothing in it can be *confirmed* on that corpus.
-Characterization is the ceiling until a corpus arrives that this work has never
-touched.
+Characterization is the ceiling there. LoCoMo was split by whole conversation
+before content inspection and its six-conversation holdout has now been used by
+NF-004; further work on these ten conversations is characterization, not a new
+confirmation.
 
 ---
 
 ## Next Steps
 
-1. **Register NF-003 and run it for the record.** It is the largest zero-model-call
-   effect measured in this program, and it currently exists only as exploration.
-   Registering it accepts the `CHARACTERIZED` ceiling up front; the alternative is
-   leaving a 49-gain, zero-loss result with no locked design behind it.
+1. **Write DMR-002 Part 1 and its final pre-registration before implementation.**
+   The former is upstream-cleared, but the only spec still forbids execution.
 
-2. **Acquire a corpus this program has never touched.** This is the only step
-   that lifts the ceiling above characterization, and it is the one that needs
-   authorization, since it means a new external dataset.
+2. **If reader value is the next question, register it separately.** NF-004
+   confirms evidence availability only; a live successor must lock the reader,
+   prompt, rubric, determinism check, and no-regression bar before inference.
 
-3. **Run DMR-002 on the frozen DMR-001B former.** The blocking review cleared it.
-   It is the arc's next real stage and it is unblocked today.
-
-4. **Decide what to do about the H2 residual.** 25 of 470 items have evidence
-   that sits deep in the ordering even at episode granularity. No unit or packing
-   change reaches them. That is where a similarity or composition mechanism would
-   have to earn its place — and it is a proposal, not a plan.
+3. **Treat ranking granularity as corpus-scoped.** LongMemEval supports coarse
+   ranking at 32k while LoCoMo confirms fine ranking at 16k; the development
+   controls already reject binding ratio as a portable explanation.
 
 ---
 ---
@@ -153,17 +166,18 @@ Eleven pre-registered studies test that question, each adding one memory compone
 > and T1 9/9 with zero regressions. Explicit supersession passes integration;
 > broader live evaluation remains a separate decision.
 
-> **DMR arc status:** `STOPPED AT DMR-001 AND DMR-004; DMR-002/003 RUNNABLE`.
+> **DMR arc status:** `DMR-002/003 UPSTREAM-CLEARED; NOT PRE-REGISTERED`.
 > Six implementation specifications separate event formation, typed pattern
 > completion, encoding-context recurrence, query-obligation compilation,
 > deterministic route control, and single-reader validation. DMR-001 stopped at
 > G3 and DMR-004 stopped on its sealed holdout. A blocking review
 > (`DMR_ARC_BLOCKING_REVIEW.md`) re-read every dependency line and found two
-> stages had been blocked in error: DMR-002 and DMR-003 consume the frozen
+> stages had been blocked upstream in error: DMR-002 and DMR-003 consume the frozen
 > DMR-001B former, whose operating point DMR-001C confirmed on a sealed
 > holdout, and neither needs the boundary claim that failed. DMR-005 remains
-> blocked by its own dependency line, since DMR-004 produced no passing plans,
-> and DMR-006 needs DMR-005. The roadmap starts at
+> blocked by its own dependency line, since DMR-004 produced no passing plans.
+> Both cleared stages remain design-only and cannot execute before Part 1 and
+> final pre-registration, and DMR-006 needs DMR-005. The roadmap starts at
 > `experiments/components/biological_memory/deterministic_retrieval/DMR_ARC_IMPLEMENTATION_ROADMAP.md`.
 
 > **DMR-001 status:** `DEGENERATE_FORMATION - G3 FAIL - CHARACTERIZED`. On the
@@ -228,18 +242,44 @@ Eleven pre-registered studies test that question, each adding one memory compone
 > within reach at median rank 7, skipped on cost. `DEVIATION_001` caps this at
 > characterization: the holdout counts were seen before the bars were locked.
 
-> **NF-003 status:** `PART 1 COMPLETE - UNREGISTERED EXPLORATION`. NF-002 changed
+> **NF-003 status:** `PREFLIGHT SURROGATE FAIL - UNREGISTERED`. NF-002 changed
 > the packing unit and left the ranking unit alone, so episodes still inherited
 > their session's rank; 74 of 90 baseline misses survived every unit and packing
 > change. Ranking at episode granularity, same budget and same packing policy,
-> raises any-evidence recall 396 -> 445 of 470 with **49 gains and 0 losses**,
-> p < 1e-5, at zero model calls. The discriminator was fixed in advance: the
-> cosine rank of the true evidence episode is 2 of ~229 on items already
-> reached and 41 on the misses, so dilution is confirmed as dominant and
-> similarity failure remains a residual on 25 items. Nothing here is registered
-> and `AGENTS.md` §9.4 applies. A first pass reported this as a 45-item
-> regression by comparing evidence *episodes* against evidence *sessions*; the
-> error is recorded and `pack()` now returns both units.
+> session-touch rises 396 -> 445 on 465 evaluated items with 49 gains/0 losses.
+> PF9 found that 94 treatment hits contain no `has_answer` episode. Under strict
+> answer-episode delivery, baseline 388 falls to 351, with **26 gains and 63
+> losses**. Five unflagged items were not ranked. The proposed registration
+> closed before lock; no posthoc disposition, live run, or adoption follows.
+
+> **NF-003 three-arm finding:** `CHARACTERIZED ON EXHAUSTED LONGMEMEVAL`.
+> Strict delivery is 375/465 for session-rank/session-pack, 388/465 for
+> session-rank/episode-pack, and 351/465 for episode-rank/episode-pack. Fine
+> packing is net +13; fine ranking is net -37. The 63 coarse-rank rescues have
+> median own-cosine rank 46 (p90 135), versus 10 (p90 21) for the 26 fine-rank
+> gains. Design rule: **rank coarse, pack fine**. No posthoc verdict is assigned.
+
+> **LoCoMo ranking-granularity development status:** `DEVELOPMENT SIGNAL;
+> HOLDOUT LATER USED BY NF-004`. On 871 unique questions, exact evidence-pair delivery rises
+> 820 -> 855 with 44 gains/9 losses (descriptive exact sign p=1.22e-6); complete
+> evidence delivery rises 773 -> 826 with 71/18. All four conversations are net
+> positive. Session-touch hides all nine strict losses. No bars or disposition
+> were registered at this stage; NF-004 later opened the locked holdout.
+
+> **LoCoMo control status:** `COMPLETE - CORPUS-SPECIFIC REGISTRATION
+> JUSTIFIED`. At 32k, source/session/pair complete-evidence delivery is
+> 279/773/826. Pair ranking beats session ranking at every truncated LoCoMo
+> budget, while LongMemEval complete-evidence crosses sign between 16k and 24k.
+> Opposite signs occur at overlapping binding ratios, so ratio alone does not
+> transfer. Zero model calls; byte-identical replay.
+
+> **NF-004 status:** `WORKS - CONFIRMED AVAILABILITY DIRECTION`. On 1,098
+> sealed LoCoMo questions at 16k, pair ranking raises complete exact-evidence
+> delivery from 843 to 935 over session-score inheritance: 140 gains, 48
+> losses, ratio 2.92, one-sided exact p=6.19e-12. All six conversations are net
+> positive; source order is 258 and 32k remains positive at 961 to 1,024.
+> G0-G7 pass with a byte-identical holdout replay and zero measurement calls.
+> Availability is not reader correctness; no live run or adoption follows.
 
 > **SAL-001 status:** `NO_INDEPENDENT_PROXIMITY - CHARACTERIZED`. On 92
 > held-out LongMemEval sessions, adjusted neighbor AUC is 0.416 (95% interval
@@ -328,12 +368,16 @@ Runs use a scripted 120-turn conversation with facts planted at known positions 
 | TA-001 | Radius-1 temporal-adjacency bridge | G5 FAIL; CHARACTERIZED | Q11 packed facts rose 7/17 to 9/17 and art 0/4 to 4/4, but targeted queries had 6 losses versus 2 gains; no ablation or live run |
 | SR-001 | Source-rank-preserving extractive spans | G3 FAIL; CHARACTERIZED | Fixed-rank spans reduced Q11 8/17 to 4/17 and targeted matched facts 19 to 17, with zero gains. BA-001's span signal came from span-level ranking, not representation alone |
 | SAL-001 | Independent surprisal-proximity diagnostic | G2 FAIL; CHARACTERIZED | Adjusted neighbor AUC was 0.416, raw 0.300, prior 0.399, and next 0.477. Own-exchange surprisal was 0.621 posthoc, so surprise marked content locally but did not transfer value to temporal neighbors |
-| DMR-001 | Online event-context formation over pinned embeddings | G3 FAIL; DEGENERATE_FORMATION; CHARACTERIZED | The size cap, not the drift detector, did the partitioning: 52 of 74 holdout events closed on `max_event_size` and matched no annotation, while all 20 drift boundaries matched one. The locked threshold fires on 18.5% of development episodes and 1.2% of holdout episodes, so drift has no transferable scale. DMR-002 through DMR-006 are blocked |
-| DMR-001B | Adaptive drift event formation | PASS; CHARACTERIZED | A percentile-of-recent-drift bar held the cross-corpus fire-rate swing at 1.42-1.65x where the fixed threshold swung tenfold, and the size cap never bound. Worst-family agreement .419 to .487; the 1,000-turn family fell .733 to .583. No sealed holdout, ordering deviation recorded, DMR-002 still blocked |
+| DMR-001 | Online event-context formation over pinned embeddings | G3 FAIL; DEGENERATE_FORMATION; CHARACTERIZED | The size cap, not the drift detector, did the partitioning: 52 of 74 holdout events closed on `max_event_size` and matched no annotation, while all 20 drift boundaries matched one. The locked threshold fires on 18.5% of development episodes and 1.2% of holdout episodes, so drift has no transferable scale. Its original absolute rule is closed |
+| DMR-001B | Adaptive drift event formation | PASS; CHARACTERIZED | A percentile-of-recent-drift bar held the cross-corpus fire-rate swing at 1.42-1.65x where the fixed threshold swung tenfold, and the size cap never bound. Worst-family agreement .419 to .487; the 1,000-turn family fell .733 to .583. Its frozen former clears DMR-002/003's upstream dependency, not their missing registrations |
 | DMR-001C | Sealed confirmation of the relative drift rule | G5 FAIL; G4 CONFIRMED | On 50 unread LongMemEval haystacks the frozen rule held its fire rate at a 1.67x p95/p05 ratio, confirming transfer. Precision .837 against a .186 base rate, but recall .253 and macro F1 .387 lost to periodic chopping at .606. min_event_size, not the threshold, is the binding constraint |
 | DMR-004 | Deterministic query-obligation compiler | STOP; NO_MECHANICAL_SUFFICIENCY_SIGNAL | On 180 sealed queries labelled by two blind raters, Youden's J was .320 against a bar of .50 and the false-finite rate .188 against .15. LOOKUP recall .800, span integrity 1.000 and marker independence 0-of-48 passed. 12 of 31 misses are "which happened first, A or B", a bounded obligation the registered class set cannot name |
 | NF-002 | Candidate granularity under a binding budget | CARRIES_SIGNAL; CHARACTERIZED | Episodes instead of sessions raise any-evidence recall 380->396/470 and all-evidence 210->261, same ranking and budget. Holdout 14 gains/6 losses, p=.058 against a .05 bar. All six losses are in single-session-assistant, which has zero gains. Novelty filtering recovers 0 of 90 |
-| NF-003 | Ranking granularity under the same budget | PART 1; UNREGISTERED | Ranking episodes by their own cosine instead of inheriting a session rank raises any-evidence recall 396->445/470: 49 gains, 0 losses, p<1e-5, zero model calls. Evidence rank is 2 of ~229 on items already reached and 41 on the misses, so dilution dominates and 25 items remain a similarity residual |
+| NF-003 | Ranking granularity under the same budget | PREFLIGHT SURROGATE FAIL; UNREGISTERED | Session-touch reproduces 396->445 and 49/0, but 94 treatment hits contain no answer episode. Strict delivery falls 388->351: 26 gains, 63 losses. Five items lack turn labels. Proposed registration closed before lock |
+| NF-003 three-arm synthesis | Ranking and packing granularity on one strict measure | CHARACTERIZED | Session/session 375, session/episode 388, episode/episode 351 on the same 465 items. Fine packing is +13; fine ranking is -37. Coarse-rank rescues have median own-cosine rank 46. Observed rule: rank coarse, pack fine |
+| LoCoMo development | Ranking granularity on an untouched-corpus development split | DEVELOPMENT SIGNAL; HOLDOUT LATER USED | On 871 unique questions, strict evidence delivery rises 820->855 with 44 gains/9 losses; complete evidence rises 773->826 with 71/18. All four development conversations are net positive. No registered bars or disposition at this stage; NF-004 later opened the locked holdout |
+| LoCoMo budget controls | Source-order null and fixed budget sweeps | COMPLETE; DEVELOPMENT ONLY | Source/session/pair complete evidence is 279/773/826 at 32k. Pair ranking stays positive at every truncated LoCoMo budget; LongMemEval complete evidence crosses between 16k and 24k. Binding ratio alone does not transfer |
+| NF-004 | LoCoMo ranking-granularity confirmation | WORKS; AVAILABILITY ONLY | At 16k, complete evidence rises 843->935/1,098: 140 gains, 48 losses, ratio 2.92, p=6.19e-12. All six conversations net positive; source order 258; 32k 961->1,024. G0-G7 and byte replay pass with zero measurement calls. No live/adoption claim |
 | SUP-001 | Explicit supersession lineage and accessibility | FACTUAL PASS; byte-identity criterion withdrawn | Current-only retrieval rose 0/64 to 64/64 with 32/32 unchanged and 64/64 histories. T1 scored 9/9 under numeric-value equivalence, with zero regressions and zero stale natural payloads; no larger run or adoption is automatic |
 
 Full reports live under `experiments/study_NNN/`; external evaluation reports
@@ -625,11 +669,22 @@ NF-003 Part 1 then separated the *ranking* unit from the packing unit, which
 NF-002 had left alone. The discriminator was committed in advance and is not
 "try it and see": the cosine rank of the true evidence episode, identified by
 LongMemEval's own `has_answer` turn flag. On items the previous arm already
-reached, evidence ranks 2 of ~229; on the misses it ranks 41. Dilution is
-confirmed as the dominant mechanism, and ranking episodes by their own cosine
-raises any-evidence recall 396 → 445 of 470 — **49 gains, 0 losses, p < 1e-5,
-zero model calls**. Similarity failure survives as a genuine residual on 25
-items whose evidence is deep even at episode granularity.
+reached, evidence ranks 2 of ~229; on the misses it ranks 41. Dilution therefore
+initially appeared dominant: session-touch rose 396 → 445 among 465 evaluated
+items, with 49 gains and no losses. PF9 then showed that 94 treatment hits
+delivered no episode carrying `has_answer`. The like-for-like strict measure
+reverses the result: **388 → 351, 26 gains, 63 losses, zero model calls**.
+
+Together with NF-002, this forms a three-arm one-factor-at-a-time comparison on
+the same strict outcome: session-rank/session-pack delivers 375, session-rank/
+episode-pack 388, and episode-rank/episode-pack 351. The signs oppose each
+other: finer packing is net +13, while finer ranking is net -37. The 63 items
+rescued by session ranking have median own-episode cosine rank 46 (p90 135),
+against rank 10 (p90 21) for the 26 episode-ranking gains. Session pooling is
+therefore doing visible work: it supplies a retrieval cue for evidence whose
+own text ranks too deeply, while episode packing avoids paying for the whole
+context that supplied that cue. The observed design rule is **rank coarse,
+pack fine**.
 
 Two integrity notes belong with these numbers. NF-002's `DEVIATION_001` records
 that holdout discordant counts were printed in the same command as development
@@ -643,9 +698,39 @@ regression. It was comparing evidence *episodes* against evidence *sessions* —
 the unit-mismatch failure this program has recorded repeatedly, appearing inside
 the study whose subject is units. `pack()` now returns both measures.
 
+A second unit audit found the reported `445/470` denominator counted five
+unrun treatment items as misses. More importantly, its session-touch outcome
+could pass without answer-bearing evidence. `ERRATA.md`,
+`NF_003_PART1_CORRECTION.md`, and `NF_003_PREFLIGHT_SURROGATE_AUDIT.md` carry the
+correction and strict reconstruction.
+
+The untouched-corpus successor first produced a development-only mechanism signal.
+On LoCoMo's four locked development conversations, ranking adjacent-turn pairs
+by their own cosine raises exact any-evidence delivery from 820/871 to 855/871
+(44 gains, 9 losses) and complete-evidence delivery from 773/868 to 826/868
+(71 gains, 18 losses). Session-touch again hides every strict loss. These were
+development numbers with no registered bars or disposition.
+
+NF-004 then locked the complete-evidence endpoint, a 16k budget, and inherited
+WORKS/CARRIES_SIGNAL bars before opening the six-conversation holdout. Pair
+ranking raises complete evidence from **843/1,098 to 935/1,098**, with **140
+gains, 48 losses, ratio 2.92, and one-sided exact p=6.19e-12**. All six
+conversations are net positive. The source-order control reaches only 258, and
+the 32k secondary remains positive at 961 to 1,024. The registered disposition
+is `WORKS`, bounded to evidence availability: no reader, live, or adoption
+claim follows. LongMemEval's coarse-ranking mechanism and LoCoMo's opposite
+prospective result therefore coexist as corpus-scoped findings; delivery ratio
+alone did not explain their difference.
+
 See `experiments/components/biological_memory/nf_001/`,
 `experiments/components/biological_memory/nf_002/NF_002_REPORT.md`, and
 `experiments/components/biological_memory/nf_003/NF_003_PART1_RECORD.md`.
+The synthesis is `experiments/components/biological_memory/nf_003/
+NF_003_THREE_ARM_FINDING.md`.
+The LoCoMo development record is
+`experiments/external/locomo/LOCOMO_DEVELOPMENT_EXPLORATION.md`.
+The confirmatory record is
+`experiments/components/biological_memory/nf_004/NF_004_REPORT.md`.
 
 ## The Extracted Library
 

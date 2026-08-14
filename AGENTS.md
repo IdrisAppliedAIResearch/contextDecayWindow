@@ -66,19 +66,29 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **SUP-001 explicit supersession (2026-08-11).** FACTUAL PASS; byte-identity criterion withdrawn. Binary accessibility makes current-only 0/64->64/64, unchanged 32/32, histories 64/64, zero stale natural selections. Value interpretation gives C0 8/9, T1 9/9; `$35`=`$35.00`. Zero regressions. No 120-turn run or adoption is automatic.
 
-**DMR deterministic multi-route arc (2026-08-12).** BLOCKED AT DMR-001. Six staged specs separate event formation, typed completion, encoding-context recurrence, query obligations, route control, and one-reader validation. DMR-001 ran and stopped, so there is no validated event substrate; DMR-002-006 require a new upstream design, not a retune.
+**DMR deterministic multi-route arc (2026-08-13).** DMR-002/003 upstream-cleared, NOT RUNNABLE. DMR-001B supplies the frozen former and DMR-001C confirms transfer, but both specs remain DESIGN ONLY with no Part 1 or pre-registration. DMR-005 is blocked by DMR-004; DMR-006 by DMR-005. Dependency clearance is not execution authorization.
 
 **DMR-001 event-context formation (2026-08-12).** G3 FAIL; DEGENERATE_FORMATION. On the 2,000-episode holdout 52/74 events close on the size cap (.703 vs bar .35). All 20 drift boundaries match an annotation, precision 1.000; the 52 forced ones match none. Threshold .70 is above holdout drift's p95 but fires on 18.5% of dev: no transferable scale. G1/G2, PF1-PF10 pass.
 
 **Study 010 corpus composition (2026-08-12).** Found by DMR-001. The 1,000-turn endurance script holds only 156 distinct user/assistant pairs: about 11 substantive turns per topical block plus ~70 exact repeats of a stay-on-thread filler. 844/1,000 episodes are exact duplicates. No published number changes; DX-002's saturation reading is qualified.
 
-**DMR-001B adaptive drift formation (2026-08-12).** PASS, CHARACTERIZED; does NOT unblock DMR-002. A percentile-of-recent-drift bar holds fire-rate swing at 1.42-1.65x across all five grid cells where the fixed rule swung 9x-inf. Cap 128 never bound; 0 capped closures in 3,724 episodes. Worst family .419->.487, but the 1,000-turn family fell .733->.583. No sealed holdout; DEVIATION_001 recorded.
+**DMR-001B adaptive drift formation (2026-08-12).** PASS, CHARACTERIZED. A percentile-of-recent-drift bar holds fire-rate swing at 1.42-1.65x where fixed swung 9x-inf; cap 128 never binds. Worst family .419->.487, but 1,000-turn falls .733->.583. DEVIATION_001. Its frozen former clears DMR-002/003's upstream dependency, not their missing registrations.
 
 **DMR-001C sealed holdout (2026-08-12).** G5 FAIL; NO_BOUNDARY_EVIDENCE, but G4 CONFIRMS transfer. On 50 unread LongMemEval haystacks, 11,453 episodes, 2,128 real seams, the frozen relative rule holds fire-rate p95/p05 at 1.67x. Precision .837 vs .186 base rate, but recall .253 (min_event_size 5 vs 6-exchange sessions), so F1 .387 loses to C_PERIODIC_4's .606. F1 on a dense corpus rewards firing.
 
 **DMR-004 query obligations (2026-08-12).** STOP; NO_MECHANICAL_SUFFICIENCY_SIGNAL. 180 sealed queries, two blind raters (finite kappa .770). Youden J .320 vs .50 and false-finite .188 vs .15 fail; LOOKUP recall .800, spans 1.000, 0/48 internal-only markers pass. Always-OPEN accuracy .650 vs .706. 12/31 misses are "which happened first, A or B", flagged pre-lock, not patched.
 
-**NF-002 candidate granularity (2026-08-12).** CARRIES_SIGNAL; CHARACTERIZED. Same ranking, budget and policy; only the unit changes. Episodes beat sessions 380->396/470 any-evidence and 210->261 all. Holdout 14 gains/6 losses, ratio 2.33 over 2.0, p=.058 over .05 - the lower tier, predicted verbatim pre-run. All 6 losses in single-session-assistant, 0 gains. Novelty null: 0 of 90.
+**NF-002 candidate granularity (2026-08-12).** CARRIES_SIGNAL; CHARACTERIZED. Registered session-touch rose 380->396/470; holdout 14 gains/6 losses, p=.058. Posthoc strict audit on 465 labelled items retains a smaller 375->388, 17 gains/4 losses. Formal disposition unchanged. Novelty null: 0/90.
+
+**NF-003 ranking granularity (2026-08-13).** PREFLIGHT SURROGATE FAIL; UNREGISTERED. Session-touch said 396->445 (49/0), but 94 treatment hits carried no `has_answer` episode. Strict delivery fell 388->351: 26 gains/63 losses. Five unflagged items were never ranked. Proposed registration closed; LoCoMo successor stays sealed.
+
+**NF-003 three-arm synthesis (2026-08-13).** CHARACTERIZED. Same 465 items/32k/strict measure: session-rank/session-pack 375, session-rank/episode-pack 388, episode-rank/episode-pack 351. Fine packing +13; fine ranking -37. The 63 coarse-rank rescues have median own-cosine rank 46 vs 10 for 26 fine-rank gains. Rule: rank coarse, pack fine.
+
+**LoCoMo ranking development (2026-08-13).** DEVELOPMENT ONLY. On 871 unique questions, strict evidence delivery rose 820->855, 44 gains/9 losses, p=1.22e-6; complete evidence 773->826, 71/18. All four conversations were positive. Session-touch hid all 9 losses. No bars or disposition at this stage; NF-004 later opened the holdout.
+
+**Ranking-budget controls (2026-08-13).** COMPLETE dev-only. LoCoMo source/session/pair at 32k: 279/773/826 all-evidence; pair beats session at every truncated 4k-80k budget. LongMem all-evidence crosses +8 at 16k to -14 at 24k, but overlapping corpus ratios have opposite signs. Binding ratio alone does not transfer.
+
+**NF-004 LoCoMo confirmation (2026-08-13).** WORKS, availability only. On 1,098 sealed QAs at 16k, pair rank raises complete evidence 843->935 vs session inheritance: 140 gains/48 losses, ratio 2.92, p=6.19e-12. All 6 conversations net positive; source order 258, and 32k stays positive 961->1,024. G0-G7 pass, byte-identical replay, zero measurement calls. No live/adoption claim.
 
 **PS-001 pattern-separated engram formation (2026-08-11).** CHARACTERIZED. Nine deterministic sparse cells on 119 episodes; only D=4096,K=41 passed G3-G5: 119/119 fixed points and exact 1/10/30/50% swap recovery. Six of seven degenerates reached stored codes; the union-biased cue cycled. Code-space result only; no natural cue, retrieval, live run, promotion, or adoption.
 
