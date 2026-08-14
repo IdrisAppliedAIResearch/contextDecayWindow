@@ -44,6 +44,8 @@ CLUSTER_COUNT = 16
 EXPECTED_PARENTS = 119
 EXPECTED_STATEMENTS = 791
 EXPECTED_TURN90_PARENT_MEMBERS = 20
+ART_LABEL = "renaissance_art"
+MONETARY_LABEL = "monetary_policy"
 EXPECTED_HASHES = {
     DATABASE: "5da47ea3fc2c8e3dcc50fa380ff65202d82557905d9976117e9e5d82e55c1c41",
     CACHE: "e6a2a6687fb5ee6694a43dd3ebe7a957f7bd9852418657f78274c64d38c4f391",
@@ -138,13 +140,13 @@ def reachability_disposition(rows: Sequence[Mapping[str, object]]) -> dict[str, 
     art_occupied = [
         int(row["cluster"])
         for row in rows
-        if int(row["domain_counts"].get("art", 0)) > 0  # type: ignore[union-attr]
+        if int(row["domain_counts"].get(ART_LABEL, 0)) > 0  # type: ignore[union-attr]
     ]
     art_without_monetary = [
         int(row["cluster"])
         for row in rows
-        if int(row["domain_counts"].get("art", 0)) > 0  # type: ignore[union-attr]
-        and int(row["domain_counts"].get("monetary", 0)) == 0  # type: ignore[union-attr]
+        if int(row["domain_counts"].get(ART_LABEL, 0)) > 0  # type: ignore[union-attr]
+        and int(row["domain_counts"].get(MONETARY_LABEL, 0)) == 0  # type: ignore[union-attr]
     ]
     reachable = bool(art_without_monetary)
     return {
@@ -157,6 +159,10 @@ def reachability_disposition(rows: Sequence[Mapping[str, object]]) -> dict[str, 
         "registered_rule": (
             "at least one art-occupied cluster contains zero monetary statements"
         ),
+        "evaluation_vocabulary": {
+            "art": ART_LABEL,
+            "monetary": MONETARY_LABEL,
+        },
     }
 
 

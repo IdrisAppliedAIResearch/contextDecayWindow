@@ -3,7 +3,9 @@ from __future__ import annotations
 import numpy as np
 
 from analysis.nf007_exploration import (
+    ART_LABEL,
     CLUSTER_COUNT,
+    MONETARY_LABEL,
     cluster_parents,
     occupancy_rows,
     reachability_disposition,
@@ -13,7 +15,7 @@ from analysis.nf007_exploration import (
 def _row(cluster: int, art: int, monetary: int) -> dict:
     return {
         "cluster": cluster,
-        "domain_counts": {"art": art, "monetary": monetary},
+        "domain_counts": {ART_LABEL: art, MONETARY_LABEL: monetary},
     }
 
 
@@ -23,6 +25,21 @@ def test_reachability_requires_an_art_cluster_without_monetary() -> None:
 
     assert reachability_disposition(failed)["status"] == "NO_CLUSTER_REACHABILITY"
     assert reachability_disposition(passed)["status"] == "CLUSTER_FLOOR_REACHABLE"
+
+
+def test_historical_short_labels_do_not_match_the_frozen_vocabulary() -> None:
+    rows = [
+        {"cluster": index, "domain_counts": {"art": 1, "monetary": 0}}
+        for index in range(CLUSTER_COUNT)
+    ]
+
+    result = reachability_disposition(rows)
+
+    assert result["art_occupied_clusters"] == []
+    assert result["evaluation_vocabulary"] == {
+        "art": "renaissance_art",
+        "monetary": "monetary_policy",
+    }
 
 
 def test_cluster_assignments_ignore_domain_labels() -> None:
