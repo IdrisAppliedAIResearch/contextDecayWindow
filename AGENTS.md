@@ -94,6 +94,10 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **NF-006 internal statement ranking (2026-08-13).** INTERNAL_DILUTION_RESCUES_Q11; CHARACTERIZED. At 32k, episode/inherited-statement/own-statement availability is 12/7/14 of 17. T1 restores monetary 4/4; targeted ties 21/21 with 0 losses. No T1 statement is from turn 90: store-level dilution is supported, but DX-001's exact carrier remains unresolved. No live/adoption.
 
+**NF-007 hard cluster floor (2026-08-13).** STOP; FLOOR_INERT. T1 touches 16/16 clusters, but selects 30/91 from civil-heavy cluster 0 versus 9/168 across five art-majority clusters. Floor=1 forces 0 admissions. Candidate scarcity and region entry are eliminated; similarity under-samples broadly uncued art. The carried coverage-count family is closed on this store.
+
+**NF-008 live reader validation (2026-08-13).** DESIGN ONLY; NOT REGISTERED OR RUNNABLE. Proposed comparison: frozen NF-006 C0 12/17 vs T1 14/17 using 17 item-level fact-use counts and >=5 replicates/arm. Reader, exact prompt, schedule, scorer, targeted scope, statistic and bars remain open. No implementation or inference authorized.
+
 **PS-001 pattern-separated engram formation (2026-08-11).** CHARACTERIZED. Nine deterministic sparse cells on 119 episodes; only D=4096,K=41 passed G3-G5: 119/119 fixed points and exact 1/10/30/50% swap recovery. Six of seven degenerates reached stored codes; the union-biased cue cycled. Code-space result only; no natural cue, retrieval, live run, promotion, or adoption.
 
 **PS-002 natural-language cue binding (2026-08-11).** STOP AT PART 1; NATURAL_CUES_NOT_BOUND, CHARACTERIZED. Nine label-blind cells ran 24 sealed queries x8 rounds. Best M=4,tau=.025 reached stored codes 190/192 but one cue cycled and one reached a spurious fixed point; no cell emitted 8 clean ids/query. Labels, PF1-PF10, answers, live run, promotion and adoption not entered.
@@ -182,6 +186,11 @@ test that answers it.
 ### Gates and ablation
 
 - Offline gates are binding and run before full inference.
+- A gate is trusted to stop only after showing that its tested population and
+  its non-stopping alternative were capable of existing. Record population
+  counts and a positive control before interpreting a stopping branch; an empty
+  join, vocabulary mismatch, or inert treatment is an instrument failure, not
+  a mechanism result.
 - Before artifact lock, mechanically verify that every rubric-required fact is planted in a scripted user turn strictly before its probe. Any unavailable fact blocks lock and inference.
 - Run at least a 35-turn ablation before a 120-turn run.
 - Commit calibrated settings before the ablation.
@@ -258,8 +267,15 @@ above the `# For LLM Context` divider is written for a person deciding whether
 this work is worth their time; everything below it is written for an agent
 picking the work up with no prior context.
 
-**Above the divider — keep it short.** Paper link, executive summary, current
-state of work, next steps. Closing a study means:
+**Above the divider — keep it short.** Paper link, executive summary, how it
+works, current state of work, next steps. Closing a study means:
+
+- Leave *How It Works* alone unless the deployed read path actually changed. It
+  is the mermaid graph of the shipped architecture in plain language, and it is
+  the only place a newcomer learns what the system does before meeting a result.
+  Node labels carry no identifiers by deliberate choice; the field names, values
+  and provenance live below the divider under *Deployed Settings*. If a study
+  changes a setting, the graph stays and the table moves.
 
 - Update *Current State of Work* — its date, its arc table row, its constraints.
   Replace what is stale rather than appending to it. This section describes the
@@ -410,6 +426,8 @@ mirror image, and both must be asked:
 
 - Can this gate **pass** while the property it certifies is false?
 - Can this gate **fail** while the property it certifies is true?
+- Did the gate's tested population exist, and was its non-stopping branch
+  mechanically possible on the frozen input?
 
 §7 forbids introducing either tier late. That prohibition is what makes the
 lower tier worth anything.

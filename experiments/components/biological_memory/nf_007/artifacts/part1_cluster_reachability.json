@@ -1,0 +1,431 @@
+{
+ "analysis_source": {
+  "path": "src/analysis/nf007_exploration.py",
+  "sha256": "86ebfa11f34a7b2919905561b2626eb81480047879b4db73e9ebf99f86697557"
+ },
+ "assignment_digests": {
+  "parents": "29c026e653ab7f65b032b0b3104a6b24194d951d0fe740c913c5406b0756f9ca",
+  "statements": "be4fc93ed80e5ff582074177729a1d60dcfb3897f758cb8cfdae4d99889ade14"
+ },
+ "calls": {
+  "embedding": 0,
+  "generation": 0
+ },
+ "clusters": [
+  {
+   "cluster": 0,
+   "domain_counts": {
+    "civil_engineering": 82,
+    "marine_biology": 0,
+    "monetary_policy": 0,
+    "probe": 9,
+    "renaissance_art": 0
+   },
+   "parent_members": 16,
+   "role_counts": {
+    "assistant": 75,
+    "user": 16
+   },
+   "source_turn_max": 114,
+   "source_turn_min": 1,
+   "statement_members": 91
+  },
+  {
+   "cluster": 1,
+   "domain_counts": {
+    "civil_engineering": 0,
+    "marine_biology": 0,
+    "monetary_policy": 42,
+    "probe": 0,
+    "renaissance_art": 0
+   },
+   "parent_members": 6,
+   "role_counts": {
+    "assistant": 36,
+    "user": 6
+   },
+   "source_turn_max": 88,
+   "source_turn_min": 62,
+   "statement_members": 42
+  },
+  {
+   "cluster": 2,
+   "domain_counts": {
+    "civil_engineering": 13,
+    "marine_biology": 96,
+    "monetary_policy": 0,
+    "probe": 4,
+    "renaissance_art": 13
+   },
+   "parent_members": 19,
+   "role_counts": {
+    "assistant": 107,
+    "user": 19
+   },
+   "source_turn_max": 118,
+   "source_turn_min": 18,
+   "statement_members": 126
+  },
+  {
+   "cluster": 3,
+   "domain_counts": {
+    "civil_engineering": 0,
+    "marine_biology": 0,
+    "monetary_policy": 0,
+    "probe": 8,
+    "renaissance_art": 24
+   },
+   "parent_members": 6,
+   "role_counts": {
+    "assistant": 26,
+    "user": 6
+   },
+   "source_turn_max": 116,
+   "source_turn_min": 32,
+   "statement_members": 32
+  },
+  {
+   "cluster": 4,
+   "domain_counts": {
+    "civil_engineering": 0,
+    "marine_biology": 7,
+    "monetary_policy": 0,
+    "probe": 0,
+    "renaissance_art": 0
+   },
+   "parent_members": 1,
+   "role_counts": {
+    "assistant": 6,
+    "user": 1
+   },
+   "source_turn_max": 107,
+   "source_turn_min": 107,
+   "statement_members": 7
+  },
+  {
+   "cluster": 5,
+   "domain_counts": {
+    "civil_engineering": 0,
+    "marine_biology": 7,
+    "monetary_policy": 0,
+    "probe": 0,
+    "renaissance_art": 14
+   },
+   "parent_members": 3,
+   "role_counts": {
+    "assistant": 18,
+    "user": 3
+   },
+   "source_turn_max": 92,
+   "source_turn_min": 36,
+   "statement_members": 21
+  },
+  {
+   "cluster": 6,
+   "domain_counts": {
+    "civil_engineering": 0,
+    "marine_biology": 0,
+    "monetary_policy": 14,
+    "probe": 0,
+    "renaissance_art": 0
+   },
+   "parent_members": 2,
+   "role_counts": {
+    "assistant": 12,
+    "user": 2
+   },
+   "source_turn_max": 68,
+   "source_turn_min": 61,
+   "statement_members": 14
+  },
+  {
+   "cluster": 7,
+   "domain_counts": {
+    "civil_engineering": 21,
+    "marine_biology": 14,
+    "monetary_policy": 0,
+    "probe": 0,
+    "renaissance_art": 6
+   },
+   "parent_members": 5,
+   "role_counts": {
+    "assistant": 36,
+    "user": 5
+   },
+   "source_turn_max": 110,
+   "source_turn_min": 8,
+   "statement_members": 41
+  },
+  {
+   "cluster": 8,
+   "domain_counts": {
+    "civil_engineering": 0,
+    "marine_biology": 7,
+    "monetary_policy": 0,
+    "probe": 0,
+    "renaissance_art": 7
+   },
+   "parent_members": 2,
+   "role_counts": {
+    "assistant": 12,
+    "user": 2
+   },
+   "source_turn_max": 106,
+   "source_turn_min": 42,
+   "statement_members": 14
+  },
+  {
+   "cluster": 9,
+   "domain_counts": {
+    "civil_engineering": 0,
+    "marine_biology": 0,
+    "monetary_policy": 6,
+    "probe": 0,
+    "renaissance_art": 88
+   },
+   "parent_members": 15,
+   "role_counts": {
+    "assistant": 79,
+    "user": 15
+   },
+   "source_turn_max": 84,
+   "source_turn_min": 31,
+   "statement_members": 94
+  },
+  {
+   "cluster": 10,
+   "domain_counts": {
+    "civil_engineering": 0,
+    "marine_biology": 4,
+    "monetary_policy": 0,
+    "probe": 6,
+    "renaissance_art": 0
+   },
+   "parent_members": 2,
+   "role_counts": {
+    "assistant": 8,
+    "user": 2
+   },
+   "source_turn_max": 119,
+   "source_turn_min": 96,
+   "statement_members": 10
+  },
+  {
+   "cluster": 11,
+   "domain_counts": {
+    "civil_engineering": 25,
+    "marine_biology": 0,
+    "monetary_policy": 14,
+    "probe": 0,
+    "renaissance_art": 0
+   },
+   "parent_members": 5,
+   "role_counts": {
+    "assistant": 34,
+    "user": 5
+   },
+   "source_turn_max": 82,
+   "source_turn_min": 19,
+   "statement_members": 39
+  },
+  {
+   "cluster": 12,
+   "domain_counts": {
+    "civil_engineering": 0,
+    "marine_biology": 5,
+    "monetary_policy": 132,
+    "probe": 0,
+    "renaissance_art": 0
+   },
+   "parent_members": 20,
+   "role_counts": {
+    "assistant": 117,
+    "user": 20
+   },
+   "source_turn_max": 93,
+   "source_turn_min": 63,
+   "statement_members": 137
+  },
+  {
+   "cluster": 13,
+   "domain_counts": {
+    "civil_engineering": 52,
+    "marine_biology": 0,
+    "monetary_policy": 0,
+    "probe": 0,
+    "renaissance_art": 0
+   },
+   "parent_members": 7,
+   "role_counts": {
+    "assistant": 45,
+    "user": 7
+   },
+   "source_turn_max": 28,
+   "source_turn_min": 6,
+   "statement_members": 52
+  },
+  {
+   "cluster": 14,
+   "domain_counts": {
+    "civil_engineering": 23,
+    "marine_biology": 0,
+    "monetary_policy": 0,
+    "probe": 6,
+    "renaissance_art": 35
+   },
+   "parent_members": 9,
+   "role_counts": {
+    "assistant": 55,
+    "user": 9
+   },
+   "source_turn_max": 117,
+   "source_turn_min": 14,
+   "statement_members": 64
+  },
+  {
+   "cluster": 15,
+   "domain_counts": {
+    "civil_engineering": 0,
+    "marine_biology": 0,
+    "monetary_policy": 0,
+    "probe": 0,
+    "renaissance_art": 7
+   },
+   "parent_members": 1,
+   "role_counts": {
+    "assistant": 6,
+    "user": 1
+   },
+   "source_turn_max": 52,
+   "source_turn_min": 52,
+   "statement_members": 7
+  }
+ ],
+ "construction_caveat": "A hard floor would guarantee cluster coverage by construction; a later art gain would show allocation headroom, not similarity discovery.",
+ "failure_branch": "NO_CLUSTER_REACHABILITY stops NF-007; no alternate k or sweep is run.",
+ "integrity": {
+  "checks": {
+   "cache_seal": true,
+   "dx001_k16_anchor": true,
+   "e005_primary_k16": true,
+   "frozen_hashes": true
+  },
+  "hashes": {
+   "episodic\\src\\episodic\\_selection.py": "990e7f84e7690c55350ff24bcc41e4486254c72145320da0bc08ae509e597265",
+   "experiments\\components\\biological_memory\\nf_006\\artifacts\\nf006_vectors.sqlite": "e6a2a6687fb5ee6694a43dd3ebe7a957f7bd9852418657f78274c64d38c4f391",
+   "experiments\\components\\biological_memory\\nf_006\\artifacts\\part1_exploration.json": "ea4f6779e24c0be828a04404bb81a211a34b2c5297d0c6c2e6dc91cf82cf94e2",
+   "experiments\\components\\biological_memory\\nf_006\\artifacts\\vector_manifest.json": "214dd342c391f0165aca9a5f8495a705a8ff5aa91ffb52cb63303599d9a4a1e9",
+   "experiments\\components\\retrieval_mechanism_ledger\\artifacts\\dx001\\DX_001_report.md": "ba4d55feee804cc16f4f6cda6c8a5afdecfda67d9cdc2efb05d8991f5dc50a7c",
+   "experiments\\components\\retrieval_mechanism_ledger\\artifacts\\e005\\e005_results.json": "07b714389697c6e58d6c539d1181a976e1f2d9b42a189a3c7629a9895362f1ff",
+   "experiments\\surveys\\retrieval_bakeoff\\tier6\\runs\\tier6_live_121_corrected_001\\context_matched_stm\\study.db": "5da47ea3fc2c8e3dcc50fa380ff65202d82557905d9976117e9e5d82e55c1c41",
+   "src\\analysis\\nf006_mechanism.py": "8a2daa1c2cc753ea4de3651af0aa9c37c88738b631979b81e1348df90ac407ab"
+  },
+  "pass": true
+ },
+ "mechanism_identity": {
+  "candidate_assignment": "791 statements inherit parent cluster",
+  "cluster_count": 16,
+  "cluster_input": "119 parent episode embeddings only",
+  "domain_labels_used_for_clustering": false,
+  "repeated_assignment_byte_identical": true,
+  "statement_vectors_used_for_clustering": false
+ },
+ "population": {
+  "candidate_load_ratio": 6.647058823529412,
+  "clusters": 16,
+  "empty_clusters": [],
+  "mean_parents_per_cluster": 7.4375,
+  "mean_statements_per_cluster": 49.4375,
+  "parent_members": {
+   "max": 20,
+   "median": 5.5,
+   "min": 1,
+   "sorted": [
+    1,
+    1,
+    2,
+    2,
+    2,
+    3,
+    5,
+    5,
+    6,
+    6,
+    7,
+    9,
+    15,
+    16,
+    19,
+    20
+   ]
+  },
+  "parents": 119,
+  "statement_members": {
+   "max": 137,
+   "median": 40.0,
+   "min": 7,
+   "sorted": [
+    7,
+    7,
+    10,
+    14,
+    14,
+    21,
+    32,
+    39,
+    41,
+    42,
+    52,
+    64,
+    91,
+    94,
+    126,
+    137
+   ]
+  },
+  "statements": 791
+ },
+ "reachability": {
+  "art_occupied_clusters": [
+   2,
+   3,
+   5,
+   7,
+   8,
+   9,
+   14,
+   15
+  ],
+  "art_without_monetary_clusters": [
+   2,
+   3,
+   5,
+   7,
+   8,
+   14,
+   15
+  ],
+  "evaluation_vocabulary": {
+   "art": "renaissance_art",
+   "monetary": "monetary_policy"
+  },
+  "pass": true,
+  "registered_rule": "at least one art-occupied cluster contains zero monetary statements",
+  "status": "CLUSTER_FLOOR_REACHABLE"
+ },
+ "registration_commit": "66d1684da7e83a2c1e156d035b410b457899db7f",
+ "schema": "nf007-part1-cluster-reachability-v1",
+ "status": "CLUSTER_FLOOR_REACHABLE",
+ "turn_90": {
+  "cluster": 12,
+  "domain_counts": {
+   "civil_engineering": 0,
+   "marine_biology": 5,
+   "monetary_policy": 132,
+   "probe": 0,
+   "renaissance_art": 0
+  },
+  "parent_members": 20,
+  "statement_members": 137
+ }
+}
