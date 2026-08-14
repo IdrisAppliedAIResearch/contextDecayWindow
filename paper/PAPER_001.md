@@ -188,9 +188,18 @@ the point where the selector abandoned part of a domain.
 A registered hard-floor successor then stopped before outcome measurement:
 the sealed T1 selection already touches all 16 carried clusters, including one
 statement each from small art-heavy clusters 5, 8, and 15. A one-per-cluster
-floor therefore forces zero admissions. The art loss is not candidate scarcity
-or failure to enter an art-heavy cluster; the unresolved choice is finer than
-cluster coverage.
+floor therefore forces zero admissions. The allocation after entry is sharply
+uneven: cluster 0 supplies 30 of 91 candidates to the selection (33.0%), cluster
+12 supplies 14 of 137 (10.2%), and the five art-majority clusters together
+supply 9 of 168 (5.4%). Forty-four of 80 slots go to the first two regions.
+
+The remaining art loss is not candidate scarcity, statement subdivision, or
+failure to enter an art-heavy cluster. BA-001 found art stored and directly
+recallable but not broadly cued; DR-002 found its episode carriers at cosine
+ranks 50 and 86; TA-001 reached art 4/4 only through temporal adjacency and then
+failed targeted safety with two gains and six losses. On this store, the carried
+coverage-count family is closed. The next decision-relevant test is whether the
+14/17 context makes a reader use more facts than the 12/17 context.
 
 What remains after every one of those removals is an append-only store, a
 recency window, similarity retrieval, and a coverage objective, with no
@@ -1030,9 +1039,25 @@ NF-007 tested whether a hard floor of one statement per nonempty carried
 cluster could bind before implementing it. It cannot: NF-006's sealed T1
 selection already touches all 16 clusters, including one statement each from
 the small art-heavy clusters 5, 8, and 15. The registered stop fired with zero
-forced admissions, so no selector or Q11 outcome was opened. This rules out
-candidate scarcity and cluster-entry failure as explanations for the art loss;
-it does not identify the finer within-cluster allocation rule that would help.
+forced admissions, so no selector or Q11 outcome was opened.
+
+Entry hides the stronger distribution. Cluster 0 contributes 30/91 selected
+statements (33.0%) and cluster 12 contributes 14/137 (10.2%), while the five
+art-majority clusters 3, 5, 8, 9, and 15 contribute 9/168 (5.4%). The selector
+enters art regions and then samples them at one sixth of cluster 0's density.
+Together with NF-006's art decline from 2/4 to 1/4 under statement ranking,
+BA-001's `STORED_BUT_NOT_BROADLY_CUED` diagnosis, DR-002's wrong-prior verdict,
+and TA-001's adjacency-only 4/4 recovery followed by targeted regression, this
+closes the carried coverage-count family on the internal store. The supported
+inference is specific to this probe and embedding space: similarity does not
+broadly cue art, regardless of whether episodes or statements are ranked.
+
+Further Q11 availability tuning on this spent corpus is not decision-relevant.
+The unresolved question is reader value: whether NF-006's frozen 14/17 context
+causes greater item-level fact use than its frozen 12/17 episode context. A
+documentation-only successor prepares that comparison around 17 item counts and
+five replicates per arm; no reader, prompt, schedule, scorer, or outcome bar is
+registered yet.
 
 ### 5.6 The three constraints, and why the order is forced
 
