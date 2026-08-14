@@ -864,9 +864,9 @@ Q13/Q14 character-for-character. Post-fix replay preserved every selected
 episode identity, order, and source message while reducing the same blocks from
 53,726 to 37,619 characters and 53,839 to 37,545. Production LTM selection now
 charges the exact complete serialized block. The registered 32,000-character
-allocation, N cap 32, per-domain floor, and containment policy were re-derived
-and retained. AS-001 found that compact rendering does not bring the rank-27 Q4
-episode into the window anywhere in the locked 16k-64k sweep, but its
+allocation, N cap 32, per-canonical-topic floor, and containment policy were
+re-derived and retained. AS-001 found that compact rendering does not bring the
+rank-27 Q4 episode into the window anywhere in the locked 16k-64k sweep, but its
 architectural decision rule was invalid. The separate Study
 010 context peak is traceable to the full serialized prompts: all 2,000 rows
 recompute under the registered `characters // 4` estimator, with L peaking at
