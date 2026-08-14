@@ -1,0 +1,111 @@
+{
+  "schema": "locomo-corpus-lock-v1",
+  "created_date": "2026-08-13",
+  "authorization": "User authorized Track B and acquisition of a previously untouched external corpus.",
+  "source": {
+    "repository": "https://github.com/snap-research/locomo",
+    "repository_commit": "3eb6f2c585f5e1699204e3c3bdf7adc5c28cb376",
+    "path": "data/locomo10.json",
+    "git_blob_sha1": "d95b872480b413d935821fdc3c84f8a8f5f29e73",
+    "download_url": "https://raw.githubusercontent.com/snap-research/locomo/3eb6f2c585f5e1699204e3c3bdf7adc5c28cb376/data/locomo10.json",
+    "bytes": 2805274,
+    "sha256": "79fa87e90f04081343b8c8debecb80a9a6842b76a7aa537dc9fdf651ea698ff4",
+    "license": "CC-BY-NC-4.0",
+    "license_url": "https://github.com/snap-research/locomo/blob/3eb6f2c585f5e1699204e3c3bdf7adc5c28cb376/LICENSE.txt"
+  },
+  "local": {
+    "path": "C:\\Users\\muzaf\\Downloads\\locomo10.json",
+    "repository_policy": "External bytes are not committed; bind by source revision, byte count, and SHA-256."
+  },
+  "pre_lock_inspection": {
+    "sample_count": 10,
+    "sample_ids_only": [
+      "conv-26",
+      "conv-30",
+      "conv-41",
+      "conv-42",
+      "conv-43",
+      "conv-44",
+      "conv-47",
+      "conv-48",
+      "conv-49",
+      "conv-50"
+    ],
+    "top_level_keys_only": [
+      "qa",
+      "conversation",
+      "event_summary",
+      "observation",
+      "session_summary",
+      "sample_id"
+    ],
+    "not_opened": [
+      "conversation text",
+      "QA questions",
+      "QA answers",
+      "QA categories",
+      "QA evidence lists",
+      "per-split counts",
+      "retrieval outcomes"
+    ]
+  },
+  "split": {
+    "unit": "conversation",
+    "seed": "5005",
+    "domain": "locomo-nf-successor-split-v1",
+    "development_share": 0.4,
+    "algorithm": "Sort sample_id by sha256(seed + NUL + domain + NUL + sample_id); first four development, remaining six holdout.",
+    "assignments": [
+      {
+        "sample_id": "conv-41",
+        "split_hash": "008918a7c1933fb75c618835ec5c6cc0cf84aaf00e67e440278ca7fb47feff5d",
+        "split": "development"
+      },
+      {
+        "sample_id": "conv-47",
+        "split_hash": "18d126b68badc69eb02e37533ad46462c09166029d24407f72fd6ea92ba4600f",
+        "split": "development"
+      },
+      {
+        "sample_id": "conv-48",
+        "split_hash": "3a56fc88c24fb8307a49fac66de1e9d1123d13e2c5bf1008a5d6edf911cb052e",
+        "split": "development"
+      },
+      {
+        "sample_id": "conv-42",
+        "split_hash": "5af94a8d0f8819feb7b2b898b2813426274f6b061865119483550635858a1f94",
+        "split": "development"
+      },
+      {
+        "sample_id": "conv-49",
+        "split_hash": "611f0f42dbfd63bbbcfa0246230fb2f1fe37bb55ca19bb9296b22fe5af962375",
+        "split": "holdout"
+      },
+      {
+        "sample_id": "conv-30",
+        "split_hash": "6e98ea919ca659fe39ee99355b643a649d4bf2bb13620e41edd8784074758077",
+        "split": "holdout"
+      },
+      {
+        "sample_id": "conv-44",
+        "split_hash": "a11d1cc829bc6163ce3878ae945aa3d52c4e36ec324432d9fb9a30eaebd5495b",
+        "split": "holdout"
+      },
+      {
+        "sample_id": "conv-26",
+        "split_hash": "baeb70be4acebd772357a3aaefee3c59b6aa733ebe606fbfe38138d4068ad68e",
+        "split": "holdout"
+      },
+      {
+        "sample_id": "conv-50",
+        "split_hash": "c24645b6349a9976abe95b7c361c42219c8e6a594d60f48288d98d0b5b053103",
+        "split": "holdout"
+      },
+      {
+        "sample_id": "conv-43",
+        "split_hash": "c970cdd306f1e23d8f1c64edd867fe21167b0b369f34b50585135a529cc0bab2",
+        "split": "holdout"
+      }
+    ]
+  }
+}

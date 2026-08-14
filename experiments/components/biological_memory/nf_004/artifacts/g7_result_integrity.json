@@ -1,0 +1,324 @@
+{
+ "claim_scope": "complete exact-evidence availability on sealed LoCoMo holdout",
+ "disposition": "WORKS",
+ "g6": {
+  "first_commit": "131de562b4c692a4f05d4893c73d0508c029741e",
+  "path": "experiments/components/biological_memory/nf_004/artifacts/g6_holdout_outcomes.json",
+  "sha256": "7be2668d21163c9380ac0e6d27776e8fbfa0b80ae3342a478040e51b556e48cc"
+ },
+ "g7": {
+  "byte_identical_replay": true,
+  "embedding_calls": 0,
+  "model_generation_calls": 0,
+  "replay_sha256": "7be2668d21163c9380ac0e6d27776e8fbfa0b80ae3342a478040e51b556e48cc",
+  "rows_recomputed": 1098,
+  "sealed_sha256": "7be2668d21163c9380ac0e6d27776e8fbfa0b80ae3342a478040e51b556e48cc",
+  "totals_recomputed_from_rows": true
+ },
+ "live_evaluation_boundary": "Availability is not reader correctness; no live run, promotion, or adoption is authorized.",
+ "primary": {
+  "budget": 16000,
+  "n": 1098,
+  "pair_all_evidence_hits": 935,
+  "paired": {
+   "discordant_n": 188,
+   "gain_loss_ratio": 2.9166666666666665,
+   "gains": 140,
+   "losses": 48,
+   "net": 92,
+   "p_one_sided": 6.190181720301873e-12,
+   "ties": 910
+  },
+  "session_all_evidence_hits": 843
+ },
+ "registration_commit": "95f0d25c8e898998dcbf0c8b95d370896c57c929",
+ "schema": "nf004-g7-result-integrity-v1",
+ "secondary": {
+  "arms": {
+   "P_PAIR_RANK": {
+    "all_evidence_hits": 935,
+    "any_evidence_hits": 1027,
+    "best_evidence_rank": {
+     "max": 222,
+     "min": 1,
+     "p10": 1,
+     "p50": 2,
+     "p90": 34
+    },
+    "delivered_candidates": {
+     "max": 91,
+     "min": 42,
+     "p10": 53,
+     "p50": 65,
+     "p90": 76
+    },
+    "packed_chars": {
+     "max": 16000,
+     "min": 15890,
+     "p10": 15960,
+     "p50": 15988,
+     "p90": 15999
+    }
+   },
+   "P_PAIR_RANK_32K": {
+    "all_evidence_hits": 1024,
+    "any_evidence_hits": 1070,
+    "best_evidence_rank": {
+     "max": 222,
+     "min": 1,
+     "p10": 1,
+     "p50": 2,
+     "p90": 34
+    },
+    "delivered_candidates": {
+     "max": 158,
+     "min": 94,
+     "p10": 111,
+     "p50": 129,
+     "p90": 143
+    },
+    "packed_chars": {
+     "max": 32000,
+     "min": 31873,
+     "p10": 31953,
+     "p50": 31985,
+     "p90": 31998
+    }
+   },
+   "SOURCE_ORDER": {
+    "all_evidence_hits": 258,
+    "any_evidence_hits": 352,
+    "best_evidence_rank": {
+     "max": 347,
+     "min": 1,
+     "p10": 15,
+     "p50": 115,
+     "p90": 262
+    },
+    "delivered_candidates": {
+     "max": 70,
+     "min": 54,
+     "p10": 54,
+     "p50": 63,
+     "p90": 70
+    },
+    "packed_chars": {
+     "max": 15998,
+     "min": 15946,
+     "p10": 15946,
+     "p50": 15981,
+     "p90": 15998
+    }
+   },
+   "S_SESSION_RANK": {
+    "all_evidence_hits": 843,
+    "any_evidence_hits": 950,
+    "best_evidence_rank": {
+     "max": 285,
+     "min": 1,
+     "p10": 1,
+     "p50": 9,
+     "p90": 80
+    },
+    "delivered_candidates": {
+     "max": 77,
+     "min": 49,
+     "p10": 55,
+     "p50": 63,
+     "p90": 70
+    },
+    "packed_chars": {
+     "max": 16000,
+     "min": 15922,
+     "p10": 15967,
+     "p50": 15986,
+     "p90": 15998
+    }
+   },
+   "S_SESSION_RANK_32K": {
+    "all_evidence_hits": 961,
+    "any_evidence_hits": 1036,
+    "best_evidence_rank": {
+     "max": 285,
+     "min": 1,
+     "p10": 1,
+     "p50": 9,
+     "p90": 80
+    },
+    "delivered_candidates": {
+     "max": 145,
+     "min": 101,
+     "p10": 112,
+     "p50": 126,
+     "p90": 135
+    },
+    "packed_chars": {
+     "max": 32000,
+     "min": 31873,
+     "p10": 31958,
+     "p50": 31985,
+     "p90": 31998
+    }
+   }
+  },
+  "by_category": {
+   "1": {
+    "n": 171,
+    "pair_hits": 94,
+    "paired": {
+     "discordant_n": 62,
+     "gain_loss_ratio": 3.769230769230769,
+     "gains": 49,
+     "losses": 13,
+     "net": 36,
+     "p_one_sided": 2.4087616996330222e-06,
+     "ties": 109
+    },
+    "session_hits": 58
+   },
+   "2": {
+    "n": 177,
+    "pair_hits": 166,
+    "paired": {
+     "discordant_n": 26,
+     "gain_loss_ratio": 5.5,
+     "gains": 22,
+     "losses": 4,
+     "net": 18,
+     "p_one_sided": 0.00026676058769226074,
+     "ties": 151
+    },
+    "session_hits": 148
+   },
+   "3": {
+    "n": 51,
+    "pair_hits": 30,
+    "paired": {
+     "discordant_n": 14,
+     "gain_loss_ratio": 2.5,
+     "gains": 10,
+     "losses": 4,
+     "net": 6,
+     "p_one_sided": 0.08978271484375,
+     "ties": 37
+    },
+    "session_hits": 24
+   },
+   "4": {
+    "n": 443,
+    "pair_hits": 417,
+    "paired": {
+     "discordant_n": 54,
+     "gain_loss_ratio": 2.857142857142857,
+     "gains": 40,
+     "losses": 14,
+     "net": 26,
+     "p_one_sided": 0.00026771775142853116,
+     "ties": 389
+    },
+    "session_hits": 391
+   },
+   "5": {
+    "n": 256,
+    "pair_hits": 228,
+    "paired": {
+     "discordant_n": 32,
+     "gain_loss_ratio": 1.4615384615384615,
+     "gains": 19,
+     "losses": 13,
+     "net": 6,
+     "p_one_sided": 0.18854279373772442,
+     "ties": 224
+    },
+    "session_hits": 222
+   }
+  },
+  "by_conversation": {
+   "conv-26": {
+    "n": 198,
+    "pair_hits": 169,
+    "paired": {
+     "discordant_n": 31,
+     "gain_loss_ratio": 1.5833333333333333,
+     "gains": 19,
+     "losses": 12,
+     "net": 7,
+     "p_one_sided": 0.14052075752988458,
+     "ties": 167
+    },
+    "session_hits": 162
+   },
+   "conv-30": {
+    "n": 105,
+    "pair_hits": 97,
+    "paired": {
+     "discordant_n": 16,
+     "gain_loss_ratio": 2.2,
+     "gains": 11,
+     "losses": 5,
+     "net": 6,
+     "p_one_sided": 0.1050567626953125,
+     "ties": 89
+    },
+    "session_hits": 91
+   },
+   "conv-43": {
+    "n": 241,
+    "pair_hits": 210,
+    "paired": {
+     "discordant_n": 29,
+     "gain_loss_ratio": 2.625,
+     "gains": 21,
+     "losses": 8,
+     "net": 13,
+     "p_one_sided": 0.01205977238714695,
+     "ties": 212
+    },
+    "session_hits": 197
+   },
+   "conv-44": {
+    "n": 158,
+    "pair_hits": 129,
+    "paired": {
+     "discordant_n": 36,
+     "gain_loss_ratio": 11.0,
+     "gains": 33,
+     "losses": 3,
+     "net": 30,
+     "p_one_sided": 1.1360680218786001e-07,
+     "ties": 122
+    },
+    "session_hits": 99
+   },
+   "conv-49": {
+    "n": 193,
+    "pair_hits": 152,
+    "paired": {
+     "discordant_n": 37,
+     "gain_loss_ratio": 2.3636363636363638,
+     "gains": 26,
+     "losses": 11,
+     "net": 15,
+     "p_one_sided": 0.010036925959866494,
+     "ties": 156
+    },
+    "session_hits": 137
+   },
+   "conv-50": {
+    "n": 203,
+    "pair_hits": 178,
+    "paired": {
+     "discordant_n": 39,
+     "gain_loss_ratio": 3.3333333333333335,
+     "gains": 30,
+     "losses": 9,
+     "net": 21,
+     "p_one_sided": 0.00053250981727615,
+     "ties": 164
+    },
+    "session_hits": 157
+   }
+  }
+ },
+ "status": "COMPLETE"
+}

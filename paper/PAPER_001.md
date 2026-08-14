@@ -21,7 +21,7 @@ What is left is store everything verbatim, keep the recent turns, retrieve by
 similarity, and pick a set that covers different topics — with no generative
 model calls anywhere in the memory path.
 
-**Three findings.**
+**Four findings.**
 
 1. **The context budget was never the limit.** A perfect picker reaches the
    target using a sixth of the available space. The deployed system spent all of
@@ -40,6 +40,11 @@ model calls anywhere in the memory path.
    selection rule of any kind could cover all four from it. Improving the rule
    before widening the shortlist cannot work, and measured once, it made things
    slightly worse than the baseline.
+4. **Rank coarse, pack fine.** On 465 externally sourced, turn-labelled
+   questions, strict evidence delivery is 375 with session ranking and session
+   packing, 388 with session ranking and episode packing, and 351 with episode
+   ranking and episode packing. Fine packing helps while fine ranking removes
+   the session context that rescues weakly matching evidence.
 
 **Three operational instructions.**
 
@@ -130,6 +135,25 @@ against a planted answer key. Tested live once, the configuration did not
 promote: its six-item availability advantage produced a one-item gain in
 correctly attributed answers and a 2.0 loss on targeted probes, failing its own
 pre-registered no-regression bar.
+
+A separate external granularity analysis isolates two levers on one strict
+measure. Across 465 turn-labelled LongMemEval-S questions, session-ranked whole
+sessions deliver answer evidence on 375 items; retaining session ranking but
+packing episodes delivers 388; ranking and packing episodes delivers 351. The
+63 items rescued by coarse ranking have median own-episode cosine rank 46,
+against rank 10 for the 26 items gained by fine ranking. The observed rule is
+therefore **rank coarse, pack fine**: use the broader context to score relevance
+and the narrower unit to spend the context budget. This is a posthoc
+characterization on an exhausted corpus, not a registered universal law.
+
+A prospective LoCoMo holdout confirms why that scope matters. At a registered
+16,000-character operating point, ranking adjacent-turn pairs by their own
+cosine raises complete exact-evidence delivery from **843/1,098 to 935/1,098**
+over assigning every pair its session's maximum score: 140 gains, 48 losses,
+gain/loss ratio 2.92, one-sided exact p=6.19e-12. All six conversations are net
+positive, and source order reaches only 258. The registered disposition is
+`WORKS`, bounded to availability. It does not establish reader correctness or
+replace LongMemEval's opposite corpus-specific mechanism.
 
 What remains after every one of those removals is an append-only store, a
 recency window, similarity retrieval, and a coverage objective, with no
@@ -881,6 +905,48 @@ phrase-to-episode aggregation, then computes 70 new corpus-statistic rows. That
 design would be registered after the cosine ranks were known, a weaker
 epistemic position than the original paper implied and one the result would
 need to state.
+
+#### 5.5.2 Ranking and packing units have opposite effects
+
+NF-002 and NF-003 leave three arms on the same 465 turn-labelled LongMemEval-S
+items, under the same 32,000-character budget, skip-on-overflow policy, and
+strict answer-episode outcome:
+
+| Ranking unit | Packing unit | Strict delivery |
+|---|---|---:|
+| Session | Whole session | 375/465 |
+| **Session** | **Episode** | **388/465** |
+| Episode | Episode | 351/465 |
+
+The one-factor contrasts have opposite signs. Holding session ranking fixed and
+packing episodes gains 17 and loses 4, net +13. Holding episode packing fixed
+and replacing the inherited session score with each episode's own cosine gains
+26 and loses 63, net -37. The deployed middle corner is the observed optimum:
+**rank coarse, pack fine**.
+
+The discordant ranks identify why. The 63 answer episodes carried by session
+ranking and dropped by episode ranking have median own-cosine rank 46 and p90
+135. The 26 moving the other way have median rank 10 and p90 21. Session
+pooling supplies contextual evidence for an answer episode whose own text is a
+weak query match; episode packing then avoids paying for the whole session that
+supplied that cue. This turns the earlier H2 residual into visible mechanism:
+coarse context can rescue evidence below the practical fine-rank frontier.
+
+The result is a posthoc synthesis on a corpus whose items are exhausted, so it
+does not establish a universal direction. In particular, it does not show that
+coarse ranking wins when the budget admits most candidates. Development-only
+budget sweeps on LoCoMo and LongMemEval rejected binding ratio as a portable
+moderator before the external holdout was opened.
+
+NF-004 then registered the corpus-specific opposite direction on six sealed
+LoCoMo conversations. At 16,000 characters, pair ranking raises complete exact
+evidence from **843/1,098 to 935/1,098**, with 140 gains, 48 losses, ratio 2.92,
+and one-sided exact p=6.19e-12. It also stays positive at the secondary 32k
+point, 961 to 1,024; source order reaches only 258 at 16k. All six conversations
+are net positive. This passes the prospective `WORKS` bar and demonstrates that
+ranking granularity is corpus-scoped under the tested instrument. The endpoint
+is availability, not reader correctness, and authorizes no live or adoption
+claim.
 
 ### 5.6 The three constraints, and why the order is forced
 

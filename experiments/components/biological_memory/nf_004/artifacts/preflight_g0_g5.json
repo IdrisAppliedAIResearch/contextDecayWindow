@@ -1,0 +1,227 @@
+{
+ "embedding_calls_during_measurement": 0,
+ "gates": {
+  "G0": {
+   "corpus_accessed": false,
+   "expected_first_commit": "95f0d25c8e898998dcbf0c8b95d370896c57c929",
+   "expected_lf_sha256": "de2d5e05646b769cac8a86a64443062a51024edea44af4a6a951a42d1a8c213d",
+   "observed_first_commit": "95f0d25c8e898998dcbf0c8b95d370896c57c929",
+   "observed_lf_sha256": "de2d5e05646b769cac8a86a64443062a51024edea44af4a6a951a42d1a8c213d",
+   "pass": true,
+   "path": "experiments/components/biological_memory/nf_004/NF_004_PRE_REGISTRATION.md"
+  },
+  "G1": {
+   "comparison_key_digest": "cfe0582ebf4aa436c3ce07069e24a429796389fa1de3233ee5f22e74ea1b9e01",
+   "counts": {
+    "all_evidence_evaluable_unique_records": 1098,
+    "canonical_unique_qa_records": 1104,
+    "conversations": 6,
+    "duplicate_qa_records": 0,
+    "source_qa_records": 1104,
+    "unresolved_evidence_references": 6
+   },
+   "dataset_sha256": "79fa87e90f04081343b8c8debecb80a9a6842b76a7aa537dc9fdf651ea698ff4",
+   "holdout_inventory_sha256": "cde6e37ad046198f9b9326497c9d13db4c906fb02026df16243afede2b820789",
+   "pass": true,
+   "source_manifest_sha256": "58958407a451eed0e6031f643234c73fe9026a9ceca5b56ed7a4f500af8b3693"
+  },
+  "G2": {
+   "direct_import_graph": [
+    "__future__",
+    "dataclasses",
+    "numpy",
+    "typing"
+   ],
+   "measurement_module": "analysis.nf004_measurement",
+   "mechanism_path": "src/analysis/nf004_mechanism.py",
+   "pass": true,
+   "planted_forbidden_import_rejected": true,
+   "planted_violations": [
+    "forbidden import:analysis.nf004_measurement",
+    "forbidden source reference:nf004_measurement"
+   ],
+   "violations": []
+  },
+  "G3": {
+   "cache": {
+    "bytes": 13344768,
+    "call_shape": "solo",
+    "content_sha256": "2e73bff9178d054e0638a20c6af87d760fdcbe14348f921c5f9052e8df6d4892",
+    "dimension": 1024,
+    "dtype": "float32",
+    "entries": 2749,
+    "file_sha256": "96656024f79a360798be1c9461585ac47a2b6d6bdfb20d9357d52206e860874c",
+    "hits": 2749,
+    "misses": 0,
+    "mode": "reuse",
+    "model_sha256": "06507c7b42688469c4e7298b0a1e16deff06caf291cf0a5b278c308249c3e439",
+    "path": "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\components\\biological_memory\\nf_004\\artifacts\\nf004_holdout_embeddings.db"
+   },
+   "embedding_calls": 0,
+   "manifest_sha256": "c5436e00c44da69618c9b84abbfe882d1d6d3c42f94fd17a803414ed17f08c0a",
+   "model_generation_calls": 0,
+   "pass": true,
+   "unique_texts": 2749
+  },
+  "G4": {
+   "embedding_calls": 0,
+   "expected": {
+    "16k": {
+     "pair_hits": 773,
+     "paired": {
+      "gains": 104,
+      "losses": 33,
+      "ties": 731
+     },
+     "session_hits": 702
+    },
+    "32k": {
+     "pair_hits": 826,
+     "paired": {
+      "gains": 71,
+      "losses": 18,
+      "ties": 779
+     },
+     "session_hits": 773
+    },
+    "primary_n": 868,
+    "unique_n": 871
+   },
+   "model_generation_calls": 0,
+   "observed": {
+    "16k": {
+     "pair_hits": 773,
+     "paired": {
+      "gains": 104,
+      "losses": 33,
+      "ties": 731
+     },
+     "session_hits": 702
+    },
+    "32k": {
+     "pair_hits": 826,
+     "paired": {
+      "gains": 71,
+      "losses": 18,
+      "ties": 779
+     },
+     "session_hits": 773
+    },
+    "cache": {
+     "bytes": 10821632,
+     "call_shape": "solo",
+     "content_sha256": "e103b2933ee9ec7b8e9236f43037797618da524e413b83a9f3973a19d28b1b2a",
+     "dimension": 1024,
+     "dtype": "float32",
+     "entries": 2236,
+     "file_sha256": "2ba617018a1b043bf439bb50e756191d8141fb7ca01a2e4a68c9eb822eba26f8",
+     "hits": 2247,
+     "misses": 0,
+     "mode": "reuse",
+     "model_sha256": "06507c7b42688469c4e7298b0a1e16deff06caf291cf0a5b278c308249c3e439",
+     "path": "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\external\\locomo\\artifacts\\locomo_dev_embeddings.db"
+    },
+    "comparison_key_identity_reproduced": true,
+    "primary_n": 868,
+    "row_digest": "c98a35694c619114ff110d8bf5d6503603960a611f73fe45fa1ef516a5465d5b",
+    "unique_n": 871
+   },
+   "pass": true
+  },
+  "G5": {
+   "bytes": 1052137,
+   "first_sha256": "3fc0e66b12c752020c2b27b7ad6029e4d397a55fffd994ac9c04375072626697",
+   "pass": true,
+   "second_sha256": "3fc0e66b12c752020c2b27b7ad6029e4d397a55fffd994ac9c04375072626697"
+  }
+ },
+ "holdout_outcomes_computed": false,
+ "model_generation_calls": 0,
+ "preflight": {
+  "PF1": {
+   "evidence": "G1 source/population and G3 vector seal",
+   "pass": true
+  },
+  "PF10": {
+   "evidence": "NF-004 is availability-only and authorizes no live or adoption claim.",
+   "pass": true
+  },
+  "PF2": {
+   "evidence": "pure mechanism identity and exact development replay",
+   "pass": true
+  },
+  "PF3": {
+   "evidence": "enforce_gate_order stops before later gates; planted tests cover G0-G5",
+   "pass": true
+  },
+  "PF4": {
+   "evidence": {
+    "CARRIES_SIGNAL": "4 gains, 1 loss reaches p=.1875",
+    "NULL": "1 gain, 1 loss reaches p=.75",
+    "WORKS": "6 gains, 0 losses reaches p=.015625"
+   },
+   "pass": true
+  },
+  "PF5": {
+   "evidence": "canonical content SHA-256 keys reproduce all 871 development identities",
+   "pass": true
+  },
+  "PF6": {
+   "evidence": {
+    "16k": {
+     "pair_hits": 773,
+     "paired": {
+      "gains": 104,
+      "losses": 33,
+      "ties": 731
+     },
+     "session_hits": 702
+    },
+    "32k": {
+     "pair_hits": 826,
+     "paired": {
+      "gains": 71,
+      "losses": 18,
+      "ties": 779
+     },
+     "session_hits": 773
+    },
+    "cache": {
+     "bytes": 10821632,
+     "call_shape": "solo",
+     "content_sha256": "e103b2933ee9ec7b8e9236f43037797618da524e413b83a9f3973a19d28b1b2a",
+     "dimension": 1024,
+     "dtype": "float32",
+     "entries": 2236,
+     "file_sha256": "2ba617018a1b043bf439bb50e756191d8141fb7ca01a2e4a68c9eb822eba26f8",
+     "hits": 2247,
+     "misses": 0,
+     "mode": "reuse",
+     "model_sha256": "06507c7b42688469c4e7298b0a1e16deff06caf291cf0a5b278c308249c3e439",
+     "path": "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\external\\locomo\\artifacts\\locomo_dev_embeddings.db"
+    },
+    "comparison_key_identity_reproduced": true,
+    "primary_n": 868,
+    "row_digest": "c98a35694c619114ff110d8bf5d6503603960a611f73fe45fa1ef516a5465d5b",
+    "unique_n": 871
+   },
+   "pass": true
+  },
+  "PF7": {
+   "evidence": "stateless mechanism and byte-identical complete development replay",
+   "pass": true
+  },
+  "PF8": {
+   "evidence": "All 1,098 eligible holdout items are planned; this cannot detect reader correctness or cross-corpus transfer.",
+   "pass": true
+  },
+  "PF9": {
+   "evidence": "Complete evidence can pass while a reader fails; any-evidence and session-touch cannot set disposition.",
+   "pass": true
+  }
+ },
+ "registration_commit": "95f0d25c8e898998dcbf0c8b95d370896c57c929",
+ "registration_lf_sha256": "de2d5e05646b769cac8a86a64443062a51024edea44af4a6a951a42d1a8c213d",
+ "schema": "nf004-preflight-g0-g5-v1",
+ "status": "PASS"
+}
