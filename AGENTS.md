@@ -92,6 +92,8 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **NF-005 information dilution (2026-08-13).** SUPPORTED; CHARACTERIZED. Same 465 LongMemEval items/32k/turn packing: own-turn rank raises any exact evidence 361->461, 100 gains/0 losses, p=7.89e-31; all 208->454. Evidence turns p50 298 chars vs parent episodes 2,550. Supports localization/dilution moderator, not raw-length causality or reader value.
 
+**NF-006 internal statement ranking (2026-08-13).** INTERNAL_DILUTION_RESCUES_Q11; CHARACTERIZED. At 32k, episode/inherited-statement/own-statement availability is 12/7/14 of 17. T1 restores monetary 4/4; targeted ties 21/21 with 0 losses. No T1 statement is from turn 90: store-level dilution is supported, but DX-001's exact carrier remains unresolved. No live/adoption.
+
 **PS-001 pattern-separated engram formation (2026-08-11).** CHARACTERIZED. Nine deterministic sparse cells on 119 episodes; only D=4096,K=41 passed G3-G5: 119/119 fixed points and exact 1/10/30/50% swap recovery. Six of seven degenerates reached stored codes; the union-biased cue cycled. Code-space result only; no natural cue, retrieval, live run, promotion, or adoption.
 
 **PS-002 natural-language cue binding (2026-08-11).** STOP AT PART 1; NATURAL_CUES_NOT_BOUND, CHARACTERIZED. Nine label-blind cells ran 24 sealed queries x8 rounds. Best M=4,tau=.025 reached stored codes 190/192 but one cue cycled and one reached a spurious fixed point; no cell emitted 8 clean ids/query. Labels, PF1-PF10, answers, live run, promotion and adoption not entered.

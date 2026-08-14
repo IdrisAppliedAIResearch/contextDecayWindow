@@ -36,6 +36,7 @@ SOURCE = REPO / "paper/PAPER_001.md"
 TYP = REPO / "paper/build/whitepaper.typ"
 PDF = REPO / "paper/Selection_Not_Capacity.pdf"
 FIGURES = REPO / "paper/figures"
+PAPER_BUILD_TIMESTAMP = 1_786_579_200  # 2026-08-13 00:00:00 UTC
 
 # Typst markup characters that must not be read as syntax inside body text.
 _ESCAPE = str.maketrans({c: "\\" + c for c in "\\#$*_`<>@[]"})
@@ -357,9 +358,14 @@ def build() -> int:
     print(f"figures: {len(figures)} found, {len(placed)} placed inline"
           + (f", {len(missing)} appended (no citation found)" if missing else ""))
 
+    # Pin PDF metadata so unchanged sources reproduce byte-for-byte.
     result = subprocess.run(
         [sys.executable, "-c",
-         f"import typst; typst.compile({str(TYP)!r}, output={str(PDF)!r}, root={str(REPO / 'paper')!r})"],
+         (
+             f"import typst; typst.compile({str(TYP)!r}, "
+             f"output={str(PDF)!r}, root={str(REPO / 'paper')!r}, "
+             f"timestamp={PAPER_BUILD_TIMESTAMP})"
+         )],
         capture_output=True, text=True,
     )
     if result.returncode != 0:

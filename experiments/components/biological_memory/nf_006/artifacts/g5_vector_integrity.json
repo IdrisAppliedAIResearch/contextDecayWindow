@@ -1,0 +1,49 @@
+{
+ "cache_integrity": {
+  "checks": {
+   "content": true,
+   "file": true,
+   "model": true,
+   "queries": true,
+   "sealed": true,
+   "statements": true
+  },
+  "manifest": {
+   "cache_file_sha256": "e6a2a6687fb5ee6694a43dd3ebe7a957f7bd9852418657f78274c64d38c4f391",
+   "call_shape": {
+    "parallelism": 1,
+    "probe": "one lexicographically sorted eight-text batch",
+    "statement": "791 sequential exact-solo calls in identity order"
+   },
+   "content_manifest_sha256": "967c73113ff926e360578ff65d0f7443cb99f5b4ce015ef0571c9115891eea37",
+   "embedding_calls": 792,
+   "generation_calls": 0,
+   "llama_cpp_python": "0.3.25",
+   "model_sha256": "06507c7b42688469c4e7298b0a1e16deff06caf291cf0a5b278c308249c3e439",
+   "probe_order_digest": "95a68048a5f9cd32fb531b4faed4f4e3266a22df8eae4686d52c53835b0064c0",
+   "probe_turns": [
+    112,
+    113,
+    115,
+    116,
+    117,
+    118,
+    119,
+    120
+   ],
+   "query_entries": 8,
+   "schema": "nf006-exact-vectors-v1",
+   "statement_entries": 791,
+   "statement_order_digest": "14d2e336ce85e8e5f029ab32565fdbca92c19d4da4620729637e95b087823e3f",
+   "status": "SEALED"
+  },
+  "pass": true
+ },
+ "generation_calls": 0,
+ "outcome_measurement_opened": false,
+ "schema": "nf006-g5-v1",
+ "statement_hits": 791,
+ "statement_misses": 0,
+ "status": "PASS",
+ "turn_90_parent_cosine": 0.05599034205079079
+}

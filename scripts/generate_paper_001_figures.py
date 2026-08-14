@@ -30,6 +30,8 @@ from pathlib import Path
 import matplotlib
 
 matplotlib.use("Agg")
+# Keep generated SVG element ids stable across identical builds.
+matplotlib.rcParams["svg.hashsalt"] = "PAPER-001"
 import matplotlib.pyplot as plt
 
 REPO = Path(__file__).resolve().parent.parent
@@ -95,7 +97,12 @@ def style(ax) -> None:
 
 def save(fig, name: str) -> None:
     OUT.mkdir(parents=True, exist_ok=True)
-    fig.savefig(OUT / f"{name}.svg", format="svg", bbox_inches="tight")
+    fig.savefig(
+        OUT / f"{name}.svg",
+        format="svg",
+        bbox_inches="tight",
+        metadata={"Date": None},
+    )
     fig.savefig(OUT / f"{name}.png", dpi=200, bbox_inches="tight")
     plt.close(fig)
     print(f"  wrote {name}.svg / .png")
