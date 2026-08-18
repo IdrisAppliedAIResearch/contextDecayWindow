@@ -805,3 +805,403 @@ order is a delivery gate. What is not established is that reversing it improves
 answers.
 
 ---
+
+## 9. Cost and the operating envelope
+
+**Standing: DETERMINISTIC-OFFLINE.** These come from a 1,000-turn endurance run, not
+the 121-turn corpus §7 uses. Nothing here establishes a §7 result at 1,000 turns, and
+nothing in §7 establishes these at 121.
+
+Three things could grow as a conversation lengthens. Only one binds.
+
+**Delivered context is bounded, because it is enforced.** Replaying 1,000 committed
+episodes through the library at a 32,000-character budget, the delivered block
+breaches the budget on **0 of 1,000 turns**, and its 95th percentile moves **+18
+characters** across the final five 100-turn buckets. The same block also **truncates
+on 895 of those turns**, dropping up to 70 episodes and wanting up to 65,864
+characters. It is bounded because a ceiling binds during selection, not because
+demand is small. Both readings belong together; the first alone would be the kind of
+surrogate this programme keeps catching.
+
+**Disk is cheap.** 4,743 bytes per turn at the margin, 86% of it embeddings. About
+48 MB at 10,000 turns. Nothing there ends continuous operation.
+
+**Latency binds.** **190 ms at 1,000 candidates**, with clustering taking 81% of it
+and that share rising from 37%. The measured exponent is 1.25 over 50 to 1,000
+candidates. The stated horizon is comfortable to a few thousand episodes and
+unusable in an interactive loop somewhere before 10,000. Figure 6.
+
+That last number corrects a published projection of this programme's own, and the
+correction is instructive: the withdrawn estimate of about 40 ms at 1,000 candidates
+came from extending a curve **84 times beyond its last measured point**. Measuring
+instead gave roughly five times the projection.
+
+**These milliseconds are one machine's.** The runtime is llama.cpp with a 27B
+generation model at UD-Q6_K_XL, one slot, fixed seed, speculative decoding disabled,
+and Qwen3-Embedding-0.6B over SQLite with `sqlite-vec`. Selection timings exclude
+embedding entirely, because query and episode vectors are already resident. Only the
+exponent and the clustering share plausibly transfer.
+
+**The obvious optimization is the one thing not to do.** Keeping the pool small by
+dropping low-similarity episodes is exactly the operation §7.2 measured to break
+retrieval. So retention is unbounded by policy, the trimming knob carries an
+`unsafe_` prefix with the finding in its docstring, and the horizon is stated rather
+than engineered around.
+
+**Growth belonged to the harness, not the design.** In the original study runner the
+retrieved block rose 23,238 characters in one arm and 28,701 in the other, still
+setting records in the final bucket. Replayed through the extracted library at the
+same budget it moves +18. The leak was the runner's.
+
+---
+
+## 10. What was removed
+
+Each mechanism below was built, measured, and closed by the result beside it. They do
+not correspond one-to-one with the studies: several fell to the same study, and some
+outlived the study that first weakened them. Figure 2 places each against the bar it
+had to clear.
+
+| Removed | Killed by |
+|---|---|
+| Distillation and "dreaming" | Five studies; query-blind selection cannot anticipate a later query |
+| Promotion filters | The weighted route was arithmetically unreachable; every promotion came via bypass |
+| Topic layer and consolidation | 52 topics for one 120-turn conversation; 12 domains collapsed to 2 at 1,000 turns |
+| Associative graph from co-activation | No configuration cleared its advancement gate at any of eight edge types and three depths |
+| Query-type routing | Oracle ceiling 6.09% against a registered 10% build threshold |
+| Approximate nearest-neighbour search | Recall degraded at synthetic scale |
+| Query segmentation | Improved its matched-budget baseline from 6/17 to 10/17 and still failed its locked 14/17 bar |
+| Attention-derived term selection | Run as an oracle over 714 candidate cue rows: 0 reached the retrieval threshold |
+| Entity extraction as primary index | Zero entities in the target span |
+| Density for formation | Ranks the six hardest planted facts between 89th and 316th |
+| Rule detection and persistence | 118 false rules by turn 200; failed at 1,000-turn scale |
+| Surprisal-based capture | SAL-001, sealed holdout: AUC 0.416 against a 0.60 bar, five of six strata below chance |
+| Deterministic adaptive stopping | DMR-004, sealed holdout: Youden's J 0.320 against a 0.50 bar |
+| Absolute-threshold event segmentation | DMR-001, sealed holdout: forced fraction 0.703 against a 0.35 bar |
+
+**Two results from the numbered arc carry the argument.**
+
+*Write-time selection cannot anticipate a query.* Studies 003 through 007 are five
+attempts to decide, at write time, what deserves remembering. Each optimized a proxy
+satisfiable without the property it certified: record count for information, novelty
+for importance, density for factual value. The terminal diagnosis is specific —
+density, the best write-time salience signal available, ranks the six hardest planted
+facts between 89th and 316th. These are rare technical phrases whose component words
+are common.
+
+*Moving selection to query time did not recover it.* A registered bakeoff made that
+repair its central premise and refuted it. The best registered 32,000-character
+retrieval block surfaced **8 of 17** target facts, below the 11 of 17 the formation
+era reached. All 17 were present in the raw store. Retrieval did not find them.
+
+**What remains** is §3.1's four components. It contains none of the mechanisms above.
+
+**One item is retired rather than solved.** The component emits no absence signal on
+any of 500 external questions, while the fixed reader correctly abstained on 17 of 20
+registered abstention items. That does not give the component an absence detector, and
+it does not establish reader robustness across models and prompts. It shows that
+component-level detection is not necessary for end-to-end abstention *under this
+tested reader*, which is why the requirement is retired at the component level rather
+than marked solved.
+
+---
+
+## 11. Self-audit and corrections
+
+Everything internal in this paper rests on this programme's own measurements, scored
+by its own raters, against its own rubric. The reason to extend it credit is that it
+audited itself and published what it found. `ERRATA.md` holds 19 corrections; all
+were caught by gates the programme wrote. This section gives the ones that change how
+a reader should read the rest.
+
+### 11.1 The scoring audit removed the programme's only success
+
+A blind re-scoring of 222 committed items across nine studies changed 19. One study's
+headline arm fell from 13.0 to 8.5, because a truncated reasoning block had been
+credited as a complete response. Study 001 lost the programme's only VALIDATED
+verdict and became PARTIAL.
+
+The residual estimate is extrapolated, and its precision is reported with it: 3
+disagreements in a 26-item control sample projected across 143 unreviewed items gives
+16.5 expected errors, but the 95% Clopper-Pearson interval on 3 of 26 runs from
+**about 3 to about 43**. An earlier version of this paper reported "about 20" without
+the interval. That is the defect, not the estimate.
+
+### 11.2 Every study on record ran over its stated budget
+
+Character budgets were charged against source text rather than the complete
+serialized block — tags, metadata and separators excluded. Correcting it moved
+published numbers by up to 68%: two blocks reported at 31,991 and 31,847 characters
+against a 32,000 budget were actually **53,726 and 53,839**. The budget was violated,
+not saturated, and the scaling conclusion derived from the undercharged values is
+withdrawn. Every figure in this paper uses the corrected accounting.
+
+### 11.3 The same query text returns different vectors
+
+Reproducing a retrieval result requires reproducing the *embedding call shape*, not
+only the query text. The same embedder, given the same text solo rather than in a
+batch of nine, returns a vector agreeing to cosine **0.999837** — with a largest
+component difference of 0.217, and that difference **flips 6 of 146 committed
+payloads**.
+
+This is why §12.4 does not treat embedder sensitivity as unmeasured. A perturbation
+far smaller than a model change already moves 4% of results. The library now asserts
+a sentinel vector hash on every store open, so a mismatched embedder fails loudly
+instead of silently returning different answers.
+
+### 11.4 The tier called a recency window was not one
+
+Three different rules have carried that name in this programme, and only the one in
+the extracted library is a window.
+
+The rule every live study through the endurance run actually ran sorts the whole
+store by delivery history, and `retrieve()` refreshes what it just delivered — so the
+block re-selects itself. Tie-breaking on ascending turn number means it settles on
+the oldest episodes and cannot leave. **From turn 11 onward it delivered source turns
+1 through 9 plus the immediately previous turn, for 111 consecutive turns.** Mean
+overlap with a true window of the same size is **0.205**; 111 of 120 episodes were
+delivered exactly once.
+
+Two consequences. The programme's cleanest architectural contrast did not compare a
+memory tier against a recency baseline — it compared it against nine frozen episodes
+and one recent one. And **nothing in this programme establishes what a correctly
+implemented window would score, in either direction.** No arm ever ran one.
+
+### 11.5 A diagnostic written to catch surrogate failures nearly committed one
+
+The clearest methodological lesson here. A granularity study reported 49 gains and
+zero losses on evidence delivery. Its own preflight surrogate audit — the check that
+asks *can this pass while the property it certifies is false?* — then found that 94
+treatment hits contained no answer-bearing episode at all. The measure was
+**session-touch**: it credited delivering *any* part of a session containing the
+answer.
+
+Under the strict measure the result does not shrink. **It reverses**: 388 to 351,
+with 26 gains and 63 losses. The claim was withdrawn.
+
+Two smaller failures sit inside the same study, and both are unit errors in a study
+whose entire subject is units. A first pass compared evidence *episodes* against
+evidence *sessions* and reported a 45-item regression that did not exist. A
+denominator counted five never-ranked items as misses.
+
+**Session-touch is not used anywhere in this paper.** On LoCoMo development it
+reports 40 gains and zero losses where the strict measure reports 44 gains and **9
+losses** — it hides every strict loss.
+
+### 11.6 What the gates missed
+
+A gate is only trustworthy if its tested population could have existed. Three cases
+here where one could not:
+
+- A targeted no-regression gate keyed on `(turn, item)` while its requirement keyed
+  on `(question, turn, item)`. The condition was **unsatisfiable by construction, for
+  any selector**. Correcting it turned a recorded failure into a pass.
+- A cluster-floor study stopped as inert — and the first execution reached that
+  branch only because its evaluator searched for domain labels that did not exist.
+  The invalid artifact is preserved and corrected by a standalone amendment.
+- Fourteen repository integrity gates failed unconditionally for months because
+  constants were recorded under one line-ending convention and checked under another.
+  The cost was fourteen gates that could not have detected real drift, and one real
+  drift was sitting behind them.
+
+---
+
+## 12. Limitations
+
+Each item names what would settle it. This is the complete list rather than a
+restatement of scope caps already given at the claims they bound.
+
+### 12.1 The instrument's band is 3.0, and most scored comparisons here are below it
+
+Every *scored* comparison in this paper is a single run at a fixed seed. That was
+recorded as a missing variance estimate until the estimate was made.
+
+Five replicates of the deployed configuration — identical corpus, settings, seed and
+standing runtime, run back to back in one server process — scored **8.0, 8.0, 8.0,
+8.0 and 11.0**. Max minus min is **3.0**, against a decision rule committed before
+the replicates ran.
+
+It is not a spread but a switch. Four of the five are byte-identical across all 121
+turns. The fifth — the only one to meet an empty server slot — diverges at turn 1
+from a byte-identical 757-byte prompt and never re-converges. Rater disagreement was
+measured separately and is near zero, 64 of 65 items unanimous, so this is
+run-to-run variation and not scoring noise.
+
+Applied uniformly and in both directions, **three of this arc's scored verdicts fall
+inside the band and are not demonstrated**: the memory-tier contrast at 3.0, the
+live-validation targeted regression at −2.0, and the tier-isolation result at −1.0.
+*Not demonstrated is not refuted.* These may be real, and a single run per arm cannot
+say. One asymmetry is worth stating: the memory-tier contrast has **less** protection
+than the others, not more — its two arms ran hours apart and neither manifest records
+a server process id, so the process state of the arc's cleanest architectural
+comparison is unknowable from the committed artifacts.
+
+**What the band does not touch** is everything offline and deterministic: gate
+outcomes, delivery counts, character accounting, packing measurements, §5's sealed
+holdout, §6's granularity results, §8's 152 gains and zero losses. Those are counts
+and identities, not scores. *Settled by:* repeated runs at multiple seeds with
+process state pinned, which no study in this arc pinned.
+
+### 12.2 The runtime is not bit-reproducible
+
+The programme's standing rule requires a byte-identical seeded-prefix rerun. On this
+runtime that rule is satisfiable **between runs that share server process state** and
+**not** between a cold-start run and a warm-start one — and no study in the arc pinned
+process state. An identical 757-byte prompt at seed 5005, with one slot and
+speculative decoding disabled, produced responses diverging at character 79.
+
+This bounds every scored claim and none of the offline ones. *Settled by:* pinning
+process state as a run gate.
+
+### 12.3 Availability is not correctness
+
+Every selection count here measures whether a fact was *present in the delivered
+window*, not whether the model answered correctly. This was the largest structural
+weakness of this paper's predecessor. **It has now been measured, and the weakness is
+real.**
+
+A pre-registered live run compared the shipping configuration against the deployed
+baseline at one seed, fixing both reporting outcomes before any number existed:
+
+| Registered bar | Result |
+|---|---|
+| Does the offline advantage convert? | **WEAK.** A six-item offline gap became +1 correctly attributed item |
+| No targeted regression, tolerance 0.5 | **FAIL.** 1.5 of 8 against the baseline's 3.5 — a 2.0 shortfall, four times the tolerance |
+
+The second was registered as a kill. The configuration's status is **not promoted**.
+
+The mechanism is legible. Asked for two formatting rules planted in the first two
+turns, the shipping configuration reported that it could not see the start of the
+conversation: the coverage objective had spent its budget on domain spread and
+stopped carrying the opening, which per-item cosine ranking had retained. Offline,
+that same configuration preserved 16 of 16 targeted items. **Preserving an item's
+availability and preserving the answer that depends on it are not the same property,
+and this programme had measured only the first.**
+
+Both arms also fabricated on the domain neither retrieved — one attributing a
+painting to the wrong artist while still producing both correct pigment terms, which
+a presence-only scorer credits. The −2.0 is as unreplicated as the +1, and §12.1
+applies to both. *Settled by:* the frozen-context reader study described in §13.
+
+### 12.4 One runtime, one embedder, and positive evidence of fragility
+
+One model, one quantization, one machine, one embedder. Whether §7's results survive a
+*different* embedder is unmeasured — but this is not a blank absence of evidence, and
+it would be convenient to call it one. §11.3 shows the *same* embedder under a
+different call shape flipping 6 of 146 committed payloads. A perturbation far smaller
+than a model change already moves 4% of results, so the reasonable prior is that §7's
+specific numbers are embedder-dependent. *Settled by:* rerunning the sweep under a
+second embedder.
+
+### 12.5 External scoring is substituted, not official
+
+The external calibration run's end-to-end scores — 20.0% on an equal-quota subset and
+12.22% post-stratified — are **Codex-substituted integrity scores**, because the
+benchmark's pinned evaluator was unavailable and was replaced by a panel of hosted
+models with AI adjudication. A binding amendment forbids placing either number against
+published LongMemEval results, and this paper does not.
+
+Two further boundaries. The corpus is a cleaned variant rather than the original
+histories. And the benchmark authors' LLM-assisted indexing and time-aware query
+expansion were available and **deliberately not adopted**, because they add generative
+calls to the memory path. Some of the gap between this component and published systems
+is that choice, and this paper does not claim the choice was free. *Settled by:* the
+official evaluator on the registered answers.
+
+### 12.6 The internal corpus is constructed, and one probe carries the breadth claims
+
+Every internal breadth number — 6, 12, 14 and 15 of 17, and the rank-87 reading —
+comes from **one enumeration question** at one turn. The corpus is constructed, and
+its planted vocabulary is a specific reason to suspect the ranking inversion is a
+property of the plant rather than of retrieval. §7.5 gives the external test, which
+narrows the claim sharply, and §11.5 gives the rarity diagnostic that failed to
+identify the mechanism. *Settled by:* multiple literal enumeration probes across
+external domains.
+
+### 12.7 The endurance corpus is 84% repeats
+
+The 1,000-turn run holds only **156 distinct user-assistant pairs**; 844 of 1,000
+episodes are exact content duplicates. Any saturation reading from that run has a
+mechanical reason to saturate independent of the mechanism, and §9's growth and
+latency findings are the parts unaffected. That run's scores were outside the scoring
+audit and one of its arms was budget-noncompliant; they are not used in this paper.
+
+### 12.8 AI raters, AI adjudicators
+
+Scoring used three blind passes with registered adjudication triggers, but the
+adjudicators were subagents rather than humans, and the three raters were three
+models from one family — a departure disclosed in advance. Shared-family bias inflates
+apparent agreement, and inflated agreement *understates* a band. The control sample
+disagreed at 11.54%. *Settled by:* human adjudication of the same items.
+
+### 12.9 Amendments exist after results
+
+Twelve in the bakeoff alone. The programme records per amendment whether it preceded
+the result it affects, and applies a legitimacy test permitting corrections to
+measurement units and protocol contradictions while forbidding making a criterion
+easier once results are known. The record is published so a reader can disagree with
+individual calls.
+
+### 12.10 LongMemEval is exhausted
+
+Every item in that corpus has now been used by this programme. **No confirmatory claim
+is available from it again**, and any registration written today inherits that
+ceiling. The LoCoMo holdout in §5.1 is now the only sealed external evidence this
+programme holds, and four of the ten LoCoMo conversations are likewise spent.
+
+---
+
+## 13. Conclusion
+
+Eleven pre-registered efforts produced one architecture worth keeping, one
+externally confirmed rule about how to use it, and a measurable account of why the
+rest did not work.
+
+**For a practitioner**, three things transfer.
+
+*Rank at the finest unit whose embedding stays informative.* This is the result with
+sealed external confirmation and the largest measured effect in the programme —
+843 to 935 of 1,098 on withheld conversations, and 361 to 461 of 465 with zero losses
+on a second corpus. The mechanism is candidate size: a 2,550-character episode
+averages away the 298-character turn that answers the question.
+
+*Do not prune the candidate pool to control cost.* It is the one operation measured
+here to break retrieval, and it cost an entire domain even though most of the best
+records survived the cut.
+
+*Check whether your memory layer needs generative calls at all.* Every component this
+programme removed was one that required them, and what is left is replayable and
+provenance-preserving as a consequence. The systems that ship in this space spend a
+model call on this layer. This paper cannot say whether the deterministic version
+wins a head-to-head, because none was run. It can say how much of the layer survives
+without the call, and the answer is more than this programme expected when it started
+removing things.
+
+**For a researcher**, the useful part is the decomposition and the order inside it.
+Retrieval failure here was not one thing. The candidate pool decided what could be
+seen, the objective decided what was worth taking, and a similarity floor decided
+what was unreachable at any weighting. The order is forced and structurally so: one
+domain has no representative anywhere in the deployed shortlist, so no objective can
+recover it from there. Widening the pool is not the first fix because it measured
+better — it is first because the alternative is impossible. Separating the three
+required a per-fact known optimum on the same store, a measurement costing an answer
+key and exact cost accounting, and buying a sharper question than an end-to-end score.
+
+**What this programme has not shown** is that any of it makes a reader answer better.
+Availability and correctness were measured moving in opposite directions once, and
+that result stands unrescued. The next decision-relevant experiment is therefore not
+another retrieval study. It is a reader study over two already-frozen contexts —
+whether the 14-of-17 context causes a reader to use more correct facts than the
+12-of-17 context, under an identical prompt and runtime, scored as a 17-bit
+fact-use vector rather than on the 13-point rubric whose 3.0-point band cannot
+resolve a two-item contrast. That design is prepared and unregistered. The internal
+corpus is exhausted, so its maximum evidential status is characterization, and the
+value is causal interpretation rather than fresh-corpus confirmation.
+
+The programme's own summary of eleven efforts is that the model used what it
+received. At the hardest probe it used all ten available facts and invented none. The
+failures were delivery failures, and delivery turned out to be a selection problem
+sitting on top of a candidate set already narrowed by the wrong rule, scored at the
+wrong unit.
+
+---
