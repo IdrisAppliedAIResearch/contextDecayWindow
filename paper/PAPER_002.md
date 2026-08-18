@@ -382,3 +382,426 @@ first when it was the second is how a programme accumulates false confidence, so
 each stop below says which it was.
 
 ---
+
+## 5. The confirmatory results
+
+Five results in this arc were obtained under a sealed holdout with bars locked
+before the number existed. This section reports all five. Three returned nothing,
+and they are here at the same resolution as the two that did, because a programme
+that reports only its sealed successes has not earned the standing its sealed
+successes carry.
+
+### 5.1 NF-004 — ranking granularity, confirmed on withheld LoCoMo conversations
+
+**Standing: CONFIRMATORY.** Pre-registration `95f0d25c`. Ten LoCoMo conversations
+were split whole-conversation — so no question could share dialogue across the split
+— by a seeded hash committed before any question, answer, category or evidence list
+was opened. Four went to development. **Six were sealed and not touched until the
+bars, the endpoint and the budget were locked.**
+
+The question is what a candidate should be scored *by*. The baseline gives every
+adjacent-turn pair the maximum query cosine attained by any pair in its session — a
+session-level score inherited downward, which is what a system does when it ranks
+sessions and then packs their contents. The treatment gives each pair **its own**
+cosine. Both pack identical candidates under an identical 16,000-character
+skip-on-overflow rule. Nothing else differs.
+
+On 1,098 fully resolvable question-answer records, with **zero model calls and zero
+embedding calls during measurement**:
+
+| Arm | Complete evidence delivered | Any evidence |
+|---|---:|---:|
+| Source order (no ranking at all) | 258 / 1,098 | 352 / 1,098 |
+| `S_SESSION_RANK` — inherited session score | 843 / 1,098 | 950 / 1,098 |
+| **`P_PAIR_RANK` — own cosine** | **935 / 1,098** | **1,027 / 1,098** |
+
+140 gains, 48 losses, 910 ties. Net +92. Gain/loss ratio **2.92** against a
+registered bar of 2.0. One-sided exact binomial **p = 6.19e-12**. Median packed
+characters 15,986 against 15,988, so the treatment is not simply spending more.
+Median best-evidence rank moves **9 to 2**; p90 moves **80 to 34**, and those rank
+statistics were opened only after the disposition was committed.
+
+**Every one of the six sealed conversations is net positive**: +7, +6, +13, +30, +15,
++21. So are all five source categories. At the 32,000-character secondary the
+direction holds, 961 to 1,024.
+
+Gates G0 through G7 all pass, including a vector seal reading 2,749 of 2,749 cached
+vectors with zero misses, and a G7 replay whose SHA-256 equals the committed G6
+hash. Figure 1.
+
+**Scope cap, and it is binding.** This is availability: whether the text carrying an
+answer was present in the delivered context. It is not accuracy, and the
+registration authorizes no reader, live, promotion or adoption claim. §12.3 is where
+that distinction has teeth.
+
+**What the source-order control buys.** 258 against 843 is the reason the treatment
+effect cannot be read as a budget artifact. If the budget were slack enough that
+ordering barely mattered, the unranked control would sit near the ranked arms. It
+sits 585 items below. A development-side sweep across budgets from 4,000 to 96,000
+characters makes the same point at every truncated point, and ties only at 96,000,
+where everything fits and ordering is irrelevant by construction.
+
+### 5.2 DMR-004 — no mechanical sufficiency signal *(negative)*
+
+**Standing: CONFIRMATORY.** The strongest confirmatory construction in the
+repository, and it returned nothing.
+
+The question: can a model-free precedence parser over query text alone identify when
+a query's evidence obligations are *finite* — when a retriever can know it has
+enough and stop? A positive result would have given the deterministic stack an
+adaptive controller. Sealed 180-query holdout, two blind raters, and PF3 verifying
+the entire commit ordering from git history: protocol, then labels, then
+registration, then compiler, then holdout labels, then gates, with the registration
+commit carrying exactly one file.
+
+| Registered criterion | Bar | Result |
+|---|---|---|
+| Youden's J | ≥ 0.50 | **0.320 — FAIL** |
+| False-finite rate | ≤ 0.15 | **0.188 — FAIL** |
+| `LOOKUP` recall | ≥ 0.60 | 0.800 — PASS |
+| Well-formed span share | — | 1.000 — PASS |
+
+Raw accuracy was 0.706. An always-`OPEN` degenerate control scores **0.650**, which
+is precisely why J and not accuracy was the registered statistic: a 5.6-point margin
+over answering "I cannot tell" to everything is not a controller. The two human
+raters reached J of about 0.76 against the compiler's 0.320, with Cohen's kappa of
+0.770 — so the task is doable and the mechanism did not do it.
+
+The failure structure is specific. Of 31 misses, 12 are questions of the form *which
+happened first* — a family flagged in writing before the compiler existed and
+deliberately not patched, because patching a known family after seeing its cost is
+the rescue `AGENTS.md` §9.4 forbids. Adding the registered markers `first` and `last`
+moved development J from 0.363 to **0.220**: implementing the lock faithfully made it
+worse.
+
+**Disposition:** a model-free adaptive controller is not authorized on this
+evidence, and the registration forbids replacing the compiler with a second
+language-model call inside this arc. That closes the deterministic stopping line,
+which is why the shipped component has no adaptive controller in it.
+
+### 5.3 DMR-001 and DMR-001C — event formation *(negative, then split)*
+
+**DMR-001. Standing: CONFIRMATORY.** Does an absolute embedding-drift threshold form
+a usable event substrate? 2,000-episode sealed holdout. **52 of 74 events close
+because the size cap binds — forced fraction 0.703 against a bar of 0.35.** The size
+cap became the partitioner. Drift precision was perfect on the boundaries it did
+find, 20 of 20, and irrelevant, because 0 of 52 forced boundaries matched anything.
+The locked threshold sits above the holdout's 95th percentile while firing on 18.5%
+of development episodes against 1.2% of holdout — an absolute drift threshold is not
+a transferable quantity.
+
+Two cautions travel with this. The second gate check was **unreachable by
+construction**, a preflight defect recorded rather than repaired; the disposition
+does not depend on it. And the two descriptive gates were computed after the stop —
+they are not cited as results anywhere in this paper.
+
+**DMR-001C. Standing: CONFIRMATORY, and it splits.** A relative percentile rule was
+frozen at its predecessor's anchor, and 50 unread LongMemEval haystacks — 11,453
+episodes, 2,128 real session seams — were fetched *after* the freeze.
+
+- **Transfer confirmed.** Per-stream fire rate holds between 3.41% and 7.35%, p05 to
+  p95 ratio **1.67x**, against the fixed rule's 9x to unbounded. The operating point
+  moves across corpora; the relative rule survives the move.
+- **Boundary claim refuted.** Macro F1 of **0.387** against a control that chops
+  every four episodes regardless of content, at **0.606**. The detector loses to a
+  fixed chop by 0.219.
+
+The report then audits its own statistic: macro F1 against a corpus with seams every
+5.4 episodes rewards frequent firing, so it was a poorly chosen bar. **It is not
+re-scored.** Choosing a better statistic after seeing the number is the same rescue
+the previous section refused.
+
+### 5.4 SAL-001 — no independent surprisal signal *(negative)*
+
+**Standing: CONFIRMATORY.** Does a surprisal-proximity signal identify what deserves
+capture, independent of what is already retrievable? Deterministic 60-history
+LongMemEval holdout, label-blind scoring sealed, 92 session-level AUC replications.
+
+Adjusted neighbour AUC **0.41599** against a bar of 0.60. One-sided permutation
+**p = 0.99134** against a bar of 0.01. Bootstrap 95% interval [0.35132, 0.48388].
+**Five of six strata fall below chance.** The registered effect is not weak; it is in
+the opposite direction. That kills the surprisal-based capture line the programme's
+design document had proposed.
+
+### 5.5 What five sealed experiments bought
+
+One positive result, on the unit of ranking, that reproduces on every corpus tried
+and every conversation inside the sealed one. Three well-built negatives that each
+closed a line the programme wanted: adaptive stopping, event segmentation, and
+surprisal-based capture. One split verdict where the transfer property confirmed and
+the claim built on top of it did not.
+
+The shipped component contains none of the three killed mechanisms. That is the
+subtraction §10 completes, and this section is where most of it was paid for.
+
+---
+
+## 6. Granularity: rank at the finest informative unit
+
+§5.1 confirmed the direction on withheld data. This section locates the mechanism,
+using corpora that were already observed and are therefore reported as measured
+rather than confirmed.
+
+### 6.1 The size of a candidate
+
+**Standing: DETERMINISTIC-OFFLINE.** Zero model calls.
+
+| Unit | Median characters |
+|---|---:|
+| LongMemEval evidence *episode* | **2,550** |
+| The exact source *turn* carrying the answer | **298** |
+| LoCoMo adjacent-turn pair | **241** |
+
+An embedding of a 2,550-character episode is an average over everything that episode
+discusses. If one sentence in it answers the query, the query's match against the
+whole is diluted by the rest. This is measurable rather than rhetorical: across the
+corpus, **longer parents have worse normalized own-cosine evidence rank at Spearman
+rho 0.484**. Separately, 831 of 881 evidence flags fall on user turns rather than
+assistant turns, so the dilution is asymmetric in a way that matters for what a
+system should index.
+
+### 6.2 NF-005 — splitting episodes into their source turns
+
+465 turn-labelled LongMemEval questions, 32,000-character budget, packing unit held
+fixed at the turn so that only the *ranking* unit varies.
+
+| Ranking unit | Packing unit | Any exact evidence | All exact evidence |
+|---|---|---:|---:|
+| Source order | Turn | 64 / 465 | 7 / 465 |
+| Episode | Episode | 351 / 465 | 201 / 465 |
+| Episode | Turn | 361 / 465 | 208 / 465 |
+| **Turn (own cosine)** | Turn | **461 / 465** | **454 / 465** |
+
+**100 gains, 0 losses, 365 ties. One-sided exact binomial p = 7.89e-31.** Median best
+evidence rank moves 5 to 1; p90 moves 131 to 7. The budget delivers 109 turns where
+it delivered 46 episodes.
+
+Gates G0 through G8 pass. The vector seal reads 167,918 cached vectors with zero
+misses. The final outcome hash and its replay hash are identical.
+
+**Scope cap.** Splitting an episode changes its character count *and* its semantic
+localization at the same time. This result supports candidate information dilution
+as the moderator; **it does not isolate raw character count**, and no experiment here
+does.
+
+### 6.3 NF-003 — where the rule reverses, and why it is stated conditionally
+
+The same corpus, varying ranking and packing independently:
+
+| Ranking unit | Packing unit | Strict answer-episode delivery |
+|---|---|---:|
+| Session | Session | 375 / 465 |
+| **Session** | **Episode** | **388 / 465** |
+| Episode | Episode | 351 / 465 |
+
+Finer *packing* gains 13 items. Finer *ranking* — at this unit, on this corpus —
+**loses 37**, with 26 gains against 63 losses. That is the opposite sign to §6.2, on
+the same corpus, and the reconciliation is the size table in §6.1: an episode is
+already small enough that its embedding stays informative, and dropping to it
+discards the broader context that was doing the scoring work. A source turn is small
+enough that its embedding is *sharp*. The 63 items rescued by coarse ranking have
+median own-episode cosine rank 46; the 26 gained by fine ranking have median rank 10.
+
+So the rule is conditional, and stated that way: **rank at the finest unit whose
+embedding remains informative, and pack at the finest affordable unit.** This is a
+posthoc characterization on an exhausted corpus, not a registered universal law, and
+§6.5 gives a second place where a tempting generalization does not hold.
+
+### 6.4 NF-006 — the same substitution on the internal store
+
+The internal 121-turn store, 119 eligible episodes, one enumeration probe worth 17
+items, 32,000 serialized characters. Selections were sealed outcome-blind before
+measurement.
+
+| Arm | Total | Civil | Art | Monetary | Marine | Units | Chars |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Episode rank, episode pack | 12/17 | 5/5 | 2/4 | 1/4 | 4/4 | 15 | 31,569 |
+| *Inherited* score, statement pack | 7/17 | 3/5 | 2/4 | 1/4 | 1/4 | 51 | 31,931 |
+| **Own-statement cosine, statement pack** | **14/17** | 5/5 | 1/4 | **4/4** | 4/4 | 80 | 31,991 |
+
+The middle row is the control that makes this a ranking result rather than a packing
+result: split the candidates but let each inherit its parent's score and delivery
+*falls* to 7 of 17. The unit only helps when it is scored on its own terms.
+
+Targeted probes hold at 21 of 21 against 21 of 21 — zero losses. Gates G0 through G9
+pass.
+
+**Two boundaries travel with this number.** The winning trace selects **no statement
+whose source turn is 90**, so the specific episode a prior diagnostic identified as
+the hardest miss remains unresolved; all four monetary items arrive by another route.
+And art falls from 2 of 4 to 1 of 4. This is a breadth composition trade, not
+universal dominance.
+
+### 6.5 Where a tempting generalization fails
+
+A budget sweep across both external corpora refutes the obvious scope condition. The
+proposal was that the effect depends on how oversubscribed the budget is — the ratio
+of available candidate text to deliverable characters. **Seven overlapping cells have
+opposite signs.** The sharpest pair: LoCoMo at a 4,000-character budget, median
+binding ratio 19.85x, nets **+123**; LongMemEval at 24,000 characters, median ratio
+19.39x, nets **−14**. Nearly identical pressure, opposite direction.
+
+The binding-ratio scope condition is therefore rejected, and the registration that
+followed was written corpus-specific rather than universal. The 16,000-character
+operating point in §5.1 was chosen because its baseline sits off-ceiling at 80.9% of
+deliverable items — **explicitly not because it showed the largest effect.**
+
+---
+
+## 7. The decomposition: three constraints in a forced order
+
+The granularity result is about the unit. This section is about what happens after
+the unit is fixed, and it is the part of the programme that generalizes least and
+explains most. All of it is DETERMINISTIC-OFFLINE on the internal store.
+
+### 7.1 Capacity was never the constraint
+
+The measurement that makes the rest possible: compute, with the answer key, the
+cheapest set of stored episodes that satisfies the enumeration probe, charged at the
+same exact serialized cost as the deployed path.
+
+| Configuration | Items available | Characters spent |
+|---|---:|---:|
+| Deployed baseline | 6 / 17 | 31,946 |
+| Shipped set-level configuration | 12 / 17 | 31,569 |
+| **Exact known optimum** | **14 / 17** | **5,058** |
+| Greedy variant | 15 / 17 | 5,455 |
+
+A perfect picker reaches the target using a sixth of the budget. Deployed selection
+spent all of it and delivered a third as much. Figure 4.
+
+**Both optima are computed with the answer key. They are bounds, not methods**, and
+they are not achievable by any retriever. One further qualifier: four of the five
+optimum episodes are *prior probe exchanges*, and this probe's earlier answers were
+largely wrong. An item counts as available if its text appears, however wrong the
+response surrounding it.
+
+### 7.2 The candidate pool binds first, and structurally
+
+The deployed path pre-filters the store to a 34-episode shortlist before any selector
+runs. **Neither art-domain contributor is in it** — they sit at cosine ranks 50 and
+86 of 119.
+
+That is not a measured comparison; it is a fact about the shortlist's contents. **No
+selection rule of any kind can reach the art domain from a shortlist that contains no
+art episode.** The constraint binds before any objective is evaluated, which is why
+it is first.
+
+With the selector held fixed and only the pool widened, the same configuration moves
+from 5 of 17 across 2 domains to **12 of 17 across 4**. Dropping only the 19
+lowest-cosine episodes of 119 costs three facts, the entire art domain, and all
+overlap with the known optimum — even though four of the five optimum episodes
+survive the cut. The selector clusters over its pool, so removing the tail reshuffles
+the objective rather than simply removing options. Figure 3.
+
+**This is the operational instruction with the widest reach: do not prune the
+candidate pool to control cost.** It is the one operation this programme measured to
+break retrieval.
+
+### 7.3 The objective binds second, and only after
+
+Run on the *deployed* 34-episode pool, the shipped set-level objective scores **5 of
+17 against the baseline's 6**. It is worse than what it replaces.
+
+That single count — one run, one configuration — is what makes the order forced
+rather than tidy. Improving the selection rule before widening the shortlist is not
+merely less effective; on this store it was negative. A practitioner who reads §7.1
+and reaches for a better objective first will reproduce that result.
+
+### 7.4 A similarity floor binds last
+
+After the pool is wide and the objective is set-level, one episode remains
+unreachable. It carries four monetary items, sits at cosine rank 112 of 119 with a
+query cosine of **0.0560**, and would need **0.225** to be selected. Only 20 of 119
+episodes clear that bar. Across 146 swept configurations, **zero** selected it.
+
+The tempting explanation — that it collided with a higher-scoring episode in the same
+diversity cluster — was tested and **refuted**: its cluster is never entered at all,
+so the diversity term was payable in full at every step. No reweighting closes a gap
+of that size. The programme shipped the configuration with the miss characterized
+rather than tuned away.
+
+### 7.5 What the internal inversion does and does not mean
+
+On this corpus's one enumeration probe, the four highest-cosine episodes carry none
+of its target facts, and the last needed item does not appear until rank 87 of 119.
+That is a striking number, and it has been tested externally, where it **narrows
+sharply**.
+
+On 470 answerable LongMemEval questions, only **69 (14.7%)** place every piece of
+evidence below the top four. Median evidence-session rank is **2**; the 95th
+percentile is 23. The internal inversion is real and it is **not the dominant
+external pattern**.
+
+Two further constraints on how far it travels. The same internal ordering places
+every needed item inside rank 2 on all eight targeted probes — so this is *one probe
+behaving unlike eight*, not an established property of query types. And a diagnostic
+built to test whether the planted vocabulary caused the inversion could not be
+completed: the prior rarity artifact scores only 6 of 76 fact-bearing episodes across
+three variants with no registered primary. That is a measurement-unit failure rather
+than a null, and the categorical claim it was meant to support has been withdrawn.
+
+---
+
+## 8. Packing priority is a causal delivery gate
+
+**Standing: DETERMINISTIC-OFFLINE.** The order in which a fixed candidate set is
+packed into a fixed budget decides what arrives. This was measured twice, once
+externally and once internally, holding everything else constant.
+
+### 8.1 EC-002 — reversing the order on 500 external stores
+
+The 500 stores from the external calibration run, replayed with **only the packing
+order changed**. The deployed order fills recency first, then similarity, then
+coverage. The counterfactual fills similarity first. No reader inference, no
+embedding call.
+
+| Outcome | Deployed order | Similarity-first | Gains | Losses |
+|---|---:|---:|---:|---:|
+| Any evidence session | 109 / 470 (23.2%) | **261 / 470 (55.5%)** | 152 | **0** |
+| All evidence sessions | 34 / 470 | 137 / 470 | 103 | 0 |
+| Any exact answer turn | 79 / 470 (16.8%) | 196 / 470 (41.7%) | 119 | 2 |
+| All exact answer turns | 20 / 470 | 106 / 470 | 86 | 0 |
+
+**Plus 32.3 percentage points on the primary, with 152 gains and no losses.**
+Restricted to the 401 questions whose evidence was already in the top four ranks,
+recall goes from 96 to 248. The evidence was ranked correctly and then not delivered.
+
+**The medians concealed all of it.** Block size stays at 31,920 characters; the median
+composition stays 16 recency episodes, 0 non-recency similarity episodes, 1 coverage
+episode. What moves is the aggregate: delivered similarity episodes rise from **26 to
+476**. A summary statistic that looked stable across the change was hiding a
+twentyfold difference in the tier the system exists to provide.
+
+Residual, stated because it bounds the fix: 209 of 470 still recall no evidence
+session under the better order.
+
+### 8.2 IC-001 — the same gate on the internal store
+
+Both orders replayed over frozen candidate identities; zero inference, zero
+embedding, no vector re-derived.
+
+**Under the deployed order, the similarity path delivered zero episodes and zero
+characters at 8 of 8 probes.** Every internal number this programme published for
+that configuration sits behind a starved fill order. Reversing it delivers 9 episodes
+and 14,796 characters. The enumeration probe moves 6 to 7 of 17; targeted probes move
+14 to 18 of 21, with four gains and zero losses. At the enumeration probe the
+reversed order delivers 12 episodes in 31,863 characters against 8 in 31,946 — four
+more episodes in 83 fewer characters.
+
+### 8.3 What was done about it, and why that is not a contradiction
+
+The correction was tested live and **rejected**. A registered comparison scored the
+similarity-first arm at 7.0 against the deployed arm's 8.0, and the registration's
+own bar fired. The correction is not adopted.
+
+Those two facts sit together honestly. The suppression is confirmed — it is an
+offline count, byte-identically replayable, and §12.1's noise band does not touch it.
+The live comparison that would have justified adopting the fix went the other way,
+and its −1.0 margin is *inside* the band and therefore **not demonstrated in either
+direction**. The programme's registration forbids citing the band to revive the
+rejected correction, and this paper does not. What is established is that packing
+order is a delivery gate. What is not established is that reversing it improves
+answers.
+
+---
