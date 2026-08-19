@@ -33,7 +33,11 @@ published number moves, `ERRATA.md` gets an entry.
 | 2026-08-18 | 5 — figures | DONE | 7 figures, 33 hashed inputs, byte-identical across two runs |
 | 2026-08-18 | 5 — finalization | DONE | PDF builds at 22 pages; PAPER-001 retired and every reference repointed |
 | 2026-08-18 | 5 — regression check | PASS | 1,831 passed / 1 failed, identical to the pre-change baseline |
-| 2026-08-18 | 3 — peer review | RUNNING | Five-seat panel against arXiv cs.CL |
+| 2026-08-18 | 3 — peer review (Cycle 3) | 30 OBJECTIONS, ALL ACCEPTED | Reframe crossed into overclaim in the summary and conclusion; body within evidence |
+| 2026-08-18 | 4 — revision | DONE | All 30 applied |
+| 2026-08-18 | 4.5 — re-review (Cycle 4) | 14 FIXED / 12 PARTIAL / 2 NOT FIXED / 0 REGRESSED | Reader test now passes; every partial fixed only at the quoted site |
+| 2026-08-18 | 4.5 — value-grep pass | DONE | All partials fixed at every site; 9 new objections applied |
+| 2026-08-18 | 5 — final regression | PASS | 1,831 passed / 1 failed, identical to baseline |
 
 ---
 
@@ -86,3 +90,28 @@ the baseline exactly. The single failure is
 `ERRATA.md` (2026-08-18) as a constant that never matched the file it names.
 Deleting `PAPER_001.md`, `generate_paper_001_figures.py` and the PAPER-001 figure set
 broke nothing: no test referenced them.
+
+### Cycles 3 and 4 — what adversarial review was worth
+
+Cycle 3 raised thirty objections and its verdict was that the reframe crossed into
+overclaim, confined to the executive summary and conclusion. The diagnostic was not
+any single error but their direction: six overstatements and one omission in the
+summary all ran the same way. Tuning for confidence and not re-checking each claim
+against its cap produces exactly that signature.
+
+Cycle 4 then found the repair had the same defect in miniature. Twelve of the thirty
+were fixed at the site Cycle 3 quoted and nowhere else — "eleven pre-registered"
+survived in the subtitle, the pruning claim survived as §7.2's own closing line
+contradicting §7.2, and §8.3 kept "byte-identically replayable" fourteen lines under
+§8.1's new denial of it. `PASS_6_SLOP_AUDIT.md` records the only method that works
+and it was not used: grep for the superseded value rather than rereading.
+
+Two findings justified Cycle 4 by themselves. `EVIDENCE_SPINE.md` still carried the
+retired four-level taxonomy while the paper cited it as authoritative — the gate
+document disagreeing with the gate — and the new REGISTERED-OFFLINE level required
+"byte-identical on replay" while its own EC-002 row denied it.
+
+**The standing bias, recorded because it is not fixable by more editing.** Across
+both cycles the magnitude of the overclaim collapsed and its sign did not: the three
+smallest errors Cycle 4 left open all still make the component look stronger. Any
+future edit to this paper should assume that bias is present.
