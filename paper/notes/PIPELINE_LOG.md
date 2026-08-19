@@ -28,9 +28,10 @@ published number moves, `ERRATA.md` gets an entry.
 | 2026-08-18 | 1 — evidence spine | DONE | `EVIDENCE_SPINE.md` and `DO_NOT_WRITE.md` committed at `af3913e3`, before any prose |
 | 2026-08-18 | 2 — write | DONE | `PAPER_002.md` sections 1–13 and appendices drafted |
 | 2026-08-18 | 2.5 — claim gates | PASS | Number trace and withdrawn-value gates green; 33 untraced numbers found and traced |
-| 2026-08-18 | 2.5 — integrity review | RUNNING | Seven-mode blocking checklist via the principal-investigator subagent |
-| 2026-08-18 | 1 — positioning | RUNNING | Published competitor results with citation verification |
-| 2026-08-18 | 5 — figures | RUNNING | `generate_paper_002_figures.py` under the PAPER-001 provenance contract |
+| 2026-08-18 | 2.5 — integrity review | APPROVE WITH CHANGES | Seven findings applied; DMR-004's raters were described as human against the protocol |
+| 2026-08-18 | 1 — positioning | DONE | 15 citations, 13 verified, 2 unresolvable; `COMPETITIVE_LANDSCAPE.md` |
+| 2026-08-18 | 5 — figures | DONE | 7 figures, 33 hashed inputs, byte-identical across two runs |
+| 2026-08-18 | 5 — finalization | DONE | PDF builds at 22 pages; PAPER-001 retired and every reference repointed |
 
 ---
 
@@ -55,3 +56,22 @@ names *while correcting it* is not a revived claim — naming the superseded fig
 then giving the corrected one is how `ERRATA.md` records a correction, and is the
 opposite of restating it. The machine-checkable forbidden list therefore holds only
 values with no legitimate corrective use.
+
+### Stage 2.5 — the integrity review caught an overclaim
+
+The checkpoint returned APPROVE WITH CHANGES with two blocking items. The first was
+a real error: §5.2 described DMR-004's two annotators as human. `DMR_004_ANNOTATION_
+PROTOCOL.md` records rater A as the implementing agent and rater B as the carried
+local model, and §12.8 of this same paper says the raters were not human. The draft
+contradicted itself in favour of the stronger reading, which is the exact direction
+a confident reframe fails in.
+
+The review also checked the opposite failure and found none: no well-evidenced
+result was hedged into vagueness, and the sealed-holdout result reads as what it is.
+
+### Stage 5 — a build defect the restructure exposed
+
+`build_paper_pdf.py` closed the executive-summary and abstract wrapper blocks on a
+heading matched by its literal title, "Reading this paper" — a section PAPER-001 had
+and PAPER-002 does not. The block never closed, and Typst reported an unclosed
+delimiter 670 lines from the cause. Closing is now structural.

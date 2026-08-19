@@ -1,5 +1,10 @@
 # PAPER-001 Pass 0 — Evidence Index and Spec Reconciliation
 
+> **Historical record — PAPER-001.** This file is the evidence notes for `PAPER_001.md`,
+> retired 2026-08-18. It is kept because `ERRATA.md` and `paper/reviews/` cite it, and
+> because its scope caps are the source PAPER-002's spine was built from. The live
+> equivalent is `paper/notes/EVIDENCE_SPINE.md`; this file is not maintained.
+
 Working document. Not part of the paper. Records what was verified against
 committed artifacts before drafting, and every place the authoring spec
 disagrees with the repository.

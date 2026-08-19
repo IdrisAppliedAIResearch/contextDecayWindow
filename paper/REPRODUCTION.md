@@ -19,7 +19,7 @@ deployed selection spent all of it for 6 of 17.
 The 12-of-17 selection result cannot be reproduced from committed data alone. It
 needs per-episode embedding vectors, which live in a SQLite store that is
 gitignored and was never committed, and regenerating them needs the carried
-embedder, which is not in the repository either. §8.10 and `paper/notes/
+embedder, which is not in the repository either. §12 and `paper/notes/
 EVIDENCE_INDEX.md` §3b record the same limitation for Figure 1.
 
 The 5,058-character result has no such dependency. The renderer is a pure
@@ -108,7 +108,7 @@ committed data by a reader with no access to this program's runtime.
 
 It does not establish the selection results. Those are availability measurements
 over a store whose vectors are not committed, and reproducing them needs the
-embedder under the batched call shape described in §7.4. A reader who wants to
+embedder under the batched call shape described in §11.3. A reader who wants to
 check those has the per-configuration outputs in
 `experiments/components/retrieval_mechanism_ledger/artifacts/e005/` and the hash
 index in `paper/CLAIM_TO_ARTIFACT.md`, but cannot regenerate them from source.
