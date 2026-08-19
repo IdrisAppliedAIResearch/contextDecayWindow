@@ -151,12 +151,13 @@ def main() -> int:
 
     if untraced:
         print(f"\nNUMBER TRACE: FAIL — {len(untraced)} untraced")
-        print("Each appears in the paper and nowhere in EVIDENCE_SPINE.md.")
-        print("Trace it to a committed artifact, add it to the spine, or cut it.\n")
+        print("Each appears in the paper and in neither trace source.")
+        print("Add it to EVIDENCE_SPINE.md if measured here, to")
+        print("COMPETITIVE_LANDSCAPE.md if cited from a publication, or cut it.")
         for token in untraced:
             print(f"  {token}")
     else:
-        print("\nNUMBER TRACE: PASS — every measurement traces to the spine")
+        print("\nNUMBER TRACE: PASS — every number traces to the spine or the landscape")
 
     if revived:
         print(f"\nWITHDRAWN VALUES: FAIL — {len(revived)} revived\n")

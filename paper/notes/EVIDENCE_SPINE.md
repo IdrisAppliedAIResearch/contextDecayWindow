@@ -663,3 +663,12 @@ review rather than automation.
 | Optimum episodes that are prior probe exchanges | 4 of 5 | probe-turn map, per `CLAIM_TO_ARTIFACT.md` C88 |
 | Domains the internal corpus spans | 4 | Study 002 design |
 | Probes behaving unlike the enumeration one | 8 targeted | DR-002 report |
+
+### 7.14 Figure provenance
+
+| Value | What it is | Source |
+|---|---|---|
+| 7 | Figures in PAPER-002, all build outputs | `scripts/generate_paper_002_figures.py` |
+| 33 | Committed artifacts the figure script reads and hashes | `paper/figures/figure_manifest_002.json` |
+| 5 | Registered bars that exist only in prose and are pattern-extracted, failing the build rather than plotting a stale value | same |
+| 15 / 11 | Mechanism rows with a committed numeric bar, and rows drawn categorically because none exists | same |
