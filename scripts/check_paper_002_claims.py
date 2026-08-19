@@ -18,6 +18,14 @@ Neither check can prove a claim is right. They catch the two failure modes this
 repository has actually committed: a number that drifted from its artifact, and a
 withdrawn claim that came back during a rewrite because it was the cleaner sentence.
 
+COVERAGE BOUNDARY, stated because a gate whose limits are unstated invites the
+reading that it checked everything. Bare integers of `PROSE_CEILING` or less are
+exempt, since at that size a numeral is usually prose rather than measurement. That
+exempts real claims: "5 of 17 across 2 domains", "12 domains to 2", "10 of 10 facts
+used". Those are traced by hand in EVIDENCE_SPINE.md section 7.13 and rest on review,
+not on this script. Lowering the ceiling does not fix it -- it drowns the signal --
+so the boundary is documented instead of closed.
+
 Exit code 0 if both checks pass, 1 otherwise.
 
 Usage, from the repository root:

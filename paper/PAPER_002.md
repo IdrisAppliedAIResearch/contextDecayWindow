@@ -14,8 +14,8 @@ Preprint — PAPER-002 · supersedes PAPER-001
 one stores every exchange verbatim, ranks candidates by embedding similarity at the
 finest unit that stays informative, and packs a fixed character budget with a
 set-level coverage objective. Nothing in the path asks a model to write text about
-the store. On a sealed external holdout it beats its own strongest control by a
-margin that is not close.
+the store. On a sealed external holdout it beats its own strongest
+control on evidence availability by a margin that is not close.
 
 **The headline result.** On six LoCoMo conversations sealed until the bars were
 locked — 1,098 question-answer records, a 16,000-character budget, **zero model
@@ -129,7 +129,8 @@ to store every exchange verbatim and rebuild a small, relevant context each turn
 which moves the problem from compression to selection.
 
 This paper is about that third option, built and measured over eleven pre-registered
-experiments. Most of the mechanisms failed. What survived is smaller than what the
+efforts — **ten numbered studies plus one registered exploratory bakeoff**, counted
+that way throughout. Most of the mechanisms failed. What survived is smaller than what the
 programme set out to build, and the reason it is worth reading is that the survivor
 is now confirmed on a corpus this programme did not construct, and that the failures
 are specific enough to name.
@@ -449,7 +450,7 @@ repository, and it returned nothing.
 The question: can a model-free precedence parser over query text alone identify when
 a query's evidence obligations are *finite* — when a retriever can know it has
 enough and stop? A positive result would have given the deterministic stack an
-adaptive controller. Sealed 180-query holdout, two blind raters, and PF3 verifying
+adaptive controller. Sealed 180-query holdout, two blind raters — neither human, see §12.8 — and PF3 verifying
 the entire commit ordering from git history: protocol, then labels, then
 registration, then compiler, then holdout labels, then gates, with the registration
 commit carrying exactly one file.
@@ -463,9 +464,12 @@ commit carrying exactly one file.
 
 Raw accuracy was 0.706. An always-`OPEN` degenerate control scores **0.650**, which
 is precisely why J and not accuracy was the registered statistic: a 5.6-point margin
-over answering "I cannot tell" to everything is not a controller. The two human
-raters reached J of about 0.76 against the compiler's 0.320, with Cohen's kappa of
-0.770 — so the task is doable and the mechanism did not do it.
+over answering "I cannot tell" to everything is not a controller. The two raters
+— the implementing agent and the carried local model — reached J of about 0.76
+against the compiler's 0.320, with Cohen's kappa of 0.770, so the task is doable and
+the mechanism did not do it. The registration records the boundary before any label
+existed: rater A is not independent of the mechanism, and **neither rater is human**
+(§12.8).
 
 The failure structure is specific. Of 31 misses, 12 are questions of the form *which
 happened first* — a family flagged in writing before the compiler existed and
@@ -525,8 +529,9 @@ design document had proposed.
 
 ### 5.5 What five sealed experiments bought
 
-One positive result, on the unit of ranking, that reproduces on every corpus tried
-and every conversation inside the sealed one. Three well-built negatives that each
+One positive result, on the unit of ranking, that reproduces at the turn and pair
+unit on all three corpora and on every conversation inside the sealed one, with §6.3
+marking where the direction reverses at a coarser unit. Three well-built negatives that each
 closed a line the programme wanted: adaptive stopping, event segmentation, and
 surprisal-based capture. One split verdict where the transfer property confirmed and
 the claim built on top of it did not.
@@ -867,7 +872,7 @@ had to clear.
 | Distillation and "dreaming" | Five studies; query-blind selection cannot anticipate a later query |
 | Promotion filters | The weighted route was arithmetically unreachable; every promotion came via bypass |
 | Topic layer and consolidation | 52 topics for one 120-turn conversation; 12 domains collapsed to 2 at 1,000 turns |
-| Associative graph from co-activation | No configuration cleared its advancement gate at any of eight edge types and three depths |
+| Associative graph from co-activation | No configuration cleared its advancement gate at any of eight registered edge sets across three depths |
 | Query-type routing | Oracle ceiling 6.09% against a registered 10% build threshold |
 | Approximate nearest-neighbour search | Recall degraded at synthetic scale |
 | Query segmentation | Improved its matched-budget baseline from 6/17 to 10/17 and still failed its locked 14/17 bar |
@@ -899,7 +904,7 @@ era reached. All 17 were present in the raw store. Retrieval did not find them.
 **One item is retired rather than solved.** The component emits no absence signal on
 any of 500 external questions, while the fixed reader correctly abstained on 17 of 20
 registered abstention items. That does not give the component an absence detector, and
-it does not establish reader robustness across models and prompts. It shows that
+it does not establish reader reliability across models and prompts. It shows that
 component-level detection is not necessary for end-to-end abstention *under this
 tested reader*, which is why the requirement is retired at the component level rather
 than marked solved.
@@ -1003,6 +1008,15 @@ here where one could not:
   constants were recorded under one line-ending convention and checked under another.
   The cost was fourteen gates that could not have detected real drift, and one real
   drift was sitting behind them.
+- A fifteenth was found while this paper was being written, on the sealed holdout
+  itself. The constant binding NF-004's LoCoMo corpus-lock record has never matched
+  the file it names: that file has one revision and one hash, and the expected value
+  matches nothing in the repository. Its two sibling constants verify clean, and the
+  corpus lock's content is independently checkable and intact, so no NF-004 number
+  moves. What moves is the gate's status — for its whole life it could not have
+  detected a real change to the record it guards. It is recorded rather than quietly
+  corrected, because editing a study's pinned anchor to make a test pass is a
+  mechanism change and does not belong in a paper rewrite.
 
 ---
 
@@ -1160,7 +1174,7 @@ rest did not work.
 **For a practitioner**, three things transfer.
 
 *Rank at the finest unit whose embedding stays informative.* This is the result with
-sealed external confirmation and the largest measured effect in the programme —
+sealed external confirmation —
 843 to 935 of 1,098 on withheld conversations, and 361 to 461 of 465 with zero losses
 on a second corpus. The mechanism is candidate size: a 2,550-character episode
 averages away the 298-character turn that answers the question.
@@ -1224,7 +1238,7 @@ on the machine-checkable superseded list may appear at all. Both pass at the
 committed revision. Neither proves a claim is right; they catch the two failure
 modes this repository has actually committed.
 
-**D. Corrections index** — `ERRATA.md`, 19 entries, cross-referenced from §11. It
+**D. Corrections index** — `ERRATA.md`, 20 entries, cross-referenced from §11. It
 includes one entry that was wrong when first written and is superseded in place by
 its own reversal, with the original text kept so the mistake stays visible.
 

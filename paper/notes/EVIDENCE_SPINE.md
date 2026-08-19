@@ -637,3 +637,29 @@ The paper rounds two values for readability. Both forms are admissible.
 |---|---|---|
 | 87 | Cosine rank of the last still-needed enumeration item, of 119 | `rd001/full_rank_inventory.csv` |
 | 76 | Fact-bearing episodes in the store; the rarity audit scores only 6 of them, which is why the join fails | `RD_001_RARITY_PROVENANCE_AUDIT.md` |
+
+### 7.13 Small-integer claims the automated gate does not cover
+
+`scripts/check_paper_002_claims.py` exempts bare integers of 20 or less, because at
+that size a numeral is usually prose ("three constraints", "the first two") and
+flagging them all would drown the signal. That exemption is a **real coverage
+boundary**, not a clean pass: the fractions below are load-bearing claims that the
+gate cannot distinguish from prose. They are traced here by hand, and they rest on
+review rather than automation.
+
+| Claim | Value | Source |
+|---|---|---|
+| Deployed baseline on its own pool | 6/17 across 3 of 4 domains | `e005/a0_baseline.json` |
+| Shipped objective on the deployed 34-episode pool | 5/17 across 2 domains | `e005/configuration_sweep.csv` |
+| Best query segmentation at matched budget | 10/17 across 3 of 4 domains | E002 report |
+| Best registered bakeoff retrieval block | 8/17 | Retrieval bakeoff report |
+| Formation-era ceiling | 11/17 | Study 009 breadth matrix |
+| Facility location's raw-count lead, passing no gate | 13/17, monetary 0/4 | `e005/configuration_sweep.csv` |
+| Targeted items preserved by the shipped configuration | 16/16 | `e005/e005_results.json` |
+| Topic collapse at 1,000 turns | 12 domains to 2 | Study 010 report |
+| Facts available and used at the hardest probe, none invented | 10 of 10 | Study 007 evaluation |
+| Amendments carried by the bakeoff | 12 | `retrieval_bakeoff/amendments/` |
+| Abstention items the fixed reader answered correctly | 17 of 20 | `EC_001_REPORT.md` |
+| Optimum episodes that are prior probe exchanges | 4 of 5 | probe-turn map, per `CLAIM_TO_ARTIFACT.md` C88 |
+| Domains the internal corpus spans | 4 | Study 002 design |
+| Probes behaving unlike the enumeration one | 8 targeted | DR-002 report |

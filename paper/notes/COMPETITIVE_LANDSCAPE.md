@@ -19,56 +19,88 @@ carrying an answer was present in the delivered context, established with zero
 generative calls during measurement. Putting a 66.88% J-score beside a 935/1,098
 availability count would be a surrogate that can pass without the property it claims
 to certify, which is the failure class `AGENTS.md` §3 names as this programme's
-recurring one. LV-001 measured the two properties moving in opposite directions on
-this repository's own corpus: availability preserved 16/16 targeted items offline
-while the live targeted score fell 3.5/8 → 1.5/8. The substitution is not
-hypothetical here. It has already been caught once.
+recurring one. LV-001 found the two properties pointing in opposite directions on this
+repository's own corpus: the shipping configuration preserved 16/16 targeted items
+offline while its live targeted score fell 3.5/8 → 1.5/8. That −2.0 gap sits inside
+the measured 3.0-point instrument band and is therefore **NOT DEMONSTRATED** as a
+magnitude (`EVIDENCE_SPINE.md` §4). What is not band-limited is the disposition: B2
+was registered as a kill at a 0.5 tolerance, it fired, and the promotion did not
+happen. The substitution is not hypothetical here. It has already been caught once.
 
 ---
 
 ## 1. Citations and verification status
 
-**Method.** Each identifier was resolved against the arXiv API (`export.arxiv.org`)
-on 2026-08-18 and the returned title, author list, submission date and comment field
-compared against the entry. `verified` below means that record was returned and
-matched. Venue is recorded only where the record states it.
+**Method.** Each identifier was resolved against the arXiv API (`export.arxiv.org`) on
+2026-08-18, and the returned title, author list, submission date and comment field
+compared against the entry. Eleven were then re-resolved against a second index —
+OpenAlex by DOI or title, ACL Anthology for LoCoMo. `verified` means both a title and
+an author list came back matching. Venue is recorded with the source that states it,
+because for four entries the two indexes disagree about whether the work is a preprint
+or a proceedings paper.
 
-| # | Key | Work | Authors | Year | Venue | Identifier | Status |
-|---|---|---|---|---|---|---|---|
-| 1 | **Mem0 / Mem0ᵍ** | Mem0: Building Production-Ready AI Agents with Scalable Long-Term Memory | Chhikara, Khant, Aryan, Singh, Yadav | 2025 | preprint (no venue in record) | arXiv:2504.19413v1, submitted 2025-04-28 | **verified** |
-| 2 | **Zep** | Zep: A Temporal Knowledge Graph Architecture for Agent Memory | Rasmussen, Paliychuk, Beauvais, Ryan, Chalef | 2025 | preprint (record: "12 pages, 3 tables") | arXiv:2501.13956v1, submitted 2025-01-20 | **verified** |
-| 3 | **Graphiti** | — | — | — | — | — | **no standalone publication located.** Graphiti is named in the Zep abstract as Zep's "temporally-aware knowledge graph engine" and is described inside entry 2. Cite entry 2 |
-| 4 | **MemGPT** | MemGPT: Towards LLMs as Operating Systems | Packer, Wooders, Lin, Fang, Patil, Stoica, Gonzalez | 2023 (v2 2024) | preprint | arXiv:2310.08560v2, submitted 2023-10-12, revised 2024-02-12 | **verified** |
-| 5 | **Letta** | Sleep-time Compute: Beyond Inference Scaling at Test-time | Lin, Snell, Wang, Packer, Wooders, Stoica, Gonzalez | 2025 | preprint | arXiv:2504.13171v1, submitted 2025-04-17 | **verified.** No standalone system paper for the Letta product was located; MemGPT (entry 4) is the system paper, this is the nearest Letta-authored follow-up |
-| 6 | **A-MEM** | A-MEM: Agentic Memory for LLM Agents | Xu, Liang, Mei, Gao, Tan, Zhang | 2025 | **NeurIPS 2025** (stated in record comment) | arXiv:2502.12110v11, submitted 2025-02-17, revised 2025-10-08 | **verified** |
-| 7 | **LangMem** | — | LangChain | 2025 | — | — | **unresolvable.** No arXiv, Semantic Scholar, OpenAlex or Crossref record for a LangMem paper was located. It is an SDK with a launch blog post and documentation. Its only citable number is as a **baseline inside entry 1** |
-| 8 | **HippoRAG** | HippoRAG: Neurobiologically Inspired Long-Term Memory for Large Language Models | Jiménez Gutiérrez, Shu, Gu, Yasunaga, Su | 2024 | **NeurIPS 2024** (stated in record comment; proceedings link already carried in `LITERATURE_LANDSCAPE.md` §2) | arXiv:2405.14831v3, submitted 2024-05-23 | **verified** |
-| 9 | **HippoRAG 2** | From RAG to Memory: Non-Parametric Continual Learning for Large Language Models | Jiménez Gutiérrez, Shu, Qi, Zhou, Su | 2025 | **ICML 2025** (stated in record comment) | arXiv:2502.14802v2, submitted 2025-02-20 | **verified** |
-| 10 | **LongMemEval** | LongMemEval: Benchmarking Chat Assistants on Long-Term Interactive Memory | Wu, Wang, Yu, Zhang, Chang, Yu | 2024 (v2 2025) | **ICLR 2025** (stated in record comment) | arXiv:2410.10813v2, submitted 2024-10-14 | **verified** |
-| 11 | **LoCoMo** | Evaluating Very Long-Term Conversational Memory of LLM Agents | Maharana, Lee, Tulyakov, Bansal, Barbieri, Fang | 2024 | **ACL 2024** (`aclanthology.org/2024.acl-long.747/`, carried in `LITERATURE_LANDSCAPE.md` §3) | arXiv:2402.17753v1, submitted 2024-02-27 | **verified** |
-| 12 | **MemR³** | MemR³: Memory Retrieval via Reflective Reasoning for LLM Agents | Du, Li, Zhang, Song | 2025 | preprint (record: "16 pages, 6 figures") | arXiv:2512.20237v1, submitted 2025-12-23 | **verified** |
-| 13 | **RF-Mem** | Evoking User Memory: Personalizing LLM via Recollection-Familiarity Adaptive Retrieval | Zhang, Li, Zhang, Jia, Li, Wang, Xu, Wen, Guo, Liu, Zhao | 2026 | **ICLR 2026** (stated in record comment) | arXiv:2603.09250v1, submitted 2026-03-10 | **verified — with a correction, see §1.1** |
-| 14 | **EviMem** | EviMem: Evidence-Gap-Driven Iterative Retrieval for Long-Term Conversational Memory | Li, He, Zhang, Gong | 2026 | preprint | arXiv:2604.27695v1, submitted 2026-04-30 | **verified** |
-| 15 | **MGRetrieval** | MGRetrieval: Memory-Guided Reflective Retrieval for Long-Term Dialogue Agents | Wang, Dong | 2026 | preprint | arXiv:2605.27437v1, submitted 2026-05-22 | **verified** |
+| # | Key | Work | Authors | Year | Venue, and who states it | Identifier | Second source | Status |
+|---|---|---|---|---|---|---|---|---|
+| 1 | **Mem0 / Mem0ᵍ** | Mem0: Building Production-Ready AI Agents with Scalable Long-Term Memory | Chhikara, Khant, Aryan, Singh, Yadav | 2025 | preprint; no venue in either record | arXiv:2504.19413v1, submitted 2025-04-28 | OpenAlex `10.48550/arXiv.2504.19413`, type preprint, 5 authors matching | **verified** |
+| 2 | **Zep** | Zep: A Temporal Knowledge Graph Architecture for Agent Memory | Rasmussen, Paliychuk, Beauvais, Ryan, Chalef | 2025 | preprint; arXiv comment "12 pages, 3 tables" | arXiv:2501.13956v1, submitted 2025-01-20 | OpenAlex `10.48550/arXiv.2501.13956`, type preprint, 5 authors matching | **verified** |
+| 3 | **Graphiti** | — | — | — | — | — | — | **no standalone publication located.** Named in the Zep abstract as Zep's "temporally-aware knowledge graph engine" and described inside entry 2. Cite entry 2 |
+| 4 | **MemGPT** | MemGPT: Towards LLMs as Operating Systems | Packer, Wooders, Lin, Fang, Patil, Stoica, Gonzalez | 2023 (v2 2024) | preprint in both indexes | arXiv:2310.08560v2, submitted 2023-10-12, revised 2024-02-12 | OpenAlex `10.48550/arXiv.2310.08560`, type preprint, 7 authors matching | **verified** |
+| 5 | **Letta** | Sleep-time Compute: Beyond Inference Scaling at Test-time | Lin, Snell, Wang, Packer, Wooders, Stoica, Gonzalez | 2025 | preprint in both indexes | arXiv:2504.13171v1, submitted 2025-04-17 | OpenAlex `10.48550/arXiv.2504.13171`, type preprint, 7 authors matching | **verified.** No standalone system paper for the Letta product was located. MemGPT (entry 4) is the system paper; this is the nearest Letta-authored follow-up, and it is about idle-time precomputation rather than about the memory layer's interface |
+| 6 | **A-MEM** | A-MEM: Agentic Memory for LLM Agents | Xu, Liang, Mei, Gao, Tan, Zhang | 2025 | **NeurIPS 2025**, stated by both — arXiv comment, and OpenAlex as a conference paper in *Advances in Neural Information Processing Systems 38* | arXiv:2502.12110v11, submitted 2025-02-17, revised 2025-10-08 | OpenAlex DOI `10.52202/085713-0593` | **verified, venue confirmed twice** |
+| 7 | **LangMem** | — | LangChain | 2025 | — | — | — | **unresolvable.** A web search for a LangMem publication returned an SDK launch post and documentation, and no paper; no arXiv record was located. Crossref was not queried. Its only citable number is as a **baseline inside entry 1** |
+| 8 | **HippoRAG** | HippoRAG: Neurobiologically Inspired Long-Term Memory for Large Language Models | Jiménez Gutiérrez, Shu, Gu, Yasunaga, Su | 2024 | **NeurIPS 2024**, stated by both — arXiv comment, and OpenAlex as a conference paper in *Advances in Neural Information Processing Systems 37* | arXiv:2405.14831v3, submitted 2024-05-23 | OpenAlex DOI `10.52202/079017-1902`; proceedings link already carried in `LITERATURE_LANDSCAPE.md` §2 | **verified, venue confirmed twice** |
+| 9 | **HippoRAG 2** | From RAG to Memory: Non-Parametric Continual Learning for Large Language Models | Jiménez Gutiérrez, Shu, Qi, Zhou, Su | 2025 | **ICML 2025** per the arXiv comment. **OpenAlex holds only the preprint record** | arXiv:2502.14802v2, submitted 2025-02-20 | OpenAlex `10.48550/arXiv.2502.14802`, type preprint | **verified; venue on one source only** |
+| 10 | **LongMemEval** | LongMemEval: Benchmarking Chat Assistants on Long-Term Interactive Memory | Wu, Wang, Yu, Zhang, Chang, Yu | 2024 (v2 2025) | **ICLR 2025** per the arXiv comment. **OpenAlex holds only the preprint record** | arXiv:2410.10813v2, submitted 2024-10-14 | OpenAlex `10.48550/arXiv.2410.10813`, type preprint | **verified; venue on one source only** |
+| 11 | **LoCoMo** | Evaluating Very Long-Term Conversational Memory of LLM Agents | Maharana, Lee, Tulyakov, Bansal, Barbieri, Fang | 2024 | **ACL 2024**, Volume 1 Long Papers, pages **13851–13870**, DOI `10.18653/v1/2024.acl-long.747` | arXiv:2402.17753v1, submitted 2024-02-27 | ACL Anthology page and OpenAlex, both giving the same pages and venue | **verified, venue confirmed twice — and see §1.2** |
+| 12 | **MemR³** | MemR³: Memory Retrieval via Reflective Reasoning for LLM Agents | Du, Li, Zhang, Song | 2025 | preprint; arXiv comment "16 pages, 6 figures" | arXiv:2512.20237v1, submitted 2025-12-23 | not re-resolved | **verified on arXiv only** |
+| 13 | **RF-Mem** | Evoking User Memory: Personalizing LLM via Recollection-Familiarity Adaptive Retrieval | Zhang, Li, Zhang, Jia, Li, Wang, Xu, Wen, Guo, Liu, Zhao | 2026 | **ICLR 2026** per the arXiv comment. **OpenAlex holds only the preprint record** | arXiv:2603.09250v1, submitted 2026-03-10 | OpenAlex `10.48550/arXiv.2603.09250`, type preprint | **verified — with a correction, see §1.1** |
+| 14 | **EviMem** | EviMem: Evidence-Gap-Driven Iterative Retrieval for Long-Term Conversational Memory | Li, He, Zhang, Gong | 2026 | preprint | arXiv:2604.27695v1, submitted 2026-04-30 | not re-resolved | **verified on arXiv only** |
+| 15 | **MGRetrieval** | MGRetrieval: Memory-Guided Reflective Retrieval for Long-Term Dialogue Agents | Wang, Dong | 2026 | preprint | arXiv:2605.27437v1, submitted 2026-05-22 | not re-resolved | **verified on arXiv only** |
 
-**Count: 15 entries. 13 verified against a returned arXiv record. 2 carry no
-standalone publication** — Graphiti (entry 3, described inside the Zep paper) and
-LangMem (entry 7, `unresolvable`). Neither is dropped and neither is invented.
+**Count: 15 entries. 13 verified — 10 of those against two independent indexes, 3
+against arXiv alone. 2 carry no standalone publication:** Graphiti (entry 3, described
+inside the Zep paper) and LangMem (entry 7, `unresolvable`). Neither is dropped and
+neither is invented.
+
+**Scope of this table.** PAPER-002 §2 also names GraphRAG, SGMem and CodaRAG under
+*structure over retrieved units*. Those are cited there for a mechanism this programme
+built and stopped (§10), not as memory-layer competitors, and they were outside this
+file's brief. They carry no verification status here, and a reader of §2 should not
+read this file as covering them.
 
 ### 1.1 Two corrections to `E006_PART2_S1_PRIOR_ART_SCAN.md`
 
 The prior-art scan of 2026-08-10 recorded four LoCoMo-adjacent works. All four
 identifiers resolve. Two entries need correcting when they are carried into the paper:
 
-- **"RF-Mem" is a nickname, not the title.** arXiv:2603.09250 is titled *Evoking User
-  Memory: Personalizing LLM via Recollection-Familiarity Adaptive Retrieval*. The
-  paper must cite the title, not the scan's shorthand.
-- **RF-Mem is no longer a preprint.** The record states **ICLR 2026**. The scan
-  labelled it "2026 preprint". Since the scan called it the *closest mechanical prior
-  art* to E006 Part 2, its promotion to a published venue strengthens the scan's own
-  positioning conclusion rather than weakening it.
+- **"RF-Mem" is the system's name, not the paper's title.** arXiv:2603.09250 is titled
+  *Evoking User Memory: Personalizing LLM via Recollection-Familiarity Adaptive
+  Retrieval*; RF-Mem is the mechanism named inside it. A bibliography entry keyed to
+  the shorthand will not resolve.
+- **RF-Mem is no longer only a preprint.** The arXiv record states **ICLR 2026**; the
+  scan labelled it "2026 preprint". OpenAlex still indexes the preprint. Since the scan
+  called it the *closest mechanical prior art* to E006 Part 2, a published venue
+  strengthens the scan's positioning conclusion rather than weakening it.
 
 MemR³, EviMem and MGRetrieval remain preprints, as the scan recorded.
+
+### 1.2 LoCoMo's two abstracts do not agree, and the paper cites the corpus by name
+
+The preprint and the camera-ready describe conversations of different sizes.
+
+| Source | Statistics, quoted |
+|---|---|
+| arXiv:2402.17753v1 abstract | "each encompassing **300 turns and 9K tokens** on avg., over up to **35 sessions**" |
+| ACL 2024 abstract, `2024.acl-long.747` | "**600 turns and 16K tokens** on avg., over up to **32 sessions**" |
+
+Both were fetched and quoted; this is not a transcription slip. It matters here for two
+reasons. Downstream memory papers quote the preprint figure — A-MEM's evaluation
+section describes LoCoMo as "9K tokens, up to 35 sessions" — so a citation chain can
+carry the smaller number without touching the published version. And this repository
+ran on LoCoMo conversations itself (NF-004, six sealed conversations, 1,098 QA
+records), which makes the corpus name shared between this paper and its neighbours.
+**A shared corpus name is the single most likely place for a reader to infer a
+head-to-head that does not exist.** See §3.2.
 
 ---
 
@@ -98,7 +130,8 @@ per-system caveats below the table are part of the citation.
 | HippoRAG | multi-hop QA | up to **20%** over prior state of the art; **10–30× cheaper** and **6–13× faster** than IRCoT at single-step retrieval | arXiv:2405.14831v3 abstract |
 | HippoRAG 2 | associative memory | **+7%** over the state-of-the-art embedding model | arXiv:2502.14802v2 abstract |
 | LongMemEval | benchmark scale | **500 questions**, five memory abilities; commercial assistants and long-context LLMs show a **30% accuracy drop** | arXiv:2410.10813v2 abstract |
-| LoCoMo | benchmark scale | **~300 turns**, **~9K tokens**, up to **35 sessions** per conversation | arXiv:2402.17753v1 abstract |
+| LoCoMo | benchmark scale, preprint | **300 turns**, **9K tokens**, up to **35 sessions** per conversation | arXiv:2402.17753v1 abstract |
+| LoCoMo | benchmark scale, published | **600 turns**, **16K tokens**, up to **32 sessions** per conversation | ACL 2024, `2024.acl-long.747` abstract — **cite this one**, see §1.2 |
 | A-MEM | DialSim F1 | **3.45**, reported as **+35%** over LoCoMo's method and **+192%** over MemGPT | arXiv:2502.12110v11 |
 
 **Three caveats that travel with this table.**
@@ -163,6 +196,22 @@ pinned embedder**, and there is positive evidence of fragility there — the sam
 embedder given the same text under a different call shape returns a vector agreeing to
 cosine 0.999837 that flips 6 of 146 committed payloads.
 
+### 3.2 The same two corpus names appear on both sides, and mean different runs
+
+This is the highest-risk confusion in the whole positioning section, because nothing
+in a corpus name signals which endpoint was scored.
+
+| Corpus | What the cited systems run on it | What this repository ran on it |
+|---|---|---|
+| **LoCoMo** | The benchmark's QA task, answered by a model and scored by a model. Mem0's evaluation used GPT-4o-mini as answerer and as judge | **NF-004**: six sealed conversations, 1,098 fully resolvable canonical QA records, 16,000-character budget, **0 model calls and 0 embedding calls during measurement**. The endpoint is whether the evidence text was present, not whether an answer was right |
+| **LongMemEval** | The benchmark's five memory abilities, scored for answer accuracy. Zep reports 63.8% at gpt-4o-mini and 71.2% at gpt-4o | **EC-001** on LongMemEval-S with a **Codex-substituted** evaluator, because the pinned GPT-4o evaluator was unavailable. Amendment 010 forbids placing its 20.0% and 12.22% figures against any published LongMemEval result. **NF-005** and **DMR-001C** used the corpus deterministically, with no scoring model at all |
+
+Two consequences follow, and both are binding. A sentence of the form "on LoCoMo, X
+reports 66.88% and this component reaches 935/1,098" is forbidden even though both
+halves are true, because the denominators count different events. And the one place
+this repository holds a LongMemEval number that looks like a benchmark score is exactly
+the place where the evaluator was substituted.
+
 ---
 
 ## 4. Prose the paper can adapt
@@ -185,11 +234,17 @@ accuracy — Mem0 at 66.88% on LoCoMo against a full-context ceiling of 72.90%, 
 carrying an answer was present in a 16,000-character context window, counted without a
 model in the loop. Those are different measures of different objects. The programme's
 own operating manual names its recurring failure as a surrogate that can pass without
-the property it certifies, and this repository has already produced the demonstration:
-LV-001's shipping configuration preserved 16 of 16 targeted items offline and lost 2.0
-points on the live targeted probes, availability and correctness moving in opposite
-directions on the same corpus at the same time. A single column holding both a J-score
-and an availability count would be that substitution with a ruler drawn on it.
+the property it certifies, and this repository has already caught one: LV-001's
+shipping configuration preserved 16 of 16 targeted items offline, then fired the kill
+bar registered for its live targeted probes at a 0.5 tolerance and was not promoted.
+The size of that live loss is inside the instrument's 3.0-point band and is not
+demonstrated. What the run did settle is the distinction: preserving an item's
+availability and preserving the answer that depends on it are not the same property,
+and this programme had measured only the first. A single column holding both a J-score
+and an availability count would be that substitution with a ruler drawn on it. The
+corpus names make this easy to get wrong: NF-004 ran on six sealed LoCoMo
+conversations, so the word LoCoMo appears on both sides of the comparison and marks
+two different runs on either side of it.
 
 What can be said instead is architectural. The component's `context()` is a pure
 function of store state, query and budget, verified byte-identical across two
@@ -198,9 +253,11 @@ their SHA-256. A pipeline whose memories are written by a generation call inheri
 call's determinism, and none of the papers cited here claims byte-level replay. The
 delivered text is the stored episode rather than a paraphrase of it, so the failure
 mode is an episode that was not delivered, never an episode delivered as a wrong
-sentence. Cost is measured on both sides: Mem0 reports p95 total latency of 1.44 s and
-over 90% token savings against full context; this component's selection takes 190 ms at
-1,000 candidates with clustering at 81% of that, and stores 4,743 bytes per turn.
+sentence. Cost is reported on both sides and the two figures do not subtract: Mem0's
+p95 total latency of 1.44 s is end to end and includes generation, while this
+component's 190 ms at 1,000 candidates is selection on one machine with embedding
+excluded, of which clustering is 81%. Storage here is 4,743 bytes per turn at the
+margin, 86% of it embeddings.
 
 The framing the programme committed to before it had any external result still holds.
 Nobody has built a memory layer whose formation, ranking, routing and stopping are all
@@ -235,7 +292,9 @@ Written as prohibitions so they can be grepped for.
 | "Deterministic memory is a new idea" / any novelty claim for the mechanism | `DO_NOT_WRITE.md` §4: the paper never calls its own contribution novel. RF-Mem (ICLR 2026) already occupies iterative query/retrieved-memory mixing in the conversational-memory setting, per `E006_PART2_S1_PRIOR_ART_SCAN.md` §5 |
 | "Entity-centric indexing fails" as a general claim | The supported statement is narrow: six target facts sit in spans where **this programme's registered spaCy extractor returned zero entities**. That is not evidence about HippoRAG's LLM-based graph builder. `LITERATURE_LANDSCAPE.md` §2 |
 | "This component generalizes to long-conversation memory" on the strength of LongMemEval | `LITERATURE_LANDSCAPE.md` §3: LoCoMo was unrun at that decision, and EC-001's evaluator was **Codex-substituted**. The 20.0% and 12.22% figures may not be placed against any published LongMemEval result (Amendment 010) |
-| Citing "LangMem" to a paper | **Unresolvable.** No publication record exists. Cite the SDK, or cite it as a baseline inside Mem0's Table 2 |
+| Any sentence pairing a published LoCoMo or LongMemEval score with an NF-004, NF-005, EC-001 or DMR-001C number, however hedged | The corpus name is shared and the endpoint is not. §3.2. This is the specific sentence a reader will construct if the paper leaves the two adjacent |
+| "LoCoMo conversations average 300 turns and 9K tokens" | That is the **preprint** abstract. The ACL 2024 version says **600 turns and 16K tokens over up to 32 sessions**. §1.2 |
+| Citing "LangMem" to a paper | **Unresolvable.** No publication record was located. Cite the SDK, or cite it as a baseline inside Mem0's Table 2 |
 | Citing "Graphiti" to a paper | No standalone publication located. Cite the Zep paper, which names and describes it |
 | Citing arXiv:2603.09250 as "RF-Mem, 2026 preprint" | The title is *Evoking User Memory: Personalizing LLM via Recollection-Familiarity Adaptive Retrieval* and the record states **ICLR 2026** |
 | Treating the absence of a published deterministic-memory competitor as evidence of priority | `E006_PART2_S1_PRIOR_ART_SCAN.md` §6: absence of a located negative is not evidence that none exists. The same applies to absence of a located system |
@@ -245,16 +304,28 @@ Written as prohibitions so they can be grepped for.
 ## 6. Provenance
 
 Compiled 2026-08-18 on branch `paper-rework`. Identifiers resolved against the arXiv
-API on that date; venue statements taken from the returned record's comment field or
-from the proceedings link already carried in
-`experiments/components/retrieval_mechanism_ledger/LITERATURE_LANDSCAPE.md`. Published
-numbers quoted from each work's abstract or its results tables as fetched from arXiv.
-This repository's numbers quoted from `paper/notes/EVIDENCE_SPINE.md`, which is the
-only admissible source for them.
+API on that date, and eleven of them re-resolved against OpenAlex or the ACL Anthology.
+Venue statements are attributed in the table to the index that states them. Published
+numbers quoted from each work's abstract or its results tables. This repository's
+numbers quoted from `paper/notes/EVIDENCE_SPINE.md`, which is the only admissible
+source for them.
 
-**What was not verified.** Semantic Scholar's batch endpoint rejected the GET form
-used, so no second-source venue confirmation was obtained for any entry; the venue
-column rests on arXiv record comments alone. Mem0's PDF did not parse; its table
-values were read from the arXiv HTML rendering of v1. No page-level check was made
-against the ACL Anthology entry for LoCoMo or the NeurIPS proceedings entry for
-HippoRAG beyond the links already committed in `LITERATURE_LANDSCAPE.md`.
+**What was not verified, recorded rather than papered over.**
+
+- **Semantic Scholar returned nothing usable.** Its batch endpoint rejected the GET
+  form used (HTTP 404, POST-only), and the single-paper endpoint returned HTTP 429.
+  No entry carries a Semantic Scholar confirmation. Crossref was not queried.
+- **Three entries rest on arXiv alone** — MemR³, EviMem, MGRetrieval. Their titles,
+  authors and dates matched the record; no second index was consulted.
+- **Four venue statements rest on an arXiv comment field alone** — HippoRAG 2 (ICML
+  2025), LongMemEval (ICLR 2025), RF-Mem (ICLR 2026), and A-MEM's comment before
+  OpenAlex confirmed it. An author-supplied comment is a claim about acceptance, not a
+  proceedings record. OpenAlex indexes the first three as preprints.
+- **Mem0's PDF did not parse.** Its Table 2 and Table 3 values were read from the arXiv
+  HTML rendering of v1, not from the PDF.
+- **OpenAlex's abstract text for the LongMemEval record did not match the paper** — it
+  described an unrelated system — so nothing from that field was used. The title,
+  authors, type and DOI from the same record did match and were used.
+- **No LoCoMo or LongMemEval leaderboard was consulted**, so the published scores in
+  §2 are each system's self-report or Mem0's reproduction, with no third-party
+  arbitration behind either.
