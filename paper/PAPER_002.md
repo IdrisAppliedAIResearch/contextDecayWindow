@@ -1205,3 +1205,78 @@ sitting on top of a candidate set already narrowed by the wrong rule, scored at 
 wrong unit.
 
 ---
+
+## Appendices
+
+**A. Evidence spine** — `paper/notes/EVIDENCE_SPINE.md`. Every number in this paper
+with its artifact, its SHA prefix where one exists, and its standing under §4.1's
+taxonomy. Built before the prose, so the draft was assembled from it rather than
+checked against it afterwards.
+
+**B. Withdrawn claims** — `paper/notes/DO_NOT_WRITE.md`. Thirty-five sentences this
+programme has published and then corrected, each with its replacement, drawn from
+`ERRATA.md` and two adversarial review cycles. A rewrite is when withdrawn claims
+come back, because they are usually the cleaner sentence.
+
+**C. Claim gates** — `scripts/check_paper_002_claims.py`. Two automated checks:
+every numeric literal in this paper must appear in the evidence spine, and no value
+on the machine-checkable superseded list may appear at all. Both pass at the
+committed revision. Neither proves a claim is right; they catch the two failure
+modes this repository has actually committed.
+
+**D. Corrections index** — `ERRATA.md`, 19 entries, cross-referenced from §11. It
+includes one entry that was wrong when first written and is superseded in place by
+its own reversal, with the original text kept so the mistake stays visible.
+
+**E. Study reports** — `experiments/`. Each carries its pre-registration commit SHA,
+its preflight record, its gate outcomes, and its own boundary section. Where a
+report and a summary disagree, the report is authoritative; this paper was written
+from the reports.
+
+**F. Amendment record** — per-study `amendments/` directories, each a standalone file
+recording whether it preceded the result it affects.
+
+**G. Reproduction** — `paper/REPRODUCTION.md` and `paper/reproduce_headline.py`. The
+script rebuilds the 5,058-character exact optimum from the committed turn log through
+the installed library and checks its length and SHA-256 against the committed values,
+verified in a clean virtual environment containing only `episodic`.
+
+Stated plainly, because it is a limitation and not a feature: **the selection results
+cannot be reproduced this way.** They need per-episode embedding vectors, which live
+in a store that is gitignored and was never committed, and regenerating them needs
+the pinned embedder, which is not in the repository either. One number in this paper
+is reproducible from committed data alone, and it is that one.
+
+**H. Review record** — `paper/reviews/`. Two adversarial cycles against this paper's
+predecessor (sixteen objections and ten, all accepted) and a slop audit. The
+constraints they established carry forward into this document and are listed in
+appendix B §4.
+
+**I. Pipeline log** — `paper/notes/PIPELINE_LOG.md`. The academic-research-skills
+stages this rewrite ran, and the verdict returned at each checkpoint.
+
+**J. Competitive landscape** — `paper/notes/COMPETITIVE_LANDSCAPE.md`. Published
+results for the systems named in §2, with citation verification status and the
+boundary that none was run here.
+
+---
+
+## Provenance of this document
+
+**The paper is generated, not authored.** This Markdown file is the only place a
+claim may be edited. `paper/figures/` is a build output of
+`scripts/generate_paper_002_figures.py`, which reads every plotted value from a
+committed artifact and records the SHA-256 of each input in
+`paper/figures/figure_manifest_002.json`. The PDF is a build output of
+`scripts/build_paper_pdf.py`. Hand-editing a figure, the manifest, or the PDF is a
+defect rather than a shortcut.
+
+If this file and a figure disagree, this file is right and the build script is
+broken. If this file and a study's pre-registration disagree, **the pre-registration
+governs** — that conflict is a defect to be flagged, not reconciled silently.
+
+**Supersedes PAPER-001.** The predecessor's structure led with eleven negative
+results and reached its sealed-holdout confirmation in passing. No number changed in
+this rewrite; the ordering and the standing labels did. Six stale cross-references
+in the predecessor were found during the rewrite audit and are listed in appendix B
+§5.
