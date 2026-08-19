@@ -11,65 +11,91 @@ Preprint — PAPER-002 · supersedes PAPER-001
 ## Executive summary
 
 **The claim.** A conversational memory layer needs no generative model calls. This
-one stores every exchange verbatim, ranks candidates by embedding similarity at the
-finest unit that stays informative, and packs a fixed character budget with a
-set-level coverage objective. Nothing in the path asks a model to write text about
-the store. On a sealed external holdout it beats its own strongest
-control on evidence availability by a margin that is not close.
+one stores every exchange verbatim, ranks candidates by embedding similarity, and
+packs a fixed character budget with a set-level coverage objective. Nothing in the
+path asks a model to write text about the store. On a sealed external holdout, the
+*ranking unit* — one parameter, with everything else held fixed — moves evidence
+delivery by a margin that is not close.
 
 **The headline result.** On six LoCoMo conversations sealed until the bars were
 locked — 1,098 question-answer records, a 16,000-character budget, **zero model
 calls and zero embedding calls during measurement** — ranking adjacent-turn pairs by
 their own cosine raises complete evidence delivery from **843 to 935 of 1,098**
 against session-score inheritance, and from **258** against source order. 140 gains,
-48 losses, gain/loss ratio 2.92 against a registered bar of 2.0, one-sided exact
-binomial **p = 6.19e-12**. All six conversations are net positive. The replay hash
-equals the committed hash.
+48 losses, gain/loss ratio 2.92 against a registered bar of 2.0. The item-level
+one-sided exact binomial is **p = 6.19e-12**; it assumes questions are independent,
+and they are not, since they cluster within six conversations. Treating each
+conversation as one observation, all six are net positive, sign test **p = 0.0156**.
+Both are reported. The replay hash equals the committed hash. **The result is
+bounded to evidence availability and authorizes no reader, accuracy or universal-rule
+claim.**
 
-**Why the unit is the lever.** The same change reproduces on two more corpora and
-the mechanism is legible. LongMemEval evidence episodes have median **2,550
-characters**; the exact source turns carrying their answers have median **298**.
-Ranking the 2,550-character parent dilutes the match. Split it, rank each turn by
-its own cosine, and exact evidence delivery goes from **361 to 461 of 465** — 100
-gains, zero losses, p = 7.89e-31. On the internal store the same move takes an
-enumeration probe from 12 to 14 of 17 with zero targeted losses.
+**Why the unit is the lever, and where that stops being true.** LongMemEval evidence
+episodes have median **2,550 characters**; the exact source turns carrying their
+answers have median **298**. Ranking the 2,550-character parent dilutes the match.
+Split it, rank each turn by its own cosine, and exact evidence delivery goes from
+**361 to 461 of 465** — 100 gains, zero losses. On the internal store the same move
+takes an enumeration probe from 12 to 14 of 17, trading art coverage from 2 of 4 down
+to 1 of 4 while restoring all four monetary items, with no targeted losses.
+
+**Finer is not monotonically better, and the paper's own data says so.** On the same
+LongMemEval corpus, ranking at the *episode* rather than the session loses 37 items —
+26 gains against 63 losses. The episode loses from both directions, so no monotone
+"finer is better" rule generates this. §6.3 is the counterexample and §6.5 refutes the
+scope condition that was proposed to explain it.
 
 **Why no model calls matters, stated as measured properties rather than preference.**
 `context()` is a pure function of store state, query and budget, verified
 byte-identical across two processes; 132 committed selection payloads and 3 rendered
 blocks reproduce their SHA-256 through the installed library. Every delivered
 character is a stored episode verbatim, so there is no generated text about the
-store that can be wrong. The systems that ship in this space spend a language-model
-call on exactly this layer. **The question this paper answers is not whether the
-deterministic version wins. It is how much of the layer survives without the call.**
+store that can be wrong. Mem0, Zep, Letta and Graphiti each spend at least one
+generative call on this layer, by their own published descriptions. **The question
+this paper answers is not whether the deterministic version wins — no comparison was
+run. It is how much of the layer survives without the call.**
+
+**What five sealed experiments bought.** Five results in the whole arc carry a sealed
+holdout with bars locked before the number existed, and **three of the five are
+negative**: deterministic adaptive stopping, event segmentation and surprisal-based
+capture were each built well and returned nothing. That is why the surviving design
+is four components rather than a dozen.
 
 **What it costs.** Disk is trivial — 4,743 bytes per turn, about 48 MB at ten
 thousand turns. Retrieval time binds first: **190 ms at 1,000 candidates**, 81% of
 it in clustering and that share still rising. On this hardware the design is
 comfortable to a few thousand episodes and unusable in an interactive loop somewhere
-before ten thousand. The obvious fix — prune low-similarity candidates to control
-cost — is the one operation measured here to break retrieval, so retention is
-unbounded by policy and the trimming knob carries an `unsafe_` prefix.
+before ten thousand. Do not prune the candidate pool to control cost: on this store
+the deployed shortlist contains no representative of one of four domains, so no
+selection rule reaches it from there. That is a fact about the shortlist's contents,
+not a measured comparison — which is why retention is unbounded by policy and the
+trimming knob carries an `unsafe_` prefix.
 
-**What this does not establish, in four lines.**
+**What this does not establish.**
 
 - **The instrument's run-to-run band is 3.0 points on a 13-point rubric, measured
-  rather than assumed.** No *scored* comparison in this arc below about three points
-  is demonstrated — including the memory-tier contrast this programme would most
-  like to keep. The offline delivery counts above are unaffected: they are counts and
-  identities, not scores.
-- **Availability is not correctness, and one live run showed them moving in opposite
-  directions.** The configuration that made six more facts available scored *lower*
-  on targeted probes and failed its own pre-registered bar. It is **not promoted**.
+  rather than assumed.** Of the four scored comparisons in this arc, three fall inside
+  the band and are **not demonstrated** — and the fourth, at 3.5, merely exceeds it,
+  which is not the same as being demonstrated. *Not demonstrated is not refuted.* The
+  band is a switch rather than a spread: four of five replicates were byte-identical,
+  and the one that diverged was the **first** run in a fresh server process. The
+  offline delivery counts above are unaffected — they are counts and identities, not
+  scores.
+- **Availability is not correctness.** The configuration that made six more facts
+  available failed its own pre-registered no-regression bar on targeted probes, and
+  that bar was registered as a kill. Its status is **not promoted**. The size of the
+  shortfall sits inside the band above and is not demonstrated in either direction;
+  the bar firing does not depend on it. Both arms also fabricated on the domain
+  neither retrieved.
 - **No competing system was run here.** Mem0, Zep, Letta and HippoRAG are cited from
-  their published results and compared on axes that are commensurable, never on a
-  head-to-head number that does not exist.
+  their published results and compared on axes that are commensurable — chiefly
+  generative calls per stored turn — never on a head-to-head number that does not
+  exist.
 - **The internal breadth findings rest on a single enumeration probe.** The external
   confirmations do not.
 
-**Read next.** §5 for the confirmatory results, §6 for the granularity mechanism,
-§12 for the complete limits. Figure 1 is the sealed holdout; Figure 5 draws the
-instrument band across every scored verdict in the arc.
+**Read next.** §5 for the confirmatory results, §6 for the granularity mechanism and
+§6.3 for where it reverses, §12 for the complete limits. Figure 1 is the sealed
+holdout; Figure 5 draws the instrument band across every scored verdict in the arc.
 
 ---
 
@@ -437,7 +463,14 @@ embedding calls during measurement**:
 | **`P_PAIR_RANK` — own cosine** | **935 / 1,098** | **1,027 / 1,098** |
 
 140 gains, 48 losses, 910 ties. Net +92. Gain/loss ratio **2.92** against a
-registered bar of 2.0. One-sided exact binomial **p = 6.19e-12**. Median packed
+registered bar of 2.0. One-sided exact binomial **p = 6.19e-12** over the 188
+discordant questions.
+
+**That p assumes the questions are independent, and they are not** — they cluster
+within six conversations. The registered statistic is not re-scored, but a
+conservative alternative is reported beside it: treating each conversation as a
+single observation, all six are net positive, one-sided sign test **p = 0.0156**.
+Six observations is what the sealed design actually bought, and it still clears 0.05. Median packed
 characters 15,986 against 15,988, so the treatment is not simply spending more.
 Median best-evidence rank moves **9 to 2**; p90 moves **80 to 34**, and those rank
 statistics were opened only after the disposition was committed.
@@ -452,8 +485,10 @@ hash. Figure 1.
 
 **Scope cap, and it is binding.** This is availability: whether the text carrying an
 answer was present in the delivered context. It is not accuracy, and the
-registration authorizes no reader, live, promotion or adoption claim. §12.3 is where
-that distinction has teeth.
+registration authorizes **no reader, live, universal-rule, promotion or adoption
+claim**. The `universal-rule` term is the one that governs §6 and §13: this
+confirms one substitution on one corpus, not a law about granularity. §12.3 is where
+the accuracy distinction has teeth, and §6.3 is where the universality one does.
 
 **What the source-order control buys.** 258 against 843 is the reason the treatment
 effect cannot be read as a budget artifact. If the budget were slack enough that
