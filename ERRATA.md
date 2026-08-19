@@ -40,12 +40,26 @@ species as the fourteen integrity gates that failed unconditionally under a
 line-ending mismatch: a check that cannot pass is a check that cannot fail
 informatively, and its output carries no evidence either way.
 
-**Not corrected here, deliberately.** Editing the constant to match the file would
-make the test pass and is the obvious move, which is why it is not being made as
-part of a paper rewrite. The correct value is verifiable in one command, but
-changing a study's pinned integrity anchor is a mechanism change and belongs to
-whoever re-verifies the LoCoMo lock, not to the document that cites it. The defect
-is recorded here so the gate's inertness is visible rather than resolved quietly.
+**Corrected 2026-08-19, on the repository owner's instruction.**
+`SOURCE_MANIFEST_SHA256` now reads
+`e7304f7b5870edbfa166e11d77a64d4e634043c5b5f33913026876c64742c5d4`, and
+`test_artifact_identity_uses_raw_bytes` passes with the other fifteen tests in its
+module. The value was re-derived from three independent readings that agree: the
+working copy, the committed blob via `git show HEAD:<path>`, and the file's single
+revision. `.gitattributes` already pins this path to `text eol=lf`, so the raw-byte
+hash the test computes is stable across platforms and cannot drift back through the
+line-ending route that disabled fourteen other gates.
+
+**What the correction does and does not buy.** The gate now binds, so a future change
+to the corpus-lock record will be caught. It does **not** retroactively validate the
+period during which the gate was inert: NF-004's committed result rests on its own
+outcome integrity — the G7 replay SHA equalling the committed G6 SHA, and a vector
+seal reading 2,749 of 2,749 with zero misses — not on this check, which never passed.
+Nothing in NF-004's numbers moves, and none of them ever depended on this constant.
+
+This entry deliberately keeps the original diagnosis above rather than rewriting it,
+so the sequence stays visible: the defect was found, recorded while unfixed, and then
+fixed as a separate decision by the person entitled to make it.
 
 ## NF-003 Part 1 Evaluated Population (2026-08-13)
 

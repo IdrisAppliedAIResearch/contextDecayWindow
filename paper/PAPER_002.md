@@ -1133,14 +1133,17 @@ here where one could not:
   The cost was fourteen gates that could not have detected real drift, and one real
   drift was sitting behind them.
 - A fifteenth was found while this paper was being written, on the sealed holdout
-  itself. The constant binding NF-004's LoCoMo corpus-lock record has never matched
+  itself. The constant binding NF-004's LoCoMo corpus-lock record had never matched
   the file it names: that file has one revision and one hash, and the expected value
-  matches nothing in the repository. Its two sibling constants verify clean, and the
-  corpus lock's content is independently checkable and intact, so no NF-004 number
-  moves. What moves is the gate's status — for its whole life it could not have
-  detected a real change to the record it guards. It is recorded rather than quietly
-  corrected, because editing a study's pinned anchor to make a test pass is a
-  mechanism change and does not belong in a paper rewrite.
+  matched nothing in the repository. Its two sibling constants verify clean, and the
+  corpus lock's content is independently checkable and intact, so **no NF-004 number
+  moves**. What moved is the gate's status — for its whole life it could not have
+  detected a real change to the record it guards. It was recorded here while still
+  unfixed, then corrected separately once the decision belonged to someone entitled to
+  make it; `ERRATA.md` carries both halves in order. The correction makes the gate
+  bind from now on. It does not retroactively validate the period it was inert, and
+  NF-004's result never rested on it: that rests on a replay hash equalling its
+  committed value and a vector seal reading 2,749 of 2,749 with zero misses.
 
 ---
 
