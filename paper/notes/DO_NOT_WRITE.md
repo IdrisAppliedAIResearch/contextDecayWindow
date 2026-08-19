@@ -9,7 +9,7 @@ the first time.
 sentence. Pass 6's own note applies: *"It was found by grepping for the superseded
 value rather than by rereading, which is the only method that works."*
 
-**Sources.** `ERRATA.md` (19 entries), `paper/reviews/CYCLE_1.md` (sixteen
+**Sources.** `ERRATA.md` (20 entries), `paper/reviews/CYCLE_1.md` (sixteen
 objections, all accepted), `CYCLE_2.md` (ten, all accepted),
 `PASS_6_SLOP_AUDIT.md`, `paper/CLAIM_TO_ARTIFACT.md` §A.9.
 
