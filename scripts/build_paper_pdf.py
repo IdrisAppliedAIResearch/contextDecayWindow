@@ -217,7 +217,7 @@ def emit_figure(number: int, figure: dict) -> str:
 
 
 PREAMBLE = r"""
-#set document(title: "Selection, Not Capacity", author: "Idris Applied AI Research")
+#set document(title: "Rank Fine, Pack Fine, Call Nothing", author: "Idris Applied AI Research")
 #set page(
   paper: "a4",
   margin: (top: 2.4cm, bottom: 2.2cm, x: 2.3cm),
@@ -226,7 +226,7 @@ PREAMBLE = r"""
     #line(length: 100%, stroke: 0.3pt + luma(75%))
     #v(-3pt)
     #grid(columns: (1fr, 1fr),
-      align(left)[Idris Applied AI Research · PAPER-001],
+      align(left)[Idris Applied AI Research · PAPER-002],
       align(right)[#counter(page).display("1 of 1", both: true)])
   ],
 )
