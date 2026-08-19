@@ -1,6 +1,6 @@
-"""Typeset PAPER-001 as a PDF white paper, from the Markdown source.
+"""Typeset PAPER-002 as a PDF white paper, from the Markdown source.
 
-The PDF has no independent source. This script reads `paper/PAPER_001.md`,
+The PDF has no independent source. This script reads `paper/PAPER_002.md`,
 converts it to Typst, and compiles it, so the Markdown stays the single place
 any claim is edited. If the two ever disagree, the Markdown is right and this
 script is broken.
@@ -32,9 +32,9 @@ import sys
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
-SOURCE = REPO / "paper/PAPER_001.md"
+SOURCE = REPO / "paper/PAPER_002.md"
 TYP = REPO / "paper/build/whitepaper.typ"
-PDF = REPO / "paper/Selection_Not_Capacity.pdf"
+PDF = REPO / "paper/Rank_Fine_Pack_Fine_Call_Nothing.pdf"
 FIGURES = REPO / "paper/figures"
 PAPER_BUILD_TIMESTAMP = 1_786_579_200  # 2026-08-13 00:00:00 UTC
 
@@ -217,7 +217,7 @@ def emit_figure(number: int, figure: dict) -> str:
 
 
 PREAMBLE = r"""
-#set document(title: "Selection, Not Capacity", author: "Idris Applied AI Research")
+#set document(title: "Rank Fine, Pack Fine, Call Nothing", author: "Idris Applied AI Research")
 #set page(
   paper: "a4",
   margin: (top: 2.4cm, bottom: 2.2cm, x: 2.3cm),
@@ -226,7 +226,7 @@ PREAMBLE = r"""
     #line(length: 100%, stroke: 0.3pt + luma(75%))
     #v(-3pt)
     #grid(columns: (1fr, 1fr),
-      align(left)[Idris Applied AI Research · PAPER-001],
+      align(left)[Idris Applied AI Research · PAPER-002],
       align(right)[#counter(page).display("1 of 1", both: true)])
   ],
 )
@@ -294,6 +294,11 @@ def build() -> int:
     out = [PREAMBLE, head]
     placed: set[int] = set()
     section = None
+    # The executive summary and abstract render inside wrapper blocks. Whichever
+    # heading comes next closes the open one, whatever that heading is called —
+    # keying this to a specific title silently drops the closer when the paper is
+    # restructured, which produces a Typst "unclosed delimiter" far from the cause.
+    open_wrapper = False
 
     for kind, value in blocks:
         if kind == "h":
@@ -304,19 +309,28 @@ def build() -> int:
                     "#block(width: 100%, fill: luma(96%), inset: 11pt, radius: 3pt, "
                     "stroke: 0.4pt + luma(70%))[\n"
                     "#text(size: 11pt, weight: \"bold\")[Executive summary]\n"
-                    "#v(3pt)\n#set text(size: 9.2pt)\n"
+                    "#v(3pt)\n#set text(size: 8.7pt)\n"
                 )
+                open_wrapper = True
                 continue
             if body == "Abstract":
-                out.append("]\n#v(10pt)\n")
+                if open_wrapper:
+                    out.append("]\n#v(10pt)\n")
+                # The executive summary fills the first page, which left the
+                # centred "Abstract" title stranded at its foot with the body
+                # overleaf. A weak break starts the abstract on a fresh page and
+                # collapses to nothing if the summary ever stops filling one.
+                out.append("#pagebreak(weak: true)\n")
                 out.append(
                     "#block(width: 100%, inset: (x: 12pt))[\n"
                     "#align(center)[#text(size: 10.5pt, weight: \"bold\")[Abstract]]\n"
                     "#v(2pt)\n#set text(size: 9.4pt)\n"
                 )
+                open_wrapper = True
                 continue
-            if body == "Reading this paper":
+            if open_wrapper:
                 out.append("]\n#v(8pt)\n#line(length: 100%, stroke: 0.4pt)\n#v(4pt)\n")
+                open_wrapper = False
             out.append(f"{'=' * level} {inline(body)}\n")
             continue
 
