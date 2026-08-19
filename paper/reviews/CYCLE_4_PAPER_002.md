@@ -611,7 +611,207 @@ the superseded value, not for the superseded sentence").
 
 ## Part 2 — Defects introduced by the rewrite
 
-_(pending)_
+Nine, numbered N1–N9. Six are consequences of the two structural changes Cycle 3
+required — the five-level taxonomy and the compressed executive summary — which is
+what a re-review is for.
+
+---
+
+### The taxonomy
+
+**N1. The new REGISTERED-OFFLINE level requires a property its own assignment table
+denies for one of the four results it grades. Most serious of the new items.**
+
+> §4.1, the level: "**REGISTERED-OFFLINE** | Pre-registered with bars locked first,
+> zero generative calls, **byte-identical on replay** — but run on a corpus already
+> observed, so it cannot confirm"
+> §4.1, the assignment, eight rows later: "EC-002 — packing priority, 109→261 (§8.1) |
+> REGISTERED-OFFLINE | Reproduction under recomputed embeddings, **not** a byte-exact
+> replay"
+
+The definition and the assignment contradict each other inside one section. This is
+Cycle 3 objection 15 reappearing at a higher altitude: the old level carried the same
+"byte-identical on replay" clause, EC-002 was graded into it anyway, and the split
+inherited the clause verbatim.
+
+The fix is one word in the definition, not a re-grading. Everything EC-002 needs is
+determinism of the *counterfactual* arm plus a named reproduction of the baseline;
+"deterministic on replay, with any reproduction boundary named in the limit column"
+covers all four rows and matches what §8.1 now says. Leaving it as written hands a
+reviewer a checklist item the paper fails against its own checklist.
+
+---
+
+**N2. `EVIDENCE_SPINE.md` still carries the retired four-level taxonomy, and the paper
+points at it twice as the authority.**
+
+> §4.1's closing line: "`paper/notes/EVIDENCE_SPINE.md` **carries the same assignment**
+> with each number's artifact path and hash."
+> Appendix A: "Every number in this paper with its artifact, its SHA prefix where one
+> exists, and **its standing under §4.1's taxonomy**."
+> `EVIDENCE_SPINE.md` §1, unchanged: "**Four levels.**… | **DETERMINISTIC-OFFLINE** |
+> Zero generative model calls; counts and identities rather than scores; byte-identical
+> on replay…"
+> `EVIDENCE_SPINE.md` §3 heading, unchanged: "## 3. DETERMINISTIC-OFFLINE"
+
+The spine grades fifteen results under a level name the paper no longer has, and the
+paper tells a reader the two agree. The spine was updated for objections 19 and 22 —
+§7.15 and §7.16 were added — so the file was open and the taxonomy section was not
+touched.
+
+This matters more than a stale cross-reference because the spine is a *gate*, not a
+reference: `scripts/check_paper_002_claims.py` reads it, `AGENTS.md` §8 requires
+claims to trace to it, and its opening sentence is "a number may appear in PAPER-002
+only with its standing honoured". A standing that no longer exists cannot be honoured.
+Fix the spine, not the paper.
+
+---
+
+**N3. "The assignment, in full" is not in full, and one of its seventeen rows points at
+the wrong section.**
+
+> §4.1: "**The assignment, in full, so this table is checkable without leaving the
+> paper.**"
+
+Headline numbers carrying no row: the shipped configuration's **12 of 17** and the
+deployed baseline's **6 of 17** (§7.1, and Figure 6), the **5 of 17** on the deployed
+pool that makes §7.3's ordering argument, EC-001's **109 of 470** and the median
+evidence rank of 2 that §7.5 uses to narrow the internal inversion, §6.5's rejected
+binding-ratio scope condition, and every number in §9's cost envelope — which does
+carry a section-level `Standing: DESCRIPTIVE` but is absent from the table that claims
+completeness.
+
+Separately, the NF-007 row reads "coverage floor inert **(§6.4)**". §6.4 is NF-006. In
+the whole paper NF-007 appears only as an unnamed bullet in §11.6 — "a cluster-floor
+study stopped as inert" — so the table sends a reader to a subsection about a different
+study to check a result the paper never states.
+
+Either drop "in full" and say "every result this paper states a standing for", or add
+the six missing rows. The second is better: §7.3's 5 of 17 is a one-run DESCRIPTIVE
+count doing load-bearing work in the conclusion, and it is exactly the kind of number
+the table exists to mark.
+
+---
+
+**N4. §8's section-level standing label covers a subsection the assignment table grades
+differently.**
+
+> §8 opening: "**Standing: REGISTERED-OFFLINE.**"
+> §4.1 table: "Study 011 tier isolation, −1.0 **(§8.3)** | NOT DEMONSTRATED"
+
+§8.3 is inside §8 and its result is a scored live comparison. §8.3's own prose is
+correct and says "not demonstrated in either direction", so the harm is bounded — but
+the section header now asserts a standing for material the paper grades two levels
+lower. Section-level labels were introduced by this rewrite; §6.1's handles the same
+situation correctly ("REGISTERED-OFFLINE for NF-005 and NF-006; DESCRIPTIVE for
+NF-003's three-arm reading in §6.3"). Apply §6.1's form to §8.
+
+---
+
+### The compressed executive summary
+
+Checked claim by claim against the pre-compression version at `95000acd`. Two caps did
+not survive.
+
+**N5. The cost envelope lost its single-machine qualifier.**
+
+> Before: "**190 ms at 1,000 candidates**, 81% of it in clustering and that share still
+> rising. **On this hardware** the design is comfortable to a few thousand episodes and
+> unusable in an interactive loop somewhere before ten thousand."
+> Now: "**190 ms at 1,000 candidates**, 81% of it clustering and rising — comfortable
+> to a few thousand episodes, unusable interactively before ten thousand."
+
+"On this hardware" was three words and it was the whole scope of the claim. Spine D11
+is explicit: "One machine. **Only the exponent and the clustering share plausibly
+transfer.**" As compressed, the executive summary states an absolute operating envelope
+for the design. §9 still carries the qualifier; the page most readers finish does not.
+This is the compression risk landing exactly where it was predicted to.
+
+---
+
+**N6. The executive summary asserts the determinism property without the condition it
+holds under, and never says an embedding model is resident.**
+
+> "**The claim.** A conversational memory layer needs no generative model calls."
+> "`context()` is a pure function of store state, query and budget, **byte-identical
+> across two processes**; 132 committed payloads reproduce their SHA-256."
+
+`DO_NOT_WRITE.md` §1 #1 is the first and highest-risk entry in the file, and it has two
+halves. The paper honours the first everywhere — "generative" is present in all three
+executive-summary sentences that need it. The second half is "**An embedding model must
+be resident**… Determinism holds **given a pinned embedder**", and no sentence in the
+executive summary carries it. §3.2 carries it properly and at length.
+
+In fairness this predates the rewrite — the pre-Cycle-3 summary had the same gap and
+Cycle 3's reader test credited the summary with a property it does not have. It is
+raised here because a summary rewritten for honesty and then compressed is the moment
+to close it, and because it costs one clause: *an embedding model is resident and the
+guarantee is conditional on pinning it.*
+
+---
+
+**N7. The two supporting corpora appear in the executive summary at the headline
+result's apparent standing.**
+
+> "**The headline result.**… sealed until the bars were locked… **The result is bounded
+> to evidence availability and authorizes no reader, accuracy or universal-rule
+> claim.**"
+> "**Why the unit is the lever.**… exact delivery goes **361 to 461 of 465**, 100 gains
+> and no losses. Internally the same move takes an enumeration probe **12 to 14 of 17**"
+
+The caps attach to the sealed result. The next paragraph gives two more results in the
+same voice, with no indication that both corpora were **already observed**, that NF-005
+is capped as characterization for that reason, or that NF-006 is one probe. The last
+fact does arrive four bullets later — "Internal breadth rests on one enumeration probe"
+— which leaves the LongMemEval number as the one with no cap anywhere on the page.
+
+This is objection 13's defect surviving in the one place §4.1's new table cannot reach.
+The fix is a clause: *both on corpora already observed, so measured rather than
+confirmed.* Six words buy back the distinction the whole of §4 exists to draw.
+
+---
+
+### Residue at other sites
+
+**N8. §1.3 keeps the threshold phrasing the executive summary was corrected for.**
+
+> "**No scored difference below about three points in this arc is claimed as real**;
+> §12.1 gives the measurement."
+
+Objection 5's inverse inference — *so differences above three points are real* — is
+invited here in the section titled "What this paper does not claim". The executive
+summary now blocks it in one sentence ("the fourth merely exceeds it, which is not the
+same thing") and that sentence should be reused verbatim.
+
+---
+
+**N9. §1.2's contributions list is now the least-qualified statement of the granularity
+result anywhere in the paper.**
+
+> "**A granularity rule with a sealed external confirmation** (§5, §6). Ranking at the
+> **finest informative unit**, confirmed prospectively on six withheld LoCoMo
+> conversations and **reproduced on two further corpora** with the size mechanism
+> measured rather than asserted."
+
+Three retired framings in two sentences: the rule identified with the confirmation
+(objection 27), "reproduced on two further corpora" (objection 23), and "the finest
+informative unit" after §6.3 has retired the phrase for having no operational test
+(objection 22). §6.3 is not referenced. A contributions list is second only to the
+abstract for extraction, and this one was not visited.
+
+Also filed here rather than as its own item: the **abstract** states "12 to 14 of 17
+with 21 of 21 targeted items preserved" and carries neither of spine D2's two mandatory
+boundaries, which is objection 6's condemned construction surviving one section from
+where it was fixed.
+
+---
+
+**One style note, not an objection.** The executive summary says "**our own data**
+refutes it" where §13 says "this paper's own data refutes it" and the rest of the
+document says "this programme". The abstract's "We report" makes first person
+admissible; the inconsistency is worth one pass. The Pass-6 banned list greps clean at
+zero hits, and `scripts/check_paper_002_claims.py` passes both gates at HEAD, so no
+number introduced by the rewrite is untraced.
 
 ---
 
