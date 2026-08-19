@@ -12,98 +12,80 @@ Preprint — PAPER-002 · supersedes PAPER-001
 
 **The claim.** A conversational memory layer needs no generative model calls. This
 one stores every exchange verbatim, ranks candidates by embedding similarity, and
-packs a fixed character budget with a set-level coverage objective. Nothing in the
-path asks a model to write text about the store. On a sealed external holdout, the
-*ranking unit* — one parameter, with everything else held fixed — moves evidence
-delivery by a margin that is not close.
+packs a fixed character budget with a set-level coverage objective — nothing in it
+asks a model to write text about the store.
 
 **The headline result.** On six LoCoMo conversations sealed until the bars were
-locked — 1,098 question-answer records, a 16,000-character budget, **zero model
-calls and zero embedding calls during measurement** — ranking adjacent-turn pairs by
-their own cosine raises complete evidence delivery from **843 to 935 of 1,098**
-against session-score inheritance, and from **258** against source order. 140 gains,
-48 losses, gain/loss ratio 2.92 against a registered bar of 2.0. The item-level
-one-sided exact binomial is **p = 6.19e-12**; it assumes questions are independent,
-and they are not, since they cluster within six conversations. Treating each
-conversation as one observation, all six are net positive, sign test **p = 0.0156**.
-Both are reported. The replay hash equals the committed hash. **The result is
-bounded to evidence availability and authorizes no reader, accuracy or universal-rule
-claim.**
+locked — 1,098 question-answer records, a 16,000-character budget, **zero model and
+zero embedding calls during measurement** — ranking adjacent-turn pairs by their own
+cosine rather than inheriting their session's score raises complete evidence delivery
+from **843 to 935 of 1,098**; source order reaches 258. 140 gains against 48 losses,
+ratio 2.92 against a registered bar of 2.0, item-level **p = 6.19e-12**. That p
+assumes questions are independent and they are not — they cluster in six
+conversations — so the conservative form is reported too: all six net positive, sign
+test **p = 0.0156**. One parameter varied. **The result is bounded to evidence
+availability and authorizes no reader, accuracy or universal-rule claim.**
 
-**Why the unit is the lever, and where that stops being true.** LongMemEval evidence
-episodes have median **2,550 characters**; the exact source turns carrying their
-answers have median **298**. Ranking the 2,550-character parent dilutes the match.
-Split it, rank each turn by its own cosine, and exact evidence delivery goes from
-**361 to 461 of 465** — 100 gains, zero losses. On the internal store the same move
-takes an enumeration probe from 12 to 14 of 17, trading art coverage from 2 of 4 down
-to 1 of 4 while restoring all four monetary items, with no targeted losses.
+**Why the unit is the lever.** LongMemEval evidence episodes have median **2,550
+characters**; the source turns carrying their answers, **298**. Ranking the parent
+dilutes the match. Split it and exact delivery goes **361 to 461 of 465**, 100 gains
+and no losses. Internally the same move takes an enumeration probe 12 to 14 of 17,
+trading art coverage 2 of 4 down to 1 of 4 while restoring all four monetary items.
 
-**Finer is not monotonically better, and the paper's own data says so.** On the same
-LongMemEval corpus, ranking at the *episode* rather than the session loses 37 items —
-26 gains against 63 losses. The episode loses from both directions, so no monotone
-"finer is better" rule generates this. §6.3 is the counterexample and §6.5 refutes the
-scope condition that was proposed to explain it.
+**Finer is not monotonically better, and our own data refutes it.** On that same
+corpus, ranking at the *episode* rather than the session **loses 37 items**, 26 gains
+against 63. The episode loses to both its parent and its child — a shape no monotone
+rule generates. §6.3 is the counterexample; §6.5 refutes the scope condition proposed
+to explain it.
 
-**Why no model calls matters, stated as measured properties rather than preference.**
-`context()` is a pure function of store state, query and budget, verified
-byte-identical across two processes; 132 committed selection payloads and 3 rendered
-blocks reproduce their SHA-256 through the installed library. Every delivered
-character is a stored episode verbatim, so there is no generated text about the
-store that can be wrong. Mem0, Zep, Letta and Graphiti each spend at least one
-generative call on this layer, by their own published descriptions. **The question
-this paper answers is not whether the deterministic version wins — no comparison was
-run. It is how much of the layer survives without the call.**
+**Why no model calls matters, as measured properties.** `context()` is a pure
+function of store state, query and budget, byte-identical across two processes; 132
+committed payloads reproduce their SHA-256 through the installed library. Every
+delivered character is a stored episode verbatim, so no generated text about the
+store exists to be wrong. Mem0, Zep, Letta and Graphiti each spend at least one
+generative call on this layer by their own published descriptions. **The question
+here is not whether the deterministic version wins — none was run — but how much of
+the layer survives without the call.**
 
-**What five sealed experiments bought.** Five results in the whole arc carry a sealed
-holdout with bars locked before the number existed, and **three of the five are
-negative**: deterministic adaptive stopping, event segmentation and surprisal-based
-capture were each built well and returned nothing. That is why the surviving design
-is four components rather than a dozen.
+**What five sealed experiments bought.** Five results carry a sealed holdout with
+bars locked before the number existed, and **three are negative**: deterministic
+stopping, event segmentation and surprisal-based capture each returned nothing. That
+is why the surviving design has four components rather than a dozen.
 
-**What it costs.** Disk is trivial — 4,743 bytes per turn, about 48 MB at ten
-thousand turns. Retrieval time binds first: **190 ms at 1,000 candidates**, 81% of
-it in clustering and that share still rising. On this hardware the design is
-comfortable to a few thousand episodes and unusable in an interactive loop somewhere
-before ten thousand. Do not prune the candidate pool to control cost: on this store
-the deployed shortlist contains no representative of one of four domains, so no
-selection rule reaches it from there. That is a fact about the shortlist's contents,
-not a measured comparison — which is why retention is unbounded by policy and the
-trimming knob carries an `unsafe_` prefix.
+**What it costs.** 4,743 bytes per turn, ~48 MB at ten thousand. Retrieval binds
+first: **190 ms at 1,000 candidates**, 81% of it clustering and rising — comfortable
+to a few thousand episodes, unusable interactively before ten thousand. Do not prune
+the pool to control cost: the deployed shortlist holds no representative of one of
+four domains, so no rule reaches it from there — a fact about its contents, not a
+comparison.
 
 **What this does not establish.**
 
-- **The instrument's run-to-run band is 3.0 points on a 13-point rubric, measured
-  rather than assumed.** Of the four scored comparisons in this arc, three fall inside
-  the band and are **not demonstrated** — and the fourth, at 3.5, merely exceeds it,
-  which is not the same as being demonstrated. *Not demonstrated is not refuted.* The
-  band is a switch rather than a spread: four of five replicates were byte-identical,
-  and the one that diverged was the **first** run in a fresh server process. The
-  offline delivery counts above are unaffected — they are counts and identities, not
-  scores.
-- **Availability is not correctness.** The configuration that made six more facts
-  available failed its own pre-registered no-regression bar on targeted probes, and
-  that bar was registered as a kill. Its status is **not promoted**. The size of the
-  shortfall sits inside the band above and is not demonstrated in either direction;
-  the bar firing does not depend on it. Both arms also fabricated on the domain
-  neither retrieved.
+- **The run-to-run band is 3.0 points on a 13-point rubric, measured not assumed.**
+  Three of four scored comparisons fall inside it and are **not demonstrated**; the
+  fourth merely exceeds it, which is not the same thing. *Not demonstrated is not
+  refuted.* It is a switch, not a spread — four replicates were byte-identical and
+  the one that diverged was the **first** run in a fresh server process. Offline
+  delivery counts are unaffected: counts and identities, not scores.
+- **Availability is not correctness.** The configuration making six more facts
+  available failed its registered no-regression bar, registered as a kill; status
+  **not promoted**. The shortfall's size sits inside the band and is not demonstrated
+  either way — the bar firing does not depend on it. Both arms fabricated on the
+  domain neither retrieved, and a presence-only scorer credits that.
 - **No competing system was run here.** Mem0, Zep, Letta and HippoRAG are cited from
-  their published results and compared on axes that are commensurable — chiefly
-  generative calls per stored turn — never on a head-to-head number that does not
-  exist.
-- **The internal breadth findings rest on a single enumeration probe.** The external
-  confirmations do not.
+  published results, compared only on commensurable axes — chiefly generative calls
+  per stored turn — never on a head-to-head number that does not exist.
+- **Internal breadth rests on one enumeration probe.** The external confirmations
+  do not.
 
-**Read next.** §5 for the confirmatory results, §6 for the granularity mechanism and
-§6.3 for where it reverses, §12 for the complete limits. Figure 1 is the sealed
-holdout; Figure 5 draws the instrument band across every scored verdict in the arc.
 
 ---
 
 ## Abstract
 
 We report a deterministic memory layer for long conversations that makes no
-generative model calls, and the eleven pre-registered experiments that reduced it to
-four components. The surviving design is an append-only verbatim store, a recency
+generative model calls, and the pre-registered programme that reduced it to four
+components: ten numbered studies plus one registered exploratory bakeoff. The surviving design is an append-only verbatim store, a recency
 window, cosine-threshold similarity retrieval, and a set-level coverage objective,
 packed against one character budget at exact serialized cost.
 
@@ -121,9 +103,13 @@ questions, own-turn ranking raises any-exact-evidence delivery from 361 to 461 w
 their parent episodes, and parent length correlates with worse normalized own-cosine
 rank at Spearman rho 0.484. On the internal 121-turn store the same substitution
 takes an enumeration probe from 12 to 14 of 17 with 21 of 21 targeted items
-preserved. Because splitting changes character count and semantic localization
-together, the rule is stated conditionally: rank at the finest unit whose embedding
-remains informative, and pack at the finest affordable unit.
+preserved. The relation is not monotone in granularity: on the same corpus,
+ranking at the episode rather than the session loses 37 items, so the episode is
+worse than both its parent and its child. The rule is therefore stated
+conditionally — rank at a unit small enough that its embedding is dominated by the
+material answering the query, and pack at the finest affordable unit — and that first
+clause has no operational test here. Splitting also changes character count and
+semantic localization together, so length is not isolated.
 
 Underneath sits a decomposition of retrieval failure into three constraints that
 bind in a forced order. The candidate pool binds first and structurally — one of
@@ -141,8 +127,9 @@ query time failed in a registered bakeoff; graph construction, query routing,
 approximate search, query segmentation and attention-derived term selection each
 failed their own gates. Three sealed-holdout experiments returned no signal at all.
 We also report the instrument: five replicates under identical conditions scored
-8.0, 8.0, 8.0, 8.0 and 11.0, so the run-to-run band is 3.0 points and three of the
-arc's scored verdicts fall inside it and are labelled not demonstrated. The offline
+11.0, 8.0, 8.0, 8.0 and 8.0 in that order, so the run-to-run band is 3.0 points and
+three of the arc's four scored verdicts fall inside it and are labelled not
+demonstrated. The divergent run was the first in a fresh server process. The offline
 delivery results are counts and identities and are unaffected.
 
 ---
@@ -161,8 +148,9 @@ programme set out to build, and the reason it is worth reading is that the survi
 is now confirmed on a corpus this programme did not construct, and that the failures
 are specific enough to name.
 
-The one-sentence result: **the unit you rank is a bigger lever than the rule you
-rank with, and neither requires a language model.**
+The one-sentence result: **the unit you score a candidate by is a bigger lever than
+the rule you score it with, and neither requires a language model** — with §6.3 the
+counterexample that stops "smaller is better" from being the reading.
 
 ### 1.1 What kind of paper this is
 
@@ -693,7 +681,7 @@ does.
 
 The same corpus, varying ranking and packing independently:
 
-| Ranking unit | Packing unit | Strict answer-episode delivery |
+| Ranking unit | Packing unit | Exact answer-episode delivery |
 |---|---|---:|
 | Session | Session | 375 / 465 |
 | **Session** | **Episode** | **388 / 465** |
@@ -1219,10 +1207,15 @@ that same configuration preserved 16 of 16 targeted items. **Preserving an item'
 availability and preserving the answer that depends on it are not the same property,
 and this programme had measured only the first.**
 
-Both arms also fabricated on the domain neither retrieved — one attributing a
-painting to the wrong artist while still producing both correct pigment terms, which
-a presence-only scorer credits. The −2.0 is as unreplicated as the +1, and §12.1
-applies to both. *Settled by:* the frozen-context reader study described in §13.
+**The finding that survives the band is not the score.** Both arms fabricated
+confidently on the domain neither retrieved, one attributing a painting to the wrong
+artist while still producing both correct pigment terms — which a presence-only
+scorer credits as a hit. That is an identity, not a rating, so §12.1 does not touch
+it, and it is the more durable result of the two: a measure that counts an item as
+available when its text appears will score a confident fabrication as a success. The
+−2.0 magnitude is as unreplicated as the +1 and neither is demonstrated; the kill bar
+fired on a threshold registered before either number existed, and that stands
+independently. *Settled by:* the frozen-context reader study described in §13.
 
 ### 12.4 One runtime, one embedder, and positive evidence of fragility
 
