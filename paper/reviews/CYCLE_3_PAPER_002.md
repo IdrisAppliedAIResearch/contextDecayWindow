@@ -689,6 +689,240 @@ than lucky.
 
 ---
 
+### §12.1 — the instrument band
+
+**24. UNDERCLAIM, and a factual reordering. The divergent replicate was the *first*
+run in a fresh process, not the fifth. The paper's ordering hides the most useful
+diagnostic in the arc.**
+
+> "Five replicates… scored **8.0, 8.0, 8.0, 8.0 and 11.0**… **The fifth** — the only
+> one to meet an empty server slot — diverges at turn 1 from a byte-identical
+> 757-byte prompt and never re-converges."
+>
+> `EVIDENCE_SPINE.md` §1: "scored **11.0, 8.0, 8.0, 8.0, 8.0**… **replicate 1**, the
+> only one meeting an empty server slot, diverges at turn 1."
+
+The scores are reordered so the outlier reads last, and the prose then calls it "the
+fifth". It was the first. On the source record, the run that met an empty slot was
+the run that went first, which is what "empty slot" means.
+
+This is not a rounding matter, and correcting it makes the paper *stronger*, not
+weaker. "One of five replicates was odd" is a variance nuisance. "**The first run in a
+fresh server process scores differently from every subsequent run, and diverges at
+turn 1 from a byte-identical prompt**" is a structural property of the instrument with
+a name, a direction and an immediate consequence: every cold-start scored run in this
+arc — and §12.2 confirms none pinned process state — is a first run. That includes
+Study 009's Arm S and Arm L, which §12.1 already flags as running hours apart with no
+recorded PID.
+
+The paper has found something specific and reported it as something generic.
+
+**Required form.** Report the replicates in run order, 11.0 first. State the finding as
+a first-run effect: the run meeting an empty slot diverges at turn 1 and never
+reconverges; replicates 2–5 are byte-identical across all 121 turns. Then state the
+consequence for the arc, which is the part that matters.
+
+---
+
+**25. "Three of this arc's scored verdicts fall inside the band" has no denominator,
+and the fourth row of the spine's own table is missing.**
+
+> Heading: "**most** scored comparisons here are below it"
+> Body: "**three** of this arc's scored verdicts fall inside the band and are not
+> demonstrated"
+
+Two quantifiers, no total. "Most" and "three" are consistent only if the arc has four
+or five scored verdicts, and the paper never says how many there are. Figure 5 is
+described as drawing the band "across every scored verdict in the arc", so the
+denominator exists in the build and is withheld from the prose.
+
+The gap matters because of what sits just outside the three. `EVIDENCE_SPINE.md` §4
+carries a **fourth** row that §12.1 does not: the corrected treatment series at
+8.5 → 12.0, gap **3.5**, annotated "Exceeds the band — and **exceeding a band is not
+being demonstrated**." That row was written into the spine precisely to block the
+inference a reader makes from "three fall inside": that the rest fall outside and are
+therefore fine. §12.1 names the three and stops, which is the same defect as objection
+5 in the executive summary, here at its source.
+
+**Required form.** Give the denominator — three of N — and carry the spine's fourth
+row into the section verbatim, including its annotation. A gap of 3.5 on an instrument
+whose band is 3.0 and whose band is a switch rather than a spread is not demonstrated
+either, and the paper should be the one to say so.
+
+---
+
+### §12.3 — availability is not correctness
+
+**26. "The weakness is real" is bolded at the top of the section and retracted in its
+last paragraph.**
+
+> Opening: "This was the largest structural weakness of this paper's predecessor.
+> **It has now been measured, and the weakness is real.**"
+> Closing: "The **−2.0 is as unreplicated as the +1**, and §12.1 applies to both."
+
+Both sentences are in the same eight hundred words and they do not agree. The first is
+bolded, declarative, and positioned where a limitations section states its finding.
+The second is the true one. A reader who takes the section's headline away takes the
+one the section itself withdraws, and objection 4 shows the executive summary took the
+bolded version.
+
+The section does not need the bolded sentence, because it has better material and
+already states it. What is genuinely established here does not depend on any score:
+
+- A **pre-registered kill bar fired**. B2, tolerance 0.5, registered as a kill before
+  any number existed. The disposition is a decision-procedure outcome.
+- The **offline and live measurements dissociated in kind, not just in magnitude**.
+  Offline the configuration preserved 16 of 16 targeted items; live, asked for the two
+  formatting rules planted in turns 1 and 2, it reported it could not see the start of
+  the conversation. IC-001 corroborates the availability half deterministically — the
+  turn-1 and turn-2 episodes are exactly the ones the deployed fill order drops.
+- **Both arms fabricated** on the domain neither retrieved, and a presence-only scorer
+  credited one of them for correct pigment terms attached to the wrong artist. That is
+  a demonstrated defect *in the availability measure itself*, and it does not go
+  through the rubric at all.
+
+That third item is the strongest thing in §12.3 and it is in the last paragraph, in a
+subordinate clause, unbolded.
+
+**Required form.** Replace "the weakness is real" with "the two were measured and did
+not move together, and the availability measure was shown to credit a wrong answer."
+Promote the fabrication finding out of the closing aside. Keep "as unreplicated as the
++1" — it is the sentence the section should be trusted for.
+
+---
+
+### §13 — conclusion
+
+**27. The conclusion hands a practitioner a universal rule whose reversal it does not
+mention. §6.3 is absent from §13 entirely.**
+
+> "*Rank at the finest unit whose embedding stays informative.* **This is the result
+> with sealed external confirmation** — 843 to 935 of 1,098 on withheld conversations,
+> and 361 to 461 of 465 with zero losses on a second corpus."
+
+The conclusion is where a paper's claims are extracted for citation, and this is the
+sentence that will be extracted. Three things are wrong with it and they compound.
+
+First, the rule is not the result. The result is one unit substitution — session-
+inherited score to own-pair cosine, LoCoMo, 16,000 characters — under a registration
+whose scope cap forbids a **universal-rule** claim (objection 18). "This is the result
+with sealed external confirmation" identifies the rule with the confirmation.
+
+Second, the 361 → 461 figure is placed inside the same sentence, joined by "and", so
+the sealed-confirmation standing reads as covering both. NF-005 is
+DETERMINISTIC-OFFLINE on an already-observed corpus, capped `CHARACTERIZED` for that
+reason. The conjunction erases the distinction §4 exists to draw — which is objection
+13's consequence arriving exactly where predicted.
+
+Third, and worst: **§6.3 does not appear in the conclusion in any form.** The paper's
+own reversal — finer ranking losing 37 items on the same corpus that supplies the
+361 → 461 — is the reason the rule carries the qualifier "whose embedding stays
+informative", and a practitioner reading only §13 gets the qualifier without the fact
+that generated it, which makes it read as a caveat rather than as a boundary someone
+crossed and measured.
+
+**Required form.** State the confirmed substitution and its scope. Then state the
+reversal in the conclusion, one sentence: on LongMemEval the same move from session to
+episode loses 37 items, so the unit is not monotone and the rule is a heuristic with a
+known failure point. A practitioner who is told where a rule breaks can use it. One who
+is told it was confirmed on a sealed holdout will apply it at the wrong boundary.
+
+---
+
+**28. The closing paragraph is contradicted by §12.3, in the same paper.**
+
+> §13, final paragraph: "The programme's own summary of eleven efforts is that **the
+> model used what it received. At the hardest probe it used all ten available facts
+> and invented none. The failures were delivery failures**"
+>
+> §12.3: "**Both arms also fabricated** on the domain neither retrieved — one
+> attributing a painting to the wrong artist while still producing both correct pigment
+> terms, which a presence-only scorer credits."
+
+The last substantive sentence of the paper says the model invented nothing and the
+failures were delivery failures. Ninety lines earlier the paper reports both arms of
+its only live validation fabricating. Both cannot stand.
+
+The narrower claim is fine and traced: 10 of 10 available facts used, none invented,
+**at one probe in Study 007**. The conclusion promotes it into "the programme's own
+summary of eleven efforts" and then into a claim about the failure class of the whole
+arc. That promotion is what collides with §12.3.
+
+It also matters more than an inconsistency, because "the failures were delivery
+failures" is the sentence that justifies the paper's entire scope — availability
+measurement as sufficient. §12.3's fabrication observation is the counterexample: on a
+domain neither arm retrieved, the model generated, and the availability scorer credited
+it. The paper measured the exception to its own framing and then closed on the
+framing.
+
+**Required form.** Scope the sentence to its probe, and state the counterexample beside
+it: at the hardest Study 007 probe the model used all ten available facts and invented
+none; in the live validation both arms fabricated on the domain neither retrieved.
+Delivery was the dominant failure mode this programme measured, and it was not the only
+one.
+
+---
+
+**29. Four withdrawn or corrected framings recur in §13 after being flagged upstream.**
+
+Consolidated, because each is an instance already argued:
+
+- "**Eleven pre-registered efforts**" — objection 2. Fourth occurrence in the document
+  (subtitle, abstract, §1, §13), plus "eleven efforts" in the closing paragraph.
+- "**It is the one operation measured here to break retrieval**" — objection 3, restated
+  verbatim from the executive summary. `EVIDENCE_SPINE.md` D10 says this does not follow
+  from a measured comparison. The trailing clause "even though most of the best records
+  survived the cut" adds an unquantified "most" to an unmeasured claim.
+- "**The systems that ship in this space spend a model call on this layer**" —
+  objection 8, unsourced universal, restated.
+- "**Availability and correctness were measured moving in opposite directions once**" —
+  objection 4, third occurrence, and here without the retraction §12.3 supplies four
+  hundred lines earlier.
+
+One further item, new to §13: "the answer is **more than this programme expected when
+it started removing things**." This is an unfalsifiable claim about the authors' prior
+expectations, closing the practitioner section where a measurement belongs. It fails
+`DO_NOT_WRITE.md` §4's read-aloud test — it could preface any paper in any field.
+
+**Required form.** Fix each at its first occurrence and re-grep. `DO_NOT_WRITE.md`'s
+own instruction applies: grep for the superseded value, not the superseded sentence.
+Delete the expectation clause.
+
+---
+
+**30. UNDERCLAIM. The conclusion never names a single one of the three negative
+confirmatory results.**
+
+> "Eleven pre-registered efforts produced one architecture worth keeping, one
+> externally confirmed rule about how to use it, and **a measurable account of why the
+> rest did not work**."
+
+"The rest did not work" is the conclusion's entire treatment of DMR-004, DMR-001,
+DMR-001C and SAL-001 — four sealed-holdout experiments, three of them negative, each
+of which killed a named mechanism with a pre-registered bar. §5 reports them properly.
+§13 compresses them into a subordinate clause with no names, no bars and no numbers,
+and the phrasing "did not work" invites the reading that they were abandoned rather
+than that they were decided.
+
+This is the same omission as objection 7 and it is worse here, because §13 is where a
+reader decides what the paper was about. A conclusion that says *we built the best
+confirmatory apparatus in this repository specifically to test a model-free adaptive
+controller, and it returned Youden's J of 0.320 against a 0.50 bar, so the controller
+is not authorized* describes a different and better paper than one that says the rest
+did not work.
+
+The asymmetry is the tell: the one positive confirmatory result gets its numbers in
+§13 twice. The three negative ones get none.
+
+**Required form.** Name them and give one bar each. Surprisal-proximity salience:
+adjusted AUC 0.416 against ≥0.60, five of six strata below chance, registered effect in
+the opposite direction. Adaptive event formation: 52 of 74 events closed by the size
+cap, forced fraction 0.703 against a 0.35 bar. Model-free sufficiency: J = 0.320
+against ≥0.50, beaten on raw accuracy by an always-`OPEN` control. Then the sentence
+"the design is four components" has visible causes.
+
+---
+
 ## Judgement questions
 
 _(pending)_
