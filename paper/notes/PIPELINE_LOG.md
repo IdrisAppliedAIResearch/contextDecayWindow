@@ -32,6 +32,8 @@ published number moves, `ERRATA.md` gets an entry.
 | 2026-08-18 | 1 — positioning | DONE | 15 citations, 13 verified, 2 unresolvable; `COMPETITIVE_LANDSCAPE.md` |
 | 2026-08-18 | 5 — figures | DONE | 7 figures, 33 hashed inputs, byte-identical across two runs |
 | 2026-08-18 | 5 — finalization | DONE | PDF builds at 22 pages; PAPER-001 retired and every reference repointed |
+| 2026-08-18 | 5 — regression check | PASS | 1,831 passed / 1 failed, identical to the pre-change baseline |
+| 2026-08-18 | 3 — peer review | RUNNING | Five-seat panel against arXiv cs.CL |
 
 ---
 
@@ -75,3 +77,12 @@ result was hedged into vagueness, and the sealed-holdout result reads as what it
 heading matched by its literal title, "Reading this paper" — a section PAPER-001 had
 and PAPER-002 does not. The block never closed, and Typst reported an unclosed
 delimiter 670 lines from the cause. Closing is now structural.
+
+### Stage 5 — regression check
+
+`.venv/Scripts/python.exe -m pytest -q` returns **1,831 passed, 1 failed**, which is
+the baseline exactly. The single failure is
+`test_nf004_study.py::test_artifact_identity_uses_raw_bytes`, documented in
+`ERRATA.md` (2026-08-18) as a constant that never matched the file it names.
+Deleting `PAPER_001.md`, `generate_paper_001_figures.py` and the PAPER-001 figure set
+broke nothing: no test referenced them.
