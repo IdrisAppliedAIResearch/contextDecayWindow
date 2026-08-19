@@ -506,6 +506,189 @@ bullet in §8.3's voice.
 
 ---
 
+### §5.1 — the NF-004 sealed holdout
+
+**18. One word is missing from a binding scope cap, and it is the word that licenses
+§6.**
+
+> §5.1: "**Scope cap, and it is binding.** This is availability… It is not accuracy,
+> and the registration authorizes no **reader, live, promotion or adoption** claim."
+>
+> `EVIDENCE_SPINE.md` C1: "**Scope cap, binding:** availability only. No **reader,
+> live, universal-rule, promotion or adoption** claim is authorized."
+
+Four of five terms survive. The one dropped is **universal-rule** — the only one of
+the five that constrains what §6 and the abstract are allowed to do with the result.
+And they do use it: the abstract calls the finding "a granularity rule confirmed on a
+sealed external holdout", and §6's opening says "§5.1 confirmed **the direction**"
+before §6.3 shows the direction reversing on another unit boundary.
+
+I do not think this is deliberate. It is the exact species `DO_NOT_WRITE.md` opens by
+warning about — the shorter list is the cleaner sentence, which is why it gets
+written. But the deletion is load-bearing: with "universal-rule" restored, "a
+granularity rule confirmed on a sealed holdout" is not a sentence this paper may
+write, and §6.3's reversal stops being a curiosity and becomes the reason the cap
+exists.
+
+**Required form.** Restore the word verbatim from the registration, and add the
+consequence: what was confirmed is one unit substitution — session-inherited score to
+own-pair cosine — on LoCoMo, at 16,000 characters. It is not a rule about ranking
+units in general, and §6.3 shows a different unit boundary on a different corpus going
+the other way.
+
+---
+
+**19. `p = 6.19e-12` treats 1,098 records nested in six conversations as independent
+draws, and the paper offers no clustering-robust companion — which it has and which
+would cost it nothing.**
+
+> "140 gains, 48 losses, 910 ties. Net +92. Gain/loss ratio 2.92 against a registered
+> bar of 2.0. **One-sided exact binomial p = 6.19e-12.**"
+
+A cs.CL reviewer will reach for this in the first pass. The 188 discordant records sit
+inside six sealed conversations, and LoCoMo questions within a conversation share
+speakers, topics, session structure and often evidence sessions. The exact binomial
+assumes 188 independent Bernoulli trials. The effective number of independent units is
+six.
+
+The registered statistic is the registered statistic and reporting it is correct — do
+not re-score. But the paper already reports the clustering-robust version and does not
+recognize it as one: **every one of the six conversations is net positive** (+7, +6,
++13, +30, +15, +21). A conversation-level sign test on 6 of 6 gives one-sided
+p = 0.0156. That is four orders of magnitude weaker than 6.19e-12 and it is the number
+that survives the objection. Reporting both is strictly better than reporting either,
+and a paper that elsewhere records a self-audit for choosing macro F1 against a
+dense-boundary corpus (DMR-001C) should be the paper that volunteers this.
+
+**Required form.** Keep the registered exact binomial, and add: at the conversation
+level, 6 of 6 net positive, one-sided sign test p = 0.0156 — the effect is not carried
+by one conversation, and the record-level p-value assumes an independence the corpus
+does not have.
+
+---
+
+### §6 — granularity, and §6.3 where it reverses
+
+**20. The measured relation between ranking unit and delivery is non-monotone. The
+rule the paper states is monotone and cannot generate the shape of its own data. This
+is my most serious objection to §6.**
+
+> §6.3: "Finer *ranking* — at this unit, on this corpus — **loses 37**… That is the
+> opposite sign to §6.2, on the same corpus, and the reconciliation is the size table
+> in §6.1: an episode is **already small enough that its embedding stays informative**,
+> and dropping to it **discards the broader context that was doing the scoring
+> work**."
+
+Read the two clean ranking-only contrasts side by side, packing held fixed in each:
+
+| Packing held at | Coarser ranking | Finer ranking | Winner |
+|---|---:|---:|---|
+| Turn (§6.2, NF-005) | Episode **361** | Turn **461** | finer |
+| Episode (§6.3, NF-003) | Session **388** | Episode **351** | coarser |
+
+The episode loses from both directions. It is beaten by the unit above it and beaten
+by the unit below it. The relation is U-shaped in unit size with the episode at the
+minimum — and a rule of the form "**rank at the finest unit whose embedding remains
+informative**" is monotone by construction. Monotone rules do not produce local
+minima. Whatever is happening here, this rule does not describe it.
+
+The offered reconciliation is also internally inconsistent in a single sentence: the
+episode's embedding "stays informative" *and* dropping to it "discards the broader
+context that was doing the scoring work". If the second clause is true the first is
+false, and if the first is true the 37-item loss is unexplained.
+
+There is a coherent reading the paper is one step away from, and its own numbers point
+at it: what fails at the episode is not size but **boundary alignment**. A LongMemEval
+episode is a retrieval-corpus artifact, neither the semantic unit the question targets
+(the turn, median 298 chars) nor the topical envelope that supplies disambiguating
+context (the session). Both neighbours are principled units; the episode is neither.
+That reading predicts a U, it is consistent with the rho 0.484 length correlation
+rather than replacing it, and it is testable.
+
+**Required form.** State the shape before the rule. On this corpus, ranking at the
+session and at the turn both beat ranking at the episode, so unit size alone does not
+order the arms and the mechanism is not monotone dilution. Then either offer the rule
+as a heuristic explicitly known to fail at the episode boundary, or replace it with the
+alignment reading and mark that as interpretation, per the treatment §3.3 already
+gives to interpretive claims.
+
+---
+
+**21. The same measurement is called "any exact evidence" in §6.2 and "strict
+answer-episode delivery" in §6.3, and the collision lands on the exact word that
+distinguishes the corrected NF-003 from its withdrawn version.**
+
+> §6.2 table header: "**Any exact evidence**" — Episode / Episode = **351 / 465**
+> §6.3 table header: "**Strict answer-episode delivery**" — Episode / Episode =
+> **351 / 465**
+
+Same arm, same corpus, same count, two names one section apart. `EVIDENCE_SPINE.md`
+D1 and D15 confirm they are one measure.
+
+This is not pedantry about labels. "Strict" is the load-bearing word in this
+programme's own correction history: `DO_NOT_WRITE.md` §1 #3 retires NF-003's "49
+gains, zero losses" as a **session-touch surrogate** and records that "**the strict
+answer-episode measure reverses it**". A reader who notices "strict" appearing on one
+table and not the other has to consider whether §6.2's numbers are the surrogate. They
+are not — but the paper made them ask.
+
+**Required form.** One name for one measure, used in both tables, and a single
+sentence saying the endpoint is strict answer-episode delivery throughout §6, never
+session touch.
+
+---
+
+**22. "The finest unit whose embedding remains informative" has no operational
+definition, so the rule cannot be applied to a corpus that has not already been
+measured.**
+
+> "**rank at the finest unit whose embedding remains informative, and pack at the
+> finest affordable unit.**"
+
+The second clause is actionable: "affordable" is a character budget, and a
+practitioner can compute it. The first is not. "Informative" is defined nowhere in the
+paper, has no threshold, no estimator and no diagnostic. Applied prospectively it
+reduces to *try the units and keep the one that wins*, which is the measurement, not a
+rule derived from it.
+
+The paper has the materials to do better and stops short. §6.1 gives median unit sizes
+(2,550 / 298 / 241) and a Spearman rho of 0.484 between parent length and worse
+normalized own-cosine rank. NF-005 records the mechanism as information dilution. That
+is enough to state a *candidate* operational form — an approximate size band, or a
+diagnostic on the distribution of own-cosine rank against parent length — and to say
+plainly that this programme has not validated one.
+
+**Required form.** Either give the rule an operational handle and label it untested, or
+demote it from "rule" to what §6.3's own last sentence already concedes it is: a
+posthoc characterization on an exhausted corpus. Do not carry the word "rule" into the
+abstract while §6.3 carries the word "posthoc".
+
+---
+
+**23. The executive summary's "the same change reproduces on two more corpora" is
+contradicted inside §6, on one of the two.**
+
+> Executive summary: "**Why the unit is the lever.** The same change reproduces on two
+> more corpora and the mechanism is legible."
+
+The two further corpora are LongMemEval (§6.2, NF-005) and the internal 121-turn store
+(§6.4, NF-006). §6.3's reversal is on **LongMemEval — one of the two named** — where a
+finer ranking unit loses 37 items. The summary's word "reproduces" is doing exactly
+what §6.3 exists to prevent, and it is doing it on the page where the qualifier is
+absent.
+
+Compounding it: NF-005's corpus was already observed and is capped `CHARACTERIZED` for
+that reason, and NF-006 is a single enumeration probe on a constructed store whose
+composition trade the summary omits (objection 6). Neither is a replication in the
+sense "reproduces" carries in a cs.CL abstract.
+
+**Required form.** "The direction holds at two further unit boundaries on two observed
+corpora, and reverses at a third on one of them; §6.3." The reversal is a stronger
+sentence than the reproduction, because it is what makes the rule conditional rather
+than lucky.
+
+---
+
 ## Judgement questions
 
 _(pending)_
