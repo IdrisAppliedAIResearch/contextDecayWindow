@@ -1,5 +1,10 @@
 # PAPER-001 Appendix A — Claim-to-Artifact Table
 
+> **Historical record — PAPER-001.** This file is the claim index for `PAPER_001.md`,
+> retired 2026-08-18. It is kept because `ERRATA.md` and `paper/reviews/` cite it, and
+> because its scope caps are the source PAPER-002's spine was built from. The live
+> equivalent is `paper/notes/EVIDENCE_SPINE.md`; this file is not maintained.
+
 Every claim PAPER-001 makes, with the committed artifact that supports it. Built
 in Pass 2, before prose. The program's standing rule is that no result may be
 reported which cannot be traced to a committed artifact; this table is how that
