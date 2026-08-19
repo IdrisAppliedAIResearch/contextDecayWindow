@@ -273,7 +273,339 @@ the baseline half does not — and it was not taken.
 The rewrite also created a second instance of the same contradiction one level up. See
 **N1**.
 
-_(objections 16–30 pending)_
+---
+
+### §4.2 — the integrity machinery
+
+**16 — Machinery stated as uniformly achieved; wrong cross-reference; raters not
+identified. → NOT FIXED.**
+
+`git diff 95000acd HEAD -- paper/PAPER_002.md` does not touch §4.2. All three
+sentences the objection quoted are byte-identical to the reviewed draft:
+
+> "Registration commits contain no implementation files, **which is checkable and was
+> checked**."
+> "A gate is trusted to stop only after showing that its tested population and its
+> non-stopping alternative were capable of existing… **§5.4 and §11.5 each report
+> one.**"
+> "**Sealed scoring.** Three blind passes with registered adjudication triggers."
+
+The first is still stated of every study when the spine names two — DMR-004 and
+DMR-001C. The cross-reference still points at §5.4 and §11.5 while §11.6 is the
+section that inventories the failures, and §11.6 now carries a *fifth* case found on
+the sealed holdout itself, which makes the omission worse than when Cycle 3 raised it.
+The rater sentence still does not say the raters are not human, in a paper whose §5.2
+and §12.8 both say so.
+
+This objection was accepted and then not implemented. It is the only one in the set
+with no partial credit anywhere.
+
+---
+
+### §5.1 — the sealed holdout
+
+**17 (credit) — §8.3's handling of an in-band result. → HONOURED.**
+
+§8.3's paragraph is intact, and the executive summary's availability-versus-correctness
+bullet is now written in its voice (objection 4). The credit converted into the fix it
+was entered to motivate.
+
+---
+
+**18 — "Universal-rule" dropped from a binding scope cap. → FIXED.**
+
+> "the registration authorizes **no reader, live, universal-rule, promotion or adoption
+> claim**. The `universal-rule` term is the one that governs §6 and §13: this confirms
+> **one substitution on one corpus, not a law about granularity**. §12.3 is where the
+> accuracy distinction has teeth, and **§6.3 is where the universality one does**."
+
+Restored verbatim from the registration, with the consequence Cycle 3 asked for and a
+forward pointer to the reversal. Better than the required form.
+
+---
+
+**19 — `p = 6.19e-12` assumes independence across six clusters. → FIXED.**
+
+> "**That p assumes the questions are independent, and they are not** — they cluster
+> within six conversations. The registered statistic is not re-scored, but a
+> conservative alternative is reported beside it: treating each conversation as a
+> single observation, all six are net positive, one-sided sign test **p = 0.0156**.
+> Six observations is what the sealed design actually bought, and it still clears 0.05."
+
+Both statistics, the registered one unmoved, and the honest sentence about what six
+sealed conversations buy. `EVIDENCE_SPINE.md` §7.15 was added to trace it. This is the
+cleanest fix in the set.
+
+---
+
+### §6 — granularity and its reversal
+
+**20 — The relation is non-monotone; the rule is monotone. → PARTIAL.**
+
+The shape is now stated, and stated first:
+
+> "**State the shape before stating any rule, because the shape is not monotone.** On
+> one corpus, at a fixed packing unit, the episode loses in both directions: the turn
+> beats it 461 to 361, and the session beats it 388 to 351. A candidate unit that is
+> worse than both its parent and its child cannot be produced by any rule of the form
+> *finer is better* or *coarser is better*. **Whatever governs this is not a monotone
+> function of granularity, and this programme has not identified it.**"
+
+That is the objection's main ask, discharged, and declining to adopt the alignment
+reading rather than asserting it as interpretation is the right call.
+
+What was not fixed is the self-contradicting reconciliation, which survives verbatim
+in the paragraph immediately above:
+
+> "an episode is **already small enough that its embedding stays informative**, and
+> dropping to it **discards the broader context that was doing the scoring work**. A
+> source turn is small enough that its embedding is *sharp*."
+
+Cycle 3's point was that these two clauses cannot both be true. The added third
+sentence makes the incoherence sharper rather than resolving it: if the episode's
+embedding stays informative and the turn's is sharper still, the paragraph has just
+explained why the turn should win — which it does, 461 to 361, two subsections
+earlier. The paper then says, correctly, that it has not identified the mechanism.
+Delete the reconciliation and the section is right; keep it and §6.3 offers an
+explanation it disowns four lines later.
+
+---
+
+**21 — Same measure, two names. → PARTIAL.**
+
+The "strict" collision is gone — §6.3's header no longer carries the word that
+`DO_NOT_WRITE.md` §1 #3 makes load-bearing. But the two tables still name one measure
+two ways:
+
+> §6.2 header: "**Any exact evidence**" — Episode / Episode = **351 / 465**
+> §6.3 header: "**Exact answer-episode delivery**" — Episode / Episode = **351 / 465**
+
+Same arm, same corpus, same count, two labels one subsection apart. And the required
+single sentence — that the endpoint throughout §6 is answer-episode delivery and never
+session touch — was not added. A reader who has reached §11.5 knows the surrogate
+exists and has no statement that §6 does not use it.
+
+---
+
+**22 — "Informative" has no operational definition. → FIXED.**
+
+> "**rank at a unit small enough that its embedding is dominated by the material
+> answering the query**… The first clause needs an operational test to be a rule
+> rather than a restatement, and **it does not have one here** — 'dominated by' is
+> measured after the fact by whether delivery improved. Two proxies are available and
+> **neither was registered**… Both are descriptions of these corpora, not thresholds
+> anyone should carry."
+> "This is a **posthoc characterization on an exhausted corpus, not a registered
+> universal law**."
+
+Operational handle offered, marked untested, and the word "rule" demoted in the same
+subsection. `EVIDENCE_SPINE.md` §7.16 was added to trace the 240–300 band. Residual,
+not an objection: §6's own heading and §1.2's contribution 1 both still read "the
+finest informative unit", which is the phrase the subsection retires.
+
+---
+
+**23 — "Reproduces on two more corpora". → PARTIAL.**
+
+Removed from the executive summary and replaced by the reversal, exactly as required:
+
+> "**Finer is not monotonically better, and our own data refutes it.**… The episode
+> loses to both its parent and its child — a shape no monotone rule generates."
+
+The condemned verb then reappears twice further in:
+
+> §1.2, contribution 1: "confirmed prospectively on six withheld LoCoMo conversations
+> and **reproduced on two further corpora** with the size mechanism measured rather
+> than asserted."
+> §13: "**reproduced at** 361 to 461 of 465 on a second corpus and 12 to 14 of 17
+> internally."
+
+§13's is survivable because the reversal paragraph follows immediately. §1.2's is not:
+it is a contributions list, it says "reproduced on two further corpora" with no
+qualifier, and one of those two corpora is where the direction reverses. The
+executive-summary fix was a move, not a repair.
+
+---
+
+### §12.1 — the instrument band
+
+**24 — The divergent replicate was the first run (underclaim + accuracy). → PARTIAL.**
+
+§12.1 and the abstract were both corrected, and the finding was promoted the way the
+objection asked:
+
+> §12.1: "scored **11.0, 8.0, 8.0, 8.0 and 8.0**, in that order… **The one that
+> diverges is replicate one — the first run in a fresh server process**… Stated that
+> way it is sharper than 'one of five was odd', and it reaches further: **every scored
+> run in this arc that began on a cold server sits on the divergent side of that
+> switch**, and no study in the arc pinned process state."
+
+Figure 5's caption was not corrected and still carries the old ordering:
+
+> "five replicates… that scored **8.0, 8.0, 8.0, 8.0 and 11.0**"
+
+The paper now states the sequence two ways, and the figure caption is the version that
+hides the finding. §12.1's own text says the run order *is* the finding, so this is not
+a cosmetic mismatch.
+
+---
+
+**25 — "Three of N" with no N; the spine's fourth row missing. → PARTIAL.**
+
+The denominator arrived:
+
+> "**three of this arc's four scored verdicts fall inside the band and are not
+> demonstrated**: the memory-tier contrast at 3.0, the live-validation targeted
+> regression at −2.0, and the tier-isolation result at −1.0."
+
+The fourth row did not. §12.1 names three of four and never says what the fourth is or
+what it means. The annotation the objection asked to be carried verbatim exists in the
+paper twice — in the executive summary ("the fourth merely exceeds it, which is not the
+same thing") and in Figure 5's caption ("The corrected treatment series at +3.5 sits
+outside it, and exceeding a band is not the same as being demonstrated") — but not in
+the section that Cycle 3 identified as the defect's source, and not anywhere that
+names the 8.5 → 12.0 series. A reader of §12.1 alone still completes the inference the
+spine added that row to block.
+
+---
+
+### §12.3 — availability is not correctness
+
+**26 — "The weakness is real" retracted in the same section. → PARTIAL.**
+
+The promotion happened and it is well done:
+
+> "**The finding that survives the band is not the score.** Both arms fabricated
+> confidently on the domain neither retrieved… which a presence-only scorer credits as
+> a hit. **That is an identity, not a rating, so §12.1 does not touch it**, and it is
+> the more durable result of the two."
+
+That paragraph gives the section a band-independent basis it did not have, which is
+more than the objection asked for. But the sentence Cycle 3 condemned is untouched:
+
+> "This was the largest structural weakness of this paper's predecessor. **It has now
+> been measured, and the weakness is real.**"
+
+and the section still closes with "The −2.0 magnitude is as unreplicated as the +1 and
+neither is demonstrated". The ordering decides what a reader attaches "measured" to:
+the bolded claim is immediately followed by the bar table carrying the −2.0, and the
+fabrication finding is four paragraphs later. Move the fabrication sentence up, or
+rewrite the opening to name it, and the objection closes.
+
+---
+
+### §13 — conclusion
+
+**27 — The rule handed to practitioners without §6.3. → PARTIAL, and mostly fixed.**
+
+§6.3 is now in the conclusion as its own paragraph, which was the objection's core:
+
+> "*And do not read that as 'finer is always better', because this paper's own data
+> refutes it.* On the same LongMemEval corpus, moving the ranking unit from the session
+> to the episode **loses 37 items**… The episode loses from both sides, which no
+> monotone rule can produce. **The confirmed result is the specific substitution above,
+> on units of roughly 240 to 300 characters.**"
+
+The second half of the objection was not addressed. The sentence before it still runs
+three results of two standings under one confirmation:
+
+> "This is the substitution with **sealed external confirmation** — 843 to 935 of 1,098
+> on withheld conversations, **reproduced at 361 to 461 of 465 on a second corpus and
+> 12 to 14 of 17 internally**."
+
+843 → 935 is CONFIRMATORY. 361 → 461 and 12 → 14 are REGISTERED-OFFLINE by the paper's
+own §4.1 table, capped as characterization on already-observed corpora. Joining them
+inside one sentence governed by "sealed external confirmation" is the exact erasure §4
+exists to prevent, in the paragraph most likely to be quoted. §4.1's new table makes
+this cheap to fix: it is one clause.
+
+---
+
+**28 — "Invented none / the failures were delivery failures" versus §12.3. → PARTIAL.**
+
+The first half is fixed, and well:
+
+> "at the one probe where it was measured item by item, the model used all ten
+> available facts and invented none. **That is a statement about one probe and it does
+> not generalize: §12.3 records the counterexample**, where both live arms fabricated
+> confidently on the domain neither of them retrieved."
+
+The second half survives as the paper's final substantive claim, one sentence later:
+
+> "**So the failures measured here were delivery failures**, and delivery turned out to
+> be a selection problem…"
+
+The paper concedes a measured failure that was not a delivery failure and then, in the
+next sentence, says the failures measured here were delivery failures. Cycle 3 supplied
+the form that survives its own counterexample: *delivery was the dominant failure mode
+this programme measured, and it was not the only one.* One word — "dominant" — closes
+this.
+
+---
+
+**29 — Four flagged framings recur in §13. → PARTIAL, item by item.**
+
+- "**Eleven pre-registered efforts**" — **NOT FIXED.** Still the conclusion's first
+  three words. See objection 2.
+- "**The one operation measured here to break retrieval**" — **FIXED in §13**, which
+  now reads "a fact about the shortlist's contents rather than a measured comparison".
+  Survives at §7.2. See objection 3.
+- "**The systems that ship in this space**" — **FIXED.** Four systems named, sourced to
+  published descriptions.
+- "**Availability and correctness were measured moving in opposite directions once**" —
+  **NOT FIXED, and worsened.** The current text is: "Availability and correctness were
+  measured moving in opposite directions once, **and that result stands unrescued**."
+  The added clause promotes an in-band gap to a standing result, in the section where
+  §12.3's qualifiers are furthest away. The executive summary was rewritten for exactly
+  this and §13 was not. One mitigating fact the author should know: the phrase is the
+  spine's own — `EVIDENCE_SPINE.md` §5 item 3 reads "**Availability is not correctness.**
+  Measured, by LV-001, moving in opposite directions." The bounds file is licensing the
+  sentence `DO_NOT_WRITE.md` #28 forbids, so the fix belongs in both files.
+- "the answer is **more than this programme expected when it started removing things**"
+  — **NOT FIXED.** Unchanged, closing the practitioner section. Still an unfalsifiable
+  claim about the authors' priors and still fails the read-aloud test.
+
+---
+
+**30 — The negative confirmatory results unnamed in the conclusion (underclaim). →
+FIXED.**
+
+> "**Three of the five sealed results were negative, and they are why the list above is
+> short.** A deterministic stopping controller reached Youden's J of **0.320** against a
+> registered **0.50**. An absolute-threshold event segmenter closed **52 of 74** events
+> on its size cap against a **0.35** bar, and its relative successor then lost to
+> chopping every four episodes regardless of content. A surprisal-proximity capture
+> signal scored AUC **0.416** against a **0.60** bar, below chance in five of six
+> strata. Each was pre-registered against a sealed holdout, and **each closed a line
+> this programme wanted to keep.**"
+
+Every number checks against spine C2, C3, C4 and C5. The DMR-001C half is included,
+which the objection did not ask for. This is the largest single improvement in the
+rewrite.
+
+---
+
+### Part 1 tally
+
+| Verdict | Count | Objections |
+|---|---:|---|
+| **FIXED** | **14** | 1, 4, 5, 6, 7, 8, 10, 12, 13, 14, 18, 19, 22, 30 |
+| **PARTIAL** | **12** | 3, 9, 11, 15, 20, 21, 23, 24, 25, 26, 27, 28 |
+| **NOT FIXED** | **2** | 2, 16 |
+| **REGRESSED** | **0** | — |
+| Credit honoured | 1 | 17 |
+| Split verdict | 1 | 29 (2 fixed, 3 not) |
+
+Objection 29 is counted once as PARTIAL above and its five items are also counted
+inside objections 2, 3 and 8 where they originate, so the table sums to 29 plus the
+credit.
+
+No objection was regressed in the sense of a number moving the wrong way. Every
+PARTIAL has the same shape: **the fix was applied at the site Cycle 3 quoted and not
+at the other sites carrying the same claim.** That is a single process defect, not
+twelve editorial ones — the review was worked as a list of quotations rather than a
+list of claims, which is the failure mode `DO_NOT_WRITE.md` opens by naming ("grep for
+the superseded value, not for the superseded sentence").
 
 ---
 
