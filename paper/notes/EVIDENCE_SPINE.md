@@ -21,12 +21,24 @@ companion file `DO_NOT_WRITE.md` holds the claims that may not be restated at al
 Four levels. The taxonomy is the paper's honesty mechanism: it is applied once,
 here, so the prose does not have to hedge sentence by sentence.
 
+**Five levels, separated by when the claim was committed relative to the number**,
+not by how the number was computed. Determinism is cheap; commitment order is what a
+result cannot buy back afterwards. `PAPER_002.md` §4.1 carries the same five levels
+and the full per-result assignment; if the two ever disagree, §4.1 is the published
+statement and this file is the defect.
+
 | Standing | Definition | What the paper may say |
 |---|---|---|
 | **CONFIRMATORY** | Pre-registered; sealed holdout; bars, endpoint and budget locked before the number existed; registration commit carries no implementation file | State it as an established result of this programme, with its scope |
-| **DETERMINISTIC-OFFLINE** | Zero generative model calls; counts and identities rather than scores; byte-identical on replay; untouched by the instrument band | State it as measured, with the corpus named. Not a benchmark score |
+| **REGISTERED-OFFLINE** | Pre-registered with bars locked first, zero generative calls, reproducible on replay — byte-exactly where the embedding cache was retained, otherwise under recomputed embeddings — but run on a corpus already observed, so it cannot confirm | As measured and registered, capped as characterization |
+| **DESCRIPTIVE** | Deterministic and reproducible, but the reading was chosen after the number existed, or the quantity is a bound computed with the answer key | As measured, with what it cannot support said in the same breath |
 | **NOT DEMONSTRATED** | A scored live comparison whose gap falls inside the measured 3.0-point instrument band | Report the number *and* the label. "Not demonstrated is not refuted" |
 | **WITHDRAWN** | Corrected or retracted in `ERRATA.md` | Never restate. See `DO_NOT_WRITE.md` |
+
+The second and third levels were one level until Cycle 3 objection 14. Collapsing
+them let a byte-identical 500-store replay, a posthoc reading of an exhausted corpus,
+and a bound computed with the answer key all inherit the same phrase. They reproduce
+identically and they do not license the same sentence.
 
 **The band, since it governs level three.** Five replicates of the deployed
 configuration — identical corpus, settings, seed and standing runtime, back to back
@@ -157,7 +169,7 @@ in the opposite direction. Posthoc own-exchange AUC 0.621.
 
 ---
 
-## 3. DETERMINISTIC-OFFLINE
+## 3. REGISTERED-OFFLINE and DESCRIPTIVE
 
 Zero generative calls, byte-identical on replay, unaffected by the instrument band.
 These are counts and identities. They are real measurements and they are not

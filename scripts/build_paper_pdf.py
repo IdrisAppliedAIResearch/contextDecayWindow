@@ -309,7 +309,7 @@ def build() -> int:
                     "#block(width: 100%, fill: luma(96%), inset: 11pt, radius: 3pt, "
                     "stroke: 0.4pt + luma(70%))[\n"
                     "#text(size: 11pt, weight: \"bold\")[Executive summary]\n"
-                    "#v(3pt)\n#set text(size: 8.9pt)\n"
+                    "#v(3pt)\n#set text(size: 8.7pt)\n"
                 )
                 open_wrapper = True
                 continue
