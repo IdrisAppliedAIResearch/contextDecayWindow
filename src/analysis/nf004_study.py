@@ -36,7 +36,7 @@ REGISTRATION_LF_SHA256 = (
 )
 SOURCE_MANIFEST = Path("experiments/external/locomo/artifacts/source_manifest.json")
 SOURCE_MANIFEST_SHA256 = (
-    "58958407a451eed0e6031f643234c73fe9026a9ceca5b56ed7a4f500af8b3693"
+    "e7304f7b5870edbfa166e11d77a64d4e634043c5b5f33913026876c64742c5d4"
 )
 HOLDOUT_INVENTORY = Path(
     "experiments/external/locomo/artifacts/holdout_inventory.json"

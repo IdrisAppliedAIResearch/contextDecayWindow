@@ -1,5 +1,66 @@
 # Errata
 
+## NF-004 Source-Manifest Gate Was Inert (2026-08-18)
+
+**Headline change:** none. No NF-004 result moves, and the LoCoMo corpus lock is
+intact. What changes is the status of one integrity gate: it never bound.
+
+`src/analysis/nf004_study.py` pins `SOURCE_MANIFEST_SHA256` to
+`58958407a451eed0e6031f643234c73fe9026a9ceca5b56ed7a4f500af8b3693`, and
+`tests/test_nf004_study.py::test_artifact_identity_uses_raw_bytes` asserts the raw
+bytes of `experiments/external/locomo/artifacts/source_manifest.json` hash to it.
+They do not, and they never did.
+
+That file has exactly one revision in the repository, `e649ea15`, and its content
+has hashed to `e7304f7b5870edbfa166e11d77a64d4e634043c5b5f33913026876c64742c5d4`
+at every point in its history. The working copy matches the committed blob exactly
+and contains no CR bytes, so this is not the line-ending class of failure recorded
+in the fourteen-gate erratum. The expected constant matches **no file** under
+`experiments/external/locomo/`. It is a wrong constant, not a modified artifact.
+
+**The defect is isolated.** The two sibling constants in the same block verify
+clean: `holdout_inventory.json` against `cde6e37a…` and
+`development_vector_manifest.json` against `6f939ed9…` both match. Only the source
+manifest's anchor is wrong.
+
+**What is unaffected.** The corpus lock itself is sound and independently checkable:
+the manifest still records `locomo10.json` at 2,805,274 bytes, SHA-256
+`79fa87e90f04081343b8c8debecb80a9a6842b76a7aa537dc9fdf651ea698ff4`, git blob SHA-1
+`d95b872480b413d935821fdc3c84f8a8f5f29e73`, at repository commit
+`3eb6f2c585f5e1699204e3c3bdf7adc5c28cb376`, and those values agree with
+`LOCOMO_CORPUS_LOCK.md`. NF-004's own outcome integrity is separately anchored and
+still holds: G7's replay SHA equals the committed G6 SHA, and its vector seal read
+2,749 of 2,749 cached vectors with zero misses. The holdout counts — 843 to 935 of
+1,098, 140 gains and 48 losses — are not in question.
+
+**What is affected.** For the duration, one gate on the programme's only sealed
+external confirmation could not have detected a real change to the corpus-lock
+record, because it was already failing for an unrelated reason. This is the same
+species as the fourteen integrity gates that failed unconditionally under a
+line-ending mismatch: a check that cannot pass is a check that cannot fail
+informatively, and its output carries no evidence either way.
+
+**Corrected 2026-08-19, on the repository owner's instruction.**
+`SOURCE_MANIFEST_SHA256` now reads
+`e7304f7b5870edbfa166e11d77a64d4e634043c5b5f33913026876c64742c5d4`, and
+`test_artifact_identity_uses_raw_bytes` passes with the other fifteen tests in its
+module. The value was re-derived from three independent readings that agree: the
+working copy, the committed blob via `git show HEAD:<path>`, and the file's single
+revision. `.gitattributes` already pins this path to `text eol=lf`, so the raw-byte
+hash the test computes is stable across platforms and cannot drift back through the
+line-ending route that disabled fourteen other gates.
+
+**What the correction does and does not buy.** The gate now binds, so a future change
+to the corpus-lock record will be caught. It does **not** retroactively validate the
+period during which the gate was inert: NF-004's committed result rests on its own
+outcome integrity — the G7 replay SHA equalling the committed G6 SHA, and a vector
+seal reading 2,749 of 2,749 with zero misses — not on this check, which never passed.
+Nothing in NF-004's numbers moves, and none of them ever depended on this constant.
+
+This entry deliberately keeps the original diagnosis above rather than rewriting it,
+so the sequence stays visible: the defect was found, recorded while unfixed, and then
+fixed as a separate decision by the person entitled to make it.
+
 ## NF-003 Part 1 Evaluated Population (2026-08-13)
 
 **Headline change:** NF-003's 49-gain, zero-loss evidence-delivery claim is

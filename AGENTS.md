@@ -331,8 +331,12 @@ experiments/study_NNN/
 experiments/probes/                            exploratory work outside the arc
 experiments/internal/packing_priority/         IC-001 packing-order counterfactual on the internal corpus
 paper/
-  PAPER_001.md                                 terminal research document; the source of truth
-  Selection_Not_Capacity.pdf                   typeset build of the above; generated, never authored
+  PAPER_002.md                                 terminal research document; the source of truth
+  PAPER_001.md                                 RETIRED 2026-08-18; superseded by PAPER_002.md
+  Rank_Fine_Pack_Fine_Call_Nothing.pdf         typeset build of the above; generated, never authored
+  notes/EVIDENCE_SPINE.md                      every admissible number, with artifact and standing
+  notes/DO_NOT_WRITE.md                        withdrawn claims; never restate one
+  notes/COMPETITIVE_LANDSCAPE.md               published competitor results; none were run here
   CLAIM_TO_ARTIFACT.md                         every claim with its committed artifact and hash
   REPRODUCTION.md                              Appendix E; clean-environment check of one headline number
   reproduce_headline.py                        that check; reader-facing, runs against the installed library
@@ -343,16 +347,18 @@ experiments/components/live_validation/
   LV_001_pre_registration.md                   live validation of the shipping selector; PRE-REGISTERED, NOT RUN
 experiments/components/biological_memory/deterministic_retrieval/
   DMR_ARC_IMPLEMENTATION_ROADMAP.md            design-only six-stage deterministic retrieval arc
-scripts/generate_paper_001_figures.py          rebuilds paper/figures/ from committed artifacts
-scripts/build_paper_pdf.py                     rebuilds the PDF from PAPER_001.md; needs `pip install typst`
+scripts/generate_paper_002_figures.py          rebuilds paper/figures/ from committed artifacts
+scripts/check_paper_002_claims.py              gates every number against the spine and landscape
+scripts/build_paper_pdf.py                     rebuilds the PDF from PAPER_002.md; needs `pip install typst`
 ```
 
 ### The paper is generated, not authored
 
-`paper/PAPER_001.md` is the only place a claim in the paper may be edited. The
+`paper/PAPER_002.md` is the only place a claim in the paper may be edited. The
 figures and the PDF are build outputs of the two scripts above.
 
-- Edit `PAPER_001.md`, then re-run **both** scripts. Hand-editing a figure, the
+- Edit `PAPER_002.md`, then re-run **both** scripts, then `check_paper_002_claims.py`.
+  Hand-editing a figure, the
   PDF, or `paper/build/` is a defect, not a shortcut.
 - Figure numbering lives in the Markdown, not in the typesetter, so a renumber
   means editing the Markdown and the generator together. The build places each
