@@ -85,14 +85,16 @@ def load_json(path: Path) -> dict:
 
 
 def load_csv(path: Path) -> list[dict]:
+    # git blobs are LF-normalized, so split on "\n" only: str.splitlines() also
+    # breaks on U+2028 and U+0085, which appear inside these payloads verbatim.
     text = read(path).decode("utf-8-sig")
-    return list(csv.DictReader(text.splitlines()))
+    return list(csv.DictReader(text.split("\n")))
 
 
 def load_jsonl(path: Path) -> list[dict]:
     return [
         json.loads(line)
-        for line in read(path).decode("utf-8").splitlines()
+        for line in read(path).decode("utf-8").split("\n")
         if line.strip()
     ]
 
@@ -358,6 +360,391 @@ def figure_2() -> None:
     save(fig, "f2_granularity_three_corpora")
 
 
+# --------------------------------------------------------------------------
+# F3 - every mechanism against its own registered bar
+# --------------------------------------------------------------------------
+def figure_3() -> None:
+    nf004 = load_json(BIO / "nf_004/artifacts/g7_result_integrity.json")
+    nf004_bar = extract(
+        BIO / "nf_004/NF_004_PRE_REGISTRATION.md",
+        r"gains\s*>=\s*([0-9.]+)\s*\*\s*losses",
+    )
+    nf005 = load_json(BIO / "nf_005/artifacts/g8_integrity.json")
+    nf005_bar = extract(
+        BIO / "nf_005/NF_005_PRE_REGISTRATION.md",
+        r"gains\s*>=\s*([0-9.]+)\s*\*\s*losses",
+    )
+    nf006 = load_json(BIO / "nf_006/artifacts/g8_g9_measurement.json")
+    nf006_bar = extract(
+        BIO / "nf_006/NF_006_PRE_REGISTRATION.md",
+        r"T1\s*>=\s*([0-9]+)/17",
+    )
+    e005 = load_json(LEDGER / "artifacts/e005/e005_results.json")
+    e001 = load_json(LEDGER / "artifacts/e001/analysis_001/e001_results.json")
+    tier3 = load_json(REPO / "experiments/surveys/retrieval_bakeoff/tier3/tier3_results.json")
+    tier3_bar = extract(
+        REPO / "experiments/surveys/retrieval_bakeoff/retrieval_bakeoff_report.md",
+        r"below the registered ([0-9.]+)% build",
+    )
+    sal = load_json(BIO / "sal_001/artifacts/sal001_analysis/analysis.json")
+    sal_bar = extract(
+        BIO / "sal_001/SAL_001_FINAL_DESIGN.json",
+        r"adjusted symmetric AUC >= ([0-9.]+)",
+    )
+    dmr004 = load_json(BIO / "dmr_004/artifacts/gates_holdout.json")["gates"]
+    dmr001 = load_json(BIO / "dmr_001/artifacts/dmr001_gates/gate_report.json")
+    dmr001c = load_json(BIO / "dmr_001c/artifacts/dmr001c_gates/gate_report.json")
+    s011 = load_json(S011 / "evaluation/verdict.json")
+    lv001_baseline = extract(
+        REPO / "experiments/components/live_validation/LV_001_report.md",
+        r"\*\*B2\*\* targeted[^|]*\|\s*([0-9.]+)\s*/\s*8",
+    )
+    lv001_treatment = extract(
+        REPO / "experiments/components/live_validation/LV_001_report.md",
+        r"\*\*B2\*\* targeted[^|]*\|\s*[0-9.]+\s*/\s*8\s*\|\s*([0-9.]+)\s*/\s*8",
+    )
+    lv001_tolerance = extract(
+        REPO / "experiments/components/live_validation/LV_001_report.md",
+        r"must not fall >([0-9.]+) below",
+    )
+
+    def dmr001_check(gate: str, needle: str) -> dict:
+        for entry in dmr001["verdict"]["gates"]:
+            if entry["gate"] != gate:
+                continue
+            for check in entry["checks"]:
+                if needle in check["check"]:
+                    return check
+        raise SystemExit(f"DMR-001 check {needle!r} not found in the gate report")
+
+    forced = dmr001_check("G3", "holdout: forced fraction")
+    largest = dmr001_check("G3", "development: largest event share")
+    periodic = dmr001c["summary"]["periodic_macro_f1"][dmr001c["summary"]["best_periodic"]]
+
+    # (statistic, achieved, bar, higher_is_better, note)
+    rows = [
+        (
+            "NF-005 · source-turn ranking", "gain / loss ratio",
+            None, nf005_bar, True,
+            f"{nf005['primary_comparison']['gains']} gains, "
+            f"{nf005['primary_comparison']['losses']} losses",
+        ),
+        (
+            "NF-004 · adjacent-pair ranking", "gain / loss ratio",
+            nf004["primary"]["paired"]["gain_loss_ratio"], nf004_bar, True,
+            f"{nf004['primary']['paired']['gain_loss_ratio']:.2f} vs {nf004_bar:g}",
+        ),
+        (
+            "NF-006 · statement ranking", "breadth items available",
+            nf006["G9"]["q11"]["T1_OWN_STATEMENT"]["available"], nf006_bar, True,
+            f"{nf006['G9']['q11']['T1_OWN_STATEMENT']['available']}/17 "
+            f"vs {nf006_bar:g}/17",
+        ),
+        (
+            "E005 · coverage selection", "breadth items available",
+            e005["primary_configuration"]["q11_fact_count"],
+            e005["secondary_reference_points"]["rubric_threshold"], True,
+            f"{e005['primary_configuration']['q11_fact_count']}/17 vs "
+            f"{e005['secondary_reference_points']['rubric_threshold']}/17",
+        ),
+        (
+            "E002 · segmented query retrieval", "breadth items available",
+            e005["secondary_reference_points"]["e002_best"],
+            e005["secondary_reference_points"]["rubric_threshold"], True,
+            f"{e005['secondary_reference_points']['e002_best']}/17 vs "
+            f"{e005['secondary_reference_points']['rubric_threshold']}/17",
+        ),
+        (
+            "Bakeoff T3 · query-type routing", "oracle relative gain",
+            tier3["analysis"]["T3.2_oracle_router"]["relative_gain"],
+            tier3_bar / 100.0, True,
+            f"{tier3['analysis']['T3.2_oracle_router']['relative_gain']:.2%} vs "
+            f"{tier3_bar:g}%",
+        ),
+        (
+            "E001 · attention-derived terms", "best cue cosine",
+            e001["best"]["target_cosine"], e001["k_threshold"], True,
+            f"{e001['best']['target_cosine']:.3f} vs K = {e001['k_threshold']:g}",
+        ),
+        (
+            "SAL-001 · surprisal proximity", "adjusted neighbour AUC",
+            sal["metrics"]["adjusted_symmetric_auc"], sal_bar, True,
+            f"{sal['metrics']['adjusted_symmetric_auc']:.3f} vs {sal_bar:g}",
+        ),
+        (
+            "DMR-004 · sufficiency signal", "Youden's J",
+            dmr004["G_J"]["value"], dmr004["G_J"]["bar"], True,
+            f"{dmr004['G_J']['value']:.3f} vs {dmr004['G_J']['bar']:g}",
+        ),
+        (
+            "DMR-004 · sufficiency signal", "false-finite rate (lower is better)",
+            dmr004["G3"]["value"], dmr004["G3"]["bar"], False,
+            f"{dmr004['G3']['value']:.3f} vs {dmr004['G3']['bar']:g}",
+        ),
+        (
+            "DMR-001 · event formation", "forced fraction (lower is better)",
+            forced["observed"],
+            dmr001["verdict"]["bars"]["G3"]["max_forced_fraction"], False,
+            f"{forced['observed']:.3f} vs "
+            f"{dmr001['verdict']['bars']['G3']['max_forced_fraction']:g}",
+        ),
+        (
+            "DMR-001 · event formation", "largest event share (lower is better)",
+            largest["observed"],
+            dmr001["verdict"]["bars"]["G3"]["max_largest_event_share_of_session"],
+            False,
+            f"{largest['observed']:.3f} vs "
+            f"{dmr001['verdict']['bars']['G3']['max_largest_event_share_of_session']:g}",
+        ),
+        (
+            "DMR-001C · boundary evidence", "macro F1 vs best periodic control",
+            dmr001c["summary"]["macro_f1"],
+            periodic + dmr001c["verdict"]["bars"]["G5"]["margin_over_best_periodic"],
+            True,
+            f"{dmr001c['summary']['macro_f1']:.3f} vs "
+            f"{periodic:.3f} + "
+            f"{dmr001c['verdict']['bars']['G5']['margin_over_best_periodic']:g}",
+        ),
+        (
+            "Study 011 · K-first packing, live", "rubric score /13",
+            s011["b1"]["arm_c"], s011["b1"]["arm_d"], True,
+            f"{s011['b1']['arm_c']:g} vs {s011['b1']['arm_d']:g}",
+        ),
+        (
+            "LV-001 · coverage selection, live", "targeted probes /8",
+            lv001_treatment, lv001_baseline - lv001_tolerance, True,
+            f"{lv001_treatment:g}/8 vs {lv001_baseline - lv001_tolerance:g}/8",
+        ),
+    ]
+
+    graveyard = _graveyard_rows()
+
+    clip = 1.8
+    text_x = 1.95
+    height = 0.38 * len(rows) + 0.34 * len(graveyard) + 2.0
+    fig = plt.figure(figsize=(10.6, height))
+    grid = fig.add_gridspec(
+        2, 1,
+        height_ratios=[0.38 * len(rows), 0.34 * len(graveyard)],
+        hspace=0.16,
+    )
+    ax = fig.add_subplot(grid[0])
+    ax2 = fig.add_subplot(grid[1])
+
+    ax.spines["top"].set_visible(False)
+    ax.spines["right"].set_visible(False)
+    ax.spines["left"].set_visible(False)
+    ax.grid(axis="x", color=GREY, alpha=0.22, linewidth=0.6)
+    ax.set_axisbelow(True)
+
+    for index, (name, statistic, achieved, bar, higher, note) in enumerate(rows):
+        y = len(rows) - 1 - index
+        if achieved is None:
+            ratio, clears, off_scale = clip, True, True
+        else:
+            ratio = (achieved / bar) if higher else (bar / achieved)
+            clears = ratio >= 1.0
+            off_scale = ratio > clip
+        colour = GREEN if clears else VERMILLION
+        ax.barh(y, min(ratio, clip), color=colour, alpha=0.85, height=0.56)
+        if off_scale:
+            ax.annotate(
+                "", xy=(clip + 0.10, y), xytext=(clip - 0.02, y),
+                arrowprops=dict(arrowstyle="-|>", color=colour, linewidth=1.4),
+            )
+        ax.text(-0.03, y, name, ha="right", va="center", fontsize=8.4)
+        ax.text(text_x, y + 0.16, statistic, ha="left", va="center",
+                fontsize=7.6, color=GREY)
+        ax.text(text_x, y - 0.20, note, ha="left", va="center",
+                fontsize=8.2, color=colour, fontweight="bold")
+
+    ax.axvline(1.0, color=BLACK, linewidth=1.3, zorder=4)
+    ax.text(1.03, -0.60, "the registered bar", fontsize=8.4,
+            ha="left", va="center", fontweight="bold")
+    short = sum(
+        1 for _, _, achieved, bar, higher, _ in rows
+        if achieved is not None and ((achieved / bar) if higher else (bar / achieved)) < 1.0
+    )
+    clears = len(rows) - short
+    ax.text(
+        -0.60, -1.24,
+        f"{short} of {len(rows)} registered statistics fall short; "
+        f"{clears} clear, and all {clears} are the granularity substitution",
+        fontsize=8.6, ha="left", fontweight="bold", zorder=6,
+        bbox=dict(facecolor="white", edgecolor="none", pad=2.0),
+    )
+    ax.set_yticks([])
+    ax.set_xlim(-0.62, 3.35)
+    ax.set_ylim(-1.60, len(rows) - 0.35)
+    ax.set_xticks([0, 0.5, 1.0, 1.5])
+    ax.set_xticklabels(["0", "0.5×", "1.0× bar", "1.5×"], fontsize=8.2)
+    ax.set_title(
+        "every mechanism against the bar registered for it "
+        "(each row on its own statistic, rescaled so 1.0 is that row's bar)",
+        fontsize=10, loc="left",
+    )
+
+    # Mechanisms closed without a numeric bar: categorical rows only.
+    ax2.axis("off")
+    ax2.set_xlim(-0.62, 3.35)
+    ax2.set_ylim(-1.0, len(graveyard))
+    ax2.text(-0.60, len(graveyard) - 0.30,
+             "closed without a committed numeric bar — categorical outcome only",
+             fontsize=9, fontweight="bold")
+    for index, (name, verdict, reason) in enumerate(graveyard):
+        y = len(graveyard) - 1.35 - index
+        colour = VERMILLION if verdict == "REFUTED" else GREY
+        ax2.text(-0.03, y, name, ha="right", va="center", fontsize=8.4)
+        ax2.scatter([0.10], [y], s=52, marker="s", color=colour, alpha=0.85)
+        ax2.text(0.20, y, verdict, ha="left", va="center", fontsize=7.4,
+                 color=colour, fontweight="bold")
+        ax2.text(0.72, y, reason, ha="left", va="center", fontsize=7.8,
+                 color=BLACK)
+
+    save(fig, "f3_mechanisms_against_bars")
+
+
+def _graveyard_rows() -> list[tuple[str, str, str]]:
+    """Parse the ledger's graveyard table: mechanism, verdict, short reason."""
+    ledger = text_of(LEDGER / "RETRIEVAL_MECHANISM_LEDGER.md")
+    section = re.search(
+        r"^## 6\. Graveyard.*?^\| Mechanism \| Killed by \|\n\|[-| ]+\|\n(.*?)^\s*$",
+        ledger, re.S | re.M,
+    )
+    if section is None:
+        raise SystemExit("the ledger's graveyard table no longer parses")
+    out: list[tuple[str, str, str]] = []
+    for line in section.group(1).splitlines():
+        if not line.startswith("|"):
+            continue
+        cells = [c.strip() for c in line.strip().strip("|").split("|")]
+        if len(cells) < 2:
+            continue
+        name = cells[0].replace("**", "")
+        killed = cells[1]
+        verdict = "NOT REFUTED" if "ot refuted" in killed.lower() else "REFUTED"
+        reason = re.sub(r"\*\*|`", "", killed)
+        reason = re.sub(r"\s*\(?See .*$", "", reason).strip(" .")
+        reason = re.sub(r"^NOT REFUTED\.\s*|^Not refuted -\s*", "", reason)
+        reason = reason[:1].upper() + reason[1:]
+        if len(reason) > 84:
+            reason = reason[:81].rstrip() + "…"
+        out.append((name, verdict, reason))
+    return out
+
+
+# --------------------------------------------------------------------------
+# F4 - packing priority as a gate
+# --------------------------------------------------------------------------
+def figure_4() -> None:
+    paired = load_json(LME / "runs/ec002_k_first/a1_k_first/paired_comparison.json")
+    a0_mech = load_jsonl(
+        LME / "runs/ec002_k_first/a0_amended_reproduction_v2/a0_reproduced_mechanism.jsonl"
+    )
+    a1_mech = load_jsonl(LME / "runs/ec002_k_first/a1_k_first/a1_mechanism.jsonl")
+    ic_paths = load_csv(IC001 / "b1_k_first/path_split.csv")
+    ic_paired = load_json(IC001 / "b1_k_first/paired_comparison.json")
+
+    session_any = paired["by_stratum"]["all"]["session_any"]
+    n_answerable = paired["answerable_questions"]
+    top_four = paired["top_four_subset"]["session_any"]
+    n_top_four = paired["top_four_subset"]["denominator"]
+
+    a0_k = sum(r["report"]["k_count"] for r in a0_mech)
+    a1_k = sum(r["report"]["k_count"] for r in a1_mech)
+    a0_chars = statistics.median(r["report"]["chars_delivered"] for r in a0_mech)
+    a1_chars = statistics.median(r["report"]["chars_delivered"] for r in a1_mech)
+
+    b0 = [r for r in ic_paths if r["arm"] == "B0"]
+    b1 = [r for r in ic_paths if r["arm"] == "B1"]
+    probes = [r["probe_turn"] for r in b0]
+    b0_k = [int(r["k_episodes"]) for r in b0]
+    b1_k = [int(r["k_episodes"]) for r in b1]
+    b0_k_chars = sum(int(r["k_chars"]) for r in b0)
+    b1_k_chars = sum(int(r["k_chars"]) for r in b1)
+
+    fig = plt.figure(figsize=(10.6, 4.9))
+    grid = fig.add_gridspec(1, 3, width_ratios=[1.0, 0.78, 1.15], wspace=0.36)
+    ax_a = fig.add_subplot(grid[0])
+    ax_b = fig.add_subplot(grid[1])
+    ax_c = fig.add_subplot(grid[2])
+
+    # (a) EC-002 outcome
+    style(ax_a)
+    labels = ["A0\nrecency-first\n(deployed)", "A1\nK-first"]
+    values = [session_any["a0"], session_any["a1"]]
+    ax_a.bar(labels, [n_answerable] * 2, color=GREY, alpha=0.13, width=0.6)
+    ax_a.bar(labels, values, color=[VERMILLION, BLUE], alpha=0.9, width=0.6)
+    for x, value in enumerate(values):
+        ax_a.text(x, value + n_answerable * 0.02,
+                  f"{value}/{n_answerable}\n{value / n_answerable:.1%}",
+                  ha="center", fontsize=9, fontweight="bold")
+    ax_a.text(
+        0.5, n_answerable * 1.03,
+        f"{session_any['gains']} gains, {session_any['losses']} losses",
+        ha="center", fontsize=9, fontweight="bold", color=GREEN,
+    )
+    ax_a.set_ylim(0, n_answerable * 1.16)
+    ax_a.tick_params(axis="x", labelsize=8)
+    ax_a.set_ylabel("questions recalling any evidence session", fontsize=9)
+    ax_a.set_title("EC-002 · 500 external stores,\nonly the packing order changed",
+                   fontsize=9.4, loc="left")
+
+    # (b) the mechanism, and what the medians hid
+    style(ax_b)
+    ax_b.bar(["A0", "A1"], [a0_k, a1_k], color=[VERMILLION, BLUE], alpha=0.9,
+             width=0.55)
+    for x, value in enumerate([a0_k, a1_k]):
+        ax_b.text(x, value + a1_k * 0.03, f"{value:,}", ha="center",
+                  fontsize=9.6, fontweight="bold")
+    ax_b.set_ylim(0, a1_k * 1.18)
+    ax_b.set_ylabel("similarity-path episodes delivered, all 500 blocks",
+                    fontsize=8.6)
+    median_note = (
+        f"median block unchanged at {a0_chars:,.0f} chars"
+        if a0_chars == a1_chars
+        else f"median block {a0_chars:,.0f} → {a1_chars:,.0f} chars"
+    )
+    ax_b.set_title(
+        f"the medians concealed it:\n{median_note}\n"
+        f"top four subset {top_four['a0']} → {top_four['a1']} of {n_top_four},\n"
+        f"{top_four['gains']} gains, {top_four['losses']} losses",
+        fontsize=8.0, loc="left",
+    )
+
+    # (c) IC-001, per probe
+    style(ax_c)
+    width = 0.38
+    xs = range(len(probes))
+    zeros = sum(1 for v in b0_k if v == 0)
+    ax_c.bar([x - width / 2 for x in xs], b0_k, width=width, color=VERMILLION,
+             alpha=0.9,
+             label=f"B0 recency-first (deployed) — 0 at {zeros} of {len(b0_k)}")
+    ax_c.bar([x + width / 2 for x in xs], b1_k, width=width, color=BLUE,
+             alpha=0.9, label="B1 K-first")
+    ax_c.scatter([x - width / 2 for x in xs], b0_k, marker="_", s=120,
+                 color=VERMILLION, linewidth=2.0, zorder=3)
+    ax_c.set_xticks(list(xs))
+    ax_c.set_xticklabels([f"turn {p}" for p in probes], fontsize=7.4, rotation=45)
+    ax_c.set_yticks(range(0, max(b1_k) + 2))
+    ax_c.set_ylim(0, max(b1_k) + 1.9)
+    ax_c.set_ylabel("similarity-path episodes delivered", fontsize=9)
+    ax_c.legend(loc="upper left", frameon=False, fontsize=7.6)
+    ax_c.set_title("IC-001 · the same gate on the internal store",
+                   fontsize=9.4, loc="left")
+    ax_c.text(
+        len(probes) - 0.5, max(b1_k) + 0.95,
+        f"deployed order: {sum(b0_k)} episodes, {b0_k_chars:,} characters\n"
+        f"K-first: {sum(b1_k)} episodes, {b1_k_chars:,} characters\n"
+        f"Q11 available {ic_paired['q11']['b0_fact_count']}/17 → "
+        f"{ic_paired['q11']['b1_fact_count']}/17, "
+        f"{ic_paired['q11']['loss_count']} losses",
+        fontsize=7.8, color=BLACK, ha="right", va="top",
+    )
+
+    save(fig, "f4_packing_priority_gate")
+
+
 def write_manifest() -> None:
     head = subprocess.run(
         ["git", "rev-parse", "HEAD"], cwd=REPO,
@@ -382,6 +769,8 @@ def main() -> None:
     print("Generating PAPER-002 figures from committed artifacts...")
     figure_1()
     figure_2()
+    figure_3()
+    figure_4()
     write_manifest()
 
 
