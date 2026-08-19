@@ -58,6 +58,36 @@ two elaborate systems both losing to chunk-and-embed. A4 may be dropped only if
 §7's timing pilot says the run does not fit, and the report then says it was
 dropped and why.
 
+### 3.1 Population — found while building, recorded before running
+
+Adapting the corpus turned up three facts the plan had not accounted for. All
+three are settled here, before any arm runs.
+
+**850 answerable items, not 1,098.** The six holdout conversations hold 1,104
+canonical unique QA records. **254 of them are LoCoMo category 5, the
+adversarial class**: they carry `adversarial_answer` instead of `answer`, and
+the correct behaviour is a refusal rather than a fact. Neither the containment
+endpoint nor a correctness rubric measures a refusal, and `AGENTS.md` §7 forbids
+scoring an answerless item above zero — a fluent wrong answer would score as
+correct. **The primary population is the 850 answerable items.** The adversarial
+254 are reported as their own stratum, scored for refusal rate only, and cannot
+touch the contrast.
+
+**NF-004's 1,098 is a different number from this study's denominator.** Six
+records name a dialogue id their conversation does not contain, and dropping
+those from 1,104 is how NF-004 reached 1,098. The judged endpoint does not read
+evidence, so those six stay in the primary population here. They are excluded
+**only** from the availability secondary, mechanically, along with the nine
+records that resolve no evidence at all. Copying NF-004's population across
+would have quietly changed what was measured.
+
+**A1's ceiling can exceed the reader's window.** Holdout conversations run
+45,616 to 90,034 characters. At a 32,768-token context that is roughly 11k to
+22k tokens, so the longest conversations sit close to the limit once the prompt
+is added. A1 is given an explicit character allowance and **records any
+shortfall on the block**: a ceiling that silently truncates is not a ceiling,
+and an unmarked one would understate every other arm's gap to it.
+
 ## 4. What is held constant
 
 Only the memory layer varies. Everything downstream of it is one fixed thing.
@@ -199,6 +229,34 @@ experiments/comparisons/hh_001/
     cost/                         call and token counts
   HH_001_DEVELOPMENT_REPORT.md    numbers, both endpoints, what feeds §10
 ```
+
+## 12. Build state
+
+The rig is built and unit-tested. Nothing has been run.
+
+| Module | What it holds |
+|---|---|
+| `src/analysis/hh001_corpus.py` | corpus adaptation, gold answers, seeded stratified subsample |
+| `src/analysis/hh001_arms.py` | the five arms; Mem0 imported lazily |
+| `src/analysis/hh001_prompt.py` | one reader template, judge template, blinding |
+| `src/analysis/hh001_endpoints.py` | containment normalizer, majority, unanimity, sign guard |
+| `src/analysis/hh001_stats.py` | paired counts, exact sign test, PF4 reachability |
+| `src/analysis/hh001_commitments.py` | §6, hashed, and the gate that enforces it |
+| `src/analysis/hh001_cost.py` | call and token ledger, split generative from embedding |
+| `src/analysis/hh001_run.py` | generate → seal → judge → gate → analyze |
+| `scripts/run_hh001_dev.py` | `pilot`, `observe-mem0`, `capture`, `commit`, `run`, `report` |
+
+**One thing is written but unexercised: the Mem0 binding.** `mem0ai` is not
+installed. Installing it pulls a large dependency tree into this virtual
+environment and can move pinned versions the rest of the programme's results
+were produced under, so it is a deliberate separate step, and the full suite is
+re-run afterwards to confirm the 1,832-test baseline still holds. Until then
+`Mem0Arm` is import-safe and its result parsing is tested against the shapes
+Mem0 has returned across versions; what is untested is the live call.
+
+**Nothing runs by default.** `run` refuses to start unless `commit` has already
+written the commitments file, because the whole point of §6 is that the numbers
+were fixed first.
 
 The paper's positioning sections do not change on this study's output.
 `COMPETITIVE_LANDSCAPE.md` §5 and `DO_NOT_WRITE.md` item 35 stay in force: a
