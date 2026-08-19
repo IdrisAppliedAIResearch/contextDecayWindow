@@ -1,6 +1,6 @@
-"""Typeset PAPER-001 as a PDF white paper, from the Markdown source.
+"""Typeset PAPER-002 as a PDF white paper, from the Markdown source.
 
-The PDF has no independent source. This script reads `paper/PAPER_001.md`,
+The PDF has no independent source. This script reads `paper/PAPER_002.md`,
 converts it to Typst, and compiles it, so the Markdown stays the single place
 any claim is edited. If the two ever disagree, the Markdown is right and this
 script is broken.
@@ -32,9 +32,9 @@ import sys
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
-SOURCE = REPO / "paper/PAPER_001.md"
+SOURCE = REPO / "paper/PAPER_002.md"
 TYP = REPO / "paper/build/whitepaper.typ"
-PDF = REPO / "paper/Selection_Not_Capacity.pdf"
+PDF = REPO / "paper/Rank_Fine_Pack_Fine_Call_Nothing.pdf"
 FIGURES = REPO / "paper/figures"
 PAPER_BUILD_TIMESTAMP = 1_786_579_200  # 2026-08-13 00:00:00 UTC
 
