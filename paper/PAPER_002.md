@@ -261,18 +261,24 @@ own description:
 | Failure mode | An episode is not delivered | An episode is not delivered, or is delivered as a wrong paraphrase |
 | What is measured | Evidence availability | Judged answer accuracy |
 
-That first row is the one comparison this paper can make without running anything.
-It is arithmetic on the systems' own published descriptions, not a measurement, and
-it is the axis on which the difference is largest.
+**Only the first row is arithmetic on published descriptions.** It is the one
+comparison this paper can make without running anything, and the axis on which the
+difference is largest. The remaining rows are not of that kind and should not inherit
+its licence: rows two and three describe *this* component and are measured here, with
+the competitor column stating what follows from a generative pipeline in principle
+rather than anything observed. Row four's "delivered as a wrong paraphrase" is a
+failure mode those architectures admit, not one seen in a run. Row five is a
+definition.
 
 **One collision is worth naming explicitly, because it is where a reader is most
 likely to construct a sentence this paper refuses.** Both this programme and Mem0
 report a number "on LoCoMo". §5.1 ran six sealed conversations with zero model calls
 during measurement and counts whether evidence text was delivered. Mem0's LoCoMo
 figure has a model answering and a model judging. The corpus name is shared; the
-denominators count different events. The forbidden sentence has the form *"on
-LoCoMo, that system reports 66.88% and this component reaches 935 of 1,098"* — both
-halves true, the juxtaposition meaningless.
+denominators count different events. The sentence to refuse has the shape *"on LoCoMo,
+system X reports [their accuracy] and this component reaches [our delivery count]"* —
+both halves true, the juxtaposition meaningless, and it is not written out here with
+real numerals precisely because it would then be quotable.
 
 A second caution about the published numbers themselves. Several competitor scores
 most often quoted for this space appear in **Mem0's own comparison table** and are
@@ -282,10 +288,10 @@ which numbers are author-reported and which are third-party, because the distinc
 survives into any comparison built on them.
 
 The honest framing, which this programme committed to before it had the external
-result: **the question is rarely whether the deterministic version wins. It is how
-much of the layer survives without the call.** A mechanism that recovers most of it
-and still loses a head-to-head is a finding, and one this paper is not in a position
-to report either way.
+result: **the question this paper answers is not whether the deterministic version
+wins. It is how much of the layer survives without the call.** A mechanism that
+recovers a usable share of it and still loses a head-to-head would be a finding, and
+this paper is not in a position to report that comparison in either direction.
 
 One boundary is load-bearing and appears again in §12.5. The LongMemEval authors'
 LLM-assisted indexing and time-aware query expansion were available to this
@@ -294,8 +300,11 @@ the memory path and would change the component under test. Some of the gap betwe
 this component's external numbers and published ones is that choice, and this paper
 does not get to claim the choice was free.
 
-**The placement is narrow.** Every system above consumes a candidate set produced
-upstream by similarity ranking. This paper measures that set.
+**The placement is narrow.** Most systems above consume a candidate set produced
+upstream by similarity ranking, and this paper measures that set. The claim is not
+universal even across the short list: HippoRAG retrieves by graph traversal, as §2
+says two paragraphs earlier, so the measurement here bears on it only where a
+similarity-ranked candidate set feeds the traversal.
 
 ---
 
@@ -630,9 +639,11 @@ subtraction §10 completes, and this section is where most of it was paid for.
 
 ## 6. Granularity: rank at the finest informative unit
 
-§5.1 confirmed the direction on withheld data. This section locates the mechanism,
-using corpora that were already observed and are therefore reported as measured
-rather than confirmed.
+§5.1 confirmed one substitution on withheld data. This section locates the mechanism
+using corpora already observed — reported as measured rather than confirmed — and
+§6.3 reports the case where the same lever, applied at a coarser unit, **reverses
+sign**. The reversal is on the same corpus as the largest gain, which makes it the
+more informative half of this section.
 
 ### 6.1 The size of a candidate
 
@@ -696,10 +707,25 @@ discards the broader context that was doing the scoring work. A source turn is s
 enough that its embedding is *sharp*. The 63 items rescued by coarse ranking have
 median own-episode cosine rank 46; the 26 gained by fine ranking have median rank 10.
 
-So the rule is conditional, and stated that way: **rank at the finest unit whose
-embedding remains informative, and pack at the finest affordable unit.** This is a
-posthoc characterization on an exhausted corpus, not a registered universal law, and
-§6.5 gives a second place where a tempting generalization does not hold.
+**State the shape before stating any rule, because the shape is not monotone.** On
+one corpus, at a fixed packing unit, the episode loses in both directions: the turn
+beats it 461 to 361, and the session beats it 388 to 351. A candidate unit that is
+worse than both its parent and its child cannot be produced by any rule of the form
+*finer is better* or *coarser is better*. Whatever governs this is not a monotone
+function of granularity, and this programme has not identified it.
+
+What can be said conditionally is: **rank at a unit small enough that its embedding
+is dominated by the material answering the query, and pack at the finest affordable
+unit.** The first clause needs an operational test to be a rule rather than a
+restatement, and **it does not have one here** — "dominated by" is measured after the
+fact by whether delivery improved. Two proxies are available and neither was
+registered: the 240-to-300-character band where every confirmed gain in this paper
+sits, and the Spearman rho of 0.484 between parent length and worse own-cosine rank.
+Both are descriptions of these corpora, not thresholds anyone should carry.
+
+This is a posthoc characterization on an exhausted corpus, not a registered universal
+law, and §6.5 refutes the scope condition that was proposed to predict where the sign
+flips.
 
 ### 6.4 NF-006 — the same substitution on the internal store
 

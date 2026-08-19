@@ -688,3 +688,20 @@ re-scored; a second, conservative statistic is reported beside it.
 The conservative figure clears 0.05 on six observations. Both are reported because
 the cluster structure is a real limit on the item-level number and stating only the
 smaller p would overstate the resolution the design bought.
+
+### 7.16 The candidate-size band where confirmed gains sit
+
+Cycle 3 objection 22: "the finest unit whose embedding remains informative" has no
+operational test in this programme. Two descriptive proxies exist; **neither was
+registered**, and both describe these corpora rather than setting a threshold.
+
+| Value | What it is | Source |
+|---|---|---|
+| 240–300 | Character band containing the median candidate size of every confirmed gain here: LoCoMo pairs 241, LongMemEval source turns 298 | derived from `exploration.json` and the LoCoMo development record |
+| 0.484 | Spearman rho, parent length against worse normalized own-cosine evidence rank | `nf_005/artifacts/exploration.json` |
+| 2,550 | Median LongMemEval evidence *episode*, the unit at which ranking loses to both its parent and its child | same |
+
+The non-monotone shape is the load-bearing fact: at a fixed packing unit the episode
+loses in both directions — turn 461 vs episode 361, session 388 vs episode 351. No
+monotone function of granularity produces that, and this programme did not identify
+what does.
