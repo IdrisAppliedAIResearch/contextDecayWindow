@@ -1,6 +1,6 @@
 # Rank Fine, Pack Fine, Call Nothing
 
-### A deterministic memory path for long conversations, and the eleven experiments that cut it down to size
+### A deterministic memory path for long conversations, and the ten studies and one bakeoff that cut it down to size
 
 **Idris Applied AI Research** — independent, non-profit
 Repository: `contextDecayWindow` · Licence: CC BY 4.0
@@ -31,21 +31,22 @@ characters**; the source turns carrying their answers, **298**. Ranking the pare
 dilutes the match. Split it and exact delivery goes **361 to 461 of 465**, 100 gains
 and no losses. Internally the same move takes an enumeration probe 12 to 14 of 17,
 trading art coverage 2 of 4 down to 1 of 4 while restoring all four monetary items.
+Both corpora were already observed, so these are registered measurements, not
+confirmations.
 
-**Finer is not monotonically better, and our own data refutes it.** On that same
-corpus, ranking at the *episode* rather than the session **loses 37 items**, 26 gains
-against 63. The episode loses to both its parent and its child — a shape no monotone
-rule generates. §6.3 is the counterexample; §6.5 refutes the scope condition proposed
-to explain it.
+**Finer is not monotonically better, and our own data refutes it.** On that corpus,
+ranking at the *episode* rather than the session **loses 37 items**, 26 gains against
+63 — worse than both its parent and its child, a shape no monotone rule generates
+(§6.3; §6.5 refutes the scope condition proposed to explain it).
 
 **Why no model calls matters, as measured properties.** `context()` is a pure
 function of store state, query and budget, byte-identical across two processes; 132
 committed payloads reproduce their SHA-256 through the installed library. Every
 delivered character is a stored episode verbatim, so no generated text about the
 store exists to be wrong. Mem0, Zep, Letta and Graphiti each spend at least one
-generative call on this layer by their own published descriptions. **The question
-here is not whether the deterministic version wins — none was run — but how much of
-the layer survives without the call.**
+generative call on this layer by their own published descriptions. **The question is
+not whether the deterministic version wins — none was run — but how much of the
+layer survives without the call.**
 
 **What five sealed experiments bought.** Five results carry a sealed holdout with
 bars locked before the number existed, and **three are negative**: deterministic
@@ -53,8 +54,9 @@ stopping, event segmentation and surprisal-based capture each returned nothing. 
 is why the surviving design has four components rather than a dozen.
 
 **What it costs.** 4,743 bytes per turn, ~48 MB at ten thousand. Retrieval binds
-first: **190 ms at 1,000 candidates**, 81% of it clustering and rising — comfortable
-to a few thousand episodes, unusable interactively before ten thousand. Do not prune
+first: **190 ms at 1,000 candidates**, 81% of it clustering and rising — on one
+machine; comfortable to a few thousand episodes, unusable interactively before ten
+thousand. Do not prune
 the pool to control cost: the deployed shortlist holds no representative of one of
 four domains, so no rule reaches it from there — a fact about its contents, not a
 comparison.
@@ -381,7 +383,7 @@ result cannot buy back afterwards.
 | Standing | Requirement | How this paper states it |
 |---|---|---|
 | **CONFIRMATORY** | Pre-registered; sealed holdout; bars, endpoint and budget locked before the number existed; registration commit carries no implementation file | As an established result, with its scope cap |
-| **REGISTERED-OFFLINE** | Pre-registered with bars locked first, zero generative calls, byte-identical on replay — but run on a corpus already observed, so it cannot confirm | As measured and registered, capped as characterization |
+| **REGISTERED-OFFLINE** | Pre-registered with bars locked first, zero generative calls, and reproducible on replay — byte-exactly where the embedding cache was retained, otherwise under recomputed embeddings, which the row says — but run on a corpus already observed, so it cannot confirm | As measured and registered, capped as characterization |
 | **DESCRIPTIVE** | Deterministic and reproducible, but the reading was chosen after the number existed, or the quantity is a bound computed with the answer key | As measured, with what it cannot support said in the same breath |
 | **NOT DEMONSTRATED** | A scored live comparison whose gap falls inside the measured 3.0-point band | With the number *and* the label. Not refuted either |
 | **WITHDRAWN** | Corrected in `ERRATA.md` | Not at all. The list is `paper/notes/DO_NOT_WRITE.md` |
@@ -408,7 +410,7 @@ phrase. They reproduce identically and they do not license the same sentence.
 | AR-001 — the 5,058-character optimum (§7.1) | DESCRIPTIVE | Computed **with the answer key**. A bound, not a method |
 | DR-002 — the pool binds structurally (§7.2) | DESCRIPTIVE | A fact about the shortlist's contents, not a measured comparison |
 | DX-001 — the 0.0560 floor (§7.4) | DESCRIPTIVE | One frozen configuration |
-| NF-007 — coverage floor inert (§6.4) | DESCRIPTIVE | An **instrument** stop: the test could not distinguish the arms |
+| NF-007 — coverage floor inert (§11.6) | DESCRIPTIVE | An **instrument** stop: the test could not distinguish the arms |
 | Study 009 memory tier, +3.0 (§12.1) | NOT DEMONSTRATED | Inside the band; process state uncontrolled |
 | LV-001 targeted regression, −2.0 (§12.3) | NOT DEMONSTRATED | Inside the band. The kill bar firing is separate and stands |
 | Study 011 tier isolation, −1.0 (§8.3) | NOT DEMONSTRATED | Inside the band; the correction stays rejected |
@@ -447,7 +449,18 @@ checks, and a planted test violation that must be caught.
 
 **Sealed scoring.** Three blind passes with registered adjudication triggers. Every
 arm's scores are committed before anyone opens a mechanism log, and git order is the
-evidence.
+evidence. **The raters were three models from one family and the adjudicators were
+subagents — none human** (§12.8), and one live study ran a single rater against a
+registered three (§12.3).
+
+**None of this was uniformly achieved, and §11.6 is the list of where it was not.**
+Four integrity gates in this programme were inert for their whole lives: three
+through a line-ending mismatch, and one — on the sealed holdout itself — through a
+constant that never matched the file it named. A targeted no-regression gate was
+unsatisfiable by construction for any selector. One stop was reached only because its
+evaluator searched for labels that did not exist. The machinery above is the standard
+this programme holds itself to; §11.6 is the measured shortfall against it, and the
+gap is the reason §11 exists rather than an embarrassment tucked into it.
 
 ### 4.3 What a stop means
 
@@ -805,8 +818,10 @@ survive the cut. The selector clusters over its pool, so removing the tail reshu
 the objective rather than simply removing options.
 
 **This is the operational instruction with the widest reach: do not prune the
-candidate pool to control cost.** It is the one operation this programme measured to
-break retrieval.
+candidate pool to control cost.** The reason is structural rather than comparative,
+and it is the paragraph above: a shortlist with no art episode cannot yield art at
+any setting. This programme did not run a controlled comparison of pruning against
+not pruning.
 
 ### 7.3 The objective binds second, and only after
 
@@ -909,7 +924,8 @@ similarity-first arm at 7.0 against the deployed arm's 8.0, and the registration
 own bar fired. The correction is not adopted.
 
 Those two facts sit together honestly. The suppression is confirmed — it is an
-offline count, byte-identically replayable, and §12.1's noise band does not touch it.
+offline count that reproduces on replay — under recomputed embeddings for the
+external arm, per §8.1 — and §12.1's noise band does not touch it.
 The live comparison that would have justified adopting the fix went the other way,
 and its −1.0 margin is *inside* the band and therefore **not demonstrated in either
 direction**. The programme's registration forbids citing the band to revive the
@@ -956,8 +972,8 @@ embedding entirely, because query and episode vectors are already resident. Only
 exponent and the clustering share plausibly transfer.
 
 **The obvious optimization is the one thing not to do.** Keeping the pool small by
-dropping low-similarity episodes is exactly the operation §7.2 measured to break
-retrieval. So retention is unbounded by policy, the trimming knob carries an
+dropping low-similarity episodes is what §7.2 shows removes a domain from the
+shortlist outright. So retention is unbounded by policy, the trimming knob carries an
 `unsafe_` prefix with the finding in its docstring, and the horizon is stated rather
 than engineered around.
 
@@ -1548,7 +1564,7 @@ If this file and a figure disagree, this file is right and the build script is
 broken. If this file and a study's pre-registration disagree, **the pre-registration
 governs** — that conflict is a defect to be flagged, not reconciled silently.
 
-**Supersedes PAPER-001.** The predecessor's structure led with eleven negative
+**Supersedes PAPER-001.** The predecessor's structure led with the negative
 results and reached its sealed-holdout confirmation in passing. No number changed in
 this rewrite; the ordering and the standing labels did. Six stale cross-references
 in the predecessor were found during the rewrite audit and are listed in appendix B
