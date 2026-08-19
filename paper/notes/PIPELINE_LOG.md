@@ -26,6 +26,11 @@ published number moves, `ERRATA.md` gets an entry.
 |---|---|---|---|
 | 2026-08-18 | 0 — setup | DONE | Four ARS skills installed to `~/.claude/skills/`; checkpoint subagent defined |
 | 2026-08-18 | 1 — evidence spine | DONE | `EVIDENCE_SPINE.md` and `DO_NOT_WRITE.md` committed at `af3913e3`, before any prose |
+| 2026-08-18 | 2 — write | DONE | `PAPER_002.md` sections 1–13 and appendices drafted |
+| 2026-08-18 | 2.5 — claim gates | PASS | Number trace and withdrawn-value gates green; 33 untraced numbers found and traced |
+| 2026-08-18 | 2.5 — integrity review | RUNNING | Seven-mode blocking checklist via the principal-investigator subagent |
+| 2026-08-18 | 1 — positioning | RUNNING | Published competitor results with citation verification |
+| 2026-08-18 | 5 — figures | RUNNING | `generate_paper_002_figures.py` under the PAPER-001 provenance contract |
 
 ---
 
@@ -37,3 +42,16 @@ The ARS repository stores `skills/*` as symlinks to top-level directories; symli
 do not resolve on this Windows checkout, so the four skill directories were copied
 from the clone's top level instead. `evals/heldout/` fails to check out under
 Windows path limits and is not needed.
+
+### Stage 2.5 — the claim gate found real defects
+
+The number-trace gate failed on first run with 33 untraced measurements. All 33
+traced to committed artifacts and are now in `EVIDENCE_SPINE.md` §7; none had to be
+cut. Two gate bugs were fixed in the same pass: section-heading digits were being
+read as claims, and the withdrawn-value check was parsing a table's index column.
+
+A third distinction emerged and is recorded in the spine at §7.11. A value the paper
+names *while correcting it* is not a revived claim — naming the superseded figure and
+then giving the corrected one is how `ERRATA.md` records a correction, and is the
+opposite of restating it. The machine-checkable forbidden list therefore holds only
+values with no legitimate corrective use.
