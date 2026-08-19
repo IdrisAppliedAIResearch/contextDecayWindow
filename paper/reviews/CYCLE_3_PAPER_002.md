@@ -11,7 +11,7 @@ text, giving the reason, stating the required form.
 
 Overclaim and underclaim are weighted equally.
 
-**Status: in progress.**
+**Status: complete.** Thirty objections, three judgement answers, dispositions below.
 
 ---
 
@@ -925,10 +925,235 @@ against ≥0.50, beaten on raw accuracy by an always-`OPEN` control. Then the se
 
 ## Judgement questions
 
-_(pending)_
+### Q1. Is the four-level standing taxonomy a legitimate device, or a way to launder weak results into respectability?
+
+**Legitimate in construction, laundering in its current shipped form. Two specific
+defects convert it, and both are fixable without touching a number.**
+
+The case for legitimacy is strong and should be recorded first, because it is easy to
+be cynical about a taxonomy an author invents for their own paper. Three things
+distinguish this one from decoration.
+
+It was **built before the prose**. `EVIDENCE_SPINE.md` says so in its second sentence
+and the commit order supports it. A grading scheme assembled after the results is a
+rationalization; one assembled before them is a constraint.
+
+It **costs the paper things it wants**. NOT DEMONSTRATED does not quietly downgrade
+some peripheral number — it takes the memory-tier contrast, which §12.1 concedes is
+"the arc's cleanest architectural comparison" and the one "this programme would most
+like to keep". §8.3 then refuses to use the band in the direction that would help,
+declining to revive a correction the offline evidence supports. A device that only
+ever grades other people's results down is laundering; this one is load-bearing
+against its author.
+
+It **grades by procedure, not by outcome**. CONFIRMATORY is defined by seal order,
+bar-locking and registration-commit contents — all checkable from git — rather than by
+effect size or p-value. Three of the five results that reach the top level are
+negative, which is what you would expect from a scheme that grades how a number was
+obtained.
+
+So the device is real. What is wrong is its application.
+
+**Defect one: the assignment is not in the preprint.** §4 defines four levels and then
+says the assignment "for every number in this paper is in
+`paper/notes/EVIDENCE_SPINE.md`" — a repository note the venue does not receive.
+Inside the paper, a CONFIRMATORY 843 → 935, a `CHARACTERIZED`-capped 361 → 461, a
+posthoc 388/351 on an exhausted corpus, an answer-key bound and a NOT DEMONSTRATED
+7.0 vs 8.0 are set in identical typography with an identical declarative voice. §4
+claims the taxonomy "licenses the confident voice everywhere else"; a licence that
+cannot be seen at the point of use licenses nothing and merely explains the
+confidence. This is objection 13, and it is the single change that most determines the
+answer to this question.
+
+**Defect two: there is no level where most of the paper's results belong.** Between
+"sealed holdout, bars locked first" and "corrected in ERRATA" sits exactly one
+positive level, and it is defined by *computational determinism* rather than by
+*commitment order*. Everything deterministic lands there: a byte-identical 500-store
+counterfactual replay, a posthoc reading of an exhausted corpus the spine explicitly
+calls "not a registered universal law", an instrument stop, and a bound computed with
+the answer key. All four inherit the instruction "state as measured". That is the
+laundering channel, and it is not the band — the band level is the honest one. It is
+the missing level *above* the band (objection 14).
+
+**Verdict.** The taxonomy is a legitimate device that is currently doing about half
+its job. Ship the assignment table inside the paper, and split
+DETERMINISTIC-OFFLINE into registered-before-the-number and posthoc-or-observed. With
+those two changes it becomes the paper's strongest structural contribution — an
+honesty mechanism other programmes could adopt. Without them, a hostile reviewer's
+summary is fair: *the paper invented four grades, awarded the top one to a result it
+already had, and used the second grade's phrasing licence for everything else.*
+
+---
+
+### Q2. Does §2.1's "we compare on axes, not numbers" boundary actually hold, or is it having it both ways?
+
+**It holds where it matters and leaks where §2.1 believes it is safest. Not having it
+both ways — but not as clean as the section's own confidence implies.**
+
+Where it holds, unambiguously: the paper never asserts a head-to-head. No sentence
+anywhere in the sections reviewed claims this component beats Mem0, Zep, Letta or
+HippoRAG on anything, and §2.1 explicitly identifies the tempting sentence and refuses
+it. The distinction between availability and judged accuracy is drawn correctly, is
+correct on the merits, and is repeated at the point of every relevant number. The
+paragraph noting that several widely quoted competitor scores are Mem0's own
+reproductions rather than author-reported results is more care than most papers in
+this space take, and it is care that cuts against the author's convenience. The
+framing question — *how much of the layer survives without the call* — is the honest
+form of a comparison that cannot be run, and it is recorded as having been committed
+to before the external result existed.
+
+Where it leaks, three places, in ascending seriousness.
+
+**The table's licence is issued once and spent five times** (objection 9). "The axes
+are countable from either system's own description" is true of row 1 — Mem0's `1 + n`,
+Graphiti's five per-episode calls — and of row 5. It is not true of "delivered as a
+wrong paraphrase" or "bounded by generation determinism", which are asserted failure
+properties of systems nobody here ran. The paper notices this for row 1 and says so;
+it does not notice that the noticing implicates rows 2 through 4.
+
+**The forbidden sentence is printed** (objection 10). §2.1 constructs the exact
+juxtaposition it forbids, with both numerals, formatted and quotable. This is the
+"print the holdout and you have seen it" failure in a new place: the caveat does not
+travel when the sentence is extracted, and on arXiv it will be extracted.
+
+**The placement claim is a universal over unrun architectures** (objection 11). "Every
+system above consumes a candidate set produced upstream by similarity ranking" is the
+sentence that makes this paper relevant to the systems it declines to compare against
+— and it is asserted over a list that includes a system §2 itself describes as
+retrieving *by traversal*. The section's most consequential comparative claim is its
+least supported one.
+
+**Verdict.** The boundary holds against the failure it was built for — no number is
+placed against a competitor's number, and no superiority is claimed. It fails in a
+direction §2.1 did not anticipate: having correctly refused to compare *outcomes*, it
+grew too comfortable comparing *architectures*, and architectural claims about unrun
+systems are still claims about unrun systems. The fix is to mark the table per row and
+delete one universal quantifier. Neither costs the section its argument, which
+survives on row 1 alone.
+
+---
+
+### Q3. Would a reader who read only the executive summary come away with an accurate picture?
+
+**No. And the informative part is that every deviation runs the same direction.**
+
+What such a reader gets right, which is a lot: that the memory path makes no
+generative model calls and that an embedder is nonetheless resident; that
+determinism and byte-level replay are real, verified properties; that availability is
+not correctness and that this distinction has teeth here; that no competing system was
+run; that internal breadth rests on one enumeration probe; that a run-to-run band
+exists and was measured rather than assumed; roughly what the thing costs to operate.
+That is a better-than-average haul from one page of a systems preprint, and the
+summary is plainly written by someone trying.
+
+What that reader gets wrong, item by item:
+
+1. **They believe a four-component architecture beat a control on a sealed external
+   holdout.** One ranking parameter was varied; three of the four named components
+   were identical on both sides (objection 1).
+2. **They believe the granularity rule is general and "reproduces on two more
+   corpora".** It reverses on one of those two, losing 37 items, and §6.3 exists to
+   say so (objections 20, 23).
+3. **They believe availability and correctness were measured moving in opposite
+   directions.** The −2.0 that carries this is inside the band the same page declares
+   four lines earlier, and §12.3's own closing paragraph retracts it (objection 4).
+4. **They believe a scored gap above three points is demonstrated.** The spine added a
+   row specifically to block that inference and the summary's phrasing invites it
+   (objection 5).
+5. **They believe pruning the candidate pool was measured to break retrieval.** It is a
+   structural consequence of pool membership, and the spine says so in the entry the
+   claim comes from (objection 3).
+6. **They believe the internal 12 → 14 was free.** One domain was lost to gain another
+   (objection 6).
+7. **They do not learn that three of the five sealed-holdout results are negative** —
+   the fact that best explains why the architecture is four components and the fact
+   most likely to earn a skeptical reader's trust (objection 7).
+
+Six overstatements and one omission. Every one of the six makes the programme look
+stronger; the omission removes the material that would have made it look more honest.
+Nothing runs the other way. In a summary written by an author who genuinely does not
+know which way an error cuts, you would expect the deviations to scatter. These do
+not, and that is the diagnostic: the executive summary is not imprecise, it is
+*directional*, and the direction is the one a rewrite brief asking for confidence
+would produce.
+
+The contrast with the body settles it. §8.3 handles an in-band result perfectly. §6.3
+volunteers a reversal that costs the paper its cleanest rule. §11.6 reports a
+fifteenth broken gate found on the sealed holdout *while the paper was being written*,
+and refuses to quietly fix it. §12.3's last paragraph is scrupulous. The body of this
+paper is at or below what its evidence supports. The executive summary and the
+conclusion are above it.
+
+**Verdict.** No — not accurate, but recoverable, and recoverable without retracting a
+single number. Every one of the seven is a sentence-level fix already performed
+correctly somewhere in the body. The summary does not need weaker claims; it needs the
+body's claims.
 
 ---
 
 ## Dispositions — Cycle 3
 
-_(pending)_
+Reviewer's recommended dispositions. Thirty objections: twenty-four overclaim or
+accuracy, five underclaim, one entered as credit against a defect elsewhere.
+
+| # | Section | Objection | Kind | Recommended |
+|---|---|---|---|---|
+| 1 | Exec | "It" beats a control — NF-004 varied one parameter | Overclaim | **ACCEPT — rewrite.** Name the contrast, not the system |
+| 2 | Exec/abstract/§1/§13 | "Eleven pre-registered experiments" | Withdrawn count | **ACCEPT.** Ten studies plus one exploratory bakeoff; re-grep |
+| 3 | Exec, §13 | "The one operation measured here to break retrieval" | Overclaim | **ACCEPT.** DR-002 is structural, not a measured comparison |
+| 4 | Exec | LV-001's −2.0 asserted as real | Forbidden | **ACCEPT — most serious.** Rewrite in §8.3's voice |
+| 5 | Exec | "Below three points" licenses the inverse inference | Overclaim | **ACCEPT.** Add the spine's fourth row and the switch/spread distinction |
+| 6 | Exec | 12 → 14 "with zero targeted losses" | Omission | **ACCEPT.** Carry the art 2/4 → 1/4 composition trade |
+| 7 | Exec | Three of five confirmatory results are negative | **Underclaim** | **ACCEPT.** One line; it is the paper's best structural fact |
+| 8 | Exec | "The systems that ship in this space" | Unsourced universal | **ACCEPT.** Name them or make it about mechanisms |
+| 9 | §2.1 | Table licence issued for one row, spent on five | Overclaim | **ACCEPT.** Mark per row or cut rows 2–4 |
+| 10 | §2.1 | The forbidden juxtaposition is printed with both numbers | Overclaim | **ACCEPT.** Describe the shape, zero numerals |
+| 11 | §2.1 | "Every system above… similarity ranking" | Unsourced universal | **ACCEPT.** HippoRAG retrieves by traversal per §2 itself |
+| 12 | §2.1 | "Rarely" vs "not"; "recovers most of it" | Drift | **ACCEPT.** One strength, both places |
+| 13 | §4.1 | Taxonomy defined in-paper, assigned out-of-paper | Structural | **ACCEPT — most serious.** Ship the assignment table |
+| 14 | §4.1 | No level between CONFIRMATORY and DETERMINISTIC-OFFLINE | Structural | **ACCEPT — most serious.** Split the second level |
+| 15 | §4.1/§8 | EC-001/EC-002 do not meet "byte-identical on replay" | Contradiction | **ACCEPT.** Carry D4's scope cap |
+| 16 | §4.2 | Machinery stated as uniformly achieved; wrong cross-ref | Overclaim | **ACCEPT.** Quantify; point at §11.6; "none human" |
+| 17 | §8.3 | Correct handling of an in-band result | **Credit** | **NOTED.** The model for objection 4 |
+| 18 | §5.1 | "Universal-rule" dropped from a binding scope cap | Forbidden | **ACCEPT.** Restore verbatim; it governs §6 and §13 |
+| 19 | §5.1 | p = 6.19e-12 assumes independence across six clusters | Method | **ACCEPT.** Add the 6-of-6 sign test, p = 0.0156. Do not re-score |
+| 20 | §6.3 | Relation is non-monotone; the rule is monotone | Overclaim | **ACCEPT — most serious in §6.** State the U before the rule |
+| 21 | §6.2/6.3 | Same measure, two names, colliding on "strict" | Accuracy | **ACCEPT.** One name |
+| 22 | §6.3 | "Informative" has no operational definition | Overclaim | **ACCEPT.** Operationalize and mark untested, or demote "rule" |
+| 23 | Exec/§6 | "Reproduces on two more corpora" — it reverses on one | Overclaim | **ACCEPT.** The reversal is the stronger sentence |
+| 24 | §12.1 | Divergent replicate was the first run, reported as the fifth | **Underclaim** + accuracy | **ACCEPT.** Run order; state the first-run effect |
+| 25 | §12.1 | "Three of N" with no N; spine's fourth row missing | Overclaim | **ACCEPT.** Give the denominator |
+| 26 | §12.3 | "The weakness is real" retracted in the same section | Overclaim | **ACCEPT.** Promote the fabrication finding |
+| 27 | §13 | Rule handed to practitioners without §6.3 | Overclaim | **ACCEPT — most serious in §13.** Put the reversal in the conclusion |
+| 28 | §13 | "Invented none / failures were delivery failures" vs §12.3 | Contradiction | **ACCEPT.** Scope to the probe; state the counterexample |
+| 29 | §13 | Four flagged framings recur | Recurrence | **ACCEPT.** Fix upstream and re-grep |
+| 30 | §13 | Negative confirmatory results unnamed in the conclusion | **Underclaim** | **ACCEPT.** One bar each |
+
+**The three most serious**
+
+1. **#13 + #14 together — the standing taxonomy is defined in the paper and applied
+   outside it, and has no level for most of the paper's results.** This is one defect
+   with two halves and it determines whether §4 is an honesty mechanism or a
+   presentation licence. It is also the cheapest to fix: ship the spine's assignment
+   table and split one level.
+2. **#4 — LV-001's −2.0 asserted as a demonstrated drop in the executive summary.**
+   Directly forbidden by `DO_NOT_WRITE.md` #28, on the page most readers finish, in a
+   paper that handles the identical situation correctly at §8.3. The bar firing is a
+   fact and does not need the score.
+3. **#27 with #18 and #20 — the conclusion hands a practitioner a universal
+   granularity rule whose scope cap forbade the universal, whose confirmation covered
+   one substitution, and whose own §6.3 shows it reversing sign.** §6.3 does not appear
+   in the conclusion at all. This is the objection most likely to be made in public
+   after publication, because §6.3 is where a reader finds the counterexample and the
+   paper handed it to them.
+
+**Structural changes required, so a Cycle 4 pass over the rewritten summary and
+conclusion is warranted.** No objection requires retracting a number, changing a
+figure, or re-running anything.
+
+---
+
+**Reviewed at** `95000acd` on branch `paper-rework`. Sections read in full: executive
+summary, abstract, §2 and §2.1, §4, §5.1, §6 opening through §6.4, §8.1–§8.3, §11.6,
+§12.1–§12.4, §13. Bounds read in full: `EVIDENCE_SPINE.md`, `DO_NOT_WRITE.md`,
+`paper/reviews/CYCLE_1.md`.
