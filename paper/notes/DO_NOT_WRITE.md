@@ -157,3 +157,24 @@ species the slop audit caught — a value updated in one place and not another.
 | `PAPER_001.md:360` | "not true before DR-001 (**§7.2**)" — the budget correction is **§7.1** |
 | `REPRODUCTION.md:22` | Cites **§8.10**; §8 ends at 8.9 |
 | `AGENTS.md:341` | Lists a three-reader readability review under `paper/reviews/`; no such artifact is committed |
+
+---
+
+## 6. Machine-checkable superseded values
+
+Read by `scripts/check_paper_002_claims.py`. One value per line, then a pipe, then
+what supersedes it. These are values with **no legitimate corrective use** — a value
+the paper may name while correcting it belongs in `EVIDENCE_SPINE.md` §7.11 instead,
+not here.
+
+```superseded
+0.16612689197063446 | Q4 cosine; corrected to 0.12042197585105896
+97.47 | Rater self-consistency; CUT as untraced
+6.09e | guard against malformed routing-ceiling restatement
+```
+
+The list is deliberately short. Most withdrawn claims in §1 and §2 are *sentences*
+rather than bare numbers, and a grep for their numeric parts would collide with the
+corrected values that legitimately replace them — 12/17 appears in both the withdrawn
+framing and its corrected one. Those are checked by reading §1 and §2, which is what
+the integrity stage's reviewer does, and by the standing labels the spine assigns.
