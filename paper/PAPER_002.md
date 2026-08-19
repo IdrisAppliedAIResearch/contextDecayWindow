@@ -229,11 +229,31 @@ own description:
 
 | Axis | This component | Systems that spend a call on this layer |
 |---|---|---|
-| Generative calls per stored turn | **0** | At least one extraction call per turn |
+| Generative calls per stored turn | **0** | Mem0's ingestion is one extraction call per message pair **plus one update call per extracted fact**, so `1 + n`; Graphiti runs entity extraction, entity resolution, fact extraction, temporal extraction and edge invalidation per episode |
 | Delivered text | Stored episodes verbatim | Model-written summaries or extracted facts |
 | Replayability | `context()` byte-identical across processes; 132 payloads reproduce by SHA-256 | Bounded by generation determinism |
 | Failure mode | An episode is not delivered | An episode is not delivered, or is delivered as a wrong paraphrase |
 | What is measured | Evidence availability | Judged answer accuracy |
+
+That first row is the one comparison this paper can make without running anything.
+It is arithmetic on the systems' own published descriptions, not a measurement, and
+it is the axis on which the difference is largest.
+
+**One collision is worth naming explicitly, because it is where a reader is most
+likely to construct a sentence this paper refuses.** Both this programme and Mem0
+report a number "on LoCoMo". §5.1 ran six sealed conversations with zero model calls
+during measurement and counts whether evidence text was delivered. Mem0's LoCoMo
+figure has a model answering and a model judging. The corpus name is shared; the
+denominators count different events. The forbidden sentence has the form *"on
+LoCoMo, that system reports 66.88% and this component reaches 935 of 1,098"* — both
+halves true, the juxtaposition meaningless.
+
+A second caution about the published numbers themselves. Several competitor scores
+most often quoted for this space appear in **Mem0's own comparison table** and are
+Mem0's reproductions rather than author-reported results; Zep's paper, for instance,
+reports DMR and LongMemEval and never LoCoMo. `COMPETITIVE_LANDSCAPE.md` records
+which numbers are author-reported and which are third-party, because the distinction
+survives into any comparison built on them.
 
 The honest framing, which this programme committed to before it had the external
 result: **the question is rarely whether the deterministic version wins. It is how

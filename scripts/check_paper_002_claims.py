@@ -5,9 +5,12 @@ citation gate verifies *external* references against Semantic Scholar, OpenAlex,
 Crossref and arXiv, and every headline number in this paper is internal.
 
   1. NUMBER TRACE. Every distinct numeric literal in `paper/PAPER_002.md` must
-     also appear in `paper/notes/EVIDENCE_SPINE.md`. A number that appears in the
-     paper and nowhere in the spine is either untraced or newly invented, and both
-     are defects under AGENTS.md section 8.
+     also appear in `paper/notes/EVIDENCE_SPINE.md` (internal measurements) or in
+     `paper/notes/COMPETITIVE_LANDSCAPE.md` (numbers cited from a publication).
+     A number in neither is untraced or newly invented, and both are defects under
+     AGENTS.md section 8. The two sources are deliberately separate: the spine holds
+     what this programme measured, the landscape holds what it only cites, and a
+     number must not silently migrate from the second column to the first.
 
   2. WITHDRAWN VALUES. Every superseded value listed in
      `paper/notes/DO_NOT_WRITE.md` section 6 must be absent from the paper. This is
@@ -43,6 +46,7 @@ REPO = Path(__file__).resolve().parent.parent
 PAPER = REPO / "paper/PAPER_002.md"
 SPINE = REPO / "paper/notes/EVIDENCE_SPINE.md"
 FORBIDDEN = REPO / "paper/notes/DO_NOT_WRITE.md"
+LANDSCAPE = REPO / "paper/notes/COMPETITIVE_LANDSCAPE.md"
 
 # Numbers small enough to be prose rather than measurement ("three constraints",
 # "the first two"). Section numbers and years are handled separately.
@@ -84,13 +88,15 @@ def is_prose_number(token: str) -> bool:
 
 
 def check_number_trace() -> list[str]:
-    """Numbers present in the paper and absent from the spine."""
+    """Numbers in the paper that trace to neither the spine nor the landscape."""
     paper_numbers = harvest(PAPER.read_text(encoding="utf-8"))
-    spine_numbers = harvest(SPINE.read_text(encoding="utf-8"))
+    traced = harvest(SPINE.read_text(encoding="utf-8"))
+    if LANDSCAPE.exists():
+        traced |= harvest(LANDSCAPE.read_text(encoding="utf-8"))
 
     untraced = {
         token
-        for token in paper_numbers - spine_numbers
+        for token in paper_numbers - traced
         if not is_prose_number(token)
     }
     return sorted(untraced, key=lambda t: (-len(t), t))
