@@ -1,6 +1,11 @@
 # HH-001 Pre-Registration — Head-to-Head Against a Published Memory Layer
 
 **Status:** `DRAFT — NOT LOCKED. NOT RUNNABLE.`
+**Stage:** confirmatory. **Blocked on** `HH_001_DEVELOPMENT_PLAN.md`,
+which runs the same comparison on the local substrate first and supplies
+this file's `n`, `R`, discordance rate, PF4 reachability evidence and
+`G-FLOOR` reading. Several thresholds below are stated at plausible values
+precisely because that development run has not happened yet.
 **Integrity anchor:** none yet. The anchor is the SHA of the commit that first
 contains the **locked** version of this file. This draft is not that commit.
 **Authorized by:** user, August 19, 2026 — *to lay out the design only.* No
@@ -34,8 +39,9 @@ anchor**, for three reasons stated up front rather than discovered later:
    commits the programme to its first paid external API dependency, and it
    changes what the study is allowed to conclude.
 
-The correct sequence from here is: resolve §14 → execute §9 Part 1 → close §10
-Part 2 → lock this file in a commit containing no implementation files → build.
+The correct sequence from here is: run `HH_001_DEVELOPMENT_PLAN.md` → resolve
+§14 with its numbers in hand → execute §9 Part 1 → close §10 Part 2 → lock this
+file in a commit containing no implementation files → build.
 A reviewer should read this draft as *the argument for what the study must be*,
 not as an authorization to run it.
 
