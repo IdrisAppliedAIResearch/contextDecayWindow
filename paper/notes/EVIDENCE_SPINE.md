@@ -494,3 +494,146 @@ Numbers here are quoted from those reports. Where a report and a summary disagre
 the report won — which is Cycle 1's own closing diagnosis: *"Pass 3 was written from
 the source reports' headline sentences rather than from their boundary sections, and
 the boundary sections are where this program keeps its scope discipline."*
+
+---
+
+## 7. Secondary measurements
+
+Numbers PAPER-002 uses in support of the results above. Same rules apply: each
+traces to a committed artifact, and each carries the standing of the study it came
+from. Listed so the claim gate (`scripts/check_paper_002_claims.py`) can verify the
+paper contains no untraced measurement.
+
+### 7.1 The subtraction table (§10)
+
+| Value | What it is | Source |
+|---|---|---|
+| 6.09 | Query-type routing oracle ceiling, %, against a registered 10% build threshold | Retrieval bakeoff, tier 4 |
+| 714 | Attention-derived cue rows run as an oracle; 0 reached the retrieval threshold | E001 report |
+| 89, 316 | Rank range of the six hardest planted facts under density, the best write-time salience signal | Retrieval mechanism ledger |
+| 118, 200 | False rules persisted by rehearsal turn 200 in the endurance run | Study 010 report |
+| 52 | Topics formed for one 120-turn conversation by the consolidation layer | Study 002 report |
+| 8 | Target facts surfaced by the best registered 32,000-char bakeoff block, of 17 | Retrieval bakeoff report |
+| 11 | Target facts the formation era reached, of 17 | Study 009 breadth matrix |
+
+### 7.2 The scoring audit and rater measurements (§11.1, §12.8)
+
+| Value | What it is | Source |
+|---|---|---|
+| 222 | Committed items blind re-scored across nine studies | `experiments/audits/scoring_integrity/audit_report.md` |
+| 19 | Scores that changed | same |
+| 13.0 → 8.5 | The headline arm that fell when a truncated reasoning block lost its credit | same |
+| 3 of 26 | Control-sample disagreements | same |
+| 11.54 | Control-sample disagreement rate, % | same |
+| 143 | Unreviewed items the residual is projected across | same |
+| 16.5 | Expected residual errors, **extrapolated not observed** | same |
+| 3 to 43 | 95% Clopper-Pearson interval on 3 of 26 — the qualifier that must travel with 16.5 | same |
+| 64 of 65 | Rater unanimity in the noise-band replicates | `study_011/noise_band/` |
+
+### 7.3 Budget accounting (§11.2)
+
+| Value | What it is | Source |
+|---|---|---|
+| 31,991 / 31,847 | Two blocks as originally published against a 32,000 budget | `ERRATA.md` §Study 010 LTM Budget Accounting |
+| 53,726 / 53,839 | Their actual serialized cost — 67.9% and 68.2% over | same |
+| 68 | Maximum % by which the accounting correction moved published numbers | same |
+
+### 7.4 Embedding call shape (§11.3)
+
+| Value | What it is | Source |
+|---|---|---|
+| 0.999837 | Cosine agreement between solo and batch-of-nine embeddings of the same text | `ERRATA.md` §DR-002 Cosine Rank |
+| 0.217 | Largest component difference between those two vectors | same |
+| 6 of 146 | Committed payloads the difference flips | same |
+| 4 | Approximate % of results moved by a perturbation smaller than a model change | derived from 6/146 |
+
+### 7.5 The tier that was not a window (§11.4)
+
+| Value | What it is | Source |
+|---|---|---|
+| 0.205 | Mean overlap between the carried rule and a true window of the same size | `ERRATA.md` §The Carried N Rule Was a Locked Prefix |
+| 111 | Consecutive turns holding source turns 1–9 plus the previous turn | same |
+| 111 of 120 | Episodes delivered exactly once | same |
+| 1–9 | The source turns the block froze on from turn 11 | same |
+
+### 7.6 The surrogate near-miss (§11.5)
+
+| Value | What it is | Source |
+|---|---|---|
+| 49 / 0 | Gains and losses under session-touch, **the withdrawn surrogate result** | `ERRATA.md` §NF-003 Part 1 |
+| 94 | Treatment hits containing no answer-bearing episode, found by the preflight surrogate audit | same |
+| 45 | Phantom regression from comparing episodes against sessions | `NF_003_PART1_CORRECTION.md` |
+| 5 | Never-ranked items miscounted as misses in the denominator | same |
+| 40 / 0 vs 44 / 9 | Session-touch against strict on LoCoMo development — the surrogate hides every loss | `LOCOMO_DEVELOPMENT_EXPLORATION.md` |
+| 10 / 15 | Baseline and treatment false hits under session-touch | same |
+
+### 7.7 Gate failures (§11.6)
+
+| Value | What it is | Source |
+|---|---|---|
+| 14 | Repository integrity gates that failed unconditionally on a line-ending mismatch | `ERRATA.md` |
+| 400 / 59 | Files pinned to LF and CRLF respectively by `.gitattributes` | `.gitattributes` |
+| 16 | Carried clusters the sealed selection already touched, making the floor inert | `nf_007/artifacts/t1_cluster_coverage_control.json` |
+
+### 7.8 Budget sweep points (§5.1, §6.5)
+
+| Value | What it is | Source |
+|---|---|---|
+| 4,000 … 96,000 | Budget sweep range over which pair ranking beats session ranking, tying only at 96,000 | `RANKING_BUDGET_CONTROL_REPORT.md` |
+| 24,000 | The LongMemEval cell whose sign opposes LoCoMo's 4,000 cell at matched binding ratio | same |
+| 19.85 / 19.39 | Median binding ratios of that opposed pair | same |
+| +123 / −14 | Their net all-evidence outcomes | same |
+| 80.9 | Baseline % at the registered 16,000-char operating point — off-ceiling, not maximal effect | same |
+| 585 | Derived: the gap between session ranking (843) and source order (258) on the sealed holdout | derived from `g6_holdout_outcomes.json` |
+| 5.6 | Derived: DMR-004's accuracy margin over the always-OPEN degenerate control, in points | derived from 0.706 − 0.650 |
+
+### 7.9 External calibration detail (§7.5, §8.1)
+
+| Value | What it is | Source |
+|---|---|---|
+| 401 | Questions with evidence in the top four ranks | `EC_001_REPORT.md` |
+| 96 → 248 | Of those, how many retrieve an evidence session before and after the packing reversal | `EC_002_REPORT.md` |
+| 26 → 476 | Delivered similarity episodes across the packing reversal | same |
+| 31,920 | Median delivered block size, unchanged across the reversal — the median that concealed it | same |
+| 16 / 0 / 1 | Median block composition: recency, non-recency similarity, coverage | same |
+| 209 | Questions still recalling no evidence session under the better order | same |
+| 890 | Annotated evidence sessions across the corpus | `EC_001_REPORT.md` |
+| 17 of 20 | Registered abstention items the fixed reader answered correctly | same |
+| 500 | Questions on which the component emitted no absence signal | same |
+
+### 7.10 Endurance corpus composition (§12.7)
+
+| Value | What it is | Source |
+|---|---|---|
+| 156 | Distinct user-assistant pairs in the 1,000-turn endurance script | `ERRATA.md` §Study 010 Endurance Corpus Composition |
+| 844 | Episodes that are exact content duplicates, of 1,000 | same |
+| 84 | Derived: duplicate share, % | derived |
+
+### 7.11 Values named only in order to correct them
+
+These appear in PAPER-002 **inside a correction**, never as a claim. §11.2 and §9
+name the superseded figure and then give the corrected one, which is how `ERRATA.md`
+records a correction and is the opposite of restating it. The claim gate does not
+treat these as revived claims.
+
+| Value | Named in | Corrected to |
+|---|---|---|
+| 40 (ms at 1,000 candidates) | §9 | 190 ms measured; the projection ran 84× past its last data point |
+| 31,991 / 31,847 | §11.2 | 53,726 / 53,839 |
+| 49 gains / 0 losses | §11.5 | 388 → 351, 26 gains and 63 losses |
+| 45 (item regression) | §11.5 | Did not exist; an episode-against-session unit error |
+| 20 (candidate range upper bound) | §9 | Measured range is 20–119 |
+
+### 7.12 Rounded forms and remaining detail
+
+The paper rounds two values for readability. Both forms are admissible.
+
+| Paper form | Spine form | What it is |
+|---|---|---|
+| 0.225 | 0.225032 | Query cosine the turn-90 episode would need to be selected |
+| 0.416 | 0.41599 | SAL-001 adjusted neighbour AUC, against a 0.60 bar |
+
+| Value | What it is | Source |
+|---|---|---|
+| 87 | Cosine rank of the last still-needed enumeration item, of 119 | `rd001/full_rank_inventory.csv` |
+| 76 | Fact-bearing episodes in the store; the rarity audit scores only 6 of them, which is why the join fails | `RD_001_RARITY_PROVENANCE_AUDIT.md` |
