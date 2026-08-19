@@ -330,6 +330,8 @@ experiments/study_NNN/
   study_NNN_report.md                          result and limitations
 experiments/probes/                            exploratory work outside the arc
 experiments/internal/packing_priority/         IC-001 packing-order counterfactual on the internal corpus
+experiments/comparisons/hh_001/
+  HH_001_PRE_REGISTRATION.md                   head-to-head against Mem0; DRAFT, NOT LOCKED, NOT RUNNABLE
 paper/
   PAPER_002.md                                 terminal research document; the source of truth
   PAPER_001.md                                 RETIRED 2026-08-18; superseded by PAPER_002.md
