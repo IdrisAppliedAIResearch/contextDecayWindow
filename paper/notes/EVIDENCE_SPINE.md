@@ -672,3 +672,19 @@ review rather than automation.
 | 33 | Committed artifacts the figure script reads and hashes | `paper/figures/figure_manifest_002.json` |
 | 5 | Registered bars that exist only in prose and are pattern-extracted, failing the build rather than plotting a stale value | same |
 | 15 / 11 | Mechanism rows with a committed numeric bar, and rows drawn categorically because none exists | same |
+
+### 7.15 The clustered alternative to NF-004's item-level p
+
+Cycle 3 objection 19: the committed `p = 6.19e-12` is an item-level exact binomial
+over 188 discordant questions and assumes those questions are independent. They are
+not — they cluster within six conversations. The registered statistic is not
+re-scored; a second, conservative statistic is reported beside it.
+
+| Value | What it is | Source |
+|---|---|---|
+| 0.0156 | One-sided sign test treating each conversation as one observation: all 6 of 6 net positive, 0.5^6 = 0.015625 | derived from `g6_holdout_outcomes.json` per-conversation nets (+7, +6, +13, +30, +15, +21) |
+| 188 | Discordant questions the item-level test runs over (140 gains + 48 losses) | same |
+
+The conservative figure clears 0.05 on six observations. Both are reported because
+the cluster structure is a real limit on the item-level number and stating only the
+smaller p would overstate the resolution the design bought.
