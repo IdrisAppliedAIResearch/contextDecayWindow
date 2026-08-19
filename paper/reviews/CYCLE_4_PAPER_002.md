@@ -15,7 +15,9 @@ Scope: the sections that were structurally rewritten — executive summary,
 abstract and §1 opening, §2.1, §4.1, §5.1, §6 opening and §6.3, §8.1, §12.1,
 §12.3, §13. Overclaim and underclaim weighted equally.
 
-**Status: in progress.**
+**Status: complete.** Fourteen of thirty Cycle 3 objections fully discharged, twelve
+partial, two not fixed, none regressed. Nine new items. Twenty-one dispositions, all
+sentence-level.
 
 ---
 
@@ -103,7 +105,7 @@ executive summary.**
 > spread."
 
 Denominator supplied, the spine's fourth row carried, switch-versus-spread
-distinction present. The threshold phrasing survives at §1.3 — new objection **N3**.
+distinction present. The threshold phrasing survives at §1.3 — new objection **N8**.
 
 ---
 
@@ -116,7 +118,7 @@ distinction present. The threshold phrasing survives at §1.3 — new objection 
 > dominance."
 
 Both mandatory boundaries from spine D2 now travel with the number. The abstract does
-not carry either — new objection **N4**.
+not carry either — filed under new objection **N9**.
 
 ---
 
@@ -817,10 +819,136 @@ number introduced by the rewrite is untraced.
 
 ## Part 3 — The reader test, re-answered
 
-_(pending)_
+*Would a reader who read only the executive summary come away with an accurate
+picture?*
+
+**Cycle 3: no, on seven counts. Cycle 4: yes on all seven. Three smaller errors remain,
+and the diagnostic Cycle 3 drew from them still holds.**
+
+Cycle 3's seven, in its own order:
+
+| # | What the reader got wrong then | Now |
+|---|---|---|
+| 1 | A four-component architecture beat a control on a sealed holdout | **Closed.** "One parameter varied", with the contrast named on both sides |
+| 2 | The granularity rule is general and reproduces on two more corpora | **Closed.** The reversal has its own bullet and the word "reproduces" is gone from the page |
+| 3 | Availability and correctness were measured moving in opposite directions | **Closed.** The bar firing carries the disposition; the shortfall is marked in-band |
+| 4 | A scored gap above three points is demonstrated | **Closed.** "the fourth merely exceeds it, which is not the same thing" |
+| 5 | Pruning the pool was measured to break retrieval | **Closed.** "a fact about its contents, not a comparison" |
+| 6 | The internal 12 → 14 was free | **Closed.** The art trade is in the same sentence as the gain |
+| 7 | Three of five sealed results are negative — not learned | **Closed.** Its own bullet, and named per mechanism in §13 |
+
+Seven for seven, and none of them cost a number. Cycle 3's claim that the summary
+needed the body's claims rather than weaker ones was correct.
+
+What the reader now gets wrong, three items:
+
+1. **They believe the determinism is unconditional and that no model of any kind is
+   resident.** The page says "needs no generative model calls" and "byte-identical
+   across two processes" and never says an embedding model must be resident or that the
+   guarantee is conditional on pinning it (N6).
+2. **They believe the latency envelope is a property of the design.** "Comfortable to a
+   few thousand episodes, unusable interactively before ten thousand" is a
+   one-machine measurement whose qualifier was cut in compression (N5).
+3. **They believe the LongMemEval and internal results stand where the sealed one
+   stands.** Both are on corpora already observed and the page does not say so (N7).
+
+And one item that is not in the summary but is on the same page: the **subtitle** still
+reads "the eleven experiments", so the first line a reader sees carries the count
+`DO_NOT_WRITE.md` retired (objection 2).
+
+**The diagnostic.** Cycle 3's sharpest observation was not that the summary was wrong
+but that its errors were *directional* — six overstatements and one omission, none
+running the other way, which is not what honest imprecision looks like. Re-run on the
+current text: of the three remaining errors, all three make the component look stronger
+or more general than measured. None runs the other way. The magnitude collapsed —
+these are three clauses against seven substantive misreadings — but the sign did not.
+
+That is worth saying plainly rather than filing as a compliment. The residue is small
+enough that it is no longer evidence of a framing problem; it is evidence that
+compression removes qualifiers and nobody re-read the compressed page against the
+bounds files. The remedy is mechanical: take the executive summary alone, and for each
+number in it, find its row in §4.1's new assignment table and check that the cap in
+that row appears on the page. Three of the nine numbers fail that check today.
 
 ---
 
 ## Dispositions — Cycle 4
 
-_(pending)_
+Twenty-one items. Fourteen are Cycle 3 objections not fully discharged; nine are new.
+None requires retracting a number, changing a figure's data, or re-running anything.
+Severity is **HIGH** where a claim in the paper currently exceeds its evidence or
+contradicts another claim in the paper, **MEDIUM** where a required qualifier is absent
+from a high-traffic location, **LOW** for precision and cross-references.
+
+| # | Site | Item | Severity | Required |
+|---|---|---|---|---|
+| 2 | Subtitle, §1, §13 | "Eleven pre-registered" survives at three of four sites | **HIGH** | Re-grep the value. "Ten numbered studies and one registered exploratory bakeoff" or drop the count |
+| 16 | §4.2 | Integrity machinery stated as uniformly achieved; §11.6 not cross-referenced; raters not identified | **HIGH** | Name the two file-checked registrations; point at §11.6; append "— none human, see §12.8" |
+| 29d | §13 | "moving in opposite directions once, and that result stands unrescued" | **HIGH** | Rewrite in §12.3's voice. Correct `EVIDENCE_SPINE.md` §5 item 3, which licenses it |
+| N1 | §4.1 | REGISTERED-OFFLINE requires byte-identical replay; EC-002's own row denies it | **HIGH** | "Deterministic on replay, with any reproduction boundary named in the limit column" |
+| N2 | Spine, §4.1, App. A | Spine still carries the retired four-level taxonomy the paper points at | **HIGH** | Update `EVIDENCE_SPINE.md` §1 and §3 to the five levels. It is a gate, not a reference |
+| 15 | §8.3 | "byte-identically replayable" contradicts §8.1 fourteen lines up | **HIGH** | Say which half replays byte-identically and which is a reproduction |
+| 3 | §7.2 | "the one operation this programme measured to break retrieval" | MEDIUM | Delete. §7.2's own preceding sentence is the correct form |
+| 20 | §6.3 | The reconciliation sentence still contradicts itself | MEDIUM | Delete it. The shape paragraph that follows is sufficient |
+| 26 | §12.3 | "the weakness is real" still opens the section, above the −2.0 table | MEDIUM | Open with the fabrication finding, which is band-independent |
+| 27 | §13 | CONFIRMATORY and REGISTERED-OFFLINE results joined under one "sealed external confirmation" | MEDIUM | One clause separating the withheld corpus from the two observed ones |
+| 28 | §13 | "the failures measured here were delivery failures", one sentence after its counterexample | MEDIUM | Insert "dominant". One word |
+| 29e | §13 | "more than this programme expected when it started removing things" | MEDIUM | Delete. Fails the read-aloud test |
+| 23 / N9 | §1.2 | Contributions list carries three retired framings and no §6.3 pointer | MEDIUM | Rewrite against §6.3 and §5.1's scope cap |
+| 24 | Figure 5 caption | Replicates still ordered "8.0, 8.0, 8.0, 8.0 and 11.0" | MEDIUM | Run order, matching §12.1 and the abstract |
+| 25 | §12.1 | Fourth scored verdict named nowhere in the section | MEDIUM | Carry the 8.5 → 12.0 row and its annotation into §12.1 |
+| N5 | Exec summary | Cost envelope lost "on this hardware" | MEDIUM | Restore three words |
+| N6 | Exec summary | Determinism stated without the resident-embedder condition | MEDIUM | One clause, per `DO_NOT_WRITE.md` §1 #1 |
+| N7 | Exec summary | NF-005 and NF-006 carry no standing on the page | MEDIUM | "both on corpora already observed" |
+| N3 | §4.1 | "In full" omits six headline results; NF-007 row cites §6.4 | LOW | Add the rows or drop "in full"; fix the pointer |
+| N4 | §8 | Section-level standing label covers a NOT DEMONSTRATED subsection | LOW | Use §6.1's split-label form |
+| 9 | §2.1 | "the axes are countable from either system's own description" now contradicted below the table | LOW | Delete the clause |
+| 11 | §2.1 | "Most systems above" — unnamed majority over unrun systems | LOW | Name them from `COMPETITIVE_LANDSCAPE.md` |
+| 21 | §6.2 / §6.3 | One measure, two table headers; no statement that §6 never uses session touch | LOW | One name, one sentence |
+| N8 | §1.3 | Threshold phrasing the executive summary was corrected for | LOW | Reuse the summary's sentence |
+
+**The three most serious**
+
+1. **N2 with N1 — the standing machinery does not close.** The paper ships a five-level
+   taxonomy and an in-paper assignment table, which was Cycle 3's most serious ask and
+   is the rewrite's best work. It then points at a bounds file grading fifteen results
+   under a level that no longer exists, and defines one of its own levels by a property
+   one of its graded results provably lacks. An honesty mechanism that does not
+   type-check is the one thing a hostile reviewer will spend a paragraph on, and both
+   halves are a few lines of editing.
+2. **Objection 2 — the retired count is in the subtitle.** `DO_NOT_WRITE.md` retired
+   "eleven studies"; the paper's second line says "the eleven experiments", §1 asserts
+   eleven were pre-registered while conceding one was exploratory, and §13 opens with
+   it. The correction landed in the abstract only. This is the single most quotable
+   surface in the document and the fix is a grep.
+3. **Objection 16 — accepted and not implemented.** §4.2 is byte-identical to the
+   reviewed draft. It states three integrity properties as uniformly achieved, points
+   the reader away from the section that inventories where they were not, and
+   introduces the rater machinery without saying the raters are models — in a paper
+   that says so correctly in two other places. §11.6 has since grown a fifth case, on
+   the sealed holdout's own corpus lock, which makes the missing cross-reference worse
+   than it was.
+
+**Is the paper within its evidence?** In the body and in §4.1's assignment table, yes —
+every number checks against the spine, both claim gates pass at HEAD, the slop list
+greps to zero, and §5.1, §6.3, §8.3, §11.6 and §12.3 are each at or below what their
+artifacts support. The residue is concentrated in the places that were rewritten last
+and re-read least: the subtitle, §1.2, §1.3, §4.2, §7.2, three clauses in the executive
+summary, and the closing paragraphs of §13.
+
+**No structural change is required, so a Cycle 5 full pass is not warranted.** Every
+item above is a sentence-level edit at a named line, plus one bounds-file update.
+What is warranted is the pass Cycle 3 prescribed and this cycle shows was not run: for
+each retired claim, grep the *value* and fix every site, not the site the review
+quoted. Twelve of the fourteen partials in Part 1 would have closed on that pass alone.
+
+---
+
+**Reviewed at** `d1d118bc` on branch `paper-rework`, against the Cycle 3 draft at
+`95000acd`. Read in full: `paper/PAPER_002.md` (all sections, figures, appendices and
+provenance), `paper/reviews/CYCLE_3_PAPER_002.md`, `paper/notes/EVIDENCE_SPINE.md`,
+`paper/notes/DO_NOT_WRITE.md`, `paper/reviews/CYCLE_1.md`, and
+`paper/notes/COMPETITIVE_LANDSCAPE.md` §§ on citation verification and call sites.
+Checked by execution: `scripts/check_paper_002_claims.py` (both gates PASS),
+`git diff 95000acd HEAD -- paper/PAPER_002.md` (248 insertions, 126 deletions),
+registration SHAs for the four REGISTERED-OFFLINE results in their source reports.
