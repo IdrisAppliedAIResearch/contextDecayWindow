@@ -745,6 +745,392 @@ def figure_4() -> None:
     save(fig, "f4_packing_priority_gate")
 
 
+# --------------------------------------------------------------------------
+# F5 - the standing ladder against the measured instrument band
+# --------------------------------------------------------------------------
+def figure_5() -> None:
+    band = load_json(S011 / "noise_band/band_verdict.json")
+    nf004 = load_json(BIO / "nf_004/artifacts/g7_result_integrity.json")
+    dmr004 = load_json(BIO / "dmr_004/artifacts/gates_holdout.json")["gates"]
+    dmr001 = load_json(BIO / "dmr_001/artifacts/dmr001_gates/gate_report.json")
+    dmr001c = load_json(BIO / "dmr_001c/artifacts/dmr001c_gates/gate_report.json")
+    sal = load_json(BIO / "sal_001/artifacts/sal001_analysis/analysis.json")
+    nf005 = load_json(BIO / "nf_005/artifacts/g8_integrity.json")
+    nf006 = load_json(BIO / "nf_006/artifacts/g8_g9_measurement.json")
+    ec002 = load_json(LME / "runs/ec002_k_first/a1_k_first/paired_comparison.json")
+    ic_paths = load_csv(IC001 / "b1_k_first/path_split.csv")
+    s011 = load_json(S011 / "evaluation/verdict.json")
+    ar001 = load_json(LEDGER / "artifacts/ar_001/achievability.json")
+
+    forced = next(
+        check
+        for entry in dmr001["verdict"]["gates"] if entry["gate"] == "G3"
+        for check in entry["checks"] if "holdout: forced fraction" in check["check"]
+    )
+    b0_probes = [r for r in ic_paths if r["arm"] == "B0"]
+    zero_probes = sum(1 for r in b0_probes if int(r["k_episodes"]) == 0)
+    per_question = s011["treatment_scores"]["per_question"]
+    identical = sum(
+        1 for q in per_question["A"] if per_question["A"][q] == per_question["D"][q]
+    )
+    session_any = ec002["by_stratum"]["all"]["session_any"]
+
+    confirmatory = [
+        ("NF-004 · LoCoMo ranking granularity",
+         f"{nf004['primary']['pair_all_evidence_hits']:,} of "
+         f"{nf004['primary']['n']:,} complete evidence, against "
+         f"{nf004['primary']['session_all_evidence_hits']:,}"),
+        ("DMR-004 · mechanical sufficiency  (negative)",
+         f"Youden's J {dmr004['G_J']['value']:.3f} against a bar of "
+         f"{dmr004['G_J']['bar']:g}"),
+        ("DMR-001 · absolute-threshold formation  (negative)",
+         f"forced fraction {forced['observed']:.3f} against a bar of "
+         f"{dmr001['verdict']['bars']['G3']['max_forced_fraction']:g}"),
+        ("DMR-001C · transfer confirmed, boundary refuted",
+         f"fire-rate ratio {dmr001c['summary']['fire_rate_p95_p05_ratio']:.2f} "
+         f"passes; macro F1 {dmr001c['summary']['macro_f1']:.3f} loses to "
+         f"periodic chopping"),
+        ("SAL-001 · surprisal proximity  (negative)",
+         f"adjusted AUC {sal['metrics']['adjusted_symmetric_auc']:.3f}, "
+         f"permutation p = {sal['metrics']['permutation_p']:.3f}"),
+    ]
+    deterministic = [
+        ("NF-005 · source-turn ranking",
+         f"{nf005['arm_totals']['T_TURN_RANK_TURN_PACK']['any_target']} of "
+         f"{nf005['items']} against "
+         f"{nf005['arm_totals']['E_EPISODE_RANK_TURN_PACK']['any_target']}, "
+         f"{nf005['primary_comparison']['losses']} losses"),
+        ("NF-006 · statement ranking",
+         f"{nf006['G9']['q11']['T1_OWN_STATEMENT']['available']} of "
+         f"{nf006['G9']['q11']['T1_OWN_STATEMENT']['total']} against "
+         f"{nf006['G9']['q11']['C0_EPISODE']['available']}"),
+        ("EC-002 · packing priority, 500 external stores",
+         f"{session_any['a0']} → {session_any['a1']} of "
+         f"{ec002['answerable_questions']}, {session_any['gains']} gains, "
+         f"{session_any['losses']} losses"),
+        ("IC-001 · packing priority, internal store",
+         f"zero similarity episodes at {zero_probes} of {len(b0_probes)} probes "
+         f"under the deployed order"),
+        ("Study 011 · the deployed similarity tier is inert",
+         f"arm D scores identically to arm A on {identical} of "
+         f"{len(per_question['A'])} questions"),
+        ("AR-001 · the target was affordable",
+         f"{ar001['exact_optimum']['fact_count']} of 17 in "
+         f"{ar001['exact_optimum']['serialized_chars']:,} characters, "
+         f"{ar001['exact_optimum']['budget_headroom_chars']:,} unused"),
+    ]
+    scored = [
+        (row["result"], row["currently_reads_as"], row["gap"], row["exceeds_band"])
+        for row in band["uniform_application"]
+    ]
+
+    groups = [
+        ("CONFIRMATORY", "sealed holdout; bars locked before the number existed",
+         BLUE, [(n, h, None) for n, h in confirmatory]),
+        ("DETERMINISTIC-OFFLINE", "0 generative calls; counts and identities; "
+         "byte-identical on replay",
+         GREEN, [(n, h, None) for n, h in deterministic]),
+        ("NOT DEMONSTRATED", "a scored live comparison inside the measured band",
+         VERMILLION, [(n, h, g) for n, h, g, _ in scored]),
+    ]
+
+    layout: list[tuple] = []
+    for title, subtitle, colour, entries in groups:
+        layout.append(("header", title, subtitle, colour, None))
+        for name, headline, gap in entries:
+            layout.append(("row", name, headline, colour, gap))
+    total = len(layout)
+
+    width = band["band"]["band"]
+    replicates = [
+        band["individual_totals_by_replicate"][k]
+        for k in sorted(band["individual_totals_by_replicate"])
+    ]
+
+    fig, (ax, ax2) = plt.subplots(
+        1, 2, figsize=(11.4, 7.4), gridspec_kw={"width_ratios": [1.62, 1.0]}
+    )
+
+    positions: list[float] = []
+    cursor = 0.0
+    for index, entry in enumerate(layout):
+        if entry[0] == "header" and index:
+            cursor -= 0.95
+        positions.append(cursor)
+        cursor -= 1.55
+
+    def y_of(index: int) -> float:
+        return positions[index]
+
+    y_limits = (positions[-1] - 2.9, positions[0] + 1.5)
+
+    ax.axis("off")
+    ax.set_xlim(0, 1)
+    ax.set_ylim(*y_limits)
+    for index, (kind, first, second, colour, _gap) in enumerate(layout):
+        y = y_of(index)
+        if kind == "header":
+            ax.text(0.0, y + 0.10, first, fontsize=9, fontweight="bold",
+                    color=colour, va="center")
+            ax.text(0.0, y - 0.52, second, fontsize=7.4, color=GREY, va="center")
+            ax.hlines(y + 0.78, 0, 1.0, color=colour, alpha=0.4, linewidth=1.0)
+        else:
+            ax.scatter([0.012], [y + 0.10], s=44, marker="s", color=colour,
+                       alpha=0.8)
+            ax.text(0.045, y + 0.10, first, fontsize=8.2, va="center")
+            ax.text(0.045, y - 0.52, second, fontsize=7.4, color=GREY, va="center")
+
+    ax2.spines["top"].set_visible(False)
+    ax2.spines["right"].set_visible(False)
+    ax2.spines["left"].set_visible(False)
+    ax2.set_ylim(*y_limits)
+    ax2.set_yticks([])
+    ax2.axvspan(-width, width, color=ORANGE, alpha=0.20, zorder=0)
+    ax2.axvline(0, color=BLACK, linewidth=1.0, zorder=2)
+    ax2.grid(axis="x", color=GREY, alpha=0.22, linewidth=0.6)
+    ax2.set_axisbelow(True)
+
+    for index, (kind, _first, _second, colour, gap) in enumerate(layout):
+        if kind != "row" or gap is None:
+            continue
+        y = y_of(index) + 0.10
+        inside = abs(gap) <= width
+        ax2.hlines(y, 0, gap, color=(VERMILLION if inside else BLUE),
+                   linewidth=2.0, zorder=3)
+        ax2.scatter([gap], [y], s=70, color=(VERMILLION if inside else BLUE),
+                    zorder=4)
+        ax2.text(gap + (0.22 if gap > 0 else -0.22), y,
+                 f"{gap:+.1f}", ha=("left" if gap > 0 else "right"),
+                 va="center", fontsize=8.4, fontweight="bold",
+                 color=(VERMILLION if inside else BLUE))
+
+    ax2.text(
+        0, y_of(1) + 0.55,
+        "nothing above is scored on this instrument:\n"
+        "counts and identities, measured with no generative call",
+        fontsize=7.8, color=GREY, ha="center", va="top",
+    )
+    ax2.text(
+        0, positions[-1] - 1.55,
+        f"band = {width:g} points, the max minus min of "
+        f"{len(replicates)} replicates of the deployed configuration\n"
+        f"({', '.join(f'{r:g}' for r in replicates)} on a 13-point rubric, "
+        "one server process)",
+        fontsize=7.6, ha="center", va="center", zorder=6,
+        bbox=dict(facecolor="white", edgecolor="none", pad=2.0),
+    )
+    ax2.set_xlim(-5.2, 5.2)
+    ax2.set_xticks([-4, -3, 0, 3, 4])
+    ax2.tick_params(labelsize=8.2)
+    ax2.set_xlabel("scored gap against the comparison arm (rubric points)",
+                   fontsize=9)
+    ax2.set_title("the measured instrument band", fontsize=9.8, loc="left")
+
+    fig.suptitle(
+        "results sorted by evidentiary standing", fontsize=10.5, x=0.09,
+        ha="left", y=0.965,
+    )
+    save(fig, "f5_standing_ladder")
+
+
+# --------------------------------------------------------------------------
+# F6 - the budget efficiency gap  (ported from PAPER-001's figure 1)
+# --------------------------------------------------------------------------
+def figure_6() -> None:
+    e005 = load_json(LEDGER / "artifacts/e005/e005_results.json")
+    a0 = load_json(LEDGER / "artifacts/e005/a0_baseline.json")
+    ar = load_json(LEDGER / "artifacts/ar_001/achievability.json")
+
+    exact_chars = ar["exact_optimum"]["serialized_chars"]
+    exact_facts = ar["exact_optimum"]["fact_count"]
+    budget = e005["budget_chars"]
+    rubric = e005["secondary_reference_points"]["rubric_threshold"]
+
+    bars = [
+        ("deployed baseline\ndeployed selector, 34-episode pool",
+         a0["serialized_chars"], a0["fact_count"], VERMILLION, "right", 0.0),
+        ("set-level coverage\nnew selector AND 119-episode pool",
+         e005["primary_configuration"]["serialized_chars"],
+         e005["primary_configuration"]["q11_fact_count"], BLUE, "right", 0.0),
+        ("known optimum, greedy\nanswer key, 119-episode pool",
+         e005["oracle"]["serialized_chars"], e005["oracle"]["fact_count"],
+         GREEN, "left", 0.0),
+        ("known optimum, exact\nanswer key, 119-episode pool",
+         exact_chars, exact_facts, SKY, "left", -1.35),
+    ]
+
+    fig, ax = plt.subplots(figsize=(9.2, 4.6))
+    style(ax)
+
+    for label, chars, facts, colour, side, dy in bars:
+        ax.hlines(facts, 0, chars, color=colour, linewidth=4.0, alpha=0.85, zorder=2)
+        ax.scatter([chars], [facts], s=70, color=colour, zorder=3)
+        text = f"{label}\n{facts}/17 in {chars:,} chars"
+        if side == "right":
+            ax.text(chars - 500, facts + dy, text, fontsize=8.6, ha="right",
+                    va="center", color=colour, zorder=4)
+        else:
+            ax.text(chars + 700, facts + dy, text, fontsize=8.6, ha="left",
+                    va="center", color=colour, zorder=4)
+
+    ax.axhline(rubric, color=BLACK, linewidth=1.1, linestyle="--", zorder=1)
+    ax.text(budget * 1.05, rubric + 0.18,
+            f"registered\nbreadth bar, {rubric}/17",
+            fontsize=8.2, ha="right", va="bottom")
+    ax.axvline(budget, color=GREY, linewidth=1.1, zorder=1)
+    ax.text(budget - 220, 1.4, f"enforced budget\n{budget:,} chars",
+            fontsize=8.4, ha="right", color=GREY)
+
+    shipped = e005["primary_configuration"]
+    greedy = e005["oracle"]
+    extra_chars = shipped["serialized_chars"] - greedy["serialized_chars"]
+    fewer_facts = greedy["fact_count"] - shipped["q11_fact_count"]
+    ax.annotate(
+        "",
+        xy=(greedy["serialized_chars"], 16.3),
+        xytext=(shipped["serialized_chars"], 16.3),
+        arrowprops=dict(arrowstyle="<->", color=BLACK, linewidth=1.0),
+    )
+    ax.text(
+        (greedy["serialized_chars"] + shipped["serialized_chars"]) / 2,
+        16.45,
+        f"{extra_chars:,} more characters, {fewer_facts} fewer facts",
+        fontsize=8.6,
+        ha="center",
+    )
+
+    ax.set_xlim(0, budget * 1.075)
+    ax.set_ylim(0, 17.2)
+    ax.set_xlabel("characters spent (exact serialized cost)")
+    ax.set_ylabel("Q11 target facts delivered")
+    save(fig, "f6_budget_efficiency_gap")
+
+
+# --------------------------------------------------------------------------
+# F7 - growth and cost  (ported from PAPER-001's figure 5, plus the stage split)
+# --------------------------------------------------------------------------
+def figure_7() -> None:
+    dx002 = load_json(CLOSEOUT / "dx002/dx002_results.json")
+    gate = load_json(CLOSEOUT / "cc003/ge0_growth_gate.json")
+    latency = load_csv(CLOSEOUT / "cc005/latency_curve.csv")
+    components = load_csv(CLOSEOUT / "cc005/latency_components.csv")
+    growth = load_json(CLOSEOUT / "cc005/growth_measurement.json")
+
+    def buckets(arm_name: str) -> tuple[list[int], list[int]]:
+        arm = next(a for a in dx002["arms"] if a["arm"] == arm_name)
+        blocks = arm["series"]["retrieved_stm"]["blocks"][-5:]
+        return [b["last_turn"] for b in blocks], [b["p95"] for b in blocks]
+
+    l_turns, l_p95 = buckets("arm_l")
+    s_turns, s_p95 = buckets("arm_s")
+    lib_blocks = gate["saturation"]["blocks"][-5:]
+    lib_turns = [b["last_turn"] for b in lib_blocks]
+    lib_p95 = [b["p95"] for b in lib_blocks]
+
+    fig, (ax, ax2, ax3) = plt.subplots(
+        1, 3, figsize=(12.6, 4.2), gridspec_kw={"width_ratios": [1.0, 1.0, 0.82]}
+    )
+    style(ax)
+    style(ax2)
+    style(ax3)
+
+    ax.plot(s_turns, s_p95, marker="o", color=VERMILLION, linewidth=1.8,
+            label="study runner, arm S")
+    ax.plot(l_turns, l_p95, marker="s", color=ORANGE, linewidth=1.8,
+            label="study runner, arm L")
+    ax.plot(lib_turns, lib_p95, marker="D", color=BLUE, linewidth=1.8,
+            label="extracted library")
+    ax.axhline(gate["budget_chars"], color=GREY, linewidth=1.1, linestyle="--")
+    ax.text(1000, gate["budget_chars"] + 1400,
+            f"{gate['budget_chars']:,}-char budget", fontsize=8, ha="right",
+            color=GREY)
+
+    ax.annotate(f"+{s_p95[-1] - s_p95[0]:,} chars", xy=(s_turns[-1], s_p95[-1]),
+                xytext=(-8, -16), textcoords="offset points", fontsize=8.4,
+                color=VERMILLION, ha="right")
+    ax.annotate(f"+{l_p95[-1] - l_p95[0]:,} chars", xy=(l_turns[-1], l_p95[-1]),
+                xytext=(-6, -16), textcoords="offset points", fontsize=8.4,
+                color=ORANGE, ha="right")
+    ax.annotate(f"+{int(gate['saturation']['p95_growth_chars'])} chars",
+                xy=(lib_turns[-1], lib_p95[-1]), xytext=(-6, -18),
+                textcoords="offset points", fontsize=8.4, color=BLUE, ha="right")
+
+    ax.set_xlabel("turn (100-turn buckets, final 500 turns)", fontsize=9)
+    ax.set_ylabel("95th percentile of the retrieved block (chars)", fontsize=9)
+    ax.set_title("the leak was the harness, not the component", fontsize=9.6,
+                 loc="left")
+    ax.legend(loc="upper left", frameon=False, fontsize=8.2)
+
+    candidates = [int(r["candidates"]) for r in latency]
+    medians = [float(r["median_ms"]) for r in latency]
+    ax2.plot(candidates, medians, marker="o", color=BLUE, linewidth=1.9,
+             label="measured (CC-005)")
+
+    # DR-002's withdrawn projection: flat per-candidate cost past its own range.
+    # Both ends of its published per-candidate range are drawn, not one of them.
+    dr002_low = extract(
+        CLOSEOUT / "cc005/growth_measurement.json",
+        r'"dr002_us_per_candidate":\s*"([0-9]+)-[0-9]+',
+    )
+    dr002_high = extract(
+        CLOSEOUT / "cc005/growth_measurement.json",
+        r'"dr002_us_per_candidate":\s*"[0-9]+-([0-9]+)',
+    )
+    dr002_max = growth["dr002_reconciliation"]["dr002_measured_range_candidates"][1]
+    withdrawn_low = [dr002_low / 1000.0 * n for n in candidates]
+    withdrawn_high = [dr002_high / 1000.0 * n for n in candidates]
+    ax2.fill_between(candidates, withdrawn_low, withdrawn_high,
+                     color=VERMILLION, alpha=0.28, linewidth=0,
+                     label=f"withdrawn projection "
+                           f"({dr002_low:g}–{dr002_high:g} µs/candidate)")
+    ax2.plot(candidates, withdrawn_high, color=VERMILLION, linewidth=1.2,
+             linestyle="--")
+
+    coefficient = growth["latency"]["fitted_coefficient"]
+    exponent = growth["latency"]["fitted_exponent"]
+    forward = [1500, 2000, 3000, 5000]
+    ax2.plot([candidates[-1]] + forward,
+             [medians[-1]] + [coefficient * n ** exponent for n in forward],
+             color=BLUE, linewidth=1.4, linestyle=":",
+             label="projection above the measured range")
+
+    ax2.annotate(
+        f"{medians[-1]:.0f} ms measured\nvs "
+        f"{withdrawn_low[-1]:.0f}–{withdrawn_high[-1]:.0f} ms projected",
+        xy=(candidates[-1], medians[-1] * 1.12), xytext=(56, 560),
+        fontsize=8.4, color=BLUE,
+        arrowprops=dict(arrowstyle="->", color=BLUE, linewidth=1.0),
+    )
+    ax2.axvline(dr002_max, color=GREY, linewidth=1.0, linestyle=":")
+    ax2.text(dr002_max * 1.18, 1300,
+             f"DR-002 stops at {dr002_max}", fontsize=7.8,
+             color=GREY, ha="left", va="center")
+
+    ax2.set_xscale("log")
+    ax2.set_yscale("log")
+    ax2.set_xlabel("candidate episodes in the pool", fontsize=9)
+    ax2.set_ylabel("median selection latency (ms, embedding excluded)", fontsize=9)
+    ax2.set_title("a projection extended past its data", fontsize=9.6, loc="left")
+    ax2.legend(loc="lower right", frameon=False, fontsize=7.6)
+
+    comp_candidates = [int(r["candidates"]) for r in components]
+    shares = [float(r["cluster_share"]) * 100 for r in components]
+    ax3.plot(comp_candidates, shares, marker="o", color=PURPLE, linewidth=1.9)
+    ax3.set_ylim(0, 100)
+    ax3.set_xlabel("candidate episodes in the pool", fontsize=9)
+    ax3.set_ylabel("clustering share of selection time (%)", fontsize=9)
+    ax3.set_title("one stage takes the cost", fontsize=9.6, loc="left")
+    ax3.annotate(f"{shares[0]:.0f}%", xy=(comp_candidates[0], shares[0]),
+                 xytext=(2, 12), textcoords="offset points", fontsize=8.6,
+                 color=PURPLE, fontweight="bold")
+    ax3.annotate(f"{shares[-1]:.0f}%", xy=(comp_candidates[-1], shares[-1]),
+                 xytext=(-6, 8), textcoords="offset points", fontsize=8.6,
+                 color=PURPLE, fontweight="bold", ha="right")
+
+    fig.subplots_adjust(wspace=0.34)
+    save(fig, "f7_growth_and_cost")
+
+
 def write_manifest() -> None:
     head = subprocess.run(
         ["git", "rev-parse", "HEAD"], cwd=REPO,
@@ -771,6 +1157,9 @@ def main() -> None:
     figure_2()
     figure_3()
     figure_4()
+    figure_5()
+    figure_6()
+    figure_7()
     write_manifest()
 
 
