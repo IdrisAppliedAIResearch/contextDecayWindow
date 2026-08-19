@@ -377,19 +377,51 @@ obtained, before anyone looks at what they say.
 
 ### 4.1 The standing taxonomy
 
-Four levels. Applied once, here, so the prose does not hedge sentence by sentence.
-The full assignment for every number in this paper is in
-`paper/notes/EVIDENCE_SPINE.md`.
+Five levels, separated by **when the claim was committed relative to the number**,
+not by how the number was computed. Determinism is cheap; commitment order is what a
+result cannot buy back afterwards.
 
 | Standing | Requirement | How this paper states it |
 |---|---|---|
 | **CONFIRMATORY** | Pre-registered; sealed holdout; bars, endpoint and budget locked before the number existed; registration commit carries no implementation file | As an established result, with its scope cap |
-| **DETERMINISTIC-OFFLINE** | Zero generative calls; counts and identities, not scores; byte-identical on replay | As measured, with the corpus named. Not a benchmark score |
-| **NOT DEMONSTRATED** | A scored live comparison whose gap falls inside the measured 3.0-point band | With the number *and* the label |
+| **REGISTERED-OFFLINE** | Pre-registered with bars locked first, zero generative calls, byte-identical on replay — but run on a corpus already observed, so it cannot confirm | As measured and registered, capped as characterization |
+| **DESCRIPTIVE** | Deterministic and reproducible, but the reading was chosen after the number existed, or the quantity is a bound computed with the answer key | As measured, with what it cannot support said in the same breath |
+| **NOT DEMONSTRATED** | A scored live comparison whose gap falls inside the measured 3.0-point band | With the number *and* the label. Not refuted either |
 | **WITHDRAWN** | Corrected in `ERRATA.md` | Not at all. The list is `paper/notes/DO_NOT_WRITE.md` |
 
-Five results in the entire arc reach CONFIRMATORY. Three of those five are negative.
+The second and third levels were one level in an earlier draft, and collapsing them
+was a real defect: it let a byte-identical 500-store replay, a posthoc reading of an
+exhausted corpus, and a bound computed with the answer key all inherit the same
+phrase. They reproduce identically and they do not license the same sentence.
 
+**The assignment, in full, so this table is checkable without leaving the paper.**
+
+| Result | Standing | The binding limit |
+|---|---|---|
+| NF-004 — LoCoMo pair ranking, 843→935 (§5.1) | CONFIRMATORY | Availability only; no reader, universal-rule or adoption claim |
+| DMR-004 — no sufficiency signal (§5.2) | CONFIRMATORY | Negative; closes deterministic stopping in this arc |
+| DMR-001 — degenerate formation (§5.3) | CONFIRMATORY | Negative; its post-stop gates are not results |
+| DMR-001C — transfer confirmed, boundary refuted (§5.3) | CONFIRMATORY | Split verdict; the statistic was ill-chosen and is not re-scored |
+| SAL-001 — no surprisal signal (§5.4) | CONFIRMATORY | Negative; effect ran opposite to the registration |
+| NF-005 — turn ranking, 361→461 (§6.2) | REGISTERED-OFFLINE | Corpus already observed; capped as characterization. Does not isolate length from localization |
+| NF-006 — statement ranking, 12→14 of 17 (§6.4) | REGISTERED-OFFLINE | One probe; art falls 2/4 → 1/4; turn 90's carrier unresolved |
+| EC-002 — packing priority, 109→261 (§8.1) | REGISTERED-OFFLINE | Reproduction under recomputed embeddings, **not** a byte-exact replay |
+| IC-001 — zero K episodes at 8/8 probes (§8.2) | REGISTERED-OFFLINE | Internal store; frozen candidate identities |
+| NF-003 — three-arm, 375/388/351 (§6.3) | DESCRIPTIVE | Posthoc on an exhausted corpus. Not a registered law |
+| AR-001 — the 5,058-character optimum (§7.1) | DESCRIPTIVE | Computed **with the answer key**. A bound, not a method |
+| DR-002 — the pool binds structurally (§7.2) | DESCRIPTIVE | A fact about the shortlist's contents, not a measured comparison |
+| DX-001 — the 0.0560 floor (§7.4) | DESCRIPTIVE | One frozen configuration |
+| NF-007 — coverage floor inert (§6.4) | DESCRIPTIVE | An **instrument** stop: the test could not distinguish the arms |
+| Study 009 memory tier, +3.0 (§12.1) | NOT DEMONSTRATED | Inside the band; process state uncontrolled |
+| LV-001 targeted regression, −2.0 (§12.3) | NOT DEMONSTRATED | Inside the band. The kill bar firing is separate and stands |
+| Study 011 tier isolation, −1.0 (§8.3) | NOT DEMONSTRATED | Inside the band; the correction stays rejected |
+
+Five results in the entire arc reach CONFIRMATORY, and **three of those five are
+negative**. That ratio is the paper's most compact structural fact: the surviving
+design is four components because the well-built experiments mostly returned nothing.
+
+`paper/notes/EVIDENCE_SPINE.md` carries the same assignment with each number's
+artifact path and hash, for a reader who wants to check a figure against its source.
 ### 4.2 The machinery behind those grades
 
 **Pre-registration.** Each study's design was committed before implementation, and
@@ -604,7 +636,8 @@ rather than confirmed.
 
 ### 6.1 The size of a candidate
 
-**Standing: DETERMINISTIC-OFFLINE.** Zero model calls.
+**Standing: REGISTERED-OFFLINE for NF-005 and NF-006; DESCRIPTIVE for NF-003's
+three-arm reading in §6.3.** Zero model calls throughout.
 
 | Unit | Median characters |
 |---|---:|
@@ -713,7 +746,9 @@ deliverable items — **explicitly not because it showed the largest effect.**
 
 The granularity result is about the unit. This section is about what happens after
 the unit is fixed, and it is the part of the programme that generalizes least and
-explains most. All of it is DETERMINISTIC-OFFLINE on the internal store.
+explains most. All of it is **DESCRIPTIVE** on the internal store: the optimum is
+computed with the answer key, the pool claim is a fact about the shortlist's
+contents rather than a comparison, and the floor is one frozen configuration.
 
 ### 7.1 Capacity was never the constraint
 
@@ -806,7 +841,7 @@ than a null, and the categorical claim it was meant to support has been withdraw
 
 ## 8. Packing priority is a causal delivery gate
 
-**Standing: DETERMINISTIC-OFFLINE.** The order in which a fixed candidate set is
+**Standing: REGISTERED-OFFLINE.** The order in which a fixed candidate set is
 packed into a fixed budget decides what arrives. This was measured twice, once
 externally and once internally, holding everything else constant.
 
@@ -825,6 +860,9 @@ embedding call.
 | All exact answer turns | 20 / 470 | 106 / 470 | 86 | 0 |
 
 **Plus 32.3 percentage points on the primary, with 152 gains and no losses.** Figure 4.
+One qualifier travels with this: the deployed arm is a *reproduction under recomputed
+embeddings*, not a byte-exact replay — the original run's embedding cache was not
+retained, and that run is permanently unreplayable at bit granularity.
 Restricted to the 401 questions whose evidence was already in the top four ranks,
 recall goes from 96 to 248. The evidence was ranked correctly and then not delivered.
 
@@ -869,7 +907,7 @@ answers.
 
 ## 9. Cost and the operating envelope
 
-**Standing: DETERMINISTIC-OFFLINE.** These come from a 1,000-turn endurance run, not
+**Standing: DESCRIPTIVE.** These come from a 1,000-turn endurance run, not
 the 121-turn corpus §7 uses. Nothing here establishes a §7 result at 1,000 turns, and
 nothing in §7 establishes these at 121.
 
@@ -1087,19 +1125,25 @@ Every *scored* comparison in this paper is a single run at a fixed seed. That wa
 recorded as a missing variance estimate until the estimate was made.
 
 Five replicates of the deployed configuration — identical corpus, settings, seed and
-standing runtime, run back to back in one server process — scored **8.0, 8.0, 8.0,
-8.0 and 11.0**. Max minus min is **3.0**, against a decision rule committed before
-the replicates ran.
+standing runtime, run back to back in one server process — scored **11.0, 8.0, 8.0,
+8.0 and 8.0**, in that order. Max minus min is **3.0**, against a decision rule
+committed before the replicates ran.
 
-It is not a spread but a switch. Four of the five are byte-identical across all 121
-turns. The fifth — the only one to meet an empty server slot — diverges at turn 1
-from a byte-identical 757-byte prompt and never re-converges. Rater disagreement was
+It is not a spread but a switch, and the run order is the finding. Replicates two
+through five are byte-identical across all 121 turns. **The one that diverges is
+replicate one — the first run in a fresh server process**, the only one to meet an
+empty slot. It diverges at turn 1 from a byte-identical 757-byte prompt and never
+re-converges.
+
+Stated that way it is sharper than "one of five was odd", and it reaches further:
+every scored run in this arc that began on a cold server sits on the divergent side
+of that switch, and no study in the arc pinned process state (§12.2). Rater disagreement was
 measured separately and is near zero, 64 of 65 items unanimous, so this is
 run-to-run variation and not scoring noise.
 
 Figure 5 draws the band across every scored verdict in the arc. Applied uniformly and
-in both directions, **three of this arc's scored verdicts fall inside the band and are
-not demonstrated**: the memory-tier contrast at 3.0, the
+in both directions, **three of this arc's four scored verdicts fall inside the band
+and are not demonstrated**: the memory-tier contrast at 3.0, the
 live-validation targeted regression at −2.0, and the tier-isolation result at −1.0.
 *Not demonstrated is not refuted.* These may be real, and a single run per arm cannot
 say. One asymmetry is worth stating: the memory-tier contrast has **less** protection
@@ -1230,23 +1274,41 @@ rest did not work.
 
 **For a practitioner**, three things transfer.
 
-*Rank at the finest unit whose embedding stays informative.* This is the result with
-sealed external confirmation —
-843 to 935 of 1,098 on withheld conversations, and 361 to 461 of 465 with zero losses
-on a second corpus. The mechanism is candidate size: a 2,550-character episode
-averages away the 298-character turn that answers the question.
+*Score a candidate by its own text, not by its parent's.* This is the substitution
+with sealed external confirmation — 843 to 935 of 1,098 on withheld conversations,
+reproduced at 361 to 461 of 465 on a second corpus and 12 to 14 of 17 internally. The
+mechanism is candidate size: a 2,550-character episode averages away the
+298-character turn that answers the question.
 
-*Do not prune the candidate pool to control cost.* It is the one operation measured
-here to break retrieval, and it cost an entire domain even though most of the best
-records survived the cut.
+*And do not read that as "finer is always better", because this paper's own data
+refutes it.* On the same LongMemEval corpus, moving the ranking unit from the session
+to the episode **loses 37 items**, 26 gains against 63 losses (§6.3). Turn ranking
+beats episode ranking; session ranking also beats episode ranking. The episode loses
+from both sides, which no monotone rule about fineness can produce. The confirmed
+result is the specific substitution above, on units of roughly 240 to 300 characters.
+Where the useful unit sits for a different corpus is not something this programme
+measured, and §6.5 refutes the scope condition proposed to predict it.
+
+*Do not prune the candidate pool to control cost.* On this store the deployed
+shortlist contains no representative of one of four domains, so no selection rule
+reaches it from there. That is a fact about the shortlist's contents rather than a
+measured comparison, and it is the sharper reason to leave retention alone.
 
 *Check whether your memory layer needs generative calls at all.* Every component this
 programme removed was one that required them, and what is left is replayable and
-provenance-preserving as a consequence. The systems that ship in this space spend a
-model call on this layer. This paper cannot say whether the deterministic version
+provenance-preserving as a consequence. Mem0, Zep, Letta and Graphiti each spend at
+least one generative call on this layer by their own published descriptions. This paper cannot say whether the deterministic version
 wins a head-to-head, because none was run. It can say how much of the layer survives
 without the call, and the answer is more than this programme expected when it started
 removing things.
+
+**Three of the five sealed results were negative, and they are why the list above is
+short.** A deterministic stopping controller reached Youden's J of 0.320 against a
+registered 0.50. An absolute-threshold event segmenter closed 52 of 74 events on its
+size cap against a 0.35 bar, and its relative successor then lost to chopping every
+four episodes regardless of content. A surprisal-proximity capture signal scored AUC
+0.416 against a 0.60 bar, below chance in five of six strata. Each was pre-registered
+against a sealed holdout, and each closed a line this programme wanted to keep.
 
 **For a researcher**, the useful part is the decomposition and the order inside it.
 Retrieval failure here was not one thing. The candidate pool decided what could be
@@ -1269,11 +1331,17 @@ resolve a two-item contrast. That design is prepared and unregistered. The inter
 corpus is exhausted, so its maximum evidential status is characterization, and the
 value is causal interpretation rather than fresh-corpus confirmation.
 
-The programme's own summary of eleven efforts is that the model used what it
-received. At the hardest probe it used all ten available facts and invented none. The
-failures were delivery failures, and delivery turned out to be a selection problem
-sitting on top of a candidate set already narrowed by the wrong rule, scored at the
-wrong unit.
+The programme's summary of ten studies and one bakeoff is that, at the one probe
+where it was measured item by item, the model used all ten available facts and
+invented none. That is a statement about one probe and it does not generalize: §12.3
+records the counterexample, where both live arms fabricated confidently on the domain
+neither of them retrieved — one of them producing the correct pigment terms attached
+to the wrong painter, which a presence-only scorer credits.
+
+So the failures measured here were delivery failures, and delivery turned out to be a
+selection problem sitting on top of a candidate set already narrowed by the wrong
+rule and scored at the wrong unit. What happens when delivery succeeds and the reader
+still gets it wrong is the part this programme has not measured.
 
 ---
 
