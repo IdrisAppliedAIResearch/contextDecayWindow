@@ -316,6 +316,11 @@ def build() -> int:
             if body == "Abstract":
                 if open_wrapper:
                     out.append("]\n#v(10pt)\n")
+                # The executive summary fills the first page, which left the
+                # centred "Abstract" title stranded at its foot with the body
+                # overleaf. A weak break starts the abstract on a fresh page and
+                # collapses to nothing if the summary ever stops filling one.
+                out.append("#pagebreak(weak: true)\n")
                 out.append(
                     "#block(width: 100%, inset: (x: 12pt))[\n"
                     "#align(center)[#text(size: 10.5pt, weight: \"bold\")[Abstract]]\n"
