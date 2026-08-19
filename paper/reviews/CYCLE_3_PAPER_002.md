@@ -243,6 +243,269 @@ the claim about the named mechanisms rather than about "the systems that ship". 
 
 ---
 
+### §2.1 — what is and is not being compared
+
+**9. The table is licensed as "arithmetic on published descriptions" for one row and
+then carries four more rows that are nothing of the kind.**
+
+> "What is comparable is architectural, and **the axes are countable from either
+> system's own description**"
+>
+> | Failure mode | An episode is not delivered | An episode is not delivered, **or is delivered as a wrong paraphrase** |
+> | Replayability | … | **Bounded by generation determinism** |
+
+The paragraph after the table concedes the point for one row — "**That first row** is
+the one comparison this paper can make without running anything" — but the sentence
+introducing the table has already generalized to all five, and the rows themselves
+carry no per-row standing.
+
+Row 1 is countable: Mem0's `1 + n`, Graphiti's five per-episode calls. Row 5 is
+sourced: they report judged accuracy. Rows 2, 3 and 4 are not countable from anyone's
+description. "Delivered as a wrong paraphrase" is a **failure mode asserted of systems
+that were not run**, and it is the least flattering cell in the table. "Bounded by
+generation determinism" is an inference about implementations this paper has not read.
+A reader who accepts the framing sentence accepts all five rows on the authority
+earned by one.
+
+**Required form.** Mark the table per row, the way §4 marks results: rows 1 and 5
+counted from published descriptions; rows 2–4 stated as architectural consequences
+that follow from spending a generative call, not as measured properties of named
+systems. Or delete rows 2–4 and keep the two that survive their own standard.
+
+---
+
+**10. The paper prints the forbidden juxtaposition, both numbers included.**
+
+> "The forbidden sentence has the form *\"on LoCoMo, that system reports **66.88%**
+> and this component reaches **935 of 1,098**\"* — both halves true, the juxtaposition
+> meaningless."
+
+This is the best-intentioned paragraph in the section and it does the damage it warns
+against. The construction is the one this programme has already learned about from a
+different direction — printing a thing in order to say you have not used it does not
+undo having printed it. Once the sentence exists in the preprint, it is quotable,
+screenshottable and indexable, stripped of its "forbidden" frame. On arXiv it will be
+read by people skimming for a number to put in a slide, and this paragraph hands them
+a formatted one.
+
+The 66.88% is also the section's only competitor figure quoted inline, and §2.1's own
+next paragraph warns that several such figures "appear in **Mem0's own comparison
+table** and are Mem0's reproductions rather than author-reported results." The paper
+therefore prints a number whose provenance it flags two paragraphs later as the kind
+requiring care.
+
+**Required form.** Describe the shape of the forbidden sentence without instantiating
+it: *a sentence placing a judged-accuracy percentage beside this paper's availability
+count is meaningless, because the denominators count different events.* Zero numerals
+required.
+
+---
+
+**11. "Every system above consumes a candidate set produced upstream by similarity
+ranking" is a universal claim about architectures the paper has not run, and it is the
+placement claim.**
+
+> "**The placement is narrow.** Every system above consumes a candidate set produced
+> upstream by similarity ranking. This paper measures that set."
+
+This carries the paper's entire claim to relevance, and it is asserted over a list
+that includes HippoRAG — which §2 itself describes two hundred words earlier as
+building "a knowledge graph over extracted entities and retrieves **by traversal**".
+Traversal over a graph is the alternative to similarity ranking, not an instance of
+it. Graphiti's edge-invalidation and temporal-extraction path is likewise not
+downstream of a cosine ranking in the sense this paper measures.
+
+The claim may hold for Mem0 and Letta. It is stated of "every system above".
+
+**Required form.** Name the systems for which it holds and say so; for the graph
+systems, state the weaker and still useful version — that a similarity-ranked
+candidate set is one of the standard upstream stages in this space, and this paper
+measures that stage.
+
+---
+
+**12. Two small framing defects that read as hedge drift.**
+
+> §2.1: "the question is **rarely** whether the deterministic version wins"
+> Executive summary: "The question this paper answers is **not** whether the
+> deterministic version wins"
+
+The same committed framing sentence appears in two strengths eighty lines apart. One
+of them is wrong. "Rarely" is also a frequency claim over a population of deployment
+decisions this paper has no data on.
+
+> "A mechanism that **recovers most of it** and still loses a head-to-head is a
+> finding, and one this paper is not in a position to report either way."
+
+"Recovers most of it" presupposes the quantity the sentence then declines to report.
+The clause is doing the work of a result while disclaiming that it is one.
+
+**Required form.** Pick one strength for the framing sentence and use it in both
+places. Replace "recovers most of it" with the conditional it actually is: whether
+this component recovers most of the layer is not measured here.
+
+---
+
+### §4 — how results are graded
+
+**13. The taxonomy is defined inside the paper and *applied* outside it. An arXiv
+reader gets the vocabulary and not the assignment. This is my most serious objection
+to §4.**
+
+> "Four levels. **Applied once, here, so the prose does not hedge sentence by
+> sentence.** The full assignment for every number in this paper is in
+> `paper/notes/EVIDENCE_SPINE.md`."
+
+The device's whole justification is that hedging moves out of the prose and into one
+place. But the one place is a repository note, not a section of the preprint. The
+consequence is precise and bad: in §5 through §13 a reader encounters hundreds of
+numbers, four standing levels, and **no marking on any individual number**. 843 → 935
+(CONFIRMATORY), 361 → 461 (DETERMINISTIC-OFFLINE, and capped `CHARACTERIZED` because
+the corpus was already observed), 12 → 14 (DETERMINISTIC-OFFLINE), 375/388/351
+(posthoc on an exhausted corpus, explicitly "**not** a registered universal law") and
+7.0 vs 8.0 (NOT DEMONSTRATED) are all set in the same typography, in adjacent
+sections, with the same declarative voice.
+
+§4 says the taxonomy "licenses the confident voice everywhere else". It cannot license
+what it does not reach. As submitted, the confident voice is uniform and the standings
+are not, and the only artifact that distinguishes them is one the venue will not
+receive.
+
+This is also the mechanism by which the taxonomy could function as laundering, and it
+is not a hypothetical: the paper's *strongest* label attaches to one result, and the
+prose habit it authorizes attaches to all of them.
+
+**Required form.** Carry the standing to the point of use. A one-word tag on each
+results subsection heading, or a bracketed label on each headline number, or — the
+cheapest fix — an appendix table in the preprint itself listing every headline number
+against its level. `EVIDENCE_SPINE.md` §1–§4 is already that table; ship it.
+
+---
+
+**14. The taxonomy has no level for the results that make up most of the paper, so
+they inherit DETERMINISTIC-OFFLINE and its "state as measured" licence.**
+
+> | **DETERMINISTIC-OFFLINE** | Zero generative calls; counts and identities, not
+> scores; byte-identical on replay | **As measured, with the corpus named.** Not a
+> benchmark score |
+
+Four levels sound exhaustive. They are not. Between "sealed holdout with bars locked
+first" and "corrected in ERRATA" there is exactly one positive level, and it is
+defined by *how the number was computed* rather than by *whether anything was
+committed before it existed*. Everything deterministic therefore lands there
+regardless of its epistemic position, and the spine's own per-result caps show how
+wide that range is:
+
+- NF-005 — capped `CHARACTERIZED` **because the corpus was already observed**.
+- NF-003 — "**posthoc characterization on an exhausted corpus. Not a registered
+  universal law.**"
+- NF-007 — an **instrument stop**: the registered instrument could not distinguish
+  treatment from control.
+- AR-001 — computed **with the answer key**; "bounds, not methods".
+- EC-002 — "A0 is a reproduction under recomputed embeddings, **not a byte-exact
+  replay**."
+
+All five are DETERMINISTIC-OFFLINE and all five may therefore be stated "as measured".
+An exploratory posthoc reading of an exhausted corpus and a preregistration-free
+oracle bound computed from the answer key receive the same presentational licence as
+a byte-identical 500-store counterfactual replay. That is the laundering channel, and
+it is not the band level — it is the missing level above it.
+
+**Required form.** Add a fifth level, or subdivide the second: *deterministic and
+registered before the number existed* versus *deterministic and posthoc / on an
+observed corpus / computed with the key*. §4.3's mechanism-versus-instrument stop
+distinction is already the right instinct; extend the same discipline to positive
+results.
+
+---
+
+**15. DETERMINISTIC-OFFLINE requires "byte-identical on replay". The external
+calibration results do not satisfy it and are presented at that standing anyway.**
+
+> §4.1: "Zero generative calls; counts and identities, not scores; **byte-identical on
+> replay**"
+> §8.1: "The 500 stores from the external calibration run, replayed with only the
+> packing order changed… No reader inference, no embedding call."
+> §8.3: "The suppression is confirmed — it is an offline count, **byte-identically
+> replayable**"
+
+`EVIDENCE_SPINE.md` D4 says the opposite in as many words: "**Scope cap:** A0 is a
+reproduction under recomputed embeddings, **not a byte-exact replay**. **EC-001 is
+permanently unreplayable at bit granularity** — its cache was not retained, and
+CC-006's protection is prospective only."
+
+§8.1 omits the cap entirely and §8.3 asserts the property the cap denies. The +32.3
+point result may well survive — recomputed embeddings are a small perturbation — but
+this programme has measured that a perturbation of cosine 0.999837 flips 6 of 146
+committed payloads, so "small perturbation, therefore fine" is precisely the inference
+its own §11.3 forbids.
+
+**Required form.** Carry D4's scope cap into §8.1, and in §8.3 write "an offline count
+under a recomputed-embedding reproduction of the deployed arm" rather than
+"byte-identically replayable". If the intended claim is that the *counterfactual* half
+replays byte-identically while the baseline half does not, say that — it is a real and
+defensible distinction and the current wording erases it.
+
+---
+
+**16. §4.2 states the integrity machinery as uniformly achieved; the arc's record is
+that it was achieved unevenly, and §4.2 points the reader at the wrong section.**
+
+> "Registration commits contain no implementation files, **which is checkable and was
+> checked**."
+> "**A gate is trusted to stop only after showing that its tested population and its
+> non-stopping alternative were capable of existing**… §5.4 and §11.5 each report
+> one."
+> "**Sealed scoring.** Three blind passes with registered adjudication triggers."
+
+Three problems, in increasing order.
+
+First, the spine documents the registration-commit check for two studies by name —
+DMR-004 ("registration commit carrying exactly one file") and DMR-001C ("carries no
+file under `src/` or `tests/`, verified with `git show --stat`"). NF-004's entry gives
+a SHA and no such verification. "Was checked" is stated of all.
+
+Second, the reachability sentence is stated as the programme's standing practice, and
+§11.6 lists **four** cases where it did not hold — including the one found while this
+paper was being written, on the sealed holdout's own corpus-lock constant. §4.2's
+cross-reference sends the reader to §5.4 and §11.5. The section that actually
+inventories the failures is **§11.6**, and it is not named.
+
+Third, "three blind passes" is presented as an integrity guarantee with no indication
+that the raters are language models. §5.2 does this correctly — "two blind raters —
+neither human, see §12.8" — which shows the paper knows the move and did not make it
+where the machinery is introduced.
+
+**Required form.** Quantify: name the studies whose registration commits were
+file-checked. Restate reachability as the rule the programme adopted *after* the
+failures, cross-referenced to §11.6. Append "— none human, see §12.8" to the sealed
+scoring paragraph, matching §5.2.
+
+---
+
+**17. CREDIT, entered because it makes objection 4 worse. §8.3 is the correct
+handling of an in-band result and the executive summary does not follow it.**
+
+> §8.3: "its **−1.0 margin is *inside* the band and therefore not demonstrated in
+> either direction**. The programme's registration forbids citing the band to revive
+> the rejected correction, and this paper does not. What is established is that
+> packing order is a delivery gate. What is not established is that reversing it
+> improves answers."
+
+This is the paragraph the rest of the paper should be measured against: the offline
+fact, the live verdict, the band, the refusal to use the band in either direction, and
+a clean statement of what survives. Study 011's −1.0 is handled exactly right.
+
+It is entered as an objection rather than praise because the same paper, four hundred
+lines earlier, asserts LV-001's −2.0 as a real drop in its most-read paragraph
+(objection 4). The two in-band results receive opposite treatments, and the one that
+gets the loose treatment is the one in the executive summary.
+
+**Required form.** Rewrite the executive summary's availability-versus-correctness
+bullet in §8.3's voice.
+
+---
+
 ## Judgement questions
 
 _(pending)_
