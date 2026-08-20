@@ -1,0 +1,47 @@
+{
+ "comparison": "This component ingests the same pairs with zero generative calls; that zero is architectural and is not a finding. The measured number here is.",
+ "conversations": {
+  "conv-26": {
+   "embedding_calls": 539,
+   "generative_calls": 214,
+   "pairs": 214,
+   "seconds": 2228.2
+  },
+  "conv-30": {
+   "embedding_calls": 406,
+   "generative_calls": 188,
+   "pairs": 188,
+   "seconds": 1807.6
+  },
+  "conv-43": {
+   "embedding_calls": 841,
+   "generative_calls": 349,
+   "pairs": 349,
+   "seconds": 3472.4
+  },
+  "conv-44": {
+   "embedding_calls": 811,
+   "generative_calls": 343,
+   "pairs": 343,
+   "seconds": 3724.5
+  },
+  "conv-49": {
+   "embedding_calls": 608,
+   "generative_calls": 260,
+   "pairs": 260,
+   "seconds": 2703.4
+  },
+  "conv-50": {
+   "embedding_calls": 694,
+   "generative_calls": 292,
+   "pairs": 292,
+   "seconds": 3088.6
+  }
+ },
+ "generative_calls_per_pair": 1.0,
+ "schema": "hh001-mem0-ingest-v1",
+ "total_embedding_calls": 3899,
+ "total_generative_calls": 1646,
+ "total_pairs": 1646,
+ "total_seconds": 17024.7
+}

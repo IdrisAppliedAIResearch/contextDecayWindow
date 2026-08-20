@@ -1,0 +1,142 @@
+{
+ "arms": {
+  "A0_NO_MEMORY": {
+   "calls": 15,
+   "cost": {
+    "arm": "A0_NO_MEMORY",
+    "by_phase": {
+     "query": {
+      "completion_tokens": 0,
+      "embedding_calls": 0,
+      "generative_calls": 0,
+      "prompt_tokens": 0,
+      "seconds": 3.190000279573724e-05
+     },
+     "read": {
+      "completion_tokens": 0,
+      "embedding_calls": 0,
+      "generative_calls": 15,
+      "prompt_tokens": 0,
+      "seconds": 2.667887299983704
+     }
+    },
+    "total_completion_tokens": 0,
+    "total_embedding_calls": 0,
+    "total_generative_calls": 15,
+    "total_prompt_tokens": 0,
+    "total_seconds": 2.6679191999864997
+   },
+   "mean_block_chars": 0,
+   "seconds": 2.7,
+   "seconds_per_call": 0.18,
+   "truncated_calls": 0
+  },
+  "A1_FULL_CONTEXT": {
+   "calls": 15,
+   "cost": {
+    "arm": "A1_FULL_CONTEXT",
+    "by_phase": {
+     "query": {
+      "completion_tokens": 0,
+      "embedding_calls": 0,
+      "generative_calls": 0,
+      "prompt_tokens": 0,
+      "seconds": 3.899999865097925e-05
+     },
+     "read": {
+      "completion_tokens": 0,
+      "embedding_calls": 0,
+      "generative_calls": 15,
+      "prompt_tokens": 0,
+      "seconds": 4.730411299977277
+     }
+    },
+    "total_completion_tokens": 0,
+    "total_embedding_calls": 0,
+    "total_generative_calls": 15,
+    "total_prompt_tokens": 0,
+    "total_seconds": 4.730450299975928
+   },
+   "mean_block_chars": 62090,
+   "seconds": 4.7,
+   "seconds_per_call": 0.32,
+   "truncated_calls": 0
+  },
+  "A2_CDW_PAIR": {
+   "calls": 15,
+   "cost": {
+    "arm": "A2_CDW_PAIR",
+    "by_phase": {
+     "query": {
+      "completion_tokens": 0,
+      "embedding_calls": 1075,
+      "generative_calls": 0,
+      "prompt_tokens": 0,
+      "seconds": 0.07784179979353212
+     },
+     "read": {
+      "completion_tokens": 0,
+      "embedding_calls": 0,
+      "generative_calls": 15,
+      "prompt_tokens": 0,
+      "seconds": 12.747404800000368
+     }
+    },
+    "total_completion_tokens": 0,
+    "total_embedding_calls": 1075,
+    "total_generative_calls": 15,
+    "total_prompt_tokens": 0,
+    "total_seconds": 12.8252465997939
+   },
+   "mean_block_chars": 15988,
+   "seconds": 12.8,
+   "seconds_per_call": 0.85,
+   "truncated_calls": 15
+  },
+  "A4_RAG_FIXED": {
+   "calls": 15,
+   "cost": {
+    "arm": "A4_RAG_FIXED",
+    "by_phase": {
+     "query": {
+      "completion_tokens": 0,
+      "embedding_calls": 395,
+      "generative_calls": 0,
+      "prompt_tokens": 0,
+      "seconds": 0.043923600067500956
+     },
+     "read": {
+      "completion_tokens": 0,
+      "embedding_calls": 0,
+      "generative_calls": 15,
+      "prompt_tokens": 0,
+      "seconds": 10.251781399994798
+     }
+    },
+    "total_completion_tokens": 0,
+    "total_embedding_calls": 395,
+    "total_generative_calls": 15,
+    "total_prompt_tokens": 0,
+    "total_seconds": 10.295705000062298
+   },
+   "mean_block_chars": 15520,
+   "seconds": 10.3,
+   "seconds_per_call": 0.69,
+   "truncated_calls": 15
+  }
+ },
+ "conversation": "conv-26",
+ "items": 5,
+ "mean_seconds_per_call": 0.51,
+ "mem0_installed": false,
+ "projected_hours": {
+  "100": 0.42,
+  "200": 0.85,
+  "300": 1.27,
+  "500": 2.12,
+  "850": 3.61
+ },
+ "projection_note": "A full run costs n * R * arms reader calls plus one judge call each. Judging is a second pass of the same size.",
+ "replicates": 3,
+ "schema": "hh001-timing-pilot-v1"
+}

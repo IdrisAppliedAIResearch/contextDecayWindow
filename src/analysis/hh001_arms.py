@@ -18,7 +18,7 @@ from typing import Any, Callable, Protocol, Sequence
 import numpy as np
 
 from analysis.hh001_corpus import Conversation, Item
-from analysis.nf004_mechanism import Candidate, pack, ranking_orders
+from analysis.nf004_mechanism import Candidate, ranking_orders
 
 #: Joins candidates inside a rendered block. One blank line, so a pair boundary
 #: is visible to the reader without introducing tokens that look like markup.
@@ -151,10 +151,11 @@ class FullContextArm:
 class CdwPairArm:
     """This component, frozen at NF-004's confirmed ``P_PAIR_RANK``.
 
-    Ranking and packing come from ``analysis.nf004_mechanism`` unchanged. This
-    class only renders the delivered candidates into a block; it makes no
-    selection decision of its own, so nothing here can drift from the mechanism
-    NF-004 confirmed.
+    **Ranking** comes from ``analysis.nf004_mechanism.ranking_orders``
+    unchanged, so the mechanism NF-004 confirmed cannot drift here.
+    **Packing** is this study's, and deliberately so: it charges the block
+    separator, which NF-004's packer does not, because the plan budgets the
+    exact string handed to the reader. See ``block``.
     """
 
     name = "A2_CDW_PAIR"
@@ -170,20 +171,28 @@ class CdwPairArm:
         matrix = np.stack([self._embed(c.text) for c in candidates])
         query_vector = self._embed(item.question)
         _, pair_order = ranking_orders(candidates, matrix, query_vector)
-        delivery = pack(candidates, pair_order, budget)
 
-        by_identity = {c.identity: c for c in candidates}
-        texts = [by_identity[identity].text for identity in delivery.selected]
+        # Ranking is NF-004's, untouched. Packing charges the separator as
+        # well as the text, which NF-004's packer does not: it budgeted
+        # candidates it never rendered into one block, so its cost model has
+        # no join in it. Charging only the text here overran a 16,000-char
+        # budget by 120 - two characters for each of 60 joins - and the plan
+        # registers the budget as len() of the exact string handed to the
+        # reader. A3 and A4 are charged the same way; charging one arm for
+        # its separators and not another would be a thumb on the scale.
+        ranked = [candidates[index].text for index in pair_order]
+        selected, skipped = _pack_texts(ranked, budget)
+        text = BLOCK_SEPARATOR.join(selected)
         return MemoryBlock(
             arm=self.name,
-            text=BLOCK_SEPARATOR.join(texts),
-            truncated=len(delivery.selected) < len(candidates),
-            units_delivered=len(delivery.selected),
+            text=text,
+            truncated=skipped or len(selected) < len(candidates),
+            units_delivered=len(selected),
             units_available=len(candidates),
             detail={
-                "packed_chars": delivery.packed_chars,
-                "selected": list(delivery.selected),
+                "packed_chars": len(text),
                 "ranking": "P_PAIR_RANK",
+                "separator_charged": True,
             },
         )
 
@@ -307,12 +316,20 @@ class Mem0Arm:
         client_factory: Callable[[], Any],
         *,
         user_id: str = "hh001",
-        search_limit: int = 100,
+        top_k: int = 100,
+        threshold: float = 0.0,
     ) -> None:
         self._client_factory = client_factory
         self._client: Any | None = None
         self.user_id = user_id
-        self.search_limit = search_limit
+        self.top_k = top_k
+        #: Mem0 2.x defaults to ``threshold=0.1``, which drops candidates
+        #: *before* the character budget binds. The plan's primary has each
+        #: system fill the same budget in its own selection order, so the
+        #: default is relaxed here and the budget does the truncating. The
+        #: native-default configuration is a registered secondary and keeps
+        #: Mem0's own threshold.
+        self.threshold = threshold
 
     @property
     def client(self) -> Any:
@@ -337,10 +354,13 @@ class Mem0Arm:
         return {"pairs_ingested": added, "sample_id": conversation.sample_id}
 
     def block(self, item: Item, conversation: Conversation, budget: int) -> MemoryBlock:
+        # Mem0 2.x takes `filters=` and `top_k=`; `user_id=`/`limit=` are
+        # rejected outright. Observed against 2.0.18, not read from the docs.
         results = self.client.search(
             item.question,
-            user_id=f"{self.user_id}-{conversation.sample_id}",
-            limit=self.search_limit,
+            top_k=self.top_k,
+            threshold=self.threshold,
+            filters={"user_id": f"{self.user_id}-{conversation.sample_id}"},
         )
         memories = _mem0_memory_texts(results)
         selected, skipped = _pack_texts(memories, budget)
@@ -350,7 +370,7 @@ class Mem0Arm:
             truncated=skipped or len(selected) < len(memories),
             units_delivered=len(selected),
             units_available=len(memories),
-            detail={"search_limit": self.search_limit},
+            detail={"top_k": self.top_k, "threshold": self.threshold},
         )
 
 

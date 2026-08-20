@@ -61,6 +61,13 @@ class Item:
     #: The judged endpoint does not need evidence, so these stay in the primary
     #: population here; only the availability secondary excludes them.
     evidence_complete: bool = True
+    #: Where the answer lives in the conversation, as a fraction of its turns:
+    #: 0.0 is the opening turn, 1.0 the final one. This is the long-horizon
+    #: axis — an item whose evidence sits at 0.1 of a 680-turn conversation is
+    #: the case a memory layer exists to handle, and accuracy against this is
+    #: a different question from accuracy overall.
+    evidence_depth: float | None = None
+    conversation_turns: int = 0
 
     @property
     def stratum(self) -> str:
@@ -97,6 +104,17 @@ def _session_keys(conversation: dict[str, Any]) -> list[str]:
         if (match := _SESSION.fullmatch(key))
     ]
     return [key for _, key in sorted(found)]
+
+
+def _turn_positions(conversation: dict[str, Any]) -> dict[str, int]:
+    """Global turn index for every dialogue id, in source order."""
+    positions: dict[str, int] = {}
+    index = 0
+    for session_id in _session_keys(conversation):
+        for turn in conversation[session_id]:
+            positions[str(turn["dia_id"])] = index
+            index += 1
+    return positions
 
 
 def _render_conversation(conversation: dict[str, Any]) -> tuple[str, int]:
@@ -156,6 +174,7 @@ def load_corpus(
     for record in records:
         row = by_sample[record.sample_id]
         full_text, turn_count = _render_conversation(row["conversation"])
+        positions = _turn_positions(row["conversation"])
         conversations.append(
             Conversation(
                 sample_id=record.sample_id,
@@ -172,6 +191,16 @@ def load_corpus(
                 continue
             qa = qa_rows[question.source_index]
             gold, answerable = _gold_answer(qa)
+            # Earliest evidence turn: the oldest thing the reader must still
+            # have. A later turn is easier for any recency-shaped layer.
+            depth = None
+            if question.resolved_dialogue_ids and turn_count > 1:
+                earliest = min(
+                    positions[d]
+                    for d in question.resolved_dialogue_ids
+                    if d in positions
+                )
+                depth = round(earliest / (turn_count - 1), 4)
             items.append(
                 Item(
                     comparison_key=question.comparison_key,
@@ -183,6 +212,8 @@ def load_corpus(
                     answerable=answerable,
                     evidence_dialogue_ids=question.resolved_dialogue_ids,
                     evidence_complete=not question.unresolved_dialogue_ids,
+                    evidence_depth=depth,
+                    conversation_turns=turn_count,
                 )
             )
 

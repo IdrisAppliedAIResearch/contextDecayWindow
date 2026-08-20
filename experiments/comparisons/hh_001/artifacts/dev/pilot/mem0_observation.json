@@ -1,0 +1,20 @@
+{
+ "budget_chars": 16000,
+ "embedding_calls_at_ingest": 12,
+ "generative_calls_at_ingest": 10,
+ "generative_calls_per_pair": 1.0,
+ "ingest_seconds": 46.5,
+ "mem0_version": "2.0.18",
+ "memories_returned": 16,
+ "memory_chars_p0_p50_p100": [
+  58,
+  132,
+  217
+ ],
+ "note": "Payload size against the 16,000-char matched budget decides whether budget matching helps or hurts Mem0 (plan section 4).",
+ "pairs_ingested": 10,
+ "paper_claim": "1 + n generative calls per message pair (arXiv:2504.19413)",
+ "sample_id": "conv-26",
+ "schema": "hh001-mem0-observation-v1",
+ "total_memory_chars": 2107
+}
