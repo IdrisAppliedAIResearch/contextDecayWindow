@@ -15,6 +15,7 @@ so the whole ordering is testable without a server.
 from __future__ import annotations
 
 import json
+import time
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Callable, Mapping, Sequence
@@ -30,6 +31,7 @@ from analysis.hh001_endpoints import (
     sign_check,
     unanimity_rate,
 )
+from analysis.hh001_reader import ReaderReply, normalize as normalize_reply
 from analysis.hh001_prompt import (
     blinded_surface,
     digest,
@@ -41,7 +43,7 @@ from analysis.hh001_prompt import (
 from analysis.hh001_stats import paired, summarize
 
 #: ``(prompt) -> answer text``
-Reader = Callable[[str], str]
+Reader = Callable[..., Any]
 #: ``(prompt) -> raw judge reply``
 Judge = Callable[[str], str]
 
@@ -62,6 +64,31 @@ class Answer:
     block_sha256: str
     block_chars: int
     block_truncated: bool
+    #: Per-call cost, kept on the row rather than only in an aggregate ledger.
+    #: Prompt tokens are the axis the arms differ most on: A1 sends a whole
+    #: conversation, A3 sends a couple of thousand characters.
+    prompt_tokens: int = 0
+    completion_tokens: int = 0
+    cached_tokens: int = 0
+    seconds: float = 0.0
+    seed: int = -1
+    answer_truncated: bool = False
+    #: Blocks are built once per item and reused across replicates, so this is
+    #: the memory layer's own latency, not the reader's.
+    block_seconds: float = 0.0
+    units_delivered: int = 0
+    units_available: int = 0
+    #: Does the gold answer survive *into the delivered block*? Computed with
+    #: no model. A1/A2/A4 deliver stored text, so this is a selection question.
+    #: A3 delivers model-written memories, so for it this merges selection with
+    #: whether extraction preserved the fact at all — `store_probe` separates
+    #: those two afterwards.
+    gold_in_block: bool = False
+    #: Does the gold answer appear anywhere in the source conversation? The
+    #: denominator: an item whose answer is not stated verbatim anywhere cannot
+    #: be lost by any layer, and counting it as a loss would blame the memory
+    #: for the corpus.
+    gold_in_source: bool = False
 
     def as_dict(self) -> dict[str, Any]:
         return {
@@ -75,6 +102,17 @@ class Answer:
             "block_sha256": self.block_sha256,
             "block_chars": self.block_chars,
             "block_truncated": self.block_truncated,
+            "prompt_tokens": self.prompt_tokens,
+            "completion_tokens": self.completion_tokens,
+            "cached_tokens": self.cached_tokens,
+            "seconds": round(self.seconds, 3),
+            "seed": self.seed,
+            "answer_truncated": self.answer_truncated,
+            "block_seconds": round(self.block_seconds, 4),
+            "units_delivered": self.units_delivered,
+            "units_available": self.units_available,
+            "gold_in_block": self.gold_in_block,
+            "gold_in_source": self.gold_in_source,
         }
 
 
@@ -100,11 +138,13 @@ def generate_arm(
         conversation = conversations.get(item.sample_id)
         if conversation is None:
             raise HH001RunError(f"No conversation loaded for {item.sample_id}")
+        block_started = time.perf_counter()
         if ledger is None:
             block: MemoryBlock = arm.block(item, conversation, budget)
         else:
             with timed(ledger, "query"):
                 block = arm.block(item, conversation, budget)
+        block_seconds = time.perf_counter() - block_started
         if block.chars > budget and not block.detail.get("unbudgeted"):
             raise HH001RunError(
                 f"{arm.name} delivered {block.chars} characters against a "
@@ -112,8 +152,10 @@ def generate_arm(
             )
         prompt = render_reader_prompt(item.question, block.text)
         prompt_sha = digest(prompt)
+        gold_in_block = contains_gold(block.text, item.gold_answer)
+        gold_in_source = contains_gold(conversation.full_text, item.gold_answer)
         for replicate in range(replicates):
-            text = read(prompt)
+            reply = normalize_reply(read(prompt, replicate))
             answers.append(
                 Answer(
                     comparison_key=item.comparison_key,
@@ -121,11 +163,22 @@ def generate_arm(
                     replicate=replicate,
                     question=item.question,
                     gold=item.gold_answer,
-                    answer=text,
+                    answer=reply.text,
                     prompt_sha256=prompt_sha,
                     block_sha256=block.digest,
                     block_chars=block.chars,
                     block_truncated=block.truncated,
+                    prompt_tokens=reply.prompt_tokens,
+                    completion_tokens=reply.completion_tokens,
+                    cached_tokens=reply.cached_tokens,
+                    seconds=reply.seconds,
+                    seed=reply.seed,
+                    answer_truncated=reply.truncated,
+                    block_seconds=block_seconds,
+                    units_delivered=block.units_delivered,
+                    units_available=block.units_available,
+                    gold_in_block=gold_in_block,
+                    gold_in_source=gold_in_source,
                 )
             )
     return answers
@@ -201,6 +254,132 @@ def build_outcomes(
             key, arm, judged_votes, contained_votes
         )
     return outcomes
+
+
+
+def cost_summary(answers: Sequence[Answer]) -> dict[str, Any]:
+    """Per-arm cost, from the answer rows.
+
+    Reported per call rather than as a total, because the arms differ by an
+    order of magnitude in prompt size and a total hides that. `block_seconds`
+    is deduplicated by item: a block is built once and reused across
+    replicates, so summing it across replicates would triple-count the memory
+    layer's own latency.
+    """
+    by_arm: dict[str, dict[str, Any]] = {}
+    for arm in sorted({a.arm for a in answers}):
+        rows = [a for a in answers if a.arm == arm]
+        prompts = sorted(a.prompt_tokens for a in rows)
+        latencies = sorted(a.seconds for a in rows)
+        blocks = sorted(a.block_chars for a in rows)
+        seen: dict[str, float] = {}
+        for row in rows:
+            seen.setdefault(row.comparison_key, row.block_seconds)
+
+        def pct(values: list[float], q: float) -> float:
+            return round(values[min(len(values) - 1, int(q * len(values)))], 3)
+
+        by_arm[arm] = {
+            "calls": len(rows),
+            "prompt_tokens_total": sum(a.prompt_tokens for a in rows),
+            "prompt_tokens_mean": round(sum(prompts) / len(rows), 1),
+            "prompt_tokens_p50": pct([float(v) for v in prompts], 0.50),
+            "completion_tokens_total": sum(a.completion_tokens for a in rows),
+            "reader_seconds_p50": pct(latencies, 0.50),
+            "reader_seconds_p95": pct(latencies, 0.95),
+            "reader_seconds_total": round(sum(latencies), 1),
+            "block_chars_mean": round(sum(blocks) / len(rows), 1),
+            "block_seconds_p50": pct(sorted(seen.values()), 0.50),
+            "block_seconds_total": round(sum(seen.values()), 2),
+            "answers_hitting_the_token_cap": sum(1 for a in rows if a.answer_truncated),
+        }
+    baseline = min(
+        (v["prompt_tokens_total"] for v in by_arm.values() if v["prompt_tokens_total"]),
+        default=0,
+    )
+    for value in by_arm.values():
+        value["prompt_tokens_relative_to_cheapest_arm"] = (
+            round(value["prompt_tokens_total"] / baseline, 2) if baseline else None
+        )
+    return by_arm
+
+
+
+def fidelity_summary(answers: Sequence[Answer]) -> dict[str, Any]:
+    """Does the answer survive into the delivered context, per arm?
+
+    This is the mechanism behind any accuracy difference, and it needs no
+    model. Restricted to items whose gold answer is stated verbatim somewhere
+    in the source conversation, because an item the corpus never states
+    plainly cannot be lost by a memory layer, and counting it would blame the
+    memory for the corpus.
+
+    For A1, A2 and A4 a miss is a **selection** failure: the text exists and
+    was not chosen. For A3 a miss is selection *or* extraction — the fact may
+    never have been written into a memory at all. `store_probe` separates
+    those; this does not, and must not be reported as if it did.
+    """
+    report: dict[str, Any] = {}
+    for arm in sorted({a.arm for a in answers}):
+        rows = [a for a in answers if a.arm == arm]
+        by_item = {}
+        for row in rows:
+            by_item.setdefault(row.comparison_key, row)
+        eligible = [r for r in by_item.values() if r.gold_in_source]
+        kept = sum(1 for r in eligible if r.gold_in_block)
+        report[arm] = {
+            "items": len(by_item),
+            "gold_stated_in_source": len(eligible),
+            "gold_survived_into_block": kept,
+            "survival_rate": round(kept / len(eligible), 4) if eligible else None,
+            "lost": len(eligible) - kept,
+            "miss_is": (
+                "selection only (the arm delivers stored text verbatim)"
+                if arm != "A3_MEM0"
+                else "selection or extraction; store_probe separates them"
+            ),
+        }
+    return report
+
+
+def depth_strata(
+    outcomes: Mapping[str, Mapping[str, ItemOutcome]],
+    items: Sequence[Item],
+    endpoint: str = "judged",
+) -> dict[str, Any]:
+    """Accuracy by how far back the answer lives — the long-horizon axis.
+
+    An item whose evidence sits in the first tenth of a 680-turn conversation
+    is the case a memory layer exists for. Overall accuracy averages that case
+    away.
+    """
+    edges = [(0.0, 0.25), (0.25, 0.50), (0.50, 0.75), (0.75, 1.01)]
+    depth = {i.comparison_key: i.evidence_depth for i in items}
+    report: dict[str, Any] = {}
+    for arm, rows in outcomes.items():
+        buckets: dict[str, dict[str, int]] = {}
+        for low, high in edges:
+            name = f"{low:.2f}-{min(high, 1.0):.2f}"
+            keys = [
+                key for key in rows
+                if depth.get(key) is not None and low <= depth[key] < high
+            ]
+            correct = sum(
+                1 for key in keys
+                if (rows[key].judged_correct if endpoint == "judged"
+                    else rows[key].contained)
+            )
+            buckets[name] = {
+                "n": len(keys),
+                "correct": correct,
+                "accuracy": round(correct / len(keys), 4) if keys else None,
+            }
+        report[arm] = buckets
+    return {
+        "endpoint": endpoint,
+        "bucket": "fraction of the conversation before the earliest evidence turn",
+        "by_arm": dict(sorted(report.items())),
+    }
 
 
 def analyze(
@@ -310,6 +489,10 @@ def run(
     outcomes = build_outcomes(all_answers, verdicts)
     result = analyze(outcomes, commitments, ledgers=ledgers)
     result["answer_seals"] = dict(sorted(seals.items()))
+    result["cost"] = cost_summary(all_answers)
+    result["fidelity"] = fidelity_summary(all_answers)
+    result["long_horizon"] = depth_strata(outcomes, items)
+    result["long_horizon_contained"] = depth_strata(outcomes, items, "contained")
     return result
 
 

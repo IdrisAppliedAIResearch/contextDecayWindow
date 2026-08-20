@@ -92,8 +92,19 @@ and an unmarked one would understate every other arm's gap to it.
 
 Only the memory layer varies. Everything downstream of it is one fixed thing.
 
-- **Reader:** `Qwen3.6-27B-UD-Q6_K_XL`, SHA-256 `f3b4a622…`, `llama-server.exe`
-  SHA-256 `3827a6b6…`, seed 5005, `--parallel 1`, no speculative decoding.
+- **Reader:** `Qwen3.8-27B-UD-Q4_K_XL`, SHA-256
+  `bee238bbeb3dc0a34bde4d0dedbaee1f98c009e8bb4226f03070054c12fb1372`,
+  17,923,394,624 bytes, served by `llama-server` on `127.0.0.1:8000` at
+  `--ctx-size 200000 --parallel 1`.
+
+  **Re-pinned 2026-08-19, before any arm ran.** An earlier draft of this plan
+  named `Qwen3.6-27B-UD-Q6_K_XL` (SHA-256 `f3b4a622…`), carried from LV-001's
+  runtime record. That model is not what this machine serves: it is a different
+  model at a different quantization, and `.env`'s `CDW_INFERENCE_MODEL_PATH`
+  still points at it but is inert because `CDW_INFERENCE_SERVER_URL` is set and
+  wins. Every HH-001 number therefore belongs to the model named above and to no
+  other. This is a reader change, so it is not comparable to any earlier live
+  result in this programme — LV-001 and Study 011 ran a different model.
 - **Prompt:** one template, byte-identical across arms, only the memory block
   differs. Template and one rendered example per arm are committed before the
   first generation call.
@@ -172,6 +183,56 @@ call kinds, memory count and median memory length. The `1 + n` figure is read
 from their paper, not observed here. This programme has been wrong about the
 behaviour behind a name four times, and never once because the name looked
 suspicious.
+
+### 7.1 Pilot results — measured 2026-08-19/20, before the run
+
+**Contamination: 0 of 50.** With no memory at all the reader answered nothing
+correctly — all 50 replies were `I don't know`, none empty. So the floor is
+genuine, not an instrument failure, and it also confirms the prompt's abstention
+instruction works. `G-FLOOR` passes decisively: this reader has not memorized
+LoCoMo, and the arms are discriminable. It also makes retention arithmetic
+simple, since `acc(A0) = 0`.
+
+**Timing: about 0.51 s per reader call** on conv-26 at 5 items x 3 replicates
+(A0 0.18, A1 0.32, A2 0.85, A4 0.69). A1 is fast because llama.cpp reuses the
+prompt prefix across items from one conversation; that advantage shrinks but
+does not vanish across six. **`n` = 300 and `R` = 3** are set from this and
+written into the commitments before any outcome exists.
+
+**Mem0, observed rather than cited.** Version 2.0.18 on 10 real pairs:
+**1.0 generative call per pair**, 12 embedding calls, 4.65 s per pair. The
+paper's figure is `1 + n` per message pair; what this build actually did on
+this corpus was one. The number in the report is the measured one.
+
+**Mem0 returns far less than the budget.** Ten ingested pairs yielded 16
+memories totalling **2,107 characters against the 16,000-character budget** —
+about 13%. The asymmetry §4 warned about is real and it is large: at matched
+budget this component may deliver several times more text. Both configurations
+are reported and neither is reported alone.
+
+### 7.2 Three things the rig had to be told, found by running it
+
+**The local server does not serve embeddings.** It is started without
+`--embeddings` and answers `/v1/embeddings` with HTTP 501, and its start script
+is immutable. `scripts/hh001_embedding_shim.py` serves the carried
+`Qwen3-Embedding-0.6B-Q8_0` over an OpenAI-shaped endpoint instead, one text per
+model call. Its output was checked against the sealed cache and is
+**bit-identical**, so §4's one-embedder-for-every-arm rule holds rather than
+being asserted.
+
+**Mem0's search API is not what the documentation describes.** 2.0.18 takes
+`filters={"user_id": ...}` and `top_k`, and rejects `user_id=` and `limit=`
+outright. It also defaults to `threshold=0.1`, which drops candidates *before*
+the character budget binds. The primary relaxes that to 0.0 so the budget does
+the truncating, as §4 requires; the native default belongs to the secondary.
+
+**A2 overran its budget by 120 characters.** NF-004's packer charges candidate
+text only — it budgeted candidates it never rendered into one block, so its cost
+model has no join in it. Rendering added two characters per join across 61
+candidates. A2's ranking is still NF-004's untouched; its packing now charges
+the separator, exactly as A3 and A4 already did. Charging one arm for its
+separators and not another would have been a thumb on the scale, and the
+overrun was caught by the runner's own budget assertion rather than by review.
 
 ## 8. Replicates, and why R is not 1
 

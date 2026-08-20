@@ -84,3 +84,9 @@ paper/build/
 experiments/study_011/runtime/phase_1_logs/
 experiments/study_011/noise_band/server_logs/
 experiments/study_011/noise_band/run_logs/
+
+# HH-001: Mem0's qdrant store, 41 MB of its internal format. Regenerable by
+# `run_hh001_dev.py ingest-mem0` in ~4.7h. Every measurement taken from it is
+# committed as JSON under artifacts/dev/cost/, and mem0_history.db — the
+# source of the latency curve — is committed.
+experiments/comparisons/hh_001/artifacts/dev/mem0_store/

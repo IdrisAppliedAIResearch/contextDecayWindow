@@ -296,7 +296,7 @@ class TestRunOrdering:
             NoMemoryArm(),
             self.items(2),
             self.conversations(),
-            reader=lambda p: "red",
+            reader=lambda p, r=0: "red",
             budget=16_000,
             replicates=3,
         )
@@ -308,7 +308,7 @@ class TestRunOrdering:
             NoMemoryArm(),
             self.items(1),
             self.conversations(),
-            reader=lambda p: "red",
+            reader=lambda p, r=0: "red",
             budget=16_000,
             replicates=3,
         )
@@ -319,7 +319,7 @@ class TestRunOrdering:
             NoMemoryArm(),
             self.items(1),
             self.conversations(),
-            reader=lambda p: "red",
+            reader=lambda p, r=0: "red",
             budget=16_000,
             replicates=1,
         )
@@ -340,7 +340,7 @@ class TestRunOrdering:
             NoMemoryArm(),
             self.items(2),
             self.conversations(),
-            reader=lambda p: "red",
+            reader=lambda p, r=0: "red",
             budget=16_000,
             replicates=3,
             ledger=ledger,
@@ -354,7 +354,7 @@ class TestRunOrdering:
                 NoMemoryArm(),
                 [make_item(sample_id="conv-99")],
                 self.conversations(),
-                reader=lambda p: "x",
+                reader=lambda p, r=0: "x",
                 budget=16_000,
                 replicates=1,
             )
@@ -364,7 +364,7 @@ class TestRunOrdering:
             NoMemoryArm(),
             self.items(1),
             self.conversations(),
-            reader=lambda p: "red",
+            reader=lambda p, r=0: "red",
             budget=16_000,
             replicates=1,
         )
@@ -408,7 +408,7 @@ class TestEndToEndOrdering:
             items,
             conversations,
             c,
-            reader=lambda p: "red",
+            reader=lambda p, r=0: "red",
             judge=lambda p: "VERDICT: CORRECT\nREASON: ok",
             outcome_dir=tmp_path,
         )
@@ -428,7 +428,7 @@ class TestEndToEndOrdering:
                 items,
                 conversations,
                 c,
-                reader=lambda p: "red",
+                reader=lambda p, r=0: "red",
                 judge=lambda p: "VERDICT: CORRECT",
                 outcome_dir=tmp_path,
             )
@@ -463,3 +463,77 @@ class TestEndToEndOrdering:
         result = analyze(outcomes, c)
         assert "not confirmatory" in result["standing"]
         assert "published" in result["substrate"]
+
+
+class TestPerCallCostIsRecorded:
+    """Cost lives on the answer row, not only in an aggregate ledger.
+
+    A report that can say "A1 spent 20k prompt tokens a call and A3 spent 500"
+    needs the number per call. An aggregate cannot be broken back down, and
+    prompt tokens are the axis these arms differ most on.
+    """
+
+    def reply(self, text="red", prompt_tokens=1234, completion_tokens=7):
+        from analysis.hh001_reader import ReaderReply
+
+        return ReaderReply(
+            text=text,
+            prompt_tokens=prompt_tokens,
+            completion_tokens=completion_tokens,
+            cached_tokens=11,
+            seconds=0.42,
+            seed=5005,
+            truncated=False,
+        )
+
+    def test_tokens_and_latency_survive_onto_the_row(self):
+        answers = generate_arm(
+            NoMemoryArm(),
+            [make_item("q?", key="k0")],
+            {"conv-26": make_conversation(["a: the bicycle is red"])},
+            reader=lambda p, r=0: self.reply(),
+            budget=16_000,
+            replicates=1,
+        )
+        row = answers[0].as_dict()
+        assert row["prompt_tokens"] == 1234
+        assert row["completion_tokens"] == 7
+        assert row["cached_tokens"] == 11
+        assert row["seconds"] == 0.42
+        assert row["seed"] == 5005
+        assert "block_seconds" in row
+
+    def test_seed_varies_with_replicate_so_unanimity_measures_something(self):
+        # A fixed seed on an identical prompt makes every replicate identical
+        # and the unanimity rate reads 1.0 by construction.
+        from analysis.hh001_reader import LlamaReader
+
+        reader = LlamaReader("http://127.0.0.1:9", seed_base=5005)
+        seeds = {reader.seed_base + r for r in range(3)}
+        assert seeds == {5005, 5006, 5007}
+        assert reader.runtime_record()["seed_rule"] == "seed_base + replicate"
+
+    def test_plain_string_readers_still_work(self):
+        answers = generate_arm(
+            NoMemoryArm(),
+            [make_item("q?", key="k0")],
+            {"conv-26": make_conversation(["a: hi"])},
+            reader=lambda p, r=0: "plain",
+            budget=16_000,
+            replicates=1,
+        )
+        assert answers[0].answer == "plain"
+        assert answers[0].prompt_tokens == 0
+
+    def test_a_reader_returning_junk_is_refused(self):
+        from analysis.hh001_reader import HH001ReaderError
+
+        with pytest.raises(HH001ReaderError):
+            generate_arm(
+                NoMemoryArm(),
+                [make_item("q?", key="k0")],
+                {"conv-26": make_conversation(["a: hi"])},
+                reader=lambda p, r=0: 42,
+                budget=16_000,
+                replicates=1,
+            )

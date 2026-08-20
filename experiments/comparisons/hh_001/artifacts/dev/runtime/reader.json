@@ -1,0 +1,14 @@
+{
+ "base_url": "http://127.0.0.1:8000",
+ "min_p": 0.0,
+ "n_predict": 512,
+ "presence_penalty": 0.0,
+ "repeat_penalty": 1.0,
+ "sampling_source": "pinned here to the running server's launch flags, not inherited",
+ "schema": "hh001-reader-runtime-v1",
+ "seed_base": 5005,
+ "seed_rule": "seed_base + replicate",
+ "temperature": 1.0,
+ "top_k": 20,
+ "top_p": 0.95
+}

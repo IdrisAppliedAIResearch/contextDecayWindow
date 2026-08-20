@@ -195,7 +195,11 @@ class TestMem0ResultParsing:
 
     def test_arm_packs_within_budget(self):
         class FakeClient:
-            def search(self, query, user_id, limit):
+            # Mem0 2.x signature, observed against 2.0.18: keyword-only
+            # `top_k`, `threshold` and `filters`. Positional `user_id`/`limit`
+            # are rejected by the real client, so the fake rejects them too.
+            def search(self, query, *, top_k, threshold, filters):
+                assert "user_id" in filters
                 return {"results": [{"memory": "x" * 40} for _ in range(10)]}
 
         arm = Mem0Arm(lambda: FakeClient())
@@ -275,3 +279,39 @@ class TestReachability:
     def test_zero_refused(self):
         with pytest.raises(HH001StatsError):
             reachability(0)
+
+
+class TestBudgetIsChargedOnTheDeliveredString:
+    """Every budgeted arm is charged len() of what the reader actually gets.
+
+    A2 overran a 16,000-character budget by 120 in the timing pilot: NF-004's
+    packer charges candidate text only, and the rendered block adds two
+    characters per join. Charging one arm for its separators and not another
+    would be a thumb on the scale.
+    """
+
+    def conv(self, n, width):
+        return make_conversation([f"s{i}: " + ("x" * width) for i in range(n)])
+
+    def test_a2_never_exceeds_its_budget(self):
+        embed = keyword_embedder(["x"])
+        conv = self.conv(80, 200)
+        for budget in (0, 1, 205, 500, 4_000, 16_000):
+            block = CdwPairArm(embed).block(make_item(), conv, budget)
+            assert block.chars <= budget, f"budget {budget}"
+
+    def test_a4_never_exceeds_its_budget(self):
+        embed = keyword_embedder(["x"])
+        conv = self.conv(80, 200)
+        for budget in (0, 1, 205, 500, 4_000, 16_000):
+            block = RagFixedArm(embed, chunk_size=200, chunk_overlap=40).block(
+                make_item(), conv, budget
+            )
+            assert block.chars <= budget, f"budget {budget}"
+
+    def test_a2_charges_the_separator_not_just_the_text(self):
+        # Two 10-char units cost 10 + 2 + 10 = 22, not 20.
+        embed = keyword_embedder(["x"])
+        conv = make_conversation(["a" * 10, "b" * 10])
+        assert CdwPairArm(embed).block(make_item(), conv, 21).units_delivered == 1
+        assert CdwPairArm(embed).block(make_item(), conv, 22).units_delivered == 2
