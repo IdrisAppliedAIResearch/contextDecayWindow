@@ -205,6 +205,8 @@ class RagArm:
     ) -> None:
         self.chunk_tokens = chunk_tokens
         self.k = k
+        if (chunk_tokens, k) != (RAG_CHUNK_TOKENS, RAG_NUM_CHUNKS):
+            self.name = f"A_RAG_{chunk_tokens}_K{k}"
 
     def prepare(self, conversation: Conversation, client: Any) -> Any:
         import tiktoken
