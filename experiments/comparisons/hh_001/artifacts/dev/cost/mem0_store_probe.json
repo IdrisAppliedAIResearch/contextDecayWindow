@@ -1,0 +1,77 @@
+{
+ "by_conversation": {
+  "conv-26": {
+   "answerable_items": 154,
+   "compression": 0.672,
+   "gold_absent_from_store": 9,
+   "gold_present_in_store": 31,
+   "gold_stated_in_source": 40,
+   "memories": 235,
+   "memory_chars": 41723,
+   "retention_rate": 0.775,
+   "source_chars": 62090
+  },
+  "conv-30": {
+   "answerable_items": 81,
+   "compression": 0.6197,
+   "gold_absent_from_store": 7,
+   "gold_present_in_store": 15,
+   "gold_stated_in_source": 22,
+   "memories": 170,
+   "memory_chars": 28496,
+   "retention_rate": 0.6818,
+   "source_chars": 45984
+  },
+  "conv-43": {
+   "answerable_items": 178,
+   "compression": 0.7213,
+   "gold_absent_from_store": 16,
+   "gold_present_in_store": 59,
+   "gold_stated_in_source": 75,
+   "memories": 415,
+   "memory_chars": 65433,
+   "retention_rate": 0.7867,
+   "source_chars": 90713
+  },
+  "conv-44": {
+   "answerable_items": 123,
+   "compression": 0.6786,
+   "gold_absent_from_store": 10,
+   "gold_present_in_store": 51,
+   "gold_stated_in_source": 61,
+   "memories": 384,
+   "memory_chars": 58565,
+   "retention_rate": 0.8361,
+   "source_chars": 86298
+  },
+  "conv-49": {
+   "answerable_items": 156,
+   "compression": 0.68,
+   "gold_absent_from_store": 7,
+   "gold_present_in_store": 44,
+   "gold_stated_in_source": 51,
+   "memories": 287,
+   "memory_chars": 44703,
+   "retention_rate": 0.8627,
+   "source_chars": 65744
+  },
+  "conv-50": {
+   "answerable_items": 158,
+   "compression": 0.5955,
+   "gold_absent_from_store": 17,
+   "gold_present_in_store": 49,
+   "gold_stated_in_source": 66,
+   "memories": 320,
+   "memory_chars": 50788,
+   "retention_rate": 0.7424,
+   "source_chars": 85283
+  }
+ },
+ "comparison": "The verbatim arms retain every answer their source states, by construction, because they store the turn unchanged. That is architecture, not a measured win, and must not be reported as one.",
+ "gold_absent_from_store": 66,
+ "gold_present_in_store": 249,
+ "gold_stated_in_source": 315,
+ "reads": "This is a containment test over Mem0's own memory text. A gold answer can be preserved in meaning while failing it - a paraphrase counts as absent here. So this bounds extraction loss from above, and the bound is what it is: a number this test can overstate, never understate.",
+ "retention_rate": 0.7905,
+ "schema": "hh001-mem0-store-probe-v1"
+}

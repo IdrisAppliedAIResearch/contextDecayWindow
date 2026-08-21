@@ -1,0 +1,37 @@
+{
+ "arms": {
+  "A2_CDW_PAIR": {
+   "bytes_per_turn": 2228.8,
+   "measured": "computed from what the arm keeps",
+   "text_bytes": 434583,
+   "total_bytes": 7176599,
+   "unit": "adjacent-turn pair",
+   "units": 1646,
+   "vector_bytes": 6742016
+  },
+  "A3_MEM0": {
+   "bytes_per_turn": 13498.1,
+   "measured": "measured on disk: qdrant store plus history.db",
+   "text_bytes": null,
+   "total_bytes": 43463806,
+   "unit": "model-extracted memory",
+   "units": null,
+   "vector_bytes": null
+  },
+  "A4_RAG_FIXED": {
+   "bytes_per_turn": 866.2,
+   "measured": "computed from what the arm keeps",
+   "text_bytes": 544586,
+   "total_bytes": 2789194,
+   "unit": "1000-char chunk, 200 overlap",
+   "units": 548,
+   "vector_bytes": 2244608
+  }
+ },
+ "caveat": "A0 stores nothing and A1 stores the transcript itself, so neither is listed. Mem0's figure includes its history log, which is an audit trail rather than the retrievable store; it is reported whole rather than split, because splitting it would be a guess.",
+ "conversations": 6,
+ "schema": "hh001-storage-v1",
+ "source_text_bytes": 436223,
+ "source_turns": 3220,
+ "vector_bytes_per_unit": 4096
+}

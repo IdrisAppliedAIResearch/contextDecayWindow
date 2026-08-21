@@ -1,0 +1,31 @@
+{
+ "all_inputs_committed": true,
+ "figures": [
+  "f1_head_to_head",
+  "f2_mem0_ingest_latency"
+ ],
+ "head_commit": "8483dd6d694afe3997e18ec6890336ee91b617b4",
+ "inputs": {
+  "experiments/comparisons/hh_001/artifacts/dev/cost/mem0_ingest.json": {
+   "committed": true,
+   "sha256": "a9653199d0d8317f"
+  },
+  "experiments/comparisons/hh_001/artifacts/dev/cost/mem0_ingest_latency.json": {
+   "committed": true,
+   "sha256": "0ad65363b635b6e7"
+  },
+  "experiments/comparisons/hh_001/artifacts/dev/cost/mem0_ingest_tokens.json": {
+   "committed": true,
+   "sha256": "002b9bf30d3bdc7b"
+  },
+  "experiments/comparisons/hh_001/artifacts/dev/cost/storage.json": {
+   "committed": true,
+   "sha256": "adcc2ea410046e22"
+  },
+  "experiments/comparisons/hh_001/artifacts/dev/result.json": {
+   "committed": true,
+   "sha256": "7fa4119c29f06b1c"
+  }
+ },
+ "schema": "hh001-figure-manifest-v1"
+}

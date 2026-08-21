@@ -96,7 +96,12 @@ Numbered as in the audit. Each is a landmine.
     (10 baseline / 15 treatment false hits on LoCoMo development).
 34. ❌ DMR-001's G4/G5 numbers cited as results → computed **post-stop**, descriptive
     only.
-35. ❌ Any comparison to HippoRAG, Mem0, Zep or Letta presented as measured →
+35. **AMENDED 2026-08-20 — Mem0 was run.** A comparison to **Mem0 as run in
+    HH-001** is measured and may be stated plainly; see
+    `COMPETITIVE_LANDSCAPE.md` §4.1 and `HH001_EVIDENCE_SPINE.md`. A comparison
+    to Mem0's **published** score remains forbidden, as does any comparison to
+    HippoRAG, Zep or Letta, none of which was run.
+    ❌ Original: Any comparison to HippoRAG, Mem0, Zep or Letta presented as measured →
     **none were run here.**
 
 ---
