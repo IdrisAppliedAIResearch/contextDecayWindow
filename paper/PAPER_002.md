@@ -561,6 +561,8 @@ except the adversarial category the harness itself skips.
 
 Five of the six quoted rows are the Mem0 authors' reproductions of other
 people's systems. Zep's own paper reports DMR and LongMemEval and never LoCoMo.
+Figure 1 draws the table, with the rows this rig measured separated from the
+rows it quotes and the floor of §5.3 drawn across all of them.
 
 The component's row sits above every quoted row, and it does so at a sixth of
 the prompt tokens of the arm that previously topped the table. Against full
@@ -683,8 +685,8 @@ registered in advance, and predicted the gap would sit in the temporal category.
 | Open-domain | 841 | 88.35% | 87.99% | +0.36 |
 | **Overall** | **1,540** | **79.09%** | **71.56%** | **+7.53** |
 
-**The whole overall gap is one stratum.** The other three move by less than the
-judge's own run-to-run spread in two cases out of three. A retrieval unit that
+**The whole overall gap is one stratum**, and Figure 2 shows it. The other three
+move by less than the judge's own run-to-run spread in two cases out of three. A retrieval unit that
 drops the timestamp is not slightly worse across the board; it is catastrophic
 on one question type and indistinguishable on the rest.
 
