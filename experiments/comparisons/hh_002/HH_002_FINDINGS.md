@@ -29,10 +29,18 @@ answer prompt, their judge prompt, gpt-4o-mini as answerer and judge.
 | No memory | 26.30% | 84 | measured here |
 
 **The component scores above every published row.** Against the ceiling row
-reproduced on this rig it wins by **6.62 points** — 210 gains against 108,
-one-sided exact binomial **p = 5.6e-09** — while sending **six times fewer
-prompt tokens**. The deterministic endpoint, which involves no model, agrees
-at **+15.32 points, p = 9.3e-31**.
+reproduced on this rig it leads by **6.62 points** — 210 gains against 108,
+one-sided exact binomial p = 5.6e-09 — while sending **six times fewer prompt
+tokens**. The deterministic endpoint, which involves no model, agrees at
+**+15.32 points**, p = 9.3e-31.
+
+**That contrast is post-hoc and is labelled so.** The pre-registration
+registered exactly one directional claim, `A_CDW` > `A_RAG` (§7), and its
+prediction 4 predicted the *opposite* sign here — that the component would land
+between 60.53% and 72.90%, below full context. A p-value on a comparison whose
+direction was not registered, and whose sign the registration got wrong, is
+reported for completeness and carries no confirmatory weight. Both directions
+are in the spine so the quotation is traceable.
 
 ## 2. What licenses the comparison
 
@@ -74,8 +82,14 @@ unambiguous row to within half a point. The post-hoc sweep settles it:
 it.** A single RAG configuration is worth 26 points on this benchmark, so
 "RAG (best variant)" is not one number that either reproduces or does not —
 it is a choice, and the pre-registration bound itself to the wrong point in
-it. The rig is exonerated on both rows; only the full-context row got a valid
-pre-registered gate, and that is how the result is reported.
+it.
+
+**G-CTRL failed, and the registered target was mis-specified.** Those are two
+statements, not one; the second explains the first and does not cancel it.
+`HH_002_PRE_REGISTRATION.md` §7 committed in advance that a G-CTRL failure is
+reported as the study's result, and it is. One of the two registered rows
+reproduced. The other tested a recipe rather than the published row, and the
+diagnostic that shows why was built after the number existed.
 
 **A finding that fell out of the diagnostic.** `A_RAG_500_K4` and
 `A_RAG_1000_K2` deliver the *same* budget — 2,030 against 2,012 mean prompt
@@ -112,9 +126,8 @@ Read against it, the table compresses:
 | System | Raw | Above the 26.30% floor |
 |---|---:|---:|
 | This component | 79.09% | **52.79** |
-| Full context (reproduced) | 72.47% | 46.17 |
-| Mem0 | 66.88% | 40.58 |
-| RAG 500/k=1 | 45.78% | 19.48 |
+| Full context (reproduced here) | 72.47% | 46.17 |
+| RAG 500/k=1 (reproduced here) | 45.78% | 19.48 |
 
 The floor is not uniform. It is **32.34% on open-domain** — 841 of the 1,540
 questions — and 11.21% on temporal. A benchmark whose largest stratum is a

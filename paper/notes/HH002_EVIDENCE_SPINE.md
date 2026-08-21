@@ -33,16 +33,30 @@ Every value below is computed from the artifact named beside it by
 | `A_RAG/judged_r2.json` | 1540 | `b7fdbcced75548082e5968bfd1852b82c9949919071d65242a382e0ed416bc7d` |
 | `A_NONE/predictions.json` | 1540 | `e8a8ea40cbd57ef3c120cd4a5b545b6a1d3a4c001e5291ded0ff01de8d0341ea` |
 | `A_NONE/judged_r1.json` | 1540 | `4b12162984f80777343fac198a890683e0c41ac6cbcc958c7a7dce85247756fe` |
+| `A_RAG_1000_K1/predictions.json` | 1540 | `cfbf6b663d18081b564a36ab6f03fa5af98bf13aef37cb59cc6462c2b93dd5e7` |
+| `A_RAG_1000_K1/judged_r1.json` | 1540 | `44dea0bb4d39451632f0025d7af25ecac7cdbe8ac6ed0762582393979320a81a` |
+| `A_RAG_1000_K2/predictions.json` | 1540 | `0894a599a6033673a02ff0578b35f339f6749a0d887c47494e21d4eacdaf7ce9` |
+| `A_RAG_1000_K2/judged_r1.json` | 1540 | `c4855a521201c7ab21ff34566378e1f907a5c2236c6b1d1adec1aa0c02bef12f` |
+| `A_RAG_500_K4/predictions.json` | 1540 | `13e96075de4ff18686486ff6421d36813571a910e8468836e1a7cce2092b0a7c` |
+| `A_RAG_500_K4/judged_r1.json` | 1540 | `7b8ba567843e46d87bd8562ec59bd929f40dee3db323b3801ceece7c2515da61` |
 
 ## 3. Scores
 
-| Arm | llm_score | f1 | exact_match | n | malformed judgements |
-|---|---:|---:|---:|---:|---:|
-| `A_FULL` | 72.47% | 0.4127 | 0.0052 | 1540 | 0 |
-| `A_CDW` | 79.09% | 0.5108 | 0.0331 | 1540 | 0 |
-| `A_CDW_NOTS` | 71.56% | 0.4366 | 0.0279 | 1540 | 0 |
-| `A_RAG` | 45.78% | 0.3057 | 0.0403 | 1540 | 0 |
-| `A_NONE` | 26.30% | 0.1529 | 0.0071 | 1540 | 0 |
+Standing follows commitment order, not determinism. The five registered
+arms were named in `HH_002_PRE_REGISTRATION.md` §5 before the first
+generation call; the sweep was added after `A_RAG` missed its target and
+is DESCRIPTIVE.
+
+| Arm | llm_score | f1 | exact_match | n | malformed | Standing |
+|---|---:|---:|---:|---:|---:|---|
+| `A_FULL` | 72.47% | 0.4127 | 0.0052 | 1540 | 0 | REGISTERED-LIVE |
+| `A_CDW` | 79.09% | 0.5108 | 0.0331 | 1540 | 0 | REGISTERED-LIVE |
+| `A_CDW_NOTS` | 71.56% | 0.4366 | 0.0279 | 1540 | 0 | REGISTERED-LIVE |
+| `A_RAG` | 45.78% | 0.3057 | 0.0403 | 1540 | 0 | REGISTERED-LIVE |
+| `A_NONE` | 26.30% | 0.1529 | 0.0071 | 1540 | 0 | REGISTERED-LIVE |
+| `A_RAG_1000_K1` | 39.16% | 0.2712 | 0.0253 | 1540 | 0 | DESCRIPTIVE |
+| `A_RAG_1000_K2` | 50.65% | 0.3307 | 0.0266 | 1540 | 0 | DESCRIPTIVE |
+| `A_RAG_500_K4` | 65.32% | 0.4144 | 0.0325 | 1540 | 0 | DESCRIPTIVE |
 
 ## 4. G-CTRL
 
@@ -59,18 +73,35 @@ Tolerance in force: **±3.00 points** (registered rule: ±3.0 or the measured sp
 
 ## 5. Paired contrasts
 
-| Treatment | Control | Endpoint | Delta (pts) | Gains | Losses | Ties | p |
-|---|---|---|---:|---:|---:|---:|---:|
-| `A_CDW` | `A_RAG` | llm_score | +33.31 | 558 | 45 | 937 | 6.615e-114 |
-| `A_CDW` | `A_RAG` | f1 | +24.16 | 433 | 61 | 1046 | 1.949e-70 |
-| `A_CDW` | `A_NONE` | llm_score | +52.79 | 852 | 39 | 649 | 1.485e-200 |
-| `A_CDW` | `A_NONE` | f1 | +43.96 | 738 | 61 | 741 | 6.973e-149 |
-| `A_FULL` | `A_CDW` | llm_score | -6.62 | 108 | 210 | 1222 | 1 |
-| `A_FULL` | `A_CDW` | f1 | -15.32 | 103 | 339 | 1098 | 1 |
-| `A_CDW` | `A_CDW_NOTS` | llm_score | +7.53 | 185 | 69 | 1286 | 1.016e-13 |
-| `A_CDW` | `A_CDW_NOTS` | f1 | +9.09 | 218 | 78 | 1244 | 8.717e-17 |
-| `A_FULL` | `A_RAG` | llm_score | +26.69 | 507 | 96 | 937 | 1.025e-68 |
-| `A_FULL` | `A_RAG` | f1 | +8.83 | 304 | 168 | 1068 | 1.97e-10 |
+`p` is one-sided for the named treatment beating the named control, so a
+row whose treatment lost reads `p = 1`. Both directions of the
+`A_CDW`/`A_FULL` contrast are printed because the paper quotes the
+component-favouring one, and a spine that held only the losing direction
+would leave that quotation untraceable.
+
+**Registered vs post-hoc.** `HH_002_PRE_REGISTRATION.md` §7 registers one
+directional claim: `A_CDW` > `A_RAG`. Every other row here is post-hoc.
+`A_CDW` > `A_FULL` is emphatically post-hoc - §10 prediction 4 predicted
+the opposite sign, that the component would land *below* full context.
+
+| Treatment | Control | Endpoint | Delta (pts) | Gains | Losses | Ties | p | Standing |
+|---|---|---|---:|---:|---:|---:|---:|---|
+| `A_CDW` | `A_RAG` | llm_score | +33.31 | 558 | 45 | 937 | 6.615e-114 | REGISTERED-LIVE |
+| `A_CDW` | `A_RAG` | f1 | +24.16 | 433 | 61 | 1046 | 1.949e-70 | REGISTERED-LIVE |
+| `A_CDW` | `A_NONE` | llm_score | +52.79 | 852 | 39 | 649 | 1.485e-200 | post-hoc |
+| `A_CDW` | `A_NONE` | f1 | +43.96 | 738 | 61 | 741 | 6.973e-149 | post-hoc |
+| `A_CDW` | `A_FULL` | llm_score | +6.62 | 210 | 108 | 1222 | 5.593e-09 | post-hoc |
+| `A_CDW` | `A_FULL` | f1 | +15.32 | 339 | 103 | 1098 | 9.309e-31 | post-hoc |
+| `A_FULL` | `A_CDW` | llm_score | -6.62 | 108 | 210 | 1222 | 1 | post-hoc |
+| `A_FULL` | `A_CDW` | f1 | -15.32 | 103 | 339 | 1098 | 1 | post-hoc |
+| `A_CDW` | `A_CDW_NOTS` | llm_score | +7.53 | 185 | 69 | 1286 | 1.016e-13 | post-hoc |
+| `A_CDW` | `A_CDW_NOTS` | f1 | +9.09 | 218 | 78 | 1244 | 8.717e-17 | post-hoc |
+| `A_FULL` | `A_RAG` | llm_score | +26.69 | 507 | 96 | 937 | 1.025e-68 | post-hoc |
+| `A_FULL` | `A_RAG` | f1 | +8.83 | 304 | 168 | 1068 | 1.97e-10 | post-hoc |
+| `A_CDW` | `A_RAG_500_K4` | llm_score | +13.77 | 276 | 64 | 1200 | 8.358e-33 | post-hoc |
+| `A_CDW` | `A_RAG_500_K4` | f1 | +11.23 | 262 | 89 | 1189 | 3.293e-21 | post-hoc |
+| `A_RAG_500_K4` | `A_RAG_1000_K2` | llm_score | +14.68 | 318 | 92 | 1130 | 1.582e-30 | post-hoc |
+| `A_RAG_500_K4` | `A_RAG_1000_K2` | f1 | +11.30 | 255 | 81 | 1204 | 2.083e-22 | post-hoc |
 
 ## 6. Cost per answer
 
@@ -81,6 +112,9 @@ Tolerance in force: **±3.00 points** (registered rule: ±3.0 or the measured sp
 | `A_CDW_NOTS` | 3,696.2 | 5,692,078 | 15,986.9 | 60.30 |
 | `A_RAG` | 570.0 | 877,864 | 1,838.2 | 1.00 |
 | `A_NONE` | 83.8 | 129,027 | 0.0 | 0.00 |
+| `A_RAG_1000_K1` | 1,047.2 | 1,612,699 | 3,647.0 | 1.00 |
+| `A_RAG_1000_K2` | 2,012.5 | 3,099,196 | 7,298.2 | 2.00 |
+| `A_RAG_500_K4` | 2,030.2 | 3,126,431 | 7,352.4 | 4.00 |
 
 ## 7. Rows quoted, not measured
 

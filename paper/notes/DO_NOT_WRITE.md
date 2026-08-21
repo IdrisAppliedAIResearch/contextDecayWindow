@@ -96,11 +96,35 @@ Numbered as in the audit. Each is a landmine.
     (10 baseline / 15 treatment false hits on LoCoMo development).
 34. ❌ DMR-001's G4/G5 numbers cited as results → computed **post-stop**, descriptive
     only.
-35. **AMENDED 2026-08-20 — Mem0 was run.** A comparison to **Mem0 as run in
-    HH-001** is measured and may be stated plainly; see
-    `COMPETITIVE_LANDSCAPE.md` §4.1 and `HH001_EVIDENCE_SPINE.md`. A comparison
-    to Mem0's **published** score remains forbidden, as does any comparison to
-    HippoRAG, Zep or Letta, none of which was run.
+35. **AMENDED 2026-08-21 — HH-002 placed this component on the published table.**
+    Two amendments now sit on this entry; read both.
+
+    **2026-08-20, HH-001.** A comparison to **Mem0 as run in HH-001** is measured
+    and may be stated plainly; see `COMPETITIVE_LANDSCAPE.md` §4.1 and
+    `HH001_EVIDENCE_SPINE.md`.
+
+    **2026-08-21, HH-002.** The paper may state that this component **scored
+    79.09% on the 1,540 LoCoMo questions, harness, answer prompt, judge and
+    metric that produced arXiv:2504.19413 Table 2**, and may print that table's
+    rows beside it with attribution. Placement on a shared axis is not a
+    measurement of another system, and the axis is licensed by G-CTRL: the same
+    rig reproduced full context at 72.47% against a published 72.90%. See
+    `HH002_EVIDENCE_SPINE.md`.
+
+    **Still forbidden, and this is the whole point of the scope:**
+    - ❌ That this component **beat**, **outperformed** or **trailed** Mem0, Zep,
+      A-MEM, Mem0ᵍ or OpenAI memory. None of them was run here.
+    - ❌ Any **paired test, sign test, p-value or gain/loss count** against an
+      inherited row. Their per-item answers were never published.
+    - ❌ **40.58**, or any other floor-adjusted figure derived from a quoted row.
+      The 26.30% floor was measured on this rig and is **not uniform** by
+      stratum (32.34% open-domain, 11.21% temporal); subtracting a scalar from a
+      row whose strata were never published is arithmetic, not measurement.
+      Floor-adjusted values for rows **measured here** are permitted.
+    - ❌ Any comparison to Mem0's current **92.5%** — different harness, gpt-4o
+      answerer, `top_k=200`.
+    - ❌ Describing Mem0's 66.88% as something this programme measured.
+
     ❌ Original: Any comparison to HippoRAG, Mem0, Zep or Letta presented as measured →
     **none were run here.**
 
