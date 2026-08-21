@@ -56,7 +56,17 @@ items without a memory block.
 | C2 | **1.0 per message pair** | measured. Mem0's paper describes `1 + n`; this build spent one |
 | C3 | **284 minutes** | wall clock for that ingest |
 | C4 | **0** | generative calls this component spends on the same corpus. Architectural, not measured |
-| C5 | **~1,000 prompt tokens per stored turn** | from a mid-ingest window of llama-server's cumulative counters; a steady-state slice, not the whole run |
+| C5 | **~4,100 prompt tokens per ingested pair**; **5,988,818** across the sampled window | `cost/mem0_ingest_tokens.json`, llama-server's cumulative counters over a window covering about 1,451 of the 1,646 pairs |
+
+**C5 was wrong and is corrected here.** An earlier draft of this spine said
+"~1,000 prompt tokens per stored turn". That figure divided an early, short window
+by *memory writes* and then labelled the result per *turn* — two errors compounding.
+The window average is **3,750 tokens per memory write** and **~4,100 per ingested
+pair**, and the per-pair cost climbs through the ingest because each extraction is
+shown what is already stored. **The error understated Mem0's cost roughly fourfold**,
+which is to say it ran against this paper's own argument; it was caught by
+adversarial review, not by the gate, because the gate checks that a number is in
+this file and not that this file is right.
 
 ## 4. What the write path lost
 
@@ -95,6 +105,8 @@ test can overstate extraction loss and cannot understate it.
 | id | value | what it is |
 |---|---|---|
 | R6 | **41×** | A2's block-build speed over A3's, p50 |
+| R10 | **judged unanimity 0.853 / 0.870 / 0.891** | A2, A3, A4 replicate agreement. **A2's is the lowest of the three memory arms** |
+| R11 | **A4 stores 2.8 MB and reads at 3,904 tokens** | smaller and cheaper than A2 on both, at 0.550 against 0.563 |
 | R7 | **5.96×** | A3's store size over A2's, qdrant only, excluding its 692,224-byte history log |
 | R8 | **222×** | A1's prompt tokens over the cheapest arm (A0) |
 | R9 | **A3 is the cheapest memory arm per read** | 3,392 against A2's 4,009. The write cost and the read cost run in opposite directions |
@@ -160,6 +172,7 @@ the arithmetic rather than trust it. The number-trace gate reads this section.
 | Paper value | Source | Arithmetic |
 |---|---|---|
 | **7.2 MB** | `storage.json` A2 `total_bytes` 7,176,599 | ÷ 1e6 |
+| **2.8 MB** | `storage.json` A4 `total_bytes` 2,789,194 | ÷ 1e6 |
 | **42.8 MB** | `storage.json` A3 `total_bytes` 43,463,806 less the 692,224-byte history log | 42,771,582 ÷ 1e6 |
 | **692,224 bytes** | measured on `mem0_history.db` | none; quoted in bytes because ÷1024 gives 676 KB and ÷1000 gives 692 kB, and the two disagree |
 | **413 ms** | `result.json` A3 `block_seconds_p50` 0.413 | × 1000 |

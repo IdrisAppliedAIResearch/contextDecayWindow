@@ -26,7 +26,7 @@ the first generation call.
 | Wall clock to build it | — | **284 min** |
 | Time to assemble one context block | **10 ms** | 413 ms |
 | Store size | **7.2 MB** | 42.8 MB |
-| Answers absent from the store | **none, by construction** | **up to 21%** |
+| Answer reached the delivered context | **101 of 108** | 79 of 108 |
 
 The accuracy gap is **7.7 points, 46 gains against 23, p = 0.0038**. A
 deterministic containment endpoint — no model, cannot be talked into a verdict —
@@ -189,7 +189,8 @@ paper states it plainly; where it is a score, it carries its band.
 ### 1.3 What this paper does not claim
 
 No scored difference below about three points in this arc is claimed as real; §13.1
-gives the measurement. No comparison against HippoRAG, Mem0, Zep or Letta was run,
+gives the measurement. Mem0 was run here and §5 reports it; no comparison against
+HippoRAG, Zep or Letta was run,
 and §2 says exactly what is and is not being compared. No general claim that
 similarity retrieval fails — §8.4 measures the opposite on eight of nine internal
 probes and §9 measures it on 470 external ones. No novelty for maximal marginal
@@ -226,7 +227,8 @@ detail, published numbers and verification status are in
 
 ### 2.1 What is and is not being compared
 
-**No system named above was run here.** Every number attributed to one is cited from
+**Of the systems named above, only Mem0 was run here** — §5. Every number attributed
+to any of the others is cited from
 its publication and labelled as such.
 
 More importantly, the measures differ. Mem0 and its neighbours report LLM-judged
@@ -383,6 +385,7 @@ result cannot buy back afterwards.
 |---|---|---|
 | **CONFIRMATORY** | Pre-registered; sealed holdout; bars, endpoint and budget locked before the number existed; registration commit carries no implementation file | As an established result, with its scope cap |
 | **REGISTERED-OFFLINE** | Pre-registered with bars locked first, zero generative calls, and reproducible on replay — byte-exactly where the embedding cache was retained, otherwise under recomputed embeddings, which the row says — but run on a corpus already observed, so it cannot confirm | As measured and registered, capped as characterization |
+| **REGISTERED-LIVE** | Pre-registered with contrast, endpoint, budget and sample size hashed before the first generation call, but run on a corpus already observed, and **not replayable**: generation is stochastic, so replicates measure that spread instead of eliminating it | As measured and registered, capped as characterization; never as confirmation |
 | **DESCRIPTIVE** | Deterministic and reproducible, but the reading was chosen after the number existed, or the quantity is a bound computed with the answer key | As measured, with what it cannot support said in the same breath |
 | **NOT DEMONSTRATED** | A scored live comparison whose gap falls inside the measured 3.0-point band | With the number *and* the label. Not refuted either |
 | **WITHDRAWN** | Corrected in `ERRATA.md` | Not at all. The list is `paper/notes/DO_NOT_WRITE.md` |
@@ -396,6 +399,7 @@ phrase. They reproduce identically and they do not license the same sentence.
 
 | Result | Standing | The binding limit |
 |---|---|---|
+| HH-001 — head-to-head against Mem0, +7.7 points (§5) | REGISTERED-LIVE | This reader, this corpus, this budget, this pair of configurations. Never confirmation |
 | NF-004 — LoCoMo pair ranking, 843→935 (§6.1) | CONFIRMATORY | Availability only; no reader, universal-rule or adoption claim |
 | DMR-004 — no sufficiency signal (§6.2) | CONFIRMATORY | Negative; closes deterministic stopping in this arc |
 | DMR-001 — degenerate formation (§6.3) | CONFIRMATORY | Negative; its post-stop gates are not results |
@@ -503,14 +507,22 @@ contrast at **+9.7 points, 40 gains against 11, p = 2.85e-05**. Both endpoints
 point the same way, which is the condition this study registered in advance for
 making a directional claim at all.
 
+**§13.1's 3.0-point band does not govern this contrast.** That band was measured on
+a 13-point holistic rubric scored once per run. This is 300 items paired within
+item, three replicates deep, read out as a discordant count — a different
+instrument with its own noise reading, and this one reports it: per-item unanimity
+across replicates runs 0.85 to 0.89 by arm.
+
 The floor arm scored **zero**. With no memory block the reader answered none of
 the 300 questions; all fifty items in the contamination probe returned `I don't
 know`, none empty. Nothing in the table is the model reciting a public dataset.
 
 ### 5.2 What the win cost each side
 
-Mem0 built its store with **1,646 generative calls over 284 minutes**, one call
-for every message pair, roughly a thousand prompt tokens apiece. This component
+Mem0 built its store with **1,646 generative calls over 284 minutes**, one call for
+every message pair, and those calls carried **about 4,100 prompt tokens each** —
+5,988,818 of them across the sampled window. The cost per pair climbs as the store
+grows, because each extraction is shown what is already stored. This component
 built its store with **none**. That zero is architectural rather than measured:
 `append()` embeds and stores, and no code path asks a model to write text about
 what was stored.
@@ -554,14 +566,23 @@ carries a 0.935 survival rate against 0.732. It cannot do better than the
 selector, and it cannot do worse than what it stored, because it stored the turn
 unchanged.
 
-### 5.4 Where the answer lives
+### 5.4 What the other arms did better
+
+Fixed-width chunk retrieval stores **2.8 MB against this component's 7.2** and reads
+at **3,904 prompt tokens against 4,009**. It is smaller and cheaper on both counts,
+and it scored 0.550 to this component's 0.563. Mem0 costs less per read than either.
+This component also has the **lowest replicate agreement of any memory arm** — 0.853
+against 0.870 and 0.891 — so its answers are the least stable of the three under
+reseeding.
+
+### 5.5 Where the answer lives
 
 Splitting by how far back in the conversation the evidence sits — these are
 369- to 680-turn transcripts — the component leads Mem0 by **11.9 points in the
 oldest quarter** and **14.9 points in the newest**, and trails by 3.1 in the
 second quarter. The advantage is not a recency effect and is not uniform.
 
-### 5.5 What this section does not say
+### 5.6 What this section does not say
 
 **Not a comparison to Mem0's published score.** Mem0 reports 66.88% on LoCoMo
 with GPT-4o-mini as extractor, answerer and judge. Every arm here ran on one
@@ -582,7 +603,9 @@ set-level coverage objective; the multi-domain machinery of §8 was not in the
 test. `SCOPE_LIMITS.md` records that gap and what would close it.
 
 **Not confirmatory.** LoCoMo is exhausted on both splits, so this is
-`REGISTERED` under §4's taxonomy and does not become `CONFIRMATORY` by being
+`REGISTERED-LIVE` under §4.1's taxonomy — a level added for this study, because the
+programme had no pre-registered live comparison before it. The run artifact records
+its stage as `DEVELOPMENT`, the same boundary named from the other side and does not become `CONFIRMATORY` by being
 re-described. Three replicates is below the five this programme established as
 its own minimum, and near-ties are reported as near-ties.
 
@@ -1416,7 +1439,9 @@ individual calls.
 Every item in that corpus has now been used by this programme. **No confirmatory claim
 is available from it again**, and any registration written today inherits that
 ceiling. The LoCoMo holdout in §6.1 is now the only sealed external evidence this
-programme holds, and four of the ten LoCoMo conversations are likewise spent.
+programme holds for the granularity result, and **LoCoMo is now spent too**: NF-004
+read the six holdout conversations and HH-001 read them again. §5 is `REGISTERED-LIVE`
+for that reason and cannot become confirmatory.
 
 ---
 
@@ -1712,7 +1737,7 @@ broken. If this file and a study's pre-registration disagree, **the pre-registra
 governs** — that conflict is a defect to be flagged, not reconciled silently.
 
 **Supersedes PAPER-001.** The predecessor's structure led with the negative
-results and reached its sealed-holdout confirmation in passing. No number changed in
+results and reached its sealed-holdout confirmation in passing. Two numbers changed in
 this rewrite; the ordering and the standing labels did. Six stale cross-references
 in the predecessor were found during the rewrite audit and are listed in appendix B
 §6.
