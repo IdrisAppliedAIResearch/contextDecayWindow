@@ -31,7 +31,10 @@ import matplotlib.pyplot as plt
 
 REPO = Path(__file__).resolve().parent.parent
 DEV = REPO / "experiments/comparisons/hh_001/artifacts/dev"
-OUT = REPO / "experiments/comparisons/hh_001/figures"
+# HH-001's two figures are paper figures, so they are written where the build
+# looks for them. The study keeps its own manifest; `paper/figures/` holds one
+# directory of figures rather than two competing ones.
+OUT = REPO / "paper/figures"
 
 BLACK = "#000000"
 ORANGE = "#E69F00"
@@ -132,7 +135,100 @@ def figure_ingest_latency() -> Path:
 
     figure.tight_layout()
     OUT.mkdir(parents=True, exist_ok=True)
-    stem = OUT / "hh001_fig1_mem0_ingest_latency"
+    stem = OUT / "f2_mem0_ingest_latency"
+    figure.savefig(stem.with_suffix(".svg"))
+    figure.savefig(stem.with_suffix(".png"), dpi=200)
+    plt.close(figure)
+    return stem
+
+
+
+def figure_head_to_head() -> Path:
+    """Accuracy beside what each arm spent to get it.
+
+    Two panels because they are two different quantities and one axis would
+    imply a trade curve the data does not describe.
+    """
+    result = read(DEV / "result.json")
+    storage = read(DEV / "cost/storage.json")
+    ingest = read(DEV / "cost/mem0_ingest.json")
+
+    order = ["A0_NO_MEMORY", "A3_MEM0", "A4_RAG_FIXED", "A2_CDW_PAIR", "A1_FULL_CONTEXT"]
+    label = {
+        "A0_NO_MEMORY": "no memory",
+        "A3_MEM0": "Mem0 2.0.18",
+        "A4_RAG_FIXED": "chunk retrieval",
+        "A2_CDW_PAIR": "this component",
+        "A1_FULL_CONTEXT": "whole conversation",
+    }
+    colour = {
+        "A0_NO_MEMORY": GREY,
+        "A3_MEM0": VERMILLION,
+        "A4_RAG_FIXED": ORANGE,
+        "A2_CDW_PAIR": BLUE,
+        "A1_FULL_CONTEXT": SKY,
+    }
+    judged = [result["per_arm"][a]["judged"]["accuracy"] for a in order]
+    contained = [result["per_arm"][a]["contained"]["accuracy"] for a in order]
+    prompt_tokens = [result["cost"][a]["prompt_tokens_mean"] for a in order]
+
+    figure, (left, right) = plt.subplots(1, 2, figsize=(11.4, 4.8))
+
+    y = range(len(order))
+    left.barh([i + 0.19 for i in y], judged, height=0.36,
+              color=[colour[a] for a in order], label="judged")
+    left.barh([i - 0.19 for i in y], contained, height=0.36,
+              color=[colour[a] for a in order], alpha=0.45,
+              label="containment (no model)")
+    for i, (j, c) in enumerate(zip(judged, contained)):
+        left.text(j + 0.008, i + 0.19, f"{j:.3f}", va="center", fontsize=8.5)
+        left.text(c + 0.008, i - 0.19, f"{c:.3f}", va="center", fontsize=8.5,
+                  color=GREY)
+    left.set_yticks(list(y))
+    left.set_yticklabels([label[a] for a in order])
+    left.set_xlabel("accuracy over 300 questions, 3 replicates")
+    left.set_xlim(0, max(judged) * 1.22)
+    left.set_title("What each memory layer answered", fontsize=11)
+    left.legend(loc="lower right", fontsize=8.5, framealpha=0.92)
+    left.grid(True, axis="x", alpha=0.25, linewidth=0.6)
+    for side in ("top", "right"):
+        left.spines[side].set_visible(False)
+
+    calls = {a: 0 for a in order}
+    calls["A3_MEM0"] = ingest["total_generative_calls"]
+    bars = right.bar([label[a] for a in order], [calls[a] for a in order],
+                     color=[colour[a] for a in order])
+    right.set_ylabel("generative calls to build the store")
+    right.set_title("What each memory layer spent to build it", fontsize=11)
+    right.tick_params(axis="x", rotation=32, labelsize=8.5)
+    for tick in right.get_xticklabels():
+        tick.set_ha("right")
+    right.annotate(
+        "{:,} calls\n{:.0f} minutes".format(
+            ingest["total_generative_calls"], ingest["total_seconds"] / 60
+        ),
+        xy=(1, calls["A3_MEM0"]), xytext=(1.15, calls["A3_MEM0"] * 0.72),
+        fontsize=9, color=BLACK,
+        bbox=dict(boxstyle="round,pad=0.4", facecolor="white",
+                  edgecolor=GREY, linewidth=0.7),
+    )
+    right.annotate(
+        "zero", xy=(3, 0), xytext=(3, ingest["total_generative_calls"] * 0.16),
+        fontsize=10, color=BLUE, ha="center", fontweight="bold",
+        arrowprops=dict(arrowstyle="->", color=BLUE, linewidth=1.3),
+    )
+    right.grid(True, axis="y", alpha=0.25, linewidth=0.6)
+    for side in ("top", "right"):
+        right.spines[side].set_visible(False)
+
+    relative = "experiments/comparisons/hh_001/artifacts/dev/result.json"
+    if not INPUTS[relative]["committed"]:
+        figure.text(0.5, 0.5, "PRELIMINARY", fontsize=52, color=GREY, alpha=0.16,
+                    ha="center", va="center", rotation=24, zorder=10)
+
+    figure.tight_layout()
+    OUT.mkdir(parents=True, exist_ok=True)
+    stem = OUT / "f1_head_to_head"
     figure.savefig(stem.with_suffix(".svg"))
     figure.savefig(stem.with_suffix(".png"), dpi=200)
     plt.close(figure)
@@ -141,14 +237,16 @@ def figure_ingest_latency() -> Path:
 
 def main() -> int:
     stem = figure_ingest_latency()
+    stem2 = figure_head_to_head()
     manifest = {
         "schema": "hh001-figure-manifest-v1",
         "head_commit": head_commit(),
-        "figures": ["hh001_fig1_mem0_ingest_latency"],
+        "figures": ["f1_head_to_head", "f2_mem0_ingest_latency"],
         "inputs": INPUTS,
         "all_inputs_committed": all(v["committed"] for v in INPUTS.values()),
     }
-    path = OUT / "figure_manifest_hh001.json"
+    path = REPO / "experiments/comparisons/hh_001/figures/figure_manifest_hh001.json"
+    path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(manifest, indent=1, sort_keys=True) + "\n",
                     encoding="utf-8")
     for name, meta in INPUTS.items():
@@ -156,6 +254,7 @@ def main() -> int:
         print(f"  {meta['sha256']}  {state:12s}  {name}")
     print(f"wrote {stem.with_suffix('.svg').relative_to(REPO)}")
     print(f"wrote {stem.with_suffix('.png').relative_to(REPO)}")
+    print(f"wrote {stem2.with_suffix('.png').relative_to(REPO)}")
     if not manifest["all_inputs_committed"]:
         print("\nPRELIMINARY: at least one input is uncommitted; the figure "
               "is watermarked. Commit the artifacts and re-run for a final.")

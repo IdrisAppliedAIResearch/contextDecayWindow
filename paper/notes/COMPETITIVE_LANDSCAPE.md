@@ -277,6 +277,37 @@ free.
 
 ---
 
+## 4.1 SUPERSEDED IN PART, 2026-08-20: Mem0 was run
+
+**Everything below was written when no competitor had been run here. One has.**
+
+HH-001 ran Mem0 2.0.18 on the six LoCoMo holdout conversations, on this
+programme's local reader, at a matched 16,000-character budget, against a
+contrast written and hashed before the run (`c143620b83c3f300`). Numbers and
+provenance are in `HH001_EVIDENCE_SPINE.md`.
+
+**What is now permitted, and only this:** statements comparing this component
+to **Mem0 as run here** — locally, on `Qwen3.8-27B-UD-Q4_K_XL`, with the
+carried embedder, at that budget. Those statements may be made plainly and
+without hedging: they rest on a registered contrast, a pre-committed endpoint,
+a deterministic cross-check that agreed in sign, and a floor arm that scored
+zero.
+
+**What remains forbidden, unchanged:**
+
+- Any comparison to Mem0's **published** 66.88%, produced with GPT-4o-mini as
+  extractor, answerer and judge. It is not this study's denominator.
+- Any claim about **Mem0-graph, Zep, Graphiti, MemGPT, Letta, A-MEM, LangMem,
+  HippoRAG or HippoRAG 2.** None was run; §5 binds for all of them as written.
+- Any claim that the result **generalizes** past this reader, corpus, budget
+  and pair of configurations.
+
+Where a §5 row names Mem0 and its stated reason is "none was run here", that
+reason has expired. Where the reason is substrate, endpoint or scope, it has
+not.
+
+---
+
 ## 5. Claims this document does not license
 
 Written as prohibitions so they can be grepped for.
