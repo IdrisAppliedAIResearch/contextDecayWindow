@@ -1,0 +1,52 @@
+{
+  "commitments": {
+    "arms": [
+      "A_RAG",
+      "A_CDW",
+      "A_NONE",
+      "A_FULL",
+      "A_CDW_NOTS"
+    ],
+    "component_budget_chars": 16000,
+    "embedding_model": "text-embedding-3-small",
+    "gctrl": {
+      "rule": "Both reproduced rows must land within the tolerance derived from measured judge variance. A failure is reported as a result, not an abort.",
+      "targets": {
+        "A_FULL": 72.9,
+        "A_RAG": 60.53
+      }
+    },
+    "inherited_rows_not_rerun": {
+      "A-MEM": 48.38,
+      "Mem0": 66.88,
+      "Mem0g": 68.44,
+      "OpenAI memory": 52.9,
+      "Zep": 65.99
+    },
+    "model": "gpt-4o-mini-2024-07-18",
+    "population": {
+      "conversations": 10,
+      "excluded": "category 5 (adversarial), skipped by evals.py:22",
+      "questions_scored": 1540,
+      "questions_total": 1986
+    },
+    "primary_endpoint": "llm_score, mean over the 1,540 scored records",
+    "secondary_endpoint": "f1, deterministic, no model in the loop",
+    "study": "HH-002",
+    "transport": "openai batch api",
+    "upstream": {
+      "commit": "7b3abd06",
+      "paper": "arXiv:2504.19413",
+      "repository": "https://github.com/mem0ai/mem0",
+      "tree": "evaluation/"
+    },
+    "variance_arm": "A_RAG",
+    "vendor_prompt_digests": {
+      "llm_judge_accuracy_prompt.txt": "44fb3d8f7a1f37b2430772cf90518a32172e4056b7a0dec085402763fd179b9f",
+      "rag_answer_prompt.txt": "744495b77f2955d437017fd33a0b7156ef41426b7ae8277e5efb92382f234b78",
+      "rag_system_message.txt": "0c6b92630ba4c22fd29e718d095abb2d6ffba10c04d00962e94bca4a65b23249"
+    },
+    "workers": 0
+  },
+  "digest": "2aab612d24861100e8e3aa30a6cb8c0140f540adda4065de77e98d8c6a081cdd"
+}
