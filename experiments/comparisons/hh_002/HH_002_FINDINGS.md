@@ -24,6 +24,7 @@ answer prompt, their judge prompt, gpt-4o-mini as answerer and judge.
 | RAG (best variant) | 60.53% | — | Table 2 |
 | OpenAI memory | 52.90% | — | Table 2 |
 | A-MEM | 48.38% | — | Table 2, **run by Mem0, not A-MEM** |
+| *RAG 500/k=4, best variant found here* | *65.32%* | *2,030* | *measured here, post-hoc* |
 | RAG 500/k=1, reproduced here | 45.78% | 570 | measured here |
 | No memory | 26.30% | 84 | measured here |
 
@@ -60,10 +61,32 @@ recipe, which is one point in that sweep and not necessarily the best one. The
 recipe was reproduced faithfully; it was pointed at the wrong number.
 
 The rig is not in doubt, because the same rig reproduced the harder,
-unambiguous row to within half a point. A sweep over `chunk_size` and `k` is
-running as a post-hoc diagnostic (`A_RAG_1000_K1`, `A_RAG_1000_K2`,
-`A_RAG_500_K4`). It is diagnostic only and carries no claim about this
-component, whose number does not depend on it.
+unambiguous row to within half a point. The post-hoc sweep settles it:
+
+| Variant | chunk | k | Mean prompt tokens | Score | vs 60.53 |
+|---|---:|---:|---:|---:|---:|
+| `A_RAG_500_K4` | 500 | 4 | 2,030 | **65.32%** | +4.79 |
+| `A_RAG_1000_K2` | 1000 | 2 | 2,012 | 50.65% | −9.88 |
+| `A_RAG` (registered) | 500 | 1 | 570 | 45.78% | −14.75 |
+| `A_RAG_1000_K1` | 1000 | 1 | 1,047 | 39.16% | −21.37 |
+
+**The sweep spans 39.16% to 65.32%, and the published 60.53% falls inside
+it.** A single RAG configuration is worth 26 points on this benchmark, so
+"RAG (best variant)" is not one number that either reproduces or does not —
+it is a choice, and the pre-registration bound itself to the wrong point in
+it. The rig is exonerated on both rows; only the full-context row got a valid
+pre-registered gate, and that is how the result is reported.
+
+**A finding that fell out of the diagnostic.** `A_RAG_500_K4` and
+`A_RAG_1000_K2` deliver the *same* budget — 2,030 against 2,012 mean prompt
+tokens, within 1% — and four 500-token chunks beat two 1000-token chunks by
+**14.68 points** (318 gains, 92 losses, p = 1.6e-30; deterministic endpoint
++11.30, p = 2.1e-22). At a fixed budget, retrieving more and finer beats
+retrieving fewer and coarser. This is the same shape as NF-004's confirmed
+result on a different mechanism, and it was not predicted here.
+
+Against the best variant the sweep found, the component still leads by
+**13.77 points** (276 gains, 64 losses, p = 8.4e-33).
 
 ## 4. G-FLOOR failed, and it is a finding about the benchmark
 
