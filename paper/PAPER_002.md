@@ -22,7 +22,8 @@ the first generation call.
 | | This component | Mem0 2.0.18 |
 |---|---:|---:|
 | Questions answered, of 300 | **0.563** | 0.487 |
-| Generative calls to build the store | **0** | **1,646** |
+| Prompt tokens to build the store | **0** | **5,988,818** |
+| Generative calls to build it | **0** | **1,646** |
 | Wall clock to build it | — | **284 min** |
 | Time to assemble one context block | **10 ms** | 413 ms |
 | Store size | **7.2 MB** | 42.8 MB |
@@ -34,8 +35,8 @@ agrees at **+9.7 points, p = 2.85e-05**. With no memory at all the reader scored
 **zero**, so none of this is a model reciting a public dataset.
 
 **Why it matters.** The generative call in the write path is the expensive,
-lossy, slow part, and on this corpus it bought nothing. Mem0 spent a model call
-on every message pair and still finished behind. Of the answers written verbatim
+lossy, slow part, and on this corpus it bought nothing. Mem0 spent **six million prompt tokens** and a model
+call on every message pair, and still finished behind. Of the answers written verbatim
 in those conversations, up to a fifth never reached its store: 31% of pairs
 produced no memory at all, and 16 extractions returned malformed JSON and were
 dropped. A verbatim store cannot lose what it was given.
@@ -1545,8 +1546,11 @@ wording changes.
 Judged and containment accuracy over 300 questions at three replicates, one
 local reader, one 16,000-character budget: whole conversation 0.613, this
 component 0.563, fixed-width chunk retrieval 0.550, Mem0 2.0.18 0.487, no
-memory 0.000. The right panel is generative calls spent building the store — Mem0
-1,646 across 284 minutes, every other arm zero. The two panels are not one
+memory 0.000. The right panel is **prompt tokens spent building the store — 5,988,818 for Mem0
+against zero for every other arm**, across 1,646 calls and 284 minutes. Tokens
+rather than calls, because a call count understates a generative write path: the
+prompt grows as the store does. The figure is measured over 88% of the ingest, so
+the true total is higher. The two panels are not one
 trade curve: accuracy and build cost are different quantities and a single
 axis would imply a relationship the data does not describe. Sources:
 `result.json` `7fa4119c29f06b1c`, `cost/mem0_ingest.json` `a9653199d0d8317f`,

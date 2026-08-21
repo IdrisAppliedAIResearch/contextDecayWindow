@@ -152,6 +152,7 @@ def figure_head_to_head() -> Path:
     result = read(DEV / "result.json")
     storage = read(DEV / "cost/storage.json")
     ingest = read(DEV / "cost/mem0_ingest.json")
+    tokens = read(DEV / "cost/mem0_ingest_tokens.json")
 
     order = ["A0_NO_MEMORY", "A3_MEM0", "A4_RAG_FIXED", "A2_CDW_PAIR", "A1_FULL_CONTEXT"]
     label = {
@@ -194,26 +195,30 @@ def figure_head_to_head() -> Path:
     for side in ("top", "right"):
         left.spines[side].set_visible(False)
 
-    calls = {a: 0 for a in order}
-    calls["A3_MEM0"] = ingest["total_generative_calls"]
-    bars = right.bar([label[a] for a in order], [calls[a] for a in order],
-                     color=[colour[a] for a in order])
-    right.set_ylabel("generative calls to build the store")
+    # Prompt tokens rather than call count: a call count understates what a
+    # generative write path costs, because the prompt grows with the store.
+    spent = {a: 0 for a in order}
+    spent["A3_MEM0"] = tokens["window_prompt_tokens"]
+    coverage = tokens["window_history_rows"] / 1811
+    right.bar([label[a] for a in order], [spent[a] / 1e6 for a in order],
+              color=[colour[a] for a in order])
+    right.set_ylabel("million prompt tokens to build the store")
     right.set_title("What each memory layer spent to build it", fontsize=11)
     right.tick_params(axis="x", rotation=32, labelsize=8.5)
     for tick in right.get_xticklabels():
         tick.set_ha("right")
     right.annotate(
-        "{:,} calls\n{:.0f} minutes".format(
-            ingest["total_generative_calls"], ingest["total_seconds"] / 60
-        ),
-        xy=(1, calls["A3_MEM0"]), xytext=(1.15, calls["A3_MEM0"] * 0.72),
+        "{:,} prompt tokens\n{:,} calls in {:.0f} min\nmeasured over {:.0f}% of the ingest".format(
+            int(spent["A3_MEM0"]), ingest["total_generative_calls"],
+            ingest["total_seconds"] / 60, coverage * 100),
+        xy=(1, spent["A3_MEM0"] / 1e6),
+        xytext=(1.08, spent["A3_MEM0"] / 1e6 * 0.58),
         fontsize=9, color=BLACK,
         bbox=dict(boxstyle="round,pad=0.4", facecolor="white",
                   edgecolor=GREY, linewidth=0.7),
     )
     right.annotate(
-        "zero", xy=(3, 0), xytext=(3, ingest["total_generative_calls"] * 0.16),
+        "zero", xy=(3, 0), xytext=(3, spent["A3_MEM0"] / 1e6 * 0.18),
         fontsize=10, color=BLUE, ha="center", fontweight="bold",
         arrowprops=dict(arrowstyle="->", color=BLUE, linewidth=1.3),
     )
