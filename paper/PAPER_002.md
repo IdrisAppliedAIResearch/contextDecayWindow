@@ -1746,7 +1746,7 @@ wording changes.
 
 **Figure 1 — Where this component lands on the table arXiv:2504.19413 published.**
 `hh002_leaderboard.svg`
-*Every system scored on the same 1,540 LoCoMo questions, the same harness, the
+*Every row scored on the same 1,540 LoCoMo questions, the same harness, the
 same judge.* Dark blue is this component at **79.09%**. Light blue are the rows
 this rig measured, including full context reproduced at **72.47%** against the
 published **72.90%** — the control that licenses printing the rest together.
