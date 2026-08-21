@@ -1,0 +1,29 @@
+{
+ "arms": [
+  "A0_NO_MEMORY",
+  "A1_FULL_CONTEXT",
+  "A2_CDW_PAIR",
+  "A3_MEM0",
+  "A4_RAG_FIXED"
+ ],
+ "below_confirmatory_replicates": true,
+ "budget_chars": 16000,
+ "contrast": [
+  "A2_CDW_PAIR",
+  "A3_MEM0"
+ ],
+ "cross_check_endpoint": "contained",
+ "plan_sha256": "c50749df0a786bb1f111cf0d37b282e65a717c7d346ca8b8bed9ccebca85dae3",
+ "population": "answerable",
+ "primary_endpoint": "judged",
+ "replicates": 3,
+ "schema": "hh001-commitments-v1",
+ "seed": "5005",
+ "subsample_size": 300,
+ "template_manifest": {
+  "empty_memory_section_sha256": "ab02ef166e7947086dd7328997c730a6c0c072e78806a4ce070a70c8805d9685",
+  "judge_template_sha256": "0fb6a4df3befe4e3967e9f0ff34a9179edeef191fbea11c46577af56c46ef654",
+  "memory_section_sha256": "0c3b0abdc5beeb424dfac5c84aea572901e69a18e9c5505b1b13a7623cdad3e7",
+  "reader_template_sha256": "39eb518504e494d002c6e8903435a06a508f76a9427703f71a7c87f9ac4d35f8"
+ }
+}

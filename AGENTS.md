@@ -330,6 +330,9 @@ experiments/study_NNN/
   study_NNN_report.md                          result and limitations
 experiments/probes/                            exploratory work outside the arc
 experiments/internal/packing_priority/         IC-001 packing-order counterfactual on the internal corpus
+experiments/comparisons/hh_001/
+  HH_001_DEVELOPMENT_PLAN.md                   head-to-head against Mem0, local substrate; PLAN ONLY, not built
+  HH_001_PRE_REGISTRATION.md                   its confirmatory stage; DRAFT, NOT LOCKED, blocked on the above
 paper/
   PAPER_002.md                                 terminal research document; the source of truth
   PAPER_001.md                                 RETIRED 2026-08-18; superseded by PAPER_002.md

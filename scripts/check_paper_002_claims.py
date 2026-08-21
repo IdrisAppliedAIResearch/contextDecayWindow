@@ -45,6 +45,7 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parent.parent
 PAPER = REPO / "paper/PAPER_002.md"
 SPINE = REPO / "paper/notes/EVIDENCE_SPINE.md"
+HH001_SPINE = REPO / "paper/notes/HH001_EVIDENCE_SPINE.md"
 FORBIDDEN = REPO / "paper/notes/DO_NOT_WRITE.md"
 LANDSCAPE = REPO / "paper/notes/COMPETITIVE_LANDSCAPE.md"
 
@@ -91,6 +92,11 @@ def check_number_trace() -> list[str]:
     """Numbers in the paper that trace to neither the spine nor the landscape."""
     paper_numbers = harvest(PAPER.read_text(encoding="utf-8"))
     traced = harvest(SPINE.read_text(encoding="utf-8"))
+    # HH-001's numbers live in their own spine: the head-to-head is a separate
+    # study with its own artifacts, and keeping the two files apart means a
+    # number cannot drift from one programme's evidence into the other's.
+    if HH001_SPINE.exists():
+        traced |= harvest(HH001_SPINE.read_text(encoding="utf-8"))
     if LANDSCAPE.exists():
         traced |= harvest(LANDSCAPE.read_text(encoding="utf-8"))
 
