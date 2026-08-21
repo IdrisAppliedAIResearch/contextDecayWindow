@@ -47,11 +47,17 @@ scorings of the same sealed answers.
 
 **The benchmark has a floor, and the paper that published the table does not
 report it.** With no memory block at all, the reader still answers **26.30%**
-correctly, because the judge prompt instructs the grader to count an answer
-correct if it touches the same topic. `Last Saturday` scores CORRECT against a
-gold answer of `The weekend before 22 July 2023`. That prompt, model and
-question set produced every row above, so the floor sits under all of them. It
-is **32.34% on open-domain**, the largest of the four strata.
+correctly — against a contamination bar this study had registered at 5%, so that
+gate failed. The cause is the judge prompt, which instructs the grader to count
+an answer correct if it touches the same topic: `Last Saturday` scores CORRECT
+against a gold answer of `The weekend before 22 July 2023`. That prompt, model
+and question set produced every row above, so the floor sits under all of them.
+It is **32.34% on open-domain**, the largest of the four strata.
+
+A second registered gate also failed, by 14.75 points, and chasing it found the
+same kind of thing: Table 2's *RAG (best variant)* row is the top of a sweep
+that spans **26 points**, so one configuration choice moves that row further
+than the distance separating most rows on the table. §5.4.
 
 **What happened when Mem0 itself was run here.** Separately, Mem0 2.0.18 was
 installed and run on one local reader at a matched budget. It answers **7.7
