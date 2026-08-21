@@ -183,8 +183,12 @@ def figure_leaderboard() -> None:
         loc="upper center", bbox_to_anchor=(0.5, -0.11), ncol=3,
         fontsize=8.5, framealpha=1.0, borderaxespad=0.0,
     )
+    # Composed from the measured value, not typed: this file's contract is
+    # that no number in a figure is written by hand.  "Row", not "system" --
+    # none of the quoted systems was re-run, so the ordinal claim is over
+    # published numbers.  DO_NOT_WRITE.md item 35.
     ax.set_title(
-        "79.09% — above every system on the table Mem0 published",
+        f"{rate('A_CDW'):.2f}% — above every row of the table Mem0 published",
         fontsize=12.5, fontweight="bold", loc="left", pad=10,
     )
     save(fig, "hh002_leaderboard")
