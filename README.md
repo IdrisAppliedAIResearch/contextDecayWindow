@@ -8,141 +8,108 @@
 
 ## Executive Summary
 
-**The question.** A long conversation forces a bad trade. Keep the whole
-transcript and the model slows down and loses the middle. Summarise it and the
-details are gone for good. This repository tests a third option: store every
-exchange as an episode, and rebuild a small, relevant context from scratch on
-every turn.
+**A conversational memory layer that makes no generative model calls.** It stores
+every exchange verbatim, ranks candidates by embedding similarity, and packs a
+fixed character budget. Nothing in it asks a model to write text about what was
+stored.
 
-**How it is tested.** Eleven pre-registered studies on a scripted 120-turn
-conversation with facts planted at known positions, scored against a rubric
-locked since Study 002 — plus component work on an extracted library, and
-external calibration against LongMemEval. Each study adds one memory component
-and fixes the previous study's documented failures. Designs are committed before
-the run, gates are binding, and results are published as found, including the
-ones that killed the thing being tested.
+### It was run head-to-head against Mem0
 
-**Four findings carry the work.**
+Mem0 2.0.18 installed and run here — same corpus, same local reader, same
+16,000-character budget, contrast hashed before the first generation call.
+
+![Head-to-head against Mem0: accuracy, and what each layer spent to build its store](paper/figures/f1_head_to_head.png)
+
+| | This component | Mem0 2.0.18 |
+|---|---:|---:|
+| Questions answered, of 300 | **0.563** | 0.487 |
+| **Prompt tokens to build the store** | **0** | **5,988,818** |
+| Generative calls to build it | **0** | **1,646** |
+| Wall clock to build it | — | **284 min** |
+| Time to assemble one context block | **10 ms** | 413 ms |
+| Store size | **7.2 MB** | 42.8 MB |
+| Answer reached the delivered context | **101 of 108** | 79 of 108 |
+
+**The gap is 7.7 points — 46 gains against 23, p = 0.0038.** A deterministic
+containment endpoint, no model involved, agrees at **+9.7 points, p = 2.85e-05**.
+With no memory at all the reader scored **zero**, so none of this is a model
+reciting a public dataset.
+
+**Six million prompt tokens bought Mem0 a store that finished behind.** Of the
+answers written verbatim in those conversations, up to a fifth never reached it:
+31% of message pairs produced no memory at all, and 16 extractions returned
+malformed JSON and were dropped. A verbatim store cannot lose what it was given.
+
+### What it costs Mem0 to keep writing
+
+Each extraction is shown what is already stored, so the prompt grows with the
+store and the per-pair cost climbs through the ingest.
+
+![Mem0 ingest latency against store size](paper/figures/f2_mem0_ingest_latency.png)
+
+### What this does not establish
+
+- **Fixed-width chunk retrieval scored 0.550 against 0.563.** Thirteen
+  thousandths. Against Mem0 the margin is 7.7 points and the sign test carries
+  it; against chunk-and-embed on this corpus it does not. That arm also stores
+  2.8 MB against this component's 7.2 and reads at 3,904 prompt tokens against
+  4,009 — smaller and cheaper on both.
+- **Mem0 is the cheaper arm per question** — 3,392 prompt tokens against 4,009.
+  Ingest cost and read cost run in opposite directions, and which architecture
+  wins depends on a read-to-write ratio neither paper states.
+- **The corpus fits the reader's window.** The arm that took the whole
+  conversation scored highest, at 222 times the cheapest arm's tokens. Here a
+  memory layer buys cost, not capability.
+- **Not a comparison to Mem0's published 66.88%**, which used a different model
+  as extractor, answerer and judge. Zep, Letta, HippoRAG and Mem0's graph
+  variant were not run at all.
+- **Not confirmatory.** LoCoMo is spent on both splits, so this is
+  `REGISTERED-LIVE`: pre-registered, run on an observed corpus, and not
+  replayable because generation is stochastic.
+
+### The programme behind it
+
+Ten pre-registered studies and one registered bakeoff on a scripted 120-turn
+conversation, plus component work on an extracted library and external
+calibration against LongMemEval and LoCoMo. Each study adds one component and
+fixes the previous one's documented failures. Designs are committed before the
+run, gates are binding, and results are published as found — including the ones
+that killed the thing being tested.
+
+Four findings carry it:
 
 1. **The model is not the bottleneck.** At the hardest probe it used 10 of 10
-   delivered facts and invented none. What fails is delivery — what reaches the
-   context window, not what the model does with it once it arrives.
-
-2. **Selection, not capacity.** Budget was never the binding constraint. All 17
-   target facts fit in 7,592 characters of a 32,000-character window, and the
-   minimum for the breadth bar is 5,058. What binds is *which* candidates get
-   chosen and *in what order* they are packed. On the internal corpus the
-   similarity tier delivered zero episodes at all eight probes because recency
-   consumed the entire budget first.
-
-3. **Rank at the finest informative unit; pack fine.** On 465 LongMemEval
-   questions, session/session, session/episode and episode/episode strict
-   delivery is 375/388/351: episode ranking loses evidence whose broad text
-   dilutes the query match. Splitting those episodes into 298-character median
-   evidence turns reverses the sign, raising exact delivery 361 to 461 with 100
-   gains and zero losses. LoCoMo's already short pairs independently show the
-   fine-ranking direction. Candidate informativeness, not corpus identity alone,
-   reconciles the results; raw length and semantic localization remain joined.
-
+   delivered facts and invented none. What fails is delivery.
+2. **Selection, not capacity.** All 17 target facts fit in 7,592 characters of a
+   32,000-character window; the breadth bar needs 5,058. What binds is which
+   candidates are chosen and in what order they are packed.
+3. **Rank at the finest informative unit.** On a sealed LoCoMo holdout, ranking
+   adjacent-turn pairs by their own cosine raises complete evidence delivery
+   from **843 to 935 of 1,098**, p = 6.19e-12 — the programme's one confirmatory
+   positive result.
 4. **The live instrument is coarser than most verdicts placed on it.** Five
-   byte-identical replicates of one configuration scored 8.0, 8.0, 8.0, 8.0 and
-   11.0 on a 13-point rubric. Any live scored contrast under 3.0 points is *not
-   demonstrated* — which re-reads several of this program's own verdicts, in
-   both directions. Offline results are untouched by this: delivery counts,
-   episode identities and character accounting are counts, not scores, and they
-   reproduce exactly.
-
-**The honest limit.** The breadth question requires 14 of 17 facts. NF-006
-reaches exactly 14 with zero margin by trading one art loss for three monetary
-gains. It is an availability result, not reader correctness, and NF-007 shows a
-one-per-cluster floor is already satisfied rather than a route beyond it.
+   byte-identical replicates scored 8.0, 8.0, 8.0, 8.0 and 11.0 on a 13-point
+   rubric. Any live scored contrast under 3.0 points is *not demonstrated*.
+   Offline counts are untouched: they are counts, not scores.
 
 ---
 
 ## How It Works
 
 What actually happens, end to end, traced from the shipped library source rather
-than from a design document. Two of these boxes are marked red because
-measurement found the system does not behave the way its own naming suggests.
+than from a design document. Two boxes are red because measurement found the
+system does not behave the way its own naming suggests.
 
-```mermaid
-flowchart TD
+**Saving — happens once after every reply**
 
-    subgraph WRITE["SAVING — happens once after every reply"]
-        direction TB
-        UM["You send a message"]
-        AM["The model replies"]
-        UM --> PEND["Set aside on its own<br/>Nothing is stored yet"]
-        UM ~~~ AM
-        PEND --> FORM["The two are joined into one exchange"]
-        AM --> FORM
-        FORM --> EMBW["The exchange is turned into a list of numbers<br/>that stands for its meaning<br/>Measured on its own, never in a batch"]
-        EMBW --> STORE[("Written to disk<br/>Both messages, their position in the conversation,<br/>and those numbers<br/>On disk before the call returns")]
-    end
+![How saving works](docs/diagrams/how_it_works_saving.png)
 
-    STORE -.-> GATE{"Start-up check<br/>Re-measure one fixed sentence and<br/>compare it to what was saved"}
-    GATE -.->|"they differ"| HALT["Refuse to open<br/>The saved numbers can no longer be trusted"]
+**Remembering — happens before every reply**
 
-    subgraph READ["REMEMBERING — happens before every reply"]
-        direction TB
-        Q["You send a new message"] --> QE["Turn your message into<br/>the same kind of numbers"]
-        ALL["Load every exchange ever stored"]
-        QE --> REL["Score every stored exchange<br/>against what you just asked"]
-        ALL --> REL
+![How remembering works](docs/diagrams/how_it_works_remembering.png)
 
-        REL --> KTEST{"Does it score<br/>at least 0.48?"}
-        ALL --> POOL["Everything stays eligible<br/>Nothing is filtered out beforehand"]
-        REL ~~~ POOL
-
-        KTEST -->|"no"| KDROP["Passed over"]
-        POOL --> CLUST["Sort the exchanges into 16 topic groups<br/>Same grouping every time — no randomness"]
-
-        ALL --> TIERN["RECENT<br/>The last 32 exchanges, in order.<br/>No scoring involved."]
-        KTEST -->|"yes"| TIERK["RELATED<br/>Exchanges that clear the bar"]
-        CLUST --> A3["SPREAD<br/>Take the best-scoring exchanges, with a small<br/>bonus for touching a topic not covered yet.<br/>Chooses as if it had the whole box to itself."]
-        CLUST ~~~ TIERN
-        CLUST ~~~ TIERK
-
-        TIERN --> PACK
-        TIERK --> PACK
-        A3 --> PACK["FILL THE BOX — recent first, then related, then spread<br/>Each one charged its true size once written out.<br/>Too big to fit? Skip it and carry on down the list."]
-
-        PACK --> CEIL{"Does it all fit<br/>in 32,000 characters?"}
-        CEIL -->|"no"| ERR["Stop. The limit is never exceeded,<br/>under any circumstances."]
-        CEIL -->|"yes"| RENDER["Write it out as two labelled sections:<br/>what was recent, and what was dug up"]
-        RENDER --> OUT["Handed to the model as part of its prompt"]
-        PACK --> REP["A receipt<br/>What went in, what was dropped, why,<br/>how many came from each of the three routes"]
-    end
-
-    classDef broken fill:#fdecea,stroke:#c0392b,stroke-width:2px,color:#7b1f14;
-    classDef store fill:#eef2f7,stroke:#41689a,color:#1e3a5f;
-    classDef guard fill:#f3f4f0,stroke:#8a9490,color:#3d4744;
-
-    class KTEST,PACK broken;
-    class STORE store;
-    class GATE,CEIL,HALT,ERR guard;
-```
-
-**"Does it score at least 0.48?"** The similarity route is switched off, not
-underperforming. The highest score ever recorded for content known to be
-relevant is 0.2779, and a separate effort that tried 714 ways to raise these
-scores topped out at 0.2103. The bar sits at roughly twice the height genuine
-relevance reaches, so the route almost never fires — measured at zero exchanges
-delivered on 8 of 8 test questions, and a live comparison found the full system
-scored identically to one with this route removed entirely.
-
-**"Fill the box — recent first."** Recent exchanges spend the whole allowance
-before anything else is considered. With 32 recent exchanges and a
-32,000-character box, recent routinely consumes all of it. There is a subtler
-version of the same fault: the *spread* step chooses its set as though it has
-the entire box to itself, and only afterwards does filling begin with recent
-taking priority — so the set it picked is not the set it would have picked had
-it known what it would actually be given.
-
-The settings behind each box, and where each value came from, are recorded below
-the divider under *Deployed Settings*.
-
----
+*Diagram sources: [`docs/diagrams/`](docs/diagrams/). Regenerate with
+`npx @mermaid-js/mermaid-cli -i <file>.mmd -o <file>.png -b white -w 1600`.*
 
 ## Current State of Work
 

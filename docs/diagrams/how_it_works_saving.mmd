@@ -1,0 +1,15 @@
+flowchart TD
+
+    subgraph WRITE["SAVING — happens once after every reply"]
+        direction TB
+        UM["You send a message"]
+        AM["The model replies"]
+        UM --> PEND["Set aside on its own<br/>Nothing is stored yet"]
+        UM ~~~ AM
+        PEND --> FORM["The two are joined into one exchange"]
+        AM --> FORM
+        FORM --> EMBW["The exchange is turned into a list of numbers<br/>that stands for its meaning<br/>Measured on its own, never in a batch"]
+        EMBW --> STORE[("Written to disk<br/>Both messages, their position in the conversation,<br/>and those numbers<br/>On disk before the call returns")]
+    end
+    STORE -.-> GATE{"Start-up check<br/>Re-measure one fixed sentence and<br/>compare it to what was saved"}
+    GATE -.->|"they differ"| HALT["Refuse to open<br/>The saved numbers can no longer be trusted"]

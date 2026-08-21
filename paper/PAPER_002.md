@@ -1541,6 +1541,8 @@ registered bars exist only in prose rather than in JSON, and are extracted by a
 strict pattern that fails the build rather than plotting a stale value if the
 wording changes.
 
+![Figure 1: The head-to-head](figures/f1_head_to_head.png)
+
 **Figure 1 — The head-to-head.** `f1_head_to_head.svg`
 *What each memory layer answered, beside what it spent to build the store.*
 Judged and containment accuracy over 300 questions at three replicates, one
@@ -1556,6 +1558,8 @@ axis would imply a relationship the data does not describe. Sources:
 `result.json` `7fa4119c29f06b1c`, `cost/mem0_ingest.json` `a9653199d0d8317f`,
 `cost/storage.json` `adcc2ea410046e22`.
 
+![Figure 2: What the store costs to build, as it grows](figures/f2_mem0_ingest_latency.png)
+
 **Figure 2 — What the store costs to build, as it grows.** `f2_mem0_ingest_latency.svg`
 *Mem0's per-pair ingest latency against the number of memories already stored.*
 Derived from Mem0's own history table: each `add()` emits a burst of writes
@@ -1567,6 +1571,8 @@ cost, which is architectural rather than measured. **The latency points cover
 only the 69% of pairs that wrote something**; a pair Mem0 declined to store
 leaves no burst and is invisible here, and is likely the faster case. Source:
 `cost/mem0_ingest_latency.json` `0ad65363b635b6e7`.
+
+![Figure 3: The sealed holdout](figures/f3_sealed_holdout.png)
 
 **Figure 3 — The sealed holdout.** `f3_sealed_holdout.svg`
 *Six LoCoMo conversations withheld until the bars were locked, and the ranking unit
@@ -1580,6 +1586,8 @@ spending more. **The result is bounded to availability and authorizes no reader
 claim.** Sources: `g6_holdout_outcomes.json` `7be2668d21163c93`,
 `g7_result_integrity.json` `890b4831d530e9a7`, `NF_004_PRE_REGISTRATION.md`
 `de2d5e05646b769c`.
+
+![Figure 4: Granularity across three corpora](figures/f4_granularity_three_corpora.png)
 
 **Figure 4 — Granularity across three corpora.** `f4_granularity_three_corpora.svg`
 *The same substitution, three corpora, and the candidate size that explains it.*
@@ -1595,6 +1603,8 @@ Sources: `g8_integrity.json` `17cbdbad274c1863`, `exploration.json`
 `00d78ad3bd113abb`, `g6_holdout_outcomes.json` `7be2668d21163c93`,
 `g8_g9_measurement.json` `d20dffd563e5777e`.
 
+![Figure 5: Every mechanism against its own bar](figures/f5_mechanisms_against_bars.png)
+
 **Figure 5 — Every mechanism against its own bar.** `f5_mechanisms_against_bars.svg`
 *Twelve mechanisms fell short of the bar each had to clear; the three that cleared
 are all the same family.* Each numeric row is rescaled so 1.0 is that row's own
@@ -1609,6 +1619,8 @@ Sources: `RETRIEVAL_MECHANISM_LEDGER.md` `6c3875cc4f63046d`,
 `8c229f7b70de9a70`, `e001_results.json` `a996ecd881ae52aa`, `gate_report.json`
 `1a43d8a5345188af`, `gates_holdout.json` `13dd30919acd91bf`.
 
+![Figure 6: Packing priority is a delivery gate](figures/f6_packing_priority_gate.png)
+
 **Figure 6 — Packing priority is a delivery gate.** `f6_packing_priority_gate.svg`
 *The evidence was ranked correctly and then not delivered.* Left: reversing only the
 fill order on 500 external stores moves any-evidence-session recall from 109 to 261
@@ -1621,6 +1633,8 @@ episodes and zero characters at 8 of 8 probes. §9.3 records that the live corre
 built on this was tested and rejected. Sources: `paired_comparison.json`
 `6f18b46f7316f8dc`, `paired_comparison.json` `5dad3eabfac3df39`, `path_split.csv`
 `d26440d1476e8923`.
+
+![Figure 7: The standing ladder and the instrument band](figures/f7_standing_ladder.png)
 
 **Figure 7 — The standing ladder and the instrument band.**
 `f7_standing_ladder.svg`
@@ -1637,6 +1651,8 @@ counts and identities rather than scores. Sources: `band_verdict.json`
 `cb241ac01cbcde5f`, `verdict.json` `83bd4bbbc4209a48`, `LV_001_report.md`
 `cd3dc4cdaa450002`, `SAL_001_FINAL_DESIGN.json` `783cc8ad7f5796ac`.
 
+![Figure 8: The budget efficiency gap](figures/f8_budget_efficiency_gap.png)
+
 **Figure 8 — The budget efficiency gap.** `f8_budget_efficiency_gap.svg`
 *The constraint was never capacity: the tallest result is also the narrowest.* Each
 horizontal stem runs from zero to the characters spent, at a height equal to the
@@ -1649,6 +1665,8 @@ candidate pool; §8.3 separates them, and on the deployed pool the same configur
 scores 5 of 17 against the baseline's 6. **Both optima are computed with the answer
 key and are bounds, not methods.** Sources: `a0_baseline.json` `7645e4746715a965`,
 `e005_results.json` `07b714389697c6e5`, `achievability.json` `770792d09e07978d`.
+
+![Figure 9: Growth and cost](figures/f9_growth_and_cost.png)
 
 **Figure 9 — Growth and cost.** `f9_growth_and_cost.svg`
 *The growth belonged to the harness; the cost was five times its projection.* Left:
