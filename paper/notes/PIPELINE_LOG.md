@@ -46,6 +46,8 @@ published number moves, `ERRATA.md` gets an entry.
 | 2026-08-21 | 2.5 — claim gates | PASS | `HH002_EVIDENCE_SPINE.md` wired into the gate; 28 untraced numbers resolved, cost summary rounded to whole tokens |
 | 2026-08-21 | 2.5 — integrity review | REJECT, ALL APPLIED | G-FLOOR's failure had been deleted and "above every system" crossed item 35; six accuracy regressions from the harder voice, all fixed |
 | 2026-08-21 | 5 — figures | DONE | Two added from committed artifacts under the same hash-the-inputs contract; existing nine renumbered to 3-11 |
+| 2026-08-21 | 5 — finalization | DONE | README's Mem0 section rebuilt around the benchmark placement; PDF rebuilt, 11 figures all placed inline |
+| 2026-08-21 | 5 — final regression | PASS | **1,973 passed, 0 failed**, against a recorded baseline of 1,831 passed / 1 failed |
 
 ---
 
@@ -145,3 +147,13 @@ attributed to a published row, one reproduced row described as the table.
 
 The lesson is not that the harder voice was wrong. It is that the two are
 separable, and that the checkpoint is what separates them.
+
+
+### Stage 5 — the baseline's one failure is gone
+
+The pipeline's previous entry recorded 1,831 passed / 1 failed as the standing
+baseline, and every run in that arc was compared against it. This run is 1,973
+passed with no failures and no errors, under `.venv` with `PYTHONPATH=src`. The
+extra tests are HH-001's and HH-002's; the missing failure was repaired
+somewhere in the HH-001 merge rather than by anything in this pipeline run, and
+is recorded here only so the next run compares against the right number.
