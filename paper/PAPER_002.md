@@ -7,7 +7,6 @@ Repository: `contextDecayWindow` · Licence: CC BY 4.0
 Preprint — PAPER-002 · supersedes PAPER-001
 
 ---
-
 ## Executive summary
 
 **What this is.** A conversational memory layer that makes **no generative model
@@ -15,59 +14,90 @@ calls**. It stores every exchange verbatim, ranks candidates by embedding
 similarity, and packs a fixed character budget. Nothing in it asks a model to
 write text about what was stored.
 
-**What happened against Mem0.** Mem0 2.0.18 was installed and run here — same
-corpus, same local reader, same 16,000-character budget, contrast hashed before
-the first generation call.
+**Where it lands on the benchmark Mem0 published.** The evaluation harness
+behind arXiv:2504.19413's Table 2 was reproduced here — the authors' question
+set, answer prompt, judge prompt, judge model and metric — and this component
+was run through it on all 1,540 scored LoCoMo questions.
 
-| | This component | Mem0 2.0.18 |
+| System | LLM-as-a-Judge | Mean prompt tokens |
 |---|---:|---:|
-| Questions answered, of 300 | **0.563** | 0.487 |
-| Prompt tokens to build the store | **0** | **5,988,818** |
-| Generative calls to build it | **0** | **1,646** |
-| Wall clock to build it | — | **284 min** |
-| Time to assemble one context block | **10 ms** | 413 ms |
-| Store size | **7.2 MB** | 42.8 MB |
-| Answer reached the delivered context | **101 of 108** | 79 of 108 |
+| **This component** | **79.09%** | **4,243** |
+| Full context | 72.90% | — |
+| *Full context, reproduced here* | *72.47%* | *25,405* |
+| Mem0ᵍ | 68.44% | — |
+| Mem0 | 66.88% | — |
+| Zep | 65.99% | — |
+| RAG, best variant | 60.53% | — |
+| OpenAI memory | 52.90% | — |
+| A-MEM | 48.38% | — |
+| **No memory at all** | **26.30%** | 84 |
 
-The accuracy gap is **7.7 points, 46 gains against 23, p = 0.0038**. A
-deterministic containment endpoint — no model, cannot be talked into a verdict —
-agrees at **+9.7 points, p = 2.85e-05**. With no memory at all the reader scored
-**zero**, so none of this is a model reciting a public dataset.
+Every row but this component's and the floor is quoted from Table 2 and was
+**not** re-run here; five of them are the Mem0 authors' reproductions of other
+people's systems. **This is placement on a shared axis, not a head-to-head.**
+No sentence in this paper says the component beat Mem0, and no test in it is
+computed against a quoted row — their per-item answers were never published.
 
-**Why it matters.** The generative call in the write path is the expensive,
-lossy, slow part, and on this corpus it bought nothing. Mem0 spent **six million prompt tokens** and a model
-call on every message pair, and still finished behind. Of the answers written verbatim
-in those conversations, up to a fifth never reached its store: 31% of pairs
-produced no memory at all, and 16 extractions returned malformed JSON and were
-dropped. A verbatim store cannot lose what it was given.
+**What licenses printing those rows together.** The same rig ran their ceiling
+row first. Full context is the row that cannot be mis-specified — the whole
+conversation, no chunking, no retrieval, nothing to configure — and it
+reproduced at **72.47% against a published 72.90%**, a gap of 0.43 points
+against a tolerance fixed in advance. The judge moved 0.06 points across two
+scorings of the same sealed answers.
+
+**The benchmark has a floor, and the paper that published the table does not
+report it.** With no memory block at all, the reader still answers **26.30%**
+correctly, because the judge prompt instructs the grader to count an answer
+correct if it touches the same topic. `Last Saturday` scores CORRECT against a
+gold answer of `The weekend before 22 July 2023`. That prompt, model and
+question set produced every row above, so the floor sits under all of them. It
+is **32.34% on open-domain**, the largest of the four strata.
+
+**What happened when Mem0 itself was run here.** Separately, Mem0 2.0.18 was
+installed and run on one local reader at a matched budget. It answers **7.7
+points fewer** of the same 300 questions — 46 gains against 23, p = 0.0038, with
+a deterministic endpoint agreeing at +9.7 points. Building its store took
+**1,646 generative calls, 5,988,818 prompt tokens and 284 minutes**; this
+component's store takes none, architecturally. Of the answers written verbatim
+in those conversations, **up to 21% never reached Mem0's store**: 31% of message
+pairs produced no memory at all, and 16 extractions returned malformed JSON and
+were dropped.
 
 **How it works.** Four parts. An append-only store that keeps each exchange
 unchanged; a recency window; cosine-threshold similarity retrieval; and a
 set-level coverage objective that packs one character budget at exact serialized
 cost. `context()` is a pure function of store state, query and budget, verified
-byte-identical across two processes.
+byte-identical across two processes. **The benchmark arms above carry the first
+three and not the fourth.**
 
 **What this does not establish.**
 
-- **Fixed-width chunk retrieval scored 0.550 against 0.563.** Thirteen
-  thousandths. Against Mem0 the margin is 7.7 points and the sign test carries
-  it; against chunk-and-embed on this corpus it does not.
+- **Two of the benchmark study's gates failed, and both are reported as
+  results.** The floor bar was 5% and came in at 26.30%. The second reproduction
+  target missed by 14.75 points — Table 2's RAG row is labelled *best variant*,
+  and the registration bound it to one recipe out of a sweep that spans 26
+  points with the published value inside it.
+- **The lead over full context was not registered, and its sign was
+  mispredicted.** The registration expected this component to land *below* full
+  context. It is reported with that label attached.
+- **Fixed-width chunk retrieval scored 0.550 against 0.563** on the local study —
+  thirteen thousandths, and it stores less and reads cheaper.
 - **Mem0 is the cheaper arm per question** — 3,392 prompt tokens against 4,009.
-  Ingest cost and read cost run in opposite directions, and which architecture
-  wins depends on a read-to-write ratio neither paper states.
-- **The corpus fits the reader's window.** The arm that took the whole
-  conversation scored highest, at 222 times the cheapest arm's tokens. Here a
-  memory layer buys cost, not capability.
-- **Not a comparison to Mem0's published 66.88%**, which used a different model
-  as extractor, answerer and judge. Zep, Letta, HippoRAG and Mem0's graph
-  variant were not run at all.
+  Ingest and read costs run in opposite directions, and which architecture wins
+  depends on a read-to-write ratio neither paper states.
+- **The corpus fits the reader's window.** Here a memory layer buys cost, and on
+  this benchmark also accuracy, but not reach.
+- **Neither study is confirmatory.** LoCoMo is spent on both splits and
+  generation ran against stochastic readers, so both are `REGISTERED-LIVE`.
 
-**The rest of the paper.** §5 is the head-to-head in full. §6 is the programme's
-confirmatory result — a granularity rule on a sealed external holdout, 843 → 935
-of 1,098 at p = 6.19e-12 — and §7 through §11 are the ten studies and one bakeoff
-that cut the design to four parts. §13 is the limitations, at length.
+**The rest of the paper.** §5 is both head-to-heads in full. §6 is the
+programme's confirmatory result — a granularity rule on a sealed external
+holdout, 843 → 935 of 1,098 at p = 6.19e-12 — and §7 through §11 are the ten
+studies and one bakeoff that cut the design to four parts. §13 is the
+limitations, at length.
 
 ---
+
 ## Abstract
 
 We report a deterministic memory layer for long conversations that makes no
@@ -475,21 +505,180 @@ first when it was the second is how a programme accumulates false confidence, so
 each stop below says which it was.
 
 ---
+## 5. The head-to-head: Mem0's benchmark, and Mem0 run here
 
-## 5. The head-to-head: Mem0, run here
+Two studies ask the same question at different fidelities, and neither
+substitutes for the other.
 
-Every claim in this section is a measurement taken in this repository. Mem0
-2.0.18 was installed, configured onto this programme's reader and embedder, and
-run over the same corpus as the component it is compared against. The contrast,
-the endpoint, the budget, the sample size and the replicate count were written
-to `commitments.json` and hashed at `c143620b83c3f300` **before the first
-generation call**. Provenance for every number: `notes/HH001_EVIDENCE_SPINE.md`.
+**HH-002** reproduced the evaluation harness that produced arXiv:2504.19413's
+Table 2 and put this component through it: the authors' question set, answer
+prompt, judge prompt, judge model and metric, with GPT-4o-mini as answerer and
+judge. That buys external comparability — a number on the axis their table is
+printed on. It cannot say anything about Mem0's own machinery, because Mem0's
+row needs a hosted-platform account this programme does not have and was never
+re-run.
 
-### 5.1 The result
+**HH-001** installed Mem0 2.0.18 and ran it here, on one local reader at a
+matched budget. That buys the opposite thing: it is the only study in this
+programme that measured what Mem0's write path *costs* and what it *loses*,
+because it watched the ingest happen.
 
-Five memory layers, 300 questions drawn by seeded stratification from 850
-answerable LoCoMo records, three replicates each, one reader, one judge, one
-16,000-character budget measured on the exact string handed to the model.
+Provenance: `notes/HH002_EVIDENCE_SPINE.md` and `notes/HH001_EVIDENCE_SPINE.md`.
+Both studies hashed their commitments before the first generation call.
+
+**What "this component" means in both.** NF-004's pair ranking, packing a
+16,000-character budget measured on the exact string handed to the model. It is
+**not** the full design of §3: the set-level coverage objective is not in either
+arm. Nothing in this section is evidence about breadth.
+
+### 5.1 On the table arXiv:2504.19413 published
+
+All 1,540 scored LoCoMo questions — every question in the ten conversations
+except the adversarial category the harness itself skips.
+
+| System | LLM-as-a-Judge | Mean prompt tokens | Source |
+|---|---:|---:|---|
+| **This component** | **79.09%** | **4,243** | measured here |
+| Full context | 72.90% | — | Table 2 |
+| *Full context, reproduced here* | *72.47%* | *25,405* | *measured here* |
+| This component, undated turns | 71.56% | 3,696 | measured here |
+| Mem0ᵍ | 68.44% | — | Table 2, Mem0's own system |
+| Mem0 | 66.88% | — | Table 2, Mem0's own system |
+| Zep | 65.99% | — | Table 2, run by Mem0, not by Zep |
+| RAG, best variant | 60.53% | — | Table 2 |
+| OpenAI memory | 52.90% | — | Table 2 |
+| A-MEM | 48.38% | — | Table 2, run by Mem0, not by A-MEM |
+| No memory | 26.30% | 84 | measured here |
+
+Five of the six quoted rows are the Mem0 authors' reproductions of other
+people's systems. Zep's own paper reports DMR and LongMemEval and never LoCoMo.
+
+The component's row sits above every quoted row, and it does so at a sixth of
+the prompt tokens of the arm that previously topped the table. Against full
+context **reproduced on this rig** it leads by **6.62 points** — 210 gains
+against 108, one-sided exact binomial p = 5.593e-09 — and the deterministic
+endpoint, which involves no model, agrees at **+15.32 points**, p = 9.309e-31.
+
+**That contrast is post-hoc, and the registration got its sign wrong.**
+HH-002 registered exactly one directional claim, this component against
+fixed-chunk RAG, and predicted the component would land *between* 60.53% and
+72.90% — below full context. It did not. A p-value on a direction that was not
+registered, in a comparison whose sign the registration mispredicted, is
+reported for completeness and carries no confirmatory weight. The registered
+contrast is §5.4's.
+
+### 5.2 What licenses printing those rows together
+
+A number is only comparable to that table if the machine producing it behaves
+like the machine that produced the table. So the same rig ran their ceiling row
+first.
+
+Full context is the row that cannot be mis-specified: `--chunk_size -1` is the
+whole conversation, with no chunking, no embedder, no retrieval and no
+configuration to choose. **This rig scored it at 72.47% against a published
+72.90% — 0.43 points**, against a tolerance of ±3.0 fixed before any number
+existed.
+
+The judge is not the noise source either. The same 1,540 sealed answers were
+scored twice: **0.06 points apart, 3 items flipped**, 0.19% of the corpus.
+
+What that licenses is placement on a shared axis, and nothing more. No sentence
+in this paper says this component beat Mem0, and no test in it is computed
+against a quoted row — their per-item answers were never published, so no such
+test exists to compute.
+
+### 5.3 The benchmark has a floor, and the paper that published the table does not report it
+
+With **no memory block at all**, the reader answers **26.30%** of LoCoMo
+correctly. HH-002 registered a bar of below 5% and it failed.
+
+This is not contamination. It is guessability meeting a judge told to be
+generous. The judge prompt — reproduced byte-exact from the upstream blob —
+instructs the grader to count an answer correct if it touches the same topic as
+the gold answer. So `Last Saturday` scores CORRECT against a gold answer of
+`The weekend before 22 July 2023`, and `family members` scores CORRECT against
+`Family`.
+
+Because that prompt, that model and that question set are the ones every row of
+Table 2 was produced with, **the floor sits under every row of it**. The paper
+reports no floor.
+
+It is also not uniform. It is **32.34% on open-domain** — 841 of the 1,540
+questions, the largest stratum by far — and **11.21% on temporal**. Read against
+it, the rows measured here compress:
+
+| Arm | Raw | Above the 26.30% floor |
+|---|---:|---:|
+| This component | 79.09% | **52.79** |
+| Full context, reproduced here | 72.47% | 46.17 |
+| Fixed-chunk RAG, reproduced here | 45.78% | 19.48 |
+
+**Only rows measured on this rig appear in that column.** The floor was
+measured here and varies by stratum; subtracting it from a row whose strata were
+never published would be arithmetic wearing the clothes of a measurement.
+
+### 5.4 The second registered gate failed, and the target was ours
+
+HH-002 registered two reproduction targets. The second was fixed-chunk RAG at
+500 tokens and one chunk, mapped to Table 2's 60.53%. It scored **45.78%**, a
+14.75-point miss.
+
+**G-CTRL failed.** The registration committed in advance that a failure is
+reported as the study's result, and this is that report.
+
+The explanation does not cancel the failure. Table 2's row is labelled *RAG
+(best variant)* — the top of a sweep the paper does not specify — and the
+registration bound it to one recipe from the harness's Makefile. Running the
+sweep that row actually refers to:
+
+| Variant | Mean prompt tokens | Score |
+|---|---:|---:|
+| 500 tokens, 4 chunks | 2,030 | **65.32%** |
+| 1000 tokens, 2 chunks | 2,012 | 50.65% |
+| 500 tokens, 1 chunk — the registered target | 570 | 45.78% |
+| 1000 tokens, 1 chunk | 1,047 | 39.16% |
+
+The sweep spans 26 points and the published 60.53% falls inside it. One
+configuration is worth more than the distance between most rows of Table 2, so
+that row names a family rather than a number. This diagnostic was built after
+the number existed and is `DESCRIPTIVE`; the registered arms are not.
+
+Two things fell out of it. The component still leads the best variant the sweep
+found by **13.77 points**. And at a **matched budget** — 2,030 prompt tokens
+against 2,012, within 1% — four 500-token chunks beat two 1000-token chunks by
+**14.68 points**, 318 gains against 92. Finer and more beat coarser and fewer at
+equal cost, which is §7's result arriving through a mechanism §7 did not test.
+
+### 5.5 What the dates bought
+
+The harness renders every turn with its session timestamp. NF-004's candidate
+unit carries no timestamp, because NF-004's endpoint was whether evidence text
+was delivered and no date was needed to answer that. HH-002 ran both renderings,
+registered in advance, and predicted the gap would sit in the temporal category.
+
+| Category | n | Dated | Undated | Effect |
+|---|---:|---:|---:|---:|
+| Temporal | 321 | 68.54% | 32.09% | **+36.45** |
+| Single-hop | 282 | 71.63% | 72.34% | −0.71 |
+| Multi-hop | 96 | 55.21% | 57.29% | −2.08 |
+| Open-domain | 841 | 88.35% | 87.99% | +0.36 |
+| **Overall** | **1,540** | **79.09%** | **71.56%** | **+7.53** |
+
+**The whole overall gap is one stratum.** The other three move by less than the
+judge's own run-to-run spread in two cases out of three. A retrieval unit that
+drops the timestamp is not slightly worse across the board; it is catastrophic
+on one question type and indistinguishable on the rest.
+
+The same table answers a question about the ceiling arm. Full context scores
+**49.53%** on temporal questions against this component's 68.54%, despite
+holding every turn and every date in its window. Having the evidence present is
+not the same as having it findable.
+
+### 5.6 Mem0, run here
+
+HH-001 is the study that watched Mem0 work. Five memory layers, 300 questions
+drawn by seeded stratification from 850 answerable LoCoMo records, three
+replicates each, one reader, one judge, one 16,000-character budget.
 
 | Arm | Memory layer | Judged | Containment |
 |---|---|---:|---:|
@@ -500,60 +689,38 @@ answerable LoCoMo records, three replicates each, one reader, one judge, one
 | A0 | No memory | 0.000 | 0.000 |
 
 Figure 1 sets the two panels side by side. **The component answers 7.7 points
-more of the same questions than Mem0 does.**
-Paired over the 300 items: **46 gains, 23 losses**, two gains for every loss,
-one-sided exact binomial **p = 0.0038**. The deterministic containment endpoint,
-which involves no model and cannot be talked into a verdict, puts the same
-contrast at **+9.7 points, 40 gains against 11, p = 2.85e-05**. Both endpoints
-point the same way, which is the condition this study registered in advance for
-making a directional claim at all.
+more of the same questions than Mem0 does.** Paired over the 300 items: **46
+gains, 23 losses**, one-sided exact binomial **p = 0.0038**. The deterministic
+containment endpoint puts the same contrast at **+9.7 points, 40 gains against
+11, p = 2.85e-05**. Both endpoints point the same way, which is the condition
+this study registered in advance for making a directional claim at all.
 
-**§13.1's 3.0-point band does not govern this contrast.** That band was measured on
-a 13-point holistic rubric scored once per run. This is 300 items paired within
-item, three replicates deep, read out as a discordant count — a different
-instrument with its own noise reading, and this one reports it: per-item unanimity
-across replicates runs 0.85 to 0.89 by arm.
+**§13.1's 3.0-point band does not govern this contrast.** That band was measured
+on a 13-point holistic rubric scored once per run. This is 300 items paired
+within item, three replicates deep, read out as a discordant count — a different
+instrument with its own noise reading, and this one reports it: per-item
+unanimity across replicates runs 0.85 to 0.89 by arm.
 
-The floor arm scored **zero**. With no memory block the reader answered none of
-the 300 questions; all fifty items in the contamination probe returned `I don't
-know`, none empty. Nothing in the table is the model reciting a public dataset.
+The floor arm scored **zero** here. That is the one number HH-002 overturned:
+on a local 27B reader an empty context answered nothing, and on GPT-4o-mini with
+the vendor harness's generous judge the same empty context answers 26.30%. The
+floor is a property of the reader and the grader, not of the corpus.
 
-### 5.2 What the win cost each side
+### 5.7 What the generative write path cost and lost
 
-Mem0 built its store with **1,646 generative calls over 284 minutes**, one call for
-every message pair, and those calls carried **about 4,100 prompt tokens each** —
-5,988,818 of them across the sampled window. The cost per pair climbs as the store
-grows, because each extraction is shown what is already stored. This component
-built its store with **none**. That zero is architectural rather than measured:
-`append()` embeds and stores, and no code path asks a model to write text about
-what was stored.
-
-Figure 2 shows what that ingest cost looked like as the store filled.
-Retrieval separates them again. Assembling one context block takes this
-component **10 milliseconds** at the median and Mem0 **413** — **41 times
-slower**, on the same machine, over the same conversations. The finished store
-occupies **42.8 MB** against **7.2 MB**, six times larger, counting only
-Mem0's vector store and excluding its 692,224-byte history log.
-
-**The cost runs the other way at read, and the paper states it in the same
-breath.** Mem0 is the cheapest memory arm per question — **3,392 prompt tokens
-against this component's 4,009** — because model-extracted memories are shorter
-than stored turns. A system written once and queried a million times amortises
-its ingest away. Which architecture is cheaper is decided by the read-to-write
-ratio, and neither this paper nor arXiv:2504.19413 states one. Both halves are
-measured here; the report gives both.
-
-### 5.3 What the generative write path lost
-
-The comparison above is downstream of a mechanism, and the mechanism is
-measurable without a model in the loop.
+Mem0 built its store with **1,646 generative calls over 284 minutes**, one call
+for every message pair, and those calls carried **about 4,100 prompt tokens
+each** — 5,988,818 of them across the sampled window. The cost per pair climbs
+as the store grows, because each extraction is shown what is already stored.
+Figure 2 shows that curve. This component built its store with **none**. That
+zero is architectural rather than measured: `append()` embeds and stores, and no
+code path asks a model to write text about what was stored.
 
 Of the 315 answers stated verbatim somewhere in the six source conversations,
-**66 are absent from Mem0's finished store — 21%.** Per conversation, retention
-runs 0.68 to 0.86. This is a containment test over the store's own memory text:
-a preserved paraphrase counts as absent, so **21% is an upper bound on
-extraction loss and cannot understate it**. That is the honest reading and it is
-the one to quote.
+**66 are absent from Mem0's finished store — 21%.** This is a containment test
+over the store's own memory text: a preserved paraphrase counts as absent, so
+**21% is an upper bound on extraction loss and cannot understate it**. That is
+the honest reading and it is the one to quote.
 
 Two further numbers come from the ingest itself. **509 of 1,646 message pairs —
 31% — produced no memory at all**: the extractor received the turn, spent a
@@ -562,53 +729,66 @@ extractions returned malformed JSON** and were discarded, 0.97% of the corpus,
 logged by Mem0 and passed over in silence.
 
 Downstream, the answer reaches the delivered block for **101 of 108** eligible
-items under this component and **79 of 108** under Mem0. The verbatim path
-carries a 0.935 survival rate against 0.732. It cannot do better than the
-selector, and it cannot do worse than what it stored, because it stored the turn
-unchanged.
+items under this component and **79 of 108** under Mem0 — a 0.935 survival rate
+against 0.732. A verbatim store cannot do better than its selector, and cannot
+do worse than what it stored, because it stored the turn unchanged.
 
-### 5.4 What the other arms did better
+Retrieval separates them again. Assembling one context block takes this
+component **10 milliseconds** at the median and Mem0 **413** — **41 times
+slower**, on the same machine. The finished store occupies **42.8 MB** against
+**7.2 MB**, counting only Mem0's vector store and excluding its 692,224-byte
+history log.
 
-Fixed-width chunk retrieval stores **2.8 MB against this component's 7.2** and reads
-at **3,904 prompt tokens against 4,009**. It is smaller and cheaper on both counts,
-and it scored 0.550 to this component's 0.563. Mem0 costs less per read than either.
-This component also has the **lowest replicate agreement of any memory arm** — 0.853
-against 0.870 and 0.891 — so its answers are the least stable of the three under
-reseeding.
+**The cost runs the other way at read, and the paper states it in the same
+breath.** Mem0 is the cheapest memory arm per question — **3,392 prompt tokens
+against this component's 4,009** — because model-extracted memories are shorter
+than stored turns. A system written once and queried a million times amortises
+its ingest away. Which architecture is cheaper is decided by a read-to-write
+ratio neither paper states.
 
-### 5.5 Where the answer lives
+### 5.8 What the other arms did better
 
-Splitting by how far back in the conversation the evidence sits — these are
-369- to 680-turn transcripts — the component leads Mem0 by **11.9 points in the
-oldest quarter** and **14.9 points in the newest**, and trails by 3.1 in the
-second quarter. The advantage is not a recency effect and is not uniform.
+Fixed-width chunk retrieval stores **2.8 MB against this component's 7.2** and
+reads at **3,904 prompt tokens against 4,009**. It is smaller and cheaper on
+both counts, and it scored 0.550 to this component's 0.563 — thirteen
+thousandths. This component also has the **lowest replicate agreement of any
+memory arm** in HH-001 — 0.853 against 0.870 and 0.891 — so its answers are the
+least stable of the three under reseeding.
 
-### 5.6 What this section does not say
+Splitting HH-001 by how far back the evidence sits — these are 369- to 680-turn
+transcripts — the component leads Mem0 by **11.9 points in the oldest quarter**
+and **14.9 points in the newest**, and trails by 3.1 in the second quarter. The
+advantage is not a recency effect and is not uniform.
 
-**Not a comparison to Mem0's published score.** Mem0 reports 66.88% on LoCoMo
-with GPT-4o-mini as extractor, answerer and judge. Every arm here ran on one
-local 27B model. The two numbers share a corpus name and measure different
-events, and no sentence in this paper puts them in the same column.
+### 5.9 What this section does not say
 
-**Not a claim about any other system.** Mem0-graph, Zep, A-MEM, HippoRAG and
-LangMem were not run. Nothing here is evidence about them.
+**Not a measurement of any system other than Mem0 2.0.18.** Mem0ᵍ, Zep, A-MEM,
+OpenAI memory, HippoRAG and LangMem were not run. Their rows are quoted with
+attribution and no test in this paper is computed against them, because their
+per-item answers were never published.
 
-**Not a capacity result.** The longest holdout conversation is 90,713 characters
-— roughly 22,700 tokens against a 200,000-token window. The whole corpus fits, and
-the arm that took it all scored highest at **222 times the prompt tokens of the
-cheapest arm**. On this corpus a memory layer is a cost mechanism, not a
-capability one. A corpus that did not fit would test something this one cannot.
+**Not a measurement of Mem0's published row.** 66.88% came from the Mem0
+authors' hosted platform. This programme ran Mem0 2.0.18 locally in HH-001 and
+placed itself on the same benchmark in HH-002; it did not re-run their row, and
+does not claim to have beaten it.
 
-**Not a breadth result.** The arm carries NF-004's pair ranking and no
-set-level coverage objective; the multi-domain machinery of §8 was not in the
+**Not a claim about Mem0's current product.** Their maintained harness scores
+Mem0 Platform v3 with a different answerer model and a retrieval depth many
+times HH-002's. Nothing here compares to it.
+
+**Not a capacity result.** LoCoMo fits a modern context window — 25,405 prompt
+tokens at the mean for the arm that takes all of it. On this corpus a memory
+layer buys cost, and here also accuracy, but not reach. A corpus that did not
+fit would test something this one cannot.
+
+**Not a breadth result.** Both arms carry NF-004's pair ranking and no
+set-level coverage objective; the multi-domain machinery of §8 was not in either
 test. `SCOPE_LIMITS.md` records that gap and what would close it.
 
-**Not confirmatory.** LoCoMo is exhausted on both splits, so this is
-`REGISTERED-LIVE` under §4.1's taxonomy — a level added for this study, because the
-programme had no pre-registered live comparison before it. The run artifact records
-its stage as `DEVELOPMENT`, the same boundary named from the other side and does not become `CONFIRMATORY` by being
-re-described. Three replicates is below the five this programme established as
-its own minimum, and near-ties are reported as near-ties.
+**Not confirmatory.** LoCoMo is exhausted on both splits, so both studies are
+`REGISTERED-LIVE` under §4.1 and do not become `CONFIRMATORY` by being
+re-described. HH-002 ran one replicate of each arm; HH-001 ran three, below the
+five this programme set as its own minimum.
 
 ---
 

@@ -58,6 +58,44 @@ is DESCRIPTIVE.
 | `A_RAG_1000_K2` | 50.65% | 0.3307 | 0.0266 | 1540 | 0 | DESCRIPTIVE |
 | `A_RAG_500_K4` | 65.32% | 0.4144 | 0.0325 | 1540 | 0 | DESCRIPTIVE |
 
+## 3a. Scores by question category
+
+LoCoMo category 1 is single-hop, 2 temporal, 3 multi-hop, 4
+open-domain. Category 5 is adversarial and is skipped by
+`evals.py:22`, so it reaches no number in any row.
+
+| Arm | cat 1 (n=282) | cat 2 (n=321) | cat 3 (n=96) | cat 4 (n=841) |
+|---|---|---|---|---|
+| `A_FULL` | 67.38% | 49.53% | 55.21% | 84.90% |
+| `A_CDW` | 71.63% | 68.54% | 55.21% | 88.35% |
+| `A_CDW_NOTS` | 72.34% | 32.09% | 57.29% | 87.99% |
+| `A_RAG` | 32.98% | 29.91% | 42.71% | 56.48% |
+| `A_NONE` | 21.28% | 11.21% | 38.54% | 32.34% |
+| `A_RAG_1000_K1` | 32.27% | 23.99% | 39.58% | 47.21% |
+| `A_RAG_1000_K2` | 45.39% | 34.58% | 42.71% | 59.45% |
+| `A_RAG_500_K4` | 58.87% | 48.60% | 45.83% | 76.10% |
+
+**Timestamp effect** (`A_CDW` − `A_CDW_NOTS`), by category: cat 1 -0.71, cat 2 +36.45, cat 3 -2.08, cat 4 +0.36.
+
+## 3b. Points above the no-memory floor
+
+The floor is **26.30%** overall and is **not uniform**: cat 1 21.28%, cat 2 11.21%, cat 3 38.54%, cat 4 32.34%.
+
+**Rows measured on this rig only.** Subtracting this floor from a
+row quoted from Table 2 is forbidden — see `DO_NOT_WRITE.md` item
+35. The floor was measured here, and the strata of the quoted rows
+were never published.
+
+| Arm | Raw | Above floor |
+|---|---:|---:|
+| `A_FULL` | 72.47% | 46.17 |
+| `A_CDW` | 79.09% | 52.79 |
+| `A_CDW_NOTS` | 71.56% | 45.26 |
+| `A_RAG` | 45.78% | 19.48 |
+| `A_RAG_1000_K1` | 39.16% | 12.86 |
+| `A_RAG_1000_K2` | 50.65% | 24.35 |
+| `A_RAG_500_K4` | 65.32% | 39.03 |
+
 ## 4. G-CTRL
 
 Judge variance, `A_RAG` scored twice over the same 1540 sealed answers: rates {'1': 45.7792, '2': 45.7143}, spread **0.06 points**, 3 items flipped (0.19%).
@@ -107,14 +145,14 @@ the opposite sign, that the component would land *below* full context.
 
 | Arm | Mean prompt tokens | Total prompt tokens | Mean context chars | Units delivered |
 |---|---:|---:|---:|---:|
-| `A_FULL` | 25,405.3 | 39,124,100 | 96,241.4 | 1.00 |
-| `A_CDW` | 4,243.0 | 6,534,218 | 15,978.0 | 47.62 |
-| `A_CDW_NOTS` | 3,696.2 | 5,692,078 | 15,986.9 | 60.30 |
-| `A_RAG` | 570.0 | 877,864 | 1,838.2 | 1.00 |
-| `A_NONE` | 83.8 | 129,027 | 0.0 | 0.00 |
-| `A_RAG_1000_K1` | 1,047.2 | 1,612,699 | 3,647.0 | 1.00 |
-| `A_RAG_1000_K2` | 2,012.5 | 3,099,196 | 7,298.2 | 2.00 |
-| `A_RAG_500_K4` | 2,030.2 | 3,126,431 | 7,352.4 | 4.00 |
+| `A_FULL` | 25,405 | 39,124,100 | 96,241 | 1.00 |
+| `A_CDW` | 4,243 | 6,534,218 | 15,978 | 47.62 |
+| `A_CDW_NOTS` | 3,696 | 5,692,078 | 15,987 | 60.30 |
+| `A_RAG` | 570 | 877,864 | 1,838 | 1.00 |
+| `A_NONE` | 84 | 129,027 | 0 | 0.00 |
+| `A_RAG_1000_K1` | 1,047 | 1,612,699 | 3,647 | 1.00 |
+| `A_RAG_1000_K2` | 2,012 | 3,099,196 | 7,298 | 2.00 |
+| `A_RAG_500_K4` | 2,030 | 3,126,431 | 7,352 | 4.00 |
 
 ## 7. Rows quoted, not measured
 

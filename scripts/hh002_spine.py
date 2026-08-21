@@ -123,6 +123,62 @@ def main(argv: list[str] | None = None) -> int:
           f"{result['malformed_judgements']} | {standing} |")
     w("")
 
+    # -- per category -----------------------------------------------------
+    w("## 3a. Scores by question category\n")
+    w("LoCoMo category 1 is single-hop, 2 temporal, 3 multi-hop, 4")
+    w("open-domain. Category 5 is adversarial and is skipped by")
+    w("`evals.py:22`, so it reaches no number in any row.\n")
+    per_cat: dict[str, dict[str, float]] = {}
+    cats: list[str] = []
+    for arm in available:
+        result = score(list(load_judged(arm, base=base).values()))
+        per_cat[arm] = {
+            c: v["llm_score"] * 100 for c, v in result["per_category"].items()
+        }
+        for c in result["per_category"]:
+            if c not in cats:
+                cats.append(c)
+    cats.sort(key=int)
+    counts = score(
+        list(load_judged(available[0], base=base).values())
+    )["per_category"]
+    w("| Arm | " + " | ".join(f"cat {c} (n={counts[c]['n']})" for c in cats) + " |")
+    w("|---" * (len(cats) + 1) + "|")
+    for arm in available:
+        w(f"| `{arm}` | "
+          + " | ".join(f"{per_cat[arm].get(c, float('nan')):.2f}%" for c in cats)
+          + " |")
+    w("")
+    if "A_CDW" in per_cat and "A_CDW_NOTS" in per_cat:
+        w("**Timestamp effect** (`A_CDW` − `A_CDW_NOTS`), by category: "
+          + ", ".join(
+              f"cat {c} {per_cat['A_CDW'][c] - per_cat['A_CDW_NOTS'][c]:+.2f}"
+              for c in cats
+          )
+          + ".\n")
+
+    # -- floor-adjusted ---------------------------------------------------
+    if "A_NONE" in per_cat:
+        floor = score(list(load_judged("A_NONE", base=base).values()))
+        floor_pts = floor["llm_score"] * 100
+        w("## 3b. Points above the no-memory floor\n")
+        w(f"The floor is **{floor_pts:.2f}%** overall and is **not uniform**: "
+          + ", ".join(f"cat {c} {per_cat['A_NONE'][c]:.2f}%" for c in cats)
+          + ".\n")
+        w("**Rows measured on this rig only.** Subtracting this floor from a")
+        w("row quoted from Table 2 is forbidden — see `DO_NOT_WRITE.md` item")
+        w("35. The floor was measured here, and the strata of the quoted rows")
+        w("were never published.\n")
+        w("| Arm | Raw | Above floor |")
+        w("|---|---:|---:|")
+        for arm in available:
+            if arm == "A_NONE":
+                continue
+            raw = score(list(load_judged(arm, base=base).values()))
+            raw_pts = raw["llm_score"] * 100
+            w(f"| `{arm}` | {raw_pts:.2f}% | {raw_pts - floor_pts:.2f} |")
+        w("")
+
     # -- gate -------------------------------------------------------------
     tolerance = args.tolerance
     variance = None
@@ -200,9 +256,9 @@ def main(argv: list[str] | None = None) -> int:
       "Units delivered |")
     w("|---|---:|---:|---:|---:|")
     for arm, row in cost_summary(available, base).items():
-        w(f"| `{arm}` | {row['mean_prompt_tokens']:,.1f} | "
+        w(f"| `{arm}` | {row['mean_prompt_tokens']:,} | "
           f"{row['total_prompt_tokens']:,} | "
-          f"{row['mean_context_chars']:,.1f} | "
+          f"{row['mean_context_chars']:,} | "
           f"{row['mean_units_delivered']:,.2f} |")
     w("")
 

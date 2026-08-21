@@ -270,12 +270,14 @@ def cost_summary(arms: Sequence[str], base: Path | None = None) -> dict[str, Any
         n = len(rows)
         out[arm] = {
             "n": n,
+            # Whole tokens: these are means of integer counts, and a tenth
+            # of a token is precision the quantity does not have.
             "mean_prompt_tokens": round(
-                sum(r["prompt_tokens"] for r in rows) / n, 1
+                sum(r["prompt_tokens"] for r in rows) / n
             ),
             "total_prompt_tokens": sum(r["prompt_tokens"] for r in rows),
             "mean_context_chars": round(
-                sum(r["context_chars"] for r in rows) / n, 1
+                sum(r["context_chars"] for r in rows) / n
             ),
             "median_search_ms": round(
                 sorted(r["search_time"] for r in rows)[n // 2] * 1000, 2
