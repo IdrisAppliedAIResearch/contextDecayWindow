@@ -259,15 +259,27 @@ PRICE_PER_M = {
     "text-embedding-3-small": {"input": 0.020, "cached": 0.020, "output": 0.0},
 }
 
+#: The Batch API bills generation at half the synchronous rate.  Almost all of
+#: this study's generation went through it, so quoting the synchronous price
+#: would overstate what the run cost by roughly a factor of two.  Embeddings
+#: are not batched and are not discounted.
+BATCH_DISCOUNT = 0.5
 
-def price(usage: Usage, model: str = DEFAULT_MODEL) -> float:
+
+def price(
+    usage: Usage, model: str = DEFAULT_MODEL, batch: bool = False
+) -> float:
     rate = PRICE_PER_M[model]
+    factor = BATCH_DISCOUNT if batch else 1.0
     fresh = max(usage.prompt_tokens - usage.cached_tokens, 0)
     embed = PRICE_PER_M[DEFAULT_EMBEDDING_MODEL]["input"]
     return (
-        fresh * rate["input"]
-        + usage.cached_tokens * rate["cached"]
-        + usage.completion_tokens * rate["output"]
+        (
+            fresh * rate["input"]
+            + usage.cached_tokens * rate["cached"]
+            + usage.completion_tokens * rate["output"]
+        )
+        * factor
         + usage.embedding_tokens * embed
     ) / 1_000_000
 
