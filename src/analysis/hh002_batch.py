@@ -33,16 +33,27 @@ from analysis.hh002_harness import (
     render_judge_prompt,
 )
 
-#: Conservative ceiling on tokens enqueued in one batch.  The account's true
-#: batch queue limit is discovered at submit time from the API's own error and
-#: recorded; this is the starting guess and is halved on refusal.
-DEFAULT_BATCH_TOKEN_BUDGET = 1_800_000
+#: The account's hard ceiling, quoted from the API's own refusal:
+#: "Enqueued token limit reached for gpt-4o-mini-2024-07-18 ... Limit:
+#: 2,000,000 enqueued tokens."  It counts tokens across *all* jobs in flight,
+#: not per job, so submitting every job at once fails every job past the cap.
+ENQUEUED_TOKEN_LIMIT = 2_000_000
+
+#: How much of that ceiling to occupy.  Headroom matters because the estimate
+#: below is characters/4 and the true tokeniser will disagree in both
+#: directions.
+IN_FLIGHT_TOKEN_TARGET = 1_400_000
+
+#: Tokens per job.  Small enough that several run concurrently under the cap,
+#: large enough that a 40M-token arm does not become hundreds of jobs.
+DEFAULT_BATCH_TOKEN_BUDGET = 400_000
 
 #: Batch lines per job, independent of tokens.  Keeps a failed job small
 #: enough to resubmit cheaply.
 DEFAULT_BATCH_MAX_LINES = 2_000
 
 TERMINAL = {"completed", "failed", "expired", "cancelled"}
+RETRYABLE = {"failed", "expired", "cancelled"}
 
 
 class HH002BatchError(RuntimeError):
@@ -184,7 +195,13 @@ def submit_job(
     """Upload and enqueue one job, or adopt one already in flight."""
     digest = _digest(requests)
     known = ledger.get(key)
-    if known.get("digest") == digest and known.get("batch_id"):
+    if (
+        known.get("digest") == digest
+        and known.get("batch_id")
+        # A job that ended failed/expired/cancelled produced nothing.
+        # Adopting it would retire work that was never done.
+        and known.get("status") not in RETRYABLE
+    ):
         log(f"    {key}: adopting {known['batch_id']} ({known.get('status')})")
         return str(known["batch_id"])
 
@@ -269,6 +286,100 @@ def text_of(body: dict[str, Any]) -> str:
         return (body["choices"][0]["message"]["content"] or "").strip()
     except (KeyError, IndexError, TypeError):
         return ""
+
+
+def run_scheduled(
+    client: Any,
+    work: Sequence[tuple[str, Sequence[BatchRequest]]],
+    ledger: BatchLedger,
+    poll_seconds: int = 30,
+    token_budget: int = DEFAULT_BATCH_TOKEN_BUDGET,
+    max_lines: int = DEFAULT_BATCH_MAX_LINES,
+    in_flight_target: int = IN_FLIGHT_TOKEN_TARGET,
+    log: Callable[[str], None] = print,
+    on_result: Callable[[str, dict[str, dict[str, Any]]], None] | None = None,
+) -> dict[str, dict[str, dict[str, Any]]]:
+    """Drive many prefixes to completion under one enqueued-token ceiling.
+
+    The API meters *tokens in flight across every batch*, so the useful
+    strategy is neither "submit one job and wait" nor "submit everything":
+    it is to keep the queue as full as the ceiling allows and top it up as
+    jobs land.  Jobs from different prefixes run together, so a cheap arm is
+    not stuck behind an expensive one.
+
+    ``on_result`` is called with ``(prefix, results)`` as each prefix
+    finishes, so a caller can checkpoint an arm without waiting for the rest.
+    """
+    queue: list[tuple[str, str, list[BatchRequest]]] = []
+    for prefix, requests in work:
+        for index, job in enumerate(
+            chunk_requests(requests, token_budget, max_lines)
+        ):
+            queue.append((prefix, f"{prefix}.{index:03d}", job))
+    total_tokens = sum(r.approx_tokens for _, _, job in queue for r in job)
+    log(
+        f"  scheduler: {len(queue)} job(s) across {len(work)} prefix(es), "
+        f"~{total_tokens:,} tokens, ceiling {in_flight_target:,} in flight"
+    )
+
+    outstanding: dict[str, tuple[str, str, int]] = {}
+    results: dict[str, dict[str, dict[str, Any]]] = {
+        prefix: {} for prefix, _ in work
+    }
+    remaining: dict[str, int] = {}
+    for prefix, _, _ in queue:
+        remaining[prefix] = remaining.get(prefix, 0) + 1
+
+    def in_flight_tokens() -> int:
+        return sum(tokens for _, _, tokens in outstanding.values())
+
+    pending = list(queue)
+    while pending or outstanding:
+        # Top the queue up.
+        while pending:
+            prefix, key, job = pending[0]
+            tokens = sum(r.approx_tokens for r in job)
+            if outstanding and in_flight_tokens() + tokens > in_flight_target:
+                break
+            pending.pop(0)
+            batch_id = submit_job(client, job, ledger, key, log)
+            outstanding[key] = (prefix, batch_id, tokens)
+
+        if not outstanding:
+            continue
+
+        landed = False
+        for key, (prefix, batch_id, _) in list(outstanding.items()):
+            state = poll_job(client, batch_id, ledger, key)
+            if state["status"] not in TERMINAL:
+                continue
+            outstanding.pop(key)
+            landed = True
+            if state["status"] in RETRYABLE and not state["output_file_id"]:
+                job = next(j for p, k, j in queue if k == key)
+                log(f"    {key}: {state['status']}, requeued")
+                pending.append((prefix, key, job))
+                continue
+            if state["output_file_id"]:
+                results[prefix].update(
+                    collect_job(client, state["output_file_id"])
+                )
+                remaining[prefix] -= 1
+                log(
+                    f"    {key}: {state['status']}, "
+                    f"{state['completed']}/{state['total']}  "
+                    f"[{prefix}: {remaining[prefix]} job(s) left]"
+                )
+                if remaining[prefix] == 0 and on_result is not None:
+                    on_result(prefix, results[prefix])
+
+        if outstanding and not landed:
+            log(
+                f"  in flight: {len(outstanding)} job(s), "
+                f"~{in_flight_tokens():,} tokens; queued: {len(pending)}"
+            )
+            time.sleep(poll_seconds)
+    return results
 
 
 def submit_only(
