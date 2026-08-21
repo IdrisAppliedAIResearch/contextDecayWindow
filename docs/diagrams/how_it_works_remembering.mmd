@@ -31,10 +31,8 @@ flowchart TD
         PACK --> REP["A receipt<br/>What went in, what was dropped, why,<br/>how many came from each of the three routes"]
     end
 
-    classDef broken fill:#fdecea,stroke:#c0392b,stroke-width:2px,color:#7b1f14;
-    classDef store fill:#eef2f7,stroke:#41689a,color:#1e3a5f;
-    classDef guard fill:#f3f4f0,stroke:#8a9490,color:#3d4744;
+    classDef broken fill:#3d1a15,stroke:#ff6b52,stroke-width:2px,color:#ffc4b8;
+    classDef guard fill:#22262a,stroke:#9aa5ab,color:#d5dde2;
 
     class KTEST,PACK broken;
-    class STORE store;
-    class GATE,CEIL,HALT,ERR guard;
+    class CEIL,ERR guard;
