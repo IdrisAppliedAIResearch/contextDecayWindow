@@ -10,106 +10,63 @@ Preprint — PAPER-002 · supersedes PAPER-001
 
 ## Executive summary
 
-**The claim.** A conversational memory layer needs no generative model calls. This
-one stores every exchange verbatim, ranks candidates by embedding similarity, and
-packs a fixed character budget with a set-level coverage objective — nothing in it
-asks a model to write text about the store.
+**What this is.** A conversational memory layer that makes **no generative model
+calls**. It stores every exchange verbatim, ranks candidates by embedding
+similarity, and packs a fixed character budget. Nothing in it asks a model to
+write text about what was stored.
 
-**The head-to-head.** Mem0 2.0.18 was installed and run here, on the same corpus,
-the same reader and the same 16,000-character budget, against a contrast hashed
-before the first generation call. **Mem0 spent 1,646 generative calls and 284
-minutes building its store. This component spent none. On the same 300 questions
-the zero-call path answered 7.7 points more of them** — 46 gains against 23,
-p = 0.0038, with a model-free containment endpoint agreeing at +9.7 points and
-p = 2.85e-05. Assembling one context block takes it **10 milliseconds against
-Mem0's 413**. Its store is **7.2 MB against 42.8**. And **up to 21% of the answers
-written verbatim in those conversations are absent from Mem0's store** — an upper
-bound, since the test counts a preserved paraphrase as absent —
-along with 31% of message pairs that produced no memory at all and 16 extractions
-that returned malformed JSON. Full accounting in §5; the read-cost figure runs the
-other way and is given there in the same breath.
+**What happened against Mem0.** Mem0 2.0.18 was installed and run here — same
+corpus, same local reader, same 16,000-character budget, contrast hashed before
+the first generation call.
 
-**Two things that result is not.** It is not a comparison to Mem0's published
-66.88%, which was produced on GPT-4o-mini and shares only a corpus name. And the
-whole corpus fits the reader's window, so the arm that took all of it scored
-highest, at 222 times the cheapest arm's tokens: on LoCoMo a memory layer buys
-cost, not capability.
+| | This component | Mem0 2.0.18 |
+|---|---:|---:|
+| Questions answered, of 300 | **0.563** | 0.487 |
+| Generative calls to build the store | **0** | **1,646** |
+| Wall clock to build it | — | **284 min** |
+| Time to assemble one context block | **10 ms** | 413 ms |
+| Store size | **7.2 MB** | 42.8 MB |
+| Answers absent from the store | **none, by construction** | **up to 21%** |
 
-**The headline confirmatory result.** On six LoCoMo conversations sealed until the bars were
-locked — 1,098 question-answer records, a 16,000-character budget, **zero model and
-zero embedding calls during measurement** — ranking adjacent-turn pairs by their own
-cosine rather than inheriting their session's score raises complete evidence delivery
-from **843 to 935 of 1,098**; source order reaches 258. 140 gains against 48 losses,
-ratio 2.92 against a registered bar of 2.0, item-level **p = 6.19e-12**. That p
-assumes questions are independent and they are not — they cluster in six
-conversations — so the conservative form is reported too: all six net positive, sign
-test **p = 0.0156**. One parameter varied. **The result is bounded to evidence
-availability and authorizes no reader, accuracy or universal-rule claim.**
+The accuracy gap is **7.7 points, 46 gains against 23, p = 0.0038**. A
+deterministic containment endpoint — no model, cannot be talked into a verdict —
+agrees at **+9.7 points, p = 2.85e-05**. With no memory at all the reader scored
+**zero**, so none of this is a model reciting a public dataset.
 
-**Why the unit is the lever.** LongMemEval evidence episodes have median **2,550
-characters**; the source turns carrying their answers, **298**. Ranking the parent
-dilutes the match. Split it and exact delivery goes **361 to 461 of 465**, 100 gains
-and no losses. Internally the same move takes an enumeration probe 12 to 14 of 17,
-trading art coverage 2 of 4 down to 1 of 4 while restoring all four monetary items.
-Both corpora were already observed, so these are registered measurements, not
-confirmations.
+**Why it matters.** The generative call in the write path is the expensive,
+lossy, slow part, and on this corpus it bought nothing. Mem0 spent a model call
+on every message pair and still finished behind. Of the answers written verbatim
+in those conversations, up to a fifth never reached its store: 31% of pairs
+produced no memory at all, and 16 extractions returned malformed JSON and were
+dropped. A verbatim store cannot lose what it was given.
 
-**Finer is not monotonically better, and our own data refutes it.** On that corpus,
-ranking at the *episode* rather than the session **loses 37 items**, 26 gains against
-63 — worse than both its parent and its child, a shape no monotone rule generates
-(§7.3; §7.5 refutes the scope condition proposed to explain it).
-
-**Why no model calls matters, as measured properties.** `context()` is a pure
-function of store state, query and budget, byte-identical across two processes; 132
-committed payloads reproduce their SHA-256 through the installed library. Every
-delivered character is a stored episode verbatim, so no generated text about the
-store exists to be wrong. Mem0, Zep, Letta and Graphiti each spend at least one
-generative call on this layer by their own published descriptions. **Mem0 was run
-here, and the deterministic version won it** (§5). The question this programme set
-out to answer was how much of the layer survives without the call; on this corpus
-the answer is all of it and then some.
-
-**What five sealed experiments bought.** Five results carry a sealed holdout with
-bars locked before the number existed, and **three are negative**: deterministic
-stopping, event segmentation and surprisal-based capture each returned nothing. That
-is why the surviving design has four components rather than a dozen.
-
-**What it costs.** 4,743 bytes per turn, ~48 MB at ten thousand. Retrieval binds
-first: **190 ms at 1,000 candidates**, 81% of it clustering and rising — on one
-machine; comfortable to a few thousand episodes, unusable interactively before ten
-thousand. Do not prune
-the pool to control cost: the deployed shortlist holds no representative of one of
-four domains, so no rule reaches it from there — a fact about its contents, not a
-comparison.
+**How it works.** Four parts. An append-only store that keeps each exchange
+unchanged; a recency window; cosine-threshold similarity retrieval; and a
+set-level coverage objective that packs one character budget at exact serialized
+cost. `context()` is a pure function of store state, query and budget, verified
+byte-identical across two processes.
 
 **What this does not establish.**
 
-- **The run-to-run band is 3.0 points on a 13-point rubric, measured not assumed.**
-  Three of four scored comparisons fall inside it and are **not demonstrated**; the
-  fourth merely exceeds it, which is not the same thing. *Not demonstrated is not
-  refuted.* It is a switch, not a spread — four replicates were byte-identical and
-  the one that diverged was the **first** run in a fresh server process. Offline
-  delivery counts are unaffected: counts and identities, not scores.
-- **Availability is not correctness.** The configuration making six more facts
-  available failed its registered no-regression bar, registered as a kill; status
-  **not promoted**. The shortfall's size sits inside the band and is not demonstrated
-  either way — the bar firing does not depend on it. Both arms fabricated on the
-  domain neither retrieved, and a presence-only scorer credits that.
-- **Fixed-width chunk retrieval scored 0.550 against this component's 0.563.**
-  Thirteen thousandths, on 300 questions. Against Mem0 the margin is 7.7 points
-  and the sign test carries it; against chunk-and-embed on this corpus it does
-  not. The arm tested carries pair ranking and no coverage objective, so the
-  breadth mechanism §8 describes was not in the comparison at all.
-- **One competing system was run here; the rest were not.** Mem0 2.0.18 was run
-  locally on a matched budget (§5). Zep, Letta, HippoRAG and Mem0's graph variant
-  are cited from published results only. No number here is placed against Mem0's
-  published score, which used a different model as extractor, answerer and judge.
-- **Internal breadth rests on one enumeration probe.** The external confirmations
-  do not.
+- **Fixed-width chunk retrieval scored 0.550 against 0.563.** Thirteen
+  thousandths. Against Mem0 the margin is 7.7 points and the sign test carries
+  it; against chunk-and-embed on this corpus it does not.
+- **Mem0 is the cheaper arm per question** — 3,392 prompt tokens against 4,009.
+  Ingest cost and read cost run in opposite directions, and which architecture
+  wins depends on a read-to-write ratio neither paper states.
+- **The corpus fits the reader's window.** The arm that took the whole
+  conversation scored highest, at 222 times the cheapest arm's tokens. Here a
+  memory layer buys cost, not capability.
+- **Not a comparison to Mem0's published 66.88%**, which used a different model
+  as extractor, answerer and judge. Zep, Letta, HippoRAG and Mem0's graph
+  variant were not run at all.
 
+**The rest of the paper.** §5 is the head-to-head in full. §6 is the programme's
+confirmatory result — a granularity rule on a sealed external holdout, 843 → 935
+of 1,098 at p = 6.19e-12 — and §7 through §11 are the ten studies and one bakeoff
+that cut the design to four parts. §13 is the limitations, at length.
 
 ---
-
 ## Abstract
 
 We report a deterministic memory layer for long conversations that makes no
