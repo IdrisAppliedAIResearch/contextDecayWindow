@@ -13,3 +13,9 @@ flowchart TD
     end
     STORE -.-> GATE{"Start-up check<br/>Re-measure one fixed sentence and<br/>compare it to what was saved"}
     GATE -.->|"they differ"| HALT["Refuse to open<br/>The saved numbers can no longer be trusted"]
+
+    classDef store fill:#16273d,stroke:#6aa2e0,color:#cfe2fb;
+    classDef guard fill:#22262a,stroke:#9aa5ab,color:#d5dde2;
+
+    class STORE store;
+    class GATE,HALT guard;

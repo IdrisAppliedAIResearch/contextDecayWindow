@@ -108,8 +108,11 @@ system does not behave the way its own naming suggests.
 
 ![How remembering works](docs/diagrams/how_it_works_remembering.png)
 
-*Diagram sources: [`docs/diagrams/`](docs/diagrams/). Regenerate with
-`npx @mermaid-js/mermaid-cli -i <file>.mmd -o <file>.png -b white -w 1600`.*
+*Diagram sources: [`docs/diagrams/`](docs/diagrams/). Regenerate with*
+`npx @mermaid-js/mermaid-cli -i <file>.mmd -o <file>.png -t dark -b "#0d1117" -w 1600`
+
+*The canvas is `#0d1117`, GitHub's dark-mode background, so the diagrams sit
+flush against the page there rather than showing as a panel.*
 
 ## Current State of Work
 
