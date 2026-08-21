@@ -82,9 +82,15 @@ records that resolve no evidence at all. Copying NF-004's population across
 would have quietly changed what was measured.
 
 **A1's ceiling can exceed the reader's window.** Holdout conversations run
-45,616 to 90,034 characters. At a 32,768-token context that is roughly 11k to
-22k tokens, so the longest conversations sit close to the limit once the prompt
-is added. A1 is given an explicit character allowance and **records any
+45,984 to 90,713 characters as delivered, so the longest sit close to a
+32,768-token window once the prompt is added.
+
+**Corrected 2026-08-20.** An earlier draft of this paragraph said 45,616 to
+90,034. That figure summed the per-turn renderings and omitted the newline
+joining them, so it understated the string the reader actually receives by one
+character per turn. The delivered figure is the one that binds, because the
+budget is `len()` of the delivered string. Caught by the paper's number-trace
+gate, not by review. A1 is given an explicit character allowance and **records any
 shortfall on the block**: a ceiling that silently truncates is not a ceiling,
 and an unmarked one would understate every other arm's gap to it.
 

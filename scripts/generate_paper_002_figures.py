@@ -252,7 +252,7 @@ def figure_1() -> None:
         fontsize=9.6, loc="left",
     )
 
-    save(fig, "f1_sealed_holdout")
+    save(fig, "f3_sealed_holdout")
 
 
 # --------------------------------------------------------------------------
@@ -357,7 +357,7 @@ def figure_2() -> None:
         fontsize=10, loc="left",
     )
 
-    save(fig, "f2_granularity_three_corpora")
+    save(fig, "f4_granularity_three_corpora")
 
 
 # --------------------------------------------------------------------------
@@ -601,7 +601,7 @@ def figure_3() -> None:
         ax2.text(0.72, y, reason, ha="left", va="center", fontsize=7.8,
                  color=BLACK)
 
-    save(fig, "f3_mechanisms_against_bars")
+    save(fig, "f5_mechanisms_against_bars")
 
 
 def _graveyard_rows() -> list[tuple[str, str, str]]:
@@ -742,7 +742,7 @@ def figure_4() -> None:
         fontsize=7.8, color=BLACK, ha="right", va="top",
     )
 
-    save(fig, "f4_packing_priority_gate")
+    save(fig, "f6_packing_priority_gate")
 
 
 # --------------------------------------------------------------------------
@@ -930,7 +930,7 @@ def figure_5() -> None:
         "results sorted by evidentiary standing", fontsize=10.5, x=0.09,
         ha="left", y=0.965,
     )
-    save(fig, "f5_standing_ladder")
+    save(fig, "f7_standing_ladder")
 
 
 # --------------------------------------------------------------------------
@@ -1003,7 +1003,7 @@ def figure_6() -> None:
     ax.set_ylim(0, 17.2)
     ax.set_xlabel("characters spent (exact serialized cost)")
     ax.set_ylabel("Q11 target facts delivered")
-    save(fig, "f6_budget_efficiency_gap")
+    save(fig, "f8_budget_efficiency_gap")
 
 
 # --------------------------------------------------------------------------
@@ -1128,7 +1128,7 @@ def figure_7() -> None:
                  color=PURPLE, fontweight="bold", ha="right")
 
     fig.subplots_adjust(wspace=0.34)
-    save(fig, "f7_growth_and_cost")
+    save(fig, "f9_growth_and_cost")
 
 
 def write_manifest() -> None:
