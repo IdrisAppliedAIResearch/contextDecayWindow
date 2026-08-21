@@ -1,0 +1,40 @@
+flowchart TD
+
+    subgraph READ["REMEMBERING — happens before every reply"]
+        direction TB
+        Q["You send a new message"] --> QE["Turn your message into<br/>the same kind of numbers"]
+        ALL["Load every exchange ever stored"]
+        QE --> REL["Score every stored exchange<br/>against what you just asked"]
+        ALL --> REL
+
+        REL --> KTEST{"Does it score<br/>at least 0.48?"}
+        ALL --> POOL["Everything stays eligible<br/>Nothing is filtered out beforehand"]
+        REL ~~~ POOL
+
+        KTEST -->|"no"| KDROP["Passed over"]
+        POOL --> CLUST["Sort the exchanges into 16 topic groups<br/>Same grouping every time — no randomness"]
+
+        ALL --> TIERN["RECENT<br/>The last 32 exchanges, in order.<br/>No scoring involved."]
+        KTEST -->|"yes"| TIERK["RELATED<br/>Exchanges that clear the bar"]
+        CLUST --> A3["SPREAD<br/>Take the best-scoring exchanges, with a small<br/>bonus for touching a topic not covered yet.<br/>Chooses as if it had the whole box to itself."]
+        CLUST ~~~ TIERN
+        CLUST ~~~ TIERK
+
+        TIERN --> PACK
+        TIERK --> PACK
+        A3 --> PACK["FILL THE BOX — recent first, then related, then spread<br/>Each one charged its true size once written out.<br/>Too big to fit? Skip it and carry on down the list."]
+
+        PACK --> CEIL{"Does it all fit<br/>in 32,000 characters?"}
+        CEIL -->|"no"| ERR["Stop. The limit is never exceeded,<br/>under any circumstances."]
+        CEIL -->|"yes"| RENDER["Write it out as two labelled sections:<br/>what was recent, and what was dug up"]
+        RENDER --> OUT["Handed to the model as part of its prompt"]
+        PACK --> REP["A receipt<br/>What went in, what was dropped, why,<br/>how many came from each of the three routes"]
+    end
+
+    classDef broken fill:#fdecea,stroke:#c0392b,stroke-width:2px,color:#7b1f14;
+    classDef store fill:#eef2f7,stroke:#41689a,color:#1e3a5f;
+    classDef guard fill:#f3f4f0,stroke:#8a9490,color:#3d4744;
+
+    class KTEST,PACK broken;
+    class STORE store;
+    class GATE,CEIL,HALT,ERR guard;

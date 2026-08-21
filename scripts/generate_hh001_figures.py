@@ -212,7 +212,7 @@ def figure_head_to_head() -> Path:
             int(spent["A3_MEM0"]), ingest["total_generative_calls"],
             ingest["total_seconds"] / 60, coverage * 100),
         xy=(1, spent["A3_MEM0"] / 1e6),
-        xytext=(1.08, spent["A3_MEM0"] / 1e6 * 0.58),
+        xytext=(2.05, spent["A3_MEM0"] / 1e6 * 0.62),
         fontsize=9, color=BLACK,
         bbox=dict(boxstyle="round,pad=0.4", facecolor="white",
                   edgecolor=GREY, linewidth=0.7),
