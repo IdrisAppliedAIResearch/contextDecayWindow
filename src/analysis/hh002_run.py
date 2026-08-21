@@ -413,6 +413,15 @@ def build_arms(names: Sequence[str], budget: int) -> list[Arm]:
     catalogue: dict[str, Arm] = {
         "A_FULL": FullContextArm(),
         "A_RAG": RagArm(),
+        # Post-hoc G-CTRL diagnostics, added after A_RAG missed its target.
+        # The published row is "RAG (best variant)" - the top of a sweep the
+        # paper does not fully specify - and the Makefile's run-rag recipe
+        # (500/k=1) is one point in it, not necessarily the best. These
+        # bracket the sweep. They are diagnostic and carry no claim about
+        # this component; see HH_002_RESULTS.md.
+        "A_RAG_1000_K1": RagArm(chunk_tokens=1000, k=1),
+        "A_RAG_1000_K2": RagArm(chunk_tokens=1000, k=2),
+        "A_RAG_500_K4": RagArm(chunk_tokens=500, k=4),
         "A_NONE": NoMemoryArm(),
         "A_CDW": CdwArm(budget=budget, with_timestamps=True, name="A_CDW"),
         "A_CDW_NOTS": CdwArm(
