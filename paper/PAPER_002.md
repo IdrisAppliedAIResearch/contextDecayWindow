@@ -378,7 +378,7 @@ obtained, before anyone looks at what they say.
 
 ### 4.1 The standing taxonomy
 
-Five levels, separated by **when the claim was committed relative to the number**,
+Six levels, separated by **when the claim was committed relative to the number**,
 not by how the number was computed. Determinism is cheap; commitment order is what a
 result cannot buy back afterwards.
 

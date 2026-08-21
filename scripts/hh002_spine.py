@@ -33,7 +33,13 @@ from analysis.hh002_analysis import (  # noqa: E402
 from analysis.hh002_harness import UPSTREAM, VENDOR_DIGESTS  # noqa: E402
 from analysis.hh002_run import ARTIFACTS, INHERITED, PUBLISHED, score  # noqa: E402
 
-ARMS = ["A_FULL", "A_CDW", "A_CDW_NOTS", "A_RAG", "A_NONE"]
+#: Registered arms first, then the post-hoc RAG sweep.  The sweep is
+#: DESCRIPTIVE: it was added after A_RAG missed its target, to establish that
+#: the published "RAG (best variant)" row names a family rather than a
+#: configuration.  It carries no claim about this component.
+REGISTERED_ARMS = ["A_FULL", "A_CDW", "A_CDW_NOTS", "A_RAG", "A_NONE"]
+SWEEP_ARMS = ["A_RAG_1000_K1", "A_RAG_1000_K2", "A_RAG_500_K4"]
+ARMS = REGISTERED_ARMS + SWEEP_ARMS
 
 
 def digest(path: Path) -> str:
@@ -101,13 +107,20 @@ def main(argv: list[str] | None = None) -> int:
 
     # -- the numbers ------------------------------------------------------
     w("## 3. Scores\n")
-    w("| Arm | llm_score | f1 | exact_match | n | malformed judgements |")
-    w("|---|---:|---:|---:|---:|---:|")
+    w("Standing follows commitment order, not determinism. The five registered")
+    w("arms were named in `HH_002_PRE_REGISTRATION.md` §5 before the first")
+    w("generation call; the sweep was added after `A_RAG` missed its target and")
+    w("is DESCRIPTIVE.\n")
+    w("| Arm | llm_score | f1 | exact_match | n | malformed | Standing |")
+    w("|---|---:|---:|---:|---:|---:|---|")
     for arm in available:
         result = score(list(load_judged(arm, base=base).values()))
+        standing = (
+            "REGISTERED-LIVE" if arm in REGISTERED_ARMS else "DESCRIPTIVE"
+        )
         w(f"| `{arm}` | {result['llm_score']*100:.2f}% | {result['f1']:.4f} | "
           f"{result['exact_match']:.4f} | {result['n']} | "
-          f"{result['malformed_judgements']} |")
+          f"{result['malformed_judgements']} | {standing} |")
     w("")
 
     # -- gate -------------------------------------------------------------
@@ -147,11 +160,23 @@ def main(argv: list[str] | None = None) -> int:
 
     # -- contrasts --------------------------------------------------------
     w("## 5. Paired contrasts\n")
-    w("| Treatment | Control | Endpoint | Delta (pts) | Gains | Losses | Ties | p |")
-    w("|---|---|---|---:|---:|---:|---:|---:|")
+    w("`p` is one-sided for the named treatment beating the named control, so a")
+    w("row whose treatment lost reads `p = 1`. Both directions of the")
+    w("`A_CDW`/`A_FULL` contrast are printed because the paper quotes the")
+    w("component-favouring one, and a spine that held only the losing direction")
+    w("would leave that quotation untraceable.\n")
+    w("**Registered vs post-hoc.** `HH_002_PRE_REGISTRATION.md` §7 registers one")
+    w("directional claim: `A_CDW` > `A_RAG`. Every other row here is post-hoc.")
+    w("`A_CDW` > `A_FULL` is emphatically post-hoc - §10 prediction 4 predicted")
+    w("the opposite sign, that the component would land *below* full context.\n")
+    w("| Treatment | Control | Endpoint | Delta (pts) | Gains | Losses | Ties | p | Standing |")
+    w("|---|---|---|---:|---:|---:|---:|---:|---|")
+    registered = {("A_CDW", "A_RAG")}
     for treatment, control in [
-        ("A_CDW", "A_RAG"), ("A_CDW", "A_NONE"), ("A_FULL", "A_CDW"),
+        ("A_CDW", "A_RAG"), ("A_CDW", "A_NONE"),
+        ("A_CDW", "A_FULL"), ("A_FULL", "A_CDW"),
         ("A_CDW", "A_CDW_NOTS"), ("A_FULL", "A_RAG"),
+        ("A_CDW", "A_RAG_500_K4"), ("A_RAG_500_K4", "A_RAG_1000_K2"),
     ]:
         if treatment not in available or control not in available:
             continue
@@ -160,10 +185,13 @@ def main(argv: list[str] | None = None) -> int:
                 contrast = paired(treatment, control, endpoint, base)
             except HH002AnalysisError:
                 continue
+            standing = ("REGISTERED-LIVE"
+                        if (treatment, control) in registered
+                        else "post-hoc")
             w(f"| `{treatment}` | `{control}` | {endpoint} | "
               f"{contrast.delta*100:+.2f} | {contrast.gains} | "
               f"{contrast.losses} | {contrast.ties} | "
-              f"{contrast.p_one_sided:.4g} |")
+              f"{contrast.p_one_sided:.4g} | {standing} |")
     w("")
 
     # -- cost -------------------------------------------------------------
