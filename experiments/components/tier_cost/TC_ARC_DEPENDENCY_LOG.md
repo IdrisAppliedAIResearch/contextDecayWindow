@@ -1,7 +1,7 @@
 # TC Arc — Dependency Log
 
 **Document type:** Standing procedure and running record
-**Status:** `OPEN — TC-001 and TC-001B have reported; TC-002 through TC-006 have not`
+**Status:** `OPEN — TC-001, TC-001B and TC-002 have reported; TC-003 through TC-006 have not`
 **Governs:** `TC_ARC_ROADMAP.md` Rule 4
 
 ---
@@ -62,6 +62,7 @@ face, without needing anyone to relitigate the science.
 | 2026-08-21 | Arc drafted | RUNNABLE | RUNNABLE | RUNNABLE | RUNNABLE | RUNNABLE | RUNNABLE |
 | 2026-08-22 | TC-001 reported `D3 FLAT_WINS` | REPORTED | RUNNABLE | RUNNABLE | RUNNABLE | RUNNABLE | RUNNABLE |
 | 2026-08-22 | TC-001B reported `C1 D3 FLAT_WINS` | REPORTED | RUNNABLE | RUNNABLE | RUNNABLE | RUNNABLE | RUNNABLE |
+| 2026-08-22 | TC-002 reported `C1 D1 K_FIRST_WINS` | REPORTED | REPORTED | RUNNABLE | RUNNABLE | RUNNABLE | RUNNABLE |
 
 **Re-read of 2026-08-22.** Triggered by TC-001 reporting. Every line below was
 read from `TC_ARC_ROADMAP.md` rather than from memory or from this file's
@@ -114,6 +115,44 @@ members in. Reserved floors address the first and not the second. That makes
 TC-003 more interesting to run and changes no dependency line — under Rule 1
 there is no arc-level clause to inherit, and TC-003's own expiry condition
 (Rule 3) reads `none`, so there is nothing outstanding for it to wait on.
+
+**Re-read of 2026-08-22, third.** Triggered by TC-002 reporting. Every line
+below was read from `TC_ARC_ROADMAP.md` again, from the file rather than from
+the two rows above it.
+
+| Study | Dependency line, as written | Verdict | Why |
+|---|---|---|---|
+| TC-003 | The tier boundaries must be identifiable in the delivered block | `RUNNABLE` | Satisfied by `ContextReport`, and TC-002 attributes carried evidence to a tier on all 871 questions for four separate configurations, at two budgets |
+| TC-004 | A corpus with span-level evidence labels | `RUNNABLE` | LongMemEval turn labels and LoCoMo evidence dialogue ids both persist. Untouched by TC-002 |
+| TC-005 | A pool-size-versus-latency series over the current implementation | `RUNNABLE` | `PAPER_002.md` §10's series persists; TC-002 adds per-question latency for five configurations at pools of 323 to 355, including the first measurement of what reordering the fill costs (1 to 3 ms) |
+| TC-006 | Two frozen contexts of known margin, and an instrument finer than that margin | `RUNNABLE` | Unchanged for the second clause, which is TC-006's own first task. The first clause is now easier to satisfy than it was: TC-002 supplies four frozen delivered contexts per question over the same query set, separated by measured margins of 45, 110 and 111 questions |
+
+**No study is `BLOCKED`, and TC-002's verdict could not block one.** A verdict
+is not an artifact.
+
+**What changed, and none of it is a block.**
+
+**TC-003** proposes reserved floors so that allocation stops depending on tier
+order. TC-002 measured what changing that order is worth on this corpus and got
+**45 questions**, against **111** for changing the order *within* the K tier.
+Floors address the first quantity. TC-003 is now the third study in a row to
+find the between-tier lever smaller than the within-tier one, which makes it
+more worth running and changes no dependency line.
+
+**TC-006's** first clause is closer to satisfied than the roadmap assumed. It
+requires "two frozen delivered contexts over the same query set that differ in
+evidence availability by a known margin," and it named EC-002's replay
+artifacts. TC-002's per-question CSVs now supply five arms over 871 questions at
+two budgets with registered margins, which is a wider choice of contrast pair
+than EC-002 alone offered. This does not touch the second clause — the
+instrument's spread is still unmeasured, and measuring it is still TC-006's own
+first task.
+
+**One decision is now closed rather than open.** `TC_ARC_ROADMAP.md` §10 item 4
+asked whether TC-002's result, if positive, ships immediately or waits for
+TC-003. TC-002's registration §0 decided it before the run: **it does not ship
+on this result.** The result is positive and the decision stands. That item is
+retired, not deferred.
 
 **Initial state, 2026-08-21.** All six dependency lines name artifacts that
 exist, with one exception recorded here rather than as a block: TC-006's second
