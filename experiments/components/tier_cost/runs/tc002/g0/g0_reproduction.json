@@ -1,0 +1,127 @@
+{
+  "claim": "A_FLAT and A_N_FIRST reproduce TC-001's committed primary and secondary tables exactly, and every EC-002 mechanism file is byte-identical to the revision that produced EC-002's result.",
+  "ec002_provenance": {
+    "claim": "Every file on the K-first path is byte-identical to the revision that produced EC-002's committed 152-gain, zero-loss result.",
+    "ec002_run_commit": "caa19f524e67417843ecc63b2934137f51445539",
+    "status": "PASS",
+    "unchanged_since_ec002_run": {
+      "episodic/src/episodic/_context.py": true,
+      "episodic/src/episodic/_packing.py": true,
+      "episodic/src/episodic/_render.py": true,
+      "episodic/src/episodic/_selection.py": true,
+      "src/analysis/ec001_longmemeval.py": true,
+      "src/analysis/ec002_k_first_packing.py": true
+    }
+  },
+  "gate": "G0",
+  "mismatches": [],
+  "rows": [
+    {
+      "agrees": true,
+      "budget_chars": 16000,
+      "committed_artifact": [
+        749,
+        314,
+        8,
+        443,
+        -435
+      ],
+      "endpoint": "complete",
+      "recomputed": [
+        749,
+        314,
+        8,
+        443,
+        -435
+      ],
+      "registered": [
+        749,
+        314,
+        8,
+        443,
+        -435
+      ]
+    },
+    {
+      "agrees": true,
+      "budget_chars": 16000,
+      "committed_artifact": [
+        803,
+        381,
+        8,
+        430,
+        -422
+      ],
+      "endpoint": "any",
+      "recomputed": [
+        803,
+        381,
+        8,
+        430,
+        -422
+      ],
+      "registered": [
+        803,
+        381,
+        8,
+        430,
+        -422
+      ]
+    },
+    {
+      "agrees": true,
+      "budget_chars": 32000,
+      "committed_artifact": [
+        810,
+        633,
+        7,
+        184,
+        -177
+      ],
+      "endpoint": "complete",
+      "recomputed": [
+        810,
+        633,
+        7,
+        184,
+        -177
+      ],
+      "registered": [
+        810,
+        633,
+        7,
+        184,
+        -177
+      ]
+    },
+    {
+      "agrees": true,
+      "budget_chars": 32000,
+      "committed_artifact": [
+        842,
+        687,
+        9,
+        164,
+        -155
+      ],
+      "endpoint": "any",
+      "recomputed": [
+        842,
+        687,
+        9,
+        164,
+        -155
+      ],
+      "registered": [
+        842,
+        687,
+        9,
+        164,
+        -155
+      ]
+    }
+  ],
+  "schema": "tc002-fill-order-transfer-v1",
+  "status": "PASS",
+  "tc001_summary_sha256": "e594dadeedf60b1ee06d9e720ad2c42822e4b9815695d47dc4be413df7d52151"
+}
