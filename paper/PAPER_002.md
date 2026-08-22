@@ -2,8 +2,8 @@
 
 ### 79.09% on the benchmark Mem0 published, at a sixth of the tokens, with no generative calls
 
-**Idris Applied AI Research** — independent, non-profit
-Repository: `contextDecayWindow` · Licence: CC BY 4.0
+**Idris Applied AI Research** — independent
+Repository: `contextDecayWindow` · Licence: AGPL-3.0-or-later, or commercial — see `LICENSING.md`
 Preprint — PAPER-002 · supersedes PAPER-001
 
 ---
