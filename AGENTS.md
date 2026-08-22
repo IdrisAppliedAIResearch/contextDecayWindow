@@ -98,6 +98,8 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **NF-008 live reader validation (2026-08-13).** DESIGN ONLY; NOT REGISTERED OR RUNNABLE. Proposed comparison: frozen NF-006 C0 12/17 vs T1 14/17 using 17 item-level fact-use counts and >=5 replicates/arm. Reader, exact prompt, schedule, scorer, targeted scope, statistic and bars remain open. No implementation or inference authorized.
 
+**TC-001 tiered vs flat (2026-08-22).** D3 FLAT_WINS, REGISTERED-OFFLINE. Identical candidates/vectors/renderer/packer, 16k, 868 LoCoMo dev questions: complete evidence 749 flat vs 314 tiered, 8 gains/443 losses, p=6.98e-120 vs band 4; 32k narrows to -177. Recency takes 32/32 and 61% of chars; coverage carries evidence on 8/871. K filters by cosine, delivers in store order. Availability only.
+
 **PS-001 pattern-separated engram formation (2026-08-11).** CHARACTERIZED. Nine deterministic sparse cells on 119 episodes; only D=4096,K=41 passed G3-G5: 119/119 fixed points and exact 1/10/30/50% swap recovery. Six of seven degenerates reached stored codes; the union-biased cue cycled. Code-space result only; no natural cue, retrieval, live run, promotion, or adoption.
 
 **PS-002 natural-language cue binding (2026-08-11).** STOP AT PART 1; NATURAL_CUES_NOT_BOUND, CHARACTERIZED. Nine label-blind cells ran 24 sealed queries x8 rounds. Best M=4,tau=.025 reached stored codes 190/192 but one cue cycled and one reached a spurious fixed point; no cell emitted 8 clean ids/query. Labels, PF1-PF10, answers, live run, promotion and adoption not entered.
