@@ -1,0 +1,233 @@
+{
+  "budgets": {
+    "16000": {
+      "budget_chars": 16000,
+      "contrasts": {
+        "floors_dual_vs_dual": {
+          "any_evidence": {
+            "concordant_pairs": 588,
+            "discordant_pairs": 283,
+            "largest_attainable_abs_margin": 283,
+            "smallest_one_sided_exact_p_at_this_n": 6.434446986835036e-86
+          },
+          "complete_evidence": {
+            "concordant_pairs": 585,
+            "discordant_pairs": 286,
+            "largest_attainable_abs_margin": 286,
+            "smallest_one_sided_exact_p_at_this_n": 8.043058733543795e-87
+          }
+        },
+        "floors_dual_vs_dual_ranked": {
+          "any_evidence": {
+            "concordant_pairs": 839,
+            "discordant_pairs": 32,
+            "largest_attainable_abs_margin": 32,
+            "smallest_one_sided_exact_p_at_this_n": 2.3283064365386963e-10
+          },
+          "complete_evidence": {
+            "concordant_pairs": 825,
+            "discordant_pairs": 46,
+            "largest_attainable_abs_margin": 46,
+            "smallest_one_sided_exact_p_at_this_n": 1.4210854715202004e-14
+          }
+        },
+        "floors_dual_vs_flat": {
+          "any_evidence": {
+            "concordant_pairs": 837,
+            "discordant_pairs": 34,
+            "largest_attainable_abs_margin": 34,
+            "smallest_one_sided_exact_p_at_this_n": 5.820766091346741e-11
+          },
+          "complete_evidence": {
+            "concordant_pairs": 822,
+            "discordant_pairs": 49,
+            "largest_attainable_abs_margin": 49,
+            "smallest_one_sided_exact_p_at_this_n": 1.7763568394002505e-15
+          }
+        },
+        "floors_vs_flat": {
+          "any_evidence": {
+            "concordant_pairs": 794,
+            "discordant_pairs": 77,
+            "largest_attainable_abs_margin": 77,
+            "smallest_one_sided_exact_p_at_this_n": 6.617444900424222e-24
+          },
+          "complete_evidence": {
+            "concordant_pairs": 768,
+            "discordant_pairs": 103,
+            "largest_attainable_abs_margin": 103,
+            "smallest_one_sided_exact_p_at_this_n": 9.860761315262648e-32
+          }
+        },
+        "floors_vs_k_first": {
+          "any_evidence": {
+            "concordant_pairs": 558,
+            "discordant_pairs": 313,
+            "largest_attainable_abs_margin": 313,
+            "smallest_one_sided_exact_p_at_this_n": 5.992545734006014e-95
+          },
+          "complete_evidence": {
+            "concordant_pairs": 550,
+            "discordant_pairs": 321,
+            "largest_attainable_abs_margin": 321,
+            "smallest_one_sided_exact_p_at_this_n": 2.3408381773460992e-97
+          }
+        },
+        "floors_vs_n_first": {
+          "any_evidence": {
+            "concordant_pairs": 486,
+            "discordant_pairs": 385,
+            "largest_attainable_abs_margin": 385,
+            "smallest_one_sided_exact_p_at_this_n": 1.2689709186578246e-116
+          },
+          "complete_evidence": {
+            "concordant_pairs": 499,
+            "discordant_pairs": 372,
+            "largest_attainable_abs_margin": 372,
+            "smallest_one_sided_exact_p_at_this_n": 1.03954097656449e-112
+          }
+        }
+      },
+      "evaluable_questions": 871,
+      "invariance_instrument": {
+        "claim": "The first count is what makes a service-order invariance result meaningful: it is the number of questions on which the same allocator, with its floors removed, does depend on the order. The second is what makes an ownership-order result meaningful: with no overlap there is nothing for ownership to decide and invariance would be vacuous.",
+        "questions_where_a_candidate_is_in_two_tiers": {
+          "floors": 871,
+          "floors_dual": 871
+        },
+        "questions_where_the_zero_floor_control_separates_orders": {
+          "floors": 871,
+          "floors_dual": 633
+        },
+        "service_permutations_compared": 6
+      }
+    },
+    "32000": {
+      "budget_chars": 32000,
+      "contrasts": {
+        "floors_dual_vs_dual": {
+          "any_evidence": {
+            "concordant_pairs": 759,
+            "discordant_pairs": 112,
+            "largest_attainable_abs_margin": 112,
+            "smallest_one_sided_exact_p_at_this_n": 1.925929944387236e-34
+          },
+          "complete_evidence": {
+            "concordant_pairs": 749,
+            "discordant_pairs": 122,
+            "largest_attainable_abs_margin": 122,
+            "smallest_one_sided_exact_p_at_this_n": 1.88079096131566e-37
+          }
+        },
+        "floors_dual_vs_dual_ranked": {
+          "any_evidence": {
+            "concordant_pairs": 862,
+            "discordant_pairs": 9,
+            "largest_attainable_abs_margin": 9,
+            "smallest_one_sided_exact_p_at_this_n": 0.001953125
+          },
+          "complete_evidence": {
+            "concordant_pairs": 862,
+            "discordant_pairs": 9,
+            "largest_attainable_abs_margin": 9,
+            "smallest_one_sided_exact_p_at_this_n": 0.001953125
+          }
+        },
+        "floors_dual_vs_flat": {
+          "any_evidence": {
+            "concordant_pairs": 861,
+            "discordant_pairs": 10,
+            "largest_attainable_abs_margin": 10,
+            "smallest_one_sided_exact_p_at_this_n": 0.0009765625
+          },
+          "complete_evidence": {
+            "concordant_pairs": 859,
+            "discordant_pairs": 12,
+            "largest_attainable_abs_margin": 12,
+            "smallest_one_sided_exact_p_at_this_n": 0.000244140625
+          }
+        },
+        "floors_vs_flat": {
+          "any_evidence": {
+            "concordant_pairs": 822,
+            "discordant_pairs": 49,
+            "largest_attainable_abs_margin": 49,
+            "smallest_one_sided_exact_p_at_this_n": 1.7763568394002505e-15
+          },
+          "complete_evidence": {
+            "concordant_pairs": 803,
+            "discordant_pairs": 68,
+            "largest_attainable_abs_margin": 68,
+            "smallest_one_sided_exact_p_at_this_n": 3.3881317890172014e-21
+          }
+        },
+        "floors_vs_k_first": {
+          "any_evidence": {
+            "concordant_pairs": 736,
+            "discordant_pairs": 135,
+            "largest_attainable_abs_margin": 135,
+            "smallest_one_sided_exact_p_at_this_n": 2.2958874039497803e-41
+          },
+          "complete_evidence": {
+            "concordant_pairs": 716,
+            "discordant_pairs": 155,
+            "largest_attainable_abs_margin": 155,
+            "smallest_one_sided_exact_p_at_this_n": 2.1895288505075267e-47
+          }
+        },
+        "floors_vs_n_first": {
+          "any_evidence": {
+            "concordant_pairs": 703,
+            "discordant_pairs": 168,
+            "largest_attainable_abs_margin": 168,
+            "smallest_one_sided_exact_p_at_this_n": 2.6727647100921956e-51
+          },
+          "complete_evidence": {
+            "concordant_pairs": 684,
+            "discordant_pairs": 187,
+            "largest_attainable_abs_margin": 187,
+            "smallest_one_sided_exact_p_at_this_n": 5.0978941156238473e-57
+          }
+        }
+      },
+      "evaluable_questions": 871,
+      "invariance_instrument": {
+        "claim": "The first count is what makes a service-order invariance result meaningful: it is the number of questions on which the same allocator, with its floors removed, does depend on the order. The second is what makes an ownership-order result meaningful: with no overlap there is nothing for ownership to decide and invariance would be vacuous.",
+        "questions_where_a_candidate_is_in_two_tiers": {
+          "floors": 871,
+          "floors_dual": 871
+        },
+        "questions_where_the_zero_floor_control_separates_orders": {
+          "floors": 871,
+          "floors_dual": 351
+        },
+        "service_permutations_compared": 6
+      }
+    }
+  },
+  "contrasts": [
+    "floors_vs_n_first",
+    "floors_vs_k_first",
+    "floors_vs_flat",
+    "floors_dual_vs_dual",
+    "floors_dual_vs_dual_ranked",
+    "floors_dual_vs_flat"
+  ],
+  "inputs": {
+    "cache_content_sha256": "e103b2933ee9ec7b8e9236f43037797618da524e413b83a9f3973a19d28b1b2a",
+    "cache_file_sha256": "2ba617018a1b043bf439bb50e756191d8141fb7ca01a2e4a68c9eb822eba26f8",
+    "cache_misses": 0,
+    "dataset_sha256": "79fa87e90f04081343b8c8debecb80a9a6842b76a7aa537dc9fdf651ea698ff4",
+    "sources": {
+      "src/analysis/ec002_k_first_packing.py": "bd0c8e6a343ad385a37dffc43068b19f9055531d25031540e1bc44af48ec6afc",
+      "src/analysis/tc001_exploration.py": "83d59ca3121bcc117d5003d3c3bf5cbaf05657658fd2c144ffa737ba2f1c019f",
+      "src/analysis/tc001b_exploration.py": "8d5085d22c953fab1bc3e495345d1268b56d60752383cf9b5e06979f8f829e68",
+      "src/analysis/tc002_exploration.py": "9f374c201249eea7ab632f1cf7c5865cba3c0fb29b4dc7d05adae0c94072b574",
+      "src/analysis/tc003_exploration.py": "6282463b2828df7200fea0b1f2f45c9bd684ea9b8b2cd9cdff7c218df65ec8c3",
+      "src/analysis/tc003_reachability.py": "8ce868f7853bcc28cd6be1d1060a8ae771b7a4939cf220ff26071955362f4c8c"
+    }
+  },
+  "note": "Discordant counts and instrument reachability only. The direction of disagreement is not computed here and must not be, until the bars are committed. Whether the floors arm is order-invariant is the study's result and is not reported here.",
+  "schema": "tc003-preflight-pf4-reachability-v1",
+  "status": "PREFLIGHT_PF4_ONLY"
+}

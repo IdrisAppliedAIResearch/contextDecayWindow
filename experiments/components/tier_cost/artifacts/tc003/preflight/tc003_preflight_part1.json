@@ -1,0 +1,1836 @@
+{
+  "corpus": {
+    "conversations": 4,
+    "empty_payload_chars": 35,
+    "episodes": {
+      "conv-41": 340,
+      "conv-42": 323,
+      "conv-47": 355,
+      "conv-48": 347
+    },
+    "evaluable_questions": 871
+  },
+  "cost": {
+    "allocate_ms": {
+      "max": 17.438,
+      "mean": 5.019,
+      "median": 3.051,
+      "min": 1.671,
+      "n": 160,
+      "p95": 13.522
+    },
+    "budget_chars": 16000,
+    "build_candidate_state_ms": {
+      "max": 110.613,
+      "mean": 91.252,
+      "median": 90.93,
+      "min": 82.867,
+      "n": 160,
+      "p95": 104.524
+    },
+    "questions": 160
+  },
+  "elapsed_seconds": 3151.814,
+  "floor_rule": {
+    "dual_config": "0, 1/2, 1/2 - the recency tier is empty",
+    "free_parameters": 0,
+    "name": "equal_shares_among_populated_tiers",
+    "populated_read_from": "tier membership, before ownership",
+    "shipped_config": "1/3 each when all three tiers are populated"
+  },
+  "inputs": {
+    "cache": {
+      "bytes": 10821632,
+      "call_shape": "solo",
+      "content_sha256": "e103b2933ee9ec7b8e9236f43037797618da524e413b83a9f3973a19d28b1b2a",
+      "dimension": 1024,
+      "dtype": "float32",
+      "entries": 2236,
+      "file_sha256": "2ba617018a1b043bf439bb50e756191d8141fb7ca01a2e4a68c9eb822eba26f8",
+      "hits": 0,
+      "misses": 2236,
+      "mode": "populate",
+      "model_sha256": "06507c7b42688469c4e7298b0a1e16deff06caf291cf0a5b278c308249c3e439",
+      "path": "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\external\\locomo\\artifacts\\locomo_dev_embeddings.db"
+    },
+    "cache_reuse": {
+      "bytes": 10821632,
+      "call_shape": "solo",
+      "content_sha256": "e103b2933ee9ec7b8e9236f43037797618da524e413b83a9f3973a19d28b1b2a",
+      "dimension": 1024,
+      "dtype": "float32",
+      "entries": 2236,
+      "file_sha256": "2ba617018a1b043bf439bb50e756191d8141fb7ca01a2e4a68c9eb822eba26f8",
+      "hits": 2247,
+      "misses": 0,
+      "mode": "reuse",
+      "model_sha256": "06507c7b42688469c4e7298b0a1e16deff06caf291cf0a5b278c308249c3e439",
+      "path": "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\external\\locomo\\artifacts\\locomo_dev_embeddings.db"
+    },
+    "dataset_sha256": "79fa87e90f04081343b8c8debecb80a9a6842b76a7aa537dc9fdf651ea698ff4",
+    "embedder_sha256": "06507c7b42688469c4e7298b0a1e16deff06caf291cf0a5b278c308249c3e439",
+    "sources": {
+      "episodic/src/episodic/_context.py": "c817b3f303722cf08e0e111b26786160a1c8690c1bcfb71875554c849b7857e6",
+      "episodic/src/episodic/_packing.py": "c5011dada056fa0106544925c75d849c3d5b4857b6c5010ed4b604f9c3d2af04",
+      "episodic/src/episodic/_render.py": "d0bdc051695fe98064bad9ecc52afe0178bba1ba8a3edf7e3a1960d5f261cf6f",
+      "episodic/src/episodic/_selection.py": "990e7f84e7690c55350ff24bcc41e4486254c72145320da0bc08ae509e597265",
+      "src/analysis/ec002_k_first_packing.py": "bd0c8e6a343ad385a37dffc43068b19f9055531d25031540e1bc44af48ec6afc",
+      "src/analysis/tc003_exploration.py": "6282463b2828df7200fea0b1f2f45c9bd684ea9b8b2cd9cdff7c218df65ec8c3"
+    }
+  },
+  "note": "No arm's absolute availability appears in this artifact. The null band registered from it is derived from within-arm sham budget perturbations only, and the invariance sections report delivered-set identity, never evidence.",
+  "schema": "tc003-preflight-part1-v1",
+  "sham_band": {
+    "16000": {
+      "arms": [
+        "floors",
+        "floors_dual"
+      ],
+      "budget_chars": 16000,
+      "endpoints": [
+        "any",
+        "complete"
+      ],
+      "evaluable_questions": 871,
+      "max_abs_net": 3,
+      "perturbations": {
+        "floors": {
+          "any": [
+            {
+              "budget_chars": 16000,
+              "discordant": 4,
+              "fraction": -0.01,
+              "gains": 2,
+              "losses": 2,
+              "net": 0,
+              "nudged_budget_chars": 15840
+            },
+            {
+              "budget_chars": 16000,
+              "discordant": 4,
+              "fraction": -0.005,
+              "gains": 2,
+              "losses": 2,
+              "net": 0,
+              "nudged_budget_chars": 15920
+            },
+            {
+              "budget_chars": 16000,
+              "discordant": 2,
+              "fraction": 0.005,
+              "gains": 2,
+              "losses": 0,
+              "net": 2,
+              "nudged_budget_chars": 16080
+            },
+            {
+              "budget_chars": 16000,
+              "discordant": 4,
+              "fraction": 0.01,
+              "gains": 2,
+              "losses": 2,
+              "net": 0,
+              "nudged_budget_chars": 16160
+            }
+          ],
+          "complete": [
+            {
+              "budget_chars": 16000,
+              "discordant": 8,
+              "fraction": -0.01,
+              "gains": 3,
+              "losses": 5,
+              "net": -2,
+              "nudged_budget_chars": 15840
+            },
+            {
+              "budget_chars": 16000,
+              "discordant": 4,
+              "fraction": -0.005,
+              "gains": 3,
+              "losses": 1,
+              "net": 2,
+              "nudged_budget_chars": 15920
+            },
+            {
+              "budget_chars": 16000,
+              "discordant": 2,
+              "fraction": 0.005,
+              "gains": 2,
+              "losses": 0,
+              "net": 2,
+              "nudged_budget_chars": 16080
+            },
+            {
+              "budget_chars": 16000,
+              "discordant": 4,
+              "fraction": 0.01,
+              "gains": 2,
+              "losses": 2,
+              "net": 0,
+              "nudged_budget_chars": 16160
+            }
+          ]
+        },
+        "floors_dual": {
+          "any": [
+            {
+              "budget_chars": 16000,
+              "discordant": 1,
+              "fraction": -0.01,
+              "gains": 1,
+              "losses": 0,
+              "net": 1,
+              "nudged_budget_chars": 15840
+            },
+            {
+              "budget_chars": 16000,
+              "discordant": 0,
+              "fraction": -0.005,
+              "gains": 0,
+              "losses": 0,
+              "net": 0,
+              "nudged_budget_chars": 15920
+            },
+            {
+              "budget_chars": 16000,
+              "discordant": 1,
+              "fraction": 0.005,
+              "gains": 1,
+              "losses": 0,
+              "net": 1,
+              "nudged_budget_chars": 16080
+            },
+            {
+              "budget_chars": 16000,
+              "discordant": 1,
+              "fraction": 0.01,
+              "gains": 1,
+              "losses": 0,
+              "net": 1,
+              "nudged_budget_chars": 16160
+            }
+          ],
+          "complete": [
+            {
+              "budget_chars": 16000,
+              "discordant": 1,
+              "fraction": -0.01,
+              "gains": 1,
+              "losses": 0,
+              "net": 1,
+              "nudged_budget_chars": 15840
+            },
+            {
+              "budget_chars": 16000,
+              "discordant": 0,
+              "fraction": -0.005,
+              "gains": 0,
+              "losses": 0,
+              "net": 0,
+              "nudged_budget_chars": 15920
+            },
+            {
+              "budget_chars": 16000,
+              "discordant": 2,
+              "fraction": 0.005,
+              "gains": 2,
+              "losses": 0,
+              "net": 2,
+              "nudged_budget_chars": 16080
+            },
+            {
+              "budget_chars": 16000,
+              "discordant": 3,
+              "fraction": 0.01,
+              "gains": 3,
+              "losses": 0,
+              "net": 3,
+              "nudged_budget_chars": 16160
+            }
+          ]
+        }
+      }
+    },
+    "32000": {
+      "arms": [
+        "floors",
+        "floors_dual"
+      ],
+      "budget_chars": 32000,
+      "endpoints": [
+        "any",
+        "complete"
+      ],
+      "evaluable_questions": 871,
+      "max_abs_net": 10,
+      "perturbations": {
+        "floors": {
+          "any": [
+            {
+              "budget_chars": 32000,
+              "discordant": 9,
+              "fraction": -0.01,
+              "gains": 3,
+              "losses": 6,
+              "net": -3,
+              "nudged_budget_chars": 31680
+            },
+            {
+              "budget_chars": 32000,
+              "discordant": 7,
+              "fraction": -0.005,
+              "gains": 3,
+              "losses": 4,
+              "net": -1,
+              "nudged_budget_chars": 31840
+            },
+            {
+              "budget_chars": 32000,
+              "discordant": 3,
+              "fraction": 0.005,
+              "gains": 3,
+              "losses": 0,
+              "net": 3,
+              "nudged_budget_chars": 32160
+            },
+            {
+              "budget_chars": 32000,
+              "discordant": 9,
+              "fraction": 0.01,
+              "gains": 9,
+              "losses": 0,
+              "net": 9,
+              "nudged_budget_chars": 32320
+            }
+          ],
+          "complete": [
+            {
+              "budget_chars": 32000,
+              "discordant": 8,
+              "fraction": -0.01,
+              "gains": 2,
+              "losses": 6,
+              "net": -4,
+              "nudged_budget_chars": 31680
+            },
+            {
+              "budget_chars": 32000,
+              "discordant": 6,
+              "fraction": -0.005,
+              "gains": 2,
+              "losses": 4,
+              "net": -2,
+              "nudged_budget_chars": 31840
+            },
+            {
+              "budget_chars": 32000,
+              "discordant": 3,
+              "fraction": 0.005,
+              "gains": 3,
+              "losses": 0,
+              "net": 3,
+              "nudged_budget_chars": 32160
+            },
+            {
+              "budget_chars": 32000,
+              "discordant": 10,
+              "fraction": 0.01,
+              "gains": 10,
+              "losses": 0,
+              "net": 10,
+              "nudged_budget_chars": 32320
+            }
+          ]
+        },
+        "floors_dual": {
+          "any": [
+            {
+              "budget_chars": 32000,
+              "discordant": 0,
+              "fraction": -0.01,
+              "gains": 0,
+              "losses": 0,
+              "net": 0,
+              "nudged_budget_chars": 31680
+            },
+            {
+              "budget_chars": 32000,
+              "discordant": 1,
+              "fraction": -0.005,
+              "gains": 0,
+              "losses": 1,
+              "net": -1,
+              "nudged_budget_chars": 31840
+            },
+            {
+              "budget_chars": 32000,
+              "discordant": 0,
+              "fraction": 0.005,
+              "gains": 0,
+              "losses": 0,
+              "net": 0,
+              "nudged_budget_chars": 32160
+            },
+            {
+              "budget_chars": 32000,
+              "discordant": 0,
+              "fraction": 0.01,
+              "gains": 0,
+              "losses": 0,
+              "net": 0,
+              "nudged_budget_chars": 32320
+            }
+          ],
+          "complete": [
+            {
+              "budget_chars": 32000,
+              "discordant": 0,
+              "fraction": -0.01,
+              "gains": 0,
+              "losses": 0,
+              "net": 0,
+              "nudged_budget_chars": 31680
+            },
+            {
+              "budget_chars": 32000,
+              "discordant": 1,
+              "fraction": -0.005,
+              "gains": 0,
+              "losses": 1,
+              "net": -1,
+              "nudged_budget_chars": 31840
+            },
+            {
+              "budget_chars": 32000,
+              "discordant": 1,
+              "fraction": 0.005,
+              "gains": 1,
+              "losses": 0,
+              "net": 1,
+              "nudged_budget_chars": 32160
+            },
+            {
+              "budget_chars": 32000,
+              "discordant": 1,
+              "fraction": 0.01,
+              "gains": 1,
+              "losses": 0,
+              "net": 1,
+              "nudged_budget_chars": 32320
+            }
+          ]
+        }
+      }
+    },
+    "band_definition": "The largest absolute gains-minus-losses any sham budget perturbation produced within a single floors arm, over both budgets and both endpoints. TC-001 measured 4, TC-001B 3, and TC-002 7 at 32,000 and 4 at 16,000 for the arms this study inherits; the registration takes the maximum over all of them at each budget.",
+    "max_abs_net": 10
+  },
+  "status": "PREFLIGHT_PART_1_EXPLORATION_ONLY",
+  "sweep": {
+    "16000": {
+      "floors": {
+        "behaviour": {
+          "allowance_chars": {
+            "c": {
+              "max": 5321,
+              "mean": 5321.0,
+              "median": 5321,
+              "min": 5321,
+              "n": 871,
+              "p25": 5321,
+              "p75": 5321
+            },
+            "k": {
+              "max": 5321,
+              "mean": 5321.0,
+              "median": 5321,
+              "min": 5321,
+              "n": 871,
+              "p25": 5321,
+              "p75": 5321
+            },
+            "n": {
+              "max": 5321,
+              "mean": 5321.0,
+              "median": 5321,
+              "min": 5321,
+              "n": 871,
+              "p25": 5321,
+              "p75": 5321
+            }
+          },
+          "chars_delivered": {
+            "max": 16000,
+            "mean": 15956.815,
+            "median": 15964,
+            "min": 15804,
+            "n": 871,
+            "p25": 15937,
+            "p75": 15985
+          },
+          "contest_admitted_nothing_questions": 9,
+          "contested_admitted": {
+            "c": {
+              "max": 22,
+              "mean": 0.823,
+              "median": 0,
+              "min": 0,
+              "n": 871,
+              "p25": 0,
+              "p75": 0
+            },
+            "k": {
+              "max": 26,
+              "mean": 11.51,
+              "median": 13,
+              "min": 0,
+              "n": 871,
+              "p25": 6,
+              "p75": 17
+            },
+            "n": {
+              "max": 5,
+              "mean": 0.933,
+              "median": 1,
+              "min": 0,
+              "n": 871,
+              "p25": 0,
+              "p75": 1
+            }
+          },
+          "delivered_by_tier": {
+            "c": {
+              "max": 52,
+              "mean": 6.873,
+              "median": 3,
+              "min": 0,
+              "n": 871,
+              "p25": 1,
+              "p75": 11
+            },
+            "k": {
+              "max": 47,
+              "mean": 29.299,
+              "median": 31,
+              "min": 1,
+              "n": 871,
+              "p25": 23,
+              "p75": 37
+            },
+            "n": {
+              "max": 24,
+              "mean": 17.937,
+              "median": 18,
+              "min": 16,
+              "n": 871,
+              "p25": 17,
+              "p75": 19
+            }
+          },
+          "episodes_delivered": {
+            "max": 74,
+            "mean": 54.108,
+            "median": 54,
+            "min": 42,
+            "n": 871,
+            "p25": 49,
+            "p75": 58
+          },
+          "everything_fits_questions": 0,
+          "floor_binds_questions": {
+            "c": 172,
+            "k": 773,
+            "n": 871
+          },
+          "floor_slack_questions": {
+            "c": 699,
+            "k": 98,
+            "n": 0
+          },
+          "offered": {
+            "c": {
+              "max": 79,
+              "mean": 54.208,
+              "median": 54,
+              "min": 39,
+              "n": 871,
+              "p25": 48,
+              "p75": 60
+            },
+            "k": {
+              "max": 323,
+              "mean": 102.51,
+              "median": 84,
+              "min": 1,
+              "n": 871,
+              "p25": 41,
+              "p75": 147
+            },
+            "n": {
+              "max": 32,
+              "mean": 32.0,
+              "median": 32,
+              "min": 32,
+              "n": 871,
+              "p25": 32,
+              "p75": 32
+            }
+          },
+          "questions": 871,
+          "remainder_after_reserved": {
+            "max": 5502,
+            "mean": 3932.234,
+            "median": 4624,
+            "min": 65,
+            "n": 871,
+            "p25": 3349,
+            "p75": 5166
+          },
+          "reserved_admitted": {
+            "c": {
+              "max": 30,
+              "mean": 6.049,
+              "median": 3,
+              "min": 0,
+              "n": 871,
+              "p25": 1,
+              "p75": 11
+            },
+            "k": {
+              "max": 25,
+              "mean": 17.789,
+              "median": 19,
+              "min": 1,
+              "n": 871,
+              "p25": 16,
+              "p75": 21
+            },
+            "n": {
+              "max": 19,
+              "mean": 17.003,
+              "median": 16,
+              "min": 16,
+              "n": 871,
+              "p25": 16,
+              "p75": 19
+            }
+          }
+        },
+        "config": {
+          "k_threshold": 0.48,
+          "recency_window_n": 32
+        },
+        "identity": {
+          "claim": "With every floor at zero and the remainder contested in tier order, the allocator produced byte-identical payloads to pack_stm_payload, to build_context, and to EC-002's pack_k_first, on every question checked.",
+          "questions_checked": 871,
+          "status": "PASS"
+        },
+        "invariance": {
+          "ownership_floors": {
+            "candidates_in_two_or_more_tiers": {
+              "max": 96,
+              "mean": 50.883,
+              "median": 53,
+              "min": 4,
+              "n": 871,
+              "p25": 39,
+              "p75": 65
+            },
+            "distinct_sets": {
+              "max": 6,
+              "mean": 4.692,
+              "median": 5,
+              "min": 2,
+              "n": 871,
+              "p25": 4,
+              "p75": 5
+            },
+            "overlap_k_and_c": {
+              "max": 73,
+              "mean": 44.302,
+              "median": 48,
+              "min": 1,
+              "n": 871,
+              "p25": 37,
+              "p75": 56
+            },
+            "overlap_n_and_c": {
+              "max": 14,
+              "mean": 5.132,
+              "median": 5,
+              "min": 0,
+              "n": 871,
+              "p25": 3,
+              "p75": 7
+            },
+            "overlap_n_and_k": {
+              "max": 32,
+              "mean": 9.904,
+              "median": 8,
+              "min": 0,
+              "n": 871,
+              "p25": 4,
+              "p75": 14
+            },
+            "questions": 871,
+            "questions_with_no_overlap": 0,
+            "set_invariant_questions": 0,
+            "symmetric_difference": {
+              "max": 59,
+              "mean": 29.737,
+              "median": 31,
+              "min": 3,
+              "n": 871,
+              "p25": 23,
+              "p75": 37
+            }
+          },
+          "ownership_zero_reference": {
+            "candidates_in_two_or_more_tiers": {
+              "max": 96,
+              "mean": 50.883,
+              "median": 53,
+              "min": 4,
+              "n": 871,
+              "p25": 39,
+              "p75": 65
+            },
+            "distinct_sets": {
+              "max": 2,
+              "mean": 1.013,
+              "median": 1,
+              "min": 1,
+              "n": 871,
+              "p25": 1,
+              "p75": 1
+            },
+            "overlap_k_and_c": {
+              "max": 73,
+              "mean": 44.302,
+              "median": 48,
+              "min": 1,
+              "n": 871,
+              "p25": 37,
+              "p75": 56
+            },
+            "overlap_n_and_c": {
+              "max": 14,
+              "mean": 5.132,
+              "median": 5,
+              "min": 0,
+              "n": 871,
+              "p25": 3,
+              "p75": 7
+            },
+            "overlap_n_and_k": {
+              "max": 32,
+              "mean": 9.904,
+              "median": 8,
+              "min": 0,
+              "n": 871,
+              "p25": 4,
+              "p75": 14
+            },
+            "questions": 871,
+            "questions_with_no_overlap": 0,
+            "set_invariant_questions": 860,
+            "symmetric_difference": {
+              "max": 1,
+              "mean": 0.013,
+              "median": 0,
+              "min": 0,
+              "n": 871,
+              "p25": 0,
+              "p75": 0
+            }
+          },
+          "service_floors": {
+            "contest": "relevance",
+            "distinct_sets": {
+              "max": 1,
+              "mean": 1.0,
+              "median": 1,
+              "min": 1,
+              "n": 871,
+              "p25": 1,
+              "p75": 1
+            },
+            "orders_compared": 6,
+            "payload_invariant_questions": 871,
+            "questions": 871,
+            "set_invariant_questions": 871
+          },
+          "service_zero_control": {
+            "contest": "tier",
+            "distinct_sets": {
+              "max": 6,
+              "mean": 3.941,
+              "median": 4,
+              "min": 2,
+              "n": 871,
+              "p25": 4,
+              "p75": 4
+            },
+            "orders_compared": 6,
+            "payload_invariant_questions": 0,
+            "questions": 871,
+            "set_invariant_questions": 0
+          }
+        }
+      },
+      "floors_dual": {
+        "behaviour": {
+          "allowance_chars": {
+            "c": {
+              "max": 7982,
+              "mean": 7982.0,
+              "median": 7982,
+              "min": 7982,
+              "n": 871,
+              "p25": 7982,
+              "p75": 7982
+            },
+            "k": {
+              "max": 7982,
+              "mean": 7982.0,
+              "median": 7982,
+              "min": 7982,
+              "n": 871,
+              "p25": 7982,
+              "p75": 7982
+            },
+            "n": {
+              "max": 0,
+              "mean": 0.0,
+              "median": 0,
+              "min": 0,
+              "n": 871,
+              "p25": 0,
+              "p75": 0
+            }
+          },
+          "chars_delivered": {
+            "max": 16000,
+            "mean": 15954.398,
+            "median": 15966,
+            "min": 15639,
+            "n": 871,
+            "p25": 15935,
+            "p75": 15985
+          },
+          "contest_admitted_nothing_questions": 0,
+          "contested_admitted": {
+            "c": {
+              "max": 37,
+              "mean": 1.936,
+              "median": 0,
+              "min": 0,
+              "n": 871,
+              "p25": 0,
+              "p75": 0
+            },
+            "k": {
+              "max": 38,
+              "mean": 19.013,
+              "median": 22,
+              "min": 0,
+              "n": 871,
+              "p25": 14,
+              "p75": 27
+            },
+            "n": {
+              "max": 0,
+              "mean": 0.0,
+              "median": 0,
+              "min": 0,
+              "n": 871,
+              "p25": 0,
+              "p75": 0
+            }
+          },
+          "delivered_by_tier": {
+            "c": {
+              "max": 77,
+              "mean": 9.906,
+              "median": 3,
+              "min": 0,
+              "n": 871,
+              "p25": 1,
+              "p75": 11
+            },
+            "k": {
+              "max": 74,
+              "mean": 44.789,
+              "median": 49,
+              "min": 1,
+              "n": 871,
+              "p25": 37,
+              "p75": 57
+            },
+            "n": {
+              "max": 0,
+              "mean": 0.0,
+              "median": 0,
+              "min": 0,
+              "n": 871,
+              "p25": 0,
+              "p75": 0
+            }
+          },
+          "episodes_delivered": {
+            "max": 79,
+            "mean": 54.695,
+            "median": 55,
+            "min": 39,
+            "n": 871,
+            "p25": 49,
+            "p75": 60
+          },
+          "everything_fits_questions": 238,
+          "floor_binds_questions": {
+            "c": 138,
+            "k": 733,
+            "n": 0
+          },
+          "floor_slack_questions": {
+            "c": 733,
+            "k": 138,
+            "n": 0
+          },
+          "offered": {
+            "c": {
+              "max": 79,
+              "mean": 54.208,
+              "median": 54,
+              "min": 39,
+              "n": 871,
+              "p25": 48,
+              "p75": 60
+            },
+            "k": {
+              "max": 323,
+              "mean": 102.51,
+              "median": 84,
+              "min": 1,
+              "n": 871,
+              "p25": 41,
+              "p75": 147
+            },
+            "n": {
+              "max": 0,
+              "mean": 0.0,
+              "median": 0,
+              "min": 0,
+              "n": 871,
+              "p25": 0,
+              "p75": 0
+            }
+          },
+          "questions": 871,
+          "remainder_after_reserved": {
+            "max": 8112,
+            "mean": 6279.348,
+            "median": 7212,
+            "min": 215,
+            "n": 871,
+            "p25": 5759,
+            "p75": 7764
+          },
+          "reserved_admitted": {
+            "c": {
+              "max": 43,
+              "mean": 7.97,
+              "median": 3,
+              "min": 0,
+              "n": 871,
+              "p25": 1,
+              "p75": 11
+            },
+            "k": {
+              "max": 36,
+              "mean": 25.776,
+              "median": 27,
+              "min": 1,
+              "n": 871,
+              "p25": 23,
+              "p75": 31
+            },
+            "n": {
+              "max": 0,
+              "mean": 0.0,
+              "median": 0,
+              "min": 0,
+              "n": 871,
+              "p25": 0,
+              "p75": 0
+            }
+          }
+        },
+        "config": {
+          "k_threshold": 0.48,
+          "recency_window_n": 0
+        },
+        "identity": {
+          "claim": "With every floor at zero and the remainder contested in tier order, the allocator produced byte-identical payloads to pack_stm_payload, to build_context, and to EC-002's pack_k_first, on every question checked.",
+          "questions_checked": 871,
+          "status": "PASS"
+        },
+        "invariance": {
+          "ownership_floors": {
+            "candidates_in_two_or_more_tiers": {
+              "max": 73,
+              "mean": 44.302,
+              "median": 48,
+              "min": 1,
+              "n": 871,
+              "p25": 37,
+              "p75": 56
+            },
+            "distinct_sets": {
+              "max": 2,
+              "mean": 1.727,
+              "median": 2,
+              "min": 1,
+              "n": 871,
+              "p25": 1,
+              "p75": 2
+            },
+            "overlap_k_and_c": {
+              "max": 73,
+              "mean": 44.302,
+              "median": 48,
+              "min": 1,
+              "n": 871,
+              "p25": 37,
+              "p75": 56
+            },
+            "overlap_n_and_c": {
+              "max": 0,
+              "mean": 0.0,
+              "median": 0,
+              "min": 0,
+              "n": 871,
+              "p25": 0,
+              "p75": 0
+            },
+            "overlap_n_and_k": {
+              "max": 0,
+              "mean": 0.0,
+              "median": 0,
+              "min": 0,
+              "n": 871,
+              "p25": 0,
+              "p75": 0
+            },
+            "questions": 871,
+            "questions_with_no_overlap": 0,
+            "set_invariant_questions": 238,
+            "symmetric_difference": {
+              "max": 52,
+              "mean": 18.959,
+              "median": 23,
+              "min": 0,
+              "n": 871,
+              "p25": 0,
+              "p75": 31
+            }
+          },
+          "ownership_zero_reference": {
+            "candidates_in_two_or_more_tiers": {
+              "max": 73,
+              "mean": 44.302,
+              "median": 48,
+              "min": 1,
+              "n": 871,
+              "p25": 37,
+              "p75": 56
+            },
+            "distinct_sets": {
+              "max": 1,
+              "mean": 1.0,
+              "median": 1,
+              "min": 1,
+              "n": 871,
+              "p25": 1,
+              "p75": 1
+            },
+            "overlap_k_and_c": {
+              "max": 73,
+              "mean": 44.302,
+              "median": 48,
+              "min": 1,
+              "n": 871,
+              "p25": 37,
+              "p75": 56
+            },
+            "overlap_n_and_c": {
+              "max": 0,
+              "mean": 0.0,
+              "median": 0,
+              "min": 0,
+              "n": 871,
+              "p25": 0,
+              "p75": 0
+            },
+            "overlap_n_and_k": {
+              "max": 0,
+              "mean": 0.0,
+              "median": 0,
+              "min": 0,
+              "n": 871,
+              "p25": 0,
+              "p75": 0
+            },
+            "questions": 871,
+            "questions_with_no_overlap": 0,
+            "set_invariant_questions": 871,
+            "symmetric_difference": {
+              "max": 0,
+              "mean": 0.0,
+              "median": 0,
+              "min": 0,
+              "n": 871,
+              "p25": 0,
+              "p75": 0
+            }
+          },
+          "service_floors": {
+            "contest": "relevance",
+            "distinct_sets": {
+              "max": 1,
+              "mean": 1.0,
+              "median": 1,
+              "min": 1,
+              "n": 871,
+              "p25": 1,
+              "p75": 1
+            },
+            "orders_compared": 6,
+            "payload_invariant_questions": 871,
+            "questions": 871,
+            "set_invariant_questions": 871
+          },
+          "service_zero_control": {
+            "contest": "tier",
+            "distinct_sets": {
+              "max": 2,
+              "mean": 1.727,
+              "median": 2,
+              "min": 1,
+              "n": 871,
+              "p25": 1,
+              "p75": 2
+            },
+            "orders_compared": 6,
+            "payload_invariant_questions": 238,
+            "questions": 871,
+            "set_invariant_questions": 238
+          }
+        }
+      }
+    },
+    "32000": {
+      "floors": {
+        "behaviour": {
+          "allowance_chars": {
+            "c": {
+              "max": 10655,
+              "mean": 10655.0,
+              "median": 10655,
+              "min": 10655,
+              "n": 871,
+              "p25": 10655,
+              "p75": 10655
+            },
+            "k": {
+              "max": 10655,
+              "mean": 10655.0,
+              "median": 10655,
+              "min": 10655,
+              "n": 871,
+              "p25": 10655,
+              "p75": 10655
+            },
+            "n": {
+              "max": 10655,
+              "mean": 10655.0,
+              "median": 10655,
+              "min": 10655,
+              "n": 871,
+              "p25": 10655,
+              "p75": 10655
+            }
+          },
+          "chars_delivered": {
+            "max": 32000,
+            "mean": 31947.439,
+            "median": 31958,
+            "min": 31794,
+            "n": 871,
+            "p25": 31922,
+            "p75": 31984
+          },
+          "contest_admitted_nothing_questions": 0,
+          "contested_admitted": {
+            "c": {
+              "max": 49,
+              "mean": 4.922,
+              "median": 0,
+              "min": 0,
+              "n": 871,
+              "p25": 0,
+              "p75": 1
+            },
+            "k": {
+              "max": 52,
+              "mean": 19.347,
+              "median": 16,
+              "min": 0,
+              "n": 871,
+              "p25": 1,
+              "p75": 37
+            },
+            "n": {
+              "max": 0,
+              "mean": 0.0,
+              "median": 0,
+              "min": 0,
+              "n": 871,
+              "p25": 0,
+              "p75": 0
+            }
+          },
+          "delivered_by_tier": {
+            "c": {
+              "max": 103,
+              "mean": 24.437,
+              "median": 20,
+              "min": 0,
+              "n": 871,
+              "p25": 2,
+              "p75": 41
+            },
+            "k": {
+              "max": 94,
+              "mean": 51.861,
+              "median": 53,
+              "min": 1,
+              "n": 871,
+              "p25": 32,
+              "p75": 75
+            },
+            "n": {
+              "max": 32,
+              "mean": 32.0,
+              "median": 32,
+              "min": 32,
+              "n": 871,
+              "p25": 32,
+              "p75": 32
+            }
+          },
+          "episodes_delivered": {
+            "max": 137,
+            "mean": 108.299,
+            "median": 110,
+            "min": 87,
+            "n": 871,
+            "p25": 100,
+            "p75": 116
+          },
+          "everything_fits_questions": 0,
+          "floor_binds_questions": {
+            "c": 363,
+            "k": 665,
+            "n": 0
+          },
+          "floor_slack_questions": {
+            "c": 508,
+            "k": 206,
+            "n": 871
+          },
+          "offered": {
+            "c": {
+              "max": 142,
+              "mean": 108.8,
+              "median": 111,
+              "min": 84,
+              "n": 871,
+              "p25": 98,
+              "p75": 118
+            },
+            "k": {
+              "max": 323,
+              "mean": 102.51,
+              "median": 84,
+              "min": 1,
+              "n": 871,
+              "p25": 41,
+              "p75": 147
+            },
+            "n": {
+              "max": 32,
+              "mean": 32.0,
+              "median": 32,
+              "min": 32,
+              "n": 871,
+              "p25": 32,
+              "p75": 32
+            }
+          },
+          "questions": 871,
+          "remainder_after_reserved": {
+            "max": 12199,
+            "mean": 7159.061,
+            "median": 8719,
+            "min": 344,
+            "n": 871,
+            "p25": 2628,
+            "p75": 11010
+          },
+          "reserved_admitted": {
+            "c": {
+              "max": 54,
+              "mean": 19.515,
+              "median": 20,
+              "min": 0,
+              "n": 871,
+              "p25": 2,
+              "p75": 35
+            },
+            "k": {
+              "max": 50,
+              "mean": 32.514,
+              "median": 36,
+              "min": 1,
+              "n": 871,
+              "p25": 29,
+              "p75": 40
+            },
+            "n": {
+              "max": 32,
+              "mean": 32.0,
+              "median": 32,
+              "min": 32,
+              "n": 871,
+              "p25": 32,
+              "p75": 32
+            }
+          }
+        },
+        "config": {
+          "k_threshold": 0.48,
+          "recency_window_n": 32
+        },
+        "identity": {
+          "claim": "With every floor at zero and the remainder contested in tier order, the allocator produced byte-identical payloads to pack_stm_payload, to build_context, and to EC-002's pack_k_first, on every question checked.",
+          "questions_checked": 871,
+          "status": "PASS"
+        },
+        "invariance": {
+          "ownership_floors": {
+            "candidates_in_two_or_more_tiers": {
+              "max": 143,
+              "mean": 79.778,
+              "median": 84,
+              "min": 7,
+              "n": 871,
+              "p25": 46,
+              "p75": 113
+            },
+            "distinct_sets": {
+              "max": 5,
+              "mean": 4.099,
+              "median": 4,
+              "min": 1,
+              "n": 871,
+              "p25": 4,
+              "p75": 5
+            },
+            "overlap_k_and_c": {
+              "max": 132,
+              "mean": 73.67,
+              "median": 83,
+              "min": 1,
+              "n": 871,
+              "p25": 41,
+              "p75": 108
+            },
+            "overlap_n_and_c": {
+              "max": 19,
+              "mean": 10.197,
+              "median": 10,
+              "min": 0,
+              "n": 871,
+              "p25": 8,
+              "p75": 13
+            },
+            "overlap_n_and_k": {
+              "max": 32,
+              "mean": 9.904,
+              "median": 8,
+              "min": 0,
+              "n": 871,
+              "p25": 4,
+              "p75": 14
+            },
+            "questions": 871,
+            "questions_with_no_overlap": 0,
+            "set_invariant_questions": 10,
+            "symmetric_difference": {
+              "max": 75,
+              "mean": 31.296,
+              "median": 33,
+              "min": 0,
+              "n": 871,
+              "p25": 10,
+              "p75": 49
+            }
+          },
+          "ownership_zero_reference": {
+            "candidates_in_two_or_more_tiers": {
+              "max": 143,
+              "mean": 79.778,
+              "median": 84,
+              "min": 7,
+              "n": 871,
+              "p25": 46,
+              "p75": 113
+            },
+            "distinct_sets": {
+              "max": 2,
+              "mean": 1.008,
+              "median": 1,
+              "min": 1,
+              "n": 871,
+              "p25": 1,
+              "p75": 1
+            },
+            "overlap_k_and_c": {
+              "max": 132,
+              "mean": 73.67,
+              "median": 83,
+              "min": 1,
+              "n": 871,
+              "p25": 41,
+              "p75": 108
+            },
+            "overlap_n_and_c": {
+              "max": 19,
+              "mean": 10.197,
+              "median": 10,
+              "min": 0,
+              "n": 871,
+              "p25": 8,
+              "p75": 13
+            },
+            "overlap_n_and_k": {
+              "max": 32,
+              "mean": 9.904,
+              "median": 8,
+              "min": 0,
+              "n": 871,
+              "p25": 4,
+              "p75": 14
+            },
+            "questions": 871,
+            "questions_with_no_overlap": 0,
+            "set_invariant_questions": 864,
+            "symmetric_difference": {
+              "max": 4,
+              "mean": 0.017,
+              "median": 0,
+              "min": 0,
+              "n": 871,
+              "p25": 0,
+              "p75": 0
+            }
+          },
+          "service_floors": {
+            "contest": "relevance",
+            "distinct_sets": {
+              "max": 1,
+              "mean": 1.0,
+              "median": 1,
+              "min": 1,
+              "n": 871,
+              "p25": 1,
+              "p75": 1
+            },
+            "orders_compared": 6,
+            "payload_invariant_questions": 871,
+            "questions": 871,
+            "set_invariant_questions": 871
+          },
+          "service_zero_control": {
+            "contest": "tier",
+            "distinct_sets": {
+              "max": 6,
+              "mean": 3.117,
+              "median": 4,
+              "min": 2,
+              "n": 871,
+              "p25": 2,
+              "p75": 4
+            },
+            "orders_compared": 6,
+            "payload_invariant_questions": 0,
+            "questions": 871,
+            "set_invariant_questions": 0
+          }
+        }
+      },
+      "floors_dual": {
+        "behaviour": {
+          "allowance_chars": {
+            "c": {
+              "max": 15982,
+              "mean": 15982.0,
+              "median": 15982,
+              "min": 15982,
+              "n": 871,
+              "p25": 15982,
+              "p75": 15982
+            },
+            "k": {
+              "max": 15982,
+              "mean": 15982.0,
+              "median": 15982,
+              "min": 15982,
+              "n": 871,
+              "p25": 15982,
+              "p75": 15982
+            },
+            "n": {
+              "max": 0,
+              "mean": 0.0,
+              "median": 0,
+              "min": 0,
+              "n": 871,
+              "p25": 0,
+              "p75": 0
+            }
+          },
+          "chars_delivered": {
+            "max": 32000,
+            "mean": 31958.636,
+            "median": 31969,
+            "min": 31717,
+            "n": 871,
+            "p25": 31939,
+            "p75": 31986
+          },
+          "contest_admitted_nothing_questions": 1,
+          "contested_admitted": {
+            "c": {
+              "max": 62,
+              "mean": 8.237,
+              "median": 0,
+              "min": 0,
+              "n": 871,
+              "p25": 0,
+              "p75": 10
+            },
+            "k": {
+              "max": 69,
+              "mean": 27.542,
+              "median": 29,
+              "min": 0,
+              "n": 871,
+              "p25": 0,
+              "p75": 51
+            },
+            "n": {
+              "max": 0,
+              "mean": 0.0,
+              "median": 0,
+              "min": 0,
+              "n": 871,
+              "p25": 0,
+              "p75": 0
+            }
+          },
+          "delivered_by_tier": {
+            "c": {
+              "max": 140,
+              "mean": 35.13,
+              "median": 23,
+              "min": 0,
+              "n": 871,
+              "p25": 2,
+              "p75": 64
+            },
+            "k": {
+              "max": 131,
+              "mean": 73.797,
+              "median": 83,
+              "min": 1,
+              "n": 871,
+              "p25": 41,
+              "p75": 109
+            },
+            "n": {
+              "max": 0,
+              "mean": 0.0,
+              "median": 0,
+              "min": 0,
+              "n": 871,
+              "p25": 0,
+              "p75": 0
+            }
+          },
+          "episodes_delivered": {
+            "max": 142,
+            "mean": 108.927,
+            "median": 111,
+            "min": 83,
+            "n": 871,
+            "p25": 98,
+            "p75": 118
+          },
+          "everything_fits_questions": 520,
+          "floor_binds_questions": {
+            "c": 287,
+            "k": 583,
+            "n": 0
+          },
+          "floor_slack_questions": {
+            "c": 584,
+            "k": 288,
+            "n": 0
+          },
+          "offered": {
+            "c": {
+              "max": 142,
+              "mean": 108.8,
+              "median": 111,
+              "min": 84,
+              "n": 871,
+              "p25": 98,
+              "p75": 118
+            },
+            "k": {
+              "max": 323,
+              "mean": 102.51,
+              "median": 84,
+              "min": 1,
+              "n": 871,
+              "p25": 41,
+              "p75": 147
+            },
+            "n": {
+              "max": 0,
+              "mean": 0.0,
+              "median": 0,
+              "min": 0,
+              "n": 871,
+              "p25": 0,
+              "p75": 0
+            }
+          },
+          "questions": 871,
+          "remainder_after_reserved": {
+            "max": 16099,
+            "mean": 10648.865,
+            "median": 12717,
+            "min": 74,
+            "n": 871,
+            "p25": 6030,
+            "p75": 15412
+          },
+          "reserved_admitted": {
+            "c": {
+              "max": 78,
+              "mean": 26.893,
+              "median": 23,
+              "min": 0,
+              "n": 871,
+              "p25": 2,
+              "p75": 50
+            },
+            "k": {
+              "max": 71,
+              "mean": 46.255,
+              "median": 52,
+              "min": 1,
+              "n": 871,
+              "p25": 41,
+              "p75": 58
+            },
+            "n": {
+              "max": 0,
+              "mean": 0.0,
+              "median": 0,
+              "min": 0,
+              "n": 871,
+              "p25": 0,
+              "p75": 0
+            }
+          }
+        },
+        "config": {
+          "k_threshold": 0.48,
+          "recency_window_n": 0
+        },
+        "identity": {
+          "claim": "With every floor at zero and the remainder contested in tier order, the allocator produced byte-identical payloads to pack_stm_payload, to build_context, and to EC-002's pack_k_first, on every question checked.",
+          "questions_checked": 871,
+          "status": "PASS"
+        },
+        "invariance": {
+          "ownership_floors": {
+            "candidates_in_two_or_more_tiers": {
+              "max": 132,
+              "mean": 73.67,
+              "median": 83,
+              "min": 1,
+              "n": 871,
+              "p25": 41,
+              "p75": 108
+            },
+            "distinct_sets": {
+              "max": 2,
+              "mean": 1.401,
+              "median": 1,
+              "min": 1,
+              "n": 871,
+              "p25": 1,
+              "p75": 2
+            },
+            "overlap_k_and_c": {
+              "max": 132,
+              "mean": 73.67,
+              "median": 83,
+              "min": 1,
+              "n": 871,
+              "p25": 41,
+              "p75": 108
+            },
+            "overlap_n_and_c": {
+              "max": 0,
+              "mean": 0.0,
+              "median": 0,
+              "min": 0,
+              "n": 871,
+              "p25": 0,
+              "p75": 0
+            },
+            "overlap_n_and_k": {
+              "max": 0,
+              "mean": 0.0,
+              "median": 0,
+              "min": 0,
+              "n": 871,
+              "p25": 0,
+              "p75": 0
+            },
+            "questions": 871,
+            "questions_with_no_overlap": 0,
+            "set_invariant_questions": 522,
+            "symmetric_difference": {
+              "max": 90,
+              "mean": 19.077,
+              "median": 0,
+              "min": 0,
+              "n": 871,
+              "p25": 0,
+              "p75": 46
+            }
+          },
+          "ownership_zero_reference": {
+            "candidates_in_two_or_more_tiers": {
+              "max": 132,
+              "mean": 73.67,
+              "median": 83,
+              "min": 1,
+              "n": 871,
+              "p25": 41,
+              "p75": 108
+            },
+            "distinct_sets": {
+              "max": 1,
+              "mean": 1.0,
+              "median": 1,
+              "min": 1,
+              "n": 871,
+              "p25": 1,
+              "p75": 1
+            },
+            "overlap_k_and_c": {
+              "max": 132,
+              "mean": 73.67,
+              "median": 83,
+              "min": 1,
+              "n": 871,
+              "p25": 41,
+              "p75": 108
+            },
+            "overlap_n_and_c": {
+              "max": 0,
+              "mean": 0.0,
+              "median": 0,
+              "min": 0,
+              "n": 871,
+              "p25": 0,
+              "p75": 0
+            },
+            "overlap_n_and_k": {
+              "max": 0,
+              "mean": 0.0,
+              "median": 0,
+              "min": 0,
+              "n": 871,
+              "p25": 0,
+              "p75": 0
+            },
+            "questions": 871,
+            "questions_with_no_overlap": 0,
+            "set_invariant_questions": 871,
+            "symmetric_difference": {
+              "max": 0,
+              "mean": 0.0,
+              "median": 0,
+              "min": 0,
+              "n": 871,
+              "p25": 0,
+              "p75": 0
+            }
+          },
+          "service_floors": {
+            "contest": "relevance",
+            "distinct_sets": {
+              "max": 1,
+              "mean": 1.0,
+              "median": 1,
+              "min": 1,
+              "n": 871,
+              "p25": 1,
+              "p75": 1
+            },
+            "orders_compared": 6,
+            "payload_invariant_questions": 871,
+            "questions": 871,
+            "set_invariant_questions": 871
+          },
+          "service_zero_control": {
+            "contest": "tier",
+            "distinct_sets": {
+              "max": 2,
+              "mean": 1.403,
+              "median": 1,
+              "min": 1,
+              "n": 871,
+              "p25": 1,
+              "p75": 2
+            },
+            "orders_compared": 6,
+            "payload_invariant_questions": 520,
+            "questions": 871,
+            "set_invariant_questions": 520
+          }
+        }
+      }
+    }
+  }
+}
