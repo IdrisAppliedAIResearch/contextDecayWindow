@@ -1,0 +1,90 @@
+{
+  "best_qualifying_cosine_rank_dropped": {
+    "max": 19,
+    "mean": 2.012,
+    "min": 1,
+    "n": 827,
+    "p05": 1,
+    "p25": 1,
+    "p50": 1,
+    "p75": 2,
+    "p95": 7
+  },
+  "budget_chars": 16000,
+  "cache": {
+    "hits": 2247,
+    "misses": 0
+  },
+  "conversation_order_overlap": {
+    "max": 1.0,
+    "mean": 0.975673,
+    "min": 0.875,
+    "n": 827,
+    "p05": 0.9375,
+    "p50": 1.0,
+    "p95": 1.0
+  },
+  "elapsed_seconds": 84.819,
+  "evaluable_questions": 827,
+  "inputs": {
+    "cache_content_sha256": "e103b2933ee9ec7b8e9236f43037797618da524e413b83a9f3973a19d28b1b2a",
+    "cache_file_sha256": "2ba617018a1b043bf439bb50e756191d8141fb7ca01a2e4a68c9eb822eba26f8",
+    "dataset_sha256": "79fa87e90f04081343b8c8debecb80a9a6842b76a7aa537dc9fdf651ea698ff4",
+    "sources": {
+      "episodic/src/episodic/_context.py": "c817b3f303722cf08e0e111b26786160a1c8690c1bcfb71875554c849b7857e6",
+      "src/analysis/tc001_exploration.py": "83d59ca3121bcc117d5003d3c3bf5cbaf05657658fd2c144ffa737ba2f1c019f",
+      "src/analysis/tc001_k_tier_order.py": "04fbd4320bb6b33f1454ac03fcf55ebcfc00763cfb7584c2fe5a152ccabf5249"
+    }
+  },
+  "k_candidates": {
+    "max": 323,
+    "mean": 107.531,
+    "min": 5,
+    "n": 827,
+    "p05": 16,
+    "p25": 46,
+    "p50": 90,
+    "p75": 155,
+    "p95": 264
+  },
+  "k_delivered": {
+    "max": 30,
+    "mean": 20.99,
+    "min": 4,
+    "n": 827,
+    "p05": 13,
+    "p25": 18,
+    "p50": 22,
+    "p75": 24,
+    "p95": 27
+  },
+  "min_delivered_k": 3,
+  "no_model_call_audit": {
+    "armed_entry_points": [
+      "llama_cpp.Llama.__init__",
+      "retrieval_bakeoff.embedding.CarriedEmbedder.__init__",
+      "src.embeddings.provider._get_model"
+    ],
+    "attempts": [],
+    "inference_calls": 0,
+    "model_calls": 0,
+    "status": "PASS"
+  },
+  "questions": 871,
+  "questions_conversation_order_closer": 824,
+  "questions_relevance_order_closer": 0,
+  "questions_tied": 3,
+  "relevance_order_overlap": {
+    "max": 1.0,
+    "mean": 0.32835,
+    "min": 0.0,
+    "n": 827,
+    "p05": 0.045455,
+    "p50": 0.269231,
+    "p95": 0.863636
+  },
+  "schema": "tc001-k-tier-order-diagnostic-v1",
+  "standing": "DESCRIPTIVE",
+  "status": "COMPLETE",
+  "written_after": "TC-001's verdict; carries no bar and no arm"
+}
