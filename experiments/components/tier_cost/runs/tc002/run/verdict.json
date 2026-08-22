@@ -1,0 +1,102 @@
+{
+  "C1": {
+    "alpha": 0.0025,
+    "band": 7,
+    "contrast": "C1",
+    "disposition": "D1",
+    "left": "k_first",
+    "right": "n_first",
+    "signal_alpha": 0.025,
+    "statistic": {
+      "discordant": 115,
+      "endpoint": "any",
+      "gains": 80,
+      "left": "k_first",
+      "left_hits": 732,
+      "losses": 35,
+      "n": 871,
+      "net": 45,
+      "p_left_one_sided": 1.642221043682801e-05,
+      "p_right_one_sided": 0.9999930998275411,
+      "right": "n_first",
+      "right_hits": 687,
+      "ties": 756
+    },
+    "verdict": "K_FIRST_WINS"
+  },
+  "C2": {
+    "alpha": 0.0025,
+    "band": 7,
+    "contrast": "C2",
+    "disposition": "D3",
+    "left": "k_first",
+    "right": "flat",
+    "signal_alpha": 0.025,
+    "statistic": {
+      "discordant": 126,
+      "endpoint": "any",
+      "gains": 8,
+      "left": "k_first",
+      "left_hits": 732,
+      "losses": 118,
+      "n": 871,
+      "net": -110,
+      "p_left_one_sided": 1.0,
+      "p_right_one_sided": 1.5816581633095562e-26,
+      "right": "flat",
+      "right_hits": 842,
+      "ties": 745
+    },
+    "verdict": "FLAT_WINS"
+  },
+  "C3": {
+    "alpha": 0.0025,
+    "band": 7,
+    "contrast": "C3",
+    "disposition": "D2",
+    "left": "dual",
+    "right": "k_first",
+    "signal_alpha": 0.025,
+    "statistic": {
+      "discordant": 10,
+      "endpoint": "any",
+      "gains": 9,
+      "left": "dual",
+      "left_hits": 740,
+      "losses": 1,
+      "n": 871,
+      "net": 8,
+      "p_left_one_sided": 0.0107421875,
+      "p_right_one_sided": 0.9990234375,
+      "right": "k_first",
+      "right_hits": 732,
+      "ties": 861
+    },
+    "verdict": "DUAL_WINS_CARRIES_SIGNAL"
+  },
+  "C4": {
+    "alpha": 0.0025,
+    "band": 7,
+    "contrast": "C4",
+    "disposition": "D1",
+    "left": "dual_ranked",
+    "right": "k_first",
+    "signal_alpha": 0.025,
+    "statistic": {
+      "discordant": 125,
+      "endpoint": "any",
+      "gains": 118,
+      "left": "dual_ranked",
+      "left_hits": 843,
+      "losses": 7,
+      "n": 871,
+      "net": 111,
+      "p_left_one_sided": 1.990718662085095e-27,
+      "p_right_one_sided": 1.0,
+      "right": "k_first",
+      "right_hits": 732,
+      "ties": 746
+    },
+    "verdict": "RANKED_WINS"
+  }
+}
