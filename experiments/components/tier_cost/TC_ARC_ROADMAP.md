@@ -2,10 +2,12 @@
 
 **Document type:** Prospective arc roadmap
 **Status:** `DESIGN ONLY — NOT PRE-REGISTERED — NO IMPLEMENTATION AUTHORIZED`,
-except TC-001, registered separately on August 22, 2026 in
-`TC_001_PRE_REGISTRATION.md`. That document, not this one, governs TC-001;
-where the two disagree the registration wins and the disagreement is a defect
-in this file. TC-002 through TC-006 remain design only.
+except TC-001 and TC-002, registered separately on August 22, 2026 in
+`TC_001_PRE_REGISTRATION.md` and `TC_002_PRE_REGISTRATION.md`. Those documents,
+not this one, govern their studies; where any two disagree the registration
+wins and the disagreement is a defect in this file. §1.1's standing arms and
+§10 item 4's retirement are the only parts of this file TC-002 changed.
+TC-003 through TC-006 remain design only.
 **Date:** August 21, 2026
 **Predecessors:** HH-002 (`experiments/comparisons/hh_002/`), EC-002 and IC-001
 (`PAPER_002.md` §9), DR-002 (§8.2), NF-005 (§7.2), §10's cost envelope
@@ -414,5 +416,7 @@ runnable, and none of them waits for it.
    round. `PF4` requires every bar to be shown reachable *and* failable before
    the run — the DMR-001 lesson, where a bar was locked that was unreachable by
    construction.
-4. **Whether TC-002's result, if positive, ships immediately** or waits for
-   TC-003. Deciding now avoids a live argument later with a number on the table.
+4. ~~**Whether TC-002's result, if positive, ships immediately** or waits for
+   TC-003.~~ **Retired 2026-08-22.** TC-002's registration §0 decided it before
+   the run: it does not ship on this result. C1 landed `D1 K_FIRST_WINS` at +45
+   and the decision stands, which is the whole point of having made it first.

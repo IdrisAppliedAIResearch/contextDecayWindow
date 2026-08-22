@@ -143,7 +143,7 @@ flush against the page there rather than showing as a panel.*
 
 ## Current State of Work
 
-*Last updated 2026-08-22, at TC-001B's verdict.*
+*Last updated 2026-08-22, at TC-002's verdict.*
 
 **The tiered architecture does not earn its place on delivery.** TC-001 put the
 shipped four-tier read path against the flat cosine ranking that scored 79.09%
@@ -174,14 +174,32 @@ So TC-001's 435-question deficit decomposes almost exactly: **158 from the
 recency tier, 276 from the order the similarity tier delivered its own members
 in.** The evidence the store order was discarding sat at median cosine rank 3.
 
-None of that authorizes deleting anything. Availability is not a verdict, and
-LoCoMo asks questions about a finished conversation, so a recency window is
-close to worthless there by construction — which is exactly why C2's 158 is not
-a deployment decision. What the pair of studies does establish is narrower and
-sharper: on this corpus, the tiered machinery at its best delivers what a plain
-cosine ranking delivers, at roughly six times the latency. TC-003 owns
-allocation; TC-005 owns cost; TC-006 owns the reader. Nothing in the TC arc is
-blocked.
+**TC-002 then asked whether the cheapest known repair transfers, and it does.**
+EC-002 had moved evidence availability 32.3 points on 500 LongMemEval stores by
+letting similarity candidates claim the budget before the recency window. On
+four LoCoMo conversations EC-002 never saw, at its own budget and its own
+endpoint, the same one-line reorder is worth **45 questions** — 732 against 687
+of 871, 80 gains against 35 losses, `D1 K_FIRST_WINS` against a band of 7. The
+gain generalizes.
+
+It is also the small lever, and the same shape appears a third time. Reordering
+the fill leaves the stack **110 behind** the flat arm; ordering the similarity
+tier's own members best-first is worth **111** and lands within one question of
+it. The two repairs are not alternatives — the 118 questions where the reordered
+stack still trails flat are *exactly* the 118 that re-ranking rescues, and the
+80 the reorder wins overlap none of them. Every one of the reorder's 35 losses
+is a question the recency window happened to be carrying.
+
+None of that authorizes deleting or shipping anything, and TC-002 decided the
+shipping question in its registration *before* the number existed: a positive
+result does not ship, because the same correction was already rejected on a live
+bar. Availability is not a verdict, and LoCoMo asks questions about a finished
+conversation, so a recency window is close to worthless there by construction.
+What the three studies establish together is narrower and sharper: on this
+corpus, the tiered machinery at its best delivers what a plain cosine ranking
+delivers, at roughly four times the latency — and the lever that matters is
+*within* a tier, not between tiers. TC-003 owns allocation; TC-005 owns cost;
+TC-006 owns the reader. Nothing in the TC arc is blocked.
 
 **The deployable component is done.** `episodic/` is an installable library with
 a public store, report, config and embedding-cache API. Extraction is certified
@@ -263,11 +281,14 @@ confirmation.
 
 ## Next Steps
 
-1. **Register TC-003 with a competitor it did not have.** Its reserved-floors
-   proposal addresses allocation *between* tiers, and TC-001B measured that at
-   158 questions of TC-001's 435. The other 276 came from ordering *within* one
-   tier, which floors do not touch. TC-003 should say which it is testing.
-   The composition, K-tier-order and four-arm contrast artifacts under
+1. **Register TC-003 with the competitor three studies have now measured.** Its
+   reserved-floors proposal addresses allocation *between* tiers. TC-001B put
+   that at 158 questions of TC-001's 435; TC-002 put reordering the fill at 45
+   against 111 for ordering the similarity tier's own members, and showed the
+   two act on disjoint question sets. Floors do not touch the within-tier
+   quantity, and it has been the larger one every time it has been measured.
+   TC-003 should say which it is testing before it runs. The composition,
+   K-tier-order, four-arm and fill-order artifacts under
    `experiments/components/tier_cost/` are where the case starts.
 
 2. **Register item-level reader validation before any live inference.** TC-006's
@@ -311,7 +332,7 @@ Eleven pre-registered studies test that question, each adding one memory compone
 
 > **Status:** Study 010 stopped at G2; exploratory continuation unaudited and LTM budget-noncompliant | retrieval bakeoff complete | retrieval mechanism ledger reopened for Family CS; E005 is killed by LV-001's live targeted-regression bar, DX-001 closes NO CHANGE, RD-001 stops before correlation because unchanged rarity scores cover only 6/76 fact-bearing episodes, and chained retrieval Rev5 is CHARACTERIZED offline at 9/17 versus X0 6/17 but misses art 0/4 and has no targeted no-regression arm | EC-001 LongMemEval complete: inversion not dominant, Codex-substituted score only | EC-002 complete: K-first packing raises any-session recall 109/470 -> 261/470 offline; no production promotion authorized | IC-001 Branch A: the same gate is closed internally — K delivered nothing at 8/8 probes under the deployed order; Q11 6/17 -> 7/17, targeted 14/21 -> 18/21, zero losses; cache clause substituted under authorized Amendment 001; no recalibration authorized | Study 011 tests both halves live and splits them: the deployed arm scores identically to recency-only on all 13 questions, so the similarity tier is inert in deployment, but K-first raises availability and scores 7.0 vs 8.0 — B1 FAILS and the packing correction is not adopted; post-unseal analysis finds the N tier is a least-recently-delivered rotation over the whole store, not a recency window, and that the rule every live run through Study 010 used was a block locked onto the conversation's first nine turns; three different rules carry that name and only the extracted library's is a window | Amendment 001 authorized and run: the instrument's run-to-run band is **3.0 points on 13**, measured by five identical arm-D replicates that score 8.0, 8.0, 8.0, 8.0 and 11.0 — a switch, not a spread, since four are byte-identical across 121 turns and the one meeting an empty server slot diverges at turn 1; Study 009's 3.0, LV-001's -2.0 and Study 011's -1.0 are all re-read as **not demonstrated**, while every offline count is untouched and B1 stays fired | CC-002 extracts the deployable component into `episodic`; CC-006 adds exact hashed vector-cache reuse | PS-001 CHARACTERIZED: the selected sparse cell stores and recovers 119/119 codes through 50% registered swaps | PS-002 stops at Part 1: best natural-language binder reaches stored codes in 190/192 rounds but retains one cycle and one spurious fixed point, so labels, answers, and live scoring are not entered | deployment closeout complete | PAPER-002 supersedes PAPER-001 (2026-08-18): same numbers, reordered to lead with the sealed LoCoMo holdout, with a four-level standing taxonomy in `paper/notes/EVIDENCE_SPINE.md`, a withdrawn-claim list in `paper/notes/DO_NOT_WRITE.md`, and every number gated by `scripts/check_paper_002_claims.py`; PAPER-001 retired | scoring/interpretation record corrected through 2026-08-05
 
-> **TC arc status:** `TC-001 REPORTED D3 FLAT_WINS; TC-001B REPORTED C1 D3 FLAT_WINS; TC-002 THROUGH TC-006 DESIGN ONLY`.
+> **TC arc status:** `TC-001 REPORTED D3 FLAT_WINS; TC-001B REPORTED C1 D3 FLAT_WINS; TC-002 REPORTED C1 D1 K_FIRST_WINS; TC-003 THROUGH TC-006 DESIGN ONLY`.
 > The arc asks whether the tiered stack earns its place before asking how to tune
 > it. TC-001 ran the shipped `build_context` against `CdwArm`'s flat cosine
 > ranking over identical candidates, vectors, renderer, packer and 16,000-character
@@ -352,6 +373,41 @@ Eleven pre-registered studies test that question, each adding one memory compone
 > wrapper-matched C2 check reproduces exactly. `REGISTERED-OFFLINE`,
 > characterization only — the arms were chosen after TC-001's result was known,
 > and `recency_window_n` stays at 32.
+
+> **TC-002 (2026-08-22), the arc's second numbered stage.** Roadmap §3's
+> question: does EC-002's fill-order availability gain hold off its original
+> corpus? EC-002 moved any-evidence-session recall 109 -> 261 of 470 on 500
+> LongMemEval stores by giving K-threshold candidates admission priority over
+> the recency window. TC-002 replays that manipulation — `build_k_first_context`
+> imported unmodified, with `git diff` against `caa19f52` empty on all six files
+> of the K-first path — on four LoCoMo development conversations, at EC-002's own
+> 32,000-character budget and its own any-evidence endpoint. Five arms, four
+> contrasts, C1 registered as the headline before the run. **C1: `A_K_FIRST`
+> 732/871 vs `A_N_FIRST` 687 — 80 gains, 35 losses, net +45, p=1.64e-5 against a
+> band of 7. D1 K_FIRST_WINS: the gain transfers.** C2: `A_K_FIRST` is still 110
+> behind `A_FLAT`'s 842 (D3 FLAT_WINS). C3: deleting the recency tier beats
+> deprioritizing it by 8 (740 vs 732, p=0.0107, **D2 DUAL_WINS_CARRIES_SIGNAL** —
+> the registered lower tier firing, 10 discordant pairs, exactly the count PF4
+> predicted). C4: ordering the K tier best-first is worth 111 (843 vs 732, D1
+> RANKED_WINS) and lands one question past `A_FLAT`. **C2's 118 losses and C4's
+> 118 gains are the identical 118 questions; C1's 80 gains overlap none of them**
+> — reordering the fill and re-ranking the tier repair disjoint populations. All
+> 35 of C1's losses are recency-carried evidence; its 80 gains sit at worst-
+> evidence cosine rank p50 3. C3's 9 gains are carried by coverage alone at rank
+> p50 85, the only place any study in this arc finds that component supplying
+> something no other path does. Magnitude does not transfer as direction does:
+> +32.3 points on LongMemEval against +5.2 here at the matched budget and +15.8
+> at 16,000, and **no binding-ratio explanation is offered** — `DO_NOT_WRITE.md`
+> #32 refuted that law. The null band is measured per budget for the first time
+> in this arc and is **7 at 32,000 against 4 at 16,000**, the noisiest arm being
+> the shipped configuration and the quietest `A_DUAL_RANKED` at 0-1; recomputing
+> every contrast at band 4 changes no disposition, so the wider band cost this
+> study nothing but would have decided a smaller one. Reordering the fill costs
+> 1-3 ms. Direction is consistent in all four conversations and all five
+> categories; the wrapper-matched pass reproduces C2, C3 and C4 exactly. Roadmap
+> §10 item 4 is **retired**: the registration decided before the run that a
+> positive result does not ship, and it does not. `REGISTERED-OFFLINE`,
+> characterization only. `experiments/components/tier_cost/TC_002_REPORT.md`.
 > `experiments/components/tier_cost/TC_001B_REPORT.md`.
 
 > **Current component status:** SUP-001 passes all offline P5/P9 supersession
@@ -607,6 +663,7 @@ Runs use a scripted 120-turn conversation with facts planted at known positions 
 | NF-007 | Hard cluster-floor anti-vacuity | STOP; FLOOR_INERT | T1 touches 16/16 clusters, but cluster 0 is sampled 30/91 versus 9/168 across five art-majority clusters. Floor size 1 forces 0 admissions. Candidate scarcity and region entry are eliminated; the carried coverage-count family is closed. No selector, outcome, sweep, live run, or adoption |
 | TC-001 | Tiered read path against a flat cosine ranking | D3 FLAT_WINS; REGISTERED-OFFLINE | At 16k over 868 LoCoMo development questions with candidates, vectors, renderer, packer and budget identical, complete evidence is 749 flat versus 314 tiered: 8 gains, 443 losses, net -435 on 451 discordant pairs, p=6.98e-120 against a measured band of 4. All four conversations and all five categories agree; 32k narrows to -177 without reversing. Recency takes 32/32 and 61% of characters; coverage carries evidence on 8/871. Availability only; no adoption, no deletion, no reader claim |
 | TC-001B | The dual arm: relevance and coverage with recency removed | C1 D3 FLAT_WINS; REGISTERED-OFFLINE | Escalated from TC-001 Amendment 001. Four arms over TC-001's frozen inputs; G0 reproduced its four committed rows exactly. C1: A_DUAL (recency_window_n=0) 472/868 vs A_FLAT 749, 14 gains, 291 losses, net -277, p=8.23e-69 vs band 4 at Bonferroni a=0.0025. C2: recency cost 158 (D1 DUAL_WINS). C4: ranking the K tier is worth 276 (D1 RANKED_WINS), so -435 = 158 + 276. C3 (A_DUAL_RANKED 748 vs 749) carries no bar - PF4 measured 3 discordant pairs before the lock, predicted 3 and observed 3. Losses sit at worst-evidence cosine rank p50 3. Unstarved coverage carries evidence alone on 12/871; no latency is recovered. Characterization only; recency_window_n stays at 32 |
+| TC-002 | Does EC-002's fill-order gain hold off its original corpus? | C1 D1 K_FIRST_WINS; REGISTERED-OFFLINE | EC-002's manipulation replayed unmodified (git diff empty on all six K-first files vs caa19f52) on LoCoMo development at its own 32k budget and any-evidence endpoint. C1: A_K_FIRST 732/871 vs A_N_FIRST 687, 80 gains, 35 losses, net +45, p=1.64e-5 vs a band of 7 at Bonferroni a=0.0025 - the gain transfers. C2: still 110 behind A_FLAT's 842 (D3). C3: deleting the tier beats deprioritizing it by 8, p=0.0107 (D2 CARRIES_SIGNAL, 10 discordant pairs, the count PF4 predicted). C4: ordering the K tier best-first is worth 111 (843 vs 732, D1) and passes A_FLAT by one. C2's 118 losses and C4's 118 gains are the identical questions; C1's 80 gains overlap none of them. All 35 of C1's losses are recency-carried; C3's 9 gains are coverage-carried at cosine rank p50 85. Magnitude does not transfer: +32.3 points on LongMemEval vs +5.2 here and +15.8 at 16k, with no binding-ratio explanation offered (DO_NOT_WRITE 32). The band is measured per budget for the first time: 7 at 32k, 4 at 16k; recomputing at 4 changes no disposition. Reordering the fill costs 1-3 ms. Availability only; the registration decided before the run that a positive result does not ship |
 | SUP-001 | Explicit supersession lineage and accessibility | FACTUAL PASS; byte-identity criterion withdrawn | Current-only retrieval rose 0/64 to 64/64 with 32/32 unchanged and 64/64 histories. T1 scored 9/9 under numeric-value equivalence, with zero regressions and zero stale natural payloads; no larger run or adoption is automatic |
 
 Full reports live under `experiments/study_NNN/`; external evaluation reports
