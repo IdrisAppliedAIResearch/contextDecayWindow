@@ -61,6 +61,7 @@ INHERITED = {
     "Mem0": 66.88,
     "Mem0g": 68.44,
     "Zep": 65.99,
+    "LangMem": 58.10,
     "OpenAI memory": 52.90,
     "A-MEM": 48.38,
 }

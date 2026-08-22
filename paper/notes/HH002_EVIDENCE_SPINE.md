@@ -165,6 +165,7 @@ systems, not those systems' own reports.
 | Mem0 | 66.88% | Mem0 authors, own system |
 | Mem0g | 68.44% | Mem0 authors, own system |
 | Zep | 65.99% | Mem0 authors' reproduction |
+| LangMem | 58.10% | Mem0 authors' reproduction |
 | OpenAI memory | 52.90% | Mem0 authors' reproduction |
 | A-MEM | 48.38% | Mem0 authors' reproduction |
 
