@@ -2,7 +2,7 @@
 
 ### → [**Read the paper: *Rank Fine, Pack Fine, Call Nothing***](paper/PAPER_002.md) · [**Download the PDF**](paper/Rank_Fine_Pack_Fine_Call_Nothing.pdf)
 
-*Idris Applied AI Research — independent, non-profit. Failures are published with the results.*
+*Idris Applied AI Research — independent. Failures are published with the results.*
 
 ---
 
@@ -247,6 +247,21 @@ confirmation.
    `k=16` selection already enters every region, and finer statements do not
    repair art. Statement-grain temporal adjacency is a grounded but separate
    availability successor; it is not part of the prepared live reader study.
+
+## Licence
+
+Dual licensed: **AGPL-3.0-or-later** ([`LICENSE`](LICENSE)) or a **commercial
+licence** from Idris Applied AI Research. You choose; absent a commercial
+agreement, the AGPL applies.
+
+The AGPL is enough for research, evaluation, reproduction, internal use, and any
+project released on compatible terms. You need a commercial licence to offer
+this over a network as part of a closed-source service, or to ship it inside a
+proprietary product — AGPL section 13 covers network use, not just distribution.
+
+Full terms, the scope of what is covered, the carve-out for third-party
+datasets, and the contribution grant: [`LICENSING.md`](LICENSING.md).
+Commercial enquiries: **idrisappliedairesearch@gmail.com**.
 
 ---
 ---
@@ -1098,4 +1113,4 @@ accounting — reproduce exactly.
 
 ---
 
-*Idris Applied AI Research | independent, non-profit | failures published with the results*
+*Idris Applied AI Research | independent | failures published with the results*
