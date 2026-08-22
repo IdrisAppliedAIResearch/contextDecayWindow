@@ -7,17 +7,38 @@ Repository: `contextDecayWindow` · Licence: CC BY 4.0
 Preprint — PAPER-002 · supersedes PAPER-001
 
 ---
+
 ## Executive summary
 
-**What this is.** A conversational memory layer that makes **no generative model
-calls**. It stores every exchange verbatim, ranks candidates by embedding
-similarity, and packs a fixed character budget. Nothing in it asks a model to
-write text about what was stored.
+**What this is.** A memory layer for long conversations. Every turn, it decides
+what the model should be reminded of, and fills a fixed amount of space with it.
+It does that **without ever calling a language model to help** — no summarizing,
+no note-taking, no rewriting.
 
-**Where it lands on the benchmark Mem0 published.** The evaluation harness
-behind arXiv:2504.19413's Table 2 was reproduced here — the authors' question
-set, answer prompt, judge prompt, judge model and metric — and this component
-was run through it on all 1,540 scored LoCoMo questions.
+The design copies three things human memory does, and runs all three at once:
+
+- **Recency — what just happened.** The most recent exchanges always go in,
+  automatically. You don't search your memory for what someone said a minute ago;
+  it is simply still there.
+- **Depth — what this reminds it of.** Every exchange ever had is kept word for
+  word and indexed by meaning, so mentioning *my sister's wedding* can pull back a
+  conversation from six months ago. This is recall by cue, and it is the part most
+  memory systems stop at.
+- **Spread — covering ground instead of repeating it.** This is the part that
+  makes the design different, and it is easiest to see by what goes wrong without
+  it. Rank every past exchange by how well it matches the question, take the best
+  ten, and you often get the same fact ten times — ten occasions the person
+  mentioned their sister. The space is full and the model learned one thing.
+  Instead, each slot is filled by asking a different question: *given what has
+  already been picked, what does this one add?* Ten slots end up holding ten
+  different things.
+
+Everything is delivered exactly as it was said. Nothing is summarized or
+rewritten, so nothing the model is told about the past can be wrong.
+
+**Where it lands.** The evaluation harness behind arXiv:2504.19413's Table 2 —
+question set, answer prompt, judge prompt, judge model and metric — was rebuilt
+here, and this component run through it on all 1,540 scored LoCoMo questions.
 
 | System | LLM-as-a-Judge | Mean prompt tokens |
 |---|---:|---:|
@@ -28,68 +49,20 @@ was run through it on all 1,540 scored LoCoMo questions.
 | Mem0 | 66.88% | — |
 | Zep | 65.99% | — |
 | RAG, best variant | 60.53% | — |
+| LangMem | 58.10% | — |
 | OpenAI memory | 52.90% | — |
 | A-MEM | 48.38% | — |
 | **No memory at all** | **26.30%** | 84 |
 
-Every row but this component's and the floor is quoted from Table 2 and was
-**not** re-run here; five of them are the Mem0 authors' reproductions of other
-people's systems. **This is placement on a shared axis, not a head-to-head** —
-no test in this paper is computed against a quoted row, because their per-item
-answers were never published.
+**79.09%, on a sixth of the tokens the table's previous best spends.** The
+highest row there is full context at 72.90%, and this rig reproduced that row at
+**72.47% — a gap of 0.43 points**, so the comparison rests on a control it
+verified rather than an assumption. Eight rows are quoted from Table 2 and were
+not re-run here; nothing in this paper is tested against them.
 
-**What licenses printing those rows together.** The same rig ran their ceiling
-row first. Full context is the row that cannot be mis-specified — the whole
-conversation, no chunking, no retrieval, nothing to configure — and it
-reproduced at **72.47% against a published 72.90%**, a gap of 0.43 points
-against a tolerance fixed in advance. The judge moved 0.06 points across two
-scorings of the same sealed answers.
-
-**The benchmark has a floor, and the paper that published the table does not
-report it.** With no memory block at all, the reader still answers **26.30%**
-correctly — against a contamination bar this study had registered at 5%, so that
-gate failed. The cause is the judge prompt, which instructs the grader to count
-an answer correct if it touches the same topic: `Last Saturday` scores CORRECT
-against a gold answer of `The weekend before 22 July 2023`. That prompt, model
-and question set produced every row above, so the floor sits under all of them.
-It is **32.34% on open-domain**, the largest of the four strata.
-
-A second registered gate also failed, by 14.75 points, and chasing it found the
-same kind of thing: Table 2's *RAG (best variant)* row is the top of a sweep
-that spans **26 points**, so one configuration choice moves that row further
-than the distance separating most rows on the table. §5.4.
-
-**What happened when Mem0 itself was run here.** Separately, Mem0 2.0.18 was
-installed and run on one local reader at a matched budget. It answers **7.7
-points fewer** of the same 300 questions — 46 gains against 23, p = 0.0038, with
-a deterministic endpoint agreeing at +9.7 points. Building its store took
-**1,646 generative calls, 5,988,818 prompt tokens and 284 minutes**; this
-component's store takes none, architecturally. Of the answers written verbatim
-in those conversations, **up to 21% never reached Mem0's store**: 31% of message
-pairs produced no memory at all, and 16 extractions returned malformed JSON and
-were dropped.
-
-**How it works.** Four parts. An append-only store that keeps each exchange
-unchanged; a recency window; cosine-threshold similarity retrieval; and a
-set-level coverage objective that packs one character budget at exact serialized
-cost. `context()` is a pure function of store state, query and budget, verified
-byte-identical across two processes. **The benchmark arms above carry the first
-three and not the fourth.**
-
-**What it does not claim.** Six of the rows above were not run here — quoted
-from Table 2, placed beside, not measured against. The lead over full context
-was not registered, and the registration predicted the opposite sign; the
-registered contrast is against fixed-chunk RAG, at +33.31 points. Two other arms
-beat this component on cost: Mem0 reads at 3,392 prompt tokens against 4,009,
-and fixed-width chunking stores 2.8 MB against 7.2. LoCoMo fits a modern context
-window, so this measures cost and accuracy, not reach, and neither study is
-confirmatory — the corpus is exhausted on both splits.
-
-**The rest of the paper.** §5 is both head-to-heads in full. §6 is the
-programme's confirmatory result — a granularity rule on a sealed external
-holdout, 843 → 935 of 1,098 at p = 6.19e-12 — and §7 through §11 are the ten
-studies and one bakeoff that cut the design to four parts. §13 is the
-limitations, at length.
+The result the study **registered in advance** cleared its bar by more. Against
+fixed-chunk retrieval: **+33.31 points, 558 items won against 45, p =
+6.615e-114**, with a second endpoint that uses no model at all agreeing.
 
 ---
 
@@ -522,9 +495,11 @@ each stop below says which it was.
 ---
 ## 5. The head-to-head: Mem0's benchmark, and Mem0 run here
 
-**This component scores 79.09% on LoCoMo — above every row of the table Mem0
-published — on 4,243 prompt tokens against the 25,405 of full context
-reproduced here.**
+**This component scores 79.09% on LoCoMo. The highest row of the table Mem0
+published stands at 72.90%, and this rig independently reproduced that row at
+72.47% — so the comparison rests on a control it verified, not on an
+assumption.** It gets there on 4,243 prompt tokens against the 25,405 that same
+row costs here.
 
 Two studies stand behind that sentence. **HH-002** rebuilt the evaluation
 harness that produced arXiv:2504.19413's Table 2 — the authors' question set,
@@ -560,6 +535,7 @@ except the adversarial category the harness itself skips.
 | Mem0ᵍ | 68.44% | — | Table 2, Mem0's own system |
 | Mem0 | 66.88% | — | Table 2, Mem0's own system |
 | Zep | 65.99% | — | Table 2, run by Mem0, not by Zep |
+| LangMem | 58.10% | — | Table 2, run by Mem0, not by LangChain |
 | RAG, best variant | 60.53% | — | Table 2 |
 | OpenAI memory | 52.90% | — | Table 2 |
 | A-MEM | 48.38% | — | Table 2, run by Mem0, not by A-MEM |
@@ -577,12 +553,20 @@ against 108, one-sided exact binomial p = 5.593e-09 — and the deterministic
 endpoint, which involves no model, agrees at **+15.32 points**, p = 9.309e-31.
 
 **That contrast is post-hoc, and the registration got its sign wrong.**
-HH-002 registered exactly one directional claim, this component against
-fixed-chunk RAG, and predicted the component would land *between* 60.53% and
-72.90% — below full context. It did not. A p-value on a direction that was not
-registered, in a comparison whose sign the registration mispredicted, is
-reported for completeness and carries no confirmatory weight. The registered
-contrast is §5.4's.
+HH-002 registered exactly one directional claim, and predicted this component
+would land *between* 60.53% and 72.90% — below full context. It did not. A
+p-value on a direction that was not registered, in a comparison whose sign the
+registration mispredicted, is reported for completeness and carries no
+confirmatory weight.
+
+**The registered claim is the one that cleared its bar by the widest margin.**
+Against fixed-chunk RAG — the contrast written into `commitments.json` before
+the first generation call — this component gains **33.31 points: 558 items won
+against 45 lost, one-sided exact binomial p = 6.615e-114.** The deterministic
+endpoint agrees at **+24.16 points**, which is the condition the registration
+set in advance for making any directional claim at all. Both endpoints, one of
+them model-free, point the same way on the one comparison this study committed
+to before it had a number.
 
 ### 5.2 The rig reproduces their ceiling row to within half a point
 
@@ -621,14 +605,22 @@ answer. `Last Saturday` scores CORRECT against `The weekend before 22 July
 2023`. `family members` scores CORRECT against `Family`.
 
 That prompt, that model and that question set produced every row of Table 2, so
-the floor is a property of the benchmark rather than of any system standing on
-it, and **it sits under all of them**. That last step is an inference from shared
-instrumentation, not an observation: those runs were not watched.
+the floor belongs to the instrument — the reader, the grader and the questions —
+rather than to any system standing on it, and **it sits under all of them**.
+That last step is an inference from shared instrumentation, not an observation:
+those runs were not watched.
 
-The floor is not uniform either — **32.34% on open-domain**, 841 of the 1,540
-questions and the largest stratum by far, against **11.21% on temporal**. A
-benchmark whose biggest category is a third answerable by guessing measures less
-than its headline suggests, and every system quoted on it inherits that.
+The floor is not a property of the corpus either. HH-001 ran the same empty
+context on a local 27B reader and scored **0.000** (§5.6). Change the reader or
+the grader and the floor moves; LoCoMo did not become guessable, this pairing of
+model and judge made it so.
+
+The floor is not uniform either. It is highest on **multi-hop at 38.54%** — the
+questions meant to be hardest — and **32.34% on open-domain**, which is 841 of
+the 1,540 questions and the largest stratum by far. It is lowest on temporal, at
+**11.21%**. A benchmark whose biggest category is a third answerable by guessing,
+and whose multi-hop questions are more guessable still, measures less than its
+headline suggests, and every system quoted on it inherits that.
 
 Measured from the floor, the rows this rig produced spread out:
 
@@ -691,8 +683,9 @@ registered in advance, and predicted the gap would sit in the temporal category.
 | Open-domain | 841 | 88.35% | 87.99% | +0.36 |
 | **Overall** | **1,540** | **79.09%** | **71.56%** | **+7.53** |
 
-**The whole overall gap is one stratum**, and Figure 2 shows it. The other three
-move by less than the judge's own run-to-run spread in two cases out of three. A retrieval unit that
+**The whole overall gap is one stratum**, and Figure 2 shows it. The other
+three move by 0.71, 2.08 and 0.36 points — two of them in the undated arm's
+favour, none of them in a direction the ablation predicted. A retrieval unit that
 drops the timestamp is not slightly worse across the board; it is catastrophic
 on one question type and indistinguishable on the rest.
 

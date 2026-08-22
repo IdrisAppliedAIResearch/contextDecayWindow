@@ -30,6 +30,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import re
 import subprocess
 from pathlib import Path
 
@@ -93,16 +94,42 @@ def mean_prompt_tokens(arm: str) -> float:
     return sum(r["prompt_tokens"] for r in rows) / len(rows)
 
 
-def commitments_published() -> dict[str, float]:
-    """The quoted rows, read from the run's own commitments file.
+def quoted_rows() -> dict[str, float]:
+    """Table 2's rows, read from this repository's citation record.
 
-    Read rather than typed so the figure cannot disagree with the study about
-    what Table 2 says.
+    Not from the run's `commitments.json`. That file is the pre-registration
+    seal and its digest is quoted in the spine, so it is not rewritten after
+    the fact to add a row the figure wants. `COMPETITIVE_LANDSCAPE.md` is
+    where cited numbers live by design — the claim gate keeps measured and
+    cited numbers in separate files precisely so one cannot migrate into the
+    other.
+
+    Every row is extracted by a strict pattern over committed bytes, so a
+    change to the landscape's wording fails the build instead of silently
+    plotting a stale value.
     """
-    payload = load_json(ART / "commitments.json")["commitments"]
-    return dict(payload["inherited_rows_not_rerun"]), dict(
-        payload["gctrl"]["targets"]
-    )
+    text = read(REPO / "paper/notes/COMPETITIVE_LANDSCAPE.md").decode("utf-8")
+    wanted = {
+        "Mem0": r"\| Mem0 \| LoCoMo, LLM-as-a-Judge \(J\) \| \*\*([\d.]+)%\*\*",
+        "Mem0-graph": r"\| Mem0ᵍ \(graph\) \| LoCoMo, J \| \*\*([\d.]+)%\*\*",
+        "Zep": r"\| Zep \| LoCoMo, J \| \*\*([\d.]+)%\*\*",
+        "LangMem": r"\| LangMem \| LoCoMo, J \| \*\*([\d.]+)%\*\*",
+        "A-MEM": r"\| A-MEM \| LoCoMo, J \| \*\*([\d.]+)%\*\*",
+        "OpenAI memory": r"\| OpenAI memory \| LoCoMo, J \| \*\*([\d.]+)%\*\*",
+        "RAG, best variant": r"\| RAG \(best variant\) \| LoCoMo, J \| \*\*([\d.]+)%\*\*",
+        # The ceiling is stated in prose rather than as a table row.
+        "Full context": r"full-context ceiling of ([\d.]+)%",
+    }
+    out: dict[str, float] = {}
+    for label, pattern in wanted.items():
+        match = re.search(pattern, text)
+        if match is None:
+            raise SystemExit(
+                f"COMPETITIVE_LANDSCAPE.md no longer matches the pattern for "
+                f"{label!r}; refusing to plot a stale value"
+            )
+        out[label] = float(match.group(1))
+    return out
 
 
 def save(fig, name: str) -> None:
@@ -118,20 +145,21 @@ def save(fig, name: str) -> None:
 
 def figure_leaderboard() -> None:
     """The table, with measured and quoted rows kept visually apart."""
-    inherited, published = commitments_published()
+    quoted = quoted_rows()
     floor = rate("A_NONE")
 
     rows: list[tuple[str, float, str]] = [
         ("This component", rate("A_CDW"), "measured"),
-        ("Full context (published)", published["A_FULL"], "quoted"),
+        ("Full context (published)", quoted["Full context"], "quoted"),
         ("Full context (reproduced here)", rate("A_FULL"), "measured"),
         ("This component, undated turns", rate("A_CDW_NOTS"), "measured"),
-        ("Mem0-graph", inherited["Mem0g"], "quoted"),
-        ("Mem0", inherited["Mem0"], "quoted"),
-        ("Zep", inherited["Zep"], "quoted"),
-        ("RAG, best variant (published)", published["A_RAG"], "quoted"),
-        ("OpenAI memory", inherited["OpenAI memory"], "quoted"),
-        ("A-MEM", inherited["A-MEM"], "quoted"),
+        ("Mem0-graph", quoted["Mem0-graph"], "quoted"),
+        ("Mem0", quoted["Mem0"], "quoted"),
+        ("Zep", quoted["Zep"], "quoted"),
+        ("LangMem", quoted["LangMem"], "quoted"),
+        ("RAG, best variant (published)", quoted["RAG, best variant"], "quoted"),
+        ("OpenAI memory", quoted["OpenAI memory"], "quoted"),
+        ("A-MEM", quoted["A-MEM"], "quoted"),
         ("RAG 500/k=1 (reproduced here)", rate("A_RAG"), "measured"),
     ]
     rows.sort(key=lambda r: r[1])
