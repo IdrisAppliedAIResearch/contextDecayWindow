@@ -739,12 +739,23 @@ floor is a property of the reader and the grader, not of the corpus.
 ### 5.7 What the generative write path cost and lost
 
 Mem0 built its store with **1,646 generative calls over 284 minutes**, one call
-for every message pair, and those calls carried **about 4,100 prompt tokens
-each** — 5,988,818 of them across the sampled window. The cost per pair climbs
-as the store grows, because each extraction is shown what is already stored.
-Figure 4 shows that curve. This component built its store with **none**. That
-zero is architectural rather than measured: `append()` embeds and stores, and no
-code path asks a model to write text about what was stored.
+for every message pair, carrying **1,131 prompt tokens each — 1,862,108 across
+the ingest**, and writing back nearly as many again. This component built its
+store with **none**. That zero is architectural rather than measured:
+`append()` embeds and stores, and no code path asks a model to write text about
+what was stored.
+
+**That token figure is a correction, and it cuts against this paper.** It was
+published as 5,988,818. The counter it came from is cumulative and
+process-wide, and it ran 105 minutes past Mem0's last write; 73% of the total
+was the reader phase on the same server. The corrected value is 3.22× smaller,
+and the claim that per-pair cost climbs as the store grows fell with it — inside
+the clean overlap the rate is flat to declining, at −0.444 tokens/min per stored
+memory. What does drift is latency, 1.13× first to last decile, which is what
+Figure 4 shows and always showed. Amendment 001 carries the derivation.
+
+**The comparison does not depend on the size of that number.** 1,646 calls
+against zero is the architecture, and a call count is the honest unit for it.
 
 Of the 315 answers stated verbatim somewhere in the six source conversations,
 **66 are absent from Mem0's finished store — 21%.** This is a containment test
@@ -1784,11 +1795,12 @@ and unchanged on the rest. Sources: `A_CDW/judged_r1.json`
 Judged and containment accuracy over 300 questions at three replicates, one
 local reader, one 16,000-character budget: whole conversation 0.613, this
 component 0.563, fixed-width chunk retrieval 0.550, Mem0 2.0.18 0.487, no
-memory 0.000. The right panel is **prompt tokens spent building the store — 5,988,818 for Mem0
-against zero for every other arm**, across 1,646 calls and 284 minutes. Tokens
-rather than calls, because a call count understates a generative write path: the
-prompt grows as the store does. The figure is measured over 88% of the ingest, so
-the true total is higher. The two panels are not one
+memory 0.000. The right panel is **prompt tokens spent building the store — 1,862,108 for Mem0
+against zero for every other arm**, across 1,646 calls and 284 minutes. That
+total is RECOMPUTED: the counter overlaps 86.6% of the ingest and the overlap is
+scaled by wall clock, over a MEASURED floor of 1,612,718. It supersedes a
+published 5,988,818 that had booked the reader phase to the ingest (Amendment
+001). The two panels are not one
 trade curve: accuracy and build cost are different quantities and a single
 axis would imply a relationship the data does not describe. Sources:
 `result.json` `7fa4119c29f06b1c`, `cost/mem0_ingest.json` `a9653199d0d8317f`,

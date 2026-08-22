@@ -138,6 +138,17 @@ measured over a mid-ingest steady-state window of llama-server's cumulative coun
 a slice, not the whole run."* Correct spine C5 in the same edit; it is wrong at
 source, which is why the number-trace gate did not catch it.
 
+> **Superseded, 2026-08-21 — this review record is left unedited above.** S4's
+> diagnosis was right and its replacement value was not. Every denominator in
+> the table above divides `window_prompt_tokens`, and that numerator is not an
+> ingest cost: the counter is cumulative and process-wide and ran 105 minutes
+> past Mem0's last write, so 73% of it belongs to the reader phase. S4 fixed the
+> denominator while inheriting the defect. The corrected figure is **1,131
+> tokens per pair, 1,862,108 over the ingest** — and the row this table rejected,
+> *per call including embeddings, 1,080*, was rejected for a sound reason but
+> happened to land nearest the truth. See
+> `../../experiments/comparisons/hh_001/amendments/AMENDMENT_001_ingest_token_window.md`.
+
 ### S5 — The exec-summary table reports an architectural claim as a measured win, against the artifact's explicit instruction.
 
 Page 1, inside a two-column head-to-head table:

@@ -67,8 +67,8 @@ Mem0 2.0.18, installed and run on one local reader at a matched
 | | This component | Mem0 2.0.18 |
 |---|---:|---:|
 | Questions answered, of 300 | **0.563** | 0.487 |
-| **Prompt tokens to build the store** | **0** | **5,988,818** |
-| Generative calls to build it | **0** | **1,646** |
+| **Generative calls to build the store** | **0** | **1,646** |
+| Prompt tokens to build it | **0** | **1,862,108** |
 | Wall clock to build it | — | **284 min** |
 | Time to assemble one context block | **10 ms** | 413 ms |
 | Store size | **7.2 MB** | 42.8 MB |
@@ -77,10 +77,15 @@ Mem0 2.0.18, installed and run on one local reader at a matched
 **The gap is 7.7 points — 46 gains against 23, p = 0.0038**, with a
 model-free containment endpoint agreeing at **+9.7 points, p = 2.85e-05**.
 
-**Six million prompt tokens bought Mem0 a store that finished behind.** Up to a
+**1,646 generative calls bought Mem0 a store that finished behind.** Up to a
 fifth of the answers written verbatim in those conversations never reached it:
 31% of message pairs produced no memory at all, and 16 extractions returned
 malformed JSON and were dropped. A verbatim store cannot lose what it was given.
+
+*The token figure was published as 5,988,818 and is corrected here to 1,862,108
+— 3.22× smaller, against this project's own argument. The counter was
+process-wide and kept running 105 minutes past Mem0's last write. See
+[Amendment 001](experiments/comparisons/hh_001/amendments/AMENDMENT_001_ingest_token_window.md).*
 
 ### What this does not establish
 
