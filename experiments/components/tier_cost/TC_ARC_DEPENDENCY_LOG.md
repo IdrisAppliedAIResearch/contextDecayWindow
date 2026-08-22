@@ -1,7 +1,7 @@
 # TC Arc — Dependency Log
 
 **Document type:** Standing procedure and running record
-**Status:** `OPEN — TC-001 has reported; TC-002 through TC-006 have not`
+**Status:** `OPEN — TC-001 and TC-001B have reported; TC-002 through TC-006 have not`
 **Governs:** `TC_ARC_ROADMAP.md` Rule 4
 
 ---
@@ -61,6 +61,7 @@ face, without needing anyone to relitigate the science.
 |---|---|---|---|---|---|---|---|
 | 2026-08-21 | Arc drafted | RUNNABLE | RUNNABLE | RUNNABLE | RUNNABLE | RUNNABLE | RUNNABLE |
 | 2026-08-22 | TC-001 reported `D3 FLAT_WINS` | REPORTED | RUNNABLE | RUNNABLE | RUNNABLE | RUNNABLE | RUNNABLE |
+| 2026-08-22 | TC-001B reported `C1 D3 FLAT_WINS` | REPORTED | RUNNABLE | RUNNABLE | RUNNABLE | RUNNABLE | RUNNABLE |
 
 **Re-read of 2026-08-22.** Triggered by TC-001 reporting. Every line below was
 read from `TC_ARC_ROADMAP.md` rather than from memory or from this file's
@@ -87,6 +88,32 @@ gap, and TC-005's latency target now belongs to a component that carried
 evidence on 8 of 871 questions — but it is not a reason to stop either of them,
 and it changes no dependency line. Under Rule 1 there is no arc-level clause to
 inherit.
+
+**Re-read of 2026-08-22, second.** Triggered by TC-001B reporting. TC-001B is
+a successor registered under `amendments/AMENDMENT_001_dual_arm_escalation.md`,
+not a numbered arc stage, so it appears in the trigger column rather than as a
+column of its own. Every line below was read from `TC_ARC_ROADMAP.md` again,
+from the file rather than from the row above it.
+
+| Study | Dependency line, as written | Verdict | Why |
+|---|---|---|---|
+| TC-002 | A second store with evidence labels where both orders can be replayed over frozen candidate identities | `RUNNABLE` | Unchanged and now further demonstrated: TC-001B replayed four orders over frozen identities on LoCoMo development. Nothing was consumed that TC-002 needs |
+| TC-003 | The tier boundaries must be identifiable in the delivered block | `RUNNABLE` | Satisfied by `ContextReport`, and TC-001B attributes carried evidence to a tier on all 871 questions for three separate configurations |
+| TC-004 | A corpus with span-level evidence labels | `RUNNABLE` | LongMemEval turn labels and LoCoMo evidence dialogue ids both persist. Untouched by TC-001B |
+| TC-005 | A pool-size-versus-latency series over the current implementation | `RUNNABLE` | `PAPER_002.md` §10's series persists; TC-001B adds per-question latency for two further configurations at pools of 323 to 355 |
+| TC-006 | Two frozen contexts of known margin, and an instrument finer than that margin | `RUNNABLE` | Unchanged. EC-002's replay artifacts satisfy the first clause; the second is TC-006's own first task |
+
+**No study is `BLOCKED`, and TC-001B's verdict could not block one.** A verdict
+is not an artifact.
+
+**What did change, and it is not a block.** TC-003 proposes reserved floors so
+that allocation stops depending on tier order. TC-001B measured a competitor to
+that explanation: of TC-001's 435-question deficit, **158** is attributable to
+the recency tier's share and **276** to the order the K tier delivered its own
+members in. Reserved floors address the first and not the second. That makes
+TC-003 more interesting to run and changes no dependency line — under Rule 1
+there is no arc-level clause to inherit, and TC-003's own expiry condition
+(Rule 3) reads `none`, so there is nothing outstanding for it to wait on.
 
 **Initial state, 2026-08-21.** All six dependency lines name artifacts that
 exist, with one exception recorded here rather than as a block: TC-006's second
