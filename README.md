@@ -8,10 +8,26 @@
 
 ## Executive Summary
 
-**A conversational memory layer that makes no generative model calls.** It stores
-every exchange verbatim, ranks candidates by embedding similarity, and packs a
-fixed character budget. Nothing in it asks a model to write text about what was
-stored.
+**A memory layer for long conversations.** Every turn, it decides what the model
+should be reminded of and fills a fixed amount of space with it — **without ever
+calling a language model to help.** No summarizing, no note-taking, no rewriting.
+
+The design copies three things human memory does, and runs all three at once:
+
+- **Recency — what just happened.** The most recent exchanges always go in,
+  automatically. You don't search your memory for what someone said a minute ago.
+- **Depth — what this reminds it of.** Every exchange ever had is kept word for
+  word and indexed by meaning, so mentioning *my sister's wedding* pulls back a
+  conversation from six months ago. This is recall by cue, and it is where most
+  memory systems stop.
+- **Spread — covering ground instead of repeating it.** Rank every past exchange
+  by how well it matches the question and take the best ten, and you often get
+  the same fact ten times over. The space is full and the model learned one
+  thing. Each slot is instead filled by asking what a candidate *adds* to what
+  has already been picked, so ten slots hold ten different things.
+
+Everything is delivered exactly as it was said, so nothing the model is told
+about the past can be wrong.
 
 ### It scores 79.09% on the benchmark Mem0 published
 
