@@ -314,7 +314,8 @@ Written as prohibitions so they can be grepped for.
 
 | Forbidden | Why |
 |---|---|
-| Any statement that this component **beats, matches, approaches or trails** Mem0, Mem0ᵍ, Zep, Graphiti, MemGPT, Letta, A-MEM, LangMem, HippoRAG or HippoRAG 2 | **None was run here.** `DO_NOT_WRITE.md` item 35. No shared instrument exists on which the words *beats* or *trails* have a referent |
+| Any statement that this component **beats, matches, approaches or trails** Mem0, Mem0ᵍ, Zep, Graphiti, MemGPT, Letta, A-MEM, LangMem, HippoRAG or HippoRAG 2 | **AMENDED 2026-08-21.** Still forbidden — none of them was run here, so *beats* and *trails* have no referent. What HH-002 changed is narrower and is licensed instead: this component **scored 79.09% on the same 1,540 questions, harness, answer prompt, judge and metric that produced Table 2**, whose rows may be printed beside it with attribution. A shared axis is not a shared measurement. `DO_NOT_WRITE.md` item 35 carries the full scope |
+| Any floor-adjusted figure derived from a **quoted** row — 40.58 for Mem0 above HH-002's 26.30% floor, or any analogue | The floor was measured on this rig and is **not uniform** by stratum (32.34% open-domain, 11.21% temporal). Subtracting a scalar from a row whose strata were never published is arithmetic, not measurement. Floor-adjusted values for rows **measured here** are permitted |
 | Any table, figure or sentence placing a published J-score or accuracy beside an availability count from this repository | Different measures of different objects. `AGENTS.md` §3's surrogate class, demonstrated live by LV-001 |
 | "Zep scores 65.99% on LoCoMo" without attribution to the Mem0 authors' run | It is a third-party reproduction published by a competing system, and Zep's own paper reports DMR and LongMemEval instead |
 | "MemGPT scores 93.4% on DMR" as MemGPT's claim | MemGPT's abstract makes no numeric claim. 93.4% is Zep's measurement of MemGPT |

@@ -90,3 +90,10 @@ experiments/study_011/noise_band/run_logs/
 # committed as JSON under artifacts/dev/cost/, and mem0_history.db — the
 # source of the latency curve — is committed.
 experiments/comparisons/hh_001/artifacts/dev/mem0_store/
+*.db-wal
+*.db-shm
+
+# Delivered context dumps: large, derived, and reproducible from the
+# code plus the embedding cache. A per-item digest manifest is committed
+# in their place (contexts_manifest.json).
+experiments/comparisons/*/artifacts/*/contexts.json

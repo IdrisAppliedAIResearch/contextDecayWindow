@@ -5,7 +5,8 @@ citation gate verifies *external* references against Semantic Scholar, OpenAlex,
 Crossref and arXiv, and every headline number in this paper is internal.
 
   1. NUMBER TRACE. Every distinct numeric literal in `paper/PAPER_002.md` must
-     also appear in `paper/notes/EVIDENCE_SPINE.md` (internal measurements) or in
+     also appear in `paper/notes/EVIDENCE_SPINE.md`, `HH001_EVIDENCE_SPINE.md`
+     or `HH002_EVIDENCE_SPINE.md` (internal measurements), or in
      `paper/notes/COMPETITIVE_LANDSCAPE.md` (numbers cited from a publication).
      A number in neither is untraced or newly invented, and both are defects under
      AGENTS.md section 8. The two sources are deliberately separate: the spine holds
@@ -46,6 +47,7 @@ REPO = Path(__file__).resolve().parent.parent
 PAPER = REPO / "paper/PAPER_002.md"
 SPINE = REPO / "paper/notes/EVIDENCE_SPINE.md"
 HH001_SPINE = REPO / "paper/notes/HH001_EVIDENCE_SPINE.md"
+HH002_SPINE = REPO / "paper/notes/HH002_EVIDENCE_SPINE.md"
 FORBIDDEN = REPO / "paper/notes/DO_NOT_WRITE.md"
 LANDSCAPE = REPO / "paper/notes/COMPETITIVE_LANDSCAPE.md"
 
@@ -97,6 +99,8 @@ def check_number_trace() -> list[str]:
     # number cannot drift from one programme's evidence into the other's.
     if HH001_SPINE.exists():
         traced |= harvest(HH001_SPINE.read_text(encoding="utf-8"))
+    if HH002_SPINE.exists():
+        traced |= harvest(HH002_SPINE.read_text(encoding="utf-8"))
     if LANDSCAPE.exists():
         traced |= harvest(LANDSCAPE.read_text(encoding="utf-8"))
 
