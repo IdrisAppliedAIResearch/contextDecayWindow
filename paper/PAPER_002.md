@@ -250,13 +250,20 @@ detail, published numbers and verification status are in
 to any of the others is cited from
 its publication and labelled as such.
 
-More importantly, the measures differ. Mem0 and its neighbours report LLM-judged
-question-answering accuracy on LoCoMo. This paper reports deterministic evidence
-availability at a fixed character budget: whether the text carrying an answer was
-present in the delivered context, established without a model in the loop. Placing
-those two in one column would be exactly the substitution this programme's own
-operating manual names as its recurring failure — *a surrogate that can pass without
-the property it claims to certify*. We do not place them in one column.
+The measures differ, and for most of this programme's life that difference was
+the obstacle. Mem0 and its neighbours report LLM-judged question-answering accuracy
+on LoCoMo. §6 and §7 report deterministic evidence *availability* at a fixed
+character budget: whether the text carrying an answer was present in the delivered
+context, established without a model in the loop. **Those two are never placed in
+one column.** Doing so would be exactly the substitution this programme's operating
+manual names as its recurring failure — *a surrogate that can pass without the
+property it claims to certify*.
+
+§5 does place a number beside theirs, and it is admissible because it is not a
+surrogate: HH-002 measures LLM-judged accuracy itself, on their harness, their
+questions and their judge. The substitution above stays forbidden; what changed is
+that this programme no longer needs it. NF-004's 935 of 1,098 is an availability
+count and never enters that table.
 
 What is comparable is architectural, and the axes are countable from either system's
 own description:
@@ -418,7 +425,10 @@ phrase. They reproduce identically and they do not license the same sentence.
 
 | Result | Standing | The binding limit |
 |---|---|---|
-| HH-001 — head-to-head against Mem0, +7.7 points (§5) | REGISTERED-LIVE | This reader, this corpus, this budget, this pair of configurations. Never confirmation |
+| HH-002 — 79.09% on the published harness (§5.1) | REGISTERED-LIVE | One replicate; a vendor API, so not replayable. The lead over full context was **not** the registered contrast |
+| HH-002 — +33.31 over fixed-chunk RAG (§5.1) | REGISTERED-LIVE | The one directional claim registered before the run. Both endpoints agree |
+| HH-002 — the RAG configuration sweep (§5.4) | DESCRIPTIVE | Built after the number existed, to account for a failed gate. Carries no claim about this component |
+| HH-001 — head-to-head against Mem0, +7.7 points (§5.6) | REGISTERED-LIVE | This reader, this corpus, this budget, this pair of configurations. Never confirmation |
 | NF-004 — LoCoMo pair ranking, 843→935 (§6.1) | CONFIRMATORY | Availability only; no reader, universal-rule or adoption claim |
 | DMR-004 — no sufficiency signal (§6.2) | CONFIRMATORY | Negative; closes deterministic stopping in this arc |
 | DMR-001 — degenerate formation (§6.3) | CONFIRMATORY | Negative; its post-stop gates are not results |
@@ -1632,9 +1642,10 @@ individual calls.
 Every item in that corpus has now been used by this programme. **No confirmatory claim
 is available from it again**, and any registration written today inherits that
 ceiling. The LoCoMo holdout in §6.1 is now the only sealed external evidence this
-programme holds for the granularity result, and **LoCoMo is now spent too**: NF-004
-read the six holdout conversations and HH-001 read them again. §5 is `REGISTERED-LIVE`
-for that reason and cannot become confirmatory.
+programme holds for the granularity result, and **LoCoMo is now spent three times
+over**: NF-004 read the six holdout conversations, HH-001 read them again, and HH-002
+read all ten. Both studies in §5 are `REGISTERED-LIVE` for that reason and cannot
+become confirmatory. No sealed external corpus remains to this programme.
 
 ---
 
@@ -1693,9 +1704,11 @@ better — it is first because the alternative is impossible. Separating the thr
 required a per-fact known optimum on the same store, a measurement costing an answer
 key and exact cost accounting, and buying a sharper question than an end-to-end score.
 
-**What this programme has not shown** is that any of it makes a reader answer better.
-Availability and correctness were measured moving in opposite directions once, and
-that result stands unrescued. The next decision-relevant experiment is therefore not
+**What this programme has not shown** is that its *mechanism* results carry
+through to a reader. §5 measures answers directly and this component wins there;
+what remains unestablished is the link between the two — that the availability
+gains §7 confirms are what produce those answers. Availability and correctness were
+measured moving in opposite directions once, and that result stands unrescued. The next decision-relevant experiment is therefore not
 another retrieval study. It is a reader study over two already-frozen contexts —
 whether the 14-of-17 context causes a reader to use more correct facts than the
 12-of-17 context, under an identical prompt and runtime, scored as a 17-bit
