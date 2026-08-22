@@ -1,7 +1,11 @@
 # TC Arc — What the tiered architecture earns, and what it costs
 
 **Document type:** Prospective arc roadmap
-**Status:** `DESIGN ONLY — NOT PRE-REGISTERED — NO IMPLEMENTATION AUTHORIZED`
+**Status:** `DESIGN ONLY — NOT PRE-REGISTERED — NO IMPLEMENTATION AUTHORIZED`,
+except TC-001, registered separately on August 22, 2026 in
+`TC_001_PRE_REGISTRATION.md`. That document, not this one, governs TC-001;
+where the two disagree the registration wins and the disagreement is a defect
+in this file. TC-002 through TC-006 remain design only.
 **Date:** August 21, 2026
 **Predecessors:** HH-002 (`experiments/comparisons/hh_002/`), EC-002 and IC-001
 (`PAPER_002.md` §9), DR-002 (§8.2), NF-005 (§7.2), §10's cost envelope
