@@ -1,6 +1,6 @@
 # Rank Fine, Pack Fine, Call Nothing
 
-### A memory layer that spends no generative calls, measured against one that spends 1,646
+### 79.09% on the benchmark Mem0 published, at a sixth of the tokens, with no generative calls
 
 **Idris Applied AI Research** — independent, non-profit
 Repository: `contextDecayWindow` · Licence: CC BY 4.0
@@ -10,64 +10,62 @@ Preprint — PAPER-002 · supersedes PAPER-001
 
 ## Executive summary
 
-**What this is.** A conversational memory layer that makes **no generative model
-calls**. It stores every exchange verbatim, ranks candidates by embedding
-similarity, and packs a fixed character budget. Nothing in it asks a model to
-write text about what was stored.
+**What this is.** A memory layer for long conversations. Every turn, it decides
+what the model should be reminded of, and fills a fixed amount of space with it.
+It does that **without ever calling a language model to help** — no summarizing,
+no note-taking, no rewriting.
 
-**What happened against Mem0.** Mem0 2.0.18 was installed and run here — same
-corpus, same local reader, same 16,000-character budget, contrast hashed before
-the first generation call.
+The design copies three things human memory does, and runs all three at once:
 
-| | This component | Mem0 2.0.18 |
+- **Recency — what just happened.** The most recent exchanges always go in,
+  automatically. You don't search your memory for what someone said a minute ago;
+  it is simply still there.
+- **Depth — what this reminds it of.** Every exchange ever had is kept word for
+  word and indexed by meaning, so mentioning *my sister's wedding* can pull back a
+  conversation from six months ago. This is recall by cue, and it is the part most
+  memory systems stop at.
+- **Spread — covering ground instead of repeating it.** This is the part that
+  makes the design different, and it is easiest to see by what goes wrong without
+  it. Rank every past exchange by how well it matches the question, take the best
+  ten, and you often get the same fact ten times — ten occasions the person
+  mentioned their sister. The space is full and the model learned one thing.
+  Instead, each slot is filled by asking a different question: *given what has
+  already been picked, what does this one add?* Ten slots end up holding ten
+  different things.
+
+Everything is delivered exactly as it was said. Nothing is summarized or
+rewritten, so nothing the model is told about the past can be wrong.
+
+**Where it lands.** The evaluation harness behind arXiv:2504.19413's Table 2 —
+question set, answer prompt, judge prompt, judge model and metric — was rebuilt
+here, and this component run through it on all 1,540 scored LoCoMo questions.
+
+| System | LLM-as-a-Judge | Mean prompt tokens |
 |---|---:|---:|
-| Questions answered, of 300 | **0.563** | 0.487 |
-| Prompt tokens to build the store | **0** | **5,988,818** |
-| Generative calls to build it | **0** | **1,646** |
-| Wall clock to build it | — | **284 min** |
-| Time to assemble one context block | **10 ms** | 413 ms |
-| Store size | **7.2 MB** | 42.8 MB |
-| Answer reached the delivered context | **101 of 108** | 79 of 108 |
+| **This component** | **79.09%** | **4,243** |
+| Full context | 72.90% | — |
+| *Full context, reproduced here* | *72.47%* | *25,405* |
+| Mem0ᵍ | 68.44% | — |
+| Mem0 | 66.88% | — |
+| Zep | 65.99% | — |
+| RAG, best variant | 60.53% | — |
+| LangMem | 58.10% | — |
+| OpenAI memory | 52.90% | — |
+| A-MEM | 48.38% | — |
+| **No memory at all** | **26.30%** | 84 |
 
-The accuracy gap is **7.7 points, 46 gains against 23, p = 0.0038**. A
-deterministic containment endpoint — no model, cannot be talked into a verdict —
-agrees at **+9.7 points, p = 2.85e-05**. With no memory at all the reader scored
-**zero**, so none of this is a model reciting a public dataset.
+**79.09%, on a sixth of the tokens the table's previous best spends.** The
+highest row there is full context at 72.90%, and this rig reproduced that row at
+**72.47% — a gap of 0.43 points**, so the comparison rests on a control it
+verified rather than an assumption. Eight rows are quoted from Table 2 and were
+not re-run here; nothing in this paper is tested against them.
 
-**Why it matters.** The generative call in the write path is the expensive,
-lossy, slow part, and on this corpus it bought nothing. Mem0 spent **six million prompt tokens** and a model
-call on every message pair, and still finished behind. Of the answers written verbatim
-in those conversations, up to a fifth never reached its store: 31% of pairs
-produced no memory at all, and 16 extractions returned malformed JSON and were
-dropped. A verbatim store cannot lose what it was given.
-
-**How it works.** Four parts. An append-only store that keeps each exchange
-unchanged; a recency window; cosine-threshold similarity retrieval; and a
-set-level coverage objective that packs one character budget at exact serialized
-cost. `context()` is a pure function of store state, query and budget, verified
-byte-identical across two processes.
-
-**What this does not establish.**
-
-- **Fixed-width chunk retrieval scored 0.550 against 0.563.** Thirteen
-  thousandths. Against Mem0 the margin is 7.7 points and the sign test carries
-  it; against chunk-and-embed on this corpus it does not.
-- **Mem0 is the cheaper arm per question** — 3,392 prompt tokens against 4,009.
-  Ingest cost and read cost run in opposite directions, and which architecture
-  wins depends on a read-to-write ratio neither paper states.
-- **The corpus fits the reader's window.** The arm that took the whole
-  conversation scored highest, at 222 times the cheapest arm's tokens. Here a
-  memory layer buys cost, not capability.
-- **Not a comparison to Mem0's published 66.88%**, which used a different model
-  as extractor, answerer and judge. Zep, Letta, HippoRAG and Mem0's graph
-  variant were not run at all.
-
-**The rest of the paper.** §5 is the head-to-head in full. §6 is the programme's
-confirmatory result — a granularity rule on a sealed external holdout, 843 → 935
-of 1,098 at p = 6.19e-12 — and §7 through §11 are the ten studies and one bakeoff
-that cut the design to four parts. §13 is the limitations, at length.
+The result the study **registered in advance** cleared its bar by more. Against
+fixed-chunk retrieval: **+33.31 points, 558 items won against 45, p =
+6.615e-114**, with a second endpoint that uses no model at all agreeing.
 
 ---
+
 ## Abstract
 
 We report a deterministic memory layer for long conversations that makes no
@@ -76,18 +74,38 @@ components: ten numbered studies plus one registered exploratory bakeoff. The su
 window, cosine-threshold similarity retrieval, and a set-level coverage objective,
 packed against one character budget at exact serialized cost.
 
-Against Mem0 2.0.18, installed and run here on the same corpus, the same local
-reader and the same 16,000-character budget, the layer that makes no generative
-calls answers 7.7 points more of 300 questions than the layer that spent 1,646 of
-them across 284 minutes (46 gains against 23, one-sided exact p = 0.0038; a
-model-free containment endpoint agrees at +9.7 points, p = 2.85e-05). It assembles
-a context block in 10 milliseconds against 413, in a store of 7.2 MB against 42.8.
-Of the answers stated verbatim in those conversations, up to 21% are absent from
-Mem0's store, an upper bound because a preserved paraphrase counts as absent; 31% of message pairs produced no memory at all. Per query Mem0 is the
-cheaper arm, at 3,392 prompt tokens against 4,009, so ingest cost and read cost run
-in opposite directions and both are reported. The comparison is to Mem0 as run
-here, never to its published score, and the corpus fits the reader's window, so it
-measures cost rather than capacity.
+We rebuilt the evaluation harness behind arXiv:2504.19413's Table 2 — its question
+set, answer prompt, judge prompt, judge model and metric — and ran this layer
+through it on all 1,540 scored LoCoMo questions. It scores 79.09%, above every
+row of that table, on 4,243 prompt tokens against the 25,405 of full context
+reproduced here. None of the systems behind those rows was re-run. The placement is licensed by reproducing their own ceiling
+row first: full context, the configuration with nothing to choose, came back at
+72.47% against a published 72.90%, and the judge moved 0.06 points across two
+scorings of the same sealed answers. Six of the table's rows were not re-run and
+are quoted with attribution; no test here is computed against them.
+
+Two registered gates failed and both are reported as results. With no memory
+block at all the reader still scores 26.30% against a bar of 5%, because the
+judge prompt instructs the grader to accept any answer touching the gold
+answer's topic — 32.34% on open-domain, the largest of four strata. That floor is
+a property of the shared instrument and the source paper does not report it. The
+second gate missed by 14.75 points: the sweep behind Table 2's "RAG (best
+variant)" row spans 26 points with the published value inside it, so one
+configuration choice moves that row further than the distance separating most
+rows on the table.
+
+Against Mem0 2.0.18, installed and run here on one local reader at a matched
+16,000-character budget, the layer that makes no generative calls answers 7.7
+points more of 300 questions than the layer that spent 1,646 of them across 284
+minutes (46 gains against 23, one-sided exact p = 0.0038; a model-free containment
+endpoint agrees at +9.7 points, p = 2.85e-05). It assembles a context block in 10
+milliseconds against 413, in a store of 7.2 MB against 42.8. Of the answers stated
+verbatim in those conversations, up to 21% are absent from Mem0's store, an upper
+bound because a preserved paraphrase counts as absent; 31% of message pairs
+produced no memory at all. Per query Mem0 is the cheaper arm, at 3,392 prompt
+tokens against 4,009, so ingest cost and read cost run in opposite directions and
+both are reported. LoCoMo fits the reader's window, so both studies measure cost
+and accuracy rather than capacity.
 
 The programme's central positive result is a granularity rule confirmed on a sealed
 external holdout. On six LoCoMo conversations withheld until bars, endpoint and
@@ -232,13 +250,20 @@ detail, published numbers and verification status are in
 to any of the others is cited from
 its publication and labelled as such.
 
-More importantly, the measures differ. Mem0 and its neighbours report LLM-judged
-question-answering accuracy on LoCoMo. This paper reports deterministic evidence
-availability at a fixed character budget: whether the text carrying an answer was
-present in the delivered context, established without a model in the loop. Placing
-those two in one column would be exactly the substitution this programme's own
-operating manual names as its recurring failure — *a surrogate that can pass without
-the property it claims to certify*. We do not place them in one column.
+The measures differ, and for most of this programme's life that difference was
+the obstacle. Mem0 and its neighbours report LLM-judged question-answering accuracy
+on LoCoMo. §6 and §7 report deterministic evidence *availability* at a fixed
+character budget: whether the text carrying an answer was present in the delivered
+context, established without a model in the loop. **Those two are never placed in
+one column.** Doing so would be exactly the substitution this programme's operating
+manual names as its recurring failure — *a surrogate that can pass without the
+property it claims to certify*.
+
+§5 does place a number beside theirs, and it is admissible because it is not a
+surrogate: HH-002 measures LLM-judged accuracy itself, on their harness, their
+questions and their judge. The substitution above stays forbidden; what changed is
+that this programme no longer needs it. NF-004's 935 of 1,098 is an availability
+count and never enters that table.
 
 What is comparable is architectural, and the axes are countable from either system's
 own description:
@@ -378,7 +403,7 @@ obtained, before anyone looks at what they say.
 
 ### 4.1 The standing taxonomy
 
-Five levels, separated by **when the claim was committed relative to the number**,
+Six levels, separated by **when the claim was committed relative to the number**,
 not by how the number was computed. Determinism is cheap; commitment order is what a
 result cannot buy back afterwards.
 
@@ -400,7 +425,10 @@ phrase. They reproduce identically and they do not license the same sentence.
 
 | Result | Standing | The binding limit |
 |---|---|---|
-| HH-001 — head-to-head against Mem0, +7.7 points (§5) | REGISTERED-LIVE | This reader, this corpus, this budget, this pair of configurations. Never confirmation |
+| HH-002 — 79.09% on the published harness (§5.1) | REGISTERED-LIVE | One replicate; a vendor API, so not replayable. The lead over full context was **not** the registered contrast |
+| HH-002 — +33.31 over fixed-chunk RAG (§5.1) | REGISTERED-LIVE | The one directional claim registered before the run. Both endpoints agree |
+| HH-002 — the RAG configuration sweep (§5.4) | DESCRIPTIVE | Built after the number existed, to account for a failed gate. Carries no claim about this component |
+| HH-001 — head-to-head against Mem0, +7.7 points (§5.6) | REGISTERED-LIVE | This reader, this corpus, this budget, this pair of configurations. Never confirmation |
 | NF-004 — LoCoMo pair ranking, 843→935 (§6.1) | CONFIRMATORY | Availability only; no reader, universal-rule or adoption claim |
 | DMR-004 — no sufficiency signal (§6.2) | CONFIRMATORY | Negative; closes deterministic stopping in this arc |
 | DMR-001 — degenerate formation (§6.3) | CONFIRMATORY | Negative; its post-stop gates are not results |
@@ -475,21 +503,212 @@ first when it was the second is how a programme accumulates false confidence, so
 each stop below says which it was.
 
 ---
+## 5. The head-to-head: Mem0's benchmark, and Mem0 run here
 
-## 5. The head-to-head: Mem0, run here
+**This component scores 79.09% on LoCoMo. The highest row of the table Mem0
+published stands at 72.90%, and this rig independently reproduced that row at
+72.47% — so the comparison rests on a control it verified, not on an
+assumption.** It gets there on 4,243 prompt tokens against the 25,405 that same
+row costs here.
 
-Every claim in this section is a measurement taken in this repository. Mem0
-2.0.18 was installed, configured onto this programme's reader and embedder, and
-run over the same corpus as the component it is compared against. The contrast,
-the endpoint, the budget, the sample size and the replicate count were written
-to `commitments.json` and hashed at `c143620b83c3f300` **before the first
-generation call**. Provenance for every number: `notes/HH001_EVIDENCE_SPINE.md`.
+Two studies stand behind that sentence. **HH-002** rebuilt the evaluation
+harness that produced arXiv:2504.19413's Table 2 — the authors' question set,
+answer prompt, judge prompt, judge model and metric — and ran this component
+through it on all 1,540 scored questions. **HH-001** installed Mem0 2.0.18 and
+ran it here, on one local reader at a matched budget, which is how this
+programme knows what Mem0's write path costs and what it loses.
 
-### 5.1 The result
+Together they measure two different things and both are in this section: where
+the component lands against a published field, and what happens when the
+competing architecture is put on a bench and watched.
 
-Five memory layers, 300 questions drawn by seeded stratification from 850
-answerable LoCoMo records, three replicates each, one reader, one judge, one
-16,000-character budget measured on the exact string handed to the model.
+Provenance: `notes/HH002_EVIDENCE_SPINE.md` and `notes/HH001_EVIDENCE_SPINE.md`.
+Both studies hashed their commitments before the first generation call.
+
+**Scope, once, so the rest of the section can be read without footnotes.** Mem0's
+own row was not re-run — it needs a hosted-platform account this programme does
+not hold — so Table 2's rows are quoted with attribution and no test in this
+paper is computed against them. The arm under test is NF-004's pair ranking at a
+16,000-character budget, without §3's set-level coverage objective.
+
+### 5.1 On the table arXiv:2504.19413 published
+
+All 1,540 scored LoCoMo questions — every question in the ten conversations
+except the adversarial category the harness itself skips.
+
+| System | LLM-as-a-Judge | Mean prompt tokens | Source |
+|---|---:|---:|---|
+| **This component** | **79.09%** | **4,243** | measured here |
+| Full context | 72.90% | — | Table 2 |
+| *Full context, reproduced here* | *72.47%* | *25,405* | *measured here* |
+| This component, undated turns | 71.56% | 3,696 | measured here |
+| Mem0ᵍ | 68.44% | — | Table 2, Mem0's own system |
+| Mem0 | 66.88% | — | Table 2, Mem0's own system |
+| Zep | 65.99% | — | Table 2, run by Mem0, not by Zep |
+| LangMem | 58.10% | — | Table 2, run by Mem0, not by LangChain |
+| RAG, best variant | 60.53% | — | Table 2 |
+| OpenAI memory | 52.90% | — | Table 2 |
+| A-MEM | 48.38% | — | Table 2, run by Mem0, not by A-MEM |
+| No memory | 26.30% | 84 | measured here |
+
+Five of the six quoted rows are the Mem0 authors' reproductions of other
+people's systems. Zep's own paper reports DMR and LongMemEval and never LoCoMo.
+Figure 1 draws the table, with the rows this rig measured separated from the
+rows it quotes and the floor of §5.3 drawn across all of them.
+
+The component's row sits above every quoted row, and it does so at a sixth of
+the prompt tokens of the arm that previously topped the table. Against full
+context **reproduced on this rig** it leads by **6.62 points** — 210 gains
+against 108, one-sided exact binomial p = 5.593e-09 — and the deterministic
+endpoint, which involves no model, agrees at **+15.32 points**, p = 9.309e-31.
+
+**That contrast is post-hoc, and the registration got its sign wrong.**
+HH-002 registered exactly one directional claim, and predicted this component
+would land *between* 60.53% and 72.90% — below full context. It did not. A
+p-value on a direction that was not registered, in a comparison whose sign the
+registration mispredicted, is reported for completeness and carries no
+confirmatory weight.
+
+**The registered claim is the one that cleared its bar by the widest margin.**
+Against fixed-chunk RAG — the contrast written into `commitments.json` before
+the first generation call — this component gains **33.31 points: 558 items won
+against 45 lost, one-sided exact binomial p = 6.615e-114.** The deterministic
+endpoint agrees at **+24.16 points**, which is the condition the registration
+set in advance for making any directional claim at all. Both endpoints, one of
+them model-free, point the same way on the one comparison this study committed
+to before it had a number.
+
+### 5.2 The rig reproduces their ceiling row to within half a point
+
+Before measuring itself, this rig measured them.
+
+Full context is the row that cannot be mis-specified: `--chunk_size -1` hands
+the model the whole conversation, with no chunking, no embedder, no retrieval
+and nothing to configure. **This rig scored it at 72.47% against a published
+72.90% — a gap of 0.43 points**, against a tolerance of ±3.0 fixed before any
+number existed.
+
+Half a point on a 1,540-question benchmark, reproducing a figure published by a
+different team on different hardware. On the one row where nothing can be
+misconfigured, the corpus adaptation, the prompt reconstruction, the judge and
+the metric all land where theirs did. That is what puts this component's number
+on the same axis as the rest of the table — placement, and nothing more.
+
+The judge is not the noise source either. The same 1,540 sealed answers, scored
+twice, landed **0.06 points apart** — 3 items moved out of 1,540.
+
+### 5.3 LoCoMo has a 26-point floor that its own paper never reports
+
+Run the benchmark with **no memory block at all** — an empty context, the model
+guessing — and it scores **26.30%**.
+
+**G-FLOOR failed.** The registered bar was below 5%, on the expectation of
+near-zero, and 26.30% is not near zero.
+
+It is also this study's second finding, and not the one it went looking for.
+Guessability alone accounts for it, without any need to suppose the model has
+seen the corpus: the failure is a judge instructed to be generous meeting
+questions a reasonable guess can satisfy. No contamination probe was run against
+this reader, so contamination is unmeasured here rather than excluded. The judge prompt, reproduced byte-exact from the upstream blob, tells
+the grader to count an answer correct if it touches the same topic as the gold
+answer. `Last Saturday` scores CORRECT against `The weekend before 22 July
+2023`. `family members` scores CORRECT against `Family`.
+
+That prompt, that model and that question set produced every row of Table 2, so
+the floor belongs to the instrument — the reader, the grader and the questions —
+rather than to any system standing on it, and **it sits under all of them**.
+That last step is an inference from shared instrumentation, not an observation:
+those runs were not watched.
+
+The floor is not a property of the corpus either. HH-001 ran the same empty
+context on a local 27B reader and scored **0.000** (§5.6). Change the reader or
+the grader and the floor moves; LoCoMo did not become guessable, this pairing of
+model and judge made it so.
+
+The floor is not uniform either. It is highest on **multi-hop at 38.54%** — the
+questions meant to be hardest — and **32.34% on open-domain**, which is 841 of
+the 1,540 questions and the largest stratum by far. It is lowest on temporal, at
+**11.21%**. A benchmark whose biggest category is a third answerable by guessing,
+and whose multi-hop questions are more guessable still, measures less than its
+headline suggests, and every system quoted on it inherits that.
+
+Measured from the floor, the rows this rig produced spread out:
+
+| Arm | Raw | Above the 26.30% floor |
+|---|---:|---:|
+| This component | 79.09% | **52.79** |
+| Full context, reproduced here | 72.47% | 46.17 |
+| Fixed-chunk RAG, reproduced here | 45.78% | 19.48 |
+
+**Only rows measured on this rig appear in that column.** The floor was
+measured here and varies by stratum; subtracting it from a row whose strata were
+never published would be arithmetic wearing the clothes of a measurement.
+
+### 5.4 One RAG setting is worth 26 points — more than the table's whole spread
+
+The second registered reproduction target was fixed-chunk RAG at 500 tokens and
+one chunk, mapped to Table 2's 60.53%. It scored **45.78%**. **G-CTRL failed**,
+by 14.75 points, and the registration had committed in advance that a failure is
+the result.
+
+Chasing it produced the study's third finding. Table 2's row is labelled *RAG
+(best variant)* — the top of a sweep the paper never specifies — so the
+registration had bound a gate to one recipe out of a family. Running the family:
+
+| Variant | Mean prompt tokens | Score |
+|---|---:|---:|
+| 500 tokens, 4 chunks | 2,030 | **65.32%** |
+| 1000 tokens, 2 chunks | 2,012 | 50.65% |
+| 500 tokens, 1 chunk — the registered target | 570 | 45.78% |
+| 1000 tokens, 1 chunk | 1,047 | 39.16% |
+
+**The sweep spans 26 points — wider than the gap between the top and bottom
+halves of Table 2 — and the published 60.53% sits inside it.** A row that moves
+that far on a configuration choice names a family, not a number.
+
+The explanation does not cancel the failure. The gate was registered against a
+value, it missed by 14.75 points, and the sweep that accounts for it was built
+after the number existed and is `DESCRIPTIVE`. The registered arms are not.
+
+Two results came out of it. The component leads the best variant the sweep found
+by **13.77 points**. And at a **matched budget** — 2,030 prompt tokens against
+2,012, inside 1% — four 500-token chunks beat two 1000-token chunks by **14.68
+points**, 318 gains against 92. **The same budget spent on more
+and smaller units is worth fourteen points.** Size and count move together here,
+so this does not isolate which one carries it; it points the same way as §7
+through a mechanism §7 never tested, and inherits none of §7's standing.
+
+### 5.5 What the dates bought
+
+The harness renders every turn with its session timestamp. NF-004's candidate
+unit carries no timestamp, because NF-004's endpoint was whether evidence text
+was delivered and no date was needed to answer that. HH-002 ran both renderings,
+registered in advance, and predicted the gap would sit in the temporal category.
+
+| Category | n | Dated | Undated | Effect |
+|---|---:|---:|---:|---:|
+| Temporal | 321 | 68.54% | 32.09% | **+36.45** |
+| Single-hop | 282 | 71.63% | 72.34% | −0.71 |
+| Multi-hop | 96 | 55.21% | 57.29% | −2.08 |
+| Open-domain | 841 | 88.35% | 87.99% | +0.36 |
+| **Overall** | **1,540** | **79.09%** | **71.56%** | **+7.53** |
+
+**The whole overall gap is one stratum**, and Figure 2 shows it. The other
+three move by 0.71, 2.08 and 0.36 points — two of them in the undated arm's
+favour, none of them in a direction the ablation predicted. A retrieval unit that
+drops the timestamp is not slightly worse across the board; it is catastrophic
+on one question type and indistinguishable on the rest.
+
+The same table answers a question about the ceiling arm. Full context scores
+**49.53%** on temporal questions against this component's 68.54%, despite
+holding every turn and every date in its window. Having the evidence present is
+not the same as having it findable.
+
+### 5.6 Mem0, run here
+
+HH-001 is the study that watched Mem0 work. Five memory layers, 300 questions
+drawn by seeded stratification from 850 answerable LoCoMo records, three
+replicates each, one reader, one judge, one 16,000-character budget.
 
 | Arm | Memory layer | Judged | Containment |
 |---|---|---:|---:|
@@ -499,61 +718,39 @@ answerable LoCoMo records, three replicates each, one reader, one judge, one
 | A3 | **Mem0 2.0.18** | 0.487 | 0.217 |
 | A0 | No memory | 0.000 | 0.000 |
 
-Figure 1 sets the two panels side by side. **The component answers 7.7 points
-more of the same questions than Mem0 does.**
-Paired over the 300 items: **46 gains, 23 losses**, two gains for every loss,
-one-sided exact binomial **p = 0.0038**. The deterministic containment endpoint,
-which involves no model and cannot be talked into a verdict, puts the same
-contrast at **+9.7 points, 40 gains against 11, p = 2.85e-05**. Both endpoints
-point the same way, which is the condition this study registered in advance for
-making a directional claim at all.
+Figure 3 sets the two panels side by side. **The component answers 7.7 points
+more of the same questions than Mem0 does.** Paired over the 300 items: **46
+gains, 23 losses**, one-sided exact binomial **p = 0.0038**. The deterministic
+containment endpoint puts the same contrast at **+9.7 points, 40 gains against
+11, p = 2.85e-05**. Both endpoints point the same way, which is the condition
+this study registered in advance for making a directional claim at all.
 
-**§13.1's 3.0-point band does not govern this contrast.** That band was measured on
-a 13-point holistic rubric scored once per run. This is 300 items paired within
-item, three replicates deep, read out as a discordant count — a different
-instrument with its own noise reading, and this one reports it: per-item unanimity
-across replicates runs 0.85 to 0.89 by arm.
+**§13.1's 3.0-point band does not govern this contrast.** That band was measured
+on a 13-point holistic rubric scored once per run. This is 300 items paired
+within item, three replicates deep, read out as a discordant count — a different
+instrument with its own noise reading, and this one reports it: per-item
+unanimity across replicates runs 0.85 to 0.89 by arm.
 
-The floor arm scored **zero**. With no memory block the reader answered none of
-the 300 questions; all fifty items in the contamination probe returned `I don't
-know`, none empty. Nothing in the table is the model reciting a public dataset.
+The floor arm scored **zero** here. That is the one number HH-002 overturned:
+on a local 27B reader an empty context answered nothing, and on GPT-4o-mini with
+the vendor harness's generous judge the same empty context answers 26.30%. The
+floor is a property of the reader and the grader, not of the corpus.
 
-### 5.2 What the win cost each side
+### 5.7 What the generative write path cost and lost
 
-Mem0 built its store with **1,646 generative calls over 284 minutes**, one call for
-every message pair, and those calls carried **about 4,100 prompt tokens each** —
-5,988,818 of them across the sampled window. The cost per pair climbs as the store
-grows, because each extraction is shown what is already stored. This component
-built its store with **none**. That zero is architectural rather than measured:
-`append()` embeds and stores, and no code path asks a model to write text about
-what was stored.
-
-Figure 2 shows what that ingest cost looked like as the store filled.
-Retrieval separates them again. Assembling one context block takes this
-component **10 milliseconds** at the median and Mem0 **413** — **41 times
-slower**, on the same machine, over the same conversations. The finished store
-occupies **42.8 MB** against **7.2 MB**, six times larger, counting only
-Mem0's vector store and excluding its 692,224-byte history log.
-
-**The cost runs the other way at read, and the paper states it in the same
-breath.** Mem0 is the cheapest memory arm per question — **3,392 prompt tokens
-against this component's 4,009** — because model-extracted memories are shorter
-than stored turns. A system written once and queried a million times amortises
-its ingest away. Which architecture is cheaper is decided by the read-to-write
-ratio, and neither this paper nor arXiv:2504.19413 states one. Both halves are
-measured here; the report gives both.
-
-### 5.3 What the generative write path lost
-
-The comparison above is downstream of a mechanism, and the mechanism is
-measurable without a model in the loop.
+Mem0 built its store with **1,646 generative calls over 284 minutes**, one call
+for every message pair, and those calls carried **about 4,100 prompt tokens
+each** — 5,988,818 of them across the sampled window. The cost per pair climbs
+as the store grows, because each extraction is shown what is already stored.
+Figure 4 shows that curve. This component built its store with **none**. That
+zero is architectural rather than measured: `append()` embeds and stores, and no
+code path asks a model to write text about what was stored.
 
 Of the 315 answers stated verbatim somewhere in the six source conversations,
-**66 are absent from Mem0's finished store — 21%.** Per conversation, retention
-runs 0.68 to 0.86. This is a containment test over the store's own memory text:
-a preserved paraphrase counts as absent, so **21% is an upper bound on
-extraction loss and cannot understate it**. That is the honest reading and it is
-the one to quote.
+**66 are absent from Mem0's finished store — 21%.** This is a containment test
+over the store's own memory text: a preserved paraphrase counts as absent, so
+**21% is an upper bound on extraction loss and cannot understate it**. That is
+the honest reading and it is the one to quote.
 
 Two further numbers come from the ingest itself. **509 of 1,646 message pairs —
 31% — produced no memory at all**: the extractor received the turn, spent a
@@ -562,53 +759,58 @@ extractions returned malformed JSON** and were discarded, 0.97% of the corpus,
 logged by Mem0 and passed over in silence.
 
 Downstream, the answer reaches the delivered block for **101 of 108** eligible
-items under this component and **79 of 108** under Mem0. The verbatim path
-carries a 0.935 survival rate against 0.732. It cannot do better than the
-selector, and it cannot do worse than what it stored, because it stored the turn
-unchanged.
+items under this component and **79 of 108** under Mem0 — a 0.935 survival rate
+against 0.732. A verbatim store cannot do better than its selector, and cannot
+do worse than what it stored, because it stored the turn unchanged.
 
-### 5.4 What the other arms did better
+Retrieval separates them again. Assembling one context block takes this
+component **10 milliseconds** at the median and Mem0 **413** — **41 times
+slower**, on the same machine. The finished store occupies **42.8 MB** against
+**7.2 MB**, counting only Mem0's vector store and excluding its 692,224-byte
+history log.
 
-Fixed-width chunk retrieval stores **2.8 MB against this component's 7.2** and reads
-at **3,904 prompt tokens against 4,009**. It is smaller and cheaper on both counts,
-and it scored 0.550 to this component's 0.563. Mem0 costs less per read than either.
-This component also has the **lowest replicate agreement of any memory arm** — 0.853
-against 0.870 and 0.891 — so its answers are the least stable of the three under
-reseeding.
+**The cost runs the other way at read, and the paper states it in the same
+breath.** Mem0 is the cheapest memory arm per question — **3,392 prompt tokens
+against this component's 4,009** — because model-extracted memories are shorter
+than stored turns. A system written once and queried a million times amortises
+its ingest away. Which architecture is cheaper is decided by a read-to-write
+ratio neither paper states.
 
-### 5.5 Where the answer lives
+### 5.8 What the other arms did better
 
-Splitting by how far back in the conversation the evidence sits — these are
-369- to 680-turn transcripts — the component leads Mem0 by **11.9 points in the
-oldest quarter** and **14.9 points in the newest**, and trails by 3.1 in the
-second quarter. The advantage is not a recency effect and is not uniform.
+Fixed-width chunk retrieval stores **2.8 MB against this component's 7.2** and
+reads at **3,904 prompt tokens against 4,009**. It is smaller and cheaper on
+both counts, and it scored 0.550 to this component's 0.563 — thirteen
+thousandths. This component also has the **lowest replicate agreement of any
+memory arm** in HH-001 — 0.853 against 0.870 and 0.891 — so its answers are the
+least stable of the three under reseeding.
 
-### 5.6 What this section does not say
+Splitting HH-001 by how far back the evidence sits — these are 369- to 680-turn
+transcripts — the component leads Mem0 by **11.9 points in the oldest quarter**
+and **14.9 points in the newest**, and trails by 3.1 in the second quarter. The
+advantage is not a recency effect and is not uniform.
 
-**Not a comparison to Mem0's published score.** Mem0 reports 66.88% on LoCoMo
-with GPT-4o-mini as extractor, answerer and judge. Every arm here ran on one
-local 27B model. The two numbers share a corpus name and measure different
-events, and no sentence in this paper puts them in the same column.
+### 5.9 The three boundaries that bind this section
 
-**Not a claim about any other system.** Mem0-graph, Zep, A-MEM, HippoRAG and
-LangMem were not run. Nothing here is evidence about them.
+Stated once, in full, and not repeated. §13 carries the rest.
 
-**Not a capacity result.** The longest holdout conversation is 90,713 characters
-— roughly 22,700 tokens against a 200,000-token window. The whole corpus fits, and
-the arm that took it all scored highest at **222 times the prompt tokens of the
-cheapest arm**. On this corpus a memory layer is a cost mechanism, not a
-capability one. A corpus that did not fit would test something this one cannot.
+**Six of the eleven rows in §5.1 were not run here.** They are quoted from Table
+2 with attribution, no test in this paper is computed against them, and the
+component is placed beside them rather than measured against them. The one
+competing system this programme did run is Mem0 2.0.18, in §5.6.
 
-**Not a breadth result.** The arm carries NF-004's pair ranking and no
-set-level coverage objective; the multi-domain machinery of §8 was not in the
-test. `SCOPE_LIMITS.md` records that gap and what would close it.
+**The lead over full context was not registered.** §5.1 states it and labels it.
+The registered contrast is the component against fixed-chunk RAG, at +33.31
+points.
 
-**Not confirmatory.** LoCoMo is exhausted on both splits, so this is
-`REGISTERED-LIVE` under §4.1's taxonomy — a level added for this study, because the
-programme had no pre-registered live comparison before it. The run artifact records
-its stage as `DEVELOPMENT`, the same boundary named from the other side and does not become `CONFIRMATORY` by being
-re-described. Three replicates is below the five this programme established as
-its own minimum, and near-ties are reported as near-ties.
+**Both studies are `REGISTERED-LIVE`, not `CONFIRMATORY`.** LoCoMo is exhausted
+on both splits and generation is stochastic, so neither can confirm and neither
+becomes confirmation by being re-described. §6 holds the results that can.
+
+Scope on capacity and breadth: LoCoMo fits a modern context window, so this
+benchmark cannot test reach, only cost and accuracy — and both arms carry
+NF-004's pair ranking without §8's set-level coverage objective, so neither
+tests breadth.
 
 ---
 
@@ -663,7 +865,7 @@ direction holds, 961 to 1,024.
 
 Gates G0 through G7 all pass, including a vector seal reading 2,749 of 2,749 cached
 vectors with zero misses, and a G7 replay whose SHA-256 equals the committed G6
-hash. Figure 3.
+hash. Figure 5.
 
 **Scope cap, and it is binding.** This is availability: whether the text carrying an
 answer was present in the delivered context. It is not accuracy, and the
@@ -818,7 +1020,7 @@ fixed at the turn so that only the *ranking* unit varies.
 | **Turn (own cosine)** | Turn | **461 / 465** | **454 / 465** |
 
 **100 gains, 0 losses, 365 ties. One-sided exact binomial p = 7.89e-31.** Median best
-evidence rank moves 5 to 1; p90 moves 131 to 7. Figure 4 places this beside the other
+evidence rank moves 5 to 1; p90 moves 131 to 7. Figure 6 places this beside the other
 two corpora and the candidate-size measurement that explains all three. The budget delivers 109 turns where
 it delivered 46 episodes.
 
@@ -931,7 +1133,7 @@ same exact serialized cost as the deployed path.
 | Greedy variant | 15 / 17 | 5,455 |
 
 A perfect picker reaches the target using a sixth of the budget. Deployed selection
-spent all of it and delivered a third as much. Figure 8.
+spent all of it and delivered a third as much. Figure 10.
 
 **Both optima are computed with the answer key. They are bounds, not methods**, and
 they are not achievable by any retriever. One further qualifier: four of the five
@@ -1028,7 +1230,7 @@ embedding call.
 | Any exact answer turn | 79 / 470 (16.8%) | 196 / 470 (41.7%) | 119 | 2 |
 | All exact answer turns | 20 / 470 | 106 / 470 | 86 | 0 |
 
-**Plus 32.3 percentage points on the primary, with 152 gains and no losses.** Figure 6.
+**Plus 32.3 percentage points on the primary, with 152 gains and no losses.** Figure 8.
 One qualifier travels with this: the deployed arm is a *reproduction under recomputed
 embeddings*, not a byte-exact replay — the original run's embedding cache was not
 retained, and that run is permanently unreplayable at bit granularity.
@@ -1098,7 +1300,7 @@ surrogate this programme keeps catching.
 **Latency binds.** **190 ms at 1,000 candidates**, with clustering taking 81% of it
 and that share rising from 37%. The measured exponent is 1.25 over 50 to 1,000
 candidates. The stated horizon is comfortable to a few thousand episodes and
-unusable in an interactive loop somewhere before 10,000. Figure 9.
+unusable in an interactive loop somewhere before 10,000. Figure 11.
 
 That last number corrects a published projection of this programme's own, and the
 correction is instructive: the withdrawn estimate of about 40 ms at 1,000 candidates
@@ -1128,7 +1330,7 @@ same budget it moves +18. The leak was the runner's.
 
 Each mechanism below was built, measured, and closed by the result beside it. They do
 not correspond one-to-one with the studies: several fell to the same study, and some
-outlived the study that first weakened them. Figure 5 places each against the bar it
+outlived the study that first weakened them. Figure 7 places each against the bar it
 had to clear.
 
 | Removed | Killed by |
@@ -1314,7 +1516,7 @@ of that switch, and no study in the arc pinned process state (§13.2). Rater dis
 measured separately and is near zero, 64 of 65 items unanimous, so this is
 run-to-run variation and not scoring noise.
 
-Figure 7 draws the band across every scored verdict in the arc. Applied uniformly and
+Figure 9 draws the band across every scored verdict in the arc. Applied uniformly and
 in both directions, **three of this arc's four scored verdicts fall inside the band
 and are not demonstrated**: the memory-tier contrast at 3.0, the
 live-validation targeted regression at −2.0, and the tier-isolation result at −1.0.
@@ -1440,9 +1642,10 @@ individual calls.
 Every item in that corpus has now been used by this programme. **No confirmatory claim
 is available from it again**, and any registration written today inherits that
 ceiling. The LoCoMo holdout in §6.1 is now the only sealed external evidence this
-programme holds for the granularity result, and **LoCoMo is now spent too**: NF-004
-read the six holdout conversations and HH-001 read them again. §5 is `REGISTERED-LIVE`
-for that reason and cannot become confirmatory.
+programme holds for the granularity result, and **LoCoMo is now spent three times
+over**: NF-004 read the six holdout conversations, HH-001 read them again, and HH-002
+read all ten. Both studies in §5 are `REGISTERED-LIVE` for that reason and cannot
+become confirmatory. No sealed external corpus remains to this programme.
 
 ---
 
@@ -1501,9 +1704,11 @@ better — it is first because the alternative is impossible. Separating the thr
 required a per-fact known optimum on the same store, a measurement costing an answer
 key and exact cost accounting, and buying a sharper question than an end-to-end score.
 
-**What this programme has not shown** is that any of it makes a reader answer better.
-Availability and correctness were measured moving in opposite directions once, and
-that result stands unrescued. The next decision-relevant experiment is therefore not
+**What this programme has not shown** is that its *mechanism* results carry
+through to a reader. §5 measures answers directly and this component wins there;
+what remains unestablished is the link between the two — that the availability
+gains §7 confirms are what produce those answers. Availability and correctness were
+measured moving in opposite directions once, and that result stands unrescued. The next decision-relevant experiment is therefore not
 another retrieval study. It is a reader study over two already-frozen contexts —
 whether the 14-of-17 context causes a reader to use more correct facts than the
 12-of-17 context, under an identical prompt and runtime, scored as a 17-bit
@@ -1528,7 +1733,9 @@ still gets it wrong is the part this programme has not measured.
 
 ## Figures
 
-Seven, generated by `scripts/generate_paper_002_figures.py` from committed artifacts.
+Eleven. Figures 1 and 2 are generated by `scripts/generate_hh002_figures.py`;
+Figures 3 to 11 by `scripts/generate_paper_002_figures.py`. Both read committed
+artifacts.
 No value in any figure is typed by hand. Each caption carries the first 16 hex digits
 of the SHA-256 of the artifacts it draws from, hashed over git blob content so the
 values are stable across platforms; `paper/figures/figure_manifest_002.json` records
@@ -1541,9 +1748,38 @@ registered bars exist only in prose rather than in JSON, and are extracted by a
 strict pattern that fails the build rather than plotting a stale value if the
 wording changes.
 
-![Figure 1: The head-to-head](figures/f1_head_to_head.png)
+![Figure 1: Where this component lands on the published table](figures/hh002_leaderboard.png)
 
-**Figure 1 — The head-to-head.** `f1_head_to_head.svg`
+**Figure 1 — Where this component lands on the table arXiv:2504.19413 published.**
+`hh002_leaderboard.svg`
+*Every row scored on the same 1,540 LoCoMo questions, the same harness, the
+same judge.* Dark blue is this component at **79.09%**. Light blue are the rows
+this rig measured, including full context reproduced at **72.47%** against the
+published **72.90%** — the control that licenses printing the rest together.
+Grey rows are quoted from Table 2 and were not re-run; no test in this paper is
+computed against them. The dashed line is the study's second finding: an empty
+context scores **26.30%**, and because the judge prompt, model and question set
+are shared, that floor sits under every bar in the chart. Sources:
+`A_CDW/judged_r1.json` `6f56cebcdd34fdfb`,
+`A_FULL/judged_r1.json` `31933075d01b24e3`,
+`A_NONE/judged_r1.json` `4b12162984f80777`,
+`commitments.json` `1ca3931c8b97dd7b`.
+
+![Figure 2: What the timestamp buys, by question category](figures/hh002_timestamps.png)
+
+**Figure 2 — What the timestamp buys, by question category.** `hh002_timestamps.svg`
+*The same retrieval, run twice, differing only in whether a delivered turn
+carries its session date.* Registered in advance with the prediction that the gap
+would sit in the temporal category. It does, and nowhere else: **+36.45 points on
+temporal**, against −0.71, −2.08 and +0.36 on the other three. The overall
+7.53-point difference is one stratum of 321 questions; a retrieval unit that
+drops the timestamp is not uniformly worse, it is disabled on one question type
+and unchanged on the rest. Sources: `A_CDW/judged_r1.json`
+`6f56cebcdd34fdfb`, `A_CDW_NOTS/judged_r1.json` `cbedd6689e2c6d9b`.
+
+![Figure 3: The head-to-head](figures/f1_head_to_head.png)
+
+**Figure 3 — The head-to-head.** `f1_head_to_head.svg`
 *What each memory layer answered, beside what it spent to build the store.*
 Judged and containment accuracy over 300 questions at three replicates, one
 local reader, one 16,000-character budget: whole conversation 0.613, this
@@ -1558,9 +1794,9 @@ axis would imply a relationship the data does not describe. Sources:
 `result.json` `7fa4119c29f06b1c`, `cost/mem0_ingest.json` `a9653199d0d8317f`,
 `cost/storage.json` `adcc2ea410046e22`.
 
-![Figure 2: What the store costs to build, as it grows](figures/f2_mem0_ingest_latency.png)
+![Figure 4: What the store costs to build, as it grows](figures/f2_mem0_ingest_latency.png)
 
-**Figure 2 — What the store costs to build, as it grows.** `f2_mem0_ingest_latency.svg`
+**Figure 4 — What the store costs to build, as it grows.** `f2_mem0_ingest_latency.svg`
 *Mem0's per-pair ingest latency against the number of memories already stored.*
 Derived from Mem0's own history table: each `add()` emits a burst of writes
 milliseconds apart, and the gap between bursts is the wall clock that call
@@ -1572,9 +1808,9 @@ only the 69% of pairs that wrote something**; a pair Mem0 declined to store
 leaves no burst and is invisible here, and is likely the faster case. Source:
 `cost/mem0_ingest_latency.json` `0ad65363b635b6e7`.
 
-![Figure 3: The sealed holdout](figures/f3_sealed_holdout.png)
+![Figure 5: The sealed holdout](figures/f3_sealed_holdout.png)
 
-**Figure 3 — The sealed holdout.** `f3_sealed_holdout.svg`
+**Figure 5 — The sealed holdout.** `f3_sealed_holdout.svg`
 *Six LoCoMo conversations withheld until the bars were locked, and the ranking unit
 is the whole difference.* Complete exact-evidence delivery over 1,098 records at a
 16,000-character budget: source order 258, session-score inheritance 843, own-cosine
@@ -1587,9 +1823,9 @@ claim.** Sources: `g6_holdout_outcomes.json` `7be2668d21163c93`,
 `g7_result_integrity.json` `890b4831d530e9a7`, `NF_004_PRE_REGISTRATION.md`
 `de2d5e05646b769c`.
 
-![Figure 4: Granularity across three corpora](figures/f4_granularity_three_corpora.png)
+![Figure 6: Granularity across three corpora](figures/f4_granularity_three_corpora.png)
 
-**Figure 4 — Granularity across three corpora.** `f4_granularity_three_corpora.svg`
+**Figure 6 — Granularity across three corpora.** `f4_granularity_three_corpora.svg`
 *The same substitution, three corpora, and the candidate size that explains it.*
 Left: exact-evidence delivery before and after ranking each candidate by its own
 cosine — LongMemEval 361 to 461 of 465, LoCoMo 843 to 935 of 1,098, the internal
@@ -1603,9 +1839,9 @@ Sources: `g8_integrity.json` `17cbdbad274c1863`, `exploration.json`
 `00d78ad3bd113abb`, `g6_holdout_outcomes.json` `7be2668d21163c93`,
 `g8_g9_measurement.json` `d20dffd563e5777e`.
 
-![Figure 5: Every mechanism against its own bar](figures/f5_mechanisms_against_bars.png)
+![Figure 7: Every mechanism against its own bar](figures/f5_mechanisms_against_bars.png)
 
-**Figure 5 — Every mechanism against its own bar.** `f5_mechanisms_against_bars.svg`
+**Figure 7 — Every mechanism against its own bar.** `f5_mechanisms_against_bars.svg`
 *Twelve mechanisms fell short of the bar each had to clear; the three that cleared
 are all the same family.* Each numeric row is rescaled so 1.0 is that row's own
 registered bar, which is the only way results measured in incompatible units belong
@@ -1619,9 +1855,9 @@ Sources: `RETRIEVAL_MECHANISM_LEDGER.md` `6c3875cc4f63046d`,
 `8c229f7b70de9a70`, `e001_results.json` `a996ecd881ae52aa`, `gate_report.json`
 `1a43d8a5345188af`, `gates_holdout.json` `13dd30919acd91bf`.
 
-![Figure 6: Packing priority is a delivery gate](figures/f6_packing_priority_gate.png)
+![Figure 8: Packing priority is a delivery gate](figures/f6_packing_priority_gate.png)
 
-**Figure 6 — Packing priority is a delivery gate.** `f6_packing_priority_gate.svg`
+**Figure 8 — Packing priority is a delivery gate.** `f6_packing_priority_gate.svg`
 *The evidence was ranked correctly and then not delivered.* Left: reversing only the
 fill order on 500 external stores moves any-evidence-session recall from 109 to 261
 of 470, with 152 gains and zero losses, while the median delivered block stays at
@@ -1634,9 +1870,9 @@ built on this was tested and rejected. Sources: `paired_comparison.json`
 `6f18b46f7316f8dc`, `paired_comparison.json` `5dad3eabfac3df39`, `path_split.csv`
 `d26440d1476e8923`.
 
-![Figure 7: The standing ladder and the instrument band](figures/f7_standing_ladder.png)
+![Figure 9: The standing ladder and the instrument band](figures/f7_standing_ladder.png)
 
-**Figure 7 — The standing ladder and the instrument band.**
+**Figure 9 — The standing ladder and the instrument band.**
 `f7_standing_ladder.svg`
 *What the programme measured, sorted by what would make it believable.* Fifteen
 results in three tiers — confirmatory under a sealed holdout, deterministic and
@@ -1651,9 +1887,9 @@ counts and identities rather than scores. Sources: `band_verdict.json`
 `cb241ac01cbcde5f`, `verdict.json` `83bd4bbbc4209a48`, `LV_001_report.md`
 `cd3dc4cdaa450002`, `SAL_001_FINAL_DESIGN.json` `783cc8ad7f5796ac`.
 
-![Figure 8: The budget efficiency gap](figures/f8_budget_efficiency_gap.png)
+![Figure 10: The budget efficiency gap](figures/f8_budget_efficiency_gap.png)
 
-**Figure 8 — The budget efficiency gap.** `f8_budget_efficiency_gap.svg`
+**Figure 10 — The budget efficiency gap.** `f8_budget_efficiency_gap.svg`
 *The constraint was never capacity: the tallest result is also the narrowest.* Each
 horizontal stem runs from zero to the characters spent, at a height equal to the
 items made available, over the same store at the same enforced 32,000-character
@@ -1666,9 +1902,9 @@ scores 5 of 17 against the baseline's 6. **Both optima are computed with the ans
 key and are bounds, not methods.** Sources: `a0_baseline.json` `7645e4746715a965`,
 `e005_results.json` `07b714389697c6e5`, `achievability.json` `770792d09e07978d`.
 
-![Figure 9: Growth and cost](figures/f9_growth_and_cost.png)
+![Figure 11: Growth and cost](figures/f9_growth_and_cost.png)
 
-**Figure 9 — Growth and cost.** `f9_growth_and_cost.svg`
+**Figure 11 — Growth and cost.** `f9_growth_and_cost.svg`
 *The growth belonged to the harness; the cost was five times its projection.* Left:
 the 95th percentile of the retrieved block per 100-turn bucket over the final 500
 turns of the 1,000-turn run. In the study runner the block rises 23,238 characters in

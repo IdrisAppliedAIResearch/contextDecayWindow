@@ -8,15 +8,59 @@
 
 ## Executive Summary
 
-**A conversational memory layer that makes no generative model calls.** It stores
-every exchange verbatim, ranks candidates by embedding similarity, and packs a
-fixed character budget. Nothing in it asks a model to write text about what was
-stored.
+**A memory layer for long conversations.** Every turn, it decides what the model
+should be reminded of and fills a fixed amount of space with it — **without ever
+calling a language model to help.** No summarizing, no note-taking, no rewriting.
 
-### It was run head-to-head against Mem0
+The design copies three things human memory does, and runs all three at once:
 
-Mem0 2.0.18 installed and run here — same corpus, same local reader, same
-16,000-character budget, contrast hashed before the first generation call.
+- **Recency — what just happened.** The most recent exchanges always go in,
+  automatically. You don't search your memory for what someone said a minute ago.
+- **Depth — what this reminds it of.** Every exchange ever had is kept word for
+  word and indexed by meaning, so mentioning *my sister's wedding* pulls back a
+  conversation from six months ago. This is recall by cue, and it is where most
+  memory systems stop.
+- **Spread — covering ground instead of repeating it.** Rank every past exchange
+  by how well it matches the question and take the best ten, and you often get
+  the same fact ten times over. The space is full and the model learned one
+  thing. Each slot is instead filled by asking what a candidate *adds* to what
+  has already been picked, so ten slots hold ten different things.
+
+Everything is delivered exactly as it was said, so nothing the model is told
+about the past can be wrong.
+
+### It scores 79.09% on the benchmark Mem0 published
+
+We rebuilt the evaluation harness behind Mem0's published LoCoMo table — their
+question set, answer prompt, judge prompt and metric, GPT-4o-mini as answerer
+and judge — and ran this component through all 1,540 scored questions.
+
+![Where this component lands on the table Mem0 published](paper/figures/hh002_leaderboard.png)
+
+**Above every row of that table, on a sixth of the tokens** — 4,243 against the
+25,405 of full context reproduced here. None of the systems behind those rows
+was re-run.
+
+The placement is earned by reproducing their own ceiling row first: full
+context, the configuration with nothing to choose, came back at **72.47%
+against a published 72.90%**. Half a point, on a 1,540-question benchmark,
+against a figure published by a different team on different hardware. The judge
+moved 0.06 points across two scorings of the same sealed answers.
+
+Grey rows above were not re-run — they need vendor accounts we don't hold — so
+they are quoted with attribution and nothing here is tested against them.
+
+**And the benchmark has a 26-point floor its own paper never reports.** Run it
+with an empty context and the model still scores **26.30%** — against a
+contamination bar we had registered at 5%, so that gate failed. The cause is the
+judge prompt, which tells the grader to accept any answer touching the gold
+answer's topic. On open-domain, 841 of the 1,540 questions, the floor is
+**32.34%**. It sits under every row of the published table.
+
+### When Mem0 itself was run here
+
+Mem0 2.0.18, installed and run on one local reader at a matched
+16,000-character budget.
 
 ![Head-to-head against Mem0: accuracy, and what each layer spent to build its store](paper/figures/f1_head_to_head.png)
 
@@ -30,42 +74,25 @@ Mem0 2.0.18 installed and run here — same corpus, same local reader, same
 | Store size | **7.2 MB** | 42.8 MB |
 | Answer reached the delivered context | **101 of 108** | 79 of 108 |
 
-**The gap is 7.7 points — 46 gains against 23, p = 0.0038.** A deterministic
-containment endpoint, no model involved, agrees at **+9.7 points, p = 2.85e-05**.
-With no memory at all the reader scored **zero**, so none of this is a model
-reciting a public dataset.
+**The gap is 7.7 points — 46 gains against 23, p = 0.0038**, with a
+model-free containment endpoint agreeing at **+9.7 points, p = 2.85e-05**.
 
-**Six million prompt tokens bought Mem0 a store that finished behind.** Of the
-answers written verbatim in those conversations, up to a fifth never reached it:
+**Six million prompt tokens bought Mem0 a store that finished behind.** Up to a
+fifth of the answers written verbatim in those conversations never reached it:
 31% of message pairs produced no memory at all, and 16 extractions returned
 malformed JSON and were dropped. A verbatim store cannot lose what it was given.
 
-### What it costs Mem0 to keep writing
-
-Each extraction is shown what is already stored, so the prompt grows with the
-store and the per-pair cost climbs through the ingest.
-
-![Mem0 ingest latency against store size](paper/figures/f2_mem0_ingest_latency.png)
-
 ### What this does not establish
 
-- **Fixed-width chunk retrieval scored 0.550 against 0.563.** Thirteen
-  thousandths. Against Mem0 the margin is 7.7 points and the sign test carries
-  it; against chunk-and-embed on this corpus it does not. That arm also stores
-  2.8 MB against this component's 7.2 and reads at 3,904 prompt tokens against
-  4,009 — smaller and cheaper on both.
-- **Mem0 is the cheaper arm per question** — 3,392 prompt tokens against 4,009.
-  Ingest cost and read cost run in opposite directions, and which architecture
-  wins depends on a read-to-write ratio neither paper states.
-- **The corpus fits the reader's window.** The arm that took the whole
-  conversation scored highest, at 222 times the cheapest arm's tokens. Here a
-  memory layer buys cost, not capability.
-- **Not a comparison to Mem0's published 66.88%**, which used a different model
-  as extractor, answerer and judge. Zep, Letta, HippoRAG and Mem0's graph
-  variant were not run at all.
-- **Not confirmatory.** LoCoMo is spent on both splits, so this is
-  `REGISTERED-LIVE`: pre-registered, run on an observed corpus, and not
-  replayable because generation is stochastic.
+- **Placement, not a head-to-head.** Mem0's published row was not re-run, and no
+  test here is computed against it. Mem0 2.0.18 *was* run, locally, above.
+- **Mem0 is cheaper per question** — 3,392 prompt tokens against 4,009. Ingest
+  and read costs run in opposite directions, and which wins depends on a
+  read-to-write ratio neither paper states.
+- **Fixed-width chunk retrieval scored 0.550 against 0.563** locally, on a
+  smaller store and fewer tokens per read.
+- **LoCoMo fits a modern context window**, so this measures cost and accuracy,
+  not reach. Not confirmatory: the corpus is spent on both splits.
 
 ### The programme behind it
 

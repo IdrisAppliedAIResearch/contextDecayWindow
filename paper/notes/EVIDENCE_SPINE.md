@@ -21,16 +21,21 @@ companion file `DO_NOT_WRITE.md` holds the claims that may not be restated at al
 Four levels. The taxonomy is the paper's honesty mechanism: it is applied once,
 here, so the prose does not have to hedge sentence by sentence.
 
-**Five levels, separated by when the claim was committed relative to the number**,
+**Six levels, separated by when the claim was committed relative to the number**,
 not by how the number was computed. Determinism is cheap; commitment order is what a
-result cannot buy back afterwards. `PAPER_002.md` §4.1 carries the same five levels
+result cannot buy back afterwards. `PAPER_002.md` §4.1 carries the same six levels
 and the full per-result assignment; if the two ever disagree, §4.1 is the published
 statement and this file is the defect.
+
+`REGISTERED-LIVE` was added for HH-001 and this file was not updated with it — it
+listed five rows and asserted §4.1 carried "the same five levels" while §4.1 already
+carried six. Found at the HH-002 checkpoint, 2026-08-21.
 
 | Standing | Definition | What the paper may say |
 |---|---|---|
 | **CONFIRMATORY** | Pre-registered; sealed holdout; bars, endpoint and budget locked before the number existed; registration commit carries no implementation file | State it as an established result of this programme, with its scope |
 | **REGISTERED-OFFLINE** | Pre-registered with bars locked first, zero generative calls, reproducible on replay — byte-exactly where the embedding cache was retained, otherwise under recomputed embeddings — but run on a corpus already observed, so it cannot confirm | As measured and registered, capped as characterization |
+| **REGISTERED-LIVE** | Pre-registered with contrast, endpoint, budget and sample size hashed before the first generation call, but run on a corpus already observed, and **not replayable**: generation is stochastic, so replicates measure that spread instead of eliminating it | As measured and registered, capped as characterization; never as confirmation |
 | **DESCRIPTIVE** | Deterministic and reproducible, but the reading was chosen after the number existed, or the quantity is a bound computed with the answer key | As measured, with what it cannot support said in the same breath |
 | **NOT DEMONSTRATED** | A scored live comparison whose gap falls inside the measured 3.0-point instrument band | Report the number *and* the label. "Not demonstrated is not refuted" |
 | **WITHDRAWN** | Corrected or retracted in `ERRATA.md` | Never restate. See `DO_NOT_WRITE.md` |
