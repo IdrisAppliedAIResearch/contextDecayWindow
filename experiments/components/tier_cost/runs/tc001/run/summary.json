@@ -1,0 +1,895 @@
+{
+  "cache": {
+    "hits": 2247,
+    "misses": 0
+  },
+  "primary": {
+    "budget_chars": 16000,
+    "by_category": {
+      "1": {
+        "discordant": 47,
+        "endpoint": "complete",
+        "flat_hits": 70,
+        "gains": 2,
+        "losses": 45,
+        "n": 107,
+        "net": -43,
+        "p_flat_one_sided": 8.022027486731531e-12,
+        "p_tiered_one_sided": 0.9999999999996589,
+        "tiered_hits": 27,
+        "ties": 60
+      },
+      "2": {
+        "discordant": 68,
+        "endpoint": "complete",
+        "flat_hits": 130,
+        "gains": 2,
+        "losses": 66,
+        "n": 143,
+        "net": -64,
+        "p_flat_one_sided": 7.951945308823372e-18,
+        "p_tiered_one_sided": 1.0,
+        "tiered_hits": 66,
+        "ties": 75
+      },
+      "3": {
+        "discordant": 12,
+        "endpoint": "complete",
+        "flat_hits": 24,
+        "gains": 2,
+        "losses": 10,
+        "n": 42,
+        "net": -8,
+        "p_flat_one_sided": 0.019287109375,
+        "p_tiered_one_sided": 0.996826171875,
+        "tiered_hits": 16,
+        "ties": 30
+      },
+      "4": {
+        "discordant": 222,
+        "endpoint": "complete",
+        "flat_hits": 352,
+        "gains": 2,
+        "losses": 220,
+        "n": 386,
+        "net": -218,
+        "p_flat_one_sided": 3.672707562164657e-63,
+        "p_tiered_one_sided": 1.0,
+        "tiered_hits": 134,
+        "ties": 164
+      },
+      "5": {
+        "discordant": 102,
+        "endpoint": "complete",
+        "flat_hits": 173,
+        "gains": 0,
+        "losses": 102,
+        "n": 190,
+        "net": -102,
+        "p_flat_one_sided": 1.9721522630525295e-31,
+        "p_tiered_one_sided": 1.0,
+        "tiered_hits": 71,
+        "ties": 88
+      }
+    },
+    "by_conversation": {
+      "conv-41": {
+        "discordant": 85,
+        "endpoint": "complete",
+        "flat_hits": 167,
+        "gains": 1,
+        "losses": 84,
+        "n": 193,
+        "net": -83,
+        "p_flat_one_sided": 2.223047896236262e-24,
+        "p_tiered_one_sided": 1.0,
+        "tiered_hits": 84,
+        "ties": 108
+      },
+      "conv-42": {
+        "discordant": 147,
+        "endpoint": "complete",
+        "flat_hits": 218,
+        "gains": 3,
+        "losses": 144,
+        "n": 258,
+        "net": -141,
+        "p_flat_one_sided": 2.968196775969684e-39,
+        "p_tiered_one_sided": 1.0,
+        "tiered_hits": 77,
+        "ties": 111
+      },
+      "conv-47": {
+        "discordant": 83,
+        "endpoint": "complete",
+        "flat_hits": 168,
+        "gains": 3,
+        "losses": 80,
+        "n": 189,
+        "net": -77,
+        "p_flat_one_sided": 9.860820082244643e-21,
+        "p_tiered_one_sided": 1.0,
+        "tiered_hits": 91,
+        "ties": 106
+      },
+      "conv-48": {
+        "discordant": 136,
+        "endpoint": "complete",
+        "flat_hits": 196,
+        "gains": 1,
+        "losses": 135,
+        "n": 228,
+        "net": -134,
+        "p_flat_one_sided": 1.5726828717055995e-39,
+        "p_tiered_one_sided": 1.0,
+        "tiered_hits": 62,
+        "ties": 92
+      }
+    },
+    "composition": {
+      "evidence_carried_by_tiers": {
+        "coverage": 3,
+        "coverage|k": 4,
+        "coverage|k|recency": 1,
+        "k": 274,
+        "k|recency": 7,
+        "recency": 92
+      },
+      "flat_evidence_rank": {
+        "best": {
+          "max": 275,
+          "mean": 14.898,
+          "min": 1,
+          "n": 871,
+          "p05": 1,
+          "p25": 1,
+          "p50": 2,
+          "p75": 10,
+          "p95": 77
+        },
+        "worst": {
+          "max": 337,
+          "mean": 26.029,
+          "min": 1,
+          "n": 871,
+          "p05": 1,
+          "p25": 1,
+          "p50": 4,
+          "p75": 22,
+          "p95": 148
+        }
+      },
+      "questions_with_zero_coverage_delivered": 722,
+      "questions_with_zero_k_delivered": 0,
+      "tiered_coverage": {
+        "max": 35,
+        "mean": 1.39,
+        "min": 0,
+        "n": 871,
+        "p05": 0,
+        "p25": 0,
+        "p50": 0,
+        "p75": 0,
+        "p95": 12
+      },
+      "tiered_dropped": {
+        "max": 266,
+        "mean": 79.877,
+        "min": 19,
+        "n": 871,
+        "p05": 24,
+        "p25": 30,
+        "p50": 57,
+        "p75": 114,
+        "p95": 212
+      },
+      "tiered_k": {
+        "max": 30,
+        "mean": 20.34,
+        "min": 1,
+        "n": 871,
+        "p05": 8,
+        "p25": 17,
+        "p50": 22,
+        "p75": 24,
+        "p95": 27
+      },
+      "tiered_recency": {
+        "max": 32,
+        "mean": 32.0,
+        "min": 32,
+        "n": 871,
+        "p05": 32,
+        "p25": 32,
+        "p50": 32,
+        "p75": 32,
+        "p95": 32
+      }
+    },
+    "delivery": {
+      "flat_chars": {
+        "max": 16000,
+        "mean": 15964.793,
+        "min": 15864,
+        "n": 871,
+        "p05": 15918,
+        "p25": 15945,
+        "p50": 15969,
+        "p75": 15988,
+        "p95": 15999
+      },
+      "flat_episodes": {
+        "max": 79,
+        "mean": 54.171,
+        "min": 38,
+        "n": 871,
+        "p05": 43,
+        "p25": 48,
+        "p50": 54,
+        "p75": 59,
+        "p95": 67
+      },
+      "tiered_chars": {
+        "max": 16000,
+        "mean": 15954.09,
+        "min": 15783,
+        "n": 871,
+        "p05": 15887,
+        "p25": 15930,
+        "p50": 15961,
+        "p75": 15986,
+        "p95": 15997
+      },
+      "tiered_episodes": {
+        "max": 69,
+        "mean": 53.73,
+        "min": 45,
+        "n": 871,
+        "p05": 47,
+        "p25": 51,
+        "p50": 54,
+        "p75": 57,
+        "p95": 60
+      }
+    },
+    "population": {
+      "primary_complete_evidence": 868,
+      "secondary_any_evidence": 871
+    },
+    "primary_complete_evidence": {
+      "discordant": 451,
+      "endpoint": "complete",
+      "flat_hits": 749,
+      "gains": 8,
+      "losses": 443,
+      "n": 868,
+      "net": -435,
+      "p_flat_one_sided": 6.984385649650694e-120,
+      "p_tiered_one_sided": 1.0,
+      "tiered_hits": 314,
+      "ties": 417
+    },
+    "secondary_any_evidence": {
+      "discordant": 438,
+      "endpoint": "any",
+      "flat_hits": 803,
+      "gains": 8,
+      "losses": 430,
+      "n": 871,
+      "net": -422,
+      "p_flat_one_sided": 4.5219794119679856e-116,
+      "p_tiered_one_sided": 1.0,
+      "tiered_hits": 381,
+      "ties": 433
+    }
+  },
+  "robustness_wrapper_matched": {
+    "agrees_with_primary": true,
+    "flat_budget_chars": 15982,
+    "summary": {
+      "budget_chars": 16000,
+      "by_category": {
+        "1": {
+          "discordant": 47,
+          "endpoint": "complete",
+          "flat_hits": 70,
+          "gains": 2,
+          "losses": 45,
+          "n": 107,
+          "net": -43,
+          "p_flat_one_sided": 8.022027486731531e-12,
+          "p_tiered_one_sided": 0.9999999999996589,
+          "tiered_hits": 27,
+          "ties": 60
+        },
+        "2": {
+          "discordant": 68,
+          "endpoint": "complete",
+          "flat_hits": 130,
+          "gains": 2,
+          "losses": 66,
+          "n": 143,
+          "net": -64,
+          "p_flat_one_sided": 7.951945308823372e-18,
+          "p_tiered_one_sided": 1.0,
+          "tiered_hits": 66,
+          "ties": 75
+        },
+        "3": {
+          "discordant": 12,
+          "endpoint": "complete",
+          "flat_hits": 24,
+          "gains": 2,
+          "losses": 10,
+          "n": 42,
+          "net": -8,
+          "p_flat_one_sided": 0.019287109375,
+          "p_tiered_one_sided": 0.996826171875,
+          "tiered_hits": 16,
+          "ties": 30
+        },
+        "4": {
+          "discordant": 222,
+          "endpoint": "complete",
+          "flat_hits": 352,
+          "gains": 2,
+          "losses": 220,
+          "n": 386,
+          "net": -218,
+          "p_flat_one_sided": 3.672707562164657e-63,
+          "p_tiered_one_sided": 1.0,
+          "tiered_hits": 134,
+          "ties": 164
+        },
+        "5": {
+          "discordant": 102,
+          "endpoint": "complete",
+          "flat_hits": 173,
+          "gains": 0,
+          "losses": 102,
+          "n": 190,
+          "net": -102,
+          "p_flat_one_sided": 1.9721522630525295e-31,
+          "p_tiered_one_sided": 1.0,
+          "tiered_hits": 71,
+          "ties": 88
+        }
+      },
+      "by_conversation": {
+        "conv-41": {
+          "discordant": 85,
+          "endpoint": "complete",
+          "flat_hits": 167,
+          "gains": 1,
+          "losses": 84,
+          "n": 193,
+          "net": -83,
+          "p_flat_one_sided": 2.223047896236262e-24,
+          "p_tiered_one_sided": 1.0,
+          "tiered_hits": 84,
+          "ties": 108
+        },
+        "conv-42": {
+          "discordant": 147,
+          "endpoint": "complete",
+          "flat_hits": 218,
+          "gains": 3,
+          "losses": 144,
+          "n": 258,
+          "net": -141,
+          "p_flat_one_sided": 2.968196775969684e-39,
+          "p_tiered_one_sided": 1.0,
+          "tiered_hits": 77,
+          "ties": 111
+        },
+        "conv-47": {
+          "discordant": 83,
+          "endpoint": "complete",
+          "flat_hits": 168,
+          "gains": 3,
+          "losses": 80,
+          "n": 189,
+          "net": -77,
+          "p_flat_one_sided": 9.860820082244643e-21,
+          "p_tiered_one_sided": 1.0,
+          "tiered_hits": 91,
+          "ties": 106
+        },
+        "conv-48": {
+          "discordant": 136,
+          "endpoint": "complete",
+          "flat_hits": 196,
+          "gains": 1,
+          "losses": 135,
+          "n": 228,
+          "net": -134,
+          "p_flat_one_sided": 1.5726828717055995e-39,
+          "p_tiered_one_sided": 1.0,
+          "tiered_hits": 62,
+          "ties": 92
+        }
+      },
+      "composition": {
+        "evidence_carried_by_tiers": {
+          "coverage": 3,
+          "coverage|k": 4,
+          "coverage|k|recency": 1,
+          "k": 274,
+          "k|recency": 7,
+          "recency": 92
+        },
+        "flat_evidence_rank": {
+          "best": {
+            "max": 275,
+            "mean": 14.898,
+            "min": 1,
+            "n": 871,
+            "p05": 1,
+            "p25": 1,
+            "p50": 2,
+            "p75": 10,
+            "p95": 77
+          },
+          "worst": {
+            "max": 337,
+            "mean": 26.029,
+            "min": 1,
+            "n": 871,
+            "p05": 1,
+            "p25": 1,
+            "p50": 4,
+            "p75": 22,
+            "p95": 148
+          }
+        },
+        "questions_with_zero_coverage_delivered": 722,
+        "questions_with_zero_k_delivered": 0,
+        "tiered_coverage": {
+          "max": 35,
+          "mean": 1.39,
+          "min": 0,
+          "n": 871,
+          "p05": 0,
+          "p25": 0,
+          "p50": 0,
+          "p75": 0,
+          "p95": 12
+        },
+        "tiered_dropped": {
+          "max": 266,
+          "mean": 79.877,
+          "min": 19,
+          "n": 871,
+          "p05": 24,
+          "p25": 30,
+          "p50": 57,
+          "p75": 114,
+          "p95": 212
+        },
+        "tiered_k": {
+          "max": 30,
+          "mean": 20.34,
+          "min": 1,
+          "n": 871,
+          "p05": 8,
+          "p25": 17,
+          "p50": 22,
+          "p75": 24,
+          "p95": 27
+        },
+        "tiered_recency": {
+          "max": 32,
+          "mean": 32.0,
+          "min": 32,
+          "n": 871,
+          "p05": 32,
+          "p25": 32,
+          "p50": 32,
+          "p75": 32,
+          "p95": 32
+        }
+      },
+      "delivery": {
+        "flat_chars": {
+          "max": 15982,
+          "mean": 15948.23,
+          "min": 15864,
+          "n": 871,
+          "p05": 15900,
+          "p25": 15929,
+          "p50": 15954,
+          "p75": 15970,
+          "p95": 15981
+        },
+        "flat_episodes": {
+          "max": 79,
+          "mean": 54.103,
+          "min": 38,
+          "n": 871,
+          "p05": 43,
+          "p25": 48,
+          "p50": 54,
+          "p75": 59,
+          "p95": 67
+        },
+        "tiered_chars": {
+          "max": 16000,
+          "mean": 15954.09,
+          "min": 15783,
+          "n": 871,
+          "p05": 15887,
+          "p25": 15930,
+          "p50": 15961,
+          "p75": 15986,
+          "p95": 15997
+        },
+        "tiered_episodes": {
+          "max": 69,
+          "mean": 53.73,
+          "min": 45,
+          "n": 871,
+          "p05": 47,
+          "p25": 51,
+          "p50": 54,
+          "p75": 57,
+          "p95": 60
+        }
+      },
+      "population": {
+        "primary_complete_evidence": 868,
+        "secondary_any_evidence": 871
+      },
+      "primary_complete_evidence": {
+        "discordant": 451,
+        "endpoint": "complete",
+        "flat_hits": 749,
+        "gains": 8,
+        "losses": 443,
+        "n": 868,
+        "net": -435,
+        "p_flat_one_sided": 6.984385649650694e-120,
+        "p_tiered_one_sided": 1.0,
+        "tiered_hits": 314,
+        "ties": 417
+      },
+      "secondary_any_evidence": {
+        "discordant": 438,
+        "endpoint": "any",
+        "flat_hits": 803,
+        "gains": 8,
+        "losses": 430,
+        "n": 871,
+        "net": -422,
+        "p_flat_one_sided": 4.5219794119679856e-116,
+        "p_tiered_one_sided": 1.0,
+        "tiered_hits": 381,
+        "ties": 433
+      }
+    },
+    "tiered_budget_chars": 16000,
+    "verdict": {
+      "alpha": 0.01,
+      "band": 4,
+      "disposition": "D3",
+      "signal_alpha": 0.1,
+      "statistic": {
+        "discordant": 451,
+        "endpoint": "complete",
+        "flat_hits": 749,
+        "gains": 8,
+        "losses": 443,
+        "n": 868,
+        "net": -435,
+        "p_flat_one_sided": 6.984385649650694e-120,
+        "p_tiered_one_sided": 1.0,
+        "tiered_hits": 314,
+        "ties": 417
+      },
+      "verdict": "FLAT_WINS"
+    }
+  },
+  "schema": "tc001-tiered-versus-flat-v1",
+  "secondary_budget": {
+    "budget_chars": 32000,
+    "by_category": {
+      "1": {
+        "discordant": 34,
+        "endpoint": "complete",
+        "flat_hits": 89,
+        "gains": 1,
+        "losses": 33,
+        "n": 107,
+        "net": -32,
+        "p_flat_one_sided": 2.0372681319713593e-09,
+        "p_tiered_one_sided": 0.9999999999417923,
+        "tiered_hits": 57,
+        "ties": 73
+      },
+      "2": {
+        "discordant": 14,
+        "endpoint": "complete",
+        "flat_hits": 139,
+        "gains": 1,
+        "losses": 13,
+        "n": 143,
+        "net": -12,
+        "p_flat_one_sided": 0.00091552734375,
+        "p_tiered_one_sided": 0.99993896484375,
+        "tiered_hits": 127,
+        "ties": 129
+      },
+      "3": {
+        "discordant": 7,
+        "endpoint": "complete",
+        "flat_hits": 28,
+        "gains": 2,
+        "losses": 5,
+        "n": 42,
+        "net": -3,
+        "p_flat_one_sided": 0.2265625,
+        "p_tiered_one_sided": 0.9375,
+        "tiered_hits": 25,
+        "ties": 35
+      },
+      "4": {
+        "discordant": 100,
+        "endpoint": "complete",
+        "flat_hits": 370,
+        "gains": 3,
+        "losses": 97,
+        "n": 386,
+        "net": -94,
+        "p_flat_one_sided": 1.3154334480650894e-25,
+        "p_tiered_one_sided": 1.0,
+        "tiered_hits": 276,
+        "ties": 286
+      },
+      "5": {
+        "discordant": 36,
+        "endpoint": "complete",
+        "flat_hits": 184,
+        "gains": 0,
+        "losses": 36,
+        "n": 190,
+        "net": -36,
+        "p_flat_one_sided": 1.4551915228366852e-11,
+        "p_tiered_one_sided": 1.0,
+        "tiered_hits": 148,
+        "ties": 154
+      }
+    },
+    "by_conversation": {
+      "conv-41": {
+        "discordant": 27,
+        "endpoint": "complete",
+        "flat_hits": 178,
+        "gains": 1,
+        "losses": 26,
+        "n": 193,
+        "net": -25,
+        "p_flat_one_sided": 2.086162567138672e-07,
+        "p_tiered_one_sided": 0.9999999925494194,
+        "tiered_hits": 153,
+        "ties": 166
+      },
+      "conv-42": {
+        "discordant": 70,
+        "endpoint": "complete",
+        "flat_hits": 240,
+        "gains": 4,
+        "losses": 66,
+        "n": 258,
+        "net": -62,
+        "p_flat_one_sided": 8.251125816123063e-16,
+        "p_tiered_one_sided": 1.0,
+        "tiered_hits": 178,
+        "ties": 188
+      },
+      "conv-47": {
+        "discordant": 31,
+        "endpoint": "complete",
+        "flat_hits": 181,
+        "gains": 2,
+        "losses": 29,
+        "n": 189,
+        "net": -27,
+        "p_flat_one_sided": 2.314336597919464e-07,
+        "p_tiered_one_sided": 0.9999999850988388,
+        "tiered_hits": 154,
+        "ties": 158
+      },
+      "conv-48": {
+        "discordant": 63,
+        "endpoint": "complete",
+        "flat_hits": 211,
+        "gains": 0,
+        "losses": 63,
+        "n": 228,
+        "net": -63,
+        "p_flat_one_sided": 1.0842021724855044e-19,
+        "p_tiered_one_sided": 1.0,
+        "tiered_hits": 148,
+        "ties": 165
+      }
+    },
+    "composition": {
+      "evidence_carried_by_tiers": {
+        "coverage": 20,
+        "coverage|k": 11,
+        "coverage|k|recency": 1,
+        "coverage|recency": 1,
+        "k": 556,
+        "k|recency": 14,
+        "recency": 84
+      },
+      "flat_evidence_rank": {
+        "best": {
+          "max": 275,
+          "mean": 14.898,
+          "min": 1,
+          "n": 871,
+          "p05": 1,
+          "p25": 1,
+          "p50": 2,
+          "p75": 10,
+          "p95": 77
+        },
+        "worst": {
+          "max": 337,
+          "mean": 26.029,
+          "min": 1,
+          "n": 871,
+          "p05": 1,
+          "p25": 1,
+          "p50": 4,
+          "p75": 22,
+          "p95": 148
+        }
+      },
+      "questions_with_zero_coverage_delivered": 420,
+      "questions_with_zero_k_delivered": 0,
+      "tiered_coverage": {
+        "max": 103,
+        "mean": 18.798,
+        "min": 0,
+        "n": 871,
+        "p05": 0,
+        "p25": 0,
+        "p50": 1,
+        "p75": 36,
+        "p95": 67
+      },
+      "tiered_dropped": {
+        "max": 214,
+        "mean": 48.765,
+        "min": 14,
+        "n": 871,
+        "p05": 18,
+        "p25": 22,
+        "p50": 25,
+        "p75": 60,
+        "p95": 159
+      },
+      "tiered_k": {
+        "max": 97,
+        "mean": 56.972,
+        "min": 1,
+        "n": 871,
+        "p05": 8,
+        "p25": 37,
+        "p50": 64,
+        "p75": 79,
+        "p95": 85
+      },
+      "tiered_recency": {
+        "max": 32,
+        "mean": 32.0,
+        "min": 32,
+        "n": 871,
+        "p05": 32,
+        "p25": 32,
+        "p50": 32,
+        "p75": 32,
+        "p95": 32
+      }
+    },
+    "delivery": {
+      "flat_chars": {
+        "max": 32000,
+        "mean": 31965.286,
+        "min": 31859,
+        "n": 871,
+        "p05": 31916,
+        "p25": 31946,
+        "p50": 31972,
+        "p75": 31990,
+        "p95": 31999
+      },
+      "flat_episodes": {
+        "max": 142,
+        "mean": 108.619,
+        "min": 83,
+        "n": 871,
+        "p05": 89,
+        "p25": 99,
+        "p50": 111,
+        "p75": 117,
+        "p95": 127
+      },
+      "tiered_chars": {
+        "max": 32000,
+        "mean": 31951.514,
+        "min": 31754,
+        "n": 871,
+        "p05": 31871,
+        "p25": 31928,
+        "p50": 31961,
+        "p75": 31985,
+        "p95": 31998
+      },
+      "tiered_episodes": {
+        "max": 137,
+        "mean": 107.77,
+        "min": 87,
+        "n": 871,
+        "p05": 91,
+        "p25": 100,
+        "p50": 109,
+        "p75": 115,
+        "p95": 122
+      }
+    },
+    "population": {
+      "primary_complete_evidence": 868,
+      "secondary_any_evidence": 871
+    },
+    "primary_complete_evidence": {
+      "discordant": 191,
+      "endpoint": "complete",
+      "flat_hits": 810,
+      "gains": 7,
+      "losses": 184,
+      "n": 868,
+      "net": -177,
+      "p_flat_one_sided": 5.450383875362256e-46,
+      "p_tiered_one_sided": 1.0,
+      "tiered_hits": 633,
+      "ties": 677
+    },
+    "secondary_any_evidence": {
+      "discordant": 173,
+      "endpoint": "any",
+      "flat_hits": 842,
+      "gains": 9,
+      "losses": 164,
+      "n": 871,
+      "net": -155,
+      "p_flat_one_sided": 2.733790640163012e-38,
+      "p_tiered_one_sided": 1.0,
+      "tiered_hits": 687,
+      "ties": 698
+    }
+  },
+  "standing": "REGISTERED-OFFLINE",
+  "status": "COMPLETE",
+  "verdict": {
+    "alpha": 0.01,
+    "band": 4,
+    "disposition": "D3",
+    "signal_alpha": 0.1,
+    "statistic": {
+      "discordant": 451,
+      "endpoint": "complete",
+      "flat_hits": 749,
+      "gains": 8,
+      "losses": 443,
+      "n": 868,
+      "net": -435,
+      "p_flat_one_sided": 6.984385649650694e-120,
+      "p_tiered_one_sided": 1.0,
+      "tiered_hits": 314,
+      "ties": 417
+    },
+    "verdict": "FLAT_WINS"
+  }
+}
