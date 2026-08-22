@@ -1,0 +1,136 @@
+{
+  "budgets": {
+    "16000": {
+      "budget_chars": 16000,
+      "contrasts": {
+        "dual_ranked_vs_k_first": {
+          "any_evidence": {
+            "concordant_pairs": 565,
+            "discordant_pairs": 306,
+            "smallest_one_sided_exact_p_at_this_n": 7.670458539527698e-93
+          },
+          "complete_evidence": {
+            "concordant_pairs": 556,
+            "discordant_pairs": 315,
+            "smallest_one_sided_exact_p_at_this_n": 1.4981364335015035e-95
+          }
+        },
+        "dual_vs_k_first": {
+          "any_evidence": {
+            "concordant_pairs": 862,
+            "discordant_pairs": 9,
+            "smallest_one_sided_exact_p_at_this_n": 0.001953125
+          },
+          "complete_evidence": {
+            "concordant_pairs": 858,
+            "discordant_pairs": 13,
+            "smallest_one_sided_exact_p_at_this_n": 0.0001220703125
+          }
+        },
+        "k_first_vs_flat": {
+          "any_evidence": {
+            "concordant_pairs": 563,
+            "discordant_pairs": 308,
+            "smallest_one_sided_exact_p_at_this_n": 1.9176146348819244e-93
+          },
+          "complete_evidence": {
+            "concordant_pairs": 553,
+            "discordant_pairs": 318,
+            "smallest_one_sided_exact_p_at_this_n": 1.8726705418768793e-96
+          }
+        },
+        "k_first_vs_n_first": {
+          "any_evidence": {
+            "concordant_pairs": 601,
+            "discordant_pairs": 270,
+            "smallest_one_sided_exact_p_at_this_n": 5.271098971615262e-82
+          },
+          "complete_evidence": {
+            "concordant_pairs": 606,
+            "discordant_pairs": 265,
+            "smallest_one_sided_exact_p_at_this_n": 1.6867516709168837e-80
+          }
+        }
+      },
+      "evaluable_questions": 871,
+      "fill_order_delivers_identical_set": 120
+    },
+    "32000": {
+      "budget_chars": 32000,
+      "contrasts": {
+        "dual_ranked_vs_k_first": {
+          "any_evidence": {
+            "concordant_pairs": 746,
+            "discordant_pairs": 125,
+            "smallest_one_sided_exact_p_at_this_n": 2.350988701644575e-38
+          },
+          "complete_evidence": {
+            "concordant_pairs": 731,
+            "discordant_pairs": 140,
+            "smallest_one_sided_exact_p_at_this_n": 7.174648137343064e-43
+          }
+        },
+        "dual_vs_k_first": {
+          "any_evidence": {
+            "concordant_pairs": 861,
+            "discordant_pairs": 10,
+            "smallest_one_sided_exact_p_at_this_n": 0.0009765625
+          },
+          "complete_evidence": {
+            "concordant_pairs": 856,
+            "discordant_pairs": 15,
+            "smallest_one_sided_exact_p_at_this_n": 3.0517578125e-05
+          }
+        },
+        "k_first_vs_flat": {
+          "any_evidence": {
+            "concordant_pairs": 745,
+            "discordant_pairs": 126,
+            "smallest_one_sided_exact_p_at_this_n": 1.1754943508222875e-38
+          },
+          "complete_evidence": {
+            "concordant_pairs": 732,
+            "discordant_pairs": 139,
+            "smallest_one_sided_exact_p_at_this_n": 1.4349296274686127e-42
+          }
+        },
+        "k_first_vs_n_first": {
+          "any_evidence": {
+            "concordant_pairs": 756,
+            "discordant_pairs": 115,
+            "smallest_one_sided_exact_p_at_this_n": 2.407412430484045e-35
+          },
+          "complete_evidence": {
+            "concordant_pairs": 751,
+            "discordant_pairs": 120,
+            "smallest_one_sided_exact_p_at_this_n": 7.52316384526264e-37
+          }
+        }
+      },
+      "evaluable_questions": 871,
+      "fill_order_delivers_identical_set": 424
+    }
+  },
+  "contrasts": [
+    "k_first_vs_n_first",
+    "k_first_vs_flat",
+    "dual_vs_k_first",
+    "dual_ranked_vs_k_first"
+  ],
+  "inputs": {
+    "cache_content_sha256": "e103b2933ee9ec7b8e9236f43037797618da524e413b83a9f3973a19d28b1b2a",
+    "cache_file_sha256": "2ba617018a1b043bf439bb50e756191d8141fb7ca01a2e4a68c9eb822eba26f8",
+    "cache_misses": 0,
+    "dataset_sha256": "79fa87e90f04081343b8c8debecb80a9a6842b76a7aa537dc9fdf651ea698ff4",
+    "sources": {
+      "src/analysis/ec002_k_first_packing.py": "bd0c8e6a343ad385a37dffc43068b19f9055531d25031540e1bc44af48ec6afc",
+      "src/analysis/tc001_exploration.py": "83d59ca3121bcc117d5003d3c3bf5cbaf05657658fd2c144ffa737ba2f1c019f",
+      "src/analysis/tc001b_exploration.py": "8d5085d22c953fab1bc3e495345d1268b56d60752383cf9b5e06979f8f829e68",
+      "src/analysis/tc002_exploration.py": "9f374c201249eea7ab632f1cf7c5865cba3c0fb29b4dc7d05adae0c94072b574",
+      "src/analysis/tc002_reachability.py": "b5396c8a6e645afa8aa10ce887653e8f75c0710b38d7d30750fc203c16157fd3"
+    }
+  },
+  "note": "Discordant counts only. The direction of disagreement is not computed here and must not be, until the bars are committed.",
+  "schema": "tc002-preflight-pf4-reachability-v1",
+  "status": "PREFLIGHT_PF4_ONLY"
+}
