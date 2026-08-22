@@ -1,6 +1,6 @@
 # Rank Fine, Pack Fine, Call Nothing
 
-### A memory layer that spends no generative calls, measured against one that spends 1,646
+### 79.09% on the benchmark Mem0 published, at a sixth of the tokens, with no generative calls
 
 **Idris Applied AI Research** — independent, non-profit
 Repository: `contextDecayWindow` · Licence: CC BY 4.0
