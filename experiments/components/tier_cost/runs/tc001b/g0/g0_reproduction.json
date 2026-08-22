@@ -1,0 +1,114 @@
+{
+  "claim": "A_FLAT and A_TIERED reproduce TC-001's committed primary and secondary tables exactly, so this study's new arms are measured by the instrument that produced the result they respond to.",
+  "gate": "G0",
+  "mismatches": [],
+  "rows": [
+    {
+      "agrees": true,
+      "budget_chars": 16000,
+      "committed_artifact": [
+        749,
+        314,
+        8,
+        443,
+        -435
+      ],
+      "endpoint": "complete",
+      "recomputed": [
+        749,
+        314,
+        8,
+        443,
+        -435
+      ],
+      "registered": [
+        749,
+        314,
+        8,
+        443,
+        -435
+      ]
+    },
+    {
+      "agrees": true,
+      "budget_chars": 16000,
+      "committed_artifact": [
+        803,
+        381,
+        8,
+        430,
+        -422
+      ],
+      "endpoint": "any",
+      "recomputed": [
+        803,
+        381,
+        8,
+        430,
+        -422
+      ],
+      "registered": [
+        803,
+        381,
+        8,
+        430,
+        -422
+      ]
+    },
+    {
+      "agrees": true,
+      "budget_chars": 32000,
+      "committed_artifact": [
+        810,
+        633,
+        7,
+        184,
+        -177
+      ],
+      "endpoint": "complete",
+      "recomputed": [
+        810,
+        633,
+        7,
+        184,
+        -177
+      ],
+      "registered": [
+        810,
+        633,
+        7,
+        184,
+        -177
+      ]
+    },
+    {
+      "agrees": true,
+      "budget_chars": 32000,
+      "committed_artifact": [
+        842,
+        687,
+        9,
+        164,
+        -155
+      ],
+      "endpoint": "any",
+      "recomputed": [
+        842,
+        687,
+        9,
+        164,
+        -155
+      ],
+      "registered": [
+        842,
+        687,
+        9,
+        164,
+        -155
+      ]
+    }
+  ],
+  "schema": "tc001b-dual-arm-v1",
+  "status": "PASS",
+  "tc001_summary_sha256": "e594dadeedf60b1ee06d9e720ad2c42822e4b9815695d47dc4be413df7d52151"
+}
