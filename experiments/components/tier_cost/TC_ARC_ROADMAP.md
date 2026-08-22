@@ -96,6 +96,44 @@ in front of it and made mandatory.
 be runnable **in any order, including all at once.** If that is true, no
 ordering can stall. Section 8 tests that claim rather than asserting it.
 
+## 1.1 Standing arms
+
+Added August 22, 2026, after TC-001B, on the author's instruction that the dual
+arm travel with this arc.
+
+TC-001 compared two arms and found the flat one ahead by 435 questions. TC-001B
+added two and found that the 435 decomposed into **158** questions of
+recency-tier cost and **276** questions of K-tier ordering cost. Neither number
+was visible from TC-001's two arms, and both were measurable only because the
+later study kept the earlier one's reference arm alongside its own.
+
+**Every study from TC-002 onward carries three arms regardless of its own
+question:**
+
+| Arm | What it is | First measured |
+|---|---|---|
+| `A_FLAT` | rank by cosine, pack to budget | TC-001 |
+| `A_DUAL` | `build_context` with `recency_window_n=0` | TC-001B |
+| `A_DUAL_RANKED` | `A_DUAL` with the K tier offered best-first | TC-001B |
+
+A study adds its own arms on top; it does not drop these, and it does not
+redefine them. `src/analysis/tc_standing_arms.py` is the registry and
+`tests/test_dual_arm_standing.py` holds each arm's behavioural identity, so an
+inherited arm that drifts fails a test rather than quietly changing what a
+prior study's number meant.
+
+**The shipped configuration is deliberately not standing.** It is the thing
+under test when a study tests it, and carrying it unconditionally would make
+every stage of this arc read as a referendum on it.
+
+**This costs multiplicity, and that is registered rather than absorbed.** Two
+extra arms mean extra contrasts, and every contrast a study registers enters its
+Bonferroni family. A standing arm that is not worth a divisor is not worth
+carrying — so a study may report a standing arm descriptively, without a
+contrast, if its question does not need one.
+
+---
+
 ---
 
 ## 2. TC-001 — Does the tiered stack beat the flat arm?
