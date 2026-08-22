@@ -1,0 +1,73 @@
+{
+  "budgets": {
+    "16000": {
+      "budget_chars": 16000,
+      "endpoints": {
+        "any_evidence": {
+          "concordant_pairs": 433,
+          "discordant_by_conversation": {
+            "conv-41": 83,
+            "conv-42": 146,
+            "conv-47": 81,
+            "conv-48": 128
+          },
+          "discordant_pairs": 438,
+          "smallest_one_sided_exact_p_at_this_n": 1.4088407314736535e-132
+        },
+        "complete_evidence": {
+          "concordant_pairs": 420,
+          "discordant_by_conversation": {
+            "conv-41": 85,
+            "conv-42": 147,
+            "conv-47": 83,
+            "conv-48": 136
+          },
+          "discordant_pairs": 451,
+          "smallest_one_sided_exact_p_at_this_n": 1.7197762835371747e-136
+        }
+      },
+      "evaluable_questions": 871
+    },
+    "32000": {
+      "budget_chars": 32000,
+      "endpoints": {
+        "any_evidence": {
+          "concordant_pairs": 698,
+          "discordant_by_conversation": {
+            "conv-41": 26,
+            "conv-42": 63,
+            "conv-47": 25,
+            "conv-48": 59
+          },
+          "discordant_pairs": 173,
+          "smallest_one_sided_exact_p_at_this_n": 8.352389719038111e-53
+        },
+        "complete_evidence": {
+          "concordant_pairs": 680,
+          "discordant_by_conversation": {
+            "conv-41": 27,
+            "conv-42": 70,
+            "conv-47": 31,
+            "conv-48": 63
+          },
+          "discordant_pairs": 191,
+          "smallest_one_sided_exact_p_at_this_n": 3.1861838222649046e-58
+        }
+      },
+      "evaluable_questions": 871
+    }
+  },
+  "inputs": {
+    "cache_content_sha256": "e103b2933ee9ec7b8e9236f43037797618da524e413b83a9f3973a19d28b1b2a",
+    "cache_file_sha256": "2ba617018a1b043bf439bb50e756191d8141fb7ca01a2e4a68c9eb822eba26f8",
+    "cache_misses": 0,
+    "dataset_sha256": "79fa87e90f04081343b8c8debecb80a9a6842b76a7aa537dc9fdf651ea698ff4",
+    "sources": {
+      "src/analysis/tc001_exploration.py": "83d59ca3121bcc117d5003d3c3bf5cbaf05657658fd2c144ffa737ba2f1c019f",
+      "src/analysis/tc001_reachability.py": "821114439299c464aadde5f5cfb6bce6dfdec48ba42e46f69cc9440a12ed6a52"
+    }
+  },
+  "note": "Discordant counts only. The direction of disagreement is not computed here and must not be, until the bars are committed.",
+  "schema": "tc001-preflight-pf4-reachability-v1",
+  "status": "PREFLIGHT_PF4_ONLY"
+}
