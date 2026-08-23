@@ -26,8 +26,13 @@ order offered to the packer changes.
 
 This is a comparison of retrieval ranking strategies, not merely alternative
 "semantic similarities." BM25 is lexical. With normalized vectors, cosine,
-dot-product rank, and Euclidean-distance rank are mathematically equivalent, so
-testing those three names would not create three behavioral arms.
+dot-product rank, and Euclidean-distance rank are mathematically equivalent in
+exact arithmetic, so testing those three names would not create three objective
+arms. Preflight found that changing the numerical implementation can still move
+near-ties: float64 dot/Euclidean agreed on 871/871 real queries, while the
+carried float32 matrix multiply agreed with them on 868/871. That is a
+precision/tie-break change, not a fourth retrieval objective, and is out of
+scope.
 
 The former TC-005 clustering-latency proposal was design-only and is retired
 before registration. Large-store latency, adaptive budgets, and enterprise
@@ -98,7 +103,9 @@ Results are also reported separately for the two TC-007 populations:
   one session; and
 - breadth questions whose evidence spans at least three sessions.
 
-The pre-registration must lock a reachable, multiplicity-corrected rule for
+Preflight resolved **704 targeted**, **44 breadth**, **120 other eligible**, and
+**3 ineligible** unique questions. The pre-registration must lock a reachable,
+multiplicity-corrected rule for
 which single ordering TC-007 inherits. Selection must be driven by targeted
 complete-evidence delivery at the two half-budgets; a full-budget win alone
 cannot select a strategy that is inefficient at its actual TC-007 operating
@@ -139,8 +146,9 @@ or disposition is locked.
    complete agreement, maximum disagreement, oversized candidates, and
    everything-fits cases on real traces where they exist; construct positive
    controls for states absent from the corpus.
-5. **Identity tests:** demonstrate that normalized-vector cosine, dot-product,
-   and Euclidean ordering are identical, so aliases cannot enter as fake arms.
+5. **Identity tests:** demonstrate the exact-arithmetic dot/Euclidean identity,
+   quantify carried-float32 near-tie order drift, and keep numerical precision
+   variants from entering as fake objective arms.
 6. **Prior-transfer check:** reproduce the committed retrieval-bakeoff M2/M3/M4
    rankings with the unmodified prior implementation and the TC-001 dense
    payload before producing LoCoMo treatment output; separately enumerate every
@@ -155,7 +163,7 @@ or disposition is locked.
 | Check | Required evidence before registration/run |
 |---|---|
 | **PF1 Inputs exist** | Hash and count the LoCoMo store, questions, evidence mapping, vector cache, renderer, packer, and carried BM25/RRF source |
-| **PF2 Mechanism identity** | Real-trace evidence for dense, sparse, and RRF ordering, including the equivalent-metric identity check |
+| **PF2 Mechanism identity** | Real-trace evidence for dense, sparse, and RRF ordering, including exact-arithmetic metric identity and measured float-implementation residuals |
 | **PF3 Gate ordering** | G0 must finish and commit before treatment outcomes can be generated or opened |
 | **PF4 Thresholds achievable** | Every selection branch, half-budget directional bar, and full-budget regression guardrail shown reachable and failable before locking |
 | **PF5 Stable keys** | Question and candidate content hashes only; no generated ids, timestamps, or paths |
