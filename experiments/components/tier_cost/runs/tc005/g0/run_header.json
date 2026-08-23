@@ -1,0 +1,22 @@
+{
+  "command": ".venv\\Scripts\\python.exe scripts\\run_tc005_study.py --phase g0",
+  "git_head_before_artifacts": "43fc5cdb415e0ca9184fc575a344e2e3c933c0ba",
+  "python": "3.13.13 (tags/v3.13.13:01104ce, Apr  7 2026, 19:25:48) [MSC v.1944 64 bit (AMD64)]",
+  "registration_commit": "024e231f3def3e7c058a2a54ffcf74afde3c3dcc",
+  "schema": "tc005-g0-header-v1",
+  "source_sha256": {
+    "episodic/src/episodic/_packing.py": "c5011dada056fa0106544925c75d849c3d5b4857b6c5010ed4b604f9c3d2af04",
+    "episodic/src/episodic/_render.py": "d0bdc051695fe98064bad9ecc52afe0178bba1ba8a3edf7e3a1960d5f261cf6f",
+    "scripts/run_tc005_study.py": "08d8a1fd7f78604e5b907b78fd379cf08b75b6eebbffcc93b264ed4aebc4b0ed",
+    "src/analysis/tc005_exploration.py": "2d66dd502106ed834b220e6c7f0f14b0c45bf16f0f1709250301bc4a19eb4c70",
+    "src/analysis/tc005_ranking.py": "49fda8fa6a2d8a0ac3a47d1e22adf21b4775e3035805fe48acd71f1ec00dcf48",
+    "src/analysis/tc005_study.py": "509b4adc91d37831fe1de473967422c8e8997e42f0dbbb1d6e8ff3501211d66a",
+    "src/retrieval_bakeoff/methods.py": "2a7a0875fc5c294dfa220e42acc8c54555d52a97b4baf8ff3fc5251ee4da71d7"
+  },
+  "threading": {
+    "MKL_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1"
+  }
+}
