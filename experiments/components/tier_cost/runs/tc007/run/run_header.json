@@ -1,0 +1,22 @@
+{
+  "command": ".venv\\Scripts\\python.exe scripts\\run_tc007_study.py --phase run",
+  "parallel": 1,
+  "precondition": {
+    "g0_commit": "028f67d4a30b1aa7ba37c5e0ec9824e8af083f2a",
+    "g0_sha256": "40d955bcd9ffe30201942234b4d4a6fc54cd9e88255c7de34e4723d45ebacddd",
+    "source_sha256": {
+      "scripts/run_tc007_study.py": "d144db735cc4988bfad5c5f4d96f0f07179b64fab4ad9f70eb49e3d05c705e4b",
+      "src/analysis/tc007_allocation.py": "97276ebca1da1b545fb518f514b974d9d7951449f28700dad9d3c4a3df23c007",
+      "src/analysis/tc007_study.py": "a69c8800757931e796dada0ac29847d8afffb50a374514a0497ff95d94476442"
+    },
+    "status": "PASS"
+  },
+  "schema": "tc007-run-header-v1",
+  "speculative_decoding": false,
+  "threading": {
+    "MKL_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1"
+  }
+}
