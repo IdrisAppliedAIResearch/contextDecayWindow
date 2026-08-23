@@ -225,11 +225,30 @@ points. Relative, adaptive, and enterprise token-budget design is deferred.
 | TC-005 | Evidence-labelled store on which dense cosine, carried BM25, and carried RRF rank identical candidates | `DESIGN ONLY — RUNNABLE AFTER PREFLIGHT AND REGISTRATION` | LoCoMo supplies identical adjacent-pair candidates and labels; the retrieval bakeoff supplies committed BM25 and RRF definitions |
 | TC-006 | Two frozen contexts of known margin, and an instrument finer than that margin | `RUNNABLE` | Unchanged by the TC-005 redesign; TC-006 still requires its own Preflight and registration |
 
-TC-005 is the preferred first step because it freezes the ranked input before
+TC-005 is the preferred first step because it freezes the relevance input before
 TC-007 tests protected allocation. This is a scoped design order, not permission
 to bypass either study's required Preflight and standalone pre-registration.
 The clustering-latency evidence remains valid but moves to later
 enterprise-scale work; no published result is withdrawn.
+
+**Author clarification of 2026-08-23.** TC-005 is not choosing a ranker for an
+unrestricted context. Its primary operating points are **8,000 and 16,000
+characters**, the relevance halves inside TC-007's 16,000- and
+32,000-character totals. Full-budget 16,000 and 32,000 runs remain continuity
+anchors and regression checks. TC-007 binds the frozen relevance strategy to
+one route and A3 or facility location to the spread route; "hybrid" may describe
+either dense-plus-sparse relevance fusion or the two differently optimized
+routes working together.
+
+| Study | Evidence dependency after clarification | State |
+|---|---|---|
+| TC-005 | Same LoCoMo candidates and labels; carried dense, BM25, and RRF strategies runnable at 8k/16k, with 16k/32k anchors | `DESIGN ONLY — PREFLIGHT NEXT` |
+| TC-007 | One TC-005 relevance order frozen after half-budget evaluation; unmodified TC-003 C5 replay; carried A3 and facility spread orders | `DESIGN ONLY — WAITS FOR THE NAMED TC-005 ARTIFACT` |
+
+TC-007's dependency is an artifact, not a verdict: it needs one frozen relevance
+order and its half/full-budget anchors. TC-005 must lock a fallback, so a finding
+that BM25 and RRF do not beat dense still supplies the artifact by retaining
+dense. No outcome branch can stall the sequence.
 
 **Initial state, 2026-08-21.** All six dependency lines name artifacts that
 exist, with one exception recorded here rather than as a block: TC-006's second
