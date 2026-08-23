@@ -214,6 +214,23 @@ starting its Preflight or registration. TC-006 remains runnable and remains
 downstream in implementation order because its registered target contexts must
 be frozen after TC-007, not because an artifact is currently missing.
 
+**Design revision of 2026-08-23.** By author decision, the unregistered TC-005
+clustering-cost placeholder is retired and TC-005 is repurposed as a transfer
+comparison of dense cosine, carried BM25, and carried dense-plus-sparse RRF.
+The historical 16,000- and 32,000-character budgets remain the comparison
+points. Relative, adaptive, and enterprise token-budget design is deferred.
+
+| Study | Revised dependency line | Verdict | Why |
+|---|---|---|---|
+| TC-005 | Evidence-labelled store on which dense cosine, carried BM25, and carried RRF rank identical candidates | `DESIGN ONLY — RUNNABLE AFTER PREFLIGHT AND REGISTRATION` | LoCoMo supplies identical adjacent-pair candidates and labels; the retrieval bakeoff supplies committed BM25 and RRF definitions |
+| TC-006 | Two frozen contexts of known margin, and an instrument finer than that margin | `RUNNABLE` | Unchanged by the TC-005 redesign; TC-006 still requires its own Preflight and registration |
+
+TC-005 is the preferred first step because it freezes the ranked input before
+TC-007 tests protected allocation. This is a scoped design order, not permission
+to bypass either study's required Preflight and standalone pre-registration.
+The clustering-latency evidence remains valid but moves to later
+enterprise-scale work; no published result is withdrawn.
+
 **Initial state, 2026-08-21.** All six dependency lines name artifacts that
 exist, with one exception recorded here rather than as a block: TC-006's second
 clause requires an instrument whose resolution is finer than the margin it
