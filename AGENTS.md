@@ -104,6 +104,8 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **TC-002 fill-order transfer (2026-08-22).** C1 D1 K_FIRST_WINS, REGISTERED-OFFLINE. EC-002's K-first replayed unmodified on LoCoMo dev at its own 32k/any endpoint: 732 vs 687 of 871, +45, p=1.64e-5 vs band 7. Still 110 behind flat; ranking the K tier is worth 111 and its 118 gains are C2's 118 losses exactly, disjoint from C1's 80. Band 7 at 32k, 4 at 16k. Does not ship.
 
+**TC-003 reserved floors (2026-08-22).** C1 D1 FLOORS_WINS but C5 D3 RANKED_WINS; REGISTERED-OFFLINE. At 16k complete evidence floors/N-first/K-first/flat = 656/314/461/749; dual floors/dual/ranked = 718/472/748. C1 +342 is contested on 351/357 gains, so contest key—not reservation—carries it. I1 service order 871/871; I2 ownership 0/871 shipped. No ship.
+
 **PS-001 pattern-separated engram formation (2026-08-11).** CHARACTERIZED. Nine deterministic sparse cells on 119 episodes; only D=4096,K=41 passed G3-G5: 119/119 fixed points and exact 1/10/30/50% swap recovery. Six of seven degenerates reached stored codes; the union-biased cue cycled. Code-space result only; no natural cue, retrieval, live run, promotion, or adoption.
 
 **PS-002 natural-language cue binding (2026-08-11).** STOP AT PART 1; NATURAL_CUES_NOT_BOUND, CHARACTERIZED. Nine label-blind cells ran 24 sealed queries x8 rounds. Best M=4,tau=.025 reached stored codes 190/192 but one cue cycled and one reached a spurious fixed point; no cell emitted 8 clean ids/query. Labels, PF1-PF10, answers, live run, promotion and adoption not entered.
