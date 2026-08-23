@@ -1,7 +1,7 @@
 """Label-blind TC-005 relevance ranking mechanism.
 
 This module accepts only candidate episodes, question text, and a query vector.
-It has no corpus adapter, evidence mapping, answer key, rubric, or outcome code.
+It has no corpus adapter, labelled measurement input, or outcome code.
 """
 
 from __future__ import annotations
