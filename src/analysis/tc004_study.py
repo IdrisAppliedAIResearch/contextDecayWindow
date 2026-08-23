@@ -449,7 +449,7 @@ def _load_child_vectors() -> tuple[dict[str, np.ndarray], dict[str, Any]]:
 
 
 def _selection_cell(hasher: Any, question_id: str, name: str, budget: int, selection: Any) -> None:
-    hasher.update(canonical_bytes({"question_id": question_id, "cell": name, "budget": budget, "selected_ids": selection.selected_ids, "payload_sha256": selection.payload_sha256, "serialized_chars": selection.serialized_chars}))
+    hasher.update(canonical_bytes({"question_id": question_id, "cell": name, "budget": budget, "ordered_identity_sha256": canonical_digest(selection.selected_ids), "payload_sha256": selection.payload_sha256, "serialized_chars": selection.serialized_chars}))
 
 
 def selection_replay() -> dict[str, Any]:
@@ -488,7 +488,7 @@ def selection_replay() -> dict[str, Any]:
                         cells += 1
                 for arm in STANDING_ARMS:
                     payload, ids = deliver(arm, episodes, query, budget)
-                    digest.update(canonical_bytes({"question_id": question.identity, "cell": f"standing:{arm}", "budget": budget, "selected_ids": ids, "payload_sha256": hashlib.sha256(payload.encode("utf-8")).hexdigest(), "serialized_chars": len(payload)}))
+                    digest.update(canonical_bytes({"question_id": question.identity, "cell": f"standing:{arm}", "budget": budget, "ordered_identity_sha256": canonical_digest(ids), "payload_sha256": hashlib.sha256(payload.encode("utf-8")).hexdigest(), "serialized_chars": len(payload)}))
                     cells += 1
     return {
         "questions": questions,
@@ -614,7 +614,7 @@ def _question_outcomes() -> tuple[list[dict[str, Any]], str, dict[str, Any]]:
                 for arm in STANDING_ARMS:
                     payload, ids = deliver(arm, episodes, query, budget)
                     delivered_dialog = _evidence(ids, dialog_map)
-                    digest.update(canonical_bytes({"question_id": question.identity, "cell": f"standing:{arm}", "budget": budget, "selected_ids": ids, "payload_sha256": hashlib.sha256(payload.encode("utf-8")).hexdigest(), "serialized_chars": len(payload)}))
+                    digest.update(canonical_bytes({"question_id": question.identity, "cell": f"standing:{arm}", "budget": budget, "ordered_identity_sha256": canonical_digest(ids), "payload_sha256": hashlib.sha256(payload.encode("utf-8")).hexdigest(), "serialized_chars": len(payload)}))
                     cells += 1
                     standing[arm] = {"complete": complete_evaluable and evidence <= delivered_dialog, "any": bool(evidence & delivered_dialog), "chars": len(payload), "delivered_units": len(ids)}
                 row["budgets"][str(budget)] = {
