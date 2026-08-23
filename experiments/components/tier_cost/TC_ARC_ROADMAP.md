@@ -1,10 +1,10 @@
 # TC Arc — What the tiered architecture earns, and what it costs
 
 **Document type:** Prospective arc roadmap
-**Status:** `RUNNING RECORD`; TC-001 through TC-005 have reported. Each locked
+**Status:** `RUNNING RECORD`; TC-001 through TC-005 and TC-007 have reported. Each locked
 pre-registration governs its own study; where this roadmap disagrees, the
-registration wins and the disagreement is a defect in this file. TC-006 and
-the TC-007 follow-on remain design only.
+registration wins and the disagreement is a defect in this file. TC-006 remains
+design only.
 **Date:** August 21, 2026
 **Predecessors:** HH-002 (`experiments/comparisons/hh_002/`), EC-002 and IC-001
 (`PAPER_002.md` §9), DR-002 (§8.2), NF-005 (§7.2), §10's cost envelope
@@ -43,11 +43,12 @@ place is how a programme spends a year on machinery it should have deleted.
 spent three times over (NF-004, HH-001, HH-002). No sealed external corpus
 remains to this programme.
 
-The consequence is not fatal, because **every study below is zero-inference and
-deterministic.** That puts `REGISTERED-OFFLINE` within reach for all five — bars
-locked first, replayable under a pinned embedder, capped as characterization.
-A study that needed a reader would be capped lower, at `REGISTERED-LIVE`, and
-would also inherit the 3.0-point instrument band. None of them need one.
+The consequence is not fatal for the offline stages, because their outcomes are
+zero-inference and deterministic. That puts `REGISTERED-OFFLINE` within reach
+for each one — bars locked first, replayable under a pinned embedder, capped as
+characterization. TC-006 separately needs a reader and is capped lower, at
+`REGISTERED-LIVE`; it must measure its own instrument rather than inherit a
+delivery claim.
 
 Acquiring a new sealed corpus would raise the ceiling. That is a separate
 decision and is **not** a dependency of any study here.
@@ -91,9 +92,9 @@ evidence *before* the next study is registered, and the re-read is logged in
 review was a correction written after the damage; this is the same act, moved
 in front of it and made mandatory.
 
-**A consequence worth stating plainly:** the six studies below are designed to
+**A consequence worth stating plainly:** the seven numbered studies below are designed to
 be runnable **in any order, including all at once.** If that is true, no
-ordering can stall. Section 8 tests that claim rather than asserting it.
+ordering can stall. Section 9 tests that claim rather than asserting it.
 
 ## 1.1 Standing arms
 
@@ -124,6 +125,12 @@ prior study's number meant.
 **The shipped configuration is deliberately not standing.** It is the thing
 under test when a study tests it, and carrying it unconditionally would make
 every stage of this arc read as a referendum on it.
+
+**Recorded scope correction, 2026-08-23.** TC-007's later standalone
+pre-registration defines one full-budget dense control and two protected-spread
+treatments, without the three historical standing arms. That registration
+governs. The sentence above was therefore over-broad for the follow-on and is
+not used to add unregistered TC-007 arms or contrasts after its result.
 
 **This costs multiplicity, and that is registered rather than absorbed.** Two
 extra arms mean extra contrasts, and every contrast a study registers enters its
@@ -168,7 +175,7 @@ internal 121-turn store and by LoCoMo development.
 **What it does not block:** TC-002 through TC-005, all of which measure
 properties of the tiered path that remain worth knowing whichever way this
 lands. If the flat arm wins, the tiered path's defects become the explanation
-rather than the target, and the other five studies supply that explanation.
+rather than the target, and the other studies supply that explanation.
 
 ## 3. TC-002 — Does the fill-order result hold off its original corpus?
 
@@ -311,7 +318,42 @@ by identity before outcomes.
 
 ---
 
-## 7. TC-006 - Why a confirmed delivery gain did not become an answer gain
+## 7. TC-007 — Protected spread against full-budget relevance
+
+TC-007 tested the requested architecture directly. The control ranks every
+adjacent-turn-pair candidate by dense cosine and gives relevance the full 16k
+or 32k context. Each treatment protects half for dense relevance and half for
+a frozen spread order, merges duplicates once, and returns unused spread
+allowance to relevance. The spread orders are carried A3 and unmixed facility
+location; TC-005's locked fallback supplies dense relevance.
+
+**Result.** A3 complete evidence versus dense is 739 versus 749 at 16k and 812
+versus 810 at 32k over 868 eligible questions. Breadth is 13/27 versus 16/27;
+targeted is 637/681 versus 643/680. No direction clears the family, so A3 is
+`MIXED_OR_NO_DIFFERENCE`. Facility is worse: combined nets -57/-36, targeted
+-40/-23, and breadth -7 at both budgets; `CONTROL_WORKS`.
+
+Spread is active rather than inert. A3 adds/losses 5/14 evidence identities at
+16k and 7/3 at 32k; all additions come through spread. But complete breadth
+falls at 16k and ties at 32k. The registered joint rule therefore selects no
+split and freezes `A_RELEVANCE_FULL`.
+
+**Claim boundary.** Availability only on used LoCoMo development data. This
+does not choose an enterprise budget, optimize the 50/50 share, establish
+reader benefit, or eliminate every possible coverage objective.
+
+**Dependency line.** Satisfied and consumed: TC-005 froze dense relevance;
+TC-003 C5, A3 and facility routes replayed by identity in Preflight and G0.
+**Expiry:** reported; no open dependency remains.
+
+**What this blocks:** nothing. It freezes dense full-budget contexts as the
+allocation fallback.
+**What it does not block:** TC-006 reader validation, which remains separately
+preflighted and registered work.
+
+---
+
+## 8. TC-006 - Why a confirmed delivery gain did not become an answer gain
 
 **This is the arc's one study that needs a reader, and the only one whose
 standing is capped at `REGISTERED-LIVE`.** It is listed last because of that
@@ -321,7 +363,7 @@ Sections 9.1 and 9.3 of the paper together state a gap this programme has never
 closed. Reversing the packing order moved evidence availability by **32.3 points
 with zero losses**. The live comparison that followed scored the reversed arm
 **7.0 against 8.0** and the registration's bar fired. Evidence arriving and a
-reader using it are not the same event, and this arc's other five studies all
+reader using it are not the same event, and this arc's offline studies all
 measure the first one.
 
 Section 14 already names this as the next decision-relevant experiment and
@@ -359,7 +401,7 @@ claim.
 
 ---
 
-## 8. The dependency matrix, stated once so it can be checked
+## 9. The dependency matrix, stated once so it can be checked
 
 | Study | Needs | From | Blocks | Blocked by |
 |---|---|---|---|---|
@@ -368,6 +410,7 @@ claim.
 | TC-003 | Tier boundaries visible in the delivered block | `ContextReport` | — | nothing |
 | TC-004 | Span-level evidence labels | LongMemEval turns; LoCoMo evidence ids | — | nothing |
 | TC-005 | Frozen common candidates and carried dense/BM25/RRF orders | LoCoMo dev; retrieval bakeoff replay | — | nothing |
+| TC-007 | Frozen dense relevance order and frozen A3/facility spread orders | TC-005; TC-003/E005 replays | — | nothing |
 | TC-006 | Two frozen contexts of known margin; an instrument finer than it | EC-002 replay artifacts; instrument spread **measured as its own first task** | Any delivery-implies-answer claim | nothing |
 
 **Every cell in the "blocked by" column reads `nothing`, and that is the design,
@@ -376,12 +419,12 @@ rather than on a verdict. If a study cannot be scoped that way it does not enter
 the arc.
 
 The one real ordering preference is a *reading* preference, not a dependency:
-TC-001 first makes the other five easier to interpret. It does not make them
+TC-001 first makes the other stages easier to interpret. It does not make them
 runnable, and none of them waits for it.
 
 ---
 
-## 9. What this arc does not cover
+## 10. What this arc does not cover
 
 - **Document-corpus generalization.** LegalBench-RAG and EnterpriseRAG-Bench
   are a separate question and a separate arc. TC-005 did not decide their
@@ -393,7 +436,7 @@ runnable, and none of them waits for it.
   prefix. TC-003 measures allocation among tiers as they are, not as they are
   documented. Fixing the window is its own work.
 
-## 10. Open decisions, in the order they block registration
+## 11. Open decisions, in the order they block registration
 
 1. **Corpus per study.** The internal 121-turn store is exhausted and
    `DESCRIPTIVE` by default; LoCoMo development is spent. Both are acceptable

@@ -1,7 +1,7 @@
 # TC Arc — Dependency Log
 
 **Document type:** Standing procedure and running record
-**Status:** `OPEN — TC-001 through TC-005 have reported; TC-006 has not`
+**Status:** `OPEN — TC-001 through TC-005 and TC-007 have reported; TC-006 has not`
 **Governs:** `TC_ARC_ROADMAP.md` Rule 4
 
 ---
@@ -66,6 +66,7 @@ face, without needing anyone to relitigate the science.
 | 2026-08-22 | TC-003 reported `C1 D1 FLOORS_WINS`; C5 `D3 RANKED_WINS` | REPORTED | REPORTED | REPORTED | RUNNABLE | RUNNABLE | RUNNABLE |
 | 2026-08-23 | TC-004 reported `NO_PREDICTIVE_SIGNAL` | REPORTED | REPORTED | REPORTED | REPORTED | RUNNABLE | RUNNABLE |
 | 2026-08-23 | TC-005 reported hybrid `TREATMENT_CARRIES_SIGNAL`; dense fallback selected | REPORTED | REPORTED | REPORTED | REPORTED | REPORTED | RUNNABLE |
+| 2026-08-23 | TC-007 reported `NO_SPLIT_SELECTED`; dense fallback retained | REPORTED | REPORTED | REPORTED | REPORTED | REPORTED | RUNNABLE |
 
 **Re-read of 2026-08-22.** Triggered by TC-001 reporting. Every line below was
 read from `TC_ARC_ROADMAP.md` rather than from memory or from this file's
@@ -249,6 +250,24 @@ TC-007's dependency is an artifact, not a verdict: it needs one frozen relevance
 order and its half/full-budget anchors. TC-005 must lock a fallback, so a finding
 that BM25 and RRF do not beat dense still supplies the artifact by retaining
 dense. No outcome branch can stall the sequence.
+
+**Re-read of 2026-08-23, seventh.** Triggered by TC-007 reporting. The only
+remaining unreported study's dependency and expiry line was read again from
+`TC_ARC_ROADMAP.md`.
+
+| Study | Dependency line, as written | Verdict | Why |
+|---|---|---|---|
+| TC-006 | Two frozen delivered contexts over the same query set with a known availability margin, and an instrument finer than that margin | `RUNNABLE` | EC-002 and TC-001 through TC-003 still supply the first artifact. TC-007 adds frozen dense/A3/facility contexts with measured margins, but does not consume or select TC-006's reader pair. The fact-use instrument's spread remains TC-006's own first task |
+
+**No study is `BLOCKED`, and TC-007's negative selection cannot block one.**
+The 50/50 result is evidence about two frozen spread objectives, not a missing
+reader artifact. TC-006 is not started by this re-read; it still requires its
+own Preflight and standalone pre-registration.
+
+**What changed.** TC-007 satisfies and consumes its named predecessor artifact:
+dense was frozen by TC-005 and both spread routes replayed before outcomes. It
+then retained dense full-budget retrieval. That supplies another possible
+frozen reader contrast but does not retroactively choose one for TC-006.
 
 **Initial state, 2026-08-21.** All six dependency lines name artifacts that
 exist, with one exception recorded here rather than as a block: TC-006's second
