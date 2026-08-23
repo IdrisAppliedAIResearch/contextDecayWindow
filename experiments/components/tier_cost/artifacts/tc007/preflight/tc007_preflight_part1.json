@@ -1,0 +1,542 @@
+{
+  "anchors": {
+    "tc003": {
+      "c5_complete": {
+        "16000": {
+          "dual_ranked": 748,
+          "floors_dual": 718
+        },
+        "32000": {
+          "dual_ranked": 811,
+          "floors_dual": 806
+        }
+      },
+      "committed_g0": {
+        "sha256": "3698afecbaca6882f5b32c506a396ab6abede9ca35d536509592dac386c061f5",
+        "status": "PASS"
+      },
+      "primary_csv_sha256": "d4c80e8324c9db303b0df24e5a3ca095a377edff61f7158ee6541dfd9c0766d5",
+      "secondary_csv_sha256": "9f3df0be69529b22bd2fe4153c8486c97ca8b2bb09ab38dc975cdc85aaed11e5",
+      "status": "PASS"
+    },
+    "tc005": {
+      "committed_csv_sha256": "d0ff30408ffba10afdaac6c49d5c13fb91d7466496bce2ecd0dc565444d45f39",
+      "payload_checks": 2613,
+      "payload_digest": "89876120ba72b2177062753816e4e6ac9cdf0c18add855949c392d9e0d00dc16",
+      "questions": 871,
+      "ranking_digest": "77beb82793542e23527080205c988052b3c4eeeeafce28d61e360134710fb29f",
+      "status": "PASS"
+    }
+  },
+  "behavioural_identity": "Dense orders every adjacent pair by descending carried float32 cosine; A3 greedily adds nonnegative query relevance plus 0.1 for a new one of 16 deterministic clusters; pure facility greedily maximizes store representation; the allocator solo-fills dense to 50%, admits distinct spread to 50%, renders once, and returns all actual slack to dense.",
+  "dense_one_percent_shams": {
+    "16000": {
+      "breadth": {
+        "band": 0,
+        "full": 16,
+        "gains": 0,
+        "losses": 0,
+        "net": 0,
+        "sham": 16
+      },
+      "eligible": {
+        "band": 2,
+        "full": 749,
+        "gains": 1,
+        "losses": 3,
+        "net": -2,
+        "sham": 747
+      },
+      "targeted": {
+        "band": 2,
+        "full": 643,
+        "gains": 1,
+        "losses": 3,
+        "net": -2,
+        "sham": 641
+      }
+    },
+    "32000": {
+      "breadth": {
+        "band": 0,
+        "full": 27,
+        "gains": 0,
+        "losses": 0,
+        "net": 0,
+        "sham": 27
+      },
+      "eligible": {
+        "band": 0,
+        "full": 810,
+        "gains": 0,
+        "losses": 0,
+        "net": 0,
+        "sham": 810
+      },
+      "targeted": {
+        "band": 0,
+        "full": 680,
+        "gains": 0,
+        "losses": 0,
+        "net": 0,
+        "sham": 680
+      }
+    }
+  },
+  "elapsed_seconds": 913.546,
+  "frozen_parameters": {
+    "a3": {
+      "k": 16,
+      "lambda": 0.1,
+      "r": 0.0
+    },
+    "budgets": [
+      16000,
+      32000
+    ],
+    "facility": {
+      "r": 0.0,
+      "reason": "E005 A2_r0.0 pure facility objective and raw-count leader; no TC-007 tuning"
+    },
+    "share": 0.5
+  },
+  "mechanism_distributions": {
+    "a3": {
+      "16000": {
+        "admission_ownership_spread_active": 871,
+        "cluster_count": {
+          "max": 16,
+          "mean": 14.189,
+          "min": 11,
+          "n": 871,
+          "p25": 13,
+          "p50": 14,
+          "p75": 15,
+          "zero": 0
+        },
+        "distinct_spread_admitted": {
+          "max": 37,
+          "mean": 27.212,
+          "min": 19,
+          "n": 871,
+          "p25": 24,
+          "p50": 27,
+          "p75": 30,
+          "zero": 0
+        },
+        "initial_relevance_chars": {
+          "max": 8000,
+          "mean": 7965.518,
+          "min": 7874,
+          "n": 871,
+          "p25": 7946,
+          "p50": 7972,
+          "p75": 7987,
+          "zero": 0
+        },
+        "payload_chars": {
+          "max": 16000,
+          "mean": 15964.645,
+          "min": 15859,
+          "n": 871,
+          "p25": 15937,
+          "p50": 15975,
+          "p75": 15991,
+          "zero": 0
+        },
+        "proposal_ownership_would_make_spread_inert": 871,
+        "questions": 871,
+        "returned_capacity": {
+          "max": 253,
+          "mean": 119.776,
+          "min": 54,
+          "n": 871,
+          "p25": 89,
+          "p50": 118,
+          "p75": 145,
+          "zero": 0
+        },
+        "returned_relevance_admitted": {
+          "max": 2,
+          "mean": 0.726,
+          "min": 0,
+          "n": 871,
+          "p25": 0,
+          "p50": 1,
+          "p75": 1,
+          "zero": 242
+        },
+        "session_count": {
+          "max": 31,
+          "mean": 23.766,
+          "min": 16,
+          "n": 871,
+          "p25": 22,
+          "p50": 24,
+          "p75": 26,
+          "zero": 0
+        },
+        "spread_binding_questions": 871,
+        "spread_chars": {
+          "max": 8000,
+          "mean": 7965.706,
+          "min": 7867,
+          "n": 871,
+          "p25": 7947,
+          "p50": 7971,
+          "p75": 7989,
+          "zero": 0
+        },
+        "spread_duplicate_skips": {
+          "max": 44,
+          "mean": 26.792,
+          "min": 18,
+          "n": 871,
+          "p25": 23,
+          "p50": 26,
+          "p75": 29,
+          "zero": 0
+        }
+      },
+      "32000": {
+        "admission_ownership_spread_active": 871,
+        "cluster_count": {
+          "max": 16,
+          "mean": 15.294,
+          "min": 13,
+          "n": 871,
+          "p25": 15,
+          "p50": 16,
+          "p75": 16,
+          "zero": 0
+        },
+        "distinct_spread_admitted": {
+          "max": 67,
+          "mean": 54.38,
+          "min": 41,
+          "n": 871,
+          "p25": 50,
+          "p50": 55,
+          "p75": 59,
+          "zero": 0
+        },
+        "initial_relevance_chars": {
+          "max": 16000,
+          "mean": 15964.793,
+          "min": 15864,
+          "n": 871,
+          "p25": 15945,
+          "p50": 15969,
+          "p75": 15988,
+          "zero": 0
+        },
+        "payload_chars": {
+          "max": 32000,
+          "mean": 31963.759,
+          "min": 31857,
+          "n": 871,
+          "p25": 31938,
+          "p50": 31974,
+          "p75": 31990,
+          "zero": 0
+        },
+        "proposal_ownership_would_make_spread_inert": 871,
+        "questions": 871,
+        "returned_capacity": {
+          "max": 252,
+          "mean": 121.048,
+          "min": 51,
+          "n": 871,
+          "p25": 93,
+          "p50": 119,
+          "p75": 144,
+          "zero": 0
+        },
+        "returned_relevance_admitted": {
+          "max": 2,
+          "mean": 0.742,
+          "min": 0,
+          "n": 871,
+          "p25": 0,
+          "p50": 1,
+          "p75": 1,
+          "zero": 230
+        },
+        "session_count": {
+          "max": 32,
+          "mean": 29.0,
+          "min": 24,
+          "n": 871,
+          "p25": 28,
+          "p50": 29,
+          "p75": 30,
+          "zero": 0
+        },
+        "spread_binding_questions": 871,
+        "spread_chars": {
+          "max": 16000,
+          "mean": 15965.158,
+          "min": 15842,
+          "n": 871,
+          "p25": 15947,
+          "p50": 15970,
+          "p75": 15989,
+          "zero": 0
+        },
+        "spread_duplicate_skips": {
+          "max": 79,
+          "mean": 54.171,
+          "min": 38,
+          "n": 871,
+          "p25": 48,
+          "p50": 54,
+          "p75": 59,
+          "zero": 0
+        }
+      }
+    },
+    "facility": {
+      "16000": {
+        "admission_ownership_spread_active": 871,
+        "cluster_count": {
+          "max": 16,
+          "mean": 13.445,
+          "min": 11,
+          "n": 871,
+          "p25": 13,
+          "p50": 14,
+          "p75": 14,
+          "zero": 0
+        },
+        "distinct_spread_admitted": {
+          "max": 31,
+          "mean": 26.486,
+          "min": 22,
+          "n": 871,
+          "p25": 25,
+          "p50": 27,
+          "p75": 28,
+          "zero": 0
+        },
+        "initial_relevance_chars": {
+          "max": 8000,
+          "mean": 7965.518,
+          "min": 7874,
+          "n": 871,
+          "p25": 7946,
+          "p50": 7972,
+          "p75": 7987,
+          "zero": 0
+        },
+        "payload_chars": {
+          "max": 16000,
+          "mean": 15963.937,
+          "min": 15857,
+          "n": 871,
+          "p25": 15935,
+          "p50": 15974,
+          "p75": 15990,
+          "zero": 0
+        },
+        "proposal_ownership_would_make_spread_inert": 871,
+        "questions": 871,
+        "returned_capacity": {
+          "max": 248,
+          "mean": 117.263,
+          "min": 52,
+          "n": 871,
+          "p25": 88,
+          "p50": 112,
+          "p75": 140,
+          "zero": 0
+        },
+        "returned_relevance_admitted": {
+          "max": 2,
+          "mean": 0.723,
+          "min": 0,
+          "n": 871,
+          "p25": 0,
+          "p50": 1,
+          "p75": 1,
+          "zero": 243
+        },
+        "session_count": {
+          "max": 30,
+          "mean": 25.051,
+          "min": 20,
+          "n": 871,
+          "p25": 24,
+          "p50": 25,
+          "p75": 26,
+          "zero": 0
+        },
+        "spread_binding_questions": 871,
+        "spread_chars": {
+          "max": 8000,
+          "mean": 7968.219,
+          "min": 7895,
+          "n": 871,
+          "p25": 7952,
+          "p50": 7973,
+          "p75": 7990,
+          "zero": 0
+        },
+        "spread_duplicate_skips": {
+          "max": 44,
+          "mean": 26.792,
+          "min": 18,
+          "n": 871,
+          "p25": 23,
+          "p50": 26,
+          "p75": 29,
+          "zero": 0
+        }
+      },
+      "32000": {
+        "admission_ownership_spread_active": 871,
+        "cluster_count": {
+          "max": 16,
+          "mean": 15.789,
+          "min": 15,
+          "n": 871,
+          "p25": 16,
+          "p50": 16,
+          "p75": 16,
+          "zero": 0
+        },
+        "distinct_spread_admitted": {
+          "max": 56,
+          "mean": 49.666,
+          "min": 43,
+          "n": 871,
+          "p25": 47,
+          "p50": 50,
+          "p75": 52,
+          "zero": 0
+        },
+        "initial_relevance_chars": {
+          "max": 16000,
+          "mean": 15964.793,
+          "min": 15864,
+          "n": 871,
+          "p25": 15945,
+          "p50": 15969,
+          "p75": 15988,
+          "zero": 0
+        },
+        "payload_chars": {
+          "max": 32000,
+          "mean": 31964.777,
+          "min": 31857,
+          "n": 871,
+          "p25": 31938,
+          "p50": 31976,
+          "p75": 31992,
+          "zero": 0
+        },
+        "proposal_ownership_would_make_spread_inert": 871,
+        "questions": 871,
+        "returned_capacity": {
+          "max": 272,
+          "mean": 122.463,
+          "min": 52,
+          "n": 871,
+          "p25": 94,
+          "p50": 118,
+          "p75": 146,
+          "zero": 0
+        },
+        "returned_relevance_admitted": {
+          "max": 2,
+          "mean": 0.757,
+          "min": 0,
+          "n": 871,
+          "p25": 1,
+          "p50": 1,
+          "p75": 1,
+          "zero": 217
+        },
+        "session_count": {
+          "max": 32,
+          "mean": 29.8,
+          "min": 26,
+          "n": 871,
+          "p25": 29,
+          "p50": 30,
+          "p75": 31,
+          "zero": 0
+        },
+        "spread_binding_questions": 871,
+        "spread_chars": {
+          "max": 16000,
+          "mean": 15963.744,
+          "min": 15879,
+          "n": 871,
+          "p25": 15943,
+          "p50": 15969,
+          "p75": 15988,
+          "zero": 0
+        },
+        "spread_duplicate_skips": {
+          "max": 79,
+          "mean": 54.171,
+          "min": 38,
+          "n": 871,
+          "p25": 48,
+          "p50": 54,
+          "p75": 59,
+          "zero": 0
+        }
+      }
+    }
+  },
+  "population": {
+    "breadth": 44,
+    "ineligible": 3,
+    "other": 120,
+    "questions": 871,
+    "targeted": 704
+  },
+  "positive_and_degenerate_controls": {
+    "budget_below_wrapper": {
+      "affords_payload": false,
+      "budget": 34
+    },
+    "displaced_identity": "pc-19",
+    "protected_spread_can_displace_targeted": true,
+    "spread_adds_unique_breadth": true,
+    "status": "PASS",
+    "unique_spread_identity": "pc-39"
+  },
+  "purity": {
+    "cache": {
+      "bytes": 10821632,
+      "call_shape": "solo",
+      "content_sha256": "e103b2933ee9ec7b8e9236f43037797618da524e413b83a9f3973a19d28b1b2a",
+      "dimension": 1024,
+      "dtype": "float32",
+      "entries": 2236,
+      "file_sha256": "2ba617018a1b043bf439bb50e756191d8141fb7ca01a2e4a68c9eb822eba26f8",
+      "hits": 2247,
+      "misses": 0,
+      "mode": "reuse",
+      "model_sha256": "06507c7b42688469c4e7298b0a1e16deff06caf291cf0a5b278c308249c3e439",
+      "path": "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\external\\locomo\\artifacts\\locomo_dev_embeddings.db"
+    },
+    "deterministic": true,
+    "feedback": false,
+    "llm_calls": 0
+  },
+  "schema": "tc007-preflight-part1-v1",
+  "status": "PASS",
+  "surrogate_audit": {
+    "availability_without_reader_use_can_pass": true,
+    "full_budget_can_hide_half_budget_inefficiency": true,
+    "proposal_ownership_would_relabel_full_store_and_suppress_spread": true,
+    "spread_without_evidence_can_pass": true
+  },
+  "trace": {
+    "rows": 3484,
+    "sha256": "fc3deb4e3d228c3f0b0696a52b5c676f3a1c818da9af9efb02a3f59e17094443"
+  }
+}
