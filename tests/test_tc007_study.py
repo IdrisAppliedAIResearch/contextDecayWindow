@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import gzip
 from pathlib import Path
 
 import pytest
@@ -72,3 +73,14 @@ def test_leakage_audit_rejects_planted_key(tmp_path: Path) -> None:
 def test_run_precondition_refuses_missing_g0(tmp_path: Path) -> None:
     with pytest.raises(study.TC007Error):
         study.run_precondition(tmp_path)
+
+
+def test_diagnostic_gzip_is_byte_deterministic(tmp_path: Path) -> None:
+    rows = [{"b": 2, "a": 1}, {"value": "same payload"}]
+    first = tmp_path / "first.jsonl.gz"
+    second = tmp_path / "second.jsonl.gz"
+    study._write_gzip_jsonl(first, rows)
+    study._write_gzip_jsonl(second, rows)
+    assert first.read_bytes() == second.read_bytes()
+    with gzip.open(first, "rt", encoding="utf-8") as handle:
+        assert handle.read() == '{"a":1,"b":2}\n{"value":"same payload"}\n'
