@@ -157,7 +157,9 @@ def mixed_context(
     if any(not parents[index].splittable for index in split):
         raise TC004PreflightError("A singleton parent cannot split")
 
-    offered: list[tuple[dict[str, Any], float, int, int, tuple[str, ...]]] = []
+    offered: list[
+        tuple[dict[str, Any], float, int, int, int, tuple[str, ...]]
+    ] = []
     for parent in parents:
         pair = parent.episode.pair
         if parent.index not in split:
@@ -170,6 +172,7 @@ def mixed_context(
                     float(parent_scores[identity]),
                     pair.session_order,
                     pair.pair_order,
+                    -1,
                     pair.dialog_ids,
                 )
             )
@@ -183,14 +186,15 @@ def mixed_context(
                     float(child_scores[child.identity]),
                     pair.session_order,
                     pair.pair_order,
+                    child.offset,
                     (child.dialog_id,),
                 )
             )
     if any(not math.isfinite(row[1]) for row in offered):
         raise TC004PreflightError("Candidate scores must be finite")
-    offered.sort(key=lambda row: (-row[1], row[2], row[3], str(row[0]["id"])))
+    offered.sort(key=lambda row: (-row[1], row[2], row[3], row[4]))
     records = [row[0] for row in offered]
-    dialog_by_identity = {str(row[0]["id"]): row[4] for row in offered}
+    dialog_by_identity = {str(row[0]["id"]): row[5] for row in offered}
     packed = pack_stm_payload([], records, budget)
     delivered = frozenset(
         dialog_id

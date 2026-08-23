@@ -87,6 +87,18 @@ def test_a_split_replaces_its_parent_and_children_use_own_scores() -> None:
     assert "p0" not in packed.selected_ids
 
 
+def test_exact_child_score_ties_break_in_source_order() -> None:
+    parent = _parent(0)
+    packed = mixed_context(
+        (parent,),
+        {"p0": 0.1},
+        {"c00": 0.5, "c01": 0.5},
+        (0,),
+        100_000,
+    )
+    assert packed.selected_ids == ("c00", "c01")
+
+
 def test_renderer_cost_can_make_one_child_fit_without_its_sibling() -> None:
     parent = _parent(0)
     first = parent.children[0]
