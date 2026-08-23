@@ -1,10 +1,14 @@
 # TC-004 Exploration — selective splitting can be tested without opening the transfer result
 
-**Status:** `PREFLIGHT PART 1 COMPLETE — DESIGN NOT LOCKED — NO STUDY IMPLEMENTATION`
+**Status:** `PREFLIGHT PART 1 + PF4 COMPLETE — DESIGN NOT LOCKED — NO STUDY IMPLEMENTATION`
 **Date:** August 22, 2026
 **Artifacts:** `artifacts/tc004/preflight/tc004_preflight_part1.json`,
 `artifacts/tc004/preflight/tc004_locomo_split_inventory.json`
 **Calls:** zero embedding calls, zero generation calls, zero cache misses
+
+**Author clarification:** “Model-free refers to no LLM calls, we don't count
+the embedding model as a model in this context.” The embedding-localization
+score governs the proposed registration; the lexical score is an ablation.
 
 ## Behavioral identity
 
@@ -13,16 +17,12 @@ source turns, each independently ranked, then lets split children and unsplit
 parents compete in one skip-on-overflow character pack. It does not duplicate
 the parent, truncate either child, or reduce the stored text by declaration.
 
-The proposed literal model-free score is `lexical_localization_gain`: maximum
-child/query lowercase token-count cosine minus parent/query lowercase
-token-count cosine. It has no learned weights, vocabulary, corpus statistic, or
-model call. Parent character length is the required baseline.
-
-An embedding localization score — maximum child/query embedding cosine minus
-parent/query embedding cosine — is also characterized. It is deterministic and
-available from retained vectors on LongMemEval, but it is not “model-free.” A
-registration using it would have to change the roadmap's name rather than
-silently treating “no new call” as “no model.”
+The author clarified after the first exploration commit that **“model-free” in
+this arc means no LLM calls; the embedding model does not count as a model in
+this context.** The proposed score is therefore `embedding_localization_gain`:
+maximum child/query embedding cosine minus parent/query embedding cosine.
+Parent character length is the required baseline. A lowercase token-count
+version remains an ablation, not the proposed mechanism.
 
 ## Part 1 proof of mechanism on LongMemEval
 
@@ -55,9 +55,10 @@ ranks candidates within a store rather than calibrating scores across stores.
 | embedding localization gain | .542 | 101 / 9 | +.489 |
 | maximum child embedding cosine | .509 | 102 / 8 | +.456 |
 
-The literal model-free statistic beats length on this development population:
-one-sided exact sign *p* = 1.65 × 10⁻⁵. That number is exploratory, not a
-TC-004 result and not a bar.
+Both deterministic statistics beat length on this development population. The
+embedding score is the stronger and author-consistent mechanism; the lexical
+score's one-sided exact sign *p* is 1.65 × 10⁻⁵. These are exploratory numbers,
+not TC-004 results or bars.
 
 ### The operational-store check
 
@@ -68,9 +69,8 @@ at matched split rates. Lexical localization beats length by 30–32 questions a
 50% and 9 at 75%. The statistic is useful as a selective rule, not as evidence
 that more splitting is always better.
 
-The embedding localization score is stronger, beating length by 75–76 questions
-at 1–5% and by 39 at 20%. That difference is descriptive because the literal
-model-free and embedding-conditioned questions are different mechanisms.
+The proposed embedding localization score beats length by 75–76 questions at
+1–5% and by 39 at 20%. The lexical ablation is weaker at every selective rate.
 
 ## Unopened LoCoMo transfer population
 
@@ -80,7 +80,7 @@ conversations contain 871 unique nonduplicate questions with resolved evidence,
 1,365 adjacent-pair parents, and 1,297 two-turn parents that can actually split.
 Parent text has median 237 characters; child text has median 114.
 
-The literal lexical score is nonconstant over 285,185 question/parent cases.
+The lexical ablation is nonconstant over 285,185 question/parent cases.
 Its median is .0087, p10 is −.0245, and p90 is .0551. Sixty-eight singleton
 pairs cannot split and remain parents under every policy.
 
@@ -89,6 +89,21 @@ singleton texts already exist in the retained development cache; **2,592 child
 vectors are absent**. A LoCoMo pair-to-turn study can therefore lock its
 statistic, endpoint, bars, exact renderer, budget, and vector-capture contract
 before the treatment rankings can exist.
+
+## PF4
+
+The exact mixed renderer reduces to committed `A_FLAT` with zero splits on all
+868 complete-evidence questions at both 16,000 and 32,000 characters. This
+caught and corrected one pre-lock float32 call-shape mismatch: row-wise dot
+products can reorder a near tie relative to the carried matrix-vector call.
+
+With child scores set only as an oracle positive control—not as the proposed
+predictor—99 primary-budget questions can express a beneficial one-parent
+split and 749 can express a harmful one. At 32,000 the corresponding counts are
+44 and 810. The `WORKS` example (6 gains/0 losses, one-sided *p*=.015625),
+`CARRIES_SIGNAL` example (4/1, *p*=.1875), and no-signal example (1/1,
+*p*=.75) are all mechanically reachable. Actual child vectors, benefit labels,
+predictor AP, and direction remain unopened.
 
 ## Degenerate states and surrogate audit
 
@@ -112,8 +127,9 @@ Use LoCoMo development for a `REGISTERED-OFFLINE` transfer characterization:
 
 1. Parent candidates are the committed adjacent pairs; children are their exact
    speaker-labelled dialogue turns. Singleton parents remain unsplit.
-2. The proposed score is literal `lexical_localization_gain`; the control is
-   parent length. Both are computed before ranking and neither reads evidence.
+2. The proposed score is `embedding_localization_gain`; the control is parent
+   length. Both are computed before candidate ranking and neither reads
+   evidence. `lexical_localization_gain` is a descriptive ablation.
 3. New child vectors are captured only after registration with the pinned
    exact-solo embedder, sealed, and reopened read-only. Unsplit parents use the
    retained pair vectors; split children use their own vectors.
@@ -125,6 +141,6 @@ Use LoCoMo development for a `REGISTERED-OFFLINE` transfer characterization:
    roadmap §1.1 requires. No standing-arm contrast is needed to answer the
    predictor question.
 
-This is a recommendation from exploration, not authorization to choose the
-corpus, endpoint, effect bar, or lower disposition. Those remain author choices
-before PF4 and pre-registration.
+The author's instruction to begin TC-004 and subsequent definition of
+“model-free” authorize the embedding-based mechanism. PF4 and the registration
+still precede treatment-vector capture and any outcome.
