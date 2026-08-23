@@ -1,0 +1,97 @@
+{
+  "bands": {
+    "16000": {
+      "breadth": 0,
+      "combined": 2,
+      "targeted": 2
+    },
+    "32000": {
+      "breadth": 0,
+      "combined": 0,
+      "targeted": 0
+    }
+  },
+  "cells": {
+    "16000": {
+      "breadth": {
+        "band": 0,
+        "control_works_reachable": true,
+        "n": 44,
+        "neutral_reachable": true,
+        "signal_minimum_all_favourable": 7,
+        "targeted_guardrail_fire_reachable": true,
+        "targeted_guardrail_nonfire_reachable": true,
+        "treatment_works_reachable": true,
+        "works_minimum_all_favourable": 11
+      },
+      "combined": {
+        "band": 2,
+        "control_works_reachable": true,
+        "n": 868,
+        "neutral_reachable": true,
+        "signal_minimum_all_favourable": 7,
+        "targeted_guardrail_fire_reachable": true,
+        "targeted_guardrail_nonfire_reachable": true,
+        "treatment_works_reachable": true,
+        "works_minimum_all_favourable": 11
+      },
+      "targeted": {
+        "band": 2,
+        "control_works_reachable": true,
+        "n": 704,
+        "neutral_reachable": true,
+        "signal_minimum_all_favourable": 7,
+        "targeted_guardrail_fire_reachable": true,
+        "targeted_guardrail_nonfire_reachable": true,
+        "treatment_works_reachable": true,
+        "works_minimum_all_favourable": 11
+      }
+    },
+    "32000": {
+      "breadth": {
+        "band": 0,
+        "control_works_reachable": true,
+        "n": 44,
+        "neutral_reachable": true,
+        "signal_minimum_all_favourable": 7,
+        "targeted_guardrail_fire_reachable": true,
+        "targeted_guardrail_nonfire_reachable": true,
+        "treatment_works_reachable": true,
+        "works_minimum_all_favourable": 11
+      },
+      "combined": {
+        "band": 0,
+        "control_works_reachable": true,
+        "n": 868,
+        "neutral_reachable": true,
+        "signal_minimum_all_favourable": 7,
+        "targeted_guardrail_fire_reachable": true,
+        "targeted_guardrail_nonfire_reachable": true,
+        "treatment_works_reachable": true,
+        "works_minimum_all_favourable": 11
+      },
+      "targeted": {
+        "band": 0,
+        "control_works_reachable": true,
+        "n": 704,
+        "neutral_reachable": true,
+        "signal_minimum_all_favourable": 7,
+        "targeted_guardrail_fire_reachable": true,
+        "targeted_guardrail_nonfire_reachable": true,
+        "treatment_works_reachable": true,
+        "works_minimum_all_favourable": 11
+      }
+    }
+  },
+  "family_tests": 12,
+  "joint_branches": {
+    "control_works_both_budgets": true,
+    "mixed_or_no_difference": true,
+    "treatment_carries_signal_one_budget": true,
+    "treatment_works_both_budgets": true
+  },
+  "schema": "tc007-pf4-v1",
+  "signal_alpha": 0.008333333333333333,
+  "status": "PASS",
+  "works_alpha": 0.0008333333333333334
+}

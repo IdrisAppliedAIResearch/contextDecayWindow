@@ -1,7 +1,7 @@
 # TC-007 Implementation Document — efficient relevance beside protected spread
 
 **Document type:** Prospective implementation design  
-**Status:** `DESIGN ONLY — NOT PRE-REGISTERED — NO IMPLEMENTATION OR RUN AUTHORIZED`  
+**Status:** `PREFLIGHT PASSED — NOT YET PRE-REGISTERED — NO RUN AUTHORIZED`  
 **Date:** August 23, 2026  
 **Arc:** Tier-cost follow-on; this document does not modify the locked TC-001 through TC-004 registrations  
 **Predecessors:** HH-002, TC-001B, TC-003, TC-004, EC-002, IC-001, E005, NF-007, LV-001  
@@ -384,10 +384,9 @@ own committed Preflight and standalone pre-registration.
 8. **Reader validation:** TC-006 will use frozen TC-007 contexts, subject to its
    own standalone pre-registration.
 
-The next work is TC-005's empirical Preflight Part 1 at 8,000 and 16,000
-characters, with 16,000 and 32,000 as continuity anchors, followed by its
-standalone pre-registration. TC-007 begins only after TC-005 freezes one route;
-it then reproduces TC-003 and TC-005, inventories its populations, verifies
-admission-resolved dedup and exact 50/50 behavior, and proves all three success
-conditions reachable. Neither study is runnable before its own committed
-Preflight and standalone pre-registration.
+TC-005 has reported and froze dense as the relevance route. TC-007 Preflight
+then reproduced TC-003 and TC-005, inventoried the populations, verified
+admission-resolved dedup and exact 50/50 behavior, bound shipped A3 and pure
+facility location without tuning, and proved all three success conditions
+reachable. The next step is the standalone TC-007 pre-registration; no outcome
+run is authorized before that file is committed alone.
