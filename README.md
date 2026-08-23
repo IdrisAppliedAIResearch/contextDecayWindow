@@ -57,10 +57,11 @@ judge prompt, which tells the grader to accept any answer touching the gold
 answer's topic. On open-domain, 841 of the 1,540 questions, the floor is
 **32.34%**. It sits under every row of the published table.
 
-### When Mem0 itself was run here
+### In our own 300-question run with Mem0
 
-Mem0 2.0.18, installed and run on one local reader at a matched
-16,000-character budget.
+Mem0 2.0.18, installed and run locally on 300 sampled LoCoMo questions at a
+matched 16,000-character budget. This is separate from Mem0's published LoCoMo
+row above, which was not re-run here.
 
 ![Head-to-head against Mem0: accuracy, and what each layer spent to build its store](paper/figures/f1_head_to_head.png)
 
