@@ -106,6 +106,8 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **TC-003 reserved floors (2026-08-22).** C1 D1 FLOORS_WINS but C5 D3 RANKED_WINS; REGISTERED-OFFLINE. At 16k complete evidence floors/N-first/K-first/flat = 656/314/461/749; dual floors/dual/ranked = 718/472/748. C1 +342 is contested on 351/357 gains, so contest key—not reservation—carries it. I1 service order 871/871; I2 ownership 0/871 shipped. No ship.
 
+**TC-004 candidate granularity (2026-08-23).** NO_PREDICTIVE_SIGNAL; REGISTERED-OFFLINE. At 16k, embedding-localization vs length AP is 21/31/1 over 53 positive-label questions, p=.937; mean .102/.054 but median .0145/.0213. There are 96 beneficial vs 235 harmful splits. A 1% rate gives +3 descriptively; full split 749->687. 2,661 embedding calls, zero LLM calls. No ship.
+
 **PS-001 pattern-separated engram formation (2026-08-11).** CHARACTERIZED. Nine deterministic sparse cells on 119 episodes; only D=4096,K=41 passed G3-G5: 119/119 fixed points and exact 1/10/30/50% swap recovery. Six of seven degenerates reached stored codes; the union-biased cue cycled. Code-space result only; no natural cue, retrieval, live run, promotion, or adoption.
 
 **PS-002 natural-language cue binding (2026-08-11).** STOP AT PART 1; NATURAL_CUES_NOT_BOUND, CHARACTERIZED. Nine label-blind cells ran 24 sealed queries x8 rounds. Best M=4,tau=.025 reached stored codes 190/192 but one cue cycled and one reached a spurious fixed point; no cell emitted 8 clean ids/query. Labels, PF1-PF10, answers, live run, promotion and adoption not entered.
