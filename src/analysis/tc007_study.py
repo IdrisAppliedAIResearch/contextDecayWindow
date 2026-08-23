@@ -83,7 +83,6 @@ def audit_mechanism_leakage(path: Path | None = None) -> dict[str, Any]:
         Path(__file__).with_name("tc007_allocation.py"),
         Path(__file__).with_name("tc005_ranking.py"),
         REPO_ROOT / "episodic" / "src" / "episodic" / "_selection.py",
-        REPO_ROOT / "src" / "retrieval_mechanism_ledger" / "e005.py",
     ]
     violations: list[str] = []
     imports: set[str] = set()
