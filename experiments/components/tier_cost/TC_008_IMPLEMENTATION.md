@@ -1,7 +1,7 @@
 # TC-008 Implementation Document — relevance-gated session spread
 
 **Document type:** Prospective implementation design  
-**Status:** `DESIGN ONLY — PREFLIGHT PART 1 NEXT — NO RUN AUTHORIZED`  
+**Status:** `PREFLIGHT PASS — PRE-REGISTRATION NEXT — NO RUN AUTHORIZED`
 **Date:** August 23, 2026  
 **Arc:** Tier-cost successor to TC-007  
 **Predecessors:** TC-003, TC-005, TC-007, NF-003/004/007, TA-001
@@ -49,20 +49,22 @@ allowances remain 8,000 and 16,000. Unused spread allowance and wrapper savings
 return to dense. Candidate identities, text, vectors and evidence labels remain
 the frozen four-conversation LoCoMo development set.
 
-## 3. Proposed measurement
+## 3. Measurement selected after Preflight
 
 TC-007's all-or-nothing complete-evidence endpoint remains for continuity, but
 it cannot be the only breadth read: two TC-007 breadth misses gained a required
 evidence pair without becoming complete.
 
-Preflight will characterize the reachability of a paired breadth evidence-share
-endpoint computed after selection:
+The primary paired breadth endpoint is computed after selection:
 
 `delivered required candidate identities / required candidate identities`
 
-The registered rule may use that endpoint only jointly with combined and
-targeted complete-evidence guardrails. Required-session touch and total selected
-session count are diagnostics; neither can certify useful spread because
+It may pass only jointly with combined and targeted complete-evidence
+guardrails and breadth-complete noninferiority. The 1% dense-budget shams fix
+the practical bands. There are six directional inferential cells: breadth
+share, combined complete and targeted complete at each budget. Works alpha is
+`0.01/6`; signal alpha is `0.10/6`. Required-session touch and total selected
+session count remain diagnostics; neither can certify useful spread because
 TC-007 facility location increased global session coverage while losing answer
 evidence.
 
@@ -104,7 +106,7 @@ pre-registration.
 - **PF4 Reachability:** demonstrate every works, signal, guardrail and stop
   branch against measured populations and positive controls.
 - **PF5 Keys:** content hashes plus duplicate ordinal; no generated ids or paths.
-- **PF6 Anchor:** reproduce all 5,226 TC-007 control/A3 question-budget payloads
+- **PF6 Anchor:** reproduce all 3,484 TC-007 control/A3 question-budget payloads
   by identity and digest.
 - **PF7 Absorbing state:** no feedback; prove pure replay on all 1,742 treatment
   budget traces.
