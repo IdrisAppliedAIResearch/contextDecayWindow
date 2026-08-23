@@ -36,12 +36,12 @@ PREFLIGHT_SHA256 = {
     PREFLIGHT_ROOT / "tc007_preflight_trace.jsonl.gz": "fc3deb4e3d228c3f0b0696a52b5c676f3a1c818da9af9efb02a3f59e17094443",
 }
 RUN_ROOT = STUDY_ROOT / "runs" / "tc007"
-# The first committed G0 remains an immutable artifact.  Its source hash predates
-# the deterministic gzip repair, so the repaired source is gated independently.
-G0_ROOT = RUN_ROOT / "g0_after_determinism_fix"
+# Earlier committed G0s remain immutable artifacts.  This gate binds the final
+# source after the deterministic-gzip and combined-population label repairs.
+G0_ROOT = RUN_ROOT / "g0_final"
 OUTCOME_ROOT = RUN_ROOT / "run"
 TREATMENTS = ("a3", "facility")
-POPULATION_N = {"eligible": 868, "targeted": 704, "breadth": 44}
+POPULATION_N = {"combined": 868, "targeted": 704, "breadth": 44}
 _FORBIDDEN = ("q_facts_key", "rubric", "expected_answer", "answer_key", "resolved_evidence")
 
 

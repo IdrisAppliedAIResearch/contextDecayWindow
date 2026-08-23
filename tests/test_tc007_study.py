@@ -30,6 +30,7 @@ def _budget(budget, combined, breadth, targeted):
 def test_registration_and_constants_are_locked() -> None:
     assert study.assert_registration()["status"] == "PASS"
     assert study.TOTAL_BUDGETS == (16_000, 32_000)
+    assert study.POPULATION_N == {"combined": 868, "targeted": 704, "breadth": 44}
     assert study.WORKS_ALPHA == pytest.approx(.01 / 12)
     assert study.SIGNAL_ALPHA == pytest.approx(.10 / 12)
 
