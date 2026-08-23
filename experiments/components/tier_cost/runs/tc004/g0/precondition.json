@@ -1,0 +1,259 @@
+{
+ "gates": {
+  "G0": {
+   "child_cache_opened": false,
+   "expected_first_commit": "ea6847948984f5aba76ff1f60bae29a9daeca25e",
+   "expected_lf_sha256": "c0478b6795661c5521a169334c466f07fbd0da4b28b171fc13ec93bd3ef339d9",
+   "observed_first_commit": "ea6847948984f5aba76ff1f60bae29a9daeca25e",
+   "observed_lf_sha256": "c0478b6795661c5521a169334c466f07fbd0da4b28b171fc13ec93bd3ef339d9",
+   "pass": true
+  },
+  "G1": {
+   "counts": {
+    "absent_child_vectors": 2592,
+    "complete_evaluable_questions": 868,
+    "conversations": 4,
+    "parents": 1365,
+    "question_records": 882,
+    "singleton_parents": 68,
+    "splittable_parents": 1297,
+    "unique_child_texts": 2660,
+    "unique_resolved_questions": 871
+   },
+   "dataset": {
+    "bytes": 2805274,
+    "sha256": "79fa87e90f04081343b8c8debecb80a9a6842b76a7aa537dc9fdf651ea698ff4"
+   },
+   "development_ids": [
+    "conv-41",
+    "conv-42",
+    "conv-47",
+    "conv-48"
+   ],
+   "parent_cache": {
+    "bytes": 10821632,
+    "call_shape": "solo",
+    "content_sha256": "e103b2933ee9ec7b8e9236f43037797618da524e413b83a9f3973a19d28b1b2a",
+    "dimension": 1024,
+    "dtype": "float32",
+    "entries": 2236,
+    "file_sha256": "2ba617018a1b043bf439bb50e756191d8141fb7ca01a2e4a68c9eb822eba26f8",
+    "hits": 0,
+    "misses": 2236,
+    "mode": "populate",
+    "model_sha256": "06507c7b42688469c4e7298b0a1e16deff06caf291cf0a5b278c308249c3e439",
+    "path": "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\external\\locomo\\artifacts\\locomo_dev_embeddings.db"
+   },
+   "pass": true,
+   "preflight_sha256": {
+    "inventory": "3b771ac61a548e4e93f3e5cdbc0b479f83e007bcae031fcab4b2380e0632a74b",
+    "part1": "5833cdb331412961bd9a73c767363fc83c12b6a0cf1eb6ca22e42be8cc66df6a",
+    "pf4": "512e75d4dd6c7c1067f6e9ae43c3e00fd0a2e9855ac8c6f176e856d4cdb21623"
+   }
+  },
+  "G2": {
+   "imports": [
+    "__future__",
+    "analysis.tc004_preflight",
+    "collections",
+    "dataclasses",
+    "episodic._packing",
+    "episodic._render",
+    "hashlib",
+    "math",
+    "numpy",
+    "re",
+    "typing"
+   ],
+   "pass": true,
+   "path": "src/analysis/tc004_mechanism.py",
+   "planted_field_rejected": true,
+   "planted_import_rejected": true,
+   "violations": []
+  },
+  "G3": {
+   "child_cache_opened": false,
+   "committed_csv_sha256": {
+    "16000": "d4c80e8324c9db303b0df24e5a3ca095a377edff61f7158ee6541dfd9c0766d5",
+    "32000": "9f3df0be69529b22bd2fe4153c8486c97ca8b2bb09ab38dc975cdc85aaed11e5"
+   },
+   "counts": {
+    "16000": {
+     "dual": {
+      "any": 528,
+      "complete": 472
+     },
+     "dual_ranked": {
+      "any": 801,
+      "complete": 748
+     },
+     "flat": {
+      "any": 803,
+      "complete": 749
+     }
+    },
+    "32000": {
+     "dual": {
+      "any": 740,
+      "complete": 694
+     },
+     "dual_ranked": {
+      "any": 843,
+      "complete": 811
+     },
+     "flat": {
+      "any": 842,
+      "complete": 810
+     }
+    }
+   },
+   "mismatches": [],
+   "parent_cache": {
+    "bytes": 10821632,
+    "call_shape": "solo",
+    "content_sha256": "e103b2933ee9ec7b8e9236f43037797618da524e413b83a9f3973a19d28b1b2a",
+    "dimension": 1024,
+    "dtype": "float32",
+    "entries": 2236,
+    "file_sha256": "2ba617018a1b043bf439bb50e756191d8141fb7ca01a2e4a68c9eb822eba26f8",
+    "hits": 2236,
+    "misses": 0,
+    "mode": "reuse",
+    "model_sha256": "06507c7b42688469c4e7298b0a1e16deff06caf291cf0a5b278c308249c3e439",
+    "path": "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\external\\locomo\\artifacts\\locomo_dev_embeddings.db"
+   },
+   "pass": true,
+   "standing_cells_compared": 20904,
+   "zero_split_a_flat_identity_checks": 1742
+  },
+  "G4": {
+   "command": [
+    "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\.venv\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/test_tc004_granularity.py",
+    "tests/test_tc004_preflight.py",
+    "tests/test_tc004_study.py"
+   ],
+   "pass": true,
+   "returncode": 0,
+   "stderr": "",
+   "stdout": "......................                                                   [100%]\n22 passed in 0.25s\n"
+  },
+  "G5": {
+   "cache": {
+    "bytes": 12705792,
+    "call_shape": "solo",
+    "content_sha256": "26fc3410f1f5fbb05342a67cb2a973dcc6ff18cda6b0dd1bff1ea84149561413",
+    "dimension": 1024,
+    "dtype": "float32",
+    "entries": 2660,
+    "file_sha256": "2725af7df48850ffe28f945e452593fd74847d7f87afe7aa7daf00321c5393a9",
+    "hits": 0,
+    "misses": 2660,
+    "mode": "populate",
+    "model_sha256": "06507c7b42688469c4e7298b0a1e16deff06caf291cf0a5b278c308249c3e439",
+    "path": "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\components\\tier_cost\\artifacts\\tc004\\tc004_turn_embeddings.db"
+   },
+   "coverage": {
+    "bytes": 12705792,
+    "call_shape": "solo",
+    "content_sha256": "26fc3410f1f5fbb05342a67cb2a973dcc6ff18cda6b0dd1bff1ea84149561413",
+    "dimension": 1024,
+    "dtype": "float32",
+    "entries": 2660,
+    "file_sha256": "2725af7df48850ffe28f945e452593fd74847d7f87afe7aa7daf00321c5393a9",
+    "hits": 2660,
+    "misses": 0,
+    "mode": "reuse",
+    "model_sha256": "06507c7b42688469c4e7298b0a1e16deff06caf291cf0a5b278c308249c3e439",
+    "path": "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\components\\tier_cost\\artifacts\\tc004\\tc004_turn_embeddings.db"
+   },
+   "manifest": {
+    "first_commit": "323dcb6068d7ca685e3570fdc8312548d914d814",
+    "path": "experiments/components/tier_cost/artifacts/tc004/turn_vector_manifest.json",
+    "sha256": "0e8e3a08af0fe99d7e3a2a9fd50769a9d258b2bac899d97c2e8339508899f039"
+   },
+   "pass": true
+  },
+  "G6": {
+   "first": {
+    "child_cache": {
+     "bytes": 12705792,
+     "call_shape": "solo",
+     "content_sha256": "26fc3410f1f5fbb05342a67cb2a973dcc6ff18cda6b0dd1bff1ea84149561413",
+     "dimension": 1024,
+     "dtype": "float32",
+     "entries": 2660,
+     "file_sha256": "2725af7df48850ffe28f945e452593fd74847d7f87afe7aa7daf00321c5393a9",
+     "hits": 2660,
+     "misses": 0,
+     "mode": "reuse",
+     "model_sha256": "06507c7b42688469c4e7298b0a1e16deff06caf291cf0a5b278c308249c3e439",
+     "path": "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\components\\tier_cost\\artifacts\\tc004\\tc004_turn_embeddings.db"
+    },
+    "embedding_calls": 0,
+    "evidence_fields_joined": false,
+    "model_generation_calls": 0,
+    "parent_cache": {
+     "bytes": 10821632,
+     "call_shape": "solo",
+     "content_sha256": "e103b2933ee9ec7b8e9236f43037797618da524e413b83a9f3973a19d28b1b2a",
+     "dimension": 1024,
+     "dtype": "float32",
+     "entries": 2236,
+     "file_sha256": "2ba617018a1b043bf439bb50e756191d8141fb7ca01a2e4a68c9eb822eba26f8",
+     "hits": 2236,
+     "misses": 0,
+     "mode": "reuse",
+     "model_sha256": "06507c7b42688469c4e7298b0a1e16deff06caf291cf0a5b278c308249c3e439",
+     "path": "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\external\\locomo\\artifacts\\locomo_dev_embeddings.db"
+    },
+    "questions": 871,
+    "selection_cells": 622250,
+    "selection_sha256": "0967510fd3f495c03cad2283c60829a357348508186aaef6dc84838625d83312"
+   },
+   "pass": true,
+   "second": {
+    "child_cache": {
+     "bytes": 12705792,
+     "call_shape": "solo",
+     "content_sha256": "26fc3410f1f5fbb05342a67cb2a973dcc6ff18cda6b0dd1bff1ea84149561413",
+     "dimension": 1024,
+     "dtype": "float32",
+     "entries": 2660,
+     "file_sha256": "2725af7df48850ffe28f945e452593fd74847d7f87afe7aa7daf00321c5393a9",
+     "hits": 2660,
+     "misses": 0,
+     "mode": "reuse",
+     "model_sha256": "06507c7b42688469c4e7298b0a1e16deff06caf291cf0a5b278c308249c3e439",
+     "path": "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\components\\tier_cost\\artifacts\\tc004\\tc004_turn_embeddings.db"
+    },
+    "embedding_calls": 0,
+    "evidence_fields_joined": false,
+    "model_generation_calls": 0,
+    "parent_cache": {
+     "bytes": 10821632,
+     "call_shape": "solo",
+     "content_sha256": "e103b2933ee9ec7b8e9236f43037797618da524e413b83a9f3973a19d28b1b2a",
+     "dimension": 1024,
+     "dtype": "float32",
+     "entries": 2236,
+     "file_sha256": "2ba617018a1b043bf439bb50e756191d8141fb7ca01a2e4a68c9eb822eba26f8",
+     "hits": 2236,
+     "misses": 0,
+     "mode": "reuse",
+     "model_sha256": "06507c7b42688469c4e7298b0a1e16deff06caf291cf0a5b278c308249c3e439",
+     "path": "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\external\\locomo\\artifacts\\locomo_dev_embeddings.db"
+    },
+    "questions": 871,
+    "selection_cells": 622250,
+    "selection_sha256": "0967510fd3f495c03cad2283c60829a357348508186aaef6dc84838625d83312"
+   }
+  }
+ },
+ "registration_commit": "ea6847948984f5aba76ff1f60bae29a9daeca25e",
+ "schema": "tc004-candidate-granularity-v1",
+ "status": "PASS"
+}
