@@ -1,7 +1,7 @@
 # TC Arc — Dependency Log
 
 **Document type:** Standing procedure and running record
-**Status:** `OPEN — TC-001, TC-001B and TC-002 have reported; TC-003 through TC-006 have not`
+**Status:** `OPEN — TC-001, TC-001B, TC-002 and TC-003 have reported; TC-004 through TC-006 have not`
 **Governs:** `TC_ARC_ROADMAP.md` Rule 4
 
 ---
@@ -63,6 +63,7 @@ face, without needing anyone to relitigate the science.
 | 2026-08-22 | TC-001 reported `D3 FLAT_WINS` | REPORTED | RUNNABLE | RUNNABLE | RUNNABLE | RUNNABLE | RUNNABLE |
 | 2026-08-22 | TC-001B reported `C1 D3 FLAT_WINS` | REPORTED | RUNNABLE | RUNNABLE | RUNNABLE | RUNNABLE | RUNNABLE |
 | 2026-08-22 | TC-002 reported `C1 D1 K_FIRST_WINS` | REPORTED | REPORTED | RUNNABLE | RUNNABLE | RUNNABLE | RUNNABLE |
+| 2026-08-22 | TC-003 reported `C1 D1 FLOORS_WINS`; C5 `D3 RANKED_WINS` | REPORTED | REPORTED | REPORTED | RUNNABLE | RUNNABLE | RUNNABLE |
 
 **Re-read of 2026-08-22.** Triggered by TC-001 reporting. Every line below was
 read from `TC_ARC_ROADMAP.md` rather than from memory or from this file's
@@ -153,6 +154,26 @@ asked whether TC-002's result, if positive, ships immediately or waits for
 TC-003. TC-002's registration §0 decided it before the run: **it does not ship
 on this result.** The result is positive and the decision stands. That item is
 retired, not deferred.
+
+**Re-read of 2026-08-22, fourth.** Triggered by TC-003 reporting. Every other
+unreported study's dependency and expiry line was read again from
+`TC_ARC_ROADMAP.md`, not carried from the row above.
+
+| Study | Dependency line, as written | Verdict | Why |
+|---|---|---|---|
+| TC-004 | A corpus with span-level evidence labels so “the material answering the query” is identifiable within a unit | `RUNNABLE` | LongMemEval's turn labels and LoCoMo's evidence dialogue ids still supply the named artifact. TC-003 consumed neither and its verdict cannot remove them |
+| TC-005 | A pool-size-versus-latency series over the current implementation | `RUNNABLE` | `PAPER_002.md` §10's 50-to-1,000 series persists. TC-003 Preflight additionally measured candidate-state and allocator cost at pools of 323 to 355; no required artifact is missing |
+| TC-006 | Two frozen delivered contexts over the same query set with a known availability margin, and an instrument finer than that margin | `RUNNABLE` | The first clause now has another committed choice: TC-003's floor and N-first contexts differ by 342 complete-evidence questions at 16,000. The fact-use instrument's spread remains unmeasured, exactly as the roadmap says, and measuring it is TC-006's own first task rather than an upstream dependency |
+
+**No study is `BLOCKED`, and TC-003's verdict could not block one.** The result
+is evidence about allocation, not a missing artifact.
+
+**What changed, and it is not a block.** TC-003's C1 is positive, but its
+registered isolating C5 points the other way: the cosine contest, not the
+reservation, carries the demonstrated gain. Exact service-order invariance
+passes while ownership-order invariance fails. That narrows the floor proposal
+and leaves the flat arm ahead; it changes how later architecture results should
+be read and changes no dependency line.
 
 **Initial state, 2026-08-21.** All six dependency lines name artifacts that
 exist, with one exception recorded here rather than as a block: TC-006's second
