@@ -1,0 +1,93 @@
+{
+ "behavioral_identity": "A LoCoMo split replaces one adjacent dialogue pair by its exact one or two speaker-labelled turns; singleton pairs cannot split.",
+ "calls": {
+  "embedding": 0,
+  "generation": 0
+ },
+ "degenerate_states": {
+  "all_parents_singleton": false,
+  "constant_score_pairs": 1665,
+  "feedback": false,
+  "singleton_pairs_cannot_split": 68
+ },
+ "inputs": {
+  "dataset": {
+   "path": "C:\\Users\\muzaf\\Downloads\\locomo10.json",
+   "sha256": "79fa87e90f04081343b8c8debecb80a9a6842b76a7aa537dc9fdf651ea698ff4"
+  },
+  "development_ids": [
+   "conv-41",
+   "conv-42",
+   "conv-47",
+   "conv-48"
+  ],
+  "retained_cache": {
+   "content_sha256": "e103b2933ee9ec7b8e9236f43037797618da524e413b83a9f3973a19d28b1b2a",
+   "file_sha256": "2ba617018a1b043bf439bb50e756191d8141fb7ca01a2e4a68c9eb822eba26f8",
+   "path": "experiments/external/locomo/artifacts/locomo_dev_embeddings.db"
+  },
+  "vector_manifest": {
+   "path": "experiments/external/locomo/artifacts/development_vector_manifest.json",
+   "sha256": "6f939ed9da7aa4fff44f72aaa3585c863ce7a15d061eecd96a322a104ed755e1"
+  }
+ },
+ "model_free_score": {
+  "corpus_statistics": 0,
+  "definition": "maximum child/query lowercase token-count cosine minus parent/query lowercase token-count cosine",
+  "distribution": {
+   "max": 0.34232012353862434,
+   "min": -0.12442711609863705,
+   "n": 285185,
+   "p10": -0.02450289181436241,
+   "p50": 0.008712907082472299,
+   "p90": 0.05510714750298641
+  },
+  "learned_parameters": 0,
+  "length_exact_ties_beyond_first": 101427,
+  "model_calls": 0,
+  "name": "lexical_localization_gain",
+  "score_exact_ties_beyond_first": 5655
+ },
+ "population": {
+  "child_chars": {
+   "max": 447.0,
+   "min": 10.0,
+   "n": 2662,
+   "p10": 53.0,
+   "p50": 114.0,
+   "p90": 215.0
+  },
+  "child_occurrences": 2662,
+  "children_per_parent": {
+   "max": 2.0,
+   "min": 1.0,
+   "n": 1365,
+   "p10": 2.0,
+   "p50": 2.0,
+   "p90": 2.0
+  },
+  "conversations": 4,
+  "parent_chars": {
+   "max": 734.0,
+   "min": 16.0,
+   "n": 1365,
+   "p10": 117.0,
+   "p50": 237.0,
+   "p90": 389.0
+  },
+  "parents": 1365,
+  "questions": 882,
+  "singleton_parents": 68,
+  "splittable_parents": 1297,
+  "unique_child_texts": 2660,
+  "unique_nonduplicate_questions_with_resolved_evidence": 871
+ },
+ "schema": "tc004-locomo-split-inventory-v1",
+ "status": "PREFLIGHT_PART_1_ONLY",
+ "treatment_vector_coverage": {
+  "absent_from_retained_cache": 2592,
+  "already_in_retained_cache": 68,
+  "treatment_outcome_opened": false,
+  "unique_child_texts": 2660
+ }
+}
