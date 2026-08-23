@@ -1,7 +1,7 @@
 # TC Arc — Dependency Log
 
 **Document type:** Standing procedure and running record
-**Status:** `OPEN — TC-001, TC-001B, TC-002 and TC-003 have reported; TC-004 through TC-006 have not`
+**Status:** `OPEN — TC-001 through TC-004 have reported; TC-005 and TC-006 have not`
 **Governs:** `TC_ARC_ROADMAP.md` Rule 4
 
 ---
@@ -64,6 +64,7 @@ face, without needing anyone to relitigate the science.
 | 2026-08-22 | TC-001B reported `C1 D3 FLAT_WINS` | REPORTED | RUNNABLE | RUNNABLE | RUNNABLE | RUNNABLE | RUNNABLE |
 | 2026-08-22 | TC-002 reported `C1 D1 K_FIRST_WINS` | REPORTED | REPORTED | RUNNABLE | RUNNABLE | RUNNABLE | RUNNABLE |
 | 2026-08-22 | TC-003 reported `C1 D1 FLOORS_WINS`; C5 `D3 RANKED_WINS` | REPORTED | REPORTED | REPORTED | RUNNABLE | RUNNABLE | RUNNABLE |
+| 2026-08-23 | TC-004 reported `NO_PREDICTIVE_SIGNAL` | REPORTED | REPORTED | REPORTED | REPORTED | RUNNABLE | RUNNABLE |
 
 **Re-read of 2026-08-22.** Triggered by TC-001 reporting. Every line below was
 read from `TC_ARC_ROADMAP.md` rather than from memory or from this file's
@@ -174,6 +175,26 @@ reservation, carries the demonstrated gain. Exact service-order invariance
 passes while ownership-order invariance fails. That narrows the floor proposal
 and leaves the flat arm ahead; it changes how later architecture results should
 be read and changes no dependency line.
+
+**Re-read of 2026-08-23, fifth.** Triggered by TC-004 reporting. Every other
+unreported study's dependency and expiry line was read again from
+`TC_ARC_ROADMAP.md` rather than inherited from the prior row.
+
+| Study | Dependency line, as written | Verdict | Why |
+|---|---|---|---|
+| TC-005 | A pool-size-versus-latency series over the current implementation | `RUNNABLE` | `PAPER_002.md` §10's 50-to-1,000 series persists. TC-004 neither changes cluster assignments nor consumes that series |
+| TC-006 | Two frozen delivered contexts over the same query set with a known availability margin, and an instrument finer than that margin | `RUNNABLE` | The frozen contexts and known margins from EC-002 and TC-001 through TC-003 persist. The fact-use instrument's spread remains unmeasured exactly as the roadmap states, and measuring it remains TC-006's own first task |
+
+**No study is `BLOCKED`, and TC-004's disposition could not block one.** Its
+`NO_PREDICTIVE_SIGNAL` result closes one registered embedding-localization
+predictor on one observed store. A negative result is not a missing artifact.
+
+**What changed, and it is not a block.** TC-004 found 96 beneficial and 235
+harmful one-parent splits. The predictor lost the paired AP comparison to
+length on 31 questions against 21 wins, despite a higher outlier-driven mean.
+This weakens the proposed operational test for “small enough” and changes no
+dependency line. TC-005 still owns fixed-pool cost; TC-006 still owns reader
+use.
 
 **Initial state, 2026-08-21.** All six dependency lines name artifacts that
 exist, with one exception recorded here rather than as a block: TC-006's second
