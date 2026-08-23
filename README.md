@@ -143,7 +143,7 @@ flush against the page there rather than showing as a panel.*
 
 ## Current State of Work
 
-*Last updated 2026-08-23, at TC-004's verdict.*
+*Last updated 2026-08-23, at TC-005's verdict.*
 
 **The tiered architecture does not earn its place on delivery.** TC-001 put the
 shipped four-tier read path against the flat cosine ranking that scored 79.09%
@@ -217,18 +217,29 @@ than length. Splitting the top 1% adds three complete deliveries descriptively,
 but splitting everything drops complete evidence from 749 to 687. More units
 are not automatically better context.
 
+**TC-005 then asks whether relevance can be made efficient enough to live on
+half of TC-007's budget.** Dense-plus-BM25 hybrid ranking raises targeted
+complete-evidence delivery from 593 to **624** at 8k (+31; 58 gains, 27 losses,
+p=.000508), but at 16k it moves 643 to **657** (+14; 36 gains, 22 losses,
+p=.0435) and misses the registered second operating-point bar. It is
+`TREATMENT_CARRIES_SIGNAL`, not `TREATMENT_WORKS`. BM25 alone loses at both
+budgets, 593 to 557 and 643 to 581, and dense `CARRIES_SIGNAL` against it.
+Hybrid's full-budget guardrails are benign at +6 at 16k and -6 at 32k. The
+pre-locked rule therefore keeps **dense ranking** as TC-007's relevance input.
+
 None of that authorizes deleting or shipping anything, and TC-002 decided the
 shipping question in its registration *before* the number existed: a positive
 result does not ship, because the same correction was already rejected on a live
 bar. Availability is not a verdict, and LoCoMo asks questions about a finished
 conversation, so a recency window is close to worthless there by construction.
-What the five studies establish together is narrower and sharper: on this
+What the six studies establish together is narrower and sharper: on this
 corpus, the tiered machinery at its best delivers what a plain cosine ranking
 delivers, at roughly four times the latency. Changing allocation can rescue a
 bad fixed order, but it does not isolate a gain over ranking candidates well;
-and one natural embedding-localization score does not reliably identify safe
-splits. TC-005 owns cost and TC-006 owns the reader. Nothing in the TC arc is
-blocked.
+one natural embedding-localization score does not reliably identify safe
+splits; and hybrid relevance has a promising tight-budget result without the
+two-budget evidence needed to replace dense. TC-007 now owns the protected
+spread test, and TC-006 owns the reader. Nothing in the TC arc is blocked.
 
 **The deployable component is done.** `episodic/` is an installable library with
 a public store, report, config and embedding-cache API. Extraction is certified
@@ -310,10 +321,10 @@ confirmation.
 
 ## Next Steps
 
-1. **Preflight and register TC-005's fixed-pool clustering-cost comparison.** The pool may not
-   shrink: prior pruning removed a whole domain and changed the selector's
-   objective. Measure latency and cluster-assignment agreement at matched pool
-   size, with any assignment change priced separately on availability.
+1. **Preflight and register TC-007's dual-route allocation test.** Use the
+   frozen dense relevance order selected by TC-005, reserve 50% of the total
+   16k/32k character budget for protected spread, return unused spread budget
+   to relevance, and compare against dense retrieval with the full budget.
 
 2. **Register item-level reader validation before any live inference.** TC-006's
    fact-use instrument over two frozen contexts, whose own first task is
@@ -356,7 +367,7 @@ Eleven pre-registered studies test that question, each adding one memory compone
 
 > **Status:** Study 010 stopped at G2; exploratory continuation unaudited and LTM budget-noncompliant | retrieval bakeoff complete | retrieval mechanism ledger reopened for Family CS; E005 is killed by LV-001's live targeted-regression bar, DX-001 closes NO CHANGE, RD-001 stops before correlation because unchanged rarity scores cover only 6/76 fact-bearing episodes, and chained retrieval Rev5 is CHARACTERIZED offline at 9/17 versus X0 6/17 but misses art 0/4 and has no targeted no-regression arm | EC-001 LongMemEval complete: inversion not dominant, Codex-substituted score only | EC-002 complete: K-first packing raises any-session recall 109/470 -> 261/470 offline; no production promotion authorized | IC-001 Branch A: the same gate is closed internally — K delivered nothing at 8/8 probes under the deployed order; Q11 6/17 -> 7/17, targeted 14/21 -> 18/21, zero losses; cache clause substituted under authorized Amendment 001; no recalibration authorized | Study 011 tests both halves live and splits them: the deployed arm scores identically to recency-only on all 13 questions, so the similarity tier is inert in deployment, but K-first raises availability and scores 7.0 vs 8.0 — B1 FAILS and the packing correction is not adopted; post-unseal analysis finds the N tier is a least-recently-delivered rotation over the whole store, not a recency window, and that the rule every live run through Study 010 used was a block locked onto the conversation's first nine turns; three different rules carry that name and only the extracted library's is a window | Amendment 001 authorized and run: the instrument's run-to-run band is **3.0 points on 13**, measured by five identical arm-D replicates that score 8.0, 8.0, 8.0, 8.0 and 11.0 — a switch, not a spread, since four are byte-identical across 121 turns and the one meeting an empty server slot diverges at turn 1; Study 009's 3.0, LV-001's -2.0 and Study 011's -1.0 are all re-read as **not demonstrated**, while every offline count is untouched and B1 stays fired | CC-002 extracts the deployable component into `episodic`; CC-006 adds exact hashed vector-cache reuse | PS-001 CHARACTERIZED: the selected sparse cell stores and recovers 119/119 codes through 50% registered swaps | PS-002 stops at Part 1: best natural-language binder reaches stored codes in 190/192 rounds but retains one cycle and one spurious fixed point, so labels, answers, and live scoring are not entered | deployment closeout complete | PAPER-002 supersedes PAPER-001 (2026-08-18): same numbers, reordered to lead with the sealed LoCoMo holdout, with a four-level standing taxonomy in `paper/notes/EVIDENCE_SPINE.md`, a withdrawn-claim list in `paper/notes/DO_NOT_WRITE.md`, and every number gated by `scripts/check_paper_002_claims.py`; PAPER-001 retired | scoring/interpretation record corrected through 2026-08-05
 
-> **TC arc status:** `TC-001 REPORTED D3 FLAT_WINS; TC-001B REPORTED C1 D3 FLAT_WINS; TC-002 REPORTED C1 D1 K_FIRST_WINS; TC-003 REPORTED C1 D1 FLOORS_WINS / C5 D3 RANKED_WINS; TC-004 REPORTED NO_PREDICTIVE_SIGNAL; TC-005 AND TC-006 DESIGN ONLY`.
+> **TC arc status:** `TC-001 REPORTED D3 FLAT_WINS; TC-001B REPORTED C1 D3 FLAT_WINS; TC-002 REPORTED C1 D1 K_FIRST_WINS; TC-003 REPORTED C1 D1 FLOORS_WINS / C5 D3 RANKED_WINS; TC-004 REPORTED NO_PREDICTIVE_SIGNAL; TC-005 REPORTED HYBRID CARRIES_SIGNAL / DENSE FALLBACK; TC-006 AND TC-007 DESIGN ONLY`.
 > The arc asks whether the tiered stack earns its place before asking how to tune
 > it. TC-001 ran the shipped `build_context` against `CdwArm`'s flat cosine
 > ranking over identical candidates, vectors, renderer, packer and 16,000-character
@@ -474,6 +485,22 @@ Eleven pre-registered studies test that question, each adding one memory compone
 > calls. `REGISTERED-OFFLINE`, observed-corpus availability only; no chunk-size,
 > rate, reader, or adoption claim.
 > `experiments/components/tier_cost/TC_004_REPORT.md`.
+
+> **TC-005 (2026-08-23), relevance efficiency under TC-007's half-budget.**
+> On 704 targeted LoCoMo questions, hybrid dense-plus-BM25 ranking raises
+> complete evidence from 593 to 624 at 8k: 58 gains, 27 losses, net +31,
+> p=.000508 against band 1. At 16k it raises 643 to 657, but 36 gains and 22
+> losses give p=.0435 against band 2. The registered two-budget rule therefore
+> assigns `TREATMENT_CARRIES_SIGNAL`, not `TREATMENT_WORKS`. BM25 alone falls
+> 593→557 and 643→581; dense is `DENSE_CARRIES_SIGNAL`. On all 868 eligible
+> questions, hybrid is +6 complete deliveries at 16k and -6 at 32k, with
+> neither full-budget guardrail firing. No treatment works at both half-budget
+> operating points, so the frozen TC-007 selection rule keeps `A_DENSE`.
+> Breadth complete dense/hybrid is 7/8 at 8k, 16/13 at 16k and 27/18 at 32k;
+> this study does not choose the spread strategy. Two fresh runs reproduce all
+> 7,839 cells exactly; run calls and cache misses are zero. `REGISTERED-OFFLINE`,
+> availability only; no reader, optimal-budget, enterprise-scale, or adoption
+> claim. `experiments/components/tier_cost/TC_005_REPORT.md`.
 
 > **Current component status:** SUP-001 passes all offline P5/P9 supersession
 > gates and the 35-turn reader ablation; no 120-turn run or adoption is automatic.
@@ -731,6 +758,7 @@ Runs use a scripted 120-turn conversation with facts planted at known positions 
 | TC-002 | Does EC-002's fill-order gain hold off its original corpus? | C1 D1 K_FIRST_WINS; REGISTERED-OFFLINE | EC-002's manipulation replayed unmodified (git diff empty on all six K-first files vs caa19f52) on LoCoMo development at its own 32k budget and any-evidence endpoint. C1: A_K_FIRST 732/871 vs A_N_FIRST 687, 80 gains, 35 losses, net +45, p=1.64e-5 vs a band of 7 at Bonferroni a=0.0025 - the gain transfers. C2: still 110 behind A_FLAT's 842 (D3). C3: deleting the tier beats deprioritizing it by 8, p=0.0107 (D2 CARRIES_SIGNAL, 10 discordant pairs, the count PF4 predicted). C4: ordering the K tier best-first is worth 111 (843 vs 732, D1) and passes A_FLAT by one. C2's 118 losses and C4's 118 gains are the identical questions; C1's 80 gains overlap none of them. All 35 of C1's losses are recency-carried; C3's 9 gains are coverage-carried at cosine rank p50 85. Magnitude does not transfer: +32.3 points on LongMemEval vs +5.2 here and +15.8 at 16k, with no binding-ratio explanation offered (DO_NOT_WRITE 32). The band is measured per budget for the first time: 7 at 32k, 4 at 16k; recomputing at 4 changes no disposition. Reordering the fill costs 1-3 ms. Availability only; the registration decided before the run that a positive result does not ship |
 | TC-003 | Reserved floors against sequential fill | C1 D1 FLOORS_WINS; C5 D3 RANKED_WINS; REGISTERED-OFFLINE | At 16k complete evidence, A_FLOORS beats N-first 656/868 vs 314: 357 gains, 15 losses, net +342, p=2.25e-86 vs band 4 at Bonferroni a=.01/6. It beats K-first 656 vs 461 (D1) but loses to flat 656 vs 749 (D3). The isolating C5 reverses: A_FLOORS_DUAL 718 vs A_DUAL_RANKED 748, net -30, D3 RANKED_WINS. C1's gain includes contested evidence on 351/357 questions and reserved evidence on 18, so the registered reading credits the cosine contest, not the reservation. Floors-dual beats store-ordered dual 718 vs 472 but stays 31 behind flat. I1 service-order identity passes 871/871 at both budgets/configurations; I2 ownership-order identity fails, 0/871 at the 16k shipped primary versus 860/871 with zero floors. C5 at 32k is descriptive by registration (9 discordant, band 10). G0 reproduced twenty inherited cells and 3,484 packer identities; zero model calls/cache misses. Availability characterization only; no adoption, tuning, or reader claim |
 | TC-004 | Query-conditioned prediction of beneficial pair-to-turn splits | NO_PREDICTIVE_SIGNAL; REGISTERED-OFFLINE | At 16k complete evidence, 53 questions contain a beneficial one-parent split. Embedding localization vs length AP: 21 gains, 31 losses, 1 tie, one-sided p=.9368. Mean AP .1021 vs .0544 is outlier-driven; median .0145 vs .0213. There are 96 beneficial and 235 harmful parent-question cases. At 1% splitting complete delivery rises 749→752 descriptively; full split falls to 687. At 32k full split falls 810→754. The lexical ablation is worse. G5 used 2,661 allowed solo embedding calls and zero generation; G6–G8 use sealed caches with zero calls. Availability only; no optimum rate/chunk size, reader, or adoption claim |
+| TC-005 | Dense, BM25, and dense-plus-BM25 hybrid ranking under TC-007's relevance half-budget | HYBRID TREATMENT_CARRIES_SIGNAL; DENSE FALLBACK; REGISTERED-OFFLINE | On 704 targeted questions, hybrid moves complete evidence 593→624 at 8k (+31; 58 gains, 27 losses, p=.000508) but 643→657 at 16k (+14; 36 gains, 22 losses, p=.0435), so it does not clear the registered works rule at both operating points. BM25 falls to 557 and 581; dense CARRIES_SIGNAL. On 868 eligible questions hybrid is +6 at 16k and -6 at 32k with no guardrail failure. The frozen selection rule keeps A_DENSE for TC-007. Two-process replay is exact; zero run calls/misses. Availability only; no reader or optimal-budget claim |
 | SUP-001 | Explicit supersession lineage and accessibility | FACTUAL PASS; byte-identity criterion withdrawn | Current-only retrieval rose 0/64 to 64/64 with 32/32 unchanged and 64/64 histories. T1 scored 9/9 under numeric-value equivalence, with zero regressions and zero stale natural payloads; no larger run or adoption is automatic |
 
 Full reports live under `experiments/study_NNN/`; external evaluation reports

@@ -108,6 +108,8 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **TC-004 candidate granularity (2026-08-23).** NO_PREDICTIVE_SIGNAL; REGISTERED-OFFLINE. At 16k, embedding-localization vs length AP is 21/31/1 over 53 positive-label questions, p=.937; mean .102/.054 but median .0145/.0213. There are 96 beneficial vs 235 harmful splits. A 1% rate gives +3 descriptively; full split 749->687. 2,661 embedding calls, zero LLM calls. No ship.
 
+**TC-005 relevance efficiency (2026-08-23).** Hybrid CARRIES_SIGNAL, not WORKS: targeted complete dense->hybrid 593->624 at 8k (+31; 58/27, p=.000508) but 643->657 at 16k (+14; 36/22, p=.0435). Full eligible +6/-6 at 16k/32k. BM25 -36/-62. Frozen TC-007 fallback is dense. Zero run calls/misses; availability only.
+
 **PS-001 pattern-separated engram formation (2026-08-11).** CHARACTERIZED. Nine deterministic sparse cells on 119 episodes; only D=4096,K=41 passed G3-G5: 119/119 fixed points and exact 1/10/30/50% swap recovery. Six of seven degenerates reached stored codes; the union-biased cue cycled. Code-space result only; no natural cue, retrieval, live run, promotion, or adoption.
 
 **PS-002 natural-language cue binding (2026-08-11).** STOP AT PART 1; NATURAL_CUES_NOT_BOUND, CHARACTERIZED. Nine label-blind cells ran 24 sealed queries x8 rounds. Best M=4,tau=.025 reached stored codes 190/192 but one cue cycled and one reached a spurious fixed point; no cell emitted 8 clean ids/query. Labels, PF1-PF10, answers, live run, promotion and adoption not entered.

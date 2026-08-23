@@ -1,7 +1,7 @@
 # TC Arc — Dependency Log
 
 **Document type:** Standing procedure and running record
-**Status:** `OPEN — TC-001 through TC-004 have reported; TC-005 and TC-006 have not`
+**Status:** `OPEN — TC-001 through TC-005 have reported; TC-006 has not`
 **Governs:** `TC_ARC_ROADMAP.md` Rule 4
 
 ---
@@ -65,6 +65,7 @@ face, without needing anyone to relitigate the science.
 | 2026-08-22 | TC-002 reported `C1 D1 K_FIRST_WINS` | REPORTED | REPORTED | RUNNABLE | RUNNABLE | RUNNABLE | RUNNABLE |
 | 2026-08-22 | TC-003 reported `C1 D1 FLOORS_WINS`; C5 `D3 RANKED_WINS` | REPORTED | REPORTED | REPORTED | RUNNABLE | RUNNABLE | RUNNABLE |
 | 2026-08-23 | TC-004 reported `NO_PREDICTIVE_SIGNAL` | REPORTED | REPORTED | REPORTED | REPORTED | RUNNABLE | RUNNABLE |
+| 2026-08-23 | TC-005 reported hybrid `TREATMENT_CARRIES_SIGNAL`; dense fallback selected | REPORTED | REPORTED | REPORTED | REPORTED | REPORTED | RUNNABLE |
 
 **Re-read of 2026-08-22.** Triggered by TC-001 reporting. Every line below was
 read from `TC_ARC_ROADMAP.md` rather than from memory or from this file's
@@ -193,8 +194,25 @@ predictor on one observed store. A negative result is not a missing artifact.
 harmful one-parent splits. The predictor lost the paired AP comparison to
 length on 31 questions against 21 wins, despite a higher outlier-driven mean.
 This weakens the proposed operational test for “small enough” and changes no
-dependency line. TC-005 still owns fixed-pool cost; TC-006 still owns reader
-use.
+dependency line. Under the then-current design, TC-005 still owned fixed-pool
+cost and TC-006 still owned reader use; TC-005 was repurposed before its own
+registration, as the next re-read records.
+
+**Re-read of 2026-08-23, sixth.** Triggered by TC-005 reporting. The remaining
+unreported study's dependency and expiry line was read again from
+`TC_ARC_ROADMAP.md` rather than inherited from the prior row.
+
+| Study | Dependency line, as written | Verdict | Why |
+|---|---|---|---|
+| TC-006 | Two frozen delivered contexts over the same query set with a known availability margin, and an instrument finer than that margin | `RUNNABLE` | TC-005 neither consumes the EC-002 and TC-001-through-TC-003 frozen contexts nor changes the requirement to measure the fact-use instrument's spread as TC-006's first task |
+
+**No study is `BLOCKED`, and TC-005's disposition cannot block one.** Hybrid's
+8k gain and unresolved 16k result select no new relevance arm under the locked
+rule; that is a study result, not a missing artifact. Dense is frozen as the
+TC-007 relevance input, satisfying that follow-on's predecessor choice without
+starting its Preflight or registration. TC-006 remains runnable and remains
+downstream in implementation order because its registered target contexts must
+be frozen after TC-007, not because an artifact is currently missing.
 
 **Initial state, 2026-08-21.** All six dependency lines name artifacts that
 exist, with one exception recorded here rather than as a block: TC-006's second

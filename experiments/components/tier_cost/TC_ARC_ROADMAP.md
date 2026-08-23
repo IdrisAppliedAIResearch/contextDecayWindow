@@ -1,13 +1,10 @@
 # TC Arc — What the tiered architecture earns, and what it costs
 
 **Document type:** Prospective arc roadmap
-**Status:** `DESIGN ONLY — NOT PRE-REGISTERED — NO IMPLEMENTATION AUTHORIZED`,
-except TC-001 and TC-002, registered separately on August 22, 2026 in
-`TC_001_PRE_REGISTRATION.md` and `TC_002_PRE_REGISTRATION.md`. Those documents,
-not this one, govern their studies; where any two disagree the registration
-wins and the disagreement is a defect in this file. §1.1's standing arms and
-§10 item 4's retirement are the only parts of this file TC-002 changed.
-TC-003 through TC-006 remain design only.
+**Status:** `RUNNING RECORD`; TC-001 through TC-005 have reported. Each locked
+pre-registration governs its own study; where this roadmap disagrees, the
+registration wins and the disagreement is a defect in this file. TC-006 and
+the TC-007 follow-on remain design only.
 **Date:** August 21, 2026
 **Predecessors:** HH-002 (`experiments/comparisons/hh_002/`), EC-002 and IC-001
 (`PAPER_002.md` §9), DR-002 (§8.2), NF-005 (§7.2), §10's cost envelope
@@ -94,7 +91,7 @@ evidence *before* the next study is registered, and the re-read is logged in
 review was a correction written after the damage; this is the same act, moved
 in front of it and made mandatory.
 
-**A consequence worth stating plainly:** the five studies below are designed to
+**A consequence worth stating plainly:** the six studies below are designed to
 be runnable **in any order, including all at once.** If that is true, no
 ordering can stall. Section 8 tests that claim rather than asserting it.
 
@@ -171,7 +168,7 @@ internal 121-turn store and by LoCoMo development.
 **What it does not block:** TC-002 through TC-005, all of which measure
 properties of the tiered path that remain worth knowing whichever way this
 lands. If the flat arm wins, the tiered path's defects become the explanation
-rather than the target, and the other four studies supply that explanation.
+rather than the target, and the other five studies supply that explanation.
 
 ## 3. TC-002 — Does the fill-order result hold off its original corpus?
 
@@ -275,50 +272,42 @@ turn labels and LoCoMo's evidence dialogue ids both qualify.
 research question and it stands whether or not the tiers survive TC-001 —
 `CdwArm` ranks units too.
 
-## 6. TC-005 — Clustering cost at a pool size that must not shrink
+## 6. TC-005 — Relevance efficiency under TC-007's half-budget
 
-**The latency problem and the breadth finding are the same problem.** This is
-the arc's central technical claim and it is assembled from two existing results
-that have never been read together:
+The original clustering-cost placeholder was retired while still design-only.
+TC-005 instead tested the user's decision-relevant question: whether a stronger
+relevance order could preserve direct-question evidence while semantic
+retrieval receives only half of a 16k or 32k total context.
 
-- §10: clustering is **81% of selection latency and rising from 37%**, at a
-  measured exponent of **1.25** over 50 to 1,000 candidates.
-- §8.2: clustering runs over the **pool**, and the pool must not be pruned —
-  dropping 19 of 119 episodes cost an entire domain *and* all overlap with the
-  known optimum, **even though four of the five optimum episodes survived the
-  cut**, because "the selector clusters over its pool, so removing the tail
-  reshuffles the objective rather than simply removing options."
+The study held LoCoMo candidates, adjacent-turn-pair granularity, renderer,
+skip-on-overflow packer, embeddings and evidence measurement fixed. It compared
+the carried dense cosine order, carried BM25, and their carried reciprocal-rank
+fusion at 8k and 16k primary budgets, with 16k and 32k full-budget guardrails.
 
-So the pool cannot shrink, and the pool is what drives the cost. **The only
-safe lever is the clustering algorithm itself.**
+**Result.** Hybrid clears the works bar at 8k, moving targeted complete evidence
+593 to 624 (+31; 58 gains, 27 losses, p=.000508), but not at 16k, where 643 to
+657 gives +14 on 36 gains and 22 losses (p=.0435). It is
+`TREATMENT_CARRIES_SIGNAL`, not `TREATMENT_WORKS`. BM25 loses by 36 and 62 at
+the two primary budgets; dense `CARRIES_SIGNAL` against it. Hybrid's combined
+eligible full-budget nets are +6 at 16k and -6 at 32k, with neither guardrail
+firing.
 
-This rules out the obvious design. A hierarchical index that finds the *k* most
-relevant folders and searches only inside them is pool pruning wearing a new
-name, and §8.2 is the measured verdict on it. It also rules out approximate
-nearest-neighbour retrieval used to *build* the pool, unless recall against the
-exact pool is demonstrated to be 1.0 — an ANN index with recall below 1.0 is
-stochastic pruning, which is strictly worse than the deterministic kind because
-it cannot be audited.
+The pre-locked TC-007 selection rule admits only a treatment that works at both
+primary budgets. Neither does, so TC-007 inherits `A_DENSE`. Breadth remains a
+separate spread-arm question: hybrid complete breadth delivery is 8/13/18 at
+8k/16k/32k against dense 7/16/27.
 
-**The question:** can cluster assignments be produced more cheaply at fixed pool
-size, either identically or within a bounded and measured distance?
+**Claim boundary.** Availability only. This does not identify an optimal
+enterprise budget, establish reader benefit, or bind the coverage route to a
+relevance ranker.
 
-**Endpoint.** Wall-clock at matched pool sizes, and **exact-match rate of
-cluster assignments against the current implementation.** Any candidate
-acceleration that changes assignments must show its availability effect
-separately; speed is not permitted to be traded against delivery silently.
+**Dependency line.** Satisfied and consumed: the frozen LoCoMo candidate store,
+read-only vector cache, and carried dense/BM25/RRF implementations all replayed
+by identity before outcomes.
+**Expiry:** reported; no open dependency remains.
 
-**Bars.** A latency reduction target at 1,000 candidates, and an assignment
-agreement floor. Both fixed first.
-
-**Dependency line.** Requires a pool-size-versus-latency series over the current
-implementation. §10's 50-to-1,000 series supplies it.
-**Expiry:** none.
-
-**What this blocks:** nothing.
-**What it does not block:** anything. Latency is worth reducing whichever
-architecture survives, and it is the constraint that decides whether the
-document-corpus benchmarks in §8 below are reachable at all.
+**What this blocks:** nothing. It freezes dense as TC-007's relevance input.
+**What it does not block:** TC-007 protected spread or TC-006 reader validation.
 
 ---
 
@@ -378,7 +367,7 @@ claim.
 | TC-002 | A second evidence-labelled store | Internal store; LoCoMo dev | Shipping the order change | nothing |
 | TC-003 | Tier boundaries visible in the delivered block | `ContextReport` | — | nothing |
 | TC-004 | Span-level evidence labels | LongMemEval turns; LoCoMo evidence ids | — | nothing |
-| TC-005 | Pool-size-versus-latency series | Paper §10 | — | nothing |
+| TC-005 | Frozen common candidates and carried dense/BM25/RRF orders | LoCoMo dev; retrieval bakeoff replay | — | nothing |
 | TC-006 | Two frozen contexts of known margin; an instrument finer than it | EC-002 replay artifacts; instrument spread **measured as its own first task** | Any delivery-implies-answer claim | nothing |
 
 **Every cell in the "blocked by" column reads `nothing`, and that is the design,
@@ -387,7 +376,7 @@ rather than on a verdict. If a study cannot be scoped that way it does not enter
 the arc.
 
 The one real ordering preference is a *reading* preference, not a dependency:
-TC-001 first makes the other four easier to interpret. It does not make them
+TC-001 first makes the other five easier to interpret. It does not make them
 runnable, and none of them waits for it.
 
 ---
@@ -395,8 +384,8 @@ runnable, and none of them waits for it.
 ## 9. What this arc does not cover
 
 - **Document-corpus generalization.** LegalBench-RAG and EnterpriseRAG-Bench
-  are a separate question and a separate arc. TC-005's outcome decides whether
-  they are reachable; it is not a dependency in the other direction.
+  are a separate question and a separate arc. TC-005 did not decide their
+  budgets, index design, or latency envelope.
 - **The reader.** Nothing here measures answer quality. §5's endpoint costs a
   corpus and this arc is deliberately built not to spend one.
 - **The recency window's real behaviour.** §3.4 records that no live study ran
