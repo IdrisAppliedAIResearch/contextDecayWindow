@@ -1,0 +1,360 @@
+{
+  "calls": {
+    "cache_hits": 2236,
+    "cache_misses": 0,
+    "embedding": 0,
+    "llm_or_generative": 0
+  },
+  "pf1": {
+    "blind_sha256": "83bcadb1e029e14514841b65bd903904fe53420a246bc0a59cad99afaa0671b3",
+    "convex_sha256": "17e88abdc88547ec8abd96fb09ce8ae8e3f04c605d0081eed5f8cf837e2ad202",
+    "dataset_sha256": "79fa87e90f04081343b8c8debecb80a9a6842b76a7aa537dc9fdf651ea698ff4",
+    "labels_sha256": "c4b52ead85535a1250e9ac8952bc60201a8b10304846272dbe838bbba9ee12c6",
+    "protected_sha256": "916632ff25c22c03e8bcc06d18592555eed30e3ffbf656903587e6052ca7a376",
+    "registration_sha256": "307b781e6aeda103446a1aa4c03d9650a431cfc88f7c2994291e23ba85b99388",
+    "rows": 871,
+    "selection_sha256": "9eac50dda49a2c300d1ca6cba9e6c5f257420ffeadb2e6c5f526052d8351f535"
+  },
+  "pf10": {
+    "availability_only": true,
+    "reader_authorized": false
+  },
+  "pf2": {
+    "identity": "minimum maximum pair cosine inside CC80 top ceil(25%), then relevance-only slack return",
+    "metrics": {
+      "16000": {
+        "global_bottom": {
+          "chars": {
+            "max": 16000.0,
+            "median": 15972.0,
+            "min": 15860.0,
+            "n": 871,
+            "nonzero": 871
+          },
+          "initial": {
+            "max": 41.0,
+            "median": 25.0,
+            "min": 18.0,
+            "n": 871,
+            "nonzero": 871
+          },
+          "pool_exhausted": {
+            "max": 0.0,
+            "median": 0.0,
+            "min": 0.0,
+            "n": 871,
+            "nonzero": 0
+          },
+          "qualified_remaining": {
+            "max": 71.0,
+            "median": 60.0,
+            "min": 43.0,
+            "n": 871,
+            "nonzero": 871
+          },
+          "redundancy": {
+            "max": null,
+            "median": null,
+            "min": null,
+            "n": 0,
+            "nonzero": 0
+          },
+          "returned": {
+            "max": 2.0,
+            "median": 1.0,
+            "min": 0.0,
+            "n": 871,
+            "nonzero": 618
+          },
+          "selected": {
+            "max": 62.0,
+            "median": 50.0,
+            "min": 42.0,
+            "n": 871,
+            "nonzero": 871
+          },
+          "spread": {
+            "max": 34.0,
+            "median": 24.0,
+            "min": 16.0,
+            "n": 871,
+            "nonzero": 871
+          },
+          "spread_binding": {
+            "max": 1.0,
+            "median": 1.0,
+            "min": 1.0,
+            "n": 871,
+            "nonzero": 871
+          },
+          "spread_cc80_rank": {
+            "max": 355.0,
+            "median": 330.0,
+            "min": 35.0,
+            "n": 20839,
+            "nonzero": 20839
+          }
+        },
+        "qualified": {
+          "chars": {
+            "max": 16000.0,
+            "median": 15976.0,
+            "min": 15863.0,
+            "n": 871,
+            "nonzero": 871
+          },
+          "initial": {
+            "max": 41.0,
+            "median": 25.0,
+            "min": 18.0,
+            "n": 871,
+            "nonzero": 871
+          },
+          "pool_exhausted": {
+            "max": 1.0,
+            "median": 1.0,
+            "min": 1.0,
+            "n": 871,
+            "nonzero": 871
+          },
+          "qualified_remaining": {
+            "max": 71.0,
+            "median": 60.0,
+            "min": 43.0,
+            "n": 871,
+            "nonzero": 871
+          },
+          "redundancy": {
+            "max": 0.9640853404998779,
+            "median": 0.7621427774429321,
+            "min": 0.45804136991500854,
+            "n": 51878,
+            "nonzero": 51878
+          },
+          "returned": {
+            "max": 2.0,
+            "median": 1.0,
+            "min": 0.0,
+            "n": 871,
+            "nonzero": 702
+          },
+          "selected": {
+            "max": 75.0,
+            "median": 53.0,
+            "min": 39.0,
+            "n": 871,
+            "nonzero": 871
+          },
+          "spread": {
+            "max": 37.0,
+            "median": 26.0,
+            "min": 18.0,
+            "n": 871,
+            "nonzero": 871
+          },
+          "spread_binding": {
+            "max": 1.0,
+            "median": 1.0,
+            "min": 1.0,
+            "n": 871,
+            "nonzero": 871
+          },
+          "spread_cc80_rank": {
+            "max": 89.0,
+            "median": 59.0,
+            "min": 20.0,
+            "n": 22759,
+            "nonzero": 22759
+          }
+        }
+      },
+      "32000": {
+        "global_bottom": {
+          "chars": {
+            "max": 32000.0,
+            "median": 31972.0,
+            "min": 31857.0,
+            "n": 871,
+            "nonzero": 871
+          },
+          "initial": {
+            "max": 75.0,
+            "median": 52.0,
+            "min": 38.0,
+            "n": 871,
+            "nonzero": 871
+          },
+          "pool_exhausted": {
+            "max": 0.0,
+            "median": 0.0,
+            "min": 0.0,
+            "n": 871,
+            "nonzero": 0
+          },
+          "qualified_remaining": {
+            "max": 51.0,
+            "median": 33.0,
+            "min": 12.0,
+            "n": 871,
+            "nonzero": 871
+          },
+          "redundancy": {
+            "max": null,
+            "median": null,
+            "min": null,
+            "n": 0,
+            "nonzero": 0
+          },
+          "returned": {
+            "max": 2.0,
+            "median": 1.0,
+            "min": 0.0,
+            "n": 871,
+            "nonzero": 585
+          },
+          "selected": {
+            "max": 119.0,
+            "median": 102.0,
+            "min": 85.0,
+            "n": 871,
+            "nonzero": 871
+          },
+          "spread": {
+            "max": 68.0,
+            "median": 47.0,
+            "min": 37.0,
+            "n": 871,
+            "nonzero": 871
+          },
+          "spread_binding": {
+            "max": 1.0,
+            "median": 1.0,
+            "min": 1.0,
+            "n": 871,
+            "nonzero": 871
+          },
+          "spread_cc80_rank": {
+            "max": 355.0,
+            "median": 317.0,
+            "min": 60.0,
+            "n": 41528,
+            "nonzero": 41528
+          }
+        },
+        "qualified": {
+          "chars": {
+            "max": 32000.0,
+            "median": 31971.0,
+            "min": 31857.0,
+            "n": 871,
+            "nonzero": 871
+          },
+          "initial": {
+            "max": 75.0,
+            "median": 52.0,
+            "min": 38.0,
+            "n": 871,
+            "nonzero": 871
+          },
+          "pool_exhausted": {
+            "max": 1.0,
+            "median": 1.0,
+            "min": 1.0,
+            "n": 871,
+            "nonzero": 871
+          },
+          "qualified_remaining": {
+            "max": 51.0,
+            "median": 33.0,
+            "min": 12.0,
+            "n": 871,
+            "nonzero": 871
+          },
+          "redundancy": {
+            "max": 0.9640853404998779,
+            "median": 0.7715846300125122,
+            "min": 0.49899405241012573,
+            "n": 28843,
+            "nonzero": 28843
+          },
+          "returned": {
+            "max": 51.0,
+            "median": 23.0,
+            "min": 0.0,
+            "n": 871,
+            "nonzero": 863
+          },
+          "selected": {
+            "max": 138.0,
+            "median": 107.0,
+            "min": 82.0,
+            "n": 871,
+            "nonzero": 871
+          },
+          "spread": {
+            "max": 47.0,
+            "median": 33.0,
+            "min": 12.0,
+            "n": 871,
+            "nonzero": 871
+          },
+          "spread_binding": {
+            "max": 1.0,
+            "median": 0.0,
+            "min": 0.0,
+            "n": 871,
+            "nonzero": 37
+          },
+          "spread_cc80_rank": {
+            "max": 89.0,
+            "median": 69.0,
+            "min": 39.0,
+            "n": 28755,
+            "nonzero": 28755
+          }
+        }
+      }
+    }
+  },
+  "pf3": {
+    "planted_early_label_rejected": true,
+    "selection_sha256_before_labels": "9eac50dda49a2c300d1ca6cba9e6c5f257420ffeadb2e6c5f526052d8351f535"
+  },
+  "pf4": {
+    "active": true,
+    "dispositions": {
+      "carries": true,
+      "control_failure": true,
+      "no_split": true,
+      "works": true
+    },
+    "real_exhausted_and_binding_alternatives": true
+  },
+  "pf5": {
+    "blind_keys": 871,
+    "candidate_content_identities": 1365
+  },
+  "pf6": {
+    "checks": 3484,
+    "expected": 3484
+  },
+  "pf7": {
+    "absorbing_pool_exhaustion": 1742,
+    "complete_state_updates": 80721,
+    "no_outside_pool": true,
+    "no_repeats": true
+  },
+  "pf8": {
+    "cannot_detect": "new-corpus or reader transfer",
+    "conversations": 4
+  },
+  "pf9": {
+    "residuals": [
+      "low redundancy is not evidence breadth",
+      "session count is not completeness",
+      "identity gains are not complete questions",
+      "availability is not use"
+    ]
+  },
+  "status": "PASS"
+}
