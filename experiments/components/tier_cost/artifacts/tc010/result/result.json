@@ -1,0 +1,283 @@
+{
+  "budget_passes": {
+    "16000": false,
+    "32000": false
+  },
+  "calls": {
+    "cache": 0,
+    "embedding": 0,
+    "llm_or_generative": 0,
+    "ranking": 0
+  },
+  "cells": {
+    "16000": {
+      "breadth": {
+        "baseline": 17,
+        "gains": 0,
+        "losses": 4,
+        "n": 44,
+        "net": -4,
+        "treatment": 13
+      },
+      "breadth_identity": {
+        "gains": 5,
+        "losses": 8,
+        "net_identities": -3
+      },
+      "combined": {
+        "baseline": 771,
+        "gains": 12,
+        "losses": 31,
+        "n": 868,
+        "net": -19,
+        "treatment": 752
+      },
+      "conversation_nets": {
+        "conv-41": -5,
+        "conv-42": -1,
+        "conv-47": -5,
+        "conv-48": -8
+      },
+      "other": {
+        "baseline": 88,
+        "gains": 5,
+        "losses": 7,
+        "n": 120,
+        "net": -2,
+        "treatment": 86
+      },
+      "targeted": {
+        "baseline": 666,
+        "gains": 7,
+        "losses": 20,
+        "n": 704,
+        "net": -13,
+        "treatment": 653
+      },
+      "versus_cc80_a3": {
+        "breadth": {
+          "baseline": 14,
+          "gains": 2,
+          "losses": 3,
+          "n": 44,
+          "net": -1,
+          "treatment": 13
+        },
+        "combined": {
+          "baseline": 757,
+          "gains": 23,
+          "losses": 28,
+          "n": 868,
+          "net": -5,
+          "treatment": 752
+        },
+        "other": {
+          "baseline": 90,
+          "gains": 5,
+          "losses": 9,
+          "n": 120,
+          "net": -4,
+          "treatment": 86
+        },
+        "targeted": {
+          "baseline": 653,
+          "gains": 16,
+          "losses": 16,
+          "n": 704,
+          "net": 0,
+          "treatment": 653
+        }
+      },
+      "versus_global_bottom": {
+        "breadth": {
+          "baseline": 8,
+          "gains": 5,
+          "losses": 0,
+          "n": 44,
+          "net": 5,
+          "treatment": 13
+        },
+        "combined": {
+          "baseline": 706,
+          "gains": 46,
+          "losses": 0,
+          "n": 868,
+          "net": 46,
+          "treatment": 752
+        },
+        "other": {
+          "baseline": 75,
+          "gains": 11,
+          "losses": 0,
+          "n": 120,
+          "net": 11,
+          "treatment": 86
+        },
+        "targeted": {
+          "baseline": 623,
+          "gains": 30,
+          "losses": 0,
+          "n": 704,
+          "net": 30,
+          "treatment": 653
+        }
+      }
+    },
+    "32000": {
+      "breadth": {
+        "baseline": 24,
+        "gains": 0,
+        "losses": 0,
+        "n": 44,
+        "net": 0,
+        "treatment": 24
+      },
+      "breadth_identity": {
+        "gains": 0,
+        "losses": 0,
+        "net_identities": 0
+      },
+      "combined": {
+        "baseline": 819,
+        "gains": 0,
+        "losses": 1,
+        "n": 868,
+        "net": -1,
+        "treatment": 818
+      },
+      "conversation_nets": {
+        "conv-41": -1,
+        "conv-42": 0,
+        "conv-47": 0,
+        "conv-48": 0
+      },
+      "other": {
+        "baseline": 106,
+        "gains": 0,
+        "losses": 0,
+        "n": 120,
+        "net": 0,
+        "treatment": 106
+      },
+      "targeted": {
+        "baseline": 689,
+        "gains": 0,
+        "losses": 1,
+        "n": 704,
+        "net": -1,
+        "treatment": 688
+      },
+      "versus_cc80_a3": {
+        "breadth": {
+          "baseline": 27,
+          "gains": 1,
+          "losses": 4,
+          "n": 44,
+          "net": -3,
+          "treatment": 24
+        },
+        "combined": {
+          "baseline": 818,
+          "gains": 11,
+          "losses": 11,
+          "n": 868,
+          "net": 0,
+          "treatment": 818
+        },
+        "other": {
+          "baseline": 105,
+          "gains": 5,
+          "losses": 4,
+          "n": 120,
+          "net": 1,
+          "treatment": 106
+        },
+        "targeted": {
+          "baseline": 686,
+          "gains": 5,
+          "losses": 3,
+          "n": 704,
+          "net": 2,
+          "treatment": 688
+        }
+      },
+      "versus_global_bottom": {
+        "breadth": {
+          "baseline": 17,
+          "gains": 7,
+          "losses": 0,
+          "n": 44,
+          "net": 7,
+          "treatment": 24
+        },
+        "combined": {
+          "baseline": 771,
+          "gains": 47,
+          "losses": 0,
+          "n": 868,
+          "net": 47,
+          "treatment": 818
+        },
+        "other": {
+          "baseline": 88,
+          "gains": 18,
+          "losses": 0,
+          "n": 120,
+          "net": 18,
+          "treatment": 106
+        },
+        "targeted": {
+          "baseline": 666,
+          "gains": 22,
+          "losses": 0,
+          "n": 704,
+          "net": 22,
+          "treatment": 688
+        }
+      }
+    }
+  },
+  "claim_boundary": "used LoCoMo development availability only; no reader, deployment, share or pool tuning authorized",
+  "clauses": {
+    "16000": {
+      "breadth_identity_positive": false,
+      "breadth_positive": false,
+      "combined_positive": false,
+      "conversation_consistent": false,
+      "targeted_nonnegative": false
+    },
+    "32000": {
+      "breadth_identity_positive": false,
+      "breadth_positive": false,
+      "combined_positive": false,
+      "conversation_consistent": false,
+      "targeted_nonnegative": false
+    }
+  },
+  "population": 868,
+  "qualified_beats_global_bottom": {
+    "16000": true,
+    "32000": true
+  },
+  "schema": "tc010-qualified-bottom-spread-v1",
+  "selection_sha256": "9eac50dda49a2c300d1ca6cba9e6c5f257420ffeadb2e6c5f526052d8351f535",
+  "status": "NO_SPLIT_SELECTED",
+  "totals": {
+    "cc80": {
+      "16000": 771,
+      "32000": 819
+    },
+    "cc80_a3": {
+      "16000": 757,
+      "32000": 818
+    },
+    "global_bottom": {
+      "16000": 706,
+      "32000": 771
+    },
+    "qualified": {
+      "16000": 752,
+      "32000": 818
+    }
+  }
+}
