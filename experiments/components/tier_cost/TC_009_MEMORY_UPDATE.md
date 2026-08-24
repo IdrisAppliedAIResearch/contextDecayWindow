@@ -53,3 +53,19 @@ then reproduced all 871 dense payloads and converged 1,365 standard plus
 LLM calls were zero. Grammatical subject is not a usable surrogate for section
 topic on this corpus; no TC-010 or reader work follows.
 The final repository suite after this probe is 2,238 passed.
+
+## Post-close normalized convex-fusion probe
+
+Fixed query-wise min-max 80/20 dense/BM25 fusion is `NO_POSITIVE_SIGNAL` under
+the joint rule, but it carries a semantic-arm signal. Dense/RRF/convex combined
+complete is 749/755/771 at 16k and 810/804/819 at 32k; targeted is
+643/657/666 and 680/682/689. Convex beats dense and RRF at both budgets and
+gains in all four conversations.
+
+It does not preserve breadth: dense/RRF/convex breadth is 16/13/17 at 16k but
+27/18/24 at 32k. The 32k convex contrast has one gain and four losses; all four
+losses are multi-carrier enumeration questions. Thus normalized score fusion is
+a better semantic ranker than RRF, not a full-context replacement. A future
+architecture would still need independently protected breadth. No coefficient,
+TC-010, deployment, or reader run is authorized.
+The final repository suite after this probe is 2,241 passed.
