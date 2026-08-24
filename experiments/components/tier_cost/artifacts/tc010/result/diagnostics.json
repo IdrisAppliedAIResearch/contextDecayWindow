@@ -1,0 +1,36 @@
+{
+  "16000": {
+    "breadth_identity_vs": {
+      "cc80": {"gains": 5, "losses": 8, "net": -3},
+      "cc80_a3": {"gains": 11, "losses": 7, "net": 4},
+      "global_bottom": {"gains": 22, "losses": 1, "net": 21}
+    },
+    "full_selected_median": 52,
+    "qualified_selected_median": 53,
+    "identical_sets": 0,
+    "set_symmetric_difference": {"min": 16, "median": 32, "max": 47},
+    "spread_in_full_median": 10,
+    "spread_outside_full_median": 16,
+    "pool_outside_full_median": 33,
+    "questions_with_any_spread_outside_full": 871,
+    "questions_with_any_pool_outside_full": 871
+  },
+  "32000": {
+    "breadth_identity_vs": {
+      "cc80": {"gains": 0, "losses": 0, "net": 0},
+      "cc80_a3": {"gains": 5, "losses": 6, "net": -1},
+      "global_bottom": {"gains": 21, "losses": 2, "net": 19}
+    },
+    "full_selected_median": 107,
+    "qualified_selected_median": 107,
+    "identical_sets": 765,
+    "set_symmetric_difference": {"min": 0, "median": 0, "max": 11},
+    "spread_in_full_median": 33,
+    "spread_outside_full_median": 0,
+    "pool_outside_full_median": 0,
+    "questions_with_any_spread_outside_full": 30,
+    "questions_with_any_pool_outside_full": 30
+  },
+  "status": "POST_RESULT_REGISTERED_MECHANISM_DIAGNOSTIC",
+  "claim_boundary": "Explains frozen selected-set behavior; does not change the registered disposition or authorize pool/share tuning."
+}

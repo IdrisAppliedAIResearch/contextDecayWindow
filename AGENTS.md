@@ -128,6 +128,8 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **TC-009 convex+A3 miss audit (2026-08-23).** POSTHOC. Misses are 111 at 16k, 50 at 32k; 61 are rescued and none regress. CC80 associates with 17/20 and 6/9 gains over dense. At 32k targeted misses are 18/18 zero-evidence; 31/32 non-targeted misses are partial. Multi-session misses 26/126 vs single-carrier 18/704. Tail lookup plus set completion remain; no architecture claim.
 
+**TC-010 qualified bottom spread (2026-08-23).** NO_SPLIT_SELECTED. CC80/qualified/global complete = 771/752/706 at 16k and 819/818/771 at 32k; breadth 17/13/8 and 24/24/17. At 16k diversity displaces evidence; at 32k sets are identical on 765/871 because the top-quarter pool already fits. Global bottom is harmful. CC80 fallback; no tuning/reader.
+
 **PS-001 pattern-separated engram formation (2026-08-11).** CHARACTERIZED. Nine deterministic sparse cells on 119 episodes; only D=4096,K=41 passed G3-G5: 119/119 fixed points and exact 1/10/30/50% swap recovery. Six of seven degenerates reached stored codes; the union-biased cue cycled. Code-space result only; no natural cue, retrieval, live run, promotion, or adoption.
 
 **PS-002 natural-language cue binding (2026-08-11).** STOP AT PART 1; NATURAL_CUES_NOT_BOUND, CHARACTERIZED. Nine label-blind cells ran 24 sealed queries x8 rounds. Best M=4,tau=.025 reached stored codes 190/192 but one cue cycled and one reached a spurious fixed point; no cell emitted 8 clean ids/query. Labels, PF1-PF10, answers, live run, promotion and adoption not entered.
