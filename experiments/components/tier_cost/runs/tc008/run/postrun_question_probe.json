@@ -1,0 +1,1071 @@
+{
+  "by_budget": {
+    "16000": {
+      "breadth_share_gains": 1,
+      "breadth_share_losses": 4,
+      "discordant_questions": 27,
+      "mechanism_reads": {
+        "shared_fixed_protection_cost": 9,
+        "source_session_grouping_loss_vs_a3": 15,
+        "source_session_unique_gain": 3
+      },
+      "targeted_complete_gains": 2,
+      "targeted_complete_losses": 16
+    },
+    "32000": {
+      "breadth_share_gains": 0,
+      "breadth_share_losses": 1,
+      "discordant_questions": 1,
+      "mechanism_reads": {
+        "shared_fixed_protection_cost": 1
+      },
+      "targeted_complete_gains": 0,
+      "targeted_complete_losses": 0
+    }
+  },
+  "diagnostics_sha256": "f97f90707381d9219810de5b5eca64b0f1453b53f9b4e0a4d170aa19f17fd284",
+  "questions": [
+    {
+      "a3_complete": true,
+      "a3_evidence_count": 3,
+      "added_evidence": [],
+      "budget": 16000,
+      "category": "1",
+      "control_complete": true,
+      "control_evidence_count": 3,
+      "control_only_candidates": 10,
+      "control_selected_sessions": 23,
+      "lost_evidence": [
+        {
+          "candidate_id": "b260e864e9aefad03ff81e54dfc93c1c9c6492bed9566e23cf8eabd94d078fb1",
+          "control_phase": "full_relevance",
+          "dense_rank": 31,
+          "selected_by_a3": true,
+          "session_id": "session_11",
+          "session_phase": null,
+          "session_spread_rank": 41
+        }
+      ],
+      "mechanism_read": "source_session_grouping_loss_vs_a3",
+      "population": "breadth",
+      "question": "What shelters does Maria volunteer at?",
+      "question_id": "c3e701757745a0d59758ddfdba3b30cee5f796e4f3cc76c680e828900aa4d92e",
+      "required_candidates": 3,
+      "required_sessions": [
+        "session_11",
+        "session_17",
+        "session_2"
+      ],
+      "sample_id": "conv-41",
+      "session_complete": false,
+      "session_evidence_count": 2,
+      "session_only_candidates": 9,
+      "session_selected_sessions": 31,
+      "source_index": 30
+    },
+    {
+      "a3_complete": false,
+      "a3_evidence_count": 3,
+      "added_evidence": [],
+      "budget": 16000,
+      "category": "1",
+      "control_complete": true,
+      "control_evidence_count": 4,
+      "control_only_candidates": 8,
+      "control_selected_sessions": 23,
+      "lost_evidence": [
+        {
+          "candidate_id": "605b7bb1809618baf49f5ca5f3834a69c70ab549b5c7b3913e369bbc04f802f7",
+          "control_phase": "full_relevance",
+          "dense_rank": 38,
+          "selected_by_a3": true,
+          "session_id": "session_29",
+          "session_phase": null,
+          "session_spread_rank": 47
+        },
+        {
+          "candidate_id": "e7e8f8f50a4ce2e5f2606cb4d5122716414ac496aad6b71524c3a92aff5016fe",
+          "control_phase": "full_relevance",
+          "dense_rank": 43,
+          "selected_by_a3": false,
+          "session_id": "session_6",
+          "session_phase": null,
+          "session_spread_rank": 52
+        }
+      ],
+      "mechanism_read": "source_session_grouping_loss_vs_a3",
+      "population": "breadth",
+      "question": "What causes has John done events for?",
+      "question_id": "62df22747c16d25cbd57d4bd3af9cc8f44183c952d735149636529e78ed7e8a8",
+      "required_candidates": 4,
+      "required_sessions": [
+        "session_29",
+        "session_3",
+        "session_6"
+      ],
+      "sample_id": "conv-41",
+      "session_complete": false,
+      "session_evidence_count": 2,
+      "session_only_candidates": 9,
+      "session_selected_sessions": 32,
+      "source_index": 57
+    },
+    {
+      "a3_complete": true,
+      "a3_evidence_count": 1,
+      "added_evidence": [],
+      "budget": 16000,
+      "category": "4",
+      "control_complete": true,
+      "control_evidence_count": 1,
+      "control_only_candidates": 11,
+      "control_selected_sessions": 23,
+      "lost_evidence": [
+        {
+          "candidate_id": "0fdd8704e0b813d5220317b8a761db1ff08d62e6aeff698e431d82a5e44ef3bd",
+          "control_phase": "full_relevance",
+          "dense_rank": 40,
+          "selected_by_a3": true,
+          "session_id": "session_9",
+          "session_phase": null,
+          "session_spread_rank": 51
+        }
+      ],
+      "mechanism_read": "source_session_grouping_loss_vs_a3",
+      "population": "targeted",
+      "question": "What did John receive a certificate for?",
+      "question_id": "270e24fc0edb6f8c11f9c46ddebe26dd4ab7a97aad9365370d8503926e4f7f9f",
+      "required_candidates": 1,
+      "required_sessions": [
+        "session_9"
+      ],
+      "sample_id": "conv-41",
+      "session_complete": false,
+      "session_evidence_count": 0,
+      "session_only_candidates": 10,
+      "session_selected_sessions": 32,
+      "source_index": 82
+    },
+    {
+      "a3_complete": false,
+      "a3_evidence_count": 0,
+      "added_evidence": [
+        {
+          "candidate_id": "6bba2badb55832d3ee89adfb46f2a366c7916365bbdded9b5a23f35e5cd4c93d",
+          "control_phase": null,
+          "dense_rank": 54,
+          "selected_by_a3": false,
+          "session_id": "session_10",
+          "session_phase": "protected_spread",
+          "session_spread_rank": 26
+        }
+      ],
+      "budget": 16000,
+      "category": "4",
+      "control_complete": false,
+      "control_evidence_count": 0,
+      "control_only_candidates": 13,
+      "control_selected_sessions": 21,
+      "lost_evidence": [],
+      "mechanism_read": "source_session_unique_gain",
+      "population": "targeted",
+      "question": "What event did John volunteer at last weekend?",
+      "question_id": "a94a6c814011f43ed0fe862ec77997bdf8f6a04b7141e24354b68cf1b4363fec",
+      "required_candidates": 1,
+      "required_sessions": [
+        "session_10"
+      ],
+      "sample_id": "conv-41",
+      "session_complete": true,
+      "session_evidence_count": 1,
+      "session_only_candidates": 13,
+      "session_selected_sessions": 31,
+      "source_index": 85
+    },
+    {
+      "a3_complete": false,
+      "a3_evidence_count": 0,
+      "added_evidence": [],
+      "budget": 16000,
+      "category": "4",
+      "control_complete": true,
+      "control_evidence_count": 1,
+      "control_only_candidates": 8,
+      "control_selected_sessions": 25,
+      "lost_evidence": [
+        {
+          "candidate_id": "fbed108dd2059f2f54076f121b7a8d7ef398eab9519990be99d7555f4f743bb4",
+          "control_phase": "full_relevance",
+          "dense_rank": 45,
+          "selected_by_a3": false,
+          "session_id": "session_22",
+          "session_phase": null,
+          "session_spread_rank": 53
+        }
+      ],
+      "mechanism_read": "shared_fixed_protection_cost",
+      "population": "targeted",
+      "question": "How often does John get to see sunsets like the one he shared with Maria?",
+      "question_id": "455a52ad1b469fbf334c134723110e97df123f0560d5ea33f3d78a8eb58d6f72",
+      "required_candidates": 1,
+      "required_sessions": [
+        "session_22"
+      ],
+      "sample_id": "conv-41",
+      "session_complete": false,
+      "session_evidence_count": 0,
+      "session_only_candidates": 8,
+      "session_selected_sessions": 32,
+      "source_index": 119
+    },
+    {
+      "a3_complete": true,
+      "a3_evidence_count": 1,
+      "added_evidence": [],
+      "budget": 16000,
+      "category": "4",
+      "control_complete": true,
+      "control_evidence_count": 1,
+      "control_only_candidates": 14,
+      "control_selected_sessions": 19,
+      "lost_evidence": [
+        {
+          "candidate_id": "e620b54f82220600d2a1b75acfd995a24b664922cf50c7a7f98bf311d689dfce",
+          "control_phase": "full_relevance",
+          "dense_rank": 30,
+          "selected_by_a3": true,
+          "session_id": "session_23",
+          "session_phase": null,
+          "session_spread_rank": 46
+        }
+      ],
+      "mechanism_read": "source_session_grouping_loss_vs_a3",
+      "population": "targeted",
+      "question": "What motivated Maria and John to discuss potential solutions for their community on 7 July, 2023?",
+      "question_id": "cf05ff64213e09272cd0e5b7cd6776c449f2965300d00f17a893e654f6319ff2",
+      "required_candidates": 1,
+      "required_sessions": [
+        "session_23"
+      ],
+      "sample_id": "conv-41",
+      "session_complete": false,
+      "session_evidence_count": 0,
+      "session_only_candidates": 14,
+      "session_selected_sessions": 32,
+      "source_index": 122
+    },
+    {
+      "a3_complete": false,
+      "a3_evidence_count": 0,
+      "added_evidence": [
+        {
+          "candidate_id": "31dca7f71a5a0b47d73273036dd6e78fcf8c489b3a3e3cbc37fb472ae59c7a03",
+          "control_phase": null,
+          "dense_rank": 65,
+          "selected_by_a3": false,
+          "session_id": "session_27",
+          "session_phase": "protected_spread",
+          "session_spread_rank": 25
+        }
+      ],
+      "budget": 16000,
+      "category": "4",
+      "control_complete": false,
+      "control_evidence_count": 0,
+      "control_only_candidates": 10,
+      "control_selected_sessions": 20,
+      "lost_evidence": [],
+      "mechanism_read": "source_session_unique_gain",
+      "population": "targeted",
+      "question": "What did John do the week before August 3, 2023 involving his kids?",
+      "question_id": "858b453cb8aa44d715378ad5072017facdd6c4385bcdabb84701c313be491391",
+      "required_candidates": 1,
+      "required_sessions": [
+        "session_27"
+      ],
+      "sample_id": "conv-41",
+      "session_complete": true,
+      "session_evidence_count": 1,
+      "session_only_candidates": 12,
+      "session_selected_sessions": 32,
+      "source_index": 133
+    },
+    {
+      "a3_complete": false,
+      "a3_evidence_count": 0,
+      "added_evidence": [],
+      "budget": 16000,
+      "category": "2",
+      "control_complete": true,
+      "control_evidence_count": 1,
+      "control_only_candidates": 11,
+      "control_selected_sessions": 18,
+      "lost_evidence": [
+        {
+          "candidate_id": "f1bd5211586c0f2c64761438cb7f4613d091e1591fd927612630053eb1ba0b7b",
+          "control_phase": "full_relevance",
+          "dense_rank": 42,
+          "selected_by_a3": false,
+          "session_id": "session_21",
+          "session_phase": null,
+          "session_spread_rank": 57
+        }
+      ],
+      "mechanism_read": "shared_fixed_protection_cost",
+      "population": "targeted",
+      "question": "When did Joanna make a desert with almond milk?",
+      "question_id": "52cc5d919bdffd019b5d2a6e48ea04b3f08657cc2efb2390e547e7588a55e591",
+      "required_candidates": 1,
+      "required_sessions": [
+        "session_21"
+      ],
+      "sample_id": "conv-42",
+      "session_complete": false,
+      "session_evidence_count": 0,
+      "session_only_candidates": 10,
+      "session_selected_sessions": 28,
+      "source_index": 38
+    },
+    {
+      "a3_complete": true,
+      "a3_evidence_count": 4,
+      "added_evidence": [],
+      "budget": 16000,
+      "category": "1",
+      "control_complete": true,
+      "control_evidence_count": 4,
+      "control_only_candidates": 9,
+      "control_selected_sessions": 22,
+      "lost_evidence": [
+        {
+          "candidate_id": "d17ca82872f355d44d5bd73f98fa48cc574ecca7c5625b6927832c84920b409b",
+          "control_phase": "full_relevance",
+          "dense_rank": 46,
+          "selected_by_a3": true,
+          "session_id": "session_3",
+          "session_phase": null,
+          "session_spread_rank": 60
+        }
+      ],
+      "mechanism_read": "source_session_grouping_loss_vs_a3",
+      "population": "other",
+      "question": "What are Nate's favorite desserts?",
+      "question_id": "195cfa723f63a3c2c8be971c057ed1b2ee706b9183aad19e1c4b3cc442496d32",
+      "required_candidates": 4,
+      "required_sessions": [
+        "session_21",
+        "session_3"
+      ],
+      "sample_id": "conv-42",
+      "session_complete": false,
+      "session_evidence_count": 3,
+      "session_only_candidates": 8,
+      "session_selected_sessions": 28,
+      "source_index": 75
+    },
+    {
+      "a3_complete": false,
+      "a3_evidence_count": 6,
+      "added_evidence": [],
+      "budget": 32000,
+      "category": "1",
+      "control_complete": false,
+      "control_evidence_count": 7,
+      "control_only_candidates": 3,
+      "control_selected_sessions": 27,
+      "lost_evidence": [
+        {
+          "candidate_id": "950431c965b11871fc238f6d6ec697d9cf40b7eb75540a1ec45141486b04b3c4",
+          "control_phase": "full_relevance",
+          "dense_rank": 111,
+          "selected_by_a3": false,
+          "session_id": "session_10",
+          "session_phase": null,
+          "session_spread_rank": 113
+        }
+      ],
+      "mechanism_read": "shared_fixed_protection_cost",
+      "population": "breadth",
+      "question": "What recipes has Joanna made?",
+      "question_id": "e8d5aa16ecb8323e9e87ee9d1e05ff19890b5c80fd9d011ac3cb7bb7eb167d4b",
+      "required_candidates": 9,
+      "required_sessions": [
+        "session_10",
+        "session_19",
+        "session_20",
+        "session_21",
+        "session_22"
+      ],
+      "sample_id": "conv-42",
+      "session_complete": false,
+      "session_evidence_count": 6,
+      "session_only_candidates": 3,
+      "session_selected_sessions": 29,
+      "source_index": 81
+    },
+    {
+      "a3_complete": false,
+      "a3_evidence_count": 0,
+      "added_evidence": [],
+      "budget": 16000,
+      "category": "4",
+      "control_complete": true,
+      "control_evidence_count": 1,
+      "control_only_candidates": 4,
+      "control_selected_sessions": 25,
+      "lost_evidence": [
+        {
+          "candidate_id": "6cc62064d11e8ea27b2230d2cddbab8cdc57d067a860723ba876e2db2c3d7b58",
+          "control_phase": "full_relevance",
+          "dense_rank": 49,
+          "selected_by_a3": false,
+          "session_id": "session_12",
+          "session_phase": null,
+          "session_spread_rank": 53
+        }
+      ],
+      "mechanism_read": "shared_fixed_protection_cost",
+      "population": "targeted",
+      "question": "What is Joanna's third screenplay about?",
+      "question_id": "8832212f6fa8c327c297d50f380df09b24548076ca57c151468113867ee5ab88",
+      "required_candidates": 1,
+      "required_sessions": [
+        "session_12"
+      ],
+      "sample_id": "conv-42",
+      "session_complete": false,
+      "session_evidence_count": 0,
+      "session_only_candidates": 4,
+      "session_selected_sessions": 29,
+      "source_index": 94
+    },
+    {
+      "a3_complete": true,
+      "a3_evidence_count": 1,
+      "added_evidence": [],
+      "budget": 16000,
+      "category": "4",
+      "control_complete": true,
+      "control_evidence_count": 1,
+      "control_only_candidates": 8,
+      "control_selected_sessions": 21,
+      "lost_evidence": [
+        {
+          "candidate_id": "07eba064a2b57100bafb68a4630a6b526877331426a19eb2a24f81e258443f66",
+          "control_phase": "full_relevance",
+          "dense_rank": 42,
+          "selected_by_a3": true,
+          "session_id": "session_18",
+          "session_phase": null,
+          "session_spread_rank": 51
+        }
+      ],
+      "mechanism_read": "source_session_grouping_loss_vs_a3",
+      "population": "targeted",
+      "question": "What kind of impact does Joanna hope to have with her writing?",
+      "question_id": "1ceb7c6bebd8a272be8fc25ede8bd86bdd51a41a39eb0937c51efffaa6828c7b",
+      "required_candidates": 1,
+      "required_sessions": [
+        "session_18"
+      ],
+      "sample_id": "conv-42",
+      "session_complete": false,
+      "session_evidence_count": 0,
+      "session_only_candidates": 9,
+      "session_selected_sessions": 29,
+      "source_index": 144
+    },
+    {
+      "a3_complete": false,
+      "a3_evidence_count": 0,
+      "added_evidence": [],
+      "budget": 16000,
+      "category": "4",
+      "control_complete": true,
+      "control_evidence_count": 1,
+      "control_only_candidates": 9,
+      "control_selected_sessions": 20,
+      "lost_evidence": [
+        {
+          "candidate_id": "ff11ec5607068bbdde5de480c5b9fb0d3234e3fce991ffc239d70626a637315e",
+          "control_phase": "full_relevance",
+          "dense_rank": 50,
+          "selected_by_a3": false,
+          "session_id": "session_23",
+          "session_phase": null,
+          "session_spread_rank": 59
+        }
+      ],
+      "mechanism_read": "shared_fixed_protection_cost",
+      "population": "targeted",
+      "question": "What game did Nate play at the game convention he attended on 9 October, 2022?",
+      "question_id": "a91bd67899cda568cb777c326475fdedd26ddb7a6c0a0bbd0a6d0380e1ceb33e",
+      "required_candidates": 1,
+      "required_sessions": [
+        "session_23"
+      ],
+      "sample_id": "conv-42",
+      "session_complete": false,
+      "session_evidence_count": 0,
+      "session_only_candidates": 9,
+      "session_selected_sessions": 29,
+      "source_index": 162
+    },
+    {
+      "a3_complete": false,
+      "a3_evidence_count": 0,
+      "added_evidence": [],
+      "budget": 16000,
+      "category": "4",
+      "control_complete": true,
+      "control_evidence_count": 1,
+      "control_only_candidates": 6,
+      "control_selected_sessions": 22,
+      "lost_evidence": [
+        {
+          "candidate_id": "08d998fa79d648abd7db8d1e659c9421e935a4ec7030e19fc593cc4489aa197e",
+          "control_phase": "full_relevance",
+          "dense_rank": 52,
+          "selected_by_a3": false,
+          "session_id": "session_23",
+          "session_phase": null,
+          "session_spread_rank": 59
+        }
+      ],
+      "mechanism_read": "shared_fixed_protection_cost",
+      "population": "targeted",
+      "question": "How did Joanna describe the classic movie he watched?",
+      "question_id": "bfc651639289cc458df8cb2b6b6bce5796f8033400fc382a46c0b0f55b8a8874",
+      "required_candidates": 1,
+      "required_sessions": [
+        "session_23"
+      ],
+      "sample_id": "conv-42",
+      "session_complete": false,
+      "session_evidence_count": 0,
+      "session_only_candidates": 7,
+      "session_selected_sessions": 29,
+      "source_index": 166
+    },
+    {
+      "a3_complete": true,
+      "a3_evidence_count": 1,
+      "added_evidence": [],
+      "budget": 16000,
+      "category": "4",
+      "control_complete": true,
+      "control_evidence_count": 1,
+      "control_only_candidates": 4,
+      "control_selected_sessions": 25,
+      "lost_evidence": [
+        {
+          "candidate_id": "15b36ca94b1126bfe6a4a1639ee99c3825a3bb9ea76cd71f93659f866f8c76a1",
+          "control_phase": "full_relevance",
+          "dense_rank": 47,
+          "selected_by_a3": true,
+          "session_id": "session_24",
+          "session_phase": null,
+          "session_spread_rank": 56
+        }
+      ],
+      "mechanism_read": "source_session_grouping_loss_vs_a3",
+      "population": "targeted",
+      "question": "What does Nate rely on for cheer and joy?",
+      "question_id": "a62cfe7e71c54f790be2c201aeea3b1ecb13f486371dce7f7f3a6075cdaed77d",
+      "required_candidates": 1,
+      "required_sessions": [
+        "session_24"
+      ],
+      "sample_id": "conv-42",
+      "session_complete": false,
+      "session_evidence_count": 0,
+      "session_only_candidates": 5,
+      "session_selected_sessions": 29,
+      "source_index": 174
+    },
+    {
+      "a3_complete": true,
+      "a3_evidence_count": 2,
+      "added_evidence": [],
+      "budget": 16000,
+      "category": "1",
+      "control_complete": true,
+      "control_evidence_count": 2,
+      "control_only_candidates": 12,
+      "control_selected_sessions": 21,
+      "lost_evidence": [
+        {
+          "candidate_id": "8ab12bf6a7df03ba1f49ccb19e5350a462ffeda0c60080b01dbdc61ad9d9d1e2",
+          "control_phase": "full_relevance",
+          "dense_rank": 44,
+          "selected_by_a3": true,
+          "session_id": "session_3",
+          "session_phase": null,
+          "session_spread_rank": 55
+        }
+      ],
+      "mechanism_read": "source_session_grouping_loss_vs_a3",
+      "population": "other",
+      "question": "What are John and James' favorite games?",
+      "question_id": "7c4bfb5e3709ca346f7d39ce50e991b1b950a57a3f32fbc58e2c2f88528a32e9",
+      "required_candidates": 2,
+      "required_sessions": [
+        "session_3",
+        "session_4"
+      ],
+      "sample_id": "conv-47",
+      "session_complete": false,
+      "session_evidence_count": 1,
+      "session_only_candidates": 10,
+      "session_selected_sessions": 30,
+      "source_index": 5
+    },
+    {
+      "a3_complete": false,
+      "a3_evidence_count": 0,
+      "added_evidence": [],
+      "budget": 16000,
+      "category": "2",
+      "control_complete": true,
+      "control_evidence_count": 1,
+      "control_only_candidates": 12,
+      "control_selected_sessions": 19,
+      "lost_evidence": [
+        {
+          "candidate_id": "c67f85a0a2b9d69aa1f8bee1c8fa2e8409e37e4c99d065cbc8b2c1b7c59eb839",
+          "control_phase": "full_relevance",
+          "dense_rank": 45,
+          "selected_by_a3": false,
+          "session_id": "session_8",
+          "session_phase": null,
+          "session_spread_rank": 57
+        }
+      ],
+      "mechanism_read": "shared_fixed_protection_cost",
+      "population": "targeted",
+      "question": "When did James start playing Civilization VI?",
+      "question_id": "13168332ee1c1bdf76e9723905af7a6fea17ff4354d31596284ad05e57f04b05",
+      "required_candidates": 1,
+      "required_sessions": [
+        "session_8"
+      ],
+      "sample_id": "conv-47",
+      "session_complete": false,
+      "session_evidence_count": 0,
+      "session_only_candidates": 13,
+      "session_selected_sessions": 30,
+      "source_index": 15
+    },
+    {
+      "a3_complete": true,
+      "a3_evidence_count": 1,
+      "added_evidence": [],
+      "budget": 16000,
+      "category": "2",
+      "control_complete": true,
+      "control_evidence_count": 1,
+      "control_only_candidates": 9,
+      "control_selected_sessions": 23,
+      "lost_evidence": [
+        {
+          "candidate_id": "16db15b7834d497dd33ef7632056630ef8583284442f21d60d9ab4a6f547a043",
+          "control_phase": "full_relevance",
+          "dense_rank": 27,
+          "selected_by_a3": true,
+          "session_id": "session_10",
+          "session_phase": null,
+          "session_spread_rank": 45
+        }
+      ],
+      "mechanism_read": "source_session_grouping_loss_vs_a3",
+      "population": "targeted",
+      "question": "When did John first organize a charity tournament with his friends?",
+      "question_id": "f4f17d364c506e51f53cc1b34baddf9f68f5ce394ec6eb140e0732b2ae2d77b7",
+      "required_candidates": 1,
+      "required_sessions": [
+        "session_10"
+      ],
+      "sample_id": "conv-47",
+      "session_complete": false,
+      "session_evidence_count": 0,
+      "session_only_candidates": 9,
+      "session_selected_sessions": 31,
+      "source_index": 21
+    },
+    {
+      "a3_complete": true,
+      "a3_evidence_count": 2,
+      "added_evidence": [],
+      "budget": 16000,
+      "category": "2",
+      "control_complete": true,
+      "control_evidence_count": 2,
+      "control_only_candidates": 11,
+      "control_selected_sessions": 17,
+      "lost_evidence": [
+        {
+          "candidate_id": "f867237ac96fd445550acd0b1d4516a69c787f6fd87872bd81621c352db423e7",
+          "control_phase": "full_relevance",
+          "dense_rank": 30,
+          "selected_by_a3": true,
+          "session_id": "session_27",
+          "session_phase": null,
+          "session_spread_rank": 43
+        }
+      ],
+      "mechanism_read": "source_session_grouping_loss_vs_a3",
+      "population": "other",
+      "question": "How long did it take for James to complete his Witcher-inspired game?",
+      "question_id": "bc288faac117b881b882d4d677101ad05be7b1e9e29a5d44b65bfc80b7179ca8",
+      "required_candidates": 2,
+      "required_sessions": [
+        "session_27",
+        "session_6"
+      ],
+      "sample_id": "conv-47",
+      "session_complete": false,
+      "session_evidence_count": 1,
+      "session_only_candidates": 12,
+      "session_selected_sessions": 29,
+      "source_index": 53
+    },
+    {
+      "a3_complete": true,
+      "a3_evidence_count": 1,
+      "added_evidence": [],
+      "budget": 16000,
+      "category": "2",
+      "control_complete": true,
+      "control_evidence_count": 1,
+      "control_only_candidates": 11,
+      "control_selected_sessions": 21,
+      "lost_evidence": [
+        {
+          "candidate_id": "44ec808ce8873f3ae29ec8e0f47df50a3035f2629cc0c8b07b36e407cc673b21",
+          "control_phase": "full_relevance",
+          "dense_rank": 30,
+          "selected_by_a3": true,
+          "session_id": "session_31",
+          "session_phase": null,
+          "session_spread_rank": 42
+        }
+      ],
+      "mechanism_read": "source_session_grouping_loss_vs_a3",
+      "population": "targeted",
+      "question": "When did John work with a game developer on a project?",
+      "question_id": "e4c73ecf8635f7cc0194f763d03b8e8586c3aac825c799d501edda55b376b0ac",
+      "required_candidates": 1,
+      "required_sessions": [
+        "session_31"
+      ],
+      "sample_id": "conv-47",
+      "session_complete": false,
+      "session_evidence_count": 0,
+      "session_only_candidates": 10,
+      "session_selected_sessions": 30,
+      "source_index": 66
+    },
+    {
+      "a3_complete": false,
+      "a3_evidence_count": 0,
+      "added_evidence": [],
+      "budget": 16000,
+      "category": "4",
+      "control_complete": true,
+      "control_evidence_count": 1,
+      "control_only_candidates": 12,
+      "control_selected_sessions": 19,
+      "lost_evidence": [
+        {
+          "candidate_id": "937cadc282d3c92f551acac51431ce52c637b5a4d5069c3b0541bbe0458e4957",
+          "control_phase": "full_relevance",
+          "dense_rank": 40,
+          "selected_by_a3": false,
+          "session_id": "session_19",
+          "session_phase": null,
+          "session_spread_rank": 53
+        }
+      ],
+      "mechanism_read": "shared_fixed_protection_cost",
+      "population": "targeted",
+      "question": "Which RPG game is John playing and enjoying on 10 August, 2022?",
+      "question_id": "52766dcb81a0294a61cfdcb3b05e9bdf00e7bcad6b6bf290c654ccd8881d85cd",
+      "required_candidates": 1,
+      "required_sessions": [
+        "session_19"
+      ],
+      "sample_id": "conv-47",
+      "session_complete": false,
+      "session_evidence_count": 0,
+      "session_only_candidates": 11,
+      "session_selected_sessions": 29,
+      "source_index": 111
+    },
+    {
+      "a3_complete": false,
+      "a3_evidence_count": 0,
+      "added_evidence": [],
+      "budget": 16000,
+      "category": "4",
+      "control_complete": true,
+      "control_evidence_count": 1,
+      "control_only_candidates": 11,
+      "control_selected_sessions": 21,
+      "lost_evidence": [
+        {
+          "candidate_id": "d7e26ab0f95fea418fa5cbfd954fb428c898afc6859b78f50b210f37ecc13fdf",
+          "control_phase": "full_relevance",
+          "dense_rank": 36,
+          "selected_by_a3": false,
+          "session_id": "session_26",
+          "session_phase": null,
+          "session_spread_rank": 48
+        }
+      ],
+      "mechanism_read": "shared_fixed_protection_cost",
+      "population": "targeted",
+      "question": "What does John feel about starting the journey as a programming mentor for game developers?",
+      "question_id": "5c4d966437cf2ad9434e1c5df6622897d26e8d81350390707429033c7d8f2d0a",
+      "required_candidates": 1,
+      "required_sessions": [
+        "session_26"
+      ],
+      "sample_id": "conv-47",
+      "session_complete": false,
+      "session_evidence_count": 0,
+      "session_only_candidates": 12,
+      "session_selected_sessions": 31,
+      "source_index": 136
+    },
+    {
+      "a3_complete": true,
+      "a3_evidence_count": 1,
+      "added_evidence": [],
+      "budget": 16000,
+      "category": "5",
+      "control_complete": true,
+      "control_evidence_count": 1,
+      "control_only_candidates": 16,
+      "control_selected_sessions": 20,
+      "lost_evidence": [
+        {
+          "candidate_id": "7e8da856afe064617e1fae8b7cfeb70fe4146a93d3b3719615497cec2d05d8f0",
+          "control_phase": "full_relevance",
+          "dense_rank": 29,
+          "selected_by_a3": true,
+          "session_id": "session_26",
+          "session_phase": null,
+          "session_spread_rank": 42
+        }
+      ],
+      "mechanism_read": "source_session_grouping_loss_vs_a3",
+      "population": "targeted",
+      "question": "What kind of gig was James offered at the game dev non-profit organization?",
+      "question_id": "af1d909a5fb8888fef4ea4ba02525bfacc1b6aede43626843e3ff102a724889f",
+      "required_candidates": 1,
+      "required_sessions": [
+        "session_26"
+      ],
+      "sample_id": "conv-47",
+      "session_complete": false,
+      "session_evidence_count": 0,
+      "session_only_candidates": 14,
+      "session_selected_sessions": 31,
+      "source_index": 179
+    },
+    {
+      "a3_complete": true,
+      "a3_evidence_count": 1,
+      "added_evidence": [],
+      "budget": 16000,
+      "category": "5",
+      "control_complete": true,
+      "control_evidence_count": 1,
+      "control_only_candidates": 8,
+      "control_selected_sessions": 20,
+      "lost_evidence": [
+        {
+          "candidate_id": "c1e54e1d0ab95b1f18b501ccb0fd91e22cc4fd02e22eda01c067102368f096b7",
+          "control_phase": "full_relevance",
+          "dense_rank": 38,
+          "selected_by_a3": true,
+          "session_id": "session_30",
+          "session_phase": null,
+          "session_spread_rank": 50
+        }
+      ],
+      "mechanism_read": "source_session_grouping_loss_vs_a3",
+      "population": "targeted",
+      "question": "What game is James hooked on playing on 5 November, 2022?",
+      "question_id": "d21a6525b2434693c68c3854c7bf3a375f21dee340ebdf4cf75ed5e17a382c1a",
+      "required_candidates": 1,
+      "required_sessions": [
+        "session_30"
+      ],
+      "sample_id": "conv-47",
+      "session_complete": false,
+      "session_evidence_count": 0,
+      "session_only_candidates": 10,
+      "session_selected_sessions": 29,
+      "source_index": 187
+    },
+    {
+      "a3_complete": false,
+      "a3_evidence_count": 3,
+      "added_evidence": [],
+      "budget": 16000,
+      "category": "1",
+      "control_complete": true,
+      "control_evidence_count": 4,
+      "control_only_candidates": 8,
+      "control_selected_sessions": 22,
+      "lost_evidence": [
+        {
+          "candidate_id": "f6e07fca0bfde57aeb97e452a47a920e3cff577684134351279479160741b4f0",
+          "control_phase": "full_relevance",
+          "dense_rank": 48,
+          "selected_by_a3": false,
+          "session_id": "session_15",
+          "session_phase": null,
+          "session_spread_rank": 56
+        }
+      ],
+      "mechanism_read": "shared_fixed_protection_cost",
+      "population": "breadth",
+      "question": "What helped Deborah find peace when grieving deaths of her loved ones?",
+      "question_id": "743bc5e2ed38c31921bbc1101abc923045def4c301018e55718f8fb66ad02839",
+      "required_candidates": 4,
+      "required_sessions": [
+        "session_1",
+        "session_15",
+        "session_2",
+        "session_6"
+      ],
+      "sample_id": "conv-48",
+      "session_complete": false,
+      "session_evidence_count": 3,
+      "session_only_candidates": 9,
+      "session_selected_sessions": 30,
+      "source_index": 8
+    },
+    {
+      "a3_complete": false,
+      "a3_evidence_count": 2,
+      "added_evidence": [
+        {
+          "candidate_id": "da892f31c4c8f38e3055a2cd017622a373225f193dc34d92232b8277872dbcd2",
+          "control_phase": null,
+          "dense_rank": 87,
+          "selected_by_a3": false,
+          "session_id": "session_24",
+          "session_phase": "protected_spread",
+          "session_spread_rank": 30
+        }
+      ],
+      "budget": 16000,
+      "category": "3",
+      "control_complete": false,
+      "control_evidence_count": 2,
+      "control_only_candidates": 4,
+      "control_selected_sessions": 26,
+      "lost_evidence": [],
+      "mechanism_read": "source_session_unique_gain",
+      "population": "breadth",
+      "question": "How old is Jolene?",
+      "question_id": "5ba11752ff6814243917467d37478f438aa7ad20cefc9a6e69d2af3429afced0",
+      "required_candidates": 10,
+      "required_sessions": [
+        "session_13",
+        "session_21",
+        "session_22",
+        "session_24",
+        "session_25",
+        "session_26",
+        "session_8"
+      ],
+      "sample_id": "conv-48",
+      "session_complete": false,
+      "session_evidence_count": 3,
+      "session_only_candidates": 6,
+      "session_selected_sessions": 30,
+      "source_index": 36
+    },
+    {
+      "a3_complete": true,
+      "a3_evidence_count": 2,
+      "added_evidence": [],
+      "budget": 16000,
+      "category": "1",
+      "control_complete": true,
+      "control_evidence_count": 2,
+      "control_only_candidates": 4,
+      "control_selected_sessions": 25,
+      "lost_evidence": [
+        {
+          "candidate_id": "f00211a6b6364113370c272e88ddb32fcffb876d03a45bb6ffad2236ec4d090b",
+          "control_phase": "full_relevance",
+          "dense_rank": 56,
+          "selected_by_a3": true,
+          "session_id": "session_27",
+          "session_phase": null,
+          "session_spread_rank": 62
+        }
+      ],
+      "mechanism_read": "source_session_grouping_loss_vs_a3",
+      "population": "other",
+      "question": "Where did Jolene and her partner find a cool diving spot?",
+      "question_id": "2058a0e59bdf775c7cf7fc3b58c37204932f014ce598d1a7ef9a1f93d4a2eb7d",
+      "required_candidates": 2,
+      "required_sessions": [
+        "session_27",
+        "session_29"
+      ],
+      "sample_id": "conv-48",
+      "session_complete": false,
+      "session_evidence_count": 1,
+      "session_only_candidates": 6,
+      "session_selected_sessions": 30,
+      "source_index": 77
+    },
+    {
+      "a3_complete": false,
+      "a3_evidence_count": 2,
+      "added_evidence": [],
+      "budget": 16000,
+      "category": "1",
+      "control_complete": false,
+      "control_evidence_count": 2,
+      "control_only_candidates": 3,
+      "control_selected_sessions": 27,
+      "lost_evidence": [
+        {
+          "candidate_id": "8669cc51113605215021d9fbe0bc924fe04d5a8c62a740834d58eeae7e9c3dc6",
+          "control_phase": "full_relevance",
+          "dense_rank": 66,
+          "selected_by_a3": true,
+          "session_id": "session_23",
+          "session_phase": null,
+          "session_spread_rank": 69
+        }
+      ],
+      "mechanism_read": "source_session_grouping_loss_vs_a3",
+      "population": "breadth",
+      "question": "What gifts has Deborah received?",
+      "question_id": "2b1e35b15bbd9a4e02bad807eec960e1e5609774a2683714b065fcfeeb375e18",
+      "required_candidates": 5,
+      "required_sessions": [
+        "session_2",
+        "session_23",
+        "session_4"
+      ],
+      "sample_id": "conv-48",
+      "session_complete": false,
+      "session_evidence_count": 1,
+      "session_only_candidates": 4,
+      "session_selected_sessions": 30,
+      "source_index": 86
+    }
+  ],
+  "schema": "tc008-postrun-question-probe-v1",
+  "status": "DESCRIPTIVE"
+}

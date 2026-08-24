@@ -1,0 +1,143 @@
+{
+  "contrasts": {
+    "bm25": {
+      "disposition": "DENSE_CARRIES_SIGNAL",
+      "guardrails": {
+        "16000": {
+          "band": 2,
+          "budget_chars": 16000,
+          "dense_complete": 749,
+          "dense_one_sided_p": 4.181405945079594e-18,
+          "gains": 41,
+          "losses": 160,
+          "n": 868,
+          "net": -119,
+          "population": "eligible",
+          "ties": 667,
+          "treatment": "bm25",
+          "treatment_complete": 630,
+          "treatment_one_sided_p": 1.0
+        },
+        "32000": {
+          "band": 0,
+          "budget_chars": 32000,
+          "dense_complete": 810,
+          "dense_one_sided_p": 3.7904647445005866e-26,
+          "gains": 18,
+          "losses": 145,
+          "n": 868,
+          "net": -127,
+          "population": "eligible",
+          "ties": 705,
+          "treatment": "bm25",
+          "treatment_complete": 683,
+          "treatment_one_sided_p": 1.0
+        }
+      },
+      "primary": {
+        "16000": {
+          "band": 2,
+          "budget_chars": 16000,
+          "dense_complete": 643,
+          "dense_one_sided_p": 4.054533202304758e-08,
+          "gains": 36,
+          "losses": 98,
+          "n": 704,
+          "net": -62,
+          "population": "targeted",
+          "ties": 570,
+          "treatment": "bm25",
+          "treatment_complete": 581,
+          "treatment_one_sided_p": 1.0
+        },
+        "8000": {
+          "band": 1,
+          "budget_chars": 8000,
+          "dense_complete": 593,
+          "dense_one_sided_p": 0.0020566492516737324,
+          "gains": 57,
+          "losses": 93,
+          "n": 704,
+          "net": -36,
+          "population": "targeted",
+          "ties": 554,
+          "treatment": "bm25",
+          "treatment_complete": 557,
+          "treatment_one_sided_p": 1.0
+        }
+      }
+    },
+    "hybrid": {
+      "disposition": "TREATMENT_CARRIES_SIGNAL",
+      "guardrails": {
+        "16000": {
+          "band": 2,
+          "budget_chars": 16000,
+          "dense_complete": 749,
+          "dense_one_sided_p": 1.0,
+          "gains": 45,
+          "losses": 39,
+          "n": 868,
+          "net": 6,
+          "population": "eligible",
+          "ties": 784,
+          "treatment": "hybrid",
+          "treatment_complete": 755,
+          "treatment_one_sided_p": 0.2928233973606123
+        },
+        "32000": {
+          "band": 0,
+          "budget_chars": 32000,
+          "dense_complete": 810,
+          "dense_one_sided_p": 0.22569041619806285,
+          "gains": 19,
+          "losses": 25,
+          "n": 868,
+          "net": -6,
+          "population": "eligible",
+          "ties": 824,
+          "treatment": "hybrid",
+          "treatment_complete": 804,
+          "treatment_one_sided_p": 1.0
+        }
+      },
+      "primary": {
+        "16000": {
+          "band": 2,
+          "budget_chars": 16000,
+          "dense_complete": 643,
+          "dense_one_sided_p": 1.0,
+          "gains": 36,
+          "losses": 22,
+          "n": 704,
+          "net": 14,
+          "population": "targeted",
+          "ties": 646,
+          "treatment": "hybrid",
+          "treatment_complete": 657,
+          "treatment_one_sided_p": 0.043474449864955494
+        },
+        "8000": {
+          "band": 1,
+          "budget_chars": 8000,
+          "dense_complete": 593,
+          "dense_one_sided_p": 1.0,
+          "gains": 58,
+          "losses": 27,
+          "n": 704,
+          "net": 31,
+          "population": "targeted",
+          "ties": 619,
+          "treatment": "hybrid",
+          "treatment_complete": 624,
+          "treatment_one_sided_p": 0.0005081104756739444
+        }
+      }
+    }
+  },
+  "selection": {
+    "reason": "FROZEN_DENSE_FALLBACK_NO_TREATMENT_WORKS",
+    "selected_arm": "dense",
+    "tc007_name": "A_DENSE"
+  }
+}

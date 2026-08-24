@@ -1,0 +1,281 @@
+{
+  "I1": "PASS",
+  "I2": "FAIL",
+  "I2_registered_reading": "floors make allocation independent of service order and leave it dependent on ownership order",
+  "budgets": {
+    "16000": {
+      "floors": {
+        "I1_service_order": {
+          "distinct_sets": {
+            "max": 1,
+            "mean": 1.0,
+            "min": 1,
+            "n": 871,
+            "p25": 1,
+            "p50": 1,
+            "p75": 1,
+            "zero": 0
+          },
+          "payload_invariant_questions": 871,
+          "questions": 871,
+          "set_invariant_questions": 871
+        },
+        "I2_ownership_order": {
+          "distinct_sets": {
+            "max": 6,
+            "mean": 4.692,
+            "min": 2,
+            "n": 871,
+            "p25": 4,
+            "p50": 5,
+            "p75": 5,
+            "zero": 0
+          },
+          "max_symmetric_difference": {
+            "max": 59,
+            "mean": 29.737,
+            "min": 3,
+            "n": 871,
+            "p25": 23,
+            "p50": 31,
+            "p75": 37,
+            "zero": 0
+          },
+          "questions": 871,
+          "questions_with_no_overlap": 0,
+          "set_invariant_questions": 0
+        },
+        "ownership_zero_floor_reference": {
+          "distinct_sets": {
+            "max": 2,
+            "mean": 1.013,
+            "min": 1,
+            "n": 871,
+            "p25": 1,
+            "p50": 1,
+            "p75": 1,
+            "zero": 0
+          },
+          "max_symmetric_difference": {
+            "max": 1,
+            "mean": 0.013,
+            "min": 0,
+            "n": 871,
+            "p25": 0,
+            "p50": 0,
+            "p75": 0,
+            "zero": 860
+          },
+          "questions": 871,
+          "questions_with_no_overlap": 0,
+          "set_invariant_questions": 860
+        }
+      },
+      "floors_dual": {
+        "I1_service_order": {
+          "distinct_sets": {
+            "max": 1,
+            "mean": 1.0,
+            "min": 1,
+            "n": 871,
+            "p25": 1,
+            "p50": 1,
+            "p75": 1,
+            "zero": 0
+          },
+          "payload_invariant_questions": 871,
+          "questions": 871,
+          "set_invariant_questions": 871
+        },
+        "I2_ownership_order": {
+          "distinct_sets": {
+            "max": 2,
+            "mean": 1.727,
+            "min": 1,
+            "n": 871,
+            "p25": 1,
+            "p50": 2,
+            "p75": 2,
+            "zero": 0
+          },
+          "max_symmetric_difference": {
+            "max": 52,
+            "mean": 18.959,
+            "min": 0,
+            "n": 871,
+            "p25": 0,
+            "p50": 23,
+            "p75": 31,
+            "zero": 238
+          },
+          "questions": 871,
+          "questions_with_no_overlap": 0,
+          "set_invariant_questions": 238
+        },
+        "ownership_zero_floor_reference": {
+          "distinct_sets": {
+            "max": 1,
+            "mean": 1.0,
+            "min": 1,
+            "n": 871,
+            "p25": 1,
+            "p50": 1,
+            "p75": 1,
+            "zero": 0
+          },
+          "max_symmetric_difference": {
+            "max": 0,
+            "mean": 0.0,
+            "min": 0,
+            "n": 871,
+            "p25": 0,
+            "p50": 0,
+            "p75": 0,
+            "zero": 871
+          },
+          "questions": 871,
+          "questions_with_no_overlap": 0,
+          "set_invariant_questions": 871
+        }
+      }
+    },
+    "32000": {
+      "floors": {
+        "I1_service_order": {
+          "distinct_sets": {
+            "max": 1,
+            "mean": 1.0,
+            "min": 1,
+            "n": 871,
+            "p25": 1,
+            "p50": 1,
+            "p75": 1,
+            "zero": 0
+          },
+          "payload_invariant_questions": 871,
+          "questions": 871,
+          "set_invariant_questions": 871
+        },
+        "I2_ownership_order": {
+          "distinct_sets": {
+            "max": 5,
+            "mean": 4.099,
+            "min": 1,
+            "n": 871,
+            "p25": 4,
+            "p50": 4,
+            "p75": 5,
+            "zero": 0
+          },
+          "max_symmetric_difference": {
+            "max": 75,
+            "mean": 31.296,
+            "min": 0,
+            "n": 871,
+            "p25": 10,
+            "p50": 33,
+            "p75": 49,
+            "zero": 10
+          },
+          "questions": 871,
+          "questions_with_no_overlap": 0,
+          "set_invariant_questions": 10
+        },
+        "ownership_zero_floor_reference": {
+          "distinct_sets": {
+            "max": 2,
+            "mean": 1.008,
+            "min": 1,
+            "n": 871,
+            "p25": 1,
+            "p50": 1,
+            "p75": 1,
+            "zero": 0
+          },
+          "max_symmetric_difference": {
+            "max": 4,
+            "mean": 0.017,
+            "min": 0,
+            "n": 871,
+            "p25": 0,
+            "p50": 0,
+            "p75": 0,
+            "zero": 864
+          },
+          "questions": 871,
+          "questions_with_no_overlap": 0,
+          "set_invariant_questions": 864
+        }
+      },
+      "floors_dual": {
+        "I1_service_order": {
+          "distinct_sets": {
+            "max": 1,
+            "mean": 1.0,
+            "min": 1,
+            "n": 871,
+            "p25": 1,
+            "p50": 1,
+            "p75": 1,
+            "zero": 0
+          },
+          "payload_invariant_questions": 871,
+          "questions": 871,
+          "set_invariant_questions": 871
+        },
+        "I2_ownership_order": {
+          "distinct_sets": {
+            "max": 2,
+            "mean": 1.401,
+            "min": 1,
+            "n": 871,
+            "p25": 1,
+            "p50": 1,
+            "p75": 2,
+            "zero": 0
+          },
+          "max_symmetric_difference": {
+            "max": 90,
+            "mean": 19.077,
+            "min": 0,
+            "n": 871,
+            "p25": 0,
+            "p50": 0,
+            "p75": 46,
+            "zero": 522
+          },
+          "questions": 871,
+          "questions_with_no_overlap": 0,
+          "set_invariant_questions": 522
+        },
+        "ownership_zero_floor_reference": {
+          "distinct_sets": {
+            "max": 1,
+            "mean": 1.0,
+            "min": 1,
+            "n": 871,
+            "p25": 1,
+            "p50": 1,
+            "p75": 1,
+            "zero": 0
+          },
+          "max_symmetric_difference": {
+            "max": 0,
+            "mean": 0.0,
+            "min": 0,
+            "n": 871,
+            "p25": 0,
+            "p50": 0,
+            "p75": 0,
+            "zero": 871
+          },
+          "questions": 871,
+          "questions_with_no_overlap": 0,
+          "set_invariant_questions": 871
+        }
+      }
+    }
+  },
+  "schema": "tc003-reserved-floors-v1",
+  "status": "PASS"
+}

@@ -1,0 +1,207 @@
+{
+  "contrasts": {
+    "a3": {
+      "cells": {
+        "16000": {
+          "breadth": {
+            "band": 0,
+            "budget_chars": 16000,
+            "control_complete": 16,
+            "control_one_sided_p": 0.125,
+            "gains": 0,
+            "losses": 3,
+            "n": 44,
+            "net": -3,
+            "population": "breadth",
+            "ties": 41,
+            "treatment": "a3",
+            "treatment_complete": 13,
+            "treatment_one_sided_p": 1.0
+          },
+          "combined": {
+            "band": 2,
+            "budget_chars": 16000,
+            "control_complete": 749,
+            "control_one_sided_p": 0.0106353759765625,
+            "gains": 3,
+            "losses": 13,
+            "n": 868,
+            "net": -10,
+            "population": "combined",
+            "ties": 852,
+            "treatment": "a3",
+            "treatment_complete": 739,
+            "treatment_one_sided_p": 0.9979095458984375
+          },
+          "targeted": {
+            "band": 2,
+            "budget_chars": 16000,
+            "control_complete": 643,
+            "control_one_sided_p": 0.0546875,
+            "gains": 2,
+            "losses": 8,
+            "n": 704,
+            "net": -6,
+            "population": "targeted",
+            "ties": 694,
+            "treatment": "a3",
+            "treatment_complete": 637,
+            "treatment_one_sided_p": 0.9892578125
+          }
+        },
+        "32000": {
+          "breadth": {
+            "band": 0,
+            "budget_chars": 32000,
+            "control_complete": 27,
+            "control_one_sided_p": 1.0,
+            "gains": 0,
+            "losses": 0,
+            "n": 44,
+            "net": 0,
+            "population": "breadth",
+            "ties": 44,
+            "treatment": "a3",
+            "treatment_complete": 27,
+            "treatment_one_sided_p": 1.0
+          },
+          "combined": {
+            "band": 0,
+            "budget_chars": 32000,
+            "control_complete": 810,
+            "control_one_sided_p": 0.890625,
+            "gains": 4,
+            "losses": 2,
+            "n": 868,
+            "net": 2,
+            "population": "combined",
+            "ties": 862,
+            "treatment": "a3",
+            "treatment_complete": 812,
+            "treatment_one_sided_p": 0.34375
+          },
+          "targeted": {
+            "band": 0,
+            "budget_chars": 32000,
+            "control_complete": 680,
+            "control_one_sided_p": 1.0,
+            "gains": 1,
+            "losses": 0,
+            "n": 704,
+            "net": 1,
+            "population": "targeted",
+            "ties": 703,
+            "treatment": "a3",
+            "treatment_complete": 681,
+            "treatment_one_sided_p": 0.5
+          }
+        }
+      },
+      "disposition": "MIXED_OR_NO_DIFFERENCE"
+    },
+    "facility": {
+      "cells": {
+        "16000": {
+          "breadth": {
+            "band": 0,
+            "budget_chars": 16000,
+            "control_complete": 16,
+            "control_one_sided_p": 0.01953125,
+            "gains": 1,
+            "losses": 8,
+            "n": 44,
+            "net": -7,
+            "population": "breadth",
+            "ties": 35,
+            "treatment": "facility",
+            "treatment_complete": 9,
+            "treatment_one_sided_p": 0.998046875
+          },
+          "combined": {
+            "band": 2,
+            "budget_chars": 16000,
+            "control_complete": 749,
+            "control_one_sided_p": 6.298371654951673e-13,
+            "gains": 7,
+            "losses": 64,
+            "n": 868,
+            "net": -57,
+            "population": "combined",
+            "ties": 797,
+            "treatment": "facility",
+            "treatment_complete": 692,
+            "treatment_one_sided_p": 0.9999999999999334
+          },
+          "targeted": {
+            "band": 2,
+            "budget_chars": 16000,
+            "control_complete": 643,
+            "control_one_sided_p": 7.569163074094831e-10,
+            "gains": 4,
+            "losses": 44,
+            "n": 704,
+            "net": -40,
+            "population": "targeted",
+            "ties": 656,
+            "treatment": "facility",
+            "treatment_complete": 603,
+            "treatment_one_sided_p": 0.9999999999343707
+          }
+        },
+        "32000": {
+          "breadth": {
+            "band": 0,
+            "budget_chars": 32000,
+            "control_complete": 27,
+            "control_one_sided_p": 0.01953125,
+            "gains": 1,
+            "losses": 8,
+            "n": 44,
+            "net": -7,
+            "population": "breadth",
+            "ties": 35,
+            "treatment": "facility",
+            "treatment_complete": 20,
+            "treatment_one_sided_p": 0.998046875
+          },
+          "combined": {
+            "band": 0,
+            "budget_chars": 32000,
+            "control_complete": 810,
+            "control_one_sided_p": 6.227257073054826e-07,
+            "gains": 10,
+            "losses": 46,
+            "n": 868,
+            "net": -36,
+            "population": "combined",
+            "ties": 812,
+            "treatment": "facility",
+            "treatment_complete": 774,
+            "treatment_one_sided_p": 0.9999998714213976
+          },
+          "targeted": {
+            "band": 0,
+            "budget_chars": 32000,
+            "control_complete": 680,
+            "control_one_sided_p": 5.842093378305435e-05,
+            "gains": 6,
+            "losses": 29,
+            "n": 704,
+            "net": -23,
+            "population": "targeted",
+            "ties": 669,
+            "treatment": "facility",
+            "treatment_complete": 657,
+            "treatment_one_sided_p": 0.9999888192396611
+          }
+        }
+      },
+      "disposition": "CONTROL_WORKS"
+    }
+  },
+  "selection": {
+    "disposition": "NO_SPLIT_SELECTED",
+    "reason": "NO_TREATMENT_WORKS",
+    "selected_arm": "control"
+  }
+}

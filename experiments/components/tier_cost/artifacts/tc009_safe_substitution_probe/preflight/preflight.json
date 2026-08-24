@@ -1,0 +1,390 @@
+{
+  "calls": {
+    "cache_misses": 0,
+    "embedding": 0,
+    "llm_or_generative": 0
+  },
+  "pf1": {
+    "blind_sha256": "83bcadb1e029e14514841b65bd903904fe53420a246bc0a59cad99afaa0671b3",
+    "feature": {
+      "cache_hits": 2236,
+      "cache_misses": 0,
+      "embedding_calls": 0,
+      "evidence_imported": false,
+      "llm_or_generative_calls": 0,
+      "rows": 871,
+      "sha256": "03faa2f020dae21ae57e79731548f0b5056f80825c67340168089474572a244e"
+    },
+    "frozen_sha256": "629bdfa1a7547b4bcf2df36c45628397d3f5b0c88c3d9b461dd2f9f48fe80900",
+    "labels_sha256": "680835bf63571b620e59930cff4aa897a2524cd093bbccdefe3be9b67735a742"
+  },
+  "pf10": {
+    "availability_only": true,
+    "reader_registered": false
+  },
+  "pf2": {
+    "identity": "accepted 32k dynamic-only versus dense-only candidates; selectors are not rerun",
+    "planted_trace_tested": true
+  },
+  "pf3": {
+    "feature_sha256_before_label_import": "03faa2f020dae21ae57e79731548f0b5056f80825c67340168089474572a244e",
+    "planted_early_import_rejected": true
+  },
+  "pf4": {
+    "bad": {
+      "average_precision": 0.030410301733939438,
+      "average_precision_lift": 0.6082060346787888,
+      "clauses": {
+        "ap_lift_at_least_3": false,
+        "discordant_auc_at_least_0_70": false,
+        "every_evaluable_conversation_above_0_50": false,
+        "finite": true,
+        "top20_at_least_2_gains": false
+      },
+      "conversation_auc": [
+        {
+          "auc": 0.0,
+          "gains": 2,
+          "losses": 5,
+          "sample_id": "c0"
+        },
+        {
+          "auc": 0.0,
+          "gains": 1,
+          "losses": 5,
+          "sample_id": "c1"
+        },
+        {
+          "auc": 0.0,
+          "gains": 1,
+          "losses": 5,
+          "sample_id": "c2"
+        },
+        {
+          "auc": 0.0,
+          "gains": 1,
+          "losses": 5,
+          "sample_id": "c3"
+        }
+      ],
+      "feature": "failure",
+      "gain_prevalence": 0.05,
+      "gain_vs_loss_auc": 0.0,
+      "passes": false,
+      "top20": [
+        {
+          "direction": "tie",
+          "question_id": "q099",
+          "sample_id": "c3",
+          "score": 99.0
+        },
+        {
+          "direction": "tie",
+          "question_id": "q098",
+          "sample_id": "c2",
+          "score": 98.0
+        },
+        {
+          "direction": "tie",
+          "question_id": "q097",
+          "sample_id": "c1",
+          "score": 97.0
+        },
+        {
+          "direction": "tie",
+          "question_id": "q096",
+          "sample_id": "c0",
+          "score": 96.0
+        },
+        {
+          "direction": "tie",
+          "question_id": "q095",
+          "sample_id": "c3",
+          "score": 95.0
+        },
+        {
+          "direction": "tie",
+          "question_id": "q094",
+          "sample_id": "c2",
+          "score": 94.0
+        },
+        {
+          "direction": "tie",
+          "question_id": "q093",
+          "sample_id": "c1",
+          "score": 93.0
+        },
+        {
+          "direction": "tie",
+          "question_id": "q092",
+          "sample_id": "c0",
+          "score": 92.0
+        },
+        {
+          "direction": "tie",
+          "question_id": "q091",
+          "sample_id": "c3",
+          "score": 91.0
+        },
+        {
+          "direction": "tie",
+          "question_id": "q090",
+          "sample_id": "c2",
+          "score": 90.0
+        },
+        {
+          "direction": "tie",
+          "question_id": "q089",
+          "sample_id": "c1",
+          "score": 89.0
+        },
+        {
+          "direction": "tie",
+          "question_id": "q088",
+          "sample_id": "c0",
+          "score": 88.0
+        },
+        {
+          "direction": "tie",
+          "question_id": "q087",
+          "sample_id": "c3",
+          "score": 87.0
+        },
+        {
+          "direction": "tie",
+          "question_id": "q086",
+          "sample_id": "c2",
+          "score": 86.0
+        },
+        {
+          "direction": "tie",
+          "question_id": "q085",
+          "sample_id": "c1",
+          "score": 85.0
+        },
+        {
+          "direction": "tie",
+          "question_id": "q084",
+          "sample_id": "c0",
+          "score": 84.0
+        },
+        {
+          "direction": "tie",
+          "question_id": "q083",
+          "sample_id": "c3",
+          "score": 83.0
+        },
+        {
+          "direction": "tie",
+          "question_id": "q082",
+          "sample_id": "c2",
+          "score": 82.0
+        },
+        {
+          "direction": "tie",
+          "question_id": "q081",
+          "sample_id": "c1",
+          "score": 81.0
+        },
+        {
+          "direction": "tie",
+          "question_id": "q080",
+          "sample_id": "c0",
+          "score": 80.0
+        }
+      ],
+      "top20_gains": 0
+    },
+    "good": {
+      "average_precision": 1.0,
+      "average_precision_lift": 20.0,
+      "clauses": {
+        "ap_lift_at_least_3": true,
+        "discordant_auc_at_least_0_70": true,
+        "every_evaluable_conversation_above_0_50": true,
+        "finite": true,
+        "top20_at_least_2_gains": true
+      },
+      "conversation_auc": [
+        {
+          "auc": 1.0,
+          "gains": 2,
+          "losses": 5,
+          "sample_id": "c0"
+        },
+        {
+          "auc": 1.0,
+          "gains": 1,
+          "losses": 5,
+          "sample_id": "c1"
+        },
+        {
+          "auc": 1.0,
+          "gains": 1,
+          "losses": 5,
+          "sample_id": "c2"
+        },
+        {
+          "auc": 1.0,
+          "gains": 1,
+          "losses": 5,
+          "sample_id": "c3"
+        }
+      ],
+      "feature": "passer",
+      "gain_prevalence": 0.05,
+      "gain_vs_loss_auc": 1.0,
+      "passes": true,
+      "top20": [
+        {
+          "direction": "gain",
+          "question_id": "q000",
+          "sample_id": "c0",
+          "score": 10.0
+        },
+        {
+          "direction": "gain",
+          "question_id": "q001",
+          "sample_id": "c1",
+          "score": 9.0
+        },
+        {
+          "direction": "gain",
+          "question_id": "q002",
+          "sample_id": "c2",
+          "score": 8.0
+        },
+        {
+          "direction": "gain",
+          "question_id": "q003",
+          "sample_id": "c3",
+          "score": 7.0
+        },
+        {
+          "direction": "gain",
+          "question_id": "q004",
+          "sample_id": "c0",
+          "score": 6.0
+        },
+        {
+          "direction": "loss",
+          "question_id": "q005",
+          "sample_id": "c1",
+          "score": -5.0
+        },
+        {
+          "direction": "loss",
+          "question_id": "q006",
+          "sample_id": "c2",
+          "score": -6.0
+        },
+        {
+          "direction": "loss",
+          "question_id": "q007",
+          "sample_id": "c3",
+          "score": -7.0
+        },
+        {
+          "direction": "loss",
+          "question_id": "q008",
+          "sample_id": "c0",
+          "score": -8.0
+        },
+        {
+          "direction": "loss",
+          "question_id": "q009",
+          "sample_id": "c1",
+          "score": -9.0
+        },
+        {
+          "direction": "loss",
+          "question_id": "q010",
+          "sample_id": "c2",
+          "score": -10.0
+        },
+        {
+          "direction": "loss",
+          "question_id": "q011",
+          "sample_id": "c3",
+          "score": -11.0
+        },
+        {
+          "direction": "loss",
+          "question_id": "q012",
+          "sample_id": "c0",
+          "score": -12.0
+        },
+        {
+          "direction": "loss",
+          "question_id": "q013",
+          "sample_id": "c1",
+          "score": -13.0
+        },
+        {
+          "direction": "loss",
+          "question_id": "q014",
+          "sample_id": "c2",
+          "score": -14.0
+        },
+        {
+          "direction": "loss",
+          "question_id": "q015",
+          "sample_id": "c3",
+          "score": -15.0
+        },
+        {
+          "direction": "loss",
+          "question_id": "q016",
+          "sample_id": "c0",
+          "score": -16.0
+        },
+        {
+          "direction": "loss",
+          "question_id": "q017",
+          "sample_id": "c1",
+          "score": -17.0
+        },
+        {
+          "direction": "loss",
+          "question_id": "q018",
+          "sample_id": "c2",
+          "score": -18.0
+        },
+        {
+          "direction": "loss",
+          "question_id": "q019",
+          "sample_id": "c3",
+          "score": -19.0
+        }
+      ],
+      "top20_gains": 5
+    },
+    "no_signal_reachable": true,
+    "signal_reachable": true
+  },
+  "pf5": {
+    "join": {
+      "content_identity_checks": 871,
+      "payload_identity_checks": 1742,
+      "rows": 868
+    }
+  },
+  "pf6": {
+    "expected": 1742,
+    "pass": true,
+    "payload_identity_checks": 1742
+  },
+  "pf7": {
+    "not_applicable": true,
+    "reason": "no feedback mechanism is run"
+  },
+  "pf8": {
+    "can_detect": "within-development direction reversal",
+    "cannot_detect": "new-corpus transfer",
+    "source_conversations": 4
+  },
+  "pf9": {
+    "residual": "signal may be exhausted-corpus artifact; no feature certifies safe substitution"
+  },
+  "status": "PASS"
+}

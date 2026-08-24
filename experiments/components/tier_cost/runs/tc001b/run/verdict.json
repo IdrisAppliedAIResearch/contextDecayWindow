@@ -1,0 +1,101 @@
+{
+  "C1": {
+    "alpha": 0.0025,
+    "band": 4,
+    "contrast": "C1",
+    "disposition": "D3",
+    "left": "dual",
+    "right": "flat",
+    "signal_alpha": 0.025,
+    "statistic": {
+      "discordant": 305,
+      "endpoint": "complete",
+      "gains": 14,
+      "left": "dual",
+      "left_hits": 472,
+      "losses": 291,
+      "n": 868,
+      "net": -277,
+      "p_left_one_sided": 1.0,
+      "p_right_one_sided": 8.229353381359814e-69,
+      "right": "flat",
+      "right_hits": 749,
+      "ties": 563
+    },
+    "verdict": "FLAT_WINS"
+  },
+  "C2": {
+    "alpha": 0.0025,
+    "band": 4,
+    "contrast": "C2",
+    "disposition": "D1",
+    "left": "dual",
+    "right": "tiered",
+    "signal_alpha": 0.025,
+    "statistic": {
+      "discordant": 278,
+      "endpoint": "complete",
+      "gains": 218,
+      "left": "dual",
+      "left_hits": 472,
+      "losses": 60,
+      "n": 868,
+      "net": 158,
+      "p_left_one_sided": 1.5391706347685444e-22,
+      "p_right_one_sided": 1.0,
+      "right": "tiered",
+      "right_hits": 314,
+      "ties": 590
+    },
+    "verdict": "DUAL_WINS"
+  },
+  "C3": {
+    "band": 4,
+    "contrast": "C3",
+    "disposition": "DESCRIPTIVE",
+    "left": "dual_ranked",
+    "reason": "PF4 found this contrast unreachable before the lock; see TC_001B_PRE_REGISTRATION.md section 7.1",
+    "right": "flat",
+    "statistic": {
+      "discordant": 3,
+      "endpoint": "complete",
+      "gains": 1,
+      "left": "dual_ranked",
+      "left_hits": 748,
+      "losses": 2,
+      "n": 868,
+      "net": -1,
+      "p_left_one_sided": 0.875,
+      "p_right_one_sided": 0.5,
+      "right": "flat",
+      "right_hits": 749,
+      "ties": 865
+    },
+    "verdict": "NO_BAR_REGISTERED"
+  },
+  "C4": {
+    "alpha": 0.0025,
+    "band": 4,
+    "contrast": "C4",
+    "disposition": "D1",
+    "left": "dual_ranked",
+    "right": "dual",
+    "signal_alpha": 0.025,
+    "statistic": {
+      "discordant": 302,
+      "endpoint": "complete",
+      "gains": 289,
+      "left": "dual_ranked",
+      "left_hits": 748,
+      "losses": 13,
+      "n": 868,
+      "net": 276,
+      "p_left_one_sided": 2.759588596818513e-69,
+      "p_right_one_sided": 1.0,
+      "right": "dual",
+      "right_hits": 472,
+      "ties": 566
+    },
+    "verdict": "RANKED_WINS"
+  }
+}

@@ -1,0 +1,175 @@
+{
+  "design_commit": "863d0a677943eb2990f5a912f26429dbba0df45c",
+  "elapsed_seconds": 1534.295,
+  "embedding_calls": 0,
+  "execution_commit": "656dced3540929ad3316583b4807d3762723c87b",
+  "inference_calls": 0,
+  "inputs": {
+    "cache_content_sha256": "e103b2933ee9ec7b8e9236f43037797618da524e413b83a9f3973a19d28b1b2a",
+    "cache_file_sha256": "2ba617018a1b043bf439bb50e756191d8141fb7ca01a2e4a68c9eb822eba26f8",
+    "dataset_sha256": "79fa87e90f04081343b8c8debecb80a9a6842b76a7aa537dc9fdf651ea698ff4",
+    "development_ids": [
+      "conv-41",
+      "conv-42",
+      "conv-47",
+      "conv-48"
+    ],
+    "embedder_sha256": "06507c7b42688469c4e7298b0a1e16deff06caf291cf0a5b278c308249c3e439"
+  },
+  "launch_command": "python scripts/run_tc003_study.py --phase g0",
+  "model_calls": 0,
+  "outcome": "PASS",
+  "parameters": {
+    "alpha": 0.0016666666666666668,
+    "arms": [
+      "flat",
+      "n_first",
+      "k_first",
+      "dual",
+      "dual_ranked",
+      "floors",
+      "floors_dual"
+    ],
+    "contrast_count": 6,
+    "drop_policy": "marginal_gain_order_skip_on_overflow",
+    "dual_config": {
+      "budget_accounting": "exact_serialized",
+      "candidate_policy": "full_store",
+      "embed_call_shape": "solo",
+      "embedder_sha256": "06507c7b42688469c4e7298b0a1e16deff06caf291cf0a5b278c308249c3e439",
+      "k_threshold": 0.48,
+      "recency_window_n": 0,
+      "seed": 5005,
+      "selector": "A3",
+      "selector_cluster_count": 16,
+      "selector_cost_exponent": 0.0,
+      "selector_lambda": 0.1,
+      "unsafe_cosine_top_n": 100
+    },
+    "isolating_contrast": "C5",
+    "no_bar": [
+      [
+        32000,
+        "C5"
+      ]
+    ],
+    "null_band_by_budget": {
+      "16000": 4,
+      "32000": 10
+    },
+    "ownership_default": [
+      "n",
+      "k",
+      "c"
+    ],
+    "parallel": 1,
+    "primary_budget_chars": 16000,
+    "primary_contrast": "C1",
+    "primary_endpoint": "complete",
+    "renderer": "post-DR-001 compact exact-cost renderer",
+    "secondary_budget_chars": 32000,
+    "secondary_endpoint": "any",
+    "seed": 5005,
+    "service_orders": [
+      [
+        "n",
+        "k",
+        "c"
+      ],
+      [
+        "n",
+        "c",
+        "k"
+      ],
+      [
+        "k",
+        "n",
+        "c"
+      ],
+      [
+        "k",
+        "c",
+        "n"
+      ],
+      [
+        "c",
+        "n",
+        "k"
+      ],
+      [
+        "c",
+        "k",
+        "n"
+      ]
+    ],
+    "shipped_config": {
+      "budget_accounting": "exact_serialized",
+      "candidate_policy": "full_store",
+      "embed_call_shape": "solo",
+      "embedder_sha256": "06507c7b42688469c4e7298b0a1e16deff06caf291cf0a5b278c308249c3e439",
+      "k_threshold": 0.48,
+      "recency_window_n": 32,
+      "seed": 5005,
+      "selector": "A3",
+      "selector_cluster_count": 16,
+      "selector_cost_exponent": 0.0,
+      "selector_lambda": 0.1,
+      "unsafe_cosine_top_n": 100
+    },
+    "signal_alpha": 0.016666666666666666,
+    "wrapper_delta_chars": 18,
+    "wrapper_matched_contrasts": [
+      "C3"
+    ]
+  },
+  "phase": "g0",
+  "registration": {
+    "checked": [
+      "alpha",
+      "arms",
+      "band_no_shrink",
+      "bands",
+      "family",
+      "headline",
+      "isolating",
+      "no_bar",
+      "ownership_bar",
+      "primary_budget",
+      "primary_endpoint",
+      "primary_population",
+      "secondary_budget",
+      "service_bar",
+      "signal_alpha",
+      "wrapper"
+    ],
+    "design_commit": "863d0a677943eb2990f5a912f26429dbba0df45c",
+    "pre_registration": "experiments/components/tier_cost/TC_003_PRE_REGISTRATION.md",
+    "pre_registration_sha256": "653cc575b5cc79145421dc45766059fdfb9871e17d2349ee97f92eecd36ecc60",
+    "status": "PASS"
+  },
+  "run_precondition": null,
+  "schema": "tc003-reserved-floors-v1",
+  "server_build_hash": "NOT_APPLICABLE_OFFLINE_ZERO_INFERENCE",
+  "source_worktree_clean": true,
+  "sources": {
+    "episodic/src/episodic/_context.py": "c817b3f303722cf08e0e111b26786160a1c8690c1bcfb71875554c849b7857e6",
+    "episodic/src/episodic/_packing.py": "c5011dada056fa0106544925c75d849c3d5b4857b6c5010ed4b604f9c3d2af04",
+    "episodic/src/episodic/_render.py": "d0bdc051695fe98064bad9ecc52afe0178bba1ba8a3edf7e3a1960d5f261cf6f",
+    "episodic/src/episodic/_selection.py": "990e7f84e7690c55350ff24bcc41e4486254c72145320da0bc08ae509e597265",
+    "experiments/components/tier_cost/TC_003_PRE_REGISTRATION.md": "653cc575b5cc79145421dc45766059fdfb9871e17d2349ee97f92eecd36ecc60",
+    "experiments/components/tier_cost/artifacts/tc003/preflight/tc003_preflight_part1.json": "6b7a7eef60289e6c2c35faa646aff4b7a3211355af0ecbb22ea08f90559777cf",
+    "experiments/components/tier_cost/artifacts/tc003/preflight/tc003_preflight_pf4_reachability.json": "01baec882056fa4d123c3e8d5bc2bea1d6908f4de40ea4e294bb67804101ae92",
+    "src/analysis/ec002_k_first_packing.py": "bd0c8e6a343ad385a37dffc43068b19f9055531d25031540e1bc44af48ec6afc",
+    "src/analysis/hh002_arms.py": "ace66598f8bb09e76e207060b7c1efdbfbdf6637f408c0e24ce840452a75ecb9",
+    "src/analysis/locomo_nf_development.py": "27125a156cdf968ae5e9d0fe577609a1f3bb8283eeaab15820a618f9a23bd98f",
+    "src/analysis/tc001_exploration.py": "83d59ca3121bcc117d5003d3c3bf5cbaf05657658fd2c144ffa737ba2f1c019f",
+    "src/analysis/tc001_study.py": "fbc7dfeb7e1a344a2b1b9859d3364fdf891a1a26aa7e0f38b0ce5b0acf63ef7d",
+    "src/analysis/tc001b_exploration.py": "8d5085d22c953fab1bc3e495345d1268b56d60752383cf9b5e06979f8f829e68",
+    "src/analysis/tc002_exploration.py": "9f374c201249eea7ab632f1cf7c5865cba3c0fb29b4dc7d05adae0c94072b574",
+    "src/analysis/tc003_exploration.py": "6282463b2828df7200fea0b1f2f45c9bd684ea9b8b2cd9cdff7c218df65ec8c3",
+    "src/analysis/tc003_reachability.py": "8ce868f7853bcc28cd6be1d1060a8ae771b7a4939cf220ff26071955362f4c8c",
+    "src/analysis/tc003_study.py": "be466a6e7a99662d366cbde76e725cbc7fafe6126f5f5cc53a66edf6fb995397",
+    "src/analysis/tc_standing_arms.py": "a7b51d16aa3e9e70942efb77193c6f6ee6af1ba25e0b38c99d3f654500843999"
+  },
+  "study": "TC-003"
+}

@@ -1,0 +1,159 @@
+{
+  "calls": {
+    "cache_hits": 2236,
+    "cache_misses": 0,
+    "embedding": 0,
+    "llm_or_generative": 0
+  },
+  "pf1": {
+    "blind_sha256": "83bcadb1e029e14514841b65bd903904fe53420a246bc0a59cad99afaa0671b3",
+    "convex_selection_sha256": "17e88abdc88547ec8abd96fb09ce8ae8e3f04c605d0081eed5f8cf837e2ad202",
+    "dataset_sha256": "79fa87e90f04081343b8c8debecb80a9a6842b76a7aa537dc9fdf651ea698ff4",
+    "labels_sha256": "af8af14b52828ff9e3bd3f061d7ad77ef19fa4cd5e2fcb1b44881343567425ec",
+    "selection_sha256": "916632ff25c22c03e8bcc06d18592555eed30e3ffbf656903587e6052ca7a376",
+    "tc007_sha256": "660ae5531277030a3c806668135415971a9038c17bb4737cbd7f69b315c626a3"
+  },
+  "pf10": {
+    "availability_only": true,
+    "reader_authorized": false
+  },
+  "pf2": {
+    "identity": "50% relevance solo allowance plus 50% A3 solo allowance, dedup, then relevance-only slack return",
+    "metrics": {
+      "16000": {
+        "chars": {
+          "max": 16000.0,
+          "median": 15976.0,
+          "min": 15878.0,
+          "n": 871,
+          "nonzero": 871
+        },
+        "initial": {
+          "max": 41.0,
+          "median": 25.0,
+          "min": 18.0,
+          "n": 871,
+          "nonzero": 871
+        },
+        "returned": {
+          "max": 2.0,
+          "median": 1.0,
+          "min": 0.0,
+          "n": 871,
+          "nonzero": 622
+        },
+        "selected": {
+          "max": 79.0,
+          "median": 54.0,
+          "min": 40.0,
+          "n": 871,
+          "nonzero": 871
+        },
+        "spread": {
+          "max": 39.0,
+          "median": 28.0,
+          "min": 19.0,
+          "n": 871,
+          "nonzero": 871
+        },
+        "sym_dense": {
+          "max": 28.0,
+          "median": 13.0,
+          "min": 4.0,
+          "n": 871,
+          "nonzero": 871
+        },
+        "sym_dense_a3": {
+          "max": 15.0,
+          "median": 4.0,
+          "min": 0.0,
+          "n": 871,
+          "nonzero": 685
+        }
+      },
+      "32000": {
+        "chars": {
+          "max": 32000.0,
+          "median": 31978.0,
+          "min": 31857.0,
+          "n": 871,
+          "nonzero": 871
+        },
+        "initial": {
+          "max": 75.0,
+          "median": 52.0,
+          "min": 38.0,
+          "n": 871,
+          "nonzero": 871
+        },
+        "returned": {
+          "max": 1.0,
+          "median": 1.0,
+          "min": 0.0,
+          "n": 871,
+          "nonzero": 641
+        },
+        "selected": {
+          "max": 142.0,
+          "median": 111.0,
+          "min": 84.0,
+          "n": 871,
+          "nonzero": 871
+        },
+        "spread": {
+          "max": 73.0,
+          "median": 57.0,
+          "min": 42.0,
+          "n": 871,
+          "nonzero": 871
+        },
+        "sym_dense": {
+          "max": 28.0,
+          "median": 9.0,
+          "min": 0.0,
+          "n": 871,
+          "nonzero": 870
+        },
+        "sym_dense_a3": {
+          "max": 23.0,
+          "median": 3.0,
+          "min": 0.0,
+          "n": 871,
+          "nonzero": 601
+        }
+      }
+    }
+  },
+  "pf3": {
+    "planted_early_label_rejected": true,
+    "selection_sha256_before_label_import": "916632ff25c22c03e8bcc06d18592555eed30e3ffbf656903587e6052ca7a376"
+  },
+  "pf4": {
+    "negative_reachable": true,
+    "positive_reachable": true
+  },
+  "pf5": {
+    "blind_keys": 871,
+    "pair_content_identities": 1365
+  },
+  "pf6": {
+    "checks": 6968,
+    "expected": 6968,
+    "selection_sha256_before_label_import": "916632ff25c22c03e8bcc06d18592555eed30e3ffbf656903587e6052ca7a376"
+  },
+  "pf7": {
+    "not_applicable": true
+  },
+  "pf8": {
+    "cannot_detect": "new-corpus transfer",
+    "conversations": 4
+  },
+  "pf9": {
+    "residuals": [
+      "A3 count is not answer breadth",
+      "phase balance is not evidence balance",
+      "availability is not reader use"
+    ]
+  },
+  "status": "PASS"
+}

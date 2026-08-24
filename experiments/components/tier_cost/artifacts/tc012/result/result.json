@@ -1,0 +1,306 @@
+{
+  "calls": {
+    "embedding": 0,
+    "llm_or_generative": 0
+  },
+  "claim_boundary": "used LoCoMo development availability; residual exact-facet binder limited in Part 1",
+  "dynamic_prompt_vs_cc80": {
+    "16000": {
+      "breadth": {
+        "baseline": 17,
+        "gains": 0,
+        "losses": 9,
+        "n": 44,
+        "net": -9,
+        "treatment": 8
+      },
+      "breadth_identity": {
+        "gains": 5,
+        "losses": 20,
+        "net_identities": -15
+      },
+      "combined": {
+        "baseline": 771,
+        "gains": 3,
+        "losses": 54,
+        "n": 868,
+        "net": -51,
+        "treatment": 720
+      },
+      "conversation_nets": {
+        "conv-41": -9,
+        "conv-42": -9,
+        "conv-47": -16,
+        "conv-48": -17
+      },
+      "other": {
+        "baseline": 88,
+        "gains": 1,
+        "losses": 12,
+        "n": 120,
+        "net": -11,
+        "treatment": 77
+      },
+      "targeted": {
+        "baseline": 666,
+        "gains": 2,
+        "losses": 33,
+        "n": 704,
+        "net": -31,
+        "treatment": 635
+      }
+    },
+    "32000": {
+      "breadth": {
+        "baseline": 24,
+        "gains": 3,
+        "losses": 7,
+        "n": 44,
+        "net": -4,
+        "treatment": 20
+      },
+      "breadth_identity": {
+        "gains": 7,
+        "losses": 16,
+        "net_identities": -9
+      },
+      "combined": {
+        "baseline": 819,
+        "gains": 7,
+        "losses": 39,
+        "n": 868,
+        "net": -32,
+        "treatment": 787
+      },
+      "conversation_nets": {
+        "conv-41": -5,
+        "conv-42": -12,
+        "conv-47": -11,
+        "conv-48": -4
+      },
+      "other": {
+        "baseline": 106,
+        "gains": 3,
+        "losses": 13,
+        "n": 120,
+        "net": -10,
+        "treatment": 96
+      },
+      "targeted": {
+        "baseline": 689,
+        "gains": 1,
+        "losses": 19,
+        "n": 704,
+        "net": -18,
+        "treatment": 671
+      }
+    }
+  },
+  "dynamic_prompt_vs_static": {
+    "16000": {
+      "breadth": {
+        "baseline": 15,
+        "gains": 0,
+        "losses": 7,
+        "n": 44,
+        "net": -7,
+        "treatment": 8
+      },
+      "breadth_identity": {
+        "gains": 4,
+        "losses": 14,
+        "net_identities": -10
+      },
+      "combined": {
+        "baseline": 749,
+        "gains": 2,
+        "losses": 31,
+        "n": 868,
+        "net": -29,
+        "treatment": 720
+      },
+      "conversation_nets": {
+        "conv-41": -5,
+        "conv-42": -7,
+        "conv-47": -8,
+        "conv-48": -9
+      },
+      "other": {
+        "baseline": 89,
+        "gains": 0,
+        "losses": 12,
+        "n": 120,
+        "net": -12,
+        "treatment": 77
+      },
+      "targeted": {
+        "baseline": 645,
+        "gains": 2,
+        "losses": 12,
+        "n": 704,
+        "net": -10,
+        "treatment": 635
+      }
+    },
+    "32000": {
+      "breadth": {
+        "baseline": 23,
+        "gains": 0,
+        "losses": 3,
+        "n": 44,
+        "net": -3,
+        "treatment": 20
+      },
+      "breadth_identity": {
+        "gains": 1,
+        "losses": 9,
+        "net_identities": -8
+      },
+      "combined": {
+        "baseline": 810,
+        "gains": 3,
+        "losses": 26,
+        "n": 868,
+        "net": -23,
+        "treatment": 787
+      },
+      "conversation_nets": {
+        "conv-41": -3,
+        "conv-42": -10,
+        "conv-47": -4,
+        "conv-48": -6
+      },
+      "other": {
+        "baseline": 107,
+        "gains": 2,
+        "losses": 13,
+        "n": 120,
+        "net": -11,
+        "treatment": 96
+      },
+      "targeted": {
+        "baseline": 680,
+        "gains": 1,
+        "losses": 10,
+        "n": 704,
+        "net": -9,
+        "treatment": 671
+      }
+    }
+  },
+  "population": 868,
+  "residual_status": "RESIDUAL_BINDER_LIMITED",
+  "residual_vs_cc80": {
+    "16000": {
+      "breadth": {
+        "baseline": 17,
+        "gains": 2,
+        "losses": 4,
+        "n": 44,
+        "net": -2,
+        "treatment": 15
+      },
+      "breadth_identity": {
+        "gains": 5,
+        "losses": 10,
+        "net_identities": -5
+      },
+      "combined": {
+        "baseline": 771,
+        "gains": 13,
+        "losses": 31,
+        "n": 868,
+        "net": -18,
+        "treatment": 753
+      },
+      "conversation_nets": {
+        "conv-41": -3,
+        "conv-42": -2,
+        "conv-47": -6,
+        "conv-48": -7
+      },
+      "other": {
+        "baseline": 88,
+        "gains": 5,
+        "losses": 4,
+        "n": 120,
+        "net": 1,
+        "treatment": 89
+      },
+      "targeted": {
+        "baseline": 666,
+        "gains": 6,
+        "losses": 23,
+        "n": 704,
+        "net": -17,
+        "treatment": 649
+      }
+    },
+    "32000": {
+      "breadth": {
+        "baseline": 24,
+        "gains": 4,
+        "losses": 5,
+        "n": 44,
+        "net": -1,
+        "treatment": 23
+      },
+      "breadth_identity": {
+        "gains": 10,
+        "losses": 11,
+        "net_identities": -1
+      },
+      "combined": {
+        "baseline": 819,
+        "gains": 16,
+        "losses": 25,
+        "n": 868,
+        "net": -9,
+        "treatment": 810
+      },
+      "conversation_nets": {
+        "conv-41": -3,
+        "conv-42": -2,
+        "conv-47": -6,
+        "conv-48": 2
+      },
+      "other": {
+        "baseline": 106,
+        "gains": 6,
+        "losses": 6,
+        "n": 120,
+        "net": 0,
+        "treatment": 106
+      },
+      "targeted": {
+        "baseline": 689,
+        "gains": 6,
+        "losses": 14,
+        "n": 704,
+        "net": -8,
+        "treatment": 681
+      }
+    }
+  },
+  "schema": "tc012-dynamic-aspect-v1",
+  "selection_sha256": "0409bb83f82413b4d28f369ed6507d3f2165f6ac22593a1c2a217b6b8a77d7c0",
+  "status": "NO_DYNAMIC_PROMPT_SIGNAL",
+  "totals": {
+    "aspect_static": {
+      "16000": 749,
+      "32000": 810
+    },
+    "cc80": {
+      "16000": 771,
+      "32000": 819
+    },
+    "dynamic_prompt": {
+      "16000": 720,
+      "32000": 787
+    },
+    "residual_aspect": {
+      "16000": 753,
+      "32000": 810
+    }
+  }
+}

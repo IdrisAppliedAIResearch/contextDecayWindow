@@ -1,0 +1,484 @@
+{
+  "behavioural_identity": "A_SESSION uses the carried A3 greedy objective max(float32 dense cosine,0) + 0.1 once for each previously unrepresented source session; TC-007 then solo-fills dense and session spread to equal allowances, deduplicates actual admissions, renders once, and returns slack to dense.",
+  "controls": {
+    "lambda_zero_unit_test": "PASS",
+    "one_session_single_bonus_unit_test": "PASS",
+    "real_trace_changed_vs_a3": {
+      "16000": 871,
+      "32000": 871
+    },
+    "session_bonus_changes_order_unit_test": "PASS"
+  },
+  "dense_shams": {
+    "16000": {
+      "bands": {
+        "breadth_complete": 0,
+        "breadth_share_identities": 0,
+        "breadth_share_questions": 0,
+        "combined_complete": 2,
+        "targeted_complete": 2
+      },
+      "variants": {
+        "+0.01": {
+          "breadth_share": {
+            "identity_gains": 0,
+            "identity_losses": 0,
+            "identity_net": 0,
+            "question_gains": 0,
+            "question_losses": 0,
+            "question_net": 0
+          },
+          "budget": 16160,
+          "complete": {
+            "breadth": {
+              "gains": 0,
+              "losses": 0,
+              "net": 0
+            },
+            "combined": {
+              "gains": 1,
+              "losses": 0,
+              "net": 1
+            },
+            "targeted": {
+              "gains": 0,
+              "losses": 0,
+              "net": 0
+            }
+          }
+        },
+        "-0.01": {
+          "breadth_share": {
+            "identity_gains": 0,
+            "identity_losses": 0,
+            "identity_net": 0,
+            "question_gains": 0,
+            "question_losses": 0,
+            "question_net": 0
+          },
+          "budget": 15840,
+          "complete": {
+            "breadth": {
+              "gains": 0,
+              "losses": 0,
+              "net": 0
+            },
+            "combined": {
+              "gains": 1,
+              "losses": 3,
+              "net": -2
+            },
+            "targeted": {
+              "gains": 1,
+              "losses": 3,
+              "net": -2
+            }
+          }
+        }
+      }
+    },
+    "32000": {
+      "bands": {
+        "breadth_complete": 0,
+        "breadth_share_identities": 0,
+        "breadth_share_questions": 0,
+        "combined_complete": 1,
+        "targeted_complete": 0
+      },
+      "variants": {
+        "+0.01": {
+          "breadth_share": {
+            "identity_gains": 0,
+            "identity_losses": 0,
+            "identity_net": 0,
+            "question_gains": 0,
+            "question_losses": 0,
+            "question_net": 0
+          },
+          "budget": 32320,
+          "complete": {
+            "breadth": {
+              "gains": 0,
+              "losses": 0,
+              "net": 0
+            },
+            "combined": {
+              "gains": 1,
+              "losses": 0,
+              "net": 1
+            },
+            "targeted": {
+              "gains": 0,
+              "losses": 0,
+              "net": 0
+            }
+          }
+        },
+        "-0.01": {
+          "breadth_share": {
+            "identity_gains": 0,
+            "identity_losses": 0,
+            "identity_net": 0,
+            "question_gains": 0,
+            "question_losses": 0,
+            "question_net": 0
+          },
+          "budget": 31680,
+          "complete": {
+            "breadth": {
+              "gains": 0,
+              "losses": 0,
+              "net": 0
+            },
+            "combined": {
+              "gains": 0,
+              "losses": 0,
+              "net": 0
+            },
+            "targeted": {
+              "gains": 0,
+              "losses": 0,
+              "net": 0
+            }
+          }
+        }
+      }
+    }
+  },
+  "elapsed_seconds": 296.926,
+  "frozen_candidate_parameters": {
+    "budgets": [
+      16000,
+      32000
+    ],
+    "cost_exponent": 0.0,
+    "group": "source_session_id",
+    "lambda": 0.1,
+    "share": 0.5
+  },
+  "inputs": {
+    "cache": {
+      "bytes": 10821632,
+      "path": "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\external\\locomo\\artifacts\\locomo_dev_embeddings.db",
+      "sha256": "2ba617018a1b043bf439bb50e756191d8141fb7ca01a2e4a68c9eb822eba26f8"
+    },
+    "corpus": {
+      "bytes": 2805274,
+      "path": "C:\\Users\\muzaf\\Downloads\\locomo10.json",
+      "sha256": "79fa87e90f04081343b8c8debecb80a9a6842b76a7aa537dc9fdf651ea698ff4"
+    },
+    "mechanism_sources": {
+      "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\episodic\\src\\episodic\\_selection.py": "990e7f84e7690c55350ff24bcc41e4486254c72145320da0bc08ae509e597265",
+      "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\src\\analysis\\tc007_allocation.py": "97276ebca1da1b545fb518f514b974d9d7951449f28700dad9d3c4a3df23c007",
+      "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\src\\analysis\\tc008_session_spread.py": "e2ce1c24d98ff90d35afc2e11d17a51f3e2e090e72a15c5dcd5d73aed6d30af8"
+    },
+    "tc007_diagnostics_sha256": "660ae5531277030a3c806668135415971a9038c17bb4737cbd7f69b315c626a3",
+    "tc007_per_question_sha256": "af8af14b52828ff9e3bd3f061d7ad77ef19fa4cd5e2fcb1b44881343567425ec"
+  },
+  "mechanism_distributions": {
+    "16000": {
+      "a3_selected_sessions": {
+        "max": 31,
+        "mean": 23.7658,
+        "min": 16,
+        "n": 871,
+        "p25": 22,
+        "p50": 24,
+        "p75": 26,
+        "zero": 0
+      },
+      "budget_violations": 0,
+      "control_only_count": {
+        "max": 16,
+        "mean": 7.2629,
+        "min": 0,
+        "n": 871,
+        "p25": 5,
+        "p50": 7,
+        "p75": 9,
+        "zero": 1
+      },
+      "control_only_dense_rank": {
+        "max": 339,
+        "mean": 48.3228,
+        "min": 19,
+        "n": 6326,
+        "p25": 40,
+        "p50": 47,
+        "p75": 54,
+        "zero": 0
+      },
+      "control_selected_sessions": {
+        "max": 30,
+        "mean": 23.4627,
+        "min": 14,
+        "n": 871,
+        "p25": 22,
+        "p50": 24,
+        "p75": 26,
+        "zero": 0
+      },
+      "differs_from_a3": 871,
+      "differs_from_control": 871,
+      "new_spread_sessions": {
+        "max": 23,
+        "mean": 14.4569,
+        "min": 4,
+        "n": 871,
+        "p25": 12,
+        "p50": 14,
+        "p75": 17,
+        "zero": 0
+      },
+      "payload_chars": {
+        "max": 16000,
+        "mean": 15965.5476,
+        "min": 15857,
+        "n": 871,
+        "p25": 15939,
+        "p50": 15975,
+        "p75": 15992,
+        "zero": 0
+      },
+      "questions": 871,
+      "session_selected_sessions": {
+        "max": 32,
+        "mean": 30.1527,
+        "min": 24,
+        "n": 871,
+        "p25": 29,
+        "p50": 30,
+        "p75": 31,
+        "zero": 0
+      },
+      "spread_admitted": {
+        "max": 37,
+        "mean": 27.0873,
+        "min": 18,
+        "n": 871,
+        "p25": 24,
+        "p50": 27,
+        "p75": 30,
+        "zero": 0
+      },
+      "spread_binding_questions": 871,
+      "spread_bonus_admissions": {
+        "max": 23,
+        "mean": 14.566,
+        "min": 5,
+        "n": 871,
+        "p25": 13,
+        "p50": 14,
+        "p75": 17,
+        "zero": 0
+      },
+      "treatment_only_count": {
+        "max": 17,
+        "mean": 7.7199,
+        "min": 0,
+        "n": 871,
+        "p25": 6,
+        "p50": 7,
+        "p75": 10,
+        "zero": 1
+      },
+      "treatment_only_dense_rank": {
+        "max": 352,
+        "mean": 87.6898,
+        "min": 39,
+        "n": 6724,
+        "p25": 63,
+        "p50": 77,
+        "p75": 102,
+        "zero": 0
+      }
+    },
+    "32000": {
+      "a3_selected_sessions": {
+        "max": 32,
+        "mean": 29.0,
+        "min": 24,
+        "n": 871,
+        "p25": 28,
+        "p50": 29,
+        "p75": 30,
+        "zero": 0
+      },
+      "budget_violations": 0,
+      "control_only_count": {
+        "max": 9,
+        "mean": 2.163,
+        "min": 0,
+        "n": 871,
+        "p25": 1,
+        "p50": 2,
+        "p75": 3,
+        "zero": 102
+      },
+      "control_only_dense_rank": {
+        "max": 346,
+        "mean": 107.5775,
+        "min": 78,
+        "n": 1884,
+        "p25": 92,
+        "p50": 104,
+        "p75": 115,
+        "zero": 0
+      },
+      "control_selected_sessions": {
+        "max": 32,
+        "mean": 28.8921,
+        "min": 23,
+        "n": 871,
+        "p25": 28,
+        "p50": 29,
+        "p75": 30,
+        "zero": 0
+      },
+      "differs_from_a3": 871,
+      "differs_from_control": 871,
+      "new_spread_sessions": {
+        "max": 15,
+        "mean": 6.899,
+        "min": 0,
+        "n": 871,
+        "p25": 5,
+        "p50": 7,
+        "p75": 9,
+        "zero": 2
+      },
+      "payload_chars": {
+        "max": 32000,
+        "mean": 31962.9759,
+        "min": 31858,
+        "n": 871,
+        "p25": 31934,
+        "p50": 31975,
+        "p75": 31991,
+        "zero": 0
+      },
+      "questions": 871,
+      "session_selected_sessions": {
+        "max": 32,
+        "mean": 30.3617,
+        "min": 29,
+        "n": 871,
+        "p25": 29,
+        "p50": 30,
+        "p75": 31,
+        "zero": 0
+      },
+      "spread_admitted": {
+        "max": 67,
+        "mean": 54.1251,
+        "min": 40,
+        "n": 871,
+        "p25": 50,
+        "p50": 55,
+        "p75": 59,
+        "zero": 0
+      },
+      "spread_binding_questions": 871,
+      "spread_bonus_admissions": {
+        "max": 15,
+        "mean": 6.9529,
+        "min": 0,
+        "n": 871,
+        "p25": 5,
+        "p50": 7,
+        "p75": 9,
+        "zero": 2
+      },
+      "treatment_only_count": {
+        "max": 9,
+        "mean": 2.5718,
+        "min": 0,
+        "n": 871,
+        "p25": 2,
+        "p50": 2,
+        "p75": 3,
+        "zero": 102
+      },
+      "treatment_only_dense_rank": {
+        "max": 345,
+        "mean": 145.1696,
+        "min": 87,
+        "n": 2240,
+        "p25": 115,
+        "p50": 131,
+        "p75": 156,
+        "zero": 0
+      }
+    }
+  },
+  "mechanism_trace": {
+    "rows": 70736,
+    "sha256": "2ac5f84c84284ee75bc1cd3b4d3bf4645947979f623006be6beb75f5db7066dd"
+  },
+  "population": {
+    "breadth": 44,
+    "eligible": 868,
+    "ineligible": 3,
+    "other": 120,
+    "questions": 871,
+    "targeted": 704
+  },
+  "purity": {
+    "cache": {
+      "bytes": 10821632,
+      "call_shape": "solo",
+      "content_sha256": "e103b2933ee9ec7b8e9236f43037797618da524e413b83a9f3973a19d28b1b2a",
+      "dimension": 1024,
+      "dtype": "float32",
+      "entries": 2236,
+      "file_sha256": "2ba617018a1b043bf439bb50e756191d8141fb7ca01a2e4a68c9eb822eba26f8",
+      "hits": 2247,
+      "misses": 0,
+      "mode": "reuse",
+      "model_sha256": "06507c7b42688469c4e7298b0a1e16deff06caf291cf0a5b278c308249c3e439",
+      "path": "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\external\\locomo\\artifacts\\locomo_dev_embeddings.db"
+    },
+    "deterministic": true,
+    "embedding_calls": 0,
+    "feedback": false,
+    "leakage_audit": {
+      "files": {
+        "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\episodic\\src\\episodic\\_selection.py": {
+          "sha256": "990e7f84e7690c55350ff24bcc41e4486254c72145320da0bc08ae509e597265",
+          "violations": []
+        },
+        "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\src\\analysis\\tc007_allocation.py": {
+          "sha256": "97276ebca1da1b545fb518f514b974d9d7951449f28700dad9d3c4a3df23c007",
+          "violations": []
+        },
+        "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\src\\analysis\\tc008_session_spread.py": {
+          "sha256": "e2ce1c24d98ff90d35afc2e11d17a51f3e2e090e72a15c5dcd5d73aed6d30af8",
+          "violations": []
+        }
+      },
+      "planted_violations": [
+        "import:measurement.evidence_key",
+        "import:q_facts_key"
+      ],
+      "status": "PASS"
+    },
+    "llm_or_generative_calls": 0
+  },
+  "schema": "tc008-preflight-part1-v1",
+  "session_order_digest": "2abec684b42b548d01e795f4fc4ebaa0d4deb9a06b7b2b3180fb5349c2f32910",
+  "status": "PASS",
+  "surrogate_audit": {
+    "availability_can_rise_without_reader_use": true,
+    "required_identity_share_can_rise_on_redundant_annotations": true,
+    "required_session_touch_can_rise_without_complete_answer_facts": true,
+    "selected_session_count_can_rise_without_required_evidence": true
+  },
+  "tc007_reproduction": {
+    "payload_identity_checks": 3484,
+    "status": "PASS"
+  },
+  "trace": {
+    "rows": 1742,
+    "sha256": "d678d873f9a939b0265c4b7ed1875ce81627531b7eadc2e008468af21208d27b"
+  }
+}

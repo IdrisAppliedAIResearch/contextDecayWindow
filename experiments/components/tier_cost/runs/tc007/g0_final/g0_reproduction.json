@@ -1,0 +1,193 @@
+{
+  "anchors": {
+    "tc003": {
+      "c5_complete": {
+        "16000": {
+          "dual_ranked": 748,
+          "floors_dual": 718
+        },
+        "32000": {
+          "dual_ranked": 811,
+          "floors_dual": 806
+        }
+      },
+      "committed_g0": {
+        "sha256": "3698afecbaca6882f5b32c506a396ab6abede9ca35d536509592dac386c061f5",
+        "status": "PASS"
+      },
+      "primary_csv_sha256": "d4c80e8324c9db303b0df24e5a3ca095a377edff61f7158ee6541dfd9c0766d5",
+      "secondary_csv_sha256": "9f3df0be69529b22bd2fe4153c8486c97ca8b2bb09ab38dc975cdc85aaed11e5",
+      "status": "PASS"
+    },
+    "tc005": {
+      "committed_csv_sha256": "d0ff30408ffba10afdaac6c49d5c13fb91d7466496bce2ecd0dc565444d45f39",
+      "payload_checks": 2613,
+      "payload_digest": "89876120ba72b2177062753816e4e6ac9cdf0c18add855949c392d9e0d00dc16",
+      "questions": 871,
+      "ranking_digest": "77beb82793542e23527080205c988052b3c4eeeeafce28d61e360134710fb29f",
+      "status": "PASS"
+    }
+  },
+  "cache": {
+    "hits": 2247,
+    "misses": 0
+  },
+  "calls": {
+    "cache_misses": 0,
+    "embedding": 0,
+    "llm_or_generative": 0,
+    "programme_model_free": true
+  },
+  "implementation_identity": {
+    "sham_checks": 1742,
+    "status": "PASS",
+    "treatment_budget_traces": 3484
+  },
+  "leakage": {
+    "planted": {
+      "planted_violation_rejected": true,
+      "status": "PASS"
+    },
+    "static": {
+      "files": {
+        "episodic/src/episodic/_selection.py": "990e7f84e7690c55350ff24bcc41e4486254c72145320da0bc08ae509e597265",
+        "src/analysis/tc005_ranking.py": "203c8a6cae3b50b5e26d75f36b53958c5d65fb085fb7526dc245610fe2bc6409",
+        "src/analysis/tc007_allocation.py": "97276ebca1da1b545fb518f514b974d9d7951449f28700dad9d3c4a3df23c007"
+      },
+      "imports": [
+        "__future__",
+        "_embedding",
+        "_render",
+        "analysis.tc005_ranking",
+        "dataclasses",
+        "episodic._packing",
+        "episodic._render",
+        "episodic._selection",
+        "hashlib",
+        "json",
+        "math",
+        "numpy",
+        "retrieval_bakeoff.config",
+        "retrieval_bakeoff.methods",
+        "retrieval_bakeoff.models",
+        "retrieval_mechanism_ledger.e005",
+        "typing"
+      ],
+      "status": "PASS"
+    }
+  },
+  "pf4": {
+    "bands": {
+      "16000": {
+        "breadth": 0,
+        "combined": 2,
+        "targeted": 2
+      },
+      "32000": {
+        "breadth": 0,
+        "combined": 0,
+        "targeted": 0
+      }
+    },
+    "cells": {
+      "16000": {
+        "breadth": {
+          "band": 0,
+          "control_works_reachable": true,
+          "n": 44,
+          "neutral_reachable": true,
+          "signal_minimum_all_favourable": 7,
+          "targeted_guardrail_fire_reachable": true,
+          "targeted_guardrail_nonfire_reachable": true,
+          "treatment_works_reachable": true,
+          "works_minimum_all_favourable": 11
+        },
+        "combined": {
+          "band": 2,
+          "control_works_reachable": true,
+          "n": 868,
+          "neutral_reachable": true,
+          "signal_minimum_all_favourable": 7,
+          "targeted_guardrail_fire_reachable": true,
+          "targeted_guardrail_nonfire_reachable": true,
+          "treatment_works_reachable": true,
+          "works_minimum_all_favourable": 11
+        },
+        "targeted": {
+          "band": 2,
+          "control_works_reachable": true,
+          "n": 704,
+          "neutral_reachable": true,
+          "signal_minimum_all_favourable": 7,
+          "targeted_guardrail_fire_reachable": true,
+          "targeted_guardrail_nonfire_reachable": true,
+          "treatment_works_reachable": true,
+          "works_minimum_all_favourable": 11
+        }
+      },
+      "32000": {
+        "breadth": {
+          "band": 0,
+          "control_works_reachable": true,
+          "n": 44,
+          "neutral_reachable": true,
+          "signal_minimum_all_favourable": 7,
+          "targeted_guardrail_fire_reachable": true,
+          "targeted_guardrail_nonfire_reachable": true,
+          "treatment_works_reachable": true,
+          "works_minimum_all_favourable": 11
+        },
+        "combined": {
+          "band": 0,
+          "control_works_reachable": true,
+          "n": 868,
+          "neutral_reachable": true,
+          "signal_minimum_all_favourable": 7,
+          "targeted_guardrail_fire_reachable": true,
+          "targeted_guardrail_nonfire_reachable": true,
+          "treatment_works_reachable": true,
+          "works_minimum_all_favourable": 11
+        },
+        "targeted": {
+          "band": 0,
+          "control_works_reachable": true,
+          "n": 704,
+          "neutral_reachable": true,
+          "signal_minimum_all_favourable": 7,
+          "targeted_guardrail_fire_reachable": true,
+          "targeted_guardrail_nonfire_reachable": true,
+          "treatment_works_reachable": true,
+          "works_minimum_all_favourable": 11
+        }
+      }
+    },
+    "family_tests": 12,
+    "joint_branches": {
+      "control_works_both_budgets": true,
+      "mixed_or_no_difference": true,
+      "treatment_carries_signal_one_budget": true,
+      "treatment_works_both_budgets": true
+    },
+    "schema": "tc007-pf4-v1",
+    "signal_alpha": 0.008333333333333333,
+    "status": "PASS",
+    "works_alpha": 0.0008333333333333334
+  },
+  "registration": {
+    "pre_registration_sha256": "0e2d26d741e1947e1b39478db1d61ac7aa18c15ce0dc4d9f397de4babb892fd9",
+    "preflight_sha256": {
+      "tc007_preflight_part1.json": "b54f98b7a3c61f2968f2fdc5a15d9efb5ef4f39aadb5062132d1885a8aac018a",
+      "tc007_preflight_pf4_reachability.json": "ab559ede686cd41c80a2f8f0748f8ca90c8d18237a616607fe94a8a2eb73f63e",
+      "tc007_preflight_trace.jsonl.gz": "fc3deb4e3d228c3f0b0696a52b5c676f3a1c818da9af9efb02a3f59e17094443"
+    },
+    "registration_commit": "afb7564369e3f76970b5c637f9eb6faf7706db61",
+    "status": "PASS"
+  },
+  "schema": "tc007-g0-v1",
+  "status": "PASS",
+  "test_suite": {
+    "command": ".venv\\Scripts\\python.exe -m pytest -q",
+    "status": "PASS",
+    "summary": "2198 passed in 108.89s (0:01:48)"
+  }
+}

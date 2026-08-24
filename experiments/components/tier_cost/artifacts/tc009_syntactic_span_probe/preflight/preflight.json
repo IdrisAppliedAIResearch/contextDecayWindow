@@ -1,0 +1,100 @@
+{
+  "calls": {
+    "cache_misses": 0,
+    "llm_or_generative": 0,
+    "outcome_embedding": 0,
+    "outcome_parser_documents": 0
+  },
+  "pf1": {
+    "accepted_sha256": "629bdfa1a7547b4bcf2df36c45628397d3f5b0c88c3d9b461dd2f9f48fe80900",
+    "blind_sha256": "83bcadb1e029e14514841b65bd903904fe53420a246bc0a59cad99afaa0671b3",
+    "capture": {
+      "distribution": {
+        "model": "en_core_web_sm",
+        "model_meta_sha256": "7456349002fa8cf31111051bd37fdbea67a1b7f7a0a60ce235466f98a6758125",
+        "noun_empty": 1,
+        "noun_max": 42,
+        "noun_median": 14.0,
+        "noun_occurrences": 20145,
+        "noun_unique": 4935,
+        "pairs": 1365,
+        "parser_documents": 1365,
+        "spacy_version": "3.8.14",
+        "subject_empty": 38,
+        "subject_max": 11,
+        "subject_median": 4.0,
+        "subject_occurrences": 5516,
+        "subject_unique": 5385,
+        "text_order_sha256": "00e555db6a102d7ac3bc34fdfe2110801e7b54a4767b22fea02b04418af5b8aa",
+        "union_unique": 10320
+      },
+      "embedding_batches": 162,
+      "embedding_model_sha256": "06507c7b42688469c4e7298b0a1e16deff06caf291cf0a5b278c308249c3e439",
+      "embedding_texts": 10320,
+      "llm_or_generative_calls": 0,
+      "parser_documents": 1365,
+      "span_map_sha256": "5845dd34f4314543d9da7c34b47dd142784ae3dc5224a47f7b9146a5193cf232",
+      "status": "CAPTURED",
+      "vectors_sha256": "ea88b6f8ea5befaa469bedbd2808e4bad6d5407d7a26498a225a037f989cb459"
+    },
+    "dataset_sha256": "79fa87e90f04081343b8c8debecb80a9a6842b76a7aa537dc9fdf651ea698ff4",
+    "labels_sha256": "680835bf63571b620e59930cff4aa897a2524cd093bbccdefe3be9b67735a742"
+  },
+  "pf10": {
+    "availability_only": true,
+    "reader_authorized": false
+  },
+  "pf2": {
+    "distribution": {
+      "model": "en_core_web_sm",
+      "model_meta_sha256": "7456349002fa8cf31111051bd37fdbea67a1b7f7a0a60ce235466f98a6758125",
+      "noun_empty": 1,
+      "noun_max": 42,
+      "noun_median": 14.0,
+      "noun_occurrences": 20145,
+      "noun_unique": 4935,
+      "pairs": 1365,
+      "parser_documents": 1365,
+      "spacy_version": "3.8.14",
+      "subject_empty": 38,
+      "subject_max": 11,
+      "subject_median": 4.0,
+      "subject_occurrences": 5516,
+      "subject_unique": 5385,
+      "text_order_sha256": "00e555db6a102d7ac3bc34fdfe2110801e7b54a4767b22fea02b04418af5b8aa",
+      "union_unique": 10320
+    },
+    "identity": "max noun-chunk or nominal-subject-sentence cosine ranks complete pair candidates; complete pairs are packed"
+  },
+  "pf3": {
+    "planted_early_label_rejected": true,
+    "selection_sha256_before_labels": "a49c7a90453d22924fbd421e8d42ed5dcfebd6e3338e9f39eaacdeee34e90a68"
+  },
+  "pf4": {
+    "negative_reachable": true,
+    "positive_reachable": true
+  },
+  "pf5": {
+    "blind_keys": 871,
+    "pair_content_identities": 1365
+  },
+  "pf6": {
+    "dense_selected_id_and_payload_reproductions": 871,
+    "expected": 871
+  },
+  "pf7": {
+    "not_applicable": true
+  },
+  "pf8": {
+    "cannot_detect": "new-corpus transfer",
+    "conversations": 4
+  },
+  "pf9": {
+    "residuals": [
+      "parser error",
+      "max-over-many-span bias",
+      "availability is not reader use"
+    ]
+  },
+  "status": "PASS"
+}

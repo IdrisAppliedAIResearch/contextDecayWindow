@@ -1,0 +1,213 @@
+{
+  "budgets": {
+    "16000": {
+      "budget_chars": 16000,
+      "instrument_band": 2,
+      "populations": {
+        "combined_eligible": {
+          "treatments": {
+            "bm25": {
+              "can_clear_instrument_band_dense": true,
+              "can_clear_instrument_band_treatment": true,
+              "maximum_symmetric_difference": 104,
+              "questions": 868,
+              "questions_with_dense_exclusive_candidates": 868,
+              "questions_with_set_difference": 868,
+              "questions_with_treatment_exclusive_candidates": 868,
+              "smallest_dense_one_sided_p": 5.081170449047601e-262,
+              "smallest_treatment_one_sided_p": 5.081170449047601e-262
+            },
+            "hybrid": {
+              "can_clear_instrument_band_dense": true,
+              "can_clear_instrument_band_treatment": true,
+              "maximum_symmetric_difference": 65,
+              "questions": 868,
+              "questions_with_dense_exclusive_candidates": 868,
+              "questions_with_set_difference": 868,
+              "questions_with_treatment_exclusive_candidates": 868,
+              "smallest_dense_one_sided_p": 5.081170449047601e-262,
+              "smallest_treatment_one_sided_p": 5.081170449047601e-262
+            }
+          }
+        },
+        "primary_targeted": {
+          "treatments": {
+            "bm25": {
+              "can_clear_instrument_band_dense": true,
+              "can_clear_instrument_band_treatment": true,
+              "maximum_symmetric_difference": 104,
+              "questions": 704,
+              "questions_with_dense_exclusive_candidates": 704,
+              "questions_with_set_difference": 704,
+              "questions_with_treatment_exclusive_candidates": 704,
+              "smallest_dense_one_sided_p": 1.188182228934475e-212,
+              "smallest_treatment_one_sided_p": 1.188182228934475e-212
+            },
+            "hybrid": {
+              "can_clear_instrument_band_dense": true,
+              "can_clear_instrument_band_treatment": true,
+              "maximum_symmetric_difference": 65,
+              "questions": 704,
+              "questions_with_dense_exclusive_candidates": 704,
+              "questions_with_set_difference": 704,
+              "questions_with_treatment_exclusive_candidates": 704,
+              "smallest_dense_one_sided_p": 1.188182228934475e-212,
+              "smallest_treatment_one_sided_p": 1.188182228934475e-212
+            }
+          }
+        }
+      }
+    },
+    "32000": {
+      "budget_chars": 32000,
+      "instrument_band": 0,
+      "populations": {
+        "combined_eligible": {
+          "treatments": {
+            "bm25": {
+              "can_clear_instrument_band_dense": true,
+              "can_clear_instrument_band_treatment": true,
+              "maximum_symmetric_difference": 176,
+              "questions": 868,
+              "questions_with_dense_exclusive_candidates": 868,
+              "questions_with_set_difference": 868,
+              "questions_with_treatment_exclusive_candidates": 868,
+              "smallest_dense_one_sided_p": 5.081170449047601e-262,
+              "smallest_treatment_one_sided_p": 5.081170449047601e-262
+            },
+            "hybrid": {
+              "can_clear_instrument_band_dense": true,
+              "can_clear_instrument_band_treatment": true,
+              "maximum_symmetric_difference": 97,
+              "questions": 868,
+              "questions_with_dense_exclusive_candidates": 868,
+              "questions_with_set_difference": 868,
+              "questions_with_treatment_exclusive_candidates": 868,
+              "smallest_dense_one_sided_p": 5.081170449047601e-262,
+              "smallest_treatment_one_sided_p": 5.081170449047601e-262
+            }
+          }
+        },
+        "primary_targeted": {
+          "treatments": {
+            "bm25": {
+              "can_clear_instrument_band_dense": true,
+              "can_clear_instrument_band_treatment": true,
+              "maximum_symmetric_difference": 175,
+              "questions": 704,
+              "questions_with_dense_exclusive_candidates": 704,
+              "questions_with_set_difference": 704,
+              "questions_with_treatment_exclusive_candidates": 704,
+              "smallest_dense_one_sided_p": 1.188182228934475e-212,
+              "smallest_treatment_one_sided_p": 1.188182228934475e-212
+            },
+            "hybrid": {
+              "can_clear_instrument_band_dense": true,
+              "can_clear_instrument_band_treatment": true,
+              "maximum_symmetric_difference": 97,
+              "questions": 704,
+              "questions_with_dense_exclusive_candidates": 704,
+              "questions_with_set_difference": 704,
+              "questions_with_treatment_exclusive_candidates": 704,
+              "smallest_dense_one_sided_p": 1.188182228934475e-212,
+              "smallest_treatment_one_sided_p": 1.188182228934475e-212
+            }
+          }
+        }
+      }
+    },
+    "8000": {
+      "budget_chars": 8000,
+      "instrument_band": 1,
+      "populations": {
+        "combined_eligible": {
+          "treatments": {
+            "bm25": {
+              "can_clear_instrument_band_dense": true,
+              "can_clear_instrument_band_treatment": true,
+              "maximum_symmetric_difference": 62,
+              "questions": 868,
+              "questions_with_dense_exclusive_candidates": 868,
+              "questions_with_set_difference": 868,
+              "questions_with_treatment_exclusive_candidates": 868,
+              "smallest_dense_one_sided_p": 5.081170449047601e-262,
+              "smallest_treatment_one_sided_p": 5.081170449047601e-262
+            },
+            "hybrid": {
+              "can_clear_instrument_band_dense": true,
+              "can_clear_instrument_band_treatment": true,
+              "maximum_symmetric_difference": 43,
+              "questions": 868,
+              "questions_with_dense_exclusive_candidates": 868,
+              "questions_with_set_difference": 868,
+              "questions_with_treatment_exclusive_candidates": 868,
+              "smallest_dense_one_sided_p": 5.081170449047601e-262,
+              "smallest_treatment_one_sided_p": 5.081170449047601e-262
+            }
+          }
+        },
+        "primary_targeted": {
+          "treatments": {
+            "bm25": {
+              "can_clear_instrument_band_dense": true,
+              "can_clear_instrument_band_treatment": true,
+              "maximum_symmetric_difference": 62,
+              "questions": 704,
+              "questions_with_dense_exclusive_candidates": 704,
+              "questions_with_set_difference": 704,
+              "questions_with_treatment_exclusive_candidates": 704,
+              "smallest_dense_one_sided_p": 1.188182228934475e-212,
+              "smallest_treatment_one_sided_p": 1.188182228934475e-212
+            },
+            "hybrid": {
+              "can_clear_instrument_band_dense": true,
+              "can_clear_instrument_band_treatment": true,
+              "maximum_symmetric_difference": 43,
+              "questions": 704,
+              "questions_with_dense_exclusive_candidates": 704,
+              "questions_with_set_difference": 704,
+              "questions_with_treatment_exclusive_candidates": 704,
+              "smallest_dense_one_sided_p": 1.188182228934475e-212,
+              "smallest_treatment_one_sided_p": 1.188182228934475e-212
+            }
+          }
+        }
+      }
+    }
+  },
+  "embedding_audit": {
+    "cache_hits": 2247,
+    "cache_misses": 0,
+    "llm_or_generative_calls": 0
+  },
+  "note": "Candidate-set exclusivity proves that either ranking can own a possible evidence item. No evidence labels, complete-delivery counts, gains, losses, net effects, or winner are present.",
+  "ordering": {
+    "part1_artifact_sha256": "2687d48812d8862f7c0ff2ebe5abe6bd8011f136deb38efaacf34958296ba584",
+    "part1_precedes_pf4": true
+  },
+  "questions_checked": 871,
+  "schema": "tc005-preflight-pf4-reachability-v1",
+  "status": "PREFLIGHT_PF4_ONLY",
+  "synthetic_selection_branches": {
+    "carries_signal": {
+      "full_budget_margin": 0,
+      "half_budget_margin": 3,
+      "reachable": true
+    },
+    "dense_fallback": {
+      "full_budget_margin": 0,
+      "half_budget_margin": 0,
+      "reachable": true
+    },
+    "full_budget_guardrail_failure": {
+      "full_budget_margin": -3,
+      "half_budget_margin": 22,
+      "reachable": true
+    },
+    "works": {
+      "full_budget_margin": 0,
+      "half_budget_margin": 22,
+      "reachable": true
+    }
+  }
+}

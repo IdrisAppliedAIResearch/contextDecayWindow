@@ -1,0 +1,87 @@
+{
+  "bands": {
+    "16000": {
+      "breadth_complete": 0,
+      "breadth_share_identities": 0,
+      "breadth_share_questions": 0,
+      "combined_complete": 2,
+      "targeted_complete": 2
+    },
+    "32000": {
+      "breadth_complete": 0,
+      "breadth_share_identities": 0,
+      "breadth_share_questions": 0,
+      "combined_complete": 1,
+      "targeted_complete": 0
+    }
+  },
+  "cells": {
+    "16000": {
+      "breadth_complete_noninferiority": {
+        "band": 0,
+        "n": 44,
+        "pass_and_fail_reachable": true
+      },
+      "breadth_share": {
+        "identity_band": 0,
+        "n": 44,
+        "question_band": 0,
+        "signal_minimum_all_favourable_questions": 6,
+        "treatment_and_dense_directions_reachable": true,
+        "works_minimum_all_favourable_questions": 10
+      },
+      "combined_guardrail": {
+        "band": 2,
+        "fire_and_nonfire_reachable": true,
+        "minimum_all_adverse_to_fire": 10,
+        "n": 868
+      },
+      "targeted_guardrail": {
+        "band": 2,
+        "fire_and_nonfire_reachable": true,
+        "minimum_all_adverse_to_fire": 10,
+        "n": 704
+      }
+    },
+    "32000": {
+      "breadth_complete_noninferiority": {
+        "band": 0,
+        "n": 44,
+        "pass_and_fail_reachable": true
+      },
+      "breadth_share": {
+        "identity_band": 0,
+        "n": 44,
+        "question_band": 0,
+        "signal_minimum_all_favourable_questions": 6,
+        "treatment_and_dense_directions_reachable": true,
+        "works_minimum_all_favourable_questions": 10
+      },
+      "combined_guardrail": {
+        "band": 1,
+        "fire_and_nonfire_reachable": true,
+        "minimum_all_adverse_to_fire": 10,
+        "n": 868
+      },
+      "targeted_guardrail": {
+        "band": 0,
+        "fire_and_nonfire_reachable": true,
+        "minimum_all_adverse_to_fire": 10,
+        "n": 704
+      }
+    }
+  },
+  "family_tests": 6,
+  "joint_branches": {
+    "dense_carries_signal": true,
+    "dense_works_both_budgets": true,
+    "dynamic_carries_signal": true,
+    "dynamic_works_both_budgets": true,
+    "guardrail_failure": true,
+    "mixed_or_no_difference": true
+  },
+  "schema": "tc009-pf4-v1",
+  "signal_alpha": 0.016666666666666666,
+  "status": "PASS",
+  "works_alpha": 0.0016666666666666668
+}
