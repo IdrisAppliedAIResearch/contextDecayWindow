@@ -1,0 +1,81 @@
+{
+  "calls": {
+    "embedding": 0,
+    "llm_or_generative": 0
+  },
+  "pf1": {
+    "population": {
+      "breadth": 44,
+      "other": 120,
+      "targeted": 704
+    },
+    "question_rows": 868,
+    "selection_rows": 871,
+    "sha256": {
+      "corpus": "79fa87e90f04081343b8c8debecb80a9a6842b76a7aa537dc9fdf651ea698ff4",
+      "questions": "c4b52ead85535a1250e9ac8952bc60201a8b10304846272dbe838bbba9ee12c6",
+      "result": "0cfe11374f3817c08f8a24bc459dd460325c715e1d05d65ec1188f598c6e9bcf",
+      "selections": "916632ff25c22c03e8bcc06d18592555eed30e3ffbf656903587e6052ca7a376"
+    }
+  },
+  "pf10": {
+    "availability_only": true,
+    "reader_run": false
+  },
+  "pf2": {
+    "identity": "read-only audit of frozen dense, CC80, dense+A3 and CC80+A3 selections",
+    "parent_reproduction": {
+      "checks": 24,
+      "expected": 24
+    }
+  },
+  "pf3": {
+    "input_hashes_enforced": true,
+    "selection_mutation": false
+  },
+  "pf4": {
+    "admission_phases": [
+      "ABSENT",
+      "INITIAL_RELEVANCE",
+      "PROTECTED_SPREAD",
+      "RETURNED_RELEVANCE"
+    ],
+    "all_associations_reachable": true,
+    "all_phases_reachable": true,
+    "association_labels": [
+      "A3_ONLY",
+      "BOTH_CONTROLS",
+      "CC80_ONLY",
+      "COMBINATION_ONLY"
+    ],
+    "miss_states_reachable": true
+  },
+  "pf5": {
+    "missing_metadata": [],
+    "missing_selection": [],
+    "planted_duplicate_rejected": true,
+    "planted_missing_rejected": true,
+    "unique_join_keys": 868
+  },
+  "pf6": {
+    "checks": 24,
+    "expected": 24,
+    "parent_schema": "tc009-convex-protected-probe-v1"
+  },
+  "pf7": {
+    "not_applicable": true
+  },
+  "pf8": {
+    "cannot_detect": "corpus transfer",
+    "conversations": 4
+  },
+  "pf9": {
+    "residuals": [
+      "association is not causation",
+      "text flags overlap",
+      "ranks do not measure reader use",
+      "raw miss counts confound group prevalence"
+    ]
+  },
+  "status": "PASS"
+}
