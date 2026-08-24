@@ -1,0 +1,516 @@
+{
+  "budgets": {
+    "16000": {
+      "admission_phases": {
+        "all_misses": {
+          "ABSENT": 158,
+          "INITIAL_RELEVANCE": 84,
+          "PROTECTED_SPREAD": 17
+        },
+        "gains": {
+          "INITIAL_RELEVANCE": 25,
+          "PROTECTED_SPREAD": 2
+        },
+        "losses": {
+          "ABSENT": 12,
+          "INITIAL_RELEVANCE": 12,
+          "PROTECTED_SPREAD": 1
+        }
+      },
+      "evidence_ranks": {
+        "all_misses": {
+          "a3_rank": {
+            "max": 337,
+            "median": 72.0,
+            "min": 1,
+            "n": 259
+          },
+          "cc80_rank": {
+            "max": 343,
+            "median": 56.0,
+            "min": 1,
+            "n": 259
+          },
+          "dense_rank": {
+            "max": 337,
+            "median": 70.0,
+            "min": 1,
+            "n": 259
+          }
+        },
+        "gains": {
+          "a3_rank": {
+            "max": 150,
+            "median": 67.0,
+            "min": 1,
+            "n": 27
+          },
+          "cc80_rank": {
+            "max": 58,
+            "median": 14.0,
+            "min": 1,
+            "n": 27
+          },
+          "dense_rank": {
+            "max": 148,
+            "median": 67.0,
+            "min": 1,
+            "n": 27
+          }
+        },
+        "losses": {
+          "a3_rank": {
+            "max": 66,
+            "median": 43.0,
+            "min": 1,
+            "n": 25
+          },
+          "cc80_rank": {
+            "max": 73,
+            "median": 26.0,
+            "min": 1,
+            "n": 25
+          },
+          "dense_rank": {
+            "max": 59,
+            "median": 36.0,
+            "min": 1,
+            "n": 25
+          }
+        }
+      },
+      "misses": {
+        "category": {
+          "1": 40,
+          "2": 11,
+          "3": 17,
+          "4": 28,
+          "5": 15
+        },
+        "conversation": {
+          "conv-41": 26,
+          "conv-42": 38,
+          "conv-47": 22,
+          "conv-48": 25
+        },
+        "evidence_state": {
+          "PARTIAL_EVIDENCE": 57,
+          "ZERO_EVIDENCE": 54
+        },
+        "flags": {
+          "CAUSAL": 6,
+          "ENUMERATION": 24,
+          "LOCATION": 5,
+          "QUANTITY": 7,
+          "TEMPORAL": 16,
+          "UNMARKED": 67
+        },
+        "population": {
+          "breadth": 30,
+          "other": 30,
+          "targeted": 51
+        },
+        "structure": {
+          "MULTI_CARRIER_ONE_SESSION": 9,
+          "MULTI_SESSION": 51,
+          "SINGLE_CARRIER_SINGLE_SESSION": 51
+        },
+        "total": 111
+      },
+      "rates": {
+        "category": {
+          "1": {
+            "miss_rate": 0.37383177570093457,
+            "misses": 40,
+            "n": 107
+          },
+          "2": {
+            "miss_rate": 0.07692307692307693,
+            "misses": 11,
+            "n": 143
+          },
+          "3": {
+            "miss_rate": 0.40476190476190477,
+            "misses": 17,
+            "n": 42
+          },
+          "4": {
+            "miss_rate": 0.07253886010362694,
+            "misses": 28,
+            "n": 386
+          },
+          "5": {
+            "miss_rate": 0.07894736842105263,
+            "misses": 15,
+            "n": 190
+          }
+        },
+        "flags": {
+          "CAUSAL": {
+            "miss_rate": 0.13043478260869565,
+            "misses": 6,
+            "n": 46
+          },
+          "ENUMERATION": {
+            "miss_rate": 0.24489795918367346,
+            "misses": 24,
+            "n": 98
+          },
+          "LOCATION": {
+            "miss_rate": 0.1282051282051282,
+            "misses": 5,
+            "n": 39
+          },
+          "QUANTITY": {
+            "miss_rate": 0.2916666666666667,
+            "misses": 7,
+            "n": 24
+          },
+          "TEMPORAL": {
+            "miss_rate": 0.07655502392344497,
+            "misses": 16,
+            "n": 209
+          },
+          "UNMARKED": {
+            "miss_rate": 0.13480885311871227,
+            "misses": 67,
+            "n": 497
+          }
+        },
+        "population": {
+          "breadth": {
+            "miss_rate": 0.6818181818181818,
+            "misses": 30,
+            "n": 44
+          },
+          "other": {
+            "miss_rate": 0.25,
+            "misses": 30,
+            "n": 120
+          },
+          "targeted": {
+            "miss_rate": 0.07244318181818182,
+            "misses": 51,
+            "n": 704
+          }
+        },
+        "sample_id": {
+          "conv-41": {
+            "miss_rate": 0.13471502590673576,
+            "misses": 26,
+            "n": 193
+          },
+          "conv-42": {
+            "miss_rate": 0.14728682170542637,
+            "misses": 38,
+            "n": 258
+          },
+          "conv-47": {
+            "miss_rate": 0.1164021164021164,
+            "misses": 22,
+            "n": 189
+          },
+          "conv-48": {
+            "miss_rate": 0.10964912280701754,
+            "misses": 25,
+            "n": 228
+          }
+        },
+        "structure": {
+          "MULTI_CARRIER_ONE_SESSION": {
+            "miss_rate": 0.23684210526315788,
+            "misses": 9,
+            "n": 38
+          },
+          "MULTI_SESSION": {
+            "miss_rate": 0.40476190476190477,
+            "misses": 51,
+            "n": 126
+          },
+          "SINGLE_CARRIER_SINGLE_SESSION": {
+            "miss_rate": 0.07244318181818182,
+            "misses": 51,
+            "n": 704
+          }
+        }
+      },
+      "versus_dense": {
+        "gain_associations": {
+          "A3_ONLY": 2,
+          "BOTH_CONTROLS": 1,
+          "CC80_ONLY": 17
+        },
+        "gains": 20,
+        "loss_associations": {
+          "A3_ONLY": 8,
+          "BOTH_CONTROLS": 2,
+          "CC80_ONLY": 1,
+          "COMBINATION_ONLY": 1
+        },
+        "losses": 12,
+        "net": 8
+      }
+    },
+    "32000": {
+      "admission_phases": {
+        "all_misses": {
+          "ABSENT": 76,
+          "INITIAL_RELEVANCE": 49,
+          "PROTECTED_SPREAD": 17
+        },
+        "gains": {
+          "INITIAL_RELEVANCE": 10,
+          "PROTECTED_SPREAD": 2
+        },
+        "losses": {
+          "ABSENT": 1,
+          "INITIAL_RELEVANCE": 1
+        }
+      },
+      "evidence_ranks": {
+        "all_misses": {
+          "a3_rank": {
+            "max": 337,
+            "median": 116.5,
+            "min": 1,
+            "n": 142
+          },
+          "cc80_rank": {
+            "max": 343,
+            "median": 101.0,
+            "min": 1,
+            "n": 142
+          },
+          "dense_rank": {
+            "max": 337,
+            "median": 116.0,
+            "min": 1,
+            "n": 142
+          }
+        },
+        "gains": {
+          "a3_rank": {
+            "max": 211,
+            "median": 103.5,
+            "min": 5,
+            "n": 12
+          },
+          "cc80_rank": {
+            "max": 288,
+            "median": 28.0,
+            "min": 1,
+            "n": 12
+          },
+          "dense_rank": {
+            "max": 283,
+            "median": 130.5,
+            "min": 2,
+            "n": 12
+          }
+        },
+        "losses": {
+          "a3_rank": {
+            "max": 117,
+            "median": 59.0,
+            "min": 1,
+            "n": 2
+          },
+          "cc80_rank": {
+            "max": 65,
+            "median": 33.0,
+            "min": 1,
+            "n": 2
+          },
+          "dense_rank": {
+            "max": 115,
+            "median": 58.0,
+            "min": 1,
+            "n": 2
+          }
+        }
+      },
+      "misses": {
+        "category": {
+          "1": 16,
+          "2": 4,
+          "3": 13,
+          "4": 12,
+          "5": 5
+        },
+        "conversation": {
+          "conv-41": 12,
+          "conv-42": 16,
+          "conv-47": 8,
+          "conv-48": 14
+        },
+        "evidence_state": {
+          "PARTIAL_EVIDENCE": 31,
+          "ZERO_EVIDENCE": 19
+        },
+        "flags": {
+          "CAUSAL": 2,
+          "ENUMERATION": 8,
+          "LOCATION": 1,
+          "QUANTITY": 2,
+          "TEMPORAL": 6,
+          "UNMARKED": 33
+        },
+        "population": {
+          "breadth": 17,
+          "other": 15,
+          "targeted": 18
+        },
+        "structure": {
+          "MULTI_CARRIER_ONE_SESSION": 6,
+          "MULTI_SESSION": 26,
+          "SINGLE_CARRIER_SINGLE_SESSION": 18
+        },
+        "total": 50
+      },
+      "rates": {
+        "category": {
+          "1": {
+            "miss_rate": 0.14953271028037382,
+            "misses": 16,
+            "n": 107
+          },
+          "2": {
+            "miss_rate": 0.027972027972027972,
+            "misses": 4,
+            "n": 143
+          },
+          "3": {
+            "miss_rate": 0.30952380952380953,
+            "misses": 13,
+            "n": 42
+          },
+          "4": {
+            "miss_rate": 0.031088082901554404,
+            "misses": 12,
+            "n": 386
+          },
+          "5": {
+            "miss_rate": 0.02631578947368421,
+            "misses": 5,
+            "n": 190
+          }
+        },
+        "flags": {
+          "CAUSAL": {
+            "miss_rate": 0.043478260869565216,
+            "misses": 2,
+            "n": 46
+          },
+          "ENUMERATION": {
+            "miss_rate": 0.08163265306122448,
+            "misses": 8,
+            "n": 98
+          },
+          "LOCATION": {
+            "miss_rate": 0.02564102564102564,
+            "misses": 1,
+            "n": 39
+          },
+          "QUANTITY": {
+            "miss_rate": 0.08333333333333333,
+            "misses": 2,
+            "n": 24
+          },
+          "TEMPORAL": {
+            "miss_rate": 0.028708133971291867,
+            "misses": 6,
+            "n": 209
+          },
+          "UNMARKED": {
+            "miss_rate": 0.06639839034205232,
+            "misses": 33,
+            "n": 497
+          }
+        },
+        "population": {
+          "breadth": {
+            "miss_rate": 0.38636363636363635,
+            "misses": 17,
+            "n": 44
+          },
+          "other": {
+            "miss_rate": 0.125,
+            "misses": 15,
+            "n": 120
+          },
+          "targeted": {
+            "miss_rate": 0.02556818181818182,
+            "misses": 18,
+            "n": 704
+          }
+        },
+        "sample_id": {
+          "conv-41": {
+            "miss_rate": 0.06217616580310881,
+            "misses": 12,
+            "n": 193
+          },
+          "conv-42": {
+            "miss_rate": 0.06201550387596899,
+            "misses": 16,
+            "n": 258
+          },
+          "conv-47": {
+            "miss_rate": 0.042328042328042326,
+            "misses": 8,
+            "n": 189
+          },
+          "conv-48": {
+            "miss_rate": 0.06140350877192982,
+            "misses": 14,
+            "n": 228
+          }
+        },
+        "structure": {
+          "MULTI_CARRIER_ONE_SESSION": {
+            "miss_rate": 0.15789473684210525,
+            "misses": 6,
+            "n": 38
+          },
+          "MULTI_SESSION": {
+            "miss_rate": 0.20634920634920634,
+            "misses": 26,
+            "n": 126
+          },
+          "SINGLE_CARRIER_SINGLE_SESSION": {
+            "miss_rate": 0.02556818181818182,
+            "misses": 18,
+            "n": 704
+          }
+        }
+      },
+      "versus_dense": {
+        "gain_associations": {
+          "A3_ONLY": 1,
+          "BOTH_CONTROLS": 2,
+          "CC80_ONLY": 6
+        },
+        "gains": 9,
+        "loss_associations": {
+          "A3_ONLY": 1
+        },
+        "losses": 1,
+        "net": 8
+      }
+    }
+  },
+  "calls": {
+    "embedding": 0,
+    "llm_or_generative": 0,
+    "ranking": 0
+  },
+  "claim_boundary": "Frozen LoCoMo development evidence availability; associations and themes are descriptive, not causal or reader results.",
+  "longitudinal": {
+    "COMPLETE_BOTH": 757,
+    "PERSISTENT_MISS": 50,
+    "RESCUED_AT_32K": 61
+  },
+  "population": 868,
+  "schema": "tc009-convex-protected-miss-audit-v1",
+  "status": "POSTHOC_DESCRIPTIVE"
+}

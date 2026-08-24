@@ -85,3 +85,25 @@ Thus score fusion and A3 are compatible at sufficient budget, but the 50/50
 share does not transfer across 16k/32k. No share tuning, TC-010 or reader run is
 authorized.
 The final repository suite after this probe is 2,242 passed.
+
+## Post-close convex plus protected-breadth miss audit
+
+The frozen parent contexts miss 111/868 questions at 16k and 50/868 at 32k.
+All 50 are persistent; the larger budget rescues 61 and introduces no
+regression. At 32k, all 18 targeted misses contain zero evidence, while 31/32
+non-targeted misses contain partial evidence. The residual has two forms:
+tail-ranked direct carriers and incomplete multi-carrier sets.
+
+CC80 is associated with 17/20 gains over dense at 16k and 6/9 at 32k; A3 alone
+with 2 and 1. No gain is combination-only. Gained carrier median dense-to-CC80
+rank moves 67->14 and 130.5->28. Initial relevance admits 25/27 and 10/12 gain
+carriers; protected spread admits two at each budget. The increase over dense
+is therefore chiefly the semantic reranker, with A3 acting as a 32k guard.
+
+At 32k, multi-session questions miss 26/126 (20.6%) and multiple-carrier,
+one-session questions 6/38 (15.8%), versus 18/704 (2.6%) single-carrier.
+Breadth misses 17/44. Of 142 carriers required by persistent misses, 49 arrive
+through relevance, 17 through spread and 76 remain absent. Enumeration is a
+weaker moderator than carrier multiplicity. Posthoc availability only; no
+causal, reader, share or architecture claim.
+The final repository suite after this audit is 2,246 passed.

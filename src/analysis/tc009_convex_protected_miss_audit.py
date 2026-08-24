@@ -297,6 +297,7 @@ def run_audit(output_dir: Path = RESULT) -> dict[str, Any]:
         gains = [row for row in records if row[f"dense_relation_{budget}"] == "GAIN"]
         losses = [row for row in records if row[f"dense_relation_{budget}"] == "LOSS"]
         evidence_details = [row for row in detail_rows if row["budget"] == budget]
+        missed_ids = {row["question_id"] for row in misses}
         budgets[str(budget)] = {
             "misses": {
                 "total": len(misses),
@@ -314,12 +315,14 @@ def run_audit(output_dir: Path = RESULT) -> dict[str, Any]:
             },
             "rates": {field: _group_rates(records, budget, field) for field in ("population", "structure", "category", "sample_id", "flags")},
             "evidence_ranks": {
-                group: {rank: _rank_summary(row[rank] for row in evidence_details if row["dense_relation"] == relation) for rank in ("dense_rank", "cc80_rank", "a3_rank")}
-                for group, relation in (("gains", "GAIN"), ("losses", "LOSS"), ("remaining_misses", "TIE_MISS"))
+                "gains": {rank: _rank_summary(row[rank] for row in evidence_details if row["dense_relation"] == "GAIN") for rank in ("dense_rank", "cc80_rank", "a3_rank")},
+                "losses": {rank: _rank_summary(row[rank] for row in evidence_details if row["dense_relation"] == "LOSS") for rank in ("dense_rank", "cc80_rank", "a3_rank")},
+                "all_misses": {rank: _rank_summary(row[rank] for row in evidence_details if row["question_id"] in missed_ids) for rank in ("dense_rank", "cc80_rank", "a3_rank")},
             },
             "admission_phases": {
-                group: dict(Counter(row["admission_phase"] for row in evidence_details if row["dense_relation"] == relation))
-                for group, relation in (("gains", "GAIN"), ("losses", "LOSS"), ("remaining_misses", "TIE_MISS"))
+                "gains": dict(Counter(row["admission_phase"] for row in evidence_details if row["dense_relation"] == "GAIN")),
+                "losses": dict(Counter(row["admission_phase"] for row in evidence_details if row["dense_relation"] == "LOSS")),
+                "all_misses": dict(Counter(row["admission_phase"] for row in evidence_details if row["question_id"] in missed_ids)),
             },
         }
 
