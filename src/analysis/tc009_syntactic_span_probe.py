@@ -242,7 +242,7 @@ def freeze_selections(output_path: Path, *, forbidden_labels: Path | None = None
                     arm: {
                         "selected_ids": list(pack.selected_ids),
                         "payload_sha256": pack.payload_sha256,
-                        "payload_chars": pack.payload_chars,
+                        "payload_chars": len(pack.payload),
                         **(arm_details.get(arm) or {}),
                     }
                     for arm, pack in packs.items()
