@@ -3,6 +3,8 @@ name = "episodic"
 version = "0.1.0"
 description = "Episodic memory for long conversations: append-only store, budgeted context construction, measured behavior only."
 requires-python = ">=3.11"
+license = "AGPL-3.0-or-later"
+license-files = ["LICENSE"]
 dependencies = [
     "numpy>=1.26.0",
 ]
