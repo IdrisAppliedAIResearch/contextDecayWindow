@@ -1,7 +1,7 @@
 # TC Arc — Dependency Log
 
 **Document type:** Standing procedure and running record
-**Status:** `OPEN — TC-001 through TC-005 and TC-007 have reported; TC-006 has not`
+**Status:** `OPEN — TC-001 through TC-005, TC-007 and TC-008 have reported; reader work has not`
 **Governs:** `TC_ARC_ROADMAP.md` Rule 4
 
 ---
@@ -67,6 +67,7 @@ face, without needing anyone to relitigate the science.
 | 2026-08-23 | TC-004 reported `NO_PREDICTIVE_SIGNAL` | REPORTED | REPORTED | REPORTED | REPORTED | RUNNABLE | RUNNABLE |
 | 2026-08-23 | TC-005 reported hybrid `TREATMENT_CARRIES_SIGNAL`; dense fallback selected | REPORTED | REPORTED | REPORTED | REPORTED | REPORTED | RUNNABLE |
 | 2026-08-23 | TC-007 reported `NO_SPLIT_SELECTED`; dense fallback retained | REPORTED | REPORTED | REPORTED | REPORTED | REPORTED | RUNNABLE |
+| 2026-08-23 | TC-008 reported `DENSE_CARRIES_SIGNAL`; dense fallback retained | REPORTED | REPORTED | REPORTED | REPORTED | REPORTED | RUNNABLE |
 
 **Re-read of 2026-08-22.** Triggered by TC-001 reporting. Every line below was
 read from `TC_ARC_ROADMAP.md` rather than from memory or from this file's
@@ -268,6 +269,18 @@ own Preflight and standalone pre-registration.
 dense was frozen by TC-005 and both spread routes replayed before outcomes. It
 then retained dense full-budget retrieval. That supplies another possible
 frozen reader contrast but does not retroactively choose one for TC-006.
+
+**Re-read of 2026-08-23, eighth.** Triggered by TC-008 reporting. The remaining
+reader dependency and expiry line were read again from `TC_ARC_ROADMAP.md`.
+
+| Study | Dependency line, as written | Verdict | Why |
+|---|---|---|---|
+| TC-006 | Two frozen delivered contexts over the same query set with a known availability margin, and an instrument finer than that margin | `RUNNABLE` | TC-008 adds byte-frozen dense/A3/session contexts and exact availability margins. It does not satisfy or remove TC-006's second clause: reader-instrument resolution must still be measured as that study's own first task |
+
+**No study is `BLOCKED`.** TC-008's negative session-spread result is not a
+missing reader artifact and cannot block answer validation. It supplies more
+frozen contexts while leaving the reader, prompt, replicates, scorer and bars
+unselected. Reader work was not started by this re-read.
 
 **Initial state, 2026-08-21.** All six dependency lines name artifacts that
 exist, with one exception recorded here rather than as a block: TC-006's second
