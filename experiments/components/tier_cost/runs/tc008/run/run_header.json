@@ -1,0 +1,24 @@
+{
+  "command": ".venv\\Scripts\\python.exe scripts\\run_tc008_study.py --phase run",
+  "parallel": 1,
+  "precondition": {
+    "blind_manifest_sha256": "83bcadb1e029e14514841b65bd903904fe53420a246bc0a59cad99afaa0671b3",
+    "g0_commit": "18077ef7c0a124bcfc83cfef7deffa045971c63d",
+    "g0_sha256": "e43d947cf02bc2b132c64b660305550975589148a6f01c556e04a3720f90c03d",
+    "source_sha256": {
+      "scripts/run_tc008_study.py": "525d0399f3176154ed359157a71ea57e136fe1c5d8b5b198ffa914fdde310002",
+      "src/analysis/tc007_allocation.py": "97276ebca1da1b545fb518f514b974d9d7951449f28700dad9d3c4a3df23c007",
+      "src/analysis/tc008_session_spread.py": "e2ce1c24d98ff90d35afc2e11d17a51f3e2e090e72a15c5dcd5d73aed6d30af8",
+      "src/analysis/tc008_study.py": "697294ee69308d6f7daec8cd18a11fb31c46fd585aacdd065c3ce668d603937e"
+    },
+    "status": "PASS"
+  },
+  "schema": "tc008-run-header-v1",
+  "speculative_decoding": false,
+  "threading": {
+    "MKL_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1"
+  }
+}
