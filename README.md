@@ -143,7 +143,7 @@ flush against the page there rather than showing as a panel.*
 
 ## Current State of Work
 
-*Last updated 2026-08-24, at TC-011's verdict.*
+*Last updated 2026-08-24, at TC-012's verdict.*
 
 **The tiered architecture does not earn its place on delivery.** TC-001 put the
 shipped four-tier read path against the flat cosine ranking that scored 79.09%
@@ -281,6 +281,13 @@ is closest but breadth is 15/23 against CC80's 17/24. Anchored and pure chains
 select different sets on every question at both budgets, yet both regress
 sharply. `NO_CANDIDATE`; CC80 keeps the full budget.
 
+**TC-012 dynamically recomputes ASPECT relevance after every hop, and feedback
+drift makes it worse.** Growing-prompt ASPECT reaches 720/787 combined at
+16k/32k versus static ASPECT 749/810 and full CC80 771/819; breadth falls to
+8/20 from static's 15/23. A residual-question-facet variant reaches 753/810,
+but its exact lexical binder changes only 146/71 of 871 sets and usually falls
+back to the original query. `NO_DYNAMIC_PROMPT_SIGNAL`; CC80 remains fallback.
+
 None of that authorizes deleting or shipping anything, and TC-002 decided the
 shipping question in its registration *before* the number existed: a positive
 result does not ship, because the same correction was already rejected on a live
@@ -381,7 +388,7 @@ confirmation.
 
 ## Next Steps
 
-1. **Return to answers through a separately registered reader study.** TC-011
+1. **Return to answers through a separately registered reader study.** TC-012
    leaves user-locked full-budget CC80 as its offline fallback and preserves
    every prior context. Before any inference, freeze which contexts the
    reader compares, the exact prompt/model, replicate schedule, item-level
@@ -422,7 +429,7 @@ Eleven pre-registered studies test that question, each adding one memory compone
 
 > **Status:** Study 010 stopped at G2; exploratory continuation unaudited and LTM budget-noncompliant | retrieval bakeoff complete | retrieval mechanism ledger reopened for Family CS; E005 is killed by LV-001's live targeted-regression bar, DX-001 closes NO CHANGE, RD-001 stops before correlation because unchanged rarity scores cover only 6/76 fact-bearing episodes, and chained retrieval Rev5 is CHARACTERIZED offline at 9/17 versus X0 6/17 but misses art 0/4 and has no targeted no-regression arm | EC-001 LongMemEval complete: inversion not dominant, Codex-substituted score only | EC-002 complete: K-first packing raises any-session recall 109/470 -> 261/470 offline; no production promotion authorized | IC-001 Branch A: the same gate is closed internally — K delivered nothing at 8/8 probes under the deployed order; Q11 6/17 -> 7/17, targeted 14/21 -> 18/21, zero losses; cache clause substituted under authorized Amendment 001; no recalibration authorized | Study 011 tests both halves live and splits them: the deployed arm scores identically to recency-only on all 13 questions, so the similarity tier is inert in deployment, but K-first raises availability and scores 7.0 vs 8.0 — B1 FAILS and the packing correction is not adopted; post-unseal analysis finds the N tier is a least-recently-delivered rotation over the whole store, not a recency window, and that the rule every live run through Study 010 used was a block locked onto the conversation's first nine turns; three different rules carry that name and only the extracted library's is a window | Amendment 001 authorized and run: the instrument's run-to-run band is **3.0 points on 13**, measured by five identical arm-D replicates that score 8.0, 8.0, 8.0, 8.0 and 11.0 — a switch, not a spread, since four are byte-identical across 121 turns and the one meeting an empty server slot diverges at turn 1; Study 009's 3.0, LV-001's -2.0 and Study 011's -1.0 are all re-read as **not demonstrated**, while every offline count is untouched and B1 stays fired | CC-002 extracts the deployable component into `episodic`; CC-006 adds exact hashed vector-cache reuse | PS-001 CHARACTERIZED: the selected sparse cell stores and recovers 119/119 codes through 50% registered swaps | PS-002 stops at Part 1: best natural-language binder reaches stored codes in 190/192 rounds but retains one cycle and one spurious fixed point, so labels, answers, and live scoring are not entered | deployment closeout complete | PAPER-002 supersedes PAPER-001 (2026-08-18): same numbers, reordered to lead with the sealed LoCoMo holdout, with a four-level standing taxonomy in `paper/notes/EVIDENCE_SPINE.md`, a withdrawn-claim list in `paper/notes/DO_NOT_WRITE.md`, and every number gated by `scripts/check_paper_002_claims.py`; PAPER-001 retired | scoring/interpretation record corrected through 2026-08-05
 
-> **TC arc status:** `TC-001 REPORTED D3 FLAT_WINS; TC-001B REPORTED C1 D3 FLAT_WINS; TC-002 REPORTED C1 D1 K_FIRST_WINS; TC-003 REPORTED C1 D1 FLOORS_WINS / C5 D3 RANKED_WINS; TC-004 REPORTED NO_PREDICTIVE_SIGNAL; TC-005 REPORTED HYBRID CARRIES_SIGNAL / DENSE FALLBACK; TC-007 REPORTED NO_SPLIT_SELECTED / DENSE FALLBACK; TC-008 REPORTED DENSE_CARRIES_SIGNAL / DENSE FALLBACK; TC-009 REPORTED DENSE_WORKS / DENSE FALLBACK; TC-010 REPORTED NO_SPLIT_SELECTED / CC80 FALLBACK; TC-011 REPORTED NO_CANDIDATE / CC80 FALLBACK; READER STUDY NOT STARTED`.
+> **TC arc status:** `TC-001 REPORTED D3 FLAT_WINS; TC-001B REPORTED C1 D3 FLAT_WINS; TC-002 REPORTED C1 D1 K_FIRST_WINS; TC-003 REPORTED C1 D1 FLOORS_WINS / C5 D3 RANKED_WINS; TC-004 REPORTED NO_PREDICTIVE_SIGNAL; TC-005 REPORTED HYBRID CARRIES_SIGNAL / DENSE FALLBACK; TC-007 REPORTED NO_SPLIT_SELECTED / DENSE FALLBACK; TC-008 REPORTED DENSE_CARRIES_SIGNAL / DENSE FALLBACK; TC-009 REPORTED DENSE_WORKS / DENSE FALLBACK; TC-010 REPORTED NO_SPLIT_SELECTED / CC80 FALLBACK; TC-011 REPORTED NO_CANDIDATE / CC80 FALLBACK; TC-012 REPORTED NO_DYNAMIC_PROMPT_SIGNAL / CC80 FALLBACK; READER STUDY NOT STARTED`.
 > The arc asks whether the tiered stack earns its place before asking how to tune
 > it. TC-001 ran the shipped `build_context` against `CdwArm`'s flat cosine
 > ranking over identical candidates, vectors, renderer, packer and 16,000-character
@@ -658,6 +665,12 @@ Eleven pre-registered studies test that question, each adding one memory compone
 > LOGDET 726/797, ASPECT 749/810, anchored chain 717/780 and pure chain 717/778.
 > ASPECT is least harmful but breadth is 15/23 versus 17/24. Both chains are
 > active and distinct yet regress sharply. `NO_CANDIDATE`; CC80 fallback.
+
+> **TC-012 dynamic ASPECT (2026-08-24).** Per-hop growing-prompt recomparison
+> produces combined 720/787 at 16k/32k versus static ASPECT 749/810 and CC80
+> 771/819; breadth is 8/20 versus 15/23 and 17/24. Residual-facet ASPECT reaches
+> 753/810 but changes only 146/71 of 871 sets and usually falls back to the
+> original query. `NO_DYNAMIC_PROMPT_SIGNAL`; residual binder limited.
 
 > **Current component status:** SUP-001 passes all offline P5/P9 supersession
 > gates and the 35-turn reader ablation; no 120-turn run or adoption is automatic.
@@ -927,6 +940,7 @@ Runs use a scripted 120-turn conversation with facts planted at known positions 
 | TC-009 convex + protected miss audit | Explain every miss and gain over dense from the frozen parent contexts | POSTHOC_DESCRIPTIVE | CC80+A3 misses 111/868 at 16k and 50/868 at 32k; 61 are budget-rescued and none regress. CC80 associates with 17/20 and 6/9 gains. At 32k all 18 targeted misses are zero-evidence, while 31/32 non-targeted misses are partial; multi-session evidence misses 26/126 versus 18/704 single-carrier. Zero ranking/model calls; no causal, reader or architecture claim |
 | TC-010 | Frozen CC80 relevance plus 50/50 minimum-redundancy spread inside CC80's top quarter; reverse CC80 negative control | NO_SPLIT_SELECTED; REGISTERED-OFFLINE | Full CC80/qualified/global-bottom combined is 771/752/706 at 16k and 819/818/771 at 32k; breadth 17/13/8 and 24/24/17. Qualified diversity displaces evidence at 16k, while at 32k 765/871 sets equal full CC80 because the pool already fits. Global bottom is decisively harmful. Preflight reproduces 3,484 payloads with zero calls/misses. CC80 fallback; no tuning or reader |
 | TC-011 | Frozen CC80 semantic half plus 50/50 LOGDET, deterministic ASPECT, query-anchored chain or pure chain spread | NO_CANDIDATE; REGISTERED-OFFLINE | Combined complete at 16k/32k: CC80 771/819, LOGDET 726/797, ASPECT 749/810, anchored chain 717/780, pure chain 717/778. ASPECT is least harmful but breadth 15/23 trails 17/24. The chains differ on 871/871 contexts yet both regress. Preflight reproduces 3,484 parent payloads and 316,786 updates with zero calls/misses. CC80 fallback; no answers or tuning |
+| TC-012 | Recompute ASPECT relevance per hop using a growing-context cue or an uncovered-question-facet residual cue | NO_DYNAMIC_PROMPT_SIGNAL; RESIDUAL_BINDER_LIMITED; REGISTERED-OFFLINE | CC80/static/dynamic/residual combined is 771/749/720/753 at 16k and 819/810/787/810 at 32k; breadth 17/15/8/15 and 24/23/20/23. Dynamic prompt loses to static 2/31 and 3/26. Residual differs from static on only 146/71 sets, so its +4/0 at 16k cannot support the broad thesis. 3,484 control reproductions, 117,966 updates, zero calls/misses. CC80 fallback |
 | SUP-001 | Explicit supersession lineage and accessibility | FACTUAL PASS; byte-identity criterion withdrawn | Current-only retrieval rose 0/64 to 64/64 with 32/32 unchanged and 64/64 histories. T1 scored 9/9 under numeric-value equivalence, with zero regressions and zero stale natural payloads; no larger run or adoption is automatic |
 
 Full reports live under `experiments/study_NNN/`; external evaluation reports
