@@ -266,6 +266,13 @@ penalty features passes. The strongest pooled margin reaches AUC .708 but
 reverses to .30 on one conversation and finds one gain in its top 20. No new
 selector is authorized from this exhausted-corpus diagnostic.
 
+**Noun and grammatical-subject spans are extractable, but their embedding
+scores are actively harmful as rerankers.** At 32k, whole-pair dense delivers
+810 complete questions; noun-phrase max delivers 443 and subject-sentence max
+659. Breadth falls 27→10/13 and targeted falls 680→391/580. Both arms regress
+all four conversations. The spans exist; maximum span cosine is not a safe
+proxy for answer-bearing content.
+
 None of that authorizes deleting or shipping anything, and TC-002 decided the
 shipping question in its registration *before* the number existed: a positive
 result does not ship, because the same correction was already rejected on a live
@@ -591,6 +598,15 @@ Eleven pre-registered studies test that question, each adding one memory compone
 > or TC-010 authorized. Feature extraction precedes labels and replays 1,742
 > payload identities with zero calls/misses.
 
+> **TC-009 syntactic-span probe (2026-08-23).** A fixed parser exposes 4,935
+> unique noun phrases and 5,385 unique subject-bearing sentences; the carried
+> embedder scores them, and the same 32k packer still delivers complete pairs.
+> Dense/noun/subject combined complete evidence is 810/443/659; targeted is
+> 680/391/580 and breadth 27/10/13. Both treatments regress all four
+> conversations. Lost evidence has median dense rank 5/14. Capture embeds
+> 10,320 unique spans; outcome calls are zero and no LLM calls occur.
+> `NO_POSITIVE_SIGNAL`; no TC-010, selector or reader authorized.
+
 > **Current component status:** SUP-001 passes all offline P5/P9 supersession
 > gates and the 35-turn reader ablation; no 120-turn run or adoption is automatic.
 
@@ -852,6 +868,7 @@ Runs use a scripted 120-turn conversation with facts planted at known positions 
 | TC-008 | Source-session novelty under TC-007's fixed 50/50 protected allocator | DENSE_CARRIES_SIGNAL; DENSE FALLBACK; REGISTERED-OFFLINE | The only changed component replaces A3's embedding-cluster grouping with source sessions under the same relevance-plus-0.1 novelty objective. At 16k, combined/breadth/targeted complete evidence is 728/13/629 versus dense 749/16/643; breadth identities add/lose 1/5 and both dense guardrails fire. At 32k complete endpoints tie, while one breadth identity is lost. Median represented sessions rises to 30, but 15/27 evidence-changing 16k questions are losses specific to session grouping versus A3. G0: 2,214 tests and 70,736 mechanism checks; two-process replay exact; zero calls/misses. Availability only; reader answers not started |
 | TC-009 | Repeated best-session competition with a cumulative `.03` selection penalty | DENSE_WORKS; DENSE FALLBACK; REGISTERED-OFFLINE | The only changed component replaces TC-008's one-time session novelty with repeated global competition among each session's best remaining cosine candidate. Complete combined/breadth/targeted delivery is 713/12/624 at 16k versus dense 749/16/643, and 794/21/674 at 32k versus 810/27/680. There are no complete-breadth gains. Attribution finds 34/22 dynamic-only required-identity losses at 16k/32k; targeted lost-carrier dense-rank medians are 38.5/71. G0: 2,226 tests and 366,127 state checks; two full workers exact; zero calls/misses. Availability only; reader answers not started |
 | TC-009 safe-substitution probe | Evidence-blind predictors of safe 32k dynamic-versus-dense replacements | NO_POSITIVE_SIGNAL; DESCRIPTIVE | Across 868 eligible questions there are 7 required-identity gains, 23 losses and 838 ties; complete evidence has 4 gains/20 losses. None of 15 frozen features passes. The best pooled query-margin AUC is .708 but reverses to .30 on conv-41 and its top 20 contains one gain. Novelty/redundancy AUC is .47-.54. Feature extraction is sealed before label import; 1,742 payload identities replay; zero calls/misses. No selector, threshold, reader or TC-010 authorized |
+| TC-009 syntactic-span probe | Rank complete pairs by maximum noun-phrase or subject-bearing-sentence cosine | NO_POSITIVE_SIGNAL; DESCRIPTIVE | At 32k, dense/noun/subject combined complete evidence is 810/443/659, targeted 680/391/580 and breadth 27/10/13. Both treatments regress all four conversations; required evidence they lose has median dense rank 5/14. Label-blind capture parses 1,365 pair documents and embeds 10,320 unique spans; Preflight reproduces all 871 dense payloads; outcome calls are zero and LLM calls are zero. Parser extraction works, but max span cosine is unsafe; no TC-010 or reader authorized |
 | SUP-001 | Explicit supersession lineage and accessibility | FACTUAL PASS; byte-identity criterion withdrawn | Current-only retrieval rose 0/64 to 64/64 with 32/32 unchanged and 64/64 histories. T1 scored 9/9 under numeric-value equivalence, with zero regressions and zero stale natural payloads; no larger run or adoption is automatic |
 
 Full reports live under `experiments/study_NNN/`; external evaluation reports
