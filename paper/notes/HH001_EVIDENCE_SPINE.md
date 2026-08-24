@@ -47,8 +47,9 @@ items without a memory block.
 
 ## 3. What the write path cost
 
-`cost/mem0_ingest.json` · `a9653199d0d8317f` and
-`pilot/mem0_observation.json` · `9fe9d7ca25c952ab`
+`cost/mem0_ingest.json` · `a9653199d0d8317f`,
+`pilot/mem0_observation.json` · `9fe9d7ca25c952ab` and
+`cost/mem0_ingest_tokens_corrected.json` · `1373ac7f03c5ff81`
 
 | id | value | what it is |
 |---|---|---|
@@ -56,17 +57,41 @@ items without a memory block.
 | C2 | **1.0 per message pair** | measured. Mem0's paper describes `1 + n`; this build spent one |
 | C3 | **284 minutes** | wall clock for that ingest |
 | C4 | **0** | generative calls this component spends on the same corpus. Architectural, not measured |
-| C5 | **~4,100 prompt tokens per ingested pair**; **5,988,818** across the sampled window | `cost/mem0_ingest_tokens.json`, llama-server's cumulative counters over a window covering about 1,451 of the 1,646 pairs |
+| C5 | **~1,131 prompt tokens per ingested pair**; **1,862,108** across the whole ingest | `cost/mem0_ingest_tokens_corrected.json`, RECOMPUTED: the 86.6% of the ingest the counter overlaps, scaled by wall clock |
+| C5a | **1,612,718** | MEASURED floor. Prompt tokens inside the overlap, no scaling |
+| C5b | **1,843,446** | completion tokens, whole ingest, same scaling. Mem0 writes back almost as much as it reads |
+| C5c | **the per-pair cost does not climb with store size** | slope **−0.444** tokens/min per stored memory over 246 → 1,816 memories |
 
-**C5 was wrong and is corrected here.** An earlier draft of this spine said
-"~1,000 prompt tokens per stored turn". That figure divided an early, short window
-by *memory writes* and then labelled the result per *turn* — two errors compounding.
-The window average is **3,750 tokens per memory write** and **~4,100 per ingested
-pair**, and the per-pair cost climbs through the ingest because each extraction is
-shown what is already stored. **The error understated Mem0's cost roughly fourfold**,
-which is to say it ran against this paper's own argument; it was caught by
-adversarial review, not by the gate, because the gate checks that a number is in
-this file and not that this file is right.
+**C5 has been corrected twice, in opposite directions. Read both.**
+
+*First correction.* An earlier draft said "~1,000 prompt tokens per stored turn".
+That divided an early, short window by *memory writes* and labelled the result
+per *turn* — two errors compounding, understating Mem0's cost roughly fourfold.
+It was caught by adversarial review, not by the gate, because the gate checks
+that a number is in this file and not that this file is right. **It fixed the
+denominator. The numerator was the defect.**
+
+*Second correction (Amendment 001, 2026-08-21).* The 5,988,818 was a delta on a
+**cumulative, process-wide, un-reset** counter, taken across the whole sampling
+window. Mem0's history table dates its last write at `20:31:29Z`; the window ran
+to `22:15:19Z`. **The counter ran 105 minutes past Mem0's last write and booked
+4,376,100 prompt tokens in those minutes — 73% of the published figure — to the
+reader phase sharing the server.** The published value was inflated **3.22×**,
+this time in this programme's own favour. The uncovered head is excluded rather
+than added back: its cumulative prompt/predicted ratio is 1.424 against the
+overlap's 1.010, so it holds the pilot and the probes too.
+
+The "climbs through the ingest" clause went with it. It was asserted from the
+same contaminated tail and the clean overlap contradicts it. The drift that is
+real is in **latency**, 1.13× first-to-last decile (I2), not in tokens.
+
+**C1–C4 are untouched, and C1 is the load-bearing number.** 1,646 generative
+calls against zero is the architectural comparison; it was never a token count
+and no bar moves.
+
+Derivation: `scripts/hh001_ingest_token_correction.py`. Every field is derived
+from hashed inputs; none is typed. See
+`../../experiments/comparisons/hh_001/amendments/AMENDMENT_001_ingest_token_window.md`.
 
 ## 4. What the write path lost
 
