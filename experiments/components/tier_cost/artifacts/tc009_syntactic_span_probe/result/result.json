@@ -1,0 +1,206 @@
+{
+  "calls": {
+    "cache_misses": 0,
+    "embedding": 0,
+    "llm_or_generative": 0,
+    "parser_documents": 0
+  },
+  "cells": {
+    "noun": {
+      "breadth": {
+        "dense": 27,
+        "gains": 0,
+        "losses": 17,
+        "n": 44,
+        "net": -17,
+        "treatment": 10
+      },
+      "breadth_identity": {
+        "gains": 4,
+        "losses": 61,
+        "net_identities": -57
+      },
+      "clauses": {
+        "breadth_complete_nonnegative": false,
+        "breadth_identity_positive": false,
+        "combined_positive": false,
+        "conversation_consistent": false,
+        "targeted_nonnegative": false
+      },
+      "combined": {
+        "dense": 810,
+        "gains": 16,
+        "losses": 383,
+        "n": 868,
+        "net": -367,
+        "treatment": 443
+      },
+      "conversation_nets": {
+        "conv-41": -56,
+        "conv-42": -127,
+        "conv-47": -65,
+        "conv-48": -119
+      },
+      "max_over_spans_audit": {
+        "correlation_questions": 868,
+        "median_within_question_score_span_count_correlation": 0.2551467479246059,
+        "selected_fallback_rate": 0.00024503226258123985,
+        "selected_fallbacks": 21,
+        "selected_span_count": {
+          "max": 42.0,
+          "mean": 15.651774150263117,
+          "median": 15.0,
+          "min": 0.0,
+          "n": 85703
+        },
+        "selected_total": 85703,
+        "store_span_count": {
+          "max": 42.0,
+          "mean": 14.715474395676994,
+          "median": 14.0,
+          "min": 0.0,
+          "n": 295165
+        }
+      },
+      "rank_diagnostics": {
+        "all_evidence_dense": {
+          "max": 337.0,
+          "mean": 26.694610778443113,
+          "median": 4.0,
+          "min": 1.0,
+          "n": 1169
+        },
+        "all_evidence_treatment": {
+          "max": 347.0,
+          "mean": 104.23524379811805,
+          "median": 72.0,
+          "min": 1.0,
+          "n": 1169
+        },
+        "gained_evidence_treatment": {
+          "max": 97.0,
+          "mean": 43.53333333333333,
+          "median": 38.5,
+          "min": 2.0,
+          "n": 30
+        },
+        "lost_evidence_dense": {
+          "max": 121.0,
+          "mean": 16.97659574468085,
+          "median": 5.0,
+          "min": 1.0,
+          "n": 470
+        }
+      },
+      "targeted": {
+        "dense": 680,
+        "gains": 13,
+        "losses": 302,
+        "n": 704,
+        "net": -289,
+        "treatment": 391
+      }
+    },
+    "subject": {
+      "breadth": {
+        "dense": 27,
+        "gains": 1,
+        "losses": 15,
+        "n": 44,
+        "net": -14,
+        "treatment": 13
+      },
+      "breadth_identity": {
+        "gains": 12,
+        "losses": 38,
+        "net_identities": -26
+      },
+      "clauses": {
+        "breadth_complete_nonnegative": false,
+        "breadth_identity_positive": false,
+        "combined_positive": false,
+        "conversation_consistent": false,
+        "targeted_nonnegative": false
+      },
+      "combined": {
+        "dense": 810,
+        "gains": 14,
+        "losses": 165,
+        "n": 868,
+        "net": -151,
+        "treatment": 659
+      },
+      "conversation_nets": {
+        "conv-41": -22,
+        "conv-42": -60,
+        "conv-47": -25,
+        "conv-48": -44
+      },
+      "max_over_spans_audit": {
+        "correlation_questions": 868,
+        "median_within_question_score_span_count_correlation": 0.18409478486801098,
+        "selected_fallback_rate": 0.02296088942280449,
+        "selected_fallbacks": 2026,
+        "selected_span_count": {
+          "max": 11.0,
+          "mean": 4.189104343982683,
+          "median": 4.0,
+          "min": 0.0,
+          "n": 88237
+        },
+        "selected_total": 88237,
+        "store_span_count": {
+          "max": 11.0,
+          "mean": 4.011732420849356,
+          "median": 4.0,
+          "min": 0.0,
+          "n": 295165
+        }
+      },
+      "rank_diagnostics": {
+        "all_evidence_dense": {
+          "max": 337.0,
+          "mean": 26.694610778443113,
+          "median": 4.0,
+          "min": 1.0,
+          "n": 1169
+        },
+        "all_evidence_treatment": {
+          "max": 337.0,
+          "mean": 54.74679213002566,
+          "median": 12.0,
+          "min": 1.0,
+          "n": 1169
+        },
+        "gained_evidence_treatment": {
+          "max": 108.0,
+          "mean": 59.57142857142857,
+          "median": 65.0,
+          "min": 1.0,
+          "n": 35
+        },
+        "lost_evidence_dense": {
+          "max": 124.0,
+          "mean": 27.140776699029125,
+          "median": 14.0,
+          "min": 1.0,
+          "n": 206
+        }
+      },
+      "targeted": {
+        "dense": 680,
+        "gains": 11,
+        "losses": 111,
+        "n": 704,
+        "net": -100,
+        "treatment": 580
+      }
+    }
+  },
+  "claim_boundary": "used LoCoMo development availability only; no TC-010, selector or reader authorized",
+  "passing_arms": [],
+  "population": 868,
+  "schema": "tc009-syntactic-span-probe-v1",
+  "selection_sha256": "a49c7a90453d22924fbd421e8d42ed5dcfebd6e3338e9f39eaacdeee34e90a68",
+  "status": "NO_POSITIVE_SIGNAL"
+}
