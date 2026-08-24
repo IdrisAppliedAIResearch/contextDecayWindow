@@ -42,9 +42,16 @@ PAPER_BUILD_TIMESTAMP = 1_786_579_200  # 2026-08-13 00:00:00 UTC
 _ESCAPE = str.maketrans({c: "\\" + c for c in "\\#$*_`<>@[]"})
 
 
+#: Typst's smart quotes read an apostrophe after a digit as a prime, which is
+#: right for 5'11" and wrong for every possessive this paper writes after a
+#: number: `Mem0's`, `NF-004's`, `Table 2's`, `arXiv:2504.19413's`, `§13.1's`.
+#: Emitting U+2019 ourselves settles it before the heuristic runs.
+_APOSTROPHE = re.compile(r"(?<=[\w\d])'(?=[a-zA-Z])")
+
+
 def esc(text: str) -> str:
     """Escape a run of literal text for Typst markup mode."""
-    out = text.translate(_ESCAPE)
+    out = _APOSTROPHE.sub("’", text).translate(_ESCAPE)
     # A leading =, -, + or / would start a heading, list or term item.
     return re.sub(r"^([=\-+/])", r"\\\1", out)
 
