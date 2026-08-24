@@ -143,7 +143,7 @@ flush against the page there rather than showing as a panel.*
 
 ## Current State of Work
 
-*Last updated 2026-08-23, at TC-007's verdict.*
+*Last updated 2026-08-23, at TC-008's verdict.*
 
 **The tiered architecture does not earn its place on delivery.** TC-001 put the
 shipped four-tier read path against the flat cosine ranking that scored 79.09%
@@ -237,12 +237,24 @@ not inert — A3 adds 5/7 evidence identities dense missed — but it loses 14/3
 and the complete-breadth joint bar never fires. The frozen result is
 **`NO_SPLIT_SELECTED`; dense keeps the full budget.**
 
+**TC-008 then asks whether spread was grouped around the wrong thing, and real
+source sessions do not fix it.** The session arm keeps the same dense route,
+50/50 allocator and A3 relevance-plus-novelty objective; only embedding-cluster
+ids become conversation-session ids. It represents a median 30 sessions at 16k
+against dense's 24, but combined complete delivery falls **749 to 728**,
+targeted falls **643 to 629**, and breadth falls **16 to 13**. Breadth identity
+delivery has one gain and five losses. At 32k complete delivery ties dense while
+one breadth identity is lost. Of 27 evidence-changing 16k questions, 15 are
+losses specific to session grouping versus A3. Disposition is
+**`DENSE_CARRIES_SIGNAL`; dense remains the fallback.** More represented
+sessions is not a useful proxy for more answer evidence.
+
 None of that authorizes deleting or shipping anything, and TC-002 decided the
 shipping question in its registration *before* the number existed: a positive
 result does not ship, because the same correction was already rejected on a live
 bar. Availability is not a verdict, and LoCoMo asks questions about a finished
 conversation, so a recency window is close to worthless there by construction.
-What the seven TC results establish together is narrower and sharper: on this
+What the eight TC results establish together is narrower and sharper: on this
 corpus, the tiered machinery at its best delivers what a plain cosine ranking
 delivers, at roughly four times the latency. Changing allocation can rescue a
 bad fixed order, but it does not isolate a gain over ranking candidates well;
@@ -250,8 +262,10 @@ one natural embedding-localization score does not reliably identify safe
 splits; and hybrid relevance has a promising tight-budget result without the
 two-budget evidence needed to replace dense. Fixed 50/50 A3 spread can add a
 few outliers at 32k without improving complete breadth at both budgets, while
-facility spread is decisively harmful. TC-006 owns the reader. Nothing in the
-TC arc is blocked.
+facility spread is decisively harmful. Replacing embedding clusters with real
+sessions raises coverage counts and worsens required evidence, so global
+session touch closes as a surrogate. Reader answers are next and remain
+separately registered work. Nothing in the TC arc is blocked.
 
 **The deployable component is done.** `episodic/` is an installable library with
 a public store, report, config and embedding-cache API. Extraction is certified
@@ -333,12 +347,12 @@ confirmation.
 
 ## Next Steps
 
-1. **Register item-level reader validation before any live inference.** TC-006's
-   fact-use instrument over two frozen contexts, whose own first task is
-   measuring whether its resolution beats the margin it must test. Compare
-   NF-006's frozen 12/17 and 14/17 Q11 contexts using five replicates per arm and
-   a 17-item fact-use instrument. The reader, exact prompt, replicate schedule,
-   scorer, and paired bar remain to be locked; `nf_008/` is design-only.
+1. **Return to answers through a separately registered reader study.** TC-008
+   leaves full-budget dense as the offline fallback and preserves the dense,
+   A3 and session contexts. Before any inference, freeze which contexts the
+   reader compares, the exact prompt/model, replicate schedule, item-level
+   fact-use scorer and achievable bars. Availability does not select those
+   reader-design choices after the result.
 
 2. **Write DMR-002 Part 1 and its final pre-registration before implementation.**
    The former is upstream-cleared, but the only spec still forbids execution.
@@ -374,7 +388,7 @@ Eleven pre-registered studies test that question, each adding one memory compone
 
 > **Status:** Study 010 stopped at G2; exploratory continuation unaudited and LTM budget-noncompliant | retrieval bakeoff complete | retrieval mechanism ledger reopened for Family CS; E005 is killed by LV-001's live targeted-regression bar, DX-001 closes NO CHANGE, RD-001 stops before correlation because unchanged rarity scores cover only 6/76 fact-bearing episodes, and chained retrieval Rev5 is CHARACTERIZED offline at 9/17 versus X0 6/17 but misses art 0/4 and has no targeted no-regression arm | EC-001 LongMemEval complete: inversion not dominant, Codex-substituted score only | EC-002 complete: K-first packing raises any-session recall 109/470 -> 261/470 offline; no production promotion authorized | IC-001 Branch A: the same gate is closed internally — K delivered nothing at 8/8 probes under the deployed order; Q11 6/17 -> 7/17, targeted 14/21 -> 18/21, zero losses; cache clause substituted under authorized Amendment 001; no recalibration authorized | Study 011 tests both halves live and splits them: the deployed arm scores identically to recency-only on all 13 questions, so the similarity tier is inert in deployment, but K-first raises availability and scores 7.0 vs 8.0 — B1 FAILS and the packing correction is not adopted; post-unseal analysis finds the N tier is a least-recently-delivered rotation over the whole store, not a recency window, and that the rule every live run through Study 010 used was a block locked onto the conversation's first nine turns; three different rules carry that name and only the extracted library's is a window | Amendment 001 authorized and run: the instrument's run-to-run band is **3.0 points on 13**, measured by five identical arm-D replicates that score 8.0, 8.0, 8.0, 8.0 and 11.0 — a switch, not a spread, since four are byte-identical across 121 turns and the one meeting an empty server slot diverges at turn 1; Study 009's 3.0, LV-001's -2.0 and Study 011's -1.0 are all re-read as **not demonstrated**, while every offline count is untouched and B1 stays fired | CC-002 extracts the deployable component into `episodic`; CC-006 adds exact hashed vector-cache reuse | PS-001 CHARACTERIZED: the selected sparse cell stores and recovers 119/119 codes through 50% registered swaps | PS-002 stops at Part 1: best natural-language binder reaches stored codes in 190/192 rounds but retains one cycle and one spurious fixed point, so labels, answers, and live scoring are not entered | deployment closeout complete | PAPER-002 supersedes PAPER-001 (2026-08-18): same numbers, reordered to lead with the sealed LoCoMo holdout, with a four-level standing taxonomy in `paper/notes/EVIDENCE_SPINE.md`, a withdrawn-claim list in `paper/notes/DO_NOT_WRITE.md`, and every number gated by `scripts/check_paper_002_claims.py`; PAPER-001 retired | scoring/interpretation record corrected through 2026-08-05
 
-> **TC arc status:** `TC-001 REPORTED D3 FLAT_WINS; TC-001B REPORTED C1 D3 FLAT_WINS; TC-002 REPORTED C1 D1 K_FIRST_WINS; TC-003 REPORTED C1 D1 FLOORS_WINS / C5 D3 RANKED_WINS; TC-004 REPORTED NO_PREDICTIVE_SIGNAL; TC-005 REPORTED HYBRID CARRIES_SIGNAL / DENSE FALLBACK; TC-007 REPORTED NO_SPLIT_SELECTED / DENSE FALLBACK; TC-006 DESIGN ONLY`.
+> **TC arc status:** `TC-001 REPORTED D3 FLAT_WINS; TC-001B REPORTED C1 D3 FLAT_WINS; TC-002 REPORTED C1 D1 K_FIRST_WINS; TC-003 REPORTED C1 D1 FLOORS_WINS / C5 D3 RANKED_WINS; TC-004 REPORTED NO_PREDICTIVE_SIGNAL; TC-005 REPORTED HYBRID CARRIES_SIGNAL / DENSE FALLBACK; TC-007 REPORTED NO_SPLIT_SELECTED / DENSE FALLBACK; TC-008 REPORTED DENSE_CARRIES_SIGNAL / DENSE FALLBACK; READER STUDY NOT STARTED`.
 > The arc asks whether the tiered stack earns its place before asking how to tune
 > it. TC-001 ran the shipped `build_context` against `CdwArm`'s flat cosine
 > ranking over identical candidates, vectors, renderer, packer and 16,000-character
@@ -523,6 +537,19 @@ Eleven pre-registered studies test that question, each adding one memory compone
 > digests agree; zero run calls/misses. `REGISTERED-OFFLINE`, availability only;
 > no reader, share optimum, enterprise budget, or adoption claim.
 > `experiments/components/tier_cost/TC_007_REPORT.md`.
+
+> **TC-008 (2026-08-23), source-session novelty under the protected split.**
+> Keeping TC-007's dense route, 50/50 allocator and relevance-plus-0.1-novelty
+> objective fixed while replacing embedding clusters with source sessions gives
+> combined/breadth/targeted complete delivery of 728/13/629 at 16k against
+> dense's 749/16/643. Breadth identity delivery has one gain and five losses;
+> dense clears both 16k guardrails. At 32k all complete endpoints tie, but one
+> breadth identity is lost. The arm raises represented sessions to median 30,
+> yet 15 of 27 evidence-changing 16k questions are losses specific to session
+> grouping versus A3. `DENSE_CARRIES_SIGNAL`; no session split is selected.
+> G0 passes 2,214 tests and 70,736 mechanism checks; two full worker digests
+> agree; zero calls/misses. `REGISTERED-OFFLINE`, availability only. Reader
+> answers were not started. `experiments/components/tier_cost/TC_008_REPORT.md`.
 
 > **Current component status:** SUP-001 passes all offline P5/P9 supersession
 > gates and the 35-turn reader ablation; no 120-turn run or adoption is automatic.
@@ -782,6 +809,7 @@ Runs use a scripted 120-turn conversation with facts planted at known positions 
 | TC-004 | Query-conditioned prediction of beneficial pair-to-turn splits | NO_PREDICTIVE_SIGNAL; REGISTERED-OFFLINE | At 16k complete evidence, 53 questions contain a beneficial one-parent split. Embedding localization vs length AP: 21 gains, 31 losses, 1 tie, one-sided p=.9368. Mean AP .1021 vs .0544 is outlier-driven; median .0145 vs .0213. There are 96 beneficial and 235 harmful parent-question cases. At 1% splitting complete delivery rises 749→752 descriptively; full split falls to 687. At 32k full split falls 810→754. The lexical ablation is worse. G5 used 2,661 allowed solo embedding calls and zero generation; G6–G8 use sealed caches with zero calls. Availability only; no optimum rate/chunk size, reader, or adoption claim |
 | TC-005 | Dense, BM25, and dense-plus-BM25 hybrid ranking under TC-007's relevance half-budget | HYBRID TREATMENT_CARRIES_SIGNAL; DENSE FALLBACK; REGISTERED-OFFLINE | On 704 targeted questions, hybrid moves complete evidence 593→624 at 8k (+31; 58 gains, 27 losses, p=.000508) but 643→657 at 16k (+14; 36 gains, 22 losses, p=.0435), so it does not clear the registered works rule at both operating points. BM25 falls to 557 and 581; dense CARRIES_SIGNAL. On 868 eligible questions hybrid is +6 at 16k and -6 at 32k with no guardrail failure. The frozen selection rule keeps A_DENSE for TC-007. Two-process replay is exact; zero run calls/misses. Availability only; no reader or optimal-budget claim |
 | TC-007 | Fixed 50/50 dense relevance plus protected A3 or facility spread against full-budget dense | NO_SPLIT_SELECTED; DENSE FALLBACK; REGISTERED-OFFLINE | A3 combined complete evidence is 739/812 at 16k/32k versus dense 749/810; breadth 13/27 versus 16/27; targeted 637/681 versus 643/680, so A3 is MIXED_OR_NO_DIFFERENCE. Facility loses 57/36 combined and 7 breadth at both budgets; CONTROL_WORKS. A3 adds/losses 5/14 evidence ids at 16k and 7/3 at 32k, so spread is active but does not clear the joint complete-breadth rule. Two-process/file replay exact; zero calls/misses. Availability only; no reader, share optimum, or enterprise-budget claim |
+| TC-008 | Source-session novelty under TC-007's fixed 50/50 protected allocator | DENSE_CARRIES_SIGNAL; DENSE FALLBACK; REGISTERED-OFFLINE | The only changed component replaces A3's embedding-cluster grouping with source sessions under the same relevance-plus-0.1 novelty objective. At 16k, combined/breadth/targeted complete evidence is 728/13/629 versus dense 749/16/643; breadth identities add/lose 1/5 and both dense guardrails fire. At 32k complete endpoints tie, while one breadth identity is lost. Median represented sessions rises to 30, but 15/27 evidence-changing 16k questions are losses specific to session grouping versus A3. G0: 2,214 tests and 70,736 mechanism checks; two-process replay exact; zero calls/misses. Availability only; reader answers not started |
 | SUP-001 | Explicit supersession lineage and accessibility | FACTUAL PASS; byte-identity criterion withdrawn | Current-only retrieval rose 0/64 to 64/64 with 32/32 unchanged and 64/64 histories. T1 scored 9/9 under numeric-value equivalence, with zero regressions and zero stale natural payloads; no larger run or adoption is automatic |
 
 Full reports live under `experiments/study_NNN/`; external evaluation reports

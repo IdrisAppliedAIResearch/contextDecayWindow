@@ -1,11 +1,11 @@
 # TC Arc — What the tiered architecture earns, and what it costs
 
 **Document type:** Prospective arc roadmap
-**Status:** `RUNNING RECORD`; TC-001 through TC-005 and TC-007 have reported. Each locked
+**Status:** `RUNNING RECORD`; TC-001 through TC-005, TC-007 and TC-008 have reported. Each locked
 pre-registration governs its own study; where this roadmap disagrees, the
 registration wins and the disagreement is a defect in this file. TC-006 remains
 design only.
-**Date:** August 21, 2026
+**Date:** August 23, 2026
 **Predecessors:** HH-002 (`experiments/comparisons/hh_002/`), EC-002 and IC-001
 (`PAPER_002.md` §9), DR-002 (§8.2), NF-005 (§7.2), §10's cost envelope
 **Branch:** `study/tc-arc-tier-cost`, rebased onto `main` after PR #63 merged.
@@ -353,7 +353,40 @@ preflighted and registered work.
 
 ---
 
-## 8. TC-006 - Why a confirmed delivery gain did not become an answer gain
+## 8. TC-008 — Source-session novelty under protected spread
+
+TC-008 held TC-007's full-budget dense control, fixed 50/50 allocator, budgets,
+renderer, deduplication and slack return fixed. The only new component replaced
+A3's 16 embedding-cluster ids with real source-session ids under the same
+`max(cosine,0) + 0.1 * novelty` objective.
+
+**Result.** The mechanism behaves as named but loses the registered comparison.
+At 16k, combined/breadth/targeted complete evidence is 728/13/629 against
+dense's 749/16/643. Breadth identities have one gain and five losses. Dense
+fires both combined and targeted guardrails. At 32k all complete endpoints tie,
+while one breadth identity is lost. Disposition is `DENSE_CARRIES_SIGNAL`.
+
+Median represented sessions rises from 24 under dense to 30. That diagnostic
+does not carry evidence: 15 of 27 evidence-changing 16k questions are losses
+specific to source-session grouping relative to A3, and nine more are shared
+fixed-protection losses. Global session touch is closed as a certifying
+surrogate for useful breadth.
+
+**Claim boundary.** Availability only on used LoCoMo development data. This
+closes fixed 50/50 source-session novelty, not every spread strategy, adaptive
+share, enterprise budget or reader effect.
+
+**Dependency line.** Satisfied and consumed: TC-007's dense/A3 contexts,
+allocator and exact run artifacts replayed by identity before outcomes.
+**Expiry:** reported; no open dependency remains.
+
+**What this blocks:** nothing. It keeps dense full-budget retrieval as the
+offline fallback.
+**What it does not block:** separately registered reader validation.
+
+---
+
+## 9. TC-006 - Why a confirmed delivery gain did not become an answer gain
 
 **This is the arc's one study that needs a reader, and the only one whose
 standing is capped at `REGISTERED-LIVE`.** It is listed last because of that
@@ -401,7 +434,7 @@ claim.
 
 ---
 
-## 9. The dependency matrix, stated once so it can be checked
+## 10. The dependency matrix, stated once so it can be checked
 
 | Study | Needs | From | Blocks | Blocked by |
 |---|---|---|---|---|
@@ -411,6 +444,7 @@ claim.
 | TC-004 | Span-level evidence labels | LongMemEval turns; LoCoMo evidence ids | — | nothing |
 | TC-005 | Frozen common candidates and carried dense/BM25/RRF orders | LoCoMo dev; retrieval bakeoff replay | — | nothing |
 | TC-007 | Frozen dense relevance order and frozen A3/facility spread orders | TC-005; TC-003/E005 replays | — | nothing |
+| TC-008 | Frozen TC-007 dense/A3 contexts and source-session ids | TC-007 run; LoCoMo corpus | — | nothing |
 | TC-006 | Two frozen contexts of known margin; an instrument finer than it | EC-002 replay artifacts; instrument spread **measured as its own first task** | Any delivery-implies-answer claim | nothing |
 
 **Every cell in the "blocked by" column reads `nothing`, and that is the design,
@@ -424,7 +458,7 @@ runnable, and none of them waits for it.
 
 ---
 
-## 10. What this arc does not cover
+## 11. What this arc does not cover
 
 - **Document-corpus generalization.** LegalBench-RAG and EnterpriseRAG-Bench
   are a separate question and a separate arc. TC-005 did not decide their
