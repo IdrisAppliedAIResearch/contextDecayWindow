@@ -1,7 +1,7 @@
 # TC Arc — Dependency Log
 
 **Document type:** Standing procedure and running record
-**Status:** `OPEN — TC-001 through TC-005, TC-007 and TC-008 have reported; reader work has not`
+**Status:** `OPEN — TC-001 through TC-005 and TC-007 through TC-009 have reported; reader work has not`
 **Governs:** `TC_ARC_ROADMAP.md` Rule 4
 
 ---
@@ -68,6 +68,7 @@ face, without needing anyone to relitigate the science.
 | 2026-08-23 | TC-005 reported hybrid `TREATMENT_CARRIES_SIGNAL`; dense fallback selected | REPORTED | REPORTED | REPORTED | REPORTED | REPORTED | RUNNABLE |
 | 2026-08-23 | TC-007 reported `NO_SPLIT_SELECTED`; dense fallback retained | REPORTED | REPORTED | REPORTED | REPORTED | REPORTED | RUNNABLE |
 | 2026-08-23 | TC-008 reported `DENSE_CARRIES_SIGNAL`; dense fallback retained | REPORTED | REPORTED | REPORTED | REPORTED | REPORTED | RUNNABLE |
+| 2026-08-23 | TC-009 reported `DENSE_WORKS`; dense fallback retained | REPORTED | REPORTED | REPORTED | REPORTED | REPORTED | RUNNABLE |
 
 **Re-read of 2026-08-22.** Triggered by TC-001 reporting. Every line below was
 read from `TC_ARC_ROADMAP.md` rather than from memory or from this file's
@@ -281,6 +282,18 @@ reader dependency and expiry line were read again from `TC_ARC_ROADMAP.md`.
 missing reader artifact and cannot block answer validation. It supplies more
 frozen contexts while leaving the reader, prompt, replicates, scorer and bars
 unselected. Reader work was not started by this re-read.
+
+**Re-read of 2026-08-23, ninth.** Triggered by TC-009 reporting. The remaining
+reader dependency and expiry line were read again from `TC_ARC_ROADMAP.md`.
+
+| Study | Dependency line, as written | Verdict | Why |
+|---|---|---|---|
+| TC-006 | Two frozen delivered contexts over the same query set with a known availability margin, and an instrument finer than that margin | `RUNNABLE` | TC-009 adds frozen dense/A3/session/dynamic contexts and exact availability margins. It does not satisfy or remove TC-006's second clause: reader-instrument resolution must still be measured as that study's own first task |
+
+**No study is `BLOCKED`.** TC-009's rejection of cumulative session penalty is
+not a missing reader artifact. It preserves additional frozen contrasts while
+leaving the reader, prompt, replicates, scorer and bars unselected. Reader work
+was not started by this re-read.
 
 **Initial state, 2026-08-21.** All six dependency lines name artifacts that
 exist, with one exception recorded here rather than as a block: TC-006's second

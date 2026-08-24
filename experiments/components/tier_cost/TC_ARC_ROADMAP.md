@@ -1,7 +1,7 @@
 # TC Arc — What the tiered architecture earns, and what it costs
 
 **Document type:** Prospective arc roadmap
-**Status:** `RUNNING RECORD`; TC-001 through TC-005, TC-007 and TC-008 have reported. Each locked
+**Status:** `RUNNING RECORD`; TC-001 through TC-005 and TC-007 through TC-009 have reported. Each locked
 pre-registration governs its own study; where this roadmap disagrees, the
 registration wins and the disagreement is a defect in this file. TC-006 remains
 design only.
@@ -386,6 +386,40 @@ offline fallback.
 
 ---
 
+## 8.1 TC-009 — Cumulative source-session penalty
+
+TC-009 held TC-008's dense relevance route, fixed 50/50 allocator, budgets,
+renderer, deduplication and slack return fixed. It replaced only the spread
+order. Each source session repeatedly offered its highest-cosine remaining
+candidate; after selection that session paid `.03` per item already selected
+and immediately competed again. A session could win consecutive slots.
+
+**Result.** The flexible competition loses at both budgets. At 16k,
+combined/breadth/targeted complete evidence is 713/12/624 against dense's
+749/16/643. At 32k it is 794/21/674 against 810/27/680. There is no complete-
+breadth gain at either budget, and dense guardrails fire at both. Disposition
+is `DENSE_WORKS`.
+
+The mechanism is active and non-degenerate: repeat wins occur before full
+session coverage on all 871 traces. But 34 required identities at 16k and 22 at
+32k are losses unique to the cumulative penalty. Targeted carriers it displaces
+have median dense ranks 38.5 and 71. A soft exposure count does not identify
+which session still owns needed evidence.
+
+**Claim boundary.** Availability only on used LoCoMo development data. This
+closes the fixed `.03` cumulative count penalty, not query-conditioned spread,
+share or lambda tuning, enterprise budgets, or reader effect.
+
+**Dependency line.** Satisfied and consumed: TC-008's dense/A3/session contexts,
+source-session ids, allocator and run artifacts replayed before outcomes.
+**Expiry:** reported; no open dependency remains.
+
+**What this blocks:** nothing. It retains full-budget dense as the offline
+fallback.
+**What it does not block:** separately registered reader validation.
+
+---
+
 ## 9. TC-006 - Why a confirmed delivery gain did not become an answer gain
 
 **This is the arc's one study that needs a reader, and the only one whose
@@ -445,6 +479,7 @@ claim.
 | TC-005 | Frozen common candidates and carried dense/BM25/RRF orders | LoCoMo dev; retrieval bakeoff replay | — | nothing |
 | TC-007 | Frozen dense relevance order and frozen A3/facility spread orders | TC-005; TC-003/E005 replays | — | nothing |
 | TC-008 | Frozen TC-007 dense/A3 contexts and source-session ids | TC-007 run; LoCoMo corpus | — | nothing |
+| TC-009 | Frozen TC-008 contexts, source-session ids and exact allocator | TC-008 run; LoCoMo corpus | — | nothing |
 | TC-006 | Two frozen contexts of known margin; an instrument finer than it | EC-002 replay artifacts; instrument spread **measured as its own first task** | Any delivery-implies-answer claim | nothing |
 
 **Every cell in the "blocked by" column reads `nothing`, and that is the design,
