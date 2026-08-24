@@ -122,6 +122,8 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **TC-009 dependency graphs (2026-08-23).** NO_POSITIVE_SIGNAL. At 32k dense/lexical/dep-PR/subject/subject-PPR complete = 810/727/677/316/344; breadth 27/15/10/3/3. Every arm loses in all 4 conversations; dep-PR loses 50 to lexical. Subject arms tie 261-295 candidates at zero. 204,409 PPR runs, 0 embedding/LLM calls; no TC-010.
 
+**TC-009 convex fusion (2026-08-23).** NO_POSITIVE_SIGNAL; semantic-arm signal. Dense/RRF/80:20 combined is 749/755/771 at 16k and 810/804/819 at 32k; targeted 643/657/666 and 680/682/689. All 4 conversations gain, but 32k breadth falls 27->24 (1 gain/4 losses), all enumeration. Score fusion beats RRF but does not replace protected breadth; no TC-010.
+
 **PS-001 pattern-separated engram formation (2026-08-11).** CHARACTERIZED. Nine deterministic sparse cells on 119 episodes; only D=4096,K=41 passed G3-G5: 119/119 fixed points and exact 1/10/30/50% swap recovery. Six of seven degenerates reached stored codes; the union-biased cue cycled. Code-space result only; no natural cue, retrieval, live run, promotion, or adoption.
 
 **PS-002 natural-language cue binding (2026-08-11).** STOP AT PART 1; NATURAL_CUES_NOT_BOUND, CHARACTERIZED. Nine label-blind cells ran 24 sealed queries x8 rounds. Best M=4,tau=.025 reached stored codes 190/192 but one cue cycled and one reached a spurious fixed point; no cell emitted 8 clean ids/query. Labels, PF1-PF10, answers, live run, promotion and adoption not entered.
