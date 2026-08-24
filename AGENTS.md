@@ -98,6 +98,42 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **NF-008 live reader validation (2026-08-13).** DESIGN ONLY; NOT REGISTERED OR RUNNABLE. Proposed comparison: frozen NF-006 C0 12/17 vs T1 14/17 using 17 item-level fact-use counts and >=5 replicates/arm. Reader, exact prompt, schedule, scorer, targeted scope, statistic and bars remain open. No implementation or inference authorized.
 
+**TC-001 tiered vs flat (2026-08-22).** D3 FLAT_WINS, REGISTERED-OFFLINE. Identical candidates/vectors/renderer/packer, 16k, 868 LoCoMo dev questions: complete evidence 749 flat vs 314 tiered, 8 gains/443 losses, p=6.98e-120 vs band 4; 32k narrows to -177. Recency takes 32/32 and 61% of chars; coverage carries evidence on 8/871. K filters by cosine, delivers in store order. Availability only.
+
+**TC-001B dual arm (2026-08-22).** Escalated from TC-001 Amendment 001. C1 D3 FLAT_WINS: A_DUAL (recency_window_n=0) 472/868 vs flat 749, net -277, p=8.23e-69. C2: recency cost 158. C4: ranking the K tier is worth 276, so TC-001's -435 = 158+276. C3 (ranked 748 vs 749) carries no bar - PF4 found 3 discordant pairs pre-lock, predicted 3, observed 3. Characterization only.
+
+**TC-002 fill-order transfer (2026-08-22).** C1 D1 K_FIRST_WINS, REGISTERED-OFFLINE. EC-002's K-first replayed unmodified on LoCoMo dev at its own 32k/any endpoint: 732 vs 687 of 871, +45, p=1.64e-5 vs band 7. Still 110 behind flat; ranking the K tier is worth 111 and its 118 gains are C2's 118 losses exactly, disjoint from C1's 80. Band 7 at 32k, 4 at 16k. Does not ship.
+
+**TC-003 reserved floors (2026-08-22).** C1 D1 FLOORS_WINS but C5 D3 RANKED_WINS; REGISTERED-OFFLINE. At 16k complete evidence floors/N-first/K-first/flat = 656/314/461/749; dual floors/dual/ranked = 718/472/748. C1 +342 is contested on 351/357 gains, so contest key—not reservation—carries it. I1 service order 871/871; I2 ownership 0/871 shipped. No ship.
+
+**TC-004 candidate granularity (2026-08-23).** NO_PREDICTIVE_SIGNAL; REGISTERED-OFFLINE. At 16k, embedding-localization vs length AP is 21/31/1 over 53 positive-label questions, p=.937; mean .102/.054 but median .0145/.0213. There are 96 beneficial vs 235 harmful splits. A 1% rate gives +3 descriptively; full split 749->687. 2,661 embedding calls, zero LLM calls. No ship.
+
+**TC-005 relevance efficiency (2026-08-23).** Hybrid CARRIES_SIGNAL, not WORKS: targeted complete dense->hybrid 593->624 at 8k (+31; 58/27, p=.000508) but 643->657 at 16k (+14; 36/22, p=.0435). Full eligible +6/-6 at 16k/32k. BM25 -36/-62. Frozen TC-007 fallback is dense. Zero run calls/misses; availability only.
+
+**TC-007 protected spread (2026-08-23).** NO_SPLIT_SELECTED; REGISTERED-OFFLINE. A3 vs dense complete at 16k/32k: combined 739/812 vs 749/810, breadth 13/27 vs 16/27, targeted 637/681 vs 643/680; MIXED. Facility loses 57/36 combined and 7 breadth at both budgets; CONTROL_WORKS. A3 adds/loses 5/14 evidence ids at 16k, 7/3 at 32k. Dense fallback; availability only.
+
+**TC-008 session-gated spread (2026-08-23).** DENSE_CARRIES_SIGNAL; REGISTERED-OFFLINE. Session vs dense complete at 16k: combined 728/749, breadth 13/16, targeted 629/643; at 32k all tie. Breadth identities add/lose 1/5 at 16k, 0/1 at 32k. It reaches 30 sessions but loses evidence; 15/27 discordances are worse than A3 due grouping. Dense fallback; no answers.
+
+**TC-009 dynamic session penalty (2026-08-23).** DENSE_WORKS; REGISTERED-OFFLINE. Dynamic vs dense complete at 16k: combined 713/749, breadth 12/16, targeted 624/643; at 32k 794/810, 21/27, 674/680. No breadth-complete gains. The penalty uniquely loses 34/22 evidence ids at 16k/32k. Count-based session exposure closes; dense fallback; no answers.
+
+**TC-009 safe-substitution probe (2026-08-23).** NO_POSITIVE_SIGNAL. At 32k, 7 identity gains/23 losses/838 ties; complete 4/20. None of 15 blind features passes. Best margin AUC=.708 but reverses to .30 on conv-41 and finds 1 gain in top 20. Novelty/redundancy AUC=.47-.54. No selector, threshold, reader or TC-010 authorized.
+
+**TC-009 syntactic spans (2026-08-23).** NO_POSITIVE_SIGNAL. At 32k, dense/noun/subject complete = 810/443/659; breadth 27/10/13; targeted 680/391/580. Both regress all 4 conversations. Lost evidence has dense-rank median 5/14. Parser extraction works, but max span cosine is unsafe. 10,320 embedding texts, 0 LLM calls; no TC-010.
+
+**TC-009 dependency graphs (2026-08-23).** NO_POSITIVE_SIGNAL. At 32k dense/lexical/dep-PR/subject/subject-PPR complete = 810/727/677/316/344; breadth 27/15/10/3/3. Every arm loses in all 4 conversations; dep-PR loses 50 to lexical. Subject arms tie 261-295 candidates at zero. 204,409 PPR runs, 0 embedding/LLM calls; no TC-010.
+
+**TC-009 convex fusion (2026-08-23).** NO_POSITIVE_SIGNAL; semantic-arm signal. Dense/RRF/80:20 combined is 749/755/771 at 16k and 810/804/819 at 32k; targeted 643/657/666 and 680/682/689. All 4 conversations gain, but 32k breadth falls 27->24 (1 gain/4 losses), all enumeration. Score fusion beats RRF but does not replace protected breadth; no TC-010.
+
+**TC-009 convex+A3 (2026-08-23).** NO_POSITIVE_SIGNAL; budget-dependent. At 32k CC80+A3 gives combined/targeted/breadth 818/686/27 vs dense 810/680/27 and CC80 819/689/24, repairing all 4 prior breadth losses. At 16k it gives 757/653/14 vs dense 749/643/16 and CC80 771/666/17. Components are compatible; fixed 50/50 does not transfer. No share tuning/TC-010.
+
+**TC-009 convex+A3 miss audit (2026-08-23).** POSTHOC. Misses are 111 at 16k, 50 at 32k; 61 are rescued and none regress. CC80 associates with 17/20 and 6/9 gains over dense. At 32k targeted misses are 18/18 zero-evidence; 31/32 non-targeted misses are partial. Multi-session misses 26/126 vs single-carrier 18/704. Tail lookup plus set completion remain; no architecture claim.
+
+**TC-010 qualified bottom spread (2026-08-23).** NO_SPLIT_SELECTED. CC80/qualified/global complete = 771/752/706 at 16k and 819/818/771 at 32k; breadth 17/13/8 and 24/24/17. At 16k diversity displaces evidence; at 32k sets are identical on 765/871 because the top-quarter pool already fits. Global bottom is harmful. CC80 fallback; no tuning/reader.
+
+**TC-011 four spread objectives (2026-08-24).** NO_CANDIDATE. At 16k/32k combined: CC80 771/819, logdet 726/797, aspect 749/810, anchored chain 717/780, pure chain 717/778. Aspect is least harmful but breadth 15/23 vs 17/24. Both chains regress sharply. Four exact 50/50 routes close; CC80 fallback, no answers/tuning.
+
+**TC-012 dynamic ASPECT (2026-08-24).** NO_DYNAMIC_PROMPT_SIGNAL. CC80/static/dynamic combined = 771/749/720 at 16k and 819/810/787 at 32k; breadth 17/15/8 and 24/23/20. Growing-context recomparison amplifies drift. Residual arm 753/810 is BINDER_LIMITED: only 146/71 sets differ from static. CC80 fallback; no tuning/answers.
+
 **PS-001 pattern-separated engram formation (2026-08-11).** CHARACTERIZED. Nine deterministic sparse cells on 119 episodes; only D=4096,K=41 passed G3-G5: 119/119 fixed points and exact 1/10/30/50% swap recovery. Six of seven degenerates reached stored codes; the union-biased cue cycled. Code-space result only; no natural cue, retrieval, live run, promotion, or adoption.
 
 **PS-002 natural-language cue binding (2026-08-11).** STOP AT PART 1; NATURAL_CUES_NOT_BOUND, CHARACTERIZED. Nine label-blind cells ran 24 sealed queries x8 rounds. Best M=4,tau=.025 reached stored codes 190/192 but one cue cycled and one reached a spurious fixed point; no cell emitted 8 clean ids/query. Labels, PF1-PF10, answers, live run, promotion and adoption not entered.
@@ -111,6 +147,8 @@ The coding agent implements the registered design. Do not design studies, choose
 **CC-003/004/005 closeout (2026-08-02).** CLOSED. G-E0 clears DX-002's block: episodic's block is bounded, +18 chars p95/1,000 turns, so the leak is the runner's. The ceiling no longer raises at tiny budgets; truncated carries dropped ids; drop order named (amendment 001); E6 inert at 132/132 SHAs. CC-004 kills real processes. CC-005: 190 ms at 1,000 candidates, no eviction. Suite 1,007.
 
 **CC-006 vector cache (2026-08-05).** PASS. Exact solo-call float32 vectors are persisted and bound by file plus canonical text-to-vector SHA-256; read-only misses fail. C1-C9 pass. EC-002 adopts 96,585 entries with 0 model calls. Protection begins with retained caches; EC-001 remains permanently non-bit-replayable. Suite 1,028.
+
+**CC-007 episodic-chat adoption (2026-08-24).** PASS. Distribution renamed; public read path is additive last-32 continuity plus 32k CC80. Static ASPECT ships optional/off with tested 50/50 protection and slack return. Package port reproduced 4,355/4,355 frozen order/selection/payload groups exactly. No reader, transfer or latency claim.
 
 **LV-001 (2026-08-02).** RUN. B1 WEAK, B2 FAIL, **promotion killed on its own pre-registered bar**. The 6-item offline availability gap became +1 correctly attributed item live; targeted fell 3.5->1.5 against a 0.5 tolerance. A3 dropped turns 1-2 and could not state the formatting rules; offline it preserved 16/16. Availability is not the answer. Both arms fabricated the unretrieved art domain.
 

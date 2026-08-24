@@ -42,9 +42,10 @@ FORBIDDEN_TOKENS = ("plant", "probe", "rubric", "scoring", "replay", "q_facts_ke
 
 STDLIB_OK = {
     "__future__", "hashlib", "json", "os", "shutil", "sqlite3", "time", "uuid",
-    "dataclasses", "datetime", "pathlib", "typing", "html",
+    "dataclasses", "datetime", "pathlib", "typing", "html", "math", "re",
+    "collections", "functools",
 }
-THIRD_PARTY_OK = {"numpy", "llama_cpp"}
+THIRD_PARTY_OK = {"numpy", "llama_cpp", "spacy"}
 
 
 def _fake_embedder(text: str) -> np.ndarray:
@@ -198,10 +199,14 @@ def test_context_truncates_under_a_tight_budget(tmp_path) -> None:
     block, report = store.context("question about topic 1", 400)
     store.close()
 
-    assert len(block) <= 400
+    # CC-007 makes recent continuity additive.  The retrieval portion keeps
+    # the hard ceiling while the complete recent block may take total output
+    # above the long-term allowance.
+    assert report.retrieval_chars_delivered <= 400
+    assert len(block) > 400
     assert report.truncated
     assert report.episodes_dropped > 0
-    assert report.chars_wanted > report.chars_delivered
+    assert report.chars_wanted > report.retrieval_chars_delivered
 
 
 def test_context_is_pure_in_process(tmp_path) -> None:

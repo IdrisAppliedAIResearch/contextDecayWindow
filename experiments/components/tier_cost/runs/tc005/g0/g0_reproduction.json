@@ -1,0 +1,98 @@
+{
+  "bakeoff_reproduction": {
+    "embedding_calls": 192,
+    "expected_artifact_sha256": "97ce339f0ce50b3af77c76f4707266c537349a20e8067361e45d65fd23fd9273",
+    "payload_digest": "71eee71ddccb65d289a4b804fdf685c327d8093bdd8e37d06d89202fdc6cbd92",
+    "ranking_digest": "cf7dcc61a68c81b834d80cb22774afaea0ef8974eba51e4be626f70af3c9eec8",
+    "rows_checked": 288,
+    "selected_identity_and_payload_digest_matches": 288,
+    "status": "PASS"
+  },
+  "cache": {
+    "hits": 2247,
+    "misses": 0
+  },
+  "calls": {
+    "embedding": 192,
+    "llm_or_generative": 0,
+    "programme_model_free": true
+  },
+  "implementation_identity": {
+    "cache_hits": 2247,
+    "cache_misses": 0,
+    "question_arm_orders_checked": 2613,
+    "ranking_digest": "b6871b98739bfa8710cd7eab33afcdf28f99b36198be9a96aff83ee9a9f7443a",
+    "status": "PASS"
+  },
+  "leakage": {
+    "planted": {
+      "planted_violation_rejected": true,
+      "status": "PASS"
+    },
+    "static": {
+      "audited_files": {
+        "src/analysis/tc005_ranking.py": "49fda8fa6a2d8a0ac3a47d1e22adf21b4775e3035805fe48acd71f1ec00dcf48",
+        "src/retrieval_bakeoff/classifier.py": "1018440f078c5079797b077ea880198337fb1dfd2d2eeb69ae260ce0a891ade6",
+        "src/retrieval_bakeoff/config.py": "3b2ae9f3154c618b07be734e13b09e27308037fea083eeac74335e657b741930",
+        "src/retrieval_bakeoff/embedding.py": "b90006df05eef2245f59486dff3cd6ba24b9415ba5a70bf468a4a31f72977660",
+        "src/retrieval_bakeoff/methods.py": "2a7a0875fc5c294dfa220e42acc8c54555d52a97b4baf8ff3fc5251ee4da71d7",
+        "src/retrieval_bakeoff/models.py": "eb7c0ceae5df7f1ab936c28e4237250540ef49fe8a49d4eb83bef8f8cb4c2353"
+      },
+      "forbidden_tokens": [
+        "q_facts_key",
+        "rubric",
+        "expected_answer",
+        "answer_key",
+        "resolved_evidence"
+      ],
+      "imports": [
+        "__future__",
+        "classifier",
+        "collections",
+        "config",
+        "dataclasses",
+        "embedding",
+        "hashlib",
+        "json",
+        "llama_cpp",
+        "math",
+        "models",
+        "numpy",
+        "os",
+        "pathlib",
+        "re",
+        "retrieval_bakeoff.config",
+        "retrieval_bakeoff.methods",
+        "retrieval_bakeoff.models",
+        "time",
+        "typing"
+      ],
+      "path": "src/analysis/tc005_ranking.py",
+      "sha256": "49fda8fa6a2d8a0ac3a47d1e22adf21b4775e3035805fe48acd71f1ec00dcf48",
+      "status": "PASS"
+    }
+  },
+  "registration": {
+    "pre_registration_sha256": "1b112802cdee5890e6e652039ac1afbf76908425417848f04f6d9ae86e35a170",
+    "preflight_sha256": {
+      "tc005_preflight_part1.json": "2687d48812d8862f7c0ff2ebe5abe6bd8011f136deb38efaacf34958296ba584",
+      "tc005_preflight_pf4_reachability.json": "c44a96b52ec796f06a9507b31b987d6bb1f9d17976f8134823a485d707c67b4d"
+    },
+    "registration_commit": "024e231f3def3e7c058a2a54ffcf74afde3c3dcc",
+    "status": "PASS"
+  },
+  "schema": "tc005-g0-v1",
+  "status": "PASS",
+  "tc001_dense_reproduction": {
+    "committed_primary_sha256": "df15e8e5d4a24ebfd963ec1978d48dce4be755921bf84fac5115bd4b8fffc7c9",
+    "committed_secondary_sha256": "dd1017e0ccd9d7f6e8913fcbdb20092eec3d3074f13289276b7c70cfc81fd23c",
+    "payload_digest": "f540ae0b4292a61d9faa03e630ca82817e84601a7ff37306f5c1fd5c2c51b11c",
+    "question_budget_payloads_checked": 1742,
+    "status": "PASS"
+  },
+  "test_suite": {
+    "command": ".venv\\Scripts\\python.exe -m pytest -q",
+    "status": "PASS",
+    "summary": "2184 passed in 108.51s (0:01:48)"
+  }
+}

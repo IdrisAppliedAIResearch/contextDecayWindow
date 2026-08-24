@@ -149,7 +149,180 @@ flush against the page there rather than showing as a panel.*
 
 ## Current State of Work
 
-*Last updated 2026-08-13, at the NF-007 anti-vacuity stop.*
+*Last updated 2026-08-24, at CC-007 deployment adoption.*
+
+**The deployable read path is now episodic-chat 0.2.0.** The latest 32 complete
+exchanges are always additive continuity context and do not spend the long-term
+allowance. The long-term block defaults to 32,000 characters of full-store
+CC80 (`0.8` normalized cosine + `0.2` normalized BM25), with recent identities
+skipped and filling continued. Frozen static ASPECT is present behind an
+explicit flag, defaults off, and uses its tested 50/50 protected allocator with
+unused space returned to CC80. Before activation, the package port reproduced
+4,355/4,355 frozen order/selection/payload groups with zero mismatches. This is
+an authorized product composition, not a new reader or transfer result.
+
+**The tiered architecture does not earn its place on delivery.** TC-001 put the
+shipped four-tier read path against the flat cosine ranking that scored 79.09%
+on the published LoCoMo table, over identical candidates, vectors, renderer,
+packer and budget. On 868 questions the flat arm delivered a question's complete
+evidence **749 times against the tiered stack's 314** — 8 gains, 443 losses,
+p = 6.98e-120 against a registered null band of 4. Every registered cut agrees:
+four conversations, five categories, both endpoints, both budgets.
+
+The composition says where it went. The recency window takes 32 of 32 episodes
+on every question and **61% of the delivered characters**; the coverage selector
+delivers nothing on 722 of 871 questions and carried a question's evidence on
+**8**. A post-run diagnostic found why the similarity tier underperforms: it
+filters by cosine and then delivers in *store order*, so the
+highest-cosine qualifying episode it drops has median relevance rank **1**.
+
+**TC-001B then took the two obvious objections away, and the gap survived one
+of them.** Removing the recency tier entirely — `build_context` with
+`recency_window_n=0`, relevance and coverage only — moves the tiered stack from
+314 to **472** and leaves it **277 behind** the flat arm's 749. That is the
+registered headline, `D3 FLAT_WINS` again. But ordering the K tier by relevance
+instead of by store position is worth **276 questions** on its own, and an arm
+with both changes lands at **748 against 749** — one question apart, on a
+contrast that carries no bar because PF4 established before the lock that none
+could fire there.
+
+So TC-001's 435-question deficit decomposes almost exactly: **158 from the
+recency tier, 276 from the order the similarity tier delivered its own members
+in.** The evidence the store order was discarding sat at median cosine rank 3.
+
+**TC-002 then asked whether the cheapest known repair transfers, and it does.**
+EC-002 had moved evidence availability 32.3 points on 500 LongMemEval stores by
+letting similarity candidates claim the budget before the recency window. On
+four LoCoMo conversations EC-002 never saw, at its own budget and its own
+endpoint, the same one-line reorder is worth **45 questions** — 732 against 687
+of 871, 80 gains against 35 losses, `D1 K_FIRST_WINS` against a band of 7. The
+gain generalizes.
+
+It is also the small lever, and the same shape appears a third time. Reordering
+the fill leaves the stack **110 behind** the flat arm; ordering the similarity
+tier's own members best-first is worth **111** and lands within one question of
+it. The two repairs are not alternatives — the 118 questions where the reordered
+stack still trails flat are *exactly* the 118 that re-ranking rescues, and the
+80 the reorder wins overlap none of them. Every one of the reorder's 35 losses
+is a question the recency window happened to be carrying.
+
+**TC-003 makes the allocation proposal pass its headline and fail its isolating
+contrast.** Equal-share floors plus a global cosine contest raise complete-
+evidence delivery from N-first's 314 and K-first's 461 to **656 of 868**. That
+is `D1 FLOORS_WINS`, +342 against the shipped order. It still trails the flat
+arm's 749 by 93. With recency removed, floors reach 718, but the already-ranked
+dual arm reaches **748**: C5 is `D3 RANKED_WINS`. Of C1's 357 gains, 351 include
+evidence admitted by the contested remainder and only 18 include reserved
+evidence. The registration's pre-locked reading fires: **the cosine contest,
+not the reservation, carries the gain.**
+
+Floors do exactly remove service order — all six permutations agree on 871/871
+questions at both budgets and configurations. They do not remove ownership
+order: at the 16k shipped primary, 0/871 delivered sets survive all ownership
+permutations, against 860/871 under the zero-floor reference. Floors make
+allocation independent of service order and leave it dependent on ownership
+order.
+
+**TC-004 then asks whether the candidate itself says when it should be split,
+and the registered predictor does not.** Replacing one adjacent pair by its two
+source turns creates 96 beneficial and 235 harmful cases at 16k. Across the 53
+questions with at least one beneficial parent, max-child-minus-parent embedding
+cosine beats length on 21, loses on 31, and ties on 1: `NO_PREDICTIVE_SIGNAL`,
+one-sided p=0.937. Its higher mean AP is an outlier effect; median AP is lower
+than length. Splitting the top 1% adds three complete deliveries descriptively,
+but splitting everything drops complete evidence from 749 to 687. More units
+are not automatically better context.
+
+**TC-005 then asks whether relevance can be made efficient enough to live on
+half of TC-007's budget.** Dense-plus-BM25 hybrid ranking raises targeted
+complete-evidence delivery from 593 to **624** at 8k (+31; 58 gains, 27 losses,
+p=.000508), but at 16k it moves 643 to **657** (+14; 36 gains, 22 losses,
+p=.0435) and misses the registered second operating-point bar. It is
+`TREATMENT_CARRIES_SIGNAL`, not `TREATMENT_WORKS`. BM25 alone loses at both
+budgets, 593 to 557 and 643 to 581, and dense `CARRIES_SIGNAL` against it.
+Hybrid's full-budget guardrails are benign at +6 at 16k and -6 at 32k. The
+pre-locked rule therefore keeps **dense ranking** as TC-007's relevance input.
+
+**TC-007 then tests the requested dual-route architecture, and 50/50 protected
+spread does not beat full-budget relevance.** A3 complete evidence versus dense
+is 739 against 749 at 16k and 812 against 810 at 32k. Breadth is 13/27 against
+16/27; targeted is 637/681 against 643/680. A3 is
+`MIXED_OR_NO_DIFFERENCE`. Facility location is worse at both budgets: combined
+nets -57/-36, targeted -40/-23, and breadth -7/-7; `CONTROL_WORKS`. Spread is
+not inert — A3 adds 5/7 evidence identities dense missed — but it loses 14/3,
+and the complete-breadth joint bar never fires. The frozen result is
+**`NO_SPLIT_SELECTED`; dense keeps the full budget.**
+
+**TC-008 then asks whether spread was grouped around the wrong thing, and real
+source sessions do not fix it.** The session arm keeps the same dense route,
+50/50 allocator and A3 relevance-plus-novelty objective; only embedding-cluster
+ids become conversation-session ids. It represents a median 30 sessions at 16k
+against dense's 24, but combined complete delivery falls **749 to 728**,
+targeted falls **643 to 629**, and breadth falls **16 to 13**. Breadth identity
+delivery has one gain and five losses. At 32k complete delivery ties dense while
+one breadth identity is lost. Of 27 evidence-changing 16k questions, 15 are
+losses specific to session grouping versus A3. Disposition is
+**`DENSE_CARRIES_SIGNAL`; dense remains the fallback.** More represented
+sessions is not a useful proxy for more answer evidence.
+
+**TC-009 then gives every session the continuing competition the hard grouping
+could not, and the soft penalty is worse.** Every session offers its best
+remaining cosine candidate; after a win its score is reduced by `.03` per item
+already selected, and it competes again immediately. The rule permits repeat
+wins on all 871 traces and is not a hard floor. Yet complete delivery falls
+from dense's 749/810 to **713/794** at 16k/32k. Breadth falls 16→12 and 27→21,
+with no complete-breadth gains; targeted falls 643→624 and 680→674. Most lost
+evidence is unique to the penalty, not inherited from fixed protection: 34
+identities at 16k and 22 at 32k. **`DENSE_WORKS`; dense keeps the full budget.**
+
+**A frozen post-run probe finds no safe-substitution signal in the obvious
+observables.** At 32k there are 7 required-identity gains, 23 losses and 838
+ties. None of 15 query-score, redundancy, novelty, rank, session, cost or
+penalty features passes. The strongest pooled margin reaches AUC .708 but
+reverses to .30 on one conversation and finds one gain in its top 20. No new
+selector is authorized from this exhausted-corpus diagnostic.
+
+**Noun and grammatical-subject spans are extractable, but their embedding
+scores are actively harmful as rerankers.** At 32k, whole-pair dense delivers
+810 complete questions; noun-phrase max delivers 443 and subject-sentence max
+659. Breadth falls 27→10/13 and targeted falls 680→391/580. Both arms regress
+all four conversations. The spans exist; maximum span cosine is not a safe
+proxy for answer-bearing content.
+
+**TC-011 then screens four mathematically different protected-spread routes,
+and none pays for half the budget.** Against full CC80's combined 771/819 at
+16k/32k, residual log determinant reaches 726/797, deterministic aspect
+coverage 749/810, anchored chaining 717/780 and pure chaining 717/778. ASPECT
+is closest but breadth is 15/23 against CC80's 17/24. Anchored and pure chains
+select different sets on every question at both budgets, yet both regress
+sharply. `NO_CANDIDATE`; CC80 keeps the full budget.
+
+**TC-012 dynamically recomputes ASPECT relevance after every hop, and feedback
+drift makes it worse.** Growing-prompt ASPECT reaches 720/787 combined at
+16k/32k versus static ASPECT 749/810 and full CC80 771/819; breadth falls to
+8/20 from static's 15/23. A residual-question-facet variant reaches 753/810,
+but its exact lexical binder changes only 146/71 of 871 sets and usually falls
+back to the original query. `NO_DYNAMIC_PROMPT_SIGNAL`; CC80 remains fallback.
+
+None of that authorizes deleting or shipping anything, and TC-002 decided the
+shipping question in its registration *before* the number existed: a positive
+result does not ship, because the same correction was already rejected on a live
+bar. Availability is not a verdict, and LoCoMo asks questions about a finished
+conversation, so a recency window is close to worthless there by construction.
+What the TC arc establishes together is narrower and sharper: on this
+corpus, the tiered machinery at its best delivers what a plain cosine ranking
+delivers, at roughly four times the latency. Changing allocation can rescue a
+bad fixed order, but it does not isolate a gain over ranking candidates well;
+one natural embedding-localization score does not reliably identify safe
+splits; and hybrid relevance has a promising tight-budget result without the
+two-budget evidence needed to replace dense. Fixed 50/50 A3 spread can add a
+few outliers at 32k without improving complete breadth at both budgets, while
+facility spread is decisively harmful. Replacing embedding clusters with real
+sessions raises coverage counts and worsens required evidence, and a cumulative
+session penalty worsens it again. Generic geometric novelty, structured facet
+coverage and associative chaining also fail to make a protected half pay for
+itself. Reader answers are next and remain separately registered work.
+Nothing in the TC arc is blocked.
 
 **The deployable component is done.** `episodic/` is an installable library with
 a public store, report, config and embedding-cache API. Extraction is certified
@@ -231,18 +404,20 @@ confirmation.
 
 ## Next Steps
 
-1. **Register item-level reader validation before any live inference.** Compare
-   NF-006's frozen 12/17 and 14/17 Q11 contexts using five replicates per arm and
-   a 17-item fact-use instrument. The reader, exact prompt, replicate schedule,
-   scorer, and paired bar remain to be locked; `nf_008/` is design-only.
+1. **Validate episodic-chat 0.2.0 outside the spent LoCoMo corpus.** Freeze an
+   external reader and retrieval study—preferably EnterpriseRAG-Bench or an
+   equivalently conflict-bearing enterprise corpus—before tuning anything.
+   Compare additive-last-32 + CC80 with ASPECT off/on, record latency at store
+   scale, and pre-register the prompt/model, replicate schedule, provenance-
+   aware scorer and achievable bars. Port parity is not reader value.
 
 2. **Write DMR-002 Part 1 and its final pre-registration before implementation.**
    The former is upstream-cleared, but the only spec still forbids execution.
 
-3. **Treat candidate informativeness as the ranking scope condition.** Rank at
-   the finest unit whose embedding remains informative and pack at the finest
-   affordable unit. A controlled padding/aggregation study on an untouched
-   corpus is still needed to separate raw length from semantic localization.
+3. **Do not promote embedding localization into a chunking rule.** TC-004 closes
+   max-child-minus-parent cosine on this observed store. A successor would need
+   a different prospectively registered predictor and an untouched corpus; the
+   descriptive 1% local maximum is not an optimum.
 
 4. **Stop optimizing Q11 with coverage counts on this store.** The carried
    `k=16` selection already enters every region, and finer statements do not
@@ -284,6 +459,249 @@ read `ERRATA.md` before quoting any number.
 Eleven pre-registered studies test that question, each adding one memory component and fixing the prior study's documented failures. Every result is published as found.
 
 > **Status:** Study 010 stopped at G2; exploratory continuation unaudited and LTM budget-noncompliant | retrieval bakeoff complete | retrieval mechanism ledger reopened for Family CS; E005 is killed by LV-001's live targeted-regression bar, DX-001 closes NO CHANGE, RD-001 stops before correlation because unchanged rarity scores cover only 6/76 fact-bearing episodes, and chained retrieval Rev5 is CHARACTERIZED offline at 9/17 versus X0 6/17 but misses art 0/4 and has no targeted no-regression arm | EC-001 LongMemEval complete: inversion not dominant, Codex-substituted score only | EC-002 complete: K-first packing raises any-session recall 109/470 -> 261/470 offline; no production promotion authorized | IC-001 Branch A: the same gate is closed internally — K delivered nothing at 8/8 probes under the deployed order; Q11 6/17 -> 7/17, targeted 14/21 -> 18/21, zero losses; cache clause substituted under authorized Amendment 001; no recalibration authorized | Study 011 tests both halves live and splits them: the deployed arm scores identically to recency-only on all 13 questions, so the similarity tier is inert in deployment, but K-first raises availability and scores 7.0 vs 8.0 — B1 FAILS and the packing correction is not adopted; post-unseal analysis finds the N tier is a least-recently-delivered rotation over the whole store, not a recency window, and that the rule every live run through Study 010 used was a block locked onto the conversation's first nine turns; three different rules carry that name and only the extracted library's is a window | Amendment 001 authorized and run: the instrument's run-to-run band is **3.0 points on 13**, measured by five identical arm-D replicates that score 8.0, 8.0, 8.0, 8.0 and 11.0 — a switch, not a spread, since four are byte-identical across 121 turns and the one meeting an empty server slot diverges at turn 1; Study 009's 3.0, LV-001's -2.0 and Study 011's -1.0 are all re-read as **not demonstrated**, while every offline count is untouched and B1 stays fired | CC-002 extracts the deployable component into `episodic`; CC-006 adds exact hashed vector-cache reuse | PS-001 CHARACTERIZED: the selected sparse cell stores and recovers 119/119 codes through 50% registered swaps | PS-002 stops at Part 1: best natural-language binder reaches stored codes in 190/192 rounds but retains one cycle and one spurious fixed point, so labels, answers, and live scoring are not entered | deployment closeout complete | PAPER-002 supersedes PAPER-001 (2026-08-18): same numbers, reordered to lead with the sealed LoCoMo holdout, with a four-level standing taxonomy in `paper/notes/EVIDENCE_SPINE.md`, a withdrawn-claim list in `paper/notes/DO_NOT_WRITE.md`, and every number gated by `scripts/check_paper_002_claims.py`; PAPER-001 retired | scoring/interpretation record corrected through 2026-08-05
+
+> **TC arc status:** `TC-001 REPORTED D3 FLAT_WINS; TC-001B REPORTED C1 D3 FLAT_WINS; TC-002 REPORTED C1 D1 K_FIRST_WINS; TC-003 REPORTED C1 D1 FLOORS_WINS / C5 D3 RANKED_WINS; TC-004 REPORTED NO_PREDICTIVE_SIGNAL; TC-005 REPORTED HYBRID CARRIES_SIGNAL / DENSE FALLBACK; TC-007 REPORTED NO_SPLIT_SELECTED / DENSE FALLBACK; TC-008 REPORTED DENSE_CARRIES_SIGNAL / DENSE FALLBACK; TC-009 REPORTED DENSE_WORKS / DENSE FALLBACK; TC-010 REPORTED NO_SPLIT_SELECTED / CC80 FALLBACK; TC-011 REPORTED NO_CANDIDATE / CC80 FALLBACK; TC-012 REPORTED NO_DYNAMIC_PROMPT_SIGNAL / CC80 FALLBACK; READER STUDY NOT STARTED`.
+> The arc asks whether the tiered stack earns its place before asking how to tune
+> it. TC-001 ran the shipped `build_context` against `CdwArm`'s flat cosine
+> ranking over identical candidates, vectors, renderer, packer and 16,000-character
+> budget on 868 LoCoMo development questions: complete evidence 749 flat versus
+> 314 tiered, 8 gains, 443 losses, net -435 on 451 discordant pairs,
+> one-sided exact binomial p=6.98e-120 against a measured null band of 4. The
+> 32,000 secondary narrows the gap to -177 without closing it; the wrapper-matched
+> robustness check reproduces the primary exactly. Recency takes 32/32 episodes
+> and 61% of delivered characters on every question; coverage delivers nothing on
+> 722/871 and carries evidence on 8. `REGISTERED-OFFLINE`, availability only, no
+> adoption or deletion authorized. A DESCRIPTIVE post-run diagnostic finds the K
+> tier filters by cosine and delivers in store order — 824/827 questions match the
+> conversation-order prefix, 0 match the cosine top-n, and the best qualifying
+> episode it drops has median relevance rank 1. Preflight Part 1 checked tier
+> membership and never asked tier ordering; that gap is recorded in the report.
+> Rule 4's dependency re-read logged no block.
+> `experiments/components/tier_cost/TC_001_REPORT.md`.
+
+> **TC-001B (2026-08-22), escalated from TC-001 Amendment 001.** The author asked
+> for a dual arm of relevance and coverage only, on the grounds that recency was
+> built for a conversational use case; `AGENTS.md` §5 makes adding an arm a new
+> study, so it was escalated rather than folded in. Four arms over TC-001's
+> frozen corpus, cache, renderer, packer and budgets; G0 reproduced TC-001's four
+> committed rows exactly before the run phase opened. C1, the registered
+> headline: `A_DUAL` (`recency_window_n=0`) delivers complete evidence on 472/868
+> against `A_FLAT`'s 749 — 14 gains, 291 losses, net -277, p=8.23e-69 against
+> band 4, Bonferroni α=0.0025 over four contrasts. **D3 FLAT_WINS.** C2: the
+> recency tier cost 158 questions (472 vs 314, D1 DUAL_WINS). C4: offering the K
+> tier best-first is worth 276 (748 vs 472, D1 RANKED_WINS), so TC-001's -435
+> decomposes as 158 + 276. C3 (`A_DUAL_RANKED` 748 vs `A_FLAT` 749) carries **no
+> bar**: PF4 measured 3 discordant pairs with the direction withheld before the
+> lock, which puts its best attainable p at 0.125 and makes any bar unreachable
+> by construction — predicted 3, observed 3. C1's 291 losses sit at worst-evidence
+> cosine rank p50 3; C4's 289 gains are the same pairs at the same ranks.
+> Unstarved coverage carries evidence alone on 12/871, up from 3, and removing a
+> tier buys no latency back (92-97ms vs the flat path's 14). All four
+> conversations, five categories, both endpoints, both budgets agree; the
+> wrapper-matched C2 check reproduces exactly. `REGISTERED-OFFLINE`,
+> characterization only — the arms were chosen after TC-001's result was known,
+> and `recency_window_n` stays at 32.
+
+> **TC-002 (2026-08-22), the arc's second numbered stage.** Roadmap §3's
+> question: does EC-002's fill-order availability gain hold off its original
+> corpus? EC-002 moved any-evidence-session recall 109 -> 261 of 470 on 500
+> LongMemEval stores by giving K-threshold candidates admission priority over
+> the recency window. TC-002 replays that manipulation — `build_k_first_context`
+> imported unmodified, with `git diff` against `caa19f52` empty on all six files
+> of the K-first path — on four LoCoMo development conversations, at EC-002's own
+> 32,000-character budget and its own any-evidence endpoint. Five arms, four
+> contrasts, C1 registered as the headline before the run. **C1: `A_K_FIRST`
+> 732/871 vs `A_N_FIRST` 687 — 80 gains, 35 losses, net +45, p=1.64e-5 against a
+> band of 7. D1 K_FIRST_WINS: the gain transfers.** C2: `A_K_FIRST` is still 110
+> behind `A_FLAT`'s 842 (D3 FLAT_WINS). C3: deleting the recency tier beats
+> deprioritizing it by 8 (740 vs 732, p=0.0107, **D2 DUAL_WINS_CARRIES_SIGNAL** —
+> the registered lower tier firing, 10 discordant pairs, exactly the count PF4
+> predicted). C4: ordering the K tier best-first is worth 111 (843 vs 732, D1
+> RANKED_WINS) and lands one question past `A_FLAT`. **C2's 118 losses and C4's
+> 118 gains are the identical 118 questions; C1's 80 gains overlap none of them**
+> — reordering the fill and re-ranking the tier repair disjoint populations. All
+> 35 of C1's losses are recency-carried evidence; its 80 gains sit at worst-
+> evidence cosine rank p50 3. C3's 9 gains are carried by coverage alone at rank
+> p50 85, the only place any study in this arc finds that component supplying
+> something no other path does. Magnitude does not transfer as direction does:
+> +32.3 points on LongMemEval against +5.2 here at the matched budget and +15.8
+> at 16,000, and **no binding-ratio explanation is offered** — `DO_NOT_WRITE.md`
+> #32 refuted that law. The null band is measured per budget for the first time
+> in this arc and is **7 at 32,000 against 4 at 16,000**, the noisiest arm being
+> the shipped configuration and the quietest `A_DUAL_RANKED` at 0-1; recomputing
+> every contrast at band 4 changes no disposition, so the wider band cost this
+> study nothing but would have decided a smaller one. Reordering the fill costs
+> 1-3 ms. Direction is consistent in all four conversations and all five
+> categories; the wrapper-matched pass reproduces C2, C3 and C4 exactly. Roadmap
+> §10 item 4 is **retired**: the registration decided before the run that a
+> positive result does not ship, and it does not. `REGISTERED-OFFLINE`,
+> characterization only. `experiments/components/tier_cost/TC_002_REPORT.md`.
+> `experiments/components/tier_cost/TC_001B_REPORT.md`.
+
+> **TC-003 (2026-08-22), reserved floors against sequential fill.** Seven arms,
+> six registered contrasts, 16,000-character complete-evidence primary over 868
+> LoCoMo development questions. G0 reproduced twenty inherited cells and 3,484
+> byte-identical zero-floor reductions before the run. C1: `A_FLOORS` 656 vs
+> `A_N_FIRST` 314, 357 gains, 15 losses, net +342, p=2.25e-86 against band 4 at
+> Bonferroni α=0.01/6 — **D1 FLOORS_WINS**. C2 also beats K-first, 656 vs 461
+> (D1), but C3 loses to flat, 656 vs 749 (**D3 FLAT_WINS**). The registered
+> isolating contrast points the other way: C5 `A_FLOORS_DUAL` 718 vs
+> `A_DUAL_RANKED` 748, 8 gains, 38 losses, net -30, p=4.62e-6 — **D3
+> RANKED_WINS**. Of C1's 357 gains, 351 include contested evidence and only 18
+> include reserved evidence, so the pre-locked reading applies: the cosine
+> contest, not the reservation, carries the gain. C4 floors-dual beats the
+> store-ordered dual arm 718 vs 472; C6 remains 31 behind flat. I1 service-order
+> invariance passes 871/871 at both budgets/configurations; I2 ownership-order
+> invariance fails, including 0/871 at the 16k shipped primary versus 860/871
+> under zero floors. Thus floors remove service order and leave ownership order.
+> All primary cuts agree; the C3 wrapper pass is exact. At 32k C5 is descriptive
+> by registration because 9 discordant pairs cannot clear band 10. Zero model
+> calls/cache misses. `REGISTERED-OFFLINE` characterization only; no shipping,
+> tuning, reader, or eighth-arm claim.
+> `experiments/components/tier_cost/TC_003_REPORT.md`.
+
+> **TC-004 (2026-08-23), predicting beneficial candidate splits.** The primary
+> replaces one adjacent-pair parent at a time by its exact source turns, ranks
+> each surviving unit by own Qwen cosine, packs at 16k, and asks whether
+> max-child-minus-parent cosine orders beneficial splits better than parent
+> length. Fifty-three of 868 complete-evaluable questions contain a beneficial
+> split; the treatment has 21 AP wins, 31 losses and 1 tie against length,
+> one-sided p=0.9368. Mean AP is 0.1021 vs 0.0544, but median is 0.0145 vs
+> 0.0213: a few AP=1 outliers lift the mean while the paired direction loses.
+> **`NO_PREDICTIVE_SIGNAL`.** The instrument is adequate: 96 beneficial and 235
+> harmful parent-question cases, both controls live. At matched rates the
+> treatment adds three complete deliveries at 1–2%, descriptively; full split
+> falls 749→687 complete at 16k and 810→754 at 32k. The lexical ablation is
+> worse. G0 reproduces 20,904 standing fields and 1,742 flat identities; two
+> 622,250-cell G6 replays are identical. G5 made 2,661 allowed solo embedding
+> calls including the sentinel; G6–G8 made zero embedding or LLM/generative
+> calls. `REGISTERED-OFFLINE`, observed-corpus availability only; no chunk-size,
+> rate, reader, or adoption claim.
+> `experiments/components/tier_cost/TC_004_REPORT.md`.
+
+> **TC-005 (2026-08-23), relevance efficiency under TC-007's half-budget.**
+> On 704 targeted LoCoMo questions, hybrid dense-plus-BM25 ranking raises
+> complete evidence from 593 to 624 at 8k: 58 gains, 27 losses, net +31,
+> p=.000508 against band 1. At 16k it raises 643 to 657, but 36 gains and 22
+> losses give p=.0435 against band 2. The registered two-budget rule therefore
+> assigns `TREATMENT_CARRIES_SIGNAL`, not `TREATMENT_WORKS`. BM25 alone falls
+> 593→557 and 643→581; dense is `DENSE_CARRIES_SIGNAL`. On all 868 eligible
+> questions, hybrid is +6 complete deliveries at 16k and -6 at 32k, with
+> neither full-budget guardrail firing. No treatment works at both half-budget
+> operating points, so the frozen TC-007 selection rule keeps `A_DENSE`.
+> Breadth complete dense/hybrid is 7/8 at 8k, 16/13 at 16k and 27/18 at 32k;
+> this study does not choose the spread strategy. Two fresh runs reproduce all
+> 7,839 cells exactly; run calls and cache misses are zero. `REGISTERED-OFFLINE`,
+> availability only; no reader, optimal-budget, enterprise-scale, or adoption
+> claim. `experiments/components/tier_cost/TC_005_REPORT.md`.
+
+> **TC-007 (2026-08-23), protected spread against full-budget relevance.**
+> Fixed 50/50 treatments give dense relevance one protected half and frozen A3
+> or facility spread the other, return unused spread allowance, deduplicate, and
+> compare with full-budget dense at 16k/32k. A3 combined complete evidence is
+> 739/812 against dense 749/810; breadth is 13/27 against 16/27; targeted is
+> 637/681 against 643/680. No family direction clears, so A3 is
+> `MIXED_OR_NO_DIFFERENCE`. Facility loses 57/36 combined, 40/23 targeted, and
+> 7 breadth questions at both budgets; `CONTROL_WORKS`. A3 adds/losses 5/14
+> evidence identities at 16k and 7/3 at 32k, so spread is active but does not
+> clear the complete-breadth joint rule. `NO_SPLIT_SELECTED`; dense keeps the
+> full budget. Final G0 passes 2,198 tests; two fresh run processes and file
+> digests agree; zero run calls/misses. `REGISTERED-OFFLINE`, availability only;
+> no reader, share optimum, enterprise budget, or adoption claim.
+> `experiments/components/tier_cost/TC_007_REPORT.md`.
+
+> **TC-008 (2026-08-23), source-session novelty under the protected split.**
+> Keeping TC-007's dense route, 50/50 allocator and relevance-plus-0.1-novelty
+> objective fixed while replacing embedding clusters with source sessions gives
+> combined/breadth/targeted complete delivery of 728/13/629 at 16k against
+> dense's 749/16/643. Breadth identity delivery has one gain and five losses;
+> dense clears both 16k guardrails. At 32k all complete endpoints tie, but one
+> breadth identity is lost. The arm raises represented sessions to median 30,
+> yet 15 of 27 evidence-changing 16k questions are losses specific to session
+> grouping versus A3. `DENSE_CARRIES_SIGNAL`; no session split is selected.
+> G0 passes 2,214 tests and 70,736 mechanism checks; two full worker digests
+> agree; zero calls/misses. `REGISTERED-OFFLINE`, availability only. Reader
+> answers were not started. `experiments/components/tier_cost/TC_008_REPORT.md`.
+
+> **TC-009 (2026-08-23), cumulative source-session penalty.** Every session
+> repeatedly offers its highest-cosine remaining candidate and pays `.03` per
+> already selected item. The rule permits immediate repeat wins but complete
+> evidence still falls: combined/breadth/targeted is 713/12/624 at 16k versus
+> dense 749/16/643, and 794/21/674 at 32k versus 810/27/680. Breadth has no
+> complete gains at either budget. Attribution finds 34/22 dynamic-only
+> required-identity losses at 16k/32k, versus 7/0 losses common to fixed 50/50
+> protection. `DENSE_WORKS`; dense keeps the full budget. G0 passes 2,226 tests
+> and 366,127 mechanism states; two complete workers agree; zero calls/misses.
+> `REGISTERED-OFFLINE`, availability only. Reader answers were not started.
+> `experiments/components/tier_cost/TC_009_REPORT.md`.
+
+> **TC-009 safe-substitution probe (2026-08-23).** On the frozen 32k selected-
+> set changes, required-identity delivery has 7 gains, 23 losses and 838 ties;
+> complete evidence has 4 gains and 20 losses. None of 15 evidence-blind
+> features passes the locked descriptive rule. Worst query-margin AUC is .708
+> pooled but .30 on conv-41 and its top 20 contains one gain; novelty and
+> redundancy are .47–.54. `NO_POSITIVE_SIGNAL`; no selector, threshold, reader
+> or TC-010 authorized. Feature extraction precedes labels and replays 1,742
+> payload identities with zero calls/misses.
+
+> **TC-009 syntactic-span probe (2026-08-23).** A fixed parser exposes 4,935
+> unique noun phrases and 5,385 unique subject-bearing sentences; the carried
+> embedder scores them, and the same 32k packer still delivers complete pairs.
+> Dense/noun/subject combined complete evidence is 810/443/659; targeted is
+> 680/391/580 and breadth 27/10/13. Both treatments regress all four
+> conversations. Lost evidence has median dense rank 5/14. Capture embeds
+> 10,320 unique spans; outcome calls are zero and no LLM calls occur.
+> `NO_POSITIVE_SIGNAL`; no TC-010, selector or reader authorized.
+
+> **TC-009 dependency-graph subject probe (2026-08-23).** Without embeddings,
+> exact IDF overlap, dependency PageRank, subject overlap and subject-
+> personalized PageRank deliver 727/677/316/344 complete questions versus
+> dense's 810 at 32k; breadth is 15/10/3/3 versus 27. Every arm regresses all
+> four conversations. Graph centrality loses 50 complete questions to its own
+> lexical control; subject signals leave median 261–295 candidates tied at
+> zero. `NO_POSITIVE_SIGNAL`; no TC-010, deployment or reader authorized.
+
+> **TC-009 convex-fusion probe (2026-08-23).** Fixed query-wise min-max 80/20
+> dense/BM25 score fusion beats both dense and TC-005 RRF on combined and
+> targeted delivery: at 16k dense/RRF/convex is 749/755/771 combined and
+> 643/657/666 targeted; at 32k 810/804/819 and 680/682/689. All conversations
+> gain, but 32k breadth falls 27→24 (1 gain/4 losses), so the frozen disposition
+> is `NO_POSITIVE_SIGNAL`. It carries a semantic-arm signal, not an architecture
+> or reader authorization.
+
+> **TC-009 convex + protected-breadth probe (2026-08-23).** At 32k, CC80+A3
+> restores full dense breadth (27) while keeping combined/targeted 818/686
+> versus dense 810/680 and full CC80 819/689; it repairs all four prior CC80
+> breadth losses. At 16k, 50/50 costs too much: 757/653/14 versus dense
+> 749/643/16 and full CC80 771/666/17. `NO_POSITIVE_SIGNAL` across both budgets;
+> the components are compatible, but the fixed share does not transfer.
+
+> **TC-009 convex + protected-breadth miss audit (2026-08-23).** CC80+A3 misses
+> 111 questions at 16k and 50 at 32k; 61 are rescued by the larger budget and
+> none regress. CC80 alone associates with 17/20 and 6/9 treatment gains over
+> dense. At 32k all 18 targeted misses have zero evidence, while 31/32
+> non-targeted misses are partial. Multi-session evidence misses 26/126 versus
+> 18/704 for a single carrier. The residual is tail lookup plus set completion,
+> not primarily temporal or causal wording. Posthoc availability only.
+
+> **TC-010 qualified bottom spread (2026-08-23).** With CC80 and 50/50 locked,
+> spread chooses minimum redundancy inside CC80's top quarter. Full
+> CC80/qualified/global-bottom combined is 771/752/706 at 16k and 819/818/771
+> at 32k; breadth is 17/13/8 and 24/24/17. At 16k diversification displaces
+> useful evidence. At 32k 765/871 selected sets equal full CC80 because the pool
+> already fits. `NO_SPLIT_SELECTED`; full CC80 remains the fallback.
+
+> **TC-011 four protected-spread mechanisms (2026-08-24).** With CC80 filling
+> the semantic half first, combined completeness at 16k/32k is CC80 771/819,
+> LOGDET 726/797, ASPECT 749/810, anchored chain 717/780 and pure chain 717/778.
+> ASPECT is least harmful but breadth is 15/23 versus 17/24. Both chains are
+> active and distinct yet regress sharply. `NO_CANDIDATE`; CC80 fallback.
+
+> **TC-012 dynamic ASPECT (2026-08-24).** Per-hop growing-prompt recomparison
+> produces combined 720/787 at 16k/32k versus static ASPECT 749/810 and CC80
+> 771/819; breadth is 8/20 versus 15/23 and 17/24. Residual-facet ASPECT reaches
+> 753/810 but changes only 146/71 of 871 sets and usually falls back to the
+> original query. `NO_DYNAMIC_PROMPT_SIGNAL`; residual binder limited.
 
 > **Current component status:** SUP-001 passes all offline P5/P9 supersession
 > gates and the 35-turn reader ablation; no 120-turn run or adoption is automatic.
@@ -536,6 +954,25 @@ Runs use a scripted 120-turn conversation with facts planted at known positions 
 | NF-005 | Source-turn candidate information dilution | INFORMATION_DILUTION_SUPPORTED; CHARACTERIZED | At 32k with turn packing fixed, own-turn ranking raises any exact evidence 361->461/465: 100 gains, 0 losses, p=7.89e-31; all-evidence 208->454. Evidence turns p50 298 chars vs parent episodes 2,550. G0-G8 and byte replay pass; no raw-length, live, or adoption claim |
 | NF-006 | Internal statement ranking | INTERNAL_DILUTION_RESCUES_Q11; CHARACTERIZED | At 32k, episode/inherited-statement/own-statement Q11 availability is 12/7/14 of 17. T1 restores monetary 4/4 and targeted ties 21/21 with zero losses. No T1 selection comes from turn 90; exact DX-001 carrier unresolved. No live/adoption claim |
 | NF-007 | Hard cluster-floor anti-vacuity | STOP; FLOOR_INERT | T1 touches 16/16 clusters, but cluster 0 is sampled 30/91 versus 9/168 across five art-majority clusters. Floor size 1 forces 0 admissions. Candidate scarcity and region entry are eliminated; the carried coverage-count family is closed. No selector, outcome, sweep, live run, or adoption |
+| TC-001 | Tiered read path against a flat cosine ranking | D3 FLAT_WINS; REGISTERED-OFFLINE | At 16k over 868 LoCoMo development questions with candidates, vectors, renderer, packer and budget identical, complete evidence is 749 flat versus 314 tiered: 8 gains, 443 losses, net -435 on 451 discordant pairs, p=6.98e-120 against a measured band of 4. All four conversations and all five categories agree; 32k narrows to -177 without reversing. Recency takes 32/32 and 61% of characters; coverage carries evidence on 8/871. Availability only; no adoption, no deletion, no reader claim |
+| TC-001B | The dual arm: relevance and coverage with recency removed | C1 D3 FLAT_WINS; REGISTERED-OFFLINE | Escalated from TC-001 Amendment 001. Four arms over TC-001's frozen inputs; G0 reproduced its four committed rows exactly. C1: A_DUAL (recency_window_n=0) 472/868 vs A_FLAT 749, 14 gains, 291 losses, net -277, p=8.23e-69 vs band 4 at Bonferroni a=0.0025. C2: recency cost 158 (D1 DUAL_WINS). C4: ranking the K tier is worth 276 (D1 RANKED_WINS), so -435 = 158 + 276. C3 (A_DUAL_RANKED 748 vs 749) carries no bar - PF4 measured 3 discordant pairs before the lock, predicted 3 and observed 3. Losses sit at worst-evidence cosine rank p50 3. Unstarved coverage carries evidence alone on 12/871; no latency is recovered. Characterization only; recency_window_n stays at 32 |
+| TC-002 | Does EC-002's fill-order gain hold off its original corpus? | C1 D1 K_FIRST_WINS; REGISTERED-OFFLINE | EC-002's manipulation replayed unmodified (git diff empty on all six K-first files vs caa19f52) on LoCoMo development at its own 32k budget and any-evidence endpoint. C1: A_K_FIRST 732/871 vs A_N_FIRST 687, 80 gains, 35 losses, net +45, p=1.64e-5 vs a band of 7 at Bonferroni a=0.0025 - the gain transfers. C2: still 110 behind A_FLAT's 842 (D3). C3: deleting the tier beats deprioritizing it by 8, p=0.0107 (D2 CARRIES_SIGNAL, 10 discordant pairs, the count PF4 predicted). C4: ordering the K tier best-first is worth 111 (843 vs 732, D1) and passes A_FLAT by one. C2's 118 losses and C4's 118 gains are the identical questions; C1's 80 gains overlap none of them. All 35 of C1's losses are recency-carried; C3's 9 gains are coverage-carried at cosine rank p50 85. Magnitude does not transfer: +32.3 points on LongMemEval vs +5.2 here and +15.8 at 16k, with no binding-ratio explanation offered (DO_NOT_WRITE 32). The band is measured per budget for the first time: 7 at 32k, 4 at 16k; recomputing at 4 changes no disposition. Reordering the fill costs 1-3 ms. Availability only; the registration decided before the run that a positive result does not ship |
+| TC-003 | Reserved floors against sequential fill | C1 D1 FLOORS_WINS; C5 D3 RANKED_WINS; REGISTERED-OFFLINE | At 16k complete evidence, A_FLOORS beats N-first 656/868 vs 314: 357 gains, 15 losses, net +342, p=2.25e-86 vs band 4 at Bonferroni a=.01/6. It beats K-first 656 vs 461 (D1) but loses to flat 656 vs 749 (D3). The isolating C5 reverses: A_FLOORS_DUAL 718 vs A_DUAL_RANKED 748, net -30, D3 RANKED_WINS. C1's gain includes contested evidence on 351/357 questions and reserved evidence on 18, so the registered reading credits the cosine contest, not the reservation. Floors-dual beats store-ordered dual 718 vs 472 but stays 31 behind flat. I1 service-order identity passes 871/871 at both budgets/configurations; I2 ownership-order identity fails, 0/871 at the 16k shipped primary versus 860/871 with zero floors. C5 at 32k is descriptive by registration (9 discordant, band 10). G0 reproduced twenty inherited cells and 3,484 packer identities; zero model calls/cache misses. Availability characterization only; no adoption, tuning, or reader claim |
+| TC-004 | Query-conditioned prediction of beneficial pair-to-turn splits | NO_PREDICTIVE_SIGNAL; REGISTERED-OFFLINE | At 16k complete evidence, 53 questions contain a beneficial one-parent split. Embedding localization vs length AP: 21 gains, 31 losses, 1 tie, one-sided p=.9368. Mean AP .1021 vs .0544 is outlier-driven; median .0145 vs .0213. There are 96 beneficial and 235 harmful parent-question cases. At 1% splitting complete delivery rises 749→752 descriptively; full split falls to 687. At 32k full split falls 810→754. The lexical ablation is worse. G5 used 2,661 allowed solo embedding calls and zero generation; G6–G8 use sealed caches with zero calls. Availability only; no optimum rate/chunk size, reader, or adoption claim |
+| TC-005 | Dense, BM25, and dense-plus-BM25 hybrid ranking under TC-007's relevance half-budget | HYBRID TREATMENT_CARRIES_SIGNAL; DENSE FALLBACK; REGISTERED-OFFLINE | On 704 targeted questions, hybrid moves complete evidence 593→624 at 8k (+31; 58 gains, 27 losses, p=.000508) but 643→657 at 16k (+14; 36 gains, 22 losses, p=.0435), so it does not clear the registered works rule at both operating points. BM25 falls to 557 and 581; dense CARRIES_SIGNAL. On 868 eligible questions hybrid is +6 at 16k and -6 at 32k with no guardrail failure. The frozen selection rule keeps A_DENSE for TC-007. Two-process replay is exact; zero run calls/misses. Availability only; no reader or optimal-budget claim |
+| TC-007 | Fixed 50/50 dense relevance plus protected A3 or facility spread against full-budget dense | NO_SPLIT_SELECTED; DENSE FALLBACK; REGISTERED-OFFLINE | A3 combined complete evidence is 739/812 at 16k/32k versus dense 749/810; breadth 13/27 versus 16/27; targeted 637/681 versus 643/680, so A3 is MIXED_OR_NO_DIFFERENCE. Facility loses 57/36 combined and 7 breadth at both budgets; CONTROL_WORKS. A3 adds/losses 5/14 evidence ids at 16k and 7/3 at 32k, so spread is active but does not clear the joint complete-breadth rule. Two-process/file replay exact; zero calls/misses. Availability only; no reader, share optimum, or enterprise-budget claim |
+| TC-008 | Source-session novelty under TC-007's fixed 50/50 protected allocator | DENSE_CARRIES_SIGNAL; DENSE FALLBACK; REGISTERED-OFFLINE | The only changed component replaces A3's embedding-cluster grouping with source sessions under the same relevance-plus-0.1 novelty objective. At 16k, combined/breadth/targeted complete evidence is 728/13/629 versus dense 749/16/643; breadth identities add/lose 1/5 and both dense guardrails fire. At 32k complete endpoints tie, while one breadth identity is lost. Median represented sessions rises to 30, but 15/27 evidence-changing 16k questions are losses specific to session grouping versus A3. G0: 2,214 tests and 70,736 mechanism checks; two-process replay exact; zero calls/misses. Availability only; reader answers not started |
+| TC-009 | Repeated best-session competition with a cumulative `.03` selection penalty | DENSE_WORKS; DENSE FALLBACK; REGISTERED-OFFLINE | The only changed component replaces TC-008's one-time session novelty with repeated global competition among each session's best remaining cosine candidate. Complete combined/breadth/targeted delivery is 713/12/624 at 16k versus dense 749/16/643, and 794/21/674 at 32k versus 810/27/680. There are no complete-breadth gains. Attribution finds 34/22 dynamic-only required-identity losses at 16k/32k; targeted lost-carrier dense-rank medians are 38.5/71. G0: 2,226 tests and 366,127 state checks; two full workers exact; zero calls/misses. Availability only; reader answers not started |
+| TC-009 safe-substitution probe | Evidence-blind predictors of safe 32k dynamic-versus-dense replacements | NO_POSITIVE_SIGNAL; DESCRIPTIVE | Across 868 eligible questions there are 7 required-identity gains, 23 losses and 838 ties; complete evidence has 4 gains/20 losses. None of 15 frozen features passes. The best pooled query-margin AUC is .708 but reverses to .30 on conv-41 and its top 20 contains one gain. Novelty/redundancy AUC is .47-.54. Feature extraction is sealed before label import; 1,742 payload identities replay; zero calls/misses. No selector, threshold, reader or TC-010 authorized |
+| TC-009 syntactic-span probe | Rank complete pairs by maximum noun-phrase or subject-bearing-sentence cosine | NO_POSITIVE_SIGNAL; DESCRIPTIVE | At 32k, dense/noun/subject combined complete evidence is 810/443/659, targeted 680/391/580 and breadth 27/10/13. Both treatments regress all four conversations; required evidence they lose has median dense rank 5/14. Label-blind capture parses 1,365 pair documents and embeds 10,320 unique spans; Preflight reproduces all 871 dense payloads; outcome calls are zero and LLM calls are zero. Parser extraction works, but max span cosine is unsafe; no TC-010 or reader authorized |
+| TC-009 dependency-graph subject probe | Rank complete pairs without embeddings by lexical overlap, dependency PageRank, subject overlap, or subject-personalized PageRank | NO_POSITIVE_SIGNAL; DESCRIPTIVE | At 32k, dense/lexical/dependency-PR/subject/subject-PPR combined complete evidence is 810/727/677/316/344, targeted 680/632/598/284/320 and breadth 27/15/10/3/3. Every treatment regresses all four conversations. Dependency PageRank loses 50 complete questions to its lexical control; subject arms have median 261-295 zero scores. Corrected Preflight reproduces all 871 dense payloads and runs 204,409 personalized graphs with zero embedding vectors/calls and zero LLM calls. No TC-010, deployment or reader authorized |
+| TC-009 convex-fusion probe | Query-wise min-max 80/20 dense/BM25 score fusion versus dense and TC-005 rank-only RRF | NO_POSITIVE_SIGNAL; SEMANTIC-ARM SIGNAL; DESCRIPTIVE | At 16k dense/RRF/convex combined is 749/755/771, targeted 643/657/666 and breadth 16/13/17; at 32k it is 810/804/819, 680/682/689 and 27/18/24. Convex gains in all four conversations and beats RRF, but fails the frozen rule on 32k breadth complete (1 gain/4 losses). All four losses are multi-carrier enumeration questions. Preflight reproduces 3,484 accepted checks with zero calls/misses. No coefficient, architecture, TC-010 or reader authorized |
+| TC-009 convex + protected breadth | Put CC80 relevance inside TC-007's unchanged 50/50 A3 allocator | NO_POSITIVE_SIGNAL; BUDGET-DEPENDENT; DESCRIPTIVE | At 32k, dense/full-CC80/dense+A3/CC80+A3 combined is 810/819/812/818, targeted 680/689/681/686 and breadth 27/24/27/27: protection repairs all four prior CC80 enumeration losses while preserving most semantic gain. At 16k it is 749/771/739/757, 643/666/637/653 and 16/17/13/14; the fixed reservation costs too much. Preflight reproduces 6,968 checks, zero calls/misses. No share tuning, TC-010 or reader authorized |
+| TC-009 convex + protected miss audit | Explain every miss and gain over dense from the frozen parent contexts | POSTHOC_DESCRIPTIVE | CC80+A3 misses 111/868 at 16k and 50/868 at 32k; 61 are budget-rescued and none regress. CC80 associates with 17/20 and 6/9 gains. At 32k all 18 targeted misses are zero-evidence, while 31/32 non-targeted misses are partial; multi-session evidence misses 26/126 versus 18/704 single-carrier. Zero ranking/model calls; no causal, reader or architecture claim |
+| TC-010 | Frozen CC80 relevance plus 50/50 minimum-redundancy spread inside CC80's top quarter; reverse CC80 negative control | NO_SPLIT_SELECTED; REGISTERED-OFFLINE | Full CC80/qualified/global-bottom combined is 771/752/706 at 16k and 819/818/771 at 32k; breadth 17/13/8 and 24/24/17. Qualified diversity displaces evidence at 16k, while at 32k 765/871 sets equal full CC80 because the pool already fits. Global bottom is decisively harmful. Preflight reproduces 3,484 payloads with zero calls/misses. CC80 fallback; no tuning or reader |
+| TC-011 | Frozen CC80 semantic half plus 50/50 LOGDET, deterministic ASPECT, query-anchored chain or pure chain spread | NO_CANDIDATE; REGISTERED-OFFLINE | Combined complete at 16k/32k: CC80 771/819, LOGDET 726/797, ASPECT 749/810, anchored chain 717/780, pure chain 717/778. ASPECT is least harmful but breadth 15/23 trails 17/24. The chains differ on 871/871 contexts yet both regress. Preflight reproduces 3,484 parent payloads and 316,786 updates with zero calls/misses. CC80 fallback; no answers or tuning |
+| TC-012 | Recompute ASPECT relevance per hop using a growing-context cue or an uncovered-question-facet residual cue | NO_DYNAMIC_PROMPT_SIGNAL; RESIDUAL_BINDER_LIMITED; REGISTERED-OFFLINE | CC80/static/dynamic/residual combined is 771/749/720/753 at 16k and 819/810/787/810 at 32k; breadth 17/15/8/15 and 24/23/20/23. Dynamic prompt loses to static 2/31 and 3/26. Residual differs from static on only 146/71 sets, so its +4/0 at 16k cannot support the broad thesis. 3,484 control reproductions, 117,966 updates, zero calls/misses. CC80 fallback |
+| CC-007 | Adopt additive last-32 continuity plus 32k CC80; ship static ASPECT optional/off by default; rename distribution to episodic-chat | PASS; DEPLOYED ENGINEERING ADOPTION | Package-only port reproduces 4,355/4,355 frozen CC80 order/selection/payload and static-ASPECT selection/payload groups with zero mismatches. Recent identities are excluded from long-term admission; the retrieval ceiling excludes recency. ASPECT retains exact 50/50 solo allowances and returns slack to CC80. No new reader, transfer or latency claim |
 | SUP-001 | Explicit supersession lineage and accessibility | FACTUAL PASS; byte-identity criterion withdrawn | Current-only retrieval rose 0/64 to 64/64 with 32/32 unchanged and 64/64 histories. T1 scored 9/9 under numeric-value equivalence, with zero regressions and zero stale natural payloads; no larger run or adoption is automatic |
 
 Full reports live under `experiments/study_NNN/`; external evaluation reports
@@ -914,44 +1351,48 @@ module global. The graph above the divider is the same path in plain language.
 
 | What it controls | Field | Value | Why it is that value |
 |---|---|---|---|
-| Recent exchanges always included | `recency_window_n` | 32 | carried from the corrected 121-turn run |
-| Score an exchange must beat to count as related | `k_threshold` | 0.48 | carried; **measured unreachable** — best observed relevance is 0.2779, E001 swept 714 configurations to 0.2103 |
-| Whether weak candidates are filtered out early | `candidate_policy` | `full_store` | DR-002 — dropping the 19 lowest-cosine of 119 cost an entire domain, because the selector clusters over the pool and tail removal reshuffles the objective |
-| Coverage selector | `selector` | A3 | E005 — relevance plus cluster diversity; A1/A2 build an O(n²) matrix and were disqualified at scale |
-| Cluster-coverage bonus | `selector_lambda` | 0.1 | E005 primary `A3_l0.1_r0.0_k16` of 146 swept |
-| Cost exponent | `selector_cost_exponent` | 0.0 | E005 primary |
-| Topic groups | `selector_cluster_count` | 16 | E005 primary; NF-007 confirmed the deployed selection already enters all 16 |
+| Recent exchanges always included, outside retrieval budget | `recency_window_n` | 32 | user-authorized continuity contract; exact final 32 completed episodes |
+| Default long-term allowance | `retrieval_budget_chars` | 32,000 | continuity with the programme's 32k character budget; recency is additive |
+| Semantic ranking | `semantic_dense_weight` | 0.8 dense + 0.2 BM25 | frozen CC80 from TC-009; each component min-max normalized per query |
+| BM25 saturation/length constants | `bm25_k1`, `bm25_b` | 1.2, 0.75 | frozen TC-005/TC-009 implementation |
+| Protected spread enabled | `aspect_enabled` | `False` | TC-011 static ASPECT trails full CC80; available by explicit user choice only |
+| Protected spread share | `aspect_share` | 0.5 | tested TC-011 allocator; unused capacity and wrapper savings return to CC80 |
+| ASPECT parser | `aspect_model` | `en_core_web_sm` 3.8.0 | exact registered six-facet extractor; optional install dependency |
 | Size accounting | `budget_accounting` | `exact_serialized` | DR-001 — the prior method under-charged by 67.9%/68.2% |
 | Embedding call shape | `embed_call_shape` | `solo` | DX-001 — the same text embedded alone versus in a batch yields materially different vectors, so call shape is part of the model identity |
 | Seed | `seed` | 5005 | provenance only; no code path in the package draws randomness |
 
-Packing order is `DROP_POLICY = "marginal_gain_order_skip_on_overflow"` — a named
-policy, not an artifact of iteration order. Skipping rather than stopping is
-deliberate: with gains [10, 9, 8] where the budget fits the second and third but
-not the first, this admits 9 and 8 where a strict rank-prefix would keep only 10
-and leave the budget mostly empty.
+CC80 ranks the complete store, skips recent identities, and continues after an
+oversized candidate. When ASPECT is enabled, semantic and spread first receive
+solo half-allowances, merge once, and CC80 resumes into all remaining capacity.
+The exact long-term serialization never exceeds its allowance; the final block
+can, because continuity is deliberately additive.
 
 | Box on the graph | Where it lives |
 |---|---|
 | Saving, start-up check | `episodic/src/episodic/_store.py` — `append`, sentinel verify |
 | Text into numbers | `_embedding.py` — `embed_solo` |
-| Scoring, the three routes | `_context.py` — `build_context` |
-| Topic groups, the spread step | `_selection.py` — `deterministic_clusters`, `ClusterDiversitySelector` |
+| Additive recency composition | `_context.py` — `build_chat_context` |
+| CC80 dense + BM25 ranking | `_ranking.py` — `rank_cc80` |
+| Optional static spread | `_aspect.py` — `aspect_spread` |
+| Protected allocation and slack return | `_retrieval.py` — `retrieve_long_term` |
 | Filling the box | `_packing.py` — `pack_stm_payload` |
 | The two written sections | `_render.py` — `render_stm_payload` |
 | Every setting above | `_config.py` — `EpisodicConfig` |
 
 ## The Extracted Library
 
-CC-002 moved the deployable memory component into `episodic/`, an
-installable package with a public store, report, config, and embedding-cache
+CC-002 moved the deployable memory component into an installable package.
+CC-007 renames the distribution to `episodic-chat` (stable Python namespace
+`episodic`) and replaces the public read path with additive last-32 continuity,
+32k CC80, identity deduplication, and optional static ASPECT. It has a public
+store, report, config, and embedding-cache
 API (`EpisodeStore`, `ContextReport`, `EpisodicConfig`, `EmbeddingCache`) and zero experiment machinery; the
 harness now imports the library and is its largest test. Extraction is
-certified behavior-preserving, not assumed: all 132 committed A3
-selection records and all three committed DR-001 serialized blocks
-reproduce their SHA-256 byte-for-byte through the library (T3/T4), the
-full suite runs green with the harness consuming it (T6, 804 tests), and
-`store.context()` is byte-identical across processes (T7). The two
+certified rather than assumed: CC-007 reproduces 4,355/4,355 frozen CC80 and
+static-ASPECT order/selection/payload groups with zero mismatches before the
+store switch; the carried renderer still reproduces all three DR-001 blocks.
+`store.context()` remains byte-identical across processes. The two
 reproduction hazards found by gates in this program ship as contract
 requirements, not documentation: the embedder call-shape sentinel is
 asserted on every store open (H1, from DX-001), and candidate-pool
@@ -959,7 +1400,8 @@ trimming exists only under an `unsafe_` name carrying the DR-002 finding
 (H2). The library README makes measured claims only, each row with its
 artifact hash.
 
-See `episodic/README.md` and
+See `episodic/README.md`,
+`experiments/components/episodic_chat/CC_007_PRE_REGISTRATION.md`, and
 `experiments/components/library_extraction/CC_002_library_extraction.md`.
 
 CC-006 closes a second reproducibility hazard. A model-artifact hash and the

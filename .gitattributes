@@ -530,3 +530,10 @@ src/analysis/hh002_sync_arm.py text eol=lf
 experiments/comparisons/hh_002/HH_002_FINDINGS.md text eol=lf
 experiments/comparisons/hh_002/RESULTS.md text eol=lf
 paper/notes/HH002_EVIDENCE_SPINE.md text eol=lf
+experiments/components/tier_cost/TC_ARC_ROADMAP.md text eol=lf
+experiments/components/tier_cost/TC_ARC_DEPENDENCY_LOG.md text eol=lf
+scripts/hh002_cost_ledger.py text eol=lf
+
+# TC-009 registered question-level artifacts exceed GitHub's 100 MiB file cap.
+experiments/components/tier_cost/runs/tc009/run/frozen_selections.jsonl.gz filter=lfs diff=lfs merge=lfs -text
+experiments/components/tier_cost/runs/tc009/run/diagnostics.jsonl.gz filter=lfs diff=lfs merge=lfs -text

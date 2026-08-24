@@ -1,0 +1,167 @@
+{
+  "anchor_rows": [
+    {
+      "agrees": true,
+      "budget_chars": 16000,
+      "committed_artifacts": {
+        "dual": 472,
+        "dual_ranked": 748,
+        "flat": 749,
+        "k_first": 461,
+        "n_first": 314
+      },
+      "endpoint": "complete",
+      "recomputed": {
+        "dual": 472,
+        "dual_ranked": 748,
+        "flat": 749,
+        "k_first": 461,
+        "n_first": 314
+      },
+      "registered": {
+        "dual": 472,
+        "dual_ranked": 748,
+        "flat": 749,
+        "k_first": 461,
+        "n_first": 314
+      }
+    },
+    {
+      "agrees": true,
+      "budget_chars": 16000,
+      "committed_artifacts": {
+        "dual": 528,
+        "dual_ranked": 801,
+        "flat": 803,
+        "k_first": 519,
+        "n_first": 381
+      },
+      "endpoint": "any",
+      "recomputed": {
+        "dual": 528,
+        "dual_ranked": 801,
+        "flat": 803,
+        "k_first": 519,
+        "n_first": 381
+      },
+      "registered": {
+        "dual": 528,
+        "dual_ranked": 801,
+        "flat": 803,
+        "k_first": 519,
+        "n_first": 381
+      }
+    },
+    {
+      "agrees": true,
+      "budget_chars": 32000,
+      "committed_artifacts": {
+        "dual": 694,
+        "dual_ranked": 811,
+        "flat": 810,
+        "k_first": 685,
+        "n_first": 633
+      },
+      "endpoint": "complete",
+      "recomputed": {
+        "dual": 694,
+        "dual_ranked": 811,
+        "flat": 810,
+        "k_first": 685,
+        "n_first": 633
+      },
+      "registered": {
+        "dual": 694,
+        "dual_ranked": 811,
+        "flat": 810,
+        "k_first": 685,
+        "n_first": 633
+      }
+    },
+    {
+      "agrees": true,
+      "budget_chars": 32000,
+      "committed_artifacts": {
+        "dual": 740,
+        "dual_ranked": 843,
+        "flat": 842,
+        "k_first": 732,
+        "n_first": 687
+      },
+      "endpoint": "any",
+      "recomputed": {
+        "dual": 740,
+        "dual_ranked": 843,
+        "flat": 842,
+        "k_first": 732,
+        "n_first": 687
+      },
+      "registered": {
+        "dual": 740,
+        "dual_ranked": 843,
+        "flat": 842,
+        "k_first": 732,
+        "n_first": 687
+      }
+    }
+  ],
+  "claim": "All twenty inherited cells reproduce both the transcription and committed artifacts; all 3,484 zero-floor reductions are byte-identical; both deterministic controls are live.",
+  "committed_artifact_sha256": {
+    "tc001_summary": "e594dadeedf60b1ee06d9e720ad2c42822e4b9815695d47dc4be413df7d52151",
+    "tc002_summary": "ca93a4d594ef0102725c2ddd4c87b8bf3a7ce55f7834852ce9e4b58946c5a967"
+  },
+  "controls": {
+    "16000": {
+      "floors": {
+        "overlap_questions": 871,
+        "questions": 871,
+        "registered": {
+          "overlap": 871,
+          "zero_service_separates": 871
+        },
+        "status": "PASS",
+        "zero_floor_reductions_passed": 871,
+        "zero_service_order_separates_questions": 871
+      },
+      "floors_dual": {
+        "overlap_questions": 871,
+        "questions": 871,
+        "registered": {
+          "overlap": 871,
+          "zero_service_separates": 633
+        },
+        "status": "PASS",
+        "zero_floor_reductions_passed": 871,
+        "zero_service_order_separates_questions": 633
+      }
+    },
+    "32000": {
+      "floors": {
+        "overlap_questions": 871,
+        "questions": 871,
+        "registered": {
+          "overlap": 871,
+          "zero_service_separates": 871
+        },
+        "status": "PASS",
+        "zero_floor_reductions_passed": 871,
+        "zero_service_order_separates_questions": 871
+      },
+      "floors_dual": {
+        "overlap_questions": 871,
+        "questions": 871,
+        "registered": {
+          "overlap": 871,
+          "zero_service_separates": 351
+        },
+        "status": "PASS",
+        "zero_floor_reductions_passed": 871,
+        "zero_service_order_separates_questions": 351
+      }
+    }
+  },
+  "gate": "G0",
+  "mismatches": [],
+  "schema": "tc003-reserved-floors-v1",
+  "status": "PASS"
+}

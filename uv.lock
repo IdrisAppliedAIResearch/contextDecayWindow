@@ -197,6 +197,7 @@ version = "0.1.0"
 source = { editable = "." }
 dependencies = [
     { name = "en-core-web-sm" },
+    { name = "episodic-chat" },
     { name = "llama-cpp-python" },
     { name = "numpy" },
     { name = "spacy" },
@@ -213,6 +214,7 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "en-core-web-sm", url = "https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl" },
+    { name = "episodic-chat", editable = "episodic" },
     { name = "llama-cpp-python", specifier = ">=0.3.0" },
     { name = "numpy", specifier = ">=1.26.0" },
     { name = "spacy", specifier = ">=3.8.14,<4" },
@@ -389,6 +391,23 @@ source = { url = "https://github.com/explosion/spacy-models/releases/download/en
 wheels = [
     { url = "https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl", hash = "sha256:1932429db727d4bff3deed6b34cfc05df17794f4a52eeb26cf8928f7c1a0fb85" },
 ]
+
+[[package]]
+name = "episodic-chat"
+version = "0.2.0"
+source = { editable = "episodic" }
+dependencies = [
+    { name = "numpy" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "en-core-web-sm", marker = "extra == 'aspect'", url = "https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl" },
+    { name = "llama-cpp-python", marker = "extra == 'llama'", specifier = ">=0.3.0" },
+    { name = "numpy", specifier = ">=1.26.0" },
+    { name = "spacy", marker = "extra == 'aspect'", specifier = ">=3.8.14,<4" },
+]
+provides-extras = ["llama", "aspect"]
 
 [[package]]
 name = "fonttools"

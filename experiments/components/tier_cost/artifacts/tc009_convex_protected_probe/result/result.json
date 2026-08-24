@@ -1,0 +1,400 @@
+{
+  "breadth_identity_positive_some_budget": true,
+  "calls": {
+    "cache": 0,
+    "embedding": 0,
+    "llm_or_generative": 0,
+    "ranking": 0
+  },
+  "cells": {
+    "16000": {
+      "breadth": {
+        "baseline": 16,
+        "gains": 1,
+        "losses": 3,
+        "n": 44,
+        "net": -2,
+        "treatment": 14
+      },
+      "breadth_identity": {
+        "gains": 3,
+        "losses": 5,
+        "net_identities": -2
+      },
+      "combined": {
+        "baseline": 749,
+        "gains": 20,
+        "losses": 12,
+        "n": 868,
+        "net": 8,
+        "treatment": 757
+      },
+      "conversation_nets": {
+        "conv-41": 0,
+        "conv-42": 2,
+        "conv-47": -1,
+        "conv-48": 7
+      },
+      "other": {
+        "baseline": 90,
+        "gains": 3,
+        "losses": 3,
+        "n": 120,
+        "net": 0,
+        "treatment": 90
+      },
+      "targeted": {
+        "baseline": 643,
+        "gains": 16,
+        "losses": 6,
+        "n": 704,
+        "net": 10,
+        "treatment": 653
+      },
+      "versus_dense_a3": {
+        "breadth": {
+          "baseline": 13,
+          "gains": 1,
+          "losses": 0,
+          "n": 44,
+          "net": 1,
+          "treatment": 14
+        },
+        "combined": {
+          "baseline": 739,
+          "gains": 20,
+          "losses": 2,
+          "n": 868,
+          "net": 18,
+          "treatment": 757
+        },
+        "other": {
+          "baseline": 89,
+          "gains": 2,
+          "losses": 1,
+          "n": 120,
+          "net": 1,
+          "treatment": 90
+        },
+        "targeted": {
+          "baseline": 637,
+          "gains": 17,
+          "losses": 1,
+          "n": 704,
+          "net": 16,
+          "treatment": 653
+        }
+      },
+      "versus_full_cc80": {
+        "breadth": {
+          "baseline": 17,
+          "gains": 0,
+          "losses": 3,
+          "n": 44,
+          "net": -3,
+          "treatment": 14
+        },
+        "combined": {
+          "baseline": 771,
+          "gains": 7,
+          "losses": 21,
+          "n": 868,
+          "net": -14,
+          "treatment": 757
+        },
+        "other": {
+          "baseline": 88,
+          "gains": 5,
+          "losses": 3,
+          "n": 120,
+          "net": 2,
+          "treatment": 90
+        },
+        "targeted": {
+          "baseline": 666,
+          "gains": 2,
+          "losses": 15,
+          "n": 704,
+          "net": -13,
+          "treatment": 653
+        }
+      }
+    },
+    "32000": {
+      "breadth": {
+        "baseline": 27,
+        "gains": 0,
+        "losses": 0,
+        "n": 44,
+        "net": 0,
+        "treatment": 27
+      },
+      "breadth_identity": {
+        "gains": 2,
+        "losses": 1,
+        "net_identities": 1
+      },
+      "combined": {
+        "baseline": 810,
+        "gains": 9,
+        "losses": 1,
+        "n": 868,
+        "net": 8,
+        "treatment": 818
+      },
+      "conversation_nets": {
+        "conv-41": 3,
+        "conv-42": 2,
+        "conv-47": 0,
+        "conv-48": 3
+      },
+      "other": {
+        "baseline": 103,
+        "gains": 3,
+        "losses": 1,
+        "n": 120,
+        "net": 2,
+        "treatment": 105
+      },
+      "targeted": {
+        "baseline": 680,
+        "gains": 6,
+        "losses": 0,
+        "n": 704,
+        "net": 6,
+        "treatment": 686
+      },
+      "versus_dense_a3": {
+        "breadth": {
+          "baseline": 27,
+          "gains": 0,
+          "losses": 0,
+          "n": 44,
+          "net": 0,
+          "treatment": 27
+        },
+        "combined": {
+          "baseline": 812,
+          "gains": 7,
+          "losses": 1,
+          "n": 868,
+          "net": 6,
+          "treatment": 818
+        },
+        "other": {
+          "baseline": 104,
+          "gains": 2,
+          "losses": 1,
+          "n": 120,
+          "net": 1,
+          "treatment": 105
+        },
+        "targeted": {
+          "baseline": 681,
+          "gains": 5,
+          "losses": 0,
+          "n": 704,
+          "net": 5,
+          "treatment": 686
+        }
+      },
+      "versus_full_cc80": {
+        "breadth": {
+          "baseline": 24,
+          "gains": 4,
+          "losses": 1,
+          "n": 44,
+          "net": 3,
+          "treatment": 27
+        },
+        "combined": {
+          "baseline": 819,
+          "gains": 10,
+          "losses": 11,
+          "n": 868,
+          "net": -1,
+          "treatment": 818
+        },
+        "other": {
+          "baseline": 106,
+          "gains": 4,
+          "losses": 5,
+          "n": 120,
+          "net": -1,
+          "treatment": 105
+        },
+        "targeted": {
+          "baseline": 689,
+          "gains": 2,
+          "losses": 5,
+          "n": 704,
+          "net": -3,
+          "treatment": 686
+        }
+      }
+    }
+  },
+  "claim_boundary": "used LoCoMo development availability only; no share/coefficient selection, TC-010, deployment, or reader authorized",
+  "clauses": {
+    "16000": {
+      "breadth_complete_nonnegative": false,
+      "breadth_identity_nonnegative": false,
+      "combined_positive": true,
+      "conversation_consistent": false,
+      "targeted_nonnegative": true
+    },
+    "32000": {
+      "breadth_complete_nonnegative": true,
+      "breadth_identity_nonnegative": true,
+      "combined_positive": true,
+      "conversation_consistent": true,
+      "targeted_nonnegative": true
+    }
+  },
+  "controls": {
+    "cc80": {
+      "16000": {
+        "breadth": {
+          "baseline": 16,
+          "gains": 1,
+          "losses": 0,
+          "n": 44,
+          "net": 1,
+          "treatment": 17
+        },
+        "combined": {
+          "baseline": 749,
+          "gains": 30,
+          "losses": 8,
+          "n": 868,
+          "net": 22,
+          "treatment": 771
+        },
+        "other": {
+          "baseline": 90,
+          "gains": 3,
+          "losses": 5,
+          "n": 120,
+          "net": -2,
+          "treatment": 88
+        },
+        "targeted": {
+          "baseline": 643,
+          "gains": 26,
+          "losses": 3,
+          "n": 704,
+          "net": 23,
+          "treatment": 666
+        }
+      },
+      "32000": {
+        "breadth": {
+          "baseline": 27,
+          "gains": 1,
+          "losses": 4,
+          "n": 44,
+          "net": -3,
+          "treatment": 24
+        },
+        "combined": {
+          "baseline": 810,
+          "gains": 18,
+          "losses": 9,
+          "n": 868,
+          "net": 9,
+          "treatment": 819
+        },
+        "other": {
+          "baseline": 103,
+          "gains": 6,
+          "losses": 3,
+          "n": 120,
+          "net": 3,
+          "treatment": 106
+        },
+        "targeted": {
+          "baseline": 680,
+          "gains": 11,
+          "losses": 2,
+          "n": 704,
+          "net": 9,
+          "treatment": 689
+        }
+      }
+    },
+    "dense_a3": {
+      "16000": {
+        "breadth": {
+          "baseline": 16,
+          "gains": 0,
+          "losses": 3,
+          "n": 44,
+          "net": -3,
+          "treatment": 13
+        },
+        "combined": {
+          "baseline": 749,
+          "gains": 3,
+          "losses": 13,
+          "n": 868,
+          "net": -10,
+          "treatment": 739
+        },
+        "other": {
+          "baseline": 90,
+          "gains": 1,
+          "losses": 2,
+          "n": 120,
+          "net": -1,
+          "treatment": 89
+        },
+        "targeted": {
+          "baseline": 643,
+          "gains": 2,
+          "losses": 8,
+          "n": 704,
+          "net": -6,
+          "treatment": 637
+        }
+      },
+      "32000": {
+        "breadth": {
+          "baseline": 27,
+          "gains": 0,
+          "losses": 0,
+          "n": 44,
+          "net": 0,
+          "treatment": 27
+        },
+        "combined": {
+          "baseline": 810,
+          "gains": 4,
+          "losses": 2,
+          "n": 868,
+          "net": 2,
+          "treatment": 812
+        },
+        "other": {
+          "baseline": 103,
+          "gains": 3,
+          "losses": 2,
+          "n": 120,
+          "net": 1,
+          "treatment": 104
+        },
+        "targeted": {
+          "baseline": 680,
+          "gains": 1,
+          "losses": 0,
+          "n": 704,
+          "net": 1,
+          "treatment": 681
+        }
+      }
+    }
+  },
+  "population": 868,
+  "schema": "tc009-convex-protected-probe-v1",
+  "selection_sha256": "916632ff25c22c03e8bcc06d18592555eed30e3ffbf656903587e6052ca7a376",
+  "status": "NO_POSITIVE_SIGNAL"
+}

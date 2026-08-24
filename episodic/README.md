@@ -1,23 +1,44 @@
-# episodic
+# episodic-chat
 
-Append-only conversational memory with budgeted context construction.
-Every exchange is stored verbatim; each call to `context()` rebuilds a
-small context from three paths — a recency window, a cosine-threshold
-similarity match, and a set-level coverage selector — packed at exact
-serialized cost. The design was reached across eleven pre-registered
-studies in the `contextDecayWindow` repository, and every behavioral
-claim below carries the committed artifact that measured it.
+Append-only conversational memory for ongoing chat. Every completed
+user/assistant exchange is stored verbatim. Each `context()` call always adds
+the latest 32 exchanges for continuity, then independently fills a
+32,000-character long-term block with CC80—a fixed 80% dense-cosine, 20% BM25
+ranking. Static ASPECT can protect half of the long-term budget for structured
+spread, but is installed separately and disabled by default.
+
+Install the `episodic-chat` distribution and import its stable `episodic`
+namespace:
 
 ```python
 from episodic import (
     EmbeddingCache, EpisodeStore, ContextReport, EpisodicConfig
 )
 
-store = EpisodeStore(path, config=EpisodicConfig())   # opens or creates
-store.append(role, content)                           # verbatim, append-only
-block, report = store.context(query, budget)          # pure function of (store state, query, budget)
+store = EpisodeStore(path, config=EpisodicConfig())
+store.append(role, content)
+block, report = store.context(query)  # default: additive last 32 + 32k CC80
 store.close()
 ```
+
+The optional integer argument overrides only long-term capacity:
+`store.context(query, 16_000)`. Recent continuity is additive and therefore
+the total returned block may exceed that number. The exact retrieval ceiling
+is `report.retrieval_chars_delivered <= report.retrieval_budget_chars`.
+
+Enable the registered static spread route explicitly:
+
+```bash
+pip install "episodic-chat[aspect]"
+```
+
+```python
+config = EpisodicConfig(aspect_enabled=True)
+```
+
+ASPECT uses the tested 50/50 protected allocator: CC80 fills one solo half,
+ASPECT fills the other without duplicating recent or semantic identities, the
+phases merge once, and all unused capacity returns to unchanged CC80 order.
 
 Runs that must be replayable at vector granularity wrap their embedder in a
 persistent cache, record both digests, and reopen it read-only:
@@ -48,7 +69,8 @@ its already-recorded file SHA and a newly recorded canonical content SHA are
 both supplied. This adopts retained bytes; it does not recreate a missing
 historical cache.
 
-`store.context()` is a pure function of store state, query, and budget:
+`store.context()` is a pure function of store state, query, retrieval budget,
+and config:
 no mutation, no inference calls, no network. Same inputs, same output,
 byte-identical. That property is what made the studies reproducible and
 it is the library's core guarantee (acceptance test T7 asserts it across
@@ -57,47 +79,41 @@ two processes).
 ## Measured behavior
 
 Every number below was measured in the source repository and traces to a
-committed artifact. Extraction is certified behavior-preserving by T3/T4:
-all 132 committed A3 selection records and all three committed serialized
-blocks reproduce their SHA-256 byte-for-byte through this package.
+committed artifact. CC-007 independently checked the package port against
+4,355 frozen order/selection/payload groups before activating it.
 
 | Claim | Number | Source | Artifact SHA-256 |
 |---|---|---|---|
-| Targeted recall, 121 turns | 16/16 items preserved | E005 primary configuration | `e005_results.json` `07b714389697c6e5…` |
-| Targeted recall, 1,000 turns | 60/60 required facts delivered; 203 K-threshold retrieval events | Study 010, arm S terminal targeted turns | `study_010_report.md` `f013ac7fd446420c…` |
-| Breadth, best measured | 12/17 items across 4/4 domains at 31,569 chars | E005 primary configuration | `e005_results.json` `07b714389697c6e5…` |
-| Selection latency, small pools | 35–43 µs per candidate over 20–**119** candidates; empirical exponent 0.96 | DR-002 timing sweep, 25 runs per point, embedding excluded | `scaling_timings.json` `08479d445add1519…` |
-| Retrieval latency, full store | 190 ms at 1,000 candidates; empirical exponent 1.25 over 50–1,000; clustering is 81% of it | CC-005, 7 runs per point, embedding excluded | `growth_measurement.json` |
-| Context bound at 1,000 turns | ~27k estimated tokens peak (27,154 = chars//4, verified across all 2,000 serialized prompts) | Study 010 corrected context peak audit | `context_peak_audit.json` `61e833965397c3f8…` |
-| Selector scaling | A3 needs a cluster assignment vector, not the O(n²) similarity matrix A1/A2 require | DR-002 | `dr_002_results.json` `8be66a2f457a169d…` |
-| Extraction equivalence | 132/132 committed A3 payload SHAs and 3/3 committed rendered blocks byte-identical through this package | CC-002 T3/T4 | `t3_e005_replay.json` `d8e08f94952e468d…`, `t4_render_replay.json` `43c938898a71fa06…` |
-| Budget ceiling | `chars_delivered ≤ budget` at every one of 1,000 replayed turns and across a 1k–64k sweep; 0 breaches | CC-003 E1 + G-E0 | `ge0_growth_gate.json` |
-| Delivered block does not grow with store size | p95 moves +18 chars over the last five 100-turn buckets of a 1,000-turn replay; −0.02% window over window | CC-003 G-E0 | `ge0_growth_gate.json` |
+| CC80 complete evidence | 771/819 at 16k/32k over 868 eligible LoCoMo questions | TC-011 full-CC80 control | `tc011/result/result.json` |
+| Static ASPECT complete evidence | 749/810 at 16k/32k; ASPECT is therefore off by default | TC-011 | `tc011/result/result.json` |
+| Static ASPECT composition | At 32k: 80–126 selected (median 100), 37–54 spread (median 46) | TC-011 Preflight | `tc011/preflight/preflight.json` |
+| Port equivalence | 4,355/4,355 CC80 order/payload and static-ASPECT payload groups exact; 0 mismatches | CC-007 PF6 | `episodic_chat/artifacts/cc007/preflight.json` |
+| Retrieval budget ceiling | Long-term serialized characters never exceed their explicit allowance; recent continuity is additive | CC-007 contract tests | `tests/test_cc007_mechanisms.py` |
+| Extraction equivalence of carried primitives | 132/132 historical A3 payload SHAs and 3/3 renderer blocks byte-identical | CC-002 T3/T4 | `t3_e005_replay.json` `d8e08f94952e468d…`, `t4_render_replay.json` `43c938898a71fa06…` |
 | Restart persistence | Turns acknowledged by `append()` survive `SIGKILL`; `context()` returns a byte-identical block across restart; 100 restart cycles with no drift | CC-004 P1–P6 | `CC_004_report.md` |
 
 Artifacts live in the source repository under
-`experiments/components/retrieval_mechanism_ledger/artifacts/e005/`,
-`experiments/study_010/`,
-`experiments/components/rendering_expansion/artifacts/`, and
+`experiments/components/tier_cost/artifacts/`,
+`experiments/components/episodic_chat/artifacts/`, and
 `experiments/components/library_extraction/artifacts/cc002/`.
 
 ## Known limitations
 
 | Limitation | Number | Source |
 |---|---|---|
-| Breadth is below the source repository's own bar | 12/17 against a 14/17 threshold and a 15/17 known optimum | E005 (`e005_results.json`, above) |
-| The rank-112 class | An episode whose cosine to the relevant query is below what any reweighting can recover (0.056 measured against the 0.225 needed) is invisible to the selector at every registered setting: 0 of 146 configurations selected it | DX-001, `dx001_results.json` `2f07a462e09bdf79…` |
-| Evidence breadth | One runtime (llama.cpp CPU embedding), one conversation shape (a scripted 121-turn run and one 1,000-turn run), one measurement set | all of the above |
+| Effectiveness evidence is development-only | CC80/ASPECT were selected and measured on the same four LoCoMo development conversations; no reader or enterprise transfer claim | TC-009–TC-012 |
+| ASPECT loses to full CC80 | 810 vs 819 complete evidence at 32k; 749 vs 771 at 16k | TC-011 |
+| Additive total size | The 32 latest exchanges are outside the retrieval budget, so `chars_delivered` can exceed 32,000 | CC-007 contract |
 | Store growth | Unbounded retention by policy; see "Growth, and what it costs" below | CC-005 |
 | Restart guarantees are tested against process kills, not power loss | P1/P3 kill a live process with no cleanup. Surviving a power cut or a lost storage connection rests on `synchronous=FULL` and SQLite's implementation, not on anything measured here | CC-004 |
-| `chars_wanted` is not an upper bound | It is the cost of what the three paths proposed, not of an unconstrained selection: the coverage selector is a budgeted greedy with no unconstrained mode. It tells a caller how much budget the current proposal needed, not what a larger budget would retrieve | CC-003 |
-| The ceiling covers the returned block only | Whatever a caller wraps around it — preamble, tool schemas, its own scratchpad — is outside this accounting, and that is exactly where Study 010's growth happened | DX-002 (`ge0_growth_gate.json`) |
+| Parser dependency | ASPECT requires spaCy and exactly `en_core_web_sm` 3.8.0; missing dependencies fail rather than fall back | CC-007 |
+| The ceiling is not a prompt ceiling | Recent context, preambles, tool schemas and caller content are outside long-term accounting | CC-007; DX-002 |
 
 ### Two numbers this table used to get wrong
 
-Both were caught by the program's own gates rather than in use, and both
-are here because the corrections are more informative than the claims
-were.
+These are historical pre-0.2 corrections for the removed A3 path. Both were
+caught by the program's own gates and remain here because they explain why this
+README does not project old scale or ceiling measurements onto CC80.
 
 **A confidence interval was read as evidence of boundedness.** DX-002 asked
 whether Study 010's context was still growing at turn 1,000. Its first
@@ -113,8 +129,8 @@ bucket of the run.
 The verdict now rests on two readings that assume nothing about noise —
 whether the last bucket still holds the maximum, and how the terminal
 window compares against the one before it — with the fit kept only as
-corroboration. The claim in the table above, that the delivered block does
-not grow with store size, is measured that way.
+corroboration. That old delivered-block claim does not include CC-007's
+additive recency composition.
 
 **A scaling range was quoted eight times wider than it was measured.** This
 README cited DR-002 for "35–43 µs per candidate over 20–3,000 candidates".
@@ -136,24 +152,22 @@ one.
 **The policy is unbounded retention. This version evicts nothing.** That is
 a decision, not an omission, and these are the numbers behind it.
 
-Three things could grow as a conversation gets longer. They are not the
-same problem and only one of them binds.
+Three things can grow as a conversation gets longer. The old A3 path was timed;
+the new CC80/ASPECT path has not yet been re-benchmarked, so its latency is not
+silently inferred from the old selector.
 
 | Path | Grows with | Measured | Status |
 |---|---|---|---|
-| Delivered context | turn count | p95 moves +18 chars across a 1,000-turn replay; −0.02% window over window | **Bounded.** The budget is a hard ceiling and the block does not grow with the store |
+| Long-term context | turn count | exact configured retrieval ceiling, default 32,000 chars | **Bounded.** Independent of store length |
+| Recent continuity | content of latest 32 episodes | additive, no character ceiling | **Fixed count, variable size.** Total output can exceed 32k |
 | Disk | turn count | 4,743 bytes per turn marginal; 4.8 MB at 1,000 turns | **Cheap.** ~48 MB at 10,000 turns, 86% of it embeddings |
-| Retrieval latency | store size | 190 ms at 1,000 candidates; exponent 1.25 | **The binding constraint** |
+| Retrieval latency | store size | CC80/ASPECT deployment path not re-benchmarked | **Unknown.** CC80 scans the full store; ASPECT additionally parses and scans facets |
 
-Latency is what ends continuous operation. Clustering is 81% of it at 1,000
-candidates and its share is still rising. Beyond the measured range these
-are **projections from the fitted exponent, not measurements**: roughly
-430 ms at 2,000 candidates, 1.3 s at 5,000, and 3.2 s at 10,000.
-
-**The stated horizon: this configuration is comfortable to a few thousand
-episodes and unusable in an interactive loop somewhere before 10,000.** If
-your deployment expects more turns than that, the retrieval path needs work
-that this version does not contain.
+The historical 190 ms at 1,000 candidates and its fitted projections belong to
+the removed cluster-A3 read path. They do not certify this version. Deployments
+with large stores should measure their own CC80 latency; enabling ASPECT is the
+more expensive branch and is intentionally opt-in.
+Those old horizon values were **projections from the fitted exponent, not measurements**.
 
 Two earlier numbers are corrected here rather than quietly restated. DR-002
 measured 20–119 candidates and found per-candidate cost flat at 35–43 µs
@@ -163,16 +177,17 @@ by about five times. See `ERRATA.md`.
 
 ### Trimming the candidate pool is not the answer
 
-The obvious fix — drop low-similarity episodes so the pool stays small — is
-the one operation measured to break retrieval. Dropping the 19
+The obvious fix—drop low-similarity episodes so the pool stays small—is one
+operation already measured to break the former selector. Dropping the 19
 lowest-cosine episodes from a 119-episode pool cost an entire domain and
 all known-optimum overlap, **despite 4 of the 5 optimum episodes surviving
 the cut**. The selector clusters over the pool, so removing the tail
 reshuffles the objective rather than removing options (DR-002).
 
-So the candidate policy defaults to the full store, the trimming option is
-named `unsafe_cosine_top_n`, and any eviction policy has to be evaluated
-against domain coverage rather than against a similarity threshold.
+CC80 therefore ranks the complete store. The retained
+`unsafe_cosine_top_n` field is historical compatibility for the private old
+builder and does not trim the deployed CC80 path. Any future index or eviction
+policy has to be evaluated as a new component.
 
 If you need a horizon, prefer archival with an explicit, caller-visible
 cutoff — the caller should know the memory has a horizon — over silent
@@ -192,6 +207,7 @@ ledger; the numbers live there, not here.
 - Segmentation (E002) — killed under its locked criterion at matched budget.
 - Attention capture (E001) — 0/714 rows reached the retrieval threshold; closed as a program disposition.
 - MMR (A1) and facility location (A2) — A2 scored highest on raw count while delivering monetary 0/4 and passed no gate; both need O(n²) similarity.
+- Cosine threshold plus cluster-A3 routing — replaced by CC80; it remains only in the private historical builder.
 
 See `RETRIEVAL_MECHANISM_LEDGER.md` in the source repository.
 
@@ -210,8 +226,8 @@ a hard failure (`CallShapeError`), not a warning.
 from a 119-episode pool cost an entire domain and all known-optimum
 overlap, despite 4 of 5 optimum episodes surviving the cut — the selector
 clusters over the pool, so tail removal reshuffles the objective rather
-than removing options (DR-002). The candidate policy defaults to the full
-store; the trimming option is named `unsafe_cosine_top_n` and its
+than removing options (DR-002). Deployed CC80 ranks the complete store;
+`unsafe_cosine_top_n` is limited to the private historical builder and its
 docstring carries the finding.
 
 ## Licence

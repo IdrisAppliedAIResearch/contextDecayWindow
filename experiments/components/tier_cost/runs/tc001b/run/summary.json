@@ -1,0 +1,2730 @@
+{
+  "cache": {
+    "hits": 2247,
+    "misses": 0
+  },
+  "primary": {
+    "budget_chars": 16000,
+    "by_category": {
+      "1": {
+        "C1": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C1",
+          "disposition": "D3",
+          "left": "dual",
+          "right": "flat",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 34,
+            "endpoint": "complete",
+            "gains": 4,
+            "left": "dual",
+            "left_hits": 44,
+            "losses": 30,
+            "n": 107,
+            "net": -26,
+            "p_left_one_sided": 0.9999996169935912,
+            "p_right_one_sided": 3.08244489133358e-06,
+            "right": "flat",
+            "right_hits": 70,
+            "ties": 73
+          },
+          "verdict": "FLAT_WINS"
+        },
+        "C2": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C2",
+          "disposition": "D1",
+          "left": "dual",
+          "right": "tiered",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 17,
+            "endpoint": "complete",
+            "gains": 17,
+            "left": "dual",
+            "left_hits": 44,
+            "losses": 0,
+            "n": 107,
+            "net": 17,
+            "p_left_one_sided": 7.62939453125e-06,
+            "p_right_one_sided": 1.0,
+            "right": "tiered",
+            "right_hits": 27,
+            "ties": 90
+          },
+          "verdict": "DUAL_WINS"
+        },
+        "C3": {
+          "band": 4,
+          "contrast": "C3",
+          "disposition": "DESCRIPTIVE",
+          "left": "dual_ranked",
+          "reason": "PF4 found this contrast unreachable before the lock; see TC_001B_PRE_REGISTRATION.md section 7.1",
+          "right": "flat",
+          "statistic": {
+            "discordant": 1,
+            "endpoint": "complete",
+            "gains": 1,
+            "left": "dual_ranked",
+            "left_hits": 71,
+            "losses": 0,
+            "n": 107,
+            "net": 1,
+            "p_left_one_sided": 0.5,
+            "p_right_one_sided": 1.0,
+            "right": "flat",
+            "right_hits": 70,
+            "ties": 106
+          },
+          "verdict": "NO_BAR_REGISTERED"
+        },
+        "C4": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C4",
+          "disposition": "D1",
+          "left": "dual_ranked",
+          "right": "dual",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 33,
+            "endpoint": "complete",
+            "gains": 30,
+            "left": "dual_ranked",
+            "left_hits": 71,
+            "losses": 3,
+            "n": 107,
+            "net": 27,
+            "p_left_one_sided": 7.005874067544937e-07,
+            "p_right_one_sided": 0.9999999345745891,
+            "right": "dual",
+            "right_hits": 44,
+            "ties": 74
+          },
+          "verdict": "RANKED_WINS"
+        }
+      },
+      "2": {
+        "C1": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C1",
+          "disposition": "D3",
+          "left": "dual",
+          "right": "flat",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 24,
+            "endpoint": "complete",
+            "gains": 1,
+            "left": "dual",
+            "left_hits": 108,
+            "losses": 23,
+            "n": 143,
+            "net": -22,
+            "p_left_one_sided": 0.9999999403953552,
+            "p_right_one_sided": 1.4901161193847656e-06,
+            "right": "flat",
+            "right_hits": 130,
+            "ties": 119
+          },
+          "verdict": "FLAT_WINS"
+        },
+        "C2": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C2",
+          "disposition": "D1",
+          "left": "dual",
+          "right": "tiered",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 60,
+            "endpoint": "complete",
+            "gains": 51,
+            "left": "dual",
+            "left_hits": 108,
+            "losses": 9,
+            "n": 143,
+            "net": 42,
+            "p_left_one_sided": 1.542517804719451e-08,
+            "p_right_one_sided": 0.9999999973971543,
+            "right": "tiered",
+            "right_hits": 66,
+            "ties": 83
+          },
+          "verdict": "DUAL_WINS"
+        },
+        "C3": {
+          "band": 4,
+          "contrast": "C3",
+          "disposition": "DESCRIPTIVE",
+          "left": "dual_ranked",
+          "reason": "PF4 found this contrast unreachable before the lock; see TC_001B_PRE_REGISTRATION.md section 7.1",
+          "right": "flat",
+          "statistic": {
+            "discordant": 1,
+            "endpoint": "complete",
+            "gains": 0,
+            "left": "dual_ranked",
+            "left_hits": 129,
+            "losses": 1,
+            "n": 143,
+            "net": -1,
+            "p_left_one_sided": 1.0,
+            "p_right_one_sided": 0.5,
+            "right": "flat",
+            "right_hits": 130,
+            "ties": 142
+          },
+          "verdict": "NO_BAR_REGISTERED"
+        },
+        "C4": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C4",
+          "disposition": "D1",
+          "left": "dual_ranked",
+          "right": "dual",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 23,
+            "endpoint": "complete",
+            "gains": 22,
+            "left": "dual_ranked",
+            "left_hits": 129,
+            "losses": 1,
+            "n": 143,
+            "net": 21,
+            "p_left_one_sided": 2.86102294921875e-06,
+            "p_right_one_sided": 0.9999998807907104,
+            "right": "dual",
+            "right_hits": 108,
+            "ties": 120
+          },
+          "verdict": "RANKED_WINS"
+        }
+      },
+      "3": {
+        "C1": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C1",
+          "disposition": "D0b",
+          "left": "dual",
+          "right": "flat",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 10,
+            "endpoint": "complete",
+            "gains": 2,
+            "left": "dual",
+            "left_hits": 18,
+            "losses": 8,
+            "n": 42,
+            "net": -6,
+            "p_left_one_sided": 0.9892578125,
+            "p_right_one_sided": 0.0546875,
+            "right": "flat",
+            "right_hits": 24,
+            "ties": 32
+          },
+          "verdict": "NO_DIFFERENCE_ESTABLISHED_NOT_SEPARABLE"
+        },
+        "C2": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C2",
+          "disposition": "D0a",
+          "left": "dual",
+          "right": "tiered",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 6,
+            "endpoint": "complete",
+            "gains": 4,
+            "left": "dual",
+            "left_hits": 18,
+            "losses": 2,
+            "n": 42,
+            "net": 2,
+            "p_left_one_sided": 0.34375,
+            "p_right_one_sided": 0.890625,
+            "right": "tiered",
+            "right_hits": 16,
+            "ties": 36
+          },
+          "verdict": "NO_DIFFERENCE_ESTABLISHED_INSIDE_BAND"
+        },
+        "C3": {
+          "band": 4,
+          "contrast": "C3",
+          "disposition": "DESCRIPTIVE",
+          "left": "dual_ranked",
+          "reason": "PF4 found this contrast unreachable before the lock; see TC_001B_PRE_REGISTRATION.md section 7.1",
+          "right": "flat",
+          "statistic": {
+            "discordant": 0,
+            "endpoint": "complete",
+            "gains": 0,
+            "left": "dual_ranked",
+            "left_hits": 24,
+            "losses": 0,
+            "n": 42,
+            "net": 0,
+            "p_left_one_sided": 1.0,
+            "p_right_one_sided": 1.0,
+            "right": "flat",
+            "right_hits": 24,
+            "ties": 42
+          },
+          "verdict": "NO_BAR_REGISTERED"
+        },
+        "C4": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C4",
+          "disposition": "D0b",
+          "left": "dual_ranked",
+          "right": "dual",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 10,
+            "endpoint": "complete",
+            "gains": 8,
+            "left": "dual_ranked",
+            "left_hits": 24,
+            "losses": 2,
+            "n": 42,
+            "net": 6,
+            "p_left_one_sided": 0.0546875,
+            "p_right_one_sided": 0.9892578125,
+            "right": "dual",
+            "right_hits": 18,
+            "ties": 32
+          },
+          "verdict": "NO_DIFFERENCE_ESTABLISHED_NOT_SEPARABLE"
+        }
+      },
+      "4": {
+        "C1": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C1",
+          "disposition": "D3",
+          "left": "dual",
+          "right": "flat",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 166,
+            "endpoint": "complete",
+            "gains": 5,
+            "left": "dual",
+            "left_hits": 196,
+            "losses": 161,
+            "n": 386,
+            "net": -156,
+            "p_left_one_sided": 1.0,
+            "p_right_one_sided": 1.0901952965631548e-41,
+            "right": "flat",
+            "right_hits": 352,
+            "ties": 220
+          },
+          "verdict": "FLAT_WINS"
+        },
+        "C2": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C2",
+          "disposition": "D1",
+          "left": "dual",
+          "right": "tiered",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 124,
+            "endpoint": "complete",
+            "gains": 93,
+            "left": "dual",
+            "left_hits": 196,
+            "losses": 31,
+            "n": 386,
+            "net": 62,
+            "p_left_one_sided": 1.1002860899518564e-08,
+            "p_right_one_sided": 0.999999996442344,
+            "right": "tiered",
+            "right_hits": 134,
+            "ties": 262
+          },
+          "verdict": "DUAL_WINS"
+        },
+        "C3": {
+          "band": 4,
+          "contrast": "C3",
+          "disposition": "DESCRIPTIVE",
+          "left": "dual_ranked",
+          "reason": "PF4 found this contrast unreachable before the lock; see TC_001B_PRE_REGISTRATION.md section 7.1",
+          "right": "flat",
+          "statistic": {
+            "discordant": 1,
+            "endpoint": "complete",
+            "gains": 0,
+            "left": "dual_ranked",
+            "left_hits": 351,
+            "losses": 1,
+            "n": 386,
+            "net": -1,
+            "p_left_one_sided": 1.0,
+            "p_right_one_sided": 0.5,
+            "right": "flat",
+            "right_hits": 352,
+            "ties": 385
+          },
+          "verdict": "NO_BAR_REGISTERED"
+        },
+        "C4": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C4",
+          "disposition": "D1",
+          "left": "dual_ranked",
+          "right": "dual",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 165,
+            "endpoint": "complete",
+            "gains": 160,
+            "left": "dual_ranked",
+            "left_hits": 351,
+            "losses": 5,
+            "n": 386,
+            "net": 155,
+            "p_left_one_sided": 2.1151289680697755e-41,
+            "p_right_one_sided": 1.0,
+            "right": "dual",
+            "right_hits": 196,
+            "ties": 221
+          },
+          "verdict": "RANKED_WINS"
+        }
+      },
+      "5": {
+        "C1": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C1",
+          "disposition": "D3",
+          "left": "dual",
+          "right": "flat",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 71,
+            "endpoint": "complete",
+            "gains": 2,
+            "left": "dual",
+            "left_hits": 106,
+            "losses": 69,
+            "n": 190,
+            "net": -67,
+            "p_left_one_sided": 1.0,
+            "p_right_one_sided": 1.082931623064623e-18,
+            "right": "flat",
+            "right_hits": 173,
+            "ties": 119
+          },
+          "verdict": "FLAT_WINS"
+        },
+        "C2": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C2",
+          "disposition": "D1",
+          "left": "dual",
+          "right": "tiered",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 71,
+            "endpoint": "complete",
+            "gains": 53,
+            "left": "dual",
+            "left_hits": 106,
+            "losses": 18,
+            "n": 190,
+            "net": 35,
+            "p_left_one_sided": 1.9423791396819964e-05,
+            "p_right_one_sided": 0.9999937365880176,
+            "right": "tiered",
+            "right_hits": 71,
+            "ties": 119
+          },
+          "verdict": "DUAL_WINS"
+        },
+        "C3": {
+          "band": 4,
+          "contrast": "C3",
+          "disposition": "DESCRIPTIVE",
+          "left": "dual_ranked",
+          "reason": "PF4 found this contrast unreachable before the lock; see TC_001B_PRE_REGISTRATION.md section 7.1",
+          "right": "flat",
+          "statistic": {
+            "discordant": 0,
+            "endpoint": "complete",
+            "gains": 0,
+            "left": "dual_ranked",
+            "left_hits": 173,
+            "losses": 0,
+            "n": 190,
+            "net": 0,
+            "p_left_one_sided": 1.0,
+            "p_right_one_sided": 1.0,
+            "right": "flat",
+            "right_hits": 173,
+            "ties": 190
+          },
+          "verdict": "NO_BAR_REGISTERED"
+        },
+        "C4": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C4",
+          "disposition": "D1",
+          "left": "dual_ranked",
+          "right": "dual",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 71,
+            "endpoint": "complete",
+            "gains": 69,
+            "left": "dual_ranked",
+            "left_hits": 173,
+            "losses": 2,
+            "n": 190,
+            "net": 67,
+            "p_left_one_sided": 1.082931623064623e-18,
+            "p_right_one_sided": 1.0,
+            "right": "dual",
+            "right_hits": 106,
+            "ties": 119
+          },
+          "verdict": "RANKED_WINS"
+        }
+      }
+    },
+    "by_conversation": {
+      "conv-41": {
+        "C1": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C1",
+          "disposition": "D3",
+          "left": "dual",
+          "right": "flat",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 50,
+            "endpoint": "complete",
+            "gains": 3,
+            "left": "dual",
+            "left_hits": 123,
+            "losses": 47,
+            "n": 193,
+            "net": -44,
+            "p_left_one_sided": 0.9999999999988667,
+            "p_right_one_sided": 1.8541612689659814e-11,
+            "right": "flat",
+            "right_hits": 167,
+            "ties": 143
+          },
+          "verdict": "FLAT_WINS"
+        },
+        "C2": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C2",
+          "disposition": "D1",
+          "left": "dual",
+          "right": "tiered",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 55,
+            "endpoint": "complete",
+            "gains": 47,
+            "left": "dual",
+            "left_hits": 123,
+            "losses": 8,
+            "n": 193,
+            "net": 39,
+            "p_left_one_sided": 4.0338047957444445e-08,
+            "p_right_one_sided": 0.9999999934562069,
+            "right": "tiered",
+            "right_hits": 84,
+            "ties": 138
+          },
+          "verdict": "DUAL_WINS"
+        },
+        "C3": {
+          "band": 4,
+          "contrast": "C3",
+          "disposition": "DESCRIPTIVE",
+          "left": "dual_ranked",
+          "reason": "PF4 found this contrast unreachable before the lock; see TC_001B_PRE_REGISTRATION.md section 7.1",
+          "right": "flat",
+          "statistic": {
+            "discordant": 1,
+            "endpoint": "complete",
+            "gains": 1,
+            "left": "dual_ranked",
+            "left_hits": 168,
+            "losses": 0,
+            "n": 193,
+            "net": 1,
+            "p_left_one_sided": 0.5,
+            "p_right_one_sided": 1.0,
+            "right": "flat",
+            "right_hits": 167,
+            "ties": 192
+          },
+          "verdict": "NO_BAR_REGISTERED"
+        },
+        "C4": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C4",
+          "disposition": "D1",
+          "left": "dual_ranked",
+          "right": "dual",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 49,
+            "endpoint": "complete",
+            "gains": 47,
+            "left": "dual_ranked",
+            "left_hits": 168,
+            "losses": 2,
+            "n": 193,
+            "net": 45,
+            "p_left_one_sided": 2.177813485104707e-12,
+            "p_right_one_sided": 0.9999999999999112,
+            "right": "dual",
+            "right_hits": 123,
+            "ties": 144
+          },
+          "verdict": "RANKED_WINS"
+        }
+      },
+      "conv-42": {
+        "C1": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C1",
+          "disposition": "D3",
+          "left": "dual",
+          "right": "flat",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 105,
+            "endpoint": "complete",
+            "gains": 6,
+            "left": "dual",
+            "left_hits": 125,
+            "losses": 99,
+            "n": 258,
+            "net": -93,
+            "p_left_one_sided": 1.0,
+            "p_right_one_sided": 4.2176399043138626e-23,
+            "right": "flat",
+            "right_hits": 218,
+            "ties": 153
+          },
+          "verdict": "FLAT_WINS"
+        },
+        "C2": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C2",
+          "disposition": "D1",
+          "left": "dual",
+          "right": "tiered",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 98,
+            "endpoint": "complete",
+            "gains": 73,
+            "left": "dual",
+            "left_hits": 125,
+            "losses": 25,
+            "n": 258,
+            "net": 48,
+            "p_left_one_sided": 6.398031225386458e-07,
+            "p_right_one_sided": 0.9999997892039632,
+            "right": "tiered",
+            "right_hits": 77,
+            "ties": 160
+          },
+          "verdict": "DUAL_WINS"
+        },
+        "C3": {
+          "band": 4,
+          "contrast": "C3",
+          "disposition": "DESCRIPTIVE",
+          "left": "dual_ranked",
+          "reason": "PF4 found this contrast unreachable before the lock; see TC_001B_PRE_REGISTRATION.md section 7.1",
+          "right": "flat",
+          "statistic": {
+            "discordant": 1,
+            "endpoint": "complete",
+            "gains": 0,
+            "left": "dual_ranked",
+            "left_hits": 217,
+            "losses": 1,
+            "n": 258,
+            "net": -1,
+            "p_left_one_sided": 1.0,
+            "p_right_one_sided": 0.5,
+            "right": "flat",
+            "right_hits": 218,
+            "ties": 257
+          },
+          "verdict": "NO_BAR_REGISTERED"
+        },
+        "C4": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C4",
+          "disposition": "D1",
+          "left": "dual_ranked",
+          "right": "dual",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 104,
+            "endpoint": "complete",
+            "gains": 98,
+            "left": "dual_ranked",
+            "left_hits": 217,
+            "losses": 6,
+            "n": 258,
+            "net": 92,
+            "p_left_one_sided": 7.958274300452891e-23,
+            "p_right_one_sided": 1.0,
+            "right": "dual",
+            "right_hits": 125,
+            "ties": 154
+          },
+          "verdict": "RANKED_WINS"
+        }
+      },
+      "conv-47": {
+        "C1": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C1",
+          "disposition": "D3",
+          "left": "dual",
+          "right": "flat",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 57,
+            "endpoint": "complete",
+            "gains": 2,
+            "left": "dual",
+            "left_hits": 115,
+            "losses": 55,
+            "n": 189,
+            "net": -53,
+            "p_left_one_sided": 0.9999999999999996,
+            "p_right_one_sided": 1.1476930517062556e-14,
+            "right": "flat",
+            "right_hits": 168,
+            "ties": 132
+          },
+          "verdict": "FLAT_WINS"
+        },
+        "C2": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C2",
+          "disposition": "D1",
+          "left": "dual",
+          "right": "tiered",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 56,
+            "endpoint": "complete",
+            "gains": 40,
+            "left": "dual",
+            "left_hits": 115,
+            "losses": 16,
+            "n": 189,
+            "net": 24,
+            "p_left_one_sided": 0.0009207773942462721,
+            "p_right_one_sided": 0.9996572179218108,
+            "right": "tiered",
+            "right_hits": 91,
+            "ties": 133
+          },
+          "verdict": "DUAL_WINS"
+        },
+        "C3": {
+          "band": 4,
+          "contrast": "C3",
+          "disposition": "DESCRIPTIVE",
+          "left": "dual_ranked",
+          "reason": "PF4 found this contrast unreachable before the lock; see TC_001B_PRE_REGISTRATION.md section 7.1",
+          "right": "flat",
+          "statistic": {
+            "discordant": 1,
+            "endpoint": "complete",
+            "gains": 0,
+            "left": "dual_ranked",
+            "left_hits": 167,
+            "losses": 1,
+            "n": 189,
+            "net": -1,
+            "p_left_one_sided": 1.0,
+            "p_right_one_sided": 0.5,
+            "right": "flat",
+            "right_hits": 168,
+            "ties": 188
+          },
+          "verdict": "NO_BAR_REGISTERED"
+        },
+        "C4": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C4",
+          "disposition": "D1",
+          "left": "dual_ranked",
+          "right": "dual",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 56,
+            "endpoint": "complete",
+            "gains": 54,
+            "left": "dual_ranked",
+            "left_hits": 167,
+            "losses": 2,
+            "n": 189,
+            "net": 52,
+            "p_left_one_sided": 2.2162827129079687e-14,
+            "p_right_one_sided": 0.9999999999999992,
+            "right": "dual",
+            "right_hits": 115,
+            "ties": 133
+          },
+          "verdict": "RANKED_WINS"
+        }
+      },
+      "conv-48": {
+        "C1": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C1",
+          "disposition": "D3",
+          "left": "dual",
+          "right": "flat",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 93,
+            "endpoint": "complete",
+            "gains": 3,
+            "left": "dual",
+            "left_hits": 109,
+            "losses": 90,
+            "n": 228,
+            "net": -87,
+            "p_left_one_sided": 1.0,
+            "p_right_one_sided": 1.3544476685380618e-23,
+            "right": "flat",
+            "right_hits": 196,
+            "ties": 135
+          },
+          "verdict": "FLAT_WINS"
+        },
+        "C2": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C2",
+          "disposition": "D1",
+          "left": "dual",
+          "right": "tiered",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 69,
+            "endpoint": "complete",
+            "gains": 58,
+            "left": "dual",
+            "left_hits": 109,
+            "losses": 11,
+            "n": 228,
+            "net": 47,
+            "p_left_one_sided": 3.7779148713741346e-09,
+            "p_right_one_sided": 0.9999999993117401,
+            "right": "tiered",
+            "right_hits": 62,
+            "ties": 159
+          },
+          "verdict": "DUAL_WINS"
+        },
+        "C3": {
+          "band": 4,
+          "contrast": "C3",
+          "disposition": "DESCRIPTIVE",
+          "left": "dual_ranked",
+          "reason": "PF4 found this contrast unreachable before the lock; see TC_001B_PRE_REGISTRATION.md section 7.1",
+          "right": "flat",
+          "statistic": {
+            "discordant": 0,
+            "endpoint": "complete",
+            "gains": 0,
+            "left": "dual_ranked",
+            "left_hits": 196,
+            "losses": 0,
+            "n": 228,
+            "net": 0,
+            "p_left_one_sided": 1.0,
+            "p_right_one_sided": 1.0,
+            "right": "flat",
+            "right_hits": 196,
+            "ties": 228
+          },
+          "verdict": "NO_BAR_REGISTERED"
+        },
+        "C4": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C4",
+          "disposition": "D1",
+          "left": "dual_ranked",
+          "right": "dual",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 93,
+            "endpoint": "complete",
+            "gains": 90,
+            "left": "dual_ranked",
+            "left_hits": 196,
+            "losses": 3,
+            "n": 228,
+            "net": 87,
+            "p_left_one_sided": 1.3544476685380618e-23,
+            "p_right_one_sided": 1.0,
+            "right": "dual",
+            "right_hits": 109,
+            "ties": 135
+          },
+          "verdict": "RANKED_WINS"
+        }
+      }
+    },
+    "composition": {
+      "dual": {
+        "carrying_tier_when_evidence_arrived": {
+          "coverage": 12,
+          "coverage|k": 10,
+          "k": 506
+        },
+        "delivered_by_tier": {
+          "coverage": {
+            "max": 77,
+            "mean": 8.37,
+            "min": 0,
+            "n": 871,
+            "p25": 0,
+            "p50": 0,
+            "p75": 11,
+            "zero": 571
+          },
+          "k": {
+            "max": 71,
+            "mean": 46.22,
+            "min": 1,
+            "n": 871,
+            "p25": 41,
+            "p50": 52,
+            "p75": 58,
+            "zero": 0
+          },
+          "recency": {
+            "max": 0,
+            "mean": 0.0,
+            "min": 0,
+            "n": 871,
+            "p25": 0,
+            "p50": 0,
+            "p75": 0,
+            "zero": 871
+          }
+        },
+        "questions_with_zero_coverage": 571
+      },
+      "dual_ranked": {
+        "carrying_tier_when_evidence_arrived": {
+          "coverage": 12,
+          "coverage|k": 10,
+          "k": 779
+        },
+        "delivered_by_tier": {
+          "coverage": {
+            "max": 77,
+            "mean": 8.37,
+            "min": 0,
+            "n": 871,
+            "p25": 0,
+            "p50": 0,
+            "p75": 11,
+            "zero": 571
+          },
+          "k": {
+            "max": 76,
+            "mean": 45.669,
+            "min": 1,
+            "n": 871,
+            "p25": 40,
+            "p50": 50,
+            "p75": 57,
+            "zero": 0
+          }
+        },
+        "questions_with_zero_coverage": 571
+      },
+      "tiered": {
+        "carrying_tier_when_evidence_arrived": {
+          "coverage": 3,
+          "coverage|k": 4,
+          "coverage|k|recency": 1,
+          "k": 274,
+          "k|recency": 7,
+          "recency": 92
+        },
+        "delivered_by_tier": {
+          "coverage": {
+            "max": 35,
+            "mean": 1.39,
+            "min": 0,
+            "n": 871,
+            "p25": 0,
+            "p50": 0,
+            "p75": 0,
+            "zero": 722
+          },
+          "k": {
+            "max": 30,
+            "mean": 20.34,
+            "min": 1,
+            "n": 871,
+            "p25": 17,
+            "p50": 22,
+            "p75": 24,
+            "zero": 0
+          },
+          "recency": {
+            "max": 32,
+            "mean": 32.0,
+            "min": 32,
+            "n": 871,
+            "p25": 32,
+            "p50": 32,
+            "p75": 32,
+            "zero": 0
+          }
+        },
+        "questions_with_zero_coverage": 722
+      }
+    },
+    "contrasts_any": {
+      "C1": {
+        "alpha": 0.0025,
+        "band": 4,
+        "contrast": "C1",
+        "disposition": "D3",
+        "left": "dual",
+        "right": "flat",
+        "signal_alpha": 0.025,
+        "statistic": {
+          "discordant": 299,
+          "endpoint": "any",
+          "gains": 12,
+          "left": "dual",
+          "left_hits": 528,
+          "losses": 287,
+          "n": 871,
+          "net": -275,
+          "p_left_one_sided": 1.0,
+          "p_right_one_sided": 8.730599040437404e-70,
+          "right": "flat",
+          "right_hits": 803,
+          "ties": 572
+        },
+        "verdict": "FLAT_WINS"
+      },
+      "C2": {
+        "alpha": 0.0025,
+        "band": 4,
+        "contrast": "C2",
+        "disposition": "D1",
+        "left": "dual",
+        "right": "tiered",
+        "signal_alpha": 0.025,
+        "statistic": {
+          "discordant": 279,
+          "endpoint": "any",
+          "gains": 213,
+          "left": "dual",
+          "left_hits": 528,
+          "losses": 66,
+          "n": 871,
+          "net": 147,
+          "p_left_one_sided": 1.6184868292677857e-19,
+          "p_right_one_sided": 1.0,
+          "right": "tiered",
+          "right_hits": 381,
+          "ties": 592
+        },
+        "verdict": "DUAL_WINS"
+      },
+      "C3": {
+        "band": 4,
+        "contrast": "C3",
+        "disposition": "DESCRIPTIVE",
+        "left": "dual_ranked",
+        "reason": "PF4 found this contrast unreachable before the lock; see TC_001B_PRE_REGISTRATION.md section 7.1",
+        "right": "flat",
+        "statistic": {
+          "discordant": 2,
+          "endpoint": "any",
+          "gains": 0,
+          "left": "dual_ranked",
+          "left_hits": 801,
+          "losses": 2,
+          "n": 871,
+          "net": -2,
+          "p_left_one_sided": 1.0,
+          "p_right_one_sided": 0.25,
+          "right": "flat",
+          "right_hits": 803,
+          "ties": 869
+        },
+        "verdict": "NO_BAR_REGISTERED"
+      },
+      "C4": {
+        "alpha": 0.0025,
+        "band": 4,
+        "contrast": "C4",
+        "disposition": "D1",
+        "left": "dual_ranked",
+        "right": "dual",
+        "signal_alpha": 0.025,
+        "statistic": {
+          "discordant": 297,
+          "endpoint": "any",
+          "gains": 285,
+          "left": "dual_ranked",
+          "left_hits": 801,
+          "losses": 12,
+          "n": 871,
+          "net": 273,
+          "p_left_one_sided": 3.2180703287752625e-69,
+          "p_right_one_sided": 1.0,
+          "right": "dual",
+          "right_hits": 528,
+          "ties": 574
+        },
+        "verdict": "RANKED_WINS"
+      }
+    },
+    "contrasts_complete": {
+      "C1": {
+        "alpha": 0.0025,
+        "band": 4,
+        "contrast": "C1",
+        "disposition": "D3",
+        "left": "dual",
+        "right": "flat",
+        "signal_alpha": 0.025,
+        "statistic": {
+          "discordant": 305,
+          "endpoint": "complete",
+          "gains": 14,
+          "left": "dual",
+          "left_hits": 472,
+          "losses": 291,
+          "n": 868,
+          "net": -277,
+          "p_left_one_sided": 1.0,
+          "p_right_one_sided": 8.229353381359814e-69,
+          "right": "flat",
+          "right_hits": 749,
+          "ties": 563
+        },
+        "verdict": "FLAT_WINS"
+      },
+      "C2": {
+        "alpha": 0.0025,
+        "band": 4,
+        "contrast": "C2",
+        "disposition": "D1",
+        "left": "dual",
+        "right": "tiered",
+        "signal_alpha": 0.025,
+        "statistic": {
+          "discordant": 278,
+          "endpoint": "complete",
+          "gains": 218,
+          "left": "dual",
+          "left_hits": 472,
+          "losses": 60,
+          "n": 868,
+          "net": 158,
+          "p_left_one_sided": 1.5391706347685444e-22,
+          "p_right_one_sided": 1.0,
+          "right": "tiered",
+          "right_hits": 314,
+          "ties": 590
+        },
+        "verdict": "DUAL_WINS"
+      },
+      "C3": {
+        "band": 4,
+        "contrast": "C3",
+        "disposition": "DESCRIPTIVE",
+        "left": "dual_ranked",
+        "reason": "PF4 found this contrast unreachable before the lock; see TC_001B_PRE_REGISTRATION.md section 7.1",
+        "right": "flat",
+        "statistic": {
+          "discordant": 3,
+          "endpoint": "complete",
+          "gains": 1,
+          "left": "dual_ranked",
+          "left_hits": 748,
+          "losses": 2,
+          "n": 868,
+          "net": -1,
+          "p_left_one_sided": 0.875,
+          "p_right_one_sided": 0.5,
+          "right": "flat",
+          "right_hits": 749,
+          "ties": 865
+        },
+        "verdict": "NO_BAR_REGISTERED"
+      },
+      "C4": {
+        "alpha": 0.0025,
+        "band": 4,
+        "contrast": "C4",
+        "disposition": "D1",
+        "left": "dual_ranked",
+        "right": "dual",
+        "signal_alpha": 0.025,
+        "statistic": {
+          "discordant": 302,
+          "endpoint": "complete",
+          "gains": 289,
+          "left": "dual_ranked",
+          "left_hits": 748,
+          "losses": 13,
+          "n": 868,
+          "net": 276,
+          "p_left_one_sided": 2.759588596818513e-69,
+          "p_right_one_sided": 1.0,
+          "right": "dual",
+          "right_hits": 472,
+          "ties": 566
+        },
+        "verdict": "RANKED_WINS"
+      }
+    },
+    "delivery": {
+      "dual": {
+        "chars": {
+          "max": 16000,
+          "mean": 15954.78,
+          "min": 15746,
+          "n": 871,
+          "p25": 15935,
+          "p50": 15965,
+          "p75": 15986,
+          "zero": 0
+        },
+        "episodes": {
+          "max": 79,
+          "mean": 54.59,
+          "min": 39,
+          "n": 871,
+          "p25": 49,
+          "p50": 56,
+          "p75": 59,
+          "zero": 0
+        }
+      },
+      "dual_ranked": {
+        "chars": {
+          "max": 16000,
+          "mean": 15956.303,
+          "min": 15746,
+          "n": 871,
+          "p25": 15937,
+          "p50": 15966,
+          "p75": 15984,
+          "zero": 0
+        },
+        "episodes": {
+          "max": 79,
+          "mean": 54.039,
+          "min": 38,
+          "n": 871,
+          "p25": 48,
+          "p50": 54,
+          "p75": 60,
+          "zero": 0
+        }
+      },
+      "flat": {
+        "chars": {
+          "max": 16000,
+          "mean": 15964.793,
+          "min": 15864,
+          "n": 871,
+          "p25": 15945,
+          "p50": 15969,
+          "p75": 15988,
+          "zero": 0
+        },
+        "episodes": {
+          "max": 79,
+          "mean": 54.171,
+          "min": 38,
+          "n": 871,
+          "p25": 48,
+          "p50": 54,
+          "p75": 59,
+          "zero": 0
+        }
+      },
+      "tiered": {
+        "chars": {
+          "max": 16000,
+          "mean": 15954.09,
+          "min": 15783,
+          "n": 871,
+          "p25": 15930,
+          "p50": 15961,
+          "p75": 15986,
+          "zero": 0
+        },
+        "episodes": {
+          "max": 69,
+          "mean": 53.73,
+          "min": 45,
+          "n": 871,
+          "p25": 51,
+          "p50": 54,
+          "p75": 57,
+          "zero": 0
+        }
+      }
+    },
+    "population": {
+      "complete_evaluable": 868,
+      "questions": 871
+    }
+  },
+  "primary_contrast": "C1",
+  "robustness_wrapper_matched_c2": {
+    "agrees_with_primary": true,
+    "dual_budget_chars": 15982,
+    "dual_chars_delivered": {
+      "max": 15982,
+      "mean": 15937.088,
+      "min": 15746,
+      "n": 871,
+      "p25": 15916,
+      "p50": 15946,
+      "p75": 15968,
+      "zero": 0
+    },
+    "tiered_budget_chars": 16000,
+    "verdict": {
+      "alpha": 0.0025,
+      "band": 4,
+      "contrast": "C2",
+      "disposition": "D1",
+      "left": "dual",
+      "right": "tiered",
+      "signal_alpha": 0.025,
+      "statistic": {
+        "discordant": 278,
+        "endpoint": "complete",
+        "gains": 218,
+        "left": "dual",
+        "left_hits": 472,
+        "losses": 60,
+        "n": 868,
+        "net": 158,
+        "p_left_one_sided": 1.5391706347685444e-22,
+        "p_right_one_sided": 1.0,
+        "right": "tiered",
+        "right_hits": 314,
+        "ties": 590
+      },
+      "verdict": "DUAL_WINS"
+    }
+  },
+  "schema": "tc001b-dual-arm-v1",
+  "secondary_budget": {
+    "budget_chars": 32000,
+    "by_category": {
+      "1": {
+        "C1": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C1",
+          "disposition": "D3",
+          "left": "dual",
+          "right": "flat",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 20,
+            "endpoint": "complete",
+            "gains": 2,
+            "left": "dual",
+            "left_hits": 73,
+            "losses": 18,
+            "n": 107,
+            "net": -16,
+            "p_left_one_sided": 0.9999799728393555,
+            "p_right_one_sided": 0.00020122528076171875,
+            "right": "flat",
+            "right_hits": 89,
+            "ties": 87
+          },
+          "verdict": "FLAT_WINS"
+        },
+        "C2": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C2",
+          "disposition": "D1",
+          "left": "dual",
+          "right": "tiered",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 20,
+            "endpoint": "complete",
+            "gains": 18,
+            "left": "dual",
+            "left_hits": 73,
+            "losses": 2,
+            "n": 107,
+            "net": 16,
+            "p_left_one_sided": 0.00020122528076171875,
+            "p_right_one_sided": 0.9999799728393555,
+            "right": "tiered",
+            "right_hits": 57,
+            "ties": 87
+          },
+          "verdict": "DUAL_WINS"
+        },
+        "C3": {
+          "band": 4,
+          "contrast": "C3",
+          "disposition": "DESCRIPTIVE",
+          "left": "dual_ranked",
+          "reason": "PF4 found this contrast unreachable before the lock; see TC_001B_PRE_REGISTRATION.md section 7.1",
+          "right": "flat",
+          "statistic": {
+            "discordant": 1,
+            "endpoint": "complete",
+            "gains": 1,
+            "left": "dual_ranked",
+            "left_hits": 90,
+            "losses": 0,
+            "n": 107,
+            "net": 1,
+            "p_left_one_sided": 0.5,
+            "p_right_one_sided": 1.0,
+            "right": "flat",
+            "right_hits": 89,
+            "ties": 106
+          },
+          "verdict": "NO_BAR_REGISTERED"
+        },
+        "C4": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C4",
+          "disposition": "D1",
+          "left": "dual_ranked",
+          "right": "dual",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 19,
+            "endpoint": "complete",
+            "gains": 18,
+            "left": "dual_ranked",
+            "left_hits": 90,
+            "losses": 1,
+            "n": 107,
+            "net": 17,
+            "p_left_one_sided": 3.814697265625e-05,
+            "p_right_one_sided": 0.9999980926513672,
+            "right": "dual",
+            "right_hits": 73,
+            "ties": 88
+          },
+          "verdict": "RANKED_WINS"
+        }
+      },
+      "2": {
+        "C1": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C1",
+          "disposition": "D3",
+          "left": "dual",
+          "right": "flat",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 10,
+            "endpoint": "complete",
+            "gains": 0,
+            "left": "dual",
+            "left_hits": 129,
+            "losses": 10,
+            "n": 143,
+            "net": -10,
+            "p_left_one_sided": 1.0,
+            "p_right_one_sided": 0.0009765625,
+            "right": "flat",
+            "right_hits": 139,
+            "ties": 133
+          },
+          "verdict": "FLAT_WINS"
+        },
+        "C2": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C2",
+          "disposition": "D0a",
+          "left": "dual",
+          "right": "tiered",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 12,
+            "endpoint": "complete",
+            "gains": 7,
+            "left": "dual",
+            "left_hits": 129,
+            "losses": 5,
+            "n": 143,
+            "net": 2,
+            "p_left_one_sided": 0.38720703125,
+            "p_right_one_sided": 0.80615234375,
+            "right": "tiered",
+            "right_hits": 127,
+            "ties": 131
+          },
+          "verdict": "NO_DIFFERENCE_ESTABLISHED_INSIDE_BAND"
+        },
+        "C3": {
+          "band": 4,
+          "contrast": "C3",
+          "disposition": "DESCRIPTIVE",
+          "left": "dual_ranked",
+          "reason": "PF4 found this contrast unreachable before the lock; see TC_001B_PRE_REGISTRATION.md section 7.1",
+          "right": "flat",
+          "statistic": {
+            "discordant": 1,
+            "endpoint": "complete",
+            "gains": 0,
+            "left": "dual_ranked",
+            "left_hits": 138,
+            "losses": 1,
+            "n": 143,
+            "net": -1,
+            "p_left_one_sided": 1.0,
+            "p_right_one_sided": 0.5,
+            "right": "flat",
+            "right_hits": 139,
+            "ties": 142
+          },
+          "verdict": "NO_BAR_REGISTERED"
+        },
+        "C4": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C4",
+          "disposition": "D1",
+          "left": "dual_ranked",
+          "right": "dual",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 9,
+            "endpoint": "complete",
+            "gains": 9,
+            "left": "dual_ranked",
+            "left_hits": 138,
+            "losses": 0,
+            "n": 143,
+            "net": 9,
+            "p_left_one_sided": 0.001953125,
+            "p_right_one_sided": 1.0,
+            "right": "dual",
+            "right_hits": 129,
+            "ties": 134
+          },
+          "verdict": "RANKED_WINS"
+        }
+      },
+      "3": {
+        "C1": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C1",
+          "disposition": "D0a",
+          "left": "dual",
+          "right": "flat",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 5,
+            "endpoint": "complete",
+            "gains": 2,
+            "left": "dual",
+            "left_hits": 27,
+            "losses": 3,
+            "n": 42,
+            "net": -1,
+            "p_left_one_sided": 0.8125,
+            "p_right_one_sided": 0.5,
+            "right": "flat",
+            "right_hits": 28,
+            "ties": 37
+          },
+          "verdict": "NO_DIFFERENCE_ESTABLISHED_INSIDE_BAND"
+        },
+        "C2": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C2",
+          "disposition": "D0a",
+          "left": "dual",
+          "right": "tiered",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 6,
+            "endpoint": "complete",
+            "gains": 4,
+            "left": "dual",
+            "left_hits": 27,
+            "losses": 2,
+            "n": 42,
+            "net": 2,
+            "p_left_one_sided": 0.34375,
+            "p_right_one_sided": 0.890625,
+            "right": "tiered",
+            "right_hits": 25,
+            "ties": 36
+          },
+          "verdict": "NO_DIFFERENCE_ESTABLISHED_INSIDE_BAND"
+        },
+        "C3": {
+          "band": 4,
+          "contrast": "C3",
+          "disposition": "DESCRIPTIVE",
+          "left": "dual_ranked",
+          "reason": "PF4 found this contrast unreachable before the lock; see TC_001B_PRE_REGISTRATION.md section 7.1",
+          "right": "flat",
+          "statistic": {
+            "discordant": 1,
+            "endpoint": "complete",
+            "gains": 1,
+            "left": "dual_ranked",
+            "left_hits": 29,
+            "losses": 0,
+            "n": 42,
+            "net": 1,
+            "p_left_one_sided": 0.5,
+            "p_right_one_sided": 1.0,
+            "right": "flat",
+            "right_hits": 28,
+            "ties": 41
+          },
+          "verdict": "NO_BAR_REGISTERED"
+        },
+        "C4": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C4",
+          "disposition": "D0a",
+          "left": "dual_ranked",
+          "right": "dual",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 4,
+            "endpoint": "complete",
+            "gains": 3,
+            "left": "dual_ranked",
+            "left_hits": 29,
+            "losses": 1,
+            "n": 42,
+            "net": 2,
+            "p_left_one_sided": 0.3125,
+            "p_right_one_sided": 0.9375,
+            "right": "dual",
+            "right_hits": 27,
+            "ties": 38
+          },
+          "verdict": "NO_DIFFERENCE_ESTABLISHED_INSIDE_BAND"
+        }
+      },
+      "4": {
+        "C1": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C1",
+          "disposition": "D3",
+          "left": "dual",
+          "right": "flat",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 65,
+            "endpoint": "complete",
+            "gains": 1,
+            "left": "dual",
+            "left_hits": 307,
+            "losses": 64,
+            "n": 386,
+            "net": -63,
+            "p_left_one_sided": 1.0,
+            "p_right_one_sided": 1.7889335846010823e-18,
+            "right": "flat",
+            "right_hits": 370,
+            "ties": 321
+          },
+          "verdict": "FLAT_WINS"
+        },
+        "C2": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C2",
+          "disposition": "D1",
+          "left": "dual",
+          "right": "tiered",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 67,
+            "endpoint": "complete",
+            "gains": 49,
+            "left": "dual",
+            "left_hits": 307,
+            "losses": 18,
+            "n": 386,
+            "net": 31,
+            "p_left_one_sided": 9.714889320740723e-05,
+            "p_right_one_sided": 0.9999663101316654,
+            "right": "tiered",
+            "right_hits": 276,
+            "ties": 319
+          },
+          "verdict": "DUAL_WINS"
+        },
+        "C3": {
+          "band": 4,
+          "contrast": "C3",
+          "disposition": "DESCRIPTIVE",
+          "left": "dual_ranked",
+          "reason": "PF4 found this contrast unreachable before the lock; see TC_001B_PRE_REGISTRATION.md section 7.1",
+          "right": "flat",
+          "statistic": {
+            "discordant": 0,
+            "endpoint": "complete",
+            "gains": 0,
+            "left": "dual_ranked",
+            "left_hits": 370,
+            "losses": 0,
+            "n": 386,
+            "net": 0,
+            "p_left_one_sided": 1.0,
+            "p_right_one_sided": 1.0,
+            "right": "flat",
+            "right_hits": 370,
+            "ties": 386
+          },
+          "verdict": "NO_BAR_REGISTERED"
+        },
+        "C4": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C4",
+          "disposition": "D1",
+          "left": "dual_ranked",
+          "right": "dual",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 65,
+            "endpoint": "complete",
+            "gains": 64,
+            "left": "dual_ranked",
+            "left_hits": 370,
+            "losses": 1,
+            "n": 386,
+            "net": 63,
+            "p_left_one_sided": 1.7889335846010823e-18,
+            "p_right_one_sided": 1.0,
+            "right": "dual",
+            "right_hits": 307,
+            "ties": 321
+          },
+          "verdict": "RANKED_WINS"
+        }
+      },
+      "5": {
+        "C1": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C1",
+          "disposition": "D3",
+          "left": "dual",
+          "right": "flat",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 28,
+            "endpoint": "complete",
+            "gains": 1,
+            "left": "dual",
+            "left_hits": 158,
+            "losses": 27,
+            "n": 190,
+            "net": -26,
+            "p_left_one_sided": 0.9999999962747097,
+            "p_right_one_sided": 1.0803341865539551e-07,
+            "right": "flat",
+            "right_hits": 184,
+            "ties": 162
+          },
+          "verdict": "FLAT_WINS"
+        },
+        "C2": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C2",
+          "disposition": "D0b",
+          "left": "dual",
+          "right": "tiered",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 30,
+            "endpoint": "complete",
+            "gains": 20,
+            "left": "dual",
+            "left_hits": 158,
+            "losses": 10,
+            "n": 190,
+            "net": 10,
+            "p_left_one_sided": 0.04936857335269451,
+            "p_right_one_sided": 0.9786130273714662,
+            "right": "tiered",
+            "right_hits": 148,
+            "ties": 160
+          },
+          "verdict": "NO_DIFFERENCE_ESTABLISHED_NOT_SEPARABLE"
+        },
+        "C3": {
+          "band": 4,
+          "contrast": "C3",
+          "disposition": "DESCRIPTIVE",
+          "left": "dual_ranked",
+          "reason": "PF4 found this contrast unreachable before the lock; see TC_001B_PRE_REGISTRATION.md section 7.1",
+          "right": "flat",
+          "statistic": {
+            "discordant": 0,
+            "endpoint": "complete",
+            "gains": 0,
+            "left": "dual_ranked",
+            "left_hits": 184,
+            "losses": 0,
+            "n": 190,
+            "net": 0,
+            "p_left_one_sided": 1.0,
+            "p_right_one_sided": 1.0,
+            "right": "flat",
+            "right_hits": 184,
+            "ties": 190
+          },
+          "verdict": "NO_BAR_REGISTERED"
+        },
+        "C4": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C4",
+          "disposition": "D1",
+          "left": "dual_ranked",
+          "right": "dual",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 28,
+            "endpoint": "complete",
+            "gains": 27,
+            "left": "dual_ranked",
+            "left_hits": 184,
+            "losses": 1,
+            "n": 190,
+            "net": 26,
+            "p_left_one_sided": 1.0803341865539551e-07,
+            "p_right_one_sided": 0.9999999962747097,
+            "right": "dual",
+            "right_hits": 158,
+            "ties": 162
+          },
+          "verdict": "RANKED_WINS"
+        }
+      }
+    },
+    "by_conversation": {
+      "conv-41": {
+        "C1": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C1",
+          "disposition": "D4",
+          "left": "dual",
+          "right": "flat",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 14,
+            "endpoint": "complete",
+            "gains": 2,
+            "left": "dual",
+            "left_hits": 168,
+            "losses": 12,
+            "n": 193,
+            "net": -10,
+            "p_left_one_sided": 0.99908447265625,
+            "p_right_one_sided": 0.0064697265625,
+            "right": "flat",
+            "right_hits": 178,
+            "ties": 179
+          },
+          "verdict": "FLAT_WINS_CARRIES_SIGNAL"
+        },
+        "C2": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C2",
+          "disposition": "D1",
+          "left": "dual",
+          "right": "tiered",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 25,
+            "endpoint": "complete",
+            "gains": 20,
+            "left": "dual",
+            "left_hits": 168,
+            "losses": 5,
+            "n": 193,
+            "net": 15,
+            "p_left_one_sided": 0.0020386576652526855,
+            "p_right_one_sided": 0.9995447397232056,
+            "right": "tiered",
+            "right_hits": 153,
+            "ties": 168
+          },
+          "verdict": "DUAL_WINS"
+        },
+        "C3": {
+          "band": 4,
+          "contrast": "C3",
+          "disposition": "DESCRIPTIVE",
+          "left": "dual_ranked",
+          "reason": "PF4 found this contrast unreachable before the lock; see TC_001B_PRE_REGISTRATION.md section 7.1",
+          "right": "flat",
+          "statistic": {
+            "discordant": 2,
+            "endpoint": "complete",
+            "gains": 2,
+            "left": "dual_ranked",
+            "left_hits": 180,
+            "losses": 0,
+            "n": 193,
+            "net": 2,
+            "p_left_one_sided": 0.25,
+            "p_right_one_sided": 1.0,
+            "right": "flat",
+            "right_hits": 178,
+            "ties": 191
+          },
+          "verdict": "NO_BAR_REGISTERED"
+        },
+        "C4": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C4",
+          "disposition": "D1",
+          "left": "dual_ranked",
+          "right": "dual",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 12,
+            "endpoint": "complete",
+            "gains": 12,
+            "left": "dual_ranked",
+            "left_hits": 180,
+            "losses": 0,
+            "n": 193,
+            "net": 12,
+            "p_left_one_sided": 0.000244140625,
+            "p_right_one_sided": 1.0,
+            "right": "dual",
+            "right_hits": 168,
+            "ties": 181
+          },
+          "verdict": "RANKED_WINS"
+        }
+      },
+      "conv-42": {
+        "C1": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C1",
+          "disposition": "D3",
+          "left": "dual",
+          "right": "flat",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 59,
+            "endpoint": "complete",
+            "gains": 3,
+            "left": "dual",
+            "left_hits": 187,
+            "losses": 56,
+            "n": 258,
+            "net": -53,
+            "p_left_one_sided": 0.9999999999999969,
+            "p_right_one_sided": 5.946632075648495e-14,
+            "right": "flat",
+            "right_hits": 240,
+            "ties": 199
+          },
+          "verdict": "FLAT_WINS"
+        },
+        "C2": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C2",
+          "disposition": "D0b",
+          "left": "dual",
+          "right": "tiered",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 43,
+            "endpoint": "complete",
+            "gains": 26,
+            "left": "dual",
+            "left_hits": 187,
+            "losses": 17,
+            "n": 258,
+            "net": 9,
+            "p_left_one_sided": 0.1110264100780114,
+            "p_right_one_sided": 0.9368552628072848,
+            "right": "tiered",
+            "right_hits": 178,
+            "ties": 215
+          },
+          "verdict": "NO_DIFFERENCE_ESTABLISHED_NOT_SEPARABLE"
+        },
+        "C3": {
+          "band": 4,
+          "contrast": "C3",
+          "disposition": "DESCRIPTIVE",
+          "left": "dual_ranked",
+          "reason": "PF4 found this contrast unreachable before the lock; see TC_001B_PRE_REGISTRATION.md section 7.1",
+          "right": "flat",
+          "statistic": {
+            "discordant": 0,
+            "endpoint": "complete",
+            "gains": 0,
+            "left": "dual_ranked",
+            "left_hits": 240,
+            "losses": 0,
+            "n": 258,
+            "net": 0,
+            "p_left_one_sided": 1.0,
+            "p_right_one_sided": 1.0,
+            "right": "flat",
+            "right_hits": 240,
+            "ties": 258
+          },
+          "verdict": "NO_BAR_REGISTERED"
+        },
+        "C4": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C4",
+          "disposition": "D1",
+          "left": "dual_ranked",
+          "right": "dual",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 59,
+            "endpoint": "complete",
+            "gains": 56,
+            "left": "dual_ranked",
+            "left_hits": 240,
+            "losses": 3,
+            "n": 258,
+            "net": 53,
+            "p_left_one_sided": 5.946632075648495e-14,
+            "p_right_one_sided": 0.9999999999999969,
+            "right": "dual",
+            "right_hits": 187,
+            "ties": 199
+          },
+          "verdict": "RANKED_WINS"
+        }
+      },
+      "conv-47": {
+        "C1": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C1",
+          "disposition": "D3",
+          "left": "dual",
+          "right": "flat",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 19,
+            "endpoint": "complete",
+            "gains": 1,
+            "left": "dual",
+            "left_hits": 164,
+            "losses": 18,
+            "n": 189,
+            "net": -17,
+            "p_left_one_sided": 0.9999980926513672,
+            "p_right_one_sided": 3.814697265625e-05,
+            "right": "flat",
+            "right_hits": 181,
+            "ties": 170
+          },
+          "verdict": "FLAT_WINS"
+        },
+        "C2": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C2",
+          "disposition": "D0b",
+          "left": "dual",
+          "right": "tiered",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 24,
+            "endpoint": "complete",
+            "gains": 17,
+            "left": "dual",
+            "left_hits": 164,
+            "losses": 7,
+            "n": 189,
+            "net": 10,
+            "p_left_one_sided": 0.03195732831954956,
+            "p_right_one_sided": 0.9886720776557922,
+            "right": "tiered",
+            "right_hits": 154,
+            "ties": 165
+          },
+          "verdict": "NO_DIFFERENCE_ESTABLISHED_NOT_SEPARABLE"
+        },
+        "C3": {
+          "band": 4,
+          "contrast": "C3",
+          "disposition": "DESCRIPTIVE",
+          "left": "dual_ranked",
+          "reason": "PF4 found this contrast unreachable before the lock; see TC_001B_PRE_REGISTRATION.md section 7.1",
+          "right": "flat",
+          "statistic": {
+            "discordant": 1,
+            "endpoint": "complete",
+            "gains": 0,
+            "left": "dual_ranked",
+            "left_hits": 180,
+            "losses": 1,
+            "n": 189,
+            "net": -1,
+            "p_left_one_sided": 1.0,
+            "p_right_one_sided": 0.5,
+            "right": "flat",
+            "right_hits": 181,
+            "ties": 188
+          },
+          "verdict": "NO_BAR_REGISTERED"
+        },
+        "C4": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C4",
+          "disposition": "D1",
+          "left": "dual_ranked",
+          "right": "dual",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 18,
+            "endpoint": "complete",
+            "gains": 17,
+            "left": "dual_ranked",
+            "left_hits": 180,
+            "losses": 1,
+            "n": 189,
+            "net": 16,
+            "p_left_one_sided": 7.2479248046875e-05,
+            "p_right_one_sided": 0.9999961853027344,
+            "right": "dual",
+            "right_hits": 164,
+            "ties": 171
+          },
+          "verdict": "RANKED_WINS"
+        }
+      },
+      "conv-48": {
+        "C1": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C1",
+          "disposition": "D3",
+          "left": "dual",
+          "right": "flat",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 36,
+            "endpoint": "complete",
+            "gains": 0,
+            "left": "dual",
+            "left_hits": 175,
+            "losses": 36,
+            "n": 228,
+            "net": -36,
+            "p_left_one_sided": 1.0,
+            "p_right_one_sided": 1.4551915228366852e-11,
+            "right": "flat",
+            "right_hits": 211,
+            "ties": 192
+          },
+          "verdict": "FLAT_WINS"
+        },
+        "C2": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C2",
+          "disposition": "D1",
+          "left": "dual",
+          "right": "tiered",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 43,
+            "endpoint": "complete",
+            "gains": 35,
+            "left": "dual",
+            "left_hits": 175,
+            "losses": 8,
+            "n": 228,
+            "net": 27,
+            "p_left_one_sided": 2.0967078967260022e-05,
+            "p_right_one_sided": 0.9999955184803184,
+            "right": "tiered",
+            "right_hits": 148,
+            "ties": 185
+          },
+          "verdict": "DUAL_WINS"
+        },
+        "C3": {
+          "band": 4,
+          "contrast": "C3",
+          "disposition": "DESCRIPTIVE",
+          "left": "dual_ranked",
+          "reason": "PF4 found this contrast unreachable before the lock; see TC_001B_PRE_REGISTRATION.md section 7.1",
+          "right": "flat",
+          "statistic": {
+            "discordant": 0,
+            "endpoint": "complete",
+            "gains": 0,
+            "left": "dual_ranked",
+            "left_hits": 211,
+            "losses": 0,
+            "n": 228,
+            "net": 0,
+            "p_left_one_sided": 1.0,
+            "p_right_one_sided": 1.0,
+            "right": "flat",
+            "right_hits": 211,
+            "ties": 228
+          },
+          "verdict": "NO_BAR_REGISTERED"
+        },
+        "C4": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C4",
+          "disposition": "D1",
+          "left": "dual_ranked",
+          "right": "dual",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 36,
+            "endpoint": "complete",
+            "gains": 36,
+            "left": "dual_ranked",
+            "left_hits": 211,
+            "losses": 0,
+            "n": 228,
+            "net": 36,
+            "p_left_one_sided": 1.4551915228366852e-11,
+            "p_right_one_sided": 1.0,
+            "right": "dual",
+            "right_hits": 175,
+            "ties": 192
+          },
+          "verdict": "RANKED_WINS"
+        }
+      }
+    },
+    "composition": {
+      "dual": {
+        "carrying_tier_when_evidence_arrived": {
+          "coverage": 30,
+          "coverage|k": 19,
+          "k": 691
+        },
+        "delivered_by_tier": {
+          "coverage": {
+            "max": 140,
+            "mean": 34.4,
+            "min": 0,
+            "n": 871,
+            "p25": 0,
+            "p50": 23,
+            "p75": 64,
+            "zero": 326
+          },
+          "k": {
+            "max": 128,
+            "mean": 74.084,
+            "min": 1,
+            "n": 871,
+            "p25": 41,
+            "p50": 84,
+            "p75": 111,
+            "zero": 0
+          },
+          "recency": {
+            "max": 0,
+            "mean": 0.0,
+            "min": 0,
+            "n": 871,
+            "p25": 0,
+            "p50": 0,
+            "p75": 0,
+            "zero": 871
+          }
+        },
+        "questions_with_zero_coverage": 326
+      },
+      "dual_ranked": {
+        "carrying_tier_when_evidence_arrived": {
+          "coverage": 30,
+          "coverage|k": 19,
+          "k": 794
+        },
+        "delivered_by_tier": {
+          "coverage": {
+            "max": 140,
+            "mean": 34.409,
+            "min": 0,
+            "n": 871,
+            "p25": 0,
+            "p50": 23,
+            "p75": 64,
+            "zero": 318
+          },
+          "k": {
+            "max": 132,
+            "mean": 74.224,
+            "min": 1,
+            "n": 871,
+            "p25": 41,
+            "p50": 83,
+            "p75": 109,
+            "zero": 0
+          }
+        },
+        "questions_with_zero_coverage": 318
+      },
+      "tiered": {
+        "carrying_tier_when_evidence_arrived": {
+          "coverage": 20,
+          "coverage|k": 11,
+          "coverage|k|recency": 1,
+          "coverage|recency": 1,
+          "k": 556,
+          "k|recency": 14,
+          "recency": 84
+        },
+        "delivered_by_tier": {
+          "coverage": {
+            "max": 103,
+            "mean": 18.798,
+            "min": 0,
+            "n": 871,
+            "p25": 0,
+            "p50": 1,
+            "p75": 36,
+            "zero": 420
+          },
+          "k": {
+            "max": 97,
+            "mean": 56.972,
+            "min": 1,
+            "n": 871,
+            "p25": 37,
+            "p50": 64,
+            "p75": 79,
+            "zero": 0
+          },
+          "recency": {
+            "max": 32,
+            "mean": 32.0,
+            "min": 32,
+            "n": 871,
+            "p25": 32,
+            "p50": 32,
+            "p75": 32,
+            "zero": 0
+          }
+        },
+        "questions_with_zero_coverage": 420
+      }
+    },
+    "contrasts_any": {
+      "C1": {
+        "alpha": 0.0025,
+        "band": 4,
+        "contrast": "C1",
+        "disposition": "D3",
+        "left": "dual",
+        "right": "flat",
+        "signal_alpha": 0.025,
+        "statistic": {
+          "discordant": 116,
+          "endpoint": "any",
+          "gains": 7,
+          "left": "dual",
+          "left_hits": 740,
+          "losses": 109,
+          "n": 871,
+          "net": -102,
+          "p_left_one_sided": 1.0,
+          "p_right_one_sided": 5.989946778828109e-25,
+          "right": "flat",
+          "right_hits": 842,
+          "ties": 755
+        },
+        "verdict": "FLAT_WINS"
+      },
+      "C2": {
+        "alpha": 0.0025,
+        "band": 4,
+        "contrast": "C2",
+        "disposition": "D1",
+        "left": "dual",
+        "right": "tiered",
+        "signal_alpha": 0.025,
+        "statistic": {
+          "discordant": 125,
+          "endpoint": "any",
+          "gains": 89,
+          "left": "dual",
+          "left_hits": 740,
+          "losses": 36,
+          "n": 871,
+          "net": 53,
+          "p_left_one_sided": 1.1827709904654107e-06,
+          "p_right_one_sided": 0.9999995380011141,
+          "right": "tiered",
+          "right_hits": 687,
+          "ties": 746
+        },
+        "verdict": "DUAL_WINS"
+      },
+      "C3": {
+        "band": 4,
+        "contrast": "C3",
+        "disposition": "DESCRIPTIVE",
+        "left": "dual_ranked",
+        "reason": "PF4 found this contrast unreachable before the lock; see TC_001B_PRE_REGISTRATION.md section 7.1",
+        "right": "flat",
+        "statistic": {
+          "discordant": 1,
+          "endpoint": "any",
+          "gains": 1,
+          "left": "dual_ranked",
+          "left_hits": 843,
+          "losses": 0,
+          "n": 871,
+          "net": 1,
+          "p_left_one_sided": 0.5,
+          "p_right_one_sided": 1.0,
+          "right": "flat",
+          "right_hits": 842,
+          "ties": 870
+        },
+        "verdict": "NO_BAR_REGISTERED"
+      },
+      "C4": {
+        "alpha": 0.0025,
+        "band": 4,
+        "contrast": "C4",
+        "disposition": "D1",
+        "left": "dual_ranked",
+        "right": "dual",
+        "signal_alpha": 0.025,
+        "statistic": {
+          "discordant": 115,
+          "endpoint": "any",
+          "gains": 109,
+          "left": "dual_ranked",
+          "left_hits": 843,
+          "losses": 6,
+          "n": 871,
+          "net": 103,
+          "p_left_one_sided": 7.160541194574808e-26,
+          "p_right_one_sided": 1.0,
+          "right": "dual",
+          "right_hits": 740,
+          "ties": 756
+        },
+        "verdict": "RANKED_WINS"
+      }
+    },
+    "contrasts_complete": {
+      "C1": {
+        "alpha": 0.0025,
+        "band": 4,
+        "contrast": "C1",
+        "disposition": "D3",
+        "left": "dual",
+        "right": "flat",
+        "signal_alpha": 0.025,
+        "statistic": {
+          "discordant": 128,
+          "endpoint": "complete",
+          "gains": 6,
+          "left": "dual",
+          "left_hits": 694,
+          "losses": 122,
+          "n": 868,
+          "net": -116,
+          "p_left_one_sided": 1.0,
+          "p_right_one_sided": 1.6748429501562026e-29,
+          "right": "flat",
+          "right_hits": 810,
+          "ties": 740
+        },
+        "verdict": "FLAT_WINS"
+      },
+      "C2": {
+        "alpha": 0.0025,
+        "band": 4,
+        "contrast": "C2",
+        "disposition": "D1",
+        "left": "dual",
+        "right": "tiered",
+        "signal_alpha": 0.025,
+        "statistic": {
+          "discordant": 135,
+          "endpoint": "complete",
+          "gains": 98,
+          "left": "dual",
+          "left_hits": 694,
+          "losses": 37,
+          "n": 868,
+          "net": 61,
+          "p_left_one_sided": 7.510472853659717e-08,
+          "p_right_one_sided": 0.9999999725026034,
+          "right": "tiered",
+          "right_hits": 633,
+          "ties": 733
+        },
+        "verdict": "DUAL_WINS"
+      },
+      "C3": {
+        "band": 4,
+        "contrast": "C3",
+        "disposition": "DESCRIPTIVE",
+        "left": "dual_ranked",
+        "reason": "PF4 found this contrast unreachable before the lock; see TC_001B_PRE_REGISTRATION.md section 7.1",
+        "right": "flat",
+        "statistic": {
+          "discordant": 3,
+          "endpoint": "complete",
+          "gains": 2,
+          "left": "dual_ranked",
+          "left_hits": 811,
+          "losses": 1,
+          "n": 868,
+          "net": 1,
+          "p_left_one_sided": 0.5,
+          "p_right_one_sided": 0.875,
+          "right": "flat",
+          "right_hits": 810,
+          "ties": 865
+        },
+        "verdict": "NO_BAR_REGISTERED"
+      },
+      "C4": {
+        "alpha": 0.0025,
+        "band": 4,
+        "contrast": "C4",
+        "disposition": "D1",
+        "left": "dual_ranked",
+        "right": "dual",
+        "signal_alpha": 0.025,
+        "statistic": {
+          "discordant": 125,
+          "endpoint": "complete",
+          "gains": 121,
+          "left": "dual_ranked",
+          "left_hits": 811,
+          "losses": 4,
+          "n": 868,
+          "net": 117,
+          "p_left_one_sided": 2.354985617536241e-31,
+          "p_right_one_sided": 1.0,
+          "right": "dual",
+          "right_hits": 694,
+          "ties": 743
+        },
+        "verdict": "RANKED_WINS"
+      }
+    },
+    "delivery": {
+      "dual": {
+        "chars": {
+          "max": 32000,
+          "mean": 31959.224,
+          "min": 31717,
+          "n": 871,
+          "p25": 31939,
+          "p50": 31968,
+          "p75": 31986,
+          "zero": 0
+        },
+        "episodes": {
+          "max": 142,
+          "mean": 108.483,
+          "min": 84,
+          "n": 871,
+          "p25": 99,
+          "p50": 111,
+          "p75": 117,
+          "zero": 0
+        }
+      },
+      "dual_ranked": {
+        "chars": {
+          "max": 32000,
+          "mean": 31961.148,
+          "min": 31776,
+          "n": 871,
+          "p25": 31941,
+          "p50": 31969,
+          "p75": 31986,
+          "zero": 0
+        },
+        "episodes": {
+          "max": 142,
+          "mean": 108.633,
+          "min": 83,
+          "n": 871,
+          "p25": 98,
+          "p50": 111,
+          "p75": 117,
+          "zero": 0
+        }
+      },
+      "flat": {
+        "chars": {
+          "max": 32000,
+          "mean": 31965.286,
+          "min": 31859,
+          "n": 871,
+          "p25": 31946,
+          "p50": 31972,
+          "p75": 31990,
+          "zero": 0
+        },
+        "episodes": {
+          "max": 142,
+          "mean": 108.619,
+          "min": 83,
+          "n": 871,
+          "p25": 99,
+          "p50": 111,
+          "p75": 117,
+          "zero": 0
+        }
+      },
+      "tiered": {
+        "chars": {
+          "max": 32000,
+          "mean": 31951.514,
+          "min": 31754,
+          "n": 871,
+          "p25": 31928,
+          "p50": 31961,
+          "p75": 31985,
+          "zero": 0
+        },
+        "episodes": {
+          "max": 137,
+          "mean": 107.77,
+          "min": 87,
+          "n": 871,
+          "p25": 100,
+          "p50": 109,
+          "p75": 115,
+          "zero": 0
+        }
+      }
+    },
+    "population": {
+      "complete_evaluable": 868,
+      "questions": 871
+    }
+  },
+  "standing": "REGISTERED-OFFLINE",
+  "status": "COMPLETE",
+  "verdict": {
+    "alpha": 0.0025,
+    "band": 4,
+    "contrast": "C1",
+    "disposition": "D3",
+    "left": "dual",
+    "right": "flat",
+    "signal_alpha": 0.025,
+    "statistic": {
+      "discordant": 305,
+      "endpoint": "complete",
+      "gains": 14,
+      "left": "dual",
+      "left_hits": 472,
+      "losses": 291,
+      "n": 868,
+      "net": -277,
+      "p_left_one_sided": 1.0,
+      "p_right_one_sided": 8.229353381359814e-69,
+      "right": "flat",
+      "right_hits": 749,
+      "ties": 563
+    },
+    "verdict": "FLAT_WINS"
+  }
+}

@@ -1,0 +1,2965 @@
+{
+  "cache": {
+    "hits": 2247,
+    "misses": 0
+  },
+  "primary": {
+    "budget_chars": 32000,
+    "by_category": {
+      "1": {
+        "C1": {
+          "alpha": 0.0025,
+          "band": 7,
+          "contrast": "C1",
+          "disposition": "D0a",
+          "left": "k_first",
+          "right": "n_first",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 12,
+            "endpoint": "any",
+            "gains": 9,
+            "left": "k_first",
+            "left_hits": 104,
+            "losses": 3,
+            "n": 109,
+            "net": 6,
+            "p_left_one_sided": 0.072998046875,
+            "p_right_one_sided": 0.980712890625,
+            "right": "n_first",
+            "right_hits": 98,
+            "ties": 97
+          },
+          "verdict": "NO_DIFFERENCE_ESTABLISHED_INSIDE_BAND"
+        },
+        "C2": {
+          "alpha": 0.0025,
+          "band": 7,
+          "contrast": "C2",
+          "disposition": "D0a",
+          "left": "k_first",
+          "right": "flat",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 6,
+            "endpoint": "any",
+            "gains": 1,
+            "left": "k_first",
+            "left_hits": 104,
+            "losses": 5,
+            "n": 109,
+            "net": -4,
+            "p_left_one_sided": 0.984375,
+            "p_right_one_sided": 0.109375,
+            "right": "flat",
+            "right_hits": 108,
+            "ties": 103
+          },
+          "verdict": "NO_DIFFERENCE_ESTABLISHED_INSIDE_BAND"
+        },
+        "C3": {
+          "alpha": 0.0025,
+          "band": 7,
+          "contrast": "C3",
+          "disposition": "D0a",
+          "left": "dual",
+          "right": "k_first",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 0,
+            "endpoint": "any",
+            "gains": 0,
+            "left": "dual",
+            "left_hits": 104,
+            "losses": 0,
+            "n": 109,
+            "net": 0,
+            "p_left_one_sided": 1.0,
+            "p_right_one_sided": 1.0,
+            "right": "k_first",
+            "right_hits": 104,
+            "ties": 109
+          },
+          "verdict": "NO_DIFFERENCE_ESTABLISHED_INSIDE_BAND"
+        },
+        "C4": {
+          "alpha": 0.0025,
+          "band": 7,
+          "contrast": "C4",
+          "disposition": "D0a",
+          "left": "dual_ranked",
+          "right": "k_first",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 6,
+            "endpoint": "any",
+            "gains": 5,
+            "left": "dual_ranked",
+            "left_hits": 108,
+            "losses": 1,
+            "n": 109,
+            "net": 4,
+            "p_left_one_sided": 0.109375,
+            "p_right_one_sided": 0.984375,
+            "right": "k_first",
+            "right_hits": 104,
+            "ties": 103
+          },
+          "verdict": "NO_DIFFERENCE_ESTABLISHED_INSIDE_BAND"
+        }
+      },
+      "2": {
+        "C1": {
+          "alpha": 0.0025,
+          "band": 7,
+          "contrast": "C1",
+          "disposition": "D0a",
+          "left": "k_first",
+          "right": "n_first",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 6,
+            "endpoint": "any",
+            "gains": 3,
+            "left": "k_first",
+            "left_hits": 128,
+            "losses": 3,
+            "n": 143,
+            "net": 0,
+            "p_left_one_sided": 0.65625,
+            "p_right_one_sided": 0.65625,
+            "right": "n_first",
+            "right_hits": 128,
+            "ties": 137
+          },
+          "verdict": "NO_DIFFERENCE_ESTABLISHED_INSIDE_BAND"
+        },
+        "C2": {
+          "alpha": 0.0025,
+          "band": 7,
+          "contrast": "C2",
+          "disposition": "D3",
+          "left": "k_first",
+          "right": "flat",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 12,
+            "endpoint": "any",
+            "gains": 0,
+            "left": "k_first",
+            "left_hits": 128,
+            "losses": 12,
+            "n": 143,
+            "net": -12,
+            "p_left_one_sided": 1.0,
+            "p_right_one_sided": 0.000244140625,
+            "right": "flat",
+            "right_hits": 140,
+            "ties": 131
+          },
+          "verdict": "FLAT_WINS"
+        },
+        "C3": {
+          "alpha": 0.0025,
+          "band": 7,
+          "contrast": "C3",
+          "disposition": "D0a",
+          "left": "dual",
+          "right": "k_first",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 3,
+            "endpoint": "any",
+            "gains": 3,
+            "left": "dual",
+            "left_hits": 131,
+            "losses": 0,
+            "n": 143,
+            "net": 3,
+            "p_left_one_sided": 0.125,
+            "p_right_one_sided": 1.0,
+            "right": "k_first",
+            "right_hits": 128,
+            "ties": 140
+          },
+          "verdict": "NO_DIFFERENCE_ESTABLISHED_INSIDE_BAND"
+        },
+        "C4": {
+          "alpha": 0.0025,
+          "band": 7,
+          "contrast": "C4",
+          "disposition": "D1",
+          "left": "dual_ranked",
+          "right": "k_first",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 12,
+            "endpoint": "any",
+            "gains": 12,
+            "left": "dual_ranked",
+            "left_hits": 140,
+            "losses": 0,
+            "n": 143,
+            "net": 12,
+            "p_left_one_sided": 0.000244140625,
+            "p_right_one_sided": 1.0,
+            "right": "k_first",
+            "right_hits": 128,
+            "ties": 131
+          },
+          "verdict": "RANKED_WINS"
+        }
+      },
+      "3": {
+        "C1": {
+          "alpha": 0.0025,
+          "band": 7,
+          "contrast": "C1",
+          "disposition": "D0a",
+          "left": "k_first",
+          "right": "n_first",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 3,
+            "endpoint": "any",
+            "gains": 2,
+            "left": "k_first",
+            "left_hits": 33,
+            "losses": 1,
+            "n": 42,
+            "net": 1,
+            "p_left_one_sided": 0.5,
+            "p_right_one_sided": 0.875,
+            "right": "n_first",
+            "right_hits": 32,
+            "ties": 39
+          },
+          "verdict": "NO_DIFFERENCE_ESTABLISHED_INSIDE_BAND"
+        },
+        "C2": {
+          "alpha": 0.0025,
+          "band": 7,
+          "contrast": "C2",
+          "disposition": "D0a",
+          "left": "k_first",
+          "right": "flat",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 11,
+            "endpoint": "any",
+            "gains": 5,
+            "left": "k_first",
+            "left_hits": 33,
+            "losses": 6,
+            "n": 42,
+            "net": -1,
+            "p_left_one_sided": 0.7255859375,
+            "p_right_one_sided": 0.5,
+            "right": "flat",
+            "right_hits": 34,
+            "ties": 31
+          },
+          "verdict": "NO_DIFFERENCE_ESTABLISHED_INSIDE_BAND"
+        },
+        "C3": {
+          "alpha": 0.0025,
+          "band": 7,
+          "contrast": "C3",
+          "disposition": "D0a",
+          "left": "dual",
+          "right": "k_first",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 3,
+            "endpoint": "any",
+            "gains": 2,
+            "left": "dual",
+            "left_hits": 34,
+            "losses": 1,
+            "n": 42,
+            "net": 1,
+            "p_left_one_sided": 0.5,
+            "p_right_one_sided": 0.875,
+            "right": "k_first",
+            "right_hits": 33,
+            "ties": 39
+          },
+          "verdict": "NO_DIFFERENCE_ESTABLISHED_INSIDE_BAND"
+        },
+        "C4": {
+          "alpha": 0.0025,
+          "band": 7,
+          "contrast": "C4",
+          "disposition": "D0a",
+          "left": "dual_ranked",
+          "right": "k_first",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 10,
+            "endpoint": "any",
+            "gains": 6,
+            "left": "dual_ranked",
+            "left_hits": 35,
+            "losses": 4,
+            "n": 42,
+            "net": 2,
+            "p_left_one_sided": 0.376953125,
+            "p_right_one_sided": 0.828125,
+            "right": "k_first",
+            "right_hits": 33,
+            "ties": 32
+          },
+          "verdict": "NO_DIFFERENCE_ESTABLISHED_INSIDE_BAND"
+        }
+      },
+      "4": {
+        "C1": {
+          "alpha": 0.0025,
+          "band": 7,
+          "contrast": "C1",
+          "disposition": "D1",
+          "left": "k_first",
+          "right": "n_first",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 67,
+            "endpoint": "any",
+            "gains": 49,
+            "left": "k_first",
+            "left_hits": 312,
+            "losses": 18,
+            "n": 387,
+            "net": 31,
+            "p_left_one_sided": 9.714889320740723e-05,
+            "p_right_one_sided": 0.9999663101316654,
+            "right": "n_first",
+            "right_hits": 281,
+            "ties": 320
+          },
+          "verdict": "K_FIRST_WINS"
+        },
+        "C2": {
+          "alpha": 0.0025,
+          "band": 7,
+          "contrast": "C2",
+          "disposition": "D3",
+          "left": "k_first",
+          "right": "flat",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 66,
+            "endpoint": "any",
+            "gains": 1,
+            "left": "k_first",
+            "left_hits": 312,
+            "losses": 65,
+            "n": 387,
+            "net": -64,
+            "p_left_one_sided": 1.0,
+            "p_right_one_sided": 9.0801931945661e-19,
+            "right": "flat",
+            "right_hits": 376,
+            "ties": 321
+          },
+          "verdict": "FLAT_WINS"
+        },
+        "C3": {
+          "alpha": 0.0025,
+          "band": 7,
+          "contrast": "C3",
+          "disposition": "D0a",
+          "left": "dual",
+          "right": "k_first",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 1,
+            "endpoint": "any",
+            "gains": 1,
+            "left": "dual",
+            "left_hits": 313,
+            "losses": 0,
+            "n": 387,
+            "net": 1,
+            "p_left_one_sided": 0.5,
+            "p_right_one_sided": 1.0,
+            "right": "k_first",
+            "right_hits": 312,
+            "ties": 386
+          },
+          "verdict": "NO_DIFFERENCE_ESTABLISHED_INSIDE_BAND"
+        },
+        "C4": {
+          "alpha": 0.0025,
+          "band": 7,
+          "contrast": "C4",
+          "disposition": "D1",
+          "left": "dual_ranked",
+          "right": "k_first",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 66,
+            "endpoint": "any",
+            "gains": 65,
+            "left": "dual_ranked",
+            "left_hits": 376,
+            "losses": 1,
+            "n": 387,
+            "net": 64,
+            "p_left_one_sided": 9.0801931945661e-19,
+            "p_right_one_sided": 1.0,
+            "right": "k_first",
+            "right_hits": 312,
+            "ties": 321
+          },
+          "verdict": "RANKED_WINS"
+        }
+      },
+      "5": {
+        "C1": {
+          "alpha": 0.0025,
+          "band": 7,
+          "contrast": "C1",
+          "disposition": "D0b",
+          "left": "k_first",
+          "right": "n_first",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 27,
+            "endpoint": "any",
+            "gains": 17,
+            "left": "k_first",
+            "left_hits": 155,
+            "losses": 10,
+            "n": 190,
+            "net": 7,
+            "p_left_one_sided": 0.12389428168535233,
+            "p_right_one_sided": 0.9389609396457672,
+            "right": "n_first",
+            "right_hits": 148,
+            "ties": 163
+          },
+          "verdict": "NO_DIFFERENCE_ESTABLISHED_NOT_SEPARABLE"
+        },
+        "C2": {
+          "alpha": 0.0025,
+          "band": 7,
+          "contrast": "C2",
+          "disposition": "D3",
+          "left": "k_first",
+          "right": "flat",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 31,
+            "endpoint": "any",
+            "gains": 1,
+            "left": "k_first",
+            "left_hits": 155,
+            "losses": 30,
+            "n": 190,
+            "net": -29,
+            "p_left_one_sided": 0.9999999995343387,
+            "p_right_one_sided": 1.4901161193847656e-08,
+            "right": "flat",
+            "right_hits": 184,
+            "ties": 159
+          },
+          "verdict": "FLAT_WINS"
+        },
+        "C3": {
+          "alpha": 0.0025,
+          "band": 7,
+          "contrast": "C3",
+          "disposition": "D0a",
+          "left": "dual",
+          "right": "k_first",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 3,
+            "endpoint": "any",
+            "gains": 3,
+            "left": "dual",
+            "left_hits": 158,
+            "losses": 0,
+            "n": 190,
+            "net": 3,
+            "p_left_one_sided": 0.125,
+            "p_right_one_sided": 1.0,
+            "right": "k_first",
+            "right_hits": 155,
+            "ties": 187
+          },
+          "verdict": "NO_DIFFERENCE_ESTABLISHED_INSIDE_BAND"
+        },
+        "C4": {
+          "alpha": 0.0025,
+          "band": 7,
+          "contrast": "C4",
+          "disposition": "D1",
+          "left": "dual_ranked",
+          "right": "k_first",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 31,
+            "endpoint": "any",
+            "gains": 30,
+            "left": "dual_ranked",
+            "left_hits": 184,
+            "losses": 1,
+            "n": 190,
+            "net": 29,
+            "p_left_one_sided": 1.4901161193847656e-08,
+            "p_right_one_sided": 0.9999999995343387,
+            "right": "k_first",
+            "right_hits": 155,
+            "ties": 159
+          },
+          "verdict": "RANKED_WINS"
+        }
+      }
+    },
+    "by_conversation": {
+      "conv-41": {
+        "C1": {
+          "alpha": 0.0025,
+          "band": 7,
+          "contrast": "C1",
+          "disposition": "D0b",
+          "left": "k_first",
+          "right": "n_first",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 18,
+            "endpoint": "any",
+            "gains": 13,
+            "left": "k_first",
+            "left_hits": 169,
+            "losses": 5,
+            "n": 193,
+            "net": 8,
+            "p_left_one_sided": 0.048126220703125,
+            "p_right_one_sided": 0.98455810546875,
+            "right": "n_first",
+            "right_hits": 161,
+            "ties": 175
+          },
+          "verdict": "NO_DIFFERENCE_ESTABLISHED_NOT_SEPARABLE"
+        },
+        "C2": {
+          "alpha": 0.0025,
+          "band": 7,
+          "contrast": "C2",
+          "disposition": "D3",
+          "left": "k_first",
+          "right": "flat",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 18,
+            "endpoint": "any",
+            "gains": 1,
+            "left": "k_first",
+            "left_hits": 169,
+            "losses": 17,
+            "n": 193,
+            "net": -16,
+            "p_left_one_sided": 0.9999961853027344,
+            "p_right_one_sided": 7.2479248046875e-05,
+            "right": "flat",
+            "right_hits": 185,
+            "ties": 175
+          },
+          "verdict": "FLAT_WINS"
+        },
+        "C3": {
+          "alpha": 0.0025,
+          "band": 7,
+          "contrast": "C3",
+          "disposition": "D0a",
+          "left": "dual",
+          "right": "k_first",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 4,
+            "endpoint": "any",
+            "gains": 4,
+            "left": "dual",
+            "left_hits": 173,
+            "losses": 0,
+            "n": 193,
+            "net": 4,
+            "p_left_one_sided": 0.0625,
+            "p_right_one_sided": 1.0,
+            "right": "k_first",
+            "right_hits": 169,
+            "ties": 189
+          },
+          "verdict": "NO_DIFFERENCE_ESTABLISHED_INSIDE_BAND"
+        },
+        "C4": {
+          "alpha": 0.0025,
+          "band": 7,
+          "contrast": "C4",
+          "disposition": "D1",
+          "left": "dual_ranked",
+          "right": "k_first",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 17,
+            "endpoint": "any",
+            "gains": 17,
+            "left": "dual_ranked",
+            "left_hits": 186,
+            "losses": 0,
+            "n": 193,
+            "net": 17,
+            "p_left_one_sided": 7.62939453125e-06,
+            "p_right_one_sided": 1.0,
+            "right": "k_first",
+            "right_hits": 169,
+            "ties": 176
+          },
+          "verdict": "RANKED_WINS"
+        }
+      },
+      "conv-42": {
+        "C1": {
+          "alpha": 0.0025,
+          "band": 7,
+          "contrast": "C1",
+          "disposition": "D0a",
+          "left": "k_first",
+          "right": "n_first",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 40,
+            "endpoint": "any",
+            "gains": 22,
+            "left": "k_first",
+            "left_hits": 204,
+            "losses": 18,
+            "n": 260,
+            "net": 4,
+            "p_left_one_sided": 0.3179140013144206,
+            "p_right_one_sided": 0.7852047460783069,
+            "right": "n_first",
+            "right_hits": 200,
+            "ties": 220
+          },
+          "verdict": "NO_DIFFERENCE_ESTABLISHED_INSIDE_BAND"
+        },
+        "C2": {
+          "alpha": 0.0025,
+          "band": 7,
+          "contrast": "C2",
+          "disposition": "D3",
+          "left": "k_first",
+          "right": "flat",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 57,
+            "endpoint": "any",
+            "gains": 5,
+            "left": "k_first",
+            "left_hits": 204,
+            "losses": 52,
+            "n": 260,
+            "net": -47,
+            "p_left_one_sided": 0.9999999999970446,
+            "p_right_one_sided": 3.200932574554116e-11,
+            "right": "flat",
+            "right_hits": 251,
+            "ties": 203
+          },
+          "verdict": "FLAT_WINS"
+        },
+        "C3": {
+          "alpha": 0.0025,
+          "band": 7,
+          "contrast": "C3",
+          "disposition": "D0a",
+          "left": "dual",
+          "right": "k_first",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 3,
+            "endpoint": "any",
+            "gains": 2,
+            "left": "dual",
+            "left_hits": 205,
+            "losses": 1,
+            "n": 260,
+            "net": 1,
+            "p_left_one_sided": 0.5,
+            "p_right_one_sided": 0.875,
+            "right": "k_first",
+            "right_hits": 204,
+            "ties": 257
+          },
+          "verdict": "NO_DIFFERENCE_ESTABLISHED_INSIDE_BAND"
+        },
+        "C4": {
+          "alpha": 0.0025,
+          "band": 7,
+          "contrast": "C4",
+          "disposition": "D1",
+          "left": "dual_ranked",
+          "right": "k_first",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 57,
+            "endpoint": "any",
+            "gains": 52,
+            "left": "dual_ranked",
+            "left_hits": 251,
+            "losses": 5,
+            "n": 260,
+            "net": 47,
+            "p_left_one_sided": 3.200932574554116e-11,
+            "p_right_one_sided": 0.9999999999970446,
+            "right": "k_first",
+            "right_hits": 204,
+            "ties": 203
+          },
+          "verdict": "RANKED_WINS"
+        }
+      },
+      "conv-47": {
+        "C1": {
+          "alpha": 0.0025,
+          "band": 7,
+          "contrast": "C1",
+          "disposition": "D0b",
+          "left": "k_first",
+          "right": "n_first",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 17,
+            "endpoint": "any",
+            "gains": 12,
+            "left": "k_first",
+            "left_hits": 169,
+            "losses": 5,
+            "n": 190,
+            "net": 7,
+            "p_left_one_sided": 0.0717315673828125,
+            "p_right_one_sided": 0.9754791259765625,
+            "right": "n_first",
+            "right_hits": 162,
+            "ties": 173
+          },
+          "verdict": "NO_DIFFERENCE_ESTABLISHED_NOT_SEPARABLE"
+        },
+        "C2": {
+          "alpha": 0.0025,
+          "band": 7,
+          "contrast": "C2",
+          "disposition": "D3",
+          "left": "k_first",
+          "right": "flat",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 18,
+            "endpoint": "any",
+            "gains": 1,
+            "left": "k_first",
+            "left_hits": 169,
+            "losses": 17,
+            "n": 190,
+            "net": -16,
+            "p_left_one_sided": 0.9999961853027344,
+            "p_right_one_sided": 7.2479248046875e-05,
+            "right": "flat",
+            "right_hits": 185,
+            "ties": 172
+          },
+          "verdict": "FLAT_WINS"
+        },
+        "C3": {
+          "alpha": 0.0025,
+          "band": 7,
+          "contrast": "C3",
+          "disposition": "D0a",
+          "left": "dual",
+          "right": "k_first",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 2,
+            "endpoint": "any",
+            "gains": 2,
+            "left": "dual",
+            "left_hits": 171,
+            "losses": 0,
+            "n": 190,
+            "net": 2,
+            "p_left_one_sided": 0.25,
+            "p_right_one_sided": 1.0,
+            "right": "k_first",
+            "right_hits": 169,
+            "ties": 188
+          },
+          "verdict": "NO_DIFFERENCE_ESTABLISHED_INSIDE_BAND"
+        },
+        "C4": {
+          "alpha": 0.0025,
+          "band": 7,
+          "contrast": "C4",
+          "disposition": "D1",
+          "left": "dual_ranked",
+          "right": "k_first",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 18,
+            "endpoint": "any",
+            "gains": 17,
+            "left": "dual_ranked",
+            "left_hits": 185,
+            "losses": 1,
+            "n": 190,
+            "net": 16,
+            "p_left_one_sided": 7.2479248046875e-05,
+            "p_right_one_sided": 0.9999961853027344,
+            "right": "k_first",
+            "right_hits": 169,
+            "ties": 172
+          },
+          "verdict": "RANKED_WINS"
+        }
+      },
+      "conv-48": {
+        "C1": {
+          "alpha": 0.0025,
+          "band": 7,
+          "contrast": "C1",
+          "disposition": "D1",
+          "left": "k_first",
+          "right": "n_first",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 40,
+            "endpoint": "any",
+            "gains": 33,
+            "left": "k_first",
+            "left_hits": 190,
+            "losses": 7,
+            "n": 228,
+            "net": 26,
+            "p_left_one_sided": 2.1138511328899767e-05,
+            "p_right_one_sided": 0.9999958177077133,
+            "right": "n_first",
+            "right_hits": 164,
+            "ties": 188
+          },
+          "verdict": "K_FIRST_WINS"
+        },
+        "C2": {
+          "alpha": 0.0025,
+          "band": 7,
+          "contrast": "C2",
+          "disposition": "D3",
+          "left": "k_first",
+          "right": "flat",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 33,
+            "endpoint": "any",
+            "gains": 1,
+            "left": "k_first",
+            "left_hits": 190,
+            "losses": 32,
+            "n": 228,
+            "net": -31,
+            "p_left_one_sided": 0.9999999998835847,
+            "p_right_one_sided": 3.958120942115784e-09,
+            "right": "flat",
+            "right_hits": 221,
+            "ties": 195
+          },
+          "verdict": "FLAT_WINS"
+        },
+        "C3": {
+          "alpha": 0.0025,
+          "band": 7,
+          "contrast": "C3",
+          "disposition": "D0a",
+          "left": "dual",
+          "right": "k_first",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 1,
+            "endpoint": "any",
+            "gains": 1,
+            "left": "dual",
+            "left_hits": 191,
+            "losses": 0,
+            "n": 228,
+            "net": 1,
+            "p_left_one_sided": 0.5,
+            "p_right_one_sided": 1.0,
+            "right": "k_first",
+            "right_hits": 190,
+            "ties": 227
+          },
+          "verdict": "NO_DIFFERENCE_ESTABLISHED_INSIDE_BAND"
+        },
+        "C4": {
+          "alpha": 0.0025,
+          "band": 7,
+          "contrast": "C4",
+          "disposition": "D1",
+          "left": "dual_ranked",
+          "right": "k_first",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 33,
+            "endpoint": "any",
+            "gains": 32,
+            "left": "dual_ranked",
+            "left_hits": 221,
+            "losses": 1,
+            "n": 228,
+            "net": 31,
+            "p_left_one_sided": 3.958120942115784e-09,
+            "p_right_one_sided": 0.9999999998835847,
+            "right": "k_first",
+            "right_hits": 190,
+            "ties": 195
+          },
+          "verdict": "RANKED_WINS"
+        }
+      }
+    },
+    "composition": {
+      "dual": {
+        "carrying_tier_when_evidence_arrived": {
+          "coverage": 30,
+          "coverage|k": 19,
+          "k": 691
+        },
+        "delivered_by_tier": {
+          "coverage": {
+            "max": 140,
+            "mean": 34.4,
+            "min": 0,
+            "n": 871,
+            "p25": 0,
+            "p50": 23,
+            "p75": 64,
+            "zero": 326
+          },
+          "k": {
+            "max": 128,
+            "mean": 74.084,
+            "min": 1,
+            "n": 871,
+            "p25": 41,
+            "p50": 84,
+            "p75": 111,
+            "zero": 0
+          },
+          "recency": {
+            "max": 0,
+            "mean": 0.0,
+            "min": 0,
+            "n": 871,
+            "p25": 0,
+            "p50": 0,
+            "p75": 0,
+            "zero": 871
+          }
+        },
+        "questions_with_zero_coverage": 326
+      },
+      "dual_ranked": {
+        "carrying_tier_when_evidence_arrived": {
+          "coverage": 30,
+          "coverage|k": 19,
+          "k": 794
+        },
+        "delivered_by_tier": {
+          "coverage": {
+            "max": 140,
+            "mean": 34.409,
+            "min": 0,
+            "n": 871,
+            "p25": 0,
+            "p50": 23,
+            "p75": 64,
+            "zero": 318
+          },
+          "k": {
+            "max": 132,
+            "mean": 74.224,
+            "min": 1,
+            "n": 871,
+            "p25": 41,
+            "p50": 83,
+            "p75": 109,
+            "zero": 0
+          },
+          "recency": {
+            "max": 0,
+            "mean": 0.0,
+            "min": 0,
+            "n": 871,
+            "p25": 0,
+            "p50": 0,
+            "p75": 0,
+            "zero": 871
+          }
+        },
+        "questions_with_zero_coverage": 318
+      },
+      "k_first": {
+        "carrying_tier_when_evidence_arrived": {
+          "coverage": 20,
+          "coverage|k": 11,
+          "coverage|k|recency": 1,
+          "coverage|recency": 1,
+          "k": 644,
+          "k|recency": 9,
+          "recency": 46
+        },
+        "delivered_by_tier": {
+          "coverage": {
+            "max": 103,
+            "mean": 18.785,
+            "min": 0,
+            "n": 871,
+            "p25": 0,
+            "p50": 1,
+            "p75": 36,
+            "zero": 431
+          },
+          "k": {
+            "max": 128,
+            "mean": 70.626,
+            "min": 1,
+            "n": 871,
+            "p25": 37,
+            "p50": 76,
+            "p75": 109,
+            "zero": 0
+          },
+          "recency": {
+            "max": 32,
+            "mean": 18.434,
+            "min": 0,
+            "n": 871,
+            "p25": 0,
+            "p50": 30,
+            "p75": 32,
+            "zero": 277
+          }
+        },
+        "questions_with_zero_coverage": 431
+      },
+      "n_first": {
+        "carrying_tier_when_evidence_arrived": {
+          "coverage": 20,
+          "coverage|k": 11,
+          "coverage|k|recency": 1,
+          "coverage|recency": 1,
+          "k": 556,
+          "k|recency": 14,
+          "recency": 84
+        },
+        "delivered_by_tier": {
+          "coverage": {
+            "max": 103,
+            "mean": 18.798,
+            "min": 0,
+            "n": 871,
+            "p25": 0,
+            "p50": 1,
+            "p75": 36,
+            "zero": 420
+          },
+          "k": {
+            "max": 97,
+            "mean": 56.972,
+            "min": 1,
+            "n": 871,
+            "p25": 37,
+            "p50": 64,
+            "p75": 79,
+            "zero": 0
+          },
+          "recency": {
+            "max": 32,
+            "mean": 32.0,
+            "min": 32,
+            "n": 871,
+            "p25": 32,
+            "p50": 32,
+            "p75": 32,
+            "zero": 0
+          }
+        },
+        "questions_with_zero_coverage": 420
+      }
+    },
+    "contrasts_any": {
+      "C1": {
+        "alpha": 0.0025,
+        "band": 7,
+        "contrast": "C1",
+        "disposition": "D1",
+        "left": "k_first",
+        "right": "n_first",
+        "signal_alpha": 0.025,
+        "statistic": {
+          "discordant": 115,
+          "endpoint": "any",
+          "gains": 80,
+          "left": "k_first",
+          "left_hits": 732,
+          "losses": 35,
+          "n": 871,
+          "net": 45,
+          "p_left_one_sided": 1.642221043682801e-05,
+          "p_right_one_sided": 0.9999930998275411,
+          "right": "n_first",
+          "right_hits": 687,
+          "ties": 756
+        },
+        "verdict": "K_FIRST_WINS"
+      },
+      "C2": {
+        "alpha": 0.0025,
+        "band": 7,
+        "contrast": "C2",
+        "disposition": "D3",
+        "left": "k_first",
+        "right": "flat",
+        "signal_alpha": 0.025,
+        "statistic": {
+          "discordant": 126,
+          "endpoint": "any",
+          "gains": 8,
+          "left": "k_first",
+          "left_hits": 732,
+          "losses": 118,
+          "n": 871,
+          "net": -110,
+          "p_left_one_sided": 1.0,
+          "p_right_one_sided": 1.5816581633095562e-26,
+          "right": "flat",
+          "right_hits": 842,
+          "ties": 745
+        },
+        "verdict": "FLAT_WINS"
+      },
+      "C3": {
+        "alpha": 0.0025,
+        "band": 7,
+        "contrast": "C3",
+        "disposition": "D2",
+        "left": "dual",
+        "right": "k_first",
+        "signal_alpha": 0.025,
+        "statistic": {
+          "discordant": 10,
+          "endpoint": "any",
+          "gains": 9,
+          "left": "dual",
+          "left_hits": 740,
+          "losses": 1,
+          "n": 871,
+          "net": 8,
+          "p_left_one_sided": 0.0107421875,
+          "p_right_one_sided": 0.9990234375,
+          "right": "k_first",
+          "right_hits": 732,
+          "ties": 861
+        },
+        "verdict": "DUAL_WINS_CARRIES_SIGNAL"
+      },
+      "C4": {
+        "alpha": 0.0025,
+        "band": 7,
+        "contrast": "C4",
+        "disposition": "D1",
+        "left": "dual_ranked",
+        "right": "k_first",
+        "signal_alpha": 0.025,
+        "statistic": {
+          "discordant": 125,
+          "endpoint": "any",
+          "gains": 118,
+          "left": "dual_ranked",
+          "left_hits": 843,
+          "losses": 7,
+          "n": 871,
+          "net": 111,
+          "p_left_one_sided": 1.990718662085095e-27,
+          "p_right_one_sided": 1.0,
+          "right": "k_first",
+          "right_hits": 732,
+          "ties": 746
+        },
+        "verdict": "RANKED_WINS"
+      }
+    },
+    "contrasts_complete": {
+      "C1": {
+        "alpha": 0.0025,
+        "band": 7,
+        "contrast": "C1",
+        "disposition": "D1",
+        "left": "k_first",
+        "right": "n_first",
+        "signal_alpha": 0.025,
+        "statistic": {
+          "discordant": 120,
+          "endpoint": "complete",
+          "gains": 86,
+          "left": "k_first",
+          "left_hits": 685,
+          "losses": 34,
+          "n": 868,
+          "net": 52,
+          "p_left_one_sided": 1.137628952282198e-06,
+          "p_right_one_sided": 0.9999995659752334,
+          "right": "n_first",
+          "right_hits": 633,
+          "ties": 748
+        },
+        "verdict": "K_FIRST_WINS"
+      },
+      "C2": {
+        "alpha": 0.0025,
+        "band": 7,
+        "contrast": "C2",
+        "disposition": "D3",
+        "left": "k_first",
+        "right": "flat",
+        "signal_alpha": 0.025,
+        "statistic": {
+          "discordant": 139,
+          "endpoint": "complete",
+          "gains": 7,
+          "left": "k_first",
+          "left_hits": 685,
+          "losses": 132,
+          "n": 868,
+          "net": -125,
+          "p_left_one_sided": 1.0,
+          "p_right_one_sided": 2.583022889403509e-31,
+          "right": "flat",
+          "right_hits": 810,
+          "ties": 729
+        },
+        "verdict": "FLAT_WINS"
+      },
+      "C3": {
+        "alpha": 0.0025,
+        "band": 7,
+        "contrast": "C3",
+        "disposition": "D2",
+        "left": "dual",
+        "right": "k_first",
+        "signal_alpha": 0.025,
+        "statistic": {
+          "discordant": 15,
+          "endpoint": "complete",
+          "gains": 12,
+          "left": "dual",
+          "left_hits": 694,
+          "losses": 3,
+          "n": 868,
+          "net": 9,
+          "p_left_one_sided": 0.017578125,
+          "p_right_one_sided": 0.996307373046875,
+          "right": "k_first",
+          "right_hits": 685,
+          "ties": 853
+        },
+        "verdict": "DUAL_WINS_CARRIES_SIGNAL"
+      },
+      "C4": {
+        "alpha": 0.0025,
+        "band": 7,
+        "contrast": "C4",
+        "disposition": "D1",
+        "left": "dual_ranked",
+        "right": "k_first",
+        "signal_alpha": 0.025,
+        "statistic": {
+          "discordant": 140,
+          "endpoint": "complete",
+          "gains": 133,
+          "left": "dual_ranked",
+          "left_hits": 811,
+          "losses": 7,
+          "n": 868,
+          "net": 126,
+          "p_left_one_sided": 1.3589320704599945e-31,
+          "p_right_one_sided": 1.0,
+          "right": "k_first",
+          "right_hits": 685,
+          "ties": 728
+        },
+        "verdict": "RANKED_WINS"
+      }
+    },
+    "delivery": {
+      "dual": {
+        "chars": {
+          "max": 32000,
+          "mean": 31959.224,
+          "min": 31717,
+          "n": 871,
+          "p25": 31939,
+          "p50": 31968,
+          "p75": 31986,
+          "zero": 0
+        },
+        "episodes": {
+          "max": 142,
+          "mean": 108.483,
+          "min": 84,
+          "n": 871,
+          "p25": 99,
+          "p50": 111,
+          "p75": 117,
+          "zero": 0
+        }
+      },
+      "dual_ranked": {
+        "chars": {
+          "max": 32000,
+          "mean": 31961.148,
+          "min": 31776,
+          "n": 871,
+          "p25": 31941,
+          "p50": 31969,
+          "p75": 31986,
+          "zero": 0
+        },
+        "episodes": {
+          "max": 142,
+          "mean": 108.633,
+          "min": 83,
+          "n": 871,
+          "p25": 98,
+          "p50": 111,
+          "p75": 117,
+          "zero": 0
+        }
+      },
+      "flat": {
+        "chars": {
+          "max": 32000,
+          "mean": 31965.286,
+          "min": 31859,
+          "n": 871,
+          "p25": 31946,
+          "p50": 31972,
+          "p75": 31990,
+          "zero": 0
+        },
+        "episodes": {
+          "max": 142,
+          "mean": 108.619,
+          "min": 83,
+          "n": 871,
+          "p25": 99,
+          "p50": 111,
+          "p75": 117,
+          "zero": 0
+        }
+      },
+      "k_first": {
+        "chars": {
+          "max": 32000,
+          "mean": 31951.912,
+          "min": 31754,
+          "n": 871,
+          "p25": 31928,
+          "p50": 31961,
+          "p75": 31984,
+          "zero": 0
+        },
+        "episodes": {
+          "max": 137,
+          "mean": 107.845,
+          "min": 85,
+          "n": 871,
+          "p25": 99,
+          "p50": 110,
+          "p75": 116,
+          "zero": 0
+        }
+      },
+      "n_first": {
+        "chars": {
+          "max": 32000,
+          "mean": 31951.514,
+          "min": 31754,
+          "n": 871,
+          "p25": 31928,
+          "p50": 31961,
+          "p75": 31985,
+          "zero": 0
+        },
+        "episodes": {
+          "max": 137,
+          "mean": 107.77,
+          "min": 87,
+          "n": 871,
+          "p25": 100,
+          "p50": 109,
+          "p75": 115,
+          "zero": 0
+        }
+      }
+    },
+    "fill_order_identical_payload": 424,
+    "null_band": 7,
+    "population": {
+      "complete_evaluable": 868,
+      "questions": 871
+    }
+  },
+  "primary_contrast": "C1",
+  "primary_endpoint": "any",
+  "robustness_wrapper_matched": {
+    "agrees_with_primary": {
+      "C2": true,
+      "C3": true,
+      "C4": true
+    },
+    "c1_excluded": "C1 is wrapper-symmetric already; charging one of its arms a different budget would introduce the asymmetry it does not have",
+    "contrasts": {
+      "C2": {
+        "alpha": 0.0025,
+        "band": 7,
+        "contrast": "C2",
+        "disposition": "D3",
+        "left": "k_first",
+        "right": "flat",
+        "signal_alpha": 0.025,
+        "statistic": {
+          "discordant": 126,
+          "endpoint": "any",
+          "gains": 8,
+          "left": "k_first",
+          "left_hits": 732,
+          "losses": 118,
+          "n": 871,
+          "net": -110,
+          "p_left_one_sided": 1.0,
+          "p_right_one_sided": 1.5816581633095562e-26,
+          "right": "flat",
+          "right_hits": 842,
+          "ties": 745
+        },
+        "verdict": "FLAT_WINS"
+      },
+      "C3": {
+        "alpha": 0.0025,
+        "band": 7,
+        "contrast": "C3",
+        "disposition": "D2",
+        "left": "dual",
+        "right": "k_first",
+        "signal_alpha": 0.025,
+        "statistic": {
+          "discordant": 10,
+          "endpoint": "any",
+          "gains": 9,
+          "left": "dual",
+          "left_hits": 740,
+          "losses": 1,
+          "n": 871,
+          "net": 8,
+          "p_left_one_sided": 0.0107421875,
+          "p_right_one_sided": 0.9990234375,
+          "right": "k_first",
+          "right_hits": 732,
+          "ties": 861
+        },
+        "verdict": "DUAL_WINS_CARRIES_SIGNAL"
+      },
+      "C4": {
+        "alpha": 0.0025,
+        "band": 7,
+        "contrast": "C4",
+        "disposition": "D1",
+        "left": "dual_ranked",
+        "right": "k_first",
+        "signal_alpha": 0.025,
+        "statistic": {
+          "discordant": 125,
+          "endpoint": "any",
+          "gains": 118,
+          "left": "dual_ranked",
+          "left_hits": 843,
+          "losses": 7,
+          "n": 871,
+          "net": 111,
+          "p_left_one_sided": 1.990718662085095e-27,
+          "p_right_one_sided": 1.0,
+          "right": "k_first",
+          "right_hits": 732,
+          "ties": 746
+        },
+        "verdict": "RANKED_WINS"
+      }
+    },
+    "k_first_budget_chars": 31982,
+    "k_first_chars_delivered": {
+      "max": 31982,
+      "mean": 31935.055,
+      "min": 31754,
+      "n": 871,
+      "p25": 31914,
+      "p50": 31942,
+      "p75": 31964,
+      "zero": 0
+    },
+    "other_arms_budget_chars": 32000
+  },
+  "schema": "tc002-fill-order-transfer-v1",
+  "secondary_budget": {
+    "budget_chars": 16000,
+    "by_category": {
+      "1": {
+        "C1": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C1",
+          "disposition": "D0b",
+          "left": "k_first",
+          "right": "n_first",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 18,
+            "endpoint": "any",
+            "gains": 12,
+            "left": "k_first",
+            "left_hits": 85,
+            "losses": 6,
+            "n": 109,
+            "net": 6,
+            "p_left_one_sided": 0.1189422607421875,
+            "p_right_one_sided": 0.951873779296875,
+            "right": "n_first",
+            "right_hits": 79,
+            "ties": 91
+          },
+          "verdict": "NO_DIFFERENCE_ESTABLISHED_NOT_SEPARABLE"
+        },
+        "C2": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C2",
+          "disposition": "D3",
+          "left": "k_first",
+          "right": "flat",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 24,
+            "endpoint": "any",
+            "gains": 1,
+            "left": "k_first",
+            "left_hits": 85,
+            "losses": 23,
+            "n": 109,
+            "net": -22,
+            "p_left_one_sided": 0.9999999403953552,
+            "p_right_one_sided": 1.4901161193847656e-06,
+            "right": "flat",
+            "right_hits": 107,
+            "ties": 85
+          },
+          "verdict": "FLAT_WINS"
+        },
+        "C3": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C3",
+          "disposition": "D0a",
+          "left": "dual",
+          "right": "k_first",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 1,
+            "endpoint": "any",
+            "gains": 1,
+            "left": "dual",
+            "left_hits": 86,
+            "losses": 0,
+            "n": 109,
+            "net": 1,
+            "p_left_one_sided": 0.5,
+            "p_right_one_sided": 1.0,
+            "right": "k_first",
+            "right_hits": 85,
+            "ties": 108
+          },
+          "verdict": "NO_DIFFERENCE_ESTABLISHED_INSIDE_BAND"
+        },
+        "C4": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C4",
+          "disposition": "D1",
+          "left": "dual_ranked",
+          "right": "k_first",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 24,
+            "endpoint": "any",
+            "gains": 23,
+            "left": "dual_ranked",
+            "left_hits": 107,
+            "losses": 1,
+            "n": 109,
+            "net": 22,
+            "p_left_one_sided": 1.4901161193847656e-06,
+            "p_right_one_sided": 0.9999999403953552,
+            "right": "k_first",
+            "right_hits": 85,
+            "ties": 85
+          },
+          "verdict": "RANKED_WINS"
+        }
+      },
+      "2": {
+        "C1": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C1",
+          "disposition": "D1",
+          "left": "k_first",
+          "right": "n_first",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 52,
+            "endpoint": "any",
+            "gains": 44,
+            "left": "k_first",
+            "left_hits": 107,
+            "losses": 8,
+            "n": 143,
+            "net": 36,
+            "p_left_one_sided": 2.0196608696565477e-07,
+            "p_right_one_sided": 0.9999999651309492,
+            "right": "n_first",
+            "right_hits": 71,
+            "ties": 91
+          },
+          "verdict": "K_FIRST_WINS"
+        },
+        "C2": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C2",
+          "disposition": "D3",
+          "left": "k_first",
+          "right": "flat",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 28,
+            "endpoint": "any",
+            "gains": 1,
+            "left": "k_first",
+            "left_hits": 107,
+            "losses": 27,
+            "n": 143,
+            "net": -26,
+            "p_left_one_sided": 0.9999999962747097,
+            "p_right_one_sided": 1.0803341865539551e-07,
+            "right": "flat",
+            "right_hits": 133,
+            "ties": 115
+          },
+          "verdict": "FLAT_WINS"
+        },
+        "C3": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C3",
+          "disposition": "D0a",
+          "left": "dual",
+          "right": "k_first",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 3,
+            "endpoint": "any",
+            "gains": 3,
+            "left": "dual",
+            "left_hits": 110,
+            "losses": 0,
+            "n": 143,
+            "net": 3,
+            "p_left_one_sided": 0.125,
+            "p_right_one_sided": 1.0,
+            "right": "k_first",
+            "right_hits": 107,
+            "ties": 140
+          },
+          "verdict": "NO_DIFFERENCE_ESTABLISHED_INSIDE_BAND"
+        },
+        "C4": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C4",
+          "disposition": "D1",
+          "left": "dual_ranked",
+          "right": "k_first",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 27,
+            "endpoint": "any",
+            "gains": 26,
+            "left": "dual_ranked",
+            "left_hits": 132,
+            "losses": 1,
+            "n": 143,
+            "net": 25,
+            "p_left_one_sided": 2.086162567138672e-07,
+            "p_right_one_sided": 0.9999999925494194,
+            "right": "k_first",
+            "right_hits": 107,
+            "ties": 116
+          },
+          "verdict": "RANKED_WINS"
+        }
+      },
+      "3": {
+        "C1": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C1",
+          "disposition": "D0a",
+          "left": "k_first",
+          "right": "n_first",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 8,
+            "endpoint": "any",
+            "gains": 4,
+            "left": "k_first",
+            "left_hits": 22,
+            "losses": 4,
+            "n": 42,
+            "net": 0,
+            "p_left_one_sided": 0.63671875,
+            "p_right_one_sided": 0.63671875,
+            "right": "n_first",
+            "right_hits": 22,
+            "ties": 34
+          },
+          "verdict": "NO_DIFFERENCE_ESTABLISHED_INSIDE_BAND"
+        },
+        "C2": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C2",
+          "disposition": "D0b",
+          "left": "k_first",
+          "right": "flat",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 13,
+            "endpoint": "any",
+            "gains": 3,
+            "left": "k_first",
+            "left_hits": 22,
+            "losses": 10,
+            "n": 42,
+            "net": -7,
+            "p_left_one_sided": 0.98876953125,
+            "p_right_one_sided": 0.046142578125,
+            "right": "flat",
+            "right_hits": 29,
+            "ties": 29
+          },
+          "verdict": "NO_DIFFERENCE_ESTABLISHED_NOT_SEPARABLE"
+        },
+        "C3": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C3",
+          "disposition": "D0a",
+          "left": "dual",
+          "right": "k_first",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 1,
+            "endpoint": "any",
+            "gains": 1,
+            "left": "dual",
+            "left_hits": 23,
+            "losses": 0,
+            "n": 42,
+            "net": 1,
+            "p_left_one_sided": 0.5,
+            "p_right_one_sided": 1.0,
+            "right": "k_first",
+            "right_hits": 22,
+            "ties": 41
+          },
+          "verdict": "NO_DIFFERENCE_ESTABLISHED_INSIDE_BAND"
+        },
+        "C4": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C4",
+          "disposition": "D0b",
+          "left": "dual_ranked",
+          "right": "k_first",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 13,
+            "endpoint": "any",
+            "gains": 10,
+            "left": "dual_ranked",
+            "left_hits": 29,
+            "losses": 3,
+            "n": 42,
+            "net": 7,
+            "p_left_one_sided": 0.046142578125,
+            "p_right_one_sided": 0.98876953125,
+            "right": "k_first",
+            "right_hits": 22,
+            "ties": 29
+          },
+          "verdict": "NO_DIFFERENCE_ESTABLISHED_NOT_SEPARABLE"
+        }
+      },
+      "4": {
+        "C1": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C1",
+          "disposition": "D1",
+          "left": "k_first",
+          "right": "n_first",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 123,
+            "endpoint": "any",
+            "gains": 93,
+            "left": "k_first",
+            "left_hits": 200,
+            "losses": 30,
+            "n": 387,
+            "net": 63,
+            "p_left_one_sided": 5.418957211837189e-09,
+            "p_right_one_sided": 0.9999999983036453,
+            "right": "n_first",
+            "right_hits": 137,
+            "ties": 264
+          },
+          "verdict": "K_FIRST_WINS"
+        },
+        "C2": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C2",
+          "disposition": "D3",
+          "left": "k_first",
+          "right": "flat",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 170,
+            "endpoint": "any",
+            "gains": 5,
+            "left": "k_first",
+            "left_hits": 200,
+            "losses": 165,
+            "n": 387,
+            "net": -160,
+            "p_left_one_sided": 1.0,
+            "p_right_one_sided": 7.680447516701801e-43,
+            "right": "flat",
+            "right_hits": 360,
+            "ties": 217
+          },
+          "verdict": "FLAT_WINS"
+        },
+        "C3": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C3",
+          "disposition": "D0a",
+          "left": "dual",
+          "right": "k_first",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 2,
+            "endpoint": "any",
+            "gains": 2,
+            "left": "dual",
+            "left_hits": 202,
+            "losses": 0,
+            "n": 387,
+            "net": 2,
+            "p_left_one_sided": 0.25,
+            "p_right_one_sided": 1.0,
+            "right": "k_first",
+            "right_hits": 200,
+            "ties": 385
+          },
+          "verdict": "NO_DIFFERENCE_ESTABLISHED_INSIDE_BAND"
+        },
+        "C4": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C4",
+          "disposition": "D1",
+          "left": "dual_ranked",
+          "right": "k_first",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 169,
+            "endpoint": "any",
+            "gains": 164,
+            "left": "dual_ranked",
+            "left_hits": 359,
+            "losses": 5,
+            "n": 387,
+            "net": 159,
+            "p_left_one_sided": 1.491187409015753e-42,
+            "p_right_one_sided": 1.0,
+            "right": "k_first",
+            "right_hits": 200,
+            "ties": 218
+          },
+          "verdict": "RANKED_WINS"
+        }
+      },
+      "5": {
+        "C1": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C1",
+          "disposition": "D1",
+          "left": "k_first",
+          "right": "n_first",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 69,
+            "endpoint": "any",
+            "gains": 51,
+            "left": "k_first",
+            "left_hits": 105,
+            "losses": 18,
+            "n": 190,
+            "net": 33,
+            "p_left_one_sided": 4.3843312314230094e-05,
+            "p_right_one_sided": 0.9999853478391273,
+            "right": "n_first",
+            "right_hits": 72,
+            "ties": 121
+          },
+          "verdict": "K_FIRST_WINS"
+        },
+        "C2": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C2",
+          "disposition": "D3",
+          "left": "k_first",
+          "right": "flat",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 73,
+            "endpoint": "any",
+            "gains": 2,
+            "left": "k_first",
+            "left_hits": 105,
+            "losses": 71,
+            "n": 190,
+            "net": -69,
+            "p_left_one_sided": 1.0,
+            "p_right_one_sided": 2.8608537793513994e-19,
+            "right": "flat",
+            "right_hits": 174,
+            "ties": 117
+          },
+          "verdict": "FLAT_WINS"
+        },
+        "C3": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C3",
+          "disposition": "D0a",
+          "left": "dual",
+          "right": "k_first",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 2,
+            "endpoint": "any",
+            "gains": 2,
+            "left": "dual",
+            "left_hits": 107,
+            "losses": 0,
+            "n": 190,
+            "net": 2,
+            "p_left_one_sided": 0.25,
+            "p_right_one_sided": 1.0,
+            "right": "k_first",
+            "right_hits": 105,
+            "ties": 188
+          },
+          "verdict": "NO_DIFFERENCE_ESTABLISHED_INSIDE_BAND"
+        },
+        "C4": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C4",
+          "disposition": "D1",
+          "left": "dual_ranked",
+          "right": "k_first",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 73,
+            "endpoint": "any",
+            "gains": 71,
+            "left": "dual_ranked",
+            "left_hits": 174,
+            "losses": 2,
+            "n": 190,
+            "net": 69,
+            "p_left_one_sided": 2.8608537793513994e-19,
+            "p_right_one_sided": 1.0,
+            "right": "k_first",
+            "right_hits": 105,
+            "ties": 117
+          },
+          "verdict": "RANKED_WINS"
+        }
+      }
+    },
+    "by_conversation": {
+      "conv-41": {
+        "C1": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C1",
+          "disposition": "D1",
+          "left": "k_first",
+          "right": "n_first",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 50,
+            "endpoint": "any",
+            "gains": 41,
+            "left": "k_first",
+            "left_hits": 127,
+            "losses": 9,
+            "n": 193,
+            "net": 32,
+            "p_left_one_sided": 2.8070500466270687e-06,
+            "p_right_one_sided": 0.9999994182220977,
+            "right": "n_first",
+            "right_hits": 95,
+            "ties": 143
+          },
+          "verdict": "K_FIRST_WINS"
+        },
+        "C2": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C2",
+          "disposition": "D3",
+          "left": "k_first",
+          "right": "flat",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 53,
+            "endpoint": "any",
+            "gains": 2,
+            "left": "k_first",
+            "left_hits": 127,
+            "losses": 51,
+            "n": 193,
+            "net": -49,
+            "p_left_one_sided": 0.999999999999994,
+            "p_right_one_sided": 1.5898393712632242e-13,
+            "right": "flat",
+            "right_hits": 176,
+            "ties": 140
+          },
+          "verdict": "FLAT_WINS"
+        },
+        "C3": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C3",
+          "disposition": "D0a",
+          "left": "dual",
+          "right": "k_first",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 3,
+            "endpoint": "any",
+            "gains": 3,
+            "left": "dual",
+            "left_hits": 130,
+            "losses": 0,
+            "n": 193,
+            "net": 3,
+            "p_left_one_sided": 0.125,
+            "p_right_one_sided": 1.0,
+            "right": "k_first",
+            "right_hits": 127,
+            "ties": 190
+          },
+          "verdict": "NO_DIFFERENCE_ESTABLISHED_INSIDE_BAND"
+        },
+        "C4": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C4",
+          "disposition": "D1",
+          "left": "dual_ranked",
+          "right": "k_first",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 53,
+            "endpoint": "any",
+            "gains": 51,
+            "left": "dual_ranked",
+            "left_hits": 176,
+            "losses": 2,
+            "n": 193,
+            "net": 49,
+            "p_left_one_sided": 1.5898393712632242e-13,
+            "p_right_one_sided": 0.999999999999994,
+            "right": "k_first",
+            "right_hits": 127,
+            "ties": 140
+          },
+          "verdict": "RANKED_WINS"
+        }
+      },
+      "conv-42": {
+        "C1": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C1",
+          "disposition": "D1",
+          "left": "k_first",
+          "right": "n_first",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 103,
+            "endpoint": "any",
+            "gains": 73,
+            "left": "k_first",
+            "left_hits": 144,
+            "losses": 30,
+            "n": 260,
+            "net": 43,
+            "p_left_one_sided": 1.3588206562850904e-05,
+            "p_right_one_sided": 0.9999946473708854,
+            "right": "n_first",
+            "right_hits": 101,
+            "ties": 157
+          },
+          "verdict": "K_FIRST_WINS"
+        },
+        "C2": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C2",
+          "disposition": "D3",
+          "left": "k_first",
+          "right": "flat",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 103,
+            "endpoint": "any",
+            "gains": 5,
+            "left": "k_first",
+            "left_hits": 144,
+            "losses": 98,
+            "n": 260,
+            "net": -93,
+            "p_left_one_sided": 1.0,
+            "p_right_one_sided": 9.086171692677989e-24,
+            "right": "flat",
+            "right_hits": 237,
+            "ties": 157
+          },
+          "verdict": "FLAT_WINS"
+        },
+        "C3": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C3",
+          "disposition": "D0a",
+          "left": "dual",
+          "right": "k_first",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 0,
+            "endpoint": "any",
+            "gains": 0,
+            "left": "dual",
+            "left_hits": 144,
+            "losses": 0,
+            "n": 260,
+            "net": 0,
+            "p_left_one_sided": 1.0,
+            "p_right_one_sided": 1.0,
+            "right": "k_first",
+            "right_hits": 144,
+            "ties": 260
+          },
+          "verdict": "NO_DIFFERENCE_ESTABLISHED_INSIDE_BAND"
+        },
+        "C4": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C4",
+          "disposition": "D1",
+          "left": "dual_ranked",
+          "right": "k_first",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 102,
+            "endpoint": "any",
+            "gains": 97,
+            "left": "dual_ranked",
+            "left_hits": 236,
+            "losses": 5,
+            "n": 260,
+            "net": 92,
+            "p_left_one_sided": 1.7299364466874213e-23,
+            "p_right_one_sided": 1.0,
+            "right": "k_first",
+            "right_hits": 144,
+            "ties": 158
+          },
+          "verdict": "RANKED_WINS"
+        }
+      },
+      "conv-47": {
+        "C1": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C1",
+          "disposition": "D1",
+          "left": "k_first",
+          "right": "n_first",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 49,
+            "endpoint": "any",
+            "gains": 35,
+            "left": "k_first",
+            "left_hits": 120,
+            "losses": 14,
+            "n": 190,
+            "net": 21,
+            "p_left_one_sided": 0.001900827204874389,
+            "p_right_one_sided": 0.9992986557481522,
+            "right": "n_first",
+            "right_hits": 99,
+            "ties": 141
+          },
+          "verdict": "K_FIRST_WINS"
+        },
+        "C2": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C2",
+          "disposition": "D3",
+          "left": "k_first",
+          "right": "flat",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 62,
+            "endpoint": "any",
+            "gains": 2,
+            "left": "k_first",
+            "left_hits": 120,
+            "losses": 60,
+            "n": 190,
+            "net": -58,
+            "p_left_one_sided": 1.0,
+            "p_right_one_sided": 4.2370620900733513e-16,
+            "right": "flat",
+            "right_hits": 178,
+            "ties": 128
+          },
+          "verdict": "FLAT_WINS"
+        },
+        "C3": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C3",
+          "disposition": "D0b",
+          "left": "dual",
+          "right": "k_first",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 5,
+            "endpoint": "any",
+            "gains": 5,
+            "left": "dual",
+            "left_hits": 125,
+            "losses": 0,
+            "n": 190,
+            "net": 5,
+            "p_left_one_sided": 0.03125,
+            "p_right_one_sided": 1.0,
+            "right": "k_first",
+            "right_hits": 120,
+            "ties": 185
+          },
+          "verdict": "NO_DIFFERENCE_ESTABLISHED_NOT_SEPARABLE"
+        },
+        "C4": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C4",
+          "disposition": "D1",
+          "left": "dual_ranked",
+          "right": "k_first",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 61,
+            "endpoint": "any",
+            "gains": 59,
+            "left": "dual_ranked",
+            "left_hits": 177,
+            "losses": 2,
+            "n": 190,
+            "net": 57,
+            "p_left_one_sided": 8.205242041370298e-16,
+            "p_right_one_sided": 1.0,
+            "right": "k_first",
+            "right_hits": 120,
+            "ties": 129
+          },
+          "verdict": "RANKED_WINS"
+        }
+      },
+      "conv-48": {
+        "C1": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C1",
+          "disposition": "D1",
+          "left": "k_first",
+          "right": "n_first",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 68,
+            "endpoint": "any",
+            "gains": 55,
+            "left": "k_first",
+            "left_hits": 128,
+            "losses": 13,
+            "n": 228,
+            "net": 42,
+            "p_left_one_sided": 1.3732885561341078e-07,
+            "p_right_one_sided": 0.9999999689525213,
+            "right": "n_first",
+            "right_hits": 86,
+            "ties": 160
+          },
+          "verdict": "K_FIRST_WINS"
+        },
+        "C2": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C2",
+          "disposition": "D3",
+          "left": "k_first",
+          "right": "flat",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 90,
+            "endpoint": "any",
+            "gains": 3,
+            "left": "k_first",
+            "left_hits": 128,
+            "losses": 87,
+            "n": 228,
+            "net": -84,
+            "p_left_one_sided": 1.0,
+            "p_right_one_sided": 9.820831069506532e-23,
+            "right": "flat",
+            "right_hits": 212,
+            "ties": 138
+          },
+          "verdict": "FLAT_WINS"
+        },
+        "C3": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C3",
+          "disposition": "D0a",
+          "left": "dual",
+          "right": "k_first",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 1,
+            "endpoint": "any",
+            "gains": 1,
+            "left": "dual",
+            "left_hits": 129,
+            "losses": 0,
+            "n": 228,
+            "net": 1,
+            "p_left_one_sided": 0.5,
+            "p_right_one_sided": 1.0,
+            "right": "k_first",
+            "right_hits": 128,
+            "ties": 227
+          },
+          "verdict": "NO_DIFFERENCE_ESTABLISHED_INSIDE_BAND"
+        },
+        "C4": {
+          "alpha": 0.0025,
+          "band": 4,
+          "contrast": "C4",
+          "disposition": "D1",
+          "left": "dual_ranked",
+          "right": "k_first",
+          "signal_alpha": 0.025,
+          "statistic": {
+            "discordant": 90,
+            "endpoint": "any",
+            "gains": 87,
+            "left": "dual_ranked",
+            "left_hits": 212,
+            "losses": 3,
+            "n": 228,
+            "net": 84,
+            "p_left_one_sided": 9.820831069506532e-23,
+            "p_right_one_sided": 1.0,
+            "right": "k_first",
+            "right_hits": 128,
+            "ties": 138
+          },
+          "verdict": "RANKED_WINS"
+        }
+      }
+    },
+    "composition": {
+      "dual": {
+        "carrying_tier_when_evidence_arrived": {
+          "coverage": 12,
+          "coverage|k": 10,
+          "k": 506
+        },
+        "delivered_by_tier": {
+          "coverage": {
+            "max": 77,
+            "mean": 8.37,
+            "min": 0,
+            "n": 871,
+            "p25": 0,
+            "p50": 0,
+            "p75": 11,
+            "zero": 571
+          },
+          "k": {
+            "max": 71,
+            "mean": 46.22,
+            "min": 1,
+            "n": 871,
+            "p25": 41,
+            "p50": 52,
+            "p75": 58,
+            "zero": 0
+          },
+          "recency": {
+            "max": 0,
+            "mean": 0.0,
+            "min": 0,
+            "n": 871,
+            "p25": 0,
+            "p50": 0,
+            "p75": 0,
+            "zero": 871
+          }
+        },
+        "questions_with_zero_coverage": 571
+      },
+      "dual_ranked": {
+        "carrying_tier_when_evidence_arrived": {
+          "coverage": 12,
+          "coverage|k": 10,
+          "k": 779
+        },
+        "delivered_by_tier": {
+          "coverage": {
+            "max": 77,
+            "mean": 8.37,
+            "min": 0,
+            "n": 871,
+            "p25": 0,
+            "p50": 0,
+            "p75": 11,
+            "zero": 571
+          },
+          "k": {
+            "max": 76,
+            "mean": 45.669,
+            "min": 1,
+            "n": 871,
+            "p25": 40,
+            "p50": 50,
+            "p75": 57,
+            "zero": 0
+          },
+          "recency": {
+            "max": 0,
+            "mean": 0.0,
+            "min": 0,
+            "n": 871,
+            "p25": 0,
+            "p50": 0,
+            "p75": 0,
+            "zero": 871
+          }
+        },
+        "questions_with_zero_coverage": 571
+      },
+      "k_first": {
+        "carrying_tier_when_evidence_arrived": {
+          "coverage": 3,
+          "coverage|k": 4,
+          "coverage|k|recency": 1,
+          "k": 484,
+          "k|recency": 7,
+          "recency": 20
+        },
+        "delivered_by_tier": {
+          "coverage": {
+            "max": 35,
+            "mean": 1.372,
+            "min": 0,
+            "n": 871,
+            "p25": 0,
+            "p50": 0,
+            "p75": 0,
+            "zero": 738
+          },
+          "k": {
+            "max": 70,
+            "mean": 45.076,
+            "min": 1,
+            "n": 871,
+            "p25": 37,
+            "p50": 51,
+            "p75": 58,
+            "zero": 0
+          },
+          "recency": {
+            "max": 32,
+            "mean": 7.912,
+            "min": 0,
+            "n": 871,
+            "p25": 0,
+            "p50": 0,
+            "p75": 14,
+            "zero": 492
+          }
+        },
+        "questions_with_zero_coverage": 738
+      },
+      "n_first": {
+        "carrying_tier_when_evidence_arrived": {
+          "coverage": 3,
+          "coverage|k": 4,
+          "coverage|k|recency": 1,
+          "k": 274,
+          "k|recency": 7,
+          "recency": 92
+        },
+        "delivered_by_tier": {
+          "coverage": {
+            "max": 35,
+            "mean": 1.39,
+            "min": 0,
+            "n": 871,
+            "p25": 0,
+            "p50": 0,
+            "p75": 0,
+            "zero": 722
+          },
+          "k": {
+            "max": 30,
+            "mean": 20.34,
+            "min": 1,
+            "n": 871,
+            "p25": 17,
+            "p50": 22,
+            "p75": 24,
+            "zero": 0
+          },
+          "recency": {
+            "max": 32,
+            "mean": 32.0,
+            "min": 32,
+            "n": 871,
+            "p25": 32,
+            "p50": 32,
+            "p75": 32,
+            "zero": 0
+          }
+        },
+        "questions_with_zero_coverage": 722
+      }
+    },
+    "contrasts_any": {
+      "C1": {
+        "alpha": 0.0025,
+        "band": 4,
+        "contrast": "C1",
+        "disposition": "D1",
+        "left": "k_first",
+        "right": "n_first",
+        "signal_alpha": 0.025,
+        "statistic": {
+          "discordant": 270,
+          "endpoint": "any",
+          "gains": 204,
+          "left": "k_first",
+          "left_hits": 519,
+          "losses": 66,
+          "n": 871,
+          "net": 138,
+          "p_left_one_sided": 7.143778546585715e-18,
+          "p_right_one_sided": 1.0,
+          "right": "n_first",
+          "right_hits": 381,
+          "ties": 601
+        },
+        "verdict": "K_FIRST_WINS"
+      },
+      "C2": {
+        "alpha": 0.0025,
+        "band": 4,
+        "contrast": "C2",
+        "disposition": "D3",
+        "left": "k_first",
+        "right": "flat",
+        "signal_alpha": 0.025,
+        "statistic": {
+          "discordant": 308,
+          "endpoint": "any",
+          "gains": 12,
+          "left": "k_first",
+          "left_hits": 519,
+          "losses": 296,
+          "n": 871,
+          "net": -284,
+          "p_left_one_sided": 1.0,
+          "p_right_one_sided": 2.447006459612472e-72,
+          "right": "flat",
+          "right_hits": 803,
+          "ties": 563
+        },
+        "verdict": "FLAT_WINS"
+      },
+      "C3": {
+        "alpha": 0.0025,
+        "band": 4,
+        "contrast": "C3",
+        "disposition": "D1",
+        "left": "dual",
+        "right": "k_first",
+        "signal_alpha": 0.025,
+        "statistic": {
+          "discordant": 9,
+          "endpoint": "any",
+          "gains": 9,
+          "left": "dual",
+          "left_hits": 528,
+          "losses": 0,
+          "n": 871,
+          "net": 9,
+          "p_left_one_sided": 0.001953125,
+          "p_right_one_sided": 1.0,
+          "right": "k_first",
+          "right_hits": 519,
+          "ties": 862
+        },
+        "verdict": "DUAL_WINS"
+      },
+      "C4": {
+        "alpha": 0.0025,
+        "band": 4,
+        "contrast": "C4",
+        "disposition": "D1",
+        "left": "dual_ranked",
+        "right": "k_first",
+        "signal_alpha": 0.025,
+        "statistic": {
+          "discordant": 306,
+          "endpoint": "any",
+          "gains": 294,
+          "left": "dual_ranked",
+          "left_hits": 801,
+          "losses": 12,
+          "n": 871,
+          "net": 282,
+          "p_left_one_sided": 9.041547850117804e-72,
+          "p_right_one_sided": 1.0,
+          "right": "k_first",
+          "right_hits": 519,
+          "ties": 565
+        },
+        "verdict": "RANKED_WINS"
+      }
+    },
+    "contrasts_complete": {
+      "C1": {
+        "alpha": 0.0025,
+        "band": 4,
+        "contrast": "C1",
+        "disposition": "D1",
+        "left": "k_first",
+        "right": "n_first",
+        "signal_alpha": 0.025,
+        "statistic": {
+          "discordant": 265,
+          "endpoint": "complete",
+          "gains": 206,
+          "left": "k_first",
+          "left_hits": 461,
+          "losses": 59,
+          "n": 868,
+          "net": 147,
+          "p_left_one_sided": 1.4590403801903098e-20,
+          "p_right_one_sided": 1.0,
+          "right": "n_first",
+          "right_hits": 314,
+          "ties": 603
+        },
+        "verdict": "K_FIRST_WINS"
+      },
+      "C2": {
+        "alpha": 0.0025,
+        "band": 4,
+        "contrast": "C2",
+        "disposition": "D3",
+        "left": "k_first",
+        "right": "flat",
+        "signal_alpha": 0.025,
+        "statistic": {
+          "discordant": 318,
+          "endpoint": "complete",
+          "gains": 15,
+          "left": "k_first",
+          "left_hits": 461,
+          "losses": 303,
+          "n": 868,
+          "net": -288,
+          "p_left_one_sided": 1.0,
+          "p_right_one_sided": 3.7036819012999486e-71,
+          "right": "flat",
+          "right_hits": 749,
+          "ties": 550
+        },
+        "verdict": "FLAT_WINS"
+      },
+      "C3": {
+        "alpha": 0.0025,
+        "band": 4,
+        "contrast": "C3",
+        "disposition": "D1",
+        "left": "dual",
+        "right": "k_first",
+        "signal_alpha": 0.025,
+        "statistic": {
+          "discordant": 13,
+          "endpoint": "complete",
+          "gains": 12,
+          "left": "dual",
+          "left_hits": 472,
+          "losses": 1,
+          "n": 868,
+          "net": 11,
+          "p_left_one_sided": 0.001708984375,
+          "p_right_one_sided": 0.9998779296875,
+          "right": "k_first",
+          "right_hits": 461,
+          "ties": 855
+        },
+        "verdict": "DUAL_WINS"
+      },
+      "C4": {
+        "alpha": 0.0025,
+        "band": 4,
+        "contrast": "C4",
+        "disposition": "D1",
+        "left": "dual_ranked",
+        "right": "k_first",
+        "signal_alpha": 0.025,
+        "statistic": {
+          "discordant": 315,
+          "endpoint": "complete",
+          "gains": 301,
+          "left": "dual_ranked",
+          "left_hits": 748,
+          "losses": 14,
+          "n": 868,
+          "net": 287,
+          "p_left_one_sided": 1.2727257500532283e-71,
+          "p_right_one_sided": 1.0,
+          "right": "k_first",
+          "right_hits": 461,
+          "ties": 553
+        },
+        "verdict": "RANKED_WINS"
+      }
+    },
+    "delivery": {
+      "dual": {
+        "chars": {
+          "max": 16000,
+          "mean": 15954.78,
+          "min": 15746,
+          "n": 871,
+          "p25": 15935,
+          "p50": 15965,
+          "p75": 15986,
+          "zero": 0
+        },
+        "episodes": {
+          "max": 79,
+          "mean": 54.59,
+          "min": 39,
+          "n": 871,
+          "p25": 49,
+          "p50": 56,
+          "p75": 59,
+          "zero": 0
+        }
+      },
+      "dual_ranked": {
+        "chars": {
+          "max": 16000,
+          "mean": 15956.303,
+          "min": 15746,
+          "n": 871,
+          "p25": 15937,
+          "p50": 15966,
+          "p75": 15984,
+          "zero": 0
+        },
+        "episodes": {
+          "max": 79,
+          "mean": 54.039,
+          "min": 38,
+          "n": 871,
+          "p25": 48,
+          "p50": 54,
+          "p75": 60,
+          "zero": 0
+        }
+      },
+      "flat": {
+        "chars": {
+          "max": 16000,
+          "mean": 15964.793,
+          "min": 15864,
+          "n": 871,
+          "p25": 15945,
+          "p50": 15969,
+          "p75": 15988,
+          "zero": 0
+        },
+        "episodes": {
+          "max": 79,
+          "mean": 54.171,
+          "min": 38,
+          "n": 871,
+          "p25": 48,
+          "p50": 54,
+          "p75": 59,
+          "zero": 0
+        }
+      },
+      "k_first": {
+        "chars": {
+          "max": 16000,
+          "mean": 15959.147,
+          "min": 15783,
+          "n": 871,
+          "p25": 15938,
+          "p50": 15967,
+          "p75": 15986,
+          "zero": 0
+        },
+        "episodes": {
+          "max": 73,
+          "mean": 54.359,
+          "min": 40,
+          "n": 871,
+          "p25": 49,
+          "p50": 55,
+          "p75": 59,
+          "zero": 0
+        }
+      },
+      "n_first": {
+        "chars": {
+          "max": 16000,
+          "mean": 15954.09,
+          "min": 15783,
+          "n": 871,
+          "p25": 15930,
+          "p50": 15961,
+          "p75": 15986,
+          "zero": 0
+        },
+        "episodes": {
+          "max": 69,
+          "mean": 53.73,
+          "min": 45,
+          "n": 871,
+          "p25": 51,
+          "p50": 54,
+          "p75": 57,
+          "zero": 0
+        }
+      }
+    },
+    "fill_order_identical_payload": 120,
+    "null_band": 4,
+    "population": {
+      "complete_evaluable": 868,
+      "questions": 871
+    }
+  },
+  "standing": "REGISTERED-OFFLINE",
+  "status": "COMPLETE",
+  "verdict": {
+    "alpha": 0.0025,
+    "band": 7,
+    "contrast": "C1",
+    "disposition": "D1",
+    "left": "k_first",
+    "right": "n_first",
+    "signal_alpha": 0.025,
+    "statistic": {
+      "discordant": 115,
+      "endpoint": "any",
+      "gains": 80,
+      "left": "k_first",
+      "left_hits": 732,
+      "losses": 35,
+      "n": 871,
+      "net": 45,
+      "p_left_one_sided": 1.642221043682801e-05,
+      "p_right_one_sided": 0.9999930998275411,
+      "right": "n_first",
+      "right_hits": 687,
+      "ties": 756
+    },
+    "verdict": "K_FIRST_WINS"
+  }
+}

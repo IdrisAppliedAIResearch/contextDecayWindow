@@ -1,0 +1,96 @@
+{
+  "bands": {
+    "16000": {
+      "breadth_complete": 0,
+      "breadth_share_identities": 0,
+      "breadth_share_questions": 0,
+      "combined_complete": 2,
+      "targeted_complete": 2
+    },
+    "32000": {
+      "breadth_complete": 0,
+      "breadth_share_identities": 0,
+      "breadth_share_questions": 0,
+      "combined_complete": 1,
+      "targeted_complete": 0
+    }
+  },
+  "cells": {
+    "16000": {
+      "breadth_complete_noninferiority": {
+        "band": 0,
+        "fail_reachable": true,
+        "n": 44,
+        "pass_reachable": true
+      },
+      "breadth_share": {
+        "dense_works_reachable": true,
+        "identity_band": 0,
+        "n": 44,
+        "positive_identity_net_reachable": true,
+        "question_band": 0,
+        "signal_minimum_all_favourable_questions": 6,
+        "treatment_works_reachable": true,
+        "works_minimum_all_favourable_questions": 10
+      },
+      "combined_complete_guardrail": {
+        "band": 2,
+        "fire_reachable": true,
+        "minimum_all_adverse_to_fire": 10,
+        "n": 868,
+        "nonfire_reachable": true
+      },
+      "targeted_complete_guardrail": {
+        "band": 2,
+        "fire_reachable": true,
+        "minimum_all_adverse_to_fire": 10,
+        "n": 704,
+        "nonfire_reachable": true
+      }
+    },
+    "32000": {
+      "breadth_complete_noninferiority": {
+        "band": 0,
+        "fail_reachable": true,
+        "n": 44,
+        "pass_reachable": true
+      },
+      "breadth_share": {
+        "dense_works_reachable": true,
+        "identity_band": 0,
+        "n": 44,
+        "positive_identity_net_reachable": true,
+        "question_band": 0,
+        "signal_minimum_all_favourable_questions": 6,
+        "treatment_works_reachable": true,
+        "works_minimum_all_favourable_questions": 10
+      },
+      "combined_complete_guardrail": {
+        "band": 1,
+        "fire_reachable": true,
+        "minimum_all_adverse_to_fire": 10,
+        "n": 868,
+        "nonfire_reachable": true
+      },
+      "targeted_complete_guardrail": {
+        "band": 0,
+        "fire_reachable": true,
+        "minimum_all_adverse_to_fire": 10,
+        "n": 704,
+        "nonfire_reachable": true
+      }
+    }
+  },
+  "family_tests": 6,
+  "joint_branches": {
+    "dense_works_both_budgets": true,
+    "guardrail_failure": true,
+    "mixed_or_no_difference": true,
+    "session_carries_signal_one_budget": true,
+    "session_works_both_budgets": true
+  },
+  "schema": "tc008-pf4-v1",
+  "signal_alpha": 0.016666666666666666,
+  "status": "PASS",
+  "works_alpha": 0.0016666666666666668
+}

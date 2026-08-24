@@ -26,29 +26,31 @@ _CALL_SHAPES = ("solo",)
 
 @dataclass(frozen=True)
 class EpisodicConfig:
-    """Deployed defaults, each traceable to a committed measurement.
+    """Deployed episodic-chat defaults and historical compatibility fields.
 
-    ``recency_window_n`` and ``k_threshold`` are the values of the carried
-    recency/similarity paths in the corrected 121-turn run (N cap 32,
-    K 0.48). ``candidate_policy`` defaults to the full store: DR-002 found
-    that dropping the 19 lowest-cosine episodes from a 119-episode pool
-    cost an entire domain, because the coverage selector clusters over the
-    pool and tail removal reshuffles the objective rather than removing
-    options. The trimming option is therefore named ``unsafe_``.
+    The public read path always renders ``recency_window_n`` recent episodes
+    outside ``retrieval_budget_chars``, then ranks long-term memory with frozen
+    CC80. Static ASPECT is opt-in and its coefficients are locked because no
+    sweep or alternate parser was authorized. The K-threshold/A3 fields remain
+    solely for the private pre-CC-007 builder used by historical checks; they
+    do not alter ``EpisodeStore.context``.
 
-    The selector is E005's primary configuration ``A3_l0.1_r0.0_k16``:
-    relevance plus cluster-diversity, lambda 0.1, cost exponent 0.0,
-    16 clusters. Budget accounting is exact serialized characters (DR-001).
-
-    ``embedder_sha256`` and ``embed_call_shape`` pin the embedder identity
-    jointly: the model artifact AND how it is called. The same text embedded
-    alone versus inside a batch yields materially different vectors from the
-    carried model (DX-001), so the call shape is part of the identity, not
-    an implementation detail. ``seed`` is recorded for provenance; no code
-    path in this package draws randomness.
+    ``embedder_sha256`` and ``embed_call_shape`` jointly pin the model artifact
+    and solo-call behavior. ``seed`` is provenance only; the package draws no
+    randomness.
     """
 
     recency_window_n: int = 32
+    retrieval_budget_chars: int = 32_000
+    semantic_dense_weight: float = 0.8
+    bm25_k1: float = 1.2
+    bm25_b: float = 0.75
+    aspect_enabled: bool = False
+    aspect_share: float = 0.5
+    aspect_model: str = "en_core_web_sm"
+    # Legacy compatibility parameters below remain for the private pre-CC-007
+    # ``build_context`` function.  EpisodeStore.context no longer consumes
+    # them; retaining them keeps historical registered checks runnable.
     k_threshold: float = 0.48
     candidate_policy: str = "full_store"
     unsafe_cosine_top_n: int = 100
@@ -64,6 +66,24 @@ class EpisodicConfig:
     def __post_init__(self) -> None:
         if self.recency_window_n < 0:
             raise EpisodicError("recency_window_n must be non-negative")
+        if self.retrieval_budget_chars < 0:
+            raise EpisodicError("retrieval_budget_chars must be non-negative")
+        if self.semantic_dense_weight != 0.8:
+            raise EpisodicError(
+                "semantic_dense_weight is frozen at the registered CC80 value 0.8"
+            )
+        if self.bm25_k1 != 1.2 or self.bm25_b != 0.75:
+            raise EpisodicError("BM25 is frozen at k1=1.2 and b=0.75")
+        if not isinstance(self.aspect_enabled, bool):
+            raise EpisodicError("aspect_enabled must be a boolean")
+        if self.aspect_share != 0.5:
+            raise EpisodicError(
+                "aspect_share is frozen at the registered protected share 0.5"
+            )
+        if self.aspect_model != "en_core_web_sm":
+            raise EpisodicError(
+                "aspect_model is frozen at the registered en_core_web_sm model"
+            )
         if not 0.0 <= self.k_threshold <= 1.0:
             raise EpisodicError("k_threshold must be a cosine in [0, 1]")
         if self.candidate_policy not in _CANDIDATE_POLICIES:

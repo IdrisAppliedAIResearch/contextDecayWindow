@@ -1,0 +1,313 @@
+{
+  "calls": {
+    "cache_hits": 2236,
+    "cache_misses": 0,
+    "embedding": 0,
+    "llm": 0
+  },
+  "identity": {
+    "dynamic_prompt": "ASPECT with per-hop CC80 dense score recomputed against .3 original query + .7 growing selected-context centroid",
+    "residual_aspect": "ASPECT with per-hop CC80 dense score recomputed against .3 original query + .7 centroid of candidates carrying uncovered query facets; query fallback when none"
+  },
+  "metrics": {
+    "16000:dynamic_prompt:chars": {
+      "max": 16000,
+      "median": 15973,
+      "min": 15867,
+      "n": 871,
+      "nonzero": 871
+    },
+    "16000:dynamic_prompt:cue_query_final": {
+      "max": 0.8785368058215047,
+      "median": 0.7322981175296168,
+      "min": 0.5636821237882809,
+      "n": 871,
+      "nonzero": 871
+    },
+    "16000:dynamic_prompt:cue_query_median": {
+      "max": 0.8755030977532805,
+      "median": 0.7444694115601797,
+      "min": 0.5607295596178585,
+      "n": 871,
+      "nonzero": 871
+    },
+    "16000:dynamic_prompt:residual_fallbacks": {
+      "max": 0,
+      "median": 0,
+      "min": 0,
+      "n": 871,
+      "nonzero": 0
+    },
+    "16000:dynamic_prompt:returned": {
+      "max": 4,
+      "median": 1,
+      "min": 0,
+      "n": 871,
+      "nonzero": 708
+    },
+    "16000:dynamic_prompt:selected": {
+      "max": 64,
+      "median": 48,
+      "min": 38,
+      "n": 871,
+      "nonzero": 871
+    },
+    "16000:dynamic_prompt:spread": {
+      "max": 27,
+      "median": 22,
+      "min": 17,
+      "n": 871,
+      "nonzero": 871
+    },
+    "16000:dynamic_prompt:spread_rank": {
+      "max": 352,
+      "median": 128.0,
+      "min": 18,
+      "n": 18852,
+      "nonzero": 18852
+    },
+    "16000:dynamic_prompt:steps": {
+      "max": 27,
+      "median": 22,
+      "min": 17,
+      "n": 871,
+      "nonzero": 871
+    },
+    "16000:dynamic_prompt:uncovered_median": {
+      "max": 0,
+      "median": 0.0,
+      "min": 0,
+      "n": 871,
+      "nonzero": 0
+    },
+    "16000:residual_aspect:chars": {
+      "max": 16000,
+      "median": 15975,
+      "min": 15871,
+      "n": 871,
+      "nonzero": 871
+    },
+    "16000:residual_aspect:cue_query_final": {
+      "max": 1.0000000000000004,
+      "median": 1.0,
+      "min": 0.6892954018481283,
+      "n": 871,
+      "nonzero": 871
+    },
+    "16000:residual_aspect:cue_query_median": {
+      "max": 1.0000000000000004,
+      "median": 1.0,
+      "min": 0.6892954018481283,
+      "n": 871,
+      "nonzero": 871
+    },
+    "16000:residual_aspect:residual_fallbacks": {
+      "max": 29,
+      "median": 23,
+      "min": 0,
+      "n": 871,
+      "nonzero": 868
+    },
+    "16000:residual_aspect:returned": {
+      "max": 4,
+      "median": 1,
+      "min": 0,
+      "n": 871,
+      "nonzero": 723
+    },
+    "16000:residual_aspect:selected": {
+      "max": 68,
+      "median": 49,
+      "min": 39,
+      "n": 871,
+      "nonzero": 871
+    },
+    "16000:residual_aspect:spread": {
+      "max": 29,
+      "median": 23,
+      "min": 19,
+      "n": 871,
+      "nonzero": 871
+    },
+    "16000:residual_aspect:spread_rank": {
+      "max": 342,
+      "median": 78,
+      "min": 18,
+      "n": 19829,
+      "nonzero": 19829
+    },
+    "16000:residual_aspect:steps": {
+      "max": 29,
+      "median": 23,
+      "min": 19,
+      "n": 871,
+      "nonzero": 871
+    },
+    "16000:residual_aspect:uncovered_median": {
+      "max": 9.0,
+      "median": 2.0,
+      "min": 0.0,
+      "n": 871,
+      "nonzero": 684
+    },
+    "32000:dynamic_prompt:chars": {
+      "max": 32000,
+      "median": 31975,
+      "min": 31857,
+      "n": 871,
+      "nonzero": 871
+    },
+    "32000:dynamic_prompt:cue_query_final": {
+      "max": 0.8726081033818267,
+      "median": 0.7183197051699246,
+      "min": 0.5281665312304609,
+      "n": 871,
+      "nonzero": 871
+    },
+    "32000:dynamic_prompt:cue_query_median": {
+      "max": 0.8596814030110329,
+      "median": 0.7289398928890002,
+      "min": 0.541623147610057,
+      "n": 871,
+      "nonzero": 871
+    },
+    "32000:dynamic_prompt:residual_fallbacks": {
+      "max": 0,
+      "median": 0,
+      "min": 0,
+      "n": 871,
+      "nonzero": 0
+    },
+    "32000:dynamic_prompt:returned": {
+      "max": 3,
+      "median": 1,
+      "min": 0,
+      "n": 871,
+      "nonzero": 715
+    },
+    "32000:dynamic_prompt:selected": {
+      "max": 121,
+      "median": 97,
+      "min": 79,
+      "n": 871,
+      "nonzero": 871
+    },
+    "32000:dynamic_prompt:spread": {
+      "max": 51,
+      "median": 44,
+      "min": 36,
+      "n": 871,
+      "nonzero": 871
+    },
+    "32000:dynamic_prompt:spread_rank": {
+      "max": 355,
+      "median": 170,
+      "min": 39,
+      "n": 38023,
+      "nonzero": 38023
+    },
+    "32000:dynamic_prompt:steps": {
+      "max": 51,
+      "median": 44,
+      "min": 36,
+      "n": 871,
+      "nonzero": 871
+    },
+    "32000:dynamic_prompt:uncovered_median": {
+      "max": 0.0,
+      "median": 0.0,
+      "min": 0.0,
+      "n": 871,
+      "nonzero": 0
+    },
+    "32000:residual_aspect:chars": {
+      "max": 32000,
+      "median": 31973,
+      "min": 31867,
+      "n": 871,
+      "nonzero": 871
+    },
+    "32000:residual_aspect:cue_query_final": {
+      "max": 1.0000000000000004,
+      "median": 1.0,
+      "min": 0.9999999999999997,
+      "n": 871,
+      "nonzero": 871
+    },
+    "32000:residual_aspect:cue_query_median": {
+      "max": 1.0000000000000004,
+      "median": 1.0,
+      "min": 0.6892954018481283,
+      "n": 871,
+      "nonzero": 871
+    },
+    "32000:residual_aspect:residual_fallbacks": {
+      "max": 53,
+      "median": 46,
+      "min": 20,
+      "n": 871,
+      "nonzero": 871
+    },
+    "32000:residual_aspect:returned": {
+      "max": 4,
+      "median": 1,
+      "min": 0,
+      "n": 871,
+      "nonzero": 704
+    },
+    "32000:residual_aspect:selected": {
+      "max": 126,
+      "median": 100,
+      "min": 80,
+      "n": 871,
+      "nonzero": 871
+    },
+    "32000:residual_aspect:spread": {
+      "max": 54,
+      "median": 46,
+      "min": 37,
+      "n": 871,
+      "nonzero": 871
+    },
+    "32000:residual_aspect:spread_rank": {
+      "max": 338,
+      "median": 126,
+      "min": 39,
+      "n": 39997,
+      "nonzero": 39997
+    },
+    "32000:residual_aspect:steps": {
+      "max": 54,
+      "median": 47,
+      "min": 38,
+      "n": 871,
+      "nonzero": 871
+    },
+    "32000:residual_aspect:uncovered_median": {
+      "max": 9,
+      "median": 2.0,
+      "min": 0,
+      "n": 871,
+      "nonzero": 682
+    }
+  },
+  "rows": 871,
+  "set_diffs": {
+    "16000:dynamic_prompt_vs_static": 871,
+    "16000:dynamic_vs_residual": 871,
+    "16000:residual_aspect_vs_static": 146,
+    "32000:dynamic_prompt_vs_static": 871,
+    "32000:dynamic_vs_residual": 871,
+    "32000:residual_aspect_vs_static": 71
+  },
+  "stops": {
+    "16000:dynamic_prompt:no_complete_candidate_fits": 842,
+    "16000:dynamic_prompt:no_positive_marginal": 29,
+    "16000:residual_aspect:no_complete_candidate_fits": 848,
+    "16000:residual_aspect:no_positive_marginal": 23,
+    "32000:dynamic_prompt:no_complete_candidate_fits": 838,
+    "32000:dynamic_prompt:no_positive_marginal": 33,
+    "32000:residual_aspect:no_complete_candidate_fits": 845,
+    "32000:residual_aspect:no_positive_marginal": 26
+  }
+}

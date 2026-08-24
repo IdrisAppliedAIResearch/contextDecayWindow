@@ -1,0 +1,88 @@
+{
+  "calls": {
+    "cache_hits": 2236,
+    "cache_misses": 0,
+    "embedding": 0,
+    "llm_or_generative": 0
+  },
+  "pf1": {
+    "accepted_tc005_sha256": "1da39937d08b5847722879f8fb35889a5290ea9a2fd0e72f2a2cd0d7fde78ca0",
+    "blind_sha256": "83bcadb1e029e14514841b65bd903904fe53420a246bc0a59cad99afaa0671b3",
+    "dataset_sha256": "79fa87e90f04081343b8c8debecb80a9a6842b76a7aa537dc9fdf651ea698ff4",
+    "labels_sha256": "d0ff30408ffba10afdaac6c49d5c13fb91d7466496bce2ecd0dc565444d45f39",
+    "selection_sha256": "17e88abdc88547ec8abd96fb09ce8ae8e3f04c605d0081eed5f8cf837e2ad202"
+  },
+  "pf10": {
+    "availability_only": true,
+    "reader_authorized": false
+  },
+  "pf2": {
+    "exploration": {
+      "bm25_ranges": {
+        "max": 42.35753108156415,
+        "mean": 13.017702241648914,
+        "median": 11.611045811993165,
+        "min": 2.465141169010947,
+        "n": 871
+      },
+      "dense_ranges": {
+        "max": 0.6546884030103683,
+        "mean": 0.46672492238225677,
+        "median": 0.4657425880432129,
+        "min": 0.29834604263305664,
+        "n": 871
+      },
+      "order_diff_dense": 871,
+      "order_diff_rrf": 871,
+      "selected_set_diff": {
+        "16000": {
+          "dense": 869,
+          "rrf": 871
+        },
+        "32000": {
+          "dense": 871,
+          "rrf": 871
+        }
+      },
+      "top20_position_changes": {
+        "max": 20.0,
+        "mean": 17.242250287026405,
+        "median": 17.0,
+        "min": 10.0,
+        "n": 871
+      }
+    },
+    "identity": "independent query-wise min-max dense/BM25 normalization followed by fixed 0.8/0.2 convex score fusion"
+  },
+  "pf3": {
+    "planted_early_label_rejected": true,
+    "selection_sha256_before_accepted_import": "17e88abdc88547ec8abd96fb09ce8ae8e3f04c605d0081eed5f8cf837e2ad202"
+  },
+  "pf4": {
+    "negative_reachable": true,
+    "positive_reachable": true
+  },
+  "pf5": {
+    "blind_keys": 871,
+    "pair_content_identities": 1365
+  },
+  "pf6": {
+    "accepted_dense_rrf_order_and_payload_checks": 3484,
+    "expected": 3484
+  },
+  "pf7": {
+    "not_applicable": true
+  },
+  "pf8": {
+    "cannot_detect": "new-corpus transfer",
+    "conversations": 4
+  },
+  "pf9": {
+    "residuals": [
+      "min-max can amplify weak BM25 differences",
+      "20% lexical can displace strong dense evidence",
+      "availability is not reader use"
+    ]
+  },
+  "status": "PASS"
+}

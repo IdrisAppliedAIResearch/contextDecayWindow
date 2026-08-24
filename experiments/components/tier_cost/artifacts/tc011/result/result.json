@@ -1,0 +1,641 @@
+{
+  "arm_dispositions": {
+    "aspect": "NO_POSITIVE_SIGNAL",
+    "chain_anchor": "NO_POSITIVE_SIGNAL",
+    "chain_pure": "NO_POSITIVE_SIGNAL",
+    "logdet": "NO_POSITIVE_SIGNAL"
+  },
+  "calls": {
+    "cache": 0,
+    "embedding": 0,
+    "llm_or_generative": 0,
+    "ranking": 0
+  },
+  "claim_boundary": "used LoCoMo development availability only; no reader, transfer, tuning or adoption authorized",
+  "pairwise_selected_jaccard": {
+    "16000:aspect:chain_anchor": {
+      "max": 0.5324675324675324,
+      "median": 0.35789473684210527,
+      "min": 0.2714285714285714,
+      "n": 871,
+      "nonzero": 871
+    },
+    "16000:aspect:chain_pure": {
+      "max": 0.569620253164557,
+      "median": 0.3472222222222222,
+      "min": 0.2564102564102564,
+      "n": 871,
+      "nonzero": 871
+    },
+    "16000:chain_anchor:chain_pure": {
+      "max": 0.927536231884058,
+      "median": 0.6181818181818182,
+      "min": 0.2823529411764706,
+      "n": 871,
+      "nonzero": 871
+    },
+    "16000:logdet:aspect": {
+      "max": 0.5147058823529411,
+      "median": 0.3626373626373626,
+      "min": 0.25,
+      "n": 871,
+      "nonzero": 871
+    },
+    "16000:logdet:chain_anchor": {
+      "max": 0.5208333333333334,
+      "median": 0.34523809523809523,
+      "min": 0.21739130434782608,
+      "n": 871,
+      "nonzero": 871
+    },
+    "16000:logdet:chain_pure": {
+      "max": 0.5051546391752577,
+      "median": 0.3392857142857143,
+      "min": 0.23809523809523808,
+      "n": 871,
+      "nonzero": 871
+    },
+    "32000:aspect:chain_anchor": {
+      "max": 0.5714285714285714,
+      "median": 0.40397350993377484,
+      "min": 0.2972972972972973,
+      "n": 871,
+      "nonzero": 871
+    },
+    "32000:aspect:chain_pure": {
+      "max": 0.5225806451612903,
+      "median": 0.38562091503267976,
+      "min": 0.29285714285714287,
+      "n": 871,
+      "nonzero": 871
+    },
+    "32000:chain_anchor:chain_pure": {
+      "max": 0.9126984126984127,
+      "median": 0.6788321167883211,
+      "min": 0.3680555555555556,
+      "n": 871,
+      "nonzero": 871
+    },
+    "32000:logdet:aspect": {
+      "max": 0.562874251497006,
+      "median": 0.4382716049382716,
+      "min": 0.31901840490797545,
+      "n": 871,
+      "nonzero": 871
+    },
+    "32000:logdet:chain_anchor": {
+      "max": 0.5632911392405063,
+      "median": 0.41566265060240964,
+      "min": 0.28484848484848485,
+      "n": 871,
+      "nonzero": 871
+    },
+    "32000:logdet:chain_pure": {
+      "max": 0.5141242937853108,
+      "median": 0.39473684210526316,
+      "min": 0.2787878787878788,
+      "n": 871,
+      "nonzero": 871
+    }
+  },
+  "population": 868,
+  "schema": "tc011-four-protected-spread-v1",
+  "selection_sha256": "9f4ae9abb57dfc76aecb3afdfcb62029056c10c6a412e42914d0c2294c2c9a0a",
+  "status": "NO_CANDIDATE",
+  "totals": {
+    "aspect": {
+      "16000": 749,
+      "32000": 810
+    },
+    "cc80": {
+      "16000": 771,
+      "32000": 819
+    },
+    "cc80_a3": {
+      "16000": 757,
+      "32000": 818
+    },
+    "chain_anchor": {
+      "16000": 717,
+      "32000": 780
+    },
+    "chain_pure": {
+      "16000": 717,
+      "32000": 778
+    },
+    "logdet": {
+      "16000": 726,
+      "32000": 797
+    }
+  },
+  "treatments": {
+    "aspect": {
+      "cells": {
+        "16000": {
+          "breadth": {
+            "baseline": 17,
+            "gains": 2,
+            "losses": 4,
+            "n": 44,
+            "net": -2,
+            "treatment": 15,
+            "two_sided_exact_p": 0.6875
+          },
+          "breadth_identity": {
+            "gains": 5,
+            "losses": 10,
+            "net_identities": -5
+          },
+          "combined": {
+            "baseline": 771,
+            "gains": 11,
+            "losses": 33,
+            "n": 868,
+            "net": -22,
+            "treatment": 749,
+            "two_sided_exact_p": 0.0012600338162656044
+          },
+          "conversation_nets": {
+            "conv-41": -4,
+            "conv-42": -2,
+            "conv-47": -8,
+            "conv-48": -8
+          },
+          "evidence_states": {
+            "aspect": {
+              "complete": 749,
+              "partial": 55,
+              "zero": 64
+            },
+            "cc80": {
+              "complete": 771,
+              "partial": 54,
+              "zero": 43
+            }
+          },
+          "other": {
+            "baseline": 88,
+            "gains": 5,
+            "losses": 4,
+            "n": 120,
+            "net": 1,
+            "treatment": 89,
+            "two_sided_exact_p": 1.0
+          },
+          "targeted": {
+            "baseline": 666,
+            "gains": 4,
+            "losses": 25,
+            "n": 704,
+            "net": -21,
+            "treatment": 645,
+            "two_sided_exact_p": 0.00010371580719947815
+          }
+        },
+        "32000": {
+          "breadth": {
+            "baseline": 24,
+            "gains": 4,
+            "losses": 5,
+            "n": 44,
+            "net": -1,
+            "treatment": 23,
+            "two_sided_exact_p": 1.0
+          },
+          "breadth_identity": {
+            "gains": 10,
+            "losses": 11,
+            "net_identities": -1
+          },
+          "combined": {
+            "baseline": 819,
+            "gains": 15,
+            "losses": 24,
+            "n": 868,
+            "net": -9,
+            "treatment": 810,
+            "two_sided_exact_p": 0.19959086691960692
+          },
+          "conversation_nets": {
+            "conv-41": -2,
+            "conv-42": -2,
+            "conv-47": -7,
+            "conv-48": 2
+          },
+          "evidence_states": {
+            "aspect": {
+              "complete": 810,
+              "partial": 32,
+              "zero": 26
+            },
+            "cc80": {
+              "complete": 819,
+              "partial": 30,
+              "zero": 19
+            }
+          },
+          "other": {
+            "baseline": 106,
+            "gains": 6,
+            "losses": 5,
+            "n": 120,
+            "net": 1,
+            "treatment": 107,
+            "two_sided_exact_p": 1.0
+          },
+          "targeted": {
+            "baseline": 689,
+            "gains": 5,
+            "losses": 14,
+            "n": 704,
+            "net": -9,
+            "treatment": 680,
+            "two_sided_exact_p": 0.063568115234375
+          }
+        }
+      },
+      "disposition": "NO_POSITIVE_SIGNAL"
+    },
+    "chain_anchor": {
+      "cells": {
+        "16000": {
+          "breadth": {
+            "baseline": 17,
+            "gains": 1,
+            "losses": 9,
+            "n": 44,
+            "net": -8,
+            "treatment": 9,
+            "two_sided_exact_p": 0.021484375
+          },
+          "breadth_identity": {
+            "gains": 3,
+            "losses": 22,
+            "net_identities": -19
+          },
+          "combined": {
+            "baseline": 771,
+            "gains": 3,
+            "losses": 57,
+            "n": 868,
+            "net": -54,
+            "treatment": 717,
+            "two_sided_exact_p": 6.253851603243987e-14
+          },
+          "conversation_nets": {
+            "conv-41": -12,
+            "conv-42": -12,
+            "conv-47": -12,
+            "conv-48": -18
+          },
+          "evidence_states": {
+            "cc80": {
+              "complete": 771,
+              "partial": 54,
+              "zero": 43
+            },
+            "chain_anchor": {
+              "complete": 717,
+              "partial": 68,
+              "zero": 83
+            }
+          },
+          "other": {
+            "baseline": 88,
+            "gains": 2,
+            "losses": 9,
+            "n": 120,
+            "net": -7,
+            "treatment": 81,
+            "two_sided_exact_p": 0.0654296875
+          },
+          "targeted": {
+            "baseline": 666,
+            "gains": 0,
+            "losses": 39,
+            "n": 704,
+            "net": -39,
+            "treatment": 627,
+            "two_sided_exact_p": 3.637978807091713e-12
+          }
+        },
+        "32000": {
+          "breadth": {
+            "baseline": 24,
+            "gains": 0,
+            "losses": 5,
+            "n": 44,
+            "net": -5,
+            "treatment": 19,
+            "two_sided_exact_p": 0.0625
+          },
+          "breadth_identity": {
+            "gains": 2,
+            "losses": 14,
+            "net_identities": -12
+          },
+          "combined": {
+            "baseline": 819,
+            "gains": 0,
+            "losses": 39,
+            "n": 868,
+            "net": -39,
+            "treatment": 780,
+            "two_sided_exact_p": 3.637978807091713e-12
+          },
+          "conversation_nets": {
+            "conv-41": -10,
+            "conv-42": -13,
+            "conv-47": -8,
+            "conv-48": -8
+          },
+          "evidence_states": {
+            "cc80": {
+              "complete": 819,
+              "partial": 30,
+              "zero": 19
+            },
+            "chain_anchor": {
+              "complete": 780,
+              "partial": 49,
+              "zero": 39
+            }
+          },
+          "other": {
+            "baseline": 106,
+            "gains": 0,
+            "losses": 14,
+            "n": 120,
+            "net": -14,
+            "treatment": 92,
+            "two_sided_exact_p": 0.0001220703125
+          },
+          "targeted": {
+            "baseline": 689,
+            "gains": 0,
+            "losses": 20,
+            "n": 704,
+            "net": -20,
+            "treatment": 669,
+            "two_sided_exact_p": 1.9073486328125e-06
+          }
+        }
+      },
+      "disposition": "NO_POSITIVE_SIGNAL"
+    },
+    "chain_pure": {
+      "cells": {
+        "16000": {
+          "breadth": {
+            "baseline": 17,
+            "gains": 2,
+            "losses": 9,
+            "n": 44,
+            "net": -7,
+            "treatment": 10,
+            "two_sided_exact_p": 0.0654296875
+          },
+          "breadth_identity": {
+            "gains": 2,
+            "losses": 26,
+            "net_identities": -24
+          },
+          "combined": {
+            "baseline": 771,
+            "gains": 5,
+            "losses": 59,
+            "n": 868,
+            "net": -54,
+            "treatment": 717,
+            "two_sided_exact_p": 9.002816938122327e-13
+          },
+          "conversation_nets": {
+            "conv-41": -12,
+            "conv-42": -11,
+            "conv-47": -15,
+            "conv-48": -16
+          },
+          "evidence_states": {
+            "cc80": {
+              "complete": 771,
+              "partial": 54,
+              "zero": 43
+            },
+            "chain_pure": {
+              "complete": 717,
+              "partial": 68,
+              "zero": 83
+            }
+          },
+          "other": {
+            "baseline": 88,
+            "gains": 1,
+            "losses": 10,
+            "n": 120,
+            "net": -9,
+            "treatment": 79,
+            "two_sided_exact_p": 0.01171875
+          },
+          "targeted": {
+            "baseline": 666,
+            "gains": 2,
+            "losses": 40,
+            "n": 704,
+            "net": -38,
+            "treatment": 628,
+            "two_sided_exact_p": 4.1109160520136356e-10
+          }
+        },
+        "32000": {
+          "breadth": {
+            "baseline": 24,
+            "gains": 0,
+            "losses": 6,
+            "n": 44,
+            "net": -6,
+            "treatment": 18,
+            "two_sided_exact_p": 0.03125
+          },
+          "breadth_identity": {
+            "gains": 2,
+            "losses": 21,
+            "net_identities": -19
+          },
+          "combined": {
+            "baseline": 819,
+            "gains": 1,
+            "losses": 42,
+            "n": 868,
+            "net": -41,
+            "treatment": 778,
+            "two_sided_exact_p": 1.000444171950221e-11
+          },
+          "conversation_nets": {
+            "conv-41": -10,
+            "conv-42": -14,
+            "conv-47": -8,
+            "conv-48": -9
+          },
+          "evidence_states": {
+            "cc80": {
+              "complete": 819,
+              "partial": 30,
+              "zero": 19
+            },
+            "chain_pure": {
+              "complete": 778,
+              "partial": 53,
+              "zero": 37
+            }
+          },
+          "other": {
+            "baseline": 106,
+            "gains": 0,
+            "losses": 16,
+            "n": 120,
+            "net": -16,
+            "treatment": 90,
+            "two_sided_exact_p": 3.0517578125e-05
+          },
+          "targeted": {
+            "baseline": 689,
+            "gains": 1,
+            "losses": 20,
+            "n": 704,
+            "net": -19,
+            "treatment": 670,
+            "two_sided_exact_p": 2.09808349609375e-05
+          }
+        }
+      },
+      "disposition": "NO_POSITIVE_SIGNAL"
+    },
+    "logdet": {
+      "cells": {
+        "16000": {
+          "breadth": {
+            "baseline": 17,
+            "gains": 0,
+            "losses": 9,
+            "n": 44,
+            "net": -9,
+            "treatment": 8,
+            "two_sided_exact_p": 0.00390625
+          },
+          "breadth_identity": {
+            "gains": 3,
+            "losses": 23,
+            "net_identities": -20
+          },
+          "combined": {
+            "baseline": 771,
+            "gains": 5,
+            "losses": 50,
+            "n": 868,
+            "net": -45,
+            "treatment": 726,
+            "two_sided_exact_p": 2.1358426138817777e-10
+          },
+          "conversation_nets": {
+            "conv-41": -11,
+            "conv-42": -8,
+            "conv-47": -11,
+            "conv-48": -15
+          },
+          "evidence_states": {
+            "cc80": {
+              "complete": 771,
+              "partial": 54,
+              "zero": 43
+            },
+            "logdet": {
+              "complete": 726,
+              "partial": 69,
+              "zero": 73
+            }
+          },
+          "other": {
+            "baseline": 88,
+            "gains": 4,
+            "losses": 10,
+            "n": 120,
+            "net": -6,
+            "treatment": 82,
+            "two_sided_exact_p": 0.1795654296875
+          },
+          "targeted": {
+            "baseline": 666,
+            "gains": 1,
+            "losses": 31,
+            "n": 704,
+            "net": -30,
+            "treatment": 636,
+            "two_sided_exact_p": 1.5366822481155396e-08
+          }
+        },
+        "32000": {
+          "breadth": {
+            "baseline": 24,
+            "gains": 1,
+            "losses": 3,
+            "n": 44,
+            "net": -2,
+            "treatment": 22,
+            "two_sided_exact_p": 0.625
+          },
+          "breadth_identity": {
+            "gains": 6,
+            "losses": 12,
+            "net_identities": -6
+          },
+          "combined": {
+            "baseline": 819,
+            "gains": 9,
+            "losses": 31,
+            "n": 868,
+            "net": -22,
+            "treatment": 797,
+            "two_sided_exact_p": 0.0006795482549932785
+          },
+          "conversation_nets": {
+            "conv-41": -5,
+            "conv-42": -10,
+            "conv-47": -5,
+            "conv-48": -2
+          },
+          "evidence_states": {
+            "cc80": {
+              "complete": 819,
+              "partial": 30,
+              "zero": 19
+            },
+            "logdet": {
+              "complete": 797,
+              "partial": 40,
+              "zero": 31
+            }
+          },
+          "other": {
+            "baseline": 106,
+            "gains": 5,
+            "losses": 11,
+            "n": 120,
+            "net": -6,
+            "treatment": 100,
+            "two_sided_exact_p": 0.210113525390625
+          },
+          "targeted": {
+            "baseline": 689,
+            "gains": 3,
+            "losses": 17,
+            "n": 704,
+            "net": -14,
+            "treatment": 675,
+            "two_sided_exact_p": 0.0025768280029296875
+          }
+        }
+      },
+      "disposition": "NO_POSITIVE_SIGNAL"
+    }
+  }
+}

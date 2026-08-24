@@ -1,0 +1,485 @@
+{
+  "behavioural_identity": "A_SPLIT_DYNAMIC globally compares each source session's highest-cosine remaining candidate after subtracting 0.03 for every candidate already selected from that session; the winning session remains eligible at the next step.",
+  "controls": {
+    "consecutive_win_unit_test": "PASS",
+    "eventual_overtake_unit_test": "PASS",
+    "one_session_dense_order_unit_test": "PASS",
+    "real_trace_repeat_before_all_sessions": {
+      "16000": 871,
+      "32000": 871
+    }
+  },
+  "dense_shams": {
+    "16000": {
+      "bands": {
+        "breadth_complete": 0,
+        "breadth_share_identities": 0,
+        "breadth_share_questions": 0,
+        "combined_complete": 2,
+        "targeted_complete": 2
+      },
+      "variants": {
+        "+0.01": {
+          "breadth_share": {
+            "identity_gains": 0,
+            "identity_losses": 0,
+            "identity_net": 0,
+            "question_gains": 0,
+            "question_losses": 0,
+            "question_net": 0
+          },
+          "budget": 16160,
+          "complete": {
+            "breadth": {
+              "gains": 0,
+              "losses": 0,
+              "net": 0
+            },
+            "combined": {
+              "gains": 1,
+              "losses": 0,
+              "net": 1
+            },
+            "targeted": {
+              "gains": 0,
+              "losses": 0,
+              "net": 0
+            }
+          }
+        },
+        "-0.01": {
+          "breadth_share": {
+            "identity_gains": 0,
+            "identity_losses": 0,
+            "identity_net": 0,
+            "question_gains": 0,
+            "question_losses": 0,
+            "question_net": 0
+          },
+          "budget": 15840,
+          "complete": {
+            "breadth": {
+              "gains": 0,
+              "losses": 0,
+              "net": 0
+            },
+            "combined": {
+              "gains": 1,
+              "losses": 3,
+              "net": -2
+            },
+            "targeted": {
+              "gains": 1,
+              "losses": 3,
+              "net": -2
+            }
+          }
+        }
+      }
+    },
+    "32000": {
+      "bands": {
+        "breadth_complete": 0,
+        "breadth_share_identities": 0,
+        "breadth_share_questions": 0,
+        "combined_complete": 1,
+        "targeted_complete": 0
+      },
+      "variants": {
+        "+0.01": {
+          "breadth_share": {
+            "identity_gains": 0,
+            "identity_losses": 0,
+            "identity_net": 0,
+            "question_gains": 0,
+            "question_losses": 0,
+            "question_net": 0
+          },
+          "budget": 32320,
+          "complete": {
+            "breadth": {
+              "gains": 0,
+              "losses": 0,
+              "net": 0
+            },
+            "combined": {
+              "gains": 1,
+              "losses": 0,
+              "net": 1
+            },
+            "targeted": {
+              "gains": 0,
+              "losses": 0,
+              "net": 0
+            }
+          }
+        },
+        "-0.01": {
+          "breadth_share": {
+            "identity_gains": 0,
+            "identity_losses": 0,
+            "identity_net": 0,
+            "question_gains": 0,
+            "question_losses": 0,
+            "question_net": 0
+          },
+          "budget": 31680,
+          "complete": {
+            "breadth": {
+              "gains": 0,
+              "losses": 0,
+              "net": 0
+            },
+            "combined": {
+              "gains": 0,
+              "losses": 0,
+              "net": 0
+            },
+            "targeted": {
+              "gains": 0,
+              "losses": 0,
+              "net": 0
+            }
+          }
+        }
+      }
+    }
+  },
+  "dynamic_order_digest": "0a433b079588c7336ed100b5400d3851db368d4ee9e7a78d7088c4399f4dcabd",
+  "elapsed_seconds": 175.637,
+  "frozen_candidate_parameters": {
+    "budgets": [
+      16000,
+      32000
+    ],
+    "lambda": 0.03,
+    "penalty": "linear_count_before",
+    "share": 0.5
+  },
+  "full_order_trace": {
+    "rows": 296166,
+    "sha256": "de56dc5ef827edc8c4919f5a15bde62fc5c2c618e84430c17aadcaffa1f68347"
+  },
+  "inputs": {
+    "cache": {
+      "path": "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\external\\locomo\\artifacts\\locomo_dev_embeddings.db",
+      "sha256": "2ba617018a1b043bf439bb50e756191d8141fb7ca01a2e4a68c9eb822eba26f8"
+    },
+    "corpus": {
+      "path": "C:\\Users\\muzaf\\Downloads\\locomo10.json",
+      "sha256": "79fa87e90f04081343b8c8debecb80a9a6842b76a7aa537dc9fdf651ea698ff4"
+    },
+    "mechanism_sources": {
+      "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\src\\analysis\\tc007_allocation.py": "97276ebca1da1b545fb518f514b974d9d7951449f28700dad9d3c4a3df23c007",
+      "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\src\\analysis\\tc009_dynamic_session.py": "e4ed012cb81319a8acdc1234b9aa231956dfc1132246c8a49afea4474a237711"
+    },
+    "tc008_frozen_selections_sha256": "0ef905c5fa12e3f6d487fdaab5d03cbba60276928369e11d12986119dee0e78b",
+    "tc008_preflight_sha256": "dab50e1a3935d63755824c8d7ea9f7bb9f57263422338f227eeea44ca6a0f971"
+  },
+  "lambda_zero_reduction": {
+    "question_orders": 871,
+    "status": "PASS"
+  },
+  "mechanism_distributions": {
+    "16000": {
+      "admitted_max_count_before": {
+        "max": 15,
+        "mean": 2.2629,
+        "min": 1,
+        "n": 871,
+        "p25": 2,
+        "p50": 2,
+        "p75": 2,
+        "zero": 0
+      },
+      "admitted_max_penalty": {
+        "max": 0.44999999999999996,
+        "mean": 0.0679,
+        "min": 0.03,
+        "n": 871,
+        "p25": 0.06,
+        "p50": 0.06,
+        "p75": 0.06,
+        "zero": 0
+      },
+      "budget_violations": 0,
+      "consecutive_same_session": {
+        "max": 5,
+        "mean": 1.2147,
+        "min": 0,
+        "n": 871,
+        "p25": 0,
+        "p50": 1,
+        "p75": 2,
+        "zero": 265
+      },
+      "control_only_count": {
+        "max": 19,
+        "mean": 9.5362,
+        "min": 3,
+        "n": 871,
+        "p25": 8,
+        "p50": 9,
+        "p75": 11,
+        "zero": 0
+      },
+      "control_only_dense_rank": {
+        "max": 339,
+        "mean": 45.9509,
+        "min": 20,
+        "n": 8306,
+        "p25": 37,
+        "p50": 44,
+        "p75": 52,
+        "zero": 0
+      },
+      "differs_from_control": 871,
+      "differs_from_session_predecessor": 871,
+      "max_selected_from_one_session": {
+        "max": 9,
+        "mean": 4.4225,
+        "min": 2,
+        "n": 871,
+        "p25": 4,
+        "p50": 4,
+        "p75": 5,
+        "zero": 0
+      },
+      "payload_chars": {
+        "max": 16000,
+        "mean": 15963.9024,
+        "min": 15857,
+        "n": 871,
+        "p25": 15937,
+        "p50": 15975,
+        "p75": 15991,
+        "zero": 0
+      },
+      "questions": 871,
+      "repeat_before_all_sessions": 871,
+      "selected_sessions": {
+        "max": 32,
+        "mean": 28.9024,
+        "min": 23,
+        "n": 871,
+        "p25": 28,
+        "p50": 29,
+        "p75": 30,
+        "zero": 0
+      },
+      "spread_admitted": {
+        "max": 37,
+        "mean": 27.0608,
+        "min": 18,
+        "n": 871,
+        "p25": 24,
+        "p50": 27,
+        "p75": 30,
+        "zero": 0
+      },
+      "spread_binding_questions": 871,
+      "treatment_only_count": {
+        "max": 18,
+        "mean": 9.9667,
+        "min": 3,
+        "n": 871,
+        "p25": 8,
+        "p50": 10,
+        "p75": 12,
+        "zero": 0
+      },
+      "treatment_only_dense_rank": {
+        "max": 342,
+        "mean": 78.633,
+        "min": 39,
+        "n": 8681,
+        "p25": 61,
+        "p50": 71,
+        "p75": 86,
+        "zero": 0
+      }
+    },
+    "32000": {
+      "admitted_max_count_before": {
+        "max": 18,
+        "mean": 4.2365,
+        "min": 2,
+        "n": 871,
+        "p25": 3,
+        "p50": 4,
+        "p75": 4,
+        "zero": 0
+      },
+      "admitted_max_penalty": {
+        "max": 0.54,
+        "mean": 0.1271,
+        "min": 0.06,
+        "n": 871,
+        "p25": 0.09,
+        "p50": 0.12,
+        "p75": 0.12,
+        "zero": 0
+      },
+      "budget_violations": 0,
+      "consecutive_same_session": {
+        "max": 5,
+        "mean": 1.2147,
+        "min": 0,
+        "n": 871,
+        "p25": 0,
+        "p50": 1,
+        "p75": 2,
+        "zero": 265
+      },
+      "control_only_count": {
+        "max": 28,
+        "mean": 16.3284,
+        "min": 7,
+        "n": 871,
+        "p25": 14,
+        "p50": 16,
+        "p75": 19,
+        "zero": 0
+      },
+      "control_only_dense_rank": {
+        "max": 346,
+        "mean": 90.647,
+        "min": 41,
+        "n": 14222,
+        "p25": 77,
+        "p50": 90,
+        "p75": 104,
+        "zero": 0
+      },
+      "differs_from_control": 871,
+      "differs_from_session_predecessor": 871,
+      "max_selected_from_one_session": {
+        "max": 11,
+        "mean": 6.4007,
+        "min": 4,
+        "n": 871,
+        "p25": 6,
+        "p50": 6,
+        "p75": 7,
+        "zero": 0
+      },
+      "payload_chars": {
+        "max": 32000,
+        "mean": 31963.4765,
+        "min": 31868,
+        "n": 871,
+        "p25": 31936,
+        "p50": 31974,
+        "p75": 31991,
+        "zero": 0
+      },
+      "questions": 871,
+      "repeat_before_all_sessions": 871,
+      "selected_sessions": {
+        "max": 32,
+        "mean": 30.3548,
+        "min": 29,
+        "n": 871,
+        "p25": 29,
+        "p50": 30,
+        "p75": 31,
+        "zero": 0
+      },
+      "spread_admitted": {
+        "max": 66,
+        "mean": 53.2618,
+        "min": 40,
+        "n": 871,
+        "p25": 49,
+        "p50": 54,
+        "p75": 57,
+        "zero": 0
+      },
+      "spread_binding_questions": 871,
+      "treatment_only_count": {
+        "max": 25,
+        "mean": 15.884,
+        "min": 7,
+        "n": 871,
+        "p25": 13,
+        "p50": 16,
+        "p75": 18,
+        "zero": 0
+      },
+      "treatment_only_dense_rank": {
+        "max": 346,
+        "mean": 139.6481,
+        "min": 83,
+        "n": 13835,
+        "p25": 119,
+        "p50": 133,
+        "p75": 155,
+        "zero": 0
+      }
+    }
+  },
+  "mechanism_trace": {
+    "rows": 69961,
+    "sha256": "148481de267e28bbec667558763266614b8de643f495b302e5cd5ddf38fb9848"
+  },
+  "population": {
+    "breadth": 44,
+    "eligible": 868,
+    "ineligible": 3,
+    "other": 120,
+    "questions": 871,
+    "targeted": 704
+  },
+  "purity": {
+    "cache": {
+      "bytes": 10821632,
+      "call_shape": "solo",
+      "content_sha256": "e103b2933ee9ec7b8e9236f43037797618da524e413b83a9f3973a19d28b1b2a",
+      "dimension": 1024,
+      "dtype": "float32",
+      "entries": 2236,
+      "file_sha256": "2ba617018a1b043bf439bb50e756191d8141fb7ca01a2e4a68c9eb822eba26f8",
+      "hits": 2236,
+      "misses": 0,
+      "mode": "reuse",
+      "model_sha256": "06507c7b42688469c4e7298b0a1e16deff06caf291cf0a5b278c308249c3e439",
+      "path": "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\external\\locomo\\artifacts\\locomo_dev_embeddings.db"
+    },
+    "embedding_calls": 0,
+    "finite_permutation_replays": 871,
+    "leakage_audit": {
+      "files": {
+        "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\src\\analysis\\tc007_allocation.py": {
+          "sha256": "97276ebca1da1b545fb518f514b974d9d7951449f28700dad9d3c4a3df23c007",
+          "violations": []
+        },
+        "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\src\\analysis\\tc009_dynamic_session.py": {
+          "sha256": "e4ed012cb81319a8acdc1234b9aa231956dfc1132246c8a49afea4474a237711",
+          "violations": []
+        }
+      },
+      "planted_violations": [
+        "import:measurement.evidence_key",
+        "import:q_facts_key"
+      ],
+      "status": "PASS"
+    },
+    "llm_or_generative_calls": 0,
+    "within_query_feedback": true
+  },
+  "schema": "tc009-preflight-part1-v1",
+  "status": "PASS",
+  "surrogate_audit": {
+    "evidence_share_can_rise_without_reader_use": true,
+    "lower_concentration_can_rise_while_required_evidence_falls": true,
+    "represented_sessions_can_rise_while_required_evidence_falls": true
+  },
+  "tc008_reproduction": {
+    "payload_identity_checks": 5226,
+    "status": "PASS"
+  },
+  "trace": {
+    "rows": 1742,
+    "sha256": "d30715b2e644f45c0b0efc0b268bf05fcefaccdf56bb4fc729245216c71d5651"
+  }
+}

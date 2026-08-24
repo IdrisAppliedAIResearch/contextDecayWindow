@@ -209,13 +209,26 @@ class EpisodeStore:
         )
         self._conn.commit()
 
-    def context(self, query: str, budget: int) -> tuple[str, ContextReport]:
-        from ._context import build_context
+    def context(
+        self, query: str, budget: int | None = None
+    ) -> tuple[str, ContextReport]:
+        """Build additive recency plus budgeted CC80/optional-ASPECT context.
 
-        return build_context(
+        ``budget`` is the long-term retrieval allowance.  The latest 32
+        episodes (or configured recency window) are continuity context outside
+        that allowance.  Omit it to use the deployed 32,000-character default.
+        """
+
+        from ._chat_context import build_chat_context
+
+        retrieval_budget = (
+            self.config.retrieval_budget_chars if budget is None else budget
+        )
+        return build_chat_context(
             episodes=self._all_episodes(),
+            query_text=query,
             query_embedding=embed_solo(self._embedder, query),
-            budget=budget,
+            budget=retrieval_budget,
             config=self.config,
         )
 

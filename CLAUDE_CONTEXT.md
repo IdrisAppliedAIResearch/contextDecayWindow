@@ -8,6 +8,17 @@
 > Study 010 LTM Q13/Q14 violated the 32k budget by 67.9%/68.2%. AS-001's
 > post-result Branch D primacy interpretation is invalid.
 
+## Current TC arc result — 2026-08-22
+
+TC-003 is complete as `REGISTERED-OFFLINE` characterization. At the 16k
+complete-evidence primary, equal-share floors beat N-first 656/868 to 314
+(`D1 FLOORS_WINS`, net +342) but trail flat 656 to 749 (`D3 FLAT_WINS`). The
+isolating C5 reverses: floors-dual 718 versus ranked-dual 748 (`D3
+RANKED_WINS`). Contested evidence appears on 351/357 C1 gains; reservation
+appears on 18. Registered reading: the cosine contest, not the reservation,
+carries the gain. Service-order identity passes 871/871; ownership-order
+identity is 0/871 at the shipped primary. No adoption or tuning is authorized.
+
 ## Current correction ledger
 
 - Scoring audit scope: 222 items, Studies 001-009; 19 changed.
@@ -170,4 +181,4 @@ run, scoring, or Bars 0–3 evaluation occurred.
 - Study 007 correction:
   `experiments/study_007/evaluation/position_and_grounding_analysis.md`
 
-**Last updated:** July 29, 2026
+**Last updated:** August 22, 2026

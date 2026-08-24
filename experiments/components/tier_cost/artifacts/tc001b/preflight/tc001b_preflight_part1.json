@@ -1,0 +1,528 @@
+{
+  "behaviour": {
+    "budget_chars": 16000,
+    "degenerate_states": {
+      "dual_delivered_zero_coverage": 571,
+      "dual_delivered_zero_episodes": 0,
+      "dual_delivered_zero_k": 0,
+      "dual_k_leaves_no_room_for_coverage": 571
+    },
+    "distributions": {
+      "dual": {
+        "chars": {
+          "max": 16000,
+          "mean": 15954.78,
+          "min": 15746,
+          "n": 871,
+          "p25": 15935,
+          "p50": 15965,
+          "p75": 15986,
+          "zero": 0
+        },
+        "coverage": {
+          "max": 77,
+          "mean": 8.37,
+          "min": 0,
+          "n": 871,
+          "p25": 0,
+          "p50": 0,
+          "p75": 11,
+          "zero": 571
+        },
+        "delivered": {
+          "max": 79,
+          "mean": 54.59,
+          "min": 39,
+          "n": 871,
+          "p25": 49,
+          "p50": 56,
+          "p75": 59,
+          "zero": 0
+        },
+        "k": {
+          "max": 71,
+          "mean": 46.22,
+          "min": 1,
+          "n": 871,
+          "p25": 41,
+          "p50": 52,
+          "p75": 58,
+          "zero": 0
+        },
+        "recency": {
+          "max": 0,
+          "mean": 0.0,
+          "min": 0,
+          "n": 871,
+          "p25": 0,
+          "p50": 0,
+          "p75": 0,
+          "zero": 871
+        }
+      },
+      "dual_ranked": {
+        "chars": {
+          "max": 16000,
+          "mean": 15956.303,
+          "min": 15746,
+          "n": 871,
+          "p25": 15937,
+          "p50": 15966,
+          "p75": 15984,
+          "zero": 0
+        },
+        "coverage": {
+          "max": 77,
+          "mean": 8.37,
+          "min": 0,
+          "n": 871,
+          "p25": 0,
+          "p50": 0,
+          "p75": 11,
+          "zero": 571
+        },
+        "delivered": {
+          "max": 79,
+          "mean": 54.039,
+          "min": 38,
+          "n": 871,
+          "p25": 48,
+          "p50": 54,
+          "p75": 60,
+          "zero": 0
+        },
+        "k": {
+          "max": 76,
+          "mean": 45.669,
+          "min": 1,
+          "n": 871,
+          "p25": 40,
+          "p50": 50,
+          "p75": 57,
+          "zero": 0
+        },
+        "recency": {
+          "max": 0,
+          "mean": 0.0,
+          "min": 0,
+          "n": 871,
+          "p25": 0,
+          "p50": 0,
+          "p75": 0,
+          "zero": 871
+        }
+      },
+      "flat": {
+        "chars": {
+          "max": 16000,
+          "mean": 15964.793,
+          "min": 15864,
+          "n": 871,
+          "p25": 15945,
+          "p50": 15969,
+          "p75": 15988,
+          "zero": 0
+        },
+        "delivered": {
+          "max": 79,
+          "mean": 54.171,
+          "min": 38,
+          "n": 871,
+          "p25": 48,
+          "p50": 54,
+          "p75": 59,
+          "zero": 0
+        }
+      },
+      "tiered": {
+        "chars": {
+          "max": 16000,
+          "mean": 15954.09,
+          "min": 15783,
+          "n": 871,
+          "p25": 15930,
+          "p50": 15961,
+          "p75": 15986,
+          "zero": 0
+        },
+        "coverage": {
+          "max": 35,
+          "mean": 1.39,
+          "min": 0,
+          "n": 871,
+          "p25": 0,
+          "p50": 0,
+          "p75": 0,
+          "zero": 722
+        },
+        "delivered": {
+          "max": 69,
+          "mean": 53.73,
+          "min": 45,
+          "n": 871,
+          "p25": 51,
+          "p50": 54,
+          "p75": 57,
+          "zero": 0
+        },
+        "k": {
+          "max": 30,
+          "mean": 20.34,
+          "min": 1,
+          "n": 871,
+          "p25": 17,
+          "p50": 22,
+          "p75": 24,
+          "zero": 0
+        },
+        "recency": {
+          "max": 32,
+          "mean": 32.0,
+          "min": 32,
+          "n": 871,
+          "p25": 32,
+          "p50": 32,
+          "p75": 32,
+          "zero": 0
+        }
+      }
+    },
+    "ordering": {
+      "dual_and_dual_ranked_identical_delivery": 286,
+      "dual_k_in_relevance_order": 1,
+      "dual_k_in_store_order": 865,
+      "dual_ranked_k_in_relevance_order": 864,
+      "k_tier_evaluable": 865,
+      "questions": 871
+    }
+  },
+  "cost": {
+    "budget_chars": 16000,
+    "by_conversation": [
+      {
+        "dual_ms": {
+          "max": 120.7019,
+          "mean": 94.5429,
+          "min": 89.5344,
+          "n": 40,
+          "p50": 91.6287,
+          "p95": 120.2603
+        },
+        "dual_ranked_ms": {
+          "max": 116.9213,
+          "mean": 93.8155,
+          "min": 89.122,
+          "n": 40,
+          "p50": 91.3188,
+          "p95": 115.5056
+        },
+        "pool_size": 340,
+        "questions_timed": 40,
+        "sample_id": "conv-41"
+      },
+      {
+        "dual_ms": {
+          "max": 113.7385,
+          "mean": 98.7194,
+          "min": 92.8597,
+          "n": 40,
+          "p50": 97.0067,
+          "p95": 109.0121
+        },
+        "dual_ranked_ms": {
+          "max": 135.8016,
+          "mean": 101.2756,
+          "min": 92.4981,
+          "n": 40,
+          "p50": 96.0024,
+          "p95": 127.3858
+        },
+        "pool_size": 323,
+        "questions_timed": 40,
+        "sample_id": "conv-42"
+      },
+      {
+        "dual_ms": {
+          "max": 119.6735,
+          "mean": 94.0091,
+          "min": 87.8776,
+          "n": 40,
+          "p50": 92.1156,
+          "p95": 107.0146
+        },
+        "dual_ranked_ms": {
+          "max": 105.8432,
+          "mean": 92.9841,
+          "min": 87.2994,
+          "n": 40,
+          "p50": 90.949,
+          "p95": 103.0058
+        },
+        "pool_size": 355,
+        "questions_timed": 40,
+        "sample_id": "conv-47"
+      },
+      {
+        "dual_ms": {
+          "max": 116.1148,
+          "mean": 98.0194,
+          "min": 91.9457,
+          "n": 40,
+          "p50": 96.0942,
+          "p95": 111.8377
+        },
+        "dual_ranked_ms": {
+          "max": 116.0089,
+          "mean": 97.5205,
+          "min": 93.0122,
+          "n": 40,
+          "p50": 95.9266,
+          "p95": 109.5963
+        },
+        "pool_size": 347,
+        "questions_timed": 40,
+        "sample_id": "conv-48"
+      }
+    ]
+  },
+  "elapsed_seconds": 1877.981,
+  "identity": {
+    "budgets": [
+      16000,
+      32000
+    ],
+    "claim": "compose_context(k_order='store') is build_context. The only difference A_DUAL_RANKED introduces is the order in which the K tier offers its candidates to the packer.",
+    "composition_comparisons": 3484,
+    "configs": [
+      "shipped_n32",
+      "dual_n0"
+    ],
+    "recency_window_at_n0": 0,
+    "status": "PASS"
+  },
+  "inputs": {
+    "cache_content_sha256": "e103b2933ee9ec7b8e9236f43037797618da524e413b83a9f3973a19d28b1b2a",
+    "cache_file_sha256": "2ba617018a1b043bf439bb50e756191d8141fb7ca01a2e4a68c9eb822eba26f8",
+    "cache_hits": 2247,
+    "cache_misses": 0,
+    "dataset_sha256": "79fa87e90f04081343b8c8debecb80a9a6842b76a7aa537dc9fdf651ea698ff4",
+    "development_ids": [
+      "conv-41",
+      "conv-42",
+      "conv-47",
+      "conv-48"
+    ],
+    "dual_config": {
+      "budget_accounting": "exact_serialized",
+      "candidate_policy": "full_store",
+      "embed_call_shape": "solo",
+      "embedder_sha256": "06507c7b42688469c4e7298b0a1e16deff06caf291cf0a5b278c308249c3e439",
+      "k_threshold": 0.48,
+      "recency_window_n": 0,
+      "seed": 5005,
+      "selector": "A3",
+      "selector_cluster_count": 16,
+      "selector_cost_exponent": 0.0,
+      "selector_lambda": 0.1,
+      "unsafe_cosine_top_n": 100
+    },
+    "embedder_sha256": "06507c7b42688469c4e7298b0a1e16deff06caf291cf0a5b278c308249c3e439",
+    "shipped_config": {
+      "budget_accounting": "exact_serialized",
+      "candidate_policy": "full_store",
+      "embed_call_shape": "solo",
+      "embedder_sha256": "06507c7b42688469c4e7298b0a1e16deff06caf291cf0a5b278c308249c3e439",
+      "k_threshold": 0.48,
+      "recency_window_n": 32,
+      "seed": 5005,
+      "selector": "A3",
+      "selector_cluster_count": 16,
+      "selector_cost_exponent": 0.0,
+      "selector_lambda": 0.1,
+      "unsafe_cosine_top_n": 100
+    },
+    "sources": {
+      "episodic/src/episodic/_context.py": "c817b3f303722cf08e0e111b26786160a1c8690c1bcfb71875554c849b7857e6",
+      "episodic/src/episodic/_packing.py": "c5011dada056fa0106544925c75d849c3d5b4857b6c5010ed4b604f9c3d2af04",
+      "episodic/src/episodic/_selection.py": "990e7f84e7690c55350ff24bcc41e4486254c72145320da0bc08ae509e597265",
+      "src/analysis/tc001_exploration.py": "83d59ca3121bcc117d5003d3c3bf5cbaf05657658fd2c144ffa737ba2f1c019f",
+      "src/analysis/tc001b_exploration.py": "8d5085d22c953fab1bc3e495345d1268b56d60752383cf9b5e06979f8f829e68"
+    }
+  },
+  "note": "Within-arm characterization only. No arm's absolute availability and no cross-arm contrast appears in this artifact.",
+  "null_band": {
+    "arms": [
+      "dual",
+      "dual_ranked"
+    ],
+    "band_definition": "The largest absolute gains-minus-losses any sham budget perturbation produced within a single arm, at this budget, on either endpoint. TC-001's measured value for the flat and tiered arms is carried alongside; the registration takes the maximum over all four arms.",
+    "budget_chars": 16000,
+    "endpoints": [
+      "any",
+      "complete"
+    ],
+    "evaluable_questions": 871,
+    "max_abs_net": 3,
+    "perturbations": {
+      "dual": {
+        "any": [
+          {
+            "budget_chars": 16000,
+            "discordant": 8,
+            "fraction": -0.01,
+            "gains": 4,
+            "losses": 4,
+            "net": 0,
+            "nudged_budget_chars": 15840
+          },
+          {
+            "budget_chars": 16000,
+            "discordant": 3,
+            "fraction": -0.005,
+            "gains": 1,
+            "losses": 2,
+            "net": -1,
+            "nudged_budget_chars": 15920
+          },
+          {
+            "budget_chars": 16000,
+            "discordant": 1,
+            "fraction": 0.005,
+            "gains": 1,
+            "losses": 0,
+            "net": 1,
+            "nudged_budget_chars": 16080
+          },
+          {
+            "budget_chars": 16000,
+            "discordant": 3,
+            "fraction": 0.01,
+            "gains": 3,
+            "losses": 0,
+            "net": 3,
+            "nudged_budget_chars": 16160
+          }
+        ],
+        "complete": [
+          {
+            "budget_chars": 16000,
+            "discordant": 6,
+            "fraction": -0.01,
+            "gains": 3,
+            "losses": 3,
+            "net": 0,
+            "nudged_budget_chars": 15840
+          },
+          {
+            "budget_chars": 16000,
+            "discordant": 2,
+            "fraction": -0.005,
+            "gains": 0,
+            "losses": 2,
+            "net": -2,
+            "nudged_budget_chars": 15920
+          },
+          {
+            "budget_chars": 16000,
+            "discordant": 1,
+            "fraction": 0.005,
+            "gains": 1,
+            "losses": 0,
+            "net": 1,
+            "nudged_budget_chars": 16080
+          },
+          {
+            "budget_chars": 16000,
+            "discordant": 3,
+            "fraction": 0.01,
+            "gains": 3,
+            "losses": 0,
+            "net": 3,
+            "nudged_budget_chars": 16160
+          }
+        ]
+      },
+      "dual_ranked": {
+        "any": [
+          {
+            "budget_chars": 16000,
+            "discordant": 3,
+            "fraction": -0.01,
+            "gains": 2,
+            "losses": 1,
+            "net": 1,
+            "nudged_budget_chars": 15840
+          },
+          {
+            "budget_chars": 16000,
+            "discordant": 2,
+            "fraction": -0.005,
+            "gains": 2,
+            "losses": 0,
+            "net": 2,
+            "nudged_budget_chars": 15920
+          },
+          {
+            "budget_chars": 16000,
+            "discordant": 0,
+            "fraction": 0.005,
+            "gains": 0,
+            "losses": 0,
+            "net": 0,
+            "nudged_budget_chars": 16080
+          },
+          {
+            "budget_chars": 16000,
+            "discordant": 0,
+            "fraction": 0.01,
+            "gains": 0,
+            "losses": 0,
+            "net": 0,
+            "nudged_budget_chars": 16160
+          }
+        ],
+        "complete": [
+          {
+            "budget_chars": 16000,
+            "discordant": 2,
+            "fraction": -0.01,
+            "gains": 1,
+            "losses": 1,
+            "net": 0,
+            "nudged_budget_chars": 15840
+          },
+          {
+            "budget_chars": 16000,
+            "discordant": 1,
+            "fraction": -0.005,
+            "gains": 1,
+            "losses": 0,
+            "net": 1,
+            "nudged_budget_chars": 15920
+          },
+          {
+            "budget_chars": 16000,
+            "discordant": 0,
+            "fraction": 0.005,
+            "gains": 0,
+            "losses": 0,
+            "net": 0,
+            "nudged_budget_chars": 16080
+          },
+          {
+            "budget_chars": 16000,
+            "discordant": 0,
+            "fraction": 0.01,
+            "gains": 0,
+            "losses": 0,
+            "net": 0,
+            "nudged_budget_chars": 16160
+          }
+        ]
+      }
+    },
+    "tc001_max_abs_net": 4
+  },
+  "schema": "tc001b-preflight-part1-v1",
+  "status": "PREFLIGHT_PART1_ONLY"
+}

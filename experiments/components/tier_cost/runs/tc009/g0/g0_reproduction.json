@@ -1,0 +1,416 @@
+{
+  "blind_manifest": {
+    "audit": {
+      "forbidden_keys": [],
+      "keys": [
+        "blind_key",
+        "cases",
+        "category",
+        "chars",
+        "dialog_ids",
+        "identity",
+        "pair_order",
+        "pairs",
+        "question",
+        "questions",
+        "sample_id",
+        "schema",
+        "session_id",
+        "session_order",
+        "source_index",
+        "source_sha256",
+        "text"
+      ],
+      "status": "PASS"
+    },
+    "sha256": "83bcadb1e029e14514841b65bd903904fe53420a246bc0a59cad99afaa0671b3",
+    "source_tc008_sha256": "83bcadb1e029e14514841b65bd903904fe53420a246bc0a59cad99afaa0671b3"
+  },
+  "calls": {
+    "cache_misses": 0,
+    "embedding": 0,
+    "llm_or_generative": 0,
+    "programme_model_free": true
+  },
+  "implementation_identity": {
+    "admitted_state_steps": 69961,
+    "dynamic_payload_identity_checks": 1742,
+    "full_state_steps": 296166,
+    "lambda_zero_question_checks": 871,
+    "repeat_before_full_coverage_checks": 871,
+    "selection_digest": {
+      "cache_hits": 2236,
+      "cache_misses": 0,
+      "rows": 871,
+      "sha256": "629bdfa1a7547b4bcf2df36c45628397d3f5b0c88c3d9b461dd2f9f48fe80900"
+    },
+    "status": "PASS",
+    "tc008_payload_identity_checks": 5226
+  },
+  "leakage": {
+    "planted": {
+      "planted_violation_rejected": true,
+      "status": "PASS"
+    },
+    "static": {
+      "files": {
+        "src/analysis/tc007_allocation.py": "97276ebca1da1b545fb518f514b974d9d7951449f28700dad9d3c4a3df23c007",
+        "src/analysis/tc009_dynamic_session.py": "e4ed012cb81319a8acdc1234b9aa231956dfc1132246c8a49afea4474a237711"
+      },
+      "status": "PASS"
+    }
+  },
+  "mechanism_activity": {
+    "by_budget": {
+      "16000": {
+        "admitted_max_count_before": {
+          "max": 15,
+          "mean": 2.2629,
+          "min": 1,
+          "n": 871,
+          "p25": 2,
+          "p50": 2,
+          "p75": 2,
+          "zero": 0
+        },
+        "admitted_max_penalty": {
+          "max": 0.44999999999999996,
+          "mean": 0.0679,
+          "min": 0.03,
+          "n": 871,
+          "p25": 0.06,
+          "p50": 0.06,
+          "p75": 0.06,
+          "zero": 0
+        },
+        "budget_violations": 0,
+        "consecutive_same_session": {
+          "max": 5,
+          "mean": 1.2147,
+          "min": 0,
+          "n": 871,
+          "p25": 0,
+          "p50": 1,
+          "p75": 2,
+          "zero": 265
+        },
+        "control_only_count": {
+          "max": 19,
+          "mean": 9.5362,
+          "min": 3,
+          "n": 871,
+          "p25": 8,
+          "p50": 9,
+          "p75": 11,
+          "zero": 0
+        },
+        "control_only_dense_rank": {
+          "max": 339,
+          "mean": 45.9509,
+          "min": 20,
+          "n": 8306,
+          "p25": 37,
+          "p50": 44,
+          "p75": 52,
+          "zero": 0
+        },
+        "differs_from_control": 871,
+        "differs_from_session_predecessor": 871,
+        "max_selected_from_one_session": {
+          "max": 9,
+          "mean": 4.4225,
+          "min": 2,
+          "n": 871,
+          "p25": 4,
+          "p50": 4,
+          "p75": 5,
+          "zero": 0
+        },
+        "payload_chars": {
+          "max": 16000,
+          "mean": 15963.9024,
+          "min": 15857,
+          "n": 871,
+          "p25": 15937,
+          "p50": 15975,
+          "p75": 15991,
+          "zero": 0
+        },
+        "questions": 871,
+        "repeat_before_all_sessions": 871,
+        "selected_sessions": {
+          "max": 32,
+          "mean": 28.9024,
+          "min": 23,
+          "n": 871,
+          "p25": 28,
+          "p50": 29,
+          "p75": 30,
+          "zero": 0
+        },
+        "spread_admitted": {
+          "max": 37,
+          "mean": 27.0608,
+          "min": 18,
+          "n": 871,
+          "p25": 24,
+          "p50": 27,
+          "p75": 30,
+          "zero": 0
+        },
+        "spread_binding_questions": 871,
+        "treatment_only_count": {
+          "max": 18,
+          "mean": 9.9667,
+          "min": 3,
+          "n": 871,
+          "p25": 8,
+          "p50": 10,
+          "p75": 12,
+          "zero": 0
+        },
+        "treatment_only_dense_rank": {
+          "max": 342,
+          "mean": 78.633,
+          "min": 39,
+          "n": 8681,
+          "p25": 61,
+          "p50": 71,
+          "p75": 86,
+          "zero": 0
+        }
+      },
+      "32000": {
+        "admitted_max_count_before": {
+          "max": 18,
+          "mean": 4.2365,
+          "min": 2,
+          "n": 871,
+          "p25": 3,
+          "p50": 4,
+          "p75": 4,
+          "zero": 0
+        },
+        "admitted_max_penalty": {
+          "max": 0.54,
+          "mean": 0.1271,
+          "min": 0.06,
+          "n": 871,
+          "p25": 0.09,
+          "p50": 0.12,
+          "p75": 0.12,
+          "zero": 0
+        },
+        "budget_violations": 0,
+        "consecutive_same_session": {
+          "max": 5,
+          "mean": 1.2147,
+          "min": 0,
+          "n": 871,
+          "p25": 0,
+          "p50": 1,
+          "p75": 2,
+          "zero": 265
+        },
+        "control_only_count": {
+          "max": 28,
+          "mean": 16.3284,
+          "min": 7,
+          "n": 871,
+          "p25": 14,
+          "p50": 16,
+          "p75": 19,
+          "zero": 0
+        },
+        "control_only_dense_rank": {
+          "max": 346,
+          "mean": 90.647,
+          "min": 41,
+          "n": 14222,
+          "p25": 77,
+          "p50": 90,
+          "p75": 104,
+          "zero": 0
+        },
+        "differs_from_control": 871,
+        "differs_from_session_predecessor": 871,
+        "max_selected_from_one_session": {
+          "max": 11,
+          "mean": 6.4007,
+          "min": 4,
+          "n": 871,
+          "p25": 6,
+          "p50": 6,
+          "p75": 7,
+          "zero": 0
+        },
+        "payload_chars": {
+          "max": 32000,
+          "mean": 31963.4765,
+          "min": 31868,
+          "n": 871,
+          "p25": 31936,
+          "p50": 31974,
+          "p75": 31991,
+          "zero": 0
+        },
+        "questions": 871,
+        "repeat_before_all_sessions": 871,
+        "selected_sessions": {
+          "max": 32,
+          "mean": 30.3548,
+          "min": 29,
+          "n": 871,
+          "p25": 29,
+          "p50": 30,
+          "p75": 31,
+          "zero": 0
+        },
+        "spread_admitted": {
+          "max": 66,
+          "mean": 53.2618,
+          "min": 40,
+          "n": 871,
+          "p25": 49,
+          "p50": 54,
+          "p75": 57,
+          "zero": 0
+        },
+        "spread_binding_questions": 871,
+        "treatment_only_count": {
+          "max": 25,
+          "mean": 15.884,
+          "min": 7,
+          "n": 871,
+          "p25": 13,
+          "p50": 16,
+          "p75": 18,
+          "zero": 0
+        },
+        "treatment_only_dense_rank": {
+          "max": 346,
+          "mean": 139.6481,
+          "min": 83,
+          "n": 13835,
+          "p25": 119,
+          "p50": 133,
+          "p75": 155,
+          "zero": 0
+        }
+      }
+    },
+    "status": "PASS"
+  },
+  "pf4": {
+    "bands": {
+      "16000": {
+        "breadth_complete": 0,
+        "breadth_share_identities": 0,
+        "breadth_share_questions": 0,
+        "combined_complete": 2,
+        "targeted_complete": 2
+      },
+      "32000": {
+        "breadth_complete": 0,
+        "breadth_share_identities": 0,
+        "breadth_share_questions": 0,
+        "combined_complete": 1,
+        "targeted_complete": 0
+      }
+    },
+    "cells": {
+      "16000": {
+        "breadth_complete_noninferiority": {
+          "band": 0,
+          "n": 44,
+          "pass_and_fail_reachable": true
+        },
+        "breadth_share": {
+          "identity_band": 0,
+          "n": 44,
+          "question_band": 0,
+          "signal_minimum_all_favourable_questions": 6,
+          "treatment_and_dense_directions_reachable": true,
+          "works_minimum_all_favourable_questions": 10
+        },
+        "combined_guardrail": {
+          "band": 2,
+          "fire_and_nonfire_reachable": true,
+          "minimum_all_adverse_to_fire": 10,
+          "n": 868
+        },
+        "targeted_guardrail": {
+          "band": 2,
+          "fire_and_nonfire_reachable": true,
+          "minimum_all_adverse_to_fire": 10,
+          "n": 704
+        }
+      },
+      "32000": {
+        "breadth_complete_noninferiority": {
+          "band": 0,
+          "n": 44,
+          "pass_and_fail_reachable": true
+        },
+        "breadth_share": {
+          "identity_band": 0,
+          "n": 44,
+          "question_band": 0,
+          "signal_minimum_all_favourable_questions": 6,
+          "treatment_and_dense_directions_reachable": true,
+          "works_minimum_all_favourable_questions": 10
+        },
+        "combined_guardrail": {
+          "band": 1,
+          "fire_and_nonfire_reachable": true,
+          "minimum_all_adverse_to_fire": 10,
+          "n": 868
+        },
+        "targeted_guardrail": {
+          "band": 0,
+          "fire_and_nonfire_reachable": true,
+          "minimum_all_adverse_to_fire": 10,
+          "n": 704
+        }
+      }
+    },
+    "family_tests": 6,
+    "joint_branches": {
+      "dense_carries_signal": true,
+      "dense_works_both_budgets": true,
+      "dynamic_carries_signal": true,
+      "dynamic_works_both_budgets": true,
+      "guardrail_failure": true,
+      "mixed_or_no_difference": true
+    },
+    "schema": "tc009-pf4-v1",
+    "signal_alpha": 0.016666666666666666,
+    "status": "PASS",
+    "works_alpha": 0.0016666666666666668
+  },
+  "prefix_determinism": {
+    "fresh_processes": 2,
+    "questions": 12,
+    "sha256": "15fd0a3aa303fdf4341796763ad62944ab99c381adbd8abbfda071422dcda309",
+    "status": "PASS"
+  },
+  "registration": {
+    "pre_registration_sha256": "6ec7cd70874c9b0f87817d9a17ad1fb8684027922d4d51f31e932b08ac693563",
+    "preflight_sha256": {
+      "tc009_preflight_full_order_trace.jsonl.gz": "de56dc5ef827edc8c4919f5a15bde62fc5c2c618e84430c17aadcaffa1f68347",
+      "tc009_preflight_mechanism_trace.jsonl.gz": "148481de267e28bbec667558763266614b8de643f495b302e5cd5ddf38fb9848",
+      "tc009_preflight_part1.json": "c1e92a879152edfdef0ba870b78e43f03c87959d82bd8d8b181ba3c288634e08",
+      "tc009_preflight_pf4_reachability.json": "844d67a1eacd63d7090169dcef56e1efc87408fd20b72c3518dbe4c994ef4b9a",
+      "tc009_preflight_trace.jsonl.gz": "d30715b2e644f45c0b0efc0b268bf05fcefaccdf56bb4fc729245216c71d5651"
+    },
+    "registration_commit": "1edf6ad7601d06a53a2819874b13e48120d13f04",
+    "status": "PASS"
+  },
+  "schema": "tc009-g0-v1",
+  "status": "PASS",
+  "test_suite": {
+    "command": ".venv\\Scripts\\python.exe -m pytest -q",
+    "status": "PASS",
+    "summary": "2226 passed in 107.96s (0:01:47)"
+  }
+}

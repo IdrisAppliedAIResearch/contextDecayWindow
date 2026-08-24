@@ -1,0 +1,132 @@
+{
+  "budgets": {
+    "16000": {
+      "budget_chars": 16000,
+      "contrasts": {
+        "dual_ranked_vs_dual": {
+          "any_evidence": {
+            "concordant_pairs": 574,
+            "discordant_pairs": 297,
+            "smallest_one_sided_exact_p_at_this_n": 3.9272747722381812e-90
+          },
+          "complete_evidence": {
+            "concordant_pairs": 569,
+            "discordant_pairs": 302,
+            "smallest_one_sided_exact_p_at_this_n": 1.2272733663244316e-91
+          }
+        },
+        "dual_ranked_vs_flat": {
+          "any_evidence": {
+            "concordant_pairs": 869,
+            "discordant_pairs": 2,
+            "smallest_one_sided_exact_p_at_this_n": 0.25
+          },
+          "complete_evidence": {
+            "concordant_pairs": 868,
+            "discordant_pairs": 3,
+            "smallest_one_sided_exact_p_at_this_n": 0.125
+          }
+        },
+        "dual_vs_flat": {
+          "any_evidence": {
+            "concordant_pairs": 572,
+            "discordant_pairs": 299,
+            "smallest_one_sided_exact_p_at_this_n": 9.818186930595453e-91
+          },
+          "complete_evidence": {
+            "concordant_pairs": 566,
+            "discordant_pairs": 305,
+            "smallest_one_sided_exact_p_at_this_n": 1.5340917079055395e-92
+          }
+        },
+        "dual_vs_tiered": {
+          "any_evidence": {
+            "concordant_pairs": 592,
+            "discordant_pairs": 279,
+            "smallest_one_sided_exact_p_at_this_n": 1.0295115178936058e-84
+          },
+          "complete_evidence": {
+            "concordant_pairs": 593,
+            "discordant_pairs": 278,
+            "smallest_one_sided_exact_p_at_this_n": 2.0590230357872116e-84
+          }
+        }
+      },
+      "evaluable_questions": 871
+    },
+    "32000": {
+      "budget_chars": 32000,
+      "contrasts": {
+        "dual_ranked_vs_dual": {
+          "any_evidence": {
+            "concordant_pairs": 756,
+            "discordant_pairs": 115,
+            "smallest_one_sided_exact_p_at_this_n": 2.407412430484045e-35
+          },
+          "complete_evidence": {
+            "concordant_pairs": 746,
+            "discordant_pairs": 125,
+            "smallest_one_sided_exact_p_at_this_n": 2.350988701644575e-38
+          }
+        },
+        "dual_ranked_vs_flat": {
+          "any_evidence": {
+            "concordant_pairs": 870,
+            "discordant_pairs": 1,
+            "smallest_one_sided_exact_p_at_this_n": 0.5
+          },
+          "complete_evidence": {
+            "concordant_pairs": 868,
+            "discordant_pairs": 3,
+            "smallest_one_sided_exact_p_at_this_n": 0.125
+          }
+        },
+        "dual_vs_flat": {
+          "any_evidence": {
+            "concordant_pairs": 755,
+            "discordant_pairs": 116,
+            "smallest_one_sided_exact_p_at_this_n": 1.2037062152420224e-35
+          },
+          "complete_evidence": {
+            "concordant_pairs": 743,
+            "discordant_pairs": 128,
+            "smallest_one_sided_exact_p_at_this_n": 2.938735877055719e-39
+          }
+        },
+        "dual_vs_tiered": {
+          "any_evidence": {
+            "concordant_pairs": 746,
+            "discordant_pairs": 125,
+            "smallest_one_sided_exact_p_at_this_n": 2.350988701644575e-38
+          },
+          "complete_evidence": {
+            "concordant_pairs": 736,
+            "discordant_pairs": 135,
+            "smallest_one_sided_exact_p_at_this_n": 2.2958874039497803e-41
+          }
+        }
+      },
+      "evaluable_questions": 871
+    }
+  },
+  "contrasts": [
+    "dual_vs_flat",
+    "dual_vs_tiered",
+    "dual_ranked_vs_flat",
+    "dual_ranked_vs_dual"
+  ],
+  "inputs": {
+    "cache_content_sha256": "e103b2933ee9ec7b8e9236f43037797618da524e413b83a9f3973a19d28b1b2a",
+    "cache_file_sha256": "2ba617018a1b043bf439bb50e756191d8141fb7ca01a2e4a68c9eb822eba26f8",
+    "cache_misses": 0,
+    "dataset_sha256": "79fa87e90f04081343b8c8debecb80a9a6842b76a7aa537dc9fdf651ea698ff4",
+    "sources": {
+      "src/analysis/tc001_exploration.py": "83d59ca3121bcc117d5003d3c3bf5cbaf05657658fd2c144ffa737ba2f1c019f",
+      "src/analysis/tc001b_exploration.py": "8d5085d22c953fab1bc3e495345d1268b56d60752383cf9b5e06979f8f829e68",
+      "src/analysis/tc001b_reachability.py": "a24efb376f3d752630446013484ad6e5dcc331b728c575554cde13994a77a4de"
+    }
+  },
+  "note": "Discordant counts only. The direction of disagreement is not computed here and must not be, until the bars are committed.",
+  "schema": "tc001b-preflight-pf4-reachability-v1",
+  "status": "PREFLIGHT_PF4_ONLY"
+}
