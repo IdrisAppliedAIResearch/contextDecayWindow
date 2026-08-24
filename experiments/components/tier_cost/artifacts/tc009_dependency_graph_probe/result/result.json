@@ -1,0 +1,407 @@
+{
+  "calls": {
+    "embedding": 0,
+    "embedding_vectors_read": 0,
+    "llm_or_generative": 0,
+    "outcome_parser_documents": 0
+  },
+  "cells": {
+    "dep_pagerank": {
+      "breadth": {
+        "baseline": 27,
+        "gains": 1,
+        "losses": 18,
+        "n": 44,
+        "net": -17,
+        "treatment": 10
+      },
+      "breadth_identity": {
+        "gains": 3,
+        "losses": 44,
+        "net_identities": -41
+      },
+      "clauses": {
+        "breadth_complete_nonnegative": false,
+        "breadth_identity_positive": false,
+        "combined_positive": false,
+        "conversation_consistent": false,
+        "targeted_nonnegative": false
+      },
+      "combined": {
+        "baseline": 810,
+        "gains": 16,
+        "losses": 149,
+        "n": 868,
+        "net": -133,
+        "treatment": 677
+      },
+      "conversation_nets": {
+        "conv-41": -42,
+        "conv-42": -37,
+        "conv-47": -30,
+        "conv-48": -24
+      },
+      "rank_diagnostics": {
+        "all_evidence_dense": {
+          "max": 337.0,
+          "mean": 26.694610778443113,
+          "median": 4.0,
+          "min": 1.0,
+          "n": 1169
+        },
+        "all_evidence_treatment": {
+          "max": 341.0,
+          "mean": 65.25577416595381,
+          "median": 20.0,
+          "min": 1.0,
+          "n": 1169
+        }
+      },
+      "surrogate_audit": {
+        "correlation_questions": 868,
+        "median_score_node_count_correlation": -0.3379216502860217,
+        "selected_subject_empty_per_question": {
+          "max": 72.0,
+          "mean": 48.565668202764975,
+          "median": 51.0,
+          "min": 17.0,
+          "n": 868
+        },
+        "zero_score_candidates_per_question": {
+          "max": 353.0,
+          "mean": 8.435483870967742,
+          "median": 4.0,
+          "min": 0.0,
+          "n": 868
+        }
+      },
+      "targeted": {
+        "baseline": 680,
+        "gains": 11,
+        "losses": 93,
+        "n": 704,
+        "net": -82,
+        "treatment": 598
+      },
+      "versus_lexical": {
+        "breadth": {
+          "baseline": 15,
+          "gains": 1,
+          "losses": 6,
+          "n": 44,
+          "net": -5,
+          "treatment": 10
+        },
+        "combined": {
+          "baseline": 727,
+          "gains": 37,
+          "losses": 87,
+          "n": 868,
+          "net": -50,
+          "treatment": 677
+        },
+        "targeted": {
+          "baseline": 632,
+          "gains": 26,
+          "losses": 60,
+          "n": 704,
+          "net": -34,
+          "treatment": 598
+        }
+      }
+    },
+    "lexical": {
+      "breadth": {
+        "baseline": 27,
+        "gains": 0,
+        "losses": 12,
+        "n": 44,
+        "net": -12,
+        "treatment": 15
+      },
+      "breadth_identity": {
+        "gains": 10,
+        "losses": 29,
+        "net_identities": -19
+      },
+      "clauses": {
+        "breadth_complete_nonnegative": false,
+        "breadth_identity_positive": false,
+        "combined_positive": false,
+        "conversation_consistent": false,
+        "targeted_nonnegative": false
+      },
+      "combined": {
+        "baseline": 810,
+        "gains": 21,
+        "losses": 104,
+        "n": 868,
+        "net": -83,
+        "treatment": 727
+      },
+      "conversation_nets": {
+        "conv-41": -21,
+        "conv-42": -22,
+        "conv-47": -28,
+        "conv-48": -12
+      },
+      "rank_diagnostics": {
+        "all_evidence_dense": {
+          "max": 337.0,
+          "mean": 26.694610778443113,
+          "median": 4.0,
+          "min": 1.0,
+          "n": 1169
+        },
+        "all_evidence_treatment": {
+          "max": 348.0,
+          "mean": 42.44225834046193,
+          "median": 4.0,
+          "min": 1.0,
+          "n": 1169
+        }
+      },
+      "surrogate_audit": {
+        "correlation_questions": 868,
+        "median_score_node_count_correlation": 0.1819338082419012,
+        "selected_subject_empty_per_question": {
+          "max": 44.0,
+          "mean": 27.411290322580644,
+          "median": 28.0,
+          "min": 8.0,
+          "n": 868
+        },
+        "zero_score_candidates_per_question": {
+          "max": 353.0,
+          "mean": 8.435483870967742,
+          "median": 4.0,
+          "min": 0.0,
+          "n": 868
+        }
+      },
+      "targeted": {
+        "baseline": 680,
+        "gains": 15,
+        "losses": 63,
+        "n": 704,
+        "net": -48,
+        "treatment": 632
+      },
+      "versus_lexical": null
+    },
+    "subject_overlap": {
+      "breadth": {
+        "baseline": 27,
+        "gains": 0,
+        "losses": 24,
+        "n": 44,
+        "net": -24,
+        "treatment": 3
+      },
+      "breadth_identity": {
+        "gains": 7,
+        "losses": 80,
+        "net_identities": -73
+      },
+      "clauses": {
+        "breadth_complete_nonnegative": false,
+        "breadth_identity_positive": false,
+        "combined_positive": false,
+        "conversation_consistent": false,
+        "targeted_nonnegative": false
+      },
+      "combined": {
+        "baseline": 810,
+        "gains": 12,
+        "losses": 506,
+        "n": 868,
+        "net": -494,
+        "treatment": 316
+      },
+      "conversation_nets": {
+        "conv-41": -116,
+        "conv-42": -149,
+        "conv-47": -110,
+        "conv-48": -119
+      },
+      "rank_diagnostics": {
+        "all_evidence_dense": {
+          "max": 337.0,
+          "mean": 26.694610778443113,
+          "median": 4.0,
+          "min": 1.0,
+          "n": 1169
+        },
+        "all_evidence_treatment": {
+          "max": 353.0,
+          "mean": 144.65697177074424,
+          "median": 136.0,
+          "min": 1.0,
+          "n": 1169
+        }
+      },
+      "surrogate_audit": {
+        "correlation_questions": 867,
+        "median_score_node_count_correlation": 0.06972766570147715,
+        "selected_subject_empty_per_question": {
+          "max": 39.0,
+          "mean": 20.005760368663594,
+          "median": 20.0,
+          "min": 0.0,
+          "n": 868
+        },
+        "zero_score_candidates_per_question": {
+          "max": 355.0,
+          "mean": 295.0103686635945,
+          "median": 295.0,
+          "min": 250.0,
+          "n": 868
+        }
+      },
+      "targeted": {
+        "baseline": 680,
+        "gains": 9,
+        "losses": 405,
+        "n": 704,
+        "net": -396,
+        "treatment": 284
+      },
+      "versus_lexical": {
+        "breadth": {
+          "baseline": 15,
+          "gains": 0,
+          "losses": 12,
+          "n": 44,
+          "net": -12,
+          "treatment": 3
+        },
+        "combined": {
+          "baseline": 727,
+          "gains": 11,
+          "losses": 422,
+          "n": 868,
+          "net": -411,
+          "treatment": 316
+        },
+        "targeted": {
+          "baseline": 632,
+          "gains": 8,
+          "losses": 356,
+          "n": 704,
+          "net": -348,
+          "treatment": 284
+        }
+      }
+    },
+    "subject_ppr": {
+      "breadth": {
+        "baseline": 27,
+        "gains": 0,
+        "losses": 24,
+        "n": 44,
+        "net": -24,
+        "treatment": 3
+      },
+      "breadth_identity": {
+        "gains": 9,
+        "losses": 74,
+        "net_identities": -65
+      },
+      "clauses": {
+        "breadth_complete_nonnegative": false,
+        "breadth_identity_positive": false,
+        "combined_positive": false,
+        "conversation_consistent": false,
+        "targeted_nonnegative": false
+      },
+      "combined": {
+        "baseline": 810,
+        "gains": 8,
+        "losses": 474,
+        "n": 868,
+        "net": -466,
+        "treatment": 344
+      },
+      "conversation_nets": {
+        "conv-41": -109,
+        "conv-42": -132,
+        "conv-47": -109,
+        "conv-48": -116
+      },
+      "rank_diagnostics": {
+        "all_evidence_dense": {
+          "max": 337.0,
+          "mean": 26.694610778443113,
+          "median": 4.0,
+          "min": 1.0,
+          "n": 1169
+        },
+        "all_evidence_treatment": {
+          "max": 354.0,
+          "mean": 144.0923866552609,
+          "median": 115.0,
+          "min": 2.0,
+          "n": 1169
+        }
+      },
+      "surrogate_audit": {
+        "correlation_questions": 867,
+        "median_score_node_count_correlation": 0.04861640057266217,
+        "selected_subject_empty_per_question": {
+          "max": 39.0,
+          "mean": 10.508064516129032,
+          "median": 9.0,
+          "min": 0.0,
+          "n": 868
+        },
+        "zero_score_candidates_per_question": {
+          "max": 355.0,
+          "mean": 261.71889400921657,
+          "median": 261.0,
+          "min": 214.0,
+          "n": 868
+        }
+      },
+      "targeted": {
+        "baseline": 680,
+        "gains": 6,
+        "losses": 366,
+        "n": 704,
+        "net": -360,
+        "treatment": 320
+      },
+      "versus_lexical": {
+        "breadth": {
+          "baseline": 15,
+          "gains": 0,
+          "losses": 12,
+          "n": 44,
+          "net": -12,
+          "treatment": 3
+        },
+        "combined": {
+          "baseline": 727,
+          "gains": 14,
+          "losses": 397,
+          "n": 868,
+          "net": -383,
+          "treatment": 344
+        },
+        "targeted": {
+          "baseline": 632,
+          "gains": 12,
+          "losses": 324,
+          "n": 704,
+          "net": -312,
+          "treatment": 320
+        }
+      }
+    }
+  },
+  "claim_boundary": "used LoCoMo development availability only; no TC-010, selector, deployment, or reader authorized",
+  "passing_arms": [],
+  "population": 868,
+  "schema": "tc009-dependency-graph-probe-v1",
+  "selection_sha256": "b98a04b9172d464ab2eec16faaef611c25b5bda28b094cdb76f6b12c0da1f198",
+  "status": "NO_POSITIVE_SIGNAL"
+}

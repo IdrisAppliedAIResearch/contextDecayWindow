@@ -607,6 +607,14 @@ Eleven pre-registered studies test that question, each adding one memory compone
 > 10,320 unique spans; outcome calls are zero and no LLM calls occur.
 > `NO_POSITIVE_SIGNAL`; no TC-010, selector or reader authorized.
 
+> **TC-009 dependency-graph subject probe (2026-08-23).** Without embeddings,
+> exact IDF overlap, dependency PageRank, subject overlap and subject-
+> personalized PageRank deliver 727/677/316/344 complete questions versus
+> dense's 810 at 32k; breadth is 15/10/3/3 versus 27. Every arm regresses all
+> four conversations. Graph centrality loses 50 complete questions to its own
+> lexical control; subject signals leave median 261–295 candidates tied at
+> zero. `NO_POSITIVE_SIGNAL`; no TC-010, deployment or reader authorized.
+
 > **Current component status:** SUP-001 passes all offline P5/P9 supersession
 > gates and the 35-turn reader ablation; no 120-turn run or adoption is automatic.
 
@@ -869,6 +877,7 @@ Runs use a scripted 120-turn conversation with facts planted at known positions 
 | TC-009 | Repeated best-session competition with a cumulative `.03` selection penalty | DENSE_WORKS; DENSE FALLBACK; REGISTERED-OFFLINE | The only changed component replaces TC-008's one-time session novelty with repeated global competition among each session's best remaining cosine candidate. Complete combined/breadth/targeted delivery is 713/12/624 at 16k versus dense 749/16/643, and 794/21/674 at 32k versus 810/27/680. There are no complete-breadth gains. Attribution finds 34/22 dynamic-only required-identity losses at 16k/32k; targeted lost-carrier dense-rank medians are 38.5/71. G0: 2,226 tests and 366,127 state checks; two full workers exact; zero calls/misses. Availability only; reader answers not started |
 | TC-009 safe-substitution probe | Evidence-blind predictors of safe 32k dynamic-versus-dense replacements | NO_POSITIVE_SIGNAL; DESCRIPTIVE | Across 868 eligible questions there are 7 required-identity gains, 23 losses and 838 ties; complete evidence has 4 gains/20 losses. None of 15 frozen features passes. The best pooled query-margin AUC is .708 but reverses to .30 on conv-41 and its top 20 contains one gain. Novelty/redundancy AUC is .47-.54. Feature extraction is sealed before label import; 1,742 payload identities replay; zero calls/misses. No selector, threshold, reader or TC-010 authorized |
 | TC-009 syntactic-span probe | Rank complete pairs by maximum noun-phrase or subject-bearing-sentence cosine | NO_POSITIVE_SIGNAL; DESCRIPTIVE | At 32k, dense/noun/subject combined complete evidence is 810/443/659, targeted 680/391/580 and breadth 27/10/13. Both treatments regress all four conversations; required evidence they lose has median dense rank 5/14. Label-blind capture parses 1,365 pair documents and embeds 10,320 unique spans; Preflight reproduces all 871 dense payloads; outcome calls are zero and LLM calls are zero. Parser extraction works, but max span cosine is unsafe; no TC-010 or reader authorized |
+| TC-009 dependency-graph subject probe | Rank complete pairs without embeddings by lexical overlap, dependency PageRank, subject overlap, or subject-personalized PageRank | NO_POSITIVE_SIGNAL; DESCRIPTIVE | At 32k, dense/lexical/dependency-PR/subject/subject-PPR combined complete evidence is 810/727/677/316/344, targeted 680/632/598/284/320 and breadth 27/15/10/3/3. Every treatment regresses all four conversations. Dependency PageRank loses 50 complete questions to its lexical control; subject arms have median 261-295 zero scores. Corrected Preflight reproduces all 871 dense payloads and runs 204,409 personalized graphs with zero embedding vectors/calls and zero LLM calls. No TC-010, deployment or reader authorized |
 | SUP-001 | Explicit supersession lineage and accessibility | FACTUAL PASS; byte-identity criterion withdrawn | Current-only retrieval rose 0/64 to 64/64 with 32/32 unchanged and 64/64 histories. T1 scored 9/9 under numeric-value equivalence, with zero regressions and zero stale natural payloads; no larger run or adoption is automatic |
 
 Full reports live under `experiments/study_NNN/`; external evaluation reports

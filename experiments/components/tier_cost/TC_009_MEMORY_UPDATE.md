@@ -36,3 +36,20 @@ G0 passed 2,226 tests, 5,226 predecessor anchors, 1,742 dynamic payload checks,
 byte-identical with zero embedding calls, LLM calls or cache misses. Reader
 answers were deliberately not started. The final repository suite is 2,228
 passed.
+
+## Post-close dependency-graph probe
+
+The model-free dependency/graph route is `NO_POSITIVE_SIGNAL`. At 32k,
+dense/IDF lexical/dependency PageRank/subject overlap/subject-personalized
+PageRank complete delivery is 810/727/677/316/344; breadth is 27/15/10/3/3.
+Every treatment loses in all four conversations. Dependency centrality loses
+50 complete questions to its lexical control. Direct subject signals leave a
+median 295 candidates tied at zero; personalized subject mass leaves 261.
+
+Preflight corrected one blind exploration count by standalone amendment:
+870/871, not 871/871, questions have any exact subject-overlap candidate. It
+then reproduced all 871 dense payloads and converged 1,365 standard plus
+204,409 personalized graphs. No embedding vectors were read, and embedding and
+LLM calls were zero. Grammatical subject is not a usable surrogate for section
+topic on this corpus; no TC-010 or reader work follows.
+The final repository suite after this probe is 2,238 passed.
