@@ -120,6 +120,8 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **TC-009 syntactic spans (2026-08-23).** NO_POSITIVE_SIGNAL. At 32k, dense/noun/subject complete = 810/443/659; breadth 27/10/13; targeted 680/391/580. Both regress all 4 conversations. Lost evidence has dense-rank median 5/14. Parser extraction works, but max span cosine is unsafe. 10,320 embedding texts, 0 LLM calls; no TC-010.
 
+**TC-009 dependency graphs (2026-08-23).** NO_POSITIVE_SIGNAL. At 32k dense/lexical/dep-PR/subject/subject-PPR complete = 810/727/677/316/344; breadth 27/15/10/3/3. Every arm loses in all 4 conversations; dep-PR loses 50 to lexical. Subject arms tie 261-295 candidates at zero. 204,409 PPR runs, 0 embedding/LLM calls; no TC-010.
+
 **PS-001 pattern-separated engram formation (2026-08-11).** CHARACTERIZED. Nine deterministic sparse cells on 119 episodes; only D=4096,K=41 passed G3-G5: 119/119 fixed points and exact 1/10/30/50% swap recovery. Six of seven degenerates reached stored codes; the union-biased cue cycled. Code-space result only; no natural cue, retrieval, live run, promotion, or adoption.
 
 **PS-002 natural-language cue binding (2026-08-11).** STOP AT PART 1; NATURAL_CUES_NOT_BOUND, CHARACTERIZED. Nine label-blind cells ran 24 sealed queries x8 rounds. Best M=4,tau=.025 reached stored codes 190/192 but one cue cycled and one reached a spurious fixed point; no cell emitted 8 clean ids/query. Labels, PF1-PF10, answers, live run, promotion and adoption not entered.
