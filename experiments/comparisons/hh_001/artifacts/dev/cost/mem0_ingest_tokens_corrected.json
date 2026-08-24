@@ -1,0 +1,50 @@
+{
+ "MEASURED_predicted_tokens_in_overlap": 1596556,
+ "MEASURED_prompt_tokens_in_overlap": 1612718,
+ "MEASURED_prompt_tokens_per_pair_floor": 980,
+ "RECOMPUTED_predicted_tokens_whole_ingest": 1843446,
+ "RECOMPUTED_prompt_tokens_per_pair": 1131,
+ "RECOMPUTED_prompt_tokens_whole_ingest": 1862108,
+ "climb_note": "Negative slope. Across the whole store the fitted rate falls by about 697 tokens/min on a base of 6476. The claim that per-pair cost climbs as the store grows is not supported by this counter. Ingest *latency* drifts 1.13x first-to-last decile (cost/mem0_ingest_latency.json), which is the drift that exists.",
+ "counter_minutes_after_last_write": 105.0,
+ "counter_overlap_fraction": 0.8661,
+ "counter_overlap_minutes": 249.0,
+ "head_is_pure_ingest": false,
+ "head_prompt_predicted_ratio": 1.424,
+ "inflation_of_published_figure": 3.22,
+ "ingest_first_write_utc": "2026-08-20T15:43:57.227253+00:00",
+ "ingest_last_write_utc": "2026-08-20T20:31:29.848214+00:00",
+ "ingest_minutes_reported": 283.7,
+ "ingest_minutes_write_log": 287.5,
+ "inputs": [
+  {
+   "committed": true,
+   "path": "experiments/comparisons/hh_001/artifacts/dev/cost/mem0_ingest_tokens.json",
+   "sha256": "002b9bf30d3bdc7b"
+  },
+  {
+   "committed": true,
+   "path": "experiments/comparisons/hh_001/artifacts/dev/cost/mem0_ingest.json",
+   "sha256": "a9653199d0d8317f"
+  },
+  {
+   "hashed": false,
+   "path": "experiments/comparisons/hh_001/artifacts/dev/mem0_history.db",
+   "why": "sqlite; read for its two timestamps only"
+  }
+ ],
+ "note": "The published 5,988,818 is a whole-window delta on a cumulative, un-reset, un-scoped counter. Mem0's write log ends 105 minutes before the window does. This file reports only the overlap, and scales it to the ingest by wall clock.",
+ "overlap_prompt_predicted_ratio": 1.01,
+ "pairs": 1646,
+ "per_pair_cost_climbs_with_store": false,
+ "prompt_tokens_after_last_write": 4376100,
+ "published_window_prompt_tokens": 5988818,
+ "rate_vs_store_mean_tokens_per_min": 6476,
+ "rate_vs_store_slope_tokens_per_min_per_memory": -0.444,
+ "rate_vs_store_span_memories": [
+  246,
+  1816
+ ],
+ "schema": "hh001-mem0-ingest-tokens-corrected-v1",
+ "supersedes": "hh001-mem0-ingest-tokens-v1 window_prompt_tokens"
+}
