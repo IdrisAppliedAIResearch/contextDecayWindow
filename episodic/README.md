@@ -213,3 +213,11 @@ clusters over the pool, so tail removal reshuffles the objective rather
 than removing options (DR-002). The candidate policy defaults to the full
 store; the trimming option is named `unsafe_cosine_top_n` and its
 docstring carries the finding.
+
+## Licence
+
+Dual licensed: **AGPL-3.0-or-later** (see `LICENSE`) or a commercial licence from
+Idris Applied AI Research. Absent a commercial agreement, the AGPL applies —
+including section 13, which reaches network use, not only distribution. Full
+terms and commercial enquiries: `LICENSING.md` in the repository root, or
+idrisappliedairesearch@gmail.com.
