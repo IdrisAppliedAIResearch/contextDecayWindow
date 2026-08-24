@@ -1,7 +1,7 @@
 # TC-009 Implementation Document — dynamic session exposure penalty
 
 **Document type:** Prospective implementation design
-**Status:** `DESIGN ONLY — PREFLIGHT PART 1 NEXT — NO RUN AUTHORIZED`
+**Status:** `PREFLIGHT PASS — PRE-REGISTRATION NEXT — NO RUN AUTHORIZED`
 **Date:** August 23, 2026
 **Arc:** Tier-cost successor to TC-008
 **Predecessors:** TC-005, TC-007, TC-008
