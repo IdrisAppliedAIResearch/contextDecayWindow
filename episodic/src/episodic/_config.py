@@ -49,6 +49,16 @@ class EpisodicConfig:
     """
 
     recency_window_n: int = 32
+    retrieval_budget_chars: int = 32_000
+    semantic_dense_weight: float = 0.8
+    bm25_k1: float = 1.2
+    bm25_b: float = 0.75
+    aspect_enabled: bool = False
+    aspect_share: float = 0.5
+    aspect_model: str = "en_core_web_sm"
+    # Legacy replay parameters below remain for the private pre-CC-007
+    # ``build_context`` function.  EpisodeStore.context no longer consumes
+    # them; retaining them keeps historical registered replays runnable.
     k_threshold: float = 0.48
     candidate_policy: str = "full_store"
     unsafe_cosine_top_n: int = 100
@@ -64,6 +74,24 @@ class EpisodicConfig:
     def __post_init__(self) -> None:
         if self.recency_window_n < 0:
             raise EpisodicError("recency_window_n must be non-negative")
+        if self.retrieval_budget_chars < 0:
+            raise EpisodicError("retrieval_budget_chars must be non-negative")
+        if self.semantic_dense_weight != 0.8:
+            raise EpisodicError(
+                "semantic_dense_weight is frozen at the registered CC80 value 0.8"
+            )
+        if self.bm25_k1 != 1.2 or self.bm25_b != 0.75:
+            raise EpisodicError("BM25 is frozen at k1=1.2 and b=0.75")
+        if not isinstance(self.aspect_enabled, bool):
+            raise EpisodicError("aspect_enabled must be a boolean")
+        if self.aspect_share != 0.5:
+            raise EpisodicError(
+                "aspect_share is frozen at the registered protected share 0.5"
+            )
+        if self.aspect_model != "en_core_web_sm":
+            raise EpisodicError(
+                "aspect_model is frozen at the registered en_core_web_sm model"
+            )
         if not 0.0 <= self.k_threshold <= 1.0:
             raise EpisodicError("k_threshold must be a cosine in [0, 1]")
         if self.candidate_policy not in _CANDIDATE_POLICIES:
