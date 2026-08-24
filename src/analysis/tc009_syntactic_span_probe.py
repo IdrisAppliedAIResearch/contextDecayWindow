@@ -312,6 +312,16 @@ def _paired(rows: Sequence[Mapping[str, Any]], arm: str, population: str) -> dic
     return {"n": len(selected), "dense": sum(row["dense_complete"] for row in selected), "treatment": sum(row[f"{arm}_complete"] for row in selected), "gains": gains, "losses": losses, "net": gains - losses}
 
 
+def _distribution(values: Sequence[float]) -> dict[str, Any]:
+    return {
+        "n": len(values),
+        "mean": float(np.mean(values)) if values else None,
+        "median": float(np.median(values)) if values else None,
+        "min": float(min(values)) if values else None,
+        "max": float(max(values)) if values else None,
+    }
+
+
 def run_probe(output_dir: Path = RESULT) -> dict[str, Any]:
     preflight = json.loads((PREFLIGHT / "preflight.json").read_text(encoding="utf-8"))
     selection_path = PREFLIGHT / "selections.jsonl.gz"
@@ -319,6 +329,9 @@ def run_probe(output_dir: Path = RESULT) -> dict[str, Any]:
         raise SpanProbeError("Passing Preflight selection anchor absent or drifted")
     with gzip.open(selection_path, "rt", encoding="utf-8") as handle:
         selections = {(row["sample_id"], int(row["source_index"])): row for row in map(json.loads, handle)}
+    with gzip.open(ACCEPTED, "rt", encoding="utf-8") as handle:
+        accepted = {(row["sample_id"], int(row["source_index"])): row for row in map(json.loads, handle)}
+    span_map = _read_gzip_json(CAPTURE / "span_map.json.gz")
     blind_cases = load_blind_manifest(BLIND)
     vectors, reuse = load_blind_vectors(blind_cases)
     cases = adapt_development(DATASET_PATH)
@@ -333,7 +346,7 @@ def run_probe(output_dir: Path = RESULT) -> dict[str, Any]:
                 continue
             evidence = {episodes[index].identity for index in evidence_indices(case, episodes, question)}
             frozen = selections[(case.sample_id, question.source_index)]
-            row = {"question_id": question.identity, "sample_id": case.sample_id, "source_index": question.source_index, "population": population, "evidence_count": len(evidence)}
+            row = {"question_id": question.identity, "sample_id": case.sample_id, "source_index": question.source_index, "population": population, "evidence_count": len(evidence), "evidence_ids": sorted(evidence)}
             for arm in ARMS:
                 chosen = set(frozen["arms"][arm]["selected_ids"])
                 row[f"{arm}_evidence"] = len(evidence & chosen)
@@ -351,6 +364,57 @@ def run_probe(output_dir: Path = RESULT) -> dict[str, Any]:
         cell["conversation_nets"] = {
             sample_id: sum(row[f"{arm}_complete"] and not row["dense_complete"] for row in rows if row["sample_id"] == sample_id) - sum(row["dense_complete"] and not row[f"{arm}_complete"] for row in rows if row["sample_id"] == sample_id)
             for sample_id in sorted({row["sample_id"] for row in rows})
+        }
+        gained_ranks = []
+        lost_dense_ranks = []
+        evidence_dense_ranks = []
+        evidence_treatment_ranks = []
+        selected_span_counts = []
+        store_span_counts = []
+        selected_fallbacks = 0
+        selected_total = 0
+        score_count_correlations = []
+        for row in rows:
+            key = (row["sample_id"], int(row["source_index"]))
+            frozen = selections[key]
+            accepted_row = accepted[key]
+            dense_order = accepted_row["orders"]["dense"]
+            treatment_order = frozen["arms"][arm]["order"]
+            dense_rank = {identifier: rank for rank, identifier in enumerate(dense_order, 1)}
+            treatment_rank = {identifier: rank for rank, identifier in enumerate(treatment_order, 1)}
+            dense_selected = set(frozen["arms"]["dense"]["selected_ids"])
+            treatment_selected = set(frozen["arms"][arm]["selected_ids"])
+            for identifier in row["evidence_ids"]:
+                evidence_dense_ranks.append(dense_rank[identifier])
+                evidence_treatment_ranks.append(treatment_rank[identifier])
+                if identifier in treatment_selected and identifier not in dense_selected:
+                    gained_ranks.append(treatment_rank[identifier])
+                if identifier in dense_selected and identifier not in treatment_selected:
+                    lost_dense_ranks.append(dense_rank[identifier])
+            counts = [len(span_map["pairs"][identifier][arm]) for identifier in treatment_order]
+            scores = [float(value) for value in frozen["arms"][arm]["scores"]]
+            store_span_counts.extend(counts)
+            if np.std(counts) > 0 and np.std(scores) > 0:
+                score_count_correlations.append(float(np.corrcoef(counts, scores)[0, 1]))
+            fallback_by_id = dict(zip(treatment_order, frozen["arms"][arm]["fallbacks"], strict=True))
+            for identifier in treatment_selected:
+                selected_span_counts.append(len(span_map["pairs"][identifier][arm]))
+                selected_fallbacks += int(fallback_by_id[identifier])
+                selected_total += 1
+        cell["rank_diagnostics"] = {
+            "all_evidence_dense": _distribution(evidence_dense_ranks),
+            "all_evidence_treatment": _distribution(evidence_treatment_ranks),
+            "gained_evidence_treatment": _distribution(gained_ranks),
+            "lost_evidence_dense": _distribution(lost_dense_ranks),
+        }
+        cell["max_over_spans_audit"] = {
+            "store_span_count": _distribution(store_span_counts),
+            "selected_span_count": _distribution(selected_span_counts),
+            "median_within_question_score_span_count_correlation": float(np.median(score_count_correlations)),
+            "correlation_questions": len(score_count_correlations),
+            "selected_fallbacks": selected_fallbacks,
+            "selected_total": selected_total,
+            "selected_fallback_rate": selected_fallbacks / selected_total,
         }
         cells[arm] = cell
     verdict = disposition(cells)
