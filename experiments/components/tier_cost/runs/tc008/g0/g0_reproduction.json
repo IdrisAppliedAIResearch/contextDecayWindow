@@ -1,0 +1,213 @@
+{
+  "blind_manifest": {
+    "audit": {
+      "forbidden_keys": [],
+      "keys": [
+        "blind_key",
+        "cases",
+        "category",
+        "chars",
+        "dialog_ids",
+        "identity",
+        "pair_order",
+        "pairs",
+        "question",
+        "questions",
+        "sample_id",
+        "schema",
+        "session_id",
+        "session_order",
+        "source_index",
+        "source_sha256",
+        "text"
+      ],
+      "status": "PASS"
+    },
+    "cases": 4,
+    "questions": 871,
+    "sha256": "83bcadb1e029e14514841b65bd903904fe53420a246bc0a59cad99afaa0671b3"
+  },
+  "calls": {
+    "cache_misses": 0,
+    "embedding": 0,
+    "llm_or_generative": 0,
+    "programme_model_free": true
+  },
+  "implementation_identity": {
+    "mechanism_step_checks": 70736,
+    "selection_digest": {
+      "cache_hits": 2236,
+      "cache_misses": 0,
+      "rows": 871,
+      "sha256": "0ef905c5fa12e3f6d487fdaab5d03cbba60276928369e11d12986119dee0e78b"
+    },
+    "session_payload_identity_checks": 1742,
+    "status": "PASS",
+    "tc007_payload_identity_checks": 3484
+  },
+  "leakage": {
+    "planted": {
+      "planted_violation_rejected": true,
+      "status": "PASS"
+    },
+    "static": {
+      "files": {
+        "episodic/src/episodic/_selection.py": "990e7f84e7690c55350ff24bcc41e4486254c72145320da0bc08ae509e597265",
+        "src/analysis/tc007_allocation.py": "97276ebca1da1b545fb518f514b974d9d7951449f28700dad9d3c4a3df23c007",
+        "src/analysis/tc008_session_spread.py": "e2ce1c24d98ff90d35afc2e11d17a51f3e2e090e72a15c5dcd5d73aed6d30af8"
+      },
+      "imports": [
+        "__future__",
+        "_embedding",
+        "_render",
+        "analysis.tc005_ranking",
+        "dataclasses",
+        "episodic._packing",
+        "episodic._render",
+        "episodic._selection",
+        "hashlib",
+        "numpy",
+        "retrieval_mechanism_ledger.e005",
+        "typing"
+      ],
+      "status": "PASS"
+    }
+  },
+  "mechanism_activity": {
+    "by_budget": {
+      "16000": {
+        "budget_violations": 0,
+        "differs_from_a3": 871,
+        "differs_from_control": 871,
+        "spread_binding_questions": 871
+      },
+      "32000": {
+        "budget_violations": 0,
+        "differs_from_a3": 871,
+        "differs_from_control": 871,
+        "spread_binding_questions": 871
+      }
+    },
+    "status": "PASS"
+  },
+  "pf4": {
+    "bands": {
+      "16000": {
+        "breadth_complete": 0,
+        "breadth_share_identities": 0,
+        "breadth_share_questions": 0,
+        "combined_complete": 2,
+        "targeted_complete": 2
+      },
+      "32000": {
+        "breadth_complete": 0,
+        "breadth_share_identities": 0,
+        "breadth_share_questions": 0,
+        "combined_complete": 1,
+        "targeted_complete": 0
+      }
+    },
+    "cells": {
+      "16000": {
+        "breadth_complete_noninferiority": {
+          "band": 0,
+          "fail_reachable": true,
+          "n": 44,
+          "pass_reachable": true
+        },
+        "breadth_share": {
+          "dense_works_reachable": true,
+          "identity_band": 0,
+          "n": 44,
+          "positive_identity_net_reachable": true,
+          "question_band": 0,
+          "signal_minimum_all_favourable_questions": 6,
+          "treatment_works_reachable": true,
+          "works_minimum_all_favourable_questions": 10
+        },
+        "combined_complete_guardrail": {
+          "band": 2,
+          "fire_reachable": true,
+          "minimum_all_adverse_to_fire": 10,
+          "n": 868,
+          "nonfire_reachable": true
+        },
+        "targeted_complete_guardrail": {
+          "band": 2,
+          "fire_reachable": true,
+          "minimum_all_adverse_to_fire": 10,
+          "n": 704,
+          "nonfire_reachable": true
+        }
+      },
+      "32000": {
+        "breadth_complete_noninferiority": {
+          "band": 0,
+          "fail_reachable": true,
+          "n": 44,
+          "pass_reachable": true
+        },
+        "breadth_share": {
+          "dense_works_reachable": true,
+          "identity_band": 0,
+          "n": 44,
+          "positive_identity_net_reachable": true,
+          "question_band": 0,
+          "signal_minimum_all_favourable_questions": 6,
+          "treatment_works_reachable": true,
+          "works_minimum_all_favourable_questions": 10
+        },
+        "combined_complete_guardrail": {
+          "band": 1,
+          "fire_reachable": true,
+          "minimum_all_adverse_to_fire": 10,
+          "n": 868,
+          "nonfire_reachable": true
+        },
+        "targeted_complete_guardrail": {
+          "band": 0,
+          "fire_reachable": true,
+          "minimum_all_adverse_to_fire": 10,
+          "n": 704,
+          "nonfire_reachable": true
+        }
+      }
+    },
+    "family_tests": 6,
+    "joint_branches": {
+      "dense_works_both_budgets": true,
+      "guardrail_failure": true,
+      "mixed_or_no_difference": true,
+      "session_carries_signal_one_budget": true,
+      "session_works_both_budgets": true
+    },
+    "schema": "tc008-pf4-v1",
+    "signal_alpha": 0.016666666666666666,
+    "status": "PASS",
+    "works_alpha": 0.0016666666666666668
+  },
+  "prefix_determinism": {
+    "fresh_processes": 2,
+    "questions": 12,
+    "sha256": "a3cc5cb794842bb90a11afbe10165f23278c5de3b88429493e011236f445c36e",
+    "status": "PASS"
+  },
+  "registration": {
+    "pre_registration_sha256": "b40714d4557f7b8510970542856154d920e9f5e1a0f88a4b578c0ee4a9203fbd",
+    "preflight_sha256": {
+      "tc008_preflight_mechanism_trace.jsonl.gz": "2ac5f84c84284ee75bc1cd3b4d3bf4645947979f623006be6beb75f5db7066dd",
+      "tc008_preflight_part1.json": "dab50e1a3935d63755824c8d7ea9f7bb9f57263422338f227eeea44ca6a0f971",
+      "tc008_preflight_pf4_reachability.json": "b3de97b6ad905c0a9311f0dae2a03f407003f50139ff5594d0422f0ac7b79711",
+      "tc008_preflight_trace.jsonl.gz": "d678d873f9a939b0265c4b7ed1875ce81627531b7eadc2e008468af21208d27b"
+    },
+    "registration_commit": "a78bbae30455b1d299547dd96d414c03b9098f53",
+    "status": "PASS"
+  },
+  "schema": "tc008-g0-v1",
+  "status": "PASS",
+  "test_suite": {
+    "command": ".venv\\Scripts\\python.exe -m pytest -q",
+    "status": "PASS",
+    "summary": "2214 passed in 110.20s (0:01:50)"
+  }
+}
