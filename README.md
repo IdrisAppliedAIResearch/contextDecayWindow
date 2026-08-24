@@ -259,6 +259,13 @@ with no complete-breadth gains; targeted falls 643→624 and 680→674. Most los
 evidence is unique to the penalty, not inherited from fixed protection: 34
 identities at 16k and 22 at 32k. **`DENSE_WORKS`; dense keeps the full budget.**
 
+**A frozen post-run probe finds no safe-substitution signal in the obvious
+observables.** At 32k there are 7 required-identity gains, 23 losses and 838
+ties. None of 15 query-score, redundancy, novelty, rank, session, cost or
+penalty features passes. The strongest pooled margin reaches AUC .708 but
+reverses to .30 on one conversation and finds one gain in its top 20. No new
+selector is authorized from this exhausted-corpus diagnostic.
+
 None of that authorizes deleting or shipping anything, and TC-002 decided the
 shipping question in its registration *before* the number existed: a positive
 result does not ship, because the same correction was already rejected on a live
@@ -575,6 +582,15 @@ Eleven pre-registered studies test that question, each adding one memory compone
 > `REGISTERED-OFFLINE`, availability only. Reader answers were not started.
 > `experiments/components/tier_cost/TC_009_REPORT.md`.
 
+> **TC-009 safe-substitution probe (2026-08-23).** On the frozen 32k selected-
+> set changes, required-identity delivery has 7 gains, 23 losses and 838 ties;
+> complete evidence has 4 gains and 20 losses. None of 15 evidence-blind
+> features passes the locked descriptive rule. Worst query-margin AUC is .708
+> pooled but .30 on conv-41 and its top 20 contains one gain; novelty and
+> redundancy are .47–.54. `NO_POSITIVE_SIGNAL`; no selector, threshold, reader
+> or TC-010 authorized. Feature extraction precedes labels and replays 1,742
+> payload identities with zero calls/misses.
+
 > **Current component status:** SUP-001 passes all offline P5/P9 supersession
 > gates and the 35-turn reader ablation; no 120-turn run or adoption is automatic.
 
@@ -835,6 +851,7 @@ Runs use a scripted 120-turn conversation with facts planted at known positions 
 | TC-007 | Fixed 50/50 dense relevance plus protected A3 or facility spread against full-budget dense | NO_SPLIT_SELECTED; DENSE FALLBACK; REGISTERED-OFFLINE | A3 combined complete evidence is 739/812 at 16k/32k versus dense 749/810; breadth 13/27 versus 16/27; targeted 637/681 versus 643/680, so A3 is MIXED_OR_NO_DIFFERENCE. Facility loses 57/36 combined and 7 breadth at both budgets; CONTROL_WORKS. A3 adds/losses 5/14 evidence ids at 16k and 7/3 at 32k, so spread is active but does not clear the joint complete-breadth rule. Two-process/file replay exact; zero calls/misses. Availability only; no reader, share optimum, or enterprise-budget claim |
 | TC-008 | Source-session novelty under TC-007's fixed 50/50 protected allocator | DENSE_CARRIES_SIGNAL; DENSE FALLBACK; REGISTERED-OFFLINE | The only changed component replaces A3's embedding-cluster grouping with source sessions under the same relevance-plus-0.1 novelty objective. At 16k, combined/breadth/targeted complete evidence is 728/13/629 versus dense 749/16/643; breadth identities add/lose 1/5 and both dense guardrails fire. At 32k complete endpoints tie, while one breadth identity is lost. Median represented sessions rises to 30, but 15/27 evidence-changing 16k questions are losses specific to session grouping versus A3. G0: 2,214 tests and 70,736 mechanism checks; two-process replay exact; zero calls/misses. Availability only; reader answers not started |
 | TC-009 | Repeated best-session competition with a cumulative `.03` selection penalty | DENSE_WORKS; DENSE FALLBACK; REGISTERED-OFFLINE | The only changed component replaces TC-008's one-time session novelty with repeated global competition among each session's best remaining cosine candidate. Complete combined/breadth/targeted delivery is 713/12/624 at 16k versus dense 749/16/643, and 794/21/674 at 32k versus 810/27/680. There are no complete-breadth gains. Attribution finds 34/22 dynamic-only required-identity losses at 16k/32k; targeted lost-carrier dense-rank medians are 38.5/71. G0: 2,226 tests and 366,127 state checks; two full workers exact; zero calls/misses. Availability only; reader answers not started |
+| TC-009 safe-substitution probe | Evidence-blind predictors of safe 32k dynamic-versus-dense replacements | NO_POSITIVE_SIGNAL; DESCRIPTIVE | Across 868 eligible questions there are 7 required-identity gains, 23 losses and 838 ties; complete evidence has 4 gains/20 losses. None of 15 frozen features passes. The best pooled query-margin AUC is .708 but reverses to .30 on conv-41 and its top 20 contains one gain. Novelty/redundancy AUC is .47-.54. Feature extraction is sealed before label import; 1,742 payload identities replay; zero calls/misses. No selector, threshold, reader or TC-010 authorized |
 | SUP-001 | Explicit supersession lineage and accessibility | FACTUAL PASS; byte-identity criterion withdrawn | Current-only retrieval rose 0/64 to 64/64 with 32/32 unchanged and 64/64 histories. T1 scored 9/9 under numeric-value equivalence, with zero regressions and zero stale natural payloads; no larger run or adoption is automatic |
 
 Full reports live under `experiments/study_NNN/`; external evaluation reports

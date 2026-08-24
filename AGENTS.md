@@ -116,6 +116,8 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **TC-009 dynamic session penalty (2026-08-23).** DENSE_WORKS; REGISTERED-OFFLINE. Dynamic vs dense complete at 16k: combined 713/749, breadth 12/16, targeted 624/643; at 32k 794/810, 21/27, 674/680. No breadth-complete gains. The penalty uniquely loses 34/22 evidence ids at 16k/32k. Count-based session exposure closes; dense fallback; no answers.
 
+**TC-009 safe-substitution probe (2026-08-23).** NO_POSITIVE_SIGNAL. At 32k, 7 identity gains/23 losses/838 ties; complete 4/20. None of 15 blind features passes. Best margin AUC=.708 but reverses to .30 on conv-41 and finds 1 gain in top 20. Novelty/redundancy AUC=.47-.54. No selector, threshold, reader or TC-010 authorized.
+
 **PS-001 pattern-separated engram formation (2026-08-11).** CHARACTERIZED. Nine deterministic sparse cells on 119 episodes; only D=4096,K=41 passed G3-G5: 119/119 fixed points and exact 1/10/30/50% swap recovery. Six of seven degenerates reached stored codes; the union-biased cue cycled. Code-space result only; no natural cue, retrieval, live run, promotion, or adoption.
 
 **PS-002 natural-language cue binding (2026-08-11).** STOP AT PART 1; NATURAL_CUES_NOT_BOUND, CHARACTERIZED. Nine label-blind cells ran 24 sealed queries x8 rounds. Best M=4,tau=.025 reached stored codes 190/192 but one cue cycled and one reached a spurious fixed point; no cell emitted 8 clean ids/query. Labels, PF1-PF10, answers, live run, promotion and adoption not entered.
