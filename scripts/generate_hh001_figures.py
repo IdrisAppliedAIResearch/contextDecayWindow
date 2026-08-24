@@ -153,6 +153,7 @@ def figure_head_to_head() -> Path:
     storage = read(DEV / "cost/storage.json")
     ingest = read(DEV / "cost/mem0_ingest.json")
     tokens = read(DEV / "cost/mem0_ingest_tokens.json")
+    corrected = read(DEV / "cost/mem0_ingest_tokens_corrected.json")
 
     order = ["A0_NO_MEMORY", "A3_MEM0", "A4_RAG_FIXED", "A2_CDW_PAIR", "A1_FULL_CONTEXT"]
     label = {
@@ -195,11 +196,14 @@ def figure_head_to_head() -> Path:
     for side in ("top", "right"):
         left.spines[side].set_visible(False)
 
-    # Prompt tokens rather than call count: a call count understates what a
-    # generative write path costs, because the prompt grows with the store.
+    # Prompt tokens alongside the call count. The raw artifact's
+    # window_prompt_tokens is NOT usable: its counter is cumulative and
+    # process-wide and kept running past Mem0's last write. Amendment 001
+    # scales the overlap instead, and that is what is plotted.
     spent = {a: 0 for a in order}
-    spent["A3_MEM0"] = tokens["window_prompt_tokens"]
-    coverage = tokens["window_history_rows"] / 1811
+    spent["A3_MEM0"] = corrected["RECOMPUTED_prompt_tokens_whole_ingest"]
+    coverage = corrected["counter_overlap_fraction"]
+    floor = corrected["MEASURED_prompt_tokens_in_overlap"]
     right.bar([label[a] for a in order], [spent[a] / 1e6 for a in order],
               color=[colour[a] for a in order])
     right.set_ylabel("million prompt tokens to build the store")
@@ -208,9 +212,10 @@ def figure_head_to_head() -> Path:
     for tick in right.get_xticklabels():
         tick.set_ha("right")
     right.annotate(
-        "{:,} prompt tokens\n{:,} calls in {:.0f} min\nmeasured over {:.0f}% of the ingest".format(
+        "{:,} prompt tokens\n{:,} calls in {:.0f} min\n{:.0f}% measured ({:,}), "
+        "remainder scaled".format(
             int(spent["A3_MEM0"]), ingest["total_generative_calls"],
-            ingest["total_seconds"] / 60, coverage * 100),
+            ingest["total_seconds"] / 60, coverage * 100, int(floor)),
         xy=(1, spent["A3_MEM0"] / 1e6),
         xytext=(2.05, spent["A3_MEM0"] / 1e6 * 0.62),
         fontsize=9, color=BLACK,
