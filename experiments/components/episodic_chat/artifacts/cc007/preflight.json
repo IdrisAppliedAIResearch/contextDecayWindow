@@ -1,0 +1,138 @@
+{
+  "calls": {
+    "cache_misses": 0,
+    "llm_or_generative": 0,
+    "new_embedding": 0
+  },
+  "pf1": {
+    "aspect_frozen_sha256": "9f4ae9abb57dfc76aecb3afdfcb62029056c10c6a412e42914d0c2294c2c9a0a",
+    "blind_manifest_sha256": "83bcadb1e029e14514841b65bd903904fe53420a246bc0a59cad99afaa0671b3",
+    "cache_hits": 2236,
+    "cache_misses": 0,
+    "candidates": 1365,
+    "cc80_frozen_sha256": "17e88abdc88547ec8abd96fb09ce8ae8e3f04c605d0081eed5f8cf837e2ad202",
+    "questions": 871
+  },
+  "pf10": {
+    "availability_only": true,
+    "live_reader_run": false
+  },
+  "pf2": {
+    "aspect_selected": {
+      "16000": {
+        "max": 68,
+        "median": 49.0,
+        "min": 39,
+        "n": 871
+      },
+      "32000": {
+        "max": 126,
+        "median": 100.0,
+        "min": 80,
+        "n": 871
+      }
+    },
+    "aspect_spread": {
+      "16000": {
+        "max": 29,
+        "median": 23.0,
+        "min": 19,
+        "n": 871
+      },
+      "32000": {
+        "max": 54,
+        "median": 46.0,
+        "min": 37,
+        "n": 871
+      }
+    },
+    "default_aspect_enabled": false,
+    "facet_families": {
+      "conv-41": {
+        "date": 73,
+        "entity": 825,
+        "event": 2330,
+        "noun": 2941,
+        "number": 27,
+        "relation": 1125
+      },
+      "conv-42": {
+        "date": 67,
+        "entity": 506,
+        "event": 1895,
+        "noun": 2467,
+        "number": 72,
+        "relation": 876
+      },
+      "conv-47": {
+        "date": 89,
+        "entity": 947,
+        "event": 2035,
+        "noun": 2650,
+        "number": 85,
+        "relation": 1053
+      },
+      "conv-48": {
+        "date": 80,
+        "entity": 862,
+        "event": 2089,
+        "noun": 2404,
+        "number": 71,
+        "relation": 962
+      }
+    },
+    "identity": "query-wise min-max CC80 plus static facet-saturation ASPECT"
+  },
+  "pf3": {
+    "gate_precedes_activation": true,
+    "store_path_activated": false
+  },
+  "pf4": {
+    "both_aspect_stop_states": true,
+    "unit_reachability_suite": "tests/test_cc007_mechanisms.py"
+  },
+  "pf5": {
+    "duplicate_ids": 0,
+    "stable_candidate_identities": 1365
+  },
+  "pf6": {
+    "actual_trace_groups": 4355,
+    "expected_trace_groups": 4355,
+    "first_mismatches": [],
+    "mismatches": 0
+  },
+  "pf7": {
+    "aspect_stopping": {
+      "16000": {
+        "no_complete_candidate_fits": 854,
+        "no_positive_marginal": 17
+      },
+      "32000": {
+        "no_complete_candidate_fits": 842,
+        "no_positive_marginal": 29
+      }
+    },
+    "monotone_admission_steps": 60465,
+    "repeated_admissions": 0
+  },
+  "pf8": {
+    "cannot_detect": [
+      "new-corpus transfer",
+      "reader use",
+      "high-concurrency safety",
+      "unmeasured-scale latency"
+    ],
+    "conversations": 4,
+    "questions": 871
+  },
+  "pf9": {
+    "accepted_residuals": [
+      "byte parity is not effectiveness",
+      "deduplication is not retrieval utility",
+      "retrieval-budget compliance is not a total-prompt ceiling",
+      "availability is not reader use"
+    ]
+  },
+  "schema": "cc007-port-preflight-v1",
+  "status": "PASS"
+}
