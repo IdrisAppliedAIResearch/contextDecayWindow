@@ -87,8 +87,11 @@ def build_contexts(
     # value that costs no API call and no measurable time to rebuild.
     cacheable = getattr(arm, "cacheable_contexts", True)
     path = out_dir / "contexts.json"
+    item_key = getattr(
+        arm, "item_key", lambda c, q: f"{c.sample_id}#{q.source_index}"
+    )
     expected = {
-        f"{c.sample_id}#{q.source_index}"
+        item_key(c, q)
         for c in conversations
         for q in c.scored_questions
     }
@@ -111,14 +114,14 @@ def build_contexts(
 
     for index, conversation in enumerate(conversations, start=1):
         if all(
-            f"{conversation.sample_id}#{q.source_index}" in items
+            item_key(conversation, q) in items
             for q in conversation.scored_questions
         ):
             continue
         state = arm.prepare(conversation, client)
         for question in conversation.scored_questions:
             context, search_time, detail = arm.context(state, question, client)
-            items[f"{conversation.sample_id}#{question.source_index}"] = {
+            items[item_key(conversation, question)] = {
                 "sample_id": conversation.sample_id,
                 "source_index": question.source_index,
                 "category": question.category,
@@ -128,7 +131,11 @@ def build_contexts(
                 "context_chars": detail.get("chars", len(context)),
                 "units_delivered": detail.get("units_delivered", 0),
                 "search_time": round(search_time, 4),
+                "detail": detail,
             }
+        close_state = getattr(arm, "close_state", None)
+        if close_state is not None:
+            close_state(state)
         log(
             f"  [{arm.name}] {conversation.sample_id} "
             f"({index}/{len(conversations)}) {len(items)} contexts  "

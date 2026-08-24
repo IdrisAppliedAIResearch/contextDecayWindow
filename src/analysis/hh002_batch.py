@@ -191,6 +191,7 @@ def submit_job(
     ledger: BatchLedger,
     key: str,
     log: Callable[[str], None] = print,
+    study: str = "HH-002",
 ) -> str:
     """Upload and enqueue one job, or adopt one already in flight."""
     digest = _digest(requests)
@@ -213,7 +214,7 @@ def submit_job(
         input_file_id=uploaded.id,
         endpoint="/v1/chat/completions",
         completion_window="24h",
-        metadata={"study": "HH-002", "key": key},
+        metadata={"study": study, "key": key},
     )
     ledger.record(
         key,
@@ -298,6 +299,7 @@ def run_scheduled(
     in_flight_target: int = IN_FLIGHT_TOKEN_TARGET,
     log: Callable[[str], None] = print,
     on_result: Callable[[str, dict[str, dict[str, Any]]], None] | None = None,
+    study: str = "HH-002",
 ) -> dict[str, dict[str, dict[str, Any]]]:
     """Drive many prefixes to completion under one enqueued-token ceiling.
 
@@ -342,7 +344,7 @@ def run_scheduled(
             if outstanding and in_flight_tokens() + tokens > in_flight_target:
                 break
             pending.pop(0)
-            batch_id = submit_job(client, job, ledger, key, log)
+            batch_id = submit_job(client, job, ledger, key, log, study=study)
             outstanding[key] = (prefix, batch_id, tokens)
 
         if not outstanding:
