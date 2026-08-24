@@ -130,6 +130,8 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **TC-010 qualified bottom spread (2026-08-23).** NO_SPLIT_SELECTED. CC80/qualified/global complete = 771/752/706 at 16k and 819/818/771 at 32k; breadth 17/13/8 and 24/24/17. At 16k diversity displaces evidence; at 32k sets are identical on 765/871 because the top-quarter pool already fits. Global bottom is harmful. CC80 fallback; no tuning/reader.
 
+**TC-011 four spread objectives (2026-08-24).** NO_CANDIDATE. At 16k/32k combined: CC80 771/819, logdet 726/797, aspect 749/810, anchored chain 717/780, pure chain 717/778. Aspect is least harmful but breadth 15/23 vs 17/24. Both chains regress sharply. Four exact 50/50 routes close; CC80 fallback, no answers/tuning.
+
 **PS-001 pattern-separated engram formation (2026-08-11).** CHARACTERIZED. Nine deterministic sparse cells on 119 episodes; only D=4096,K=41 passed G3-G5: 119/119 fixed points and exact 1/10/30/50% swap recovery. Six of seven degenerates reached stored codes; the union-biased cue cycled. Code-space result only; no natural cue, retrieval, live run, promotion, or adoption.
 
 **PS-002 natural-language cue binding (2026-08-11).** STOP AT PART 1; NATURAL_CUES_NOT_BOUND, CHARACTERIZED. Nine label-blind cells ran 24 sealed queries x8 rounds. Best M=4,tau=.025 reached stored codes 190/192 but one cue cycled and one reached a spurious fixed point; no cell emitted 8 clean ids/query. Labels, PF1-PF10, answers, live run, promotion and adoption not entered.

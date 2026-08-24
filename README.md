@@ -143,7 +143,7 @@ flush against the page there rather than showing as a panel.*
 
 ## Current State of Work
 
-*Last updated 2026-08-23, at TC-010's verdict.*
+*Last updated 2026-08-24, at TC-011's verdict.*
 
 **The tiered architecture does not earn its place on delivery.** TC-001 put the
 shipped four-tier read path against the flat cosine ranking that scored 79.09%
@@ -273,12 +273,20 @@ scores are actively harmful as rerankers.** At 32k, whole-pair dense delivers
 all four conversations. The spans exist; maximum span cosine is not a safe
 proxy for answer-bearing content.
 
+**TC-011 then screens four mathematically different protected-spread routes,
+and none pays for half the budget.** Against full CC80's combined 771/819 at
+16k/32k, residual log determinant reaches 726/797, deterministic aspect
+coverage 749/810, anchored chaining 717/780 and pure chaining 717/778. ASPECT
+is closest but breadth is 15/23 against CC80's 17/24. Anchored and pure chains
+select different sets on every question at both budgets, yet both regress
+sharply. `NO_CANDIDATE`; CC80 keeps the full budget.
+
 None of that authorizes deleting or shipping anything, and TC-002 decided the
 shipping question in its registration *before* the number existed: a positive
 result does not ship, because the same correction was already rejected on a live
 bar. Availability is not a verdict, and LoCoMo asks questions about a finished
 conversation, so a recency window is close to worthless there by construction.
-What the nine TC results establish together is narrower and sharper: on this
+What the TC arc establishes together is narrower and sharper: on this
 corpus, the tiered machinery at its best delivers what a plain cosine ranking
 delivers, at roughly four times the latency. Changing allocation can rescue a
 bad fixed order, but it does not isolate a gain over ranking candidates well;
@@ -288,9 +296,9 @@ two-budget evidence needed to replace dense. Fixed 50/50 A3 spread can add a
 few outliers at 32k without improving complete breadth at both budgets, while
 facility spread is decisively harmful. Replacing embedding clusters with real
 sessions raises coverage counts and worsens required evidence, and a cumulative
-session penalty worsens it again. Count-based session exposure closes as a
-surrogate; a successor needs a query-conditioned signal for missing
-information. Reader answers are next and remain separately registered work.
+session penalty worsens it again. Generic geometric novelty, structured facet
+coverage and associative chaining also fail to make a protected half pay for
+itself. Reader answers are next and remain separately registered work.
 Nothing in the TC arc is blocked.
 
 **The deployable component is done.** `episodic/` is an installable library with
@@ -373,7 +381,7 @@ confirmation.
 
 ## Next Steps
 
-1. **Return to answers through a separately registered reader study.** TC-010
+1. **Return to answers through a separately registered reader study.** TC-011
    leaves user-locked full-budget CC80 as its offline fallback and preserves
    every prior context. Before any inference, freeze which contexts the
    reader compares, the exact prompt/model, replicate schedule, item-level
@@ -414,7 +422,7 @@ Eleven pre-registered studies test that question, each adding one memory compone
 
 > **Status:** Study 010 stopped at G2; exploratory continuation unaudited and LTM budget-noncompliant | retrieval bakeoff complete | retrieval mechanism ledger reopened for Family CS; E005 is killed by LV-001's live targeted-regression bar, DX-001 closes NO CHANGE, RD-001 stops before correlation because unchanged rarity scores cover only 6/76 fact-bearing episodes, and chained retrieval Rev5 is CHARACTERIZED offline at 9/17 versus X0 6/17 but misses art 0/4 and has no targeted no-regression arm | EC-001 LongMemEval complete: inversion not dominant, Codex-substituted score only | EC-002 complete: K-first packing raises any-session recall 109/470 -> 261/470 offline; no production promotion authorized | IC-001 Branch A: the same gate is closed internally — K delivered nothing at 8/8 probes under the deployed order; Q11 6/17 -> 7/17, targeted 14/21 -> 18/21, zero losses; cache clause substituted under authorized Amendment 001; no recalibration authorized | Study 011 tests both halves live and splits them: the deployed arm scores identically to recency-only on all 13 questions, so the similarity tier is inert in deployment, but K-first raises availability and scores 7.0 vs 8.0 — B1 FAILS and the packing correction is not adopted; post-unseal analysis finds the N tier is a least-recently-delivered rotation over the whole store, not a recency window, and that the rule every live run through Study 010 used was a block locked onto the conversation's first nine turns; three different rules carry that name and only the extracted library's is a window | Amendment 001 authorized and run: the instrument's run-to-run band is **3.0 points on 13**, measured by five identical arm-D replicates that score 8.0, 8.0, 8.0, 8.0 and 11.0 — a switch, not a spread, since four are byte-identical across 121 turns and the one meeting an empty server slot diverges at turn 1; Study 009's 3.0, LV-001's -2.0 and Study 011's -1.0 are all re-read as **not demonstrated**, while every offline count is untouched and B1 stays fired | CC-002 extracts the deployable component into `episodic`; CC-006 adds exact hashed vector-cache reuse | PS-001 CHARACTERIZED: the selected sparse cell stores and recovers 119/119 codes through 50% registered swaps | PS-002 stops at Part 1: best natural-language binder reaches stored codes in 190/192 rounds but retains one cycle and one spurious fixed point, so labels, answers, and live scoring are not entered | deployment closeout complete | PAPER-002 supersedes PAPER-001 (2026-08-18): same numbers, reordered to lead with the sealed LoCoMo holdout, with a four-level standing taxonomy in `paper/notes/EVIDENCE_SPINE.md`, a withdrawn-claim list in `paper/notes/DO_NOT_WRITE.md`, and every number gated by `scripts/check_paper_002_claims.py`; PAPER-001 retired | scoring/interpretation record corrected through 2026-08-05
 
-> **TC arc status:** `TC-001 REPORTED D3 FLAT_WINS; TC-001B REPORTED C1 D3 FLAT_WINS; TC-002 REPORTED C1 D1 K_FIRST_WINS; TC-003 REPORTED C1 D1 FLOORS_WINS / C5 D3 RANKED_WINS; TC-004 REPORTED NO_PREDICTIVE_SIGNAL; TC-005 REPORTED HYBRID CARRIES_SIGNAL / DENSE FALLBACK; TC-007 REPORTED NO_SPLIT_SELECTED / DENSE FALLBACK; TC-008 REPORTED DENSE_CARRIES_SIGNAL / DENSE FALLBACK; TC-009 REPORTED DENSE_WORKS / DENSE FALLBACK; TC-010 REPORTED NO_SPLIT_SELECTED / CC80 FALLBACK; READER STUDY NOT STARTED`.
+> **TC arc status:** `TC-001 REPORTED D3 FLAT_WINS; TC-001B REPORTED C1 D3 FLAT_WINS; TC-002 REPORTED C1 D1 K_FIRST_WINS; TC-003 REPORTED C1 D1 FLOORS_WINS / C5 D3 RANKED_WINS; TC-004 REPORTED NO_PREDICTIVE_SIGNAL; TC-005 REPORTED HYBRID CARRIES_SIGNAL / DENSE FALLBACK; TC-007 REPORTED NO_SPLIT_SELECTED / DENSE FALLBACK; TC-008 REPORTED DENSE_CARRIES_SIGNAL / DENSE FALLBACK; TC-009 REPORTED DENSE_WORKS / DENSE FALLBACK; TC-010 REPORTED NO_SPLIT_SELECTED / CC80 FALLBACK; TC-011 REPORTED NO_CANDIDATE / CC80 FALLBACK; READER STUDY NOT STARTED`.
 > The arc asks whether the tiered stack earns its place before asking how to tune
 > it. TC-001 ran the shipped `build_context` against `CdwArm`'s flat cosine
 > ranking over identical candidates, vectors, renderer, packer and 16,000-character
@@ -644,6 +652,12 @@ Eleven pre-registered studies test that question, each adding one memory compone
 > at 32k; breadth is 17/13/8 and 24/24/17. At 16k diversification displaces
 > useful evidence. At 32k 765/871 selected sets equal full CC80 because the pool
 > already fits. `NO_SPLIT_SELECTED`; full CC80 remains the fallback.
+
+> **TC-011 four protected-spread mechanisms (2026-08-24).** With CC80 filling
+> the semantic half first, combined completeness at 16k/32k is CC80 771/819,
+> LOGDET 726/797, ASPECT 749/810, anchored chain 717/780 and pure chain 717/778.
+> ASPECT is least harmful but breadth is 15/23 versus 17/24. Both chains are
+> active and distinct yet regress sharply. `NO_CANDIDATE`; CC80 fallback.
 
 > **Current component status:** SUP-001 passes all offline P5/P9 supersession
 > gates and the 35-turn reader ablation; no 120-turn run or adoption is automatic.
@@ -912,6 +926,7 @@ Runs use a scripted 120-turn conversation with facts planted at known positions 
 | TC-009 convex + protected breadth | Put CC80 relevance inside TC-007's unchanged 50/50 A3 allocator | NO_POSITIVE_SIGNAL; BUDGET-DEPENDENT; DESCRIPTIVE | At 32k, dense/full-CC80/dense+A3/CC80+A3 combined is 810/819/812/818, targeted 680/689/681/686 and breadth 27/24/27/27: protection repairs all four prior CC80 enumeration losses while preserving most semantic gain. At 16k it is 749/771/739/757, 643/666/637/653 and 16/17/13/14; the fixed reservation costs too much. Preflight reproduces 6,968 checks, zero calls/misses. No share tuning, TC-010 or reader authorized |
 | TC-009 convex + protected miss audit | Explain every miss and gain over dense from the frozen parent contexts | POSTHOC_DESCRIPTIVE | CC80+A3 misses 111/868 at 16k and 50/868 at 32k; 61 are budget-rescued and none regress. CC80 associates with 17/20 and 6/9 gains. At 32k all 18 targeted misses are zero-evidence, while 31/32 non-targeted misses are partial; multi-session evidence misses 26/126 versus 18/704 single-carrier. Zero ranking/model calls; no causal, reader or architecture claim |
 | TC-010 | Frozen CC80 relevance plus 50/50 minimum-redundancy spread inside CC80's top quarter; reverse CC80 negative control | NO_SPLIT_SELECTED; REGISTERED-OFFLINE | Full CC80/qualified/global-bottom combined is 771/752/706 at 16k and 819/818/771 at 32k; breadth 17/13/8 and 24/24/17. Qualified diversity displaces evidence at 16k, while at 32k 765/871 sets equal full CC80 because the pool already fits. Global bottom is decisively harmful. Preflight reproduces 3,484 payloads with zero calls/misses. CC80 fallback; no tuning or reader |
+| TC-011 | Frozen CC80 semantic half plus 50/50 LOGDET, deterministic ASPECT, query-anchored chain or pure chain spread | NO_CANDIDATE; REGISTERED-OFFLINE | Combined complete at 16k/32k: CC80 771/819, LOGDET 726/797, ASPECT 749/810, anchored chain 717/780, pure chain 717/778. ASPECT is least harmful but breadth 15/23 trails 17/24. The chains differ on 871/871 contexts yet both regress. Preflight reproduces 3,484 parent payloads and 316,786 updates with zero calls/misses. CC80 fallback; no answers or tuning |
 | SUP-001 | Explicit supersession lineage and accessibility | FACTUAL PASS; byte-identity criterion withdrawn | Current-only retrieval rose 0/64 to 64/64 with 32/32 unchanged and 64/64 histories. T1 scored 9/9 under numeric-value equivalence, with zero regressions and zero stale natural payloads; no larger run or adoption is automatic |
 
 Full reports live under `experiments/study_NNN/`; external evaluation reports
