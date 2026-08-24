@@ -1,0 +1,86 @@
+{
+  "calls": {
+    "embedding": 0,
+    "embedding_vectors_read": 0,
+    "llm_or_generative": 0,
+    "parser_documents": 2236
+  },
+  "pf1": {
+    "accepted_sha256": "629bdfa1a7547b4bcf2df36c45628397d3f5b0c88c3d9b461dd2f9f48fe80900",
+    "blind_sha256": "83bcadb1e029e14514841b65bd903904fe53420a246bc0a59cad99afaa0671b3",
+    "dataset_sha256": "79fa87e90f04081343b8c8debecb80a9a6842b76a7aa537dc9fdf651ea698ff4",
+    "graph_sha256": "1d92c59fdcd833fb7d14b1e50505d6784caa21b135bc321557c6c146c06f55a0",
+    "labels_sha256": "680835bf63571b620e59930cff4aa897a2524cd093bbccdefe3be9b67735a742",
+    "selection_sha256": "b98a04b9172d464ab2eec16faaef611c25b5bda28b094cdb76f6b12c0da1f198"
+  },
+  "pf10": {
+    "availability_only": true,
+    "reader_authorized": false
+  },
+  "pf2": {
+    "distribution": {
+      "empty_queries": 0,
+      "lexical_candidate_median": 337.0,
+      "model": "en_core_web_sm",
+      "model_meta_sha256": "7456349002fa8cf31111051bd37fdbea67a1b7f7a0a60ce235466f98a6758125",
+      "node_max": 46,
+      "node_median": 16.0,
+      "pagerank_iterations_max": 170,
+      "pagerank_iterations_median": 159.0,
+      "pagerank_residual_max": 9.990966387540823e-13,
+      "pairs": 1365,
+      "parser_documents": 2236,
+      "questions": 871,
+      "questions_with_lexical_candidate": 871,
+      "questions_with_subject_candidate": 870,
+      "spacy_version": "3.8.14",
+      "subject_candidate_median": 41.0,
+      "subject_empty_pairs": 402,
+      "subject_max": 7,
+      "subject_median": 1.0
+    },
+    "identity": "exact lemma and grammatical-subject overlap plus weighted dependency PageRank rank complete pairs; complete pairs are packed"
+  },
+  "pf3": {
+    "planted_early_label_rejected": true,
+    "selection_sha256_before_labels": "b98a04b9172d464ab2eec16faaef611c25b5bda28b094cdb76f6b12c0da1f198"
+  },
+  "pf4": {
+    "negative_reachable": true,
+    "positive_reachable": true
+  },
+  "pf5": {
+    "blind_keys": 871,
+    "pair_content_identities": 1365
+  },
+  "pf6": {
+    "dense_selected_id_and_payload_reproductions": 871,
+    "dummy_vector_dimensions": 1,
+    "expected": 871
+  },
+  "pf7": {
+    "independent_path_graph": {
+      "iterations": 168,
+      "max_absolute_error": 2.1260770921571748e-13,
+      "pass": true,
+      "residual": 9.252043575713742e-13
+    },
+    "iterations_max": 175,
+    "real_personalized_runs_converged": 204409,
+    "real_standard_graphs_converged": 1365,
+    "residual_max": 9.999692046624986e-13
+  },
+  "pf8": {
+    "cannot_detect": "new-corpus transfer",
+    "conversations": 4
+  },
+  "pf9": {
+    "residuals": [
+      "word overlap is not meaning",
+      "parser subject errors",
+      "centrality and availability are not reader use",
+      "degree may track document length"
+    ]
+  },
+  "status": "PASS"
+}
