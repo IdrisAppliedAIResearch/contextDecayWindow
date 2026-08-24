@@ -19,11 +19,15 @@ from analysis.hh002_harness import (
     Usage,
     deterministic_metrics,
 )
+from analysis.hh002_batch import answer_request
 from analysis.hh002_run import _read_json, _write_json, score
+from analysis.hh002_sync_arm import RateBucket
 from analysis.hh003_drive import ARMS, PREFLIGHT, RUN, _assert_paid_preconditions
 from openai import OpenAI
 
 WORKERS = 8
+TOKENS_PER_MINUTE = 170_000
+REQUESTS_PER_MINUTE = 6.6
 
 
 class HH003SyncError(RuntimeError):
@@ -68,6 +72,8 @@ def run_answers(*, pilot: bool) -> dict[str, Any]:
         for arm in ARMS
     }
     done = {arm: _records(RUN / arm / "predictions.json") for arm in ARMS}
+    token_bucket = RateBucket(TOKENS_PER_MINUTE)
+    request_bucket = RateBucket(REQUESTS_PER_MINUTE)
     work: list[tuple[str, str]] = []
     for arm in ARMS:
         keys = _pilot_keys(contexts[arm]) if pilot else sorted(contexts[arm])
@@ -75,6 +81,11 @@ def run_answers(*, pilot: bool) -> dict[str, Any]:
 
     def one(arm: str, key: str) -> tuple[str, str, dict[str, Any]]:
         item = contexts[arm][key]
+        estimate = answer_request(
+            key, item["question"], item["context"], DEFAULT_MODEL
+        ).approx_tokens
+        request_bucket.acquire(1.0)
+        token_bucket.acquire(estimate)
         response, elapsed, usage = client.answer(item["question"], item["context"])
         return arm, key, {
             "key": key, "sample_id": item["sample_id"],
@@ -96,13 +107,13 @@ def run_answers(*, pilot: bool) -> dict[str, Any]:
             arm, key, row = future.result()
             with lock:
                 done[arm][key] = row
-            if count % 25 == 0 or count == len(work):
                 for name in ARMS:
                     _write_json(RUN / name / "predictions.json", {
                         "arm": name, "model": DEFAULT_MODEL, "transport": "sync",
                         "usage": client.usage.as_dict(),
                         "records": sorted(done[name].values(), key=lambda value: value["key"]),
                     })
+            if count % 25 == 0 or count == len(work):
                 print(f"answers {count}/{len(work)} elapsed={(time.time()-started)/60:.1f}m",
                       flush=True)
     return {"submitted": len(work), "usage": client.usage.as_dict()}
