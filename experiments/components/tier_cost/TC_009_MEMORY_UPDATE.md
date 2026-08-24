@@ -69,3 +69,19 @@ a better semantic ranker than RRF, not a full-context replacement. A future
 architecture would still need independently protected breadth. No coefficient,
 TC-010, deployment, or reader run is authorized.
 The final repository suite after this probe is 2,241 passed.
+
+## Post-close convex relevance plus protected-breadth probe
+
+CC80 inside TC-007's unchanged 50/50 A3 allocator is budget-dependent and
+jointly `NO_POSITIVE_SIGNAL`. At 32k, dense/full-CC80/dense+A3/CC80+A3
+combined is 810/819/812/818, targeted 680/689/681/686 and breadth
+27/24/27/27. Protection repairs all four prior CC80 enumeration losses while
+retaining most semantic gain.
+
+At 16k the same order is 749/771/739/757 combined, 643/666/637/653 targeted
+and 16/17/13/14 breadth. The fixed half-budget reservation costs 14 combined
+questions versus full CC80 and remains two breadth questions below dense.
+Thus score fusion and A3 are compatible at sufficient budget, but the 50/50
+share does not transfer across 16k/32k. No share tuning, TC-010 or reader run is
+authorized.
+The final repository suite after this probe is 2,242 passed.

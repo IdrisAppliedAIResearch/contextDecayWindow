@@ -623,6 +623,13 @@ Eleven pre-registered studies test that question, each adding one memory compone
 > is `NO_POSITIVE_SIGNAL`. It carries a semantic-arm signal, not an architecture
 > or reader authorization.
 
+> **TC-009 convex + protected-breadth probe (2026-08-23).** At 32k, CC80+A3
+> restores full dense breadth (27) while keeping combined/targeted 818/686
+> versus dense 810/680 and full CC80 819/689; it repairs all four prior CC80
+> breadth losses. At 16k, 50/50 costs too much: 757/653/14 versus dense
+> 749/643/16 and full CC80 771/666/17. `NO_POSITIVE_SIGNAL` across both budgets;
+> the components are compatible, but the fixed share does not transfer.
+
 > **Current component status:** SUP-001 passes all offline P5/P9 supersession
 > gates and the 35-turn reader ablation; no 120-turn run or adoption is automatic.
 
@@ -887,6 +894,7 @@ Runs use a scripted 120-turn conversation with facts planted at known positions 
 | TC-009 syntactic-span probe | Rank complete pairs by maximum noun-phrase or subject-bearing-sentence cosine | NO_POSITIVE_SIGNAL; DESCRIPTIVE | At 32k, dense/noun/subject combined complete evidence is 810/443/659, targeted 680/391/580 and breadth 27/10/13. Both treatments regress all four conversations; required evidence they lose has median dense rank 5/14. Label-blind capture parses 1,365 pair documents and embeds 10,320 unique spans; Preflight reproduces all 871 dense payloads; outcome calls are zero and LLM calls are zero. Parser extraction works, but max span cosine is unsafe; no TC-010 or reader authorized |
 | TC-009 dependency-graph subject probe | Rank complete pairs without embeddings by lexical overlap, dependency PageRank, subject overlap, or subject-personalized PageRank | NO_POSITIVE_SIGNAL; DESCRIPTIVE | At 32k, dense/lexical/dependency-PR/subject/subject-PPR combined complete evidence is 810/727/677/316/344, targeted 680/632/598/284/320 and breadth 27/15/10/3/3. Every treatment regresses all four conversations. Dependency PageRank loses 50 complete questions to its lexical control; subject arms have median 261-295 zero scores. Corrected Preflight reproduces all 871 dense payloads and runs 204,409 personalized graphs with zero embedding vectors/calls and zero LLM calls. No TC-010, deployment or reader authorized |
 | TC-009 convex-fusion probe | Query-wise min-max 80/20 dense/BM25 score fusion versus dense and TC-005 rank-only RRF | NO_POSITIVE_SIGNAL; SEMANTIC-ARM SIGNAL; DESCRIPTIVE | At 16k dense/RRF/convex combined is 749/755/771, targeted 643/657/666 and breadth 16/13/17; at 32k it is 810/804/819, 680/682/689 and 27/18/24. Convex gains in all four conversations and beats RRF, but fails the frozen rule on 32k breadth complete (1 gain/4 losses). All four losses are multi-carrier enumeration questions. Preflight reproduces 3,484 accepted checks with zero calls/misses. No coefficient, architecture, TC-010 or reader authorized |
+| TC-009 convex + protected breadth | Put CC80 relevance inside TC-007's unchanged 50/50 A3 allocator | NO_POSITIVE_SIGNAL; BUDGET-DEPENDENT; DESCRIPTIVE | At 32k, dense/full-CC80/dense+A3/CC80+A3 combined is 810/819/812/818, targeted 680/689/681/686 and breadth 27/24/27/27: protection repairs all four prior CC80 enumeration losses while preserving most semantic gain. At 16k it is 749/771/739/757, 643/666/637/653 and 16/17/13/14; the fixed reservation costs too much. Preflight reproduces 6,968 checks, zero calls/misses. No share tuning, TC-010 or reader authorized |
 | SUP-001 | Explicit supersession lineage and accessibility | FACTUAL PASS; byte-identity criterion withdrawn | Current-only retrieval rose 0/64 to 64/64 with 32/32 unchanged and 64/64 histories. T1 scored 9/9 under numeric-value equivalence, with zero regressions and zero stale natural payloads; no larger run or adoption is automatic |
 
 Full reports live under `experiments/study_NNN/`; external evaluation reports
