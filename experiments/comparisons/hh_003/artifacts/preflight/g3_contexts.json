@@ -1,0 +1,71 @@
+{
+  "arms_sha256": "05892741b8f6de6705beac9317047362e10733ce6470f21dcf6057ec1475aff3",
+  "cc007_activation_payloads": 871,
+  "cc007_port_groups": 4355,
+  "contexts": {
+    "A_EPISODIC": {
+      "budget_breaches": 0,
+      "contexts_sha256": "e6010c27c4e073e38ebd48709c3db61de78e98fc514dc84aa96ca1ad33fe9983",
+      "items": 1540,
+      "store_mutations": 0
+    },
+    "A_EPISODIC_ASPECT": {
+      "budget_breaches": 0,
+      "contexts_sha256": "ebcba74bab5922e8849a078d813751691613e91bccf261c921c2ceff85f608e5",
+      "items": 1540,
+      "store_mutations": 0
+    },
+    "different_payloads": 1540
+  },
+  "control_sha256": {
+    "A_CDW/judged_r1.json": "367210a4b6aa37c763db23abd46a33810b6953bdb92be291146f8b8277d9d3cc",
+    "A_CDW/predictions.json": "37601e42b9f24fb6a6d01d78911f2b33a7a0554b568fff1151d3964353ae5628",
+    "A_FULL/judged_r1.json": "467521c8e972d3728fac93b772ab453b3708f4d26607ecba16e1062e6ee6649a",
+    "A_FULL/predictions.json": "a6f82d0ed63eedb3aa1c84472c7ac978e5db6e5c8d5323cdf23ecbc712a150c9",
+    "A_RAG/judged_r1.json": "dd3ff262f3a1b27fc22a445c2f578676974c547a2eca6df1120f5cbe9a24c374",
+    "A_RAG/predictions.json": "bc49bb20a6172dcfa68e3ef825487c776674afaf0f95e19cf9509d4dcaea68af"
+  },
+  "embedding_cache": {
+    "hits": 25,
+    "misses": 9
+  },
+  "episodic_tree": "ae3058f072a9c5b8ce59b130066db11a977e7ab1",
+  "episodic_version": "0.2.0",
+  "head": "8b226dbd1373b555aee645ef7957656370b2e174",
+  "prefix_replay": {
+    "A_EPISODIC": {
+      "byte_identical": true,
+      "items": 8,
+      "payload_sha256": [
+        "964afca642c63461eadba9fd5e9709d4c07d75cbacdf2d0273fae9aa40b5a312",
+        "a152feda9969366fbad9af76b1b47f3cb43846f1c853e9d703f5392920646a04",
+        "a31dce8f6efce91ab369fd70860cb137dee3d2a8e7f833e88ee777753ab1a873",
+        "41f3c1d5e80e12e4fd513f7bfd64ffb5bd590118135cf68f3e7ef0e2b45b634e",
+        "d4a889f0271cf1fdf262142d2124ab42b8abbd491d63e012445c851c7e5ac30e",
+        "184cf2747ea998608e8c3b7a0da9439925f34a1582788fd3d6b2e47ff2a8a1c4",
+        "2e9ab3ef103ff65d061e1b683123a111e2ba405ec5293c6994b12dce57a3ae7a",
+        "34500743eaa3b3f275988b439e1d864904320dfe86a18b8b876af61d3d077deb"
+      ],
+      "store_unchanged": true
+    },
+    "A_EPISODIC_ASPECT": {
+      "byte_identical": true,
+      "items": 8,
+      "payload_sha256": [
+        "dfd23b0e09c1521f0eaf53f1bb1bc1fcf3a24321f2725e27c0dc37cde03a006b",
+        "f25342d8187ad6c32d4d63c6bccbf75e3439d3e28c34ab884911147519c67050",
+        "358b5f097467591588ffbbd2094ee85a2a36f5a7af8a02b4924f59ab0e294367",
+        "7eb0d4a95dd5e70ec2602a37e6f90ddf0c7c73f0c0a48fb35091431d18796ecb",
+        "5d5274279d8211eb9d5e72a4ef1fd05bf561bff1fe1bf5bc0755cf8304787181",
+        "1098d8dbbb22833f8b684c1148c5208aaf5ac0a30f3d11422b1990a3b26bca31",
+        "9705170784f21928db833fc1f188301cc9a33dd9239b0f41a8fbe94af43fecf4",
+        "d250f6159cfadaf4560e91ffeffb7a7b42572c907eadb165fa99bd804cd86def"
+      ],
+      "store_unchanged": true
+    }
+  },
+  "preregistration_commit": "ea5cf2b60ad1af195cdea1a03049e785670d96b7",
+  "runner_sha256": "16fab247f2fde10e42b6e7cb984850984b84a85abaec2cd96bf702f4102697fc",
+  "schema": "hh003-gates-v1",
+  "status": "PASS"
+}
