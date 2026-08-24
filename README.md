@@ -2,7 +2,7 @@
 
 ### → [**Read the paper: *Rank Fine, Pack Fine, Call Nothing***](paper/PAPER_002.md) · [**Download the PDF**](paper/Rank_Fine_Pack_Fine_Call_Nothing.pdf)
 
-*Idris Applied AI Research — independent, non-profit. Failures are published with the results.*
+*Idris Applied AI Research — independent. Failures are published with the results.*
 
 ---
 
@@ -57,18 +57,19 @@ judge prompt, which tells the grader to accept any answer touching the gold
 answer's topic. On open-domain, 841 of the 1,540 questions, the floor is
 **32.34%**. It sits under every row of the published table.
 
-### When Mem0 itself was run here
+### In our own 300-question run with Mem0
 
-Mem0 2.0.18, installed and run on one local reader at a matched
-16,000-character budget.
+Mem0 2.0.18, installed and run locally on 300 sampled LoCoMo questions at a
+matched 16,000-character budget. This is separate from Mem0's published LoCoMo
+row above, which was not re-run here.
 
 ![Head-to-head against Mem0: accuracy, and what each layer spent to build its store](paper/figures/f1_head_to_head.png)
 
 | | This component | Mem0 2.0.18 |
 |---|---:|---:|
 | Questions answered, of 300 | **0.563** | 0.487 |
-| **Prompt tokens to build the store** | **0** | **5,988,818** |
-| Generative calls to build it | **0** | **1,646** |
+| **Generative calls to build the store** | **0** | **1,646** |
+| Prompt tokens to build it | **0** | **1,862,108** |
 | Wall clock to build it | — | **284 min** |
 | Time to assemble one context block | **10 ms** | 413 ms |
 | Store size | **7.2 MB** | 42.8 MB |
@@ -77,10 +78,15 @@ Mem0 2.0.18, installed and run on one local reader at a matched
 **The gap is 7.7 points — 46 gains against 23, p = 0.0038**, with a
 model-free containment endpoint agreeing at **+9.7 points, p = 2.85e-05**.
 
-**Six million prompt tokens bought Mem0 a store that finished behind.** Up to a
+**1,646 generative calls bought Mem0 a store that finished behind.** Up to a
 fifth of the answers written verbatim in those conversations never reached it:
 31% of message pairs produced no memory at all, and 16 extractions returned
 malformed JSON and were dropped. A verbatim store cannot lose what it was given.
+
+*The token figure was published as 5,988,818 and is corrected here to 1,862,108
+— 3.22× smaller, against this project's own argument. The counter was
+process-wide and kept running 105 minutes past Mem0's last write. See
+[Amendment 001](experiments/comparisons/hh_001/amendments/AMENDMENT_001_ingest_token_window.md).*
 
 ### What this does not establish
 
@@ -345,6 +351,21 @@ confirmation.
    `k=16` selection already enters every region, and finer statements do not
    repair art. Statement-grain temporal adjacency is a grounded but separate
    availability successor; it is not part of the prepared live reader study.
+
+## Licence
+
+Dual licensed: **AGPL-3.0-or-later** ([`LICENSE`](LICENSE)) or a **commercial
+licence** from Idris Applied AI Research. You choose; absent a commercial
+agreement, the AGPL applies.
+
+The AGPL is enough for research, evaluation, reproduction, internal use, and any
+project released on compatible terms. You need a commercial licence to offer
+this over a network as part of a closed-source service, or to ship it inside a
+proprietary product — AGPL section 13 covers network use, not just distribution.
+
+Full terms, the scope of what is covered, the carve-out for third-party
+datasets, and the contribution grant: [`LICENSING.md`](LICENSING.md).
+Commercial enquiries: **idrisappliedairesearch@gmail.com**.
 
 ---
 ---
@@ -1337,4 +1358,4 @@ accounting — reproduce exactly.
 
 ---
 
-*Idris Applied AI Research | independent, non-profit | failures published with the results*
+*Idris Applied AI Research | independent | failures published with the results*
