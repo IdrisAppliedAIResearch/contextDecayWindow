@@ -100,12 +100,18 @@ def _load_spacy_model(model_name: str):
             "episodic-chat[aspect]"
         ) from error
     try:
-        return spacy.load(model_name)
+        model = spacy.load(model_name)
     except OSError as error:
         raise EpisodicError(
             f"ASPECT requires parser model {model_name!r}; install "
             "episodic-chat[aspect]"
         ) from error
+    if str(model.meta.get("version")) != "3.8.0":
+        raise EpisodicError(
+            "ASPECT is frozen to en_core_web_sm 3.8.0; observed "
+            f"{model.meta.get('version')!r}"
+        )
+    return model
 
 
 def prepare_facets(

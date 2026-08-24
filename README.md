@@ -143,7 +143,17 @@ flush against the page there rather than showing as a panel.*
 
 ## Current State of Work
 
-*Last updated 2026-08-24, at TC-012's verdict.*
+*Last updated 2026-08-24, at CC-007 deployment adoption.*
+
+**The deployable read path is now episodic-chat 0.2.0.** The latest 32 complete
+exchanges are always additive continuity context and do not spend the long-term
+allowance. The long-term block defaults to 32,000 characters of full-store
+CC80 (`0.8` normalized cosine + `0.2` normalized BM25), with recent identities
+skipped and filling continued. Frozen static ASPECT is present behind an
+explicit flag, defaults off, and uses its tested 50/50 protected allocator with
+unused space returned to CC80. Before activation, the package port reproduced
+4,355/4,355 frozen order/selection/payload groups with zero mismatches. This is
+an authorized product composition, not a new reader or transfer result.
 
 **The tiered architecture does not earn its place on delivery.** TC-001 put the
 shipped four-tier read path against the flat cosine ranking that scored 79.09%
@@ -388,12 +398,12 @@ confirmation.
 
 ## Next Steps
 
-1. **Return to answers through a separately registered reader study.** TC-012
-   leaves user-locked full-budget CC80 as its offline fallback and preserves
-   every prior context. Before any inference, freeze which contexts the
-   reader compares, the exact prompt/model, replicate schedule, item-level
-   fact-use scorer and achievable bars. Availability does not select those
-   reader-design choices after the result.
+1. **Validate episodic-chat 0.2.0 outside the spent LoCoMo corpus.** Freeze an
+   external reader and retrieval study—preferably EnterpriseRAG-Bench or an
+   equivalently conflict-bearing enterprise corpus—before tuning anything.
+   Compare additive-last-32 + CC80 with ASPECT off/on, record latency at store
+   scale, and pre-register the prompt/model, replicate schedule, provenance-
+   aware scorer and achievable bars. Port parity is not reader value.
 
 2. **Write DMR-002 Part 1 and its final pre-registration before implementation.**
    The former is upstream-cleared, but the only spec still forbids execution.
@@ -941,6 +951,7 @@ Runs use a scripted 120-turn conversation with facts planted at known positions 
 | TC-010 | Frozen CC80 relevance plus 50/50 minimum-redundancy spread inside CC80's top quarter; reverse CC80 negative control | NO_SPLIT_SELECTED; REGISTERED-OFFLINE | Full CC80/qualified/global-bottom combined is 771/752/706 at 16k and 819/818/771 at 32k; breadth 17/13/8 and 24/24/17. Qualified diversity displaces evidence at 16k, while at 32k 765/871 sets equal full CC80 because the pool already fits. Global bottom is decisively harmful. Preflight reproduces 3,484 payloads with zero calls/misses. CC80 fallback; no tuning or reader |
 | TC-011 | Frozen CC80 semantic half plus 50/50 LOGDET, deterministic ASPECT, query-anchored chain or pure chain spread | NO_CANDIDATE; REGISTERED-OFFLINE | Combined complete at 16k/32k: CC80 771/819, LOGDET 726/797, ASPECT 749/810, anchored chain 717/780, pure chain 717/778. ASPECT is least harmful but breadth 15/23 trails 17/24. The chains differ on 871/871 contexts yet both regress. Preflight reproduces 3,484 parent payloads and 316,786 updates with zero calls/misses. CC80 fallback; no answers or tuning |
 | TC-012 | Recompute ASPECT relevance per hop using a growing-context cue or an uncovered-question-facet residual cue | NO_DYNAMIC_PROMPT_SIGNAL; RESIDUAL_BINDER_LIMITED; REGISTERED-OFFLINE | CC80/static/dynamic/residual combined is 771/749/720/753 at 16k and 819/810/787/810 at 32k; breadth 17/15/8/15 and 24/23/20/23. Dynamic prompt loses to static 2/31 and 3/26. Residual differs from static on only 146/71 sets, so its +4/0 at 16k cannot support the broad thesis. 3,484 control reproductions, 117,966 updates, zero calls/misses. CC80 fallback |
+| CC-007 | Adopt additive last-32 continuity plus 32k CC80; ship static ASPECT optional/off by default; rename distribution to episodic-chat | PASS; DEPLOYED ENGINEERING ADOPTION | Package-only port reproduces 4,355/4,355 frozen CC80 order/selection/payload and static-ASPECT selection/payload groups with zero mismatches. Recent identities are excluded from long-term admission; the retrieval ceiling excludes recency. ASPECT retains exact 50/50 solo allowances and returns slack to CC80. No new reader, transfer or latency claim |
 | SUP-001 | Explicit supersession lineage and accessibility | FACTUAL PASS; byte-identity criterion withdrawn | Current-only retrieval rose 0/64 to 64/64 with 32/32 unchanged and 64/64 histories. T1 scored 9/9 under numeric-value equivalence, with zero regressions and zero stale natural payloads; no larger run or adoption is automatic |
 
 Full reports live under `experiments/study_NNN/`; external evaluation reports
@@ -1319,44 +1330,48 @@ module global. The graph above the divider is the same path in plain language.
 
 | What it controls | Field | Value | Why it is that value |
 |---|---|---|---|
-| Recent exchanges always included | `recency_window_n` | 32 | carried from the corrected 121-turn run |
-| Score an exchange must beat to count as related | `k_threshold` | 0.48 | carried; **measured unreachable** — best observed relevance is 0.2779, E001 swept 714 configurations to 0.2103 |
-| Whether weak candidates are filtered out early | `candidate_policy` | `full_store` | DR-002 — dropping the 19 lowest-cosine of 119 cost an entire domain, because the selector clusters over the pool and tail removal reshuffles the objective |
-| Coverage selector | `selector` | A3 | E005 — relevance plus cluster diversity; A1/A2 build an O(n²) matrix and were disqualified at scale |
-| Cluster-coverage bonus | `selector_lambda` | 0.1 | E005 primary `A3_l0.1_r0.0_k16` of 146 swept |
-| Cost exponent | `selector_cost_exponent` | 0.0 | E005 primary |
-| Topic groups | `selector_cluster_count` | 16 | E005 primary; NF-007 confirmed the deployed selection already enters all 16 |
+| Recent exchanges always included, outside retrieval budget | `recency_window_n` | 32 | user-authorized continuity contract; exact final 32 completed episodes |
+| Default long-term allowance | `retrieval_budget_chars` | 32,000 | continuity with the programme's 32k character budget; recency is additive |
+| Semantic ranking | `semantic_dense_weight` | 0.8 dense + 0.2 BM25 | frozen CC80 from TC-009; each component min-max normalized per query |
+| BM25 saturation/length constants | `bm25_k1`, `bm25_b` | 1.2, 0.75 | frozen TC-005/TC-009 implementation |
+| Protected spread enabled | `aspect_enabled` | `False` | TC-011 static ASPECT trails full CC80; available by explicit user choice only |
+| Protected spread share | `aspect_share` | 0.5 | tested TC-011 allocator; unused capacity and wrapper savings return to CC80 |
+| ASPECT parser | `aspect_model` | `en_core_web_sm` 3.8.0 | exact registered six-facet extractor; optional install dependency |
 | Size accounting | `budget_accounting` | `exact_serialized` | DR-001 — the prior method under-charged by 67.9%/68.2% |
 | Embedding call shape | `embed_call_shape` | `solo` | DX-001 — the same text embedded alone versus in a batch yields materially different vectors, so call shape is part of the model identity |
 | Seed | `seed` | 5005 | provenance only; no code path in the package draws randomness |
 
-Packing order is `DROP_POLICY = "marginal_gain_order_skip_on_overflow"` — a named
-policy, not an artifact of iteration order. Skipping rather than stopping is
-deliberate: with gains [10, 9, 8] where the budget fits the second and third but
-not the first, this admits 9 and 8 where a strict rank-prefix would keep only 10
-and leave the budget mostly empty.
+CC80 ranks the complete store, skips recent identities, and continues after an
+oversized candidate. When ASPECT is enabled, semantic and spread first receive
+solo half-allowances, merge once, and CC80 resumes into all remaining capacity.
+The exact long-term serialization never exceeds its allowance; the final block
+can, because continuity is deliberately additive.
 
 | Box on the graph | Where it lives |
 |---|---|
 | Saving, start-up check | `episodic/src/episodic/_store.py` — `append`, sentinel verify |
 | Text into numbers | `_embedding.py` — `embed_solo` |
-| Scoring, the three routes | `_context.py` — `build_context` |
-| Topic groups, the spread step | `_selection.py` — `deterministic_clusters`, `ClusterDiversitySelector` |
+| Additive recency composition | `_context.py` — `build_chat_context` |
+| CC80 dense + BM25 ranking | `_ranking.py` — `rank_cc80` |
+| Optional static spread | `_aspect.py` — `aspect_spread` |
+| Protected allocation and slack return | `_retrieval.py` — `retrieve_long_term` |
 | Filling the box | `_packing.py` — `pack_stm_payload` |
 | The two written sections | `_render.py` — `render_stm_payload` |
 | Every setting above | `_config.py` — `EpisodicConfig` |
 
 ## The Extracted Library
 
-CC-002 moved the deployable memory component into `episodic/`, an
-installable package with a public store, report, config, and embedding-cache
+CC-002 moved the deployable memory component into an installable package.
+CC-007 renames the distribution to `episodic-chat` (stable Python namespace
+`episodic`) and replaces the public read path with additive last-32 continuity,
+32k CC80, identity deduplication, and optional static ASPECT. It has a public
+store, report, config, and embedding-cache
 API (`EpisodeStore`, `ContextReport`, `EpisodicConfig`, `EmbeddingCache`) and zero experiment machinery; the
 harness now imports the library and is its largest test. Extraction is
-certified behavior-preserving, not assumed: all 132 committed A3
-selection records and all three committed DR-001 serialized blocks
-reproduce their SHA-256 byte-for-byte through the library (T3/T4), the
-full suite runs green with the harness consuming it (T6, 804 tests), and
-`store.context()` is byte-identical across processes (T7). The two
+certified rather than assumed: CC-007 reproduces 4,355/4,355 frozen CC80 and
+static-ASPECT order/selection/payload groups with zero mismatches before the
+store switch; the carried renderer still reproduces all three DR-001 blocks.
+`store.context()` remains byte-identical across processes. The two
 reproduction hazards found by gates in this program ship as contract
 requirements, not documentation: the embedder call-shape sentinel is
 asserted on every store open (H1, from DX-001), and candidate-pool
@@ -1364,7 +1379,8 @@ trimming exists only under an `unsafe_` name carrying the DR-002 finding
 (H2). The library README makes measured claims only, each row with its
 artifact hash.
 
-See `episodic/README.md` and
+See `episodic/README.md`,
+`experiments/components/episodic_chat/CC_007_PRE_REGISTRATION.md`, and
 `experiments/components/library_extraction/CC_002_library_extraction.md`.
 
 CC-006 closes a second reproducibility hazard. A model-artifact hash and the

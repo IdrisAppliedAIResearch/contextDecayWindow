@@ -1,7 +1,7 @@
 [project]
-name = "episodic"
-version = "0.1.0"
-description = "Episodic memory for long conversations: append-only store, budgeted context construction, measured behavior only."
+name = "episodic-chat"
+version = "0.2.0"
+description = "Episodic chat memory with additive recency, CC80 retrieval, and optional protected ASPECT spread."
 requires-python = ">=3.11"
 dependencies = [
     "numpy>=1.26.0",
@@ -11,10 +11,17 @@ dependencies = [
 # The default embedder loads a GGUF model through llama.cpp. The import is
 # lazy: the base install carries no inference runtime.
 llama = ["llama-cpp-python>=0.3.0"]
+aspect = [
+    "spacy>=3.8.14,<4",
+    "en-core-web-sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl",
+]
 
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
+
+[tool.hatch.metadata]
+allow-direct-references = true
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/episodic"]

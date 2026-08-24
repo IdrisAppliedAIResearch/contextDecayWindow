@@ -26,26 +26,18 @@ _CALL_SHAPES = ("solo",)
 
 @dataclass(frozen=True)
 class EpisodicConfig:
-    """Deployed defaults, each traceable to a committed measurement.
+    """Deployed episodic-chat defaults and historical compatibility fields.
 
-    ``recency_window_n`` and ``k_threshold`` are the values of the carried
-    recency/similarity paths in the corrected 121-turn run (N cap 32,
-    K 0.48). ``candidate_policy`` defaults to the full store: DR-002 found
-    that dropping the 19 lowest-cosine episodes from a 119-episode pool
-    cost an entire domain, because the coverage selector clusters over the
-    pool and tail removal reshuffles the objective rather than removing
-    options. The trimming option is therefore named ``unsafe_``.
+    The public read path always renders ``recency_window_n`` recent episodes
+    outside ``retrieval_budget_chars``, then ranks long-term memory with frozen
+    CC80. Static ASPECT is opt-in and its coefficients are locked because no
+    sweep or alternate parser was authorized. The K-threshold/A3 fields remain
+    solely for the private pre-CC-007 builder used by historical checks; they
+    do not alter ``EpisodeStore.context``.
 
-    The selector is E005's primary configuration ``A3_l0.1_r0.0_k16``:
-    relevance plus cluster-diversity, lambda 0.1, cost exponent 0.0,
-    16 clusters. Budget accounting is exact serialized characters (DR-001).
-
-    ``embedder_sha256`` and ``embed_call_shape`` pin the embedder identity
-    jointly: the model artifact AND how it is called. The same text embedded
-    alone versus inside a batch yields materially different vectors from the
-    carried model (DX-001), so the call shape is part of the identity, not
-    an implementation detail. ``seed`` is recorded for provenance; no code
-    path in this package draws randomness.
+    ``embedder_sha256`` and ``embed_call_shape`` jointly pin the model artifact
+    and solo-call behavior. ``seed`` is provenance only; the package draws no
+    randomness.
     """
 
     recency_window_n: int = 32
@@ -56,9 +48,9 @@ class EpisodicConfig:
     aspect_enabled: bool = False
     aspect_share: float = 0.5
     aspect_model: str = "en_core_web_sm"
-    # Legacy replay parameters below remain for the private pre-CC-007
+    # Legacy compatibility parameters below remain for the private pre-CC-007
     # ``build_context`` function.  EpisodeStore.context no longer consumes
-    # them; retaining them keeps historical registered replays runnable.
+    # them; retaining them keeps historical registered checks runnable.
     k_threshold: float = 0.48
     candidate_policy: str = "full_store"
     unsafe_cosine_top_n: int = 100
