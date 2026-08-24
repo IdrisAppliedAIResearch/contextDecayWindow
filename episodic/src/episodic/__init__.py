@@ -1,4 +1,4 @@
-"""episodic - append-only conversational memory with budgeted retrieval.
+"""episodic-chat - append-only conversational memory with budgeted retrieval.
 
 The installable surface includes the store and its vector-cache contract::
 
@@ -8,10 +8,11 @@ The installable surface includes the store and its vector-cache contract::
 
     store = EpisodeStore(path, config=EpisodicConfig())
     store.append(role, content)
-    block, report = store.context(query, budget)
+    block, report = store.context(query)  # additive last 32 + 32k CC80
     store.close()
 
-``store.context()`` is a pure function of (store state, query, budget):
+``store.context()`` is a pure function of (store state, query, retrieval budget,
+config):
 no mutation, no inference calls, no network. Same inputs, same output,
 byte-identical. Everything not exported here is private.
 """
@@ -30,7 +31,7 @@ from ._errors import (
 from ._report import ContextReport
 from ._store import EpisodeStore
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 
 __all__ = [
     "EpisodeStore",

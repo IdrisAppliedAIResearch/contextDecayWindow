@@ -1,12 +1,15 @@
 from __future__ import annotations
 
 import hashlib
+import json
+from pathlib import Path
 
 import numpy as np
 import pytest
 
 from episodic._aspect import aspect_spread, extract_facets, facet_idf
 from episodic._config import EpisodicConfig
+from episodic._context import build_chat_context
 from episodic._errors import EpisodicError
 from episodic._packing import EMPTY_PAYLOAD_CHARS
 from episodic._ranking import normalize_scores, rank_cc80, tokenize
@@ -159,3 +162,112 @@ def test_aspect_no_fit_state_is_reachable() -> None:
     )
     assert trace.order == ()
     assert trace.stopping_reason == "no_complete_candidate_fits"
+
+
+def test_recency_is_additive_to_the_retrieval_budget_and_deduplicated() -> None:
+    episodes = [
+        _episode(index, f"topic {index}", "detail " * 40) for index in range(40)
+    ]
+    block, report = build_chat_context(
+        episodes=episodes,
+        query_text="topic 39",
+        query_embedding=_vector(39),
+        budget=500,
+        config=EpisodicConfig(),
+    )
+    assert report.recency_count == 32
+    assert report.recent_ids == tuple(item["id"] for item in episodes[-32:])
+    assert report.retrieval_chars_delivered <= 500
+    assert len(block) > 500
+    assert block.count("<episode turn=") == report.episodes_delivered
+    assert report.stm_count == report.recency_count
+    assert report.coverage_count == report.aspect_count == 0
+
+
+def test_zero_retrieval_budget_still_returns_all_recent_continuity() -> None:
+    episodes = [_episode(index, f"topic {index}") for index in range(35)]
+    block, report = build_chat_context(
+        episodes=episodes,
+        query_text="topic 0",
+        query_embedding=_vector(0),
+        budget=0,
+        config=EpisodicConfig(),
+    )
+    assert report.recency_count == 32
+    assert report.semantic_count == report.aspect_count == 0
+    assert report.retrieval_chars_delivered == 0
+    assert block.count("<episode turn=") == 32
+    assert len(block) > 0
+
+
+def test_negative_public_retrieval_budget_is_rejected() -> None:
+    with pytest.raises(EpisodicError):
+        build_chat_context(
+            episodes=[_episode(0, "topic")],
+            query_text="topic",
+            query_embedding=_vector(0),
+            budget=-1,
+            config=EpisodicConfig(),
+        )
+
+
+def test_stores_shorter_than_recency_window_do_not_repeat_long_term() -> None:
+    episodes = [_episode(index, f"topic {index}") for index in range(8)]
+    block, report = build_chat_context(
+        episodes=episodes,
+        query_text="topic 0",
+        query_embedding=_vector(0),
+        budget=32_000,
+        config=EpisodicConfig(),
+    )
+    assert report.recency_count == report.episodes_delivered == 8
+    assert report.semantic_count == report.aspect_count == 0
+    assert block.count("<episode turn=") == 8
+
+
+def test_activation_is_guarded_by_the_committed_passing_parity_artifact() -> None:
+    artifact = (
+        Path(__file__).resolve().parents[1]
+        / "experiments/components/episodic_chat/artifacts/cc007/preflight.json"
+    )
+    result = json.loads(artifact.read_text(encoding="utf-8"))
+    assert result["status"] == "PASS"
+    assert result["pf3"]["gate_precedes_activation"] is True
+    assert result["pf6"] == {
+        "actual_trace_groups": 4355,
+        "expected_trace_groups": 4355,
+        "first_mismatches": [],
+        "mismatches": 0,
+    }
+
+
+def test_opt_in_aspect_runs_the_protected_public_branch() -> None:
+    spacy = pytest.importorskip("spacy")
+    try:
+        spacy.load("en_core_web_sm")
+    except OSError:
+        pytest.skip("registered ASPECT parser model is not installed")
+    episodes = []
+    for index in range(40):
+        episode = _episode(
+            index,
+            f"Person {index} visited city {index} on Monday and bought {index + 1} books.",
+            "The visit was recorded.",
+        )
+        vector = np.zeros(1024, dtype=np.float32)
+        vector[0] = 1.0
+        vector[index + 1] = 0.05 + index / 100.0
+        episode["embedding"] = vector
+        episodes.append(episode)
+    block, report = build_chat_context(
+        episodes=episodes,
+        query_text="Who visited a city and what did they buy?",
+        query_embedding=_vector(0),
+        budget=4_000,
+        config=EpisodicConfig(recency_window_n=2, aspect_enabled=True),
+    )
+    assert report.aspect_enabled is True
+    assert report.aspect_count > 0
+    assert report.semantic_count > 0
+    assert report.retrieval_chars_delivered <= 4_000
+    assert block.count("<episode turn=") == report.episodes_delivered

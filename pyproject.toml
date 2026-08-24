@@ -5,7 +5,7 @@ requires-python = ">=3.11"
 dependencies = [
     # The extracted library (CC-002): the harness is a consumer of episodic,
     # installed editable from the in-repo package.
-    "episodic",
+    "episodic-chat",
     "llama-cpp-python>=0.3.0",
     "sqlite-vec>=0.1.0",
     "numpy>=1.26.0",
@@ -19,11 +19,14 @@ dependencies = [
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
+[tool.hatch.metadata]
+allow-direct-references = true
+
 [tool.hatch.build.targets.wheel]
 packages = ["src"]
 
 [tool.uv.sources]
-episodic = { path = "episodic", editable = true }
+episodic-chat = { path = "episodic", editable = true }
 
 [tool.uv]
 dev-dependencies = [
