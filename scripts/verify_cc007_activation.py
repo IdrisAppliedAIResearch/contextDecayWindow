@@ -15,7 +15,7 @@ from analysis.tc001_exploration import build_episodes  # noqa: E402
 from analysis.tc008_study import load_blind_manifest, load_blind_vectors  # noqa: E402
 from analysis.tc009_convex_fusion_probe import BLIND  # noqa: E402
 from episodic._config import EpisodicConfig  # noqa: E402
-from episodic._context import build_chat_context  # noqa: E402
+from episodic._chat_context import build_chat_context  # noqa: E402
 from episodic._packing import pack_stm_payload  # noqa: E402
 from episodic._render import render_stm_payload  # noqa: E402
 
