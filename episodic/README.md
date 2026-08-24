@@ -224,5 +224,16 @@ a hard failure (`CallShapeError`), not a warning.
 
 **H2 — Pool-trimming brittleness.** Dropping the 19 lowest-cosine episodes
 from a 119-episode pool cost an entire domain and all known-optimum
-overlap, despite 4 of 5 optimum episodes surviving the cut (DR-002). Deployed
-CC80 ranks the complete store; no trimming field affects the new path.
+overlap, despite 4 of 5 optimum episodes surviving the cut — the selector
+clusters over the pool, so tail removal reshuffles the objective rather
+than removing options (DR-002). Deployed CC80 ranks the complete store;
+`unsafe_cosine_top_n` is limited to the private historical builder and its
+docstring carries the finding.
+
+## Licence
+
+Dual licensed: **AGPL-3.0-or-later** (see `LICENSE`) or a commercial licence from
+Idris Applied AI Research. Absent a commercial agreement, the AGPL applies —
+including section 13, which reaches network use, not only distribution. Full
+terms and commercial enquiries: `LICENSING.md` in the repository root, or
+idrisappliedairesearch@gmail.com.

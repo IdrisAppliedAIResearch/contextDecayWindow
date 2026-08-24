@@ -3,6 +3,8 @@ name = "episodic-chat"
 version = "0.2.0"
 description = "Episodic chat memory with additive recency, CC80 retrieval, and optional protected ASPECT spread."
 requires-python = ">=3.11"
+license = "AGPL-3.0-or-later"
+license-files = ["LICENSE"]
 dependencies = [
     "numpy>=1.26.0",
 ]
