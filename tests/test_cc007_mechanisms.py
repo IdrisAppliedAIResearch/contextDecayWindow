@@ -9,7 +9,7 @@ import pytest
 
 from episodic._aspect import aspect_spread, extract_facets, facet_idf
 from episodic._config import EpisodicConfig
-from episodic._context import build_chat_context
+from episodic._chat_context import build_chat_context
 from episodic._errors import EpisodicError
 from episodic._packing import EMPTY_PAYLOAD_CHARS
 from episodic._ranking import normalize_scores, rank_cc80, tokenize

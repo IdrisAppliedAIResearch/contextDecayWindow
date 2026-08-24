@@ -219,7 +219,7 @@ class EpisodeStore:
         that allowance.  Omit it to use the deployed 32,000-character default.
         """
 
-        from ._context import build_chat_context
+        from ._chat_context import build_chat_context
 
         retrieval_budget = (
             self.config.retrieval_budget_chars if budget is None else budget
