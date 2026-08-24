@@ -89,7 +89,8 @@ def verify_offline_gates(*, require_contexts: bool = False) -> dict[str, Any]:
     contexts: dict[str, Any] = {}
     if require_contexts:
         for arm in ARMS:
-            payload = _read_json(RUN / arm / "contexts.json") or {}
+            context_path = RUN / arm / "contexts.json"
+            payload = _read_json(context_path) or {}
             items = payload.get("items", {})
             if len(items) != 1540:
                 raise HH003GateError(f"{arm} has {len(items)}/1540 contexts")
@@ -98,8 +99,12 @@ def verify_offline_gates(*, require_contexts: bool = False) -> dict[str, Any]:
                 for item in items.values()
             )
             mutated = sum(not item["detail"]["store_unchanged"] for item in items.values())
-            contexts[arm] = {"items": len(items), "budget_breaches": breaches,
-                             "store_mutations": mutated}
+            contexts[arm] = {
+                "items": len(items),
+                "budget_breaches": breaches,
+                "store_mutations": mutated,
+                "contexts_sha256": _sha256(context_path),
+            }
             if breaches or mutated:
                 raise HH003GateError(f"{arm} failed context invariants")
         left = (_read_json(RUN / ARMS[0] / "contexts.json") or {})["items"]
@@ -116,6 +121,8 @@ def verify_offline_gates(*, require_contexts: bool = False) -> dict[str, Any]:
         "head": _git("rev-parse", "HEAD"),
         "episodic_tree": _git("rev-parse", "HEAD:episodic"),
         "episodic_version": episodic_version,
+        "runner_sha256": _sha256(Path(__file__)),
+        "arms_sha256": _sha256(Path(__file__).with_name("hh003_arms.py")),
         "control_sha256": observed,
         "cc007_port_groups": port["pf6"]["actual_trace_groups"],
         "cc007_activation_payloads": activation["exact_final_payload_matches"],
@@ -142,9 +149,45 @@ def build_all_contexts() -> tuple[dict[str, dict[str, dict[str, Any]]], SharedEm
             arm, conversations, _ContextClient(), RUN / arm.name
         )
     gate = verify_offline_gates(require_contexts=True)
+    gate["prefix_replay"] = verify_prefix_replay(conversations, arms)
     gate["embedding_cache"] = {"hits": shared.hits, "misses": shared.misses}
     _write_json(PREFLIGHT / "g3_contexts.json", gate)
     return contexts, shared
+
+
+def verify_prefix_replay(conversations, arms, prefix_items: int = 8) -> dict[str, Any]:
+    conversation = conversations[0]
+    questions = conversation.scored_questions[:prefix_items]
+    result: dict[str, Any] = {}
+    for arm in arms:
+        state = arm.prepare(conversation, None)
+        try:
+            before = state.db_path.read_bytes()
+            first = [arm.context(state, question, None) for question in questions]
+            second = [arm.context(state, question, None) for question in questions]
+            after = state.db_path.read_bytes()
+        finally:
+            arm.close_state(state)
+        first_identity = [
+            (payload, {key: value for key, value in detail.items() if key != "latency_ms"})
+            for payload, _, detail in first
+        ]
+        second_identity = [
+            (payload, {key: value for key, value in detail.items() if key != "latency_ms"})
+            for payload, _, detail in second
+        ]
+        if first_identity != second_identity or before != after:
+            raise HH003GateError(f"{arm.name} prefix replay is not byte-identical")
+        result[arm.name] = {
+            "items": len(questions),
+            "byte_identical": True,
+            "store_unchanged": True,
+            "payload_sha256": [
+                hashlib.sha256(payload.encode("utf-8")).hexdigest()
+                for payload, _, _ in first
+            ],
+        }
+    return result
 
 
 def _load_contexts() -> dict[str, dict[str, dict[str, Any]]]:
@@ -160,6 +203,17 @@ def _records(path: Path) -> dict[str, dict[str, Any]]:
 
 def _assert_paid_preconditions() -> dict[str, Any]:
     gate = verify_offline_gates(require_contexts=True)
+    committed_gate = _read_json(PREFLIGHT / "g3_contexts.json") or {}
+    for field in ("runner_sha256", "arms_sha256", "episodic_tree"):
+        if committed_gate.get(field) != gate.get(field):
+            raise HH003GateError(f"committed G3 {field} does not match current code")
+    for arm in ARMS:
+        expected = committed_gate.get("contexts", {}).get(arm, {}).get(
+            "contexts_sha256"
+        )
+        observed = gate["contexts"][arm]["contexts_sha256"]
+        if expected != observed:
+            raise HH003GateError(f"{arm} context cache does not match committed G3")
     dirty = _git("status", "--porcelain", "--untracked-files=no")
     if dirty:
         raise HH003GateError("tracked worktree is dirty before paid submission")
