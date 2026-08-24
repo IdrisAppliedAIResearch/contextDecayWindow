@@ -278,6 +278,92 @@ def run_answers(poll_seconds: int) -> None:
             raise HH003GateError(f"{arm} answers are incomplete")
 
 
+def run_pilot(poll_seconds: int) -> None:
+    gate = _assert_paid_preconditions()
+    contexts = _load_contexts()
+    pilot_keys: dict[str, list[str]] = {}
+    for arm in ARMS:
+        rows = [
+            (key, item) for key, item in contexts[arm].items()
+            if item["sample_id"] == "conv-26"
+        ]
+        rows.sort(key=lambda pair: int(pair[1]["source_index"]))
+        pilot_keys[arm] = [key for key, _ in rows[:8]]
+        if len(pilot_keys[arm]) != 8:
+            raise HH003GateError(f"{arm} pilot prefix is not eight items")
+    if pilot_keys[ARMS[0]] != pilot_keys[ARMS[1]]:
+        raise HH003GateError("pilot item identities differ between arms")
+
+    client = OpenAI(api_key=os.environ["OPENAI_API_KEY"], max_retries=0)
+    ledger = BatchLedger.load(RUN / "batch_ledger.json")
+    answer_work: list[tuple[str, list[BatchRequest]]] = []
+    for arm in ARMS:
+        done = _records(RUN / arm / "predictions.json")
+        pending = [key for key in pilot_keys[arm] if key not in done]
+        if pending:
+            answer_work.append((f"{arm}.answers", [
+                answer_request(key, contexts[arm][key]["question"],
+                               contexts[arm][key]["context"], MODEL)
+                for key in pending
+            ]))
+    if answer_work:
+        run_scheduled(client, answer_work, ledger, poll_seconds, study="HH-003",
+                      log=log, on_result=lambda p, r: _save_answers(p, r, contexts))
+    predictions = {arm: _records(RUN / arm / "predictions.json") for arm in ARMS}
+    if any(not all(key in predictions[arm] for key in pilot_keys[arm]) for arm in ARMS):
+        raise HH003GateError("pilot answers are incomplete")
+
+    judge_work: list[tuple[str, list[BatchRequest]]] = []
+    for arm in ARMS:
+        done = _records(RUN / arm / "judged_r1.json")
+        pending = [predictions[arm][key] for key in pilot_keys[arm] if key not in done]
+        if pending:
+            judge_work.append((f"{arm}.judge.r1", [
+                judge_request(row["key"], row["question"], row["answer"],
+                              row["response"], MODEL) for row in pending
+            ]))
+
+    def save(prefix: str, results: dict[str, dict[str, Any]]) -> None:
+        arm = prefix.partition(".judge.r1")[0]
+        path = RUN / arm / "judged_r1.json"
+        done = _records(path)
+        for key, body in results.items():
+            prediction = predictions[arm][key]
+            try:
+                label = str(json.loads(text_of(body))["label"]) if "error" not in body else "__MALFORMED__"
+            except Exception:  # noqa: BLE001
+                label = "__MALFORMED__"
+            metrics = deterministic_metrics(prediction["response"], prediction["answer"])
+            done[key] = {"key": key, "sample_id": prediction["sample_id"],
+                         "source_index": prediction["source_index"],
+                         "category": prediction["category"],
+                         "llm_score": int(label == "CORRECT"), "judge_label": label,
+                         "f1": metrics["f1"], "exact_match": metrics["exact_match"]}
+        _write_json(path, {"arm": arm, "replicate": 1, "transport": "batch",
+                           "records": sorted(done.values(), key=lambda row: row["key"])})
+
+    if judge_work:
+        run_scheduled(client, judge_work, ledger, poll_seconds, study="HH-003",
+                      log=log, on_result=save)
+    judged = {arm: _records(RUN / arm / "judged_r1.json") for arm in ARMS}
+    if any(not all(key in judged[arm] for key in pilot_keys[arm]) for arm in ARMS):
+        raise HH003GateError("pilot judgements are incomplete")
+    pilot = {
+        "schema": "hh003-paid-pilot-v1", "status": "PASS",
+        "sample_id": "conv-26", "items_per_arm": 8,
+        "answer_records": {arm: len(predictions[arm]) for arm in ARMS},
+        "judgement_records": {arm: len(judged[arm]) for arm in ARMS},
+        "malformed": {arm: sum(judged[arm][key]["judge_label"] == "__MALFORMED__"
+                              for key in pilot_keys[arm]) for arm in ARMS},
+        "tokens": {arm: {
+            "prompt": sum(predictions[arm][key]["prompt_tokens"] for key in pilot_keys[arm]),
+            "completion": sum(predictions[arm][key]["completion_tokens"] for key in pilot_keys[arm]),
+        } for arm in ARMS},
+        "precondition": gate,
+    }
+    _write_json(PREFLIGHT / "g4_paid_pilot.json", pilot)
+
+
 def run_judging(poll_seconds: int) -> None:
     _assert_paid_preconditions()
     predictions: dict[str, dict[str, dict[str, Any]]] = {
@@ -329,13 +415,17 @@ def run_judging(poll_seconds: int) -> None:
 
 def main(argv: Sequence[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Drive registered HH-003")
-    parser.add_argument("stage", choices=("gates", "contexts", "answers", "judge"))
+    parser.add_argument(
+        "stage", choices=("gates", "contexts", "pilot", "answers", "judge")
+    )
     parser.add_argument("--poll-seconds", type=int, default=30)
     args = parser.parse_args(argv)
     if args.stage == "gates":
         print(json.dumps(verify_offline_gates(), sort_keys=True))
     elif args.stage == "contexts":
         build_all_contexts()
+    elif args.stage == "pilot":
+        run_pilot(args.poll_seconds)
     elif args.stage == "answers":
         run_answers(args.poll_seconds)
     else:
