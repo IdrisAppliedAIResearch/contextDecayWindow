@@ -119,7 +119,7 @@ per-system caveats below the table are part of the citation.
 | LangMem | LoCoMo, J | **58.10%** | ibid. — same caveat |
 | A-MEM | LoCoMo, J | **48.38%** | ibid. — same caveat; the paper marks a re-run variant `A-Mem*` |
 | OpenAI memory | LoCoMo, J | **52.90%** | ibid. |
-| RAG (best variant) | LoCoMo, J | **60.53%** | ibid. |
+| RAG (512 tokens, k=1) | LoCoMo, J | **46.05%** | ibid. |
 | Mem0 | p95 total latency | **1.44 s** (search p95 0.200 s) | ibid. Table 3 |
 | Mem0ᵍ | p95 total latency | **2.59 s** (search p95 0.657 s) | ibid. |
 | Full-context | p95 total latency | **17.12 s** | ibid. |
