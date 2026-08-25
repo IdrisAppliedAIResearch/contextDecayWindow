@@ -1,0 +1,370 @@
+{
+  "arms": {
+    "A_EPISODIC": {
+      "exact_match": 0.011688311688311689,
+      "f1": 0.4536913624040384,
+      "llm_score": 0.7733766233766234,
+      "malformed_judgements": 0,
+      "n": 1540,
+      "per_category": {
+        "1": {
+          "f1": 0.3313916816432971,
+          "llm_score": 0.7092198581560284,
+          "n": 282
+        },
+        "2": {
+          "f1": 0.37392513890599194,
+          "llm_score": 0.632398753894081,
+          "n": 321
+        },
+        "3": {
+          "f1": 0.23207712367696776,
+          "llm_score": 0.5,
+          "n": 96
+        },
+        "4": {
+          "f1": 0.550443365537452,
+          "llm_score": 0.8799048751486326,
+          "n": 841
+        }
+      }
+    },
+    "A_EPISODIC_ASPECT": {
+      "exact_match": 0.015584415584415584,
+      "f1": 0.4534400364623998,
+      "llm_score": 0.7824675324675324,
+      "malformed_judgements": 0,
+      "n": 1540,
+      "per_category": {
+        "1": {
+          "f1": 0.33512420019634265,
+          "llm_score": 0.7127659574468085,
+          "n": 282
+        },
+        "2": {
+          "f1": 0.38021261220532077,
+          "llm_score": 0.6573208722741433,
+          "n": 321
+        },
+        "3": {
+          "f1": 0.21475243692539384,
+          "llm_score": 0.5625,
+          "n": 96
+        },
+        "4": {
+          "f1": 0.5483093332151976,
+          "llm_score": 0.8787158145065398,
+          "n": 841
+        }
+      }
+    }
+  },
+  "contrasts": [
+    {
+      "cross_date": false,
+      "discordant": 78,
+      "gains": 46,
+      "left": "A_EPISODIC_ASPECT",
+      "left_correct": 1205,
+      "losses": 32,
+      "n": 1540,
+      "right": "A_EPISODIC",
+      "right_correct": 1191,
+      "ties": 1462,
+      "two_sided_exact_binomial_p": 0.14053828626952244
+    },
+    {
+      "cross_date": true,
+      "discordant": 241,
+      "gains": 107,
+      "left": "A_EPISODIC",
+      "left_correct": 1191,
+      "losses": 134,
+      "n": 1540,
+      "right": "A_CDW",
+      "right_correct": 1218,
+      "ties": 1299,
+      "two_sided_exact_binomial_p": 0.09376673607931744
+    },
+    {
+      "cross_date": true,
+      "discordant": 632,
+      "gains": 559,
+      "left": "A_EPISODIC",
+      "left_correct": 1191,
+      "losses": 73,
+      "n": 1540,
+      "right": "A_RAG",
+      "right_correct": 705,
+      "ties": 908,
+      "two_sided_exact_binomial_p": 1.0799508088634289e-93
+    },
+    {
+      "cross_date": true,
+      "discordant": 303,
+      "gains": 189,
+      "left": "A_EPISODIC",
+      "left_correct": 1191,
+      "losses": 114,
+      "n": 1540,
+      "right": "A_FULL",
+      "right_correct": 1116,
+      "ties": 1237,
+      "two_sided_exact_binomial_p": 1.9408112190258485e-05
+    },
+    {
+      "cross_date": true,
+      "discordant": 255,
+      "gains": 121,
+      "left": "A_EPISODIC_ASPECT",
+      "left_correct": 1205,
+      "losses": 134,
+      "n": 1540,
+      "right": "A_CDW",
+      "right_correct": 1218,
+      "ties": 1285,
+      "two_sided_exact_binomial_p": 0.45243551102275353
+    },
+    {
+      "cross_date": true,
+      "discordant": 628,
+      "gains": 564,
+      "left": "A_EPISODIC_ASPECT",
+      "left_correct": 1205,
+      "losses": 64,
+      "n": 1540,
+      "right": "A_RAG",
+      "right_correct": 705,
+      "ties": 912,
+      "two_sided_exact_binomial_p": 6.73895679122258e-101
+    },
+    {
+      "cross_date": true,
+      "discordant": 313,
+      "gains": 201,
+      "left": "A_EPISODIC_ASPECT",
+      "left_correct": 1205,
+      "losses": 112,
+      "n": 1540,
+      "right": "A_FULL",
+      "right_correct": 1116,
+      "ties": 1227,
+      "two_sided_exact_binomial_p": 5.544874660913174e-07
+    }
+  ],
+  "limits": [
+    "LoCoMo is spent; results are descriptive, not confirmatory.",
+    "HH-002 control contrasts are cross-date and confound memory with service time.",
+    "Judge score is accompanied by deterministic F1 and exact match."
+  ],
+  "operational": {
+    "A_EPISODIC": {
+      "aspect_count": {
+        "max": 0.0,
+        "mean": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "n": 1540,
+        "p95": 0.0,
+        "total": 0.0
+      },
+      "completion_tokens": {
+        "max": 56.0,
+        "mean": 10.774025974025975,
+        "median": 10.0,
+        "min": 1.0,
+        "n": 1540,
+        "p95": 24.0,
+        "total": 16592.0
+      },
+      "context_chars": {
+        "max": 45551.0,
+        "mean": 44095.187012987015,
+        "median": 44196.0,
+        "min": 42889.0,
+        "n": 1540,
+        "p95": 45445.0,
+        "total": 67906588.0
+      },
+      "episodes_delivered": {
+        "max": 136.0,
+        "mean": 114.20584415584416,
+        "median": 114.0,
+        "min": 98.0,
+        "n": 1540,
+        "p95": 127.0,
+        "total": 175877.0
+      },
+      "episodes_dropped": {
+        "max": 240.0,
+        "mean": 186.1038961038961,
+        "median": 209.0,
+        "min": 58.0,
+        "n": 1540,
+        "p95": 232.0,
+        "total": 286600.0
+      },
+      "latency_ms": {
+        "max": 34.239200002048165,
+        "mean": 25.145007792086183,
+        "median": 27.377800004614983,
+        "min": 13.402200012933463,
+        "n": 1540,
+        "p95": 30.444299991359003,
+        "total": 38723.31199981272
+      },
+      "prompt_tokens": {
+        "max": 12360.0,
+        "mean": 11886.47077922078,
+        "median": 11897.0,
+        "min": 11191.0,
+        "n": 1540,
+        "p95": 12197.0,
+        "total": 18305165.0
+      },
+      "recency_count": {
+        "max": 32.0,
+        "mean": 32.0,
+        "median": 32.0,
+        "min": 32.0,
+        "n": 1540,
+        "p95": 32.0,
+        "total": 49280.0
+      },
+      "response_time": {
+        "max": 35.9197,
+        "mean": 1.822065064935065,
+        "median": 1.28535,
+        "min": 0.0,
+        "n": 1540,
+        "p95": 4.4711,
+        "total": 2805.9802
+      },
+      "retrieval_chars_delivered": {
+        "max": 32000.0,
+        "mean": 31923.87012987013,
+        "median": 31937.0,
+        "min": 31736.0,
+        "n": 1540,
+        "p95": 31997.0,
+        "total": 49162760.0
+      },
+      "semantic_count": {
+        "max": 104.0,
+        "mean": 82.20584415584416,
+        "median": 82.0,
+        "min": 66.0,
+        "n": 1540,
+        "p95": 95.0,
+        "total": 126597.0
+      },
+      "store_mutation_count": 0,
+      "truncated_count": 1540
+    },
+    "A_EPISODIC_ASPECT": {
+      "aspect_count": {
+        "max": 44.0,
+        "mean": 36.68051948051948,
+        "median": 37.0,
+        "min": 28.0,
+        "n": 1540,
+        "p95": 41.0,
+        "total": 56488.0
+      },
+      "completion_tokens": {
+        "max": 58.0,
+        "mean": 10.687662337662339,
+        "median": 9.0,
+        "min": 1.0,
+        "n": 1540,
+        "p95": 24.0,
+        "total": 16459.0
+      },
+      "context_chars": {
+        "max": 45551.0,
+        "mean": 44089.42857142857,
+        "median": 44189.5,
+        "min": 42898.0,
+        "n": 1540,
+        "p95": 45456.0,
+        "total": 67897720.0
+      },
+      "episodes_delivered": {
+        "max": 129.0,
+        "mean": 109.76103896103896,
+        "median": 109.0,
+        "min": 94.0,
+        "n": 1540,
+        "p95": 120.0,
+        "total": 169032.0
+      },
+      "episodes_dropped": {
+        "max": 241.0,
+        "mean": 190.5487012987013,
+        "median": 217.0,
+        "min": 64.0,
+        "n": 1540,
+        "p95": 235.0,
+        "total": 293445.0
+      },
+      "latency_ms": {
+        "max": 2929.714600002626,
+        "mean": 2437.3646424026283,
+        "median": 2522.650800005067,
+        "min": 1459.2446999886306,
+        "n": 1540,
+        "p95": 2831.328600004781,
+        "total": 3753541.5493000476
+      },
+      "prompt_tokens": {
+        "max": 12176.0,
+        "mean": 11769.674675324675,
+        "median": 11793.0,
+        "min": 11121.0,
+        "n": 1540,
+        "p95": 12037.0,
+        "total": 18125299.0
+      },
+      "recency_count": {
+        "max": 32.0,
+        "mean": 32.0,
+        "median": 32.0,
+        "min": 32.0,
+        "n": 1540,
+        "p95": 32.0,
+        "total": 49280.0
+      },
+      "response_time": {
+        "max": 8.7305,
+        "mean": 1.3206472077922078,
+        "median": 1.0623,
+        "min": 0.0,
+        "n": 1540,
+        "p95": 2.818,
+        "total": 2033.7967
+      },
+      "retrieval_chars_delivered": {
+        "max": 32000.0,
+        "mean": 31918.11168831169,
+        "median": 31925.0,
+        "min": 31750.0,
+        "n": 1540,
+        "p95": 31997.0,
+        "total": 49153892.0
+      },
+      "semantic_count": {
+        "max": 56.0,
+        "mean": 41.08051948051948,
+        "median": 41.0,
+        "min": 32.0,
+        "n": 1540,
+        "p95": 49.0,
+        "total": 63264.0
+      },
+      "store_mutation_count": 0,
+      "truncated_count": 1540
+    }
+  },
+  "population": 1540,
+  "primary_endpoint": "llm_score"
+}

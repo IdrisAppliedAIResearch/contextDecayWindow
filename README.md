@@ -29,33 +29,29 @@ The design copies three things human memory does, and runs all three at once:
 Everything is delivered exactly as it was said, so nothing the model is told
 about the past can be wrong.
 
-### It scores 79.09% on the benchmark Mem0 published
+### Optional ASPECT scores 78.25%; default ASPECT off scores 77.34%
 
-We rebuilt the evaluation harness behind Mem0's published LoCoMo table — their
-question set, answer prompt, judge prompt and metric, GPT-4o-mini as answerer
-and judge — and ran this component through all 1,540 scored questions.
+We ran the deployed `episodic-chat` library through the evaluation harness
+behind Mem0's published LoCoMo table: all 1,540 scored questions, with the same
+answer prompt, judge prompt, dated GPT-4o-mini model and metric. The public
+default with ASPECT off scored **1,191/1,540 (77.34%)** with deterministic F1
+**0.4537**.
 
-![Where this component lands on the table Mem0 published](paper/figures/hh002_leaderboard.png)
+![Deployed episodic-chat on the published LoCoMo axis](paper/figures/hh003_leaderboard.png)
 
-**Above every row of that table, on a sixth of the tokens** — 4,243 against the
-25,405 of full context reproduced here. None of the systems behind those rows
-was re-run.
+The optional static ASPECT allocator scored **1,205/1,540 (78.25%)** with F1
+**0.4534**. Paired item-level comparison gives **46 gains and 32 losses**, a net
+gain of 14, with two-sided exact p = **0.1405**. The judge endpoint moves
+slightly; deterministic F1 does not. The study registered no directional
+success bar and authorizes no automatic adoption decision.
 
-The placement is earned by reproducing their own ceiling row first: full
-context, the configuration with nothing to choose, came back at **72.47%
-against a published 72.90%**. Half a point, on a 1,540-question benchmark,
-against a figure published by a different team on different hardware. The judge
-moved 0.06 points across two scorings of the same sealed answers.
+ASPECT also has a clear operational cost. Median retrieval latency is about
+**2.52 seconds**, against **27 ms** for the default path. Both arms filled and
+truncated the 32,000-character retrieval allowance on every question. LoCoMo is
+spent and comparisons to published rows remain cross-run placement, not a
+head-to-head against current products.
 
-Grey rows above were not re-run — they need vendor accounts we don't hold — so
-they are quoted with attribution and nothing here is tested against them.
-
-**And the benchmark has a 26-point floor its own paper never reports.** Run it
-with an empty context and the model still scores **26.30%** — against a
-contamination bar we had registered at 5%, so that gate failed. The cause is the
-judge prompt, which tells the grader to accept any answer touching the gold
-answer's topic. On open-domain, 841 of the 1,540 questions, the floor is
-**32.34%**. It sits under every row of the published table.
+![Default and ASPECT scores by question category](paper/figures/hh003_aspect_categories.png)
 
 ### In our own 300-question run with Mem0
 
@@ -149,7 +145,7 @@ flush against the page there rather than showing as a panel.*
 
 ## Current State of Work
 
-*Last updated 2026-08-24, at CC-007 deployment adoption.*
+*Last updated 2026-08-24, after HH-003 deployed-library validation.*
 
 **The deployable read path is now episodic-chat 0.2.0.** The latest 32 complete
 exchanges are always additive continuity context and do not spend the long-term
@@ -162,7 +158,7 @@ unused space returned to CC80. Before activation, the package port reproduced
 an authorized product composition, not a new reader or transfer result.
 
 **The tiered architecture does not earn its place on delivery.** TC-001 put the
-shipped four-tier read path against the flat cosine ranking that scored 79.09%
+shipped four-tier read path against the earlier flat cosine development arm
 on the published LoCoMo table, over identical candidates, vectors, renderer,
 packer and budget. On 868 questions the flat arm delivered a question's complete
 evidence **749 times against the tiered stack's 314** — 8 gains, 443 losses,
