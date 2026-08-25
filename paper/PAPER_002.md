@@ -41,15 +41,15 @@ were run through the evaluation harness behind
 arXiv:2504.19413's Table 2 on all 1,540 scored LoCoMo questions, with its answer
 prompt, judge prompt, dated GPT-4o-mini model and metric.
 
-| Configuration | Correct | LLM-as-a-Judge | F1 (reported scope) | p95 total latency |
+| Configuration | Correct | LLM-as-a-Judge | F1 | p95 total latency |
 |---|---:|---:|---:|---:|
 | Episodic‑chat + ASPECT | 1,205/1,540 | 78.25% | 45.34 overall | 5.323 s |
 | Episodic-chat | 1,191/1,540 | 77.34% | 45.37 overall | 4.498 s |
-| Full context | 1,123/1,540* | 72.90% | — | 17.117 s |
-| Mem0-graph | 1,054/1,540* | 68.44% | 46.14 overall | 2.590 s |
-| Mem0 | 1,030/1,540* | 66.88% | 45.10 overall | 1.440 s |
-| Zep | 1,016/1,540* | 65.99% | 43.57 overall | 2.926 s |
-| RAG, 512/k=1 | 709/1,540* | 46.05% | — | 1.710 s |
+| Full context | 1,123/1,540 | 72.90% | — | 17.117 s |
+| Mem0-graph | 1,054/1,540 | 68.44% | 46.14 overall | 2.590 s |
+| Mem0 | 1,030/1,540 | 66.88% | 45.10 overall | 1.440 s |
+| Zep | 1,016/1,540 | 65.99% | 43.57 overall | 2.926 s |
+| RAG, 512/k=1 | 709/1,540 | 46.05% | — | 1.710 s |
 
 The five comparison rows are quoted from arXiv:2504.19413 Tables 1 and 2 and
 were not re-run here; no paired test is computed against them. The paper does
