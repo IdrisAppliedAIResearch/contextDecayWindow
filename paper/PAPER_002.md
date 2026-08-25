@@ -43,8 +43,8 @@ prompt, judge prompt, dated GPT-4o-mini model and metric.
 
 | Configuration | Correct | LLM-as-a-Judge | F1 (reported scope) | p95 total latency |
 |---|---:|---:|---:|---:|
-| **Episodic-chat + ASPECT** | **1,205/1,540** | **78.25%** | **45.34 overall** | **5.323 s** |
-| **Episodic-chat** | **1,191/1,540** | **77.34%** | **45.37 overall** | **4.498 s** |
+| Episodic‑chat + ASPECT | 1,205/1,540 | 78.25% | 45.34 overall | 5.323 s |
+| Episodic-chat | 1,191/1,540 | 77.34% | 45.37 overall | 4.498 s |
 | Full context | 1,123/1,540* | 72.90% | — | 17.117 s |
 | Mem0-graph | 1,054/1,540* | 68.44% | 46.14 overall | 2.590 s |
 | Mem0 | 1,030/1,540* | 66.88% | 45.10 overall | 1.440 s |
@@ -528,8 +528,8 @@ except the adversarial category the harness itself skips.
 
 | Configuration | Correct | LLM-as-a-Judge | F1 | Exact match | Median retrieval latency |
 |---|---:|---:|---:|---:|---:|
-| **Episodic-chat + ASPECT** | **1,205/1,540** | **78.25%** | **0.4534** | 0.0156 | **2.52 s** |
-| **Episodic-chat** | **1,191/1,540** | **77.34%** | **0.4537** | 0.0117 | **27 ms** |
+| Episodic‑chat + ASPECT | 1,205/1,540 | 78.25% | 0.4534 | 0.0156 | 2.52 s |
+| Episodic-chat | 1,191/1,540 | 77.34% | 0.4537 | 0.0117 | 27 ms |
 
 The paired primary endpoint gives **46 ASPECT gains, 32 losses and 1,462 ties**,
 a net gain of 14 and two-sided exact binomial p = **0.1405**. The judge score's
