@@ -29,29 +29,28 @@ The design copies three things human memory does, and runs all three at once:
 Everything is delivered exactly as it was said, so nothing the model is told
 about the past can be wrong.
 
-### Optional ASPECT scores 78.25%; default ASPECT off scores 77.34%
+### Episodic-chat + ASPECT scores 78.25%; Episodic-chat scores 77.34%
 
 We ran the deployed `episodic-chat` library through the evaluation harness
 behind Mem0's published LoCoMo table: all 1,540 scored questions, with the same
-answer prompt, judge prompt, dated GPT-4o-mini model and metric. The public
-default with ASPECT off scored **1,191/1,540 (77.34%)** with deterministic F1
-**0.4537**.
+answer prompt, judge prompt, dated GPT-4o-mini model and metric.
+Episodic-chat + ASPECT scored **1,205/1,540 (78.25%)** with F1 **0.4534**.
 
 ![Deployed episodic-chat on the published LoCoMo axis](paper/figures/hh003_leaderboard.png)
 
-The optional static ASPECT allocator scored **1,205/1,540 (78.25%)** with F1
-**0.4534**. Paired item-level comparison gives **46 gains and 32 losses**, a net
+Episodic-chat scored **1,191/1,540 (77.34%)** with deterministic F1
+**0.4537**. Paired item-level comparison gives **46 gains and 32 losses**, a net
 gain of 14, with two-sided exact p = **0.1405**. The judge endpoint moves
 slightly; deterministic F1 does not. The study registered no directional
 success bar and authorizes no automatic adoption decision.
 
 ASPECT also has a clear operational cost. Median retrieval latency is about
-**2.52 seconds**, against **27 ms** for the default path. Both arms filled and
+**2.52 seconds**, against **27 ms** for Episodic-chat. Both arms filled and
 truncated the 32,000-character retrieval allowance on every question. LoCoMo is
 spent and comparisons to published rows remain cross-run placement, not a
 head-to-head against current products.
 
-![Default and ASPECT scores by question category](paper/figures/hh003_aspect_categories.png)
+![Episodic-chat and Episodic-chat + ASPECT scores by question category](paper/figures/hh003_aspect_categories.png)
 
 ### In our own 300-question run with Mem0
 

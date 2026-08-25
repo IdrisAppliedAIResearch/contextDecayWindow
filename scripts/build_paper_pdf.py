@@ -128,6 +128,8 @@ def emit_table(rows: list[str]) -> str:
     ]
     for row in body:
         cells = [inline(row[i]) if i < len(row) else "" for i in range(n)]
+        if row and "Episodic‑chat + ASPECT" in row[0]:
+            cells[0] = f"#text(size: 7.6pt)[{cells[0]}]"
         lines.append("  " + ", ".join(f"[{c}]" for c in cells) + ",")
     lines += ["  table.hline(stroke: 0.9pt),", ")", ""]
     return "\n".join(lines)
