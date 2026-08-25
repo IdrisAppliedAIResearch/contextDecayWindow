@@ -7,6 +7,7 @@ import numpy as np
 
 from analysis.hh002_dataset import Conversation, Question, Turn
 from analysis.hh003_arms import EpisodicArm, SharedEmbedder, stable_item_key
+from analysis.hh003_report import two_sided_exact_binomial
 from episodic._config import CARRIED_EMBEDDER_SHA256
 
 
@@ -97,3 +98,9 @@ def test_aspect_is_the_only_public_config_difference(tmp_path: Path) -> None:
     assert left.pop("aspect_enabled") is False
     assert right.pop("aspect_enabled") is True
     assert left == right
+
+
+def test_two_sided_exact_binomial_is_symmetric_and_handles_ties() -> None:
+    assert two_sided_exact_binomial(0, 0) == 1.0
+    assert two_sided_exact_binomial(3, 1) == two_sided_exact_binomial(1, 3)
+    assert two_sided_exact_binomial(4, 0) == 0.125
