@@ -45,6 +45,14 @@ prompt, judge prompt, dated GPT-4o-mini model and metric.
 |---|---:|---:|---:|---:|
 | **Public default** | **1,191/1,540** | **77.34%** | **0.4537** | **27 ms** |
 | **Static ASPECT** | **1,205/1,540** | **78.25%** | **0.4534** | **2.52 s** |
+| Full context | — | 72.90% | — | — |
+| Mem0-graph | — | 68.44% | — | — |
+| Mem0 | — | 66.88% | — | — |
+| Zep | — | 65.99% | — | — |
+| RAG, best variant | — | 60.53% | — | — |
+
+The five comparison rows are quoted from arXiv:2504.19413 Table 2 and were not
+re-run here; no paired test is computed against them.
 
 ASPECT gains 46 items and loses 32 against the default, net +14; the registered
 two-sided exact binomial p is **0.1405**. The judge score moves slightly while
