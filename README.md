@@ -29,12 +29,13 @@ The design copies three things human memory does, and runs all three at once:
 Everything is delivered exactly as it was said, so nothing the model is told
 about the past can be wrong.
 
-### The deployed library scores 77.34%; optional ASPECT scores 78.25%
+### Optional ASPECT scores 78.25%; default ASPECT off scores 77.34%
 
 We ran the deployed `episodic-chat` library through the evaluation harness
 behind Mem0's published LoCoMo table: all 1,540 scored questions, with the same
 answer prompt, judge prompt, dated GPT-4o-mini model and metric. The public
-default scored **1,191/1,540 (77.34%)** with deterministic F1 **0.4537**.
+default with ASPECT off scored **1,191/1,540 (77.34%)** with deterministic F1
+**0.4537**.
 
 ![Deployed episodic-chat on the published LoCoMo axis](paper/figures/hh003_leaderboard.png)
 
