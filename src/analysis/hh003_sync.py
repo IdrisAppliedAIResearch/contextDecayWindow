@@ -19,7 +19,7 @@ from analysis.hh002_harness import (
     Usage,
     deterministic_metrics,
 )
-from analysis.hh002_batch import answer_request
+from analysis.hh002_batch import answer_request, judge_request
 from analysis.hh002_run import _read_json, _write_json, score
 from analysis.hh002_sync_arm import RateBucket
 from analysis.hh003_drive import ARMS, PREFLIGHT, RUN, _assert_paid_preconditions
@@ -141,6 +141,7 @@ def run_judging(*, pilot: bool) -> dict[str, Any]:
     if not pilot and any(len(rows) != 1540 for rows in predictions.values()):
         raise HH003SyncError("all 3,080 answers must be sealed before full judging")
     done = {arm: _records(RUN / arm / "judged_r1.json") for arm in ARMS}
+    token_bucket = RateBucket(TOKENS_PER_MINUTE)
     request_bucket = RateBucket(REQUESTS_PER_MINUTE)
     work: list[tuple[str, str]] = []
     for arm in ARMS:
@@ -151,6 +152,11 @@ def run_judging(*, pilot: bool) -> dict[str, Any]:
 
     def one(arm: str, key: str) -> tuple[str, str, dict[str, Any]]:
         prediction = predictions[arm][key]
+        estimate = judge_request(
+            key, prediction["question"], prediction["answer"],
+            prediction["response"], DEFAULT_MODEL,
+        ).approx_tokens
+        token_bucket.acquire(estimate)
         llm_score, label = client.judge(
             prediction["question"], prediction["answer"], prediction["response"]
         )
