@@ -34,6 +34,18 @@ class HH003SyncError(RuntimeError):
     pass
 
 
+def _write_checkpoint(path: Path, payload: dict[str, Any]) -> None:
+    deadline = time.monotonic() + 5.0
+    while True:
+        try:
+            _write_json(path, payload)
+            return
+        except PermissionError:
+            if time.monotonic() >= deadline:
+                raise
+            time.sleep(0.1)
+
+
 def _records(path: Path) -> dict[str, dict[str, Any]]:
     payload = _read_json(path) or {}
     return {row["key"]: row for row in payload.get("records", [])}
@@ -157,12 +169,11 @@ def run_judging(*, pilot: bool) -> dict[str, Any]:
         for count, future in enumerate(as_completed(futures), start=1):
             arm, key, row = future.result()
             done[arm][key] = row
-            for name in ARMS:
-                _write_json(RUN / name / "judged_r1.json", {
-                    "arm": name, "replicate": 1, "transport": "sync",
-                    "usage": client.usage.as_dict(),
-                    "records": sorted(done[name].values(), key=lambda value: value["key"]),
-                })
+            _write_checkpoint(RUN / arm / "judged_r1.json", {
+                "arm": arm, "replicate": 1, "transport": "sync",
+                "usage": client.usage.as_dict(),
+                "records": sorted(done[arm].values(), key=lambda value: value["key"]),
+            })
             if count % 25 == 0 or count == len(work):
                 print(f"judgements {count}/{len(work)} elapsed={(time.time()-started)/60:.1f}m",
                       flush=True)
