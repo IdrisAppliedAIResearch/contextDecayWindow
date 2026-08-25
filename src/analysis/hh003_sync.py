@@ -130,6 +130,7 @@ def run_judging(*, pilot: bool) -> dict[str, Any]:
     if not pilot and any(len(rows) != 1540 for rows in predictions.values()):
         raise HH003SyncError("all 3,080 answers must be sealed before full judging")
     done = {arm: _records(RUN / arm / "judged_r1.json") for arm in ARMS}
+    request_bucket = RateBucket(REQUESTS_PER_MINUTE)
     work: list[tuple[str, str]] = []
     for arm in ARMS:
         keys = _pilot_keys(contexts[arm]) if pilot else sorted(predictions[arm])
@@ -139,6 +140,7 @@ def run_judging(*, pilot: bool) -> dict[str, Any]:
 
     def one(arm: str, key: str) -> tuple[str, str, dict[str, Any]]:
         prediction = predictions[arm][key]
+        request_bucket.acquire(1.0)
         llm_score, label = client.judge(
             prediction["question"], prediction["answer"], prediction["response"]
         )
@@ -157,13 +159,13 @@ def run_judging(*, pilot: bool) -> dict[str, Any]:
         for count, future in enumerate(as_completed(futures), start=1):
             arm, key, row = future.result()
             done[arm][key] = row
+            for name in ARMS:
+                _write_json(RUN / name / "judged_r1.json", {
+                    "arm": name, "replicate": 1, "transport": "sync",
+                    "usage": client.usage.as_dict(),
+                    "records": sorted(done[name].values(), key=lambda value: value["key"]),
+                })
             if count % 25 == 0 or count == len(work):
-                for name in ARMS:
-                    _write_json(RUN / name / "judged_r1.json", {
-                        "arm": name, "replicate": 1, "transport": "sync",
-                        "usage": client.usage.as_dict(),
-                        "records": sorted(done[name].values(), key=lambda value: value["key"]),
-                    })
                 print(f"judgements {count}/{len(work)} elapsed={(time.time()-started)/60:.1f}m",
                       flush=True)
     result = {"submitted": len(work), "usage": client.usage.as_dict()}
