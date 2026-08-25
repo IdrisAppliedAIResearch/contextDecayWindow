@@ -1,6 +1,6 @@
 # Rank Fine, Pack Fine, Call Nothing
 
-### 77.34% from the deployed library; 78.25% with optional ASPECT
+### No LLM memory architecture beats N+1 Industry leader; 78.25% vs 68.44%
 
 **Idris Applied AI Research** — independent
 Repository: `contextDecayWindow` · Licence: AGPL-3.0-or-later, or commercial — see `LICENSING.md`
@@ -36,21 +36,38 @@ The design copies three things human memory does, and runs all three at once:
 Everything is delivered exactly as it was said. Nothing is summarized or
 rewritten, so nothing the model is told about the past can be wrong.
 
-**Where the deployed library lands.** The public default and optional static
-ASPECT configuration were run through the evaluation harness behind
+**Where the deployed library lands.** Episodic-chat + ASPECT and Episodic-chat
+were run through the evaluation harness behind
 arXiv:2504.19413's Table 2 on all 1,540 scored LoCoMo questions, with its answer
 prompt, judge prompt, dated GPT-4o-mini model and metric.
 
-| Deployed configuration | Correct | LLM-as-a-Judge | Deterministic F1 | Median retrieval latency |
+| Configuration | Correct | LLM-as-a-Judge | F1 | p95 total latency |
 |---|---:|---:|---:|---:|
-| **Public default** | **1,191/1,540** | **77.34%** | **0.4537** | **27 ms** |
-| **Static ASPECT** | **1,205/1,540** | **78.25%** | **0.4534** | **2.52 s** |
+| Episodic‑chat + ASPECT | 1,205/1,540 | 78.25% | 45.34 overall | 5.323 s |
+| Episodic-chat | 1,191/1,540 | 77.34% | 45.37 overall | 4.498 s |
+| Full context | 1,123/1,540 | 72.90% | — | 17.117 s |
+| Mem0-graph | 1,054/1,540 | 68.44% | 46.14 overall | 2.590 s |
+| Mem0 | 1,030/1,540 | 66.88% | 45.10 overall | 1.440 s |
+| Zep | 1,016/1,540 | 65.99% | 43.57 overall | 2.926 s |
+| RAG, 512/k=1 | 709/1,540 | 46.05% | — | 1.710 s |
 
-ASPECT gains 46 items and loses 32 against the default, net +14; the registered
+The five comparison rows are quoted from arXiv:2504.19413 Tables 1 and 2 and
+were not re-run here; no paired test is computed against them. The paper does
+not report raw correct counts or an overall F1 for these systems. The overall F1
+values above are weighted from its four reported category scores using the
+scored set's 282 single-hop, 96 multi-hop, 841 open-domain and 321 temporal
+questions. Latency is p95 end-to-end response time throughout: our values are
+the itemwise sum of recorded retrieval and answer-API time; the comparison
+values are quoted from the Mem0 paper. Our F1 is an overall deterministic score.
+
+ASPECT gains 46 items and loses 32 against Episodic-chat, net +14; the registered
 two-sided exact binomial p is **0.1405**. The judge score moves slightly while
 deterministic F1 is effectively unchanged and slightly lower. No directional
 success bar or automatic adoption decision was registered. Both arms fill and
 truncate the 32,000-character retrieval allowance on every question.
+
+*⁎ Published comparison counts are rounded equivalents of mean judge scores,
+not observed raw totals.*
 
 ---
 
@@ -64,7 +81,7 @@ packed against one character budget at exact serialized cost.
 
 We ran the deployed `episodic-chat` library through the evaluation harness
 behind arXiv:2504.19413's Table 2 on all 1,540 scored LoCoMo questions. The
-public default scores 77.34% with deterministic F1 0.4537; optional static
+Episodic-chat scores 77.34% with deterministic F1 0.4537; Episodic-chat +
 ASPECT scores 78.25% with F1 0.4534. The paired judge comparison is 46 gains to
 32 losses (two-sided exact p=0.1405), so the 0.91-point difference is descriptive,
 not a demonstrated improvement. Median retrieval latency rises from 27 ms to
@@ -149,17 +166,23 @@ counterexample that stops "smaller is better" from being the reading.
 
 ### 1.1 What kind of paper this is
 
-A single-programme experience report with one external confirmation. One internal
-corpus, one rubric locked since the second study, one local model at one
-quantization, one machine, one seed. Every *scored* comparison is a single run, and
-§13.1 gives the measured variance that bounds them.
+A single-programme experience report with one sealed external confirmation and two
+registered live benchmark comparisons. Its evidence spans the constructed internal
+corpus, LoCoMo and LongMemEval. The original scored arc used one local model at one
+quantization, one machine and a fixed seed; §13.1's measured 3.0-point band applies
+to that local-reader instrument. It does not automatically bound the later live
+benchmarks: HH-001 ran three replicates per arm on a 300-question LoCoMo sample,
+while HH-003 ran one replicate per arm through the dated GPT-4o-mini answerer and
+judge used by Mem0's published harness.
 
-That scope applies to the scored results. It does not apply to the deterministic
-ones, and the distinction decides most of what this paper is permitted to say. The
-delivery counts in §6 and §7 are produced with zero model calls, reproduce
-byte-identically on replay, and are verified against committed hashes. They are
-counts and identities rather than judgements. Where a result is one of those, this
-paper states it plainly; where it is a score, it carries its band.
+That scope applies only to model-generated scores. It does not apply to the
+deterministic measurements, and the distinction decides most of what this paper is
+permitted to say. The delivery counts in §6 and §7 use zero model calls, reproduce
+byte-identically where the retained cache permits exact replay, and are verified
+against committed hashes. They are counts and identities rather than judgements.
+Where a result is one of those, this paper states it plainly; where it is a live
+score, the paper states its replicate design and applicable uncertainty rather than
+borrowing a band from a different reader.
 
 ### 1.2 Contributions
 
@@ -402,7 +425,7 @@ phrase. They reproduce identically and they do not license the same sentence.
 
 | Result | Standing | The binding limit |
 |---|---|---|
-| HH-003 — deployed default and ASPECT (§5.1) | REGISTERED-LIVE | One replicate per arm; vendor API, so not replayable. No directional success bar or automatic adoption decision |
+| HH-003 — Episodic-chat and Episodic-chat + ASPECT (§5.1) | REGISTERED-LIVE | One replicate per arm; vendor API, so not replayable. No directional success bar or automatic adoption decision |
 | HH-003 — ASPECT +14 judged items (§5.1) | REGISTERED-LIVE | 46 gains, 32 losses, two-sided p=.1405; deterministic F1 is effectively unchanged |
 | HH-001 — head-to-head against Mem0, +7.7 points (§5.6) | REGISTERED-LIVE | This reader, this corpus, this budget, this pair of configurations. Never confirmation |
 | NF-004 — LoCoMo pair ranking, 843→935 (§6.1) | CONFIRMATORY | Availability only; no reader, universal-rule or adoption claim |
@@ -483,8 +506,8 @@ each stop below says which it was.
 ---
 ## 5. The deployed library on Mem0's benchmark, and Mem0 run here
 
-**The deployed public default scores 77.34% on LoCoMo; optional static ASPECT
-scores 78.25%.** Both use the evaluation harness behind
+**Episodic-chat + ASPECT scores 78.25% on LoCoMo; Episodic-chat scores
+77.34%.** Both use the evaluation harness behind
 arXiv:2504.19413's Table 2 — the authors' question set, answer prompt, judge
 prompt, dated judge model and metric — over all 1,540 scored questions.
 
@@ -501,18 +524,18 @@ the first generation call.
 own row was not re-run — it needs a hosted-platform account this programme does
 not hold — so Table 2's rows are quoted with attribution and no test in this
 paper is computed against them. The direct comparison is only between the
-deployed public default and optional static ASPECT, each with a 32,000-character
+Episodic-chat + ASPECT and Episodic-chat, each with a 32,000-character
 long-term retrieval allowance and additive last-32 continuity context.
 
-### 5.1 The deployed default and optional ASPECT
+### 5.1 Episodic-chat + ASPECT and Episodic-chat
 
 All 1,540 scored LoCoMo questions — every question in the ten conversations
 except the adversarial category the harness itself skips.
 
 | Configuration | Correct | LLM-as-a-Judge | F1 | Exact match | Median retrieval latency |
 |---|---:|---:|---:|---:|---:|
-| **Public default** | **1,191/1,540** | **77.34%** | **0.4537** | 0.0117 | **27 ms** |
-| **Static ASPECT** | **1,205/1,540** | **78.25%** | **0.4534** | 0.0156 | **2.52 s** |
+| Episodic‑chat + ASPECT | 1,205/1,540 | 78.25% | 0.4534 | 0.0156 | 2.52 s |
+| Episodic-chat | 1,191/1,540 | 77.34% | 0.4537 | 0.0117 | 27 ms |
 
 The paired primary endpoint gives **46 ASPECT gains, 32 losses and 1,462 ties**,
 a net gain of 14 and two-sided exact binomial p = **0.1405**. The judge score's
@@ -521,8 +544,8 @@ deterministic F1 endpoint is effectively unchanged and slightly lower.
 Figure 1 places both deployed configurations on the published LoCoMo axis;
 published rows are quoted context, not paired controls.
 
-Category judge scores for default/ASPECT are 70.92/71.28% single-hop,
-63.24/65.73% temporal, 50.00/56.25% multi-hop and 87.99/87.87% open-domain.
+Category judge scores for Episodic-chat + ASPECT/Episodic-chat are 71.28/70.92% single-hop,
+65.73/63.24% temporal, 56.25/50.00% multi-hop and 87.87/87.99% open-domain.
 Figure 2 shows those paired category scores and their descriptive differences.
 The study registered no directional success bar and no automatic adoption
 decision. ASPECT is active on every item, so the comparison is not inert.
@@ -630,8 +653,8 @@ advantage is not a recency effect and is not uniform.
 
 ### 5.9 The boundaries that bind this section
 
-The only direct 1,540-item comparison in §5.1 is deployed default versus
-optional static ASPECT. Published rows in Figure 1 are quoted with attribution;
+The only direct 1,540-item comparison in §5.1 is Episodic-chat versus
+Episodic-chat + ASPECT. Published rows in Figure 1 are quoted with attribution;
 none was re-run and no paired test is computed against one. The 0.91-point
 ASPECT difference is descriptive: 46 gains, 32 losses, two-sided p=.1405, while
 deterministic F1 is effectively unchanged. Both deployed arms are
@@ -1320,10 +1343,12 @@ here where one could not:
 Each item names what would settle it. This is the complete list rather than a
 restatement of scope caps already given at the claims they bound.
 
-### 13.1 The instrument's band is 3.0, and most scored comparisons here are below it
+### 13.1 The local reader's band is 3.0, and most original scored contrasts are below it
 
-Every *scored* comparison in this paper is a single run at a fixed seed. That was
-recorded as a missing variance estimate until the estimate was made.
+The original internal arc's scored comparisons were single runs at a fixed seed.
+That was recorded as a missing variance estimate until the estimate was made. The
+later HH-001 and HH-003 benchmark designs are reported separately in §5; this local
+reader band is not transferred to their different readers and replicate schedules.
 
 Five replicates of the deployed configuration — identical corpus, settings, seed and
 standing runtime, run back to back in one server process — scored **11.0, 8.0, 8.0,
@@ -1577,15 +1602,15 @@ wording changes.
 ![Figure 1: Deployed episodic-chat on the published LoCoMo axis](figures/hh003_leaderboard.png)
 
 **Figure 1 — The deployed library on the published LoCoMo axis.**
-`hh003_leaderboard.svg` The public default scores **77.34%** and optional static
-ASPECT **78.25%** on the same 1,540 questions and harness. Grey bars are quoted
+`hh003_leaderboard.svg` Episodic-chat + ASPECT scores **78.25%** and
+Episodic-chat **77.34%** on the same 1,540 questions and harness. Grey bars are quoted
 from arXiv:2504.19413 Table 2 and were not re-run; no paired test is computed
 against them. Sources: the two committed HH-003 judgement populations and
 `COMPETITIVE_LANDSCAPE.md`.
 
-![Figure 2: Default and ASPECT by question category](figures/hh003_aspect_categories.png)
+![Figure 2: Episodic-chat and Episodic-chat + ASPECT by question category](figures/hh003_aspect_categories.png)
 
-**Figure 2 — Default and ASPECT by question category.**
+**Figure 2 — Episodic-chat and Episodic-chat + ASPECT by question category.**
 `hh003_aspect_categories.svg` ASPECT's largest descriptive movement is on the
 96 multi-hop questions (+6.25 points), followed by temporal (+2.49); open-domain
 moves -0.12. These stratum differences are descriptive. The registered overall
