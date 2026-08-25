@@ -166,17 +166,23 @@ counterexample that stops "smaller is better" from being the reading.
 
 ### 1.1 What kind of paper this is
 
-A single-programme experience report with one external confirmation. One internal
-corpus, one rubric locked since the second study, one local model at one
-quantization, one machine, one seed. Every *scored* comparison is a single run, and
-§13.1 gives the measured variance that bounds them.
+A single-programme experience report with one sealed external confirmation and two
+registered live benchmark comparisons. Its evidence spans the constructed internal
+corpus, LoCoMo and LongMemEval. The original scored arc used one local model at one
+quantization, one machine and a fixed seed; §13.1's measured 3.0-point band applies
+to that local-reader instrument. It does not automatically bound the later live
+benchmarks: HH-001 ran three replicates per arm on a 300-question LoCoMo sample,
+while HH-003 ran one replicate per arm through the dated GPT-4o-mini answerer and
+judge used by Mem0's published harness.
 
-That scope applies to the scored results. It does not apply to the deterministic
-ones, and the distinction decides most of what this paper is permitted to say. The
-delivery counts in §6 and §7 are produced with zero model calls, reproduce
-byte-identically on replay, and are verified against committed hashes. They are
-counts and identities rather than judgements. Where a result is one of those, this
-paper states it plainly; where it is a score, it carries its band.
+That scope applies only to model-generated scores. It does not apply to the
+deterministic measurements, and the distinction decides most of what this paper is
+permitted to say. The delivery counts in §6 and §7 use zero model calls, reproduce
+byte-identically where the retained cache permits exact replay, and are verified
+against committed hashes. They are counts and identities rather than judgements.
+Where a result is one of those, this paper states it plainly; where it is a live
+score, the paper states its replicate design and applicable uncertainty rather than
+borrowing a band from a different reader.
 
 ### 1.2 Contributions
 
@@ -1337,10 +1343,12 @@ here where one could not:
 Each item names what would settle it. This is the complete list rather than a
 restatement of scope caps already given at the claims they bound.
 
-### 13.1 The instrument's band is 3.0, and most scored comparisons here are below it
+### 13.1 The local reader's band is 3.0, and most original scored contrasts are below it
 
-Every *scored* comparison in this paper is a single run at a fixed seed. That was
-recorded as a missing variance estimate until the estimate was made.
+The original internal arc's scored comparisons were single runs at a fixed seed.
+That was recorded as a missing variance estimate until the estimate was made. The
+later HH-001 and HH-003 benchmark designs are reported separately in §5; this local
+reader band is not transferred to their different readers and replicate schedules.
 
 Five replicates of the deployed configuration — identical corpus, settings, seed and
 standing runtime, run back to back in one server process — scored **11.0, 8.0, 8.0,
