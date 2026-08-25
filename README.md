@@ -34,11 +34,11 @@ about the past can be wrong.
 We ran the deployed `episodic-chat` library through the evaluation harness
 behind Mem0's published LoCoMo table: all 1,540 scored questions, with the same
 answer prompt, judge prompt, dated GPT-4o-mini model and metric.
-**Episodic-chat + ASPECT** scored **1,205/1,540 (78.25%)** with F1 **0.4534**.
+Episodic-chat + ASPECT scored **1,205/1,540 (78.25%)** with F1 **0.4534**.
 
 ![Deployed episodic-chat on the published LoCoMo axis](paper/figures/hh003_leaderboard.png)
 
-**Episodic-chat** scored **1,191/1,540 (77.34%)** with deterministic F1
+Episodic-chat scored **1,191/1,540 (77.34%)** with deterministic F1
 **0.4537**. Paired item-level comparison gives **46 gains and 32 losses**, a net
 gain of 14, with two-sided exact p = **0.1405**. The judge endpoint moves
 slightly; deterministic F1 does not. The study registered no directional
