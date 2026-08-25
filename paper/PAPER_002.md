@@ -518,9 +518,12 @@ The paired primary endpoint gives **46 ASPECT gains, 32 losses and 1,462 ties**,
 a net gain of 14 and two-sided exact binomial p = **0.1405**. The judge score's
 0.91-point movement is not demonstrated on the registered test, and the
 deterministic F1 endpoint is effectively unchanged and slightly lower.
+Figure 1 places both deployed configurations on the published LoCoMo axis;
+published rows are quoted context, not paired controls.
 
 Category judge scores for default/ASPECT are 70.92/71.28% single-hop,
 63.24/65.73% temporal, 50.00/56.25% multi-hop and 87.99/87.87% open-domain.
+Figure 2 shows those paired category scores and their descriptive differences.
 The study registered no directional success bar and no automatic adoption
 decision. ASPECT is active on every item, so the comparison is not inert.
 
