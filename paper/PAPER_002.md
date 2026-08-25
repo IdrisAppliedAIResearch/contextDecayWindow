@@ -1,6 +1,6 @@
 # Rank Fine, Pack Fine, Call Nothing
 
-### 77.34% from the deployed library; 78.25% with optional ASPECT
+### No LLM memory architecture beats N+1 Industry leader; 78.25% vs 68.44%
 
 **Idris Applied AI Research** — independent
 Repository: `contextDecayWindow` · Licence: AGPL-3.0-or-later, or commercial — see `LICENSING.md`
@@ -41,18 +41,23 @@ ASPECT configuration were run through the evaluation harness behind
 arXiv:2504.19413's Table 2 on all 1,540 scored LoCoMo questions, with its answer
 prompt, judge prompt, dated GPT-4o-mini model and metric.
 
-| Deployed configuration | Correct | LLM-as-a-Judge | Deterministic F1 | Median retrieval latency |
+| Configuration | Correct | LLM-as-a-Judge | F1 (reported scope) | p95 total latency |
 |---|---:|---:|---:|---:|
-| **Public default** | **1,191/1,540** | **77.34%** | **0.4537** | **27 ms** |
-| **Static ASPECT** | **1,205/1,540** | **78.25%** | **0.4534** | **2.52 s** |
-| Full context | — | 72.90% | — | — |
-| Mem0-graph | — | 68.44% | — | — |
-| Mem0 | — | 66.88% | — | — |
-| Zep | — | 65.99% | — | — |
-| RAG, best variant | — | 60.53% | — | — |
+| **Public default** | **1,191/1,540** | **77.34%** | **45.37 overall** | — |
+| **Static ASPECT** | **1,205/1,540** | **78.25%** | **45.34 overall** | — |
+| Full context | — | 72.90% | — | 17.117 s |
+| Mem0-graph | — | 68.44% | 38.09 / 24.32 / 49.27 / 51.55 | 2.590 s |
+| Mem0 | — | 66.88% | 38.72 / 28.64 / 47.65 / 48.93 | 1.440 s |
+| Zep | — | 65.99% | 35.74 / 19.37 / 49.56 / 42.00 | 2.926 s |
+| RAG, best variant | — | 60.53% | — | 9.942 s |
 
-The five comparison rows are quoted from arXiv:2504.19413 Table 2 and were not
-re-run here; no paired test is computed against them.
+The five comparison rows are quoted from arXiv:2504.19413 Tables 1 and 2 and
+were not re-run here; no paired test is computed against them. The paper does
+not report raw correct counts or an overall F1 for these systems. Its F1 values
+above are single-hop / multi-hop / open-domain / temporal, and its latency is
+p95 end-to-end response time. Our F1 is an overall deterministic score; our
+reported 27 ms / 2.52 s timings are median retrieval latency, so they are not
+placed in the paper's total-latency column.
 
 ASPECT gains 46 items and loses 32 against the default, net +14; the registered
 two-sided exact binomial p is **0.1405**. The judge score moves slightly while
