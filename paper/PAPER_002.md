@@ -43,8 +43,8 @@ prompt, judge prompt, dated GPT-4o-mini model and metric.
 
 | Configuration | Correct | LLM-as-a-Judge | F1 (reported scope) | p95 total latency |
 |---|---:|---:|---:|---:|
-| **Static ASPECT** | **1,205/1,540** | **78.25%** | **45.34 overall** | — |
-| **Public default** | **1,191/1,540** | **77.34%** | **45.37 overall** | — |
+| **Static ASPECT** | **1,205/1,540** | **78.25%** | **45.34 overall** | **5.323 s** |
+| **Public default** | **1,191/1,540** | **77.34%** | **45.37 overall** | **4.498 s** |
 | Full context | — | 72.90% | — | 17.117 s |
 | Mem0-graph | — | 68.44% | 46.14 overall | 2.590 s |
 | Mem0 | — | 66.88% | 45.10 overall | 1.440 s |
@@ -56,10 +56,9 @@ were not re-run here; no paired test is computed against them. The paper does
 not report raw correct counts or an overall F1 for these systems. The overall
 F1 values above are weighted from its four reported category scores using the
 scored set's 282 single-hop, 96 multi-hop, 841 open-domain and 321 temporal
-questions. Its latency is p95 end-to-end response time. Our F1 is an overall
-deterministic score; our
-reported 27 ms / 2.52 s timings are median retrieval latency, so they are not
-placed in the paper's total-latency column.
+questions. Latency is p95 end-to-end response time throughout: our values are
+the itemwise sum of recorded retrieval and answer-API time; the comparison
+values are quoted from the Mem0 paper. Our F1 is an overall deterministic score.
 
 ASPECT gains 46 items and loses 32 against the default, net +14; the registered
 two-sided exact binomial p is **0.1405**. The judge score moves slightly while
