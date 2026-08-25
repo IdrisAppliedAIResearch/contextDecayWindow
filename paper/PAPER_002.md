@@ -1,6 +1,6 @@
 # Rank Fine, Pack Fine, Call Nothing
 
-### 79.09% on the benchmark Mem0 published, at a sixth of the tokens, with no generative calls
+### 77.34% from the deployed library; 78.25% with optional ASPECT
 
 **Idris Applied AI Research** — independent
 Repository: `contextDecayWindow` · Licence: AGPL-3.0-or-later, or commercial — see `LICENSING.md`
@@ -36,33 +36,21 @@ The design copies three things human memory does, and runs all three at once:
 Everything is delivered exactly as it was said. Nothing is summarized or
 rewritten, so nothing the model is told about the past can be wrong.
 
-**Where it lands.** The evaluation harness behind arXiv:2504.19413's Table 2 —
-question set, answer prompt, judge prompt, judge model and metric — was rebuilt
-here, and this component run through it on all 1,540 scored LoCoMo questions.
+**Where the deployed library lands.** The public default and optional static
+ASPECT configuration were run through the evaluation harness behind
+arXiv:2504.19413's Table 2 on all 1,540 scored LoCoMo questions, with its answer
+prompt, judge prompt, dated GPT-4o-mini model and metric.
 
-| System | LLM-as-a-Judge | Mean prompt tokens |
-|---|---:|---:|
-| **This component** | **79.09%** | **4,243** |
-| Full context | 72.90% | — |
-| *Full context, reproduced here* | *72.47%* | *25,405* |
-| Mem0ᵍ | 68.44% | — |
-| Mem0 | 66.88% | — |
-| Zep | 65.99% | — |
-| RAG, best variant | 60.53% | — |
-| LangMem | 58.10% | — |
-| OpenAI memory | 52.90% | — |
-| A-MEM | 48.38% | — |
-| **No memory at all** | **26.30%** | 84 |
+| Deployed configuration | Correct | LLM-as-a-Judge | Deterministic F1 | Median retrieval latency |
+|---|---:|---:|---:|---:|
+| **Public default** | **1,191/1,540** | **77.34%** | **0.4537** | **27 ms** |
+| **Static ASPECT** | **1,205/1,540** | **78.25%** | **0.4534** | **2.52 s** |
 
-**79.09%, on a sixth of the tokens the table's previous best spends.** The
-highest row there is full context at 72.90%, and this rig reproduced that row at
-**72.47% — a gap of 0.43 points**, so the comparison rests on a control it
-verified rather than an assumption. Eight rows are quoted from Table 2 and were
-not re-run here; nothing in this paper is tested against them.
-
-The result the study **registered in advance** cleared its bar by more. Against
-fixed-chunk retrieval: **+33.31 points, 558 items won against 45, p =
-6.615e-114**, with a second endpoint that uses no model at all agreeing.
+ASPECT gains 46 items and loses 32 against the default, net +14; the registered
+two-sided exact binomial p is **0.1405**. The judge score moves slightly while
+deterministic F1 is effectively unchanged and slightly lower. No directional
+success bar or automatic adoption decision was registered. Both arms fill and
+truncate the 32,000-character retrieval allowance on every question.
 
 ---
 
@@ -74,15 +62,14 @@ components: ten numbered studies plus one registered exploratory bakeoff. The su
 window, cosine-threshold similarity retrieval, and a set-level coverage objective,
 packed against one character budget at exact serialized cost.
 
-We rebuilt the evaluation harness behind arXiv:2504.19413's Table 2 — its question
-set, answer prompt, judge prompt, judge model and metric — and ran this layer
-through it on all 1,540 scored LoCoMo questions. It scores 79.09%, above every
-row of that table, on 4,243 prompt tokens against the 25,405 of full context
-reproduced here. None of the systems behind those rows was re-run. The placement is licensed by reproducing their own ceiling
-row first: full context, the configuration with nothing to choose, came back at
-72.47% against a published 72.90%, and the judge moved 0.06 points across two
-scorings of the same sealed answers. Six of the table's rows were not re-run and
-are quoted with attribution; no test here is computed against them.
+We ran the deployed `episodic-chat` library through the evaluation harness
+behind arXiv:2504.19413's Table 2 on all 1,540 scored LoCoMo questions. The
+public default scores 77.34% with deterministic F1 0.4537; optional static
+ASPECT scores 78.25% with F1 0.4534. The paired judge comparison is 46 gains to
+32 losses (two-sided exact p=0.1405), so the 0.91-point difference is descriptive,
+not a demonstrated improvement. Median retrieval latency rises from 27 ms to
+2.52 s with ASPECT. Both arms use the dated GPT-4o-mini answerer and judge and
+fill the 32,000-character retrieval allowance on every question.
 
 Two registered gates failed and both are reported as results. With no memory
 block at all the reader still scores 26.30% against a bar of 5%, because the
@@ -260,7 +247,7 @@ manual names as its recurring failure — *a surrogate that can pass without the
 property it claims to certify*.
 
 §5 does place a number beside theirs, and it is admissible because it is not a
-surrogate: HH-002 measures LLM-judged accuracy itself, on their harness, their
+surrogate: the deployed-library study measures LLM-judged accuracy itself, on their harness, their
 questions and their judge. The substitution above stays forbidden; what changed is
 that this programme no longer needs it. NF-004's 935 of 1,098 is an availability
 count and never enters that table.
@@ -425,9 +412,9 @@ phrase. They reproduce identically and they do not license the same sentence.
 
 | Result | Standing | The binding limit |
 |---|---|---|
-| HH-002 — 79.09% on the published harness (§5.1) | REGISTERED-LIVE | One replicate; a vendor API, so not replayable. The lead over full context was **not** the registered contrast |
-| HH-002 — +33.31 over fixed-chunk RAG (§5.1) | REGISTERED-LIVE | The one directional claim registered before the run. Both endpoints agree |
-| HH-002 — the RAG configuration sweep (§5.4) | DESCRIPTIVE | Built after the number existed, to account for a failed gate. Carries no claim about this component |
+| HH-003 — deployed default and ASPECT (§5.1) | REGISTERED-LIVE | One replicate per arm; vendor API, so not replayable. No directional success bar or automatic adoption decision |
+| HH-003 — ASPECT +14 judged items (§5.1) | REGISTERED-LIVE | 46 gains, 32 losses, two-sided p=.1405; deterministic F1 is effectively unchanged |
+| Predecessor RAG configuration sweep (§5.4) | DESCRIPTIVE | Built after the number existed, to account for a failed gate. Carries no claim about the deployed library |
 | HH-001 — head-to-head against Mem0, +7.7 points (§5.6) | REGISTERED-LIVE | This reader, this corpus, this budget, this pair of configurations. Never confirmation |
 | NF-004 — LoCoMo pair ranking, 843→935 (§6.1) | CONFIRMATORY | Availability only; no reader, universal-rule or adoption claim |
 | DMR-004 — no sufficiency signal (§6.2) | CONFIRMATORY | Negative; closes deterministic stopping in this arc |
@@ -503,80 +490,54 @@ first when it was the second is how a programme accumulates false confidence, so
 each stop below says which it was.
 
 ---
-## 5. The head-to-head: Mem0's benchmark, and Mem0 run here
+## 5. The deployed library on Mem0's benchmark, and Mem0 run here
 
-**This component scores 79.09% on LoCoMo. The highest row of the table Mem0
-published stands at 72.90%, and this rig independently reproduced that row at
-72.47% — so the comparison rests on a control it verified, not on an
-assumption.** It gets there on 4,243 prompt tokens against the 25,405 that same
-row costs here.
+**The deployed public default scores 77.34% on LoCoMo; optional static ASPECT
+scores 78.25%.** Both use the evaluation harness behind
+arXiv:2504.19413's Table 2 — the authors' question set, answer prompt, judge
+prompt, dated judge model and metric — over all 1,540 scored questions.
 
-Two studies stand behind that sentence. **HH-002** rebuilt the evaluation
-harness that produced arXiv:2504.19413's Table 2 — the authors' question set,
-answer prompt, judge prompt, judge model and metric — and ran this component
-through it on all 1,540 scored questions. **HH-001** installed Mem0 2.0.18 and
-ran it here, on one local reader at a matched budget, which is how this
-programme knows what Mem0's write path costs and what it loses.
+HH-003 compares the two shipped configurations directly. The separate HH-001
+study installed Mem0 2.0.18 and ran it here on one local reader at a matched
+budget. Together they measure two different things: current deployed behavior,
+and what happens when the competing architecture is put on a bench and watched.
 
-Together they measure two different things and both are in this section: where
-the component lands against a published field, and what happens when the
-competing architecture is put on a bench and watched.
-
-Provenance: `notes/HH002_EVIDENCE_SPINE.md` and `notes/HH001_EVIDENCE_SPINE.md`.
-Both studies hashed their commitments before the first generation call.
+Provenance: `experiments/comparisons/hh_003/HH_003_FINDINGS.md` and
+`notes/HH001_EVIDENCE_SPINE.md`. Both studies hashed their commitments before
+the first generation call.
 
 **Scope, once, so the rest of the section can be read without footnotes.** Mem0's
 own row was not re-run — it needs a hosted-platform account this programme does
 not hold — so Table 2's rows are quoted with attribution and no test in this
-paper is computed against them. The arm under test is NF-004's pair ranking at a
-16,000-character budget, without §3's set-level coverage objective.
+paper is computed against them. The direct comparison is only between the
+deployed public default and optional static ASPECT, each with a 32,000-character
+long-term retrieval allowance and additive last-32 continuity context.
 
-### 5.1 On the table arXiv:2504.19413 published
+### 5.1 The deployed default and optional ASPECT
 
 All 1,540 scored LoCoMo questions — every question in the ten conversations
 except the adversarial category the harness itself skips.
 
-| System | LLM-as-a-Judge | Mean prompt tokens | Source |
-|---|---:|---:|---|
-| **This component** | **79.09%** | **4,243** | measured here |
-| Full context | 72.90% | — | Table 2 |
-| *Full context, reproduced here* | *72.47%* | *25,405* | *measured here* |
-| This component, undated turns | 71.56% | 3,696 | measured here |
-| Mem0ᵍ | 68.44% | — | Table 2, Mem0's own system |
-| Mem0 | 66.88% | — | Table 2, Mem0's own system |
-| Zep | 65.99% | — | Table 2, run by Mem0, not by Zep |
-| LangMem | 58.10% | — | Table 2, run by Mem0, not by LangChain |
-| RAG, best variant | 60.53% | — | Table 2 |
-| OpenAI memory | 52.90% | — | Table 2 |
-| A-MEM | 48.38% | — | Table 2, run by Mem0, not by A-MEM |
-| No memory | 26.30% | 84 | measured here |
+| Configuration | Correct | LLM-as-a-Judge | F1 | Exact match | Median retrieval latency |
+|---|---:|---:|---:|---:|---:|
+| **Public default** | **1,191/1,540** | **77.34%** | **0.4537** | 0.0117 | **27 ms** |
+| **Static ASPECT** | **1,205/1,540** | **78.25%** | **0.4534** | 0.0156 | **2.52 s** |
 
-Five of the six quoted rows are the Mem0 authors' reproductions of other
-people's systems. Zep's own paper reports DMR and LongMemEval and never LoCoMo.
-Figure 1 draws the table, with the rows this rig measured separated from the
-rows it quotes and the floor of §5.3 drawn across all of them.
+The paired primary endpoint gives **46 ASPECT gains, 32 losses and 1,462 ties**,
+a net gain of 14 and two-sided exact binomial p = **0.1405**. The judge score's
+0.91-point movement is not demonstrated on the registered test, and the
+deterministic F1 endpoint is effectively unchanged and slightly lower.
 
-The component's row sits above every quoted row, and it does so at a sixth of
-the prompt tokens of the arm that previously topped the table. Against full
-context **reproduced on this rig** it leads by **6.62 points** — 210 gains
-against 108, one-sided exact binomial p = 5.593e-09 — and the deterministic
-endpoint, which involves no model, agrees at **+15.32 points**, p = 9.309e-31.
+Category judge scores for default/ASPECT are 70.92/71.28% single-hop,
+63.24/65.73% temporal, 50.00/56.25% multi-hop and 87.99/87.87% open-domain.
+The study registered no directional success bar and no automatic adoption
+decision. ASPECT is active on every item, so the comparison is not inert.
 
-**That contrast is post-hoc, and the registration got its sign wrong.**
-HH-002 registered exactly one directional claim, and predicted this component
-would land *between* 60.53% and 72.90% — below full context. It did not. A
-p-value on a direction that was not registered, in a comparison whose sign the
-registration mispredicted, is reported for completeness and carries no
-confirmatory weight.
-
-**The registered claim is the one that cleared its bar by the widest margin.**
-Against fixed-chunk RAG — the contrast written into `commitments.json` before
-the first generation call — this component gains **33.31 points: 558 items won
-against 45 lost, one-sided exact binomial p = 6.615e-114.** The deterministic
-endpoint agrees at **+24.16 points**, which is the condition the registration
-set in advance for making any directional claim at all. Both endpoints, one of
-them model-free, point the same way on the one comparison this study committed
-to before it had a number.
+The operational difference is large. Median retrieval latency rises from 27 ms
+to 2.52 s and p95 from 30 ms to 2.83 s. Both configurations fill and truncate
+the 32,000-character retrieval allowance on every question, with zero store
+mutations and zero malformed judgements. LoCoMo is spent; comparisons against
+published rows or predecessor controls are cross-run characterization.
 
 ### 5.2 The rig reproduces their ceiling row to within half a point
 
@@ -636,7 +597,7 @@ Measured from the floor, the rows this rig produced spread out:
 
 | Arm | Raw | Above the 26.30% floor |
 |---|---:|---:|
-| This component | 79.09% | **52.79** |
+| Predecessor development arm | 79.09% | **52.79** |
 | Full context, reproduced here | 72.47% | 46.17 |
 | Fixed-chunk RAG, reproduced here | 45.78% | 19.48 |
 
@@ -680,9 +641,10 @@ through a mechanism §7 never tested, and inherits none of §7's standing.
 
 ### 5.5 What the dates bought
 
-The harness renders every turn with its session timestamp. NF-004's candidate
+This predecessor ablation is retained as mechanism history; it is not the
+deployed-library result in §5.1. The harness renders every turn with its session timestamp. NF-004's candidate
 unit carries no timestamp, because NF-004's endpoint was whether evidence text
-was delivered and no date was needed to answer that. HH-002 ran both renderings,
+was delivered and no date was needed to answer that. The predecessor live run evaluated both renderings,
 registered in advance, and predicted the gap would sit in the temporal category.
 
 | Category | n | Dated | Undated | Effect |
@@ -691,7 +653,7 @@ registered in advance, and predicted the gap would sit in the temporal category.
 | Single-hop | 282 | 71.63% | 72.34% | −0.71 |
 | Multi-hop | 96 | 55.21% | 57.29% | −2.08 |
 | Open-domain | 841 | 88.35% | 87.99% | +0.36 |
-| **Overall** | **1,540** | **79.09%** | **71.56%** | **+7.53** |
+| **Overall (predecessor arms)** | **1,540** | **79.09%** | **71.56%** | **+7.53** |
 
 **The whole overall gap is one stratum**, and Figure 2 shows it. The other
 three move by 0.71, 2.08 and 0.36 points — two of them in the undated arm's
@@ -731,7 +693,7 @@ within item, three replicates deep, read out as a discordant count — a differe
 instrument with its own noise reading, and this one reports it: per-item
 unanimity across replicates runs 0.85 to 0.89 by arm.
 
-The floor arm scored **zero** here. That is the one number HH-002 overturned:
+The floor arm scored **zero** here. A later vendor-harness run overturned that number:
 on a local 27B reader an empty context answered nothing, and on GPT-4o-mini with
 the vendor harness's generous judge the same empty context answers 26.30%. The
 floor is a property of the reader and the grader, not of the corpus.
@@ -1654,8 +1616,10 @@ Every item in that corpus has now been used by this programme. **No confirmatory
 is available from it again**, and any registration written today inherits that
 ceiling. The LoCoMo holdout in §6.1 is now the only sealed external evidence this
 programme holds for the granularity result, and **LoCoMo is now spent three times
-over**: NF-004 read the six holdout conversations, HH-001 read them again, and HH-002
-read all ten. Both studies in §5 are `REGISTERED-LIVE` for that reason and cannot
+over across four study stages**: NF-004 read the six holdout conversations,
+HH-001 read them again, a predecessor benchmark read all ten, and the two
+deployed-library arms read all ten again. Both studies in §5 are
+`REGISTERED-LIVE` for that reason and cannot
 become confirmatory. No sealed external corpus remains to this programme.
 
 ---
@@ -1744,9 +1708,9 @@ still gets it wrong is the part this programme has not measured.
 
 ## Figures
 
-Eleven. Figures 1 and 2 are generated by `scripts/generate_hh002_figures.py`;
-Figures 3 to 11 by `scripts/generate_paper_002_figures.py`. Both read committed
-artifacts.
+Nine retained mechanism figures are generated by
+`scripts/generate_paper_002_figures.py` from committed artifacts. The current
+deployed-library benchmark is reported directly in §5.1 and its committed JSON.
 No value in any figure is typed by hand. Each caption carries the first 16 hex digits
 of the SHA-256 of the artifacts it draws from, hashed over git blob content so the
 values are stable across platforms; `paper/figures/figure_manifest_002.json` records
@@ -1758,35 +1722,6 @@ then parsed — so a recorded hash always corresponds to the values plotted. Fiv
 registered bars exist only in prose rather than in JSON, and are extracted by a
 strict pattern that fails the build rather than plotting a stale value if the
 wording changes.
-
-![Figure 1: Where this component lands on the published table](figures/hh002_leaderboard.png)
-
-**Figure 1 — Where this component lands on the table arXiv:2504.19413 published.**
-`hh002_leaderboard.svg`
-*Every row scored on the same 1,540 LoCoMo questions, the same harness, the
-same judge.* Dark blue is this component at **79.09%**. Light blue are the rows
-this rig measured, including full context reproduced at **72.47%** against the
-published **72.90%** — the control that licenses printing the rest together.
-Grey rows are quoted from Table 2 and were not re-run; no test in this paper is
-computed against them. The dashed line is the study's second finding: an empty
-context scores **26.30%**, and because the judge prompt, model and question set
-are shared, that floor sits under every bar in the chart. Sources:
-`A_CDW/judged_r1.json` `6f56cebcdd34fdfb`,
-`A_FULL/judged_r1.json` `31933075d01b24e3`,
-`A_NONE/judged_r1.json` `4b12162984f80777`,
-`commitments.json` `1ca3931c8b97dd7b`.
-
-![Figure 2: What the timestamp buys, by question category](figures/hh002_timestamps.png)
-
-**Figure 2 — What the timestamp buys, by question category.** `hh002_timestamps.svg`
-*The same retrieval, run twice, differing only in whether a delivered turn
-carries its session date.* Registered in advance with the prediction that the gap
-would sit in the temporal category. It does, and nowhere else: **+36.45 points on
-temporal**, against −0.71, −2.08 and +0.36 on the other three. The overall
-7.53-point difference is one stratum of 321 questions; a retrieval unit that
-drops the timestamp is not uniformly worse, it is disabled on one question type
-and unchanged on the rest. Sources: `A_CDW/judged_r1.json`
-`6f56cebcdd34fdfb`, `A_CDW_NOTS/judged_r1.json` `cbedd6689e2c6d9b`.
 
 ![Figure 3: The head-to-head](figures/f1_head_to_head.png)
 
