@@ -97,8 +97,8 @@ def save(fig, name: str) -> None:
 def figure_leaderboard() -> None:
     quoted = quoted_rows()
     rows = [
-        ("Static ASPECT", rate("A_EPISODIC_ASPECT"), "current_aspect"),
-        ("Public default", rate("A_EPISODIC"), "current_default"),
+        ("Episodic-chat + ASPECT", rate("A_EPISODIC_ASPECT"), "current_aspect"),
+        ("Episodic-chat", rate("A_EPISODIC"), "current_default"),
         ("Full context", quoted["Full context"], "quoted"),
         ("Mem0-graph", quoted["Mem0-graph"], "quoted"),
         ("Mem0", quoted["Mem0"], "quoted"),
@@ -131,8 +131,8 @@ def figure_leaderboard() -> None:
         ax.spines[spine].set_visible(False)
     ax.legend(
         handles=[
-            Patch(facecolor=BLUE, edgecolor=BLACK, label="Deployed public default"),
-            Patch(facecolor=ORANGE, edgecolor=BLACK, label="Optional static ASPECT"),
+            Patch(facecolor=BLUE, edgecolor=BLACK, label="Episodic-chat"),
+            Patch(facecolor=ORANGE, edgecolor=BLACK, label="Episodic-chat + ASPECT"),
             Patch(facecolor=GREY, edgecolor=BLACK, label="Published row, quoted"),
         ],
         loc="upper center", bbox_to_anchor=(0.5, -0.13), ncol=3, fontsize=8.5,
@@ -156,9 +156,9 @@ def figure_categories() -> None:
     )
     xs = list(range(len(categories)))
     ax.bar([x - width / 2 for x in xs], [default[c][0] for c in categories],
-           width, label="Public default", color=BLUE, edgecolor=BLACK, linewidth=0.6)
+           width, label="Episodic-chat", color=BLUE, edgecolor=BLACK, linewidth=0.6)
     ax.bar([x + width / 2 for x in xs], [aspect[c][0] for c in categories],
-           width, label="Static ASPECT", color=ORANGE, edgecolor=BLACK, linewidth=0.6)
+           width, label="Episodic-chat + ASPECT", color=ORANGE, edgecolor=BLACK, linewidth=0.6)
     for x, category in zip(xs, categories):
         for offset, value in ((-width / 2, default[category][0]), (width / 2, aspect[category][0])):
             ax.text(x + offset, value + 1.2, f"{value:.1f}", ha="center", fontsize=8)
@@ -168,7 +168,7 @@ def figure_categories() -> None:
     ax.set_ylim(0, 100)
     ax.grid(axis="y", color="#DDDDDD", linewidth=0.7)
     ax.legend(fontsize=8.5, loc="upper left")
-    ax.set_title("Default and ASPECT by question category", fontsize=11, fontweight="bold", loc="left")
+    ax.set_title("Episodic-chat and Episodic-chat + ASPECT by question category", fontsize=11, fontweight="bold", loc="left")
 
     deltas = [aspect[c][0] - default[c][0] for c in categories]
     delta_ax.bar(xs, deltas, 0.6, color=[ORANGE if value > 0 else GREY for value in deltas], edgecolor=BLACK, linewidth=0.6)
