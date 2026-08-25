@@ -73,7 +73,6 @@ def run_answers(*, pilot: bool) -> dict[str, Any]:
     }
     done = {arm: _records(RUN / arm / "predictions.json") for arm in ARMS}
     token_bucket = RateBucket(TOKENS_PER_MINUTE)
-    request_bucket = RateBucket(REQUESTS_PER_MINUTE)
     work: list[tuple[str, str]] = []
     for arm in ARMS:
         keys = _pilot_keys(contexts[arm]) if pilot else sorted(contexts[arm])
@@ -140,7 +139,6 @@ def run_judging(*, pilot: bool) -> dict[str, Any]:
 
     def one(arm: str, key: str) -> tuple[str, str, dict[str, Any]]:
         prediction = predictions[arm][key]
-        request_bucket.acquire(1.0)
         llm_score, label = client.judge(
             prediction["question"], prediction["answer"], prediction["response"]
         )
