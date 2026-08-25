@@ -69,7 +69,7 @@ def quoted_rows() -> dict[str, float]:
         "Mem0": r"\| Mem0 \| LoCoMo, LLM-as-a-Judge \(J\) \| \*\*([\d.]+)%\*\*",
         "Mem0-graph": r"\| Mem0ᵍ \(graph\) \| LoCoMo, J \| \*\*([\d.]+)%\*\*",
         "Zep": r"\| Zep \| LoCoMo, J \| \*\*([\d.]+)%\*\*",
-        "RAG, best variant": r"\| RAG \(best variant\) \| LoCoMo, J \| \*\*([\d.]+)%\*\*",
+        "RAG, 512/k=1": r"\| RAG \(512 tokens, k=1\) \| LoCoMo, J \| \*\*([\d.]+)%\*\*",
         "Full context": r"full-context ceiling of ([\d.]+)%",
     }
     result: dict[str, float] = {}
@@ -103,7 +103,7 @@ def figure_leaderboard() -> None:
         ("Mem0-graph", quoted["Mem0-graph"], "quoted"),
         ("Mem0", quoted["Mem0"], "quoted"),
         ("Zep", quoted["Zep"], "quoted"),
-        ("RAG, best variant", quoted["RAG, best variant"], "quoted"),
+        ("RAG, 512/k=1", quoted["RAG, 512/k=1"], "quoted"),
     ]
     rows.sort(key=lambda row: row[1])
     colours = {
