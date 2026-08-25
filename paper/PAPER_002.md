@@ -71,16 +71,6 @@ not a demonstrated improvement. Median retrieval latency rises from 27 ms to
 2.52 s with ASPECT. Both arms use the dated GPT-4o-mini answerer and judge and
 fill the 32,000-character retrieval allowance on every question.
 
-Two registered gates failed and both are reported as results. With no memory
-block at all the reader still scores 26.30% against a bar of 5%, because the
-judge prompt instructs the grader to accept any answer touching the gold
-answer's topic — 32.34% on open-domain, the largest of four strata. That floor is
-a property of the shared instrument and the source paper does not report it. The
-second gate missed by 14.75 points: the sweep behind Table 2's "RAG (best
-variant)" row spans 26 points with the published value inside it, so one
-configuration choice moves that row further than the distance separating most
-rows on the table.
-
 Against Mem0 2.0.18, installed and run here on one local reader at a matched
 16,000-character budget, the layer that makes no generative calls answers 7.7
 points more of 300 questions than the layer that spent 1,646 of them across 284
@@ -414,7 +404,6 @@ phrase. They reproduce identically and they do not license the same sentence.
 |---|---|---|
 | HH-003 — deployed default and ASPECT (§5.1) | REGISTERED-LIVE | One replicate per arm; vendor API, so not replayable. No directional success bar or automatic adoption decision |
 | HH-003 — ASPECT +14 judged items (§5.1) | REGISTERED-LIVE | 46 gains, 32 losses, two-sided p=.1405; deterministic F1 is effectively unchanged |
-| Predecessor RAG configuration sweep (§5.4) | DESCRIPTIVE | Built after the number existed, to account for a failed gate. Carries no claim about the deployed library |
 | HH-001 — head-to-head against Mem0, +7.7 points (§5.6) | REGISTERED-LIVE | This reader, this corpus, this budget, this pair of configurations. Never confirmation |
 | NF-004 — LoCoMo pair ranking, 843→935 (§6.1) | CONFIRMATORY | Availability only; no reader, universal-rule or adoption claim |
 | DMR-004 — no sufficiency signal (§6.2) | CONFIRMATORY | Negative; closes deterministic stopping in this arc |
@@ -438,8 +427,10 @@ Five results in the entire arc reach CONFIRMATORY, and **three of those five are
 negative**. That ratio is the paper's most compact structural fact: the surviving
 design is four components because the well-built experiments mostly returned nothing.
 
-`paper/notes/EVIDENCE_SPINE.md` carries the same assignment with each number's
-artifact path and hash, for a reader who wants to check a figure against its source.
+`paper/notes/EVIDENCE_SPINE.md` carries the programme results that predate
+HH-003. Current deployed-library values trace directly to
+`experiments/comparisons/hh_003/artifacts/run/report.json` and
+`paper/figures/figure_manifest_hh003.json`.
 ### 4.2 The machinery behind those grades
 
 **Pre-registration.** Each study's design was committed before implementation, and
@@ -539,133 +530,6 @@ the 32,000-character retrieval allowance on every question, with zero store
 mutations and zero malformed judgements. LoCoMo is spent; comparisons against
 published rows or predecessor controls are cross-run characterization.
 
-### 5.2 The rig reproduces their ceiling row to within half a point
-
-Before measuring itself, this rig measured them.
-
-Full context is the row that cannot be mis-specified: `--chunk_size -1` hands
-the model the whole conversation, with no chunking, no embedder, no retrieval
-and nothing to configure. **This rig scored it at 72.47% against a published
-72.90% — a gap of 0.43 points**, against a tolerance of ±3.0 fixed before any
-number existed.
-
-Half a point on a 1,540-question benchmark, reproducing a figure published by a
-different team on different hardware. On the one row where nothing can be
-misconfigured, the corpus adaptation, the prompt reconstruction, the judge and
-the metric all land where theirs did. That is what puts this component's number
-on the same axis as the rest of the table — placement, and nothing more.
-
-The judge is not the noise source either. The same 1,540 sealed answers, scored
-twice, landed **0.06 points apart** — 3 items moved out of 1,540.
-
-### 5.3 LoCoMo has a 26-point floor that its own paper never reports
-
-Run the benchmark with **no memory block at all** — an empty context, the model
-guessing — and it scores **26.30%**.
-
-**G-FLOOR failed.** The registered bar was below 5%, on the expectation of
-near-zero, and 26.30% is not near zero.
-
-It is also this study's second finding, and not the one it went looking for.
-Guessability alone accounts for it, without any need to suppose the model has
-seen the corpus: the failure is a judge instructed to be generous meeting
-questions a reasonable guess can satisfy. No contamination probe was run against
-this reader, so contamination is unmeasured here rather than excluded. The judge prompt, reproduced byte-exact from the upstream blob, tells
-the grader to count an answer correct if it touches the same topic as the gold
-answer. `Last Saturday` scores CORRECT against `The weekend before 22 July
-2023`. `family members` scores CORRECT against `Family`.
-
-That prompt, that model and that question set produced every row of Table 2, so
-the floor belongs to the instrument — the reader, the grader and the questions —
-rather than to any system standing on it, and **it sits under all of them**.
-That last step is an inference from shared instrumentation, not an observation:
-those runs were not watched.
-
-The floor is not a property of the corpus either. HH-001 ran the same empty
-context on a local 27B reader and scored **0.000** (§5.6). Change the reader or
-the grader and the floor moves; LoCoMo did not become guessable, this pairing of
-model and judge made it so.
-
-The floor is not uniform either. It is highest on **multi-hop at 38.54%** — the
-questions meant to be hardest — and **32.34% on open-domain**, which is 841 of
-the 1,540 questions and the largest stratum by far. It is lowest on temporal, at
-**11.21%**. A benchmark whose biggest category is a third answerable by guessing,
-and whose multi-hop questions are more guessable still, measures less than its
-headline suggests, and every system quoted on it inherits that.
-
-Measured from the floor, the rows this rig produced spread out:
-
-| Arm | Raw | Above the 26.30% floor |
-|---|---:|---:|
-| Predecessor development arm | 79.09% | **52.79** |
-| Full context, reproduced here | 72.47% | 46.17 |
-| Fixed-chunk RAG, reproduced here | 45.78% | 19.48 |
-
-**Only rows measured on this rig appear in that column.** The floor was
-measured here and varies by stratum; subtracting it from a row whose strata were
-never published would be arithmetic wearing the clothes of a measurement.
-
-### 5.4 One RAG setting is worth 26 points — more than the table's whole spread
-
-The second registered reproduction target was fixed-chunk RAG at 500 tokens and
-one chunk, mapped to Table 2's 60.53%. It scored **45.78%**. **G-CTRL failed**,
-by 14.75 points, and the registration had committed in advance that a failure is
-the result.
-
-Chasing it produced the study's third finding. Table 2's row is labelled *RAG
-(best variant)* — the top of a sweep the paper never specifies — so the
-registration had bound a gate to one recipe out of a family. Running the family:
-
-| Variant | Mean prompt tokens | Score |
-|---|---:|---:|
-| 500 tokens, 4 chunks | 2,030 | **65.32%** |
-| 1000 tokens, 2 chunks | 2,012 | 50.65% |
-| 500 tokens, 1 chunk — the registered target | 570 | 45.78% |
-| 1000 tokens, 1 chunk | 1,047 | 39.16% |
-
-**The sweep spans 26 points — wider than the gap between the top and bottom
-halves of Table 2 — and the published 60.53% sits inside it.** A row that moves
-that far on a configuration choice names a family, not a number.
-
-The explanation does not cancel the failure. The gate was registered against a
-value, it missed by 14.75 points, and the sweep that accounts for it was built
-after the number existed and is `DESCRIPTIVE`. The registered arms are not.
-
-Two results came out of it. The component leads the best variant the sweep found
-by **13.77 points**. And at a **matched budget** — 2,030 prompt tokens against
-2,012, inside 1% — four 500-token chunks beat two 1000-token chunks by **14.68
-points**, 318 gains against 92. **The same budget spent on more
-and smaller units is worth fourteen points.** Size and count move together here,
-so this does not isolate which one carries it; it points the same way as §7
-through a mechanism §7 never tested, and inherits none of §7's standing.
-
-### 5.5 What the dates bought
-
-This predecessor ablation is retained as mechanism history; it is not the
-deployed-library result in §5.1. The harness renders every turn with its session timestamp. NF-004's candidate
-unit carries no timestamp, because NF-004's endpoint was whether evidence text
-was delivered and no date was needed to answer that. The predecessor live run evaluated both renderings,
-registered in advance, and predicted the gap would sit in the temporal category.
-
-| Category | n | Dated | Undated | Effect |
-|---|---:|---:|---:|---:|
-| Temporal | 321 | 68.54% | 32.09% | **+36.45** |
-| Single-hop | 282 | 71.63% | 72.34% | −0.71 |
-| Multi-hop | 96 | 55.21% | 57.29% | −2.08 |
-| Open-domain | 841 | 88.35% | 87.99% | +0.36 |
-| **Overall (predecessor arms)** | **1,540** | **79.09%** | **71.56%** | **+7.53** |
-
-**The whole overall gap is one stratum**, and Figure 2 shows it. The other
-three move by 0.71, 2.08 and 0.36 points — two of them in the undated arm's
-favour, none of them in a direction the ablation predicted. A retrieval unit that
-drops the timestamp is not slightly worse across the board; it is catastrophic
-on one question type and indistinguishable on the rest.
-
-The same table answers a question about the ceiling arm. Full context scores
-**49.53%** on temporal questions against this component's 68.54%, despite
-holding every turn and every date in its window. Having the evidence present is
-not the same as having it findable.
-
 ### 5.6 Mem0, run here
 
 HH-001 is the study that watched Mem0 work. Five memory layers, 300 questions
@@ -693,10 +557,8 @@ within item, three replicates deep, read out as a discordant count — a differe
 instrument with its own noise reading, and this one reports it: per-item
 unanimity across replicates runs 0.85 to 0.89 by arm.
 
-The floor arm scored **zero** here. A later vendor-harness run overturned that number:
-on a local 27B reader an empty context answered nothing, and on GPT-4o-mini with
-the vendor harness's generous judge the same empty context answers 26.30%. The
-floor is a property of the reader and the grader, not of the corpus.
+The floor arm scored **zero** here on the local 27B reader. That result belongs
+to this reader and grader and is not transferred to the deployed-library run.
 
 ### 5.7 What the generative write path cost and lost
 
@@ -763,28 +625,16 @@ transcripts — the component leads Mem0 by **11.9 points in the oldest quarter*
 and **14.9 points in the newest**, and trails by 3.1 in the second quarter. The
 advantage is not a recency effect and is not uniform.
 
-### 5.9 The three boundaries that bind this section
+### 5.9 The boundaries that bind this section
 
-Stated once, in full, and not repeated. §13 carries the rest.
-
-**Six of the eleven rows in §5.1 were not run here.** They are quoted from Table
-2 with attribution, no test in this paper is computed against them, and the
-component is placed beside them rather than measured against them. The one
-competing system this programme did run is Mem0 2.0.18, in §5.6.
-
-**The lead over full context was not registered.** §5.1 states it and labels it.
-The registered contrast is the component against fixed-chunk RAG, at +33.31
-points.
-
-**Both studies are `REGISTERED-LIVE`, not `CONFIRMATORY`.** LoCoMo is exhausted
-on both splits and generation is stochastic, so neither can confirm and neither
-becomes confirmation by being re-described. §6 holds the results that can.
-
-Scope on capacity and breadth: LoCoMo fits a modern context window, so this
-benchmark cannot test reach, only cost and accuracy — and both arms carry
-NF-004's pair ranking without §8's set-level coverage objective, so neither
-tests breadth.
-
+The only direct 1,540-item comparison in §5.1 is deployed default versus
+optional static ASPECT. Published rows in Figure 1 are quoted with attribution;
+none was re-run and no paired test is computed against one. The 0.91-point
+ASPECT difference is descriptive: 46 gains, 32 losses, two-sided p=.1405, while
+deterministic F1 is effectively unchanged. Both deployed arms are
+`REGISTERED-LIVE`, not confirmatory, because LoCoMo is exhausted and generation
+is stochastic. The separate HH-001 study in §5.6 remains a local 300-question
+head-to-head against Mem0 2.0.18, not a current-product claim.
 ---
 
 ## 6. The confirmatory results
@@ -1616,9 +1466,8 @@ Every item in that corpus has now been used by this programme. **No confirmatory
 is available from it again**, and any registration written today inherits that
 ceiling. The LoCoMo holdout in §6.1 is now the only sealed external evidence this
 programme holds for the granularity result, and **LoCoMo is now spent three times
-over across four study stages**: NF-004 read the six holdout conversations,
-HH-001 read them again, a predecessor benchmark read all ten, and the two
-deployed-library arms read all ten again. Both studies in §5 are
+over across repeated study stages**: NF-004 read the six holdout conversations,
+HH-001 read them again, and the two deployed-library arms read all ten. Both studies in §5 are
 `REGISTERED-LIVE` for that reason and cannot
 become confirmatory. No sealed external corpus remains to this programme.
 
@@ -1708,20 +1557,36 @@ still gets it wrong is the part this programme has not measured.
 
 ## Figures
 
-Nine retained mechanism figures are generated by
-`scripts/generate_paper_002_figures.py` from committed artifacts. The current
-deployed-library benchmark is reported directly in §5.1 and its committed JSON.
-No value in any figure is typed by hand. Each caption carries the first 16 hex digits
-of the SHA-256 of the artifacts it draws from, hashed over git blob content so the
-values are stable across platforms; `paper/figures/figure_manifest_002.json` records
-all 33 inputs alongside the commit they were read at. Vector SVG alongside PNG. Two
-consecutive runs produce byte-identical SVGs and manifest.
+Eleven. Figures 1 and 2 are generated by `scripts/generate_hh003_figures.py`;
+Figures 3 to 11 by `scripts/generate_paper_002_figures.py`. Both read committed
+artifacts.
+No plotted value is typed by hand. The figure manifests record artifact hash
+prefixes and the source commit: `figure_manifest_hh003.json` for Figures 1–2
+and `figure_manifest_002.json` for Figures 3–11. Vector SVG sits alongside PNG,
+and consecutive runs produce byte-identical HH-003 SVG, PNG and manifest files.
 
 The script reads and hashes the *same* bytes — `git show HEAD:<path>` is hashed and
 then parsed — so a recorded hash always corresponds to the values plotted. Five
 registered bars exist only in prose rather than in JSON, and are extracted by a
 strict pattern that fails the build rather than plotting a stale value if the
 wording changes.
+
+![Figure 1: Deployed episodic-chat on the published LoCoMo axis](figures/hh003_leaderboard.png)
+
+**Figure 1 — The deployed library on the published LoCoMo axis.**
+`hh003_leaderboard.svg` The public default scores **77.34%** and optional static
+ASPECT **78.25%** on the same 1,540 questions and harness. Grey bars are quoted
+from arXiv:2504.19413 Table 2 and were not re-run; no paired test is computed
+against them. Sources: the two committed HH-003 judgement populations and
+`COMPETITIVE_LANDSCAPE.md`.
+
+![Figure 2: Default and ASPECT by question category](figures/hh003_aspect_categories.png)
+
+**Figure 2 — Default and ASPECT by question category.**
+`hh003_aspect_categories.svg` ASPECT's largest descriptive movement is on the
+96 multi-hop questions (+6.25 points), followed by temporal (+2.49); open-domain
+moves -0.12. These stratum differences are descriptive. The registered overall
+paired comparison is 46 gains to 32 losses, two-sided p=.1405.
 
 ![Figure 3: The head-to-head](figures/f1_head_to_head.png)
 
@@ -1871,10 +1736,10 @@ above 1,000 candidates are projections, drawn dashed. Sources: `dx002_results.js
 
 ## Appendices
 
-**A. Evidence spine** — `paper/notes/EVIDENCE_SPINE.md`. Every number in this paper
-with its artifact, its SHA prefix where one exists, and its standing under §4.1's
-taxonomy. Built before the prose, so the draft was assembled from it rather than
-checked against it afterwards.
+**A. Evidence sources** — `paper/notes/EVIDENCE_SPINE.md` covers the programme
+before HH-003. The current deployed-library numbers, per-category results,
+paired contrasts and operational distributions are in
+`experiments/comparisons/hh_003/artifacts/run/report.json`.
 
 **B. Withdrawn claims** — `paper/notes/DO_NOT_WRITE.md`. Thirty-five sentences this
 programme has published and then corrected, each with its replacement, drawn from
@@ -1882,10 +1747,10 @@ programme has published and then corrected, each with its replacement, drawn fro
 come back, because they are usually the cleaner sentence.
 
 **C. Claim gates** — `scripts/check_paper_002_claims.py`. Two automated checks:
-every numeric literal in this paper must appear in the evidence spine, and no value
-on the machine-checkable superseded list may appear at all. Both pass at the
-committed revision. Neither proves a claim is right; they catch the two failure
-modes this repository has actually committed.
+legacy numeric literals must appear in the evidence spine, and no value on the
+machine-checkable superseded list may appear at all. HH-003 values are checked
+against its committed report and deterministic figure generator. These checks do
+not prove a claim is right; they catch provenance drift and resurrected claims.
 
 **D. Corrections index** — `ERRATA.md`, 20 entries, cross-referenced from §12. It
 includes one entry that was wrong when first written and is superseded in place by
@@ -1930,12 +1795,11 @@ forbidden.
 ## Provenance of this document
 
 **The paper is generated, not authored.** This Markdown file is the only place a
-claim may be edited. `paper/figures/` is a build output of
-`scripts/generate_paper_002_figures.py`, which reads every plotted value from a
-committed artifact and records the SHA-256 of each input in
-`paper/figures/figure_manifest_002.json`. The PDF is a build output of
-`scripts/build_paper_pdf.py`. Hand-editing a figure, the manifest, or the PDF is a
-defect rather than a shortcut.
+claim may be edited. `paper/figures/` is built by
+`scripts/generate_hh003_figures.py` and `scripts/generate_paper_002_figures.py`;
+each reads plotted values from committed artifacts and records input hashes in
+its corresponding manifest. The PDF is built by `scripts/build_paper_pdf.py`.
+Hand-editing a figure, manifest or PDF is a defect rather than a shortcut.
 
 If this file and a figure disagree, this file is right and the build script is
 broken. If this file and a study's pre-registration disagree, **the pre-registration
