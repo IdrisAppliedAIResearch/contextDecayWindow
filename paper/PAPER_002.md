@@ -36,26 +36,28 @@ The design copies three things human memory does, and runs all three at once:
 Everything is delivered exactly as it was said. Nothing is summarized or
 rewritten, so nothing the model is told about the past can be wrong.
 
-**Where the deployed library lands.** The public default and optional static
-ASPECT configuration were run through the evaluation harness behind
+**Where the deployed library lands.** The optional static ASPECT configuration
+and public default were run through the evaluation harness behind
 arXiv:2504.19413's Table 2 on all 1,540 scored LoCoMo questions, with its answer
 prompt, judge prompt, dated GPT-4o-mini model and metric.
 
 | Configuration | Correct | LLM-as-a-Judge | F1 (reported scope) | p95 total latency |
 |---|---:|---:|---:|---:|
-| **Public default** | **1,191/1,540** | **77.34%** | **45.37 overall** | — |
 | **Static ASPECT** | **1,205/1,540** | **78.25%** | **45.34 overall** | — |
+| **Public default** | **1,191/1,540** | **77.34%** | **45.37 overall** | — |
 | Full context | — | 72.90% | — | 17.117 s |
-| Mem0-graph | — | 68.44% | 38.09 / 24.32 / 49.27 / 51.55 | 2.590 s |
-| Mem0 | — | 66.88% | 38.72 / 28.64 / 47.65 / 48.93 | 1.440 s |
-| Zep | — | 65.99% | 35.74 / 19.37 / 49.56 / 42.00 | 2.926 s |
+| Mem0-graph | — | 68.44% | 46.14 overall | 2.590 s |
+| Mem0 | — | 66.88% | 45.10 overall | 1.440 s |
+| Zep | — | 65.99% | 43.57 overall | 2.926 s |
 | RAG, best variant | — | 60.53% | — | 9.942 s |
 
 The five comparison rows are quoted from arXiv:2504.19413 Tables 1 and 2 and
 were not re-run here; no paired test is computed against them. The paper does
-not report raw correct counts or an overall F1 for these systems. Its F1 values
-above are single-hop / multi-hop / open-domain / temporal, and its latency is
-p95 end-to-end response time. Our F1 is an overall deterministic score; our
+not report raw correct counts or an overall F1 for these systems. The overall
+F1 values above are weighted from its four reported category scores using the
+scored set's 282 single-hop, 96 multi-hop, 841 open-domain and 321 temporal
+questions. Its latency is p95 end-to-end response time. Our F1 is an overall
+deterministic score; our
 reported 27 ms / 2.52 s timings are median retrieval latency, so they are not
 placed in the paper's total-latency column.
 
@@ -514,18 +516,18 @@ the first generation call.
 own row was not re-run — it needs a hosted-platform account this programme does
 not hold — so Table 2's rows are quoted with attribution and no test in this
 paper is computed against them. The direct comparison is only between the
-deployed public default and optional static ASPECT, each with a 32,000-character
+optional static ASPECT and the deployed public default, each with a 32,000-character
 long-term retrieval allowance and additive last-32 continuity context.
 
-### 5.1 The deployed default and optional ASPECT
+### 5.1 Optional ASPECT and the deployed default
 
 All 1,540 scored LoCoMo questions — every question in the ten conversations
 except the adversarial category the harness itself skips.
 
 | Configuration | Correct | LLM-as-a-Judge | F1 | Exact match | Median retrieval latency |
 |---|---:|---:|---:|---:|---:|
-| **Public default** | **1,191/1,540** | **77.34%** | **0.4537** | 0.0117 | **27 ms** |
 | **Static ASPECT** | **1,205/1,540** | **78.25%** | **0.4534** | 0.0156 | **2.52 s** |
+| **Public default** | **1,191/1,540** | **77.34%** | **0.4537** | 0.0117 | **27 ms** |
 
 The paired primary endpoint gives **46 ASPECT gains, 32 losses and 1,462 ties**,
 a net gain of 14 and two-sided exact binomial p = **0.1405**. The judge score's
@@ -534,8 +536,8 @@ deterministic F1 endpoint is effectively unchanged and slightly lower.
 Figure 1 places both deployed configurations on the published LoCoMo axis;
 published rows are quoted context, not paired controls.
 
-Category judge scores for default/ASPECT are 70.92/71.28% single-hop,
-63.24/65.73% temporal, 50.00/56.25% multi-hop and 87.99/87.87% open-domain.
+Category judge scores for ASPECT/default are 71.28/70.92% single-hop,
+65.73/63.24% temporal, 56.25/50.00% multi-hop and 87.87/87.99% open-domain.
 Figure 2 shows those paired category scores and their descriptive differences.
 The study registered no directional success bar and no automatic adoption
 decision. ASPECT is active on every item, so the comparison is not inert.
