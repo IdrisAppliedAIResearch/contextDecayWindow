@@ -1,0 +1,173 @@
+{
+  "absorbing_states": {
+    "all_retained_dropped_by_packer": {
+      "16000": 0,
+      "32000": 0
+    },
+    "empty_or_single_retained": {
+      "16000": 0,
+      "32000": 0
+    },
+    "order_unchanged": {
+      "16000": 3,
+      "32000": 0
+    }
+  },
+  "anchors": {
+    "blind_manifest_sha256": "83bcadb1e029e14514841b65bd903904fe53420a246bc0a59cad99afaa0671b3",
+    "convex_source_sha256": "17e88abdc88547ec8abd96fb09ce8ae8e3f04c605d0081eed5f8cf837e2ad202",
+    "tc014_selections_sha256": "32b1db4d5476cfe97eb6cb306c29c63d597b8bfc219ca73db181396ed5d750f7"
+  },
+  "boundary": "label-blind mechanism exploration; no evidence or answer outcome opened",
+  "calls": {
+    "cache": 0,
+    "embedding": 0,
+    "llm_or_generative": 0
+  },
+  "checks": {
+    "expected_each": 1742,
+    "opportunity_reproductions": 1742,
+    "opportunity_set_preservations": 1742
+  },
+  "mechanism_identity": "TC-014 opportunity admission fixes the child set in parent order; TC-015 changes only its emission order to descending frozen TC-013 edge utility.",
+  "metrics": {
+    "16000": {
+      "admitted": {
+        "max": 27.0,
+        "median": 17.0,
+        "min": 5.0,
+        "n": 871,
+        "nonzero": 871
+      },
+      "chars": {
+        "max": 16000.0,
+        "median": 15975.0,
+        "min": 15888.0,
+        "n": 871,
+        "nonzero": 871
+      },
+      "payload_diff_vs_opportunity": {
+        "max": 1.0,
+        "median": 1.0,
+        "min": 0.0,
+        "n": 871,
+        "nonzero": 868
+      },
+      "position_changes": {
+        "max": 21.0,
+        "median": 10.0,
+        "min": 0.0,
+        "n": 871,
+        "nonzero": 868
+      },
+      "retained": {
+        "max": 27.0,
+        "median": 17.0,
+        "min": 5.0,
+        "n": 871,
+        "nonzero": 871
+      },
+      "returned": {
+        "max": 25.0,
+        "median": 7.0,
+        "min": 0.0,
+        "n": 871,
+        "nonzero": 862
+      },
+      "selected": {
+        "max": 67.0,
+        "median": 49.0,
+        "min": 38.0,
+        "n": 871,
+        "nonzero": 871
+      },
+      "selected_set_diff_vs_opportunity": {
+        "max": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "n": 871,
+        "nonzero": 0
+      },
+      "selected_set_diff_vs_utility_pack": {
+        "max": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "n": 871,
+        "nonzero": 871
+      }
+    },
+    "32000": {
+      "admitted": {
+        "max": 50.0,
+        "median": 36.0,
+        "min": 20.0,
+        "n": 871,
+        "nonzero": 871
+      },
+      "chars": {
+        "max": 32000.0,
+        "median": 31979.0,
+        "min": 31891.0,
+        "n": 871,
+        "nonzero": 871
+      },
+      "payload_diff_vs_opportunity": {
+        "max": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "n": 871,
+        "nonzero": 871
+      },
+      "position_changes": {
+        "max": 42.0,
+        "median": 26.0,
+        "min": 8.0,
+        "n": 871,
+        "nonzero": 871
+      },
+      "retained": {
+        "max": 50.0,
+        "median": 36.0,
+        "min": 20.0,
+        "n": 871,
+        "nonzero": 871
+      },
+      "returned": {
+        "max": 31.0,
+        "median": 12.0,
+        "min": 0.0,
+        "n": 871,
+        "nonzero": 870
+      },
+      "selected": {
+        "max": 130.0,
+        "median": 102.0,
+        "min": 82.0,
+        "n": 871,
+        "nonzero": 871
+      },
+      "selected_set_diff_vs_opportunity": {
+        "max": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "n": 871,
+        "nonzero": 0
+      },
+      "selected_set_diff_vs_utility_pack": {
+        "max": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "n": 871,
+        "nonzero": 871
+      }
+    }
+  },
+  "population": {
+    "budgets": [
+      16000,
+      32000
+    ],
+    "rows": 871
+  },
+  "schema": "tc015-part1-opportunity-utility-v1"
+}
