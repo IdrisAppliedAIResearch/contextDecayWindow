@@ -1,0 +1,910 @@
+{
+  "calls": {
+    "cache": 0,
+    "embedding": 0,
+    "llm_or_generative": 0,
+    "ranking": 0
+  },
+  "claim_boundary": "LoCoMo development evidence availability only; no reader, transfer, tuning, winner-selection or adoption claim",
+  "combined_full_cc80_signal": {
+    "16000": false,
+    "32000": false
+  },
+  "combined_vs_full_cc80": {
+    "16000": {
+      "breadth": {
+        "baseline": 17,
+        "gains": 1,
+        "losses": 3,
+        "n": 44,
+        "net": -2,
+        "treatment": 15,
+        "two_sided_exact_p": 0.625
+      },
+      "breadth_identity": {
+        "gains": 6,
+        "losses": 7,
+        "net": -1
+      },
+      "combined": {
+        "baseline": 771,
+        "gains": 17,
+        "losses": 23,
+        "n": 868,
+        "net": -6,
+        "treatment": 765,
+        "two_sided_exact_p": 0.42959050784338615
+      },
+      "conversation_nets": {
+        "conv-41": 0,
+        "conv-42": 3,
+        "conv-47": -4,
+        "conv-48": -5
+      },
+      "direction": "HURTS",
+      "evidence_states": {
+        "cc80": {
+          "complete": 771,
+          "partial": 54,
+          "zero": 43
+        },
+        "combined": {
+          "complete": 765,
+          "partial": 52,
+          "zero": 51
+        }
+      },
+      "other": {
+        "baseline": 88,
+        "gains": 7,
+        "losses": 3,
+        "n": 120,
+        "net": 4,
+        "treatment": 92,
+        "two_sided_exact_p": 0.34375
+      },
+      "targeted": {
+        "baseline": 666,
+        "gains": 9,
+        "losses": 17,
+        "n": 704,
+        "net": -8,
+        "treatment": 658,
+        "two_sided_exact_p": 0.16863754391670227
+      }
+    },
+    "32000": {
+      "breadth": {
+        "baseline": 24,
+        "gains": 4,
+        "losses": 4,
+        "n": 44,
+        "net": 0,
+        "treatment": 24,
+        "two_sided_exact_p": 1.0
+      },
+      "breadth_identity": {
+        "gains": 11,
+        "losses": 7,
+        "net": 4
+      },
+      "combined": {
+        "baseline": 819,
+        "gains": 12,
+        "losses": 16,
+        "n": 868,
+        "net": -4,
+        "treatment": 815,
+        "two_sided_exact_p": 0.5715881884098053
+      },
+      "conversation_nets": {
+        "conv-41": 0,
+        "conv-42": 2,
+        "conv-47": -4,
+        "conv-48": -2
+      },
+      "direction": "HURTS",
+      "evidence_states": {
+        "cc80": {
+          "complete": 819,
+          "partial": 30,
+          "zero": 19
+        },
+        "combined": {
+          "complete": 815,
+          "partial": 31,
+          "zero": 22
+        }
+      },
+      "other": {
+        "baseline": 106,
+        "gains": 4,
+        "losses": 4,
+        "n": 120,
+        "net": 0,
+        "treatment": 106,
+        "two_sided_exact_p": 1.0
+      },
+      "targeted": {
+        "baseline": 689,
+        "gains": 4,
+        "losses": 8,
+        "n": 704,
+        "net": -4,
+        "treatment": 685,
+        "two_sided_exact_p": 0.3876953125
+      }
+    }
+  },
+  "population": 868,
+  "schema": "tc014-traversal-component-ablation-v1",
+  "selection_sha256": "32b1db4d5476cfe97eb6cb306c29c63d597b8bfc219ca73db181396ed5d750f7",
+  "status": "CHARACTERIZED",
+  "totals": {
+    "cc80": {
+      "16000": {
+        "breadth": 17,
+        "combined": 771,
+        "other": 88,
+        "targeted": 666
+      },
+      "32000": {
+        "breadth": 24,
+        "combined": 819,
+        "other": 106,
+        "targeted": 689
+      }
+    },
+    "combined": {
+      "16000": {
+        "breadth": 15,
+        "combined": 765,
+        "other": 92,
+        "targeted": 658
+      },
+      "32000": {
+        "breadth": 24,
+        "combined": 815,
+        "other": 106,
+        "targeted": 685
+      }
+    },
+    "fanout": {
+      "16000": {
+        "breadth": 16,
+        "combined": 763,
+        "other": 93,
+        "targeted": 654
+      },
+      "32000": {
+        "breadth": 26,
+        "combined": 821,
+        "other": 106,
+        "targeted": 689
+      }
+    },
+    "global_match": {
+      "16000": {
+        "breadth": 15,
+        "combined": 754,
+        "other": 88,
+        "targeted": 651
+      },
+      "32000": {
+        "breadth": 27,
+        "combined": 819,
+        "other": 106,
+        "targeted": 686
+      }
+    },
+    "opportunity": {
+      "16000": {
+        "breadth": 19,
+        "combined": 770,
+        "other": 90,
+        "targeted": 661
+      },
+      "32000": {
+        "breadth": 25,
+        "combined": 826,
+        "other": 109,
+        "targeted": 692
+      }
+    },
+    "parent_bound": {
+      "16000": {
+        "breadth": 17,
+        "combined": 763,
+        "other": 91,
+        "targeted": 655
+      },
+      "32000": {
+        "breadth": 25,
+        "combined": 816,
+        "other": 106,
+        "targeted": 685
+      }
+    },
+    "utility_pack": {
+      "16000": {
+        "breadth": 16,
+        "combined": 761,
+        "other": 92,
+        "targeted": 653
+      },
+      "32000": {
+        "breadth": 27,
+        "combined": 822,
+        "other": 106,
+        "targeted": 689
+      }
+    }
+  },
+  "treatments": {
+    "combined": {
+      "directions": {
+        "16000": "HURTS",
+        "32000": "HURTS"
+      },
+      "disposition": "NO_HELP",
+      "versus_fanout": {
+        "16000": {
+          "breadth": {
+            "baseline": 16,
+            "gains": 0,
+            "losses": 1,
+            "n": 44,
+            "net": -1,
+            "treatment": 15,
+            "two_sided_exact_p": 1.0
+          },
+          "breadth_identity": {
+            "gains": 3,
+            "losses": 3,
+            "net": 0
+          },
+          "combined": {
+            "baseline": 763,
+            "gains": 9,
+            "losses": 7,
+            "n": 868,
+            "net": 2,
+            "treatment": 765,
+            "two_sided_exact_p": 0.803619384765625
+          },
+          "conversation_nets": {
+            "conv-41": 2,
+            "conv-42": -1,
+            "conv-47": 2,
+            "conv-48": -1
+          },
+          "direction": "HURTS",
+          "evidence_states": {
+            "combined": {
+              "complete": 765,
+              "partial": 52,
+              "zero": 51
+            },
+            "fanout": {
+              "complete": 763,
+              "partial": 51,
+              "zero": 54
+            }
+          },
+          "other": {
+            "baseline": 93,
+            "gains": 0,
+            "losses": 1,
+            "n": 120,
+            "net": -1,
+            "treatment": 92,
+            "two_sided_exact_p": 1.0
+          },
+          "targeted": {
+            "baseline": 654,
+            "gains": 9,
+            "losses": 5,
+            "n": 704,
+            "net": 4,
+            "treatment": 658,
+            "two_sided_exact_p": 0.4239501953125
+          }
+        },
+        "32000": {
+          "breadth": {
+            "baseline": 26,
+            "gains": 0,
+            "losses": 2,
+            "n": 44,
+            "net": -2,
+            "treatment": 24,
+            "two_sided_exact_p": 0.5
+          },
+          "breadth_identity": {
+            "gains": 3,
+            "losses": 5,
+            "net": -2
+          },
+          "combined": {
+            "baseline": 821,
+            "gains": 1,
+            "losses": 7,
+            "n": 868,
+            "net": -6,
+            "treatment": 815,
+            "two_sided_exact_p": 0.0703125
+          },
+          "conversation_nets": {
+            "conv-41": -2,
+            "conv-42": -1,
+            "conv-47": -2,
+            "conv-48": -1
+          },
+          "direction": "HURTS",
+          "evidence_states": {
+            "combined": {
+              "complete": 815,
+              "partial": 31,
+              "zero": 22
+            },
+            "fanout": {
+              "complete": 821,
+              "partial": 30,
+              "zero": 17
+            }
+          },
+          "other": {
+            "baseline": 106,
+            "gains": 1,
+            "losses": 1,
+            "n": 120,
+            "net": 0,
+            "treatment": 106,
+            "two_sided_exact_p": 1.0
+          },
+          "targeted": {
+            "baseline": 689,
+            "gains": 0,
+            "losses": 4,
+            "n": 704,
+            "net": -4,
+            "treatment": 685,
+            "two_sided_exact_p": 0.125
+          }
+        }
+      }
+    },
+    "global_match": {
+      "directions": {
+        "16000": "HURTS",
+        "32000": "HURTS"
+      },
+      "disposition": "NO_HELP",
+      "versus_fanout": {
+        "16000": {
+          "breadth": {
+            "baseline": 16,
+            "gains": 0,
+            "losses": 1,
+            "n": 44,
+            "net": -1,
+            "treatment": 15,
+            "two_sided_exact_p": 1.0
+          },
+          "breadth_identity": {
+            "gains": 1,
+            "losses": 1,
+            "net": 0
+          },
+          "combined": {
+            "baseline": 763,
+            "gains": 4,
+            "losses": 13,
+            "n": 868,
+            "net": -9,
+            "treatment": 754,
+            "two_sided_exact_p": 0.049041748046875
+          },
+          "conversation_nets": {
+            "conv-41": -1,
+            "conv-42": -4,
+            "conv-47": 0,
+            "conv-48": -4
+          },
+          "direction": "HURTS",
+          "evidence_states": {
+            "fanout": {
+              "complete": 763,
+              "partial": 51,
+              "zero": 54
+            },
+            "global_match": {
+              "complete": 754,
+              "partial": 57,
+              "zero": 57
+            }
+          },
+          "other": {
+            "baseline": 93,
+            "gains": 1,
+            "losses": 6,
+            "n": 120,
+            "net": -5,
+            "treatment": 88,
+            "two_sided_exact_p": 0.125
+          },
+          "targeted": {
+            "baseline": 654,
+            "gains": 3,
+            "losses": 6,
+            "n": 704,
+            "net": -3,
+            "treatment": 651,
+            "two_sided_exact_p": 0.5078125
+          }
+        },
+        "32000": {
+          "breadth": {
+            "baseline": 26,
+            "gains": 1,
+            "losses": 0,
+            "n": 44,
+            "net": 1,
+            "treatment": 27,
+            "two_sided_exact_p": 1.0
+          },
+          "breadth_identity": {
+            "gains": 1,
+            "losses": 0,
+            "net": 1
+          },
+          "combined": {
+            "baseline": 821,
+            "gains": 2,
+            "losses": 4,
+            "n": 868,
+            "net": -2,
+            "treatment": 819,
+            "two_sided_exact_p": 0.6875
+          },
+          "conversation_nets": {
+            "conv-41": 0,
+            "conv-42": -4,
+            "conv-47": 1,
+            "conv-48": 1
+          },
+          "direction": "HURTS",
+          "evidence_states": {
+            "fanout": {
+              "complete": 821,
+              "partial": 30,
+              "zero": 17
+            },
+            "global_match": {
+              "complete": 819,
+              "partial": 29,
+              "zero": 20
+            }
+          },
+          "other": {
+            "baseline": 106,
+            "gains": 1,
+            "losses": 1,
+            "n": 120,
+            "net": 0,
+            "treatment": 106,
+            "two_sided_exact_p": 1.0
+          },
+          "targeted": {
+            "baseline": 689,
+            "gains": 0,
+            "losses": 3,
+            "n": 704,
+            "net": -3,
+            "treatment": 686,
+            "two_sided_exact_p": 0.25
+          }
+        }
+      }
+    },
+    "opportunity": {
+      "directions": {
+        "16000": "HELPS",
+        "32000": "HURTS"
+      },
+      "disposition": "BUDGET_SPECIFIC_HELP",
+      "versus_fanout": {
+        "16000": {
+          "breadth": {
+            "baseline": 16,
+            "gains": 3,
+            "losses": 0,
+            "n": 44,
+            "net": 3,
+            "treatment": 19,
+            "two_sided_exact_p": 0.25
+          },
+          "breadth_identity": {
+            "gains": 3,
+            "losses": 2,
+            "net": 1
+          },
+          "combined": {
+            "baseline": 763,
+            "gains": 16,
+            "losses": 9,
+            "n": 868,
+            "net": 7,
+            "treatment": 770,
+            "two_sided_exact_p": 0.2295229434967041
+          },
+          "conversation_nets": {
+            "conv-41": 4,
+            "conv-42": -2,
+            "conv-47": 4,
+            "conv-48": 1
+          },
+          "direction": "HELPS",
+          "evidence_states": {
+            "fanout": {
+              "complete": 763,
+              "partial": 51,
+              "zero": 54
+            },
+            "opportunity": {
+              "complete": 770,
+              "partial": 51,
+              "zero": 47
+            }
+          },
+          "other": {
+            "baseline": 93,
+            "gains": 2,
+            "losses": 5,
+            "n": 120,
+            "net": -3,
+            "treatment": 90,
+            "two_sided_exact_p": 0.453125
+          },
+          "targeted": {
+            "baseline": 654,
+            "gains": 11,
+            "losses": 4,
+            "n": 704,
+            "net": 7,
+            "treatment": 661,
+            "two_sided_exact_p": 0.11846923828125
+          }
+        },
+        "32000": {
+          "breadth": {
+            "baseline": 26,
+            "gains": 1,
+            "losses": 2,
+            "n": 44,
+            "net": -1,
+            "treatment": 25,
+            "two_sided_exact_p": 1.0
+          },
+          "breadth_identity": {
+            "gains": 3,
+            "losses": 6,
+            "net": -3
+          },
+          "combined": {
+            "baseline": 821,
+            "gains": 10,
+            "losses": 5,
+            "n": 868,
+            "net": 5,
+            "treatment": 826,
+            "two_sided_exact_p": 0.3017578125
+          },
+          "conversation_nets": {
+            "conv-41": 0,
+            "conv-42": -2,
+            "conv-47": 3,
+            "conv-48": 4
+          },
+          "direction": "HURTS",
+          "evidence_states": {
+            "fanout": {
+              "complete": 821,
+              "partial": 30,
+              "zero": 17
+            },
+            "opportunity": {
+              "complete": 826,
+              "partial": 28,
+              "zero": 14
+            }
+          },
+          "other": {
+            "baseline": 106,
+            "gains": 5,
+            "losses": 2,
+            "n": 120,
+            "net": 3,
+            "treatment": 109,
+            "two_sided_exact_p": 0.453125
+          },
+          "targeted": {
+            "baseline": 689,
+            "gains": 4,
+            "losses": 1,
+            "n": 704,
+            "net": 3,
+            "treatment": 692,
+            "two_sided_exact_p": 0.375
+          }
+        }
+      }
+    },
+    "parent_bound": {
+      "directions": {
+        "16000": "HURTS",
+        "32000": "HURTS"
+      },
+      "disposition": "NO_HELP",
+      "versus_fanout": {
+        "16000": {
+          "breadth": {
+            "baseline": 16,
+            "gains": 1,
+            "losses": 0,
+            "n": 44,
+            "net": 1,
+            "treatment": 17,
+            "two_sided_exact_p": 1.0
+          },
+          "breadth_identity": {
+            "gains": 3,
+            "losses": 2,
+            "net": 1
+          },
+          "combined": {
+            "baseline": 763,
+            "gains": 6,
+            "losses": 6,
+            "n": 868,
+            "net": 0,
+            "treatment": 763,
+            "two_sided_exact_p": 1.0
+          },
+          "conversation_nets": {
+            "conv-41": 0,
+            "conv-42": 1,
+            "conv-47": 0,
+            "conv-48": -1
+          },
+          "direction": "HURTS",
+          "evidence_states": {
+            "fanout": {
+              "complete": 763,
+              "partial": 51,
+              "zero": 54
+            },
+            "parent_bound": {
+              "complete": 763,
+              "partial": 52,
+              "zero": 53
+            }
+          },
+          "other": {
+            "baseline": 93,
+            "gains": 0,
+            "losses": 2,
+            "n": 120,
+            "net": -2,
+            "treatment": 91,
+            "two_sided_exact_p": 0.5
+          },
+          "targeted": {
+            "baseline": 654,
+            "gains": 5,
+            "losses": 4,
+            "n": 704,
+            "net": 1,
+            "treatment": 655,
+            "two_sided_exact_p": 1.0
+          }
+        },
+        "32000": {
+          "breadth": {
+            "baseline": 26,
+            "gains": 0,
+            "losses": 1,
+            "n": 44,
+            "net": -1,
+            "treatment": 25,
+            "two_sided_exact_p": 1.0
+          },
+          "breadth_identity": {
+            "gains": 1,
+            "losses": 6,
+            "net": -5
+          },
+          "combined": {
+            "baseline": 821,
+            "gains": 1,
+            "losses": 6,
+            "n": 868,
+            "net": -5,
+            "treatment": 816,
+            "two_sided_exact_p": 0.125
+          },
+          "conversation_nets": {
+            "conv-41": -2,
+            "conv-42": -1,
+            "conv-47": -2,
+            "conv-48": 0
+          },
+          "direction": "HURTS",
+          "evidence_states": {
+            "fanout": {
+              "complete": 821,
+              "partial": 30,
+              "zero": 17
+            },
+            "parent_bound": {
+              "complete": 816,
+              "partial": 30,
+              "zero": 22
+            }
+          },
+          "other": {
+            "baseline": 106,
+            "gains": 1,
+            "losses": 1,
+            "n": 120,
+            "net": 0,
+            "treatment": 106,
+            "two_sided_exact_p": 1.0
+          },
+          "targeted": {
+            "baseline": 689,
+            "gains": 0,
+            "losses": 4,
+            "n": 704,
+            "net": -4,
+            "treatment": 685,
+            "two_sided_exact_p": 0.125
+          }
+        }
+      }
+    },
+    "utility_pack": {
+      "directions": {
+        "16000": "HURTS",
+        "32000": "HELPS"
+      },
+      "disposition": "BUDGET_SPECIFIC_HELP",
+      "versus_fanout": {
+        "16000": {
+          "breadth": {
+            "baseline": 16,
+            "gains": 0,
+            "losses": 0,
+            "n": 44,
+            "net": 0,
+            "treatment": 16,
+            "two_sided_exact_p": 1.0
+          },
+          "breadth_identity": {
+            "gains": 0,
+            "losses": 0,
+            "net": 0
+          },
+          "combined": {
+            "baseline": 763,
+            "gains": 1,
+            "losses": 3,
+            "n": 868,
+            "net": -2,
+            "treatment": 761,
+            "two_sided_exact_p": 0.625
+          },
+          "conversation_nets": {
+            "conv-41": -2,
+            "conv-42": 0,
+            "conv-47": 1,
+            "conv-48": -1
+          },
+          "direction": "HURTS",
+          "evidence_states": {
+            "fanout": {
+              "complete": 763,
+              "partial": 51,
+              "zero": 54
+            },
+            "utility_pack": {
+              "complete": 761,
+              "partial": 52,
+              "zero": 55
+            }
+          },
+          "other": {
+            "baseline": 93,
+            "gains": 0,
+            "losses": 1,
+            "n": 120,
+            "net": -1,
+            "treatment": 92,
+            "two_sided_exact_p": 1.0
+          },
+          "targeted": {
+            "baseline": 654,
+            "gains": 1,
+            "losses": 2,
+            "n": 704,
+            "net": -1,
+            "treatment": 653,
+            "two_sided_exact_p": 1.0
+          }
+        },
+        "32000": {
+          "breadth": {
+            "baseline": 26,
+            "gains": 1,
+            "losses": 0,
+            "n": 44,
+            "net": 1,
+            "treatment": 27,
+            "two_sided_exact_p": 1.0
+          },
+          "breadth_identity": {
+            "gains": 1,
+            "losses": 0,
+            "net": 1
+          },
+          "combined": {
+            "baseline": 821,
+            "gains": 1,
+            "losses": 0,
+            "n": 868,
+            "net": 1,
+            "treatment": 822,
+            "two_sided_exact_p": 1.0
+          },
+          "conversation_nets": {
+            "conv-41": 0,
+            "conv-42": 0,
+            "conv-47": 0,
+            "conv-48": 1
+          },
+          "direction": "HELPS",
+          "evidence_states": {
+            "fanout": {
+              "complete": 821,
+              "partial": 30,
+              "zero": 17
+            },
+            "utility_pack": {
+              "complete": 822,
+              "partial": 29,
+              "zero": 17
+            }
+          },
+          "other": {
+            "baseline": 106,
+            "gains": 0,
+            "losses": 0,
+            "n": 120,
+            "net": 0,
+            "treatment": 106,
+            "two_sided_exact_p": 1.0
+          },
+          "targeted": {
+            "baseline": 689,
+            "gains": 0,
+            "losses": 0,
+            "n": 704,
+            "net": 0,
+            "treatment": 689,
+            "two_sided_exact_p": 1.0
+          }
+        }
+      }
+    }
+  }
+}
