@@ -8,6 +8,7 @@ from analysis.tc014_traversal import (
     sequential_assignment,
     utility_order,
 )
+from analysis.tc014_study import arm_disposition, cell_direction
 
 
 def _matrices() -> tuple[np.ndarray, np.ndarray, np.ndarray]:
@@ -57,3 +58,22 @@ def test_sequential_assignment_respects_changed_edge_score() -> None:
     bound[0, 2:] = (0.1, 8.0)
     trace = sequential_assignment((0, 1), bound, raw, (0, 1, 2, 3), similarity)
     assert trace.children == (3, 2)
+
+
+def _cell(combined: int, targeted: int, breadth: int, other: int, identities: int) -> dict:
+    return {
+        "combined": {"net": combined},
+        "targeted": {"net": targeted},
+        "breadth": {"net": breadth},
+        "other": {"net": other},
+        "breadth_identity": {"net": identities},
+    }
+
+
+def test_registered_component_directions_and_dispositions_are_reachable() -> None:
+    assert cell_direction(_cell(2, 0, 1, 1, 1)) == "HELPS"
+    assert cell_direction(_cell(0, 0, 0, 0, 1)) == "NEUTRAL"
+    assert cell_direction(_cell(1, -1, 1, 1, 1)) == "HURTS"
+    assert arm_disposition({"16000": "HELPS", "32000": "HELPS"}) == "TRANSFERABLE_HELP"
+    assert arm_disposition({"16000": "HELPS", "32000": "HURTS"}) == "BUDGET_SPECIFIC_HELP"
+    assert arm_disposition({"16000": "NEUTRAL", "32000": "HURTS"}) == "NO_HELP"

@@ -1,0 +1,975 @@
+{
+  "calls": {
+    "cache_hits": 2236,
+    "cache_misses": 0,
+    "embedding": 0,
+    "llm_or_generative": 0
+  },
+  "pf1": {
+    "blind_sha256": "83bcadb1e029e14514841b65bd903904fe53420a246bc0a59cad99afaa0671b3",
+    "convex_sha256": "17e88abdc88547ec8abd96fb09ce8ae8e3f04c605d0081eed5f8cf837e2ad202",
+    "dataset_sha256": "79fa87e90f04081343b8c8debecb80a9a6842b76a7aa537dc9fdf651ea698ff4",
+    "labels_sha256": "c4b52ead85535a1250e9ac8952bc60201a8b10304846272dbe838bbba9ee12c6",
+    "parser": {
+      "model": "en_core_web_sm",
+      "spacy": "3.8.14"
+    },
+    "part1_sha256": "d22fe26de2aa88edf1f574a7e59620a8c298255f7e3067f2e53540b489e91f84",
+    "registration_sha256": "8ea94784042fd6fd6be14febc65e042079c98f49502b55a00930f98112b06375",
+    "rows": 871,
+    "selection_sha256": "32b1db4d5476cfe97eb6cb306c29c63d597b8bfc219ca73db181396ed5d750f7",
+    "tc013_sha256": "117784d28859eb336cdd185598f8a132e6e52bfac045590ddb2a29e093ce920e"
+  },
+  "pf10": {
+    "availability_only": true,
+    "reader_authorized": false
+  },
+  "pf2": {
+    "identity_differences": {
+      "combined_vs_tc013": {
+        "16000": 871,
+        "32000": 871
+      },
+      "global_assignment_vs_tc013": {
+        "16000": 618,
+        "32000": 715
+      },
+      "utility_pack_vs_tc013": {
+        "16000": 871,
+        "32000": 871
+      }
+    },
+    "metrics": {
+      "16000:combined:admitted": {
+        "max": 30.0,
+        "median": 22.0,
+        "min": 17.0,
+        "n": 871,
+        "nonzero": 871
+      },
+      "16000:combined:chars": {
+        "max": 16000.0,
+        "median": 15973.0,
+        "min": 15877.0,
+        "n": 871,
+        "nonzero": 871
+      },
+      "16000:combined:dropped": {
+        "max": 15.0,
+        "median": 3.0,
+        "min": 0.0,
+        "n": 871,
+        "nonzero": 744
+      },
+      "16000:combined:no_child": {
+        "max": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "n": 871,
+        "nonzero": 0
+      },
+      "16000:combined:parent_cosine": {
+        "max": 0.9151079120684303,
+        "median": 0.7110261527436238,
+        "min": 0.37972562528253734,
+        "n": 22425,
+        "nonzero": 22425
+      },
+      "16000:combined:proposed": {
+        "max": 41.0,
+        "median": 25.0,
+        "min": 18.0,
+        "n": 871,
+        "nonzero": 871
+      },
+      "16000:combined:raw": {
+        "max": 160.0327590580368,
+        "median": 49.90885883638203,
+        "min": 9.11768250554551,
+        "n": 22425,
+        "nonzero": 22425
+      },
+      "16000:combined:returned": {
+        "max": 7.0,
+        "median": 1.0,
+        "min": 0.0,
+        "n": 871,
+        "nonzero": 797
+      },
+      "16000:combined:selected": {
+        "max": 69.0,
+        "median": 49.0,
+        "min": 38.0,
+        "n": 871,
+        "nonzero": 871
+      },
+      "16000:combined:set_diff": {
+        "max": 1.0,
+        "median": 1.0,
+        "min": 0.0,
+        "n": 871,
+        "nonzero": 870
+      },
+      "16000:combined:utility": {
+        "max": 0.22092478724648823,
+        "median": 0.10644738512107785,
+        "min": 0.03543055672008354,
+        "n": 22425,
+        "nonzero": 22425
+      },
+      "16000:global_match:admitted": {
+        "max": 28.0,
+        "median": 22.0,
+        "min": 18.0,
+        "n": 871,
+        "nonzero": 871
+      },
+      "16000:global_match:chars": {
+        "max": 16000.0,
+        "median": 15974.0,
+        "min": 15885.0,
+        "n": 871,
+        "nonzero": 871
+      },
+      "16000:global_match:dropped": {
+        "max": 15.0,
+        "median": 3.0,
+        "min": 0.0,
+        "n": 871,
+        "nonzero": 723
+      },
+      "16000:global_match:no_child": {
+        "max": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "n": 871,
+        "nonzero": 0
+      },
+      "16000:global_match:parent_cosine": {
+        "max": 0.879194202424454,
+        "median": 0.5752397137267997,
+        "min": 0.23898269403026912,
+        "n": 22425,
+        "nonzero": 22425
+      },
+      "16000:global_match:proposed": {
+        "max": 41.0,
+        "median": 25.0,
+        "min": 18.0,
+        "n": 871,
+        "nonzero": 871
+      },
+      "16000:global_match:raw": {
+        "max": 175.59627811243547,
+        "median": 52.54662210696306,
+        "min": 11.928316565669691,
+        "n": 22425,
+        "nonzero": 22425
+      },
+      "16000:global_match:returned": {
+        "max": 7.0,
+        "median": 1.0,
+        "min": 0.0,
+        "n": 871,
+        "nonzero": 799
+      },
+      "16000:global_match:selected": {
+        "max": 70.0,
+        "median": 49.0,
+        "min": 38.0,
+        "n": 871,
+        "nonzero": 871
+      },
+      "16000:global_match:set_diff": {
+        "max": 1.0,
+        "median": 1.0,
+        "min": 0.0,
+        "n": 871,
+        "nonzero": 818
+      },
+      "16000:global_match:utility": {
+        "max": 0.3114857357506971,
+        "median": 0.15808685453782778,
+        "min": 0.06999623499163285,
+        "n": 22425,
+        "nonzero": 22425
+      },
+      "16000:opportunity:accepted": {
+        "max": 27.0,
+        "median": 17.0,
+        "min": 5.0,
+        "n": 871,
+        "nonzero": 871
+      },
+      "16000:opportunity:admitted": {
+        "max": 27.0,
+        "median": 17.0,
+        "min": 5.0,
+        "n": 871,
+        "nonzero": 871
+      },
+      "16000:opportunity:chars": {
+        "max": 16000.0,
+        "median": 15975.0,
+        "min": 15888.0,
+        "n": 871,
+        "nonzero": 871
+      },
+      "16000:opportunity:child_value": {
+        "max": 171.84698665095914,
+        "median": 51.970830102644115,
+        "min": 11.605622610900719,
+        "n": 22168,
+        "nonzero": 22168
+      },
+      "16000:opportunity:displaced_value": {
+        "max": 180.54782801251437,
+        "median": 38.38469303462332,
+        "min": 0.0,
+        "n": 22168,
+        "nonzero": 14295
+      },
+      "16000:opportunity:dropped": {
+        "max": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "n": 871,
+        "nonzero": 0
+      },
+      "16000:opportunity:lost_count": {
+        "max": 5.0,
+        "median": 1.0,
+        "min": 0.0,
+        "n": 22168,
+        "nonzero": 14295
+      },
+      "16000:opportunity:no_child": {
+        "max": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "n": 871,
+        "nonzero": 0
+      },
+      "16000:opportunity:parent_cosine": {
+        "max": 0.896720927345571,
+        "median": 0.5789355116864653,
+        "min": 0.23345696380577008,
+        "n": 22425,
+        "nonzero": 22425
+      },
+      "16000:opportunity:proposed": {
+        "max": 27.0,
+        "median": 17.0,
+        "min": 5.0,
+        "n": 871,
+        "nonzero": 871
+      },
+      "16000:opportunity:raw": {
+        "max": 171.84698665095914,
+        "median": 51.87210276350833,
+        "min": 11.207441961095261,
+        "n": 22425,
+        "nonzero": 22425
+      },
+      "16000:opportunity:rejected_capacity": {
+        "max": 9.0,
+        "median": 0.0,
+        "min": 0.0,
+        "n": 871,
+        "nonzero": 91
+      },
+      "16000:opportunity:rejected_value": {
+        "max": 21.0,
+        "median": 8.0,
+        "min": 1.0,
+        "n": 871,
+        "nonzero": 871
+      },
+      "16000:opportunity:returned": {
+        "max": 25.0,
+        "median": 7.0,
+        "min": 0.0,
+        "n": 871,
+        "nonzero": 862
+      },
+      "16000:opportunity:selected": {
+        "max": 67.0,
+        "median": 49.0,
+        "min": 38.0,
+        "n": 871,
+        "nonzero": 871
+      },
+      "16000:opportunity:set_diff": {
+        "max": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "n": 871,
+        "nonzero": 871
+      },
+      "16000:opportunity:utility": {
+        "max": 0.3114857357506971,
+        "median": 0.15627366966302883,
+        "min": 0.06903111229271229,
+        "n": 22425,
+        "nonzero": 22425
+      },
+      "16000:parent_bound:admitted": {
+        "max": 29.0,
+        "median": 22.0,
+        "min": 17.0,
+        "n": 871,
+        "nonzero": 871
+      },
+      "16000:parent_bound:chars": {
+        "max": 16000.0,
+        "median": 15976.0,
+        "min": 15892.0,
+        "n": 871,
+        "nonzero": 871
+      },
+      "16000:parent_bound:dropped": {
+        "max": 14.0,
+        "median": 3.0,
+        "min": 0.0,
+        "n": 871,
+        "nonzero": 732
+      },
+      "16000:parent_bound:no_child": {
+        "max": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "n": 871,
+        "nonzero": 0
+      },
+      "16000:parent_bound:parent_cosine": {
+        "max": 0.9151079120684303,
+        "median": 0.6869746044822335,
+        "min": 0.34136511632018246,
+        "n": 22425,
+        "nonzero": 22425
+      },
+      "16000:parent_bound:proposed": {
+        "max": 41.0,
+        "median": 25.0,
+        "min": 18.0,
+        "n": 871,
+        "nonzero": 871
+      },
+      "16000:parent_bound:raw": {
+        "max": 171.84698665095914,
+        "median": 49.53908357389339,
+        "min": 9.11768250554551,
+        "n": 22425,
+        "nonzero": 22425
+      },
+      "16000:parent_bound:returned": {
+        "max": 7.0,
+        "median": 1.0,
+        "min": 0.0,
+        "n": 871,
+        "nonzero": 801
+      },
+      "16000:parent_bound:selected": {
+        "max": 69.0,
+        "median": 49.0,
+        "min": 38.0,
+        "n": 871,
+        "nonzero": 871
+      },
+      "16000:parent_bound:set_diff": {
+        "max": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "n": 871,
+        "nonzero": 871
+      },
+      "16000:parent_bound:utility": {
+        "max": 0.1998862306567453,
+        "median": 0.10229582964974353,
+        "min": 0.03915121687614552,
+        "n": 22425,
+        "nonzero": 22425
+      },
+      "16000:utility_pack:admitted": {
+        "max": 28.0,
+        "median": 22.0,
+        "min": 18.0,
+        "n": 871,
+        "nonzero": 871
+      },
+      "16000:utility_pack:chars": {
+        "max": 16000.0,
+        "median": 15976.0,
+        "min": 15878.0,
+        "n": 871,
+        "nonzero": 871
+      },
+      "16000:utility_pack:dropped": {
+        "max": 15.0,
+        "median": 3.0,
+        "min": 0.0,
+        "n": 871,
+        "nonzero": 722
+      },
+      "16000:utility_pack:no_child": {
+        "max": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "n": 871,
+        "nonzero": 0
+      },
+      "16000:utility_pack:parent_cosine": {
+        "max": 0.896720927345571,
+        "median": 0.5789355116864653,
+        "min": 0.23345696380577008,
+        "n": 22425,
+        "nonzero": 22425
+      },
+      "16000:utility_pack:proposed": {
+        "max": 41.0,
+        "median": 25.0,
+        "min": 18.0,
+        "n": 871,
+        "nonzero": 871
+      },
+      "16000:utility_pack:raw": {
+        "max": 171.84698665095914,
+        "median": 51.87210276350833,
+        "min": 11.207441961095261,
+        "n": 22425,
+        "nonzero": 22425
+      },
+      "16000:utility_pack:returned": {
+        "max": 7.0,
+        "median": 1.0,
+        "min": 0.0,
+        "n": 871,
+        "nonzero": 795
+      },
+      "16000:utility_pack:selected": {
+        "max": 68.0,
+        "median": 49.0,
+        "min": 38.0,
+        "n": 871,
+        "nonzero": 871
+      },
+      "16000:utility_pack:set_diff": {
+        "max": 1.0,
+        "median": 1.0,
+        "min": 0.0,
+        "n": 871,
+        "nonzero": 565
+      },
+      "16000:utility_pack:utility": {
+        "max": 0.3114857357506971,
+        "median": 0.15627366966302883,
+        "min": 0.06903111229271229,
+        "n": 22425,
+        "nonzero": 22425
+      },
+      "32000:combined:admitted": {
+        "max": 54.0,
+        "median": 46.0,
+        "min": 38.0,
+        "n": 871,
+        "nonzero": 871
+      },
+      "32000:combined:chars": {
+        "max": 32000.0,
+        "median": 31974.0,
+        "min": 31857.0,
+        "n": 871,
+        "nonzero": 871
+      },
+      "32000:combined:dropped": {
+        "max": 26.0,
+        "median": 5.0,
+        "min": 0.0,
+        "n": 871,
+        "nonzero": 762
+      },
+      "32000:combined:no_child": {
+        "max": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "n": 871,
+        "nonzero": 0
+      },
+      "32000:combined:parent_cosine": {
+        "max": 0.9167359418816354,
+        "median": 0.711400736154789,
+        "min": 0.35961056369885586,
+        "n": 45518,
+        "nonzero": 45518
+      },
+      "32000:combined:proposed": {
+        "max": 75.0,
+        "median": 52.0,
+        "min": 38.0,
+        "n": 871,
+        "nonzero": 871
+      },
+      "32000:combined:raw": {
+        "max": 140.80195217464893,
+        "median": 41.61624804590522,
+        "min": 5.602206923896524,
+        "n": 45518,
+        "nonzero": 45518
+      },
+      "32000:combined:returned": {
+        "max": 10.0,
+        "median": 1.0,
+        "min": 0.0,
+        "n": 871,
+        "nonzero": 806
+      },
+      "32000:combined:selected": {
+        "max": 126.0,
+        "median": 100.0,
+        "min": 80.0,
+        "n": 871,
+        "nonzero": 871
+      },
+      "32000:combined:set_diff": {
+        "max": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "n": 871,
+        "nonzero": 871
+      },
+      "32000:combined:utility": {
+        "max": 0.21219414344611037,
+        "median": 0.09007594432311591,
+        "min": 0.02934858474514967,
+        "n": 45518,
+        "nonzero": 45518
+      },
+      "32000:global_match:admitted": {
+        "max": 53.0,
+        "median": 45.0,
+        "min": 38.0,
+        "n": 871,
+        "nonzero": 871
+      },
+      "32000:global_match:chars": {
+        "max": 32000.0,
+        "median": 31976.0,
+        "min": 31858.0,
+        "n": 871,
+        "nonzero": 871
+      },
+      "32000:global_match:dropped": {
+        "max": 27.0,
+        "median": 6.0,
+        "min": 0.0,
+        "n": 871,
+        "nonzero": 786
+      },
+      "32000:global_match:no_child": {
+        "max": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "n": 871,
+        "nonzero": 0
+      },
+      "32000:global_match:parent_cosine": {
+        "max": 0.8429291017678725,
+        "median": 0.5621075092522035,
+        "min": 0.22093075872717913,
+        "n": 45518,
+        "nonzero": 45518
+      },
+      "32000:global_match:proposed": {
+        "max": 75.0,
+        "median": 52.0,
+        "min": 38.0,
+        "n": 871,
+        "nonzero": 871
+      },
+      "32000:global_match:raw": {
+        "max": 155.3549495533018,
+        "median": 43.95066017475476,
+        "min": 8.49682229017717,
+        "n": 45518,
+        "nonzero": 45518
+      },
+      "32000:global_match:returned": {
+        "max": 11.0,
+        "median": 1.0,
+        "min": 0.0,
+        "n": 871,
+        "nonzero": 780
+      },
+      "32000:global_match:selected": {
+        "max": 126.0,
+        "median": 100.0,
+        "min": 80.0,
+        "n": 871,
+        "nonzero": 871
+      },
+      "32000:global_match:set_diff": {
+        "max": 1.0,
+        "median": 1.0,
+        "min": 0.0,
+        "n": 871,
+        "nonzero": 859
+      },
+      "32000:global_match:utility": {
+        "max": 0.29097548336148404,
+        "median": 0.13333131246475033,
+        "min": 0.0547170691036197,
+        "n": 45518,
+        "nonzero": 45518
+      },
+      "32000:opportunity:accepted": {
+        "max": 50.0,
+        "median": 36.0,
+        "min": 20.0,
+        "n": 871,
+        "nonzero": 871
+      },
+      "32000:opportunity:admitted": {
+        "max": 50.0,
+        "median": 36.0,
+        "min": 20.0,
+        "n": 871,
+        "nonzero": 871
+      },
+      "32000:opportunity:chars": {
+        "max": 32000.0,
+        "median": 31979.0,
+        "min": 31891.0,
+        "n": 871,
+        "nonzero": 871
+      },
+      "32000:opportunity:child_value": {
+        "max": 154.24709177567715,
+        "median": 43.562314695271944,
+        "min": 8.251594202180573,
+        "n": 45375,
+        "nonzero": 45375
+      },
+      "32000:opportunity:displaced_value": {
+        "max": 146.42059815329276,
+        "median": 25.49919662923112,
+        "min": 0.0,
+        "n": 45375,
+        "nonzero": 25102
+      },
+      "32000:opportunity:dropped": {
+        "max": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "n": 871,
+        "nonzero": 0
+      },
+      "32000:opportunity:lost_count": {
+        "max": 5.0,
+        "median": 1.0,
+        "min": 0.0,
+        "n": 45375,
+        "nonzero": 25102
+      },
+      "32000:opportunity:no_child": {
+        "max": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "n": 871,
+        "nonzero": 0
+      },
+      "32000:opportunity:parent_cosine": {
+        "max": 0.896720927345571,
+        "median": 0.5643799603396662,
+        "min": 0.20838578912886221,
+        "n": 45518,
+        "nonzero": 45518
+      },
+      "32000:opportunity:proposed": {
+        "max": 50.0,
+        "median": 36.0,
+        "min": 20.0,
+        "n": 871,
+        "nonzero": 871
+      },
+      "32000:opportunity:raw": {
+        "max": 154.24709177567715,
+        "median": 43.531664716769384,
+        "min": 8.251594202180573,
+        "n": 45518,
+        "nonzero": 45518
+      },
+      "32000:opportunity:rejected_capacity": {
+        "max": 22.0,
+        "median": 0.0,
+        "min": 0.0,
+        "n": 871,
+        "nonzero": 32
+      },
+      "32000:opportunity:rejected_value": {
+        "max": 34.0,
+        "median": 16.0,
+        "min": 3.0,
+        "n": 871,
+        "nonzero": 871
+      },
+      "32000:opportunity:returned": {
+        "max": 31.0,
+        "median": 12.0,
+        "min": 0.0,
+        "n": 871,
+        "nonzero": 870
+      },
+      "32000:opportunity:selected": {
+        "max": 130.0,
+        "median": 102.0,
+        "min": 82.0,
+        "n": 871,
+        "nonzero": 871
+      },
+      "32000:opportunity:set_diff": {
+        "max": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "n": 871,
+        "nonzero": 871
+      },
+      "32000:opportunity:utility": {
+        "max": 0.27394900231976294,
+        "median": 0.13212225211293818,
+        "min": 0.05259720032058735,
+        "n": 45518,
+        "nonzero": 45518
+      },
+      "32000:parent_bound:admitted": {
+        "max": 54.0,
+        "median": 46.0,
+        "min": 38.0,
+        "n": 871,
+        "nonzero": 871
+      },
+      "32000:parent_bound:chars": {
+        "max": 32000.0,
+        "median": 31973.0,
+        "min": 31878.0,
+        "n": 871,
+        "nonzero": 871
+      },
+      "32000:parent_bound:dropped": {
+        "max": 25.0,
+        "median": 6.0,
+        "min": 0.0,
+        "n": 871,
+        "nonzero": 756
+      },
+      "32000:parent_bound:no_child": {
+        "max": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "n": 871,
+        "nonzero": 0
+      },
+      "32000:parent_bound:parent_cosine": {
+        "max": 0.9167359418816354,
+        "median": 0.6802743206478661,
+        "min": 0.3166717873337369,
+        "n": 45518,
+        "nonzero": 45518
+      },
+      "32000:parent_bound:proposed": {
+        "max": 75.0,
+        "median": 52.0,
+        "min": 38.0,
+        "n": 871,
+        "nonzero": 871
+      },
+      "32000:parent_bound:raw": {
+        "max": 154.24709177567715,
+        "median": 41.40864751779852,
+        "min": 5.8799156941819515,
+        "n": 45518,
+        "nonzero": 45518
+      },
+      "32000:parent_bound:returned": {
+        "max": 10.0,
+        "median": 1.0,
+        "min": 0.0,
+        "n": 871,
+        "nonzero": 788
+      },
+      "32000:parent_bound:selected": {
+        "max": 127.0,
+        "median": 100.0,
+        "min": 80.0,
+        "n": 871,
+        "nonzero": 871
+      },
+      "32000:parent_bound:set_diff": {
+        "max": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "n": 871,
+        "nonzero": 871
+      },
+      "32000:parent_bound:utility": {
+        "max": 0.19503876934693884,
+        "median": 0.08601905743406404,
+        "min": 0.027906804324799157,
+        "n": 45518,
+        "nonzero": 45518
+      },
+      "32000:utility_pack:admitted": {
+        "max": 54.0,
+        "median": 46.0,
+        "min": 36.0,
+        "n": 871,
+        "nonzero": 871
+      },
+      "32000:utility_pack:chars": {
+        "max": 32000.0,
+        "median": 31974.0,
+        "min": 31868.0,
+        "n": 871,
+        "nonzero": 871
+      },
+      "32000:utility_pack:dropped": {
+        "max": 27.0,
+        "median": 6.0,
+        "min": 0.0,
+        "n": 871,
+        "nonzero": 784
+      },
+      "32000:utility_pack:no_child": {
+        "max": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "n": 871,
+        "nonzero": 0
+      },
+      "32000:utility_pack:parent_cosine": {
+        "max": 0.896720927345571,
+        "median": 0.5643799603396662,
+        "min": 0.20838578912886221,
+        "n": 45518,
+        "nonzero": 45518
+      },
+      "32000:utility_pack:proposed": {
+        "max": 75.0,
+        "median": 52.0,
+        "min": 38.0,
+        "n": 871,
+        "nonzero": 871
+      },
+      "32000:utility_pack:raw": {
+        "max": 154.24709177567715,
+        "median": 43.531664716769384,
+        "min": 8.251594202180573,
+        "n": 45518,
+        "nonzero": 45518
+      },
+      "32000:utility_pack:returned": {
+        "max": 11.0,
+        "median": 1.0,
+        "min": 0.0,
+        "n": 871,
+        "nonzero": 779
+      },
+      "32000:utility_pack:selected": {
+        "max": 125.0,
+        "median": 99.0,
+        "min": 79.0,
+        "n": 871,
+        "nonzero": 871
+      },
+      "32000:utility_pack:set_diff": {
+        "max": 1.0,
+        "median": 1.0,
+        "min": 0.0,
+        "n": 871,
+        "nonzero": 687
+      },
+      "32000:utility_pack:utility": {
+        "max": 0.27394900231976294,
+        "median": 0.13212225211293818,
+        "min": 0.05259720032058735,
+        "n": 45518,
+        "nonzero": 45518
+      }
+    },
+    "part1_reproduced": true
+  },
+  "pf3": {
+    "early_labels_rejected": true,
+    "leakage": {
+      "files": {
+        "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow-tc-aspect-fanout\\src\\analysis\\tc014_exploration.py": "a11e5de00fe1b028c63af917c3627d3a587d478f8c439442475b6d803697c666",
+        "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow-tc-aspect-fanout\\src\\analysis\\tc014_traversal.py": "cb317f750616f500bf3887627ab0c7f7265aa771336a6d278001ec4794cf187f"
+      },
+      "imports": [
+        "__future__",
+        "analysis.locomo_nf_development",
+        "analysis.tc001_exploration",
+        "analysis.tc008_study",
+        "analysis.tc009_dependency_graph_probe",
+        "analysis.tc010_study",
+        "analysis.tc011_spread",
+        "analysis.tc011_study",
+        "analysis.tc013_fanout",
+        "analysis.tc014_traversal",
+        "dataclasses",
+        "episodic._packing",
+        "episodic._selection",
+        "gzip",
+        "json",
+        "math",
+        "numpy",
+        "pathlib",
+        "spacy",
+        "statistics",
+        "typing"
+      ]
+    },
+    "planted_leakage_rejected": true,
+    "selection_sha256_before_labels": "32b1db4d5476cfe97eb6cb306c29c63d597b8bfc219ca73db181396ed5d750f7"
+  },
+  "pf4": {
+    "active": true,
+    "opportunity_alternatives": true,
+    "reachability": {
+      "budget_specific": true,
+      "cell_helps": true,
+      "cell_hurts": true,
+      "cell_neutral": true,
+      "matching_exhaustive_optimum": true,
+      "no_help": true,
+      "transferable": true
+    }
+  },
+  "pf5": {
+    "content_identity_only": true,
+    "rows": 871
+  },
+  "pf6": {
+    "controls": 3484,
+    "expected": 3484
+  },
+  "pf7": {
+    "depth": 1,
+    "expected": 8710,
+    "matching_exhaustive_control": true,
+    "opportunity_decisions": 67943,
+    "unique_assignment_checks": 8710
+  },
+  "pf8": {
+    "cannot_detect": "new-corpus or reader transfer",
+    "conversations": 4
+  },
+  "pf9": {
+    "residuals": [
+      "parent coherence is not evidence",
+      "maximum summed utility can harm an individual query",
+      "utility-first packing can select redundant evidence",
+      "ASPECT-valued displacement can preserve wrong semantic identities"
+    ]
+  },
+  "status": "PASS"
+}
