@@ -1,0 +1,137 @@
+{
+  "calls": {
+    "determinism_reader": 2,
+    "floor_judge": 48,
+    "floor_reader": 16
+  },
+  "g_complete": {
+    "preflight_truncations": 0,
+    "unparseable": 0
+  },
+  "g_floor": {
+    "artifact_sha256": "3539a155fbf53a04e4ccfb56f25f29838c9d80db8666f709da9d9390cf1e9a43",
+    "correct": 0,
+    "maximum": 3,
+    "n": 16,
+    "pass": true
+  },
+  "pf1": {
+    "anchors": {
+      "amendment": true,
+      "lv004_answers": true,
+      "lv004_result": true,
+      "part1": true,
+      "prompts": true,
+      "registration": true
+    },
+    "model": "qwen-custom:latest",
+    "model_details": {
+      "families": [
+        "qwen35"
+      ],
+      "family": "qwen35",
+      "format": "gguf",
+      "parameter_size": "27.3B",
+      "parent_model": "C:\\Users\\muzaf\\.ollama\\models\\blobs\\sha256-773f1bf0be0589d056ce05476a8a135b50494a3f2ecc3f8f0c4f2c3594bba02e",
+      "quantization_level": "Q6_K"
+    },
+    "ollama_version": "0.33.0"
+  },
+  "pf10": {
+    "live_reader_probe": true,
+    "rendering_is_not_verdict": true
+  },
+  "pf2": {
+    "content_checks": {
+      "child_earlier_pairs": 313,
+      "child_later_pairs": 304,
+      "episode_elements_exact": 68,
+      "expected_element_exact": 68,
+      "expected_set_exact": 68,
+      "expected_treatment_rows": 51,
+      "paired_groups": 617,
+      "set_exact": 68,
+      "singleton_groups": 452,
+      "treatment_order_changes": 51
+    },
+    "control_reproductions": 17,
+    "maximum_block_chars": 44397,
+    "primary": 16,
+    "prompt_rows": 17
+  },
+  "pf3": {
+    "append_flush_fsync": true,
+    "early_gold_rejected": true,
+    "prompt_seal_before_answers": true,
+    "registration_before_renderer": true
+  },
+  "pf4": {
+    "paired_groups": 617,
+    "reachability": {
+      "breadth_guard": true,
+      "invalid": true,
+      "no_signal": true,
+      "promising": true,
+      "regresses": true,
+      "sign_guard": true,
+      "targeted_guard": true,
+      "weak": true
+    },
+    "singleton_groups": 452
+  },
+  "pf5": {
+    "content_identity_sets": 68,
+    "unique_questions": true
+  },
+  "pf6": {
+    "control_reproductions": 17,
+    "independent_prompt_rebuild": true,
+    "lv004_answers_sha256": "639f789396807c89f3242bf9d4e2c05cbf5f349e444d5c1e38b54164c658aebe",
+    "lv004_result_sha256": "ee1d14b0a67d2150338ad0f1b0b5862dbc0dc033e9860c5fa50b4e3ba730cc0d"
+  },
+  "pf7": {
+    "gpu_only": true,
+    "ollama_process": {
+      "models": [
+        {
+          "context_length": 65536,
+          "details": {
+            "families": [
+              "qwen35"
+            ],
+            "family": "qwen35",
+            "format": "gguf",
+            "parameter_size": "27.3B",
+            "parent_model": "",
+            "quantization_level": "Q6_K"
+          },
+          "digest": "3516cd593f43f07312d78251081d0253f68e541f3ce83681fef0305611306fc2",
+          "expires_at": "2026-08-26T16:36:05.8292836-05:00",
+          "model": "qwen-custom:latest",
+          "name": "qwen-custom:latest",
+          "size": 26116232313,
+          "size_vram": 26116232313
+        }
+      ]
+    },
+    "prefix_sha256": "a32d4bb16966fe82a4d8b7377cb9d767b5f749619765660c25a9483b90a5e325",
+    "prompt_eval_count": 11419,
+    "seeded_prefix_byte_identical": true
+  },
+  "pf8": {
+    "cannot_detect": "overall accuracy, small effects, transfer or production behavior",
+    "primary_items": 16,
+    "replicates": 5
+  },
+  "pf9": {
+    "residuals": [
+      "related groups can join unrelated evidence",
+      "later can be stale",
+      "extra markup consumes prompt tokens",
+      "complete evidence can be ignored",
+      "same-model judge bias"
+    ]
+  },
+  "schema": "lv005-preflight-v1",
+  "status": "PASS"
+}
