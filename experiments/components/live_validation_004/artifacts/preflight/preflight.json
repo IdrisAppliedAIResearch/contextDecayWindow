@@ -1,0 +1,126 @@
+{
+  "calls": {
+    "judge": 0,
+    "nonrepair_determinism_reader": 2,
+    "repair_reader": 0
+  },
+  "g_floor": {
+    "artifact_sha256": "3521785f65b180735b9469872d4a44688be76d8f0b3181e30378a67a00a20f73",
+    "carried": true,
+    "correct": 0,
+    "maximum": 3,
+    "n": 16,
+    "pass": true
+  },
+  "pf1": {
+    "lv003_answers_sha256": "e7a9a2343182502d0be1675ba5b797a2115e49b873709cb3614e22a9bd55e784",
+    "model_details": {
+      "families": [
+        "qwen35"
+      ],
+      "family": "qwen35",
+      "format": "gguf",
+      "parameter_size": "27.3B",
+      "parent_model": "C:\\Users\\muzaf\\.ollama\\models\\blobs\\sha256-773f1bf0be0589d056ce05476a8a135b50494a3f2ecc3f8f0c4f2c3594bba02e",
+      "quantization_level": "Q6_K"
+    },
+    "ollama_version": "0.33.0",
+    "part1_sha256": "1fa6cb263f0a8650fb18a4aef2e796c040ca5aa42608b63e1996d193b9098755",
+    "prompts_sha256": "c01cf11a5e2750c2ed8c03e90c813af7263de8a7fd2c4b78bacb72aa1207d5d8",
+    "registration_sha256": "6ba4938e3ebeb25b1fa5a26186583aa5357f14975de8be312a6879f181356ffd"
+  },
+  "pf10": {
+    "availability_is_input": true,
+    "live_reader_test": true
+  },
+  "pf2": {
+    "naturally_stopped": 168,
+    "payload_reproductions": 34,
+    "repair_keys_exact": true,
+    "rows": 170,
+    "truncated": 2
+  },
+  "pf3": {
+    "append_flush_fsync_helper": true,
+    "early_gold_rejected": true,
+    "phase_order_enforced": true,
+    "registration_precedes_repair": true
+  },
+  "pf4": {
+    "offline_gain_rows": 12,
+    "offline_loss_rows": 5,
+    "reachability": {
+      "converts": true,
+      "floor_fail": true,
+      "floor_pass": true,
+      "invalid": true,
+      "no_conversion": true,
+      "prefix_fail": true,
+      "prefix_pass": true,
+      "regresses": true,
+      "sign_reversal": true,
+      "targeted_regression": true,
+      "truncation_fail": true,
+      "truncation_pass": true,
+      "truncation_stop": true,
+      "weak": true
+    },
+    "repair_arms": [
+      "FULL_CC80",
+      "OPPORTUNITY"
+    ]
+  },
+  "pf5": {
+    "complement_rows": 168,
+    "unique_schedule_keys": true
+  },
+  "pf6": {
+    "answer_identity": "e7a9a2343182502d0be1675ba5b797a2115e49b873709cb3614e22a9bd55e784",
+    "payload_reproductions": 34
+  },
+  "pf7": {
+    "gpu_only": true,
+    "naturally_stopped": true,
+    "ollama_process": {
+      "models": [
+        {
+          "context_length": 65536,
+          "details": {
+            "families": [
+              "qwen35"
+            ],
+            "family": "qwen35",
+            "format": "gguf",
+            "parameter_size": "27.3B",
+            "parent_model": "",
+            "quantization_level": "Q6_K"
+          },
+          "digest": "3516cd593f43f07312d78251081d0253f68e541f3ce83681fef0305611306fc2",
+          "expires_at": "2026-08-26T10:23:15.5231261-05:00",
+          "model": "qwen-custom:latest",
+          "name": "qwen-custom:latest",
+          "size": 26116232313,
+          "size_vram": 26116232313
+        }
+      ]
+    },
+    "prefix_sha256": "19ffe704645d71f8012ba5ded8f876cba395d801d2e9c4ed7b8d41e1c6380d7f",
+    "seeded_nonrepair_byte_identical": true
+  },
+  "pf8": {
+    "cannot_detect": "overall accuracy, small effects, transfer or adoption",
+    "primary_items": 16,
+    "replicates": 5
+  },
+  "pf9": {
+    "residuals": [
+      "guessed correctness",
+      "containment misses composition",
+      "same-model judge bias",
+      "availability enrichment",
+      "continuation-tail sensitivity"
+    ]
+  },
+  "schema": "lv004-preflight-v1",
+  "status": "PASS"
+}
