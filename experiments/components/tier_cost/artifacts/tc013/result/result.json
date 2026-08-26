@@ -1,0 +1,259 @@
+{
+  "calls": {
+    "cache": 0,
+    "embedding": 0,
+    "llm_or_generative": 0,
+    "ranking": 0
+  },
+  "claim_boundary": "LoCoMo development evidence availability only; no reader, transfer, tuning or adoption claim",
+  "comparisons": {
+    "fanout_vs_aspect_static": {
+      "16000": {
+        "breadth": {
+          "baseline": 15,
+          "gains": 2,
+          "losses": 1,
+          "n": 44,
+          "net": 1,
+          "treatment": 16,
+          "two_sided_exact_p": 1.0
+        },
+        "breadth_identity": {
+          "gains": 8,
+          "losses": 4,
+          "net": 4
+        },
+        "combined": {
+          "baseline": 749,
+          "gains": 19,
+          "losses": 5,
+          "n": 868,
+          "net": 14,
+          "treatment": 763,
+          "two_sided_exact_p": 0.006610751152038574
+        },
+        "conversation_nets": {
+          "conv-41": 2,
+          "conv-42": 6,
+          "conv-47": 2,
+          "conv-48": 4
+        },
+        "other": {
+          "baseline": 89,
+          "gains": 6,
+          "losses": 2,
+          "n": 120,
+          "net": 4,
+          "treatment": 93,
+          "two_sided_exact_p": 0.2890625
+        },
+        "targeted": {
+          "baseline": 645,
+          "gains": 11,
+          "losses": 2,
+          "n": 704,
+          "net": 9,
+          "treatment": 654,
+          "two_sided_exact_p": 0.0224609375
+        }
+      },
+      "32000": {
+        "breadth": {
+          "baseline": 23,
+          "gains": 3,
+          "losses": 0,
+          "n": 44,
+          "net": 3,
+          "treatment": 26,
+          "two_sided_exact_p": 0.25
+        },
+        "breadth_identity": {
+          "gains": 8,
+          "losses": 1,
+          "net": 7
+        },
+        "combined": {
+          "baseline": 810,
+          "gains": 16,
+          "losses": 5,
+          "n": 868,
+          "net": 11,
+          "treatment": 821,
+          "two_sided_exact_p": 0.02660369873046875
+        },
+        "conversation_nets": {
+          "conv-41": 4,
+          "conv-42": 5,
+          "conv-47": 5,
+          "conv-48": -3
+        },
+        "other": {
+          "baseline": 107,
+          "gains": 3,
+          "losses": 4,
+          "n": 120,
+          "net": -1,
+          "treatment": 106,
+          "two_sided_exact_p": 1.0
+        },
+        "targeted": {
+          "baseline": 680,
+          "gains": 10,
+          "losses": 1,
+          "n": 704,
+          "net": 9,
+          "treatment": 689,
+          "two_sided_exact_p": 0.01171875
+        }
+      }
+    },
+    "fanout_vs_cc80": {
+      "16000": {
+        "breadth": {
+          "baseline": 17,
+          "gains": 2,
+          "losses": 3,
+          "n": 44,
+          "net": -1,
+          "treatment": 16,
+          "two_sided_exact_p": 1.0
+        },
+        "breadth_identity": {
+          "gains": 6,
+          "losses": 7,
+          "net": -1
+        },
+        "combined": {
+          "baseline": 771,
+          "gains": 16,
+          "losses": 24,
+          "n": 868,
+          "net": -8,
+          "treatment": 763,
+          "two_sided_exact_p": 0.26818725105476915
+        },
+        "conversation_nets": {
+          "conv-41": -2,
+          "conv-42": 4,
+          "conv-47": -6,
+          "conv-48": -4
+        },
+        "other": {
+          "baseline": 88,
+          "gains": 8,
+          "losses": 3,
+          "n": 120,
+          "net": 5,
+          "treatment": 93,
+          "two_sided_exact_p": 0.2265625
+        },
+        "targeted": {
+          "baseline": 666,
+          "gains": 6,
+          "losses": 18,
+          "n": 704,
+          "net": -12,
+          "treatment": 654,
+          "two_sided_exact_p": 0.022655844688415527
+        }
+      },
+      "32000": {
+        "breadth": {
+          "baseline": 24,
+          "gains": 5,
+          "losses": 3,
+          "n": 44,
+          "net": 2,
+          "treatment": 26,
+          "two_sided_exact_p": 0.7265625
+        },
+        "breadth_identity": {
+          "gains": 12,
+          "losses": 6,
+          "net": 6
+        },
+        "combined": {
+          "baseline": 819,
+          "gains": 16,
+          "losses": 14,
+          "n": 868,
+          "net": 2,
+          "treatment": 821,
+          "two_sided_exact_p": 0.855535551905632
+        },
+        "conversation_nets": {
+          "conv-41": 2,
+          "conv-42": 3,
+          "conv-47": -2,
+          "conv-48": -1
+        },
+        "other": {
+          "baseline": 106,
+          "gains": 5,
+          "losses": 5,
+          "n": 120,
+          "net": 0,
+          "treatment": 106,
+          "two_sided_exact_p": 1.0
+        },
+        "targeted": {
+          "baseline": 689,
+          "gains": 6,
+          "losses": 6,
+          "n": 704,
+          "net": 0,
+          "treatment": 689,
+          "two_sided_exact_p": 1.0
+        }
+      }
+    }
+  },
+  "population": 868,
+  "schema": "tc013-cc80-parent-aspect-fanout-v1",
+  "selection_sha256": "117784d28859eb336cdd185598f8a132e6e52bfac045590ddb2a29e093ce920e",
+  "status": "CHARACTERIZED",
+  "totals": {
+    "aspect_static": {
+      "16000": {
+        "breadth": 15,
+        "combined": 749,
+        "other": 89,
+        "targeted": 645
+      },
+      "32000": {
+        "breadth": 23,
+        "combined": 810,
+        "other": 107,
+        "targeted": 680
+      }
+    },
+    "cc80": {
+      "16000": {
+        "breadth": 17,
+        "combined": 771,
+        "other": 88,
+        "targeted": 666
+      },
+      "32000": {
+        "breadth": 24,
+        "combined": 819,
+        "other": 106,
+        "targeted": 689
+      }
+    },
+    "fanout": {
+      "16000": {
+        "breadth": 16,
+        "combined": 763,
+        "other": 93,
+        "targeted": 654
+      },
+      "32000": {
+        "breadth": 26,
+        "combined": 821,
+        "other": 106,
+        "targeted": 689
+      }
+    }
+  }
+}
