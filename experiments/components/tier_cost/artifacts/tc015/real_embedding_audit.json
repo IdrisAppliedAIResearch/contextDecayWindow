@@ -1,0 +1,35 @@
+{
+  "anchors": {
+    "blind_sha256": "83bcadb1e029e14514841b65bd903904fe53420a246bc0a59cad99afaa0671b3",
+    "convex_sha256": "17e88abdc88547ec8abd96fb09ce8ae8e3f04c605d0081eed5f8cf837e2ad202",
+    "tc014_sha256": "32b1db4d5476cfe97eb6cb306c29c63d597b8bfc219ca73db181396ed5d750f7"
+  },
+  "boundary": "label-blind real-cache replay; no evidence labels or answers opened",
+  "calls": {
+    "embedding_model": 0,
+    "llm_or_generative": 0
+  },
+  "real_vectors": {
+    "cache_hits": 2236,
+    "cache_misses": 0,
+    "dimensions": [
+      1024
+    ],
+    "maximum_l2_norm": 122.78303649810722,
+    "minimum_l2_norm": 80.41950692872607
+  },
+  "reproduction": {
+    "cc80_orders": 871,
+    "cc80_scores": 871,
+    "max_cc80_score_abs_error": 0.0,
+    "max_dense_contribution_abs_error": 0.0,
+    "max_parent_cosine_abs_error": 8.881784197001252e-16,
+    "parent_cosines": 67943
+  },
+  "schema": "tc015-real-embedding-audit-v1",
+  "selected_identity_differences_vs_opportunity": {
+    "16000": 0,
+    "32000": 0
+  },
+  "status": "PASS"
+}
