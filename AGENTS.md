@@ -138,6 +138,10 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **TC-014 traversal ablation (2026-08-25).** CHARACTERIZED. Vs TC-013, opportunity HELPS at 16k (+7 combined/targeted,+3 breadth) but loses 1 breadth at 32k despite +5 combined. Utility-order HELPS only at 32k (+1 combined/breadth, 0 losses). Parent binding, global matching and T234 are NO_HELP. Descriptive opportunity total is 826 at 32k vs CC80 819. No answers/adoption.
 
+**LV-002/003 TC-014 reader instruments (2026-08-26).** STOPPED. LV-002 exposed raw thinking, then lost a truncated unpersisted batch. Closed-think prompts passed with floor 0/16. LV-003 persisted all 170 answers but stopped on 2 balanced 512-token truncations. No outcome was opened; LV-004 alone owns the repair and verdict.
+
+**LV-004 TC-014 live reader (2026-08-26).** REGRESSES. On 16 offline-discordant items, opportunity/full CC80 both score 5: 1 targeted gain, 1 breadth loss, net 0; breadth guardrail fires. Two LV-003 truncations were prefix-identically completed; 170 answers and 480 blind judgments pass. Selected LoCoMo dev only; no adoption/tuning.
+
 **PS-001 pattern-separated engram formation (2026-08-11).** CHARACTERIZED. Nine deterministic sparse cells on 119 episodes; only D=4096,K=41 passed G3-G5: 119/119 fixed points and exact 1/10/30/50% swap recovery. Six of seven degenerates reached stored codes; the union-biased cue cycled. Code-space result only; no natural cue, retrieval, live run, promotion, or adoption.
 
 **PS-002 natural-language cue binding (2026-08-11).** STOP AT PART 1; NATURAL_CUES_NOT_BOUND, CHARACTERIZED. Nine label-blind cells ran 24 sealed queries x8 rounds. Best M=4,tau=.025 reached stored codes 190/192 but one cue cycled and one reached a spurious fixed point; no cell emitted 8 clean ids/query. Labels, PF1-PF10, answers, live run, promotion and adoption not entered.
