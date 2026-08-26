@@ -136,6 +136,8 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **TC-013 CC80-parent ASPECT fan-out (2026-08-25).** CHARACTERIZED; BUDGET_SPECIFIC_SIGNAL. Each half-budget CC80 admission gets one singleton-seeded ASPECT child attempt. Fanout/CC80 complete = 763/771 at 16k and 821/819 at 32k; breadth 16/17 and 26/24; targeted 654/666 and 689/689. 32k gains breadth while tying targeted, but 16k regresses. CC80 fallback; no answers/tuning.
 
+**TC-014 traversal ablation (2026-08-25).** CHARACTERIZED. Vs TC-013, opportunity HELPS at 16k (+7 combined/targeted,+3 breadth) but loses 1 breadth at 32k despite +5 combined. Utility-order HELPS only at 32k (+1 combined/breadth, 0 losses). Parent binding, global matching and T234 are NO_HELP. Descriptive opportunity total is 826 at 32k vs CC80 819. No answers/adoption.
+
 **PS-001 pattern-separated engram formation (2026-08-11).** CHARACTERIZED. Nine deterministic sparse cells on 119 episodes; only D=4096,K=41 passed G3-G5: 119/119 fixed points and exact 1/10/30/50% swap recovery. Six of seven degenerates reached stored codes; the union-biased cue cycled. Code-space result only; no natural cue, retrieval, live run, promotion, or adoption.
 
 **PS-002 natural-language cue binding (2026-08-11).** STOP AT PART 1; NATURAL_CUES_NOT_BOUND, CHARACTERIZED. Nine label-blind cells ran 24 sealed queries x8 rounds. Best M=4,tau=.025 reached stored codes 190/192 but one cue cycled and one reached a spurious fixed point; no cell emitted 8 clean ids/query. Labels, PF1-PF10, answers, live run, promotion and adoption not entered.
