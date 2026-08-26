@@ -4,6 +4,7 @@ from copy import deepcopy
 
 import pytest
 
+import analysis.lv006_live as live
 from analysis.lv006_live import (
     LV006LiveError,
     _load_mapping,
@@ -32,6 +33,7 @@ def test_complete_repaired_schedule_reachable() -> None:
     assert not validate_judgments(broken, surface)["pass"]
 
 
-def test_mapping_is_blocked_before_completion() -> None:
+def test_mapping_is_blocked_before_completion(monkeypatch: pytest.MonkeyPatch, tmp_path) -> None:
+    monkeypatch.setattr(live, "JUDGMENT_SUMMARY", tmp_path / "absent.json")
     with pytest.raises(LV006LiveError):
         _load_mapping()
