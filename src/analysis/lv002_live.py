@@ -85,11 +85,17 @@ def _get(path: str, timeout: float = 30.0) -> dict[str, Any]:
         raise LV002LiveError(f"Ollama request failed at {path}: {error}") from error
 
 
-def _generate(prompt: str, seed: int, *, judge: bool = False) -> dict[str, Any]:
+def _generate(
+    prompt: str,
+    seed: int,
+    *,
+    judge: bool = False,
+    n_predict: int | None = None,
+) -> dict[str, Any]:
     options = {
         "seed": seed,
         "num_ctx": 65_536,
-        "num_predict": 128 if judge else 192,
+        "num_predict": n_predict if n_predict is not None else (128 if judge else 192),
         "temperature": 0.2 if judge else 0.6,
         "top_p": 0.9 if judge else 0.95,
         "top_k": 20,
