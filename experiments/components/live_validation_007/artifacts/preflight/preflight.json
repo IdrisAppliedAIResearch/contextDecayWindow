@@ -1,0 +1,193 @@
+{
+  "calls": {
+    "embedding": 0,
+    "llm_judge": 0,
+    "preflight_reader": 2
+  },
+  "g_compact": {
+    "expected": 17,
+    "pass": true,
+    "rows": 17
+  },
+  "g_content": {
+    "pass": true
+  },
+  "g_context": {
+    "pass": true,
+    "prompt_eval_count": 8754
+  },
+  "pf1": {
+    "anchors": {
+      "lv005_prompts": true,
+      "lv006_result": true,
+      "part1": true,
+      "prompts": true,
+      "registration": true
+    },
+    "cache": {
+      "bytes": 10821632,
+      "call_shape": "solo",
+      "content_sha256": "e103b2933ee9ec7b8e9236f43037797618da524e413b83a9f3973a19d28b1b2a",
+      "dimension": 1024,
+      "dtype": "float32",
+      "entries": 2236,
+      "file_sha256": "2ba617018a1b043bf439bb50e756191d8141fb7ca01a2e4a68c9eb822eba26f8",
+      "hits": 2236,
+      "misses": 0,
+      "mode": "reuse",
+      "model_sha256": "06507c7b42688469c4e7298b0a1e16deff06caf291cf0a5b278c308249c3e439",
+      "path": "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow-tc-aspect-fanout\\experiments\\external\\locomo\\artifacts\\locomo_dev_embeddings.db"
+    },
+    "model": "qwen-custom:latest",
+    "model_details": {
+      "families": [
+        "qwen35"
+      ],
+      "family": "qwen35",
+      "format": "gguf",
+      "parameter_size": "27.3B",
+      "parent_model": "C:\\Users\\muzaf\\.ollama\\models\\blobs\\sha256-773f1bf0be0589d056ce05476a8a135b50494a3f2ecc3f8f0c4f2c3594bba02e",
+      "quantization_level": "Q6_K"
+    },
+    "ollama_version": "0.33.0",
+    "parser": {
+      "model": "en_core_web_sm",
+      "spacy": "3.8.14"
+    },
+    "primary": 16,
+    "prompts": 17
+  },
+  "pf10": {
+    "live_reader_probe": true,
+    "structure_is_not_verdict": true
+  },
+  "pf2": {
+    "parameters": {
+      "alpha": 0.8,
+      "cap": 8,
+      "threshold": 0.04
+    },
+    "structural_checks": {
+      "absorbing_capacity_rows": 17,
+      "absorbing_singleton_rows": 17,
+      "cap_bound_per_prompt": {
+        "max": 3,
+        "median": 1,
+        "min": 0
+      },
+      "chronological_groups": 701,
+      "community_order_changes": 17,
+      "compact_rows": 17,
+      "episode_elements_exact": 51,
+      "expected_element_exact": 51,
+      "expected_set_exact": 51,
+      "group_size": {
+        "max": 8,
+        "median": 2,
+        "min": 1
+      },
+      "groups_per_prompt": {
+        "max": 49,
+        "median": 42,
+        "min": 29
+      },
+      "join_decisions": 985,
+      "mixed_groups_per_prompt": {
+        "max": 15,
+        "median": 11,
+        "min": 6
+      },
+      "new_decisions": 701,
+      "pairwise_exact": 17,
+      "question_top_exact": 17,
+      "same_community_block": 17,
+      "set_exact": 51,
+      "singletons_per_prompt": {
+        "max": 23,
+        "median": 17,
+        "min": 9
+      },
+      "total_groups": 701
+    }
+  },
+  "pf3": {
+    "append_flush_fsync": true,
+    "early_gold_rejected": true,
+    "early_mapping_rejected": true,
+    "registration_before_implementation": true
+  },
+  "pf4": {
+    "reachability": {
+      "breadth_regression": true,
+      "combined_regression": true,
+      "invalid": true,
+      "no_signal": true,
+      "promising": true,
+      "sign_reversal": true,
+      "targeted_regression": true,
+      "weak": true
+    },
+    "real_trace_alternatives": {
+      "cap_bound_max": 3,
+      "join": 985,
+      "new": 701
+    }
+  },
+  "pf5": {
+    "content_keyed": true,
+    "unique_questions": true
+  },
+  "pf6": {
+    "independent_rebuild": true,
+    "lv006_result_sha256": "011d0a3cf49d781f99a14327c3189b5260c1eec3e44e206ff84be8ce783f76ee",
+    "pairwise_reproductions": 17,
+    "part1_reproduced": true
+  },
+  "pf7": {
+    "all_singleton_rows": 17,
+    "capacity_partition_rows": 17,
+    "gpu_only": true,
+    "ollama_process": {
+      "models": [
+        {
+          "context_length": 65536,
+          "details": {
+            "families": [
+              "qwen35"
+            ],
+            "family": "qwen35",
+            "format": "gguf",
+            "parameter_size": "27.3B",
+            "parent_model": "",
+            "quantization_level": "Q6_K"
+          },
+          "digest": "3516cd593f43f07312d78251081d0253f68e541f3ce83681fef0305611306fc2",
+          "expires_at": "2026-08-26T17:58:19.6497836-05:00",
+          "model": "qwen-custom:latest",
+          "name": "qwen-custom:latest",
+          "size": 26116232313,
+          "size_vram": 26116232313
+        }
+      ]
+    },
+    "prefix_sha256": "930018afb7b8b6e19ab78768241c630f53696a0761c9e129bc3da40f1f029ae8",
+    "prompt_eval_count": 8754,
+    "seeded_prefix_byte_identical": true
+  },
+  "pf8": {
+    "cannot_detect": "overall accuracy, small effects, transfer, production behavior or globally optimal grouping",
+    "primary_items": 16,
+    "replicates": 5
+  },
+  "pf9": {
+    "residuals": [
+      "affinity can group unrelated passages",
+      "shared facets can be generic",
+      "compactness can improve without correctness",
+      "question repetition can change verbosity",
+      "same-model judge bias"
+    ]
+  },
+  "schema": "lv007-preflight-v1",
+  "status": "PASS"
+}
