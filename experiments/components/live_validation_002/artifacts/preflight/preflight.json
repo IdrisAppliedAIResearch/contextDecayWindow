@@ -4,7 +4,7 @@
     "floor_reader": 16,
     "prefix_reader": 2
   },
-  "floor_sha256": "74a5e09f98f63c8fd9460a5bc6cbf7ab6a166a87a9ff12abaa91920d8d537f91",
+  "floor_sha256": "cf96e42c21482458c08cbd9eaeeefe62b7c5455ca986a835758f2ef77a0874e9",
   "g_floor": {
     "correct": 0,
     "maximum": 3,
@@ -12,9 +12,9 @@
     "pass": true
   },
   "g_prompt": {
-    "floor_truncated": 9,
+    "floor_truncated": 0,
     "judge_unparseable": 0,
-    "prefix_truncated": true
+    "prefix_truncated": false
   },
   "pf1": {
     "model": "qwen-custom:latest",
@@ -31,7 +31,7 @@
     "ollama_version": "0.33.0",
     "part1_sha256": "f1dcd160b8cdf4e78673a9795861fc6ffa6affdc0b16f19907922f53fb082e60",
     "prompt_rows": 17,
-    "prompts_sha256": "f7c4d3dcbe9507c6e9db354b610138c5f8f065edfa17b81305a32f8e6e5003b1",
+    "prompts_sha256": "c01cf11a5e2750c2ed8c03e90c813af7263de8a7fd2c4b78bacb72aa1207d5d8",
     "registration_sha256": "34ddd063b7c17873ae92b59f929bd788b7f66fb66d53c910a81d270bd619254a"
   },
   "pf10": {
@@ -86,7 +86,7 @@
             "quantization_level": "Q6_K"
           },
           "digest": "3516cd593f43f07312d78251081d0253f68e541f3ce83681fef0305611306fc2",
-          "expires_at": "2026-08-26T09:57:30.4506016-05:00",
+          "expires_at": "2026-08-26T10:00:21.2669846-05:00",
           "model": "qwen-custom:latest",
           "name": "qwen-custom:latest",
           "size": 26116232313,
@@ -94,8 +94,8 @@
         }
       ]
     },
-    "prefix_sha256": "92a245913e0da3187dd3bf1382715aa155ff44ef294826f9109edf5f017256ad",
-    "prompt_eval_count": 8446,
+    "prefix_sha256": "19ffe704645d71f8012ba5ded8f876cba395d801d2e9c4ed7b8d41e1c6380d7f",
+    "prompt_eval_count": 8451,
     "seeded_prefix_byte_identical": true
   },
   "pf8": {
@@ -111,5 +111,5 @@
       "availability-discordant selection is enriched"
     ]
   },
-  "status": "FAIL"
+  "status": "PASS"
 }
