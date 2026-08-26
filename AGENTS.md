@@ -138,6 +138,8 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **TC-014 traversal ablation (2026-08-25).** CHARACTERIZED. Vs TC-013, opportunity HELPS at 16k (+7 combined/targeted,+3 breadth) but loses 1 breadth at 32k despite +5 combined. Utility-order HELPS only at 32k (+1 combined/breadth, 0 losses). Parent binding, global matching and T234 are NO_HELP. Descriptive opportunity total is 826 at 32k vs CC80 819. No answers/adoption.
 
+**TC-015 opportunity then utility (2026-08-26).** STOPPED_AT_PART_1; INERT_SELECTION. Opportunity retains median 17/36 children at 16k/32k and all fit the spread half on 1,742/1,742 cells. Utility sorting changes payload order on 868/871 and 871/871 rows but selected identities on 0/871 at both budgets. PF4 makes an availability outcome unreachable; no registration or labels.
+
 **PS-001 pattern-separated engram formation (2026-08-11).** CHARACTERIZED. Nine deterministic sparse cells on 119 episodes; only D=4096,K=41 passed G3-G5: 119/119 fixed points and exact 1/10/30/50% swap recovery. Six of seven degenerates reached stored codes; the union-biased cue cycled. Code-space result only; no natural cue, retrieval, live run, promotion, or adoption.
 
 **PS-002 natural-language cue binding (2026-08-11).** STOP AT PART 1; NATURAL_CUES_NOT_BOUND, CHARACTERIZED. Nine label-blind cells ran 24 sealed queries x8 rounds. Best M=4,tau=.025 reached stored codes 190/192 but one cue cycled and one reached a spurious fixed point; no cell emitted 8 clean ids/query. Labels, PF1-PF10, answers, live run, promotion and adoption not entered.
