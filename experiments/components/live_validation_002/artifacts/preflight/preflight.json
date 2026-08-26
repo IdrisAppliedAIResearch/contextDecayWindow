@@ -1,0 +1,115 @@
+{
+  "calls": {
+    "floor_judge": 48,
+    "floor_reader": 16,
+    "prefix_reader": 2
+  },
+  "floor_sha256": "74a5e09f98f63c8fd9460a5bc6cbf7ab6a166a87a9ff12abaa91920d8d537f91",
+  "g_floor": {
+    "correct": 0,
+    "maximum": 3,
+    "n": 16,
+    "pass": true
+  },
+  "g_prompt": {
+    "floor_truncated": 9,
+    "judge_unparseable": 0,
+    "prefix_truncated": true
+  },
+  "pf1": {
+    "model": "qwen-custom:latest",
+    "model_details": {
+      "families": [
+        "qwen35"
+      ],
+      "family": "qwen35",
+      "format": "gguf",
+      "parameter_size": "27.3B",
+      "parent_model": "C:\\Users\\muzaf\\.ollama\\models\\blobs\\sha256-773f1bf0be0589d056ce05476a8a135b50494a3f2ecc3f8f0c4f2c3594bba02e",
+      "quantization_level": "Q6_K"
+    },
+    "ollama_version": "0.33.0",
+    "part1_sha256": "f1dcd160b8cdf4e78673a9795861fc6ffa6affdc0b16f19907922f53fb082e60",
+    "prompt_rows": 17,
+    "prompts_sha256": "f7c4d3dcbe9507c6e9db354b610138c5f8f065edfa17b81305a32f8e6e5003b1",
+    "registration_sha256": "34ddd063b7c17873ae92b59f929bd788b7f66fb66d53c910a81d270bd619254a"
+  },
+  "pf10": {
+    "availability_is_input_not_verdict": true,
+    "live_reader_test": true
+  },
+  "pf2": {
+    "mechanism_identity": "C0 renders TC-014 full-budget CC80; T1 renders TC-014's 50/50 CC80-parent fan-out after exact opportunity admission. Only the frozen memory block differs.",
+    "part1_reproduced": true
+  },
+  "pf3": {
+    "early_gold_rejected": true,
+    "later_order_enforced_by_phase_files": true,
+    "prompts_sealed": true
+  },
+  "pf4": {
+    "offline_gain_rows": 12,
+    "offline_loss_rows": 5,
+    "reachability": {
+      "converts": true,
+      "floor_fail": true,
+      "floor_pass": true,
+      "invalid": true,
+      "no_conversion": true,
+      "regresses": true,
+      "sign_reversal": true,
+      "targeted_regression": true,
+      "weak": true
+    }
+  },
+  "pf5": {
+    "unique_content_keys": true
+  },
+  "pf6": {
+    "expected": 34,
+    "payload_reproductions": 34
+  },
+  "pf7": {
+    "gpu_only": true,
+    "ollama_process": {
+      "models": [
+        {
+          "context_length": 65536,
+          "details": {
+            "families": [
+              "qwen35"
+            ],
+            "family": "qwen35",
+            "format": "gguf",
+            "parameter_size": "27.3B",
+            "parent_model": "",
+            "quantization_level": "Q6_K"
+          },
+          "digest": "3516cd593f43f07312d78251081d0253f68e541f3ce83681fef0305611306fc2",
+          "expires_at": "2026-08-26T09:57:30.4506016-05:00",
+          "model": "qwen-custom:latest",
+          "name": "qwen-custom:latest",
+          "size": 26116232313,
+          "size_vram": 26116232313
+        }
+      ]
+    },
+    "prefix_sha256": "92a245913e0da3187dd3bf1382715aa155ff44ef294826f9109edf5f017256ad",
+    "prompt_eval_count": 8446,
+    "seeded_prefix_byte_identical": true
+  },
+  "pf8": {
+    "cannot_detect": "overall accuracy, small effects, transfer or adoption value",
+    "primary_items": 16,
+    "reader_replicates": 5
+  },
+  "pf9": {
+    "residuals": [
+      "correct answers can be guessed without support",
+      "containment misses composition and paraphrase",
+      "one model supplies all three judge passes",
+      "availability-discordant selection is enriched"
+    ]
+  },
+  "status": "FAIL"
+}
