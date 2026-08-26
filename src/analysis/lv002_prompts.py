@@ -21,6 +21,7 @@ from episodic._render import render_stm_payload
 TC_ROOT = REPO_ROOT / "experiments" / "components" / "tier_cost"
 ROOT = REPO_ROOT / "experiments" / "components" / "live_validation_002"
 REGISTRATION = ROOT / "LV_002_PRE_REGISTRATION.md"
+AMENDMENT = ROOT / "amendments" / "AMENDMENT_001_closed_think_prefill.md"
 PART1 = ROOT / "artifacts" / "part1_exploration.json"
 TC014_SELECTIONS = TC_ROOT / "artifacts" / "tc014" / "preflight" / "selections.jsonl.gz"
 TC014_OUTCOMES = TC_ROOT / "artifacts" / "tc014" / "result" / "per_question.csv"
@@ -28,9 +29,11 @@ PROMPTS = ROOT / "artifacts" / "preflight" / "prompts.jsonl.gz"
 PROMPT_MANIFEST = ROOT / "artifacts" / "preflight" / "prompt_manifest.json"
 BUDGET = 32_000
 REGISTRATION_SHA256 = "34ddd063b7c17873ae92b59f929bd788b7f66fb66d53c910a81d270bd619254a"
+AMENDMENT_SHA256 = "0971d2bf3fef631fd186e80c409dcdeea22714f57019fd1eb24d5322dbd8bdf4"
 PART1_SHA256 = "f1dcd160b8cdf4e78673a9795861fc6ffa6affdc0b16f19907922f53fb082e60"
 TC014_SELECTIONS_SHA256 = "32b1db4d5476cfe97eb6cb306c29c63d597b8bfc219ca73db181396ed5d750f7"
 TC014_OUTCOMES_SHA256 = "ce73bfcb0b3c9a1d7d94e89023ce7ef7b9fbf928eb44a1669699ec3f37324bb0"
+CLOSED_THINK_SUFFIX = "\n<think>\n</think>\n"
 
 
 class LV002PromptError(RuntimeError):
@@ -65,6 +68,7 @@ def build_prompt_rows(*, forbidden_labels: Path | None = None) -> tuple[list[dic
         raise LV002PromptError("gold-bearing corpus forbidden during prompt freeze")
     anchors = {
         REGISTRATION: REGISTRATION_SHA256,
+        AMENDMENT: AMENDMENT_SHA256,
         PART1: PART1_SHA256,
         TC014_SELECTIONS: TC014_SELECTIONS_SHA256,
         TC014_OUTCOMES: TC014_OUTCOMES_SHA256,
@@ -112,7 +116,7 @@ def build_prompt_rows(*, forbidden_labels: Path | None = None) -> tuple[list[dic
             if digest != allocation["payload_sha256"] or len(payload) != allocation["payload_chars"]:
                 raise LV002PromptError("TC-014 payload reproduction failed")
             reproductions += 1
-            prompt = render_reader_prompt(question.question, payload)
+            prompt = render_reader_prompt(question.question, payload) + CLOSED_THINK_SUFFIX
             arms[name] = {
                 "prompt": prompt,
                 "prompt_sha256": hashlib.sha256(prompt.encode("utf-8")).hexdigest(),
@@ -120,7 +124,7 @@ def build_prompt_rows(*, forbidden_labels: Path | None = None) -> tuple[list[dic
                 "block_chars": len(payload),
                 "selected_ids": list(allocation["selected_ids"]),
             }
-        no_memory = render_reader_prompt(question.question, "")
+        no_memory = render_reader_prompt(question.question, "") + CLOSED_THINK_SUFFIX
         rows.append(
             {
                 "comparison_key": outcome["question_id"],
@@ -161,6 +165,7 @@ def freeze_prompts(output: Path = PROMPTS, manifest_path: Path = PROMPT_MANIFEST
 
 __all__ = [
     "LV002PromptError",
+    "CLOSED_THINK_SUFFIX",
     "PROMPTS",
     "PROMPT_MANIFEST",
     "build_prompt_rows",
