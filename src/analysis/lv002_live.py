@@ -19,6 +19,7 @@ from analysis.hh001_endpoints import contains_gold, normalize
 from analysis.hh001_prompt import parse_judge_verdict, render_judge_prompt
 from analysis.locomo_nf_development import sha256_file
 from analysis.lv002_prompts import (
+    CLOSED_THINK_SUFFIX,
     PART1,
     PROMPT_MANIFEST,
     PROMPTS,
@@ -243,7 +244,7 @@ def run_preflight() -> dict[str, Any]:
         votes = []
         judge_rows = []
         for seed in JUDGE_SEEDS:
-            judged = _generate(render_judge_prompt(row["question"], record["gold"], answer["text"]), seed, judge=True)
+            judged = _generate(render_judge_prompt(row["question"], record["gold"], answer["text"]) + CLOSED_THINK_SUFFIX, seed, judge=True)
             try:
                 verdict, reason = parse_judge_verdict(judged["text"])
             except Exception:
@@ -387,7 +388,7 @@ def run_judging() -> dict[str, Any]:
     surface = _read_rows(BLIND_SURFACE)
     judgments = []
     for item in surface:
-        prompt = render_judge_prompt(item["question"], item["gold"], item["answer"])
+        prompt = render_judge_prompt(item["question"], item["gold"], item["answer"]) + CLOSED_THINK_SUFFIX
         for judge_pass, seed in enumerate(JUDGE_SEEDS):
             response = _generate(prompt, seed, judge=True)
             try:
