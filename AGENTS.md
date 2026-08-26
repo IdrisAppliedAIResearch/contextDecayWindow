@@ -142,6 +142,8 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **LV-004 TC-014 live reader (2026-08-26).** REGRESSES. On 16 offline-discordant items, opportunity/full CC80 both score 5: 1 targeted gain, 1 breadth loss, net 0; breadth guardrail fires. Two LV-003 truncations were prefix-identically completed; 170 answers and 480 blind judgments pass. Selected LoCoMo dev only; no adoption/tuning.
 
+**LV-005/006 context organization (2026-08-26).** WEAK_SIGNAL. Same frozen opportunity evidence: flat/grouped/chrono/guided score 5/6/6/6 on 16 selected items. Guided vs flat has 1 breadth gain, 0 losses; guidance vs chrono ties, so only the bundle carries signal. Median block grows 31,983->42,542 chars. No adoption/transfer.
+
 **PS-001 pattern-separated engram formation (2026-08-11).** CHARACTERIZED. Nine deterministic sparse cells on 119 episodes; only D=4096,K=41 passed G3-G5: 119/119 fixed points and exact 1/10/30/50% swap recovery. Six of seven degenerates reached stored codes; the union-biased cue cycled. Code-space result only; no natural cue, retrieval, live run, promotion, or adoption.
 
 **PS-002 natural-language cue binding (2026-08-11).** STOP AT PART 1; NATURAL_CUES_NOT_BOUND, CHARACTERIZED. Nine label-blind cells ran 24 sealed queries x8 rounds. Best M=4,tau=.025 reached stored codes 190/192 but one cue cycled and one reached a spurious fixed point; no cell emitted 8 clean ids/query. Labels, PF1-PF10, answers, live run, promotion and adoption not entered.
