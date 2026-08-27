@@ -439,7 +439,12 @@ def _surface_rows() -> list[dict[str, Any]]:
         return [json.loads(line) for line in handle if line.strip()]
 
 
-def validate_judgments(rows: Sequence[Mapping[str, Any]], surface: Sequence[Mapping[str, Any]]) -> dict[str, Any]:
+def validate_judgments(
+    rows: Sequence[Mapping[str, Any]],
+    surface: Sequence[Mapping[str, Any]],
+    *,
+    allow_truncated: bool = False,
+) -> dict[str, Any]:
     actual = [(str(row["blind_id"]), int(row["judge_pass"]), int(row["seed"])) for row in rows]
     expected = {(str(item["blind_id"]), judge_pass, seed) for item in surface for judge_pass, seed in enumerate(JUDGE_SEEDS)}
     counts = Counter(key[0] for key in actual)
@@ -457,7 +462,7 @@ def validate_judgments(rows: Sequence[Mapping[str, Any]], surface: Sequence[Mapp
         and set(actual) == expected
         and len(counts) == len(surface)
         and all(value == 3 for value in counts.values())
-        and all(row["done_reason"] != "length" for row in rows),
+        and (allow_truncated or all(row["done_reason"] != "length" for row in rows)),
     }
 
 
@@ -486,6 +491,70 @@ def run_judging() -> dict[str, Any]:
     _write_json(JUDGMENT_SUMMARY, summary)
     if not validation["pass"]:
         raise LV008LiveError("judgment completeness failed")
+    return summary
+
+
+def resume_poststop_judging() -> dict[str, Any]:
+    surface = _surface_rows()
+    existing = _read_jsonl(JUDGMENTS) if JUDGMENTS.exists() else []
+    expected = {
+        (str(item["blind_id"]), judge_pass, seed)
+        for item in surface
+        for judge_pass, seed in enumerate(JUDGE_SEEDS)
+    }
+    actual = {
+        (str(row["blind_id"]), int(row["judge_pass"]), int(row["seed"]))
+        for row in existing
+    }
+    if len(existing) != len(actual) or not actual.issubset(expected):
+        raise LV008LiveError("existing judgment prefix is not a unique registered subset")
+    JUDGMENTS.parent.mkdir(parents=True, exist_ok=True)
+    calls = 0
+    with JUDGMENTS.open("a", encoding="utf-8", newline="\n") as handle:
+        for item in surface:
+            prompt = repaired_judge_prompt(item)
+            for judge_pass, seed in enumerate(JUDGE_SEEDS):
+                key = (str(item["blind_id"]), judge_pass, seed)
+                if key in actual:
+                    continue
+                response = _generate(prompt, seed, judge=True, n_predict=512)
+                verdict, reason = parse_judge_verdict(response["text"])
+                _append_fsynced(
+                    handle,
+                    {
+                        "blind_id": item["blind_id"],
+                        "judge_pass": judge_pass,
+                        "seed": seed,
+                        "verdict": verdict,
+                        "reason": reason,
+                        "done_reason": response["done_reason"],
+                        "prompt_eval_count": response["prompt_eval_count"],
+                        "response_sha256": hashlib.sha256(response["text"].encode("utf-8")).hexdigest(),
+                    },
+                )
+                calls += 1
+    rows = _read_jsonl(JUDGMENTS)
+    validation = validate_judgments(rows, surface, allow_truncated=True)
+    process, gpu_only = _gpu_process()
+    validation["gpu_only_after"] = gpu_only
+    validation["pass"] = (
+        validation["pass"]
+        and gpu_only
+        and all(int(row["prompt_eval_count"]) < 65_536 for row in rows)
+    )
+    summary = {
+        "schema": "lv008-poststop-judgment-summary-v1",
+        "poststop": True,
+        "initial_128_token_rows": len(existing),
+        "resumed_512_token_calls": calls,
+        "judgments_sha256": sha256_file(JUDGMENTS),
+        "calls": len(rows),
+        "validation": validation,
+        "ollama_process_after": process,
+    }
+    _write_json(JUDGMENT_SUMMARY, summary)
+    if not validation["pass"]:
+        raise LV008LiveError("post-stop judgment completeness failed")
     return summary
 
 
@@ -566,7 +635,7 @@ def analyze(*, poststop: bool = False) -> dict[str, Any]:
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("phase", choices=("preflight", "generate", "blind", "blind-poststop", "judge", "analyze", "analyze-poststop"))
+    parser.add_argument("phase", choices=("preflight", "generate", "blind", "blind-poststop", "judge", "judge-resume-poststop", "analyze", "analyze-poststop"))
     args = parser.parse_args()
     actions = {
         "preflight": run_preflight,
@@ -574,6 +643,7 @@ def main() -> None:
         "blind": prepare_blind,
         "blind-poststop": lambda: prepare_blind(poststop=True),
         "judge": run_judging,
+        "judge-resume-poststop": resume_poststop_judging,
         "analyze": analyze,
         "analyze-poststop": lambda: analyze(poststop=True),
     }

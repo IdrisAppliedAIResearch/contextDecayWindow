@@ -15,6 +15,7 @@ from analysis.lv008_live import (
     blind_id,
     repaired_judge_prompt,
     validate_answer_schedule,
+    validate_judgments,
 )
 
 
@@ -79,3 +80,13 @@ def test_poststop_override_accepts_only_the_exact_sealed_shape() -> None:
     assert _poststop_generation_complete(summary)
     summary["validation"]["truncated"] = 2
     assert not _poststop_generation_complete(summary)
+
+
+def test_poststop_judge_validation_can_accept_a_parseable_capped_row() -> None:
+    surface = [{"blind_id": "x"}]
+    rows = [
+        {"blind_id": "x", "judge_pass": index, "seed": seed, "done_reason": "length" if index == 0 else "stop"}
+        for index, seed in enumerate((9005, 9006, 9007))
+    ]
+    assert not validate_judgments(rows, surface)["pass"]
+    assert validate_judgments(rows, surface, allow_truncated=True)["pass"]
