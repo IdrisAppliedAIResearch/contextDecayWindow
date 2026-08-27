@@ -1,0 +1,46 @@
+{
+  "dataset": {
+    "bytes": 2805274,
+    "sha256": "79fa87e90f04081343b8c8debecb80a9a6842b76a7aa537dc9fdf651ea698ff4"
+  },
+  "deterministic_rebuild": true,
+  "draft_sha256": "afdc90b40a413a2fa25696aa026b8213bad93c3ae2ac2919e6cf3f3ae106841d",
+  "llm_calls": 0,
+  "mechanism": {
+    "development_selection_reproductions": 871,
+    "embedding_calls": 0,
+    "lv008_prompt_reproductions": 51,
+    "population": {
+      "categories": {
+        "1": 282,
+        "2": 321,
+        "3": 96,
+        "4": 841,
+        "5": 446
+      },
+      "category5": 446,
+      "conversations": {
+        "conv-26": 199,
+        "conv-30": 105,
+        "conv-41": 193,
+        "conv-42": 260,
+        "conv-43": 242,
+        "conv-44": 158,
+        "conv-47": 190,
+        "conv-48": 239,
+        "conv-49": 196,
+        "conv-50": 204
+      },
+      "development_primary": 692,
+      "primary": 1540,
+      "rows": 1986,
+      "transfer_primary": 848
+    },
+    "prompts": 7944,
+    "prompts_sha256": "98a0d0a3e00f78dfa222bd6d2cb6c49093dd7ae5f5f005b2a8de1412d14fc454",
+    "qeach_treatment_rows": 1540,
+    "selections_sha256": "35ab1fd17299163dfd11b1b6d84f583203982f9325e2e56bc38ed08129802315"
+  },
+  "schema": "lv009-part1-exploration-v1",
+  "status": "LABEL_BLIND_FREEZE_COMPLETE"
+}

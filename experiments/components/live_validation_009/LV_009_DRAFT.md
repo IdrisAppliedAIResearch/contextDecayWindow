@@ -85,9 +85,14 @@ wrappers and wording, and the question appears at the bottom.
 ### T1 `COMMUNITY`
 
 The exact LV-008 compact semantic-community behavior generalized mechanically
-to all rows. Over the already selected identities, affinity is frozen as
+to all rows. Part 1 found that LV-008's implementation called its first term
+`cosine` but normalized each episode embedding row and then indexed selected
+episode indices into embedding-coordinate columns. It did not compute pairwise
+episode cosine. LV-009 carries that implemented behavior without repair. Over
+the already selected identities, affinity is frozen as
 
-`0.8 * cosine + 0.2 * facet_ochiai`.
+`0.8 * normalized_embedding[selected_episode, selected_episode_coordinate]
++ 0.2 * facet_ochiai`.
 
 Visit identities in frozen selection order. Assign to the open group below
 eight items with greatest mean affinity when that mean is at least `.04`;
@@ -124,19 +129,23 @@ supersession rule, retrieval route or prompt instruction is permitted.
 
 ## 4. Reader schedule
 
-- Ollama `0.33.0`, raw `/api/generate`, thinking disabled, streaming disabled,
-  one request at a time, `keep_alive=30m`, and no speculative decoding.
-- Model alias `lv008-qwen38-q4:latest`, manifest SHA-256
-  `281d02f0ad1a4b4928fcf1450e6bd1bb88e0d57c0051df03a993265ec6662adc`.
+- Direct llama.cpp server, binary SHA-256
+  `125e0938a280cba46c803a60178e51826203e030abacce03367a22108720f7ac`,
+  raw `/completion`, reasoning disabled, streaming disabled, one request at a
+  time, and no speculative decoding. The immutable personal `start-model.ps1`
+  is a path reference only and is not executed or modified.
 - Source `Qwen3.8-27B-UD-Q4_K_XL.gguf`, SHA-256
   `bee238bbeb3dc0a34bde4d0dedbaee1f98c009e8bb4226f03070054c12fb1372`.
-- `num_ctx=65536`; all 21,558,366,042 runtime bytes must remain resident on
+- Launch flags are `--ctx-size 65536 --parallel 1 --cache-type-k q8_0
+  --cache-type-v q8_0 --flash-attn on --jinja --metrics --no-context-shift`.
+  MTP draft decoding, all other speculative decoding and the vision projector
+  are absent. Model weights and runtime buffers must remain fully resident on
   the NVIDIA GeForce RTX 5090 before and after every run phase.
 - Reader settings: `num_predict=8192`, temperature `.6`, top-p `.95`, top-k
   `20`, min-p `0`, repeat penalty `1.0`.
 - One reader sample per question-arm. Let `h` be SHA-256 of
   `lv009-reader-seed-v1 || NUL || comparison_key`; the seed is
-  `5100 + (big_endian_uint64(h[0:8]) mod 16400)`. The same question seed is
+    `5100 + (big_endian_uint64(h[0:8]) mod 16400)`. The same question seed is
   used for all four arms. Part 1 must verify this exact equation and its
   resulting distribution.
 - Question-arm execution order is ascending SHA-256 of
@@ -153,7 +162,7 @@ characterization on its selected 16-item primary sample.
 The 8,192-token ceiling is provisional until Part 1 examines full-population
 prompt and response risks. Before registration it may be raised if necessary
 and context-safe; after registration it is immutable. A row is complete when
-Ollama returns `done=true` and nonempty response bytes. A nonempty response
+  llama.cpp returns a completed response with nonempty content bytes. A nonempty response
 ending by length is retained and scored exactly as returned, with cap status
 reported. Output length is part of reader behavior, not grounds to discard the
 other 7,943 answers.
@@ -173,7 +182,7 @@ answer only—never arm, renderer, conversation split, prompt structure,
 predecessor result or mapping.
 
 Use the frozen HH-001 correctness rubric and closed-think/`VERDICT:` parse
-repair with the same registered Qwen3.8 alias. Judge settings are three passes
+repair with the same registered Qwen3.8 model. Judge settings are three passes
 with seeds `9100`, `9101`, `9102`, temperature `.2`, top-p `.9`, top-k `20`,
 min-p `0`, repeat penalty `1.0`, and `num_predict=4096`.
 
@@ -328,7 +337,7 @@ after the design is locked.
 
 - **PF1 inputs:** hash, identify and count registration, Part 1, full corpus,
   selection/prompt seals, vector cache, parser, renderer, model source and
-  manifest, process and GPU.
+  binary, process and GPU.
 - **PF2 mechanism identity:** verify every named route, allowance, group,
   variable, wrapper, order and question placement against committed real rows;
   reproduce the LV-008 prompt subset exactly and verify T3 inserts one reminder
@@ -379,7 +388,7 @@ Additional gates:
 - **G-SCORING:** exactly 18,480 parseable primary judgments, three per blind
   answer, plus 1,784 exact-refusal outcomes.
 - **G-CONTEXT:** every reader and judge prompt evaluates below 65,536 tokens.
-- **G-GPU:** the exact registered alias stays fully GPU-resident through every
+- **G-GPU:** the exact registered model stays fully GPU-resident through every
   live phase.
 - **G-SEPARATION:** prior answers, gold, evidence labels, mappings and outcomes
   cannot enter retrieval, rendering, scheduling or blind judging.
@@ -388,4 +397,3 @@ No new semantic coefficient, parser rule, clustering rule, retrieval route,
 budget, summary, answer-derived selector or generated label is permitted after
 registration. Embedding calls are counted separately and are not LLM calls in
 this program's terminology.
-

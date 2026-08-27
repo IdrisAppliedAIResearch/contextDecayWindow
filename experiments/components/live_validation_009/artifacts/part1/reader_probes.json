@@ -1,0 +1,47 @@
+{
+  "all_context_safe": true,
+  "all_nonempty": true,
+  "calls": 3,
+  "rows": [
+    {
+      "arm": "PAIRWISE",
+      "comparison_key": "882129ef5f428e537f169664f1c428ed7b5e957f6e5afe5e4fd0d526636bdb4c",
+      "name": "maximum_tokens",
+      "output_tokens": 6,
+      "prompt_sha256": "6055eb4740e673e4e5d9581609277fd89c5fa9a7b339575247b86de38ba339f6",
+      "prompt_tokens": 13420,
+      "response_bytes": 13,
+      "response_sha256": "810d7c3ca6aa6411102588f8636833035138a35f32f5e7b2df96d2ab2dc4d660",
+      "seed": 7088,
+      "stop_type": "eos",
+      "wall_seconds": 4.624
+    },
+    {
+      "arm": "COMMUNITY_QEACH",
+      "comparison_key": "c7cee183db24485152aba97dd76cc3fabc146771c68e4582888e9c75c1a87c70",
+      "name": "maximum_communities",
+      "output_tokens": 8,
+      "prompt_sha256": "f684bcd8833c418821fdd502fcecd16228c6ac946a771fa2cab9133a65542659",
+      "prompt_tokens": 10759,
+      "response_bytes": 35,
+      "response_sha256": "48fdadc12513784716134fd268bef908805a248c5f4d80810c32001f8aa99aaf",
+      "seed": 6873,
+      "stop_type": "eos",
+      "wall_seconds": 3.886
+    },
+    {
+      "arm": "COMMUNITY_QB",
+      "comparison_key": "c0be5dc5bb6a516c1deed9f06c5c9cac280f332ce134f31733e55c3dbd4bb891",
+      "name": "lv008_capped_reader",
+      "output_tokens": 2,
+      "prompt_sha256": "b994fccfe5c7e5b6ce9db45ebc6a9dacc2e7332895879d64d63dbd0a76cabd8b",
+      "prompt_tokens": 8959,
+      "response_bytes": 1,
+      "response_sha256": "4e07408562bedb8b60ce05c1decfe3ad16b72230967de01f640b7e4729b49fce",
+      "seed": 5008,
+      "stop_type": "eos",
+      "wall_seconds": 3.132
+    }
+  ],
+  "schema": "lv009-reader-probes-v1"
+}
