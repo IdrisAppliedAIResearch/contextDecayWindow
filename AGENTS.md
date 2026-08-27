@@ -252,6 +252,12 @@ test that answers it.
 ### Runtime and determinism
 
 - Use a fixed seed, `--parallel 1`, and no speculative decoding.
+- Saturate available hardware for CPU-bound offline exploration, replay,
+  preprocessing, sealing and scoring whenever deterministic independent shards
+  exist. Measure worker count and aggregate utilization early; do not leave a
+  long study job on one core by default. Registered serial inference and gate
+  ordering still govern. When they prevent full utilization, record the exact
+  constraint and use the maximum safe concurrency it permits.
 - Record the launch command and server build hash in every run header.
 - Require a byte-identical seeded prefix rerun.
 - Assert the script SHA after decoding and use explicit UTF-8 encoding.
