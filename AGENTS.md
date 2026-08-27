@@ -144,6 +144,8 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **LV-005/006 context organization (2026-08-26).** WEAK_SIGNAL. Same frozen opportunity evidence: flat/grouped/chrono/guided score 5/6/6/6 on 16 selected items. Guided vs flat has 1 breadth gain, 0 losses; guidance vs chrono ties, so only the bundle carries signal. Median block grows 31,983->42,542 chars. No adoption/transfer.
 
+**LV-007 compact communities (2026-08-26).** STOP before judging. Fixed evidence stayed exact; median block fell 42,542->32,973 chars. One COMMUNITY answer among 255 hit the locked 2,048-token cap, so G-COMPLETE failed. No blind surface, scoring or result. A common-cap continuation requires new Part 1 and registration.
+
 **PS-001 pattern-separated engram formation (2026-08-11).** CHARACTERIZED. Nine deterministic sparse cells on 119 episodes; only D=4096,K=41 passed G3-G5: 119/119 fixed points and exact 1/10/30/50% swap recovery. Six of seven degenerates reached stored codes; the union-biased cue cycled. Code-space result only; no natural cue, retrieval, live run, promotion, or adoption.
 
 **PS-002 natural-language cue binding (2026-08-11).** STOP AT PART 1; NATURAL_CUES_NOT_BOUND, CHARACTERIZED. Nine label-blind cells ran 24 sealed queries x8 rounds. Best M=4,tau=.025 reached stored codes 190/192 but one cue cycled and one reached a spurious fixed point; no cell emitted 8 clean ids/query. Labels, PF1-PF10, answers, live run, promotion and adoption not entered.
