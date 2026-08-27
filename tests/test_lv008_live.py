@@ -9,6 +9,7 @@ from analysis.lv008_live import (
     REGISTRATION,
     REGISTRATION_SHA256,
     _prompt_rows,
+    _poststop_generation_complete,
     _reachability,
     arm_order,
     blind_id,
@@ -61,3 +62,20 @@ def test_all_dispositions_are_reachable() -> None:
 def test_judge_prompt_uses_registered_parse_repair() -> None:
     prompt = repaired_judge_prompt({"question": "Q?", "gold": "A", "answer": "A"})
     assert prompt.endswith(CLOSED_THINK_SUFFIX + "VERDICT:")
+
+
+def test_poststop_override_accepts_only_the_exact_sealed_shape() -> None:
+    summary = {
+        "validation": {
+            "rows": 255,
+            "expected": 255,
+            "duplicates": 0,
+            "missing": 0,
+            "extra": 0,
+            "truncated": 1,
+            "gpu_only_after": True,
+        }
+    }
+    assert _poststop_generation_complete(summary)
+    summary["validation"]["truncated"] = 2
+    assert not _poststop_generation_complete(summary)

@@ -388,9 +388,25 @@ def run_generation() -> dict[str, Any]:
     return summary
 
 
-def prepare_blind() -> dict[str, Any]:
+def _poststop_generation_complete(summary: Mapping[str, Any]) -> bool:
+    validation = summary["validation"]
+    return (
+        int(validation["rows"]) == 255
+        and int(validation["expected"]) == 255
+        and int(validation["duplicates"]) == 0
+        and int(validation["missing"]) == 0
+        and int(validation["extra"]) == 0
+        and int(validation["truncated"]) == 1
+        and bool(validation["gpu_only_after"])
+    )
+
+
+def prepare_blind(*, poststop: bool = False) -> dict[str, Any]:
     summary = json.loads(GENERATION_SUMMARY.read_text(encoding="utf-8"))
-    if not summary["validation"]["pass"] or sha256_file(GENERATION) != summary["answers_sha256"]:
+    generation_valid = bool(summary["validation"]["pass"]) or (
+        poststop and _poststop_generation_complete(summary)
+    )
+    if not generation_valid or sha256_file(GENERATION) != summary["answers_sha256"]:
         raise LV008LiveError("sealed complete answers required")
     answers = _read_jsonl(GENERATION)
     gold = _gold_records()
@@ -410,7 +426,12 @@ def prepare_blind() -> dict[str, Any]:
 
     write_gzip_rows(BLIND_SURFACE, surface)
     _write_json(BLIND_MAPPING, {"schema": "lv008-blind-mapping-v1", "mapping": mapping})
-    return {"surface": len(surface), "surface_sha256": sha256_file(BLIND_SURFACE), "mapping_sha256": sha256_file(BLIND_MAPPING)}
+    return {
+        "surface": len(surface),
+        "surface_sha256": sha256_file(BLIND_SURFACE),
+        "mapping_sha256": sha256_file(BLIND_MAPPING),
+        "poststop": poststop,
+    }
 
 
 def _surface_rows() -> list[dict[str, Any]]:
@@ -468,11 +489,14 @@ def run_judging() -> dict[str, Any]:
     return summary
 
 
-def analyze() -> dict[str, Any]:
+def analyze(*, poststop: bool = False) -> dict[str, Any]:
     mapping = _load_mapping()
     generation = json.loads(GENERATION_SUMMARY.read_text(encoding="utf-8"))
     judging = json.loads(JUDGMENT_SUMMARY.read_text(encoding="utf-8"))
-    if not generation["validation"]["pass"] or not judging["validation"]["pass"]:
+    generation_valid = bool(generation["validation"]["pass"]) or (
+        poststop and _poststop_generation_complete(generation)
+    )
+    if not generation_valid or not judging["validation"]["pass"]:
         raise LV008LiveError("complete generation and judging required")
     answers = _read_jsonl(GENERATION)
     judgments = _read_jsonl(JUDGMENTS)
@@ -518,6 +542,8 @@ def analyze() -> dict[str, Any]:
     prompts = _prompt_rows(PROMPTS)
     result = {
         "schema": "lv008-result-v1",
+        "registered_result": not poststop,
+        "analysis_type": "POSTSTOP_USER_AUTHORIZED" if poststop else "REGISTERED",
         "comparisons": comparisons,
         "totals": {arm: sum(row[f"{arm}_semantic"] for row in item_rows) for arm in ARMS},
         "adversarial_refusal_votes": {arm: {"refusals": sum(values), "n": len(values)} for arm, values in adversarial.items()},
@@ -527,7 +553,7 @@ def analyze() -> dict[str, Any]:
         "prompt_tokens": generation["prompt_tokens"],
         "artifacts": {"prompts_sha256": sha256_file(PROMPTS), "answers_sha256": sha256_file(GENERATION), "surface_sha256": sha256_file(BLIND_SURFACE), "mapping_sha256": sha256_file(BLIND_MAPPING), "judgments_sha256": sha256_file(JUDGMENTS)},
         "calls": {"reader": 255, "judge": 720, "preflight_reader": 4, "embedding": 0},
-        "claim_boundary": "selected LoCoMo development fixed-prompt Qwen3.8 rendering probe; no overall score, transfer, optimal renderer, model generality, adoption or production claim",
+        "claim_boundary": "post-stop descriptive scoring of the sealed Qwen3.8 answers; the registered LV-008 result remains stopped and this is not an adoption claim" if poststop else "selected LoCoMo development fixed-prompt Qwen3.8 rendering probe; no overall score, transfer, optimal renderer, model generality, adoption or production claim",
     }
     _write_json(RESULT, result)
     PER_ITEM.parent.mkdir(parents=True, exist_ok=True)
@@ -540,9 +566,17 @@ def analyze() -> dict[str, Any]:
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("phase", choices=("preflight", "generate", "blind", "judge", "analyze"))
+    parser.add_argument("phase", choices=("preflight", "generate", "blind", "blind-poststop", "judge", "analyze", "analyze-poststop"))
     args = parser.parse_args()
-    actions = {"preflight": run_preflight, "generate": run_generation, "blind": prepare_blind, "judge": run_judging, "analyze": analyze}
+    actions = {
+        "preflight": run_preflight,
+        "generate": run_generation,
+        "blind": prepare_blind,
+        "blind-poststop": lambda: prepare_blind(poststop=True),
+        "judge": run_judging,
+        "analyze": analyze,
+        "analyze-poststop": lambda: analyze(poststop=True),
+    }
     print(json.dumps(actions[args.phase](), indent=2, sort_keys=True))
 
 
