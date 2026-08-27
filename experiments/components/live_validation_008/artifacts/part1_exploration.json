@@ -1,7 +1,7 @@
 {
   "absorbing_states": {
-    "output_cap": "a completion that reaches its common cap stops as limit and invalidates the run before judging",
-    "reader_change": "Qwen3.8 outputs cannot complete or repair the stopped Qwen3.5 LV-007 schedule; all arms must be regenerated"
+    "output_cap": "a completion that reaches its common cap stops by length and invalidates the run before judging",
+    "reader_change": "Qwen3.8 Q4 outputs cannot complete or repair the stopped Qwen3.6 Q6 LV-007 schedule; all arms must be regenerated"
   },
   "answer_text_opened_by_operator": false,
   "behavioral_identity": {
@@ -19,11 +19,11 @@
       "4096": true
     },
     "cross_cap_identical": true,
+    "gpu_only": true,
     "natural_stop": {
       "2048": true,
       "4096": true
-    },
-    "no_speculative_work": true
+    }
   },
   "inputs": {
     "anchors": {
@@ -43,67 +43,111 @@
     "truncated": 1
   },
   "labels_opened": false,
-  "metrics": {
+  "process": {
     "after": {
-      "llamacpp:spec_decode_num_accepted_tokens_total": 0.0,
-      "llamacpp:spec_decode_num_draft_tokens_total": 0.0,
-      "llamacpp:spec_decode_num_drafts_total": 0.0
+      "models": [
+        {
+          "context_length": 65536,
+          "details": {
+            "families": [
+              "qwen35"
+            ],
+            "family": "qwen35",
+            "format": "gguf",
+            "parameter_size": "27.3B",
+            "parent_model": "",
+            "quantization_level": "Q4_K_S"
+          },
+          "digest": "281d02f0ad1a4b4928fcf1450e6bd1bb88e0d57c0051df03a993265ec6662adc",
+          "expires_at": "2026-08-26T22:05:44.1710304-05:00",
+          "model": "lv008-qwen38-q4:latest",
+          "name": "lv008-qwen38-q4:latest",
+          "size": 21558366042,
+          "size_vram": 21558366042
+        }
+      ]
     },
     "before": {
-      "llamacpp:spec_decode_num_accepted_tokens_total": 0.0,
-      "llamacpp:spec_decode_num_draft_tokens_total": 0.0,
-      "llamacpp:spec_decode_num_drafts_total": 0.0
+      "models": [
+        {
+          "context_length": 65536,
+          "details": {
+            "families": [
+              "qwen35"
+            ],
+            "family": "qwen35",
+            "format": "gguf",
+            "parameter_size": "27.3B",
+            "parent_model": "",
+            "quantization_level": "Q4_K_S"
+          },
+          "digest": "281d02f0ad1a4b4928fcf1450e6bd1bb88e0d57c0051df03a993265ec6662adc",
+          "expires_at": "2026-08-26T22:05:29.0136872-05:00",
+          "model": "lv008-qwen38-q4:latest",
+          "name": "lv008-qwen38-q4:latest",
+          "size": 21558366042,
+          "size_vram": 21558366042
+        }
+      ]
     }
   },
   "repeats": {
     "2048": [
       {
-        "output_tokens": 33,
+        "output_tokens": 12,
         "prompt_tokens": 9008,
-        "response_sha256": "98a3dcda4ff90d3e521ccdb85319b389f7a2117defa1223f040102328278c3f9",
+        "response_sha256": "d993af43c78fee1775ba2f2d3f864c71a8d1dbc4615119307ce4f43dc875bdef",
         "seed": 5005,
-        "speculative_types": "none",
-        "stop_type": "eos",
-        "wall_seconds": 588.365
+        "stop_type": "stop",
+        "wall_seconds": 0.292
       },
       {
-        "output_tokens": 33,
+        "output_tokens": 12,
         "prompt_tokens": 9008,
-        "response_sha256": "98a3dcda4ff90d3e521ccdb85319b389f7a2117defa1223f040102328278c3f9",
+        "response_sha256": "d993af43c78fee1775ba2f2d3f864c71a8d1dbc4615119307ce4f43dc875bdef",
         "seed": 5005,
-        "speculative_types": "none",
-        "stop_type": "eos",
-        "wall_seconds": 12.183
+        "stop_type": "stop",
+        "wall_seconds": 0.268
       }
     ],
     "4096": [
       {
-        "output_tokens": 33,
+        "output_tokens": 12,
         "prompt_tokens": 9008,
-        "response_sha256": "98a3dcda4ff90d3e521ccdb85319b389f7a2117defa1223f040102328278c3f9",
+        "response_sha256": "d993af43c78fee1775ba2f2d3f864c71a8d1dbc4615119307ce4f43dc875bdef",
         "seed": 5005,
-        "speculative_types": "none",
-        "stop_type": "eos",
-        "wall_seconds": 12.271
+        "stop_type": "stop",
+        "wall_seconds": 0.286
       },
       {
-        "output_tokens": 33,
+        "output_tokens": 12,
         "prompt_tokens": 9008,
-        "response_sha256": "98a3dcda4ff90d3e521ccdb85319b389f7a2117defa1223f040102328278c3f9",
+        "response_sha256": "d993af43c78fee1775ba2f2d3f864c71a8d1dbc4615119307ce4f43dc875bdef",
         "seed": 5005,
-        "speculative_types": "none",
-        "stop_type": "eos",
-        "wall_seconds": 12.304
+        "stop_type": "stop",
+        "wall_seconds": 0.284
       }
     ]
   },
   "runtime": {
-    "build_info": "b10360-90e6a9131",
-    "context": 200192,
-    "default_speculative_types": "none",
-    "model_alias": "C:\\Users\\muzaf\\.cache\\huggingface\\hub\\models--unsloth--Qwen3.8-27B-GGUF\\snapshots\\f1bfb127c64f7072bdd2cad55f258b9c8b2910fe\\Qwen3.8-27B-UD-Q4_K_XL.gguf",
-    "model_ftype": "Q4_K - Small",
-    "server": "http://127.0.0.1:8000"
+    "context": 65536,
+    "model_alias": "lv008-qwen38-q4:latest",
+    "model_details": {
+      "families": [
+        "qwen35"
+      ],
+      "family": "qwen35",
+      "format": "gguf",
+      "parameter_size": "27.3B",
+      "parent_model": "",
+      "quantization_level": "Q4_K_S"
+    },
+    "model_digest": "281d02f0ad1a4b4928fcf1450e6bd1bb88e0d57c0051df03a993265ec6662adc",
+    "ollama_version": "0.33.0",
+    "server": "http://127.0.0.1:11434",
+    "size": 21558366042,
+    "size_vram": 21558366042,
+    "speculative_decoding": "not enabled or exposed by the frozen Ollama API call"
   },
   "schema": "lv008-part1-exploration-v2",
   "status": "RUNTIME_VIABLE",
