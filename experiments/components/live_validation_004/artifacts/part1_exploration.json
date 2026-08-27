@@ -1,0 +1,44 @@
+{
+  "schema": "lv004-part1-exploration-v1",
+  "status": "PART_1_COMPLETE",
+  "mechanism_identity": "retain 168 LV-003 answers and continue only the two deterministic truncated prompt/seed records",
+  "lv003_generation": {
+    "sha256": "e7a9a2343182502d0be1675ba5b797a2115e49b873709cb3614e22a9bd55e784",
+    "rows": 170,
+    "naturally_stopped": 168,
+    "truncated": 2,
+    "duplicates": 0,
+    "missing": 0,
+    "extra": 0
+  },
+  "truncated_records": [
+    {
+      "sample_id": "conv-42",
+      "source_index": 79,
+      "arm": "FULL_CC80",
+      "replicate": 2,
+      "seed": 5007,
+      "prompt_eval_count": 8416,
+      "eval_count": 512
+    },
+    {
+      "sample_id": "conv-42",
+      "source_index": 79,
+      "arm": "OPPORTUNITY",
+      "replicate": 3,
+      "seed": 5008,
+      "prompt_eval_count": 8447,
+      "eval_count": 512
+    }
+  ],
+  "proposed_repair": {
+    "num_predict": 2048,
+    "required_prefix_identity": "byte-for-byte preserved response text",
+    "replacement_scope": 2
+  },
+  "calls": {
+    "reader": 0,
+    "judge": 0,
+    "embedding": 0
+  }
+}

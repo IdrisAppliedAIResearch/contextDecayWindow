@@ -1,0 +1,98 @@
+{
+  "calls": {
+    "preflight_judge": 2
+  },
+  "pf1": {
+    "anchors": {
+      "answers": true,
+      "mapping": true,
+      "part1": true,
+      "partial": true,
+      "prompts": true,
+      "registration": true,
+      "surface": true
+    },
+    "partial_rows": 136,
+    "surface_rows": 320
+  },
+  "pf10": {
+    "judgment_is_measurement": true,
+    "sealed_live_answers": 340
+  },
+  "pf2": {
+    "exact_failed_repair_response_sha256": "99b6b8c59f2bb453d3856d4a79f9e812cc5620f443781ec68b4071a96a482a0c",
+    "exact_reproduction": true,
+    "part1_response_sha256": "99b6b8c59f2bb453d3856d4a79f9e812cc5620f443781ec68b4071a96a482a0c",
+    "repair_suffix": "VERDICT:"
+  },
+  "pf3": {
+    "append_flush_fsync": true,
+    "early_mapping_rejected": true,
+    "registration_before_implementation": true
+  },
+  "pf4": {
+    "dispositions": {
+      "breadth_guard": true,
+      "invalid": true,
+      "no_signal": true,
+      "promising": true,
+      "regresses": true,
+      "sign_guard": true,
+      "targeted_guard": true,
+      "weak": true
+    },
+    "part1_positive_control": true
+  },
+  "pf5": {
+    "expected_repaired_judgments": 960,
+    "partial_schedule_valid": true,
+    "surface_unique": true
+  },
+  "pf6": {
+    "prompt_digest_sha256": "62558b2990dac9968ad60a53fd25829a53d92ec06d77e397c541d32f7e5a07e3",
+    "repaired_prompt_digest_replay": true
+  },
+  "pf7": {
+    "byte_identical": true,
+    "gpu_only": true,
+    "naturally_stopped": true,
+    "ollama_process": {
+      "models": [
+        {
+          "context_length": 65536,
+          "details": {
+            "families": [
+              "qwen35"
+            ],
+            "family": "qwen35",
+            "format": "gguf",
+            "parameter_size": "27.3B",
+            "parent_model": "",
+            "quantization_level": "Q6_K"
+          },
+          "digest": "3516cd593f43f07312d78251081d0253f68e541f3ce83681fef0305611306fc2",
+          "expires_at": "2026-08-26T16:52:15.6848904-05:00",
+          "model": "qwen-custom:latest",
+          "name": "qwen-custom:latest",
+          "size": 26116232313,
+          "size_vram": 26116232313
+        }
+      ]
+    },
+    "parseable": true
+  },
+  "pf8": {
+    "power_unchanged": true,
+    "primary_items": 16,
+    "reader_replicates": 5
+  },
+  "pf9": {
+    "residuals": [
+      "repaired cue can alter judge verdict",
+      "same-model judge bias"
+    ],
+    "single_repaired_instrument_for_all": true
+  },
+  "schema": "lv006-preflight-v1",
+  "status": "PASS"
+}

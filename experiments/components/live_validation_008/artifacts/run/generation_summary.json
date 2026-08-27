@@ -1,0 +1,55 @@
+{
+  "answers_sha256": "738cefb23455e35876d9286f914aabe3c99d17e62def8ed5a88272743460ba11",
+  "calls": 255,
+  "ollama_process_after": {
+    "models": [
+      {
+        "context_length": 65536,
+        "details": {
+          "families": [
+            "qwen35"
+          ],
+          "family": "qwen35",
+          "format": "gguf",
+          "parameter_size": "27.3B",
+          "parent_model": "",
+          "quantization_level": "Q4_K_S"
+        },
+        "digest": "281d02f0ad1a4b4928fcf1450e6bd1bb88e0d57c0051df03a993265ec6662adc",
+        "expires_at": "2026-08-26T22:24:43.770487-05:00",
+        "model": "lv008-qwen38-q4:latest",
+        "name": "lv008-qwen38-q4:latest",
+        "size": 21558366042,
+        "size_vram": 21558366042
+      }
+    ]
+  },
+  "prompt_tokens": {
+    "COMMUNITY": {
+      "max": 9331,
+      "median": 9008,
+      "min": 8369
+    },
+    "COMMUNITY_QB": {
+      "max": 9342,
+      "median": 9021,
+      "min": 8383
+    },
+    "PAIRWISE": {
+      "max": 12545,
+      "median": 11545,
+      "min": 10807
+    }
+  },
+  "schema": "lv008-generation-summary-v1",
+  "validation": {
+    "duplicates": 0,
+    "expected": 255,
+    "extra": 0,
+    "gpu_only_after": true,
+    "missing": 0,
+    "pass": false,
+    "rows": 255,
+    "truncated": 1
+  }
+}
