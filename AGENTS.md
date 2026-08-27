@@ -146,7 +146,7 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **LV-007 compact communities (2026-08-26).** STOP before judging. Fixed evidence stayed exact; median block fell 42,542->32,973 chars. One COMMUNITY answer among 255 hit the locked 2,048-token cap, so G-COMPLETE failed. No blind surface, scoring or result. A common-cap continuation requires new Part 1 and registration.
 
-**LV-008 Qwen3.8 compact communities (2026-08-26).** STOP before judging. All 255 Qwen3.8 Q4 GPU answers persisted, but one COMMUNITY_QB breadth cell hit the common 4,096-token cap (seed 5008); G-COMPLETE failed. Zero blind surface/judgments/result; no answer text or gold opened. The single-prompt cap check did not generalize. No rerun/adoption.
+**LV-008 Qwen3.8 compact communities (2026-08-26).** REGISTERED STOP; POSTSTOP DESCRIPTIVE. One of 255 answers hit 4,096 but was judged correct 3/3. Pairwise/community/question-both = 4/5/8 of 16; full gains 4, loses 0 (breadth +3, targeted +1). Seven capped judge calls cause 0 majority flips when forced wrong. Promising signal; no adoption claim.
 
 **PS-001 pattern-separated engram formation (2026-08-11).** CHARACTERIZED. Nine deterministic sparse cells on 119 episodes; only D=4096,K=41 passed G3-G5: 119/119 fixed points and exact 1/10/30/50% swap recovery. Six of seven degenerates reached stored codes; the union-biased cue cycled. Code-space result only; no natural cue, retrieval, live run, promotion, or adoption.
 

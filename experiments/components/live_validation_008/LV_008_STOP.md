@@ -59,3 +59,40 @@ LV-008 makes no claim about pairwise rendering, semantic communities, question
 repetition, answer correctness or adoption. LV-007 remains independently
 stopped and unscored. Reader calls: 255 scheduled plus 4 Preflight. Judge and
 embedding calls: zero.
+
+## Post-stop descriptive scoring
+
+After the registered stop was sealed, the program owner explicitly directed
+the agent to judge the already generated answers without creating another
+study. This section does not convert LV-008 into a registered result.
+
+The frozen blind judge completed 720/720 judgments over 240 answers. Seven judge
+calls across six answers reached the resumed 512-token ceiling, but all emitted
+parseable verdicts. Forcing every capped judge verdict to incorrect changes
+zero answer majorities and zero item-arm majorities. The reader answer that
+caused the original 4,096-token stop was judged correct by all three judges.
+
+Item-level correct totals over the 16 primary questions:
+
+- `PAIRWISE`: 4
+- `COMMUNITY`: 5
+- `COMMUNITY_QB`: 8
+
+Descriptive paired changes:
+
+- `COMMUNITY` versus `PAIRWISE`: 1 gain, 0 losses; the gain is breadth.
+- `COMMUNITY_QB` versus `COMMUNITY`: 3 gains, 0 losses; 2 breadth and 1 targeted.
+- `COMMUNITY_QB` versus `PAIRWISE`: 4 gains, 0 losses; 3 breadth and 1 targeted.
+
+All three arms refused the category-5 item on 5/5 replicates. Containment tied
+on all 16 items, showing that the semantic judge—not literal gold containment—
+detected the answer gains. The combined renderer is a promising descriptive
+signal on this selected LoCoMo population, not a registered verdict or an
+adoption decision.
+
+- post-stop result SHA-256:
+  `c7927a500d7f0d50b8159819d4710d12966c56f188817541068bbbd56e108930`
+- per-item table SHA-256:
+  `aee09565b239aa906a87c3a322903f16fb271726120f052b4cfcf6e0168453ef`
+- blind judgments SHA-256:
+  `2e209db5bd481f98acb428addd653bfcb74f774d28c701d037b5539bebd3d011`
