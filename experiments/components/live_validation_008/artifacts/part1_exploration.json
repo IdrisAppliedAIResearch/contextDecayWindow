@@ -1,0 +1,114 @@
+{
+  "absorbing_states": {
+    "output_cap": "a completion that reaches its common cap stops as limit and invalidates the run before judging",
+    "reader_change": "Qwen3.8 outputs cannot complete or repair the stopped Qwen3.5 LV-007 schedule; all arms must be regenerated"
+  },
+  "answer_text_opened_by_operator": false,
+  "behavioral_identity": {
+    "candidate_continuation": "regenerate all three frozen prompt arms with a different Qwen3.8 reader under one common cap; this is a reader replication, not an LV-007 repair",
+    "lv007_stop": "all 255 scheduled reader answers exist, but one COMMUNITY answer ended by length at 2048 tokens, so LV-007 cannot be judged"
+  },
+  "calls": {
+    "embedding": 0,
+    "judge": 0,
+    "reader": 4
+  },
+  "checks": {
+    "byte_identical_within_cap": {
+      "2048": true,
+      "4096": true
+    },
+    "cross_cap_identical": true,
+    "natural_stop": {
+      "2048": true,
+      "4096": true
+    },
+    "no_speculative_work": true
+  },
+  "inputs": {
+    "anchors": {
+      "LV_007_STOP.md": "d1497d7aadc47f6f4afb67361d5f3face895dc6d07142dffefbfbb9412b74957",
+      "answers.jsonl": "da1f8f62ba571ab17660091610077b1171b72a8a529d984fbad5962f04141f22",
+      "generation_summary.json": "97a428cab42d9721c9c6af2d7b648113c0f4d76a1a2cf389e9be6677db05928f",
+      "prompts.jsonl.gz": "dc40d134e0e281fd0a064371620ce2a9a99f8f4a39855d3f32072ca9a844e9d9"
+    },
+    "answers": 255,
+    "failed_identity": {
+      "arm": "COMMUNITY",
+      "comparison_key": "7fd147b3cb2deb3677b72ea650c8453b67ff7f6a2e84e36d1d887c7a14608c85",
+      "replicate": 0,
+      "seed": 5005
+    },
+    "prompt_sha256": "7e932907281ca077dfae285205d56fbdf2ce1d152e7bcb1b37785718aa040143",
+    "truncated": 1
+  },
+  "labels_opened": false,
+  "metrics": {
+    "after": {
+      "llamacpp:spec_decode_num_accepted_tokens_total": 0.0,
+      "llamacpp:spec_decode_num_draft_tokens_total": 0.0,
+      "llamacpp:spec_decode_num_drafts_total": 0.0
+    },
+    "before": {
+      "llamacpp:spec_decode_num_accepted_tokens_total": 0.0,
+      "llamacpp:spec_decode_num_draft_tokens_total": 0.0,
+      "llamacpp:spec_decode_num_drafts_total": 0.0
+    }
+  },
+  "repeats": {
+    "2048": [
+      {
+        "output_tokens": 33,
+        "prompt_tokens": 9008,
+        "response_sha256": "98a3dcda4ff90d3e521ccdb85319b389f7a2117defa1223f040102328278c3f9",
+        "seed": 5005,
+        "speculative_types": "none",
+        "stop_type": "eos",
+        "wall_seconds": 588.365
+      },
+      {
+        "output_tokens": 33,
+        "prompt_tokens": 9008,
+        "response_sha256": "98a3dcda4ff90d3e521ccdb85319b389f7a2117defa1223f040102328278c3f9",
+        "seed": 5005,
+        "speculative_types": "none",
+        "stop_type": "eos",
+        "wall_seconds": 12.183
+      }
+    ],
+    "4096": [
+      {
+        "output_tokens": 33,
+        "prompt_tokens": 9008,
+        "response_sha256": "98a3dcda4ff90d3e521ccdb85319b389f7a2117defa1223f040102328278c3f9",
+        "seed": 5005,
+        "speculative_types": "none",
+        "stop_type": "eos",
+        "wall_seconds": 12.271
+      },
+      {
+        "output_tokens": 33,
+        "prompt_tokens": 9008,
+        "response_sha256": "98a3dcda4ff90d3e521ccdb85319b389f7a2117defa1223f040102328278c3f9",
+        "seed": 5005,
+        "speculative_types": "none",
+        "stop_type": "eos",
+        "wall_seconds": 12.304
+      }
+    ]
+  },
+  "runtime": {
+    "build_info": "b10360-90e6a9131",
+    "context": 200192,
+    "default_speculative_types": "none",
+    "model_alias": "C:\\Users\\muzaf\\.cache\\huggingface\\hub\\models--unsloth--Qwen3.8-27B-GGUF\\snapshots\\f1bfb127c64f7072bdd2cad55f258b9c8b2910fe\\Qwen3.8-27B-UD-Q4_K_XL.gguf",
+    "model_ftype": "Q4_K - Small",
+    "server": "http://127.0.0.1:8000"
+  },
+  "schema": "lv008-part1-exploration-v2",
+  "status": "RUNTIME_VIABLE",
+  "surrogate_audit": {
+    "can_pass_while_false": true,
+    "residual": "one prompt stopping naturally and replaying byte-identically does not prove all 255 calls will stop naturally or that compact rendering improves answers"
+  }
+}
