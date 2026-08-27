@@ -1,0 +1,293 @@
+{
+  "adversarial_refusal_votes": {
+    "FLAT": {
+      "n": 5,
+      "refusals": 5
+    },
+    "GROUPED": {
+      "n": 5,
+      "refusals": 5
+    },
+    "GROUPED_CHRONO": {
+      "n": 5,
+      "refusals": 5
+    },
+    "TEMPORAL_GUIDANCE": {
+      "n": 5,
+      "refusals": 5
+    }
+  },
+  "artifacts": {
+    "answers_sha256": "a3e9fbef31f1d6ffca2b4af1484982951447b98ec41a4c370a2f00d35de8a53f",
+    "judgments_sha256": "d37bdc091d4c19b7a5e722f3a8b5f4ff97a743dd5a806e1ab11e0894874d6fa4",
+    "prompts_sha256": "d0a3ac38e15c1738387c9d3216de532195959dd4c8ac7515a03209bbfebe8b80"
+  },
+  "calls": {
+    "repair_exploration_judge": 40,
+    "repair_preflight_judge": 2,
+    "repaired_judge": 960,
+    "reused_reader": 340
+  },
+  "claim_boundary": "selected LoCoMo development rendering-only reader probe; no overall score, transfer, inferred supersession, deployment or winner selection",
+  "comparisons": {
+    "CHRONO_INCREMENT": {
+      "baseline": "GROUPED",
+      "containment": {
+        "gains": 1,
+        "losses": 1,
+        "n": 16,
+        "net": 0,
+        "ties": 14,
+        "two_sided_exact_p": 1.0
+      },
+      "endpoint_sign_reversal": false,
+      "semantic": {
+        "breadth": {
+          "gains": 0,
+          "losses": 1,
+          "n": 5,
+          "net": -1,
+          "ties": 4,
+          "two_sided_exact_p": 1.0
+        },
+        "combined": {
+          "gains": 1,
+          "losses": 1,
+          "n": 16,
+          "net": 0,
+          "ties": 14,
+          "two_sided_exact_p": 1.0
+        },
+        "other": {
+          "gains": 0,
+          "losses": 0,
+          "n": 2,
+          "net": 0,
+          "ties": 2,
+          "two_sided_exact_p": 1.0
+        },
+        "targeted": {
+          "gains": 1,
+          "losses": 0,
+          "n": 9,
+          "net": 1,
+          "ties": 8,
+          "two_sided_exact_p": 1.0
+        }
+      },
+      "status": "REGRESSES",
+      "treatment": "GROUPED_CHRONO"
+    },
+    "GROUPED_CHRONO_vs_FLAT": {
+      "baseline": "FLAT",
+      "containment": {
+        "gains": 0,
+        "losses": 1,
+        "n": 16,
+        "net": -1,
+        "ties": 15,
+        "two_sided_exact_p": 1.0
+      },
+      "endpoint_sign_reversal": true,
+      "semantic": {
+        "breadth": {
+          "gains": 1,
+          "losses": 0,
+          "n": 5,
+          "net": 1,
+          "ties": 4,
+          "two_sided_exact_p": 1.0
+        },
+        "combined": {
+          "gains": 1,
+          "losses": 0,
+          "n": 16,
+          "net": 1,
+          "ties": 15,
+          "two_sided_exact_p": 1.0
+        },
+        "other": {
+          "gains": 0,
+          "losses": 0,
+          "n": 2,
+          "net": 0,
+          "ties": 2,
+          "two_sided_exact_p": 1.0
+        },
+        "targeted": {
+          "gains": 0,
+          "losses": 0,
+          "n": 9,
+          "net": 0,
+          "ties": 9,
+          "two_sided_exact_p": 1.0
+        }
+      },
+      "status": "NOT_INTERPRETABLE",
+      "treatment": "GROUPED_CHRONO"
+    },
+    "GROUPED_vs_FLAT": {
+      "baseline": "FLAT",
+      "containment": {
+        "gains": 0,
+        "losses": 1,
+        "n": 16,
+        "net": -1,
+        "ties": 15,
+        "two_sided_exact_p": 1.0
+      },
+      "endpoint_sign_reversal": true,
+      "semantic": {
+        "breadth": {
+          "gains": 2,
+          "losses": 0,
+          "n": 5,
+          "net": 2,
+          "ties": 3,
+          "two_sided_exact_p": 0.5
+        },
+        "combined": {
+          "gains": 2,
+          "losses": 1,
+          "n": 16,
+          "net": 1,
+          "ties": 13,
+          "two_sided_exact_p": 1.0
+        },
+        "other": {
+          "gains": 0,
+          "losses": 0,
+          "n": 2,
+          "net": 0,
+          "ties": 2,
+          "two_sided_exact_p": 1.0
+        },
+        "targeted": {
+          "gains": 0,
+          "losses": 1,
+          "n": 9,
+          "net": -1,
+          "ties": 8,
+          "two_sided_exact_p": 1.0
+        }
+      },
+      "status": "NOT_INTERPRETABLE",
+      "treatment": "GROUPED"
+    },
+    "GUIDANCE_INCREMENT": {
+      "baseline": "GROUPED_CHRONO",
+      "containment": {
+        "gains": 1,
+        "losses": 0,
+        "n": 16,
+        "net": 1,
+        "ties": 15,
+        "two_sided_exact_p": 1.0
+      },
+      "endpoint_sign_reversal": false,
+      "semantic": {
+        "breadth": {
+          "gains": 0,
+          "losses": 0,
+          "n": 5,
+          "net": 0,
+          "ties": 5,
+          "two_sided_exact_p": 1.0
+        },
+        "combined": {
+          "gains": 0,
+          "losses": 0,
+          "n": 16,
+          "net": 0,
+          "ties": 16,
+          "two_sided_exact_p": 1.0
+        },
+        "other": {
+          "gains": 0,
+          "losses": 0,
+          "n": 2,
+          "net": 0,
+          "ties": 2,
+          "two_sided_exact_p": 1.0
+        },
+        "targeted": {
+          "gains": 0,
+          "losses": 0,
+          "n": 9,
+          "net": 0,
+          "ties": 9,
+          "two_sided_exact_p": 1.0
+        }
+      },
+      "status": "NO_SIGNAL",
+      "treatment": "TEMPORAL_GUIDANCE"
+    },
+    "TEMPORAL_GUIDANCE_vs_FLAT": {
+      "baseline": "FLAT",
+      "containment": {
+        "gains": 0,
+        "losses": 0,
+        "n": 16,
+        "net": 0,
+        "ties": 16,
+        "two_sided_exact_p": 1.0
+      },
+      "endpoint_sign_reversal": false,
+      "semantic": {
+        "breadth": {
+          "gains": 1,
+          "losses": 0,
+          "n": 5,
+          "net": 1,
+          "ties": 4,
+          "two_sided_exact_p": 1.0
+        },
+        "combined": {
+          "gains": 1,
+          "losses": 0,
+          "n": 16,
+          "net": 1,
+          "ties": 15,
+          "two_sided_exact_p": 1.0
+        },
+        "other": {
+          "gains": 0,
+          "losses": 0,
+          "n": 2,
+          "net": 0,
+          "ties": 2,
+          "two_sided_exact_p": 1.0
+        },
+        "targeted": {
+          "gains": 0,
+          "losses": 0,
+          "n": 9,
+          "net": 0,
+          "ties": 9,
+          "two_sided_exact_p": 1.0
+        }
+      },
+      "status": "WEAK_SIGNAL",
+      "treatment": "TEMPORAL_GUIDANCE"
+    }
+  },
+  "instrument_repair": {
+    "original_partial_reused": 0,
+    "repaired_judgments": 960,
+    "suffix": "VERDICT:"
+  },
+  "judge_answer_disagreements": 4,
+  "reader_unanimous_items": {
+    "FLAT": 12,
+    "GROUPED": 12,
+    "GROUPED_CHRONO": 12,
+    "TEMPORAL_GUIDANCE": 12
+  },
+  "schema": "lv006-result-v1",
+  "totals": {
+    "FLAT": 5,
+    "GROUPED": 6,
+    "GROUPED_CHRONO": 6,
+    "TEMPORAL_GUIDANCE": 6
+  }
+}

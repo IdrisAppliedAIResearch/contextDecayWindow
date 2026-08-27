@@ -1,0 +1,165 @@
+{
+  "calls": {
+    "embedding": 0,
+    "judge": 0,
+    "preflight_reader": 4
+  },
+  "g_context": {
+    "max_prompt_utf8_bytes": 44772,
+    "pass": true
+  },
+  "g_gpu": {
+    "pass": true
+  },
+  "g_prompts": {
+    "pass": true,
+    "sha256": "dc40d134e0e281fd0a064371620ce2a9a99f8f4a39855d3f32072ca9a844e9d9"
+  },
+  "pf1": {
+    "anchors": {
+      "lv007_erratum": true,
+      "lv007_prompts": true,
+      "lv007_stop": true,
+      "model_manifest": true,
+      "model_source": true,
+      "part1": true,
+      "registration": true
+    },
+    "model": "lv008-qwen38-q4:latest",
+    "model_details": {
+      "families": [
+        "qwen35"
+      ],
+      "family": "qwen35",
+      "format": "gguf",
+      "parameter_size": "27.3B",
+      "parent_model": "",
+      "quantization_level": "Q4_K_S"
+    },
+    "ollama_version": "0.33.0",
+    "primary": 16,
+    "prompts": 17
+  },
+  "pf10": {
+    "live_reader_probe": true,
+    "structure_is_not_verdict": true
+  },
+  "pf2": {
+    "frozen_prompt_copy_exact": true,
+    "structural_checks": {
+      "absorbing_capacity_rows": 17,
+      "absorbing_singleton_rows": 17,
+      "cap_bound_per_prompt": {
+        "max": 3,
+        "median": 1,
+        "min": 0
+      },
+      "chronological_groups": 701,
+      "community_order_changes": 17,
+      "compact_rows": 17,
+      "episode_elements_exact": 51,
+      "expected_element_exact": 51,
+      "expected_set_exact": 51,
+      "group_size": {
+        "max": 8,
+        "median": 2,
+        "min": 1
+      },
+      "groups_per_prompt": {
+        "max": 49,
+        "median": 42,
+        "min": 29
+      },
+      "join_decisions": 985,
+      "mixed_groups_per_prompt": {
+        "max": 15,
+        "median": 11,
+        "min": 6
+      },
+      "new_decisions": 701,
+      "pairwise_exact": 17,
+      "question_top_exact": 17,
+      "same_community_block": 17,
+      "set_exact": 51,
+      "singletons_per_prompt": {
+        "max": 23,
+        "median": 17,
+        "min": 9
+      },
+      "total_groups": 701
+    }
+  },
+  "pf3": {
+    "append_flush_fsync": true,
+    "early_gold_forbidden_by_phase": true,
+    "early_mapping_rejected": true,
+    "registration_before_implementation": true
+  },
+  "pf4": {
+    "cap_reachable": true,
+    "reachability": {
+      "breadth_regression": true,
+      "combined_regression": true,
+      "invalid": true,
+      "no_signal": true,
+      "promising": true,
+      "sign_reversal": true,
+      "targeted_regression": true,
+      "weak": true
+    }
+  },
+  "pf5": {
+    "content_keyed": true,
+    "unique_questions": true
+  },
+  "pf6": {
+    "part1_response_reproduced": true,
+    "part1_response_sha256": "d993af43c78fee1775ba2f2d3f864c71a8d1dbc4615119307ce4f43dc875bdef",
+    "prompt_seal_reproduced": true
+  },
+  "pf7": {
+    "cap_absorbing_state": true,
+    "gpu_only": true,
+    "ollama_process": {
+      "models": [
+        {
+          "context_length": 65536,
+          "details": {
+            "families": [
+              "qwen35"
+            ],
+            "family": "qwen35",
+            "format": "gguf",
+            "parameter_size": "27.3B",
+            "parent_model": "",
+            "quantization_level": "Q4_K_S"
+          },
+          "digest": "281d02f0ad1a4b4928fcf1450e6bd1bb88e0d57c0051df03a993265ec6662adc",
+          "expires_at": "2026-08-26T22:12:16.7470209-05:00",
+          "model": "lv008-qwen38-q4:latest",
+          "name": "lv008-qwen38-q4:latest",
+          "size": 21558366042,
+          "size_vram": 21558366042
+        }
+      ]
+    },
+    "prefix_sha256": "67feb91698c9d4d2278bfa4ec327df3a09524823772ec7a9f3b0f7cf237afffb",
+    "prompt_eval_count": 8754,
+    "seeded_prefix_byte_identical": true
+  },
+  "pf8": {
+    "cannot_detect": "overall accuracy, small effects, transfer, production behavior or optimal rendering",
+    "primary_items": 16,
+    "replicates": 5
+  },
+  "pf9": {
+    "residuals": [
+      "compactness can improve without correctness",
+      "question repetition can change verbosity",
+      "exact evidence preservation can coexist with reader failure",
+      "same-model judge bias"
+    ]
+  },
+  "schema": "lv008-preflight-v1",
+  "status": "PASS"
+}

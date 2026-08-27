@@ -1,0 +1,107 @@
+{
+  "adversarial_refusal_votes": {
+    "FULL_CC80": {
+      "n": 5,
+      "refusals": 5
+    },
+    "OPPORTUNITY": {
+      "n": 5,
+      "refusals": 5
+    }
+  },
+  "artifacts": {
+    "answers_sha256": "639f789396807c89f3242bf9d4e2c05cbf5f349e444d5c1e38b54164c658aebe",
+    "judgments_sha256": "011f07da14d4d026202abe4afed0c57c0149327cf4c6c66a69fa6096b201707e",
+    "prompts_sha256": "c01cf11a5e2750c2ed8c03e90c813af7263de8a7fd2c4b78bacb72aa1207d5d8"
+  },
+  "calls": {
+    "judge": 480,
+    "preflight_reader": 2,
+    "repair_reader": 2,
+    "reused_reader_answers": 168
+  },
+  "claim_boundary": "selected LoCoMo development availability-discordant reader conversion only; no overall score, transfer or adoption claim",
+  "containment_crosscheck": {
+    "gains": 2,
+    "losses": 0,
+    "n": 16,
+    "net": 2,
+    "ties": 14,
+    "two_sided_exact_p": 0.5
+  },
+  "endpoint_sign_reversal": false,
+  "judge_answer_disagreements": 11,
+  "primary": {
+    "breadth": {
+      "gains": 0,
+      "losses": 1,
+      "n": 5,
+      "net": -1,
+      "ties": 4,
+      "two_sided_exact_p": 1.0
+    },
+    "combined": {
+      "gains": 1,
+      "losses": 1,
+      "n": 16,
+      "net": 0,
+      "ties": 14,
+      "two_sided_exact_p": 1.0
+    },
+    "offline_gain": {
+      "gains": 1,
+      "losses": 1,
+      "n": 11,
+      "net": 0,
+      "ties": 9,
+      "two_sided_exact_p": 1.0
+    },
+    "offline_loss": {
+      "gains": 0,
+      "losses": 0,
+      "n": 5,
+      "net": 0,
+      "ties": 5,
+      "two_sided_exact_p": 1.0
+    },
+    "other": {
+      "gains": 0,
+      "losses": 0,
+      "n": 2,
+      "net": 0,
+      "ties": 2,
+      "two_sided_exact_p": 1.0
+    },
+    "targeted": {
+      "gains": 1,
+      "losses": 0,
+      "n": 9,
+      "net": 1,
+      "ties": 8,
+      "two_sided_exact_p": 1.0
+    }
+  },
+  "reader_unanimous_items": {
+    "FULL_CC80": 11,
+    "OPPORTUNITY": 11
+  },
+  "repair": {
+    "expected": 2,
+    "naturally_stopped": true,
+    "pass": true,
+    "prefix_identity": true,
+    "record_identity": true,
+    "rows": 2,
+    "valid_keys": true
+  },
+  "schema": "lv004-result-v1",
+  "status": "REGRESSES",
+  "totals": {
+    "FULL_CC80": 5,
+    "OPPORTUNITY": 5
+  },
+  "unsupported_correct_item_majorities": {
+    "FULL_CC80": 4,
+    "OPPORTUNITY": 1
+  }
+}

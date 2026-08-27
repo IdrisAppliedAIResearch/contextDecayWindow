@@ -1,0 +1,224 @@
+{
+  "adversarial_refusal_votes": {
+    "COMMUNITY": {
+      "n": 5,
+      "refusals": 5
+    },
+    "COMMUNITY_QB": {
+      "n": 5,
+      "refusals": 5
+    },
+    "PAIRWISE": {
+      "n": 5,
+      "refusals": 5
+    }
+  },
+  "analysis_type": "POSTSTOP_USER_AUTHORIZED",
+  "artifacts": {
+    "answers_sha256": "738cefb23455e35876d9286f914aabe3c99d17e62def8ed5a88272743460ba11",
+    "judgments_sha256": "2e209db5bd481f98acb428addd653bfcb74f774d28c701d037b5539bebd3d011",
+    "mapping_sha256": "2b7faaedf2c2da7fa3e98fc4dbed90ae72c1dd44ae408844265c0abb98d7ad52",
+    "prompts_sha256": "dc40d134e0e281fd0a064371620ce2a9a99f8f4a39855d3f32072ca9a844e9d9",
+    "surface_sha256": "2bf22689920ed03bda5d795b66207a813ef60ee55983f45d5884f8746312ea32"
+  },
+  "block_chars": {
+    "COMMUNITY": {
+      "max": 33115,
+      "median": 32973,
+      "min": 32633
+    },
+    "COMMUNITY_QB": {
+      "max": 33115,
+      "median": 32973,
+      "min": 32633
+    },
+    "PAIRWISE": {
+      "max": 44397,
+      "median": 42542,
+      "min": 40973
+    }
+  },
+  "calls": {
+    "embedding": 0,
+    "judge": 720,
+    "preflight_reader": 4,
+    "reader": 255
+  },
+  "claim_boundary": "post-stop descriptive scoring of the sealed Qwen3.8 answers; the registered LV-008 result remains stopped and this is not an adoption claim",
+  "comparisons": {
+    "COMMUNITY_vs_PAIRWISE": {
+      "baseline": "PAIRWISE",
+      "containment": {
+        "gains": 0,
+        "losses": 0,
+        "n": 16,
+        "net": 0,
+        "ties": 16,
+        "two_sided_exact_p": 1.0
+      },
+      "endpoint_sign_reversal": false,
+      "semantic": {
+        "breadth": {
+          "gains": 1,
+          "losses": 0,
+          "n": 5,
+          "net": 1,
+          "ties": 4,
+          "two_sided_exact_p": 1.0
+        },
+        "combined": {
+          "gains": 1,
+          "losses": 0,
+          "n": 16,
+          "net": 1,
+          "ties": 15,
+          "two_sided_exact_p": 1.0
+        },
+        "other": {
+          "gains": 0,
+          "losses": 0,
+          "n": 2,
+          "net": 0,
+          "ties": 2,
+          "two_sided_exact_p": 1.0
+        },
+        "targeted": {
+          "gains": 0,
+          "losses": 0,
+          "n": 9,
+          "net": 0,
+          "ties": 9,
+          "two_sided_exact_p": 1.0
+        }
+      },
+      "status": "WEAK_SIGNAL",
+      "treatment": "COMMUNITY"
+    },
+    "FULL_vs_PAIRWISE": {
+      "baseline": "PAIRWISE",
+      "containment": {
+        "gains": 0,
+        "losses": 0,
+        "n": 16,
+        "net": 0,
+        "ties": 16,
+        "two_sided_exact_p": 1.0
+      },
+      "endpoint_sign_reversal": false,
+      "semantic": {
+        "breadth": {
+          "gains": 3,
+          "losses": 0,
+          "n": 5,
+          "net": 3,
+          "ties": 2,
+          "two_sided_exact_p": 0.25
+        },
+        "combined": {
+          "gains": 4,
+          "losses": 0,
+          "n": 16,
+          "net": 4,
+          "ties": 12,
+          "two_sided_exact_p": 0.125
+        },
+        "other": {
+          "gains": 0,
+          "losses": 0,
+          "n": 2,
+          "net": 0,
+          "ties": 2,
+          "two_sided_exact_p": 1.0
+        },
+        "targeted": {
+          "gains": 1,
+          "losses": 0,
+          "n": 9,
+          "net": 1,
+          "ties": 8,
+          "two_sided_exact_p": 1.0
+        }
+      },
+      "status": "PROMISING",
+      "treatment": "COMMUNITY_QB"
+    },
+    "QUESTION_REPEAT_INCREMENT": {
+      "baseline": "COMMUNITY",
+      "containment": {
+        "gains": 0,
+        "losses": 0,
+        "n": 16,
+        "net": 0,
+        "ties": 16,
+        "two_sided_exact_p": 1.0
+      },
+      "endpoint_sign_reversal": false,
+      "semantic": {
+        "breadth": {
+          "gains": 2,
+          "losses": 0,
+          "n": 5,
+          "net": 2,
+          "ties": 3,
+          "two_sided_exact_p": 0.5
+        },
+        "combined": {
+          "gains": 3,
+          "losses": 0,
+          "n": 16,
+          "net": 3,
+          "ties": 13,
+          "two_sided_exact_p": 0.25
+        },
+        "other": {
+          "gains": 0,
+          "losses": 0,
+          "n": 2,
+          "net": 0,
+          "ties": 2,
+          "two_sided_exact_p": 1.0
+        },
+        "targeted": {
+          "gains": 1,
+          "losses": 0,
+          "n": 9,
+          "net": 1,
+          "ties": 8,
+          "two_sided_exact_p": 1.0
+        }
+      },
+      "status": "PROMISING",
+      "treatment": "COMMUNITY_QB"
+    }
+  },
+  "judge_answer_disagreements": 6,
+  "prompt_tokens": {
+    "COMMUNITY": {
+      "max": 9331,
+      "median": 9008,
+      "min": 8369
+    },
+    "COMMUNITY_QB": {
+      "max": 9342,
+      "median": 9021,
+      "min": 8383
+    },
+    "PAIRWISE": {
+      "max": 12545,
+      "median": 11545,
+      "min": 10807
+    }
+  },
+  "reader_unanimous_items": {
+    "COMMUNITY": 11,
+    "COMMUNITY_QB": 12,
+    "PAIRWISE": 12
+  },
+  "registered_result": false,
+  "schema": "lv008-result-v1",
+  "totals": {
+    "COMMUNITY": 5,
+    "COMMUNITY_QB": 8,
+    "PAIRWISE": 4
+  }
+}

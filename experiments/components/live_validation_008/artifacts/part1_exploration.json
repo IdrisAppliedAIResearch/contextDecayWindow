@@ -1,0 +1,158 @@
+{
+  "absorbing_states": {
+    "output_cap": "a completion that reaches its common cap stops by length and invalidates the run before judging",
+    "reader_change": "Qwen3.8 Q4 outputs cannot complete or repair the stopped Qwen3.6 Q6 LV-007 schedule; all arms must be regenerated"
+  },
+  "answer_text_opened_by_operator": false,
+  "behavioral_identity": {
+    "candidate_continuation": "regenerate all three frozen prompt arms with a different Qwen3.8 reader under one common cap; this is a reader replication, not an LV-007 repair",
+    "lv007_stop": "all 255 scheduled reader answers exist, but one COMMUNITY answer ended by length at 2048 tokens, so LV-007 cannot be judged"
+  },
+  "calls": {
+    "embedding": 0,
+    "judge": 0,
+    "reader": 4
+  },
+  "checks": {
+    "byte_identical_within_cap": {
+      "2048": true,
+      "4096": true
+    },
+    "cross_cap_identical": true,
+    "gpu_only": true,
+    "natural_stop": {
+      "2048": true,
+      "4096": true
+    }
+  },
+  "inputs": {
+    "anchors": {
+      "LV_007_STOP.md": "d1497d7aadc47f6f4afb67361d5f3face895dc6d07142dffefbfbb9412b74957",
+      "answers.jsonl": "da1f8f62ba571ab17660091610077b1171b72a8a529d984fbad5962f04141f22",
+      "generation_summary.json": "97a428cab42d9721c9c6af2d7b648113c0f4d76a1a2cf389e9be6677db05928f",
+      "prompts.jsonl.gz": "dc40d134e0e281fd0a064371620ce2a9a99f8f4a39855d3f32072ca9a844e9d9"
+    },
+    "answers": 255,
+    "failed_identity": {
+      "arm": "COMMUNITY",
+      "comparison_key": "7fd147b3cb2deb3677b72ea650c8453b67ff7f6a2e84e36d1d887c7a14608c85",
+      "replicate": 0,
+      "seed": 5005
+    },
+    "prompt_sha256": "7e932907281ca077dfae285205d56fbdf2ce1d152e7bcb1b37785718aa040143",
+    "truncated": 1
+  },
+  "labels_opened": false,
+  "process": {
+    "after": {
+      "models": [
+        {
+          "context_length": 65536,
+          "details": {
+            "families": [
+              "qwen35"
+            ],
+            "family": "qwen35",
+            "format": "gguf",
+            "parameter_size": "27.3B",
+            "parent_model": "",
+            "quantization_level": "Q4_K_S"
+          },
+          "digest": "281d02f0ad1a4b4928fcf1450e6bd1bb88e0d57c0051df03a993265ec6662adc",
+          "expires_at": "2026-08-26T22:05:44.1710304-05:00",
+          "model": "lv008-qwen38-q4:latest",
+          "name": "lv008-qwen38-q4:latest",
+          "size": 21558366042,
+          "size_vram": 21558366042
+        }
+      ]
+    },
+    "before": {
+      "models": [
+        {
+          "context_length": 65536,
+          "details": {
+            "families": [
+              "qwen35"
+            ],
+            "family": "qwen35",
+            "format": "gguf",
+            "parameter_size": "27.3B",
+            "parent_model": "",
+            "quantization_level": "Q4_K_S"
+          },
+          "digest": "281d02f0ad1a4b4928fcf1450e6bd1bb88e0d57c0051df03a993265ec6662adc",
+          "expires_at": "2026-08-26T22:05:29.0136872-05:00",
+          "model": "lv008-qwen38-q4:latest",
+          "name": "lv008-qwen38-q4:latest",
+          "size": 21558366042,
+          "size_vram": 21558366042
+        }
+      ]
+    }
+  },
+  "repeats": {
+    "2048": [
+      {
+        "output_tokens": 12,
+        "prompt_tokens": 9008,
+        "response_sha256": "d993af43c78fee1775ba2f2d3f864c71a8d1dbc4615119307ce4f43dc875bdef",
+        "seed": 5005,
+        "stop_type": "stop",
+        "wall_seconds": 0.292
+      },
+      {
+        "output_tokens": 12,
+        "prompt_tokens": 9008,
+        "response_sha256": "d993af43c78fee1775ba2f2d3f864c71a8d1dbc4615119307ce4f43dc875bdef",
+        "seed": 5005,
+        "stop_type": "stop",
+        "wall_seconds": 0.268
+      }
+    ],
+    "4096": [
+      {
+        "output_tokens": 12,
+        "prompt_tokens": 9008,
+        "response_sha256": "d993af43c78fee1775ba2f2d3f864c71a8d1dbc4615119307ce4f43dc875bdef",
+        "seed": 5005,
+        "stop_type": "stop",
+        "wall_seconds": 0.286
+      },
+      {
+        "output_tokens": 12,
+        "prompt_tokens": 9008,
+        "response_sha256": "d993af43c78fee1775ba2f2d3f864c71a8d1dbc4615119307ce4f43dc875bdef",
+        "seed": 5005,
+        "stop_type": "stop",
+        "wall_seconds": 0.284
+      }
+    ]
+  },
+  "runtime": {
+    "context": 65536,
+    "model_alias": "lv008-qwen38-q4:latest",
+    "model_details": {
+      "families": [
+        "qwen35"
+      ],
+      "family": "qwen35",
+      "format": "gguf",
+      "parameter_size": "27.3B",
+      "parent_model": "",
+      "quantization_level": "Q4_K_S"
+    },
+    "model_digest": "281d02f0ad1a4b4928fcf1450e6bd1bb88e0d57c0051df03a993265ec6662adc",
+    "ollama_version": "0.33.0",
+    "server": "http://127.0.0.1:11434",
+    "size": 21558366042,
+    "size_vram": 21558366042,
+    "speculative_decoding": "not enabled or exposed by the frozen Ollama API call"
+  },
+  "schema": "lv008-part1-exploration-v2",
+  "status": "RUNTIME_VIABLE",
+  "surrogate_audit": {
+    "can_pass_while_false": true,
+    "residual": "one prompt stopping naturally and replaying byte-identically does not prove all 255 calls will stop naturally or that compact rendering improves answers"
+  }
+}

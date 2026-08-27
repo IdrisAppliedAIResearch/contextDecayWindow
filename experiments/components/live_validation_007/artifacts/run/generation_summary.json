@@ -1,0 +1,31 @@
+{
+  "answers_sha256": "da1f8f62ba571ab17660091610077b1171b72a8a529d984fbad5962f04141f22",
+  "calls": 255,
+  "prompt_tokens": {
+    "COMMUNITY": {
+      "max": 9331,
+      "median": 9008,
+      "min": 8369
+    },
+    "COMMUNITY_QB": {
+      "max": 9342,
+      "median": 9021,
+      "min": 8383
+    },
+    "PAIRWISE": {
+      "max": 12545,
+      "median": 11545,
+      "min": 10807
+    }
+  },
+  "schema": "lv007-generation-summary-v1",
+  "validation": {
+    "duplicates": 0,
+    "expected": 255,
+    "extra": 0,
+    "missing": 0,
+    "pass": false,
+    "rows": 255,
+    "truncated": 1
+  }
+}
