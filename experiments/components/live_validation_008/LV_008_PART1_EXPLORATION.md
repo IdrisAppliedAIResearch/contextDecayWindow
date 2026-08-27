@@ -6,7 +6,7 @@ Status: `RUNTIME_VIABLE`
 
 ## Purpose
 
-LV-007 stopped before judging because one of its 255 Qwen3.5 reader answers
+LV-007 stopped before judging because one of its 255 `qwen-custom` reader answers
 reached the common 2,048-token output cap. This exploration asks whether the
 currently available Qwen3.8 reader provides a deterministic, non-speculative
 runtime for a fresh replication of the three frozen renderers. It does not
@@ -51,6 +51,11 @@ one capped answer: `COMMUNITY`, replicate 0, seed 5005, comparison key
 `7fd147...08c85`. Under the new reader, this exact 9,008-token prompt produced
 33 output tokens and an EOS stop.
 
+The locked LV-007 registration incorrectly called that reader Qwen3.5 by
+mistaking its `qwen35` architecture label for a model version. The frozen
+manifest actually resolves to a Q6_K blob whose embedded metadata identifies
+`Qwen3.6-27B`; see `LV_007_ERRATUM_001.md`.
+
 At both output caps, two same-seed repeats were byte-identical. The response
 hash was also identical across the 2,048- and 4,096-token caps. Thus the cap is
 not binding on this trace under Qwen3.8; changing the reader changes the
@@ -73,9 +78,9 @@ tokens, zero accepted draft tokens, and zero draft verification steps.
 
 - Output-cap absorption: any answer reaching the common cap makes the new run
   invalid before blind judging.
-- Reader-change absorption: Qwen3.8 outputs cannot fill the missing cell or
-  complete LV-007. A valid continuation must regenerate all arms and
-  replicates under the same new reader.
+- Reader-change absorption: the Qwen3.8 Q4_K_XL outputs cannot fill the missing
+  Qwen3.6 Q6_K cell or complete LV-007. A valid continuation must regenerate all
+  arms and replicates under the same new reader.
 - Warm-cache absorption: the first request includes model loading; latency from
   that request cannot certify steady-state generation cost.
 
