@@ -33,7 +33,8 @@ FAILED_ARM = "COMMUNITY"
 FAILED_REPLICATE = 0
 FAILED_SEED = 5005
 CAPS = (2048, 4096)
-SERVER = "http://127.0.0.1:8000"
+SERVER = "http://127.0.0.1:11434"
+MODEL = "lv008-qwen38-q4:latest"
 
 
 class LV008ExplorationError(RuntimeError):
@@ -54,27 +55,6 @@ def _request(path: str, body: Mapping[str, Any] | None = None) -> dict[str, Any]
         raise LV008ExplorationError(f"llama-server request failed at {path}: {error}") from error
 
 
-def _metrics() -> dict[str, float]:
-    try:
-        with urllib.request.urlopen(f"{SERVER}/metrics", timeout=30.0) as response:
-            lines = response.read().decode("utf-8").splitlines()
-    except (urllib.error.URLError, TimeoutError) as error:
-        raise LV008ExplorationError(f"llama-server metrics failed: {error}") from error
-    wanted = {
-        "llamacpp:spec_decode_num_draft_tokens_total",
-        "llamacpp:spec_decode_num_accepted_tokens_total",
-        "llamacpp:spec_decode_num_drafts_total",
-    }
-    values: dict[str, float] = {}
-    for line in lines:
-        if not line or line.startswith("#") or "{" in line:
-            continue
-        name, _, raw = line.partition(" ")
-        if name in wanted:
-            values[name] = float(raw)
-    return values
-
-
 def _read_prompts() -> list[dict[str, Any]]:
     with gzip.open(LV007_PROMPTS, "rt", encoding="utf-8") as handle:
         return [json.loads(line) for line in handle if line.strip()]
@@ -88,30 +68,36 @@ def _read_answers() -> list[dict[str, Any]]:
 def _generate(prompt: str, seed: int, cap: int) -> dict[str, Any]:
     started = time.perf_counter()
     payload = _request(
-        "/completion",
+        "/api/generate",
         {
+            "model": MODEL,
             "prompt": prompt,
-            "seed": seed,
-            "n_predict": cap,
-            "temperature": 0.6,
-            "top_p": 0.95,
-            "top_k": 20,
-            "min_p": 0.0,
-            "repeat_penalty": 1.0,
+            "raw": True,
+            "think": False,
             "stream": False,
+            "keep_alive": "30m",
+            "options": {
+                "seed": seed,
+                "num_ctx": 65_536,
+                "num_predict": cap,
+                "temperature": 0.6,
+                "top_p": 0.95,
+                "top_k": 20,
+                "min_p": 0.0,
+                "repeat_penalty": 1.0,
+            },
         },
     )
-    text = str(payload.get("content", "")).strip()
+    text = str(payload.get("response", "")).strip()
     if not text:
-        raise LV008ExplorationError("llama-server returned an empty completion")
-    settings = payload.get("generation_settings", {})
+        raise LV008ExplorationError("Ollama returned an empty completion")
+    done_reason = str(payload.get("done_reason", ""))
     return {
         "response_sha256": hashlib.sha256(text.encode("utf-8")).hexdigest(),
-        "stop_type": str(payload.get("stop_type", "")),
+        "stop_type": done_reason,
         "seed": seed,
-        "prompt_tokens": int(payload.get("tokens_evaluated", 0) or 0),
-        "output_tokens": int(payload.get("tokens_predicted", 0) or 0),
-        "speculative_types": str(settings.get("speculative.types", "")),
+        "prompt_tokens": int(payload.get("prompt_eval_count", 0) or 0),
+        "output_tokens": int(payload.get("eval_count", 0) or 0),
         "wall_seconds": round(time.perf_counter() - started, 3),
     }
 
@@ -154,24 +140,23 @@ def run(output: Path = OUTPUT) -> dict[str, Any]:
     if hashlib.sha256(prompt.encode("utf-8")).hexdigest() != failed["prompt_sha256"]:
         raise LV008ExplorationError("failed prompt digest drift")
 
-    props = _request("/props")
-    params = props["default_generation_settings"]["params"]
-    if params.get("speculative.types") != "none":
-        raise LV008ExplorationError("server default enables speculative decoding")
-    metrics_before = _metrics()
+    version = _request("/api/version")
+    show = _request("/api/show", {"model": MODEL})
+    process_before = _request("/api/ps")
     repeats = {str(cap): [_generate(prompt, FAILED_SEED, cap) for _ in range(2)] for cap in CAPS}
-    metrics_after = _metrics()
-    no_speculative_work = all(metrics_after.get(key, 0.0) == metrics_before.get(key, 0.0) for key in metrics_before)
+    process_after = _request("/api/ps")
+    loaded = [row for row in process_after.get("models", []) if row.get("name") == MODEL]
+    gpu_only = bool(loaded) and all(int(row.get("size_vram", 0)) == int(row.get("size", -1)) for row in loaded)
     byte_identical = {
         cap: repeats[str(cap)][0]["response_sha256"] == repeats[str(cap)][1]["response_sha256"]
         for cap in CAPS
     }
     natural_stop = {
-        cap: all(row["stop_type"] != "limit" and row["output_tokens"] < cap for row in repeats[str(cap)])
+        cap: all(row["stop_type"] != "length" and row["output_tokens"] < cap for row in repeats[str(cap)])
         for cap in CAPS
     }
     cross_cap_identical = repeats["2048"][0]["response_sha256"] == repeats["4096"][0]["response_sha256"]
-    status = "RUNTIME_VIABLE" if no_speculative_work and all(byte_identical.values()) and natural_stop[4096] else "NO_VIABLE_RUNTIME"
+    status = "RUNTIME_VIABLE" if gpu_only and all(byte_identical.values()) and natural_stop[4096] else "NO_VIABLE_RUNTIME"
     result = {
         "schema": "lv008-part1-exploration-v2",
         "status": status,
@@ -193,23 +178,26 @@ def run(output: Path = OUTPUT) -> dict[str, Any]:
         },
         "runtime": {
             "server": SERVER,
-            "build_info": props.get("build_info"),
-            "model_alias": props.get("model_alias"),
-            "model_ftype": props.get("model_ftype"),
-            "context": props["default_generation_settings"].get("n_ctx"),
-            "default_speculative_types": params.get("speculative.types"),
+            "ollama_version": version.get("version"),
+            "model_alias": MODEL,
+            "model_digest": loaded[0].get("digest") if loaded else None,
+            "model_details": show.get("details"),
+            "context": loaded[0].get("context_length") if loaded else None,
+            "size": loaded[0].get("size") if loaded else None,
+            "size_vram": loaded[0].get("size_vram") if loaded else None,
+            "speculative_decoding": "not enabled or exposed by the frozen Ollama API call",
         },
         "repeats": repeats,
         "checks": {
             "byte_identical_within_cap": byte_identical,
             "natural_stop": natural_stop,
             "cross_cap_identical": cross_cap_identical,
-            "no_speculative_work": no_speculative_work,
+            "gpu_only": gpu_only,
         },
-        "metrics": {"before": metrics_before, "after": metrics_after},
+        "process": {"before": process_before, "after": process_after},
         "absorbing_states": {
-            "output_cap": "a completion that reaches its common cap stops as limit and invalidates the run before judging",
-            "reader_change": "Qwen3.8 outputs cannot complete or repair the stopped Qwen3.5 LV-007 schedule; all arms must be regenerated",
+            "output_cap": "a completion that reaches its common cap stops by length and invalidates the run before judging",
+            "reader_change": "Qwen3.8 Q4 outputs cannot complete or repair the stopped Qwen3.6 Q6 LV-007 schedule; all arms must be regenerated",
         },
         "surrogate_audit": {
             "can_pass_while_false": True,
