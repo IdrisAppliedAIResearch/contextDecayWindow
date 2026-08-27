@@ -1,0 +1,451 @@
+{
+  "anchors": {
+    "model_source": true,
+    "part1": true,
+    "prompts": true,
+    "registration": true,
+    "registration_ancestor": true,
+    "selections": true,
+    "server_binary": true
+  },
+  "checks": {
+    "element_exact": 7944,
+    "expected_element_exact": 7944,
+    "expected_set_exact": 7944,
+    "qeach_active_rows": 1986,
+    "reminder_rows": 1986,
+    "set_exact": 7944
+  },
+  "judge_probes": {
+    "all_nonempty": true,
+    "calls": 7,
+    "rows": [
+      {
+        "blind_id": "19364239ac7af53711a505a92db3a2914c63c56c11ecc9d49f7795b5e32ef8cc",
+        "output_tokens": 28,
+        "parseable_surface": true,
+        "prompt_sha256": "74c40ab18c467bc6e6e4889a13acd2432b8c776d110b02122fa12b215e63ddcf",
+        "prompt_tokens": 136,
+        "response_bytes": 133,
+        "response_sha256": "5ea21f58fc9761ebe6827080a5b569370e96e561c6304c48b063ebc4c3f9edca",
+        "seed": 9007,
+        "stop_type": "eos",
+        "wall_seconds": 0.443
+      },
+      {
+        "blind_id": "437308d8be0d68858cbcadb870032923afc7c229724067e60fbbb056551b9f53",
+        "output_tokens": 40,
+        "parseable_surface": true,
+        "prompt_sha256": "e362f457c404839adf45c0b6839a6d2b432b92b31e4b6d99b0d09e3dcca8b9eb",
+        "prompt_tokens": 209,
+        "response_bytes": 160,
+        "response_sha256": "928d2671eb562a8289f28c2bbe37457625201aae04fd11a4a1fa03fb9d303349",
+        "seed": 9007,
+        "stop_type": "eos",
+        "wall_seconds": 0.702
+      },
+      {
+        "blind_id": "62c9d90bb6c67ccb62d496b5511434589bc781c4c88d14a50b0055e3323b1971",
+        "output_tokens": 32,
+        "parseable_surface": true,
+        "prompt_sha256": "c182f1dacdc13ab847b5fc8138c3593e9847e1000ce73625953796069dcef657",
+        "prompt_tokens": 159,
+        "response_bytes": 155,
+        "response_sha256": "8bc00bb03cd08065334eb6960055daf4a4dec363fb898aaac8d9e34bd6d54852",
+        "seed": 9005,
+        "stop_type": "eos",
+        "wall_seconds": 0.573
+      },
+      {
+        "blind_id": "96c5493596d30bfe083969ff5eaea0abcfad479b5c73494a4a72b61d23e9b1f2",
+        "output_tokens": 49,
+        "parseable_surface": true,
+        "prompt_sha256": "2a1722d3ee0ca32a62063bb971ce9bb0580877d6a35cd19aea3964368425bf51",
+        "prompt_tokens": 215,
+        "response_bytes": 210,
+        "response_sha256": "e243de90578c6c59c1593a2f2f0a26d709a8ddaac9a9567d9f867d8ffbe2f43f",
+        "seed": 9006,
+        "stop_type": "eos",
+        "wall_seconds": 0.818
+      },
+      {
+        "blind_id": "ce897ed4e907fb918d38b95ec1da28472f08c7f8cf73c8978c34fa1acb2ebba5",
+        "output_tokens": 41,
+        "parseable_surface": true,
+        "prompt_sha256": "c720a39898670485eca233ff9d2ff6151380b29248c5325bdc6a77159f833135",
+        "prompt_tokens": 202,
+        "response_bytes": 191,
+        "response_sha256": "dd9b78b244d8830e3ab72ca0a23bd0ad17dab5c30c093c6cb74d2fb2c7866812",
+        "seed": 9007,
+        "stop_type": "eos",
+        "wall_seconds": 0.693
+      },
+      {
+        "blind_id": "f14195b439855573ed6f055ae076b9ee9555014387633c693606fe1e8c869ae8",
+        "output_tokens": 28,
+        "parseable_surface": true,
+        "prompt_sha256": "602eb1248250db5c8a4bbee6448df088764cc31299ce61c326f1b2a639e08935",
+        "prompt_tokens": 176,
+        "response_bytes": 129,
+        "response_sha256": "549c20986fe95551d7b5c6bde691ed79d7f3b2bd00479120f3beeb8a75652c58",
+        "seed": 9005,
+        "stop_type": "eos",
+        "wall_seconds": 0.524
+      },
+      {
+        "blind_id": "f14195b439855573ed6f055ae076b9ee9555014387633c693606fe1e8c869ae8",
+        "output_tokens": 28,
+        "parseable_surface": true,
+        "prompt_sha256": "602eb1248250db5c8a4bbee6448df088764cc31299ce61c326f1b2a639e08935",
+        "prompt_tokens": 176,
+        "response_bytes": 125,
+        "response_sha256": "dc4fe3b288e1275938cc4b8f9f8b99cb2c10820ca02b6d7d19c9d71473d3f9fd",
+        "seed": 9006,
+        "stop_type": "eos",
+        "wall_seconds": 0.435
+      }
+    ],
+    "schema": "lv009-judge-probes-v1"
+  },
+  "population": {
+    "primary": 1540,
+    "prompts": 7944,
+    "rows": 1986
+  },
+  "reader_probes": {
+    "all_context_safe": true,
+    "all_nonempty": true,
+    "calls": 3,
+    "rows": [
+      {
+        "arm": "PAIRWISE",
+        "comparison_key": "882129ef5f428e537f169664f1c428ed7b5e957f6e5afe5e4fd0d526636bdb4c",
+        "name": "maximum_tokens",
+        "output_tokens": 6,
+        "prompt_sha256": "6055eb4740e673e4e5d9581609277fd89c5fa9a7b339575247b86de38ba339f6",
+        "prompt_tokens": 13420,
+        "response_bytes": 13,
+        "response_sha256": "810d7c3ca6aa6411102588f8636833035138a35f32f5e7b2df96d2ab2dc4d660",
+        "seed": 7088,
+        "stop_type": "eos",
+        "wall_seconds": 4.624
+      },
+      {
+        "arm": "COMMUNITY_QEACH",
+        "comparison_key": "c7cee183db24485152aba97dd76cc3fabc146771c68e4582888e9c75c1a87c70",
+        "name": "maximum_communities",
+        "output_tokens": 8,
+        "prompt_sha256": "f684bcd8833c418821fdd502fcecd16228c6ac946a771fa2cab9133a65542659",
+        "prompt_tokens": 10759,
+        "response_bytes": 35,
+        "response_sha256": "48fdadc12513784716134fd268bef908805a248c5f4d80810c32001f8aa99aaf",
+        "seed": 6873,
+        "stop_type": "eos",
+        "wall_seconds": 3.886
+      },
+      {
+        "arm": "COMMUNITY_QB",
+        "comparison_key": "c0be5dc5bb6a516c1deed9f06c5c9cac280f332ce134f31733e55c3dbd4bb891",
+        "name": "lv008_capped_reader",
+        "output_tokens": 2,
+        "prompt_sha256": "b994fccfe5c7e5b6ce9db45ebc6a9dacc2e7332895879d64d63dbd0a76cabd8b",
+        "prompt_tokens": 8959,
+        "response_bytes": 1,
+        "response_sha256": "4e07408562bedb8b60ce05c1decfe3ad16b72230967de01f640b7e4729b49fce",
+        "seed": 5008,
+        "stop_type": "eos",
+        "wall_seconds": 3.132
+      }
+    ],
+    "schema": "lv009-reader-probes-v1"
+  },
+  "registration_commit": "950a17f1",
+  "schema": "lv009-preflight-v1",
+  "server": {
+    "gpu": {
+      "free_mib": 11204,
+      "name": "NVIDIA GeForce RTX 5090",
+      "resident": true,
+      "total_mib": 32607,
+      "used_mib": 20984
+    },
+    "props": {
+      "bos_token": "<|endoftext|>",
+      "build_info": "b10360-90e6a9131",
+      "chat_template": "{%- set image_count = namespace(value=0) %}\n{%- set video_count = namespace(value=0) %}\n{%- macro render_content(content, do_vision_count, is_system_content=false) %}\n    {%- if content is string %}\n        {{- content }}\n    {%- elif content is iterable and content is not mapping %}\n        {%- for item in content %}\n            {%- if 'image' in item or 'image_url' in item or item.type == 'image' %}\n                {%- if is_system_content %}\n                    {{- raise_exception('System message cannot contain images.') }}\n                {%- endif %}\n                {%- if do_vision_count %}\n                    {%- set image_count.value = image_count.value + 1 %}\n                {%- endif %}\n                {%- if add_vision_id %}\n                    {{- 'Picture ' ~ image_count.value ~ ': ' }}\n                {%- endif %}\n                {{- '<|vision_start|><|image_pad|><|vision_end|>' }}\n            {%- elif 'video' in item or item.type == 'video' %}\n                {%- if is_system_content %}\n                    {{- raise_exception('System message cannot contain videos.') }}\n                {%- endif %}\n                {%- if do_vision_count %}\n                    {%- set video_count.value = video_count.value + 1 %}\n                {%- endif %}\n                {%- if add_vision_id %}\n                    {{- 'Video ' ~ video_count.value ~ ': ' }}\n                {%- endif %}\n                {{- '<|vision_start|><|video_pad|><|vision_end|>' }}\n            {%- elif 'text' in item %}\n                {{- item.text }}\n            {%- else %}\n                {{- raise_exception('Unexpected item type in content.') }}\n            {%- endif %}\n        {%- endfor %}\n    {%- elif content is none or content is undefined %}\n        {{- '' }}\n    {%- else %}\n        {{- raise_exception('Unexpected content type.') }}\n    {%- endif %}\n{%- endmacro %}\n{%- if not messages %}\n    {{- raise_exception('No messages provided.') }}\n{%- endif %}\n{%- set sysns = namespace(count=0, text='') %}\n{%- for message in messages %}\n    {%- if sysns.count == loop.index0 and (message.role == 'system' or message.role == 'developer') %}\n        {%- set sys_content = render_content(message.content, false, true)|trim %}\n        {%- if sys_content %}\n            {%- set sysns.text = sysns.text + ('\\n' if sysns.text else '') + sys_content %}\n        {%- endif %}\n        {%- set sysns.count = sysns.count + 1 %}\n    {%- endif %}\n{%- endfor %}\n{%- set num_sys = sysns.count %}\n{%- set merged_system = sysns.text %}\n{%- set reasoning_instructions = '' %}\n{%- if enable_thinking is undefined or enable_thinking is true %}\n    {%- set resolved_reasoning_effort = reasoning_effort|default('xhigh') %}\n    {%- if resolved_reasoning_effort == 'high' %}\n        {%- set resolved_reasoning_effort = 'xhigh' %}\n    {%- endif %}\n    {%- if resolved_reasoning_effort not in ('xhigh', 'medium', 'low') %}\n        {{- raise_exception('Unexpected reasoning effort ' ~ reasoning_effort ~ '. Supported types are xhigh (default), medium, and low.') }}\n    {%- endif %}\n    {%- if resolved_reasoning_effort == 'xhigh' %}\n        {%- set reasoning_instructions = 'Reasoning effort is set to xhigh. Please think carefully through the task, validate key assumptions, consider plausible alternatives, and prioritize correctness, consistency, and clarity in the final answer.' %}\n    {%- elif resolved_reasoning_effort == 'low' %}\n        {%- set reasoning_instructions = 'Reasoning effort is set to low. Keep your thinking brief and focused, moving directly to the conclusion without unnecessary elaboration.' %}\n    {%- endif %}\n{%- endif %}\n{%- if tools and tools is iterable and tools is not mapping %}\n    {{- '<|im_start|>system\\n' }}\n    {%- if reasoning_instructions %}\n        {{- reasoning_instructions + '\\n\\n' }}\n    {%- endif %}\n    {{- \"# Tools\\n\\nYou have access to the following functions:\\n\\n<tools>\" }}\n    {%- for tool in tools %}\n        {{- \"\\n\" }}\n        {{- tool | tojson }}\n    {%- endfor %}\n    {{- \"\\n</tools>\" }}\n    {{- '\\n\\nIf you choose to call a function ONLY reply in the following format with NO suffix:\\n\\n<tool_call>\\n<function=example_function_name>\\n<parameter=example_parameter_1>\\nvalue_1\\n</parameter>\\n<parameter=example_parameter_2>\\nThis is the value for the second parameter\\nthat can span\\nmultiple lines\\n</parameter>\\n</function>\\n</tool_call>\\n\\n<IMPORTANT>\\nReminder:\\n- Function calls MUST follow the specified format: an inner <function=...></function> block must be nested within <tool_call></tool_call> XML tags\\n- Required parameters MUST be specified\\n- You may provide optional reasoning for your function call in natural language BEFORE the function call, but NOT after\\n- If there is no function call available, answer the question like normal with your current knowledge and do not tell the user about function calls\\n</IMPORTANT>' }}\n    {%- if merged_system %}\n        {{- '\\n\\n' + merged_system }}\n    {%- endif %}\n    {{- '<|im_end|>\\n' }}\n{%- else %}\n    {%- if merged_system %}\n        {{- '<|im_start|>system\\n' + (reasoning_instructions + '\\n\\n' if reasoning_instructions else '')  + merged_system + '<|im_end|>\\n' }}\n    {%- elif reasoning_instructions %}\n        {{- '<|im_start|>system\\n' + reasoning_instructions + '<|im_end|>\\n' }}\n    {%- endif %}\n{%- endif %}\n{%- set ns = namespace(multi_step_tool=true, last_query_index=messages|length - 1) %}\n{%- for message in messages[::-1] %}\n    {%- set index = (messages|length - 1) - loop.index0 %}\n    {%- if ns.multi_step_tool and message.role == \"user\" %}\n        {%- set content = render_content(message.content, false)|trim %}\n        {%- if not(content.startswith('<tool_response>') and content.endswith('</tool_response>')) %}\n            {%- set ns.multi_step_tool = false %}\n            {%- set ns.last_query_index = index %}\n        {%- endif %}\n    {%- endif %}\n{%- endfor %}\n{%- for message in messages %}\n    {%- if loop.index0 >= num_sys %}\n    {%- set content = render_content(message.content, true)|trim %}\n    {%- if message.role == \"system\" or message.role == \"developer\" %}\n        {{- raise_exception('System message must be at the beginning.') }}\n    {%- elif message.role == \"user\" %}\n        {{- '<|im_start|>' + message.role + '\\n' + content + '<|im_end|>' + '\\n' }}\n    {%- elif message.role == \"assistant\" %}\n        {%- set reasoning_content = '' %}\n        {%- if message.reasoning_content is string %}\n            {%- set reasoning_content = message.reasoning_content %}\n        {%- endif %}\n        {%- set reasoning_content = reasoning_content|trim %}\n        {%- if preserve_thinking is undefined or preserve_thinking is true or loop.index0 > ns.last_query_index %}\n            {{- '<|im_start|>' + message.role + '\\n<think>\\n' + reasoning_content + '\\n</think>\\n\\n' + content }}\n        {%- else %}\n            {{- '<|im_start|>' + message.role + '\\n' + content }}\n        {%- endif %}\n        {%- if message.tool_calls and message.tool_calls is iterable and message.tool_calls is not mapping %}\n            {%- for tool_call in message.tool_calls %}\n                {%- if tool_call.function is defined %}\n                    {%- set tool_call = tool_call.function %}\n                {%- endif %}\n                {%- if tool_call.name is not defined or tool_call.name is none %}\n                    {{- raise_exception('Tool call is missing a function name.') }}\n                {%- endif %}\n                {%- if loop.first %}\n                    {%- if content|trim %}\n                        {{- '\\n\\n<tool_call>\\n<function=' + tool_call.name + '>\\n' }}\n                    {%- else %}\n                        {{- '<tool_call>\\n<function=' + tool_call.name + '>\\n' }}\n                    {%- endif %}\n                {%- else %}\n                    {{- '\\n<tool_call>\\n<function=' + tool_call.name + '>\\n' }}\n                {%- endif %}\n                {%- if tool_call.arguments is mapping %}\n                    {%- for args_name, args_value in tool_call.arguments|items %}\n                        {{- '<parameter=' + args_name + '>\\n' }}\n                        {%- set args_value = args_value | string if args_value is string else args_value | tojson | safe %}\n                        {{- args_value }}\n                        {{- '\\n</parameter>\\n' }}\n                    {%- endfor %}\n                {%- elif tool_call.arguments is string %}\n                    {%- if tool_call.arguments|trim %}\n                        {{- raise_exception('Tool call arguments for function \"' + (tool_call.name | string) + '\" were passed as a JSON string. Parse them into an object before calling apply_chat_template.') }}\n                    {%- endif %}\n                {%- elif tool_call.arguments is defined and tool_call.arguments is not none %}\n                    {{- raise_exception('Tool call arguments for function \"' + (tool_call.name | string) + '\" must be an object/mapping or a JSON string.') }}\n                {%- endif %}\n                {{- '</function>\\n</tool_call>' }}\n            {%- endfor %}\n        {%- endif %}\n        {{- '<|im_end|>\\n' }}\n    {%- elif message.role == \"tool\" %}\n        {%- if loop.previtem and loop.previtem.role != \"tool\" %}\n            {{- '<|im_start|>user' }}\n        {%- endif %}\n        {{- '\\n<tool_response>\\n' }}\n        {{- content }}\n        {{- '\\n</tool_response>' }}\n        {%- if not loop.last and loop.nextitem.role != \"tool\" %}\n            {{- '<|im_end|>\\n' }}\n        {%- elif loop.last %}\n            {{- '<|im_end|>\\n' }}\n        {%- endif %}\n    {%- else %}\n        {{- raise_exception('Unexpected message role.') }}\n    {%- endif %}\n    {%- endif %}\n{%- endfor %}\n{%- if add_generation_prompt %}\n    {{- '<|im_start|>assistant\\n' }}\n    {%- if enable_thinking is defined and enable_thinking is false %}\n        {{- '<think>\\n\\n</think>\\n\\n' }}\n    {%- else %}\n        {{- '<think>\\n' }}\n    {%- endif %}\n{%- endif %}\n{#- Unsloth fixes - developer role, merged system messages, tool calling #}",
+      "chat_template_caps": {
+        "supports_object_arguments": true,
+        "supports_parallel_tool_calls": true,
+        "supports_preserve_reasoning": true,
+        "supports_string_content": true,
+        "supports_system_role": true,
+        "supports_tool_calls": true,
+        "supports_tools": true,
+        "supports_typed_content": false
+      },
+      "cors_proxy_enabled": false,
+      "default_generation_settings": {
+        "n_ctx": 65536,
+        "params": {
+          "adaptive_decay": 0.8999999761581421,
+          "adaptive_target": -1.0,
+          "backend_sampling": false,
+          "chat_format": "Content-only",
+          "dry_allowed_length": 2,
+          "dry_base": 1.75,
+          "dry_multiplier": 0.0,
+          "dry_penalty_last_n": 64,
+          "dynatemp_exponent": 1.0,
+          "dynatemp_range": 0.0,
+          "frequency_penalty": 0.0,
+          "generation_prompt": "",
+          "ignore_eos": false,
+          "lora": [],
+          "max_tokens": -1,
+          "min_keep": 0,
+          "min_p": 0.0,
+          "mirostat": 0,
+          "mirostat_eta": 0.10000000149011612,
+          "mirostat_tau": 5.0,
+          "n_discard": 0,
+          "n_keep": 0,
+          "n_predict": -1,
+          "n_probs": 0,
+          "post_sampling_probs": false,
+          "presence_penalty": 0.0,
+          "reasoning_format": "none",
+          "reasoning_in_content": false,
+          "repeat_last_n": 64,
+          "repeat_penalty": 1.0,
+          "samplers": [
+            "penalties",
+            "dry",
+            "top_n_sigma",
+            "top_k",
+            "typ_p",
+            "top_p",
+            "min_p",
+            "xtc",
+            "temperature"
+          ],
+          "seed": 4294967295,
+          "speculative.types": "none",
+          "stream": false,
+          "temperature": 0.6000000238418579,
+          "timings_per_token": false,
+          "top_k": 20,
+          "top_n_sigma": -1.0,
+          "top_p": 0.949999988079071,
+          "typical_p": 1.0,
+          "xtc_probability": 0.0,
+          "xtc_threshold": 0.10000000149011612
+        }
+      },
+      "endpoint_metrics": true,
+      "endpoint_props": false,
+      "endpoint_slots": true,
+      "eos_token": "<|im_end|>",
+      "is_sleeping": false,
+      "media_marker": "<__media_AwAZrhLBF0vwTuBu7c1ZHOcvUNaAA44b__>",
+      "modalities": {
+        "audio": false,
+        "video": false,
+        "vision": false
+      },
+      "model_alias": "C:\\Users\\muzaf\\.cache\\huggingface\\hub\\models--unsloth--Qwen3.8-27B-GGUF\\snapshots\\f1bfb127c64f7072bdd2cad55f258b9c8b2910fe\\Qwen3.8-27B-UD-Q4_K_XL.gguf",
+      "model_ftype": "Q4_K - Small",
+      "model_path": "C:\\Users\\muzaf\\.cache\\huggingface\\hub\\models--unsloth--Qwen3.8-27B-GGUF\\snapshots\\f1bfb127c64f7072bdd2cad55f258b9c8b2910fe\\Qwen3.8-27B-UD-Q4_K_XL.gguf",
+      "total_slots": 1,
+      "ui": true,
+      "ui_settings": {}
+    }
+  },
+  "status": "PASS",
+  "token_audit": {
+    "all_context_safe_at_reader_cap": true,
+    "context_limit": 65536,
+    "highest_risk": [
+      {
+        "arm": "PAIRWISE",
+        "community_groups": 42,
+        "comparison_key": "882129ef5f428e537f169664f1c428ed7b5e957f6e5afe5e4fd0d526636bdb4c",
+        "prompt_chars": 46618,
+        "prompt_sha256": "6055eb4740e673e4e5d9581609277fd89c5fa9a7b339575247b86de38ba339f6",
+        "prompt_tokens": 13420
+      },
+      {
+        "arm": "PAIRWISE",
+        "community_groups": 48,
+        "comparison_key": "371b7de7b62e8c2fc6bae8f92bc10f829afcaee0fae66eee0e69ca92801c338b",
+        "prompt_chars": 46364,
+        "prompt_sha256": "8c81d72ae4841099b5bede04e69349d53cb1846f7e1735cdd9cbf184bac43f2f",
+        "prompt_tokens": 13307
+      },
+      {
+        "arm": "PAIRWISE",
+        "community_groups": 42,
+        "comparison_key": "616f293bc2e272156144af1652f88deb6bcd14ed136964ba32117d861ca8b731",
+        "prompt_chars": 46080,
+        "prompt_sha256": "b328131e8ea557bc4bca8f325fc2ef42c583cca7f82a3a7e25de97b0e6599b6c",
+        "prompt_tokens": 13119
+      },
+      {
+        "arm": "PAIRWISE",
+        "community_groups": 49,
+        "comparison_key": "4424ba1939e8db7ccca8c5299f80b3ab109e8e648be33f8181cdf8f01b233198",
+        "prompt_chars": 45912,
+        "prompt_sha256": "bcf6cae31d5f90397e8c37ef7c2486549ce26bc103117d8c6a0720e5f4bff6d0",
+        "prompt_tokens": 13051
+      },
+      {
+        "arm": "PAIRWISE",
+        "community_groups": 46,
+        "comparison_key": "856eb4e7151c5dabcdb02193e285978bb7e0de25309ac10f72368c98e3ae309c",
+        "prompt_chars": 45806,
+        "prompt_sha256": "3a297d9ca394673484e4df28c7a9c75007b5cd754b7c5b4ba1254d13a621f066",
+        "prompt_tokens": 13004
+      },
+      {
+        "arm": "PAIRWISE",
+        "community_groups": 42,
+        "comparison_key": "8ed45d47793e5250ef2e2db0e46dd5911b37ba5a662330445e275cda44e2bf59",
+        "prompt_chars": 45565,
+        "prompt_sha256": "88aba794e9975ab439b66853d728c21656f5b69af142c0e504c2d303a8877850",
+        "prompt_tokens": 12939
+      },
+      {
+        "arm": "PAIRWISE",
+        "community_groups": 48,
+        "comparison_key": "3897b58f3c0df9bc5bbbed7a76891a04dbf7407366586c4e382bcb423f5d48b6",
+        "prompt_chars": 45539,
+        "prompt_sha256": "fb6e9ab0a1d0c0dc8e43ec0b484ae250a30dfb02e9cf2c6eedde48655dcd1241",
+        "prompt_tokens": 12934
+      },
+      {
+        "arm": "PAIRWISE",
+        "community_groups": 43,
+        "comparison_key": "0f36352b13c8f9505e60e4eaa9e6f7eb8ddb76e0f743a05ef3ebf1a31ae31df6",
+        "prompt_chars": 45453,
+        "prompt_sha256": "bf63bff92aa4e1cebabf172da03f86aafe15dcd898e615a6f6f4de53bfa6c5bf",
+        "prompt_tokens": 12912
+      },
+      {
+        "arm": "PAIRWISE",
+        "community_groups": 43,
+        "comparison_key": "f1f4f878f2cd05ec57621dc3a470384c0897a285bc112e2e28f63dcbaa74cfe5",
+        "prompt_chars": 45453,
+        "prompt_sha256": "bf63bff92aa4e1cebabf172da03f86aafe15dcd898e615a6f6f4de53bfa6c5bf",
+        "prompt_tokens": 12912
+      },
+      {
+        "arm": "PAIRWISE",
+        "community_groups": 47,
+        "comparison_key": "58adbe5991c190ad77472630275f46e22417f29d2cf149562cb38a652b490061",
+        "prompt_chars": 45534,
+        "prompt_sha256": "ece4a0b388679ef7bdfe6f939b88d90b3c8942cb3b983527077c05707840cdda",
+        "prompt_tokens": 12868
+      },
+      {
+        "arm": "PAIRWISE",
+        "community_groups": 44,
+        "comparison_key": "95ee32a21382e86008fa44adf67881b955337e397bba59b571f9b93be21b8ddd",
+        "prompt_chars": 45340,
+        "prompt_sha256": "a14448acb4ca8f19fea1f5bb29b28701e81060850d66bc1264398273609ea9f9",
+        "prompt_tokens": 12831
+      },
+      {
+        "arm": "PAIRWISE",
+        "community_groups": 44,
+        "comparison_key": "cbff058fd8d58205e6b0c3a7178256cfa8b54a7d66ce95664496bcff910c1199",
+        "prompt_chars": 45549,
+        "prompt_sha256": "bab20a247824e0cfcdc035544109adb780d63bc06dee65a3f8e85e5e2a89ef99",
+        "prompt_tokens": 12754
+      },
+      {
+        "arm": "PAIRWISE",
+        "community_groups": 46,
+        "comparison_key": "59b657c702518be225d2e1a41ab52dd71257445ca68f73e8bb36c69e387d9021",
+        "prompt_chars": 45144,
+        "prompt_sha256": "3a4cc02271351148650d353bd3d99fed2edcaa4b157ed0f46b2a98b61ff22306",
+        "prompt_tokens": 12750
+      },
+      {
+        "arm": "PAIRWISE",
+        "community_groups": 46,
+        "comparison_key": "284338d395294060f83ce2cbbf7dd92f172a3a0cef852cfc72d99e2fc756f621",
+        "prompt_chars": 45072,
+        "prompt_sha256": "8ce51d271ce37799c176ad9fc1f3fbe5dd7f4c7761d4cd1a92bcba3801dfbcae",
+        "prompt_tokens": 12743
+      },
+      {
+        "arm": "PAIRWISE",
+        "community_groups": 51,
+        "comparison_key": "7b331af7bceb1ac22255cce07d1e59e16b428b18c35c3eace2afe231de6c04db",
+        "prompt_chars": 45205,
+        "prompt_sha256": "21cfb91ae4ebda1902d4c4c9e2c37b498819f4e65818e55adeb2b2389b422d64",
+        "prompt_tokens": 12739
+      },
+      {
+        "arm": "PAIRWISE",
+        "community_groups": 41,
+        "comparison_key": "05a08df067da91fd51fb0ce84e33c3fba7a3f177f1e0595d930c69bcbc56f19f",
+        "prompt_chars": 45118,
+        "prompt_sha256": "64c68f2cdb9123cc2c9721fc7d919653a624cb32a6bddebf8eda30d468ec1936",
+        "prompt_tokens": 12706
+      },
+      {
+        "arm": "PAIRWISE",
+        "community_groups": 41,
+        "comparison_key": "63acf7d495631120cae53187f9dc5c3e333090201d68c8d77715d4ca49b36fba",
+        "prompt_chars": 45118,
+        "prompt_sha256": "64c68f2cdb9123cc2c9721fc7d919653a624cb32a6bddebf8eda30d468ec1936",
+        "prompt_tokens": 12706
+      },
+      {
+        "arm": "PAIRWISE",
+        "community_groups": 44,
+        "comparison_key": "8e02c5e9d3f5c339107c510870b97e6fa9a7b43b1bf9e69b2b5c723491350644",
+        "prompt_chars": 45210,
+        "prompt_sha256": "accf35743dc25d0db863535838c1e1d3206bbdfa1371eed4ffa63c3a86c61ef6",
+        "prompt_tokens": 12700
+      },
+      {
+        "arm": "PAIRWISE",
+        "community_groups": 41,
+        "comparison_key": "d04752d8ce9a7b7788fc131517de4e72277e08abf001b8d6b640c23f409bb480",
+        "prompt_chars": 45098,
+        "prompt_sha256": "825c2c3303a40a811d5d1465bd5ae7d2364d8d84e9a47b35d8e23425b4bfe965",
+        "prompt_tokens": 12697
+      },
+      {
+        "arm": "PAIRWISE",
+        "community_groups": 44,
+        "comparison_key": "f02d20e70bff2a5b8f73e8b30d63efeb701c04f0992d437bf27a54e3ee19224a",
+        "prompt_chars": 44954,
+        "prompt_sha256": "bb795030abd16caebe7c555247f116981980fda48ab2eb252284b5bd633376e3",
+        "prompt_tokens": 12683
+      }
+    ],
+    "prompt_chars": {
+      "max": 46618,
+      "median": 34758.5,
+      "min": 33011,
+      "n": 7944,
+      "p05": 33201,
+      "p95": 43582
+    },
+    "prompt_tokens": {
+      "max": 13420,
+      "median": 9364.0,
+      "min": 8231,
+      "n": 7944,
+      "p05": 8649,
+      "p95": 11964
+    },
+    "rows": 7944,
+    "schema": "lv009-token-audit-v1",
+    "server": "http://127.0.0.1:8000",
+    "wall_seconds": 9.508,
+    "workers": 32
+  }
+}
