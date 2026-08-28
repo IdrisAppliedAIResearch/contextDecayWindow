@@ -3,6 +3,7 @@ from analysis.lv009_live import (
     JUDGE_SEEDS,
     _holm_rejections,
     _read_prompts,
+    _regression_guard,
     _structural_checks,
     blind_id,
     judge_prompt,
@@ -56,3 +57,20 @@ def test_judgment_validation_requires_three_registered_passes() -> None:
 def test_holm_stops_after_first_non_rejection() -> None:
     assert _holm_rejections({"a": 0.004, "b": 0.009}) == {"a", "b"}
     assert _holm_rejections({"a": 0.011, "b": 0.0001}) == {"b"}
+
+
+def test_regression_guard_combines_raw_category_and_holm_conditions() -> None:
+    strata = {
+        **{f"category_{category}": {"net": 0, "p_control": 1.0} for category in (1, 2, 3, 4)},
+        "conv-26": {"net": 0, "p_control": 1.0},
+    }
+    assert not _regression_guard(strata)["fired"]
+
+    strata["category_2"] = {"net": -10, "p_control": 1.0}
+    assert _regression_guard(strata)["category_raw_guard"]
+    assert _regression_guard(strata)["fired"]
+
+    strata["category_2"] = {"net": 0, "p_control": 1.0}
+    strata["conv-26"] = {"net": -20, "p_control": 0.0001}
+    assert _regression_guard(strata)["regression_holm_rejections"] == ["conv-26"]
+    assert _regression_guard(strata)["fired"]

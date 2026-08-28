@@ -465,6 +465,23 @@ def _distribution(values: Sequence[int | float]) -> dict[str, Any]:
     }
 
 
+def _regression_guard(strata: Mapping[str, Mapping[str, Any]]) -> dict[str, Any]:
+    regression_family = {
+        key: value["p_control"]
+        for key, value in strata.items()
+        if key.startswith("category_") or key.startswith("conv-")
+    }
+    regression_rejections = _holm_rejections(regression_family)
+    category_raw_guard = any(
+        strata[f"category_{category}"]["net"] <= -10 for category in PRIMARY_CATEGORIES
+    )
+    return {
+        "fired": bool(regression_rejections) or category_raw_guard,
+        "regression_holm_rejections": sorted(regression_rejections),
+        "category_raw_guard": category_raw_guard,
+    }
+
+
 def analyze() -> dict[str, Any]:
     mapping = _load_mapping()
     answers = _read_jsonl(ANSWERS)
@@ -527,10 +544,8 @@ def analyze() -> dict[str, Any]:
     for name in ("FULL_vs_PAIRWISE", "QUESTION_EACH_INCREMENT"):
         comparison = comparisons[name]
         semantic, strata = comparison["semantic"], comparison["strata"]
-        regression_family = {key: value["p_control"] for key, value in strata.items() if key.startswith("category_") or key.startswith("conv-")}
-        regression_rejections = _holm_rejections(regression_family)
-        category_raw_guard = any(strata[f"category_{category}"]["net"] <= -10 for category in PRIMARY_CATEGORIES)
-        guard = bool(regression_rejections) or category_raw_guard
+        regression = _regression_guard(strata)
+        guard = regression["fired"]
         works = (
             semantic["net"] >= 31 and name in primary_holm and strata["transfer"]["net"] > 0 and not guard
         )
@@ -541,15 +556,17 @@ def analyze() -> dict[str, Any]:
         comparison["registered"] = {
             "works": works, "carries_signal": carries,
             "primary_holm_rejected": name in primary_holm,
-            "regression_holm_rejections": sorted(regression_rejections),
-            "category_raw_guard": category_raw_guard,
+            "regression_holm_rejections": regression["regression_holm_rejections"],
+            "category_raw_guard": regression["category_raw_guard"],
         }
     full = comparisons["FULL_vs_PAIRWISE"]["registered"]
     each = comparisons["QUESTION_EACH_INCREMENT"]["registered"]
     each_full = comparisons["QUESTION_EACH_vs_PAIRWISE"]
+    each_full_regression = _regression_guard(each_full["strata"])
+    each_full["safety"] = each_full_regression
     each_full_safe = (
         each_full["semantic"]["net"] >= 31 and each_full["semantic"]["p_treatment"] <= 0.01
-        and each_full["strata"]["transfer"]["net"] > 0
+        and each_full["strata"]["transfer"]["net"] > 0 and not each_full_regression["fired"]
     )
     if each["works"] and each_full_safe:
         disposition = "QEACH_SELECTED"
@@ -557,9 +574,18 @@ def analyze() -> dict[str, Any]:
         disposition = "QB_SELECTED_QEACH_SIGNAL"
     elif full["works"]:
         disposition = "QB_SELECTED"
-    elif (full["carries_signal"] or each["carries_signal"]) and each_full["semantic"]["net"] >= 0:
+    elif (
+        (full["carries_signal"] or each["carries_signal"])
+        and each_full["semantic"]["net"] >= 0
+        and not each_full_regression["fired"]
+    ):
         disposition = "RENDERER_CARRIES_SIGNAL"
-    elif not full["works"] and not full["carries_signal"] and not each["works"] and not each["carries_signal"] and each_full["semantic"]["net"] >= 0:
+    elif (
+        not full["works"] and not full["carries_signal"]
+        and not each["works"] and not each["carries_signal"]
+        and each_full["semantic"]["net"] >= 0
+        and not each_full_regression["fired"]
+    ):
         disposition = "PAIRWISE_RETAINED"
     else:
         disposition = "RENDERER_REGRESSION_OR_MIXED"
