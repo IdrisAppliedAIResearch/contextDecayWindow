@@ -1,4 +1,4 @@
-# BEAM-001 Implementation Document - deployed ASPECT versus CC80-parent opportunity ASPECT
+# BEAM-001 Implementation Document - deployed CC80 and static ASPECT versus parent opportunity ASPECT
 
 **Document type:** Prospective benchmark-onboarding and Part 1 implementation design  
 **Status:** `DRAFT - DESIGN ONLY - NOTHING IMPLEMENTED OR RUN`  
@@ -10,20 +10,21 @@
 ## 0. Decision in plain language
 
 Onboard BEAM as a new, hash-pinned conversational-memory corpus and use it to
-compare the pinned global static-ASPECT mechanism with one candidate change:
-replace it with TC-014's CC80-parent fan-out plus exact opportunity admission.
+compare three paths: the shipped CC80 default, the shipped optional global
+static-ASPECT mechanism, and one candidate change that replaces static ASPECT
+with TC-014's CC80-parent fan-out plus exact opportunity admission.
 
-Both arms retain the deployed additive latest-32 continuity tier and the same
-32,000-character long-term allowance, CC80 ranking, embedder, episode
-formation, deduplication, slack return, packing and rendering. The selector
-inside the protected ASPECT half is the only treatment difference.
+All three arms retain the deployed additive latest-32 continuity tier and the
+same 32,000-character long-term allowance, CC80 ranking, embedder, episode
+formation, deduplication, packing and rendering. The two ASPECT arms differ
+only in the selector inside the protected half. The CC80 arm is the unchanged
+public default and uses the whole long-term allowance without an ASPECT split.
 
 This document authorizes no scored answer run. Its first deliverable is a
-label-blind head-to-head exploration of the two mechanisms on BEAM question
-text. Ideal responses, rubrics, evidence annotations, generated answers and
-judge outcomes remain inaccessible. The exploration may support a later
-standalone pre-registration; it cannot itself establish that either arm
-answers questions better.
+label-blind three-arm exploration on BEAM question text. Ideal responses,
+rubrics, evidence annotations, generated answers and judge outcomes remain
+inaccessible. The exploration may support a later standalone pre-registration;
+it cannot itself establish that any arm answers questions better.
 
 ## 1. The exact unanswered question
 
@@ -46,6 +47,14 @@ The missing causal contrast is therefore:
 > Under the same deployed continuity tier, long-term allowance, formation,
 > ranking, packing, rendering, reader and judge, does replacing global static
 > ASPECT with CC80-parent opportunity ASPECT improve answer quality?
+
+The shipped CC80 default is a required guardrail. A candidate that beats static
+ASPECT while losing to ordinary CC80 has not improved the deployed library.
+HH-003's static-ASPECT gain over default was only 14/1,540, with 46 paired gains,
+32 losses and two-sided `p=0.140538`; TC-011/TC-012 also retained CC80 as the
+offline fallback. A later live registration must therefore keep T1 versus C0
+as primary and require T1 versus A0 to clear a pre-registered non-regression
+guardrail.
 
 BEAM-001 is the onboarding and exploration work needed before that contrast can
 be registered.
@@ -86,11 +95,11 @@ an unread benchmark.
 2. Build a deterministic BEAM-to-`EpisodeStore` adapter from chronological chat
    messages only.
 3. Create physically separate question-only and outcome-only surfaces.
-4. Reproduce the deployed static-ASPECT control from the pinned HH-003 package
-   tree in a separate worktree.
+4. Reproduce the deployed CC80-default and static-ASPECT controls from the
+   pinned HH-003 package tree in a separate worktree.
 5. Implement a study-private CC80-parent opportunity selector by porting the
    frozen TC-013/TC-014 behavior without changing its parameters.
-6. Run label-blind head-to-head context construction on all mechanically valid
+6. Run label-blind three-arm context construction on all mechanically valid
    normal-scale questions.
 7. Record full mechanism, cost, latency and selected-identity distributions.
 8. Decide from predeclared viability gates whether a live pre-registration can
@@ -194,26 +203,41 @@ candidates.
 
 ## 5. Frozen common architecture
 
-Both arms receive byte-identical episodes and queries. Both use:
+All three arms receive byte-identical episodes and queries. All use:
 
 - the pinned `episodic-chat` formation and rendering behavior;
 - `recency_window_n=32` as additive continuity outside retrieval allowance;
 - `retrieval_budget_chars=32000` as the long-term allowance;
 - CC80 dense/BM25 weights `0.8/0.2`, BM25 `k1=1.2`, `b=0.75`;
-- `aspect_share=0.5`;
-- `en_core_web_sm` 3.8.0 and the six frozen facet families;
 - Qwen3-Embedding-0.6B Q8_0 with source SHA-256
   `06507c7b42688469c4e7298b0a1e16deff06caf291cf0a5b278c308249c3e439`;
 - solo embedding calls;
-- exact serialized character accounting, skip-on-overflow packing,
-  admission-resolved deduplication and unused protected slack returned to
-  unchanged CC80 order; and
+- exact serialized character accounting, skip-on-overflow packing and
+  admission-resolved deduplication; and
 - the public compact episode renderer.
 
+C0 and T1 additionally share `aspect_share=0.5`, `en_core_web_sm` 3.8.0,
+the six frozen facet families, and unused protected slack returned to unchanged
+CC80 order. A0 does not instantiate an ASPECT selector or protected half.
+
 Recent episode ids are excluded from the entire long-term candidate path in
-both arms. The final payload contains each episode at most once.
+all three arms. The final payload contains each episode at most once.
 
 ## 6. Arms
+
+### A0 `DEPLOYED_CC80_DEFAULT`
+
+Run the public package at the exact HH-003 source tree
+`ae3058f072a9c5b8ce59b130066db11a977e7ab1` with:
+
+```python
+EpisodicConfig()
+```
+
+Behavioral claim to verify: after additive recency exclusion, rank the full
+remaining store by frozen CC80 and skip-on-overflow pack that order under the
+entire 32,000-character long-term allowance. No ASPECT parsing, proposal,
+protected allocation or slack return occurs.
 
 ### C0 `DEPLOYED_STATIC_ASPECT`
 
@@ -224,10 +248,10 @@ Run the public package at the exact HH-003 source tree
 EpisodicConfig(aspect_enabled=True)
 ```
 
-The control runs in a dedicated clean worktree. Its package source, import
-graph, configuration JSON and installed distribution digest are recorded
-before context construction. It is not recreated by setting the candidate
-strategy to a control value.
+Both deployed controls run from the dedicated clean worktree. Their package
+source, import graph, configuration JSON and installed distribution digest are
+recorded before context construction. Neither is recreated by setting the
+candidate strategy to a control value.
 
 Behavioral claim to verify: after additive recency exclusion, the long-term
 allowance protects half for one global CC80-weighted facet-saturation walk,
@@ -270,27 +294,28 @@ this prototype into deployed code.
 
 Before BEAM output is accepted:
 
-1. C0 reproduces the committed HH-003 static-ASPECT context identities and
-   payload SHA-256 values for all available 1,540 queries, or the exact
-   committed anchor population if the artifact uses a different count.
-2. The study-private common-path adapter, when pointed at static ASPECT,
-   reproduces C0 byte-for-byte but is not used to generate C0 results.
+1. A0 and C0 reproduce the committed HH-003 default and static-ASPECT context
+   identities and payload SHA-256 values for all available 1,540 queries, or
+   the exact committed anchor population if an artifact uses a different count.
+2. The study-private common-path adapter, when pointed at CC80-only or static
+   ASPECT, reproduces A0 and C0 byte-for-byte but is not used to generate either
+   deployed control's results.
 3. T1 reproduces all 871 TC-014 development `opportunity` selected identity
    sequences and payload digests before additive recency is composed.
 4. The composition layer reproduces CC-007's committed additive-recency final
-   payload anchors with the static selector.
+   payload anchors for both the public default and static selector.
 5. Reopening a frozen BEAM store reproduces every stored episode embedding and
    every context payload digest.
 
-Counts alone do not satisfy any anchor. A failure stops before BEAM
-head-to-head summaries.
+Counts alone do not satisfy any anchor. A failure stops before BEAM three-arm
+summaries.
 
-## 8. Part 1 head-to-head exploration
+## 8. Part 1 three-arm exploration
 
 ### 8.1 Population
 
 Subject to successful onboarding, run every question from the 90 normal-scale
-conversations through C0 and T1. Expected discovery counts are 20 100K, 35
+conversations through A0, C0 and T1. Expected discovery counts are 20 100K, 35
 500K and 35 1M conversations with approximately 1,800 questions; observed
 counts replace these notes in the committed Part 1 report.
 
@@ -305,9 +330,10 @@ model calls.
 - source/package/config/script hashes;
 - complete CC80 order and scores;
 - recent ids, semantic parents, proposed children, retained children,
-  parent-for-child mapping and returned semantic ids;
-- every ASPECT marginal, exact cost, displaced CC80 set and opportunity
-  accept/reject reason;
+  parent-for-child mapping and returned semantic ids, with asserted empty
+  ASPECT fields for A0;
+- every applicable ASPECT marginal, exact cost, displaced CC80 set and
+  opportunity accept/reject reason;
 - selected and dropped ids in order;
 - exact retrieval payload and final payload SHA-256;
 - retrieval and final characters, episode counts and budget state;
@@ -327,12 +353,13 @@ stratified by BEAM scale and question family:
 - parent, proposed, retained and rejected-child counts;
 - no-positive-child, no-fitting-child, rejected-capacity and rejected-value
   states;
-- selected-set intersection, Jaccard, additions and removals between arms;
+- selected-set intersection, Jaccard, additions and removals for A0/C0, C0/T1
+  and A0/T1;
 - exact payload-character difference;
 - CC80 ranks of arm-only episodes;
 - facet coverage and per-family representation;
 - context-construction latency and throughput; and
-- traces on which C0 and T1 are byte-identical.
+- traces on which each pair is byte-identical.
 
 Also report each mechanism's behavior on the longest store, longest episode,
 largest question, largest candidate pool and largest arm disagreement selected
@@ -349,7 +376,8 @@ Demonstrate on real BEAM traces:
 - child admitted but rejected by opportunity value;
 - all proposed children retained;
 - protected slack returned and no slack returned;
-- C0/T1 identical selection and materially different selection; and
+- A0/C0, C0/T1 and A0/T1 identical selections and materially different
+  selections where each state exists; and
 - exact termination after one finite attempt per parent.
 
 Neither selector has cross-query feedback because `context()` is read-only.
@@ -366,6 +394,9 @@ showing exclusions only grow and no child or parent re-enters.
   `OUTCOME_LEAKAGE`.
 - **G-ANCHOR:** all control and treatment reproduction anchors pass by ordered
   identity and payload digest; otherwise stop as `MECHANISM_NOT_REPRODUCED`.
+- **G-BASELINE:** A0 uses the public default configuration, has no ASPECT trace,
+  and spends no characters through protected allocation; otherwise stop as
+  `BASELINE_NOT_DEPLOYED_DEFAULT`.
 - **G-TREATMENT:** T1 changes at least one real final selected set and both
   identical and changed traces exist; otherwise stop as `TREATMENT_INERT_OR_DEGENERATE`.
 - **G-BUDGET:** every long-term payload is within 32,000 characters, recent
@@ -375,7 +406,7 @@ showing exclusions only grow and no child or parent re-enters.
   within measured local resource limits without reducing corpus, candidates or
   registered behavior; otherwise stop as `INSTRUMENT_NOT_SCALABLE`.
 
-These gates establish only that a head-to-head live test is mechanically
+These gates establish only that a three-arm live test is mechanically
 possible. They do not prefer an arm.
 
 ## 9. Preflight
@@ -401,9 +432,10 @@ outcomes or generate answers.
   registration; registration precedes any reader implementation; complete
   answers precede blind scoring; and scoring commits precede arm mapping.
 - **PF4 Reachability:** after Part 1 and before registration, size practical,
-  statistical, scale-transfer and regression branches from the observed
-  question population and plausible discordance without opening outcomes.
-  Demonstrate every disposition synthetically in both directions.
+  statistical, scale-transfer and regression branches for primary C0/T1 and
+  guardrail A0/T1 comparisons from the observed question population and
+  plausible discordance without opening outcomes. Demonstrate every
+  disposition synthetically in both directions.
 - **PF5 Stable keys:** verify content-hash identities survive path moves,
   rebuilds, shuffled processing and duplicate text occurrences.
 - **PF6 Reproduction:** satisfy every ordered-identity and payload-digest anchor
@@ -419,8 +451,9 @@ outcomes or generate answers.
   all pass while answer correctness falls. No exploration metric authorizes
   adoption.
 - **PF10 Live requirement:** only a separately pre-registered, complete paired
-  reader and blind-scoring run can decide whether T1 improves the deployed
-  library.
+  reader and blind-scoring run can decide whether T1 improves static ASPECT
+  while remaining non-inferior to the deployed CC80 default. Beating C0 while
+  failing the A0 guardrail is not an improvement disposition.
 
 No checklist item passes by assertion. Each must cite a committed artifact and
 hash.
@@ -446,7 +479,7 @@ src/analysis/
   beam001_corpus.py                      # trusted split command and hashes
   beam001_adapter.py                     # mechanism-surface chat adapter
   beam001_parent_opportunity.py          # study-private T1
-  beam001_exploration.py                 # label-blind head-to-head runner
+  beam001_exploration.py                 # label-blind three-arm runner
 tests/
   test_beam001_corpus.py
   test_beam001_adapter.py
@@ -485,18 +518,18 @@ runtime artifact directory.
 2. Acquire BEAM at an immutable revision and commit only its manifest, license
    record and hashes, not an interpreted score.
 3. Implement the trusted split, mechanism surface and schema audit; commit.
-4. Implement C0 reproduction and T1 study-private port; commit tests before
+4. Implement A0/C0 reproduction and T1 study-private port; commit tests before
    running new BEAM mechanism output.
 5. Run and commit all Section 7 anchors.
-6. Run the label-blind normal-scale head-to-head exploration with outcomes
+6. Run the label-blind normal-scale three-arm exploration with outcomes
    inaccessible; commit raw traces and summaries.
 7. Write and commit `BEAM_001_PART1_EXPLORATION.md`.
 8. Decide whether the viable mechanism and population justify a live design.
 9. If authorized, write a standalone pre-registration that fixes reader,
    answer prompt, official-rubric treatment, judge, seeds, schedule, primary
-   endpoint, two-sided interpretation, works bar, signal bar, scale guardrails,
-   length handling, runtime, `recency_window_n=32` in both arms and the claim
-   boundary.
+   C0/T1 endpoint, required A0/T1 non-regression guardrail, two-sided
+   interpretation, works bar, signal bar, scale guardrails, length handling,
+   runtime, `recency_window_n=32` in all three arms and the claim boundary.
 10. Commit that registration with no implementation files before any answer
     runner is written or called.
 
@@ -509,10 +542,12 @@ did not compare the named mechanisms. Treatment inertia means the proposed
 contrast has no tested population on this corpus. Budget or duplication failure
 means the candidate did not preserve the deployed composition contract.
 
-None of those outcomes proves static ASPECT is better. Conversely, an
+None of those outcomes proves either deployed path is better. Conversely, an
 exploration showing broader coverage or different selected episodes does not
 prove parent opportunity is better. The question remains open until a valid
-live paired result exists.
+live paired result exists. A later result where T1 beats C0 but fails its
+pre-registered A0 non-regression guardrail cannot receive an improvement or
+package-port disposition.
 
 Even a later positive BEAM result would be bounded to this synthetic public
 corpus, the locked reader and judge, and the tested normal scales. It would make
