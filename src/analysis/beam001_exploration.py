@@ -47,6 +47,7 @@ CONTEXTS_PATH = ARTIFACT_ROOT / "contexts.jsonl.gz"
 RANKINGS_PATH = ARTIFACT_ROOT / "rankings.jsonl.gz"
 PAYLOADS_PATH = ARTIFACT_ROOT / "payloads.sealed.jsonl.gz"
 SUMMARY_PATH = ARTIFACT_ROOT / "summary.json"
+SHUFFLE_PATH = ARTIFACT_ROOT / "shuffle_replay.json"
 RUNTIME_PATH = ROOT / "artifacts/runtime/exploration_progress.json"
 FAILURE_PATH = ROOT / "artifacts/runtime/exploration_failure.json"
 
@@ -146,6 +147,19 @@ def _write_gzip_jsonl(path: Path, rows: Sequence[Mapping[str, Any]]) -> None:
         raw.flush()
         os.fsync(raw.fileno())
     temporary.replace(path)
+
+
+def _shuffled_questions(
+    questions: Sequence[Mapping[str, Any]],
+) -> list[Mapping[str, Any]]:
+    """Return the frozen, order-independent Part 1 replay schedule."""
+
+    return sorted(
+        questions,
+        key=lambda item: hashlib.sha256(
+            b"beam001-shuffle-v1\0" + str(item["question_key"]).encode("ascii")
+        ).digest(),
+    )
 
 
 def _stable_maps(
@@ -845,6 +859,185 @@ def parallel_run(workers: int = 8) -> dict[str, Any]:
         raise
 
 
+def run_shuffle_shard(shard_index: int, shard_count: int) -> dict[str, Any]:
+    """Replay one conversation shard in a frozen shuffled question order."""
+
+    if shard_count < 1 or shard_index < 0 or shard_index >= shard_count:
+        raise BeamExplorationError("Invalid shuffle shard")
+    os.environ.pop("OPENAI_API_KEY", None)
+    expected = _load_checkpoints()
+    if len(expected) != EXPECTED_ROWS:
+        raise BeamExplorationError(
+            f"Shuffle replay requires complete exploration: {len(expected)}/{EXPECTED_ROWS}"
+        )
+    output = ARTIFACT_ROOT / f"shuffle.shard-{shard_index:02d}.json"
+    embedder = CachedEmbedder(CACHE_PATH)
+    checked = 0
+    conversations = 0
+    changed_orders = 0
+    order_keys: list[str] = []
+    mismatches: list[dict[str, str]] = []
+    try:
+        for conversation_number, row in enumerate(_iter_mechanism(), 1):
+            if (conversation_number - 1) % shard_count != shard_index:
+                continue
+            conversations += 1
+            questions = list(row["questions"])
+            shuffled = _shuffled_questions(questions)
+            source_keys = [str(question["question_key"]) for question in questions]
+            shuffled_keys = [str(question["question_key"]) for question in shuffled]
+            changed_orders += shuffled_keys != source_keys
+            order_keys.extend(shuffled_keys)
+            a0, c0, adapted = _prepare_stores(row, embedder)
+            try:
+                a0_records = a0._all_episodes()
+                c0_records = c0._all_episodes()
+                _stable_maps(a0_records, adapted)
+                facet_bundle = prepare_facets(
+                    a0_records, EpisodicConfig().aspect_model
+                )
+                for question in shuffled:
+                    key = str(question["question_key"])
+                    query = str(question["question"])
+                    query_vector = embedder(query)
+                    before_a0 = a0._conn.total_changes
+                    a0_payload, _ = a0.context(query)
+                    if a0._conn.total_changes != before_a0:
+                        raise BeamExplorationError("Shuffle A0 mutated its store")
+                    before_c0 = c0._conn.total_changes
+                    with _cached_public_facets(facet_bundle):
+                        c0_payload, _ = c0.context(query)
+                    if c0._conn.total_changes != before_c0:
+                        raise BeamExplorationError("Shuffle C0 mutated its store")
+                    t1 = build_parent_opportunity_context(
+                        episodes=a0_records,
+                        query_text=query,
+                        query_embedding=query_vector,
+                        config=EpisodicConfig(),
+                        facet_bundle=facet_bundle,
+                    )
+                    for arm, payload in zip(
+                        ARMS, (a0_payload, c0_payload, t1.payload), strict=True
+                    ):
+                        observed = hashlib.sha256(payload.encode("utf-8")).hexdigest()
+                        wanted = str(expected[(key, arm)]["payload_sha256"])
+                        checked += 1
+                        if observed != wanted:
+                            mismatches.append(
+                                {
+                                    "question_key": key,
+                                    "arm": arm,
+                                    "expected": wanted,
+                                    "observed": observed,
+                                }
+                            )
+            finally:
+                a0.close()
+                c0.close()
+    finally:
+        embedder.close()
+    result = {
+        "schema": "beam001-shuffle-shard-v1",
+        "status": "PASS" if not mismatches else "FAIL",
+        "shard_index": shard_index,
+        "shard_count": shard_count,
+        "conversations": conversations,
+        "conversations_with_changed_order": changed_orders,
+        "question_arms_checked": checked,
+        "mismatches": mismatches,
+        "question_order": order_keys,
+        "question_order_sha256": hashlib.sha256(
+            "\n".join(order_keys).encode("ascii")
+        ).hexdigest(),
+        "embedding_calls": 0,
+        "generation_calls": 0,
+        "outcomes_opened": False,
+    }
+    _write_json(output, result)
+    if mismatches:
+        raise BeamExplorationError(
+            f"Shuffle shard {shard_index} found {len(mismatches)} payload mismatches"
+        )
+    return result
+
+
+def parallel_shuffle_replay(workers: int = 8) -> dict[str, Any]:
+    """Run the registered shuffled-order replay over every question-arm."""
+
+    if workers < 2 or workers > 16:
+        raise BeamExplorationError("Parallel worker count must be in [2,16]")
+    os.environ.pop("OPENAI_API_KEY", None)
+    processes: list[tuple[int, subprocess.Popen[Any], Any, Any]] = []
+    environment = dict(os.environ)
+    environment.pop("OPENAI_API_KEY", None)
+    environment["PYTHONPATH"] = str(REPO_ROOT / "src")
+    for index in range(workers):
+        stdout = (ROOT / f"artifacts/runtime/shuffle_{index:02d}_stdout.log").open("ab")
+        stderr = (ROOT / f"artifacts/runtime/shuffle_{index:02d}_stderr.log").open("ab")
+        process = subprocess.Popen(
+            [
+                sys.executable,
+                "-m",
+                "analysis.beam001_exploration",
+                "shuffle-shard",
+                "--shard-index",
+                str(index),
+                "--shard-count",
+                str(workers),
+            ],
+            cwd=REPO_ROOT,
+            env=environment,
+            stdout=stdout,
+            stderr=stderr,
+        )
+        processes.append((index, process, stdout, stderr))
+    failures = []
+    for index, process, stdout, stderr in processes:
+        returncode = process.wait()
+        stdout.close()
+        stderr.close()
+        if returncode:
+            failures.append({"shard_index": index, "returncode": returncode})
+    if failures:
+        raise BeamExplorationError(f"Shuffle replay shards failed: {failures}")
+    shards = [
+        json.loads(
+            (ARTIFACT_ROOT / f"shuffle.shard-{index:02d}.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        for index in range(workers)
+    ]
+    order = [key for shard in shards for key in shard["question_order"]]
+    result = {
+        "schema": "beam001-shuffle-replay-v1",
+        "status": "PASS",
+        "workers": workers,
+        "conversations": sum(int(shard["conversations"]) for shard in shards),
+        "conversations_with_changed_order": sum(
+            int(shard["conversations_with_changed_order"]) for shard in shards
+        ),
+        "question_arms_checked": sum(
+            int(shard["question_arms_checked"]) for shard in shards
+        ),
+        "payload_mismatches": sum(len(shard["mismatches"]) for shard in shards),
+        "question_order_sha256": hashlib.sha256(
+            "\n".join(order).encode("ascii")
+        ).hexdigest(),
+        "embedding_calls": 0,
+        "generation_calls": 0,
+        "outcomes_opened": False,
+    }
+    if (
+        result["conversations"] != 90
+        or result["conversations_with_changed_order"] != 90
+        or result["question_arms_checked"] != EXPECTED_ROWS
+    ):
+        raise BeamExplorationError(f"Incomplete shuffled replay: {result}")
+    _write_json(SHUFFLE_PATH, result)
+    return result
+
+
 def wait_and_run(interval_seconds: int = 60) -> dict[str, Any]:
     os.environ.pop("OPENAI_API_KEY", None)
     while True:
@@ -908,7 +1101,15 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "command",
-        choices=("run", "shard", "parallel-run", "wait-and-run", "resume-and-run"),
+        choices=(
+            "run",
+            "shard",
+            "parallel-run",
+            "shuffle-shard",
+            "parallel-shuffle",
+            "wait-and-run",
+            "resume-and-run",
+        ),
     )
     parser.add_argument("--interval-seconds", type=int, default=60)
     parser.add_argument("--max-restarts", type=int, default=3)
@@ -922,6 +1123,10 @@ def main() -> None:
         result = run_shard(arguments.shard_index, arguments.shard_count)
     elif arguments.command == "parallel-run":
         result = parallel_run(arguments.workers)
+    elif arguments.command == "shuffle-shard":
+        result = run_shuffle_shard(arguments.shard_index, arguments.shard_count)
+    elif arguments.command == "parallel-shuffle":
+        result = parallel_shuffle_replay(arguments.workers)
     elif arguments.command == "wait-and-run":
         result = wait_and_run(arguments.interval_seconds)
     else:
