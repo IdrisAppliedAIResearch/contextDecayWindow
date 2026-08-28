@@ -37,6 +37,8 @@ A0, C0, T1 = ARMS
 READER_MAX_TOKENS = 2048
 JUDGE_MAX_TOKENS = 512
 INPUT_LIMIT = 125_952
+BATCH_TOKEN_BUDGET = 600_000
+IN_FLIGHT_TOKEN_TARGET = 1_900_000
 READER_DOMAIN = "beam001-reader-v1"
 JUDGE_DOMAIN = "beam001-judge-v1"
 ORDER_DOMAIN = "beam001-reader-order-v1"
@@ -304,6 +306,8 @@ def run_requests_with_one_retry(
         [(prefix, requests)],
         ledger,
         poll_seconds=poll_seconds,
+        token_budget=BATCH_TOKEN_BUDGET,
+        in_flight_target=IN_FLIGHT_TOKEN_TARGET,
         study="BEAM-001",
     )[prefix]
     failed = [request for request in requests if validator(results.get(request.custom_id, {"error": "missing"}))]
@@ -314,12 +318,40 @@ def run_requests_with_one_retry(
             [(retry_prefix, failed)],
             ledger,
             poll_seconds=poll_seconds,
+            token_budget=BATCH_TOKEN_BUDGET,
+            in_flight_target=IN_FLIGHT_TOKEN_TARGET,
             study="BEAM-001",
         )[retry_prefix]
         results.update(retry)
     exhausted = [request.custom_id for request in requests if validator(results.get(request.custom_id, {"error": "missing"}))]
     if exhausted:
         raise BeamLiveError(f"{prefix} exhausted one retry for {len(exhausted)} request(s)")
+    return results
+
+
+def synchronous_body(client: OpenAI, request: BatchRequest) -> dict[str, Any]:
+    response = client.chat.completions.create(**request.body)
+    return response.model_dump(mode="json")
+
+
+def run_synchronous_with_one_retry(
+    client: OpenAI,
+    requests: Sequence[BatchRequest],
+    validator: Any,
+) -> dict[str, dict[str, Any]]:
+    results: dict[str, dict[str, Any]] = {}
+    for request in requests:
+        body: dict[str, Any] = {"error": "not_attempted"}
+        for _attempt in range(2):
+            try:
+                body = synchronous_body(client, request)
+            except Exception as error:  # noqa: BLE001
+                body = {"error": {"type": type(error).__name__, "message": str(error)}}
+            if validator(body) is None:
+                break
+        if validator(body) is not None:
+            raise BeamLiveError(f"{request.custom_id} exhausted one synchronous retry")
+        results[request.custom_id] = body
     return results
 
 
@@ -340,21 +372,32 @@ def run_reader(
         and (not pilot_only or row["question_key"] in pilot_keys)
     ]
     if target:
-        ledger = BatchLedger.load(RUN / "batch_ledger.json")
-        prefix = "reader.pilot" if pilot_only else "reader.population"
-        results = run_requests_with_one_retry(
-            client,
-            [as_batch_request(row) for row in target],
-            ledger,
-            prefix,
-            poll_seconds,
-            validate_reader_body,
-        )
-        merged, failed = merge_answer_results(target, results, existing)
-        if failed:
-            raise BeamLiveError(f"Unexpected failed reader results: {failed[:3]}")
-        write_jsonl(answers_path, merged)
-        existing = merged
+        requests = [as_batch_request(row) for row in target]
+        if pilot_only:
+            for row, request in zip(target, requests):
+                results = run_synchronous_with_one_retry(
+                    client, [request], validate_reader_body
+                )
+                merged, failed = merge_answer_results([row], results, existing)
+                if failed:
+                    raise BeamLiveError(f"Unexpected failed reader result: {failed[0]}")
+                write_jsonl(answers_path, merged)
+                existing = merged
+        else:
+            ledger = BatchLedger.load(RUN / "batch_ledger.json")
+            results = run_requests_with_one_retry(
+                client,
+                requests,
+                ledger,
+                "reader.population",
+                poll_seconds,
+                validate_reader_body,
+            )
+            merged, failed = merge_answer_results(target, results, existing)
+            if failed:
+                raise BeamLiveError(f"Unexpected failed reader results: {failed[:3]}")
+            write_jsonl(answers_path, merged)
+            existing = merged
     required = 6 if pilot_only else 5400
     if len(existing) < required:
         raise BeamLiveError(f"Reader stage has {len(existing)} of {required} required answers")
@@ -408,6 +451,7 @@ def prepare_judge_surfaces(
         raise BeamLiveError("Judge construction before answer seal")
     outcomes = load_outcomes(CORPUS / "outcome_surface.sealed.jsonl.gz")
     questions = load_questions()
+    encoding = tiktoken.encoding_for_model(MODEL)
     surface: list[dict[str, Any]] = []
     mapping: list[dict[str, str]] = []
     for answer in sorted(answers, key=lambda row: row["custom_id"]):
@@ -432,7 +476,7 @@ def prepare_judge_surfaces(
                     "blind_id": blind_id,
                     "body": body,
                     "body_sha256": request_digest(body),
-                    "prompt_tokens": len(prompt) // 4 + 32,
+                    "prompt_tokens": len(encoding.encode(prompt)) + 8,
                 }
             )
             mapping.append(
@@ -499,6 +543,27 @@ def validate_judge_body(body: dict[str, Any]) -> str | None:
     return None if parse_judge_body(body) is not None else "invalid_judgment"
 
 
+def judgment_record(
+    blind_id: str,
+    body: dict[str, Any],
+    surface_by_id: dict[str, dict[str, Any]],
+) -> dict[str, Any]:
+    parsed = parse_judge_body(body)
+    if parsed is None:
+        raise BeamLiveError(f"Invalid judgment after retry: {blind_id}")
+    score, reason = parsed
+    prompt_tokens, completion_tokens = usage_of(body)
+    return {
+        "blind_id": blind_id,
+        "body_sha256": surface_by_id[blind_id]["body_sha256"],
+        "completion_tokens": completion_tokens,
+        "finish_reason": response_finish_reason(body),
+        "prompt_tokens": prompt_tokens,
+        "reason": reason,
+        "score": score,
+    }
+
+
 def run_judges(
     client: OpenAI,
     surface: Sequence[dict[str, Any]],
@@ -509,35 +574,42 @@ def run_judges(
     done = {str(row["blind_id"]) for row in existing}
     pending = [row for row in surface if row["blind_id"] not in done]
     if pending:
-        requests = [
-            BatchRequest(
+        by_id = {str(row["blind_id"]): dict(row) for row in existing}
+        surface_by_id = {str(row["blind_id"]): row for row in pending}
+        requests_by_id = {
+            str(row["blind_id"]): BatchRequest(
                 custom_id=str(row["blind_id"]),
                 body=dict(row["body"]),
                 approx_tokens=int(row["prompt_tokens"]) + JUDGE_MAX_TOKENS,
             )
             for row in pending
+        }
+        smoke_ids = sorted(requests_by_id)[:2] if not existing else []
+        for blind_id in smoke_ids:
+            smoke_result = run_synchronous_with_one_retry(
+                client, [requests_by_id[blind_id]], validate_judge_body
+            )
+            by_id[blind_id] = judgment_record(
+                blind_id, smoke_result[blind_id], surface_by_id
+            )
+            write_jsonl(path, sorted(by_id.values(), key=lambda row: row["blind_id"]))
+        batch_requests = [
+            request for blind_id, request in requests_by_id.items()
+            if blind_id not in by_id
         ]
-        ledger = BatchLedger.load(RUN / "batch_ledger.json")
-        results = run_requests_with_one_retry(
-            client, requests, ledger, "judge.population", poll_seconds, validate_judge_body
-        )
-        by_id = {str(row["blind_id"]): dict(row) for row in existing}
-        surface_by_id = {str(row["blind_id"]): row for row in pending}
+        results: dict[str, dict[str, Any]] = {}
+        if batch_requests:
+            ledger = BatchLedger.load(RUN / "batch_ledger.json")
+            results = run_requests_with_one_retry(
+                client,
+                batch_requests,
+                ledger,
+                "judge.population",
+                poll_seconds,
+                validate_judge_body,
+            )
         for blind_id, body in results.items():
-            parsed = parse_judge_body(body)
-            if parsed is None:
-                raise BeamLiveError(f"Invalid judgment after retry: {blind_id}")
-            score, reason = parsed
-            prompt_tokens, completion_tokens = usage_of(body)
-            by_id[blind_id] = {
-                "blind_id": blind_id,
-                "body_sha256": surface_by_id[blind_id]["body_sha256"],
-                "completion_tokens": completion_tokens,
-                "finish_reason": response_finish_reason(body),
-                "prompt_tokens": prompt_tokens,
-                "reason": reason,
-                "score": score,
-            }
+            by_id[blind_id] = judgment_record(blind_id, body, surface_by_id)
         write_jsonl(path, sorted(by_id.values(), key=lambda row: row["blind_id"]))
         existing = list(by_id.values())
     if len(existing) != 16275:

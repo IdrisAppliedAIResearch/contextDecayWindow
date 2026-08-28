@@ -6,14 +6,18 @@ import numpy as np
 import pytest
 
 from analysis.beam001_live import (
+    BATCH_TOKEN_BUDGET,
+    IN_FLIGHT_TOKEN_TARGET,
     bootstrap_interval,
     classify_disposition,
     extract_string_constant,
     parse_judge_body,
     render_judge_prompt,
     render_reader_prompt,
+    run_synchronous_with_one_retry,
     sign_flip_p,
 )
+from analysis.hh002_batch import BatchRequest
 
 
 def response(content: str, finish_reason: str = "stop") -> dict:
@@ -116,3 +120,38 @@ def test_statistics_are_seed_reproducible() -> None:
 def test_json_score_values_round_trip() -> None:
     body = response(json.dumps({"score": 1.0, "reason": "complete"}))
     assert parse_judge_body(body) == (1.0, "complete")
+
+
+def test_synchronous_smoke_retries_once_and_preserves_body() -> None:
+    class Result:
+        def __init__(self, body: dict) -> None:
+            self.body = body
+
+        def model_dump(self, mode: str) -> dict:
+            assert mode == "json"
+            return self.body
+
+    class Completions:
+        def __init__(self) -> None:
+            self.calls: list[dict] = []
+
+        def create(self, **body: object) -> Result:
+            self.calls.append(body)
+            if len(self.calls) == 1:
+                return Result(response("", "length"))
+            return Result(response("answer"))
+
+    completions = Completions()
+    client = type("Client", (), {"chat": type("Chat", (), {"completions": completions})()})()
+    request = BatchRequest("id", {"model": "m", "messages": []}, 1)
+    results = run_synchronous_with_one_retry(
+        client, [request], lambda body: None if body.get("choices", [{}])[0].get("finish_reason") == "stop" else "bad"
+    )
+    assert len(completions.calls) == 2
+    assert completions.calls[0] == completions.calls[1] == request.body
+    assert results["id"]["choices"][0]["message"]["content"] == "answer"
+
+
+def test_batch_utilization_constants_match_amendment() -> None:
+    assert BATCH_TOKEN_BUDGET == 600_000
+    assert IN_FLIGHT_TOKEN_TARGET == 1_900_000
