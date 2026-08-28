@@ -42,6 +42,27 @@ def test_checkpoint_resume_rejects_conflicting_duplicates(tmp_path, monkeypatch)
         exploration._load_checkpoints()
 
 
+def test_disjoint_shard_checkpoints_merge_by_stable_key(tmp_path, monkeypatch) -> None:
+    checkpoint = tmp_path / "checkpoint.jsonl"
+    monkeypatch.setattr(exploration, "CHECKPOINT_PATH", checkpoint)
+    first = {"question_key": "q1", "arm": exploration.ARMS[0], "value": 1}
+    second = {"question_key": "q2", "arm": exploration.ARMS[1], "value": 2}
+    exploration._append_checkpoint(first, tmp_path / "checkpoint.shard-00.jsonl")
+    exploration._append_checkpoint(second, tmp_path / "checkpoint.shard-01.jsonl")
+
+    assert exploration._load_checkpoints() == {
+        ("q1", exploration.ARMS[0]): first,
+        ("q2", exploration.ARMS[1]): second,
+    }
+
+
+def test_invalid_parallel_and_conversation_shards_fail_before_work() -> None:
+    with pytest.raises(exploration.BeamExplorationError, match="worker count"):
+        exploration.parallel_run(1)
+    with pytest.raises(exploration.BeamExplorationError, match="Invalid"):
+        exploration._run_with_embedder({}, shard_index=2, shard_count=2)
+
+
 def test_baseline_trace_and_composition_gates_fail_loudly() -> None:
     valid = {
         "arm": exploration.ARMS[0],

@@ -95,10 +95,13 @@ def _iter_mechanism(path: Path = MECHANISM_SURFACE) -> Iterator[dict[str, Any]]:
             yield row
 
 
-def _append_checkpoint(row: Mapping[str, Any]) -> None:
-    CHECKPOINT_PATH.parent.mkdir(parents=True, exist_ok=True)
+def _append_checkpoint(
+    row: Mapping[str, Any], path: Path | None = None
+) -> None:
+    path = CHECKPOINT_PATH if path is None else path
+    path.parent.mkdir(parents=True, exist_ok=True)
     raw = json.dumps(row, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
-    with CHECKPOINT_PATH.open("a", encoding="utf-8", newline="\n") as handle:
+    with path.open("a", encoding="utf-8", newline="\n") as handle:
         handle.write(raw + "\n")
         handle.flush()
         os.fsync(handle.fileno())
@@ -106,22 +109,27 @@ def _append_checkpoint(row: Mapping[str, Any]) -> None:
 
 def _load_checkpoints() -> dict[tuple[str, str], dict[str, Any]]:
     rows: dict[tuple[str, str], dict[str, Any]] = {}
-    if not CHECKPOINT_PATH.is_file():
-        return rows
-    lines = CHECKPOINT_PATH.read_text(encoding="utf-8").splitlines()
-    for line_number, line in enumerate(lines, 1):
-        if not line.strip():
+    paths = [CHECKPOINT_PATH]
+    paths.extend(sorted(CHECKPOINT_PATH.parent.glob("checkpoint.shard-*.jsonl")))
+    for path in paths:
+        if not path.is_file():
             continue
-        try:
-            row = json.loads(line)
-        except json.JSONDecodeError as error:
-            if line_number == len(lines):
-                break
-            raise BeamExplorationError("Corrupt nonterminal checkpoint row") from error
-        key = (str(row["question_key"]), str(row["arm"]))
-        if key in rows and rows[key] != row:
-            raise BeamExplorationError(f"Conflicting checkpoint: {key}")
-        rows[key] = row
+        lines = path.read_text(encoding="utf-8").splitlines()
+        for line_number, line in enumerate(lines, 1):
+            if not line.strip():
+                continue
+            try:
+                row = json.loads(line)
+            except json.JSONDecodeError as error:
+                if line_number == len(lines):
+                    break
+                raise BeamExplorationError(
+                    f"Corrupt nonterminal checkpoint row: {path}"
+                ) from error
+            key = (str(row["question_key"]), str(row["arm"]))
+            if key in rows and rows[key] != row:
+                raise BeamExplorationError(f"Conflicting checkpoint: {key}")
+            rows[key] = row
     return rows
 
 
@@ -426,11 +434,23 @@ def _anchors() -> dict[str, Any]:
     return run_anchors()
 
 
-def _run_with_embedder(existing: dict[tuple[str, str], dict[str, Any]]) -> None:
+def _run_with_embedder(
+    existing: dict[tuple[str, str], dict[str, Any]],
+    *,
+    shard_index: int = 0,
+    shard_count: int = 1,
+    checkpoint_path: Path = CHECKPOINT_PATH,
+    runtime_path: Path = RUNTIME_PATH,
+) -> None:
+    if shard_count < 1 or shard_index < 0 or shard_index >= shard_count:
+        raise BeamExplorationError("Invalid conversation shard")
     embedder = CachedEmbedder(CACHE_PATH)
     try:
-        completed = len(existing)
+        completed_at_start = len(existing)
+        completed_by_shard = 0
         for conversation_number, row in enumerate(_iter_mechanism(), 1):
+            if (conversation_number - 1) % shard_count != shard_index:
+                continue
             a0, c0, adapted = _prepare_stores(row, embedder)
             try:
                 a0_records = a0._all_episodes()
@@ -480,9 +500,9 @@ def _run_with_embedder(existing: dict[tuple[str, str], dict[str, Any]]) -> None:
                         )
                         record["_ranking"] = ranking_record
                         _assert_composition(record)
-                        _append_checkpoint(record)
+                        _append_checkpoint(record, checkpoint_path)
                         existing[(key, ARMS[0])] = record
-                        completed += 1
+                        completed_by_shard += 1
                     else:
                         a0_record = existing[(key, ARMS[0])]
                         ranking_record = {"ranking_sha256": a0_record["ranking_sha256"]}
@@ -526,9 +546,9 @@ def _run_with_embedder(existing: dict[tuple[str, str], dict[str, Any]]) -> None:
                             ranking_sha256=str(ranking_record["ranking_sha256"]), elapsed=elapsed,
                         )
                         _assert_composition(record)
-                        _append_checkpoint(record)
+                        _append_checkpoint(record, checkpoint_path)
                         existing[(key, ARMS[1])] = record
-                        completed += 1
+                        completed_by_shard += 1
 
                     if (key, ARMS[2]) not in existing:
                         t0 = time.perf_counter()
@@ -556,14 +576,17 @@ def _run_with_embedder(existing: dict[tuple[str, str], dict[str, Any]]) -> None:
                             ranking_sha256=str(ranking_record["ranking_sha256"]), elapsed=elapsed,
                         )
                         _assert_composition(record)
-                        _append_checkpoint(record)
+                        _append_checkpoint(record, checkpoint_path)
                         existing[(key, ARMS[2])] = record
-                        completed += 1
+                        completed_by_shard += 1
                     _write_json(
-                        RUNTIME_PATH,
+                        runtime_path,
                         {
                             "status": "RUNNING",
-                            "completed_question_arms": completed,
+                            "shard_index": shard_index,
+                            "shard_count": shard_count,
+                            "completed_at_shard_start": completed_at_start,
+                            "new_completed_by_shard": completed_by_shard,
                             "expected_question_arms": EXPECTED_ROWS,
                             "conversation": conversation_number,
                             "expected_conversations": 90,
@@ -575,6 +598,19 @@ def _run_with_embedder(existing: dict[tuple[str, str], dict[str, Any]]) -> None:
             finally:
                 a0.close()
                 c0.close()
+        _write_json(
+            runtime_path,
+            {
+                "status": "COMPLETE",
+                "shard_index": shard_index,
+                "shard_count": shard_count,
+                "completed_at_shard_start": completed_at_start,
+                "new_completed_by_shard": completed_by_shard,
+                "api_calls": 0,
+                "outcomes_opened": False,
+                "updated_unix": time.time(),
+            },
+        )
     finally:
         embedder.close()
 
@@ -674,6 +710,141 @@ def run() -> dict[str, Any]:
         raise
 
 
+def run_shard(shard_index: int, shard_count: int) -> dict[str, Any]:
+    """Run one disjoint conversation shard without finalizing shared output."""
+
+    os.environ.pop("OPENAI_API_KEY", None)
+    checkpoint = ARTIFACT_ROOT / f"checkpoint.shard-{shard_index:02d}.jsonl"
+    runtime = ROOT / (
+        f"artifacts/runtime/exploration_progress.shard-{shard_index:02d}.json"
+    )
+    failure = ROOT / (
+        f"artifacts/runtime/exploration_failure.shard-{shard_index:02d}.json"
+    )
+    failure.unlink(missing_ok=True)
+    try:
+        _separation_gate()
+        _anchors()
+        existing = _load_checkpoints()
+        _run_with_embedder(
+            existing,
+            shard_index=shard_index,
+            shard_count=shard_count,
+            checkpoint_path=checkpoint,
+            runtime_path=runtime,
+        )
+        return {
+            "status": "COMPLETE",
+            "shard_index": shard_index,
+            "shard_count": shard_count,
+            "checkpoint": checkpoint.relative_to(REPO_ROOT).as_posix(),
+            "api_calls": 0,
+            "outcomes_opened": False,
+        }
+    except Exception as error:
+        _write_json(
+            failure,
+            {
+                "status": "FAILED",
+                "shard_index": shard_index,
+                "shard_count": shard_count,
+                "error_type": type(error).__name__,
+                "error": str(error),
+                "api_calls": 0,
+                "outcomes_opened": False,
+                "failed_unix": time.time(),
+            },
+        )
+        raise
+
+
+def parallel_run(workers: int = 8) -> dict[str, Any]:
+    """Run deterministic conversation shards concurrently, then finalize."""
+
+    if workers < 2 or workers > 16:
+        raise BeamExplorationError("Parallel worker count must be in [2,16]")
+    os.environ.pop("OPENAI_API_KEY", None)
+    FAILURE_PATH.unlink(missing_ok=True)
+    separation = _separation_gate()
+    anchors = _anchors()
+    environment = dict(os.environ)
+    environment.pop("OPENAI_API_KEY", None)
+    environment["PYTHONPATH"] = str(REPO_ROOT / "src")
+    processes: list[tuple[int, subprocess.Popen[Any], Any, Any]] = []
+    try:
+        for index in range(workers):
+            stdout_path = ROOT / (
+                f"artifacts/runtime/exploration_shard_{index:02d}_stdout.log"
+            )
+            stderr_path = ROOT / (
+                f"artifacts/runtime/exploration_shard_{index:02d}_stderr.log"
+            )
+            stdout = stdout_path.open("ab")
+            stderr = stderr_path.open("ab")
+            process = subprocess.Popen(
+                [
+                    sys.executable,
+                    "-m",
+                    "analysis.beam001_exploration",
+                    "shard",
+                    "--shard-index",
+                    str(index),
+                    "--shard-count",
+                    str(workers),
+                ],
+                cwd=REPO_ROOT,
+                env=environment,
+                stdout=stdout,
+                stderr=stderr,
+            )
+            processes.append((index, process, stdout, stderr))
+        failures = []
+        for index, process, stdout, stderr in processes:
+            returncode = process.wait()
+            stdout.close()
+            stderr.close()
+            if returncode:
+                failures.append({"shard_index": index, "returncode": returncode})
+        if failures:
+            raise BeamExplorationError(f"Conversation shards failed: {failures}")
+        result = _finalize(_load_checkpoints())
+        result["separation"] = separation
+        result["anchors"] = {
+            "status": anchors["status"],
+            "path": ANCHOR_PATH.relative_to(REPO_ROOT).as_posix(),
+            "sha256": sha256_file(ANCHOR_PATH),
+        }
+        result["runtime"] = {
+            "mode": "disjoint_conversation_shards",
+            "workers": workers,
+            "gpu_required": False,
+        }
+        _write_json(SUMMARY_PATH, result)
+        _write_json(RUNTIME_PATH, {**result, "updated_unix": time.time()})
+        return result
+    except Exception as error:
+        for _, process, stdout, stderr in processes:
+            if process.poll() is None:
+                process.terminate()
+            if not stdout.closed:
+                stdout.close()
+            if not stderr.closed:
+                stderr.close()
+        _write_json(
+            FAILURE_PATH,
+            {
+                "status": "FAILED",
+                "error_type": type(error).__name__,
+                "error": str(error),
+                "completed_question_arms": len(_load_checkpoints()),
+                "api_calls": 0,
+                "outcomes_opened": False,
+                "failed_unix": time.time(),
+            },
+        )
+        raise
+
+
 def wait_and_run(interval_seconds: int = 60) -> dict[str, Any]:
     os.environ.pop("OPENAI_API_KEY", None)
     while True:
@@ -735,12 +906,22 @@ def resume_and_run(interval_seconds: int = 60, max_restarts: int = 3) -> dict[st
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("command", choices=("run", "wait-and-run", "resume-and-run"))
+    parser.add_argument(
+        "command",
+        choices=("run", "shard", "parallel-run", "wait-and-run", "resume-and-run"),
+    )
     parser.add_argument("--interval-seconds", type=int, default=60)
     parser.add_argument("--max-restarts", type=int, default=3)
+    parser.add_argument("--shard-index", type=int, default=0)
+    parser.add_argument("--shard-count", type=int, default=1)
+    parser.add_argument("--workers", type=int, default=8)
     arguments = parser.parse_args()
     if arguments.command == "run":
         result = run()
+    elif arguments.command == "shard":
+        result = run_shard(arguments.shard_index, arguments.shard_count)
+    elif arguments.command == "parallel-run":
+        result = parallel_run(arguments.workers)
     elif arguments.command == "wait-and-run":
         result = wait_and_run(arguments.interval_seconds)
     else:
