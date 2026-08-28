@@ -1,11 +1,14 @@
 from __future__ import annotations
 
+import ast
 import gzip
+import inspect
 import json
 
 import pytest
 
 import analysis.beam001_exploration as exploration
+from episodic._retrieval import retrieve_long_term
 
 
 def test_exploration_has_no_outcome_import_and_anchor_is_bound() -> None:
@@ -72,3 +75,18 @@ def test_gzip_jsonl_is_canonical_and_timestamp_free(tmp_path) -> None:
     assert path.read_bytes() == first
     with gzip.open(path, "rt", encoding="utf-8") as handle:
         assert [json.loads(line) for line in handle] == rows
+
+
+def test_retrieval_introspection_uses_only_public_call_parameters() -> None:
+    tree = ast.parse(inspect.getsource(exploration))
+    allowed = set(inspect.signature(retrieve_long_term).parameters)
+    calls = [
+        node
+        for node in ast.walk(tree)
+        if isinstance(node, ast.Call)
+        and isinstance(node.func, ast.Name)
+        and node.func.id == "retrieve_long_term"
+    ]
+    assert calls
+    for call in calls:
+        assert {keyword.arg for keyword in call.keywords} <= allowed
