@@ -1,0 +1,56 @@
+{
+  "api_probe": {
+    "calls": 1,
+    "response_text_opened": false,
+    "x_ratelimit_limit_requests": 10000,
+    "x_ratelimit_limit_tokens": 200000,
+    "x_ratelimit_reset_requests": "8.64s",
+    "x_ratelimit_reset_tokens": "1ms"
+  },
+  "expected_live_schedule": {
+    "bundled_judge_calls": 360,
+    "charged_reader_tokens": 45289160,
+    "input_reader_tokens": 43077320,
+    "reader_calls": 1080,
+    "rubric_items": 1061,
+    "total_calls": 1440
+  },
+  "pacing": {
+    "judge_requests_per_minute_target": 6.8,
+    "reader_requests_per_minute_target": 6.8,
+    "tokens_per_minute_target": 195000,
+    "workers_judge": 32,
+    "workers_reader": 8
+  },
+  "pilot_question_overlap": 0,
+  "projected_hours": {
+    "judge_request_floor": 0.8824,
+    "reader_token_floor": 3.682,
+    "total_floor": 4.5644
+  },
+  "prompt_tokens": {
+    "median": 38616.0,
+    "p95": 49572
+  },
+  "sample": {
+    "conversations": 90,
+    "per_category": 36,
+    "questions": 360,
+    "questions_per_conversation": 4,
+    "scale_counts": {
+      "100K": 80,
+      "1M": 140,
+      "500K": 140
+    }
+  },
+  "selection": {
+    "domain": "beam001-optimized-4q-sample-v1",
+    "scale_offsets": {
+      "100K": 0,
+      "1M": 5,
+      "500K": 0
+    },
+    "separator": "one NUL byte",
+    "window": "four consecutive cyclic categories"
+  }
+}
