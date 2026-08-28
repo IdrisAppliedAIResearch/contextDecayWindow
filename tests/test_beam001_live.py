@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import time
 
 import numpy as np
 import pytest
@@ -14,12 +15,13 @@ from analysis.beam001_live import (
     bootstrap_interval,
     classify_disposition,
     extract_string_constant,
-    parse_judge_body,
+    parse_bundled_judge_body,
     load_questions,
     optimized_question_keys,
     render_judge_prompt,
     render_reader_prompt,
     run_synchronous_with_one_retry,
+    run_synchronous_schedule,
     sign_flip_p,
 )
 from analysis.hh002_batch import BatchRequest
@@ -66,24 +68,45 @@ def test_prompt_rendering_resolves_all_registered_placeholders() -> None:
     ) == "Q|R|A"
 
 
-@pytest.mark.parametrize(
-    ("content", "expected"),
-    [
-        ('{"score":0.5,"reason":"partial"}', (0.5, "partial")),
-        ('```json\n{"score": 1, "reason": "yes"}\n```', (1.0, "yes")),
-        ('prefix {"score": 0, "reason": "no"} suffix', (0.0, "no")),
-        ('{"score":0.25,"reason":"bad"}', None),
-        ('{"score":1,"reason":""}', None),
-        ('{"score":1,"reason":"yes","extra":1}', None),
-        ("not json", None),
-    ],
-)
-def test_judge_parser_is_bounded(content: str, expected: tuple[float, str] | None) -> None:
-    assert parse_judge_body(response(content)) == expected
+def bundled_payload() -> dict:
+    return {
+        "evaluations": [
+            {
+                "slot": slot,
+                "criteria": [
+                    {"rubric_index": 0, "score": 1.0, "reason": "yes"},
+                    {"rubric_index": 1, "score": 0.5, "reason": "partial"},
+                ],
+            }
+            for slot in ("R0", "R1", "R2")
+        ]
+    }
+
+
+def test_bundled_judge_parser_requires_complete_matrix() -> None:
+    source = {"slots": ["R0", "R1", "R2"], "rubric_count": 2}
+    parsed = parse_bundled_judge_body(source, response(json.dumps(bundled_payload())))
+    assert parsed is not None and len(parsed) == 3
+    broken = bundled_payload()
+    broken["evaluations"][0]["criteria"].pop()
+    assert parse_bundled_judge_body(source, response(json.dumps(broken))) is None
+
+
+def test_bundled_judge_parser_rejects_duplicate_slot_and_bad_score() -> None:
+    source = {"slots": ["R0", "R1", "R2"], "rubric_count": 2}
+    duplicate = bundled_payload()
+    duplicate["evaluations"][1]["slot"] = "R0"
+    assert parse_bundled_judge_body(source, response(json.dumps(duplicate))) is None
+    bad_score = bundled_payload()
+    bad_score["evaluations"][0]["criteria"][0]["score"] = 0.25
+    assert parse_bundled_judge_body(source, response(json.dumps(bad_score))) is None
 
 
 def test_judge_parser_rejects_non_stop() -> None:
-    assert parse_judge_body(response('{"score":1,"reason":"yes"}', "length")) is None
+    source = {"slots": ["R0", "R1", "R2"], "rubric_count": 2}
+    assert parse_bundled_judge_body(
+        source, response(json.dumps(bundled_payload()), "length")
+    ) is None
 
 
 def test_every_registered_disposition_is_reachable() -> None:
@@ -124,8 +147,9 @@ def test_statistics_are_seed_reproducible() -> None:
 
 
 def test_json_score_values_round_trip() -> None:
-    body = response(json.dumps({"score": 1.0, "reason": "complete"}))
-    assert parse_judge_body(body) == (1.0, "complete")
+    source = {"slots": ["R0", "R1", "R2"], "rubric_count": 2}
+    body = response(json.dumps(bundled_payload()))
+    assert parse_bundled_judge_body(source, body) is not None
 
 
 def test_synchronous_smoke_retries_once_and_preserves_body() -> None:
@@ -177,9 +201,9 @@ def test_optimized_sample_retains_all_conversations_and_balances_categories() ->
             row["conversation_key"], 0
         ) + 1
         scales[row["scale"]] = scales.get(row["scale"], 0) + 1
-    assert set(categories.values()) == {45}
-    assert len(conversations) == 90 and set(conversations.values()) == {5}
-    assert scales == {"100K": 100, "500K": 175, "1M": 175}
+    assert set(categories.values()) == {36}
+    assert len(conversations) == 90 and set(conversations.values()) == {4}
+    assert scales == {"100K": 80, "500K": 140, "1M": 140}
     assert len(selected) * 3 == OPTIMIZED_READER_CALLS
 
 
@@ -236,3 +260,55 @@ def test_scheduler_stops_after_one_terminal_job_retry(monkeypatch, tmp_path) -> 
             max_job_retries=1,
         )
     assert submissions == ["reader.000", "reader.000"]
+
+
+def test_synchronous_schedule_fsyncs_and_adopts_completed_ids(tmp_path) -> None:
+    class Result:
+        def __init__(self, content: str) -> None:
+            self.content = content
+
+        def model_dump(self, mode: str) -> dict:
+            assert mode == "json"
+            return response(self.content)
+
+    class Completions:
+        def __init__(self) -> None:
+            self.calls = 0
+
+        def create(self, **body: object) -> Result:
+            self.calls += 1
+            return Result(str(body["model"]))
+
+    completions = Completions()
+    client = type("Client", (), {"chat": type("Chat", (), {"completions": completions})()})()
+    schedule = [
+        {
+            "body": {"model": f"m-{index}", "messages": [], "max_tokens": 1},
+            "body_sha256": f"sha-{index}",
+            "custom_id": f"id-{index}",
+            "prompt_tokens": 1,
+        }
+        for index in range(2)
+    ]
+
+    def record(source: dict, body: dict) -> dict:
+        return {
+            "body_sha256": source["body_sha256"],
+            "custom_id": source["custom_id"],
+            "text": body["choices"][0]["message"]["content"],
+        }
+
+    kwargs = {
+        "checkpoint_path": tmp_path / "checkpoint.jsonl",
+        "final_path": tmp_path / "final.jsonl",
+        "workers": 2,
+        "deadline_unix": time.time() + 30,
+        "validator": lambda row, body: None,
+        "record_builder": record,
+        "stage": "TEST",
+    }
+    first = run_synchronous_schedule(client, schedule, **kwargs)
+    second = run_synchronous_schedule(client, schedule, **kwargs)
+    assert len(first) == len(second) == 2
+    assert completions.calls == 2
+    assert len((tmp_path / "checkpoint.jsonl").read_text().splitlines()) == 2
