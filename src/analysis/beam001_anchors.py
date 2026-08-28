@@ -12,7 +12,10 @@ from typing import Any
 import numpy as np
 import spacy
 
-from analysis.beam001_parent_opportunity import _admit_opportunities
+from analysis.beam001_parent_opportunity import (
+    _admit_opportunities,
+    deterministic_weighted_facet_overlap,
+)
 from analysis.locomo_nf_development import sha256_file
 from analysis.tc001_exploration import REPO_ROOT, build_episodes
 from analysis.tc008_study import load_blind_manifest, load_blind_vectors
@@ -20,7 +23,7 @@ from analysis.tc009_dependency_graph_probe import BLIND
 from analysis.tc010_study import CONVEX_SELECTIONS
 from analysis.tc011_spread import extract_facets, facet_idf
 from analysis.tc011_study import _initial_indices, _score_vector
-from analysis.tc013_fanout import fanout_aspect, weighted_facet_overlap
+from analysis.tc013_fanout import fanout_aspect
 
 ROOT = REPO_ROOT / "experiments/comparisons/beam_001"
 OUTPUT = ROOT / "artifacts/anchors/reproduction.json"
@@ -35,7 +38,7 @@ ARTIFACT_HASHES = {
     TC014_ROOT / "selections.jsonl.gz": "32b1db4d5476cfe97eb6cb306c29c63d597b8bfc219ca73db181396ed5d750f7",
 }
 EXPECTED_TC014_ROWS = 871
-SELECTOR_SHA256 = "2b1f209051a2a6a51f1afb4584b7e16e5c34b0535adacd7532935b18014b7698"
+SELECTOR_SHA256 = "dfcca1e5e98192f7e9b0eb5387144db02aad2f604e86536d89d1a489637c0e02"
 
 
 class BeamAnchorError(RuntimeError):
@@ -93,7 +96,7 @@ def _verify_tc014_port() -> dict[str, Any]:
         docs = list(nlp.pipe([episode.pair.text for episode in episodes], batch_size=64))
         facets = tuple(extract_facets(doc) for doc in docs)
         idf, _ = facet_idf(facets)
-        facet_weight, overlap = weighted_facet_overlap(facets, idf)
+        facet_weight, overlap = deterministic_weighted_facet_overlap(facets, idf)
         prepared[case.sample_id] = (episodes, facet_weight, overlap)
 
     expected_rows = {
