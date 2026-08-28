@@ -1,8 +1,6 @@
 param(
-    [Parameter(Mandatory = $true)]
-    [int]$ExplorationProcessId,
-    [Parameter(Mandatory = $true)]
-    [int]$MonitorProcessId,
+    [int]$ExplorationProcessId = 0,
+    [int]$MonitorProcessId = 0,
     [int]$Workers = 8
 )
 
@@ -35,8 +33,12 @@ function Write-Result([string]$Status, [string]$Stage, [string]$Detail) {
 
 try {
     Write-Result 'WAITING' 'exploration' 'Waiting for the active exploration coordinator.'
-    Wait-Process -Id $ExplorationProcessId
-    Wait-Process -Id $MonitorProcessId -ErrorAction SilentlyContinue
+    if ($ExplorationProcessId -gt 0) {
+        Wait-Process -Id $ExplorationProcessId
+    }
+    if ($MonitorProcessId -gt 0) {
+        Wait-Process -Id $MonitorProcessId -ErrorAction SilentlyContinue
+    }
     if (Test-Path -LiteralPath $failurePath) {
         throw "Exploration failure artifact exists: $failurePath"
     }
