@@ -1,12 +1,13 @@
 {
-  "pid": 27828,
-  "started_utc": "2026-08-28T14:54:02.0381415Z",
-  "command": "python -m analysis.beam001_exploration run",
-  "resume_checkpoint_arms": 2,
-  "stdout": "exploration_stdout.log",
-  "stderr": "exploration_stderr.log",
+  "pid": 15444,
+  "started_utc": "2026-08-28T15:09:45.8163380Z",
+  "command": "python -m analysis.beam001_exploration parallel-run --workers 8",
+  "workers": 8,
+  "resume_checkpoint_arms": 1416,
+  "stdout": "exploration_parallel_stdout.log",
+  "stderr": "exploration_parallel_stderr.log",
   "openai_api_key_in_child": false,
   "gpu_model_loaded": false,
   "embedding_cache_reused": true,
-  "code_commit": "b017c9fb"
+  "code_commit": "849dafad460ef7ed5c012889d99c9362575488fd"
 }
