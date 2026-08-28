@@ -21,6 +21,7 @@ from analysis.beam001_outcomes import load_outcomes
 from analysis.hh002_batch import (
     BatchLedger,
     BatchRequest,
+    HH002BatchError,
     run_scheduled,
     text_of,
     usage_of,
@@ -39,14 +40,22 @@ JUDGE_MAX_TOKENS = 512
 INPUT_LIMIT = 125_952
 BATCH_TOKEN_BUDGET = 600_000
 IN_FLIGHT_TOKEN_TARGET = 1_900_000
-READER_DOMAIN = "beam001-reader-v1"
-JUDGE_DOMAIN = "beam001-judge-v1"
-ORDER_DOMAIN = "beam001-reader-order-v1"
+RUNTIME_SECONDS = 5 * 60 * 60
+OPTIMIZED_QUESTIONS = 450
+OPTIMIZED_READER_CALLS = 1350
+OPTIMIZED_RUBRIC_ITEMS = 1387
+OPTIMIZED_JUDGE_CALLS = 4161
+OPTIMIZED_INPUT_TOKENS = 53_892_126
+OPTIMIZED_CHARGED_TOKENS = 56_656_926
+SAMPLE_DOMAIN = "beam001-optimized-sample-v1"
+READER_DOMAIN = "beam001-optimized-reader-v1"
+JUDGE_DOMAIN = "beam001-optimized-judge-v1"
+ORDER_DOMAIN = "beam001-optimized-reader-order-v1"
 ROOT = Path(__file__).resolve().parents[2]
 BEAM = ROOT / "experiments" / "comparisons" / "beam_001"
 CORPUS = BEAM / "artifacts" / "corpus"
 EXPLORATION = BEAM / "artifacts" / "exploration"
-RUN = BEAM / "artifacts" / "live"
+RUN = BEAM / "artifacts" / "live_optimized"
 DEFAULT_OFFICIAL_REPO = Path(
     r"C:\Users\muzaf\Downloads\beam_001_source\repo_3e12035532eb85768f1a7cd779832b650c4b2ef9"
 )
@@ -154,6 +163,47 @@ def load_questions() -> dict[str, dict[str, str]]:
     return rows
 
 
+def optimized_question_keys(
+    questions: dict[str, dict[str, str]],
+) -> set[str]:
+    categories = sorted({row["category"] for row in questions.values()})
+    if len(categories) != 10:
+        raise BeamLiveError(f"Expected ten categories, found {len(categories)}")
+    grouped: dict[str, dict[str, dict[str, list[str]]]] = {}
+    for key, row in questions.items():
+        grouped.setdefault(row["scale"], {}).setdefault(
+            row["conversation_key"], {}
+        ).setdefault(row["category"], []).append(key)
+    offsets = {"100K": 0, "500K": 0, "1M": 5}
+    selected: set[str] = set()
+    for scale in ("100K", "500K", "1M"):
+        conversations = sorted(grouped[scale])
+        for index, conversation_key in enumerate(conversations):
+            chosen_categories = {
+                categories[(index + offsets[scale] + step) % 10]
+                for step in range(5)
+            }
+            for category in chosen_categories:
+                candidates = grouped[scale][conversation_key].get(category, [])
+                if len(candidates) != 2:
+                    raise BeamLiveError(
+                        f"Expected two {category} questions in {conversation_key}"
+                    )
+                selected.add(
+                    min(
+                        candidates,
+                        key=lambda key: sha256_bytes(
+                            f"{SAMPLE_DOMAIN}\0{key}".encode("utf-8")
+                        ),
+                    )
+                )
+    if len(selected) != OPTIMIZED_QUESTIONS:
+        raise BeamLiveError(
+            f"Expected {OPTIMIZED_QUESTIONS} optimized questions, found {len(selected)}"
+        )
+    return selected
+
+
 def load_payloads() -> dict[tuple[str, str], dict[str, str]]:
     rows: dict[tuple[str, str], dict[str, str]] = {}
     path = EXPLORATION / "payloads.sealed.jsonl.gz"
@@ -188,10 +238,12 @@ def build_reader_schedule(
     template: str,
     questions: dict[str, dict[str, str]],
     payloads: dict[tuple[str, str], dict[str, str]],
+    selected_keys: set[str] | None = None,
 ) -> list[dict[str, Any]]:
     encoding = tiktoken.encoding_for_model(MODEL)
     schedule: list[dict[str, Any]] = []
-    for question_key in sorted(questions):
+    population = sorted(selected_keys if selected_keys is not None else questions)
+    for question_key in population:
         question = questions[question_key]["question"]
         arm_order = sorted(
             ARMS,
@@ -221,7 +273,8 @@ def build_reader_schedule(
                     "body_sha256": request_digest(body),
                 }
             )
-    if len(schedule) != 5400 or len({row["custom_id"] for row in schedule}) != 5400:
+    expected = len(population) * len(ARMS)
+    if len(schedule) != expected or len({row["custom_id"] for row in schedule}) != expected:
         raise BeamLiveError("Reader schedule count or identity failure")
     return schedule
 
@@ -300,28 +353,43 @@ def run_requests_with_one_retry(
     prefix: str,
     poll_seconds: int,
     validator: Any,
+    deadline_unix: float,
 ) -> dict[str, dict[str, Any]]:
-    results = run_scheduled(
-        client,
-        [(prefix, requests)],
-        ledger,
-        poll_seconds=poll_seconds,
-        token_budget=BATCH_TOKEN_BUDGET,
-        in_flight_target=IN_FLIGHT_TOKEN_TARGET,
-        study="BEAM-001",
-    )[prefix]
-    failed = [request for request in requests if validator(results.get(request.custom_id, {"error": "missing"}))]
-    if failed:
-        retry_prefix = f"{prefix}.retry1"
-        retry = run_scheduled(
+    try:
+        results = run_scheduled(
             client,
-            [(retry_prefix, failed)],
+            [(prefix, requests)],
             ledger,
             poll_seconds=poll_seconds,
             token_budget=BATCH_TOKEN_BUDGET,
             in_flight_target=IN_FLIGHT_TOKEN_TARGET,
-            study="BEAM-001",
-        )[retry_prefix]
+            study="BEAM-001-OPTIMIZED",
+            max_job_retries=1,
+            deadline_unix=deadline_unix,
+        )[prefix]
+    except HH002BatchError as error:
+        if "deadline" in str(error).lower():
+            raise BeamLiveError(f"RUNTIME_BUDGET_EXCEEDED: {error}") from error
+        raise BeamLiveError(str(error)) from error
+    failed = [request for request in requests if validator(results.get(request.custom_id, {"error": "missing"}))]
+    if failed:
+        retry_prefix = f"{prefix}.retry1"
+        try:
+            retry = run_scheduled(
+                client,
+                [(retry_prefix, failed)],
+                ledger,
+                poll_seconds=poll_seconds,
+                token_budget=BATCH_TOKEN_BUDGET,
+                in_flight_target=IN_FLIGHT_TOKEN_TARGET,
+                study="BEAM-001-OPTIMIZED",
+                max_job_retries=1,
+                deadline_unix=deadline_unix,
+            )[retry_prefix]
+        except HH002BatchError as error:
+            if "deadline" in str(error).lower():
+                raise BeamLiveError(f"RUNTIME_BUDGET_EXCEEDED: {error}") from error
+            raise BeamLiveError(str(error)) from error
         results.update(retry)
     exhausted = [request.custom_id for request in requests if validator(results.get(request.custom_id, {"error": "missing"}))]
     if exhausted:
@@ -338,9 +406,12 @@ def run_synchronous_with_one_retry(
     client: OpenAI,
     requests: Sequence[BatchRequest],
     validator: Any,
+    deadline_unix: float | None = None,
 ) -> dict[str, dict[str, Any]]:
     results: dict[str, dict[str, Any]] = {}
     for request in requests:
+        if deadline_unix is not None and time.time() >= deadline_unix:
+            raise BeamLiveError("RUNTIME_BUDGET_EXCEEDED before synchronous request")
         body: dict[str, Any] = {"error": "not_attempted"}
         for _attempt in range(2):
             try:
@@ -361,6 +432,7 @@ def run_reader(
     *,
     pilot_only: bool,
     poll_seconds: int,
+    deadline_unix: float,
 ) -> list[dict[str, Any]]:
     answers_path = RUN / "answers.jsonl"
     existing = read_jsonl(answers_path)
@@ -389,16 +461,17 @@ def run_reader(
                 client,
                 requests,
                 ledger,
-                "reader.population",
+                "reader.optimized.population",
                 poll_seconds,
                 validate_reader_body,
+                deadline_unix,
             )
             merged, failed = merge_answer_results(target, results, existing)
             if failed:
                 raise BeamLiveError(f"Unexpected failed reader results: {failed[:3]}")
             write_jsonl(answers_path, merged)
             existing = merged
-    required = 6 if pilot_only else 5400
+    required = 6 if pilot_only else OPTIMIZED_READER_CALLS
     if len(existing) < required:
         raise BeamLiveError(f"Reader stage has {len(existing)} of {required} required answers")
     if pilot_only:
@@ -418,13 +491,15 @@ def run_reader(
 
 
 def seal_answers(answers: Sequence[dict[str, Any]]) -> dict[str, Any]:
-    if len(answers) != 5400:
+    if len(answers) != OPTIMIZED_READER_CALLS:
         raise BeamLiveError("Cannot seal an incomplete answer population")
     keys = {(row["question_key"], row["arm"]) for row in answers}
-    if len(keys) != 5400 or any(row["finish_reason"] != "stop" or not row["answer"] for row in answers):
+    if len(keys) != OPTIMIZED_READER_CALLS or any(
+        row["finish_reason"] != "stop" or not row["answer"] for row in answers
+    ):
         raise BeamLiveError("Answer seal validity failure")
     seal = {
-        "answers": 5400,
+        "answers": OPTIMIZED_READER_CALLS,
         "answers_sha256": file_sha256(RUN / "answers.jsonl"),
         "sealed_at_unix": time.time(),
         "status": "SEALED",
@@ -490,7 +565,10 @@ def prepare_judge_surfaces(
                     "scale": str(answer["scale"]),
                 }
             )
-    if len(surface) != 16275 or len({row["blind_id"] for row in surface}) != 16275:
+    if (
+        len(surface) != OPTIMIZED_JUDGE_CALLS
+        or len({row["blind_id"] for row in surface}) != OPTIMIZED_JUDGE_CALLS
+    ):
         raise BeamLiveError("Judge surface count or identity failure")
     write_jsonl(RUN / "judge_surface.blind.jsonl", surface)
     write_jsonl(RUN / "judge_mapping.sealed.jsonl", mapping)
@@ -568,6 +646,7 @@ def run_judges(
     client: OpenAI,
     surface: Sequence[dict[str, Any]],
     poll_seconds: int,
+    deadline_unix: float,
 ) -> list[dict[str, Any]]:
     path = RUN / "judgments.blind.jsonl"
     existing = read_jsonl(path)
@@ -587,7 +666,10 @@ def run_judges(
         smoke_ids = sorted(requests_by_id)[:2] if not existing else []
         for blind_id in smoke_ids:
             smoke_result = run_synchronous_with_one_retry(
-                client, [requests_by_id[blind_id]], validate_judge_body
+                client,
+                [requests_by_id[blind_id]],
+                validate_judge_body,
+                deadline_unix,
             )
             by_id[blind_id] = judgment_record(
                 blind_id, smoke_result[blind_id], surface_by_id
@@ -604,20 +686,23 @@ def run_judges(
                 client,
                 batch_requests,
                 ledger,
-                "judge.population",
+                "judge.optimized.population",
                 poll_seconds,
                 validate_judge_body,
+                deadline_unix,
             )
         for blind_id, body in results.items():
             by_id[blind_id] = judgment_record(blind_id, body, surface_by_id)
         write_jsonl(path, sorted(by_id.values(), key=lambda row: row["blind_id"]))
         existing = list(by_id.values())
-    if len(existing) != 16275:
-        raise BeamLiveError(f"Expected 16275 judgments, found {len(existing)}")
+    if len(existing) != OPTIMIZED_JUDGE_CALLS:
+        raise BeamLiveError(
+            f"Expected {OPTIMIZED_JUDGE_CALLS} judgments, found {len(existing)}"
+        )
     write_json(
         RUN / "judgments.seal.json",
         {
-            "judgments": 16275,
+            "judgments": OPTIMIZED_JUDGE_CALLS,
             "judgments_sha256": file_sha256(path),
             "status": "SEALED",
         },
@@ -704,7 +789,7 @@ def score_results(
         }
         for key, scores in sorted(grouped.items())
     ]
-    if len(question_rows) != 5400:
+    if len(question_rows) != OPTIMIZED_READER_CALLS:
         raise BeamLiveError("Question score count failure")
     qscore = {(row["question_key"], row["arm"]): row["question_score"] for row in question_rows}
     conversation_meta = {
@@ -769,7 +854,7 @@ def score_results(
             "difference": float(primary.mean()),
             "sign_flip_p": primary_p,
         },
-        "questions": 1800,
+        "questions": OPTIMIZED_QUESTIONS,
         "scale_t1_minus_a0": scale_a0,
         "scale_t1_minus_c0": scale_primary,
     }
@@ -825,10 +910,55 @@ def preflight(official_repo: Path) -> tuple[list[dict[str, Any]], str]:
         if file_sha256(path) != digest:
             raise BeamLiveError(f"Input hash drift: {path}")
     reader_template, judge_template = load_prompts(official_repo)
-    schedule = build_reader_schedule(reader_template, load_questions(), load_payloads())
+    questions = load_questions()
+    selected = optimized_question_keys(questions)
+    schedule = build_reader_schedule(
+        reader_template, questions, load_payloads(), selected
+    )
     counts = sorted(row["prompt_tokens"] for row in schedule)
-    if counts[0] != 28518 or counts[-1] != 64742:
-        raise BeamLiveError(f"Prompt token audit drift: {counts[0]}..{counts[-1]}")
+    input_tokens = sum(counts)
+    charged_tokens = input_tokens + len(schedule) * READER_MAX_TOKENS
+    if (
+        len(schedule) != OPTIMIZED_READER_CALLS
+        or input_tokens != OPTIMIZED_INPUT_TOKENS
+        or charged_tokens != OPTIMIZED_CHARGED_TOKENS
+    ):
+        raise BeamLiveError(
+            "Optimized schedule drift: "
+            f"{len(schedule)} calls, {input_tokens} input, {charged_tokens} charged"
+        )
+    category_counts: dict[str, int] = {}
+    scale_counts: dict[str, int] = {}
+    conversation_counts: dict[str, int] = {}
+    for key in selected:
+        row = questions[key]
+        category_counts[row["category"]] = category_counts.get(row["category"], 0) + 1
+        scale_counts[row["scale"]] = scale_counts.get(row["scale"], 0) + 1
+        conversation_counts[row["conversation_key"]] = (
+            conversation_counts.get(row["conversation_key"], 0) + 1
+        )
+    if (
+        set(category_counts.values()) != {45}
+        or set(conversation_counts.values()) != {5}
+        or scale_counts != {"100K": 100, "500K": 175, "1M": 175}
+    ):
+        raise BeamLiveError("Optimized sample balance drift")
+    outcomes = load_outcomes(CORPUS / "outcome_surface.sealed.jsonl.gz")
+    rubric_items = sum(len(outcomes[key]["rubric"]) for key in selected)
+    if rubric_items != OPTIMIZED_RUBRIC_ITEMS:
+        raise BeamLiveError(
+            f"Expected {OPTIMIZED_RUBRIC_ITEMS} rubric items, found {rubric_items}"
+        )
+    write_json(
+        RUN / "sample.json",
+        {
+            "category_counts": category_counts,
+            "conversation_counts": len(conversation_counts),
+            "question_keys": sorted(selected),
+            "scale_counts": scale_counts,
+            "status": "SEALED",
+        },
+    )
     requests_path = RUN / "reader_requests.jsonl"
     if not requests_path.exists():
         write_jsonl(requests_path, schedule)
@@ -837,7 +967,10 @@ def preflight(official_repo: Path) -> tuple[list[dict[str, Any]], str]:
         {
             "api_requests_made_before_first_pass": 0,
             "judge_template_sha256": sha256_bytes(judge_template.encode("utf-8")),
+            "charged_reader_tokens": charged_tokens,
+            "input_reader_tokens": input_tokens,
             "max_prompt_tokens": counts[-1],
+            "judge_requests": rubric_items * len(ARMS),
             "reader_requests_sha256": file_sha256(requests_path),
             "reader_requests": len(schedule),
             "reader_template_sha256": sha256_bytes(reader_template.encode("utf-8")),
@@ -851,15 +984,32 @@ def run_pipeline(official_repo: Path, poll_seconds: int, pilot_only: bool) -> No
     if not os.environ.get("OPENAI_API_KEY"):
         raise BeamLiveError("OPENAI_API_KEY is missing")
     schedule, judge_template = preflight(official_repo)
+    if pilot_only:
+        raise BeamLiveError("Optimized design carries the excluded synchronous pilot")
     client = OpenAI(api_key=os.environ["OPENAI_API_KEY"], max_retries=0)
+    runtime_path = RUN / "runtime_budget.json"
+    if runtime_path.exists():
+        runtime = json.loads(runtime_path.read_text(encoding="utf-8"))
+    else:
+        started = time.time()
+        runtime = {
+            "deadline_unix": started + RUNTIME_SECONDS,
+            "runtime_seconds": RUNTIME_SECONDS,
+            "started_at_unix": started,
+        }
+        write_json(runtime_path, runtime)
+    deadline_unix = float(runtime["deadline_unix"])
     write_json(
         RUN / "progress.json",
         {"stage": "PILOT_READER" if pilot_only else "POPULATION_READER", "status": "RUNNING"},
     )
-    answers = run_reader(client, schedule, pilot_only=pilot_only, poll_seconds=poll_seconds)
-    if pilot_only:
-        write_json(RUN / "progress.json", {"stage": "PILOT_READER", "status": "PASS"})
-        return
+    answers = run_reader(
+        client,
+        schedule,
+        pilot_only=False,
+        poll_seconds=poll_seconds,
+        deadline_unix=deadline_unix,
+    )
     seal_answers(answers)
     write_json(RUN / "progress.json", {"stage": "ANSWERS_SEALED", "status": "PASS"})
     surface, mapping = prepare_judge_surfaces(answers, judge_template)
@@ -867,7 +1017,7 @@ def run_pipeline(official_repo: Path, poll_seconds: int, pilot_only: bool) -> No
         RUN / "progress.json",
         {"requests": len(surface), "stage": "BLIND_JUDGE", "status": "RUNNING"},
     )
-    judgments = run_judges(client, surface, poll_seconds)
+    judgments = run_judges(client, surface, poll_seconds, deadline_unix)
     result = score_results(judgments, mapping)
     write_report(result)
     write_json(
