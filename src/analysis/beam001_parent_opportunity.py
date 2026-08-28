@@ -14,7 +14,7 @@ from typing import Any, Mapping, Sequence
 import numpy as np
 
 from analysis.tc010_study import allocate_subset
-from analysis.tc013_fanout import FanoutTrace, fanout_aspect, weighted_facet_overlap
+from analysis.tc013_fanout import FanoutTrace, fanout_aspect
 from episodic._aspect import prepare_facets
 from episodic._config import EpisodicConfig
 from episodic._packing import EMPTY_PAYLOAD_CHARS, pack_stm_payload
@@ -25,6 +25,33 @@ from episodic._selection import additive_weight
 
 class BeamParentOpportunityError(RuntimeError):
     pass
+
+
+def deterministic_weighted_facet_overlap(
+    candidate_facets: Sequence[frozenset[str]], idf: Mapping[str, float]
+) -> tuple[np.ndarray, np.ndarray]:
+    """Accumulate overlap once and derive exact self-overlap totals."""
+
+    count = len(candidate_facets)
+    overlap = np.zeros((count, count), dtype=np.float64)
+    postings: dict[str, list[int]] = {}
+    for index, facets in enumerate(candidate_facets):
+        for facet in sorted(facets):
+            weight = idf.get(facet)
+            if weight is None or not np.isfinite(float(weight)) or float(weight) < 0.0:
+                raise BeamParentOpportunityError(
+                    "Missing, negative, or non-finite facet IDF"
+                )
+            postings.setdefault(facet, []).append(index)
+    for facet in sorted(postings):
+        indices = np.asarray(postings[facet], dtype=np.int64)
+        overlap[np.ix_(indices, indices)] += float(idf[facet])
+    totals = np.diag(overlap).copy()
+    if not np.array_equal(np.diag(overlap), totals):
+        raise BeamParentOpportunityError("Facet self-overlap identity drifted")
+    if not np.isfinite(totals).all() or np.any(totals < 0.0):
+        raise BeamParentOpportunityError("Facet totals escaped their valid range")
+    return totals, overlap
 
 
 @dataclass(frozen=True)
@@ -250,7 +277,9 @@ def select_parent_opportunity(
         [ranking.scores[index] for index in eligible_source_indices], dtype=np.float64
     )
     local_facets = tuple(facets[index] for index in eligible_source_indices)
-    facet_weight, facet_overlap = weighted_facet_overlap(local_facets, idf)
+    facet_weight, facet_overlap = deterministic_weighted_facet_overlap(
+        local_facets, idf
+    )
     half = budget // 2
     initial = pack_stm_payload(
         [], [local[index].record for index in eligible_order], half
@@ -414,5 +443,6 @@ __all__ = [
     "ParentOpportunityResult",
     "ParentOpportunityTrace",
     "build_parent_opportunity_context",
+    "deterministic_weighted_facet_overlap",
     "select_parent_opportunity",
 ]

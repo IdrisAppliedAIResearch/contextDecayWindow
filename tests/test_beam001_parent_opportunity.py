@@ -4,7 +4,10 @@ import hashlib
 
 import numpy as np
 
-from analysis.beam001_parent_opportunity import select_parent_opportunity
+from analysis.beam001_parent_opportunity import (
+    deterministic_weighted_facet_overlap,
+    select_parent_opportunity,
+)
 from episodic._ranking import CC80Ranking
 
 
@@ -103,3 +106,21 @@ def test_t1_is_deterministic_for_identical_inputs() -> None:
     assert first.payload_sha256 == second.payload_sha256
     assert first.selected_ids == second.selected_ids
     assert first.trace == second.trace
+
+
+def test_facet_totals_are_exactly_the_deterministic_overlap_diagonal() -> None:
+    shared = frozenset(f"noun:shared-{index}" for index in range(2_000))
+    facets = (
+        shared | {"noun:first"},
+        shared | {"noun:second"},
+        frozenset({"noun:third"}),
+    )
+    idf = {
+        facet: 1.0 + index / 10_000.0
+        for index, facet in enumerate(sorted(set().union(*facets)))
+    }
+    totals, overlap = deterministic_weighted_facet_overlap(facets, idf)
+
+    assert np.array_equal(totals, np.diag(overlap))
+    assert np.isfinite(totals).all()
+    assert (totals >= 0.0).all()
