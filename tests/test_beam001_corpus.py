@@ -172,7 +172,18 @@ def test_adapter_uses_strict_pairs_and_duplicate_ordinals() -> None:
 
 def test_planted_outcome_field_is_rejected() -> None:
     with pytest.raises(BeamAdapterError, match="Outcome fields"):
-        assert_mechanism_only({"questions": [{"question": "safe", "rubric": []}]})
+        assert_mechanism_only(
+            {
+                "questions": [
+                    {
+                        "question": "safe",
+                        "rubric": [],
+                        "source_chat_ids": [1],
+                        "ideal_answer": "sealed",
+                    }
+                ]
+            }
+        )
 
 
 def test_adapter_rejects_non_alternating_chat() -> None:
