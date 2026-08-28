@@ -495,15 +495,15 @@ def _run_with_embedder(existing: dict[tuple[str, str], dict[str, Any]]) -> None:
                         elapsed = time.perf_counter() - t0
                         if c0._conn.total_changes != before:
                             raise BeamExplorationError("C0 context mutated its store")
-                        retrieval = retrieve_long_term(
-                            episodes=c0_records,
-                            query_text=query,
-                            query_embedding=query_vector,
-                            budget=32_000,
-                            config=EpisodicConfig(aspect_enabled=True),
-                            excluded_ids=report.recent_ids,
-                            facet_bundle=facet_bundle,
-                        )
+                        with _cached_public_facets(facet_bundle):
+                            retrieval = retrieve_long_term(
+                                episodes=c0_records,
+                                query_text=query,
+                                query_embedding=query_vector,
+                                budget=32_000,
+                                config=EpisodicConfig(aspect_enabled=True),
+                                excluded_ids=report.recent_ids,
+                            )
                         expected = render_stm_payload(
                             [c0_records[index] for index in range(max(0, len(c0_records) - 32), len(c0_records))],
                             [c0_records[index] for index in retrieval.selected_indices],
