@@ -1,0 +1,92 @@
+{
+  "embedding_calls": 0,
+  "expected_unique_keys": 5400,
+  "files": [
+    {
+      "after_sha256": "0fd833a5f4abf5b0fd4181eef3ba80218b3d32e77e513d5f1c543c90d644da46",
+      "before_sha256": "becc20900cfde5043446a7754f4441fc86de9bbae913b267136c3bdcd3f70386",
+      "path": "experiments/comparisons/beam_001/artifacts/exploration/checkpoint.jsonl",
+      "physical_rows_after": 1415,
+      "physical_rows_before": 1417
+    },
+    {
+      "after_sha256": "09d87dee17fffb5c5780f71ee238d40b4fd838ad0bad3befd05f966e959a3769",
+      "before_sha256": "09d87dee17fffb5c5780f71ee238d40b4fd838ad0bad3befd05f966e959a3769",
+      "path": "experiments/comparisons/beam_001/artifacts/exploration/checkpoint.shard-00.jsonl",
+      "physical_rows_after": 540,
+      "physical_rows_before": 540
+    },
+    {
+      "after_sha256": "5136ffc728eca52e545847a4bde36042602263b53acf29ddd95d15f02c22631d",
+      "before_sha256": "5136ffc728eca52e545847a4bde36042602263b53acf29ddd95d15f02c22631d",
+      "path": "experiments/comparisons/beam_001/artifacts/exploration/checkpoint.shard-01.jsonl",
+      "physical_rows_after": 540,
+      "physical_rows_before": 540
+    },
+    {
+      "after_sha256": "9dd8831881d8a6e503e0ce4bede58ba6a2427a3d9952abcf614847205e23cd19",
+      "before_sha256": "9dd8831881d8a6e503e0ce4bede58ba6a2427a3d9952abcf614847205e23cd19",
+      "path": "experiments/comparisons/beam_001/artifacts/exploration/checkpoint.shard-02.jsonl",
+      "physical_rows_after": 480,
+      "physical_rows_before": 480
+    },
+    {
+      "after_sha256": "5ab53520eefd7c99ba5058687045fdaaa0d382058f0d6392dd278a5e25609d9d",
+      "before_sha256": "5ab53520eefd7c99ba5058687045fdaaa0d382058f0d6392dd278a5e25609d9d",
+      "path": "experiments/comparisons/beam_001/artifacts/exploration/checkpoint.shard-03.jsonl",
+      "physical_rows_after": 480,
+      "physical_rows_before": 480
+    },
+    {
+      "after_sha256": "d574f94adbb9815a113f05b4a6f02d85f44c8c8a2c427b2de918d0e320183cea",
+      "before_sha256": "d574f94adbb9815a113f05b4a6f02d85f44c8c8a2c427b2de918d0e320183cea",
+      "path": "experiments/comparisons/beam_001/artifacts/exploration/checkpoint.shard-04.jsonl",
+      "physical_rows_after": 480,
+      "physical_rows_before": 480
+    },
+    {
+      "after_sha256": "8edc7b802ef5c43a344575652177a2113ba55ea00f9cc7bfce41b13f20bac27d",
+      "before_sha256": "8edc7b802ef5c43a344575652177a2113ba55ea00f9cc7bfce41b13f20bac27d",
+      "path": "experiments/comparisons/beam_001/artifacts/exploration/checkpoint.shard-05.jsonl",
+      "physical_rows_after": 480,
+      "physical_rows_before": 480
+    },
+    {
+      "after_sha256": "23d7c0d42033f6b2b27d5489df96e5caa7f5757b0c66ce8a795c740d2f75a7e7",
+      "before_sha256": "23d7c0d42033f6b2b27d5489df96e5caa7f5757b0c66ce8a795c740d2f75a7e7",
+      "path": "experiments/comparisons/beam_001/artifacts/exploration/checkpoint.shard-06.jsonl",
+      "physical_rows_after": 480,
+      "physical_rows_before": 480
+    },
+    {
+      "after_sha256": "7a3409846ef1dd984b25ab1ab26c4f515aab1e5974ab9a491dc1eae8bcb7874b",
+      "before_sha256": "7a3409846ef1dd984b25ab1ab26c4f515aab1e5974ab9a491dc1eae8bcb7874b",
+      "path": "experiments/comparisons/beam_001/artifacts/exploration/checkpoint.shard-07.jsonl",
+      "physical_rows_after": 505,
+      "physical_rows_before": 505
+    }
+  ],
+  "generation_calls": 0,
+  "outcomes_opened": false,
+  "removed": [
+    {
+      "arm": "A0_CC80_QWEN_GPU_COMMON",
+      "line_number": 1381,
+      "path": "experiments/comparisons/beam_001/artifacts/exploration/checkpoint.jsonl",
+      "question_key": "q1",
+      "row_sha256": "2f502aefbeffdd8fd2b31cc4797799e40f7d4afd1f83809027d9a1be95290043"
+    },
+    {
+      "arm": "A0_CC80_QWEN_GPU_COMMON",
+      "line_number": 1382,
+      "path": "experiments/comparisons/beam_001/artifacts/exploration/checkpoint.jsonl",
+      "question_key": "q1",
+      "row_sha256": "2f502aefbeffdd8fd2b31cc4797799e40f7d4afd1f83809027d9a1be95290043"
+    }
+  ],
+  "removed_physical_rows": 2,
+  "removed_unique_keys": 1,
+  "retained_unique_keys": 5400,
+  "schema": "beam001-checkpoint-repair-v1",
+  "status": "PASS"
+}
