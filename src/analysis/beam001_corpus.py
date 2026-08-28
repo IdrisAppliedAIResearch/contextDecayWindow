@@ -15,6 +15,7 @@ import json
 import os
 import tempfile
 from collections import Counter
+from datetime import datetime
 from pathlib import Path
 from typing import Any, Iterable, Mapping, Sequence
 
@@ -278,8 +279,16 @@ def _audit_rows(files: Sequence[Mapping[str, Any]]) -> dict[str, Any]:
             counts["leading_assistant_conversations"] += 1
         if roles and roles[-1] == "user":
             counts["trailing_user_conversations"] += 1
-        if anchors != sorted(anchors):
-            counts["non_monotonic_timestamp_conversations_lexical"] += 1
+        parsed_anchors = []
+        for anchor in anchors:
+            try:
+                parsed_anchors.append(datetime.strptime(anchor, "%B-%d-%Y"))
+            except ValueError:
+                counts["timestamp_parse_failures"] += 1
+        if len(parsed_anchors) == len(anchors) and any(
+            right < left for left, right in zip(parsed_anchors, parsed_anchors[1:])
+        ):
+            counts["non_monotonic_timestamp_conversations"] += 1
         flattened = "".join(text_parts)
         flattened_chars.append(len(flattened))
         flattened_tokens.append(len(tokenizer.encode(flattened)))
