@@ -148,6 +148,8 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **LV-008 Qwen3.8 compact communities (2026-08-26).** REGISTERED STOP; POSTSTOP DESCRIPTIVE. One of 255 answers hit 4,096 but was judged correct 3/3. Pairwise/community/question-both = 4/5/8 of 16; full gains 4, loses 0 (breadth +3, targeted +1). Seven capped judge calls cause 0 majority flips when forced wrong. Promising signal; no adoption claim.
 
+**LV-009 full-LoCoMO renderer validation (2026-08-27).** PAIRWISE_RETAINED. On 1,540 primary QAs, pairwise/community/QB/QEACH = 907/876/914/920. QB vs pairwise net +7 (82/75), transfer -1; QEACH vs QB +6 (44/38). Neither co-primary clears practical or statistical bars. Question repetition recovers community loss but does not beat control. Internal Qwen3.8 result only; no port.
+
 **PS-001 pattern-separated engram formation (2026-08-11).** CHARACTERIZED. Nine deterministic sparse cells on 119 episodes; only D=4096,K=41 passed G3-G5: 119/119 fixed points and exact 1/10/30/50% swap recovery. Six of seven degenerates reached stored codes; the union-biased cue cycled. Code-space result only; no natural cue, retrieval, live run, promotion, or adoption.
 
 **PS-002 natural-language cue binding (2026-08-11).** STOP AT PART 1; NATURAL_CUES_NOT_BOUND, CHARACTERIZED. Nine label-blind cells ran 24 sealed queries x8 rounds. Best M=4,tau=.025 reached stored codes 190/192 but one cue cycled and one reached a spurious fixed point; no cell emitted 8 clean ids/query. Labels, PF1-PF10, answers, live run, promotion and adoption not entered.
@@ -252,6 +254,12 @@ test that answers it.
 ### Runtime and determinism
 
 - Use a fixed seed, `--parallel 1`, and no speculative decoding.
+- Saturate available hardware for CPU-bound offline exploration, replay,
+  preprocessing, sealing and scoring whenever deterministic independent shards
+  exist. Measure worker count and aggregate utilization early; do not leave a
+  long study job on one core by default. Registered serial inference and gate
+  ordering still govern. When they prevent full utilization, record the exact
+  constraint and use the maximum safe concurrency it permits.
 - Record the launch command and server build hash in every run header.
 - Require a byte-identical seeded prefix rerun.
 - Assert the script SHA after decoding and use explicit UTF-8 encoding.
