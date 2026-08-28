@@ -1,0 +1,27 @@
+{
+  "artifact_hashes": {
+    "experiments/components/episodic_chat/artifacts/cc007/activation.json": "f57d6a14e5bd52b0754457785e290fe326d72a4a41755c44484a852b7562faf6",
+    "experiments/components/episodic_chat/artifacts/cc007/preflight.json": "78e5536e875df79b106a78f2fdc2899964653c300b3bda1ce7355be7ce43e184",
+    "experiments/components/tier_cost/artifacts/tc014/preflight/preflight.json": "9ba1e5d0f13365773a9c3ab7ab6d5f21807538f62268a0cf0fa4c56f02154ae7",
+    "experiments/components/tier_cost/artifacts/tc014/preflight/selections.jsonl.gz": "32b1db4d5476cfe97eb6cb306c29c63d597b8bfc219ca73db181396ed5d750f7"
+  },
+  "calls": {
+    "embedding_model": 0,
+    "llm_or_generative": 0
+  },
+  "controls": {
+    "cc007_activation_payloads": 871,
+    "cc007_trace_groups": 4355
+  },
+  "outcomes_opened": false,
+  "package_tree": "ae3058f072a9c5b8ce59b130066db11a977e7ab1",
+  "selector_sha256": "2b1f209051a2a6a51f1afb4584b7e16e5c34b0535adacd7532935b18014b7698",
+  "schema": "beam001-reproduction-v1",
+  "status": "PASS",
+  "tc014_opportunity": {
+    "cache_hits": 2236,
+    "cache_misses": 0,
+    "checked": 871,
+    "mismatches": 0
+  }
+}
