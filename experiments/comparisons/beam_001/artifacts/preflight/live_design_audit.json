@@ -1,0 +1,53 @@
+{
+  "api_requests_made": 0,
+  "beam_source_commit": "3e12035532eb85768f1a7cd779832b650c4b2ef9",
+  "call_population": {
+    "arms": 3,
+    "judge_calls": 16275,
+    "questions": 1800,
+    "reader_calls": 5400,
+    "rubric_items": 5425,
+    "total_calls_before_retries": 21675
+  },
+  "generation_model": "gpt-4o-mini-2024-07-18",
+  "hashes": {
+    "compute_metrics.py": "342c02e32084ca42d61e342868e04aa4f3121b4ea06cf356ba088f936e90b039",
+    "mechanism_surface.jsonl.gz": "0377df4ddafa6899f9b21c4f908a5061852b75580958dd480d31511b9261acec",
+    "outcome_surface.sealed.jsonl.gz": "954bde7b7a5dba3d1656cb74d7c56b9bfec5acd272922957cf0c5f4aa3108943",
+    "part1_report": "914f254db4419e21325e367eb8e39de034962a216ff66d4d2ce0a7829ac55d91",
+    "payloads.sealed.jsonl.gz": "59f12e55f7f851633b049fdb416d990eda32820ee83897cbd7b10a804f8124dd",
+    "prompts.py": "a06319493dfd98ee2aeacfa41952e19831c663b1a8c0f0471761a560c675214c",
+    "report_results.py": "a58a8f3a1fbbb7238e25cf12f1b80a7a62f7f7e411eb88ca926641a8ba225cf8"
+  },
+  "official_scorer_audit": {
+    "deviation": "Replace the official judge prompt's literal <question> placeholder with the exact question before each criterion judgment. Apply the repaired per-rubric score to all ten categories, including event_ordering.",
+    "official_bug": "The official evaluate functions replace <rubric_item> and <llm_response> but do not replace <question>, even though the prompt requires responsiveness to the question.",
+    "official_event_ordering_issue": "The separate event-ordering path discards extracted facts, splits the raw answer by newline, adds a variable number of equivalence calls, and reports tau_norm rather than the common rubric score.",
+    "score_values": [
+      0.0,
+      0.5,
+      1.0
+    ]
+  },
+  "outcome_surface": {
+    "empty_rubrics": 0,
+    "max_rubric_items_per_question": 13,
+    "median_rubric_items_per_question": 2.0,
+    "min_rubric_items_per_question": 1,
+    "rows": 1800
+  },
+  "reader_token_audit": {
+    "chat_overhead_tokens": 8,
+    "input_limit_tokens": 125952,
+    "max": 64740,
+    "median": 38614.5,
+    "min": 28516,
+    "n": 5400,
+    "over_limit": 0,
+    "p95": 49715,
+    "p99": 58648,
+    "reserved_output_tokens": 2048,
+    "tokenizer": "o200k_base"
+  },
+  "temperature": 0.0
+}
