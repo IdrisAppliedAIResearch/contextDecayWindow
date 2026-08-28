@@ -1,0 +1,87 @@
+{
+  "artifact": "BEAM-001 immutable source manifest",
+  "created_date": "2026-08-28",
+  "dataset": {
+    "repository": "Mohammadta/BEAM",
+    "repository_type": "dataset",
+    "revision": "3205395e897e7318c7b094ef4e6047b9b82dbb03",
+    "license": "CC-BY-SA-4.0",
+    "license_evidence": {
+      "path": "README.md",
+      "sha256": "30b9ff56f4ca52e4078754e91f5e8dd8cd73b1b1246a42a000f11ce6b940400d",
+      "front_matter_line": 73,
+      "license_section_line": 166
+    },
+    "external_root": "C:/Users/muzaf/Downloads/beam_001_source/3205395e897e7318c7b094ef4e6047b9b82dbb03",
+    "downloader": {
+      "name": "huggingface_hub.snapshot_download",
+      "version": "1.16.1",
+      "command": "python -c from huggingface_hub import snapshot_download; snapshot_download(repo_id='Mohammadta/BEAM', repo_type='dataset', revision='<revision>', allow_patterns=['README.md','.gitattributes','data/*.parquet'], local_dir='<external_root>')"
+    },
+    "files": [
+      {
+        "path": ".gitattributes",
+        "bytes": 2461,
+        "sha256": "e7a120ab07b1bc5b486be249e9fc6c83d59448d0093e1dfebe95d1566d9cafc0"
+      },
+      {
+        "path": "README.md",
+        "bytes": 7437,
+        "sha256": "30b9ff56f4ca52e4078754e91f5e8dd8cd73b1b1246a42a000f11ce6b940400d"
+      },
+      {
+        "path": "data/100K-00000-of-00001.parquet",
+        "bytes": 5429768,
+        "sha256": "c0519be25907005ba873c927c50877471d550873039d96c041554d0075a78ace",
+        "rows": 20,
+        "row_groups": 1,
+        "split": "100K"
+      },
+      {
+        "path": "data/1M-00000-of-00001.parquet",
+        "bytes": 66156374,
+        "sha256": "41b5acbbb55a586b1305514ef9d9fb03365d9b3331b598a1c2dd7603d93ef533",
+        "rows": 35,
+        "row_groups": 1,
+        "split": "1M"
+      },
+      {
+        "path": "data/500K-00000-of-00001.parquet",
+        "bytes": 33956263,
+        "sha256": "af05921c979355038e1761b7cde3d2dd713200dd3071b278de0200f6c7f30122",
+        "rows": 35,
+        "row_groups": 1,
+        "split": "500K"
+      }
+    ],
+    "ordered_file_manifest_sha256": "492a784809a7d647ab286a610e5530bb1acee5ca58521929f0fa14d1252f807f",
+    "normal_scale_rows": 90,
+    "normal_scale_data_bytes": 105542405,
+    "downloaded_bytes": 105552303
+  },
+  "official_code": {
+    "repository": "https://github.com/mohammadtavakoli78/BEAM.git",
+    "commit": "3e12035532eb85768f1a7cd779832b650c4b2ef9",
+    "commit_date": "2026-02-02T00:43:29-07:00",
+    "checkout": "detached sparse checkout",
+    "external_root": "C:/Users/muzaf/Downloads/beam_001_source/repo_3e12035532eb85768f1a7cd779832b650c4b2ef9",
+    "license": "MIT",
+    "license_file": {
+      "path": "LICENSE",
+      "bytes": 1095,
+      "sha256": "e1a0088d8b896f8cc352a6d58f805370683f2899017c37b37c1f31fac4a2babe"
+    },
+    "readme": {
+      "path": "README.md",
+      "bytes": 14833,
+      "sha256": "356c80e54a69427234ded4f0f042ebd37b80e6793238143e3d81757047c63cd5"
+    },
+    "requirements": {
+      "path": "requirements.txt",
+      "bytes": 3755,
+      "sha256": "27e2628abb01897104f10a35e63322e4f92e02a66e1572641a182ae0a55890f5"
+    }
+  },
+  "key_policy": "Local paths and timestamps are provenance only; no comparison key depends on them.",
+  "outcomes_opened": false
+}
