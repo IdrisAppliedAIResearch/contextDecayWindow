@@ -26,6 +26,7 @@ from analysis.beam001_live import (
 )
 from analysis.hh002_batch import BatchRequest
 from analysis.hh002_batch import BatchLedger, HH002BatchError, await_file_ready
+from analysis.beam001_supervisor import initialize_continuation
 
 
 def response(content: str, finish_reason: str = "stop") -> dict:
@@ -312,3 +313,29 @@ def test_synchronous_schedule_fsyncs_and_adopts_completed_ids(tmp_path) -> None:
     assert len(first) == len(second) == 2
     assert completions.calls == 2
     assert len((tmp_path / "checkpoint.jsonl").read_text().splitlines()) == 2
+
+
+def test_interrupted_continuation_preserves_prefix_and_budget(tmp_path) -> None:
+    checkpoint = tmp_path / "answers.checkpoint.jsonl"
+    checkpoint.write_text(
+        "".join(
+            json.dumps({"custom_id": f"id-{index}"}) + "\n" for index in range(2)
+        ),
+        encoding="utf-8",
+    )
+    (tmp_path / "runtime_budget.json").write_text(
+        json.dumps({"deadline_unix": 20.0, "started_at_unix": 10.0}),
+        encoding="utf-8",
+    )
+
+    continuation = initialize_continuation(
+        tmp_path, now=100.0, runtime_seconds=30, expected_prefix_rows=2
+    )
+    adopted = initialize_continuation(
+        tmp_path, now=999.0, runtime_seconds=999, expected_prefix_rows=2
+    )
+
+    assert continuation == adopted
+    assert continuation["deadline_unix"] == 130.0
+    assert continuation["checkpoint_rows_adopted"] == 2
+    assert continuation["original_deadline_unix"] == 20.0
