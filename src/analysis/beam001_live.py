@@ -9,7 +9,9 @@ import hashlib
 import json
 import os
 import sys
+import threading
 import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from typing import Any, Iterable, Sequence
 
@@ -26,6 +28,7 @@ from analysis.hh002_batch import (
     text_of,
     usage_of,
 )
+from analysis.hh002_sync_arm import RateBucket
 
 
 MODEL = "gpt-4o-mini-2024-07-18"
@@ -36,29 +39,66 @@ ARMS = (
 )
 A0, C0, T1 = ARMS
 READER_MAX_TOKENS = 2048
-JUDGE_MAX_TOKENS = 512
+JUDGE_MAX_TOKENS = 4096
 INPUT_LIMIT = 125_952
 BATCH_TOKEN_BUDGET = 600_000
 IN_FLIGHT_TOKEN_TARGET = 1_900_000
 RUNTIME_SECONDS = 5 * 60 * 60
-OPTIMIZED_QUESTIONS = 450
-OPTIMIZED_READER_CALLS = 1350
-OPTIMIZED_RUBRIC_ITEMS = 1387
-OPTIMIZED_JUDGE_CALLS = 4161
-OPTIMIZED_INPUT_TOKENS = 53_892_126
-OPTIMIZED_CHARGED_TOKENS = 56_656_926
-SAMPLE_DOMAIN = "beam001-optimized-sample-v1"
-READER_DOMAIN = "beam001-optimized-reader-v1"
-JUDGE_DOMAIN = "beam001-optimized-judge-v1"
-ORDER_DOMAIN = "beam001-optimized-reader-order-v1"
+OPTIMIZED_QUESTIONS = 360
+OPTIMIZED_READER_CALLS = 1080
+OPTIMIZED_RUBRIC_ITEMS = 1061
+OPTIMIZED_JUDGE_CALLS = 360
+OPTIMIZED_CRITERION_SCORES = 3183
+OPTIMIZED_INPUT_TOKENS = 43_077_320
+OPTIMIZED_CHARGED_TOKENS = 45_289_160
+TOKENS_PER_MINUTE_TARGET = 195_000
+REQUESTS_PER_MINUTE_TARGET = 6.8
+READER_WORKERS = 8
+JUDGE_WORKERS = 32
+SAMPLE_DOMAIN = "beam001-optimized-4q-sample-v1"
+READER_DOMAIN = "beam001-sync-reader-v1"
+JUDGE_DOMAIN = "beam001-bundled-judge-v1"
+JUDGE_SLOT_DOMAIN = "beam001-bundled-judge-slot-v1"
+ORDER_DOMAIN = "beam001-sync-reader-order-v1"
 ROOT = Path(__file__).resolve().parents[2]
 BEAM = ROOT / "experiments" / "comparisons" / "beam_001"
 CORPUS = BEAM / "artifacts" / "corpus"
 EXPLORATION = BEAM / "artifacts" / "exploration"
-RUN = BEAM / "artifacts" / "live_optimized"
+RUN = BEAM / "artifacts" / "live_sync"
 DEFAULT_OFFICIAL_REPO = Path(
     r"C:\Users\muzaf\Downloads\beam_001_source\repo_3e12035532eb85768f1a7cd779832b650c4b2ef9"
 )
+
+BUNDLED_JUDGE_TEMPLATE = """You are an expert evaluator. Independently score each RESPONSE against each
+ordered RUBRIC CRITERION for the QUESTION.
+
+QUESTION:
+<question>
+
+RUBRIC CRITERIA (zero-based JSON array):
+<rubric_json>
+
+RESPONSES (JSON object keyed by blind slot):
+<responses_json>
+
+For every response and criterion, first require that the response addresses the
+QUESTION. A non-responsive answer scores 0.0. Judge semantic meaning rather
+than exact wording. Accept equivalent paraphrases, numbers, currencies and
+dates. Ignore style unless the criterion explicitly requires format. For a
+positive criterion, score 1.0 when fully satisfied, 0.5 when partially
+satisfied, and 0.0 when missing or incorrect. For a negative constraint, score
+1.0 only when the response is responsive and the prohibited element is absent,
+0.5 for a minor or edge violation, and 0.0 when the prohibited element is
+present or the response is non-responsive. Evaluate each slot independently;
+do not rank or compare responses.
+
+Return only JSON with this shape:
+{"evaluations":[{"slot":"R0","criteria":[{"rubric_index":0,"score":1.0,
+"reason":"concise justification"}]}]}
+
+Include every supplied slot and every rubric index exactly once. Scores must be
+0.0, 0.5 or 1.0. Keep each reason concise.
+"""
 
 
 class BeamLiveError(RuntimeError):
@@ -115,6 +155,104 @@ def read_jsonl(path: Path) -> list[dict[str, Any]]:
         return []
     with path.open("r", encoding="utf-8") as handle:
         return [json.loads(line) for line in handle if line.strip()]
+
+
+def append_jsonl_fsync(path: Path, row: dict[str, Any]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("a", encoding="utf-8", newline="\n") as handle:
+        handle.write(json.dumps(row, ensure_ascii=False, sort_keys=True) + "\n")
+        handle.flush()
+        os.fsync(handle.fileno())
+
+
+def run_synchronous_schedule(
+    client: OpenAI,
+    schedule: Sequence[dict[str, Any]],
+    *,
+    checkpoint_path: Path,
+    final_path: Path,
+    workers: int,
+    deadline_unix: float,
+    validator: Any,
+    record_builder: Any,
+    stage: str,
+) -> list[dict[str, Any]]:
+    existing_rows = read_jsonl(checkpoint_path)
+    by_id = {str(row["custom_id"]): row for row in existing_rows}
+    if len(by_id) != len(existing_rows):
+        raise BeamLiveError(f"Duplicate {stage} checkpoint id")
+    schedule_by_id = {str(row["custom_id"]): row for row in schedule}
+    for custom_id, row in by_id.items():
+        source = schedule_by_id.get(custom_id)
+        if source is None or row.get("body_sha256") != source["body_sha256"]:
+            raise BeamLiveError(f"{stage} checkpoint body drift: {custom_id}")
+    pending = [row for row in schedule if row["custom_id"] not in by_id]
+    if not pending:
+        rows = sorted(by_id.values(), key=lambda row: row["custom_id"])
+        write_jsonl(final_path, rows)
+        return rows
+
+    token_bucket = RateBucket(TOKENS_PER_MINUTE_TARGET)
+    request_bucket = RateBucket(REQUESTS_PER_MINUTE_TARGET)
+    stop = threading.Event()
+
+    def one(row: dict[str, Any]) -> tuple[dict[str, Any], dict[str, Any]]:
+        request = as_batch_request(row)
+        body: dict[str, Any] = {"error": "not_attempted"}
+        for _attempt in range(2):
+            if stop.is_set():
+                raise BeamLiveError(f"{stage} stopped")
+            try:
+                request_bucket.acquire(1, deadline_unix)
+                token_bucket.acquire(request.approx_tokens, deadline_unix)
+            except TimeoutError as error:
+                raise BeamLiveError("RUNTIME_BUDGET_EXCEEDED") from error
+            try:
+                body = synchronous_body(client, request)
+            except Exception as error:  # noqa: BLE001
+                body = {
+                    "error": {"type": type(error).__name__, "message": str(error)}
+                }
+            if validator(row, body) is None:
+                return row, body
+        raise BeamLiveError(f"{stage} request exhausted one retry: {request.custom_id}")
+
+    failures: list[Exception] = []
+    with ThreadPoolExecutor(max_workers=workers) as pool:
+        futures = {pool.submit(one, row): str(row["custom_id"]) for row in pending}
+        for future in as_completed(futures):
+            if future.cancelled():
+                continue
+            try:
+                source, body = future.result()
+                record = record_builder(source, body)
+            except Exception as error:  # noqa: BLE001
+                if not failures:
+                    stop.set()
+                    for other in futures:
+                        if other is not future:
+                            other.cancel()
+                failures.append(error)
+                continue
+            append_jsonl_fsync(checkpoint_path, record)
+            by_id[record["custom_id"]] = record
+            if len(by_id) % 10 == 0:
+                write_json(
+                    RUN / "progress.json",
+                    {
+                        "completed": len(by_id),
+                        "stage": stage,
+                        "status": "RUNNING",
+                        "total": len(schedule),
+                    },
+                )
+    if failures:
+        raise failures[0]
+    rows = sorted(by_id.values(), key=lambda row: row["custom_id"])
+    if len(rows) != len(schedule):
+        raise BeamLiveError(f"{stage} has {len(rows)} of {len(schedule)} records")
+    write_jsonl(final_path, rows)
+    return rows
 
 
 def extract_string_constant(path: Path, name: str) -> str:
@@ -181,7 +319,7 @@ def optimized_question_keys(
         for index, conversation_key in enumerate(conversations):
             chosen_categories = {
                 categories[(index + offsets[scale] + step) % 10]
-                for step in range(5)
+                for step in range(4)
             }
             for category in chosen_categories:
                 candidates = grouped[scale][conversation_key].get(category, [])
@@ -430,64 +568,35 @@ def run_reader(
     client: OpenAI,
     schedule: Sequence[dict[str, Any]],
     *,
-    pilot_only: bool,
-    poll_seconds: int,
     deadline_unix: float,
 ) -> list[dict[str, Any]]:
-    answers_path = RUN / "answers.jsonl"
-    existing = read_jsonl(answers_path)
-    done = {str(row["custom_id"]) for row in existing}
-    pilot_keys = set(sorted({str(row["question_key"]) for row in schedule})[:2])
-    target = [
-        row for row in schedule
-        if row["custom_id"] not in done
-        and (not pilot_only or row["question_key"] in pilot_keys)
-    ]
-    if target:
-        requests = [as_batch_request(row) for row in target]
-        if pilot_only:
-            for row, request in zip(target, requests):
-                results = run_synchronous_with_one_retry(
-                    client, [request], validate_reader_body
-                )
-                merged, failed = merge_answer_results([row], results, existing)
-                if failed:
-                    raise BeamLiveError(f"Unexpected failed reader result: {failed[0]}")
-                write_jsonl(answers_path, merged)
-                existing = merged
-        else:
-            ledger = BatchLedger.load(RUN / "batch_ledger.json")
-            results = run_requests_with_one_retry(
-                client,
-                requests,
-                ledger,
-                "reader.optimized.population",
-                poll_seconds,
-                validate_reader_body,
-                deadline_unix,
-            )
-            merged, failed = merge_answer_results(target, results, existing)
-            if failed:
-                raise BeamLiveError(f"Unexpected failed reader results: {failed[:3]}")
-            write_jsonl(answers_path, merged)
-            existing = merged
-    required = 6 if pilot_only else OPTIMIZED_READER_CALLS
-    if len(existing) < required:
-        raise BeamLiveError(f"Reader stage has {len(existing)} of {required} required answers")
-    if pilot_only:
-        pilot_rows = [row for row in existing if row["question_key"] in pilot_keys]
-        if len(pilot_rows) != 6:
-            raise BeamLiveError("Pilot is not exactly six answers")
-        write_json(
-            RUN / "pilot.json",
-            {
-                "api_judge_calls": 0,
-                "answers": 6,
-                "question_keys": sorted(pilot_keys),
-                "status": "PASS",
-            },
-        )
-    return existing
+    def build_record(source: dict[str, Any], body: dict[str, Any]) -> dict[str, Any]:
+        prompt_tokens, completion_tokens = usage_of(body)
+        return {
+            "answer": text_of(body),
+            "arm": source["arm"],
+            "body_sha256": source["body_sha256"],
+            "completion_tokens": completion_tokens,
+            "conversation_key": source["conversation_key"],
+            "custom_id": source["custom_id"],
+            "finish_reason": response_finish_reason(body),
+            "prompt_tokens": prompt_tokens,
+            "question_key": source["question_key"],
+            "scale": source["scale"],
+            "category": source["category"],
+        }
+
+    return run_synchronous_schedule(
+        client,
+        schedule,
+        checkpoint_path=RUN / "answers.checkpoint.jsonl",
+        final_path=RUN / "answers.jsonl",
+        workers=READER_WORKERS,
+        deadline_unix=deadline_unix,
+        validator=lambda _row, body: validate_reader_body(body),
+        record_builder=build_record,
+        stage="POPULATION_READER",
+    )
 
 
 def seal_answers(answers: Sequence[dict[str, Any]]) -> dict[str, Any]:
@@ -529,45 +638,85 @@ def prepare_judge_surfaces(
     encoding = tiktoken.encoding_for_model(MODEL)
     surface: list[dict[str, Any]] = []
     mapping: list[dict[str, str]] = []
-    for answer in sorted(answers, key=lambda row: row["custom_id"]):
-        qkey, arm = str(answer["question_key"]), str(answer["arm"])
+    by_question: dict[str, dict[str, dict[str, Any]]] = {}
+    for answer in answers:
+        by_question.setdefault(str(answer["question_key"]), {})[
+            str(answer["arm"])
+        ] = dict(answer)
+    for qkey in sorted(by_question):
+        arm_answers = by_question[qkey]
+        if set(arm_answers) != set(ARMS):
+            raise BeamLiveError(f"Incomplete answer triplet: {qkey}")
         rubric = outcomes[qkey].get("rubric")
         if not isinstance(rubric, list) or not rubric:
             raise BeamLiveError(f"Missing rubric: {qkey}")
-        for index, item in enumerate(rubric):
-            blind_id = content_id(JUDGE_DOMAIN, qkey, arm, str(index), sha256_bytes(answer["answer"].encode("utf-8")))
-            prompt = render_judge_prompt(
-                judge_template, questions[qkey]["question"], str(item), answer["answer"]
+        arm_order = sorted(
+            ARMS, key=lambda arm: content_id(JUDGE_SLOT_DOMAIN, qkey, arm)
+        )
+        responses = {
+            f"R{index}": str(arm_answers[arm]["answer"])
+            for index, arm in enumerate(arm_order)
+        }
+        answer_hashes = [
+            sha256_bytes(responses[f"R{index}"].encode("utf-8"))
+            for index in range(len(ARMS))
+        ]
+        blind_id = content_id(JUDGE_DOMAIN, qkey, *answer_hashes)
+        prompt = (
+            BUNDLED_JUDGE_TEMPLATE.replace("<question>", questions[qkey]["question"])
+            .replace(
+                "<rubric_json>",
+                json.dumps(rubric, ensure_ascii=False, separators=(",", ":")),
             )
-            body = {
-                "model": MODEL,
-                "messages": [{"role": "user", "content": prompt}],
-                "response_format": {"type": "json_object"},
-                "temperature": 0.0,
-                "max_tokens": JUDGE_MAX_TOKENS,
+            .replace(
+                "<responses_json>",
+                json.dumps(
+                    responses,
+                    ensure_ascii=False,
+                    sort_keys=True,
+                    separators=(",", ":"),
+                ),
+            )
+        )
+        if any(
+            placeholder in prompt
+            for placeholder in ("<question>", "<rubric_json>", "<responses_json>")
+        ):
+            raise BeamLiveError("Unresolved bundled judge placeholder")
+        body = {
+            "model": MODEL,
+            "messages": [{"role": "user", "content": prompt}],
+            "response_format": {"type": "json_object"},
+            "temperature": 0.0,
+            "max_tokens": JUDGE_MAX_TOKENS,
+        }
+        surface.append(
+            {
+                "body": body,
+                "body_sha256": request_digest(body),
+                "custom_id": blind_id,
+                "prompt_tokens": len(encoding.encode(prompt)) + 8,
+                "rubric_count": len(rubric),
+                "slots": ["R0", "R1", "R2"],
             }
-            surface.append(
-                {
-                    "blind_id": blind_id,
-                    "body": body,
-                    "body_sha256": request_digest(body),
-                    "prompt_tokens": len(encoding.encode(prompt)) + 8,
-                }
-            )
+        )
+        for index, arm in enumerate(arm_order):
             mapping.append(
                 {
                     "arm": arm,
                     "blind_id": blind_id,
-                    "category": str(answer["category"]),
-                    "conversation_key": str(answer["conversation_key"]),
+                    "category": str(arm_answers[arm]["category"]),
+                    "conversation_key": str(arm_answers[arm]["conversation_key"]),
                     "question_key": qkey,
-                    "rubric_index": str(index),
-                    "scale": str(answer["scale"]),
+                    "rubric_count": str(len(rubric)),
+                    "scale": str(arm_answers[arm]["scale"]),
+                    "slot": f"R{index}",
                 }
             )
     if (
         len(surface) != OPTIMIZED_JUDGE_CALLS
-        or len({row["blind_id"] for row in surface}) != OPTIMIZED_JUDGE_CALLS
+        or len({row["custom_id"] for row in surface}) != OPTIMIZED_JUDGE_CALLS
+        or len(mapping) != OPTIMIZED_READER_CALLS
     ):
         raise BeamLiveError("Judge surface count or identity failure")
     write_jsonl(RUN / "judge_surface.blind.jsonl", surface)
@@ -584,7 +733,9 @@ def prepare_judge_surfaces(
     return surface, mapping
 
 
-def parse_judge_body(body: dict[str, Any]) -> tuple[float, str] | None:
+def parse_bundled_judge_body(
+    source: dict[str, Any], body: dict[str, Any]
+) -> list[dict[str, Any]] | None:
     if "error" in body or response_finish_reason(body) != "stop":
         return None
     raw = text_of(body).strip()
@@ -605,41 +756,64 @@ def parse_judge_body(body: dict[str, Any]) -> tuple[float, str] | None:
             parsed = json.loads(raw[start : end + 1])
         except json.JSONDecodeError:
             return None
-    if not isinstance(parsed, dict) or set(parsed) != {"score", "reason"}:
+    if not isinstance(parsed, dict) or set(parsed) != {"evaluations"}:
         return None
-    try:
-        score = float(parsed["score"])
-    except (TypeError, ValueError):
+    evaluations = parsed["evaluations"]
+    if not isinstance(evaluations, list):
         return None
-    reason = str(parsed["reason"]).strip()
-    if score not in {0.0, 0.5, 1.0} or not reason:
+    expected_slots = set(source["slots"])
+    normalized: list[dict[str, Any]] = []
+    seen_slots: set[str] = set()
+    for evaluation in evaluations:
+        if not isinstance(evaluation, dict) or set(evaluation) != {"slot", "criteria"}:
+            return None
+        slot = str(evaluation["slot"])
+        if slot not in expected_slots or slot in seen_slots:
+            return None
+        seen_slots.add(slot)
+        criteria = evaluation["criteria"]
+        if not isinstance(criteria, list):
+            return None
+        seen_indices: set[int] = set()
+        normalized_criteria: list[dict[str, Any]] = []
+        for criterion in criteria:
+            if not isinstance(criterion, dict) or set(criterion) != {
+                "rubric_index",
+                "score",
+                "reason",
+            }:
+                return None
+            try:
+                index = int(criterion["rubric_index"])
+                score = float(criterion["score"])
+            except (TypeError, ValueError):
+                return None
+            reason = str(criterion["reason"]).strip()
+            if (
+                index in seen_indices
+                or index < 0
+                or index >= int(source["rubric_count"])
+                or score not in {0.0, 0.5, 1.0}
+                or not reason
+            ):
+                return None
+            seen_indices.add(index)
+            normalized_criteria.append(
+                {"reason": reason, "rubric_index": index, "score": score}
+            )
+        if seen_indices != set(range(int(source["rubric_count"]))):
+            return None
+        normalized.append(
+            {
+                "criteria": sorted(
+                    normalized_criteria, key=lambda row: row["rubric_index"]
+                ),
+                "slot": slot,
+            }
+        )
+    if seen_slots != expected_slots:
         return None
-    return score, reason
-
-
-def validate_judge_body(body: dict[str, Any]) -> str | None:
-    return None if parse_judge_body(body) is not None else "invalid_judgment"
-
-
-def judgment_record(
-    blind_id: str,
-    body: dict[str, Any],
-    surface_by_id: dict[str, dict[str, Any]],
-) -> dict[str, Any]:
-    parsed = parse_judge_body(body)
-    if parsed is None:
-        raise BeamLiveError(f"Invalid judgment after retry: {blind_id}")
-    score, reason = parsed
-    prompt_tokens, completion_tokens = usage_of(body)
-    return {
-        "blind_id": blind_id,
-        "body_sha256": surface_by_id[blind_id]["body_sha256"],
-        "completion_tokens": completion_tokens,
-        "finish_reason": response_finish_reason(body),
-        "prompt_tokens": prompt_tokens,
-        "reason": reason,
-        "score": score,
-    }
+    return sorted(normalized, key=lambda row: row["slot"])
 
 
 def run_judges(
@@ -648,53 +822,38 @@ def run_judges(
     poll_seconds: int,
     deadline_unix: float,
 ) -> list[dict[str, Any]]:
-    path = RUN / "judgments.blind.jsonl"
-    existing = read_jsonl(path)
-    done = {str(row["blind_id"]) for row in existing}
-    pending = [row for row in surface if row["blind_id"] not in done]
-    if pending:
-        by_id = {str(row["blind_id"]): dict(row) for row in existing}
-        surface_by_id = {str(row["blind_id"]): row for row in pending}
-        requests_by_id = {
-            str(row["blind_id"]): BatchRequest(
-                custom_id=str(row["blind_id"]),
-                body=dict(row["body"]),
-                approx_tokens=int(row["prompt_tokens"]) + JUDGE_MAX_TOKENS,
-            )
-            for row in pending
+    def validator(source: dict[str, Any], body: dict[str, Any]) -> str | None:
+        return (
+            None
+            if parse_bundled_judge_body(source, body) is not None
+            else "invalid_bundled_judgment"
+        )
+
+    def build_record(source: dict[str, Any], body: dict[str, Any]) -> dict[str, Any]:
+        evaluations = parse_bundled_judge_body(source, body)
+        if evaluations is None:
+            raise BeamLiveError(f"Invalid bundled judgment: {source['custom_id']}")
+        prompt_tokens, completion_tokens = usage_of(body)
+        return {
+            "body_sha256": source["body_sha256"],
+            "completion_tokens": completion_tokens,
+            "custom_id": source["custom_id"],
+            "evaluations": evaluations,
+            "finish_reason": response_finish_reason(body),
+            "prompt_tokens": prompt_tokens,
         }
-        smoke_ids = sorted(requests_by_id)[:2] if not existing else []
-        for blind_id in smoke_ids:
-            smoke_result = run_synchronous_with_one_retry(
-                client,
-                [requests_by_id[blind_id]],
-                validate_judge_body,
-                deadline_unix,
-            )
-            by_id[blind_id] = judgment_record(
-                blind_id, smoke_result[blind_id], surface_by_id
-            )
-            write_jsonl(path, sorted(by_id.values(), key=lambda row: row["blind_id"]))
-        batch_requests = [
-            request for blind_id, request in requests_by_id.items()
-            if blind_id not in by_id
-        ]
-        results: dict[str, dict[str, Any]] = {}
-        if batch_requests:
-            ledger = BatchLedger.load(RUN / "batch_ledger.json")
-            results = run_requests_with_one_retry(
-                client,
-                batch_requests,
-                ledger,
-                "judge.optimized.population",
-                poll_seconds,
-                validate_judge_body,
-                deadline_unix,
-            )
-        for blind_id, body in results.items():
-            by_id[blind_id] = judgment_record(blind_id, body, surface_by_id)
-        write_jsonl(path, sorted(by_id.values(), key=lambda row: row["blind_id"]))
-        existing = list(by_id.values())
+
+    existing = run_synchronous_schedule(
+        client,
+        surface,
+        checkpoint_path=RUN / "judgments.checkpoint.blind.jsonl",
+        final_path=RUN / "judgments.blind.jsonl",
+        workers=JUDGE_WORKERS,
+        deadline_unix=deadline_unix,
+        validator=validator,
+        record_builder=build_record,
+        stage="BLIND_JUDGE",
+    )
     if len(existing) != OPTIMIZED_JUDGE_CALLS:
         raise BeamLiveError(
             f"Expected {OPTIMIZED_JUDGE_CALLS} judgments, found {len(existing)}"
@@ -773,8 +932,29 @@ def classify_disposition(
 def score_results(
     judgments: Sequence[dict[str, Any]], mapping: Sequence[dict[str, str]]
 ) -> dict[str, Any]:
-    score_by_blind = {str(row["blind_id"]): float(row["score"]) for row in judgments}
-    criterion_rows = [{**row, "score": score_by_blind[row["blind_id"]]} for row in mapping]
+    judgment_by_id = {str(row["custom_id"]): row for row in judgments}
+    criterion_rows: list[dict[str, Any]] = []
+    for row in mapping:
+        judgment = judgment_by_id[row["blind_id"]]
+        evaluations = {
+            str(evaluation["slot"]): evaluation
+            for evaluation in judgment["evaluations"]
+        }
+        evaluation = evaluations[row["slot"]]
+        for criterion in evaluation["criteria"]:
+            criterion_rows.append(
+                {
+                    **row,
+                    "reason": criterion["reason"],
+                    "rubric_index": int(criterion["rubric_index"]),
+                    "score": float(criterion["score"]),
+                }
+            )
+    if len(criterion_rows) != OPTIMIZED_CRITERION_SCORES:
+        raise BeamLiveError(
+            f"Expected {OPTIMIZED_CRITERION_SCORES} criterion scores, "
+            f"found {len(criterion_rows)}"
+        )
     grouped: dict[tuple[str, str], list[float]] = {}
     metadata: dict[tuple[str, str], dict[str, str]] = {}
     for row in criterion_rows:
@@ -938,9 +1118,9 @@ def preflight(official_repo: Path) -> tuple[list[dict[str, Any]], str]:
             conversation_counts.get(row["conversation_key"], 0) + 1
         )
     if (
-        set(category_counts.values()) != {45}
-        or set(conversation_counts.values()) != {5}
-        or scale_counts != {"100K": 100, "500K": 175, "1M": 175}
+        set(category_counts.values()) != {36}
+        or set(conversation_counts.values()) != {4}
+        or scale_counts != {"100K": 80, "500K": 140, "1M": 140}
     ):
         raise BeamLiveError("Optimized sample balance drift")
     outcomes = load_outcomes(CORPUS / "outcome_surface.sealed.jsonl.gz")
@@ -967,10 +1147,13 @@ def preflight(official_repo: Path) -> tuple[list[dict[str, Any]], str]:
         {
             "api_requests_made_before_first_pass": 0,
             "judge_template_sha256": sha256_bytes(judge_template.encode("utf-8")),
+            "bundled_judge_template_sha256": sha256_bytes(
+                BUNDLED_JUDGE_TEMPLATE.encode("utf-8")
+            ),
             "charged_reader_tokens": charged_tokens,
             "input_reader_tokens": input_tokens,
             "max_prompt_tokens": counts[-1],
-            "judge_requests": rubric_items * len(ARMS),
+            "judge_requests": OPTIMIZED_JUDGE_CALLS,
             "reader_requests_sha256": file_sha256(requests_path),
             "reader_requests": len(schedule),
             "reader_template_sha256": sha256_bytes(reader_template.encode("utf-8")),
@@ -986,7 +1169,9 @@ def run_pipeline(official_repo: Path, poll_seconds: int, pilot_only: bool) -> No
     schedule, judge_template = preflight(official_repo)
     if pilot_only:
         raise BeamLiveError("Optimized design carries the excluded synchronous pilot")
-    client = OpenAI(api_key=os.environ["OPENAI_API_KEY"], max_retries=0)
+    client = OpenAI(
+        api_key=os.environ["OPENAI_API_KEY"], max_retries=0, timeout=120.0
+    )
     runtime_path = RUN / "runtime_budget.json"
     if runtime_path.exists():
         runtime = json.loads(runtime_path.read_text(encoding="utf-8"))
@@ -1006,8 +1191,6 @@ def run_pipeline(official_repo: Path, poll_seconds: int, pilot_only: bool) -> No
     answers = run_reader(
         client,
         schedule,
-        pilot_only=False,
-        poll_seconds=poll_seconds,
         deadline_unix=deadline_unix,
     )
     seal_answers(answers)
@@ -1072,7 +1255,7 @@ __all__ = [
     "classify_disposition",
     "content_id",
     "extract_string_constant",
-    "parse_judge_body",
+    "parse_bundled_judge_body",
     "render_judge_prompt",
     "render_reader_prompt",
     "sign_flip_p",
