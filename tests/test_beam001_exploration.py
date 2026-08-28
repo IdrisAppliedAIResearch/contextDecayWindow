@@ -56,6 +56,29 @@ def test_disjoint_shard_checkpoints_merge_by_stable_key(tmp_path, monkeypatch) -
     }
 
 
+def test_checkpoint_repair_removes_only_foreign_keys(tmp_path) -> None:
+    checkpoint = tmp_path / "checkpoint.jsonl"
+    shard = tmp_path / "checkpoint.shard-00.jsonl"
+    artifact = tmp_path / "repair.json"
+    expected_a = {"question_key": "expected", "arm": exploration.ARMS[0], "value": 1}
+    expected_b = {"question_key": "expected", "arm": exploration.ARMS[1], "value": 2}
+    foreign = {"question_key": "q1", "arm": exploration.ARMS[0], "value": 1}
+    checkpoint.write_text(
+        "\n".join(map(json.dumps, (expected_a, foreign, foreign))) + "\n",
+        encoding="utf-8",
+    )
+    shard.write_text(json.dumps(expected_b) + "\n", encoding="utf-8")
+    result = exploration._repair_checkpoint_files(
+        (checkpoint, shard),
+        {("expected", exploration.ARMS[0]), ("expected", exploration.ARMS[1])},
+        artifact,
+    )
+    assert result["removed_physical_rows"] == 2
+    assert result["removed_unique_keys"] == 1
+    assert [json.loads(line) for line in checkpoint.read_text(encoding="utf-8").splitlines()] == [expected_a]
+    assert json.loads(artifact.read_text(encoding="utf-8"))["status"] == "PASS"
+
+
 def test_invalid_parallel_and_conversation_shards_fail_before_work() -> None:
     with pytest.raises(exploration.BeamExplorationError, match="worker count"):
         exploration.parallel_run(1)

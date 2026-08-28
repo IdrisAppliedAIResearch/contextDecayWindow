@@ -50,6 +50,7 @@ PAYLOADS_PATH = ARTIFACT_ROOT / "payloads.sealed.jsonl.gz"
 SUMMARY_PATH = ARTIFACT_ROOT / "summary.json"
 SHUFFLE_PATH = ARTIFACT_ROOT / "shuffle_replay.json"
 FACET_REPRESENTATION_PATH = ARTIFACT_ROOT / "facet_representation.jsonl.gz"
+CHECKPOINT_REPAIR_PATH = ARTIFACT_ROOT / "checkpoint_repair.json"
 RUNTIME_PATH = ROOT / "artifacts/runtime/exploration_progress.json"
 FAILURE_PATH = ROOT / "artifacts/runtime/exploration_failure.json"
 
@@ -134,6 +135,120 @@ def _load_checkpoints() -> dict[tuple[str, str], dict[str, Any]]:
                 raise BeamExplorationError(f"Conflicting checkpoint: {key}")
             rows[key] = row
     return rows
+
+
+def _repair_checkpoint_files(
+    paths: Sequence[Path],
+    expected_keys: set[tuple[str, str]],
+    artifact_path: Path,
+) -> dict[str, Any]:
+    retained: dict[tuple[str, str], dict[str, Any]] = {}
+    files: list[dict[str, Any]] = []
+    removed: list[dict[str, Any]] = []
+    plans: list[tuple[Path, str, list[str], list[str]]] = []
+
+    def display(path: Path) -> str:
+        try:
+            return path.relative_to(REPO_ROOT).as_posix()
+        except ValueError:
+            return path.as_posix()
+
+    for path in paths:
+        if not path.is_file():
+            continue
+        before = sha256_file(path)
+        source = path.read_text(encoding="utf-8").splitlines()
+        kept_lines: list[str] = []
+        for line_number, line in enumerate(source, 1):
+            if not line.strip():
+                continue
+            try:
+                row = json.loads(line)
+            except json.JSONDecodeError as error:
+                raise BeamExplorationError(
+                    f"Malformed checkpoint row during repair: {path}:{line_number}"
+                ) from error
+            key = (str(row.get("question_key")), str(row.get("arm")))
+            if key not in expected_keys:
+                removed.append(
+                    {
+                        "path": display(path),
+                        "line_number": line_number,
+                        "question_key": key[0],
+                        "arm": key[1],
+                        "row_sha256": hashlib.sha256(line.encode("utf-8")).hexdigest(),
+                    }
+                )
+                continue
+            if key in retained and retained[key] != row:
+                raise BeamExplorationError(f"Conflicting expected checkpoint: {key}")
+            retained[key] = row
+            kept_lines.append(line)
+        plans.append((path, before, [line for line in source if line.strip()], kept_lines))
+    if set(retained) != expected_keys:
+        missing = expected_keys - set(retained)
+        extra = set(retained) - expected_keys
+        raise BeamExplorationError(
+            f"Checkpoint repair did not yield exact population: missing={len(missing)}, extra={len(extra)}"
+        )
+    for path, before, source, kept_lines in plans:
+        if len(kept_lines) != len(source):
+            raw = ("\n".join(kept_lines) + ("\n" if kept_lines else "")).encode("utf-8")
+            temporary = path.with_suffix(path.suffix + ".repair.tmp")
+            with temporary.open("wb") as handle:
+                handle.write(raw)
+                handle.flush()
+                os.fsync(handle.fileno())
+            temporary.replace(path)
+        files.append(
+            {
+                "path": display(path),
+                "before_sha256": before,
+                "after_sha256": sha256_file(path),
+                "physical_rows_before": len(source),
+                "physical_rows_after": len(kept_lines),
+            }
+        )
+    result = {
+        "schema": "beam001-checkpoint-repair-v1",
+        "status": "PASS",
+        "expected_unique_keys": len(expected_keys),
+        "retained_unique_keys": len(retained),
+        "removed_physical_rows": len(removed),
+        "removed_unique_keys": len(
+            {(row["question_key"], row["arm"]) for row in removed}
+        ),
+        "removed": removed,
+        "files": files,
+        "embedding_calls": 0,
+        "generation_calls": 0,
+        "outcomes_opened": False,
+    }
+    _write_json(artifact_path, result)
+    return result
+
+
+def repair_foreign_checkpoint_rows() -> dict[str, Any]:
+    question_keys = {
+        str(question["question_key"])
+        for row in _iter_mechanism()
+        for question in row["questions"]
+    }
+    if len(question_keys) != EXPECTED_QUESTIONS:
+        raise BeamExplorationError("Mechanism question population drifted")
+    expected = {(question_key, arm) for question_key in question_keys for arm in ARMS}
+    paths = [CHECKPOINT_PATH, *sorted(CHECKPOINT_PATH.parent.glob("checkpoint.shard-*.jsonl"))]
+    result = _repair_checkpoint_files(paths, expected, CHECKPOINT_REPAIR_PATH)
+    removed_keys = {
+        (str(row["question_key"]), str(row["arm"])) for row in result["removed"]
+    }
+    if (
+        result["removed_physical_rows"] != 2
+        or result["removed_unique_keys"] != 1
+        or removed_keys != {("q1", ARMS[0])}
+    ):
+        raise BeamExplorationError(f"Observed repair trigger drifted: {result}")
+    return result
 
 
 def _write_gzip_jsonl(path: Path, rows: Sequence[Mapping[str, Any]]) -> None:
@@ -726,6 +841,29 @@ def run() -> dict[str, Any]:
         raise
 
 
+def finalize_completed() -> dict[str, Any]:
+    """Finalize an already complete checkpoint population without recomputation."""
+
+    os.environ.pop("OPENAI_API_KEY", None)
+    FAILURE_PATH.unlink(missing_ok=True)
+    separation = _separation_gate()
+    anchors = _anchors()
+    result = _finalize(_load_checkpoints())
+    result["separation"] = separation
+    result["anchors"] = {
+        "status": anchors["status"],
+        "path": ANCHOR_PATH.relative_to(REPO_ROOT).as_posix(),
+        "sha256": sha256_file(ANCHOR_PATH),
+    }
+    result["runtime"] = {
+        "mode": "finalize_completed_checkpoints",
+        "gpu_required": False,
+    }
+    _write_json(SUMMARY_PATH, result)
+    _write_json(RUNTIME_PATH, {**result, "updated_unix": time.time()})
+    return result
+
+
 def run_shard(shard_index: int, shard_count: int) -> dict[str, Any]:
     """Run one disjoint conversation shard without finalizing shared output."""
 
@@ -1156,6 +1294,8 @@ def main() -> None:
             "run",
             "shard",
             "parallel-run",
+            "repair-checkpoint",
+            "finalize",
             "shuffle-shard",
             "parallel-shuffle",
             "wait-and-run",
@@ -1174,6 +1314,10 @@ def main() -> None:
         result = run_shard(arguments.shard_index, arguments.shard_count)
     elif arguments.command == "parallel-run":
         result = parallel_run(arguments.workers)
+    elif arguments.command == "repair-checkpoint":
+        result = repair_foreign_checkpoint_rows()
+    elif arguments.command == "finalize":
+        result = finalize_completed()
     elif arguments.command == "shuffle-shard":
         result = run_shuffle_shard(arguments.shard_index, arguments.shard_count)
     elif arguments.command == "parallel-shuffle":
