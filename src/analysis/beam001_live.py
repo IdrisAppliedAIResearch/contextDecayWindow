@@ -55,6 +55,7 @@ TOKENS_PER_MINUTE_TARGET = 195_000
 REQUESTS_PER_MINUTE_TARGET = 6.8
 READER_WORKERS = 8
 JUDGE_WORKERS = 32
+CONTINUATION_DEVIATION = "DEVIATION_002"
 SAMPLE_DOMAIN = "beam001-optimized-4q-sample-v1"
 READER_DOMAIN = "beam001-sync-reader-v1"
 JUDGE_DOMAIN = "beam001-bundled-judge-v1"
@@ -858,11 +859,12 @@ def run_judges(
         raise BeamLiveError(
             f"Expected {OPTIMIZED_JUDGE_CALLS} judgments, found {len(existing)}"
         )
+    judgment_path = RUN / "judgments.blind.jsonl"
     write_json(
         RUN / "judgments.seal.json",
         {
             "judgments": OPTIMIZED_JUDGE_CALLS,
-            "judgments_sha256": file_sha256(path),
+            "judgments_sha256": file_sha256(judgment_path),
             "status": "SEALED",
         },
     )
@@ -1038,6 +1040,11 @@ def score_results(
         "scale_t1_minus_a0": scale_a0,
         "scale_t1_minus_c0": scale_primary,
     }
+    if (RUN / "interruption_continuation.json").exists():
+        result["diagnostic_disposition"] = result["disposition"]
+        result["disposition"] = "CHARACTERIZED"
+        result["deviation"] = CONTINUATION_DEVIATION
+        result["registered_g_runtime"] = "FAIL"
     write_jsonl(RUN / "question_scores.jsonl", question_rows)
     write_json(RUN / "results.json", result)
     return result
@@ -1064,6 +1071,14 @@ def write_report(result: dict[str, Any]) -> None:
         "## Arm Means",
         "",
     ]
+    if "deviation" in result:
+        lines[4:4] = [
+            f"**Deviation:** `{result['deviation']}`; registered `G-RUNTIME` failed.",
+            "",
+            f"**Diagnostic numerical disposition:** "
+            f"`{result['diagnostic_disposition']}`",
+            "",
+        ]
     lines.extend(f"- `{arm}`: {value:.6f}" for arm, value in result["arm_means"].items())
     lines.extend(["", "## Scale Guardrails", ""])
     lines.extend(
