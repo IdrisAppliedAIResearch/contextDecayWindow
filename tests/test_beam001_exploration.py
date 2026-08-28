@@ -63,6 +63,26 @@ def test_invalid_parallel_and_conversation_shards_fail_before_work() -> None:
         exploration._run_with_embedder({}, shard_index=2, shard_count=2)
 
 
+def test_frozen_question_shuffle_is_deterministic_and_changes_order() -> None:
+    questions = [
+        {"question_key": f"{index:064x}"}
+        for index in range(20)
+    ]
+    first = exploration._shuffled_questions(questions)
+    second = exploration._shuffled_questions(list(reversed(questions)))
+    assert first == second
+    assert first != questions
+    assert {item["question_key"] for item in first} == {
+        item["question_key"] for item in questions
+    }
+
+
+def test_shuffle_requires_complete_exploration(tmp_path, monkeypatch) -> None:
+    monkeypatch.setattr(exploration, "CHECKPOINT_PATH", tmp_path / "missing.jsonl")
+    with pytest.raises(exploration.BeamExplorationError, match="requires complete"):
+        exploration.run_shuffle_shard(0, 1)
+
+
 def test_baseline_trace_and_composition_gates_fail_loudly() -> None:
     valid = {
         "arm": exploration.ARMS[0],
