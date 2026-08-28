@@ -537,3 +537,5 @@ scripts/hh002_cost_ledger.py text eol=lf
 # TC-009 registered question-level artifacts exceed GitHub's 100 MiB file cap.
 experiments/components/tier_cost/runs/tc009/run/frozen_selections.jsonl.gz filter=lfs diff=lfs merge=lfs -text
 experiments/components/tier_cost/runs/tc009/run/diagnostics.jsonl.gz filter=lfs diff=lfs merge=lfs -text
+experiments/components/live_validation_009/artifacts/part1/selections.jsonl.gz filter=lfs diff=lfs merge=lfs -text
+experiments/components/live_validation_009/artifacts/part1/prompts.jsonl.gz filter=lfs diff=lfs merge=lfs -text
