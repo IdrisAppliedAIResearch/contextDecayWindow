@@ -14,6 +14,7 @@ import subprocess
 import sys
 import tempfile
 import time
+from collections import Counter
 from contextlib import contextmanager
 from dataclasses import asdict
 from pathlib import Path
@@ -48,6 +49,7 @@ RANKINGS_PATH = ARTIFACT_ROOT / "rankings.jsonl.gz"
 PAYLOADS_PATH = ARTIFACT_ROOT / "payloads.sealed.jsonl.gz"
 SUMMARY_PATH = ARTIFACT_ROOT / "summary.json"
 SHUFFLE_PATH = ARTIFACT_ROOT / "shuffle_replay.json"
+FACET_REPRESENTATION_PATH = ARTIFACT_ROOT / "facet_representation.jsonl.gz"
 RUNTIME_PATH = ROOT / "artifacts/runtime/exploration_progress.json"
 FAILURE_PATH = ROOT / "artifacts/runtime/exploration_failure.json"
 
@@ -877,6 +879,7 @@ def run_shuffle_shard(shard_index: int, shard_count: int) -> dict[str, Any]:
     changed_orders = 0
     order_keys: list[str] = []
     mismatches: list[dict[str, str]] = []
+    facet_rows: list[dict[str, Any]] = []
     try:
         for conversation_number, row in enumerate(_iter_mechanism(), 1):
             if (conversation_number - 1) % shard_count != shard_index:
@@ -892,10 +895,14 @@ def run_shuffle_shard(shard_index: int, shard_count: int) -> dict[str, Any]:
             try:
                 a0_records = a0._all_episodes()
                 c0_records = c0._all_episodes()
-                _stable_maps(a0_records, adapted)
+                _, index_to_stable = _stable_maps(a0_records, adapted)
                 facet_bundle = prepare_facets(
                     a0_records, EpisodicConfig().aspect_model
                 )
+                facets_by_id = {
+                    index_to_stable[index]: facets
+                    for index, facets in enumerate(facet_bundle[0])
+                }
                 for question in shuffled:
                     key = str(question["question_key"])
                     query = str(question["question"])
@@ -931,6 +938,35 @@ def run_shuffle_shard(shard_index: int, shard_count: int) -> dict[str, Any]:
                                     "observed": observed,
                                 }
                             )
+                        selected = expected[(key, arm)]["selected_long_term_ids"]
+                        family_episodes: Counter[str] = Counter()
+                        family_facets: Counter[str] = Counter()
+                        covered: set[str] = set()
+                        for identifier in selected:
+                            episode_families: set[str] = set()
+                            for facet in facets_by_id[str(identifier)]:
+                                family = facet.split(":", 1)[0]
+                                family_facets[family] += 1
+                                episode_families.add(family)
+                                covered.add(facet)
+                            family_episodes.update(episode_families)
+                        facet_rows.append(
+                            {
+                                "schema": "beam001-facet-representation-v1",
+                                "question_key": key,
+                                "arm": arm,
+                                "split": row["split"],
+                                "category": question["category"],
+                                "selected_long_term_count": len(selected),
+                                "covered_unique_facets": len(covered),
+                                "family_episode_counts": dict(
+                                    sorted(family_episodes.items())
+                                ),
+                                "family_facet_occurrences": dict(
+                                    sorted(family_facets.items())
+                                ),
+                            }
+                        )
             finally:
                 a0.close()
                 c0.close()
@@ -953,6 +989,9 @@ def run_shuffle_shard(shard_index: int, shard_count: int) -> dict[str, Any]:
         "generation_calls": 0,
         "outcomes_opened": False,
     }
+    facet_path = ARTIFACT_ROOT / f"facet_representation.shard-{shard_index:02d}.jsonl.gz"
+    _write_gzip_jsonl(facet_path, facet_rows)
+    result["facet_representation_sha256"] = sha256_file(facet_path)
     _write_json(output, result)
     if mismatches:
         raise BeamExplorationError(
@@ -1009,6 +1048,13 @@ def parallel_shuffle_replay(workers: int = 8) -> dict[str, Any]:
         for index in range(workers)
     ]
     order = [key for shard in shards for key in shard["question_order"]]
+    facet_rows = []
+    for index in range(workers):
+        path = ARTIFACT_ROOT / f"facet_representation.shard-{index:02d}.jsonl.gz"
+        with gzip.open(path, "rt", encoding="utf-8") as handle:
+            facet_rows.extend(json.loads(line) for line in handle)
+    facet_rows.sort(key=lambda row: (str(row["question_key"]), str(row["arm"])))
+    _write_gzip_jsonl(FACET_REPRESENTATION_PATH, facet_rows)
     result = {
         "schema": "beam001-shuffle-replay-v1",
         "status": "PASS",
@@ -1027,11 +1073,16 @@ def parallel_shuffle_replay(workers: int = 8) -> dict[str, Any]:
         "embedding_calls": 0,
         "generation_calls": 0,
         "outcomes_opened": False,
+        "facet_representation": {
+            "rows": len(facet_rows),
+            "sha256": sha256_file(FACET_REPRESENTATION_PATH),
+        },
     }
     if (
         result["conversations"] != 90
         or result["conversations_with_changed_order"] != 90
         or result["question_arms_checked"] != EXPECTED_ROWS
+        or result["facet_representation"]["rows"] != EXPECTED_ROWS
     ):
         raise BeamExplorationError(f"Incomplete shuffled replay: {result}")
     _write_json(SHUFFLE_PATH, result)
