@@ -1161,7 +1161,7 @@ def score_results(
     for conversation_key, question_keys in conversation_questions.items():
         for arm in ARMS:
             conversation_arm[(conversation_key, arm)] = float(
-                np.mean([qscore[(key, arm)] for key in question_keys])
+                np.mean([qscore[(key, arm)] for key in sorted(question_keys)])
             )
     conversations = sorted(conversation_questions)
     primary = np.array([conversation_arm[(key, T1)] - conversation_arm[(key, C0)] for key in conversations])
