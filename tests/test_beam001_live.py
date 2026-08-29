@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import json
 import time
 
@@ -26,7 +27,7 @@ from analysis.beam001_live import (
 )
 from analysis.hh002_batch import BatchRequest
 from analysis.hh002_batch import BatchLedger, HH002BatchError, await_file_ready
-from analysis.beam001_supervisor import initialize_continuation
+from analysis.beam001_supervisor import initialize_continuation, initialize_judge_repair
 
 
 def response(content: str, finish_reason: str = "stop") -> dict:
@@ -339,3 +340,43 @@ def test_interrupted_continuation_preserves_prefix_and_budget(tmp_path) -> None:
     assert continuation["deadline_unix"] == 130.0
     assert continuation["checkpoint_rows_adopted"] == 2
     assert continuation["original_deadline_unix"] == 20.0
+
+
+def test_judge_repair_freezes_prefix_pending_set_and_remaining_time(tmp_path) -> None:
+    checkpoint_rows = [
+        {"body_sha256": f"body-{index}", "custom_id": f"id-{index}"}
+        for index in range(2)
+    ]
+    checkpoint = tmp_path / "judgments.checkpoint.blind.jsonl"
+    checkpoint.write_text(
+        "".join(json.dumps(row, sort_keys=True) + "\n" for row in checkpoint_rows),
+        encoding="utf-8",
+    )
+    surface_rows = [
+        {"custom_id": f"id-{index}"}
+        for index in range(4)
+    ]
+    (tmp_path / "judge_surface.blind.jsonl").write_text(
+        "".join(json.dumps(row) + "\n" for row in surface_rows),
+        encoding="utf-8",
+    )
+    (tmp_path / "failure.json").write_text(
+        json.dumps({"error": "failed id-2"}), encoding="utf-8"
+    )
+    pending_payload = b"id-2\nid-3\n"
+
+    repair = initialize_judge_repair(
+        tmp_path,
+        now=100.0,
+        runtime_seconds=30,
+        expected_prefix_rows=2,
+        expected_prefix_sha256=hashlib.sha256(checkpoint.read_bytes()).hexdigest(),
+        expected_pending_rows=2,
+        expected_pending_sha256=hashlib.sha256(pending_payload).hexdigest(),
+        expected_failed_id="id-2",
+    )
+
+    assert repair["deadline_unix"] == 130.0
+    assert repair["pending_requests"] == 2
+    assert not (tmp_path / "failure.json").exists()
+    assert (tmp_path / "failure_001.json").exists()
