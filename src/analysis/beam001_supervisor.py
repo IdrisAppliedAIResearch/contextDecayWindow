@@ -29,6 +29,12 @@ JUDGE_REPAIR_PENDING_SHA256 = (
 JUDGE_REPAIR_FAILED_ID = (
     "33c2b09a0f2bab25631122351fcae938a65ee2f5389a95d58a463a0972214d22"
 )
+STRICT_REPAIR_SECONDS = 688
+STRICT_REPAIR_PREFIX_ROWS = 359
+STRICT_REPAIR_PREFIX_SHA256 = (
+    "578adf3c37ece497401bc6caa9afd02d1b8860c09d2f54f94c4e2a0323e4754c"
+)
+STRICT_REPAIR_PENDING_ID = JUDGE_REPAIR_FAILED_ID
 
 
 class SupervisorError(RuntimeError):
@@ -145,6 +151,71 @@ def initialize_judge_repair(
     return repair
 
 
+def initialize_strict_judge_repair(
+    run: Path,
+    *,
+    now: float | None = None,
+    runtime_seconds: int = STRICT_REPAIR_SECONDS,
+    expected_prefix_rows: int = STRICT_REPAIR_PREFIX_ROWS,
+    expected_prefix_sha256: str = STRICT_REPAIR_PREFIX_SHA256,
+    expected_pending_id: str = STRICT_REPAIR_PENDING_ID,
+) -> dict[str, Any]:
+    repair_path = run / "strict_judge_repair_runtime.json"
+    failure_path = run / "failure.json"
+    archived_failure = run / "failure_002.json"
+    if repair_path.exists():
+        repair = json.loads(repair_path.read_text(encoding="utf-8"))
+        if failure_path.exists() and not archived_failure.exists():
+            failure_path.replace(archived_failure)
+        elif failure_path.exists():
+            raise SupervisorError("Both active and archived strict-repair failures exist")
+        return repair
+    if (run / "results.json").exists() or (run / "judgments.seal.json").exists():
+        raise SupervisorError("Strict judge repair requested after a terminal result seal")
+    if not failure_path.exists():
+        raise SupervisorError("Strict judge repair failure artifact is missing")
+    failure = json.loads(failure_path.read_text(encoding="utf-8"))
+    if expected_pending_id not in str(failure.get("error", "")):
+        raise SupervisorError("Strict judge repair failure identity drift")
+
+    checkpoint_path = run / "judgments.checkpoint.blind.jsonl"
+    checkpoint = read_jsonl(checkpoint_path)
+    completed_ids = [str(row["custom_id"]) for row in checkpoint]
+    if (
+        len(completed_ids) != expected_prefix_rows
+        or len(set(completed_ids)) != expected_prefix_rows
+        or file_sha256(checkpoint_path) != expected_prefix_sha256
+    ):
+        raise SupervisorError("Strict judge checkpoint count, identity, or hash drift")
+    completed = set(completed_ids)
+    surface = read_jsonl(run / "judge_surface.blind.jsonl")
+    pending_ids = [
+        str(row["custom_id"])
+        for row in surface
+        if str(row["custom_id"]) not in completed
+    ]
+    if pending_ids != [expected_pending_id]:
+        raise SupervisorError("Strict judge pending identity drift")
+    if archived_failure.exists():
+        raise SupervisorError("Strict judge failure archive already exists")
+
+    started = time.time() if now is None else now
+    repair = {
+        "checkpoint_rows_adopted": expected_prefix_rows,
+        "deadline_unix": started + runtime_seconds,
+        "deviations": ["DEVIATION_002", "DEVIATION_003", "DEVIATION_004"],
+        "pending_id": expected_pending_id,
+        "pending_requests": 1,
+        "runtime_seconds": runtime_seconds,
+        "started_at_unix": started,
+        "status": "AUTHORIZED",
+    }
+    write_json(repair_path, repair)
+    write_json(run / "runtime_budget.json", repair)
+    failure_path.replace(archived_failure)
+    return repair
+
+
 def terminal_state(run: Path, deadline_unix: float) -> str | None:
     if (run / "failure.json").exists():
         return "HANDLED_FAILURE"
@@ -155,12 +226,21 @@ def terminal_state(run: Path, deadline_unix: float) -> str | None:
     return None
 
 
-def supervise(run: Path, command: Sequence[str], *, judge_repair: bool = False) -> int:
+def supervise(
+    run: Path,
+    command: Sequence[str],
+    *,
+    judge_repair: bool = False,
+    strict_judge_repair: bool = False,
+) -> int:
     if not os.environ.get("OPENAI_API_KEY"):
         raise SupervisorError("OPENAI_API_KEY is missing")
-    continuation = (
-        initialize_judge_repair(run) if judge_repair else initialize_continuation(run)
-    )
+    if strict_judge_repair:
+        continuation = initialize_strict_judge_repair(run)
+    elif judge_repair:
+        continuation = initialize_judge_repair(run)
+    else:
+        continuation = initialize_continuation(run)
     deadline = float(continuation["deadline_unix"])
     attempts = 0
     log_path = run / "background.log"
@@ -231,10 +311,16 @@ def main(argv: Sequence[str] | None = None) -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--run", type=Path, default=RUN)
     parser.add_argument("--judge-repair", action="store_true")
+    parser.add_argument("--strict-judge-repair", action="store_true")
     args = parser.parse_args(argv)
     command = [sys.executable, "-u", "-m", "analysis.beam001_live", "run"]
     try:
-        return supervise(args.run, command, judge_repair=args.judge_repair)
+        return supervise(
+            args.run,
+            command,
+            judge_repair=args.judge_repair,
+            strict_judge_repair=args.strict_judge_repair,
+        )
     except Exception as error:  # noqa: BLE001
         write_json(
             args.run / "supervisor.json",

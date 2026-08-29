@@ -59,6 +59,10 @@ READER_WORKERS = 8
 JUDGE_WORKERS = 32
 CONTINUATION_DEVIATION = "DEVIATION_002"
 JUDGE_REPAIR_DEVIATION = "DEVIATION_003"
+STRICT_JUDGE_REPAIR_DEVIATION = "DEVIATION_004"
+STRICT_JUDGE_REPAIR_ID = (
+    "33c2b09a0f2bab25631122351fcae938a65ee2f5389a95d58a463a0972214d22"
+)
 SAMPLE_DOMAIN = "beam001-optimized-4q-sample-v1"
 READER_DOMAIN = "beam001-sync-reader-v1"
 JUDGE_DOMAIN = "beam001-bundled-judge-v1"
@@ -102,6 +106,20 @@ Return only JSON with this shape:
 
 Include every supplied slot and every rubric index exactly once. Scores must be
 0.0, 0.5 or 1.0. Keep each reason concise.
+"""
+
+ORIGINAL_JUDGE_OUTPUT_BLOCK = """Return only JSON with this shape:
+{"evaluations":[{"slot":"R0","criteria":[{"rubric_index":0,"score":1.0,
+"reason":"concise justification"}]}]}
+
+Include every supplied slot and every rubric index exactly once. Scores must be
+0.0, 0.5 or 1.0. Keep each reason concise.
+"""
+
+STRICT_JUDGE_OUTPUT_BLOCK = """Return only JSON matching the supplied strict schema. The `evaluations`
+object contains the three blind slot keys. Within each slot, each rubric index
+is a string key. Score every supplied slot and rubric index exactly once.
+Scores must be 0.0, 0.5 or 1.0. Keep each reason concise and nonempty.
 """
 
 
@@ -661,6 +679,42 @@ def render_judge_prompt(template: str, question: str, rubric: str, answer: str) 
     return rendered
 
 
+def strict_judge_schema(rubric_count: int) -> dict[str, Any]:
+    criterion = {
+        "additionalProperties": False,
+        "properties": {
+            "reason": {"minLength": 1, "type": "string"},
+            "score": {"enum": [0.0, 0.5, 1.0], "type": "number"},
+        },
+        "required": ["score", "reason"],
+        "type": "object",
+    }
+    rubric_keys = [str(index) for index in range(rubric_count)]
+
+    def slot_schema() -> dict[str, Any]:
+        return {
+            "additionalProperties": False,
+            "properties": {key: criterion for key in rubric_keys},
+            "required": rubric_keys,
+            "type": "object",
+        }
+
+    slots = ["R0", "R1", "R2"]
+    return {
+        "additionalProperties": False,
+        "properties": {
+            "evaluations": {
+                "additionalProperties": False,
+                "properties": {slot: slot_schema() for slot in slots},
+                "required": slots,
+                "type": "object",
+            }
+        },
+        "required": ["evaluations"],
+        "type": "object",
+    }
+
+
 def prepare_judge_surfaces(
     answers: Sequence[dict[str, Any]], judge_template: str
 ) -> tuple[list[dict[str, Any]], list[dict[str, str]]]:
@@ -676,6 +730,7 @@ def prepare_judge_surfaces(
         for row in read_jsonl(RUN / "judgments.checkpoint.blind.jsonl")
     }
     repair_authorized = (RUN / "judge_repair_runtime.json").exists()
+    strict_repair_authorized = (RUN / "strict_judge_repair_runtime.json").exists()
     by_question: dict[str, dict[str, dict[str, Any]]] = {}
     for answer in answers:
         by_question.setdefault(str(answer["question_key"]), {})[
@@ -729,17 +784,50 @@ def prepare_judge_surfaces(
             "max_tokens": JUDGE_MAX_TOKENS,
         }
         repaired_body = {**original_body, "max_tokens": JUDGE_REPAIR_MAX_TOKENS}
+        strict_prompt = prompt.replace(
+            ORIGINAL_JUDGE_OUTPUT_BLOCK, STRICT_JUDGE_OUTPUT_BLOCK
+        )
+        if strict_repair_authorized and strict_prompt == prompt:
+            raise BeamLiveError("Strict judge output block replacement failed")
+        strict_body = {
+            **repaired_body,
+            "messages": [{"role": "user", "content": strict_prompt}],
+            "response_format": {
+                "type": "json_schema",
+                "json_schema": {
+                    "name": "beam001_bundled_judge_matrix",
+                    "schema": strict_judge_schema(len(rubric)),
+                    "strict": True,
+                },
+            },
+        }
         existing_digest = existing_judgments.get(blind_id)
         original_digest = request_digest(original_body)
         repaired_digest = request_digest(repaired_body)
-        if not repair_authorized or existing_digest == original_digest:
+        strict_digest = request_digest(strict_body)
+        strict_request = False
+        if existing_digest == original_digest:
             body = original_body
             attempts = 2
-        elif existing_digest is None or existing_digest == repaired_digest:
+        elif existing_digest == repaired_digest:
+            body = repaired_body
+            attempts = JUDGE_REPAIR_ATTEMPTS
+        elif existing_digest == strict_digest and blind_id == STRICT_JUDGE_REPAIR_ID:
+            body = strict_body
+            attempts = 2
+            strict_request = True
+        elif existing_digest is not None:
+            raise BeamLiveError(f"BLIND_JUDGE checkpoint body drift: {blind_id}")
+        elif strict_repair_authorized and blind_id == STRICT_JUDGE_REPAIR_ID:
+            body = strict_body
+            attempts = 2
+            strict_request = True
+        elif repair_authorized:
             body = repaired_body
             attempts = JUDGE_REPAIR_ATTEMPTS
         else:
-            raise BeamLiveError(f"BLIND_JUDGE checkpoint body drift: {blind_id}")
+            body = original_body
+            attempts = 2
         surface.append(
             {
                 "body": body,
@@ -748,9 +836,13 @@ def prepare_judge_surfaces(
                 "max_attempts": attempts,
                 "persist_invalid_attempts": repair_authorized
                 and body["max_tokens"] == JUDGE_REPAIR_MAX_TOKENS,
-                "prompt_tokens": len(encoding.encode(prompt)) + 8,
+                "prompt_tokens": len(
+                    encoding.encode(strict_prompt if strict_request else prompt)
+                )
+                + 8,
                 "rubric_count": len(rubric),
                 "slots": ["R0", "R1", "R2"],
+                "strict_matrix": strict_request,
             }
         )
         for index, arm in enumerate(arm_order):
@@ -812,6 +904,38 @@ def parse_bundled_judge_body(
     if not isinstance(parsed, dict) or set(parsed) != {"evaluations"}:
         return None
     evaluations = parsed["evaluations"]
+    if source.get("strict_matrix"):
+        expected_slots = set(source["slots"])
+        if not isinstance(evaluations, dict) or set(evaluations) != expected_slots:
+            return None
+        expected_indices = {
+            str(index) for index in range(int(source["rubric_count"]))
+        }
+        normalized: list[dict[str, Any]] = []
+        for slot in sorted(expected_slots):
+            criteria = evaluations[slot]
+            if not isinstance(criteria, dict) or set(criteria) != expected_indices:
+                return None
+            normalized_criteria: list[dict[str, Any]] = []
+            for index in range(int(source["rubric_count"])):
+                criterion = criteria[str(index)]
+                if (
+                    not isinstance(criterion, dict)
+                    or set(criterion) != {"score", "reason"}
+                ):
+                    return None
+                try:
+                    score = float(criterion["score"])
+                except (TypeError, ValueError):
+                    return None
+                reason = str(criterion["reason"]).strip()
+                if score not in {0.0, 0.5, 1.0} or not reason:
+                    return None
+                normalized_criteria.append(
+                    {"reason": reason, "rubric_index": index, "score": score}
+                )
+            normalized.append({"criteria": normalized_criteria, "slot": slot})
+        return normalized
     if not isinstance(evaluations, list):
         return None
     expected_slots = set(source["slots"])
@@ -1099,6 +1223,8 @@ def score_results(
         if (RUN / "judge_repair_runtime.json").exists():
             deviations.append(JUDGE_REPAIR_DEVIATION)
             result["registered_g_judges"] = "FAIL"
+        if (RUN / "strict_judge_repair_runtime.json").exists():
+            deviations.append(STRICT_JUDGE_REPAIR_DEVIATION)
         result["deviations"] = deviations
         result["registered_g_runtime"] = "FAIL"
     write_jsonl(RUN / "question_scores.jsonl", question_rows)
