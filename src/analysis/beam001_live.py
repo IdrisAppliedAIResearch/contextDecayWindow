@@ -40,6 +40,8 @@ ARMS = (
 A0, C0, T1 = ARMS
 READER_MAX_TOKENS = 2048
 JUDGE_MAX_TOKENS = 4096
+JUDGE_REPAIR_MAX_TOKENS = 16_384
+JUDGE_REPAIR_ATTEMPTS = 4
 INPUT_LIMIT = 125_952
 BATCH_TOKEN_BUDGET = 600_000
 IN_FLIGHT_TOKEN_TARGET = 1_900_000
@@ -56,6 +58,7 @@ REQUESTS_PER_MINUTE_TARGET = 6.8
 READER_WORKERS = 8
 JUDGE_WORKERS = 32
 CONTINUATION_DEVIATION = "DEVIATION_002"
+JUDGE_REPAIR_DEVIATION = "DEVIATION_003"
 SAMPLE_DOMAIN = "beam001-optimized-4q-sample-v1"
 READER_DOMAIN = "beam001-sync-reader-v1"
 JUDGE_DOMAIN = "beam001-bundled-judge-v1"
@@ -196,11 +199,13 @@ def run_synchronous_schedule(
     token_bucket = RateBucket(TOKENS_PER_MINUTE_TARGET)
     request_bucket = RateBucket(REQUESTS_PER_MINUTE_TARGET)
     stop = threading.Event()
+    diagnostic_lock = threading.Lock()
 
     def one(row: dict[str, Any]) -> tuple[dict[str, Any], dict[str, Any]]:
         request = as_batch_request(row)
         body: dict[str, Any] = {"error": "not_attempted"}
-        for _attempt in range(2):
+        attempts = int(row.get("max_attempts", 2))
+        for attempt in range(1, attempts + 1):
             if stop.is_set():
                 raise BeamLiveError(f"{stage} stopped")
             try:
@@ -214,9 +219,36 @@ def run_synchronous_schedule(
                 body = {
                     "error": {"type": type(error).__name__, "message": str(error)}
                 }
-            if validator(row, body) is None:
+            validation_error = validator(row, body)
+            if validation_error is None:
                 return row, body
-        raise BeamLiveError(f"{stage} request exhausted one retry: {request.custom_id}")
+            if row.get("persist_invalid_attempts"):
+                try:
+                    prompt_tokens, completion_tokens = usage_of(body)
+                except Exception:  # noqa: BLE001
+                    prompt_tokens, completion_tokens = 0, 0
+                try:
+                    response_text = text_of(body)
+                except Exception:  # noqa: BLE001
+                    response_text = ""
+                diagnostic = {
+                    "attempt": attempt,
+                    "body_sha256": row["body_sha256"],
+                    "completion_tokens": completion_tokens,
+                    "custom_id": request.custom_id,
+                    "error": body.get("error"),
+                    "finish_reason": response_finish_reason(body),
+                    "prompt_tokens": prompt_tokens,
+                    "response_text_sha256": sha256_bytes(response_text.encode("utf-8")),
+                    "validation_error": validation_error,
+                }
+                with diagnostic_lock:
+                    append_jsonl_fsync(
+                        RUN / f"{stage.lower()}.invalid_attempts.jsonl", diagnostic
+                    )
+        raise BeamLiveError(
+            f"{stage} request exhausted {attempts} attempts: {request.custom_id}"
+        )
 
     failures: list[Exception] = []
     with ThreadPoolExecutor(max_workers=workers) as pool:
@@ -639,6 +671,11 @@ def prepare_judge_surfaces(
     encoding = tiktoken.encoding_for_model(MODEL)
     surface: list[dict[str, Any]] = []
     mapping: list[dict[str, str]] = []
+    existing_judgments = {
+        str(row["custom_id"]): str(row["body_sha256"])
+        for row in read_jsonl(RUN / "judgments.checkpoint.blind.jsonl")
+    }
+    repair_authorized = (RUN / "judge_repair_runtime.json").exists()
     by_question: dict[str, dict[str, dict[str, Any]]] = {}
     for answer in answers:
         by_question.setdefault(str(answer["question_key"]), {})[
@@ -684,18 +721,33 @@ def prepare_judge_surfaces(
             for placeholder in ("<question>", "<rubric_json>", "<responses_json>")
         ):
             raise BeamLiveError("Unresolved bundled judge placeholder")
-        body = {
+        original_body = {
             "model": MODEL,
             "messages": [{"role": "user", "content": prompt}],
             "response_format": {"type": "json_object"},
             "temperature": 0.0,
             "max_tokens": JUDGE_MAX_TOKENS,
         }
+        repaired_body = {**original_body, "max_tokens": JUDGE_REPAIR_MAX_TOKENS}
+        existing_digest = existing_judgments.get(blind_id)
+        original_digest = request_digest(original_body)
+        repaired_digest = request_digest(repaired_body)
+        if not repair_authorized or existing_digest == original_digest:
+            body = original_body
+            attempts = 2
+        elif existing_digest is None or existing_digest == repaired_digest:
+            body = repaired_body
+            attempts = JUDGE_REPAIR_ATTEMPTS
+        else:
+            raise BeamLiveError(f"BLIND_JUDGE checkpoint body drift: {blind_id}")
         surface.append(
             {
                 "body": body,
                 "body_sha256": request_digest(body),
                 "custom_id": blind_id,
+                "max_attempts": attempts,
+                "persist_invalid_attempts": repair_authorized
+                and body["max_tokens"] == JUDGE_REPAIR_MAX_TOKENS,
                 "prompt_tokens": len(encoding.encode(prompt)) + 8,
                 "rubric_count": len(rubric),
                 "slots": ["R0", "R1", "R2"],
@@ -1043,7 +1095,11 @@ def score_results(
     if (RUN / "interruption_continuation.json").exists():
         result["diagnostic_disposition"] = result["disposition"]
         result["disposition"] = "CHARACTERIZED"
-        result["deviation"] = CONTINUATION_DEVIATION
+        deviations = [CONTINUATION_DEVIATION]
+        if (RUN / "judge_repair_runtime.json").exists():
+            deviations.append(JUDGE_REPAIR_DEVIATION)
+            result["registered_g_judges"] = "FAIL"
+        result["deviations"] = deviations
         result["registered_g_runtime"] = "FAIL"
     write_jsonl(RUN / "question_scores.jsonl", question_rows)
     write_json(RUN / "results.json", result)
@@ -1071,9 +1127,11 @@ def write_report(result: dict[str, Any]) -> None:
         "## Arm Means",
         "",
     ]
-    if "deviation" in result:
+    if "deviations" in result:
         lines[4:4] = [
-            f"**Deviation:** `{result['deviation']}`; registered `G-RUNTIME` failed.",
+            f"**Deviations:** "
+            f"{', '.join(f'`{value}`' for value in result['deviations'])}; "
+            "registered completion gates failed.",
             "",
             f"**Diagnostic numerical disposition:** "
             f"`{result['diagnostic_disposition']}`",
