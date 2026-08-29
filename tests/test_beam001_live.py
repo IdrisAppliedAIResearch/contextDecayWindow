@@ -24,10 +24,15 @@ from analysis.beam001_live import (
     run_synchronous_with_one_retry,
     run_synchronous_schedule,
     sign_flip_p,
+    strict_judge_schema,
 )
 from analysis.hh002_batch import BatchRequest
 from analysis.hh002_batch import BatchLedger, HH002BatchError, await_file_ready
-from analysis.beam001_supervisor import initialize_continuation, initialize_judge_repair
+from analysis.beam001_supervisor import (
+    initialize_continuation,
+    initialize_judge_repair,
+    initialize_strict_judge_repair,
+)
 
 
 def response(content: str, finish_reason: str = "stop") -> dict:
@@ -92,6 +97,39 @@ def test_bundled_judge_parser_requires_complete_matrix() -> None:
     broken = bundled_payload()
     broken["evaluations"][0]["criteria"].pop()
     assert parse_bundled_judge_body(source, response(json.dumps(broken))) is None
+
+
+def test_strict_bundled_judge_parser_normalizes_keyed_matrix() -> None:
+    source = {
+        "rubric_count": 2,
+        "slots": ["R0", "R1", "R2"],
+        "strict_matrix": True,
+    }
+    evaluations = {
+        slot: {
+            str(index): {"score": 1.0 if index == 0 else 0.5, "reason": "ok"}
+            for index in range(2)
+        }
+        for slot in source["slots"]
+    }
+    parsed = parse_bundled_judge_body(
+        source, response(json.dumps({"evaluations": evaluations}))
+    )
+
+    assert parsed is not None and len(parsed) == 3
+    assert parsed[0]["criteria"][1]["rubric_index"] == 1
+    assert strict_judge_schema(2)["properties"]["evaluations"]["required"] == [
+        "R0",
+        "R1",
+        "R2",
+    ]
+    del evaluations["R0"]["1"]
+    assert (
+        parse_bundled_judge_body(
+            source, response(json.dumps({"evaluations": evaluations}))
+        )
+        is None
+    )
 
 
 def test_bundled_judge_parser_rejects_duplicate_slot_and_bad_score() -> None:
@@ -380,3 +418,38 @@ def test_judge_repair_freezes_prefix_pending_set_and_remaining_time(tmp_path) ->
     assert repair["pending_requests"] == 2
     assert not (tmp_path / "failure.json").exists()
     assert (tmp_path / "failure_001.json").exists()
+
+
+def test_strict_judge_repair_freezes_single_remaining_id(tmp_path) -> None:
+    checkpoint_rows = [
+        {"body_sha256": "body-0", "custom_id": "id-0"},
+        {"body_sha256": "body-1", "custom_id": "id-1"},
+    ]
+    checkpoint = tmp_path / "judgments.checkpoint.blind.jsonl"
+    checkpoint.write_text(
+        "".join(json.dumps(row, sort_keys=True) + "\n" for row in checkpoint_rows),
+        encoding="utf-8",
+    )
+    (tmp_path / "judge_surface.blind.jsonl").write_text(
+        "".join(
+            json.dumps({"custom_id": f"id-{index}"}) + "\n" for index in range(3)
+        ),
+        encoding="utf-8",
+    )
+    (tmp_path / "failure.json").write_text(
+        json.dumps({"error": "failed id-2"}), encoding="utf-8"
+    )
+
+    repair = initialize_strict_judge_repair(
+        tmp_path,
+        now=100.0,
+        runtime_seconds=30,
+        expected_prefix_rows=2,
+        expected_prefix_sha256=hashlib.sha256(checkpoint.read_bytes()).hexdigest(),
+        expected_pending_id="id-2",
+    )
+
+    assert repair["deadline_unix"] == 130.0
+    assert repair["pending_requests"] == 1
+    assert not (tmp_path / "failure.json").exists()
+    assert (tmp_path / "failure_002.json").exists()
