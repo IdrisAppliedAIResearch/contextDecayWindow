@@ -79,7 +79,21 @@ comparable to HH-003.
 
 ---
 
-## 5. The immediate next action
+## 5. The immediate next action — DONE
+
+> **Ran September 1, 2026. Outcome: `INDETERMINATE`.** Reproduction gate
+> 1,540/1,540. Median aspect Jaccard **0.750**, inside the band, with the
+> admitted set changing on **every one of the 1,540 items** (0 inert). The
+> hypothesis is not dead and the three-arm study is not cleared; per §6 the next
+> action is AV-000 regardless. Full result and two corrections to the procedure
+> below in `AV_PRE_001_FINDINGS.md`; runner `src/analysis/av_pre_001.py`.
+>
+> Two things this section got wrong, both recorded in the findings note: the
+> byte-identical `contexts.json` gate is unachievable because that file stores
+> measured `latency_ms`/`search_time` (the sealed per-item `payload_sha256` is
+> the timing-free gate, and it holds); and the embedding cache was not needed —
+> the sealed HH-003 stores carry their episode vectors, so only the 1,540 query
+> embeddings were recomputed.
 
 **AV-PRE-001 — does header-stripping change what ASPECT admits?**
 *Offline. No model calls. Needs only the embedding cache and the corpus.*
