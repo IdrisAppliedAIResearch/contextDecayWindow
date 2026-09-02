@@ -7,6 +7,7 @@
 DA-001…101 + HH-004/005 (the v2 attempt) · LV-009 (renderer evidence) ·
 NF-004 anatomy and DA-004 (predictor precedents)
 **Companion:** `experiments/audits/da_arc/DA_ARC_HH005_POST_MORTEM.md`
+**Reader:** local `Qwen3.8-27B-UD-Q4_K_XL` on the LV-009 llama.cpp stack, not the paid API
 
 ---
 
@@ -241,9 +242,89 @@ reader-labelled corpus the whole time.
 
 ---
 
+## 6.5 Reader: the local Qwen3.8 stack, not the paid API
+
+Adopted at the programme owner's direction, and it changes the arc's shape rather
+than just its cost line.
+
+**The registered stack already exists.** LV-009 runs it: `Qwen3.8-27B-UD-Q4_K_XL.gguf`
+(SHA-256 `bee238bb…`) on a direct llama.cpp server (binary SHA-256 `125e0938…`),
+raw `/completion`, reasoning disabled, streaming disabled, one request at a time,
+no speculative decoding, launched with
+`--ctx-size 65536 --parallel 1 --cache-type-k q8_0 --cache-type-v q8_0
+--flash-attn on --jinja --metrics --no-context-shift`, fully GPU-resident on the
+RTX 5090 with residency gated before and after every phase. The client primitive
+is `src/analysis/lv009_runtime.py::complete`, and it already accepts a
+temperature argument.
+
+**Measured throughput, from LV-009's own committed rows:**
+
+| Phase | Calls | Median | Mean | Total |
+|---|---:|---:|---:|---:|
+| Reader (9k–13.4k token prompts) | 7,944 | 2.99 s | 3.46 s | **7.64 h** |
+| Judge (3 passes) | 18,480 | 0.52 s | 0.60 s | **3.09 h** |
+
+**Context is safe.** HH-003 prompts run 11,897 tokens median, 12,360 max, against
+a 65,536-token window. Ample headroom; no truncation risk.
+
+### Why this reorders the arc
+
+With a free reader, "reuse the sealed comparator to save money" stops being a
+constraint — and that constraint is the source of three caveats the HH line has
+carried from the start. Both arms can be run fresh, same reader, same day. So the
+arc should **open with a live study**, not close with one.
+
+### What it costs, stated plainly
+
+- **External comparability is gone.** Every HH number is `gpt-4o-mini-2024-07-18`,
+  and the HH arc exists to sit on the Mem0/LoCoMo published scale. A Qwen3.8
+  result cannot be placed on that scale or compared to any published benchmark.
+  Local for internal decisions; if an external claim is ever needed, that specific
+  run still costs API money. This is a scope trade, not a free lunch.
+- **Same-model judging.** Qwen3.8 judged by Qwen3.8, as LV-009's own claim
+  boundary flags. Not a regression — HH used gpt-4o-mini for both roles — but not
+  an improvement either, and no result may imply otherwise.
+- **Sampling noise, and the deviation I am proposing.** LV-009 registered
+  temperature `.6` with one sample per arm and states it "cannot estimate
+  per-question reader stability." HH ran at **temperature 0**. For AV-001 a noisy
+  label is poison: fitting a harm model to sampling noise produces a confident
+  model of nothing. **AV studies should therefore run the reader greedy at
+  temperature 0**, deviating from LV-009's `.6`. `complete()` already handles it
+  (it switches `top_p` to `.9` off the `.6` path). This also matches the HH
+  condition, which makes the replication below a cleaner comparison. Registering
+  this deviation, with this reason, is a precondition of AV-000.
+- **It does not run here.** This container has no GPU and the `.gguf` is not in
+  the repository. I write the harness and the pre-registration; the run happens on
+  the 5090.
+
 ## 7. Proposed first studies
 
 Draft only. Each needs its own pre-registration before any paid call.
+
+**AV-000 — Replicate the decision landscape under one local reader.** *Live;
+zero dollars; ~4.5 h on the 5090 for the core contrast.* Re-answer and re-judge
+HH-003's ASPECT-on and ASPECT-off arms on all 1,540 items with the registered
+Qwen3.8 stack at temperature 0, three-pass majority judging, blind surface,
+answers sealed before judging — the LV-009 protocol unchanged except for
+temperature.
+
+Schedule: 3,080 reader calls at ~3.46 s ≈ **3.0 h**, 9,240 judge calls at
+~0.60 s ≈ **1.5 h**. Adding the HH-005 DA-v2 16k and 32k arms on their 842 costs
+roughly **2.5 h** more, for the complete landscape in about seven hours — under
+LV-009's own 10.7 h, on hardware that has already done it.
+
+It answers three things at once:
+
+1. **The falsification test in §8.** Does ASPECT-v1's +14 replicate? This is the
+   single result the whole aspect line rests on, and it has never been repeated.
+2. **A clean label set for AV-001.** One reader, one date, one temperature across
+   every arm — removing the cross-date and cross-model confounds that HH-003 and
+   HH-005 both had to carry.
+3. **The first cross-reader evidence in the programme.** HH-003's claim boundary
+   explicitly disclaims reader-model generality. A Qwen3.8 replication of the
+   ASPECT contrast is new information, not a cheaper copy of old information —
+   and if the sign flips between readers, that is a finding in its own right and
+   a much larger one than +14.
 
 **AV-001 — Reader-outcome anatomy.** *Zero model calls; analysis of sealed
 artifacts.* Take the discordant items above. Build pack-level features in
@@ -345,17 +426,28 @@ away. AV-001 is post-hoc on a fixed corpus, so whatever it finds is a
 will have built a nicer surrogate rather than escaped the trap. AV-004 is
 therefore not optional — it is the study that makes AV-001 mean anything.
 
-Applying to this arc the trip condition the post-mortem recommends for others:
+**The local reader largely dissolves the rest of this concern.** With AV-000
+opening the arc, the first study is live, its labels come from a reader rather
+than a proxy, and AV-001 is then an analysis of that reader's own outcomes rather
+than of someone else's from three weeks and one model ago. The trip condition
+still stands, and is now easy to meet:
 
 > **No more than two consecutive zero-call AV studies before a live check.**
-> AV-001 and AV-002 spend that allowance. AV-004 is then mandatory before any
-> further offline work, and a null AV-001 stops the arc rather than licensing
-> AV-003 and a third analysis.
+> AV-000 opens the arc live. AV-001 and AV-002 spend the allowance after it.
+> AV-004 is mandatory before any further offline work, and a null AV-001 stops
+> the arc rather than licensing AV-003 and a third analysis.
 
-**AV-004 — Additive derivative headroom, live.** *Paid; ~100-item pilot first.*
+The deeper discipline is unchanged and is not a budget question: a free reader
+removes the excuse for deferring live contact, but it does not make an unchecked
+surrogate any safer. The DA arc's problem was never that reader calls were
+expensive — HH-004 cost $1.74. It was that no stage required one.
+
+**AV-004 — Additive derivative headroom, live.** *Local; both arms run fresh.*
 The contrast the DA arc never ran: ASPECT-v1 fully retained, DA-098's derivative
 members admitted only into reserved headroom, `<episode>` renderer throughout,
-compared against unmodified ASPECT-v1 on judged accuracy. Prior:
+compared against unmodified ASPECT-v1 on judged accuracy — **both arms generated
+fresh under the same local reader on the same day**, so there is no sealed
+comparator and no cross-date caveat. Prior:
 DA-005/006/007 found reserved headroom lossy — but against pair-ranking, on
 availability, under all three substitutions named in §3. Gated on AV-001
 producing a usable harm model; without one, this is DA's mistake again with a
@@ -374,10 +466,12 @@ Stated now, before any result:
 - **AV-002 finds the +14 spread evenly across all 37 admissions.** Then C2 is
   wrong, there is no small useful subset, and the 92× cost is intrinsic rather
   than incidental.
-- **ASPECT-v1's +14 fails to replicate.** It sits at `p=.14` on one run. A
-  replication that lands near zero would mean the incumbent is noise, and the
-  correct action is to ship `aspect_enabled=False` — which is already the default
-  — and close the aspect line entirely rather than build a v3.
+- **ASPECT-v1's +14 fails to replicate under AV-000.** It sits at `p=.14` on one
+  run. A replication that lands near zero would mean the incumbent is noise, and
+  the correct action is to ship `aspect_enabled=False` — which is already the
+  default — and close the aspect line entirely rather than build a v3. Under the
+  local reader this test costs about three hours and no money, which is why it
+  now runs first rather than last.
 
 That last one deserves to be said plainly: **the honest possibility is that there
 should be no Aspect v3.** The default path is 92× faster and within noise of the
