@@ -1,0 +1,141 @@
+{
+  "by_question_type": {
+    "knowledge-update": {
+      "complete": {
+        "CONTROL": 50,
+        "TREATMENT": 55
+      },
+      "contrast": {
+        "discordant": 5,
+        "gains": 5,
+        "losses": 0,
+        "net": 5,
+        "ties": 67,
+        "two_sided_exact_p": 0.0625
+      },
+      "n": 72
+    },
+    "multi-session": {
+      "complete": {
+        "CONTROL": 55,
+        "TREATMENT": 66
+      },
+      "contrast": {
+        "discordant": 11,
+        "gains": 11,
+        "losses": 0,
+        "net": 11,
+        "ties": 110,
+        "two_sided_exact_p": 0.0009765625
+      },
+      "n": 121
+    },
+    "single-session-assistant": {
+      "complete": {
+        "CONTROL": 47,
+        "TREATMENT": 47
+      },
+      "contrast": {
+        "discordant": 0,
+        "gains": 0,
+        "losses": 0,
+        "net": 0,
+        "ties": 51,
+        "two_sided_exact_p": 1.0
+      },
+      "n": 51
+    },
+    "single-session-preference": {
+      "complete": {
+        "CONTROL": 22,
+        "TREATMENT": 23
+      },
+      "contrast": {
+        "discordant": 1,
+        "gains": 1,
+        "losses": 0,
+        "net": 1,
+        "ties": 29,
+        "two_sided_exact_p": 1.0
+      },
+      "n": 30
+    },
+    "single-session-user": {
+      "complete": {
+        "CONTROL": 52,
+        "TREATMENT": 54
+      },
+      "contrast": {
+        "discordant": 2,
+        "gains": 2,
+        "losses": 0,
+        "net": 2,
+        "ties": 62,
+        "two_sided_exact_p": 0.5
+      },
+      "n": 64
+    },
+    "temporal-reasoning": {
+      "complete": {
+        "CONTROL": 69,
+        "TREATMENT": 87
+      },
+      "contrast": {
+        "discordant": 18,
+        "gains": 18,
+        "losses": 0,
+        "net": 18,
+        "ties": 109,
+        "two_sided_exact_p": 7.62939453125e-06
+      },
+      "n": 127
+    }
+  },
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "claim_boundary": "evidence-aware one-frame oracle over frozen distance-3-to-5 cursor",
+  "complete": {
+    "CONTROL": 295,
+    "TREATMENT": 332
+  },
+  "contrast": {
+    "discordant": 37,
+    "gains": 37,
+    "losses": 0,
+    "net": 37,
+    "ties": 428,
+    "two_sided_exact_p": 1.4551915228366852e-11
+  },
+  "oracle_gains": {
+    "cumulative_chars": {
+      "p10": 257.0,
+      "p50": 3190.0,
+      "p90": 9909.599999999999
+    },
+    "distance": {
+      "3": 14,
+      "4": 12,
+      "5": 11
+    },
+    "frame_chars": {
+      "p10": 215.8,
+      "p50": 285.0,
+      "p90": 391.99999999999994
+    },
+    "n": 37,
+    "ordinal": {
+      "p10": 1.0,
+      "p50": 7.0,
+      "p90": 25.799999999999997
+    }
+  },
+  "outcomes_sha256": "32d93e6c3653ace8c3933eeb421b907937fcef2f168e584b5dc61e15dac14f6a",
+  "population": 465,
+  "protected_payload_mutations": 0,
+  "replay_byte_identical": true,
+  "schema": "da050-far-directional-cursor-result-v1",
+  "status": "FAR_DIRECTIONAL_CAPACITY_SIGNAL"
+}

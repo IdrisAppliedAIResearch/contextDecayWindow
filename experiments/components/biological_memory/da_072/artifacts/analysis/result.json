@@ -1,0 +1,101 @@
+{
+  "bfs_node_position": {
+    "max": 28.0,
+    "n": 31,
+    "p10": 2.0,
+    "p50": 7.0,
+    "p90": 24.0
+  },
+  "by_question_type": {
+    "knowledge-update": {
+      "classes": {
+        "UNIQUE_SIGNATURE_BRANCH_AMBIGUITY": 1
+      },
+      "sessions": 1
+    },
+    "multi-session": {
+      "classes": {
+        "EQUAL_SIGNATURE_COLLISION": 14,
+        "UNIQUE_SIGNATURE_BRANCH_AMBIGUITY": 9
+      },
+      "sessions": 23
+    },
+    "single-session-user": {
+      "classes": {
+        "UNIQUE_SIGNATURE_BRANCH_AMBIGUITY": 2
+      },
+      "sessions": 2
+    },
+    "temporal-reasoning": {
+      "classes": {
+        "EQUAL_SIGNATURE_COLLISION": 2,
+        "UNIQUE_SIGNATURE_BRANCH_AMBIGUITY": 3
+      },
+      "sessions": 5
+    }
+  },
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "child_count": {
+    "max": 4.0,
+    "n": 31,
+    "p10": 1.0,
+    "p50": 2.0,
+    "p90": 3.0
+  },
+  "claim_boundary": "posthoc identifiability anatomy only; no selector, stopping, transfer, or adoption",
+  "depth_width": {
+    "max": 15.0,
+    "n": 31,
+    "p10": 3.0,
+    "p50": 5.0,
+    "p90": 9.0
+  },
+  "lattice_depth": {
+    "max": 3.0,
+    "n": 31,
+    "p10": 0.0,
+    "p50": 1.0,
+    "p90": 2.0
+  },
+  "missing_episodes": 35,
+  "parent_count": {
+    "max": 4.0,
+    "n": 31,
+    "p10": 0.0,
+    "p50": 1.0,
+    "p90": 3.0
+  },
+  "question_classes": {
+    "EQUAL_SIGNATURE_COLLISION": 13,
+    "MIXED": 1,
+    "UNIQUE_SIGNATURE_BRANCH_AMBIGUITY": 13
+  },
+  "questions": 27,
+  "replay_byte_identical": true,
+  "schema": "da072-lattice-identifiability-audit-v1",
+  "session_classes": {
+    "EQUAL_SIGNATURE_COLLISION": 16,
+    "UNIQUE_SIGNATURE_BRANCH_AMBIGUITY": 15
+  },
+  "signature_group_rank": {
+    "max": 12.0,
+    "n": 31,
+    "p10": 1.0,
+    "p50": 1.0,
+    "p90": 3.0
+  },
+  "signature_group_size": {
+    "max": 21.0,
+    "n": 31,
+    "p10": 1.0,
+    "p50": 2.0,
+    "p90": 8.0
+  },
+  "status": "POSTHOC_LATTICE_IDENTIFIABILITY_CHARACTERIZED",
+  "target_sessions": 31,
+  "target_sessions_sha256": "b6e2bc8db8773a0659ede9c8eb11342b007be57241f728110298622631bbaa06"
+}

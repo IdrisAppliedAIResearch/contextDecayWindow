@@ -1,0 +1,83 @@
+{
+  "anchors": {
+    "LONGMEM": {
+      "ceiling": 250,
+      "treatment": 211
+    },
+    "NF004": {
+      "ceiling": 986,
+      "treatment": 983
+    }
+  },
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "claim_boundary": "spent evidence-aware causal audit only",
+  "classifications_sha256": "cf7764fa9e96f5621330510704d1deb976f9a623f45047010430b69b0f250cfe",
+  "corpora": {
+    "LONGMEM": {
+      "arrival_slack": {
+        "p10": 33.10000000000001,
+        "p50": 578.5,
+        "p90": 1416.8
+      },
+      "blockers": {
+        "INITIAL_VARINT_SIZE": 1,
+        "MULTI_CARRIER_CONJUNCTION": 5,
+        "PRIOR_VARINT_CONSUMPTION": 12,
+        "WRONG_FROZEN_MEMBER": 21
+      },
+      "initial_slack": {
+        "p10": 870.4,
+        "p50": 1080.0,
+        "p90": 1533.2
+      },
+      "n": 39,
+      "postpack_cost": {
+        "p10": 101.6,
+        "p50": 236.5,
+        "p90": 344.59999999999997
+      },
+      "postpack_fits": 17,
+      "postpack_slack": {
+        "p10": 29.500000000000004,
+        "p50": 160.0,
+        "p90": 880.6999999999997
+      },
+      "status": "MIXED_RESIDUAL_BLOCKERS"
+    },
+    "NF004": {
+      "arrival_slack": {
+        "p10": 1014.0,
+        "p50": 1046.0,
+        "p90": 1046.0
+      },
+      "blockers": {
+        "WRONG_FROZEN_MEMBER": 3
+      },
+      "initial_slack": {
+        "p10": 1014.0,
+        "p50": 1046.0,
+        "p90": 1046.0
+      },
+      "n": 3,
+      "postpack_cost": {
+        "p10": 83.2,
+        "p50": 108.0,
+        "p90": 168.0
+      },
+      "postpack_fits": 0,
+      "postpack_slack": {
+        "p10": 1.8,
+        "p50": 9.0,
+        "p90": 18.6
+      },
+      "status": "DOMINANT_WRONG_FROZEN_MEMBER"
+    }
+  },
+  "replay_byte_identical": true,
+  "schema": "da032-varint-residual-audit-v1",
+  "shared_successor_signal": null
+}

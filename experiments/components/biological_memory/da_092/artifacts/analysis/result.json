@@ -1,0 +1,66 @@
+{
+  "avoidable_duplicate_store_chars": 788890,
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "claim_boundary": "shared exact-node storage only; no prompt, reader, runtime, delivery, or adoption claim",
+  "da091_row_mutations": 0,
+  "exact_collision_count": 0,
+  "max_references_per_node": 4,
+  "per_question_exposure_change": 0,
+  "questions_per_node": {
+    "p10": 1.0,
+    "p50": 1.0,
+    "p90": 1.0
+  },
+  "references": 8055,
+  "references_per_node": {
+    "p10": 1.0,
+    "p50": 1.0,
+    "p90": 1.0
+  },
+  "references_sha256": "4035ff15291f1c0ea93710c57733d25028d072bbdb571a0fb4f8ecfe4c052abb",
+  "repeated_source_chars": 12593382,
+  "replay_byte_identical": true,
+  "reuse_fraction": 0.049162011173184354,
+  "reused_references": 396,
+  "route_reuse": {
+    "ANCHORED_EDGE_SLICES": {
+      "references": 836,
+      "reused_references_within_route": 4,
+      "unique_nodes_within_route": 832
+    },
+    "CHILD_PACKET_STREAM": {
+      "references": 2701,
+      "reused_references_within_route": 178,
+      "unique_nodes_within_route": 2523
+    },
+    "PROMPT_LINKED_FRAME": {
+      "references": 986,
+      "reused_references_within_route": 9,
+      "unique_nodes_within_route": 977
+    },
+    "PROMPT_MEMBER": {
+      "references": 618,
+      "reused_references_within_route": 3,
+      "unique_nodes_within_route": 615
+    },
+    "PROMPT_SIBLING_FRAME": {
+      "references": 2116,
+      "reused_references_within_route": 91,
+      "unique_nodes_within_route": 2025
+    },
+    "TYPED_EDGE_CHILD_PACKET_STREAM": {
+      "references": 798,
+      "reused_references_within_route": 4,
+      "unique_nodes_within_route": 794
+    }
+  },
+  "schema": "da092-content-addressed-node-reuse-v1",
+  "status": "NO_CONTENT_ADDRESSED_NODE_REUSE_SIGNAL",
+  "store_char_reduction_fraction": 0.06264322006590446,
+  "unique_nodes": 7659,
+  "unique_source_chars": 11804492
+}

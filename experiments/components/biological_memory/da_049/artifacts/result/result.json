@@ -1,0 +1,77 @@
+{
+  "anchors": {
+    "da038": 232,
+    "da046": 250,
+    "da048": 295
+  },
+  "by_question_type": {
+    "knowledge-update": {
+      "classes": {
+        "MULTI_MEMBER": 9,
+        "NO_DIRECTIONAL_RAY": 8,
+        "SINGLE_DIRECTIONAL": 5
+      },
+      "n": 22
+    },
+    "multi-session": {
+      "classes": {
+        "MULTI_MEMBER": 42,
+        "NO_DIRECTIONAL_RAY": 13,
+        "SINGLE_DIRECTIONAL": 11
+      },
+      "n": 66
+    },
+    "single-session-assistant": {
+      "classes": {
+        "NO_DIRECTIONAL_RAY": 4
+      },
+      "n": 4
+    },
+    "single-session-preference": {
+      "classes": {
+        "MULTI_MEMBER": 4,
+        "NO_DIRECTIONAL_RAY": 3,
+        "SINGLE_DIRECTIONAL": 1
+      },
+      "n": 8
+    },
+    "single-session-user": {
+      "classes": {
+        "MULTI_MEMBER": 1,
+        "NO_DIRECTIONAL_RAY": 9,
+        "SINGLE_DIRECTIONAL": 2
+      },
+      "n": 12
+    },
+    "temporal-reasoning": {
+      "classes": {
+        "MULTI_MEMBER": 22,
+        "NO_DIRECTIONAL_RAY": 18,
+        "SINGLE_DIRECTIONAL": 18
+      },
+      "n": 58
+    }
+  },
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "claim_boundary": "evidence-aware residual anatomy only",
+  "classes": {
+    "MULTI_MEMBER": 78,
+    "NO_DIRECTIONAL_RAY": 55,
+    "SINGLE_DIRECTIONAL": 37
+  },
+  "directional_distance": {
+    "3": 18,
+    "4": 10,
+    "5": 9
+  },
+  "directional_fit_2048": 37,
+  "directional_overflow": 0,
+  "residuals": 170,
+  "residuals_sha256": "d324885f7541877333468a7784de41940e746583fe444bed4a1e0d6c4ca939ad",
+  "schema": "da049-directional-residual-audit-v1",
+  "status": "COMPLETE"
+}

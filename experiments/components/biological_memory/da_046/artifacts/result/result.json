@@ -1,0 +1,148 @@
+{
+  "by_question_type": {
+    "knowledge-update": {
+      "complete": {
+        "CONTROL": 43,
+        "TREATMENT": 47
+      },
+      "contrast": {
+        "discordant": 4,
+        "gains": 4,
+        "losses": 0,
+        "net": 4,
+        "ties": 68,
+        "two_sided_exact_p": 0.125
+      },
+      "n": 72
+    },
+    "multi-session": {
+      "complete": {
+        "CONTROL": 42,
+        "TREATMENT": 46
+      },
+      "contrast": {
+        "discordant": 4,
+        "gains": 4,
+        "losses": 0,
+        "net": 4,
+        "ties": 117,
+        "two_sided_exact_p": 0.125
+      },
+      "n": 121
+    },
+    "single-session-assistant": {
+      "complete": {
+        "CONTROL": 46,
+        "TREATMENT": 47
+      },
+      "contrast": {
+        "discordant": 1,
+        "gains": 1,
+        "losses": 0,
+        "net": 1,
+        "ties": 50,
+        "two_sided_exact_p": 1.0
+      },
+      "n": 51
+    },
+    "single-session-preference": {
+      "complete": {
+        "CONTROL": 18,
+        "TREATMENT": 18
+      },
+      "contrast": {
+        "discordant": 0,
+        "gains": 0,
+        "losses": 0,
+        "net": 0,
+        "ties": 30,
+        "two_sided_exact_p": 1.0
+      },
+      "n": 30
+    },
+    "single-session-user": {
+      "complete": {
+        "CONTROL": 46,
+        "TREATMENT": 50
+      },
+      "contrast": {
+        "discordant": 4,
+        "gains": 4,
+        "losses": 0,
+        "net": 4,
+        "ties": 60,
+        "two_sided_exact_p": 0.125
+      },
+      "n": 64
+    },
+    "temporal-reasoning": {
+      "complete": {
+        "CONTROL": 37,
+        "TREATMENT": 42
+      },
+      "contrast": {
+        "discordant": 5,
+        "gains": 5,
+        "losses": 0,
+        "net": 5,
+        "ties": 122,
+        "two_sided_exact_p": 0.0625
+      },
+      "n": 127
+    }
+  },
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "claim_boundary": "evidence-aware oracle retention sufficiency only; recognition/stopping untested",
+  "complete": {
+    "CONTROL": 232,
+    "TREATMENT": 250
+  },
+  "contrast": {
+    "discordant": 18,
+    "gains": 18,
+    "losses": 0,
+    "net": 18,
+    "ties": 447,
+    "two_sided_exact_p": 7.62939453125e-06
+  },
+  "one_hop_ceiling": 250,
+  "oracle_paths": {
+    "actions_visited": {
+      "p10": 5.4,
+      "p50": 15.0,
+      "p90": 21.900000000000002
+    },
+    "cumulative_chars": {
+      "p10": 1426.7000000000003,
+      "p50": 5569.0,
+      "p90": 17692.2
+    },
+    "max_peak_auxiliary_chars": 2047,
+    "n": 18,
+    "peak_auxiliary_chars": {
+      "p10": 1032.6000000000001,
+      "p50": 1851.5,
+      "p90": 2037.1
+    },
+    "retained_chars": {
+      "p10": 237.4,
+      "p50": 355.0,
+      "p90": 467.5000000000001
+    },
+    "target_ordinal": {
+      "p10": 5.4,
+      "p50": 15.0,
+      "p90": 21.900000000000002
+    }
+  },
+  "oracle_paths_sha256": "ec054430acce0d54c9cbbb08f63cc8fa07fb4a58fc20ca2eea68a58dff59f119",
+  "population": 465,
+  "protected_da038_mutations": 0,
+  "replay_byte_identical": true,
+  "schema": "da046-oracle-single-register-result-v1",
+  "status": "ORACLE_SINGLE_REGISTER_SUFFICIENT"
+}

@@ -1,0 +1,113 @@
+{
+  "by_question_type": {
+    "knowledge-update": {
+      "DA013_TEMPORAL": 26,
+      "DA016_PHRASE_LINKS": 31,
+      "DIRECT": 24,
+      "contrast": {
+        "discordant": 5,
+        "gains": 5,
+        "losses": 0,
+        "net": 5,
+        "ties": 67,
+        "two_sided_exact_p": 0.0625
+      },
+      "n": 72
+    },
+    "multi-session": {
+      "DA013_TEMPORAL": 26,
+      "DA016_PHRASE_LINKS": 30,
+      "DIRECT": 24,
+      "contrast": {
+        "discordant": 4,
+        "gains": 4,
+        "losses": 0,
+        "net": 4,
+        "ties": 117,
+        "two_sided_exact_p": 0.125
+      },
+      "n": 121
+    },
+    "single-session-assistant": {
+      "DA013_TEMPORAL": 45,
+      "DA016_PHRASE_LINKS": 45,
+      "DIRECT": 45,
+      "contrast": {
+        "discordant": 0,
+        "gains": 0,
+        "losses": 0,
+        "net": 0,
+        "ties": 51,
+        "two_sided_exact_p": 1.0
+      },
+      "n": 51
+    },
+    "single-session-preference": {
+      "DA013_TEMPORAL": 15,
+      "DA016_PHRASE_LINKS": 15,
+      "DIRECT": 13,
+      "contrast": {
+        "discordant": 0,
+        "gains": 0,
+        "losses": 0,
+        "net": 0,
+        "ties": 30,
+        "two_sided_exact_p": 1.0
+      },
+      "n": 30
+    },
+    "single-session-user": {
+      "DA013_TEMPORAL": 36,
+      "DA016_PHRASE_LINKS": 41,
+      "DIRECT": 35,
+      "contrast": {
+        "discordant": 5,
+        "gains": 5,
+        "losses": 0,
+        "net": 5,
+        "ties": 59,
+        "two_sided_exact_p": 0.0625
+      },
+      "n": 64
+    },
+    "temporal-reasoning": {
+      "DA013_TEMPORAL": 23,
+      "DA016_PHRASE_LINKS": 26,
+      "DIRECT": 23,
+      "contrast": {
+        "discordant": 3,
+        "gains": 3,
+        "losses": 0,
+        "net": 3,
+        "ties": 124,
+        "two_sided_exact_p": 0.25
+      },
+      "n": 127
+    }
+  },
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "claim_boundary": "spent-corpus exact availability only; dictionary reader use untested",
+  "complete": {
+    "DA013_TEMPORAL": 171,
+    "DA016_PHRASE_LINKS": 188,
+    "DIRECT": 164
+  },
+  "contrast": {
+    "discordant": 17,
+    "gains": 17,
+    "losses": 0,
+    "net": 17,
+    "ties": 448,
+    "two_sided_exact_p": 1.52587890625e-05
+  },
+  "one_hop_ceiling": 250,
+  "outcomes_sha256": "aaca474da552a7273ee681686efe887e066143919bd329e56fa41ff47d6ad5d4",
+  "population": 465,
+  "replay_byte_identical": true,
+  "schema": "da016-phrase-link-result-v1",
+  "status": "PHRASE_LINK_DELIVERY_SIGNAL"
+}

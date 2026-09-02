@@ -1,0 +1,34 @@
+{
+  "calls": {
+    "cache_misses": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "feature": {
+    "cache_content_sha256": "2e73bff9178d054e0638a20c6af87d760fdcbe14348f921c5f9052e8df6d4892",
+    "cache_file_sha256": "96656024f79a360798be1c9461585ac47a2b6d6bdfb20d9357d52206e860874c",
+    "cache_hits": 2750,
+    "cache_misses": 0,
+    "conversations": 6,
+    "dataset_sha256": "79fa87e90f04081343b8c8debecb80a9a6842b76a7aa537dc9fdf651ea698ff4",
+    "embedding_calls": 0,
+    "feature_sha256": "af8d37cc6c23050cbbd27f39854e445b063134b805b316cecd30737c929bf608",
+    "features": 58,
+    "model_calls": 0,
+    "rows": 1104
+  },
+  "feature_sha256": "af8d37cc6c23050cbbd27f39854e445b063134b805b316cecd30737c929bf608",
+  "forbidden_tokens": [
+    "nf004_measurement",
+    "g6_holdout_outcomes",
+    "[\"category\"]",
+    "[\"answer\"]",
+    "[\"evidence\"]"
+  ],
+  "historical_payload_limitation": "NF-004 G6 retained metrics, not selected candidate identities; see Amendment 001",
+  "leakage_scan_clean": true,
+  "replay_byte_identical": true,
+  "replay_feature_sha256": "af8d37cc6c23050cbbd27f39854e445b063134b805b316cecd30737c929bf608",
+  "schema": "nf004-item-anatomy-preflight-v1",
+  "status": "PASS"
+}

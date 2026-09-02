@@ -1,0 +1,312 @@
+{
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "claim_boundary": "spent exact availability; varint reader use and runtime unvalidated",
+  "corpora": {
+    "LONGMEM": {
+      "by_codec": {
+        "DA028": {
+          "contrast": {
+            "discordant": 0,
+            "gains": 0,
+            "losses": 0,
+            "net": 0,
+            "ties": 2,
+            "two_sided_exact_p": 1.0
+          },
+          "n": 2
+        },
+        "VARINT": {
+          "contrast": {
+            "discordant": 3,
+            "gains": 3,
+            "losses": 0,
+            "net": 3,
+            "ties": 460,
+            "two_sided_exact_p": 0.25
+          },
+          "n": 463
+        }
+      },
+      "by_group": {
+        "knowledge-update": {
+          "complete": {
+            "CONTROL": 36,
+            "TREATMENT": 37
+          },
+          "contrast": {
+            "discordant": 1,
+            "gains": 1,
+            "losses": 0,
+            "net": 1,
+            "ties": 71,
+            "two_sided_exact_p": 1.0
+          },
+          "n": 72
+        },
+        "multi-session": {
+          "complete": {
+            "CONTROL": 34,
+            "TREATMENT": 34
+          },
+          "contrast": {
+            "discordant": 0,
+            "gains": 0,
+            "losses": 0,
+            "net": 0,
+            "ties": 121,
+            "two_sided_exact_p": 1.0
+          },
+          "n": 121
+        },
+        "single-session-assistant": {
+          "complete": {
+            "CONTROL": 45,
+            "TREATMENT": 46
+          },
+          "contrast": {
+            "discordant": 1,
+            "gains": 1,
+            "losses": 0,
+            "net": 1,
+            "ties": 50,
+            "two_sided_exact_p": 1.0
+          },
+          "n": 51
+        },
+        "single-session-preference": {
+          "complete": {
+            "CONTROL": 15,
+            "TREATMENT": 15
+          },
+          "contrast": {
+            "discordant": 0,
+            "gains": 0,
+            "losses": 0,
+            "net": 0,
+            "ties": 30,
+            "two_sided_exact_p": 1.0
+          },
+          "n": 30
+        },
+        "single-session-user": {
+          "complete": {
+            "CONTROL": 44,
+            "TREATMENT": 44
+          },
+          "contrast": {
+            "discordant": 0,
+            "gains": 0,
+            "losses": 0,
+            "net": 0,
+            "ties": 64,
+            "two_sided_exact_p": 1.0
+          },
+          "n": 64
+        },
+        "temporal-reasoning": {
+          "complete": {
+            "CONTROL": 34,
+            "TREATMENT": 35
+          },
+          "contrast": {
+            "discordant": 1,
+            "gains": 1,
+            "losses": 0,
+            "net": 1,
+            "ties": 126,
+            "two_sided_exact_p": 1.0
+          },
+          "n": 127
+        }
+      },
+      "complete": {
+        "CONTROL": 208,
+        "TREATMENT": 211
+      },
+      "contrast": {
+        "discordant": 3,
+        "gains": 3,
+        "losses": 0,
+        "net": 3,
+        "ties": 462,
+        "two_sided_exact_p": 0.25
+      },
+      "mechanism": {
+        "admitted_actions": 513,
+        "admitted_cost": {
+          "p10": 181.2,
+          "p50": 783.0,
+          "p90": 1317.8000000000002
+        },
+        "admitted_position": {
+          "p10": 1.0,
+          "p50": 7.0,
+          "p90": 15.0
+        },
+        "gain_blockers": {
+          "INITIAL_COMPACT_SIZE": 1,
+          "PRIOR_COMPACT_CONSUMPTION": 1,
+          "WRONG_FROZEN_MEMBER": 1
+        },
+        "savings": {
+          "p10": 740.4,
+          "p50": 889.0,
+          "p90": 1030.4
+        }
+      },
+      "n": 465,
+      "one_hop_ceiling": 250
+    },
+    "NF004": {
+      "by_codec": {
+        "VARINT": {
+          "contrast": {
+            "discordant": 6,
+            "gains": 6,
+            "losses": 0,
+            "net": 6,
+            "ties": 1092,
+            "two_sided_exact_p": 0.03125
+          },
+          "n": 1098
+        }
+      },
+      "by_group": {
+        "conv-26": {
+          "complete": {
+            "CONTROL": 183,
+            "TREATMENT": 185
+          },
+          "contrast": {
+            "discordant": 2,
+            "gains": 2,
+            "losses": 0,
+            "net": 2,
+            "ties": 196,
+            "two_sided_exact_p": 0.5
+          },
+          "n": 198
+        },
+        "conv-30": {
+          "complete": {
+            "CONTROL": 101,
+            "TREATMENT": 101
+          },
+          "contrast": {
+            "discordant": 0,
+            "gains": 0,
+            "losses": 0,
+            "net": 0,
+            "ties": 105,
+            "two_sided_exact_p": 1.0
+          },
+          "n": 105
+        },
+        "conv-43": {
+          "complete": {
+            "CONTROL": 218,
+            "TREATMENT": 222
+          },
+          "contrast": {
+            "discordant": 4,
+            "gains": 4,
+            "losses": 0,
+            "net": 4,
+            "ties": 237,
+            "two_sided_exact_p": 0.125
+          },
+          "n": 241
+        },
+        "conv-44": {
+          "complete": {
+            "CONTROL": 130,
+            "TREATMENT": 130
+          },
+          "contrast": {
+            "discordant": 0,
+            "gains": 0,
+            "losses": 0,
+            "net": 0,
+            "ties": 158,
+            "two_sided_exact_p": 1.0
+          },
+          "n": 158
+        },
+        "conv-49": {
+          "complete": {
+            "CONTROL": 162,
+            "TREATMENT": 162
+          },
+          "contrast": {
+            "discordant": 0,
+            "gains": 0,
+            "losses": 0,
+            "net": 0,
+            "ties": 193,
+            "two_sided_exact_p": 1.0
+          },
+          "n": 193
+        },
+        "conv-50": {
+          "complete": {
+            "CONTROL": 183,
+            "TREATMENT": 183
+          },
+          "contrast": {
+            "discordant": 0,
+            "gains": 0,
+            "losses": 0,
+            "net": 0,
+            "ties": 203,
+            "two_sided_exact_p": 1.0
+          },
+          "n": 203
+        }
+      },
+      "complete": {
+        "CONTROL": 977,
+        "TREATMENT": 983
+      },
+      "contrast": {
+        "discordant": 6,
+        "gains": 6,
+        "losses": 0,
+        "net": 6,
+        "ties": 1092,
+        "two_sided_exact_p": 0.03125
+      },
+      "mechanism": {
+        "admitted_actions": 2443,
+        "admitted_cost": {
+          "p10": 96.0,
+          "p50": 198.0,
+          "p90": 337.0
+        },
+        "admitted_position": {
+          "p10": 8.0,
+          "p50": 12.0,
+          "p90": 15.0
+        },
+        "gain_blockers": {
+          "MULTI_CARRIER_CONJUNCTION": 1,
+          "PRIOR_COMPACT_CONSUMPTION": 5
+        },
+        "savings": {
+          "p10": 992.0,
+          "p50": 1066.0,
+          "p90": 1155.3000000000002
+        }
+      },
+      "n": 1098,
+      "one_hop_ceiling": 986
+    }
+  },
+  "outcomes_sha256": "f6e245412c8a9f6d0a9ff2705cc419a0e18de410fa90bce031490c1069fdb4d2",
+  "replay_byte_identical": true,
+  "schema": "da031-varint-result-v1",
+  "status": "PARTIAL_VARINT_RELATIVE_SIGNAL"
+}

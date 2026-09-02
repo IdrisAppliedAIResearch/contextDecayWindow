@@ -1,0 +1,75 @@
+{
+  "additional_episodes_through_required": {
+    "max": 140.0,
+    "p10": 0.0,
+    "p50": 1.0,
+    "p90": 49.900000000000034
+  },
+  "any_reachability": 440,
+  "by_question_type": {
+    "knowledge-update": {
+      "any_reachability": 71,
+      "complete_reachability": 66,
+      "n": 72
+    },
+    "multi-session": {
+      "any_reachability": 115,
+      "complete_reachability": 75,
+      "n": 121
+    },
+    "single-session-assistant": {
+      "any_reachability": 51,
+      "complete_reachability": 51,
+      "n": 51
+    },
+    "single-session-preference": {
+      "any_reachability": 28,
+      "complete_reachability": 27,
+      "n": 30
+    },
+    "single-session-user": {
+      "any_reachability": 60,
+      "complete_reachability": 60,
+      "n": 64
+    },
+    "temporal-reasoning": {
+      "any_reachability": 115,
+      "complete_reachability": 103,
+      "n": 127
+    }
+  },
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "claim_boundary": "episode address reachability only; no reader, stopping, reconstruction, or delivery",
+  "complete_reachability": 382,
+  "complete_reachability_rate": 0.821505376344086,
+  "first_required_position": {
+    "max": 148.0,
+    "p10": 1.0,
+    "p50": 3.0,
+    "p90": 29.0
+  },
+  "last_required_position": {
+    "max": 159.0,
+    "p10": 1.0,
+    "p50": 18.5,
+    "p90": 71.0
+  },
+  "pack_prefix_complete": 186,
+  "peak_current_frame_chars": 2048,
+  "protected_payload_mutations": 0,
+  "questions": 465,
+  "reachability_sha256": "ba5d20e9e98cb55d2c32a2da108bc0e6372539372867063e5378e75b582774f7",
+  "schema": "da064-occurrence-coordinate-stream-result-v1",
+  "simultaneously_rendered_episodes": 1,
+  "status": "NO_OCCURRENCE_COORDINATE_SIGNAL",
+  "stream_episodes": {
+    "max": 215.0,
+    "p10": 21.0,
+    "p50": 52.0,
+    "p90": 146.60000000000002
+  }
+}

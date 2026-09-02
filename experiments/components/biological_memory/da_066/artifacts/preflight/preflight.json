@@ -1,0 +1,28 @@
+{
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "leakage_scan_clean": true,
+  "lexical_local_additions": 42857,
+  "max_stream_episodes": 284,
+  "min_stream_episodes": 29,
+  "pack_anchors": 8993,
+  "pack_local_additions": 12704,
+  "peak_current_frame_chars": 2048,
+  "protected_payload_mutations": 0,
+  "questions": 465,
+  "radius": 5,
+  "rejections": {
+    "DUPLICATE": 31015,
+    "PRIOR_REPRESENTATION": 7369,
+    "SESSION_BOUNDARY": 46211
+  },
+  "rendered_char_delta": 0,
+  "replay_byte_identical": true,
+  "schema": "da066-dual-anchor-local-frontier-preflight-v1",
+  "simultaneously_rendered_episodes": 1,
+  "status": "PASS",
+  "streams_sha256": "821ea4b31cdeed9eea053cf81a8a4cb322f9409c92f51d0ef1c681de99c0d491"
+}

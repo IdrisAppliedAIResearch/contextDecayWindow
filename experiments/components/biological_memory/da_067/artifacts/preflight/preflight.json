@@ -1,0 +1,28 @@
+{
+  "anchor_attempts": 496488,
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "da066_prefix_episodes": 64554,
+  "leakage_scan_clean": true,
+  "max_stream_episodes": 289,
+  "min_stream_episodes": 191,
+  "peak_current_frame_chars": 2048,
+  "protected_payload_mutations": 0,
+  "query_tokens": 6868,
+  "questions": 465,
+  "radius": 5,
+  "rejections": {
+    "PRIOR_REPRESENTATION": 2804958,
+    "SESSION_BOUNDARY": 2614753
+  },
+  "rendered_char_delta": 0,
+  "replay_byte_identical": true,
+  "schema": "da067-hierarchical-unigram-frontier-preflight-v1",
+  "simultaneously_rendered_episodes": 1,
+  "status": "PASS",
+  "streams_sha256": "3ca7d68522b0d7e1c4463fd00c26c28cad0542951ad3adf483f8c255bbc07d22",
+  "unigram_additions": 41657
+}

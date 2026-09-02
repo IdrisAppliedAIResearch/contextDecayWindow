@@ -1,0 +1,28 @@
+{
+  "anchor_attempts": 42408,
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "leakage_scan_clean": true,
+  "max_stream_episodes": 281,
+  "min_stream_episodes": 14,
+  "neighbor_attempts": 424080,
+  "new_local_episodes": 50226,
+  "pack_episodes": 8993,
+  "peak_current_frame_chars": 2048,
+  "protected_payload_mutations": 0,
+  "questions": 465,
+  "radius": 5,
+  "rejections": {
+    "DUPLICATE": 192836,
+    "SESSION_BOUNDARY": 223426
+  },
+  "rendered_char_delta": 0,
+  "replay_byte_identical": true,
+  "schema": "da065-local-occurrence-frontier-preflight-v1",
+  "simultaneously_rendered_episodes": 1,
+  "status": "PASS",
+  "streams_sha256": "ce336e78d919a0107f70e6e7d68563cd9b6774a115b6b9e74b142b756388a700"
+}

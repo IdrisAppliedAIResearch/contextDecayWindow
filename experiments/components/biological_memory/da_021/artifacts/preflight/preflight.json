@@ -1,0 +1,40 @@
+{
+  "allocation_sha256": "2e1eb8795f9f8a06ec5900ff7297a6b962a5257c56fac2f8ac1925954c17aed9",
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "corpora": {
+    "LONGMEM": {
+      "added_pairs": 2,
+      "added_turns": 104,
+      "duplicates": 0,
+      "expanding_rows": 0,
+      "joint_renderers": 439,
+      "max_final_chars": 16000,
+      "median_recovered_chars": 32.0,
+      "p10_recovered_chars": 5.0,
+      "p90_recovered_chars": 97.80000000000007,
+      "questions": 465,
+      "remaining_skips": 5891
+    },
+    "NF004": {
+      "added_pairs": 1544,
+      "added_turns": 1038,
+      "duplicates": 0,
+      "expanding_rows": 0,
+      "joint_renderers": 1098,
+      "max_final_chars": 16000,
+      "median_recovered_chars": 480.5,
+      "p10_recovered_chars": 306.7,
+      "p90_recovered_chars": 660.3000000000001,
+      "questions": 1098,
+      "remaining_skips": 7687
+    }
+  },
+  "replay_byte_identical": true,
+  "rows": 1563,
+  "schema": "da021-immutable-pack-preflight-v1",
+  "status": "NO_IMMUTABLE_PACK_CAPACITY_SIGNAL"
+}

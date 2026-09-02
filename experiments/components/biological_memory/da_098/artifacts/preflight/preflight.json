@@ -1,0 +1,47 @@
+{
+  "actions": {
+    "MEMBER": 209257,
+    "PRESENT": 165546,
+    "SKIP_MEMBER": 230975
+  },
+  "allocation_sha256": "f5327a9b5946f217910f2de5df222da66bda59d5f7b18267f8154763f98d44f9",
+  "arch16_chars": {
+    "max": 16000,
+    "min": 12373
+  },
+  "arch32_max_chars": 32000,
+  "cache": {
+    "hits": 2744,
+    "misses": 0
+  },
+  "calls": {
+    "cache_access": 2744,
+    "embedding": 0,
+    "model": 0
+  },
+  "primary": 1098,
+  "replay_byte_identical": true,
+  "rows": 1098,
+  "runtime": {
+    "allocation_ms": {
+      "max": 258.0117,
+      "p50": 83.5424,
+      "p95": 238.32402499999995,
+      "p99": 246.37873399999998,
+      "total": 145499.45919999998
+    },
+    "machine": "AMD64",
+    "processor": "AMD64 Family 26 Model 68 Stepping 0, AuthenticAMD",
+    "python": "3.13.13",
+    "replay_allocation_ms": {
+      "max": 347.0188,
+      "p50": 82.16095,
+      "p95": 300.50469999999996,
+      "p99": 315.490063,
+      "total": 145790.89909999998
+    },
+    "total_wall_ms": 322090.9574
+  },
+  "schema": "da098-nf-frozen-budget-preflight-v1",
+  "status": "PASS"
+}

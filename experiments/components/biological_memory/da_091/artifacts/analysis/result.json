@@ -1,0 +1,44 @@
+{
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "claim_boundary": "blind typed dependency representation only; reader use and delivery untested",
+  "eligible_cumulative_frame_chars": {
+    "p10": 1021.1,
+    "p50": 2098.0,
+    "p90": 2958.3
+  },
+  "eligible_frames": {
+    "p10": 1.0,
+    "p50": 2.0,
+    "p90": 2.0
+  },
+  "eligible_peak_frame_chars": {
+    "p10": 1021.1,
+    "p50": 1817.0,
+    "p90": 1819.0
+  },
+  "eligible_savings_chars": {
+    "p10": 1076.4,
+    "p50": 2220.5,
+    "p90": 3264.3000000000006
+  },
+  "eligible_substitutions": 798,
+  "preserved_noneligible": 7257,
+  "protected_da078_mutations": 0,
+  "replay_byte_identical": true,
+  "routes": {
+    "ANCHORED_EDGE_SLICES": 836,
+    "CHILD_PACKET_STREAM": 2701,
+    "PROMPT_LINKED_FRAME": 986,
+    "PROMPT_MEMBER": 618,
+    "PROMPT_SIBLING_FRAME": 2116,
+    "TYPED_EDGE_CHILD_PACKET_STREAM": 798
+  },
+  "schema": "da091-typed-edge-child-stream-v1",
+  "status": "TYPED_EDGE_CHILD_STREAM_SIGNAL",
+  "targets": 8055,
+  "targets_sha256": "f6960dfb303bf11c46c6101faa8eddc15f1f5b78d58efa1044d512a9bcd02aae"
+}

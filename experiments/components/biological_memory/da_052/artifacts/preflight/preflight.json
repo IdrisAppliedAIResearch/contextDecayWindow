@@ -1,0 +1,31 @@
+{
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "contract_sha256": "c72d9468b4789945f549f7ef3cd40efbfc344db3fc5428069fefc2b20fcfd666",
+  "frame_cap": 2048,
+  "general_cap": 12288,
+  "immutable_payload_mutations": 0,
+  "questions": 465,
+  "replay_byte_identical": true,
+  "retained_cap": 10240,
+  "retained_slots": 5,
+  "schema": "da052-protected-retained-set-preflight-v1",
+  "status": "PASS",
+  "stream_order": [
+    "ONE_HOP",
+    "DISTANCE_2",
+    "DISTANCE_3_5"
+  ],
+  "transition_exercise": {
+    "duplicate_rejected": true,
+    "empty_rejected": true,
+    "full_rejected": true,
+    "overflow_rejected": true,
+    "peak_chars": 4715,
+    "retained_slots": 5,
+    "retained_survives_later_actions": true
+  }
+}

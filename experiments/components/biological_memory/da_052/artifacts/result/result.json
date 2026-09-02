@@ -1,0 +1,156 @@
+{
+  "by_question_type": {
+    "knowledge-update": {
+      "complete": {
+        "CONTROL": 55,
+        "TREATMENT": 60
+      },
+      "contrast": {
+        "discordant": 5,
+        "gains": 5,
+        "losses": 0,
+        "net": 5,
+        "ties": 67,
+        "two_sided_exact_p": 0.0625
+      },
+      "n": 72
+    },
+    "multi-session": {
+      "complete": {
+        "CONTROL": 66,
+        "TREATMENT": 82
+      },
+      "contrast": {
+        "discordant": 16,
+        "gains": 16,
+        "losses": 0,
+        "net": 16,
+        "ties": 105,
+        "two_sided_exact_p": 3.0517578125e-05
+      },
+      "n": 121
+    },
+    "single-session-assistant": {
+      "complete": {
+        "CONTROL": 47,
+        "TREATMENT": 47
+      },
+      "contrast": {
+        "discordant": 0,
+        "gains": 0,
+        "losses": 0,
+        "net": 0,
+        "ties": 51,
+        "two_sided_exact_p": 1.0
+      },
+      "n": 51
+    },
+    "single-session-preference": {
+      "complete": {
+        "CONTROL": 23,
+        "TREATMENT": 23
+      },
+      "contrast": {
+        "discordant": 0,
+        "gains": 0,
+        "losses": 0,
+        "net": 0,
+        "ties": 30,
+        "two_sided_exact_p": 1.0
+      },
+      "n": 30
+    },
+    "single-session-user": {
+      "complete": {
+        "CONTROL": 54,
+        "TREATMENT": 54
+      },
+      "contrast": {
+        "discordant": 0,
+        "gains": 0,
+        "losses": 0,
+        "net": 0,
+        "ties": 64,
+        "two_sided_exact_p": 1.0
+      },
+      "n": 64
+    },
+    "temporal-reasoning": {
+      "complete": {
+        "CONTROL": 87,
+        "TREATMENT": 97
+      },
+      "contrast": {
+        "discordant": 10,
+        "gains": 10,
+        "losses": 0,
+        "net": 10,
+        "ties": 117,
+        "two_sided_exact_p": 0.001953125
+      },
+      "n": 127
+    }
+  },
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "claim_boundary": "evidence-aware minimum retained-frame-set oracle only",
+  "complete": {
+    "CONTROL": 332,
+    "TREATMENT": 363
+  },
+  "contrast": {
+    "discordant": 31,
+    "gains": 31,
+    "losses": 0,
+    "net": 31,
+    "ties": 434,
+    "two_sided_exact_p": 9.313225746154785e-10
+  },
+  "oracle_gains": {
+    "actions_visited": {
+      "max": 95,
+      "p10": 29.0,
+      "p50": 61.0,
+      "p90": 81.0
+    },
+    "cumulative_chars": {
+      "max": 51950,
+      "p10": 13501.0,
+      "p50": 27333.0,
+      "p90": 34820.0
+    },
+    "n": 31,
+    "peak_auxiliary_chars": {
+      "max": 3272,
+      "p10": 1899.0,
+      "p50": 2223.0,
+      "p90": 2395.0
+    },
+    "retained_chars": {
+      "max": 1494,
+      "p10": 550.0,
+      "p50": 646.0,
+      "p90": 1040.0
+    },
+    "retained_members": {
+      "2": 24,
+      "3": 4,
+      "4": 1,
+      "5": 2
+    },
+    "source_frames": {
+      "DISTANCE_2": 23,
+      "DISTANCE_3_5": 43,
+      "ONE_HOP": 8
+    }
+  },
+  "outcomes_sha256": "c2f0359eedfe4460979634e1bd0d9038329895c4a6f208f9c80e354df65010dd",
+  "population": 465,
+  "protected_payload_mutations": 0,
+  "replay_byte_identical": true,
+  "schema": "da052-protected-retained-set-result-v1",
+  "status": "RETAINED_SET_CAPACITY_SIGNAL"
+}

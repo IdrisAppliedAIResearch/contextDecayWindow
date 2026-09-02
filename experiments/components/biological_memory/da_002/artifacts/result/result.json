@@ -1,0 +1,6196 @@
+{
+  "arms": {
+    "DIRECT": {
+      "complete": 935,
+      "gain_mechanism": {
+        "carriers": 0,
+        "evidence_chars": {
+          "max": null,
+          "min": null,
+          "n": 0,
+          "p10": null,
+          "p50": null,
+          "p90": null
+        },
+        "evidence_direct_rank": {
+          "max": null,
+          "min": null,
+          "n": 0,
+          "p10": null,
+          "p50": null,
+          "p90": null
+        },
+        "graph_distance": {
+          "max": null,
+          "min": null,
+          "n": 0,
+          "p10": null,
+          "p50": null,
+          "p90": null
+        },
+        "items": 0,
+        "linked_chars_on_gain_items": {
+          "max": null,
+          "min": null,
+          "n": 0,
+          "p10": null,
+          "p50": null,
+          "p90": null
+        },
+        "multi_carrier_items": 0,
+        "rank_beyond_direct_selected_count": {
+          "max": null,
+          "min": null,
+          "n": 0,
+          "p10": null,
+          "p50": null,
+          "p90": null
+        },
+        "relation": {},
+        "seed_direct_rank": {
+          "max": null,
+          "min": null,
+          "n": 0,
+          "p10": null,
+          "p50": null,
+          "p90": null
+        },
+        "seed_minus_evidence_score": {
+          "max": null,
+          "min": null,
+          "n": 0,
+          "p10": null,
+          "p50": null,
+          "p90": null
+        }
+      },
+      "gains": 0,
+      "loss_mechanism": {
+        "carriers": 0,
+        "direct_rank": {
+          "max": null,
+          "min": null,
+          "n": 0,
+          "p10": null,
+          "p50": null,
+          "p90": null
+        },
+        "direct_selected_percentile": {
+          "max": null,
+          "min": null,
+          "n": 0,
+          "p10": null,
+          "p50": null,
+          "p90": null
+        },
+        "displaced_chars_on_loss_items": {
+          "max": null,
+          "min": null,
+          "n": 0,
+          "p10": null,
+          "p50": null,
+          "p90": null
+        },
+        "displaced_count_on_loss_items": {
+          "max": null,
+          "min": null,
+          "n": 0,
+          "p10": null,
+          "p50": null,
+          "p90": null
+        },
+        "evidence_chars": {
+          "max": null,
+          "min": null,
+          "n": 0,
+          "p10": null,
+          "p50": null,
+          "p90": null
+        },
+        "items": 0,
+        "linked_chars_on_loss_items": {
+          "max": null,
+          "min": null,
+          "n": 0,
+          "p10": null,
+          "p50": null,
+          "p90": null
+        },
+        "multi_carrier_items": 0,
+        "score": {
+          "max": null,
+          "min": null,
+          "n": 0,
+          "p10": null,
+          "p50": null,
+          "p90": null
+        }
+      },
+      "losses": 0
+    },
+    "EVENT_1": {
+      "complete": 939,
+      "gain_mechanism": {
+        "carriers": 21,
+        "evidence_chars": {
+          "max": 544.0,
+          "min": 165.0,
+          "n": 21,
+          "p10": 175.0,
+          "p50": 352.0,
+          "p90": 495.0
+        },
+        "evidence_direct_rank": {
+          "max": 263.0,
+          "min": 59.0,
+          "n": 21,
+          "p10": 76.0,
+          "p50": 133.0,
+          "p90": 171.0
+        },
+        "graph_distance": {
+          "max": 6.0,
+          "min": 1.0,
+          "n": 21,
+          "p10": 1.0,
+          "p50": 1.0,
+          "p90": 3.0
+        },
+        "items": 21,
+        "linked_chars_on_gain_items": {
+          "max": 5144.0,
+          "min": 1349.0,
+          "n": 21,
+          "p10": 1592.0,
+          "p50": 2749.0,
+          "p90": 3765.0
+        },
+        "multi_carrier_items": 0,
+        "rank_beyond_direct_selected_count": {
+          "max": 200.0,
+          "min": 4.0,
+          "n": 21,
+          "p10": 20.0,
+          "p50": 66.0,
+          "p90": 107.0
+        },
+        "relation": {
+          "deep_next": 1,
+          "deep_previous": 3,
+          "next": 10,
+          "previous": 7
+        },
+        "seed_direct_rank": {
+          "max": 1.0,
+          "min": 1.0,
+          "n": 21,
+          "p10": 1.0,
+          "p50": 1.0,
+          "p90": 1.0
+        },
+        "seed_minus_evidence_score": {
+          "max": 0.40003225207328796,
+          "min": 0.14081883430480957,
+          "n": 21,
+          "p10": 0.15445983409881592,
+          "p50": 0.27233684062957764,
+          "p90": 0.38677704334259033
+        }
+      },
+      "gains": 21,
+      "loss_mechanism": {
+        "carriers": 17,
+        "direct_rank": {
+          "max": 70.0,
+          "min": 42.0,
+          "n": 17,
+          "p10": 46.0,
+          "p50": 60.0,
+          "p90": 67.6
+        },
+        "direct_selected_percentile": {
+          "max": 0.9841269841269841,
+          "min": 0.7971014492753623,
+          "n": 17,
+          "p10": 0.8323202805376972,
+          "p50": 0.9148936170212766,
+          "p90": 0.9754563894523326
+        },
+        "displaced_chars_on_loss_items": {
+          "max": 3528.0,
+          "min": 657.0,
+          "n": 17,
+          "p10": 1374.0,
+          "p50": 2502.0,
+          "p90": 3321.2
+        },
+        "displaced_count_on_loss_items": {
+          "max": 16.0,
+          "min": 3.0,
+          "n": 17,
+          "p10": 5.2,
+          "p50": 10.0,
+          "p90": 15.4
+        },
+        "evidence_chars": {
+          "max": 664.0,
+          "min": 173.0,
+          "n": 17,
+          "p10": 211.8,
+          "p50": 353.0,
+          "p90": 595.6
+        },
+        "items": 17,
+        "linked_chars_on_loss_items": {
+          "max": 4661.0,
+          "min": 1566.0,
+          "n": 17,
+          "p10": 2027.6,
+          "p50": 3295.0,
+          "p90": 4471.4
+        },
+        "multi_carrier_items": 0,
+        "score": {
+          "max": 0.6629048585891724,
+          "min": 0.398731529712677,
+          "n": 17,
+          "p10": 0.4566550314426422,
+          "p50": 0.5243371725082397,
+          "p90": 0.5919214010238648
+        }
+      },
+      "losses": 17
+    },
+    "EVENT_16": {
+      "complete": 845,
+      "gain_mechanism": {
+        "carriers": 50,
+        "evidence_chars": {
+          "max": 728.0,
+          "min": 165.0,
+          "n": 50,
+          "p10": 213.3,
+          "p50": 329.5,
+          "p90": 544.0
+        },
+        "evidence_direct_rank": {
+          "max": 263.0,
+          "min": 59.0,
+          "n": 50,
+          "p10": 65.9,
+          "p50": 110.5,
+          "p90": 177.4
+        },
+        "graph_distance": {
+          "max": 8.0,
+          "min": 1.0,
+          "n": 50,
+          "p10": 1.0,
+          "p50": 1.0,
+          "p90": 3.1000000000000014
+        },
+        "items": 49,
+        "linked_chars_on_gain_items": {
+          "max": 15339.0,
+          "min": 13706.0,
+          "n": 49,
+          "p10": 14087.6,
+          "p50": 14588.0,
+          "p90": 15148.6
+        },
+        "multi_carrier_items": 1,
+        "rank_beyond_direct_selected_count": {
+          "max": 200.0,
+          "min": 0.0,
+          "n": 50,
+          "p10": 4.9,
+          "p50": 43.5,
+          "p90": 107.0
+        },
+        "relation": {
+          "deep_next": 12,
+          "deep_previous": 8,
+          "next": 14,
+          "previous": 16
+        },
+        "seed_direct_rank": {
+          "max": 7.0,
+          "min": 1.0,
+          "n": 50,
+          "p10": 1.0,
+          "p50": 2.0,
+          "p90": 6.0
+        },
+        "seed_minus_evidence_score": {
+          "max": 0.40003225207328796,
+          "min": 0.06445655226707458,
+          "n": 50,
+          "p10": 0.09631112217903137,
+          "p50": 0.17381063103675842,
+          "p90": 0.32140471637248996
+        }
+      },
+      "gains": 49,
+      "loss_mechanism": {
+        "carriers": 165,
+        "direct_rank": {
+          "max": 70.0,
+          "min": 6.0,
+          "n": 165,
+          "p10": 10.0,
+          "p50": 23.0,
+          "p90": 52.599999999999994
+        },
+        "direct_selected_percentile": {
+          "max": 0.9827586206896551,
+          "min": 0.08955223880597014,
+          "n": 165,
+          "p10": 0.15384615384615385,
+          "p50": 0.39473684210526316,
+          "p90": 0.790589636688505
+        },
+        "displaced_chars_on_loss_items": {
+          "max": 13818.0,
+          "min": 7576.0,
+          "n": 139,
+          "p10": 8929.0,
+          "p50": 10390.0,
+          "p90": 11816.4
+        },
+        "displaced_count_on_loss_items": {
+          "max": 60.0,
+          "min": 24.0,
+          "n": 139,
+          "p10": 31.0,
+          "p50": 40.0,
+          "p90": 50.0
+        },
+        "evidence_chars": {
+          "max": 730.0,
+          "min": 111.0,
+          "n": 165,
+          "p10": 208.0,
+          "p50": 378.0,
+          "p90": 546.4
+        },
+        "items": 139,
+        "linked_chars_on_loss_items": {
+          "max": 15277.0,
+          "min": 13248.0,
+          "n": 139,
+          "p10": 13852.2,
+          "p50": 14503.0,
+          "p90": 14936.0
+        },
+        "multi_carrier_items": 22,
+        "score": {
+          "max": 0.7110630869865417,
+          "min": 0.3961975574493408,
+          "n": 165,
+          "p10": 0.4848172187805176,
+          "p50": 0.5577869415283203,
+          "p90": 0.6382563352584839
+        }
+      },
+      "losses": 139
+    },
+    "EVENT_2": {
+      "complete": 939,
+      "gain_mechanism": {
+        "carriers": 32,
+        "evidence_chars": {
+          "max": 728.0,
+          "min": 165.0,
+          "n": 32,
+          "p10": 181.9,
+          "p50": 371.0,
+          "p90": 498.6
+        },
+        "evidence_direct_rank": {
+          "max": 263.0,
+          "min": 59.0,
+          "n": 32,
+          "p10": 79.1,
+          "p50": 122.0,
+          "p90": 170.9
+        },
+        "graph_distance": {
+          "max": 7.0,
+          "min": 1.0,
+          "n": 32,
+          "p10": 1.0,
+          "p50": 1.0,
+          "p90": 4.0
+        },
+        "items": 32,
+        "linked_chars_on_gain_items": {
+          "max": 7984.0,
+          "min": 2569.0,
+          "n": 32,
+          "p10": 3575.5,
+          "p50": 5240.5,
+          "p90": 7453.000000000001
+        },
+        "multi_carrier_items": 0,
+        "rank_beyond_direct_selected_count": {
+          "max": 200.0,
+          "min": 4.0,
+          "n": 32,
+          "p10": 18.2,
+          "p50": 54.5,
+          "p90": 106.30000000000001
+        },
+        "relation": {
+          "deep_next": 5,
+          "deep_previous": 6,
+          "next": 13,
+          "previous": 8
+        },
+        "seed_direct_rank": {
+          "max": 2.0,
+          "min": 1.0,
+          "n": 32,
+          "p10": 1.0,
+          "p50": 1.0,
+          "p90": 2.0
+        },
+        "seed_minus_evidence_score": {
+          "max": 0.40003225207328796,
+          "min": 0.11829549074172974,
+          "n": 32,
+          "p10": 0.13956777155399322,
+          "p50": 0.23596929013729095,
+          "p90": 0.34377876520156864
+        }
+      },
+      "gains": 32,
+      "loss_mechanism": {
+        "carriers": 28,
+        "direct_rank": {
+          "max": 70.0,
+          "min": 35.0,
+          "n": 28,
+          "p10": 42.7,
+          "p50": 55.0,
+          "p90": 66.0
+        },
+        "direct_selected_percentile": {
+          "max": 0.9827586206896551,
+          "min": 0.5223880597014925,
+          "n": 28,
+          "p10": 0.6947619047619047,
+          "p50": 0.8518518518518519,
+          "p90": 0.9573055028462999
+        },
+        "displaced_chars_on_loss_items": {
+          "max": 6517.0,
+          "min": 2115.0,
+          "n": 28,
+          "p10": 2551.8,
+          "p50": 4242.5,
+          "p90": 5640.9
+        },
+        "displaced_count_on_loss_items": {
+          "max": 30.0,
+          "min": 8.0,
+          "n": 28,
+          "p10": 9.0,
+          "p50": 18.0,
+          "p90": 24.900000000000002
+        },
+        "evidence_chars": {
+          "max": 664.0,
+          "min": 198.0,
+          "n": 28,
+          "p10": 223.1,
+          "p50": 362.5,
+          "p90": 523.4
+        },
+        "items": 28,
+        "linked_chars_on_loss_items": {
+          "max": 8148.0,
+          "min": 3295.0,
+          "n": 28,
+          "p10": 4304.6,
+          "p50": 5522.5,
+          "p90": 7586.6
+        },
+        "multi_carrier_items": 0,
+        "score": {
+          "max": 0.6629048585891724,
+          "min": 0.3961975574493408,
+          "n": 28,
+          "p10": 0.4566983848810196,
+          "p50": 0.5267177522182465,
+          "p90": 0.6194387257099152
+        }
+      },
+      "losses": 28
+    },
+    "EVENT_4": {
+      "complete": 918,
+      "gain_mechanism": {
+        "carriers": 44,
+        "evidence_chars": {
+          "max": 728.0,
+          "min": 128.0,
+          "n": 44,
+          "p10": 178.6,
+          "p50": 339.0,
+          "p90": 530.5000000000001
+        },
+        "evidence_direct_rank": {
+          "max": 263.0,
+          "min": 59.0,
+          "n": 44,
+          "p10": 71.2,
+          "p50": 120.0,
+          "p90": 178.00000000000003
+        },
+        "graph_distance": {
+          "max": 8.0,
+          "min": 1.0,
+          "n": 44,
+          "p10": 1.0,
+          "p50": 1.0,
+          "p90": 4.700000000000003
+        },
+        "items": 44,
+        "linked_chars_on_gain_items": {
+          "max": 14959.0,
+          "min": 3218.0,
+          "n": 44,
+          "p10": 5569.0,
+          "p50": 9466.5,
+          "p90": 12988.2
+        },
+        "multi_carrier_items": 0,
+        "rank_beyond_direct_selected_count": {
+          "max": 200.0,
+          "min": 1.0,
+          "n": 44,
+          "p10": 7.3,
+          "p50": 52.5,
+          "p90": 107.0
+        },
+        "relation": {
+          "deep_next": 10,
+          "deep_previous": 9,
+          "next": 14,
+          "previous": 11
+        },
+        "seed_direct_rank": {
+          "max": 4.0,
+          "min": 1.0,
+          "n": 44,
+          "p10": 1.0,
+          "p50": 1.5,
+          "p90": 4.0
+        },
+        "seed_minus_evidence_score": {
+          "max": 0.40003225207328796,
+          "min": 0.06876549124717712,
+          "n": 44,
+          "p10": 0.12426410317420959,
+          "p50": 0.1847478151321411,
+          "p90": 0.3268087774515152
+        }
+      },
+      "gains": 44,
+      "loss_mechanism": {
+        "carriers": 69,
+        "direct_rank": {
+          "max": 70.0,
+          "min": 10.0,
+          "n": 69,
+          "p10": 21.8,
+          "p50": 39.0,
+          "p90": 60.60000000000001
+        },
+        "direct_selected_percentile": {
+          "max": 0.9827586206896551,
+          "min": 0.15384615384615385,
+          "n": 69,
+          "p10": 0.33939393939393947,
+          "p50": 0.6060606060606061,
+          "p90": 0.9056277056277057
+        },
+        "displaced_chars_on_loss_items": {
+          "max": 11730.0,
+          "min": 2559.0,
+          "n": 61,
+          "p10": 5358.0,
+          "p50": 7699.0,
+          "p90": 10267.0
+        },
+        "displaced_count_on_loss_items": {
+          "max": 47.0,
+          "min": 9.0,
+          "n": 61,
+          "p10": 20.0,
+          "p50": 31.0,
+          "p90": 40.0
+        },
+        "evidence_chars": {
+          "max": 664.0,
+          "min": 144.0,
+          "n": 69,
+          "p10": 230.4,
+          "p50": 382.0,
+          "p90": 506.40000000000003
+        },
+        "items": 61,
+        "linked_chars_on_loss_items": {
+          "max": 14706.0,
+          "min": 4285.0,
+          "n": 61,
+          "p10": 7886.0,
+          "p50": 10681.0,
+          "p90": 13374.0
+        },
+        "multi_carrier_items": 7,
+        "score": {
+          "max": 0.7110630869865417,
+          "min": 0.3961975574493408,
+          "n": 69,
+          "p10": 0.46309136748313906,
+          "p50": 0.5404266715049744,
+          "p90": 0.618074369430542
+        }
+      },
+      "losses": 61
+    },
+    "EVENT_8": {
+      "complete": 858,
+      "gain_mechanism": {
+        "carriers": 51,
+        "evidence_chars": {
+          "max": 728.0,
+          "min": 165.0,
+          "n": 51,
+          "p10": 217.0,
+          "p50": 328.0,
+          "p90": 544.0
+        },
+        "evidence_direct_rank": {
+          "max": 263.0,
+          "min": 59.0,
+          "n": 51,
+          "p10": 66.0,
+          "p50": 113.0,
+          "p90": 177.0
+        },
+        "graph_distance": {
+          "max": 8.0,
+          "min": 1.0,
+          "n": 51,
+          "p10": 1.0,
+          "p50": 1.0,
+          "p90": 3.0
+        },
+        "items": 50,
+        "linked_chars_on_gain_items": {
+          "max": 15339.0,
+          "min": 7053.0,
+          "n": 50,
+          "p10": 11298.8,
+          "p50": 14368.0,
+          "p90": 15046.0
+        },
+        "multi_carrier_items": 1,
+        "rank_beyond_direct_selected_count": {
+          "max": 200.0,
+          "min": 0.0,
+          "n": 51,
+          "p10": 5.0,
+          "p50": 44.0,
+          "p90": 107.0
+        },
+        "relation": {
+          "deep_next": 12,
+          "deep_previous": 9,
+          "next": 14,
+          "previous": 16
+        },
+        "seed_direct_rank": {
+          "max": 7.0,
+          "min": 1.0,
+          "n": 51,
+          "p10": 1.0,
+          "p50": 2.0,
+          "p90": 6.0
+        },
+        "seed_minus_evidence_score": {
+          "max": 0.40003225207328796,
+          "min": 0.06445655226707458,
+          "n": 51,
+          "p10": 0.09658193588256836,
+          "p50": 0.17819315195083618,
+          "p90": 0.3205040395259857
+        }
+      },
+      "gains": 50,
+      "loss_mechanism": {
+        "carriers": 152,
+        "direct_rank": {
+          "max": 70.0,
+          "min": 6.0,
+          "n": 152,
+          "p10": 10.0,
+          "p50": 25.5,
+          "p90": 54.80000000000001
+        },
+        "direct_selected_percentile": {
+          "max": 0.9827586206896551,
+          "min": 0.08955223880597014,
+          "n": 152,
+          "p10": 0.15384615384615385,
+          "p50": 0.4138963761605271,
+          "p90": 0.7997101449275363
+        },
+        "displaced_chars_on_loss_items": {
+          "max": 13818.0,
+          "min": 5172.0,
+          "n": 127,
+          "p10": 8479.0,
+          "p50": 10341.0,
+          "p90": 11961.6
+        },
+        "displaced_count_on_loss_items": {
+          "max": 60.0,
+          "min": 19.0,
+          "n": 127,
+          "p10": 29.6,
+          "p50": 40.0,
+          "p90": 49.400000000000006
+        },
+        "evidence_chars": {
+          "max": 730.0,
+          "min": 129.0,
+          "n": 152,
+          "p10": 209.20000000000002,
+          "p50": 378.5,
+          "p90": 549.1
+        },
+        "items": 127,
+        "linked_chars_on_loss_items": {
+          "max": 15277.0,
+          "min": 9727.0,
+          "n": 127,
+          "p10": 13227.2,
+          "p50": 14376.0,
+          "p90": 14876.8
+        },
+        "multi_carrier_items": 22,
+        "score": {
+          "max": 0.7110630869865417,
+          "min": 0.3961975574493408,
+          "n": 152,
+          "p10": 0.484097483754158,
+          "p50": 0.5517082214355469,
+          "p90": 0.6320605576038361
+        }
+      },
+      "losses": 127
+    },
+    "TEMPORAL_1": {
+      "complete": 950,
+      "gain_mechanism": {
+        "carriers": 17,
+        "evidence_chars": {
+          "max": 544.0,
+          "min": 165.0,
+          "n": 17,
+          "p10": 174.2,
+          "p50": 371.0,
+          "p90": 495.0
+        },
+        "evidence_direct_rank": {
+          "max": 198.0,
+          "min": 59.0,
+          "n": 17,
+          "p10": 73.6,
+          "p50": 117.0,
+          "p90": 170.4
+        },
+        "graph_distance": {
+          "max": 1.0,
+          "min": 1.0,
+          "n": 17,
+          "p10": 1.0,
+          "p50": 1.0,
+          "p90": 1.0
+        },
+        "items": 17,
+        "linked_chars_on_gain_items": {
+          "max": 891.0,
+          "min": 361.0,
+          "n": 17,
+          "p10": 371.0,
+          "p50": 660.0,
+          "p90": 797.8
+        },
+        "multi_carrier_items": 0,
+        "rank_beyond_direct_selected_count": {
+          "max": 126.0,
+          "min": 4.0,
+          "n": 17,
+          "p10": 13.600000000000001,
+          "p50": 60.0,
+          "p90": 98.8
+        },
+        "relation": {
+          "next": 10,
+          "previous": 7
+        },
+        "seed_direct_rank": {
+          "max": 1.0,
+          "min": 1.0,
+          "n": 17,
+          "p10": 1.0,
+          "p50": 1.0,
+          "p90": 1.0
+        },
+        "seed_minus_evidence_score": {
+          "max": 0.40003225207328796,
+          "min": 0.14081883430480957,
+          "n": 17,
+          "p10": 0.15528661608695984,
+          "p50": 0.27233684062957764,
+          "p90": 0.3643483996391297
+        }
+      },
+      "gains": 17,
+      "loss_mechanism": {
+        "carriers": 2,
+        "direct_rank": {
+          "max": 66.0,
+          "min": 57.0,
+          "n": 2,
+          "p10": 57.9,
+          "p50": 61.5,
+          "p90": 65.1
+        },
+        "direct_selected_percentile": {
+          "max": 0.9827586206896551,
+          "min": 0.9705882352941176,
+          "n": 2,
+          "p10": 0.9718052738336714,
+          "p50": 0.9766734279918864,
+          "p90": 0.9815415821501013
+        },
+        "displaced_chars_on_loss_items": {
+          "max": 485.0,
+          "min": 395.0,
+          "n": 2,
+          "p10": 404.0,
+          "p50": 440.0,
+          "p90": 476.0
+        },
+        "displaced_count_on_loss_items": {
+          "max": 3.0,
+          "min": 2.0,
+          "n": 2,
+          "p10": 2.1,
+          "p50": 2.5,
+          "p90": 2.9
+        },
+        "evidence_chars": {
+          "max": 378.0,
+          "min": 257.0,
+          "n": 2,
+          "p10": 269.1,
+          "p50": 317.5,
+          "p90": 365.9
+        },
+        "items": 2,
+        "linked_chars_on_loss_items": {
+          "max": 487.0,
+          "min": 433.0,
+          "n": 2,
+          "p10": 438.4,
+          "p50": 460.0,
+          "p90": 481.6
+        },
+        "multi_carrier_items": 0,
+        "score": {
+          "max": 0.5243371725082397,
+          "min": 0.49169066548347473,
+          "n": 2,
+          "p10": 0.49495531618595123,
+          "p50": 0.5080139189958572,
+          "p90": 0.5210725218057632
+        }
+      },
+      "losses": 2
+    },
+    "TEMPORAL_16": {
+      "complete": 963,
+      "gain_mechanism": {
+        "carriers": 54,
+        "evidence_chars": {
+          "max": 654.0,
+          "min": 155.0,
+          "n": 54,
+          "p10": 195.60000000000002,
+          "p50": 318.5,
+          "p90": 497.8
+        },
+        "evidence_direct_rank": {
+          "max": 265.0,
+          "min": 59.0,
+          "n": 54,
+          "p10": 66.3,
+          "p50": 113.0,
+          "p90": 170.7
+        },
+        "graph_distance": {
+          "max": 1.0,
+          "min": 1.0,
+          "n": 54,
+          "p10": 1.0,
+          "p50": 1.0,
+          "p90": 1.0
+        },
+        "items": 51,
+        "linked_chars_on_gain_items": {
+          "max": 8393.0,
+          "min": 3897.0,
+          "n": 51,
+          "p10": 5268.0,
+          "p50": 6658.0,
+          "p90": 7769.0
+        },
+        "multi_carrier_items": 3,
+        "rank_beyond_direct_selected_count": {
+          "max": 201.0,
+          "min": 0.0,
+          "n": 54,
+          "p10": 4.300000000000001,
+          "p50": 43.5,
+          "p90": 100.7
+        },
+        "relation": {
+          "next": 28,
+          "previous": 26
+        },
+        "seed_direct_rank": {
+          "max": 16.0,
+          "min": 1.0,
+          "n": 54,
+          "p10": 1.0,
+          "p50": 4.0,
+          "p90": 12.700000000000003
+        },
+        "seed_minus_evidence_score": {
+          "max": 0.40003225207328796,
+          "min": 0.04156157374382019,
+          "n": 54,
+          "p10": 0.08635992109775543,
+          "p50": 0.15522383153438568,
+          "p90": 0.2909614533185959
+        }
+      },
+      "gains": 51,
+      "loss_mechanism": {
+        "carriers": 24,
+        "direct_rank": {
+          "max": 70.0,
+          "min": 26.0,
+          "n": 24,
+          "p10": 42.3,
+          "p50": 55.0,
+          "p90": 66.0
+        },
+        "direct_selected_percentile": {
+          "max": 0.9827586206896551,
+          "min": 0.5652173913043478,
+          "n": 24,
+          "p10": 0.7549555867227676,
+          "p50": 0.8634259259259259,
+          "p90": 0.9499128160418483
+        },
+        "displaced_chars_on_loss_items": {
+          "max": 5792.0,
+          "min": 2482.0,
+          "n": 23,
+          "p10": 2798.6,
+          "p50": 3840.0,
+          "p90": 5299.400000000001
+        },
+        "displaced_count_on_loss_items": {
+          "max": 27.0,
+          "min": 11.0,
+          "n": 23,
+          "p10": 12.0,
+          "p50": 15.0,
+          "p90": 22.8
+        },
+        "evidence_chars": {
+          "max": 664.0,
+          "min": 198.0,
+          "n": 24,
+          "p10": 221.9,
+          "p50": 353.5,
+          "p90": 622.8
+        },
+        "items": 23,
+        "linked_chars_on_loss_items": {
+          "max": 8612.0,
+          "min": 5143.0,
+          "n": 23,
+          "p10": 5259.4,
+          "p50": 6394.0,
+          "p90": 7739.0
+        },
+        "multi_carrier_items": 1,
+        "score": {
+          "max": 0.6629048585891724,
+          "min": 0.45639491081237793,
+          "n": 24,
+          "p10": 0.47053773105144503,
+          "p50": 0.5427561104297638,
+          "p90": 0.6290010511875153
+        }
+      },
+      "losses": 23
+    },
+    "TEMPORAL_2": {
+      "complete": 951,
+      "gain_mechanism": {
+        "carriers": 21,
+        "evidence_chars": {
+          "max": 601.0,
+          "min": 165.0,
+          "n": 21,
+          "p10": 175.0,
+          "p50": 387.0,
+          "p90": 499.0
+        },
+        "evidence_direct_rank": {
+          "max": 198.0,
+          "min": 59.0,
+          "n": 21,
+          "p10": 76.0,
+          "p50": 117.0,
+          "p90": 170.0
+        },
+        "graph_distance": {
+          "max": 1.0,
+          "min": 1.0,
+          "n": 21,
+          "p10": 1.0,
+          "p50": 1.0,
+          "p90": 1.0
+        },
+        "items": 21,
+        "linked_chars_on_gain_items": {
+          "max": 1772.0,
+          "min": 821.0,
+          "n": 21,
+          "p10": 865.0,
+          "p50": 1188.0,
+          "p90": 1476.0
+        },
+        "multi_carrier_items": 0,
+        "rank_beyond_direct_selected_count": {
+          "max": 126.0,
+          "min": 4.0,
+          "n": 21,
+          "p10": 20.0,
+          "p50": 54.0,
+          "p90": 98.0
+        },
+        "relation": {
+          "next": 13,
+          "previous": 8
+        },
+        "seed_direct_rank": {
+          "max": 2.0,
+          "min": 1.0,
+          "n": 21,
+          "p10": 1.0,
+          "p50": 1.0,
+          "p90": 2.0
+        },
+        "seed_minus_evidence_score": {
+          "max": 0.40003225207328796,
+          "min": 0.14081883430480957,
+          "n": 21,
+          "p10": 0.15235251188278198,
+          "p50": 0.24332398176193237,
+          "p90": 0.3453640937805176
+        }
+      },
+      "gains": 21,
+      "loss_mechanism": {
+        "carriers": 5,
+        "direct_rank": {
+          "max": 70.0,
+          "min": 57.0,
+          "n": 5,
+          "p10": 57.8,
+          "p50": 66.0,
+          "p90": 68.4
+        },
+        "direct_selected_percentile": {
+          "max": 0.9827586206896551,
+          "min": 0.9459459459459459,
+          "n": 5,
+          "p10": 0.9482127288578902,
+          "p50": 0.9705882352941176,
+          "p90": 0.9778904665314402
+        },
+        "displaced_chars_on_loss_items": {
+          "max": 984.0,
+          "min": 395.0,
+          "n": 5,
+          "p10": 479.4,
+          "p50": 791.0,
+          "p90": 970.8
+        },
+        "displaced_count_on_loss_items": {
+          "max": 5.0,
+          "min": 2.0,
+          "n": 5,
+          "p10": 2.0,
+          "p50": 4.0,
+          "p90": 5.0
+        },
+        "evidence_chars": {
+          "max": 399.0,
+          "min": 257.0,
+          "n": 5,
+          "p10": 291.4,
+          "p50": 353.0,
+          "p90": 390.6
+        },
+        "items": 5,
+        "linked_chars_on_loss_items": {
+          "max": 1248.0,
+          "min": 878.0,
+          "n": 5,
+          "p10": 997.6,
+          "p50": 1193.0,
+          "p90": 1239.2
+        },
+        "multi_carrier_items": 0,
+        "score": {
+          "max": 0.5243371725082397,
+          "min": 0.45639491081237793,
+          "n": 5,
+          "p10": 0.4565683245658875,
+          "p50": 0.4579530358314514,
+          "p90": 0.5112785696983337
+        }
+      },
+      "losses": 5
+    },
+    "TEMPORAL_4": {
+      "complete": 956,
+      "gain_mechanism": {
+        "carriers": 27,
+        "evidence_chars": {
+          "max": 601.0,
+          "min": 165.0,
+          "n": 27,
+          "p10": 210.4,
+          "p50": 371.0,
+          "p90": 496.6
+        },
+        "evidence_direct_rank": {
+          "max": 198.0,
+          "min": 59.0,
+          "n": 27,
+          "p10": 73.6,
+          "p50": 120.0,
+          "p90": 170.4
+        },
+        "graph_distance": {
+          "max": 1.0,
+          "min": 1.0,
+          "n": 27,
+          "p10": 1.0,
+          "p50": 1.0,
+          "p90": 1.0
+        },
+        "items": 27,
+        "linked_chars_on_gain_items": {
+          "max": 2593.0,
+          "min": 978.0,
+          "n": 27,
+          "p10": 1402.0,
+          "p50": 1856.0,
+          "p90": 2459.0
+        },
+        "multi_carrier_items": 0,
+        "rank_beyond_direct_selected_count": {
+          "max": 126.0,
+          "min": 4.0,
+          "n": 27,
+          "p10": 7.6,
+          "p50": 51.0,
+          "p90": 98.80000000000001
+        },
+        "relation": {
+          "next": 15,
+          "previous": 12
+        },
+        "seed_direct_rank": {
+          "max": 4.0,
+          "min": 1.0,
+          "n": 27,
+          "p10": 1.0,
+          "p50": 1.0,
+          "p90": 4.0
+        },
+        "seed_minus_evidence_score": {
+          "max": 0.40003225207328796,
+          "min": 0.09272223711013794,
+          "n": 27,
+          "p10": 0.14205687046051024,
+          "p50": 0.20657724142074585,
+          "p90": 0.33585212230682376
+        }
+      },
+      "gains": 27,
+      "loss_mechanism": {
+        "carriers": 6,
+        "direct_rank": {
+          "max": 70.0,
+          "min": 49.0,
+          "n": 6,
+          "p10": 53.0,
+          "p50": 62.5,
+          "p90": 68.0
+        },
+        "direct_selected_percentile": {
+          "max": 0.9827586206896551,
+          "min": 0.8448275862068966,
+          "n": 6,
+          "p10": 0.8953867660764212,
+          "p50": 0.9611005692599621,
+          "p90": 0.9766734279918864
+        },
+        "displaced_chars_on_loss_items": {
+          "max": 1611.0,
+          "min": 572.0,
+          "n": 6,
+          "p10": 810.0,
+          "p50": 1357.0,
+          "p90": 1566.0
+        },
+        "displaced_count_on_loss_items": {
+          "max": 6.0,
+          "min": 3.0,
+          "n": 6,
+          "p10": 3.5,
+          "p50": 5.0,
+          "p90": 6.0
+        },
+        "evidence_chars": {
+          "max": 664.0,
+          "min": 257.0,
+          "n": 6,
+          "p10": 300.0,
+          "p50": 365.5,
+          "p90": 531.5
+        },
+        "items": 6,
+        "linked_chars_on_loss_items": {
+          "max": 2593.0,
+          "min": 1498.0,
+          "n": 6,
+          "p10": 1624.5,
+          "p50": 2046.0,
+          "p90": 2509.0
+        },
+        "multi_carrier_items": 0,
+        "score": {
+          "max": 0.5243371725082397,
+          "min": 0.45639491081237793,
+          "n": 6,
+          "p10": 0.45661167800426483,
+          "p50": 0.4748218506574631,
+          "p90": 0.5146472454071045
+        }
+      },
+      "losses": 6
+    },
+    "TEMPORAL_8": {
+      "complete": 959,
+      "gain_mechanism": {
+        "carriers": 40,
+        "evidence_chars": {
+          "max": 654.0,
+          "min": 165.0,
+          "n": 40,
+          "p10": 251.1,
+          "p50": 361.5,
+          "p90": 544.0
+        },
+        "evidence_direct_rank": {
+          "max": 265.0,
+          "min": 59.0,
+          "n": 40,
+          "p10": 66.9,
+          "p50": 112.5,
+          "p90": 171.60000000000002
+        },
+        "graph_distance": {
+          "max": 1.0,
+          "min": 1.0,
+          "n": 40,
+          "p10": 1.0,
+          "p50": 1.0,
+          "p90": 1.0
+        },
+        "items": 38,
+        "linked_chars_on_gain_items": {
+          "max": 4989.0,
+          "min": 2207.0,
+          "n": 38,
+          "p10": 2839.5,
+          "p50": 3513.5,
+          "p90": 4315.8
+        },
+        "multi_carrier_items": 2,
+        "rank_beyond_direct_selected_count": {
+          "max": 201.0,
+          "min": 0.0,
+          "n": 40,
+          "p10": 4.9,
+          "p50": 43.5,
+          "p90": 100.4
+        },
+        "relation": {
+          "next": 19,
+          "previous": 21
+        },
+        "seed_direct_rank": {
+          "max": 8.0,
+          "min": 1.0,
+          "n": 40,
+          "p10": 1.0,
+          "p50": 2.0,
+          "p90": 7.0
+        },
+        "seed_minus_evidence_score": {
+          "max": 0.40003225207328796,
+          "min": 0.06445655226707458,
+          "n": 40,
+          "p10": 0.09220148622989655,
+          "p50": 0.17378948628902435,
+          "p90": 0.32140471637248996
+        }
+      },
+      "gains": 38,
+      "loss_mechanism": {
+        "carriers": 14,
+        "direct_rank": {
+          "max": 70.0,
+          "min": 32.0,
+          "n": 14,
+          "p10": 42.3,
+          "p50": 58.0,
+          "p90": 68.80000000000001
+        },
+        "direct_selected_percentile": {
+          "max": 0.9827586206896551,
+          "min": 0.7441860465116279,
+          "n": 14,
+          "p10": 0.8020388111029231,
+          "p50": 0.9151932873838777,
+          "p90": 0.9705882352941176
+        },
+        "displaced_chars_on_loss_items": {
+          "max": 3060.0,
+          "min": 1073.0,
+          "n": 14,
+          "p10": 1405.4,
+          "p50": 2227.0,
+          "p90": 2787.4
+        },
+        "displaced_count_on_loss_items": {
+          "max": 15.0,
+          "min": 4.0,
+          "n": 14,
+          "p10": 5.3,
+          "p50": 8.5,
+          "p90": 12.0
+        },
+        "evidence_chars": {
+          "max": 664.0,
+          "min": 224.0,
+          "n": 14,
+          "p10": 264.2,
+          "p50": 374.5,
+          "p90": 629.8000000000002
+        },
+        "items": 14,
+        "linked_chars_on_loss_items": {
+          "max": 5560.0,
+          "min": 2296.0,
+          "n": 14,
+          "p10": 3014.1,
+          "p50": 3734.0,
+          "p90": 4471.1
+        },
+        "multi_carrier_items": 0,
+        "score": {
+          "max": 0.6629048585891724,
+          "min": 0.45639491081237793,
+          "n": 14,
+          "p10": 0.45716582238674164,
+          "p50": 0.5319273769855499,
+          "p90": 0.6143705606460572
+        }
+      },
+      "losses": 14
+    }
+  },
+  "calls": {
+    "cache_misses": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "claim_boundary": "mechanism explanation only; no moderator, selector, reader, or adoption",
+  "item_mechanisms_sha256": "fb6d92fb413c96ea433c2d2de4437b849b0be22c9344d2c4bb274e3b5eb8ac5d",
+  "local_vs_deep": {
+    "1": {
+      "event_gains": 21,
+      "event_losses": 17,
+      "event_only_gain_distance": {
+        "max": 6.0,
+        "min": 3.0,
+        "n": 4,
+        "p10": 3.0,
+        "p50": 3.5,
+        "p90": 5.4
+      },
+      "event_only_gains": 4,
+      "event_only_losses": 15,
+      "shared_gains": 17,
+      "shared_losses": 2,
+      "temporal_gains": 17,
+      "temporal_losses": 2,
+      "temporal_only_gains": 0
+    },
+    "16": {
+      "event_gains": 49,
+      "event_losses": 139,
+      "event_only_gain_distance": {
+        "max": 7.0,
+        "min": 2.0,
+        "n": 14,
+        "p10": 2.0,
+        "p50": 3.0,
+        "p90": 5.700000000000001
+      },
+      "event_only_gains": 13,
+      "event_only_losses": 120,
+      "shared_gains": 36,
+      "shared_losses": 19,
+      "temporal_gains": 51,
+      "temporal_losses": 23,
+      "temporal_only_gains": 15
+    },
+    "2": {
+      "event_gains": 32,
+      "event_losses": 28,
+      "event_only_gain_distance": {
+        "max": 7.0,
+        "min": 2.0,
+        "n": 11,
+        "p10": 2.0,
+        "p50": 3.0,
+        "p90": 6.0
+      },
+      "event_only_gains": 11,
+      "event_only_losses": 23,
+      "shared_gains": 21,
+      "shared_losses": 5,
+      "temporal_gains": 21,
+      "temporal_losses": 5,
+      "temporal_only_gains": 0
+    },
+    "4": {
+      "event_gains": 44,
+      "event_losses": 61,
+      "event_only_gain_distance": {
+        "max": 8.0,
+        "min": 2.0,
+        "n": 17,
+        "p10": 2.0,
+        "p50": 3.0,
+        "p90": 6.4
+      },
+      "event_only_gains": 17,
+      "event_only_losses": 56,
+      "shared_gains": 27,
+      "shared_losses": 5,
+      "temporal_gains": 27,
+      "temporal_losses": 6,
+      "temporal_only_gains": 0
+    },
+    "8": {
+      "event_gains": 50,
+      "event_losses": 127,
+      "event_only_gain_distance": {
+        "max": 8.0,
+        "min": 2.0,
+        "n": 18,
+        "p10": 2.0,
+        "p50": 3.0,
+        "p90": 6.300000000000001
+      },
+      "event_only_gains": 17,
+      "event_only_losses": 116,
+      "shared_gains": 33,
+      "shared_losses": 11,
+      "temporal_gains": 38,
+      "temporal_losses": 14,
+      "temporal_only_gains": 5
+    }
+  },
+  "population": 1098,
+  "schema": "da002-mechanism-decomposition-v1",
+  "standing": "post-outcome descriptive mechanism audit on spent LoCoMo",
+  "temporal_by_conversation": {
+    "1": {
+      "OTHER_FIVE_POOLED": {
+        "gain_mechanism": {
+          "carriers": 16,
+          "evidence_chars": {
+            "max": 544.0,
+            "min": 173.0,
+            "n": 16,
+            "p10": 214.0,
+            "p50": 371.0,
+            "p90": 495.0
+          },
+          "evidence_direct_rank": {
+            "max": 171.0,
+            "min": 59.0,
+            "n": 16,
+            "p10": 73.0,
+            "p50": 112.5,
+            "p90": 161.5
+          },
+          "graph_distance": {
+            "max": 1.0,
+            "min": 1.0,
+            "n": 16,
+            "p10": 1.0,
+            "p50": 1.0,
+            "p90": 1.0
+          },
+          "items": 16,
+          "linked_chars_on_gain_items": {
+            "max": 891.0,
+            "min": 361.0,
+            "n": 16,
+            "p10": 371.0,
+            "p50": 666.5,
+            "p90": 798.5
+          },
+          "multi_carrier_items": 0,
+          "rank_beyond_direct_selected_count": {
+            "max": 100.0,
+            "min": 4.0,
+            "n": 16,
+            "p10": 12.0,
+            "p50": 55.5,
+            "p90": 96.5
+          },
+          "relation": {
+            "next": 9,
+            "previous": 7
+          },
+          "seed_direct_rank": {
+            "max": 1.0,
+            "min": 1.0,
+            "n": 16,
+            "p10": 1.0,
+            "p50": 1.0,
+            "p90": 1.0
+          },
+          "seed_minus_evidence_score": {
+            "max": 0.40003225207328796,
+            "min": 0.14081883430480957,
+            "n": 16,
+            "p10": 0.15479759871959686,
+            "p50": 0.27288252115249634,
+            "p90": 0.36909447610378265
+          }
+        },
+        "gains": 16,
+        "loss_mechanism": {
+          "carriers": 0,
+          "direct_rank": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "direct_selected_percentile": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "displaced_chars_on_loss_items": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "displaced_count_on_loss_items": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "evidence_chars": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "items": 0,
+          "linked_chars_on_loss_items": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "multi_carrier_items": 0,
+          "score": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          }
+        },
+        "losses": 0
+      },
+      "conv-26": {
+        "gain_mechanism": {
+          "carriers": 7,
+          "evidence_chars": {
+            "max": 544.0,
+            "min": 253.0,
+            "n": 7,
+            "p10": 293.2,
+            "p50": 371.0,
+            "p90": 514.6
+          },
+          "evidence_direct_rank": {
+            "max": 170.0,
+            "min": 59.0,
+            "n": 7,
+            "p10": 84.2,
+            "p50": 117.0,
+            "p90": 151.4
+          },
+          "graph_distance": {
+            "max": 1.0,
+            "min": 1.0,
+            "n": 7,
+            "p10": 1.0,
+            "p50": 1.0,
+            "p90": 1.0
+          },
+          "items": 7,
+          "linked_chars_on_gain_items": {
+            "max": 795.0,
+            "min": 371.0,
+            "n": 7,
+            "p10": 371.0,
+            "p50": 660.0,
+            "p90": 721.8000000000001
+          },
+          "multi_carrier_items": 0,
+          "rank_beyond_direct_selected_count": {
+            "max": 98.0,
+            "min": 4.0,
+            "n": 7,
+            "p10": 25.000000000000004,
+            "p50": 60.0,
+            "p90": 81.80000000000001
+          },
+          "relation": {
+            "next": 3,
+            "previous": 4
+          },
+          "seed_direct_rank": {
+            "max": 1.0,
+            "min": 1.0,
+            "n": 7,
+            "p10": 1.0,
+            "p50": 1.0,
+            "p90": 1.0
+          },
+          "seed_minus_evidence_score": {
+            "max": 0.40003225207328796,
+            "min": 0.15235251188278198,
+            "n": 7,
+            "p10": 0.15528661608695984,
+            "p50": 0.23602229356765747,
+            "p90": 0.3957078158855438
+          }
+        },
+        "gains": 7,
+        "loss_mechanism": {
+          "carriers": 0,
+          "direct_rank": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "direct_selected_percentile": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "displaced_chars_on_loss_items": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "displaced_count_on_loss_items": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "evidence_chars": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "items": 0,
+          "linked_chars_on_loss_items": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "multi_carrier_items": 0,
+          "score": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          }
+        },
+        "losses": 0
+      },
+      "conv-30": {
+        "gain_mechanism": {
+          "carriers": 1,
+          "evidence_chars": {
+            "max": 472.0,
+            "min": 472.0,
+            "n": 1,
+            "p10": 472.0,
+            "p50": 472.0,
+            "p90": 472.0
+          },
+          "evidence_direct_rank": {
+            "max": 171.0,
+            "min": 171.0,
+            "n": 1,
+            "p10": 171.0,
+            "p50": 171.0,
+            "p90": 171.0
+          },
+          "graph_distance": {
+            "max": 1.0,
+            "min": 1.0,
+            "n": 1,
+            "p10": 1.0,
+            "p50": 1.0,
+            "p90": 1.0
+          },
+          "items": 1,
+          "linked_chars_on_gain_items": {
+            "max": 642.0,
+            "min": 642.0,
+            "n": 1,
+            "p10": 642.0,
+            "p50": 642.0,
+            "p90": 642.0
+          },
+          "multi_carrier_items": 0,
+          "rank_beyond_direct_selected_count": {
+            "max": 100.0,
+            "min": 100.0,
+            "n": 1,
+            "p10": 100.0,
+            "p50": 100.0,
+            "p90": 100.0
+          },
+          "relation": {
+            "next": 1
+          },
+          "seed_direct_rank": {
+            "max": 1.0,
+            "min": 1.0,
+            "n": 1,
+            "p10": 1.0,
+            "p50": 1.0,
+            "p90": 1.0
+          },
+          "seed_minus_evidence_score": {
+            "max": 0.32951080799102783,
+            "min": 0.32951080799102783,
+            "n": 1,
+            "p10": 0.32951080799102783,
+            "p50": 0.32951080799102783,
+            "p90": 0.32951080799102783
+          }
+        },
+        "gains": 1,
+        "loss_mechanism": {
+          "carriers": 0,
+          "direct_rank": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "direct_selected_percentile": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "displaced_chars_on_loss_items": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "displaced_count_on_loss_items": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "evidence_chars": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "items": 0,
+          "linked_chars_on_loss_items": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "multi_carrier_items": 0,
+          "score": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          }
+        },
+        "losses": 0
+      },
+      "conv-43": {
+        "gain_mechanism": {
+          "carriers": 4,
+          "evidence_chars": {
+            "max": 427.0,
+            "min": 352.0,
+            "n": 4,
+            "p10": 362.5,
+            "p50": 387.0,
+            "p90": 415.0
+          },
+          "evidence_direct_rank": {
+            "max": 148.0,
+            "min": 76.0,
+            "n": 4,
+            "p10": 79.3,
+            "p50": 111.0,
+            "p90": 144.1
+          },
+          "graph_distance": {
+            "max": 1.0,
+            "min": 1.0,
+            "n": 4,
+            "p10": 1.0,
+            "p50": 1.0,
+            "p90": 1.0
+          },
+          "items": 4,
+          "linked_chars_on_gain_items": {
+            "max": 891.0,
+            "min": 686.0,
+            "n": 4,
+            "p10": 686.0,
+            "p50": 686.5,
+            "p90": 829.8000000000001
+          },
+          "multi_carrier_items": 0,
+          "rank_beyond_direct_selected_count": {
+            "max": 70.0,
+            "min": 4.0,
+            "n": 4,
+            "p10": 10.600000000000001,
+            "p50": 46.5,
+            "p90": 69.1
+          },
+          "relation": {
+            "next": 3,
+            "previous": 1
+          },
+          "seed_direct_rank": {
+            "max": 1.0,
+            "min": 1.0,
+            "n": 4,
+            "p10": 1.0,
+            "p50": 1.0,
+            "p90": 1.0
+          },
+          "seed_minus_evidence_score": {
+            "max": 0.3453640937805176,
+            "min": 0.14081883430480957,
+            "n": 4,
+            "p10": 0.1806016445159912,
+            "p50": 0.28139427304267883,
+            "p90": 0.3285629689693451
+          }
+        },
+        "gains": 4,
+        "loss_mechanism": {
+          "carriers": 0,
+          "direct_rank": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "direct_selected_percentile": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "displaced_chars_on_loss_items": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "displaced_count_on_loss_items": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "evidence_chars": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "items": 0,
+          "linked_chars_on_loss_items": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "multi_carrier_items": 0,
+          "score": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          }
+        },
+        "losses": 0
+      },
+      "conv-44": {
+        "gain_mechanism": {
+          "carriers": 1,
+          "evidence_chars": {
+            "max": 165.0,
+            "min": 165.0,
+            "n": 1,
+            "p10": 165.0,
+            "p50": 165.0,
+            "p90": 165.0
+          },
+          "evidence_direct_rank": {
+            "max": 198.0,
+            "min": 198.0,
+            "n": 1,
+            "p10": 198.0,
+            "p50": 198.0,
+            "p90": 198.0
+          },
+          "graph_distance": {
+            "max": 1.0,
+            "min": 1.0,
+            "n": 1,
+            "p10": 1.0,
+            "p50": 1.0,
+            "p90": 1.0
+          },
+          "items": 1,
+          "linked_chars_on_gain_items": {
+            "max": 469.0,
+            "min": 469.0,
+            "n": 1,
+            "p10": 469.0,
+            "p50": 469.0,
+            "p90": 469.0
+          },
+          "multi_carrier_items": 0,
+          "rank_beyond_direct_selected_count": {
+            "max": 126.0,
+            "min": 126.0,
+            "n": 1,
+            "p10": 126.0,
+            "p50": 126.0,
+            "p90": 126.0
+          },
+          "relation": {
+            "next": 1
+          },
+          "seed_direct_rank": {
+            "max": 1.0,
+            "min": 1.0,
+            "n": 1,
+            "p10": 1.0,
+            "p50": 1.0,
+            "p90": 1.0
+          },
+          "seed_minus_evidence_score": {
+            "max": 0.18676435947418213,
+            "min": 0.18676435947418213,
+            "n": 1,
+            "p10": 0.18676435947418213,
+            "p50": 0.18676435947418213,
+            "p90": 0.18676435947418213
+          }
+        },
+        "gains": 1,
+        "loss_mechanism": {
+          "carriers": 2,
+          "direct_rank": {
+            "max": 66.0,
+            "min": 57.0,
+            "n": 2,
+            "p10": 57.9,
+            "p50": 61.5,
+            "p90": 65.1
+          },
+          "direct_selected_percentile": {
+            "max": 0.9827586206896551,
+            "min": 0.9705882352941176,
+            "n": 2,
+            "p10": 0.9718052738336714,
+            "p50": 0.9766734279918864,
+            "p90": 0.9815415821501013
+          },
+          "displaced_chars_on_loss_items": {
+            "max": 485.0,
+            "min": 395.0,
+            "n": 2,
+            "p10": 404.0,
+            "p50": 440.0,
+            "p90": 476.0
+          },
+          "displaced_count_on_loss_items": {
+            "max": 3.0,
+            "min": 2.0,
+            "n": 2,
+            "p10": 2.1,
+            "p50": 2.5,
+            "p90": 2.9
+          },
+          "evidence_chars": {
+            "max": 378.0,
+            "min": 257.0,
+            "n": 2,
+            "p10": 269.1,
+            "p50": 317.5,
+            "p90": 365.9
+          },
+          "items": 2,
+          "linked_chars_on_loss_items": {
+            "max": 487.0,
+            "min": 433.0,
+            "n": 2,
+            "p10": 438.4,
+            "p50": 460.0,
+            "p90": 481.6
+          },
+          "multi_carrier_items": 0,
+          "score": {
+            "max": 0.5243371725082397,
+            "min": 0.49169066548347473,
+            "n": 2,
+            "p10": 0.49495531618595123,
+            "p50": 0.5080139189958572,
+            "p90": 0.5210725218057632
+          }
+        },
+        "losses": 2
+      },
+      "conv-49": {
+        "gain_mechanism": {
+          "carriers": 2,
+          "evidence_chars": {
+            "max": 371.0,
+            "min": 173.0,
+            "n": 2,
+            "p10": 192.8,
+            "p50": 272.0,
+            "p90": 351.2
+          },
+          "evidence_direct_rank": {
+            "max": 153.0,
+            "min": 83.0,
+            "n": 2,
+            "p10": 90.0,
+            "p50": 118.0,
+            "p90": 146.0
+          },
+          "graph_distance": {
+            "max": 1.0,
+            "min": 1.0,
+            "n": 2,
+            "p10": 1.0,
+            "p50": 1.0,
+            "p90": 1.0
+          },
+          "items": 2,
+          "linked_chars_on_gain_items": {
+            "max": 761.0,
+            "min": 361.0,
+            "n": 2,
+            "p10": 401.0,
+            "p50": 561.0,
+            "p90": 721.0
+          },
+          "multi_carrier_items": 0,
+          "rank_beyond_direct_selected_count": {
+            "max": 95.0,
+            "min": 20.0,
+            "n": 2,
+            "p10": 27.5,
+            "p50": 57.5,
+            "p90": 87.5
+          },
+          "relation": {
+            "previous": 2
+          },
+          "seed_direct_rank": {
+            "max": 1.0,
+            "min": 1.0,
+            "n": 2,
+            "p10": 1.0,
+            "p50": 1.0,
+            "p90": 1.0
+          },
+          "seed_minus_evidence_score": {
+            "max": 0.27233684062957764,
+            "min": 0.18030259013175964,
+            "n": 2,
+            "p10": 0.18950601518154145,
+            "p50": 0.22631971538066864,
+            "p90": 0.26313341557979586
+          }
+        },
+        "gains": 2,
+        "loss_mechanism": {
+          "carriers": 0,
+          "direct_rank": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "direct_selected_percentile": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "displaced_chars_on_loss_items": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "displaced_count_on_loss_items": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "evidence_chars": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "items": 0,
+          "linked_chars_on_loss_items": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "multi_carrier_items": 0,
+          "score": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          }
+        },
+        "losses": 0
+      },
+      "conv-50": {
+        "gain_mechanism": {
+          "carriers": 2,
+          "evidence_chars": {
+            "max": 265.0,
+            "min": 175.0,
+            "n": 2,
+            "p10": 184.0,
+            "p50": 220.0,
+            "p90": 256.0
+          },
+          "evidence_direct_rank": {
+            "max": 98.0,
+            "min": 70.0,
+            "n": 2,
+            "p10": 72.8,
+            "p50": 84.0,
+            "p90": 95.2
+          },
+          "graph_distance": {
+            "max": 1.0,
+            "min": 1.0,
+            "n": 2,
+            "p10": 1.0,
+            "p50": 1.0,
+            "p90": 1.0
+          },
+          "items": 2,
+          "linked_chars_on_gain_items": {
+            "max": 802.0,
+            "min": 392.0,
+            "n": 2,
+            "p10": 433.0,
+            "p50": 597.0,
+            "p90": 761.0
+          },
+          "multi_carrier_items": 0,
+          "rank_beyond_direct_selected_count": {
+            "max": 51.0,
+            "min": 21.0,
+            "n": 2,
+            "p10": 24.0,
+            "p50": 36.0,
+            "p90": 48.0
+          },
+          "relation": {
+            "next": 2
+          },
+          "seed_direct_rank": {
+            "max": 1.0,
+            "min": 1.0,
+            "n": 2,
+            "p10": 1.0,
+            "p50": 1.0,
+            "p90": 1.0
+          },
+          "seed_minus_evidence_score": {
+            "max": 0.3205040395259857,
+            "min": 0.16346704959869385,
+            "n": 2,
+            "p10": 0.17917074859142304,
+            "p50": 0.24198554456233978,
+            "p90": 0.30480034053325655
+          }
+        },
+        "gains": 2,
+        "loss_mechanism": {
+          "carriers": 0,
+          "direct_rank": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "direct_selected_percentile": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "displaced_chars_on_loss_items": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "displaced_count_on_loss_items": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "evidence_chars": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "items": 0,
+          "linked_chars_on_loss_items": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "multi_carrier_items": 0,
+          "score": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          }
+        },
+        "losses": 0
+      }
+    },
+    "16": {
+      "OTHER_FIVE_POOLED": {
+        "gain_mechanism": {
+          "carriers": 53,
+          "evidence_chars": {
+            "max": 654.0,
+            "min": 155.0,
+            "n": 53,
+            "p10": 232.4,
+            "p50": 319.0,
+            "p90": 498.20000000000005
+          },
+          "evidence_direct_rank": {
+            "max": 265.0,
+            "min": 59.0,
+            "n": 53,
+            "p10": 66.2,
+            "p50": 112.0,
+            "p90": 169.8
+          },
+          "graph_distance": {
+            "max": 1.0,
+            "min": 1.0,
+            "n": 53,
+            "p10": 1.0,
+            "p50": 1.0,
+            "p90": 1.0
+          },
+          "items": 50,
+          "linked_chars_on_gain_items": {
+            "max": 8393.0,
+            "min": 3897.0,
+            "n": 50,
+            "p10": 5255.4,
+            "p50": 6743.5,
+            "p90": 7773.6
+          },
+          "multi_carrier_items": 3,
+          "rank_beyond_direct_selected_count": {
+            "max": 201.0,
+            "min": 0.0,
+            "n": 53,
+            "p10": 4.2,
+            "p50": 43.0,
+            "p90": 99.60000000000001
+          },
+          "relation": {
+            "next": 27,
+            "previous": 26
+          },
+          "seed_direct_rank": {
+            "max": 16.0,
+            "min": 1.0,
+            "n": 53,
+            "p10": 1.0,
+            "p50": 4.0,
+            "p90": 12.800000000000004
+          },
+          "seed_minus_evidence_score": {
+            "max": 0.40003225207328796,
+            "min": 0.04156157374382019,
+            "n": 53,
+            "p10": 0.08628625869750976,
+            "p50": 0.15320497751235962,
+            "p90": 0.29119018316268924
+          }
+        },
+        "gains": 50,
+        "loss_mechanism": {
+          "carriers": 15,
+          "direct_rank": {
+            "max": 70.0,
+            "min": 26.0,
+            "n": 15,
+            "p10": 42.0,
+            "p50": 54.0,
+            "p90": 68.0
+          },
+          "direct_selected_percentile": {
+            "max": 0.9516129032258065,
+            "min": 0.5652173913043478,
+            "n": 15,
+            "p10": 0.7319553338085056,
+            "p50": 0.875,
+            "p90": 0.933764750666159
+          },
+          "displaced_chars_on_loss_items": {
+            "max": 5792.0,
+            "min": 2579.0,
+            "n": 15,
+            "p10": 3408.6,
+            "p50": 4658.0,
+            "p90": 5364.2
+          },
+          "displaced_count_on_loss_items": {
+            "max": 27.0,
+            "min": 12.0,
+            "n": 15,
+            "p10": 13.0,
+            "p50": 17.0,
+            "p90": 23.0
+          },
+          "evidence_chars": {
+            "max": 664.0,
+            "min": 199.0,
+            "n": 15,
+            "p10": 222.2,
+            "p50": 353.0,
+            "p90": 660.0
+          },
+          "items": 15,
+          "linked_chars_on_loss_items": {
+            "max": 8612.0,
+            "min": 5143.0,
+            "n": 15,
+            "p10": 6148.8,
+            "p50": 6900.0,
+            "p90": 7914.2
+          },
+          "multi_carrier_items": 0,
+          "score": {
+            "max": 0.6629048585891724,
+            "min": 0.45639491081237793,
+            "n": 15,
+            "p10": 0.4607232689857483,
+            "p50": 0.5371254682540894,
+            "p90": 0.6364930152893067
+          }
+        },
+        "losses": 15
+      },
+      "conv-26": {
+        "gain_mechanism": {
+          "carriers": 17,
+          "evidence_chars": {
+            "max": 601.0,
+            "min": 253.0,
+            "n": 17,
+            "p10": 253.0,
+            "p50": 371.0,
+            "p90": 544.0
+          },
+          "evidence_direct_rank": {
+            "max": 170.0,
+            "min": 59.0,
+            "n": 17,
+            "p10": 80.2,
+            "p50": 117.0,
+            "p90": 147.0
+          },
+          "graph_distance": {
+            "max": 1.0,
+            "min": 1.0,
+            "n": 17,
+            "p10": 1.0,
+            "p50": 1.0,
+            "p90": 1.0
+          },
+          "items": 16,
+          "linked_chars_on_gain_items": {
+            "max": 8393.0,
+            "min": 5774.0,
+            "n": 16,
+            "p10": 5983.0,
+            "p50": 7159.0,
+            "p90": 7832.0
+          },
+          "multi_carrier_items": 1,
+          "rank_beyond_direct_selected_count": {
+            "max": 101.0,
+            "min": 0.0,
+            "n": 17,
+            "p10": 19.6,
+            "p50": 54.0,
+            "p90": 81.80000000000001
+          },
+          "relation": {
+            "next": 9,
+            "previous": 8
+          },
+          "seed_direct_rank": {
+            "max": 14.0,
+            "min": 1.0,
+            "n": 17,
+            "p10": 1.0,
+            "p50": 2.0,
+            "p90": 12.0
+          },
+          "seed_minus_evidence_score": {
+            "max": 0.40003225207328796,
+            "min": 0.0922575294971466,
+            "n": 17,
+            "p10": 0.11578724384307862,
+            "p50": 0.15850934386253357,
+            "p90": 0.33211852908134465
+          }
+        },
+        "gains": 16,
+        "loss_mechanism": {
+          "carriers": 5,
+          "direct_rank": {
+            "max": 70.0,
+            "min": 54.0,
+            "n": 5,
+            "p10": 55.2,
+            "p50": 59.0,
+            "p90": 66.0
+          },
+          "direct_selected_percentile": {
+            "max": 0.9516129032258065,
+            "min": 0.8181818181818182,
+            "n": 5,
+            "p10": 0.8528138528138528,
+            "p50": 0.9090909090909091,
+            "p90": 0.9493461203138622
+          },
+          "displaced_chars_on_loss_items": {
+            "max": 5792.0,
+            "min": 3673.0,
+            "n": 5,
+            "p10": 3707.0,
+            "p50": 5066.0,
+            "p90": 5509.6
+          },
+          "displaced_count_on_loss_items": {
+            "max": 23.0,
+            "min": 14.0,
+            "n": 5,
+            "p10": 15.2,
+            "p50": 17.0,
+            "p90": 22.6
+          },
+          "evidence_chars": {
+            "max": 354.0,
+            "min": 199.0,
+            "n": 5,
+            "p10": 207.8,
+            "p50": 343.0,
+            "p90": 353.6
+          },
+          "items": 5,
+          "linked_chars_on_loss_items": {
+            "max": 8612.0,
+            "min": 6393.0,
+            "n": 5,
+            "p10": 6688.2,
+            "p50": 7142.0,
+            "p90": 8279.6
+          },
+          "multi_carrier_items": 0,
+          "score": {
+            "max": 0.5290983319282532,
+            "min": 0.45639491081237793,
+            "n": 5,
+            "p10": 0.45701816082000735,
+            "p50": 0.4648786187171936,
+            "p90": 0.5128830552101136
+          }
+        },
+        "losses": 5
+      },
+      "conv-30": {
+        "gain_mechanism": {
+          "carriers": 4,
+          "evidence_chars": {
+            "max": 499.0,
+            "min": 234.0,
+            "n": 4,
+            "p10": 241.2,
+            "p50": 365.0,
+            "p90": 490.9
+          },
+          "evidence_direct_rank": {
+            "max": 171.0,
+            "min": 66.0,
+            "n": 4,
+            "p10": 83.4,
+            "p50": 146.5,
+            "p90": 170.4
+          },
+          "graph_distance": {
+            "max": 1.0,
+            "min": 1.0,
+            "n": 4,
+            "p10": 1.0,
+            "p50": 1.0,
+            "p90": 1.0
+          },
+          "items": 4,
+          "linked_chars_on_gain_items": {
+            "max": 6837.0,
+            "min": 4798.0,
+            "n": 4,
+            "p10": 5050.6,
+            "p50": 5760.5,
+            "p90": 6550.2
+          },
+          "multi_carrier_items": 0,
+          "rank_beyond_direct_selected_count": {
+            "max": 100.0,
+            "min": 7.0,
+            "n": 4,
+            "p10": 23.200000000000003,
+            "p50": 74.0,
+            "p90": 96.10000000000001
+          },
+          "relation": {
+            "next": 1,
+            "previous": 3
+          },
+          "seed_direct_rank": {
+            "max": 12.0,
+            "min": 1.0,
+            "n": 4,
+            "p10": 1.3,
+            "p50": 2.5,
+            "p90": 9.3
+          },
+          "seed_minus_evidence_score": {
+            "max": 0.32951080799102783,
+            "min": 0.15320497751235962,
+            "n": 4,
+            "p10": 0.15540637373924254,
+            "p50": 0.20193347334861755,
+            "p90": 0.3036547601222992
+          }
+        },
+        "gains": 4,
+        "loss_mechanism": {
+          "carriers": 1,
+          "direct_rank": {
+            "max": 42.0,
+            "min": 42.0,
+            "n": 1,
+            "p10": 42.0,
+            "p50": 42.0,
+            "p90": 42.0
+          },
+          "direct_selected_percentile": {
+            "max": 0.6885245901639344,
+            "min": 0.6885245901639344,
+            "n": 1,
+            "p10": 0.6885245901639344,
+            "p50": 0.6885245901639344,
+            "p90": 0.6885245901639344
+          },
+          "displaced_chars_on_loss_items": {
+            "max": 3283.0,
+            "min": 3283.0,
+            "n": 1,
+            "p10": 3283.0,
+            "p50": 3283.0,
+            "p90": 3283.0
+          },
+          "displaced_count_on_loss_items": {
+            "max": 14.0,
+            "min": 14.0,
+            "n": 1,
+            "p10": 14.0,
+            "p50": 14.0,
+            "p90": 14.0
+          },
+          "evidence_chars": {
+            "max": 309.0,
+            "min": 309.0,
+            "n": 1,
+            "p10": 309.0,
+            "p50": 309.0,
+            "p90": 309.0
+          },
+          "items": 1,
+          "linked_chars_on_loss_items": {
+            "max": 6034.0,
+            "min": 6034.0,
+            "n": 1,
+            "p10": 6034.0,
+            "p50": 6034.0,
+            "p90": 6034.0
+          },
+          "multi_carrier_items": 0,
+          "score": {
+            "max": 0.5371254682540894,
+            "min": 0.5371254682540894,
+            "n": 1,
+            "p10": 0.5371254682540894,
+            "p50": 0.5371254682540894,
+            "p90": 0.5371254682540894
+          }
+        },
+        "losses": 1
+      },
+      "conv-43": {
+        "gain_mechanism": {
+          "carriers": 14,
+          "evidence_chars": {
+            "max": 495.0,
+            "min": 166.0,
+            "n": 14,
+            "p10": 238.6,
+            "p50": 333.5,
+            "p90": 425.8
+          },
+          "evidence_direct_rank": {
+            "max": 265.0,
+            "min": 76.0,
+            "n": 14,
+            "p10": 84.9,
+            "p50": 113.0,
+            "p90": 196.30000000000007
+          },
+          "graph_distance": {
+            "max": 1.0,
+            "min": 1.0,
+            "n": 14,
+            "p10": 1.0,
+            "p50": 1.0,
+            "p90": 1.0
+          },
+          "items": 13,
+          "linked_chars_on_gain_items": {
+            "max": 7757.0,
+            "min": 3897.0,
+            "n": 13,
+            "p10": 5176.4,
+            "p50": 6305.0,
+            "p90": 7615.6
+          },
+          "multi_carrier_items": 1,
+          "rank_beyond_direct_selected_count": {
+            "max": 201.0,
+            "min": 4.0,
+            "n": 14,
+            "p10": 6.6,
+            "p50": 36.5,
+            "p90": 122.60000000000008
+          },
+          "relation": {
+            "next": 10,
+            "previous": 4
+          },
+          "seed_direct_rank": {
+            "max": 16.0,
+            "min": 1.0,
+            "n": 14,
+            "p10": 1.0,
+            "p50": 3.5,
+            "p90": 13.800000000000004
+          },
+          "seed_minus_evidence_score": {
+            "max": 0.3453640937805176,
+            "min": 0.08613893389701843,
+            "n": 14,
+            "p10": 0.08862956166267395,
+            "p50": 0.14027681946754456,
+            "p90": 0.2845807015895844
+          }
+        },
+        "gains": 13,
+        "loss_mechanism": {
+          "carriers": 1,
+          "direct_rank": {
+            "max": 65.0,
+            "min": 65.0,
+            "n": 1,
+            "p10": 65.0,
+            "p50": 65.0,
+            "p90": 65.0
+          },
+          "direct_selected_percentile": {
+            "max": 0.9154929577464789,
+            "min": 0.9154929577464789,
+            "n": 1,
+            "p10": 0.9154929577464789,
+            "p50": 0.9154929577464789,
+            "p90": 0.9154929577464789
+          },
+          "displaced_chars_on_loss_items": {
+            "max": 2579.0,
+            "min": 2579.0,
+            "n": 1,
+            "p10": 2579.0,
+            "p50": 2579.0,
+            "p90": 2579.0
+          },
+          "displaced_count_on_loss_items": {
+            "max": 12.0,
+            "min": 12.0,
+            "n": 1,
+            "p10": 12.0,
+            "p50": 12.0,
+            "p90": 12.0
+          },
+          "evidence_chars": {
+            "max": 371.0,
+            "min": 371.0,
+            "n": 1,
+            "p10": 371.0,
+            "p50": 371.0,
+            "p90": 371.0
+          },
+          "items": 1,
+          "linked_chars_on_loss_items": {
+            "max": 5143.0,
+            "min": 5143.0,
+            "n": 1,
+            "p10": 5143.0,
+            "p50": 5143.0,
+            "p90": 5143.0
+          },
+          "multi_carrier_items": 0,
+          "score": {
+            "max": 0.5561751127243042,
+            "min": 0.5561751127243042,
+            "n": 1,
+            "p10": 0.5561751127243042,
+            "p50": 0.5561751127243042,
+            "p90": 0.5561751127243042
+          }
+        },
+        "losses": 1
+      },
+      "conv-44": {
+        "gain_mechanism": {
+          "carriers": 1,
+          "evidence_chars": {
+            "max": 165.0,
+            "min": 165.0,
+            "n": 1,
+            "p10": 165.0,
+            "p50": 165.0,
+            "p90": 165.0
+          },
+          "evidence_direct_rank": {
+            "max": 198.0,
+            "min": 198.0,
+            "n": 1,
+            "p10": 198.0,
+            "p50": 198.0,
+            "p90": 198.0
+          },
+          "graph_distance": {
+            "max": 1.0,
+            "min": 1.0,
+            "n": 1,
+            "p10": 1.0,
+            "p50": 1.0,
+            "p90": 1.0
+          },
+          "items": 1,
+          "linked_chars_on_gain_items": {
+            "max": 5513.0,
+            "min": 5513.0,
+            "n": 1,
+            "p10": 5513.0,
+            "p50": 5513.0,
+            "p90": 5513.0
+          },
+          "multi_carrier_items": 0,
+          "rank_beyond_direct_selected_count": {
+            "max": 126.0,
+            "min": 126.0,
+            "n": 1,
+            "p10": 126.0,
+            "p50": 126.0,
+            "p90": 126.0
+          },
+          "relation": {
+            "next": 1
+          },
+          "seed_direct_rank": {
+            "max": 1.0,
+            "min": 1.0,
+            "n": 1,
+            "p10": 1.0,
+            "p50": 1.0,
+            "p90": 1.0
+          },
+          "seed_minus_evidence_score": {
+            "max": 0.18676435947418213,
+            "min": 0.18676435947418213,
+            "n": 1,
+            "p10": 0.18676435947418213,
+            "p50": 0.18676435947418213,
+            "p90": 0.18676435947418213
+          }
+        },
+        "gains": 1,
+        "loss_mechanism": {
+          "carriers": 9,
+          "direct_rank": {
+            "max": 66.0,
+            "min": 47.0,
+            "n": 9,
+            "p10": 51.0,
+            "p50": 56.0,
+            "p90": 66.0
+          },
+          "direct_selected_percentile": {
+            "max": 0.9827586206896551,
+            "min": 0.7536231884057971,
+            "n": 9,
+            "p10": 0.7571762505843852,
+            "p50": 0.8208955223880597,
+            "p90": 0.9730223123732251
+          },
+          "displaced_chars_on_loss_items": {
+            "max": 4505.0,
+            "min": 2482.0,
+            "n": 8,
+            "p10": 2654.9,
+            "p50": 3280.5,
+            "p90": 4094.1
+          },
+          "displaced_count_on_loss_items": {
+            "max": 21.0,
+            "min": 11.0,
+            "n": 8,
+            "p10": 11.0,
+            "p50": 13.5,
+            "p90": 19.6
+          },
+          "evidence_chars": {
+            "max": 436.0,
+            "min": 198.0,
+            "n": 9,
+            "p10": 245.2,
+            "p50": 378.0,
+            "p90": 424.0
+          },
+          "items": 8,
+          "linked_chars_on_loss_items": {
+            "max": 6394.0,
+            "min": 5152.0,
+            "n": 8,
+            "p10": 5215.0,
+            "p50": 5466.5,
+            "p90": 6093.0
+          },
+          "multi_carrier_items": 1,
+          "score": {
+            "max": 0.6126632690429688,
+            "min": 0.49169066548347473,
+            "n": 9,
+            "p10": 0.5178078711032867,
+            "p50": 0.5517204999923706,
+            "p90": 0.5978350162506103
+          }
+        },
+        "losses": 8
+      },
+      "conv-49": {
+        "gain_mechanism": {
+          "carriers": 13,
+          "evidence_chars": {
+            "max": 401.0,
+            "min": 155.0,
+            "n": 13,
+            "p10": 174.4,
+            "p50": 313.0,
+            "p90": 383.8
+          },
+          "evidence_direct_rank": {
+            "max": 181.0,
+            "min": 63.0,
+            "n": 13,
+            "p10": 65.0,
+            "p50": 120.0,
+            "p90": 174.20000000000002
+          },
+          "graph_distance": {
+            "max": 1.0,
+            "min": 1.0,
+            "n": 13,
+            "p10": 1.0,
+            "p50": 1.0,
+            "p90": 1.0
+          },
+          "items": 12,
+          "linked_chars_on_gain_items": {
+            "max": 7875.0,
+            "min": 4902.0,
+            "n": 12,
+            "p10": 5115.9,
+            "p50": 6123.0,
+            "p90": 7587.1
+          },
+          "multi_carrier_items": 1,
+          "rank_beyond_direct_selected_count": {
+            "max": 107.0,
+            "min": 1.0,
+            "n": 13,
+            "p10": 4.2,
+            "p50": 54.0,
+            "p90": 102.2
+          },
+          "relation": {
+            "next": 4,
+            "previous": 9
+          },
+          "seed_direct_rank": {
+            "max": 13.0,
+            "min": 1.0,
+            "n": 13,
+            "p10": 1.2000000000000002,
+            "p50": 5.0,
+            "p90": 12.600000000000001
+          },
+          "seed_minus_evidence_score": {
+            "max": 0.27233684062957764,
+            "min": 0.04156157374382019,
+            "n": 13,
+            "p10": 0.07361689805984498,
+            "p50": 0.14278101921081543,
+            "p90": 0.25824663639068607
+          }
+        },
+        "gains": 12,
+        "loss_mechanism": {
+          "carriers": 3,
+          "direct_rank": {
+            "max": 70.0,
+            "min": 49.0,
+            "n": 3,
+            "p10": 50.2,
+            "p50": 55.0,
+            "p90": 67.0
+          },
+          "direct_selected_percentile": {
+            "max": 0.8974358974358975,
+            "min": 0.7971014492753623,
+            "n": 3,
+            "p10": 0.8066466766616691,
+            "p50": 0.8448275862068966,
+            "p90": 0.8869142351900973
+          },
+          "displaced_chars_on_loss_items": {
+            "max": 5330.0,
+            "min": 3840.0,
+            "n": 3,
+            "p10": 4001.4,
+            "p50": 4647.0,
+            "p90": 5193.4
+          },
+          "displaced_count_on_loss_items": {
+            "max": 27.0,
+            "min": 18.0,
+            "n": 3,
+            "p10": 19.0,
+            "p50": 23.0,
+            "p90": 26.2
+          },
+          "evidence_chars": {
+            "max": 664.0,
+            "min": 224.0,
+            "n": 3,
+            "p10": 312.0,
+            "p50": 664.0,
+            "p90": 664.0
+          },
+          "items": 3,
+          "linked_chars_on_loss_items": {
+            "max": 7039.0,
+            "min": 6585.0,
+            "n": 3,
+            "p10": 6643.2,
+            "p50": 6876.0,
+            "p90": 7006.4
+          },
+          "multi_carrier_items": 0,
+          "score": {
+            "max": 0.5459946393966675,
+            "min": 0.4837423264980316,
+            "n": 3,
+            "p10": 0.48798532485961915,
+            "p50": 0.5049573183059692,
+            "p90": 0.5377871751785278
+          }
+        },
+        "losses": 3
+      },
+      "conv-50": {
+        "gain_mechanism": {
+          "carriers": 5,
+          "evidence_chars": {
+            "max": 654.0,
+            "min": 175.0,
+            "n": 5,
+            "p10": 211.0,
+            "p50": 291.0,
+            "p90": 520.0
+          },
+          "evidence_direct_rank": {
+            "max": 98.0,
+            "min": 59.0,
+            "n": 5,
+            "p10": 60.6,
+            "p50": 70.0,
+            "p90": 88.8
+          },
+          "graph_distance": {
+            "max": 1.0,
+            "min": 1.0,
+            "n": 5,
+            "p10": 1.0,
+            "p50": 1.0,
+            "p90": 1.0
+          },
+          "items": 5,
+          "linked_chars_on_gain_items": {
+            "max": 8391.0,
+            "min": 6382.0,
+            "n": 5,
+            "p10": 6778.8,
+            "p50": 7406.0,
+            "p90": 8125.0
+          },
+          "multi_carrier_items": 0,
+          "rank_beyond_direct_selected_count": {
+            "max": 51.0,
+            "min": 2.0,
+            "n": 5,
+            "p10": 4.4,
+            "p50": 11.0,
+            "p90": 39.0
+          },
+          "relation": {
+            "next": 3,
+            "previous": 2
+          },
+          "seed_direct_rank": {
+            "max": 15.0,
+            "min": 1.0,
+            "n": 5,
+            "p10": 1.0,
+            "p50": 5.0,
+            "p90": 11.4
+          },
+          "seed_minus_evidence_score": {
+            "max": 0.3205040395259857,
+            "min": 0.06445655226707458,
+            "n": 5,
+            "p10": 0.06771212220191955,
+            "p50": 0.091697096824646,
+            "p90": 0.257689243555069
+          }
+        },
+        "gains": 5,
+        "loss_mechanism": {
+          "carriers": 5,
+          "direct_rank": {
+            "max": 48.0,
+            "min": 26.0,
+            "n": 5,
+            "p10": 32.4,
+            "p50": 43.0,
+            "p90": 47.2
+          },
+          "direct_selected_percentile": {
+            "max": 0.9148936170212766,
+            "min": 0.5652173913043478,
+            "n": 5,
+            "p10": 0.664554163596168,
+            "p50": 0.8518518518518519,
+            "p90": 0.898936170212766
+          },
+          "displaced_chars_on_loss_items": {
+            "max": 5387.0,
+            "min": 3597.0,
+            "n": 5,
+            "p10": 4021.4,
+            "p50": 4806.0,
+            "p90": 5303.0
+          },
+          "displaced_count_on_loss_items": {
+            "max": 22.0,
+            "min": 13.0,
+            "n": 5,
+            "p10": 13.0,
+            "p50": 14.0,
+            "p90": 19.2
+          },
+          "evidence_chars": {
+            "max": 654.0,
+            "min": 281.0,
+            "n": 5,
+            "p10": 281.0,
+            "p50": 443.0,
+            "p90": 612.4
+          },
+          "items": 5,
+          "linked_chars_on_loss_items": {
+            "max": 8003.0,
+            "min": 6321.0,
+            "n": 5,
+            "p10": 6539.4,
+            "p50": 6900.0,
+            "p90": 7830.2
+          },
+          "multi_carrier_items": 0,
+          "score": {
+            "max": 0.6629048585891724,
+            "min": 0.5395175814628601,
+            "n": 5,
+            "p10": 0.5562132954597473,
+            "p50": 0.6360029578208923,
+            "p90": 0.6524708032608032
+          }
+        },
+        "losses": 5
+      }
+    },
+    "2": {
+      "OTHER_FIVE_POOLED": {
+        "gain_mechanism": {
+          "carriers": 20,
+          "evidence_chars": {
+            "max": 601.0,
+            "min": 173.0,
+            "n": 20,
+            "p10": 245.20000000000002,
+            "p50": 387.0,
+            "p90": 503.50000000000006
+          },
+          "evidence_direct_rank": {
+            "max": 171.0,
+            "min": 59.0,
+            "n": 20,
+            "p10": 75.4,
+            "p50": 112.5,
+            "p90": 169.1
+          },
+          "graph_distance": {
+            "max": 1.0,
+            "min": 1.0,
+            "n": 20,
+            "p10": 1.0,
+            "p50": 1.0,
+            "p90": 1.0
+          },
+          "items": 20,
+          "linked_chars_on_gain_items": {
+            "max": 1772.0,
+            "min": 821.0,
+            "n": 20,
+            "p10": 869.5,
+            "p50": 1190.5,
+            "p90": 1487.9
+          },
+          "multi_carrier_items": 0,
+          "rank_beyond_direct_selected_count": {
+            "max": 100.0,
+            "min": 4.0,
+            "n": 20,
+            "p10": 18.400000000000002,
+            "p50": 52.5,
+            "p90": 95.30000000000001
+          },
+          "relation": {
+            "next": 12,
+            "previous": 8
+          },
+          "seed_direct_rank": {
+            "max": 2.0,
+            "min": 1.0,
+            "n": 20,
+            "p10": 1.0,
+            "p50": 1.0,
+            "p90": 2.0
+          },
+          "seed_minus_evidence_score": {
+            "max": 0.40003225207328796,
+            "min": 0.14081883430480957,
+            "n": 20,
+            "p10": 0.15121432542800903,
+            "p50": 0.2556430995464325,
+            "p90": 0.35011017024517066
+          }
+        },
+        "gains": 20,
+        "loss_mechanism": {
+          "carriers": 3,
+          "direct_rank": {
+            "max": 70.0,
+            "min": 59.0,
+            "n": 3,
+            "p10": 60.4,
+            "p50": 66.0,
+            "p90": 69.2
+          },
+          "direct_selected_percentile": {
+            "max": 0.9705882352941176,
+            "min": 0.9459459459459459,
+            "n": 3,
+            "p10": 0.9470793374019181,
+            "p50": 0.9516129032258065,
+            "p90": 0.9667931688804554
+          },
+          "displaced_chars_on_loss_items": {
+            "max": 984.0,
+            "min": 606.0,
+            "n": 3,
+            "p10": 675.0,
+            "p50": 951.0,
+            "p90": 977.4
+          },
+          "displaced_count_on_loss_items": {
+            "max": 5.0,
+            "min": 2.0,
+            "n": 3,
+            "p10": 2.4,
+            "p50": 4.0,
+            "p90": 4.8
+          },
+          "evidence_chars": {
+            "max": 399.0,
+            "min": 343.0,
+            "n": 3,
+            "p10": 345.0,
+            "p50": 353.0,
+            "p90": 389.8
+          },
+          "items": 3,
+          "linked_chars_on_loss_items": {
+            "max": 1248.0,
+            "min": 1193.0,
+            "n": 3,
+            "p10": 1199.6,
+            "p50": 1226.0,
+            "p90": 1243.6
+          },
+          "multi_carrier_items": 0,
+          "score": {
+            "max": 0.4579530358314514,
+            "min": 0.45639491081237793,
+            "n": 3,
+            "p10": 0.4564816176891327,
+            "p50": 0.45682844519615173,
+            "p90": 0.4577281177043915
+          }
+        },
+        "losses": 3
+      },
+      "conv-26": {
+        "gain_mechanism": {
+          "carriers": 8,
+          "evidence_chars": {
+            "max": 601.0,
+            "min": 253.0,
+            "n": 8,
+            "p10": 299.9,
+            "p50": 433.0,
+            "p90": 561.1
+          },
+          "evidence_direct_rank": {
+            "max": 170.0,
+            "min": 59.0,
+            "n": 8,
+            "p10": 80.0,
+            "p50": 112.5,
+            "p90": 148.29999999999998
+          },
+          "graph_distance": {
+            "max": 1.0,
+            "min": 1.0,
+            "n": 8,
+            "p10": 1.0,
+            "p50": 1.0,
+            "p90": 1.0
+          },
+          "items": 8,
+          "linked_chars_on_gain_items": {
+            "max": 1476.0,
+            "min": 870.0,
+            "n": 8,
+            "p10": 951.2,
+            "p50": 1190.5,
+            "p90": 1307.3
+          },
+          "multi_carrier_items": 0,
+          "rank_beyond_direct_selected_count": {
+            "max": 98.0,
+            "min": 4.0,
+            "n": 8,
+            "p10": 22.200000000000003,
+            "p50": 51.0,
+            "p90": 79.1
+          },
+          "relation": {
+            "next": 4,
+            "previous": 4
+          },
+          "seed_direct_rank": {
+            "max": 2.0,
+            "min": 1.0,
+            "n": 8,
+            "p10": 1.0,
+            "p50": 1.0,
+            "p90": 1.2999999999999998
+          },
+          "seed_minus_evidence_score": {
+            "max": 0.40003225207328796,
+            "min": 0.15235251188278198,
+            "n": 8,
+            "p10": 0.15577563345432283,
+            "p50": 0.22129976749420166,
+            "p90": 0.3949870765209198
+          }
+        },
+        "gains": 8,
+        "loss_mechanism": {
+          "carriers": 2,
+          "direct_rank": {
+            "max": 70.0,
+            "min": 59.0,
+            "n": 2,
+            "p10": 60.1,
+            "p50": 64.5,
+            "p90": 68.9
+          },
+          "direct_selected_percentile": {
+            "max": 0.9516129032258065,
+            "min": 0.9459459459459459,
+            "n": 2,
+            "p10": 0.946512641673932,
+            "p50": 0.9487794245858763,
+            "p90": 0.9510462074978204
+          },
+          "displaced_chars_on_loss_items": {
+            "max": 984.0,
+            "min": 951.0,
+            "n": 2,
+            "p10": 954.3,
+            "p50": 967.5,
+            "p90": 980.7
+          },
+          "displaced_count_on_loss_items": {
+            "max": 5.0,
+            "min": 4.0,
+            "n": 2,
+            "p10": 4.1,
+            "p50": 4.5,
+            "p90": 4.9
+          },
+          "evidence_chars": {
+            "max": 353.0,
+            "min": 343.0,
+            "n": 2,
+            "p10": 344.0,
+            "p50": 348.0,
+            "p90": 352.0
+          },
+          "items": 2,
+          "linked_chars_on_loss_items": {
+            "max": 1248.0,
+            "min": 1193.0,
+            "n": 2,
+            "p10": 1198.5,
+            "p50": 1220.5,
+            "p90": 1242.5
+          },
+          "multi_carrier_items": 0,
+          "score": {
+            "max": 0.4579530358314514,
+            "min": 0.45639491081237793,
+            "n": 2,
+            "p10": 0.45655072331428526,
+            "p50": 0.4571739733219147,
+            "p90": 0.4577972233295441
+          }
+        },
+        "losses": 2
+      },
+      "conv-30": {
+        "gain_mechanism": {
+          "carriers": 2,
+          "evidence_chars": {
+            "max": 499.0,
+            "min": 472.0,
+            "n": 2,
+            "p10": 474.7,
+            "p50": 485.5,
+            "p90": 496.3
+          },
+          "evidence_direct_rank": {
+            "max": 171.0,
+            "min": 169.0,
+            "n": 2,
+            "p10": 169.2,
+            "p50": 170.0,
+            "p90": 170.8
+          },
+          "graph_distance": {
+            "max": 1.0,
+            "min": 1.0,
+            "n": 2,
+            "p10": 1.0,
+            "p50": 1.0,
+            "p90": 1.0
+          },
+          "items": 2,
+          "linked_chars_on_gain_items": {
+            "max": 1265.0,
+            "min": 1130.0,
+            "n": 2,
+            "p10": 1143.5,
+            "p50": 1197.5,
+            "p90": 1251.5
+          },
+          "multi_carrier_items": 0,
+          "rank_beyond_direct_selected_count": {
+            "max": 100.0,
+            "min": 87.0,
+            "n": 2,
+            "p10": 88.3,
+            "p50": 93.5,
+            "p90": 98.7
+          },
+          "relation": {
+            "next": 1,
+            "previous": 1
+          },
+          "seed_direct_rank": {
+            "max": 2.0,
+            "min": 1.0,
+            "n": 2,
+            "p10": 1.1,
+            "p50": 1.5,
+            "p90": 1.9
+          },
+          "seed_minus_evidence_score": {
+            "max": 0.32951080799102783,
+            "min": 0.24332398176193237,
+            "n": 2,
+            "p10": 0.2519426643848419,
+            "p50": 0.2864173948764801,
+            "p90": 0.3208921253681183
+          }
+        },
+        "gains": 2,
+        "loss_mechanism": {
+          "carriers": 0,
+          "direct_rank": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "direct_selected_percentile": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "displaced_chars_on_loss_items": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "displaced_count_on_loss_items": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "evidence_chars": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "items": 0,
+          "linked_chars_on_loss_items": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "multi_carrier_items": 0,
+          "score": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          }
+        },
+        "losses": 0
+      },
+      "conv-43": {
+        "gain_mechanism": {
+          "carriers": 5,
+          "evidence_chars": {
+            "max": 427.0,
+            "min": 352.0,
+            "n": 5,
+            "p10": 366.0,
+            "p50": 387.0,
+            "p90": 421.0
+          },
+          "evidence_direct_rank": {
+            "max": 148.0,
+            "min": 76.0,
+            "n": 5,
+            "p10": 80.4,
+            "p50": 107.0,
+            "p90": 142.8
+          },
+          "graph_distance": {
+            "max": 1.0,
+            "min": 1.0,
+            "n": 5,
+            "p10": 1.0,
+            "p50": 1.0,
+            "p90": 1.0
+          },
+          "items": 5,
+          "linked_chars_on_gain_items": {
+            "max": 1772.0,
+            "min": 865.0,
+            "n": 5,
+            "p10": 951.0,
+            "p50": 1368.0,
+            "p90": 1701.2
+          },
+          "multi_carrier_items": 0,
+          "rank_beyond_direct_selected_count": {
+            "max": 70.0,
+            "min": 4.0,
+            "n": 5,
+            "p10": 12.8,
+            "p50": 43.0,
+            "p90": 68.8
+          },
+          "relation": {
+            "next": 4,
+            "previous": 1
+          },
+          "seed_direct_rank": {
+            "max": 2.0,
+            "min": 1.0,
+            "n": 5,
+            "p10": 1.0,
+            "p50": 1.0,
+            "p90": 1.6
+          },
+          "seed_minus_evidence_score": {
+            "max": 0.3453640937805176,
+            "min": 0.14081883430480957,
+            "n": 5,
+            "p10": 0.14087955951690673,
+            "p50": 0.27342820167541504,
+            "p90": 0.3229625940322876
+          }
+        },
+        "gains": 5,
+        "loss_mechanism": {
+          "carriers": 1,
+          "direct_rank": {
+            "max": 66.0,
+            "min": 66.0,
+            "n": 1,
+            "p10": 66.0,
+            "p50": 66.0,
+            "p90": 66.0
+          },
+          "direct_selected_percentile": {
+            "max": 0.9705882352941176,
+            "min": 0.9705882352941176,
+            "n": 1,
+            "p10": 0.9705882352941176,
+            "p50": 0.9705882352941176,
+            "p90": 0.9705882352941176
+          },
+          "displaced_chars_on_loss_items": {
+            "max": 606.0,
+            "min": 606.0,
+            "n": 1,
+            "p10": 606.0,
+            "p50": 606.0,
+            "p90": 606.0
+          },
+          "displaced_count_on_loss_items": {
+            "max": 2.0,
+            "min": 2.0,
+            "n": 1,
+            "p10": 2.0,
+            "p50": 2.0,
+            "p90": 2.0
+          },
+          "evidence_chars": {
+            "max": 399.0,
+            "min": 399.0,
+            "n": 1,
+            "p10": 399.0,
+            "p50": 399.0,
+            "p90": 399.0
+          },
+          "items": 1,
+          "linked_chars_on_loss_items": {
+            "max": 1226.0,
+            "min": 1226.0,
+            "n": 1,
+            "p10": 1226.0,
+            "p50": 1226.0,
+            "p90": 1226.0
+          },
+          "multi_carrier_items": 0,
+          "score": {
+            "max": 0.45682844519615173,
+            "min": 0.45682844519615173,
+            "n": 1,
+            "p10": 0.45682844519615173,
+            "p50": 0.45682844519615173,
+            "p90": 0.45682844519615173
+          }
+        },
+        "losses": 1
+      },
+      "conv-44": {
+        "gain_mechanism": {
+          "carriers": 1,
+          "evidence_chars": {
+            "max": 165.0,
+            "min": 165.0,
+            "n": 1,
+            "p10": 165.0,
+            "p50": 165.0,
+            "p90": 165.0
+          },
+          "evidence_direct_rank": {
+            "max": 198.0,
+            "min": 198.0,
+            "n": 1,
+            "p10": 198.0,
+            "p50": 198.0,
+            "p90": 198.0
+          },
+          "graph_distance": {
+            "max": 1.0,
+            "min": 1.0,
+            "n": 1,
+            "p10": 1.0,
+            "p50": 1.0,
+            "p90": 1.0
+          },
+          "items": 1,
+          "linked_chars_on_gain_items": {
+            "max": 822.0,
+            "min": 822.0,
+            "n": 1,
+            "p10": 822.0,
+            "p50": 822.0,
+            "p90": 822.0
+          },
+          "multi_carrier_items": 0,
+          "rank_beyond_direct_selected_count": {
+            "max": 126.0,
+            "min": 126.0,
+            "n": 1,
+            "p10": 126.0,
+            "p50": 126.0,
+            "p90": 126.0
+          },
+          "relation": {
+            "next": 1
+          },
+          "seed_direct_rank": {
+            "max": 1.0,
+            "min": 1.0,
+            "n": 1,
+            "p10": 1.0,
+            "p50": 1.0,
+            "p90": 1.0
+          },
+          "seed_minus_evidence_score": {
+            "max": 0.18676435947418213,
+            "min": 0.18676435947418213,
+            "n": 1,
+            "p10": 0.18676435947418213,
+            "p50": 0.18676435947418213,
+            "p90": 0.18676435947418213
+          }
+        },
+        "gains": 1,
+        "loss_mechanism": {
+          "carriers": 2,
+          "direct_rank": {
+            "max": 66.0,
+            "min": 57.0,
+            "n": 2,
+            "p10": 57.9,
+            "p50": 61.5,
+            "p90": 65.1
+          },
+          "direct_selected_percentile": {
+            "max": 0.9827586206896551,
+            "min": 0.9705882352941176,
+            "n": 2,
+            "p10": 0.9718052738336714,
+            "p50": 0.9766734279918864,
+            "p90": 0.9815415821501013
+          },
+          "displaced_chars_on_loss_items": {
+            "max": 791.0,
+            "min": 395.0,
+            "n": 2,
+            "p10": 434.6,
+            "p50": 593.0,
+            "p90": 751.4
+          },
+          "displaced_count_on_loss_items": {
+            "max": 5.0,
+            "min": 2.0,
+            "n": 2,
+            "p10": 2.3,
+            "p50": 3.5,
+            "p90": 4.7
+          },
+          "evidence_chars": {
+            "max": 378.0,
+            "min": 257.0,
+            "n": 2,
+            "p10": 269.1,
+            "p50": 317.5,
+            "p90": 365.9
+          },
+          "items": 2,
+          "linked_chars_on_loss_items": {
+            "max": 1177.0,
+            "min": 878.0,
+            "n": 2,
+            "p10": 907.9,
+            "p50": 1027.5,
+            "p90": 1147.1
+          },
+          "multi_carrier_items": 0,
+          "score": {
+            "max": 0.5243371725082397,
+            "min": 0.49169066548347473,
+            "n": 2,
+            "p10": 0.49495531618595123,
+            "p50": 0.5080139189958572,
+            "p90": 0.5210725218057632
+          }
+        },
+        "losses": 2
+      },
+      "conv-49": {
+        "gain_mechanism": {
+          "carriers": 3,
+          "evidence_chars": {
+            "max": 401.0,
+            "min": 173.0,
+            "n": 3,
+            "p10": 212.6,
+            "p50": 371.0,
+            "p90": 395.0
+          },
+          "evidence_direct_rank": {
+            "max": 153.0,
+            "min": 83.0,
+            "n": 3,
+            "p10": 93.0,
+            "p50": 133.0,
+            "p90": 149.0
+          },
+          "graph_distance": {
+            "max": 1.0,
+            "min": 1.0,
+            "n": 3,
+            "p10": 1.0,
+            "p50": 1.0,
+            "p90": 1.0
+          },
+          "items": 3,
+          "linked_chars_on_gain_items": {
+            "max": 1432.0,
+            "min": 821.0,
+            "n": 3,
+            "p10": 840.8,
+            "p50": 920.0,
+            "p90": 1329.6
+          },
+          "multi_carrier_items": 0,
+          "rank_beyond_direct_selected_count": {
+            "max": 95.0,
+            "min": 20.0,
+            "n": 3,
+            "p10": 26.8,
+            "p50": 54.0,
+            "p90": 86.8
+          },
+          "relation": {
+            "next": 1,
+            "previous": 2
+          },
+          "seed_direct_rank": {
+            "max": 2.0,
+            "min": 1.0,
+            "n": 3,
+            "p10": 1.0,
+            "p50": 1.0,
+            "p90": 1.8
+          },
+          "seed_minus_evidence_score": {
+            "max": 0.27233684062957764,
+            "min": 0.18030259013175964,
+            "n": 3,
+            "p10": 0.19783451557159423,
+            "p50": 0.2679622173309326,
+            "p90": 0.27146191596984864
+          }
+        },
+        "gains": 3,
+        "loss_mechanism": {
+          "carriers": 0,
+          "direct_rank": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "direct_selected_percentile": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "displaced_chars_on_loss_items": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "displaced_count_on_loss_items": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "evidence_chars": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "items": 0,
+          "linked_chars_on_loss_items": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "multi_carrier_items": 0,
+          "score": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          }
+        },
+        "losses": 0
+      },
+      "conv-50": {
+        "gain_mechanism": {
+          "carriers": 2,
+          "evidence_chars": {
+            "max": 265.0,
+            "min": 175.0,
+            "n": 2,
+            "p10": 184.0,
+            "p50": 220.0,
+            "p90": 256.0
+          },
+          "evidence_direct_rank": {
+            "max": 98.0,
+            "min": 70.0,
+            "n": 2,
+            "p10": 72.8,
+            "p50": 84.0,
+            "p90": 95.2
+          },
+          "graph_distance": {
+            "max": 1.0,
+            "min": 1.0,
+            "n": 2,
+            "p10": 1.0,
+            "p50": 1.0,
+            "p90": 1.0
+          },
+          "items": 2,
+          "linked_chars_on_gain_items": {
+            "max": 1223.0,
+            "min": 1143.0,
+            "n": 2,
+            "p10": 1151.0,
+            "p50": 1183.0,
+            "p90": 1215.0
+          },
+          "multi_carrier_items": 0,
+          "rank_beyond_direct_selected_count": {
+            "max": 51.0,
+            "min": 21.0,
+            "n": 2,
+            "p10": 24.0,
+            "p50": 36.0,
+            "p90": 48.0
+          },
+          "relation": {
+            "next": 2
+          },
+          "seed_direct_rank": {
+            "max": 1.0,
+            "min": 1.0,
+            "n": 2,
+            "p10": 1.0,
+            "p50": 1.0,
+            "p90": 1.0
+          },
+          "seed_minus_evidence_score": {
+            "max": 0.3205040395259857,
+            "min": 0.16346704959869385,
+            "n": 2,
+            "p10": 0.17917074859142304,
+            "p50": 0.24198554456233978,
+            "p90": 0.30480034053325655
+          }
+        },
+        "gains": 2,
+        "loss_mechanism": {
+          "carriers": 0,
+          "direct_rank": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "direct_selected_percentile": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "displaced_chars_on_loss_items": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "displaced_count_on_loss_items": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "evidence_chars": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "items": 0,
+          "linked_chars_on_loss_items": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "multi_carrier_items": 0,
+          "score": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          }
+        },
+        "losses": 0
+      }
+    },
+    "4": {
+      "OTHER_FIVE_POOLED": {
+        "gain_mechanism": {
+          "carriers": 26,
+          "evidence_chars": {
+            "max": 601.0,
+            "min": 173.0,
+            "n": 26,
+            "p10": 243.5,
+            "p50": 371.0,
+            "p90": 497.0
+          },
+          "evidence_direct_rank": {
+            "max": 181.0,
+            "min": 59.0,
+            "n": 26,
+            "p10": 73.0,
+            "p50": 118.5,
+            "p90": 169.5
+          },
+          "graph_distance": {
+            "max": 1.0,
+            "min": 1.0,
+            "n": 26,
+            "p10": 1.0,
+            "p50": 1.0,
+            "p90": 1.0
+          },
+          "items": 26,
+          "linked_chars_on_gain_items": {
+            "max": 2593.0,
+            "min": 978.0,
+            "n": 26,
+            "p10": 1394.0,
+            "p50": 1817.5,
+            "p90": 2468.5
+          },
+          "multi_carrier_items": 0,
+          "rank_beyond_direct_selected_count": {
+            "max": 107.0,
+            "min": 4.0,
+            "n": 26,
+            "p10": 7.5,
+            "p50": 47.5,
+            "p90": 96.5
+          },
+          "relation": {
+            "next": 14,
+            "previous": 12
+          },
+          "seed_direct_rank": {
+            "max": 4.0,
+            "min": 1.0,
+            "n": 26,
+            "p10": 1.0,
+            "p50": 1.0,
+            "p90": 4.0
+          },
+          "seed_minus_evidence_score": {
+            "max": 0.40003225207328796,
+            "min": 0.09272223711013794,
+            "n": 26,
+            "p10": 0.14187583327293396,
+            "p50": 0.21298077702522278,
+            "p90": 0.3374374508857727
+          }
+        },
+        "gains": 26,
+        "loss_mechanism": {
+          "carriers": 4,
+          "direct_rank": {
+            "max": 70.0,
+            "min": 49.0,
+            "n": 4,
+            "p10": 52.0,
+            "p50": 62.5,
+            "p90": 68.8
+          },
+          "direct_selected_percentile": {
+            "max": 0.9705882352941176,
+            "min": 0.8448275862068966,
+            "n": 4,
+            "p10": 0.8751630941286114,
+            "p50": 0.9487794245858763,
+            "p90": 0.9648956356736244
+          },
+          "displaced_chars_on_loss_items": {
+            "max": 1611.0,
+            "min": 1231.0,
+            "n": 4,
+            "p10": 1306.6,
+            "p50": 1502.0,
+            "p90": 1584.0
+          },
+          "displaced_count_on_loss_items": {
+            "max": 6.0,
+            "min": 4.0,
+            "n": 4,
+            "p10": 4.3,
+            "p50": 5.0,
+            "p90": 5.7
+          },
+          "evidence_chars": {
+            "max": 664.0,
+            "min": 343.0,
+            "n": 4,
+            "p10": 346.0,
+            "p50": 376.0,
+            "p90": 584.5
+          },
+          "items": 4,
+          "linked_chars_on_loss_items": {
+            "max": 2593.0,
+            "min": 1751.0,
+            "n": 4,
+            "p10": 1835.9,
+            "p50": 2229.5,
+            "p90": 2542.6
+          },
+          "multi_carrier_items": 0,
+          "score": {
+            "max": 0.5049573183059692,
+            "min": 0.45639491081237793,
+            "n": 4,
+            "p10": 0.45652497112751006,
+            "p50": 0.4573907405138016,
+            "p90": 0.4908560335636139
+          }
+        },
+        "losses": 4
+      },
+      "conv-26": {
+        "gain_mechanism": {
+          "carriers": 8,
+          "evidence_chars": {
+            "max": 601.0,
+            "min": 253.0,
+            "n": 8,
+            "p10": 299.9,
+            "p50": 433.0,
+            "p90": 561.1
+          },
+          "evidence_direct_rank": {
+            "max": 170.0,
+            "min": 59.0,
+            "n": 8,
+            "p10": 80.0,
+            "p50": 112.5,
+            "p90": 148.29999999999998
+          },
+          "graph_distance": {
+            "max": 1.0,
+            "min": 1.0,
+            "n": 8,
+            "p10": 1.0,
+            "p50": 1.0,
+            "p90": 1.0
+          },
+          "items": 8,
+          "linked_chars_on_gain_items": {
+            "max": 2593.0,
+            "min": 1534.0,
+            "n": 8,
+            "p10": 1641.8,
+            "p50": 1997.0,
+            "p90": 2383.7
+          },
+          "multi_carrier_items": 0,
+          "rank_beyond_direct_selected_count": {
+            "max": 98.0,
+            "min": 4.0,
+            "n": 8,
+            "p10": 22.200000000000003,
+            "p50": 51.0,
+            "p90": 79.1
+          },
+          "relation": {
+            "next": 4,
+            "previous": 4
+          },
+          "seed_direct_rank": {
+            "max": 2.0,
+            "min": 1.0,
+            "n": 8,
+            "p10": 1.0,
+            "p50": 1.0,
+            "p90": 1.2999999999999998
+          },
+          "seed_minus_evidence_score": {
+            "max": 0.40003225207328796,
+            "min": 0.15235251188278198,
+            "n": 8,
+            "p10": 0.15577563345432283,
+            "p50": 0.22129976749420166,
+            "p90": 0.3949870765209198
+          }
+        },
+        "gains": 8,
+        "loss_mechanism": {
+          "carriers": 2,
+          "direct_rank": {
+            "max": 70.0,
+            "min": 59.0,
+            "n": 2,
+            "p10": 60.1,
+            "p50": 64.5,
+            "p90": 68.9
+          },
+          "direct_selected_percentile": {
+            "max": 0.9516129032258065,
+            "min": 0.9459459459459459,
+            "n": 2,
+            "p10": 0.946512641673932,
+            "p50": 0.9487794245858763,
+            "p90": 0.9510462074978204
+          },
+          "displaced_chars_on_loss_items": {
+            "max": 1521.0,
+            "min": 1231.0,
+            "n": 2,
+            "p10": 1260.0,
+            "p50": 1376.0,
+            "p90": 1492.0
+          },
+          "displaced_count_on_loss_items": {
+            "max": 6.0,
+            "min": 4.0,
+            "n": 2,
+            "p10": 4.2,
+            "p50": 5.0,
+            "p90": 5.8
+          },
+          "evidence_chars": {
+            "max": 353.0,
+            "min": 343.0,
+            "n": 2,
+            "p10": 344.0,
+            "p50": 348.0,
+            "p90": 352.0
+          },
+          "items": 2,
+          "linked_chars_on_loss_items": {
+            "max": 2593.0,
+            "min": 1751.0,
+            "n": 2,
+            "p10": 1835.2,
+            "p50": 2172.0,
+            "p90": 2508.8
+          },
+          "multi_carrier_items": 0,
+          "score": {
+            "max": 0.4579530358314514,
+            "min": 0.45639491081237793,
+            "n": 2,
+            "p10": 0.45655072331428526,
+            "p50": 0.4571739733219147,
+            "p90": 0.4577972233295441
+          }
+        },
+        "losses": 2
+      },
+      "conv-30": {
+        "gain_mechanism": {
+          "carriers": 3,
+          "evidence_chars": {
+            "max": 499.0,
+            "min": 234.0,
+            "n": 3,
+            "p10": 281.6,
+            "p50": 472.0,
+            "p90": 493.6
+          },
+          "evidence_direct_rank": {
+            "max": 171.0,
+            "min": 66.0,
+            "n": 3,
+            "p10": 86.6,
+            "p50": 169.0,
+            "p90": 170.6
+          },
+          "graph_distance": {
+            "max": 1.0,
+            "min": 1.0,
+            "n": 3,
+            "p10": 1.0,
+            "p50": 1.0,
+            "p90": 1.0
+          },
+          "items": 3,
+          "linked_chars_on_gain_items": {
+            "max": 1944.0,
+            "min": 1434.0,
+            "n": 3,
+            "p10": 1492.0,
+            "p50": 1724.0,
+            "p90": 1900.0
+          },
+          "multi_carrier_items": 0,
+          "rank_beyond_direct_selected_count": {
+            "max": 100.0,
+            "min": 7.0,
+            "n": 3,
+            "p10": 23.0,
+            "p50": 87.0,
+            "p90": 97.4
+          },
+          "relation": {
+            "next": 1,
+            "previous": 2
+          },
+          "seed_direct_rank": {
+            "max": 3.0,
+            "min": 1.0,
+            "n": 3,
+            "p10": 1.2,
+            "p50": 2.0,
+            "p90": 2.8
+          },
+          "seed_minus_evidence_score": {
+            "max": 0.32951080799102783,
+            "min": 0.15320497751235962,
+            "n": 3,
+            "p10": 0.17122877836227418,
+            "p50": 0.24332398176193237,
+            "p90": 0.31227344274520874
+          }
+        },
+        "gains": 3,
+        "loss_mechanism": {
+          "carriers": 0,
+          "direct_rank": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "direct_selected_percentile": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "displaced_chars_on_loss_items": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "displaced_count_on_loss_items": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "evidence_chars": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "items": 0,
+          "linked_chars_on_loss_items": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "multi_carrier_items": 0,
+          "score": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          }
+        },
+        "losses": 0
+      },
+      "conv-43": {
+        "gain_mechanism": {
+          "carriers": 7,
+          "evidence_chars": {
+            "max": 495.0,
+            "min": 315.0,
+            "n": 7,
+            "p10": 337.2,
+            "p50": 387.0,
+            "p90": 454.20000000000005
+          },
+          "evidence_direct_rank": {
+            "max": 148.0,
+            "min": 76.0,
+            "n": 7,
+            "p10": 80.8,
+            "p50": 107.0,
+            "p90": 140.20000000000002
+          },
+          "graph_distance": {
+            "max": 1.0,
+            "min": 1.0,
+            "n": 7,
+            "p10": 1.0,
+            "p50": 1.0,
+            "p90": 1.0
+          },
+          "items": 7,
+          "linked_chars_on_gain_items": {
+            "max": 2516.0,
+            "min": 1132.0,
+            "n": 7,
+            "p10": 1400.2,
+            "p50": 2399.0,
+            "p90": 2459.0
+          },
+          "multi_carrier_items": 0,
+          "rank_beyond_direct_selected_count": {
+            "max": 70.0,
+            "min": 4.0,
+            "n": 7,
+            "p10": 6.4,
+            "p50": 37.0,
+            "p90": 68.2
+          },
+          "relation": {
+            "next": 5,
+            "previous": 2
+          },
+          "seed_direct_rank": {
+            "max": 4.0,
+            "min": 1.0,
+            "n": 7,
+            "p10": 1.0,
+            "p50": 1.0,
+            "p90": 3.4000000000000004
+          },
+          "seed_minus_evidence_score": {
+            "max": 0.3453640937805176,
+            "min": 0.09272223711013794,
+            "n": 7,
+            "p10": 0.12158019542694093,
+            "p50": 0.16068628430366516,
+            "p90": 0.31176184415817265
+          }
+        },
+        "gains": 7,
+        "loss_mechanism": {
+          "carriers": 1,
+          "direct_rank": {
+            "max": 66.0,
+            "min": 66.0,
+            "n": 1,
+            "p10": 66.0,
+            "p50": 66.0,
+            "p90": 66.0
+          },
+          "direct_selected_percentile": {
+            "max": 0.9705882352941176,
+            "min": 0.9705882352941176,
+            "n": 1,
+            "p10": 0.9705882352941176,
+            "p50": 0.9705882352941176,
+            "p90": 0.9705882352941176
+          },
+          "displaced_chars_on_loss_items": {
+            "max": 1483.0,
+            "min": 1483.0,
+            "n": 1,
+            "p10": 1483.0,
+            "p50": 1483.0,
+            "p90": 1483.0
+          },
+          "displaced_count_on_loss_items": {
+            "max": 5.0,
+            "min": 5.0,
+            "n": 1,
+            "p10": 5.0,
+            "p50": 5.0,
+            "p90": 5.0
+          },
+          "evidence_chars": {
+            "max": 399.0,
+            "min": 399.0,
+            "n": 1,
+            "p10": 399.0,
+            "p50": 399.0,
+            "p90": 399.0
+          },
+          "items": 1,
+          "linked_chars_on_loss_items": {
+            "max": 2425.0,
+            "min": 2425.0,
+            "n": 1,
+            "p10": 2425.0,
+            "p50": 2425.0,
+            "p90": 2425.0
+          },
+          "multi_carrier_items": 0,
+          "score": {
+            "max": 0.45682844519615173,
+            "min": 0.45682844519615173,
+            "n": 1,
+            "p10": 0.45682844519615173,
+            "p50": 0.45682844519615173,
+            "p90": 0.45682844519615173
+          }
+        },
+        "losses": 1
+      },
+      "conv-44": {
+        "gain_mechanism": {
+          "carriers": 1,
+          "evidence_chars": {
+            "max": 165.0,
+            "min": 165.0,
+            "n": 1,
+            "p10": 165.0,
+            "p50": 165.0,
+            "p90": 165.0
+          },
+          "evidence_direct_rank": {
+            "max": 198.0,
+            "min": 198.0,
+            "n": 1,
+            "p10": 198.0,
+            "p50": 198.0,
+            "p90": 198.0
+          },
+          "graph_distance": {
+            "max": 1.0,
+            "min": 1.0,
+            "n": 1,
+            "p10": 1.0,
+            "p50": 1.0,
+            "p90": 1.0
+          },
+          "items": 1,
+          "linked_chars_on_gain_items": {
+            "max": 1907.0,
+            "min": 1907.0,
+            "n": 1,
+            "p10": 1907.0,
+            "p50": 1907.0,
+            "p90": 1907.0
+          },
+          "multi_carrier_items": 0,
+          "rank_beyond_direct_selected_count": {
+            "max": 126.0,
+            "min": 126.0,
+            "n": 1,
+            "p10": 126.0,
+            "p50": 126.0,
+            "p90": 126.0
+          },
+          "relation": {
+            "next": 1
+          },
+          "seed_direct_rank": {
+            "max": 1.0,
+            "min": 1.0,
+            "n": 1,
+            "p10": 1.0,
+            "p50": 1.0,
+            "p90": 1.0
+          },
+          "seed_minus_evidence_score": {
+            "max": 0.18676435947418213,
+            "min": 0.18676435947418213,
+            "n": 1,
+            "p10": 0.18676435947418213,
+            "p50": 0.18676435947418213,
+            "p90": 0.18676435947418213
+          }
+        },
+        "gains": 1,
+        "loss_mechanism": {
+          "carriers": 2,
+          "direct_rank": {
+            "max": 66.0,
+            "min": 57.0,
+            "n": 2,
+            "p10": 57.9,
+            "p50": 61.5,
+            "p90": 65.1
+          },
+          "direct_selected_percentile": {
+            "max": 0.9827586206896551,
+            "min": 0.9705882352941176,
+            "n": 2,
+            "p10": 0.9718052738336714,
+            "p50": 0.9766734279918864,
+            "p90": 0.9815415821501013
+          },
+          "displaced_chars_on_loss_items": {
+            "max": 1048.0,
+            "min": 572.0,
+            "n": 2,
+            "p10": 619.6,
+            "p50": 810.0,
+            "p90": 1000.4
+          },
+          "displaced_count_on_loss_items": {
+            "max": 6.0,
+            "min": 3.0,
+            "n": 2,
+            "p10": 3.3,
+            "p50": 4.5,
+            "p90": 5.7
+          },
+          "evidence_chars": {
+            "max": 378.0,
+            "min": 257.0,
+            "n": 2,
+            "p10": 269.1,
+            "p50": 317.5,
+            "p90": 365.9
+          },
+          "items": 2,
+          "linked_chars_on_loss_items": {
+            "max": 2058.0,
+            "min": 1498.0,
+            "n": 2,
+            "p10": 1554.0,
+            "p50": 1778.0,
+            "p90": 2002.0
+          },
+          "multi_carrier_items": 0,
+          "score": {
+            "max": 0.5243371725082397,
+            "min": 0.49169066548347473,
+            "n": 2,
+            "p10": 0.49495531618595123,
+            "p50": 0.5080139189958572,
+            "p90": 0.5210725218057632
+          }
+        },
+        "losses": 2
+      },
+      "conv-49": {
+        "gain_mechanism": {
+          "carriers": 6,
+          "evidence_chars": {
+            "max": 401.0,
+            "min": 173.0,
+            "n": 6,
+            "p10": 239.5,
+            "p50": 339.0,
+            "p90": 386.0
+          },
+          "evidence_direct_rank": {
+            "max": 181.0,
+            "min": 83.0,
+            "n": 6,
+            "p10": 101.5,
+            "p50": 143.0,
+            "p90": 172.0
+          },
+          "graph_distance": {
+            "max": 1.0,
+            "min": 1.0,
+            "n": 6,
+            "p10": 1.0,
+            "p50": 1.0,
+            "p90": 1.0
+          },
+          "items": 6,
+          "linked_chars_on_gain_items": {
+            "max": 2570.0,
+            "min": 978.0,
+            "n": 6,
+            "p10": 1166.0,
+            "p50": 1629.0,
+            "p90": 2174.5
+          },
+          "multi_carrier_items": 0,
+          "rank_beyond_direct_selected_count": {
+            "max": 107.0,
+            "min": 20.0,
+            "n": 6,
+            "p10": 32.0,
+            "p50": 68.0,
+            "p90": 101.0
+          },
+          "relation": {
+            "next": 2,
+            "previous": 4
+          },
+          "seed_direct_rank": {
+            "max": 4.0,
+            "min": 1.0,
+            "n": 6,
+            "p10": 1.0,
+            "p50": 3.0,
+            "p90": 4.0
+          },
+          "seed_minus_evidence_score": {
+            "max": 0.27233684062957764,
+            "min": 0.14278101921081543,
+            "n": 6,
+            "p10": 0.15502870082855225,
+            "p50": 0.19984345138072968,
+            "p90": 0.2701495289802551
+          }
+        },
+        "gains": 6,
+        "loss_mechanism": {
+          "carriers": 1,
+          "direct_rank": {
+            "max": 49.0,
+            "min": 49.0,
+            "n": 1,
+            "p10": 49.0,
+            "p50": 49.0,
+            "p90": 49.0
+          },
+          "direct_selected_percentile": {
+            "max": 0.8448275862068966,
+            "min": 0.8448275862068966,
+            "n": 1,
+            "p10": 0.8448275862068966,
+            "p50": 0.8448275862068966,
+            "p90": 0.8448275862068966
+          },
+          "displaced_chars_on_loss_items": {
+            "max": 1611.0,
+            "min": 1611.0,
+            "n": 1,
+            "p10": 1611.0,
+            "p50": 1611.0,
+            "p90": 1611.0
+          },
+          "displaced_count_on_loss_items": {
+            "max": 5.0,
+            "min": 5.0,
+            "n": 1,
+            "p10": 5.0,
+            "p50": 5.0,
+            "p90": 5.0
+          },
+          "evidence_chars": {
+            "max": 664.0,
+            "min": 664.0,
+            "n": 1,
+            "p10": 664.0,
+            "p50": 664.0,
+            "p90": 664.0
+          },
+          "items": 1,
+          "linked_chars_on_loss_items": {
+            "max": 2034.0,
+            "min": 2034.0,
+            "n": 1,
+            "p10": 2034.0,
+            "p50": 2034.0,
+            "p90": 2034.0
+          },
+          "multi_carrier_items": 0,
+          "score": {
+            "max": 0.5049573183059692,
+            "min": 0.5049573183059692,
+            "n": 1,
+            "p10": 0.5049573183059692,
+            "p50": 0.5049573183059692,
+            "p90": 0.5049573183059692
+          }
+        },
+        "losses": 1
+      },
+      "conv-50": {
+        "gain_mechanism": {
+          "carriers": 2,
+          "evidence_chars": {
+            "max": 265.0,
+            "min": 175.0,
+            "n": 2,
+            "p10": 184.0,
+            "p50": 220.0,
+            "p90": 256.0
+          },
+          "evidence_direct_rank": {
+            "max": 98.0,
+            "min": 70.0,
+            "n": 2,
+            "p10": 72.8,
+            "p50": 84.0,
+            "p90": 95.2
+          },
+          "graph_distance": {
+            "max": 1.0,
+            "min": 1.0,
+            "n": 2,
+            "p10": 1.0,
+            "p50": 1.0,
+            "p90": 1.0
+          },
+          "items": 2,
+          "linked_chars_on_gain_items": {
+            "max": 2341.0,
+            "min": 1550.0,
+            "n": 2,
+            "p10": 1629.1,
+            "p50": 1945.5,
+            "p90": 2261.9
+          },
+          "multi_carrier_items": 0,
+          "rank_beyond_direct_selected_count": {
+            "max": 51.0,
+            "min": 21.0,
+            "n": 2,
+            "p10": 24.0,
+            "p50": 36.0,
+            "p90": 48.0
+          },
+          "relation": {
+            "next": 2
+          },
+          "seed_direct_rank": {
+            "max": 1.0,
+            "min": 1.0,
+            "n": 2,
+            "p10": 1.0,
+            "p50": 1.0,
+            "p90": 1.0
+          },
+          "seed_minus_evidence_score": {
+            "max": 0.3205040395259857,
+            "min": 0.16346704959869385,
+            "n": 2,
+            "p10": 0.17917074859142304,
+            "p50": 0.24198554456233978,
+            "p90": 0.30480034053325655
+          }
+        },
+        "gains": 2,
+        "loss_mechanism": {
+          "carriers": 0,
+          "direct_rank": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "direct_selected_percentile": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "displaced_chars_on_loss_items": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "displaced_count_on_loss_items": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "evidence_chars": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "items": 0,
+          "linked_chars_on_loss_items": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "multi_carrier_items": 0,
+          "score": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          }
+        },
+        "losses": 0
+      }
+    },
+    "8": {
+      "OTHER_FIVE_POOLED": {
+        "gain_mechanism": {
+          "carriers": 39,
+          "evidence_chars": {
+            "max": 654.0,
+            "min": 173.0,
+            "n": 39,
+            "p10": 253.0,
+            "p50": 371.0,
+            "p90": 544.0
+          },
+          "evidence_direct_rank": {
+            "max": 265.0,
+            "min": 59.0,
+            "n": 39,
+            "p10": 66.8,
+            "p50": 108.0,
+            "p90": 170.2
+          },
+          "graph_distance": {
+            "max": 1.0,
+            "min": 1.0,
+            "n": 39,
+            "p10": 1.0,
+            "p50": 1.0,
+            "p90": 1.0
+          },
+          "items": 37,
+          "linked_chars_on_gain_items": {
+            "max": 4989.0,
+            "min": 2207.0,
+            "n": 37,
+            "p10": 2819.0,
+            "p50": 3559.0,
+            "p90": 4317.4
+          },
+          "multi_carrier_items": 2,
+          "rank_beyond_direct_selected_count": {
+            "max": 201.0,
+            "min": 0.0,
+            "n": 39,
+            "p10": 4.800000000000001,
+            "p50": 43.0,
+            "p90": 98.4
+          },
+          "relation": {
+            "next": 18,
+            "previous": 21
+          },
+          "seed_direct_rank": {
+            "max": 8.0,
+            "min": 1.0,
+            "n": 39,
+            "p10": 1.0,
+            "p50": 2.0,
+            "p90": 7.0
+          },
+          "seed_minus_evidence_score": {
+            "max": 0.40003225207328796,
+            "min": 0.06445655226707458,
+            "n": 39,
+            "p10": 0.09214544296264648,
+            "p50": 0.16727638244628906,
+            "p90": 0.32230539321899415
+          }
+        },
+        "gains": 37,
+        "loss_mechanism": {
+          "carriers": 11,
+          "direct_rank": {
+            "max": 70.0,
+            "min": 32.0,
+            "n": 11,
+            "p10": 42.0,
+            "p50": 55.0,
+            "p90": 70.0
+          },
+          "direct_selected_percentile": {
+            "max": 0.9705882352941176,
+            "min": 0.7441860465116279,
+            "n": 11,
+            "p10": 0.7971014492753623,
+            "p50": 0.8974358974358975,
+            "p90": 0.9516129032258065
+          },
+          "displaced_chars_on_loss_items": {
+            "max": 3060.0,
+            "min": 1364.0,
+            "n": 11,
+            "p10": 1653.0,
+            "p50": 2404.0,
+            "p90": 2845.0
+          },
+          "displaced_count_on_loss_items": {
+            "max": 15.0,
+            "min": 5.0,
+            "n": 11,
+            "p10": 6.0,
+            "p50": 9.0,
+            "p90": 12.0
+          },
+          "evidence_chars": {
+            "max": 664.0,
+            "min": 224.0,
+            "n": 11,
+            "p10": 281.0,
+            "p50": 371.0,
+            "p90": 664.0
+          },
+          "items": 11,
+          "linked_chars_on_loss_items": {
+            "max": 5560.0,
+            "min": 3257.0,
+            "n": 11,
+            "p10": 3651.0,
+            "p50": 3877.0,
+            "p90": 4685.0
+          },
+          "multi_carrier_items": 0,
+          "score": {
+            "max": 0.6629048585891724,
+            "min": 0.45639491081237793,
+            "n": 11,
+            "p10": 0.45682844519615173,
+            "p50": 0.5395175814628601,
+            "p90": 0.6368197202682495
+          }
+        },
+        "losses": 11
+      },
+      "conv-26": {
+        "gain_mechanism": {
+          "carriers": 14,
+          "evidence_chars": {
+            "max": 601.0,
+            "min": 253.0,
+            "n": 14,
+            "p10": 253.0,
+            "p50": 417.5,
+            "p90": 544.0
+          },
+          "evidence_direct_rank": {
+            "max": 170.0,
+            "min": 59.0,
+            "n": 14,
+            "p10": 73.6,
+            "p50": 112.5,
+            "p90": 137.20000000000002
+          },
+          "graph_distance": {
+            "max": 1.0,
+            "min": 1.0,
+            "n": 14,
+            "p10": 1.0,
+            "p50": 1.0,
+            "p90": 1.0
+          },
+          "items": 13,
+          "linked_chars_on_gain_items": {
+            "max": 4327.0,
+            "min": 3134.0,
+            "n": 13,
+            "p10": 3195.6,
+            "p50": 3564.0,
+            "p90": 4289.4
+          },
+          "multi_carrier_items": 1,
+          "rank_beyond_direct_selected_count": {
+            "max": 98.0,
+            "min": 0.0,
+            "n": 14,
+            "p10": 11.8,
+            "p50": 48.0,
+            "p90": 69.5
+          },
+          "relation": {
+            "next": 6,
+            "previous": 8
+          },
+          "seed_direct_rank": {
+            "max": 8.0,
+            "min": 1.0,
+            "n": 14,
+            "p10": 1.0,
+            "p50": 1.0,
+            "p90": 7.700000000000001
+          },
+          "seed_minus_evidence_score": {
+            "max": 0.40003225207328796,
+            "min": 0.0922575294971466,
+            "n": 14,
+            "p10": 0.11569227576255799,
+            "p50": 0.19404610991477966,
+            "p90": 0.3624716937541963
+          }
+        },
+        "gains": 13,
+        "loss_mechanism": {
+          "carriers": 2,
+          "direct_rank": {
+            "max": 70.0,
+            "min": 59.0,
+            "n": 2,
+            "p10": 60.1,
+            "p50": 64.5,
+            "p90": 68.9
+          },
+          "direct_selected_percentile": {
+            "max": 0.9516129032258065,
+            "min": 0.9459459459459459,
+            "n": 2,
+            "p10": 0.946512641673932,
+            "p50": 0.9487794245858763,
+            "p90": 0.9510462074978204
+          },
+          "displaced_chars_on_loss_items": {
+            "max": 2653.0,
+            "min": 2651.0,
+            "n": 2,
+            "p10": 2651.2,
+            "p50": 2652.0,
+            "p90": 2652.8
+          },
+          "displaced_count_on_loss_items": {
+            "max": 11.0,
+            "min": 8.0,
+            "n": 2,
+            "p10": 8.3,
+            "p50": 9.5,
+            "p90": 10.7
+          },
+          "evidence_chars": {
+            "max": 353.0,
+            "min": 343.0,
+            "n": 2,
+            "p10": 344.0,
+            "p50": 348.0,
+            "p90": 352.0
+          },
+          "items": 2,
+          "linked_chars_on_loss_items": {
+            "max": 4685.0,
+            "min": 3719.0,
+            "n": 2,
+            "p10": 3815.6,
+            "p50": 4202.0,
+            "p90": 4588.4
+          },
+          "multi_carrier_items": 0,
+          "score": {
+            "max": 0.4579530358314514,
+            "min": 0.45639491081237793,
+            "n": 2,
+            "p10": 0.45655072331428526,
+            "p50": 0.4571739733219147,
+            "p90": 0.4577972233295441
+          }
+        },
+        "losses": 2
+      },
+      "conv-30": {
+        "gain_mechanism": {
+          "carriers": 3,
+          "evidence_chars": {
+            "max": 499.0,
+            "min": 234.0,
+            "n": 3,
+            "p10": 281.6,
+            "p50": 472.0,
+            "p90": 493.6
+          },
+          "evidence_direct_rank": {
+            "max": 171.0,
+            "min": 66.0,
+            "n": 3,
+            "p10": 86.6,
+            "p50": 169.0,
+            "p90": 170.6
+          },
+          "graph_distance": {
+            "max": 1.0,
+            "min": 1.0,
+            "n": 3,
+            "p10": 1.0,
+            "p50": 1.0,
+            "p90": 1.0
+          },
+          "items": 3,
+          "linked_chars_on_gain_items": {
+            "max": 3186.0,
+            "min": 2943.0,
+            "n": 3,
+            "p10": 2984.6,
+            "p50": 3151.0,
+            "p90": 3179.0
+          },
+          "multi_carrier_items": 0,
+          "rank_beyond_direct_selected_count": {
+            "max": 100.0,
+            "min": 7.0,
+            "n": 3,
+            "p10": 23.0,
+            "p50": 87.0,
+            "p90": 97.4
+          },
+          "relation": {
+            "next": 1,
+            "previous": 2
+          },
+          "seed_direct_rank": {
+            "max": 3.0,
+            "min": 1.0,
+            "n": 3,
+            "p10": 1.2,
+            "p50": 2.0,
+            "p90": 2.8
+          },
+          "seed_minus_evidence_score": {
+            "max": 0.32951080799102783,
+            "min": 0.15320497751235962,
+            "n": 3,
+            "p10": 0.17122877836227418,
+            "p50": 0.24332398176193237,
+            "p90": 0.31227344274520874
+          }
+        },
+        "gains": 3,
+        "loss_mechanism": {
+          "carriers": 0,
+          "direct_rank": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "direct_selected_percentile": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "displaced_chars_on_loss_items": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "displaced_count_on_loss_items": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "evidence_chars": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "items": 0,
+          "linked_chars_on_loss_items": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          },
+          "multi_carrier_items": 0,
+          "score": {
+            "max": null,
+            "min": null,
+            "n": 0,
+            "p10": null,
+            "p50": null,
+            "p90": null
+          }
+        },
+        "losses": 0
+      },
+      "conv-43": {
+        "gain_mechanism": {
+          "carriers": 10,
+          "evidence_chars": {
+            "max": 495.0,
+            "min": 254.0,
+            "n": 10,
+            "p10": 261.2,
+            "p50": 387.0,
+            "p90": 433.79999999999995
+          },
+          "evidence_direct_rank": {
+            "max": 265.0,
+            "min": 76.0,
+            "n": 10,
+            "p10": 83.2,
+            "p50": 98.5,
+            "p90": 159.69999999999996
+          },
+          "graph_distance": {
+            "max": 1.0,
+            "min": 1.0,
+            "n": 10,
+            "p10": 1.0,
+            "p50": 1.0,
+            "p90": 1.0
+          },
+          "items": 9,
+          "linked_chars_on_gain_items": {
+            "max": 4989.0,
+            "min": 2207.0,
+            "n": 9,
+            "p10": 2977.4,
+            "p50": 3559.0,
+            "p90": 4425.0
+          },
+          "multi_carrier_items": 1,
+          "rank_beyond_direct_selected_count": {
+            "max": 201.0,
+            "min": 4.0,
+            "n": 10,
+            "p10": 5.8,
+            "p50": 31.5,
+            "p90": 83.09999999999995
+          },
+          "relation": {
+            "next": 7,
+            "previous": 3
+          },
+          "seed_direct_rank": {
+            "max": 7.0,
+            "min": 1.0,
+            "n": 10,
+            "p10": 1.0,
+            "p50": 2.5,
+            "p90": 7.0
+          },
+          "seed_minus_evidence_score": {
+            "max": 0.3453640937805176,
+            "min": 0.08613893389701843,
+            "n": 10,
+            "p10": 0.08680189549922943,
+            "p50": 0.15082846581935883,
+            "p90": 0.2949607193470001
+          }
+        },
+        "gains": 9,
+        "loss_mechanism": {
+          "carriers": 2,
+          "direct_rank": {
+            "max": 66.0,
+            "min": 65.0,
+            "n": 2,
+            "p10": 65.1,
+            "p50": 65.5,
+            "p90": 65.9
+          },
+          "direct_selected_percentile": {
+            "max": 0.9705882352941176,
+            "min": 0.9154929577464789,
+            "n": 2,
+            "p10": 0.9210024855012428,
+            "p50": 0.9430405965202983,
+            "p90": 0.9650787075393538
+          },
+          "displaced_chars_on_loss_items": {
+            "max": 2404.0,
+            "min": 1653.0,
+            "n": 2,
+            "p10": 1728.1,
+            "p50": 2028.5,
+            "p90": 2328.9
+          },
+          "displaced_count_on_loss_items": {
+            "max": 9.0,
+            "min": 7.0,
+            "n": 2,
+            "p10": 7.2,
+            "p50": 8.0,
+            "p90": 8.8
+          },
+          "evidence_chars": {
+            "max": 399.0,
+            "min": 371.0,
+            "n": 2,
+            "p10": 373.8,
+            "p50": 385.0,
+            "p90": 396.2
+          },
+          "items": 2,
+          "linked_chars_on_loss_items": {
+            "max": 3890.0,
+            "min": 3257.0,
+            "n": 2,
+            "p10": 3320.3,
+            "p50": 3573.5,
+            "p90": 3826.7
+          },
+          "multi_carrier_items": 0,
+          "score": {
+            "max": 0.5561751127243042,
+            "min": 0.45682844519615173,
+            "n": 2,
+            "p10": 0.46676311194896697,
+            "p50": 0.506501778960228,
+            "p90": 0.5462404459714889
+          }
+        },
+        "losses": 2
+      },
+      "conv-44": {
+        "gain_mechanism": {
+          "carriers": 1,
+          "evidence_chars": {
+            "max": 165.0,
+            "min": 165.0,
+            "n": 1,
+            "p10": 165.0,
+            "p50": 165.0,
+            "p90": 165.0
+          },
+          "evidence_direct_rank": {
+            "max": 198.0,
+            "min": 198.0,
+            "n": 1,
+            "p10": 198.0,
+            "p50": 198.0,
+            "p90": 198.0
+          },
+          "graph_distance": {
+            "max": 1.0,
+            "min": 1.0,
+            "n": 1,
+            "p10": 1.0,
+            "p50": 1.0,
+            "p90": 1.0
+          },
+          "items": 1,
+          "linked_chars_on_gain_items": {
+            "max": 2928.0,
+            "min": 2928.0,
+            "n": 1,
+            "p10": 2928.0,
+            "p50": 2928.0,
+            "p90": 2928.0
+          },
+          "multi_carrier_items": 0,
+          "rank_beyond_direct_selected_count": {
+            "max": 126.0,
+            "min": 126.0,
+            "n": 1,
+            "p10": 126.0,
+            "p50": 126.0,
+            "p90": 126.0
+          },
+          "relation": {
+            "next": 1
+          },
+          "seed_direct_rank": {
+            "max": 1.0,
+            "min": 1.0,
+            "n": 1,
+            "p10": 1.0,
+            "p50": 1.0,
+            "p90": 1.0
+          },
+          "seed_minus_evidence_score": {
+            "max": 0.18676435947418213,
+            "min": 0.18676435947418213,
+            "n": 1,
+            "p10": 0.18676435947418213,
+            "p50": 0.18676435947418213,
+            "p90": 0.18676435947418213
+          }
+        },
+        "gains": 1,
+        "loss_mechanism": {
+          "carriers": 3,
+          "direct_rank": {
+            "max": 66.0,
+            "min": 57.0,
+            "n": 3,
+            "p10": 58.2,
+            "p50": 63.0,
+            "p90": 65.4
+          },
+          "direct_selected_percentile": {
+            "max": 0.9827586206896551,
+            "min": 0.9402985074626866,
+            "n": 3,
+            "p10": 0.9463564530289729,
+            "p50": 0.9705882352941176,
+            "p90": 0.9803245436105477
+          },
+          "displaced_chars_on_loss_items": {
+            "max": 2084.0,
+            "min": 1073.0,
+            "n": 3,
+            "p10": 1158.8,
+            "p50": 1502.0,
+            "p90": 1967.6
+          },
+          "displaced_count_on_loss_items": {
+            "max": 12.0,
+            "min": 4.0,
+            "n": 3,
+            "p10": 4.4,
+            "p50": 6.0,
+            "p90": 10.8
+          },
+          "evidence_chars": {
+            "max": 421.0,
+            "min": 257.0,
+            "n": 3,
+            "p10": 281.2,
+            "p50": 378.0,
+            "p90": 412.4
+          },
+          "items": 3,
+          "linked_chars_on_loss_items": {
+            "max": 3317.0,
+            "min": 2296.0,
+            "n": 3,
+            "p10": 2418.8,
+            "p50": 2910.0,
+            "p90": 3235.6
+          },
+          "multi_carrier_items": 0,
+          "score": {
+            "max": 0.5619891881942749,
+            "min": 0.49169066548347473,
+            "n": 3,
+            "p10": 0.49821996688842773,
+            "p50": 0.5243371725082397,
+            "p90": 0.5544587850570679
+          }
+        },
+        "losses": 3
+      },
+      "conv-49": {
+        "gain_mechanism": {
+          "carriers": 8,
+          "evidence_chars": {
+            "max": 401.0,
+            "min": 173.0,
+            "n": 8,
+            "p10": 255.60000000000002,
+            "p50": 322.0,
+            "p90": 380.0
+          },
+          "evidence_direct_rank": {
+            "max": 181.0,
+            "min": 63.0,
+            "n": 8,
+            "p10": 77.0,
+            "p50": 143.0,
+            "p90": 178.2
+          },
+          "graph_distance": {
+            "max": 1.0,
+            "min": 1.0,
+            "n": 8,
+            "p10": 1.0,
+            "p50": 1.0,
+            "p90": 1.0
+          },
+          "items": 8,
+          "linked_chars_on_gain_items": {
+            "max": 4614.0,
+            "min": 2237.0,
+            "n": 8,
+            "p10": 2409.9,
+            "p50": 3376.5,
+            "p90": 4212.9
+          },
+          "multi_carrier_items": 0,
+          "rank_beyond_direct_selected_count": {
+            "max": 107.0,
+            "min": 5.0,
+            "n": 8,
+            "p10": 15.5,
+            "p50": 68.0,
+            "p90": 104.9
+          },
+          "relation": {
+            "next": 2,
+            "previous": 6
+          },
+          "seed_direct_rank": {
+            "max": 7.0,
+            "min": 1.0,
+            "n": 8,
+            "p10": 1.0,
+            "p50": 4.0,
+            "p90": 5.6
+          },
+          "seed_minus_evidence_score": {
+            "max": 0.27233684062957764,
+            "min": 0.11580967903137207,
+            "n": 8,
+            "p10": 0.1346896171569824,
+            "p50": 0.17378948628902435,
+            "p90": 0.26927460432052613
+          }
+        },
+        "gains": 8,
+        "loss_mechanism": {
+          "carriers": 3,
+          "direct_rank": {
+            "max": 70.0,
+            "min": 49.0,
+            "n": 3,
+            "p10": 50.2,
+            "p50": 55.0,
+            "p90": 67.0
+          },
+          "direct_selected_percentile": {
+            "max": 0.8974358974358975,
+            "min": 0.7971014492753623,
+            "n": 3,
+            "p10": 0.8066466766616691,
+            "p50": 0.8448275862068966,
+            "p90": 0.8869142351900973
+          },
+          "displaced_chars_on_loss_items": {
+            "max": 2845.0,
+            "min": 2205.0,
+            "n": 3,
+            "p10": 2213.8,
+            "p50": 2249.0,
+            "p90": 2725.8
+          },
+          "displaced_count_on_loss_items": {
+            "max": 15.0,
+            "min": 7.0,
+            "n": 3,
+            "p10": 8.0,
+            "p50": 12.0,
+            "p90": 14.4
+          },
+          "evidence_chars": {
+            "max": 664.0,
+            "min": 224.0,
+            "n": 3,
+            "p10": 312.0,
+            "p50": 664.0,
+            "p90": 664.0
+          },
+          "items": 3,
+          "linked_chars_on_loss_items": {
+            "max": 3948.0,
+            "min": 3651.0,
+            "n": 3,
+            "p10": 3670.6,
+            "p50": 3749.0,
+            "p90": 3908.2
+          },
+          "multi_carrier_items": 0,
+          "score": {
+            "max": 0.5459946393966675,
+            "min": 0.4837423264980316,
+            "n": 3,
+            "p10": 0.48798532485961915,
+            "p50": 0.5049573183059692,
+            "p90": 0.5377871751785278
+          }
+        },
+        "losses": 3
+      },
+      "conv-50": {
+        "gain_mechanism": {
+          "carriers": 4,
+          "evidence_chars": {
+            "max": 654.0,
+            "min": 175.0,
+            "n": 4,
+            "p10": 202.0,
+            "p50": 292.0,
+            "p90": 553.5
+          },
+          "evidence_direct_rank": {
+            "max": 98.0,
+            "min": 63.0,
+            "n": 4,
+            "p10": 65.1,
+            "p50": 72.5,
+            "p90": 91.10000000000001
+          },
+          "graph_distance": {
+            "max": 1.0,
+            "min": 1.0,
+            "n": 4,
+            "p10": 1.0,
+            "p50": 1.0,
+            "p90": 1.0
+          },
+          "items": 4,
+          "linked_chars_on_gain_items": {
+            "max": 4652.0,
+            "min": 3238.0,
+            "n": 4,
+            "p10": 3369.7,
+            "p50": 3929.5,
+            "p90": 4511.0
+          },
+          "multi_carrier_items": 0,
+          "rank_beyond_direct_selected_count": {
+            "max": 51.0,
+            "min": 2.0,
+            "n": 4,
+            "p10": 3.8000000000000003,
+            "p50": 14.5,
+            "p90": 42.00000000000001
+          },
+          "relation": {
+            "next": 2,
+            "previous": 2
+          },
+          "seed_direct_rank": {
+            "max": 6.0,
+            "min": 1.0,
+            "n": 4,
+            "p10": 1.0,
+            "p50": 3.0,
+            "p90": 5.7
+          },
+          "seed_minus_evidence_score": {
+            "max": 0.3205040395259857,
+            "min": 0.06445655226707458,
+            "n": 4,
+            "p10": 0.072628715634346,
+            "p50": 0.12758207321166992,
+            "p90": 0.27339294254779817
+          }
+        },
+        "gains": 4,
+        "loss_mechanism": {
+          "carriers": 4,
+          "direct_rank": {
+            "max": 48.0,
+            "min": 32.0,
+            "n": 4,
+            "p10": 35.0,
+            "p50": 42.5,
+            "p90": 46.5
+          },
+          "direct_selected_percentile": {
+            "max": 0.9148936170212766,
+            "min": 0.7441860465116279,
+            "n": 4,
+            "p10": 0.7649980291683091,
+            "p50": 0.8442796610169492,
+            "p90": 0.9029255319148937
+          },
+          "displaced_chars_on_loss_items": {
+            "max": 3060.0,
+            "min": 1364.0,
+            "n": 4,
+            "p10": 1531.7,
+            "p50": 2171.0,
+            "p90": 2867.7000000000003
+          },
+          "displaced_count_on_loss_items": {
+            "max": 9.0,
+            "min": 5.0,
+            "n": 4,
+            "p10": 5.3,
+            "p50": 7.5,
+            "p90": 9.0
+          },
+          "evidence_chars": {
+            "max": 550.0,
+            "min": 281.0,
+            "n": 4,
+            "p10": 281.0,
+            "p50": 331.5,
+            "p90": 499.6
+          },
+          "items": 4,
+          "linked_chars_on_loss_items": {
+            "max": 5560.0,
+            "min": 3652.0,
+            "n": 4,
+            "p10": 3719.5,
+            "p50": 3924.5,
+            "p90": 5083.6
+          },
+          "multi_carrier_items": 0,
+          "score": {
+            "max": 0.6629048585891724,
+            "min": 0.5395175814628601,
+            "n": 4,
+            "p10": 0.543249785900116,
+            "p50": 0.5943889915943146,
+            "p90": 0.6550793170928955
+          }
+        },
+        "losses": 4
+      }
+    }
+  },
+  "trajectories": {
+    "EVENT": {
+      "classes": {
+        "ALWAYS_TIED": 896,
+        "GAIN_THEN_REVERT": 3,
+        "LOSS_THEN_RECOVER": 11,
+        "MULTIPLE_LOSS_TIE_REVERSALS": 1,
+        "PERSISTENT_GAIN": 49,
+        "PERSISTENT_LOSS": 138
+      },
+      "first_active_depths": {
+        "1": 38,
+        "16": 12,
+        "2": 23,
+        "4": 51,
+        "8": 78,
+        "None": 896
+      },
+      "sequences": {
+        "GGGGG": 20,
+        "GGGTT": 1,
+        "LLLLL": 13,
+        "LLLTT": 1,
+        "LLTTT": 2,
+        "LTTTT": 1,
+        "TGGGG": 11,
+        "TLLLL": 7,
+        "TLLTT": 1,
+        "TLTLL": 1,
+        "TLTTT": 3,
+        "TTGGG": 10,
+        "TTGGT": 1,
+        "TTGTT": 1,
+        "TTLLL": 36,
+        "TTLTT": 3,
+        "TTTGG": 8,
+        "TTTLL": 70,
+        "TTTTL": 12,
+        "TTTTT": 896
+      },
+      "transition_depths": {
+        "16": 13,
+        "2": 24,
+        "4": 57,
+        "8": 86
+      }
+    },
+    "TEMPORAL": {
+      "classes": {
+        "ALWAYS_TIED": 1022,
+        "LOSS_THEN_RECOVER": 2,
+        "PERSISTENT_GAIN": 51,
+        "PERSISTENT_LOSS": 23
+      },
+      "first_active_depths": {
+        "1": 19,
+        "16": 24,
+        "2": 7,
+        "4": 7,
+        "8": 19,
+        "None": 1022
+      },
+      "sequences": {
+        "GGGGG": 17,
+        "LLLLL": 2,
+        "TGGGG": 4,
+        "TLLLL": 2,
+        "TLLLT": 1,
+        "TTGGG": 6,
+        "TTLLL": 1,
+        "TTTGG": 11,
+        "TTTLL": 7,
+        "TTTLT": 1,
+        "TTTTG": 13,
+        "TTTTL": 11,
+        "TTTTT": 1022
+      },
+      "transition_depths": {
+        "16": 26,
+        "2": 7,
+        "4": 7,
+        "8": 19
+      }
+    }
+  }
+}

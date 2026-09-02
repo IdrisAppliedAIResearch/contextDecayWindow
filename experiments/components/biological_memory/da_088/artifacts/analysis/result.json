@@ -1,0 +1,35 @@
+{
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "claim_boundary": "deterministic protected dependency exposure only; no reader, retention, stopping, transfer, delivery, runtime, or adoption",
+  "complete": 13,
+  "cumulative_frame_chars": {
+    "p10": 371.8,
+    "p50": 555.0,
+    "p90": 4872.4000000000015
+  },
+  "envelopes_sha256": "0f16811b6325a8655b5aaa5ebf8151dd2177fab893f08bc2dd5f433c8218e004",
+  "frames": {
+    "p10": 1.0,
+    "p50": 1.0,
+    "p90": 2.8000000000000007
+  },
+  "peak_frame_chars": {
+    "p10": 371.8,
+    "p50": 555.0,
+    "p90": 1907.8
+  },
+  "protected_da078_mutations": 0,
+  "replay_byte_identical": true,
+  "residuals": 13,
+  "routes": {
+    "ANCHORED_EDGE_SLICES": 5,
+    "PROMPT_LINKED_FRAME": 7,
+    "PROMPT_SIBLING_FRAME": 1
+  },
+  "schema": "da088-protected-dependency-envelope-v1",
+  "status": "PROTECTED_DEPENDENCY_ENVELOPE_SIGNAL"
+}

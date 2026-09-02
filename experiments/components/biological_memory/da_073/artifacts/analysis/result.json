@@ -1,0 +1,99 @@
+{
+  "additional_episodes_beyond_da066": {
+    "max": 154.0,
+    "n": 465,
+    "p10": 0.0,
+    "p50": 0.0,
+    "p90": 0.0
+  },
+  "any_reachability": 465,
+  "by_question_type": {
+    "knowledge-update": {
+      "any_reachability": 72,
+      "complete_reachability": 72,
+      "n": 72
+    },
+    "multi-session": {
+      "any_reachability": 121,
+      "complete_reachability": 121,
+      "n": 121
+    },
+    "single-session-assistant": {
+      "any_reachability": 51,
+      "complete_reachability": 51,
+      "n": 51
+    },
+    "single-session-preference": {
+      "any_reachability": 30,
+      "complete_reachability": 30,
+      "n": 30
+    },
+    "single-session-user": {
+      "any_reachability": 64,
+      "complete_reachability": 64,
+      "n": 64
+    },
+    "temporal-reasoning": {
+      "any_reachability": 127,
+      "complete_reachability": 127,
+      "n": 127
+    }
+  },
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "claim_boundary": "ordered-feature reachability, burden, and collision anatomy only; no reader or delivery",
+  "complete_reachability": 465,
+  "complete_reachability_rate": 1.0,
+  "first_required_position": {
+    "max": 209.0,
+    "n": 465,
+    "p10": 1.0,
+    "p50": 3.0,
+    "p90": 42.0
+  },
+  "gain_only": {
+    "additional_episodes_beyond_da066": {
+      "max": 154.0,
+      "n": 27,
+      "p10": 1.0,
+      "p50": 38.0,
+      "p90": 130.4
+    },
+    "questions": 27,
+    "reference_median": 37
+  },
+  "last_required_position": {
+    "max": 220.0,
+    "n": 465,
+    "p10": 1.0,
+    "p50": 22.0,
+    "p90": 101.20000000000005
+  },
+  "peak_current_frame_chars": 2048,
+  "protected_payload_mutations": 0,
+  "questions": 465,
+  "reachability_sha256": "2104c66b92d53b41284de7217ea0fd23a33b332c1b15ab0ee92cb01a4082bbce",
+  "schema": "da073-ordered-feature-lattice-result-v1",
+  "simultaneously_rendered_episodes": 1,
+  "status": "NO_ORDERED_FEATURE_LATTICE_SIGNAL",
+  "stream_episodes": {
+    "max": 284.0,
+    "n": 465,
+    "p10": 209.0,
+    "p50": 228.0,
+    "p90": 246.0
+  },
+  "target_collisions": {
+    "group_size": {
+      "max": 13,
+      "n": 31,
+      "p50": 1.0,
+      "p90": 8.0
+    },
+    "reference_sessions": 16,
+    "sessions": 13
+  }
+}

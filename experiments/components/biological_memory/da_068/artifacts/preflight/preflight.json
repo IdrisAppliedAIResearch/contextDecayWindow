@@ -1,0 +1,31 @@
+{
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "da066_prefix_episodes": 64554,
+  "leakage_scan_clean": true,
+  "max_stream_episodes": 284,
+  "min_stream_episodes": 143,
+  "pair_witness_additions": 40515,
+  "peak_current_frame_chars": 2048,
+  "protected_payload_mutations": 0,
+  "questions": 465,
+  "radius": 5,
+  "rejections": {
+    "PRIOR_REPRESENTATION": 3328672,
+    "SESSION_BOUNDARY": 3298133
+  },
+  "rendered_char_delta": 0,
+  "replay_byte_identical": true,
+  "schema": "da068-minimum-pair-witness-preflight-v1",
+  "simultaneously_rendered_episodes": 1,
+  "status": "PASS",
+  "streams_sha256": "9c254cb065614e69a823f8d996bff24da209a84e1d5f275b418807ea696d1464",
+  "witness_kinds": {
+    "CROSS_EPISODE": 58005,
+    "SAME_EPISODE": 490110
+  },
+  "witnesses": 548115
+}
