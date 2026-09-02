@@ -1,0 +1,36 @@
+{
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "cover_edges": 34269,
+  "equal_signature_sessions": 2392,
+  "max_depth": 5,
+  "max_stream_episodes": 284,
+  "min_stream_episodes": 191,
+  "ordered_feature_additions": 41520,
+  "parent_replay_byte_identical": true,
+  "peak_current_frame_chars": 2048,
+  "protected_payload_mutations": 0,
+  "questions": 465,
+  "rejections": {
+    "PRIOR_REPRESENTATION": 192275,
+    "SESSION_BOUNDARY": 212920
+  },
+  "rendered_char_delta": 0,
+  "root_nodes": 7779,
+  "schema": "da074-role-typed-feature-lattice-preflight-v1",
+  "signature_nodes": 18802,
+  "simultaneously_rendered_episodes": 1,
+  "status": "PASS",
+  "streams_sha256": "1c99679e481b7a3ef3d91d184d5df047f9aebab460805480895cfa8618c1a5d1",
+  "synthetic_hasse_check": true,
+  "typed_feature_occurrences": {
+    "ASSISTANT_BIGRAM": 26079,
+    "ASSISTANT_UNIGRAM": 406331,
+    "USER_BIGRAM": 17976,
+    "USER_UNIGRAM": 286688
+  },
+  "typed_replay_byte_identical": true
+}

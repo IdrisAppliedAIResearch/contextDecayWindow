@@ -1,0 +1,48 @@
+{
+  "admissions": {
+    "PAIR_R1024": 14606,
+    "PAIR_R2048": 15168,
+    "PAIR_R256": 6730,
+    "PAIR_R512": 13774,
+    "TURN_R1024": 14606,
+    "TURN_R2048": 15168,
+    "TURN_R256": 13003,
+    "TURN_R512": 14335
+  },
+  "arms": [
+    "PAIR_R256",
+    "PAIR_R512",
+    "PAIR_R1024",
+    "PAIR_R2048",
+    "TURN_R256",
+    "TURN_R512",
+    "TURN_R1024",
+    "TURN_R2048"
+  ],
+  "calls": {
+    "embedding": 0,
+    "model": 0
+  },
+  "core_removal_rows": {
+    "PAIR_R1024": 26100,
+    "PAIR_R2048": 26100,
+    "PAIR_R256": 26100,
+    "PAIR_R512": 26100,
+    "TURN_R1024": 26100,
+    "TURN_R2048": 26100,
+    "TURN_R256": 26100,
+    "TURN_R512": 26100
+  },
+  "leakage_and_cache_scan_clean": true,
+  "replay_byte_identical": true,
+  "rows": 26100,
+  "schema": "da006-reserved-link-preflight-v1",
+  "selection_sha256": "81625474d8fa044f797dd9c15c292c57150d83f28ffabcc17665658c85b0ff86",
+  "status": "PASS",
+  "turn_only_fit": {
+    "256": 6273,
+    "512": 561,
+    "1024": 0,
+    "2048": 0
+  }
+}

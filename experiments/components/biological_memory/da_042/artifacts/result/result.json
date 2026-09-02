@@ -1,0 +1,49 @@
+{
+  "by_blocker": {
+    "INITIAL_SENTINEL_ATOMIC_SIZE": {
+      "n": 1,
+      "reachable": 1
+    },
+    "PRIOR_SENTINEL_ATOMIC_CONSUMPTION": {
+      "n": 17,
+      "reachable": 17
+    }
+  },
+  "by_question_type": {
+    "knowledge-update": {
+      "n": 4,
+      "reachable": 4
+    },
+    "multi-session": {
+      "n": 4,
+      "reachable": 4
+    },
+    "single-session-assistant": {
+      "n": 1,
+      "reachable": 1
+    },
+    "single-session-user": {
+      "n": 4,
+      "reachable": 4
+    },
+    "temporal-reasoning": {
+      "n": 5,
+      "reachable": 5
+    }
+  },
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "claim_boundary": "exact control-plane graph addressability only; head is not delivered evidence",
+  "newly_reachable": 18,
+  "protected_da038_mutations": 0,
+  "reachability_sha256": "4fbbd7f2e8f9443c5ca552ae2cef40342eda71934fa19f093cce1305959e5896",
+  "remaining_unreachable": 0,
+  "rendered_char_delta": 0,
+  "replay_byte_identical": true,
+  "residuals": 18,
+  "schema": "da042-control-plane-head-result-v1",
+  "status": "CONTROL_PLANE_HEAD_SIGNAL"
+}

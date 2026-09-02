@@ -1,0 +1,122 @@
+{
+  "blocker_classes": {
+    "MULTI_PAIR_CONJUNCTION": 3,
+    "PRIOR_CONSUMPTION": 13
+  },
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "carrier_position": {
+    "p10": 2.0,
+    "p50": 7.0,
+    "p90": 13.2
+  },
+  "claim_boundary": "spent-corpus causal audit; oracle diagnostics are non-deployable upper bounds",
+  "diagnostics": {
+    "CARRIER_FIRST": {
+      "by_conversation": {
+        "conv-26": {
+          "complete": 185,
+          "gains_vs_baseline": 2,
+          "losses_vs_baseline": 0
+        },
+        "conv-30": {
+          "complete": 101,
+          "gains_vs_baseline": 2,
+          "losses_vs_baseline": 0
+        },
+        "conv-43": {
+          "complete": 223,
+          "gains_vs_baseline": 7,
+          "losses_vs_baseline": 0
+        },
+        "conv-44": {
+          "complete": 130,
+          "gains_vs_baseline": 0,
+          "losses_vs_baseline": 0
+        },
+        "conv-49": {
+          "complete": 164,
+          "gains_vs_baseline": 4,
+          "losses_vs_baseline": 0
+        },
+        "conv-50": {
+          "complete": 183,
+          "gains_vs_baseline": 1,
+          "losses_vs_baseline": 0
+        }
+      },
+      "complete": 986,
+      "exact_two_sided_p": 3.0517578125e-05,
+      "gains_vs_baseline": 16,
+      "losses_vs_baseline": 0
+    },
+    "ORACLE_MEMBER": {
+      "by_conversation": {
+        "conv-26": {
+          "complete": 183,
+          "gains_vs_baseline": 0,
+          "losses_vs_baseline": 0
+        },
+        "conv-30": {
+          "complete": 99,
+          "gains_vs_baseline": 0,
+          "losses_vs_baseline": 0
+        },
+        "conv-43": {
+          "complete": 216,
+          "gains_vs_baseline": 0,
+          "losses_vs_baseline": 0
+        },
+        "conv-44": {
+          "complete": 130,
+          "gains_vs_baseline": 0,
+          "losses_vs_baseline": 0
+        },
+        "conv-49": {
+          "complete": 160,
+          "gains_vs_baseline": 0,
+          "losses_vs_baseline": 0
+        },
+        "conv-50": {
+          "complete": 182,
+          "gains_vs_baseline": 0,
+          "losses_vs_baseline": 0
+        }
+      },
+      "complete": 970,
+      "exact_two_sided_p": 1.0,
+      "gains_vs_baseline": 0,
+      "losses_vs_baseline": 0
+    }
+  },
+  "population": {
+    "all_eligible_oracle_complete": 986,
+    "direct_complete": 935,
+    "edges": 25941,
+    "fallback_complete": 970,
+    "questions": 1098,
+    "residuals": 16
+  },
+  "replay_checks": 1098,
+  "schema": "da011-residual-audit-v1",
+  "trace_distributions": {
+    "arrival_slack": {
+      "p10": 4.0,
+      "p50": 44.5,
+      "p90": 103.5
+    },
+    "initial_slack": {
+      "p10": 526.5,
+      "p50": 622.5,
+      "p90": 902.5
+    },
+    "required_cost": {
+      "p10": 114.5,
+      "p50": 192.0,
+      "p90": 301.0
+    }
+  }
+}

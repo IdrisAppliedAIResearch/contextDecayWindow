@@ -1,0 +1,30 @@
+{
+  "actions": {
+    "FRAME": 169714,
+    "OVERFLOW": 43110
+  },
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "catalog_sha256": "87fef862b5642cd8f6661498a776ad59d682b8052c9820a964af1bcbe506f794",
+  "members": 212824,
+  "peak_frame_chars": 2048,
+  "questions": 465,
+  "rendered_char_delta": 0,
+  "replay_byte_identical": true,
+  "schema": "da056-session-local-materialization-preflight-v1",
+  "status": "PASS",
+  "transition_exercise": {
+    "bad_offset_rejected": true,
+    "boundary_rejected": true,
+    "duplicate_rejected": true,
+    "full_rejected": true,
+    "overflow_rejected": true,
+    "peak_chars": 2814,
+    "retained_slots": 5,
+    "retained_survives_overflow": true,
+    "unknown_head_rejected": true
+  }
+}

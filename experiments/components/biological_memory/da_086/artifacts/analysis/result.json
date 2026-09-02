@@ -1,0 +1,40 @@
+{
+  "bridges": 5,
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "claim_boundary": "exact simultaneous endpoint exposure only; no reader, retention, stopping, transfer, delivery, runtime, or adoption",
+  "coframe_chars": {
+    "p10": 447.2,
+    "p50": 549.0,
+    "p90": 724.4
+  },
+  "coframes_sha256": "a4643d8d60cc450cb1e08afd5f182f2617529d9589eb83bcaa52e3df7df8ad63",
+  "cumulative_frame_chars": {
+    "p10": 2882.0,
+    "p50": 3072.0,
+    "p90": 4286.0
+  },
+  "exact_coframes": 5,
+  "frames": {
+    "p10": 4.0,
+    "p50": 4.0,
+    "p90": 4.0
+  },
+  "incremental_chars_vs_da085": {
+    "p10": 195.2,
+    "p50": 265.0,
+    "p90": 308.2
+  },
+  "peak_frame_chars": {
+    "p10": 1916.0,
+    "p50": 1916.0,
+    "p90": 1919.2
+  },
+  "protected_da078_mutations": 0,
+  "replay_byte_identical": true,
+  "schema": "da086-parent-child-endpoint-coframe-v1",
+  "status": "ENDPOINT_COFRAME_SIGNAL"
+}

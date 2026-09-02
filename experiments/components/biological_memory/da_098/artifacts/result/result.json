@@ -1,0 +1,237 @@
+{
+  "by_conversation": {
+    "conv-26": {
+      "ARCH32_vs_ARCH16": {
+        "discordant": 12,
+        "gains": 12,
+        "losses": 0,
+        "net": 12,
+        "ties": 186,
+        "two_sided_exact_p": 0.00048828125
+      },
+      "ARCH32_vs_PAIR32": {
+        "discordant": 11,
+        "gains": 11,
+        "losses": 0,
+        "net": 11,
+        "ties": 187,
+        "two_sided_exact_p": 0.0009765625
+      },
+      "complete": {
+        "ARCH_16": 185,
+        "ARCH_32": 197,
+        "PAIR_16": 169,
+        "PAIR_32": 186
+      },
+      "n": 198
+    },
+    "conv-30": {
+      "ARCH32_vs_ARCH16": {
+        "discordant": 4,
+        "gains": 4,
+        "losses": 0,
+        "net": 4,
+        "ties": 101,
+        "two_sided_exact_p": 0.125
+      },
+      "ARCH32_vs_PAIR32": {
+        "discordant": 3,
+        "gains": 3,
+        "losses": 0,
+        "net": 3,
+        "ties": 102,
+        "two_sided_exact_p": 0.25
+      },
+      "complete": {
+        "ARCH_16": 101,
+        "ARCH_32": 105,
+        "PAIR_16": 97,
+        "PAIR_32": 102
+      },
+      "n": 105
+    },
+    "conv-43": {
+      "ARCH32_vs_ARCH16": {
+        "discordant": 15,
+        "gains": 15,
+        "losses": 0,
+        "net": 15,
+        "ties": 226,
+        "two_sided_exact_p": 6.103515625e-05
+      },
+      "ARCH32_vs_PAIR32": {
+        "discordant": 7,
+        "gains": 7,
+        "losses": 0,
+        "net": 7,
+        "ties": 234,
+        "two_sided_exact_p": 0.015625
+      },
+      "complete": {
+        "ARCH_16": 223,
+        "ARCH_32": 238,
+        "PAIR_16": 210,
+        "PAIR_32": 231
+      },
+      "n": 241
+    },
+    "conv-44": {
+      "ARCH32_vs_ARCH16": {
+        "discordant": 19,
+        "gains": 19,
+        "losses": 0,
+        "net": 19,
+        "ties": 139,
+        "two_sided_exact_p": 3.814697265625e-06
+      },
+      "ARCH32_vs_PAIR32": {
+        "discordant": 11,
+        "gains": 11,
+        "losses": 0,
+        "net": 11,
+        "ties": 147,
+        "two_sided_exact_p": 0.0009765625
+      },
+      "complete": {
+        "ARCH_16": 130,
+        "ARCH_32": 149,
+        "PAIR_16": 129,
+        "PAIR_32": 138
+      },
+      "n": 158
+    },
+    "conv-49": {
+      "ARCH32_vs_ARCH16": {
+        "discordant": 20,
+        "gains": 20,
+        "losses": 0,
+        "net": 20,
+        "ties": 173,
+        "two_sided_exact_p": 1.9073486328125e-06
+      },
+      "ARCH32_vs_PAIR32": {
+        "discordant": 10,
+        "gains": 10,
+        "losses": 0,
+        "net": 10,
+        "ties": 183,
+        "two_sided_exact_p": 0.001953125
+      },
+      "complete": {
+        "ARCH_16": 164,
+        "ARCH_32": 184,
+        "PAIR_16": 152,
+        "PAIR_32": 174
+      },
+      "n": 193
+    },
+    "conv-50": {
+      "ARCH32_vs_ARCH16": {
+        "discordant": 12,
+        "gains": 12,
+        "losses": 0,
+        "net": 12,
+        "ties": 191,
+        "two_sided_exact_p": 0.00048828125
+      },
+      "ARCH32_vs_PAIR32": {
+        "discordant": 2,
+        "gains": 2,
+        "losses": 0,
+        "net": 2,
+        "ties": 201,
+        "two_sided_exact_p": 0.5
+      },
+      "complete": {
+        "ARCH_16": 183,
+        "ARCH_32": 195,
+        "PAIR_16": 178,
+        "PAIR_32": 193
+      },
+      "n": 203
+    }
+  },
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "claim_boundary": "spent LoCoMo exact availability; reader use and fresh transfer untested",
+  "comparisons": {
+    "ARCH16_vs_PAIR16": {
+      "discordant": 51,
+      "gains": 51,
+      "losses": 0,
+      "net": 51,
+      "ties": 1047,
+      "two_sided_exact_p": 8.881784197001252e-16
+    },
+    "ARCH32_vs_ARCH16": {
+      "discordant": 82,
+      "gains": 82,
+      "losses": 0,
+      "net": 82,
+      "ties": 1016,
+      "two_sided_exact_p": 4.1359030627651384e-25
+    },
+    "ARCH32_vs_PAIR32": {
+      "discordant": 44,
+      "gains": 44,
+      "losses": 0,
+      "net": 44,
+      "ties": 1054,
+      "two_sided_exact_p": 1.1368683772161603e-13
+    },
+    "PAIR32_vs_PAIR16": {
+      "discordant": 89,
+      "gains": 89,
+      "losses": 0,
+      "net": 89,
+      "ties": 1009,
+      "two_sided_exact_p": 3.2311742677852644e-27
+    }
+  },
+  "complete": {
+    "ARCH_16": 986,
+    "ARCH_32": 1068,
+    "PAIR_16": 935,
+    "PAIR_32": 1024
+  },
+  "mechanism": {
+    "admitted_cost": {
+      "p10": 36.0,
+      "p50": 78.0,
+      "p90": 164.0
+    },
+    "admitted_members": 209257,
+    "admitted_rank": {
+      "p10": 75.0,
+      "p50": 119.0,
+      "p90": 163.0
+    },
+    "attempted_overflow_cost": {
+      "p10": 43.0,
+      "p50": 91.0,
+      "p90": 179.0
+    },
+    "final_chars": {
+      "p10": 31983.0,
+      "p50": 31995.0,
+      "p90": 32000.0
+    },
+    "remaining_blockers": {
+      "FIT_OVERFLOW": 30
+    },
+    "remaining_misses": 30,
+    "skipped_members": 230975
+  },
+  "outcomes_sha256": "1e5556f4a3c4a33f69deabce16d5cdf283344f04411fc07c1de9e3a4bc1ac443",
+  "pair32_over_arch16_gap": {
+    "items": 57,
+    "recovered_by_ARCH32": 57
+  },
+  "population": 1098,
+  "replay_byte_identical": true,
+  "schema": "da098-frozen-budget-result-v1",
+  "status": "FROZEN_BUDGET_REPLAY_SIGNAL"
+}

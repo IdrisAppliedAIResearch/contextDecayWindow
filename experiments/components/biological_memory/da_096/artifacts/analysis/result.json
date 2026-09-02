@@ -1,0 +1,38 @@
+{
+  "absolute_savings_fraction_vs_da091": {
+    "p10": 0.030874289132760586,
+    "p50": 0.07298630836718564,
+    "p90": 0.16544621138806792
+  },
+  "bound_pointer_count": {
+    "p10": 12.0,
+    "p50": 25.0,
+    "p90": 46.0
+  },
+  "bound_sources_per_child": 1,
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "claim_boundary": "exact bound-node span representation only; no reader, delivery, runtime, or adoption claim",
+  "eligible": 3499,
+  "exact_decode": true,
+  "incremental_savings_fraction_vs_da095": {
+    "p10": 0.004352992402608403,
+    "p50": 0.009559874283706731,
+    "p90": 0.021288690446193703
+  },
+  "protected_mutations": {
+    "da078": 0,
+    "da091": 0,
+    "da093": 0,
+    "da095": 0
+  },
+  "replay_byte_identical": true,
+  "schema": "da096-bound-node-local-span-stream-v1",
+  "selected": 3458,
+  "selection_rate": 0.9882823663903972,
+  "status": "NO_BOUND_NODE_SPAN_CAPACITY_SIGNAL",
+  "targets_sha256": "0b176588ecc17d5253970e851d5be29100f906c3ddf690471dc5965019f891d4"
+}

@@ -1,0 +1,151 @@
+{
+  "by_question_type": {
+    "knowledge-update": {
+      "complete": {
+        "DA016": 31,
+        "DA023": 34,
+        "DA025": 40,
+        "DIRECT": 24
+      },
+      "contrast": {
+        "discordant": 8,
+        "gains": 7,
+        "losses": 1,
+        "net": 6,
+        "ties": 64,
+        "two_sided_exact_p": 0.0703125
+      },
+      "n": 72
+    },
+    "multi-session": {
+      "complete": {
+        "DA016": 30,
+        "DA023": 32,
+        "DA025": 37,
+        "DIRECT": 24
+      },
+      "contrast": {
+        "discordant": 7,
+        "gains": 6,
+        "losses": 1,
+        "net": 5,
+        "ties": 114,
+        "two_sided_exact_p": 0.125
+      },
+      "n": 121
+    },
+    "single-session-assistant": {
+      "complete": {
+        "DA016": 45,
+        "DA023": 45,
+        "DA025": 45,
+        "DIRECT": 45
+      },
+      "contrast": {
+        "discordant": 0,
+        "gains": 0,
+        "losses": 0,
+        "net": 0,
+        "ties": 51,
+        "two_sided_exact_p": 1.0
+      },
+      "n": 51
+    },
+    "single-session-preference": {
+      "complete": {
+        "DA016": 15,
+        "DA023": 15,
+        "DA025": 17,
+        "DIRECT": 13
+      },
+      "contrast": {
+        "discordant": 2,
+        "gains": 2,
+        "losses": 0,
+        "net": 2,
+        "ties": 28,
+        "two_sided_exact_p": 0.5
+      },
+      "n": 30
+    },
+    "single-session-user": {
+      "complete": {
+        "DA016": 41,
+        "DA023": 44,
+        "DA025": 44,
+        "DIRECT": 35
+      },
+      "contrast": {
+        "discordant": 2,
+        "gains": 1,
+        "losses": 1,
+        "net": 0,
+        "ties": 62,
+        "two_sided_exact_p": 1.0
+      },
+      "n": 64
+    },
+    "temporal-reasoning": {
+      "complete": {
+        "DA016": 26,
+        "DA023": 32,
+        "DA025": 28,
+        "DIRECT": 23
+      },
+      "contrast": {
+        "discordant": 6,
+        "gains": 1,
+        "losses": 5,
+        "net": -4,
+        "ties": 121,
+        "two_sided_exact_p": 0.21875
+      },
+      "n": 127
+    }
+  },
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "claim_boundary": "spent LongMem availability; runtime and reader unvalidated",
+  "complete": {
+    "DA016": 188,
+    "DA023": 202,
+    "DA025": 211,
+    "DIRECT": 164
+  },
+  "contrast_vs_da016": {
+    "discordant": 23,
+    "gains": 23,
+    "losses": 0,
+    "net": 23,
+    "ties": 442,
+    "two_sided_exact_p": 2.384185791015625e-07
+  },
+  "contrast_vs_da023": {
+    "discordant": 25,
+    "gains": 17,
+    "losses": 8,
+    "net": 9,
+    "ties": 440,
+    "two_sided_exact_p": 0.10775214433670044
+  },
+  "one_hop_ceiling": 250,
+  "outcomes_sha256": "5c4589ed041eb0c0649879aacd2a5c42514d89c20c2951d9818df36f1674ac69",
+  "population": 465,
+  "replay_byte_identical": true,
+  "schema": "da025-atomic-result-v1",
+  "status": "NO_LONGMEM_ATOMIC_ADDITION_SIGNAL",
+  "wrong_member_residuals": {
+    "contrast": {
+      "discordant": 15,
+      "gains": 15,
+      "losses": 0,
+      "net": 15,
+      "ties": 5,
+      "two_sided_exact_p": 6.103515625e-05
+    },
+    "n": 20
+  }
+}

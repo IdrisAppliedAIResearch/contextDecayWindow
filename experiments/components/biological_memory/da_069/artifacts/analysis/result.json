@@ -1,0 +1,90 @@
+{
+  "additional_episodes_through_required": {
+    "max": 25.0,
+    "n": 446,
+    "p10": 0.0,
+    "p50": 0.0,
+    "p90": 0.0
+  },
+  "any_reachability": 461,
+  "by_question_type": {
+    "knowledge-update": {
+      "any_reachability": 72,
+      "complete_reachability": 71,
+      "n": 72
+    },
+    "multi-session": {
+      "any_reachability": 120,
+      "complete_reachability": 107,
+      "n": 121
+    },
+    "single-session-assistant": {
+      "any_reachability": 51,
+      "complete_reachability": 51,
+      "n": 51
+    },
+    "single-session-preference": {
+      "any_reachability": 30,
+      "complete_reachability": 30,
+      "n": 30
+    },
+    "single-session-user": {
+      "any_reachability": 63,
+      "complete_reachability": 63,
+      "n": 64
+    },
+    "temporal-reasoning": {
+      "any_reachability": 125,
+      "complete_reachability": 124,
+      "n": 127
+    }
+  },
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "claim_boundary": "conjunctive-signature reachability and burden only; no reader or delivery",
+  "complete_reachability": 446,
+  "complete_reachability_rate": 0.9591397849462365,
+  "da066_prefix_complete": 438,
+  "first_required_position": {
+    "max": 209.0,
+    "n": 461,
+    "p10": 1.0,
+    "p50": 3.0,
+    "p90": 40.0
+  },
+  "gain_only": {
+    "additional_episodes_through_required": {
+      "max": 25.0,
+      "n": 8,
+      "p10": 1.0,
+      "p50": 1.0,
+      "p90": 15.899999999999999
+    },
+    "questions": 8,
+    "reference_median": 62
+  },
+  "last_required_position": {
+    "max": 219.0,
+    "n": 446,
+    "p10": 1.0,
+    "p50": 21.0,
+    "p90": 82.0
+  },
+  "peak_current_frame_chars": 2048,
+  "protected_payload_mutations": 0,
+  "questions": 465,
+  "reachability_sha256": "da284240b2531ed5f9de52dee56c139ad8bbad2067d73d01d92205ff92555d5f",
+  "schema": "da069-maximal-conjunctive-signatures-result-v1",
+  "simultaneously_rendered_episodes": 1,
+  "status": "NO_MAXIMAL_CONJUNCTIVE_SIGNATURE_SIGNAL",
+  "stream_episodes": {
+    "max": 284.0,
+    "n": 465,
+    "p10": 63.400000000000006,
+    "p50": 141.0,
+    "p90": 223.0
+  }
+}

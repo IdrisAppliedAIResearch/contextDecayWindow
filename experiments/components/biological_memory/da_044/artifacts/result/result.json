@@ -1,0 +1,142 @@
+{
+  "by_question_type": {
+    "knowledge-update": {
+      "complete": {
+        "CONTROL": 43,
+        "TREATMENT": 45
+      },
+      "contrast": {
+        "discordant": 2,
+        "gains": 2,
+        "losses": 0,
+        "net": 2,
+        "ties": 70,
+        "two_sided_exact_p": 0.5
+      },
+      "n": 72
+    },
+    "multi-session": {
+      "complete": {
+        "CONTROL": 42,
+        "TREATMENT": 42
+      },
+      "contrast": {
+        "discordant": 0,
+        "gains": 0,
+        "losses": 0,
+        "net": 0,
+        "ties": 121,
+        "two_sided_exact_p": 1.0
+      },
+      "n": 121
+    },
+    "single-session-assistant": {
+      "complete": {
+        "CONTROL": 46,
+        "TREATMENT": 47
+      },
+      "contrast": {
+        "discordant": 1,
+        "gains": 1,
+        "losses": 0,
+        "net": 1,
+        "ties": 50,
+        "two_sided_exact_p": 1.0
+      },
+      "n": 51
+    },
+    "single-session-preference": {
+      "complete": {
+        "CONTROL": 18,
+        "TREATMENT": 18
+      },
+      "contrast": {
+        "discordant": 0,
+        "gains": 0,
+        "losses": 0,
+        "net": 0,
+        "ties": 30,
+        "two_sided_exact_p": 1.0
+      },
+      "n": 30
+    },
+    "single-session-user": {
+      "complete": {
+        "CONTROL": 46,
+        "TREATMENT": 48
+      },
+      "contrast": {
+        "discordant": 2,
+        "gains": 2,
+        "losses": 0,
+        "net": 2,
+        "ties": 62,
+        "two_sided_exact_p": 0.5
+      },
+      "n": 64
+    },
+    "temporal-reasoning": {
+      "complete": {
+        "CONTROL": 37,
+        "TREATMENT": 37
+      },
+      "contrast": {
+        "discordant": 0,
+        "gains": 0,
+        "losses": 0,
+        "net": 0,
+        "ties": 127,
+        "two_sided_exact_p": 1.0
+      },
+      "n": 127
+    }
+  },
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "capacity_attribution": {
+    "chars_per_gain_population": 1308249.4,
+    "gain_row_page_chars": {
+      "p10": 14443.4,
+      "p50": 14702.0,
+      "p90": 15384.0
+    },
+    "page_chars": {
+      "p10": 11942.000000000002,
+      "p50": 14817.0,
+      "p90": 15801.0
+    },
+    "page_nodes": {
+      "p10": 5.0,
+      "p50": 7.0,
+      "p90": 11.0
+    },
+    "total_auxiliary_chars": 6541247
+  },
+  "claim_boundary": "spent exact availability with added auxiliary capacity; no reader/runtime claim",
+  "complete": {
+    "CONTROL": 232,
+    "TREATMENT": 237
+  },
+  "contrast": {
+    "discordant": 5,
+    "gains": 5,
+    "losses": 0,
+    "net": 5,
+    "ties": 460,
+    "two_sided_exact_p": 0.0625
+  },
+  "gain_blockers": {
+    "INITIAL_SENTINEL_ATOMIC_SIZE": 1,
+    "PRIOR_SENTINEL_ATOMIC_CONSUMPTION": 4
+  },
+  "one_hop_ceiling": 250,
+  "outcomes_sha256": "cb01d3ed2b0519e203c4871cf7dd10e1feb0effc029e7f01f848d750715a3904",
+  "population": 465,
+  "protected_da038_losses": 0,
+  "replay_byte_identical": true,
+  "schema": "da044-auxiliary-frontier-page-result-v1",
+  "status": "WEAK_AUXILIARY_FRONTIER_PAGE_SIGNAL"
+}

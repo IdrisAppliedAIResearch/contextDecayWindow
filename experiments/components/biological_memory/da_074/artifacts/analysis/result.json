@@ -1,0 +1,60 @@
+{
+  "any_reachability": 465,
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "claim_boundary": "role-typed reachability, burden, and collision anatomy only; no reader or delivery",
+  "complete_reachability": 465,
+  "complete_reachability_rate": 1.0,
+  "first_required_position": {
+    "max": 210.0,
+    "n": 465,
+    "p10": 1.0,
+    "p50": 3.0,
+    "p90": 42.0
+  },
+  "gain_only": {
+    "additional_episodes_beyond_da066": {
+      "max": 155.0,
+      "n": 27,
+      "p10": 1.6,
+      "p50": 31.0,
+      "p90": 114.60000000000001
+    },
+    "questions": 27,
+    "reference_median": 37
+  },
+  "last_required_position": {
+    "max": 225.0,
+    "n": 465,
+    "p10": 1.0,
+    "p50": 22.0,
+    "p90": 100.0
+  },
+  "peak_current_frame_chars": 2048,
+  "protected_payload_mutations": 0,
+  "questions": 465,
+  "reachability_sha256": "a9e619b191a56415d67de4cf680e0569c80131b622b86ae3391731f31915469f",
+  "schema": "da074-role-typed-feature-lattice-result-v1",
+  "simultaneously_rendered_episodes": 1,
+  "status": "ROLE_TYPED_FEATURE_LATTICE_SIGNAL",
+  "stream_episodes": {
+    "max": 284.0,
+    "n": 465,
+    "p10": 209.0,
+    "p50": 228.0,
+    "p90": 247.0
+  },
+  "target_collisions": {
+    "group_size": {
+      "max": 7,
+      "n": 31,
+      "p50": 1.0,
+      "p90": 4.0
+    },
+    "reference_sessions": 13,
+    "sessions": 5
+  }
+}

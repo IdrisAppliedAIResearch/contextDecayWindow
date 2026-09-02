@@ -1,0 +1,40 @@
+{
+  "actions": {
+    "TEMPORAL_ORDER": {
+      "PAIR": 51,
+      "SKIP": 6843,
+      "TURN": 507
+    },
+    "TRANSFER_BENEFIT": {
+      "PAIR": 51,
+      "SKIP": 6843,
+      "TURN": 507
+    }
+  },
+  "allocation_sha256": "58eda0276af9a97056e4b38fdaf8b8d1def346f52a1e9afa2b37eb025347475a",
+  "calls": {
+    "cache_misses": 0,
+    "cache_mode": "read-only",
+    "embedding": 0,
+    "model": 0
+  },
+  "population": {
+    "edges": 7401,
+    "questions": 465
+  },
+  "replay_byte_identical": true,
+  "schema": "da013-blind-transfer-preflight-v1",
+  "scores": {
+    "max": 0.9999999999999065,
+    "min": 9.357622968839299e-14,
+    "p50": 3.6589611799556495e-07,
+    "unique": 5886
+  },
+  "status": "PASS",
+  "training": {
+    "benefits": 57,
+    "edges": 25941,
+    "features": 73,
+    "penalty": 1.0
+  }
+}

@@ -8,7 +8,6 @@ experiments/components/retrieval_mechanism_ledger/artifacts/e006_p3_s4/*.csv tex
 experiments/components/retrieval_mechanism_ledger/artifacts/e006_p3_s4/payloads/*.txt text eol=lf
 src/analysis/e006_p3_*.py text eol=lf
 src/retrieval_mechanism_ledger/e006_p3.py text eol=lf
-
 # ---------------------------------------------------------------------------
 # Integrity anchors: each file pinned to the line ending its registered SHA-256
 # was recorded on. Studies run under core.autocrlf=true recorded CRLF hashes,
@@ -18,7 +17,6 @@ src/retrieval_mechanism_ledger/e006_p3.py text eol=lf
 # unable to detect real drift. Expectations were read from source constants
 # and committed artifact_manifest.json files only.
 # ---------------------------------------------------------------------------
-
 # Recorded on LF bytes
 experiments/components/biological_memory/dmr_001b/DMR_001B_PRE_REGISTRATION.md text eol=lf
 experiments/components/biological_memory/sup_001/SUP_001_FINAL_DESIGN.json text eol=lf
@@ -165,7 +163,6 @@ experiments/study_011/noise_band/DECISION_RULE.md text eol=lf
 src/retrieval_bakeoff/tier6.py text eol=lf
 src/retrieval_mechanism_ledger/e006_p3.py text eol=lf
 src/retrieval_mechanism_ledger/ps002.py text eol=lf
-
 # Recorded on CRLF bytes
 episodic/src/episodic/_packing.py text eol=crlf
 episodic/src/episodic/_render.py text eol=crlf
@@ -195,15 +192,12 @@ src/retrieval_bakeoff/corpus.py text eol=crlf
 src/retrieval_bakeoff/serialization.py text eol=crlf
 src/retrieval_mechanism_ledger/e006.py text eol=crlf
 src/retrieval_mechanism_ledger/ps001.py text eol=crlf
-
 # Reference document, not a mechanism input. Expanded twice since BA-001 froze
 # it; the inventories now record the current file, pinned so the hash is stable
 # on every platform instead of tracking whatever the checkout produced.
 HYPOTHETICAL_001_MECHANICAL_BIOLOGICAL_MEMORY_MODEL.md text eol=lf
-
 # Additional anchors (constants not in double quotes)
 experiments/components/biological_memory/dmr_004/DMR_004_PRE_REGISTRATION.md text eol=lf
-
 # Anchors referenced from integrity manifests (manifest.json, preflight.json, ...)
 experiments/components/biological_memory/dmr_001/DMR_001_PRE_REGISTRATION.md text eol=lf
 experiments/components/biological_memory/dmr_004/artifacts/annotations_dev_rater_a.json text eol=lf
@@ -533,9 +527,11 @@ paper/notes/HH002_EVIDENCE_SPINE.md text eol=lf
 experiments/components/tier_cost/TC_ARC_ROADMAP.md text eol=lf
 experiments/components/tier_cost/TC_ARC_DEPENDENCY_LOG.md text eol=lf
 scripts/hh002_cost_ledger.py text eol=lf
-
 # TC-009 registered question-level artifacts exceed GitHub's 100 MiB file cap.
 experiments/components/tier_cost/runs/tc009/run/frozen_selections.jsonl.gz filter=lfs diff=lfs merge=lfs -text
 experiments/components/tier_cost/runs/tc009/run/diagnostics.jsonl.gz filter=lfs diff=lfs merge=lfs -text
 experiments/components/live_validation_009/artifacts/part1/selections.jsonl.gz filter=lfs diff=lfs merge=lfs -text
 experiments/components/live_validation_009/artifacts/part1/prompts.jsonl.gz filter=lfs diff=lfs merge=lfs -text
+experiments/components/biological_memory/da_057/artifacts/preflight/blind_codec.jsonl.gz filter=lfs diff=lfs merge=lfs -text
+experiments/components/biological_memory/da_058/artifacts/preflight/blind_chunks.jsonl.gz filter=lfs diff=lfs merge=lfs -text
+experiments/components/biological_memory/da_056/artifacts/preflight/blind_materializations.jsonl.gz filter=lfs diff=lfs merge=lfs -text

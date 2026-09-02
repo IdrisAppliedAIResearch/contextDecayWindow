@@ -1,0 +1,43 @@
+{
+  "all_nodes_fit": {
+    "1024": 17,
+    "2048": 18,
+    "256": 3,
+    "512": 16
+  },
+  "burden_sha256": "40f38cbe15251d7ce93502f8ccdbfd3b69346c07ded8aaa3c30d446457871540",
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "claim_boundary": "spent evidence-aware dereference burden only; no reader or delivery",
+  "conjunctions": 0,
+  "depth_bands": {
+    "1": 1,
+    "2-8": 4,
+    "9-32": 13
+  },
+  "max_rendered_payload_chars": 1906,
+  "max_sequential_depth": 30,
+  "raw_payload_chars": {
+    "p10": 227.4,
+    "p50": 345.0,
+    "p90": 457.5000000000001
+  },
+  "rendered_payload_chars": {
+    "p10": 233.4,
+    "p50": 351.0,
+    "p90": 463.5000000000001
+  },
+  "replay_byte_identical": true,
+  "required_nodes": 18,
+  "residuals": 18,
+  "schema": "da043-dereference-burden-audit-v1",
+  "sequential_depth": {
+    "p10": 5.4,
+    "p50": 15.0,
+    "p90": 21.900000000000002
+  },
+  "status": "COMPLETE"
+}

@@ -1,0 +1,290 @@
+{
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "carrier_model": {
+    "auc": 0.7645410372366016,
+    "average_precision": 0.22659156358371685,
+    "brier": 0.02977050751392301,
+    "by_conversation": {
+      "conv-26": {
+        "auc": 0.8526053287833049,
+        "overlap": 0,
+        "test_all": 2496,
+        "test_evaluable": 420,
+        "test_positives": 19,
+        "train": 1844,
+        "train_positives": 57
+      },
+      "conv-30": {
+        "auc": 0.6598837209302325,
+        "overlap": 0,
+        "test_all": 1150,
+        "test_evaluable": 90,
+        "test_positives": 4,
+        "train": 2174,
+        "train_positives": 72
+      },
+      "conv-43": {
+        "auc": 0.6695205479452054,
+        "overlap": 0,
+        "test_all": 3267,
+        "test_evaluable": 454,
+        "test_positives": 16,
+        "train": 1810,
+        "train_positives": 60
+      },
+      "conv-44": {
+        "auc": 0.7074592074592074,
+        "overlap": 0,
+        "test_all": 2169,
+        "test_evaluable": 437,
+        "test_positives": 8,
+        "train": 1827,
+        "train_positives": 68
+      },
+      "conv-49": {
+        "auc": 0.7559893522626442,
+        "overlap": 0,
+        "test_all": 2115,
+        "test_evaluable": 513,
+        "test_positives": 23,
+        "train": 1751,
+        "train_positives": 53
+      },
+      "conv-50": {
+        "auc": 0.9292635658914729,
+        "overlap": 0,
+        "test_all": 2783,
+        "test_evaluable": 350,
+        "test_positives": 6,
+        "train": 1914,
+        "train_positives": 70
+      }
+    },
+    "n": 2264,
+    "positives": 76,
+    "prevalence": 0.03356890459363958,
+    "status": "STABLE_CARRIER_PREDICTOR"
+  },
+  "claim_boundary": "grouped spent-corpus carrier availability; no fresh validation, reader, or adoption",
+  "discordance": {
+    "CARRIER_ORDER": {
+      "arm_only_complete": 3,
+      "benefit_only_complete": 3,
+      "exact_two_sided_p": 1.0
+    },
+    "NEIGHBOR_COVERAGE": {
+      "arm_only_complete": 4,
+      "benefit_only_complete": 8,
+      "exact_two_sided_p": 0.3876953125
+    }
+  },
+  "matrix": {
+    "BENEFIT_ORDER": {
+      "by_conversation": {
+        "conv-26": {
+          "complete": 183,
+          "gains": 14,
+          "losses": 0
+        },
+        "conv-30": {
+          "complete": 99,
+          "gains": 2,
+          "losses": 0
+        },
+        "conv-43": {
+          "complete": 216,
+          "gains": 6,
+          "losses": 0
+        },
+        "conv-44": {
+          "complete": 130,
+          "gains": 1,
+          "losses": 0
+        },
+        "conv-49": {
+          "complete": 160,
+          "gains": 8,
+          "losses": 0
+        },
+        "conv-50": {
+          "complete": 182,
+          "gains": 4,
+          "losses": 0
+        }
+      },
+      "carrier_rank": {
+        "p10": 1.0,
+        "p50": 2.0,
+        "p90": 11.5
+      },
+      "complete": 970,
+      "conjunction_complete": 0,
+      "distributions": {
+        "link_chars": {
+          "p10": 512.0,
+          "p50": 649.0,
+          "p90": 1092.0
+        },
+        "total_chars": {
+          "p10": 15944.0,
+          "p50": 15981.0,
+          "p90": 15997.0
+        },
+        "unused_slack": {
+          "p10": 3.0,
+          "p50": 19.0,
+          "p90": 56.0
+        }
+      },
+      "gains": 35,
+      "losses": 0
+    },
+    "CARRIER_ORDER": {
+      "by_conversation": {
+        "conv-26": {
+          "complete": 183,
+          "gains": 14,
+          "losses": 0
+        },
+        "conv-30": {
+          "complete": 99,
+          "gains": 2,
+          "losses": 0
+        },
+        "conv-43": {
+          "complete": 217,
+          "gains": 7,
+          "losses": 0
+        },
+        "conv-44": {
+          "complete": 130,
+          "gains": 1,
+          "losses": 0
+        },
+        "conv-49": {
+          "complete": 160,
+          "gains": 8,
+          "losses": 0
+        },
+        "conv-50": {
+          "complete": 181,
+          "gains": 3,
+          "losses": 0
+        }
+      },
+      "carrier_rank": {
+        "p10": 1.0,
+        "p50": 2.0,
+        "p90": 10.5
+      },
+      "complete": 970,
+      "conjunction_complete": 0,
+      "distributions": {
+        "link_chars": {
+          "p10": 511.7,
+          "p50": 647.0,
+          "p90": 1091.0
+        },
+        "total_chars": {
+          "p10": 15946.7,
+          "p50": 15980.0,
+          "p90": 15997.3
+        },
+        "unused_slack": {
+          "p10": 2.700000000000003,
+          "p50": 20.0,
+          "p90": 53.30000000000007
+        }
+      },
+      "gains": 35,
+      "losses": 0
+    },
+    "NEIGHBOR_COVERAGE": {
+      "by_conversation": {
+        "conv-26": {
+          "complete": 181,
+          "gains": 12,
+          "losses": 0
+        },
+        "conv-30": {
+          "complete": 98,
+          "gains": 1,
+          "losses": 0
+        },
+        "conv-43": {
+          "complete": 215,
+          "gains": 5,
+          "losses": 0
+        },
+        "conv-44": {
+          "complete": 130,
+          "gains": 1,
+          "losses": 0
+        },
+        "conv-49": {
+          "complete": 162,
+          "gains": 10,
+          "losses": 0
+        },
+        "conv-50": {
+          "complete": 180,
+          "gains": 2,
+          "losses": 0
+        }
+      },
+      "carrier_rank": {
+        "p10": 1.0,
+        "p50": 3.0,
+        "p90": 11.0
+      },
+      "complete": 966,
+      "conjunction_complete": 1,
+      "distributions": {
+        "link_chars": {
+          "p10": 513.0,
+          "p50": 652.0,
+          "p90": 1087.6000000000001
+        },
+        "total_chars": {
+          "p10": 15948.0,
+          "p50": 15981.0,
+          "p90": 15997.0
+        },
+        "unused_slack": {
+          "p10": 3.0,
+          "p50": 19.0,
+          "p90": 52.0
+        }
+      },
+      "gains": 31,
+      "losses": 0
+    }
+  },
+  "neighbor_coverage": {
+    "auc": 0.6967520205907822,
+    "by_conversation": {
+      "conv-26": 0.7859299120619504,
+      "conv-30": 0.6468023255813954,
+      "conv-43": 0.6484018264840182,
+      "conv-44": 0.6697261072261073,
+      "conv-49": 0.7179236912156167,
+      "conv-50": 0.595687984496124
+    }
+  },
+  "population": {
+    "carrier_model_edges": 2264,
+    "carrier_positives": 76,
+    "direct_complete": 935,
+    "direct_incomplete_questions": 163,
+    "eligible_edges": 13980,
+    "oracle_complete": 986,
+    "primary_edges": 25941,
+    "questions": 1098
+  },
+  "schema": "da012-carrier-ranking-v1",
+  "status": "NO_CARRIER_RANK_SIGNAL"
+}

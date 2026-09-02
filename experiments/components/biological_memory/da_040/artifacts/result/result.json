@@ -1,0 +1,58 @@
+{
+  "by_blocker": {
+    "INITIAL_SENTINEL_ATOMIC_SIZE": {
+      "n": 1,
+      "reachable": 1
+    },
+    "PRIOR_SENTINEL_ATOMIC_CONSUMPTION": {
+      "n": 17,
+      "reachable": 6
+    }
+  },
+  "by_question_type": {
+    "knowledge-update": {
+      "n": 4,
+      "reachable": 2
+    },
+    "multi-session": {
+      "n": 4,
+      "reachable": 0
+    },
+    "single-session-assistant": {
+      "n": 1,
+      "reachable": 1
+    },
+    "single-session-user": {
+      "n": 4,
+      "reachable": 1
+    },
+    "temporal-reasoning": {
+      "n": 5,
+      "reachable": 3
+    }
+  },
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "claim_boundary": "exact external-resolver reachability only; references are not delivered facts",
+  "newly_reachable": 7,
+  "protected_da038_mutations": 0,
+  "reachability_sha256": "8cb6dac337f4224724791fa6fecb31fef26ac467143ad5c22a18efe13cb6cef4",
+  "reachable_reference_position": {
+    "p10": 2.0,
+    "p50": 7.0,
+    "p90": 14.0
+  },
+  "referenced_identities": {
+    "p10": 0.7000000000000002,
+    "p50": 7.0,
+    "p90": 19.0
+  },
+  "remaining_unreachable": 11,
+  "replay_byte_identical": true,
+  "residuals": 18,
+  "schema": "da040-compact-dependency-frontier-result-v1",
+  "status": "COMPACT_DEPENDENCY_FRONTIER_SIGNAL"
+}
