@@ -297,175 +297,143 @@ arc should **open with a live study**, not close with one.
   the repository. I write the harness and the pre-registration; the run happens on
   the 5090.
 
-## 7. Proposed first studies
+## 7. The plan: live arms only
 
-Draft only. Each needs its own pre-registration before any paid call.
+Revised at the programme owner's direction — *prove the architecture works in
+live runs; the availability chase has been fruitless*. That is the right call,
+and for a reason worth writing down: **offline analysis is a cost-reduction
+technique for expensive evaluation.** It earns its place when each live
+measurement costs money and time. When a live measurement costs three hours of
+GPU and nothing else, the analysis stops paying for itself — you stop modelling
+what the reader would say and ask it.
 
-**AV-000 — Replicate the decision landscape under one local reader.** *Live;
-zero dollars; ~4.5 h on the 5090 for the core contrast.* Re-answer and re-judge
-HH-003's ASPECT-on and ASPECT-off arms on all 1,540 items with the registered
-Qwen3.8 stack at temperature 0, three-pass majority judging, blind surface,
-answers sealed before judging — the LV-009 protocol unchanged except for
-temperature.
+So AV-001 and AV-002 are struck as gating studies. Every question they were going
+to answer analytically becomes a live arm instead, which is both cheaper in
+calendar time and strictly better evidence.
 
-Schedule: 3,080 reader calls at ~3.46 s ≈ **3.0 h**, 9,240 judge calls at
-~0.60 s ≈ **1.5 h**. Adding the HH-005 DA-v2 16k and 32k arms on their 842 costs
-roughly **2.5 h** more, for the complete landscape in about seven hours — under
-LV-009's own 10.7 h, on hardware that has already done it.
+### 7.1 The new binding constraint is statistical, not financial
 
-It answers three things at once:
+Removing the cost of evaluation does not remove all constraints; it promotes the
+next one. If twenty variants are run against ASPECT-v1 on the same 1,540 items
+and the best is shipped, the winner is selected on noise. Free evaluation makes
+this *easier* to do by accident, not harder.
 
-1. **The falsification test in §8.** Does ASPECT-v1's +14 replicate? This is the
-   single result the whole aspect line rests on, and it has never been repeated.
-2. **A clean label set for AV-001.** One reader, one date, one temperature across
-   every arm — removing the cross-date and cross-model confounds that HH-003 and
-   HH-005 both had to carry.
-3. **The first cross-reader evidence in the programme.** HH-003's claim boundary
-   explicitly disclaims reader-model generality. A Qwen3.8 replication of the
-   ASPECT contrast is new information, not a cheaper copy of old information —
-   and if the sign flips between readers, that is a finding in its own right and
-   a much larger one than +14.
+The corpus already contains its own guard. HH-003 spans ten LoCoMo conversations.
+NF-004's holdout — and therefore the entire DA arc — used six of them. The other
+four were never selected on by any NF or DA study:
 
-**AV-001 — Reader-outcome anatomy.** *Zero model calls; analysis of sealed
-artifacts.* Take the discordant items above. Build pack-level features in
-DA-004's winning shape — coverage, redundancy, positional, facet-family and
-budget-utilization statistics over the *whole delivered context*, not per
-candidate. Fit grouped out-of-fold by conversation, with a permutation null, on
-two labels separately: **rescue** and **harm**. Report AUC for each. Registered
-bar: beat NF-004 anatomy's `.576` on the harm label, which is the one DA-004
-could not fit at `.504`.
-*This is the study that decides whether the thesis is workable.*
+| Split | Conversations | Items | Status |
+|---|---|---:|---|
+| **Development** | conv-26, 30, 43, 44, 49, 50 | 848 | already selected on by NF-004 and DA; no further loss |
+| **Confirmation** | conv-41, 42, 47, 48 | 692 | untouched by every availability study in the programme |
 
-**AV-002 — ASPECT-v1 attribution.** *Splits into a zero-call half and a
-cache-dependent half; see §7.1.* For each of HH-003's ASPECT rescues, identify
-which admitted episodes carry the answer evidence and where they sit in ASPECT's
-greedy admission order. Question: is the +14 carried by the first few admissions
-or spread across all ~37? If the answer is "the first five", C2 holds and
-`aspect_share=0.5` is 7× larger than it needs to be.
+Both sit inside HH-003's 1,540 with sealed baselines, and both get fresh Qwen3.8
+labels from AV-000. **Sweep on the 848. Confirm the winner, and only the winner,
+on the 692.** Arms are registered before the run; the development sweep carries
+Holm correction at familywise `.01`, as LV-009 used.
 
-Two corrections to an earlier draft of this study. **The evidence-annotated
-population is smaller than the contrast.** HH-003 spans ten conversations;
-NF-004's evidence identities cover only its six holdout conversations, which is
-848 of 1,540 items. Of the 46 rescues, **30** fall inside that coverage, and of
-the 32 losses, **15**. AV-002 analyses 30 rescues, not 46. **And the greedy
-`marginal` values are not sealed** — HH-003's `detail` carries `aspect_count` and
-`coverage_count` as scalars and no trace — so any question about marginal gains
-or about the minimum retaining aspect share requires re-running
-`_protected_aspect`, which is not a zero-call operation. The membership-and-order
-question is answerable offline; the marginal-and-counterfactual question is not.
+### 7.2 AV-000 — Does the incumbent work at all?
 
-**AV-003 — Write-time facet cache.** *Engineering, no research risk.* Compute
-facets on append, store beside the episode vector, pass `facet_bundle` through
-`build_chat_context`. Gate on **byte-identical** allocation against HH-003's
-sealed ASPECT contexts (`119a3152…`) across all 1,540 items — this must change
-nothing but latency. Target: 2,522.7 ms → under 100 ms. Independent of whether
-the thesis survives AV-001, and worth doing either way.
+*Live · local · ~4.5 h · runs first.*
 
-### 7.1 What "offline" actually means here, and what is missing
+Re-answer and re-judge HH-003's ASPECT-on and ASPECT-off arms across all 1,540
+items on the registered Qwen3.8 stack at temperature 0, three-pass majority
+judging, blind surface, answers sealed before judging. LV-009's protocol
+unchanged except for temperature.
 
-Asked directly whether AV-001 and AV-002 need a model or an embedder. The honest
-answer is *some of each*, and it depends on the feature, not on the study.
+3,080 reader calls at ~3.46 s ≈ **3.0 h**; 9,240 judge calls at ~0.60 s ≈
+**1.5 h**.
 
-**Committed and sufficient on its own:**
+This is the study that decides whether there is anything to improve on. **If
+ASPECT-v1's +14 does not replicate, the honest answer to "does the architecture
+work" is no**, and the correct action is to ship `aspect_enabled=False` — already
+the default — and close the aspect line rather than sweep variants against a
+control that is itself noise. Everything below is conditional on AV-000 landing
+positive.
 
-- **Reader outcome labels.** `judged_r1.json` per arm. These are self-sufficient:
-  the HH-003 contrast reproduces from them exactly at 46 gains / 32 losses /
-  net +14.
-- **The full rendered context** per item, in `contexts.json`.
-- **Channel membership.** `_protected_aspect` renders
-  `[recency][initial semantic][aspect][returned slack]` in that order, and every
-  segment size is in `detail`, so positional slicing recovers which delivered
-  episodes were ASPECT admissions. This is exactly how `hh005_contexts.py`
-  reconstructed the semantic half.
-- **Greedy admission order** within the aspect segment, since packing preserves
-  order. Skipped-on-overflow candidates are invisible, which is a real limit.
-- **spaCy facet extraction.** Deterministic local NLP, not a call in this
-  programme's accounting — TC-011 ran `REGISTERED-OFFLINE` while using it.
+### 7.3 AV-001 — The live arm sweep
 
-**Not in the repository:**
+*Live · local · ~6.2 h on the development split.*
 
-- **The embedding cache.** `nf004_holdout_embeddings.db` — 2,749 entries,
-  1024-dim float32, 13.3 MB — exists only at
-  `C:\Users\muzaf\PycharmProjects\...`. `*.db` is gitignored at line 28, and
-  only the digest manifest is committed. The LoCoMo corpus is the same story:
-  `hh005_contexts.py` reads `C:\Users\muzaf\Downloads\locomo10.json`.
-- **The ASPECT `marginal` trace**, as noted above.
+Five arms, registered before the run, all built on the frozen semantic half and
+the unchanged `<episode turn="N">` renderer, all judged against each other on the
+848 development items:
 
-**So the split is:**
+| Arm | What it tests |
+|---|---|
+| `CC80` — aspect off | Control. The shipped default. |
+| `ASPECT_050` | The incumbent, unchanged. |
+| `ASPECT_025` | Is half the budget more share than the benefit needs? |
+| `ASPECT_0125` | The same question, pushed. |
+| `ASPECT_050_DA_HEADROOM` | ASPECT-v1 fully retained, DA-098 derivative members admitted only into leftover headroom. **The additive shape the DA arc never tested.** |
 
-| | Needs | Status |
-|---|---|---|
-| AV-001, text / structural / positional / facet features | repo only | genuinely zero-call |
-| AV-001, vector redundancy features | embedding cache | cache *read*, or 2,749 re-embeds |
-| AV-002, membership and admission order | repo only | genuinely zero-call |
-| AV-002, marginal gains, minimum aspect share | re-run `_protected_aspect` → CC80 → vectors | not zero-call |
-| AV-003 | byte-identical replay of HH-003 allocation | needs the cache |
-| AV-004 | paid pilot | model calls by design |
+Per arm on 848 items: 848 reader ≈ 0.82 h, 2,544 judge ≈ 0.42 h. Five arms ≈
+**6.2 h** — one overnight run.
 
-Supplying the `.db` converts most of this from "embedder calls" to "cache reads
-with zero misses," which is the accounting every DA study used. Without it, the
-vector-dependent half of AV-001 and all of AV-002's counterfactual half are
-blocked, and the text-only half still runs.
+The share arms replace what was going to be an offline attribution study, and
+answer it better: instead of inferring from a greedy trace which admissions carry
+the +14, the reader is asked directly what happens when they are removed. The
+headroom arm is the one contrast in this whole programme that has never been run
+in any form — additive rather than substitutive, against the incumbent rather
+than pair-ranking, on accuracy rather than availability.
 
-### 7.2 Why this is not the DA arc again
+### 7.4 AV-002 — Confirmation
 
-The obvious objection is that I have just criticized 101 zero-call studies and
-proposed starting with two more. The distinction is in the **label**, not the
-call count.
+*Live · local · ~2 h.*
 
-DA's studies were offline *and* their label was a surrogate: "is the exact
-evidence present in the pack," which no reader ever confirmed. AV-001 and AV-002
-are offline analyses whose label **is the reader outcome** — `judge_label` from a
-paid run that already happened. The reader has been spent; this is reading what
-it produced. Offline analysis of reader labels is not the same operation as
-offline optimization of a reader-free proxy.
+The single winning arm from AV-001's sweep plus `CC80`, on the **692 held-out
+items** no availability study has ever touched. 1,384 reader calls ≈ 1.3 h,
+4,152 judge ≈ 0.7 h.
 
-That said, one real risk survives, and it should be named rather than argued
-away. AV-001 is post-hoc on a fixed corpus, so whatever it finds is a
-**hypothesis, not a mechanism**. If its model is never confirmed prospectively, I
-will have built a nicer surrogate rather than escaped the trap. AV-004 is
-therefore not optional — it is the study that makes AV-001 mean anything.
+No arm ships on a development-split result. A winner that does not survive
+confirmation was noise, and saying so is the point of holding the split back.
 
-**The local reader largely dissolves the rest of this concern.** With AV-000
-opening the arc, the first study is live, its labels come from a reader rather
-than a proxy, and AV-001 is then an analysis of that reader's own outcomes rather
-than of someone else's from three weeks and one model ago. The trip condition
-still stands, and is now easy to meet:
+### 7.5 AV-003 — Write-time facet cache
 
-> **No more than two consecutive zero-call AV studies before a live check.**
-> AV-000 opens the arc live. AV-001 and AV-002 spend the allowance after it.
-> AV-004 is mandatory before any further offline work, and a null AV-001 stops
-> the arc rather than licensing AV-003 and a third analysis.
+*Engineering; no research risk; independent of everything above.*
 
-The deeper discipline is unchanged and is not a budget question: a free reader
-removes the excuse for deferring live contact, but it does not make an unchecked
-surrogate any safer. The DA arc's problem was never that reader calls were
-expensive — HH-004 cost $1.74. It was that no stage required one.
+Compute facets on append, store beside the episode vector, thread `facet_bundle`
+through `build_chat_context`. Gate on byte-identical allocation against HH-003's
+sealed contexts (`119a3152…`) across all 1,540 items — this must change nothing
+but latency. Target 2,522.7 ms → under 100 ms. Worth doing whichever way AV-000
+lands, because it is the difference between an aspect path that can ship and one
+that cannot.
 
-**AV-004 — Additive derivative headroom, live.** *Local; both arms run fresh.*
-The contrast the DA arc never ran: ASPECT-v1 fully retained, DA-098's derivative
-members admitted only into reserved headroom, `<episode>` renderer throughout,
-compared against unmodified ASPECT-v1 on judged accuracy — **both arms generated
-fresh under the same local reader on the same day**, so there is no sealed
-comparator and no cross-date caveat. Prior:
-DA-005/006/007 found reserved headroom lossy — but against pair-ranking, on
-availability, under all three substitutions named in §3. Gated on AV-001
-producing a usable harm model; without one, this is DA's mistake again with a
-different allocator.
+### 7.6 Total schedule
 
----
+| | Hours |
+|---|---:|
+| AV-000 landscape replication | 4.5 |
+| AV-001 five-arm sweep, development split | 6.2 |
+| AV-002 confirmation, held-out split | 2.0 |
+| **Total live GPU time** | **~12.7** |
+
+Two overnight runs, zero dollars, and every number in it comes from a reader.
+For comparison, the DA arc spent four days and 101 studies without producing one.
+
+### 7.7 What is no longer in the plan
+
+- **No offline anatomy study as a gate.** Analysis of AV-000's output is free and
+  may still happen, but it decides nothing and blocks nothing.
+- **No availability endpoint anywhere.** No AV study reports exact evidence
+  availability as a primary, a secondary, or a promotion criterion.
+- **No compact-wire or encoding work.** Closed by DA-020…096 and shown irrelevant
+  by HH-004.
+- **No renderer changes.** LV-009 retained pairwise; v3 inherits that and holds
+  the renderer fixed so that a result attributes to selection.
 
 ## 8. What would falsify this
 
 Stated now, before any result:
 
-- **AV-001 returns AUC ≈ .55 on harm with a null permutation test.** Then reader
-  outcomes are as unpredictable as availability outcomes, the measurement
-  premise fails, and Aspect v3 should stop rather than proceed to AV-004. This
-  is the most likely single failure and it is cheap to reach.
-- **AV-002 finds the +14 spread evenly across all 37 admissions.** Then C2 is
-  wrong, there is no small useful subset, and the 92× cost is intrinsic rather
-  than incidental.
+- **No arm in the AV-001 sweep beats `ASPECT_050` after Holm correction.** Then
+  the incumbent is already the best available point in this design space, and the
+  useful output of v3 is AV-003's latency fix plus a recorded negative.
+- **`ASPECT_025` and `ASPECT_0125` match `ASPECT_050`.** Not a falsification —
+  a win. It would mean the benefit is carried by a small prefix of admissions and
+  the protected share can shrink, taking most of the cost with it.
+- **The AV-001 winner does not survive AV-002's held-out confirmation.** Then it
+  was noise, the sweep overfit the development split, and nothing ships.
 - **ASPECT-v1's +14 fails to replicate under AV-000.** It sits at `p=.14` on one
   run. A replication that lands near zero would mean the incumbent is noise, and
   the correct action is to ship `aspect_enabled=False` — which is already the
