@@ -246,7 +246,7 @@ reader-labelled corpus the whole time.
 Draft only. Each needs its own pre-registration before any paid call.
 
 **AV-001 — Reader-outcome anatomy.** *Zero model calls; analysis of sealed
-artifacts.* Take the 709 discordant items above. Build pack-level features in
+artifacts.* Take the discordant items above. Build pack-level features in
 DA-004's winning shape — coverage, redundancy, positional, facet-family and
 budget-utilization statistics over the *whole delivered context*, not per
 candidate. Fit grouped out-of-fold by conversation, with a permutation null, on
@@ -255,12 +255,23 @@ bar: beat NF-004 anatomy's `.576` on the harm label, which is the one DA-004
 could not fit at `.504`.
 *This is the study that decides whether the thesis is workable.*
 
-**AV-002 — ASPECT-v1 attribution.** *Zero model calls.* For each of HH-003's 46
-ASPECT rescues, identify which admitted episodes carry the answer evidence, and
-where they sit in ASPECT's greedy `order` and `marginal` trace. Question: is the
-+14 carried by the first few admissions or spread across all ~37? Report the
-minimum aspect share that retains the rescues. If the answer is "the first five",
-C2 holds and `aspect_share=0.5` is 7× larger than it needs to be.
+**AV-002 — ASPECT-v1 attribution.** *Splits into a zero-call half and a
+cache-dependent half; see §7.1.* For each of HH-003's ASPECT rescues, identify
+which admitted episodes carry the answer evidence and where they sit in ASPECT's
+greedy admission order. Question: is the +14 carried by the first few admissions
+or spread across all ~37? If the answer is "the first five", C2 holds and
+`aspect_share=0.5` is 7× larger than it needs to be.
+
+Two corrections to an earlier draft of this study. **The evidence-annotated
+population is smaller than the contrast.** HH-003 spans ten conversations;
+NF-004's evidence identities cover only its six holdout conversations, which is
+848 of 1,540 items. Of the 46 rescues, **30** fall inside that coverage, and of
+the 32 losses, **15**. AV-002 analyses 30 rescues, not 46. **And the greedy
+`marginal` values are not sealed** — HH-003's `detail` carries `aspect_count` and
+`coverage_count` as scalars and no trace — so any question about marginal gains
+or about the minimum retaining aspect share requires re-running
+`_protected_aspect`, which is not a zero-call operation. The membership-and-order
+question is answerable offline; the marginal-and-counterfactual question is not.
 
 **AV-003 — Write-time facet cache.** *Engineering, no research risk.* Compute
 facets on append, store beside the episode vector, pass `facet_bundle` through
@@ -268,6 +279,78 @@ facets on append, store beside the episode vector, pass `facet_bundle` through
 sealed ASPECT contexts (`119a3152…`) across all 1,540 items — this must change
 nothing but latency. Target: 2,522.7 ms → under 100 ms. Independent of whether
 the thesis survives AV-001, and worth doing either way.
+
+### 7.1 What "offline" actually means here, and what is missing
+
+Asked directly whether AV-001 and AV-002 need a model or an embedder. The honest
+answer is *some of each*, and it depends on the feature, not on the study.
+
+**Committed and sufficient on its own:**
+
+- **Reader outcome labels.** `judged_r1.json` per arm. These are self-sufficient:
+  the HH-003 contrast reproduces from them exactly at 46 gains / 32 losses /
+  net +14.
+- **The full rendered context** per item, in `contexts.json`.
+- **Channel membership.** `_protected_aspect` renders
+  `[recency][initial semantic][aspect][returned slack]` in that order, and every
+  segment size is in `detail`, so positional slicing recovers which delivered
+  episodes were ASPECT admissions. This is exactly how `hh005_contexts.py`
+  reconstructed the semantic half.
+- **Greedy admission order** within the aspect segment, since packing preserves
+  order. Skipped-on-overflow candidates are invisible, which is a real limit.
+- **spaCy facet extraction.** Deterministic local NLP, not a call in this
+  programme's accounting — TC-011 ran `REGISTERED-OFFLINE` while using it.
+
+**Not in the repository:**
+
+- **The embedding cache.** `nf004_holdout_embeddings.db` — 2,749 entries,
+  1024-dim float32, 13.3 MB — exists only at
+  `C:\Users\muzaf\PycharmProjects\...`. `*.db` is gitignored at line 28, and
+  only the digest manifest is committed. The LoCoMo corpus is the same story:
+  `hh005_contexts.py` reads `C:\Users\muzaf\Downloads\locomo10.json`.
+- **The ASPECT `marginal` trace**, as noted above.
+
+**So the split is:**
+
+| | Needs | Status |
+|---|---|---|
+| AV-001, text / structural / positional / facet features | repo only | genuinely zero-call |
+| AV-001, vector redundancy features | embedding cache | cache *read*, or 2,749 re-embeds |
+| AV-002, membership and admission order | repo only | genuinely zero-call |
+| AV-002, marginal gains, minimum aspect share | re-run `_protected_aspect` → CC80 → vectors | not zero-call |
+| AV-003 | byte-identical replay of HH-003 allocation | needs the cache |
+| AV-004 | paid pilot | model calls by design |
+
+Supplying the `.db` converts most of this from "embedder calls" to "cache reads
+with zero misses," which is the accounting every DA study used. Without it, the
+vector-dependent half of AV-001 and all of AV-002's counterfactual half are
+blocked, and the text-only half still runs.
+
+### 7.2 Why this is not the DA arc again
+
+The obvious objection is that I have just criticized 101 zero-call studies and
+proposed starting with two more. The distinction is in the **label**, not the
+call count.
+
+DA's studies were offline *and* their label was a surrogate: "is the exact
+evidence present in the pack," which no reader ever confirmed. AV-001 and AV-002
+are offline analyses whose label **is the reader outcome** — `judge_label` from a
+paid run that already happened. The reader has been spent; this is reading what
+it produced. Offline analysis of reader labels is not the same operation as
+offline optimization of a reader-free proxy.
+
+That said, one real risk survives, and it should be named rather than argued
+away. AV-001 is post-hoc on a fixed corpus, so whatever it finds is a
+**hypothesis, not a mechanism**. If its model is never confirmed prospectively, I
+will have built a nicer surrogate rather than escaped the trap. AV-004 is
+therefore not optional — it is the study that makes AV-001 mean anything.
+
+Applying to this arc the trip condition the post-mortem recommends for others:
+
+> **No more than two consecutive zero-call AV studies before a live check.**
+> AV-001 and AV-002 spend that allowance. AV-004 is then mandatory before any
+> further offline work, and a null AV-001 stops the arc rather than licensing
+> AV-003 and a third analysis.
 
 **AV-004 — Additive derivative headroom, live.** *Paid; ~100-item pilot first.*
 The contrast the DA arc never ran: ASPECT-v1 fully retained, DA-098's derivative
