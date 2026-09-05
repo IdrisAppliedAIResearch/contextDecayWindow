@@ -15,6 +15,10 @@ dependencies = [
     # The model wheel is pinned by URL because spaCy models are not on PyPI.
     "spacy>=3.8.14,<4",
     "en-core-web-sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl",
+    # typer 0.27.0 dropped click, but spacy 3.8.14 still imports it through
+    # spacy.cli, which `import spacy` pulls in unconditionally. Without this
+    # every ASPECT call fails with a misleading "install the aspect extra".
+    "click>=8.5.0",
     # BEAM-001: immutable corpus acquisition, structured parquet ingestion,
     # exact OpenAI token accounting, and the amended API embedder.
     "huggingface-hub==1.16.1",

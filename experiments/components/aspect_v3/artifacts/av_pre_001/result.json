@@ -1,0 +1,188 @@
+{
+  "by_conversation": {
+    "conv-26": {
+      "header": {
+        "matched": 418,
+        "messages": 418,
+        "rate": 1.0
+      },
+      "items": 152,
+      "mean_added": 3.2632,
+      "mean_aspect_count_delta": -0.7566,
+      "mean_dropped": 4.0197,
+      "median_jaccard": 0.822756,
+      "payloads_changed": 152,
+      "reproduced": 152
+    },
+    "conv-30": {
+      "header": {
+        "matched": 368,
+        "messages": 368,
+        "rate": 1.0
+      },
+      "items": 81,
+      "mean_added": 3.3827,
+      "mean_aspect_count_delta": -0.4938,
+      "mean_dropped": 3.8765,
+      "median_jaccard": 0.840909,
+      "payloads_changed": 81,
+      "reproduced": 81
+    },
+    "conv-41": {
+      "header": {
+        "matched": 662,
+        "messages": 662,
+        "rate": 1.0
+      },
+      "items": 152,
+      "mean_added": 5.1184,
+      "mean_aspect_count_delta": -0.4474,
+      "mean_dropped": 5.5658,
+      "median_jaccard": 0.74359,
+      "payloads_changed": 152,
+      "reproduced": 152
+    },
+    "conv-42": {
+      "header": {
+        "matched": 628,
+        "messages": 628,
+        "rate": 1.0
+      },
+      "items": 199,
+      "mean_added": 5.3568,
+      "mean_aspect_count_delta": -0.7085,
+      "mean_dropped": 6.0653,
+      "median_jaccard": 0.738095,
+      "payloads_changed": 199,
+      "reproduced": 199
+    },
+    "conv-43": {
+      "header": {
+        "matched": 680,
+        "messages": 680,
+        "rate": 1.0
+      },
+      "items": 178,
+      "mean_added": 5.6517,
+      "mean_aspect_count_delta": -0.7303,
+      "mean_dropped": 6.382,
+      "median_jaccard": 0.717949,
+      "payloads_changed": 178,
+      "reproduced": 178
+    },
+    "conv-44": {
+      "header": {
+        "matched": 674,
+        "messages": 674,
+        "rate": 1.0
+      },
+      "items": 123,
+      "mean_added": 5.5854,
+      "mean_aspect_count_delta": -1.0081,
+      "mean_dropped": 6.5935,
+      "median_jaccard": 0.714286,
+      "payloads_changed": 123,
+      "reproduced": 123
+    },
+    "conv-47": {
+      "header": {
+        "matched": 688,
+        "messages": 688,
+        "rate": 1.0
+      },
+      "items": 150,
+      "mean_added": 6.3733,
+      "mean_aspect_count_delta": -0.5067,
+      "mean_dropped": 6.88,
+      "median_jaccard": 0.711111,
+      "payloads_changed": 150,
+      "reproduced": 150
+    },
+    "conv-48": {
+      "header": {
+        "matched": 680,
+        "messages": 680,
+        "rate": 1.0
+      },
+      "items": 191,
+      "mean_added": 5.1152,
+      "mean_aspect_count_delta": -0.1571,
+      "mean_dropped": 5.2723,
+      "median_jaccard": 0.780488,
+      "payloads_changed": 191,
+      "reproduced": 191
+    },
+    "conv-49": {
+      "header": {
+        "matched": 508,
+        "messages": 508,
+        "rate": 1.0
+      },
+      "items": 156,
+      "mean_added": 5.1667,
+      "mean_aspect_count_delta": -0.5833,
+      "mean_dropped": 5.75,
+      "median_jaccard": 0.738095,
+      "payloads_changed": 156,
+      "reproduced": 156
+    },
+    "conv-50": {
+      "header": {
+        "matched": 568,
+        "messages": 568,
+        "rate": 1.0
+      },
+      "items": 158,
+      "mean_added": 4.5886,
+      "mean_aspect_count_delta": -0.7405,
+      "mean_dropped": 5.3291,
+      "median_jaccard": 0.736068,
+      "payloads_changed": 158,
+      "reproduced": 158
+    }
+  },
+  "contrast": {
+    "items_identical_admission": 0,
+    "items_payload_changed": 1540,
+    "max_jaccard": 0.95,
+    "mean_added": 5.0461,
+    "mean_aspect_count_clean": 36.0753,
+    "mean_aspect_count_v1": 36.6805,
+    "mean_dropped": 5.6513,
+    "mean_jaccard": 0.746943,
+    "median_jaccard": 0.75,
+    "min_jaccard": 0.531915,
+    "p10_jaccard": 0.638889,
+    "p25_jaccard": 0.690476,
+    "p75_jaccard": 0.804878,
+    "p90_jaccard": 0.85
+  },
+  "embedding_cache": {
+    "hits": 1560,
+    "misses": 1530
+  },
+  "header_regex": "^\\s*\\d{1,2}:\\d{2}\\s*[ap]m on \\d{1,2} \\w+, \\d{4}\\s*\\|\\s*[^:]{1,30}:\\s*",
+  "mismatch_sample": [],
+  "registered_read": {
+    "median_jaccard<=0.6": "SELECTION_MOVES - proceed to three arms",
+    "median_jaccard>=0.9": "SELECTION_UNCHANGED - hypothesis dead",
+    "otherwise": "INDETERMINATE - report descriptively"
+  },
+  "reproduction": {
+    "gated_on": [
+      "sealed per-item payload_sha256",
+      "every sealed non-timing detail field"
+    ],
+    "items": 1540,
+    "mismatches": 0,
+    "not_gated_on": [
+      "latency_ms",
+      "search_time"
+    ],
+    "reproduced": 1540,
+    "sealed_contexts_sha256": "119a3152c5c3c300df34930a42dbb96e2454e960e48a84de2b9964d7c254caae",
+    "sealed_digest_matches_registration": true
+  },
+  "schema": "av-pre-001-v1",
+  "verdict": "INDETERMINATE"
+}

@@ -1,0 +1,87 @@
+{
+  "cells": {
+    "A_CC80@16k": {
+      "evidence_all_pct": 81.26,
+      "evidence_any_pct": 93.79,
+      "items": 842,
+      "mean_aspect_episodes": 0,
+      "mean_chars": 15925.1,
+      "mean_da_members": 0,
+      "mean_semantic_episodes": 38.97
+    },
+    "A_CC80@32k": {
+      "evidence_all_pct": 88.66,
+      "evidence_any_pct": 97.37,
+      "items": 842,
+      "mean_aspect_episodes": 0,
+      "mean_chars": 31924.5,
+      "mean_da_members": 0,
+      "mean_semantic_episodes": 79.33
+    },
+    "B_CC80_ASPECT@16k": {
+      "evidence_all_pct": 77.57,
+      "evidence_any_pct": 92.48,
+      "items": 842,
+      "mean_aspect_episodes": 17.74,
+      "mean_chars": 15758.2,
+      "mean_da_members": 0,
+      "mean_semantic_episodes": 19.26
+    },
+    "B_CC80_ASPECT@32k": {
+      "evidence_all_pct": 86.87,
+      "evidence_any_pct": 97.26,
+      "items": 842,
+      "mean_aspect_episodes": 35.53,
+      "mean_chars": 31745.7,
+      "mean_da_members": 0,
+      "mean_semantic_episodes": 38.97
+    },
+    "C_CC80_ASPECT_DA@16k": {
+      "evidence_all_pct": 81.38,
+      "evidence_any_pct": 94.99,
+      "items": 842,
+      "mean_aspect_episodes": 8.93,
+      "mean_chars": 15748.4,
+      "mean_da_members": 27.0,
+      "mean_semantic_episodes": 19.26
+    },
+    "C_CC80_ASPECT_DA@32k": {
+      "evidence_all_pct": 89.86,
+      "evidence_any_pct": 98.45,
+      "items": 842,
+      "mean_aspect_episodes": 17.54,
+      "mean_chars": 31734.3,
+      "mean_da_members": 55.02,
+      "mean_semantic_episodes": 38.97
+    }
+  },
+  "embedding_cache": {
+    "hits": 20,
+    "misses": 1530
+  },
+  "endpoint_warning": "Evidence delivery is a composition property, not an endpoint. It has disagreed with live reader outcomes in both directions.",
+  "non_da_conversations": {
+    "A_CC80@16k": {
+      "evidence_all_pct": 83.81,
+      "items": 698
+    },
+    "A_CC80@32k": {
+      "evidence_all_pct": 89.83,
+      "items": 698
+    },
+    "B_CC80_ASPECT@16k": {
+      "evidence_all_pct": 80.95,
+      "items": 698
+    },
+    "B_CC80_ASPECT@32k": {
+      "evidence_all_pct": 88.11,
+      "items": 698
+    }
+  },
+  "population": {
+    "da_covered_items": 842,
+    "note": "All six cells are reported on the DA-covered population. The DA-098 allocation exists only for the six NF-004 holdout conversations, which the AV plan designates as the DEVELOPMENT split, so no cell containing DA can ever be confirmed on held-out data."
+  },
+  "recency": "excluded from every arm",
+  "schema": "av-matrix-v1"
+}
