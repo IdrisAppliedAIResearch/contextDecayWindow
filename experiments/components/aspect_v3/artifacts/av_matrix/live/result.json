@@ -1,0 +1,158 @@
+{
+  "arms": {
+    "A_CC80@16k": {
+      "correct": 595,
+      "f1": 0.5431,
+      "llm_score": 70.67,
+      "malformed": 6,
+      "n": 842
+    },
+    "A_CC80@32k": {
+      "correct": 602,
+      "f1": 0.5515,
+      "llm_score": 71.5,
+      "malformed": 7,
+      "n": 842
+    },
+    "B_CC80_ASPECT@16k": {
+      "correct": 587,
+      "f1": 0.5379,
+      "llm_score": 69.71,
+      "malformed": 6,
+      "n": 842
+    },
+    "B_CC80_ASPECT@32k": {
+      "correct": 602,
+      "f1": 0.5489,
+      "llm_score": 71.5,
+      "malformed": 7,
+      "n": 842
+    },
+    "C_CC80_ASPECT_DA@16k": {
+      "correct": 597,
+      "f1": 0.5482,
+      "llm_score": 70.9,
+      "malformed": 5,
+      "n": 842
+    },
+    "C_CC80_ASPECT_DA@32k": {
+      "correct": 607,
+      "f1": 0.5546,
+      "llm_score": 72.09,
+      "malformed": 4,
+      "n": 842
+    }
+  },
+  "contrasts": [
+    {
+      "gains": 9,
+      "left": "B_CC80_ASPECT@16k",
+      "losses": 29,
+      "net": -20,
+      "right": "C_CC80_ASPECT_DA@32k"
+    },
+    {
+      "gains": 13,
+      "left": "B_CC80_ASPECT@16k",
+      "losses": 28,
+      "net": -15,
+      "right": "A_CC80@32k"
+    },
+    {
+      "gains": 14,
+      "left": "B_CC80_ASPECT@16k",
+      "losses": 29,
+      "net": -15,
+      "right": "B_CC80_ASPECT@32k"
+    },
+    {
+      "gains": 14,
+      "left": "A_CC80@16k",
+      "losses": 26,
+      "net": -12,
+      "right": "C_CC80_ASPECT_DA@32k"
+    },
+    {
+      "gains": 11,
+      "left": "B_CC80_ASPECT@16k",
+      "losses": 21,
+      "net": -10,
+      "right": "C_CC80_ASPECT_DA@16k"
+    },
+    {
+      "gains": 9,
+      "left": "C_CC80_ASPECT_DA@16k",
+      "losses": 19,
+      "net": -10,
+      "right": "C_CC80_ASPECT_DA@32k"
+    },
+    {
+      "gains": 22,
+      "left": "A_CC80@16k",
+      "losses": 14,
+      "net": 8,
+      "right": "B_CC80_ASPECT@16k"
+    },
+    {
+      "gains": 14,
+      "left": "A_CC80@16k",
+      "losses": 21,
+      "net": -7,
+      "right": "A_CC80@32k"
+    },
+    {
+      "gains": 13,
+      "left": "A_CC80@16k",
+      "losses": 20,
+      "net": -7,
+      "right": "B_CC80_ASPECT@32k"
+    },
+    {
+      "gains": 16,
+      "left": "C_CC80_ASPECT_DA@16k",
+      "losses": 21,
+      "net": -5,
+      "right": "A_CC80@32k"
+    },
+    {
+      "gains": 18,
+      "left": "C_CC80_ASPECT_DA@16k",
+      "losses": 23,
+      "net": -5,
+      "right": "B_CC80_ASPECT@32k"
+    },
+    {
+      "gains": 11,
+      "left": "A_CC80@32k",
+      "losses": 16,
+      "net": -5,
+      "right": "C_CC80_ASPECT_DA@32k"
+    },
+    {
+      "gains": 10,
+      "left": "B_CC80_ASPECT@32k",
+      "losses": 15,
+      "net": -5,
+      "right": "C_CC80_ASPECT_DA@32k"
+    },
+    {
+      "gains": 18,
+      "left": "A_CC80@16k",
+      "losses": 20,
+      "net": -2,
+      "right": "C_CC80_ASPECT_DA@16k"
+    },
+    {
+      "gains": 12,
+      "left": "A_CC80@32k",
+      "losses": 12,
+      "net": 0,
+      "right": "B_CC80_ASPECT@32k"
+    }
+  ],
+  "judge": "same model, single pass, temperature 0",
+  "not_comparable_to": "HH-003 absolute scores - different reader and judge model. Only the within-run contrasts are interpretable.",
+  "population": 842,
+  "reader": "Qwen3.8-27B-UD-Q4_K_XL @ temperature 0, local",
+  "schema": "av-matrix-live-v1"
+}
