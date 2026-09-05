@@ -1,0 +1,144 @@
+{
+  "by_question_type": {
+    "knowledge-update": {
+      "complete": {
+        "DA031": 37,
+        "DA033": 41,
+        "TREATMENT": 43
+      },
+      "contrast_vs_da033": {
+        "discordant": 2,
+        "gains": 2,
+        "losses": 0,
+        "net": 2,
+        "ties": 70,
+        "two_sided_exact_p": 0.5
+      },
+      "n": 72
+    },
+    "multi-session": {
+      "complete": {
+        "DA031": 34,
+        "DA033": 36,
+        "TREATMENT": 40
+      },
+      "contrast_vs_da033": {
+        "discordant": 6,
+        "gains": 5,
+        "losses": 1,
+        "net": 4,
+        "ties": 115,
+        "two_sided_exact_p": 0.21875
+      },
+      "n": 121
+    },
+    "single-session-assistant": {
+      "complete": {
+        "DA031": 46,
+        "DA033": 46,
+        "TREATMENT": 46
+      },
+      "contrast_vs_da033": {
+        "discordant": 0,
+        "gains": 0,
+        "losses": 0,
+        "net": 0,
+        "ties": 51,
+        "two_sided_exact_p": 1.0
+      },
+      "n": 51
+    },
+    "single-session-preference": {
+      "complete": {
+        "DA031": 15,
+        "DA033": 18,
+        "TREATMENT": 18
+      },
+      "contrast_vs_da033": {
+        "discordant": 0,
+        "gains": 0,
+        "losses": 0,
+        "net": 0,
+        "ties": 30,
+        "two_sided_exact_p": 1.0
+      },
+      "n": 30
+    },
+    "single-session-user": {
+      "complete": {
+        "DA031": 44,
+        "DA033": 45,
+        "TREATMENT": 46
+      },
+      "contrast_vs_da033": {
+        "discordant": 1,
+        "gains": 1,
+        "losses": 0,
+        "net": 1,
+        "ties": 63,
+        "two_sided_exact_p": 1.0
+      },
+      "n": 64
+    },
+    "temporal-reasoning": {
+      "complete": {
+        "DA031": 35,
+        "DA033": 36,
+        "TREATMENT": 37
+      },
+      "contrast_vs_da033": {
+        "discordant": 1,
+        "gains": 1,
+        "losses": 0,
+        "net": 1,
+        "ties": 126,
+        "two_sided_exact_p": 1.0
+      },
+      "n": 127
+    }
+  },
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "claim_boundary": "spent LongMem exact availability; reader and runtime unvalidated",
+  "complete": {
+    "DA031": 211,
+    "DA033": 222,
+    "TREATMENT": 230
+  },
+  "contrast_vs_da033": {
+    "discordant": 10,
+    "gains": 9,
+    "losses": 1,
+    "net": 8,
+    "ties": 455,
+    "two_sided_exact_p": 0.021484375
+  },
+  "mechanism": {
+    "admitted_members": 2329,
+    "gain_blockers": {
+      "INITIAL_ATOMIC_SIZE": 6,
+      "MULTI_CARRIER_CONJUNCTION": 1,
+      "PRIOR_ATOMIC_CONSUMPTION": 2
+    },
+    "member_cost": {
+      "p10": 56.0,
+      "p50": 130.0,
+      "p90": 286.0
+    },
+    "member_position": {
+      "p10": 0.0,
+      "p50": 4.0,
+      "p90": 10.0
+    }
+  },
+  "one_hop_ceiling": 250,
+  "outcomes_sha256": "fef6f6af2bc789692814a835dd56c4ea104604f019082e81f0e04096fb9b7b0f",
+  "population": 465,
+  "protected_da031_losses": 0,
+  "replay_byte_identical": true,
+  "schema": "da037-longmem-sentinel-atomic-result-v1",
+  "status": "NO_LONGMEM_SENTINEL_ATOMIC_SIGNAL"
+}

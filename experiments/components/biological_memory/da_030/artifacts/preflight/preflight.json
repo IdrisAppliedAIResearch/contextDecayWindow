@@ -1,0 +1,32 @@
+{
+  "allocation_sha256": "cd69a0887cf2564d5929b7ee34947568f579327f86224ab9a88b1f77b0e52c2a",
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "corpora": {
+    "LONGMEM": {
+      "actions": {
+        "MEMBER": 742,
+        "SKIP_MEMBER": 10714
+      },
+      "immutable_da028": true,
+      "max_final_chars": 16000,
+      "questions": 465
+    },
+    "NF004": {
+      "actions": {
+        "MEMBER": 567,
+        "SKIP_MEMBER": 7764
+      },
+      "immutable_da028": true,
+      "max_final_chars": 16000,
+      "questions": 1098
+    }
+  },
+  "replay_byte_identical": true,
+  "rows": 1563,
+  "schema": "da030-compact-atomic-preflight-v1",
+  "status": "PASS"
+}

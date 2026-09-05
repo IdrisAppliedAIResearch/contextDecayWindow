@@ -1,0 +1,23 @@
+{
+  "admit_counts": {
+    "CHARS_1024": 14062,
+    "CHARS_256": 3395,
+    "CHARS_512": 11888,
+    "COUNT_0": 0,
+    "COUNT_1": 4285,
+    "COUNT_2": 11127,
+    "COUNT_4": 14025,
+    "DUAL_1_512": 4146,
+    "OPEN": 14064
+  },
+  "calls": {
+    "embedding": 0,
+    "model": 0
+  },
+  "decision_sha256": "534c3285b2aa42657785742a64ca1b5e80bca1645b402380ce13a4cfc23a8ab4",
+  "failure": "PF4: COUNT_0 has an empty admit set; no edge adds an identity without displacement",
+  "rows": 26100,
+  "replay_byte_identical": true,
+  "schema": "da005-guard-preflight-v1",
+  "status": "FAIL"
+}

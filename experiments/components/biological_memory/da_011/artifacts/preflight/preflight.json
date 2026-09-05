@@ -1,0 +1,50 @@
+{
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "checks": {
+    "both_member_choices": true,
+    "direct_935": true,
+    "fallback_970": true,
+    "fallback_admission": true,
+    "pair_overflow": true,
+    "payload_rows": true,
+    "perturbation_rows": true,
+    "primary_questions": true,
+    "role_questions": true,
+    "six_conversations": true
+  },
+  "conversations": [
+    "conv-26",
+    "conv-30",
+    "conv-43",
+    "conv-44",
+    "conv-49",
+    "conv-50"
+  ],
+  "hashes": {
+    "da010_allocations": "d69a5e1a1585f0e1988bb6599af9fd53d2d84c5d4d70e3783d96c6427839d9b8",
+    "da010_result": "ef59203e80991132dffad38cd849bf161026a038490b9b518c095c612e54c1af",
+    "labels": "d111229d791477171b22a49899b42bbc9870b0e829e9d6925402ff9c5b467bca",
+    "payload": "51e0e648f66bf2c5a7ab6161c5fbcbc9efaadff306beb9b98ffac6a2f19d47b3",
+    "perturbation": "e48e52b83f4b3704fedff81a44069b9caab775fd319a20ac863e99d96cb022b4",
+    "role": "0fbe8e54d3385575749d779429488d3e1efe2e5b5815a87aa7403a4650cbf0bb"
+  },
+  "schema": "da011-mechanical-preflight-v1",
+  "selected_member_indices": {
+    "0": 15088,
+    "1": 11012
+  },
+  "stable_carrier_partition": true,
+  "status": "PASS",
+  "synthetic_classes": {
+    "BASE_CAPACITY": "BASE_CAPACITY",
+    "BOTH_MEMBER_CONJUNCTION": "BOTH_MEMBER_CONJUNCTION",
+    "MULTI_PAIR_CONJUNCTION": "MULTI_PAIR_CONJUNCTION",
+    "OTHER_TRACE_FAILURE": "OTHER_TRACE_FAILURE",
+    "PRIOR_CONSUMPTION": "PRIOR_CONSUMPTION",
+    "WRONG_MEMBER": "WRONG_MEMBER"
+  }
+}

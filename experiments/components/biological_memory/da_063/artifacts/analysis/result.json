@@ -1,0 +1,86 @@
+{
+  "additional_heads_through_required": {
+    "max": 33.0,
+    "p10": 0.0,
+    "p50": 0.0,
+    "p90": 6.0
+  },
+  "by_question_type": {
+    "knowledge-update": {
+      "complete_reachability": 71,
+      "n": 72,
+      "pack_prefix_complete": 60
+    },
+    "multi-session": {
+      "complete_reachability": 102,
+      "n": 121,
+      "pack_prefix_complete": 75
+    },
+    "single-session-assistant": {
+      "complete_reachability": 51,
+      "n": 51,
+      "pack_prefix_complete": 48
+    },
+    "single-session-preference": {
+      "complete_reachability": 30,
+      "n": 30,
+      "pack_prefix_complete": 23
+    },
+    "single-session-user": {
+      "complete_reachability": 62,
+      "n": 64,
+      "pack_prefix_complete": 53
+    },
+    "temporal-reasoning": {
+      "complete_reachability": 122,
+      "n": 127,
+      "pack_prefix_complete": 91
+    }
+  },
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "claim_boundary": "posthoc address exposure and burden only; no reader, stopping, or delivery",
+  "complete_reachability": 438,
+  "complete_reachability_rate": 0.9419354838709677,
+  "episodes_through_required": {
+    "max": 219.0,
+    "p10": 6.0,
+    "p50": 16.0,
+    "p90": 84.0
+  },
+  "exposure_sha256": "cafd76be919277c976c1f0ee20f6af85917534363b2343a45879ff6d03d2e288",
+  "first_required_position": {
+    "max": 37.0,
+    "p10": 1.0,
+    "p50": 1.0,
+    "p90": 6.0
+  },
+  "last_required_position": {
+    "max": 44.0,
+    "p10": 1.0,
+    "p50": 3.0,
+    "p90": 14.300000000000011
+  },
+  "members_through_required": {
+    "max": 438.0,
+    "p10": 12.0,
+    "p50": 32.0,
+    "p90": 168.0
+  },
+  "pack_prefix_complete": 350,
+  "peak_current_frame_chars": 2048,
+  "protected_payload_mutations": 0,
+  "questions": 465,
+  "schema": "da063-replaceable-session-head-stream-result-v1",
+  "simultaneously_rendered_heads": 1,
+  "status": "POSTHOC_REPLACEABLE_HEAD_STREAM_CHARACTERIZED",
+  "stream_heads": {
+    "max": 51.0,
+    "p10": 10.0,
+    "p50": 25.0,
+    "p90": 42.0
+  }
+}

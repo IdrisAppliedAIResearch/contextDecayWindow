@@ -1,0 +1,68 @@
+{
+  "by_blocker": {
+    "INITIAL_SENTINEL_ATOMIC_SIZE": {
+      "exposed": 1,
+      "n": 1
+    },
+    "PRIOR_SENTINEL_ATOMIC_CONSUMPTION": {
+      "exposed": 17,
+      "n": 17
+    }
+  },
+  "by_question_type": {
+    "knowledge-update": {
+      "exposed": 4,
+      "n": 4
+    },
+    "multi-session": {
+      "exposed": 4,
+      "n": 4
+    },
+    "single-session-assistant": {
+      "exposed": 1,
+      "n": 1
+    },
+    "single-session-user": {
+      "exposed": 4,
+      "n": 4
+    },
+    "temporal-reasoning": {
+      "exposed": 5,
+      "n": 5
+    }
+  },
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "claim_boundary": "sequential exact payload exposure only; no simultaneous delivery or reader use",
+  "cumulative_chars_through_requirement": {
+    "p10": 1426.7000000000003,
+    "p50": 5569.0,
+    "p90": 17692.2
+  },
+  "exposed": 18,
+  "exposure_sha256": "174204459562cee0c8062632b607e1e3960add2ab418bf2f922871dbaf818fc1",
+  "frames_through_requirement": {
+    "p10": 1.0,
+    "p50": 7.0,
+    "p90": 16.0
+  },
+  "not_exposed": 0,
+  "overflows_through_requirement": {
+    "p10": 2.7,
+    "p50": 5.0,
+    "p90": 10.3
+  },
+  "peak_frame_chars": {
+    "p10": 1032.6000000000001,
+    "p50": 1851.5,
+    "p90": 2037.1
+  },
+  "protected_da038_mutations": 0,
+  "replay_byte_identical": true,
+  "residuals": 18,
+  "schema": "da045-replaceable-node-stream-result-v1",
+  "status": "REPLACEABLE_NODE_STREAM_SIGNAL"
+}

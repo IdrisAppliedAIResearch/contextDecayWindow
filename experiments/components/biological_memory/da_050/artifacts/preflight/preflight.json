@@ -1,0 +1,31 @@
+{
+  "actions": {
+    "FRAME": 9591,
+    "OVERFLOW": 2871
+  },
+  "actions_by_distance": {
+    "3": 5842,
+    "4": 4060,
+    "5": 2560
+  },
+  "artifact_sha256": "40c8b768e80c8b0c80e1b310f7abe3e2f3cc6066362f6b59a8aa436bfcfae490",
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "continuation_episodes": 6231,
+  "cumulative_frame_chars": 5517044,
+  "immutable_prompt_mutations": 0,
+  "peak_frame_chars": 2048,
+  "questions": 465,
+  "rejections": {
+    "CORPUS_BOUNDARY": 318,
+    "DUPLICATE": 318,
+    "PRIOR_REPRESENTATION": 2685,
+    "SESSION_BOUNDARY": 12651
+  },
+  "replay_byte_identical": true,
+  "schema": "da050-directional-cursor-preflight-v1",
+  "status": "PASS"
+}

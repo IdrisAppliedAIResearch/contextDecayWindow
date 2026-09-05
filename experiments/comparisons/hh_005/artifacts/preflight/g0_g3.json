@@ -1,0 +1,28 @@
+{
+  "arms": {
+    "A_SEMANTIC_DA_V2_16K": {
+      "context_chars": {
+        "max": 29570,
+        "min": 26798
+      },
+      "contexts_sha256": "691774c537afe37d46843936bb823c442ec41ff51e539ff8d46708fa393f53a3",
+      "derivative_max": 8000,
+      "semantic_max": 8000
+    },
+    "A_SEMANTIC_DA_V2_32K": {
+      "context_chars": {
+        "max": 45554,
+        "min": 42862
+      },
+      "contexts_sha256": "af96cb49a8c536fd1b8aaa80c3423aca5e07af14834f69a4dec5bbe078e0af92",
+      "derivative_max": 16000,
+      "semantic_max": 15987
+    }
+  },
+  "aspect_judgements_sha256": "aefc8e91bd602c6449e0b5fa038b9c815070291b36024faecae937e46536ffc7",
+  "aspect_predictions_sha256": "b71cfc7b1d855f0770e2fc8686125da1f820e879da0e166a2644c1517e423145",
+  "byte_identical_replay": true,
+  "population": 842,
+  "schema": "hh005-preflight-v2",
+  "status": "PASS"
+}

@@ -90,6 +90,210 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **NF-004 LoCoMo confirmation (2026-08-13).** WORKS, availability only. On 1,098 sealed QAs at 16k, pair rank raises complete evidence 843->935 vs session inheritance: 140 gains/48 losses, ratio 2.92, p=6.19e-12. All 6 conversations net positive; source order 258, and 32k stays positive 961->1,024. G0-G7 pass, byte-identical replay, zero measurement calls. No live/adoption claim.
 
+**NF-004 item anatomy (2026-08-29).** POSTHOC; NO_STABLE_PREDICTOR. Fifty-eight blind features on 188 discordances give grouped OOF AUC .576, permutation p=.139; 2/6 conversations reverse. Session rescues occur despite pair rank packing +6 candidates median. Packing contrast carries weak anatomy, not a selector. No calls/adoption.
+
+**DA-001 linked context (2026-08-29).** POSTHOC LOCAL_LINK_SIGNAL. One-hop temporal expansion raises NF-004 complete delivery 935->950/951/956/959/963 across 1/2/4/8/16 seeds; all gains are link-carried, all losses displaced. Conv-44 regresses throughout. Full-event expansion falls to 845. Proxies only; no selector/reader/adoption.
+
+**DA-002 link mechanism (2026-08-29).** POSTHOC. Temporal gains transfer rank: evidence rank p50 113-120, seed rank 1-4, about 44-60 ranks beyond direct capacity; prior/next are balanced. Shallow losses hit pack tail p50 .96-.98. Event depth adds few gains and 15-120 unique losses. Conv-44 has one rescue but two tail losses at m1. No selector/adoption.
+
+**DA-003 edge utility (2026-08-29).** STOPPED_AT_CAUSAL_ACCOUNTING. Of 25,941 primary edges, 48 gains were neighbor-carried, but 9 came from downstream skip-on-overflow changes; 40 harmed. An edge insertion perturbs later fit decisions, so edge-local utility assigns wrong causal credit. No model/gate ran. A successor must score the whole pack perturbation.
+
+**DA-004 pack perturbation (2026-08-29).** BENEFIT_SIGNAL_ONLY. Whole-pack blind features predict 57 helpful edges with grouped OOF AUC .823; all 6 conversations .800-.960. Added-set query coverage AUC .831. Harm model is chance at .504 and reverses on conv-44; harms occur in only 3/6 conversations. No safe gate, threshold, reader or adoption.
+
+**DA-005 displacement guards (2026-08-29).** STOPPED_AT_PF4, label-blind. At fixed 16k, 0/26,100 edges add a candidate with zero displacement; the only structurally safe guard admits nothing. Count<=1 admits 4,285 but cannot protect the one displaced item. No labels opened. Useful protection requires compact links or prospectively reserved headroom.
+
+**DA-006 reserved compact links (2026-08-29).** STOPPED_AT_CAUSAL_ACCOUNTING. Repacking direct under 16k-R is not a subset: skip-overflow created 1 non-link gain. Poststop, pair/turn gains peak 48/35 while reserve losses rise 73/123/220/456. TURN helps only at R256 (30 vs 10 gains), still 73 losses. Next core must be immutable DIRECT prefix.
+
+**DA-007 immutable prefix reserve (2026-08-29).** NO_PROTECTED_CAPACITY_SIGNAL. Pair/turn gains vs suffix losses at R256/512/1024/2048: 10/30 vs73, 43/35 vs123, 48/35 vs220, 45/33 vs456. Best TURN_R256 net -43. Fixed reserve is often unused; direct tail carries evidence. No reserve/renderer/adoption.
+
+**DA-013 cross-corpus compact links (2026-08-30).** SPENT STRESS TEST; RANKING NULL. On 465 LongMem items at 16k, immutable compact temporal fallback raises complete evidence 164->171, 7/0, p=.015625; oracle 250. All 7 gains are singleton turns. DA-004 transfer and temporal orders are identical on 465/465: protected-pack features saturate. No reader/fresh/adoption claim.
+
+**DA-014 reachable-gap audit (2026-08-30).** CAPACITY_BLOCKER. Of DA-013's 86 one-hop-reachable direct misses: 7 rescued, 49 payload too large initially, 12 conjunction, 12 prior consumption, 6 wrong member, 0 unaccounted. Initial-size deficit p50 91 chars (p90 223). More ranking addresses at most 18; the ceiling is reversible representation capacity. No selector/reader/adoption.
+
+**DA-015 phrase dictionary (2026-08-30).** TRANSFERABLE_CAPACITY_SIGNAL, mechanical only. Exact phrase references save median +448.5 chars on 1,104 NF-004 contexts and +863 on 465 LongMem contexts; zero expansion, byte-identical replay. Added slack clears 47/49 DA-014 initial-size oracle thresholds. Codec is slow and reader use is untested. No delivery/fresh/adoption claim.
+
+**DA-016 phrase-coded links (2026-08-30).** PHRASE_LINK_DELIVERY_SIGNAL, spent availability. Frozen 16k temporal links raise LongMem complete 171->188, 17/0, p=1.53e-5; direct 164, oracle 250. Allocation pairs/turns 51/507->358/1046. All gains are singleton-carried, seed ranks 1-13. Exact dictionaries preserve direct evidence; reader use/runtime/fresh transfer unvalidated.
+
+**DA-017 NF-004 phrase-link transfer (2026-08-30).** NO_CROSS_CORPUS_PHRASE_LINK_SIGNAL. Frozen phrase coding raises DA-010 970->973, 3/0, p=.25, below +5 bar; direct 935, ceiling 986. Conv-43/49/50 gain one, none regress. Capacity transfers mechanically, delivery is strong only on LongMem (+17). DA-004 ranking remains non-general. No tuning/reader/adoption.
+
+**DA-018 frozen-query carrier utility (2026-08-30).** NO_CROSS_CORPUS_CARRIER_UTILITY_SIGNAL. NF control/cosine/cost/marginal = 970/952/944/960; LongMem = 188/179/189/191. Marginal trades 1/11 on NF and 6/3 on LongMem. Frozen-query rescoring avoids TC-012 drift but local relevance/cost cannot replace corpus-specific whole-pack or temporal priors. No tuning/reader/adoption.
+
+**DA-025 LongMem atomic additions (2026-08-30).** NO_LONGMEM_ATOMIC_ADDITION_SIGNAL. Pair-first atomic fallback raises DA-023 202->211 but trades 17 gains/8 losses; temporal reasoning is +1/-5. It rescues 15/20 wrong-member residuals, proving the operation useful but the order unsafe. DA-023 remains strongest; successor must replay it exactly and use residual capacity only. No calls/adoption.
+
+**DA-026 protected atomic tail (2026-08-30).** PROTECTED_ATOMIC_TAIL_SIGNAL. Replaying DA-023 fully, then adding missing members in frozen order, raises LongMem 202->207, +5/0 (p=.0625); all types nonnegative. Four gains are wrong-member residuals. 574 admissions use fragmented tail slack; strongest order is immutable. Spent availability only; no reader/runtime/adoption claim.
+
+**DA-027 compact relative backrefs (2026-08-30).** STOPPED_AT_BLIND_NO_EXPANSION. Codec gates pass 9/9, but a LongMem immutable pack expands when compact pointers are forced, so no allocation artifact or outcomes. DA-023 already retains control rendering on 16/465 rows. Universal codec is closed; evidence-blind shortest-exact-codec fallback is the successor. Zero calls.
+
+**DA-028 shortest exact codec (2026-08-30).** PARTIAL_SHORTEST_EXACT_CODEC_SIGNAL. Exact fallback selects compact on NF 1098/1098 and Long 461/465, saving median 591/556 chars with immutable order. NF 976->977 (+1/0) despite 2,599 additions; Long 202->208 (+6/0, p=.03125), 5 prior-consumption rescues. Capacity works where traversal reaches dependencies; no reader/adoption.
+
+**DA-029 compact residual audit (2026-08-30).** MIXED. Remaining NF 9 = prior consumption 5, wrong member 3, conjunction 1; Long 42 = wrong member 24, prior 10, conjunction 5, initial size 3. No class reaches 60%; no shared successor. Protected atomic completion after DA-028 is the strongest composition, while prior consumption needs a separate dependency representation. Zero calls.
+
+**DA-030 compact+atomic composition (2026-08-30).** PARTIAL_COMPACT_ATOMIC_SIGNAL. Full DA-028 packs stay immutable; post-pack members raise Long 208->213 (+5/0), all wrong-member residuals, but NF stays 977 (+0/0) despite 567 admissions. NF members fit at earlier arrival, not after the protected suffix: remaining limit is representation capacity through the sequence. Zero calls/reader/adoption.
+
+**DA-031 varint relative pointers (2026-08-30).** PARTIAL_VARINT_RELATIVE_SIGNAL. Self-delimiting exact coordinates save median +1066 NF/+889 Long chars beyond DA-028 with immutable order. NF 977->983 (+6/0, p=.03125), rescuing all 5 prior-consumption plus 1 conjunction; Long 208->211 (+3/0). NF is 3 below one-hop ceiling. Zero calls; reader/runtime/adoption unvalidated.
+
+**DA-032 varint residual audit (2026-08-30).** CORPUS-SPECIFIC. NF's final 3 are all wrong-member but 0/3 fit postpack: median slack 9 vs cost 108, so atomic completion is not protected. Long 39 = wrong 21, prior 12, conjunction 5, initial 1; 17 fit postpack. Long supports protected atomic composition; NF needs further exact representation capacity. Zero calls.
+
+**DA-033 LongMem varint+atomic (2026-08-30).** LONGMEM_VARINT_ATOMIC_SIGNAL. Full DA-031 pack stays immutable; postpack members raise Long 211->222, +11/0 (p=.0009766), all types nonnegative. Gains are 9 wrong-member and 2 conjunction residuals. 842 members admitted at median cost 113. Capacity plus atomic dependency identity composes safely; reader/runtime/adoption unvalidated.
+
+**DA-034 NF sentinel varint (2026-08-30).** NO_NF_SENTINEL_VARINT_SIGNAL. Opcode-free exact pointers save median +823 chars beyond DA-031 and add 389 frozen-order actions, but NF stays 983 (+0/0). Capacity goes to late full-pair/frozen-member carriers, not the final 3 alternate members. Codec-only extension closes; successor must spend recovered capacity at atomic member granularity with DA-031 immutable. Zero calls.
+
+**DA-035 NF sentinel+atomic (2026-08-30).** NF_SENTINEL_ATOMIC_SIGNAL. Same sentinel capacity as DA-034, but independent member allocation raises NF 983->986 (+3/0), reaching the frozen one-hop ceiling. DA-034 carrier unit gained 0; atomic unit gains all 3 wrong-member residuals. 3,401 members admitted; immutable DA-031 control, zero calls. Availability only; reader/runtime/adoption unvalidated.
+
+**DA-036 LongMem atomic residual audit (2026-08-30).** DOMINANT_INITIAL_ATOMIC_SIZE. Of 28 reachable misses after DA-033, 18 are too large before the tail, 9 lose fit to prior blind atomic additions and 1 needs multiple carriers; 0 unaccounted, 0 fit postpack. Initial/final slack p50 87.5/23 vs missing-member cost 253. Next signal is stronger exact representation under immutable order, not rescoring. Zero calls.
+
+**DA-037 LongMem sentinel+atomic (2026-08-30).** NO_LONGMEM_SENTINEL_ATOMIC_SIGNAL. Sentinel saves median 723 chars and gives 230 vs DA-033 222: 9 gains/1 loss, net +8, p=.0215; DA-031 211 has 0 losses. Gains hit 6 initial-size, 2 prior-consumption, 1 multi-carrier. Zero-loss bar fails: independently reallocating the tail does not protect strongest DA-033 order. Next must freeze DA-033 then append. Zero calls.
+
+**DA-038 protected DA-033 sentinel tail (2026-08-30).** PROTECTED_DA033_SENTINEL_SIGNAL. Exact re-encoding freezes every DA-033 member, saves median 739 chars, then appends atomic members: Long 222->232, +10/0, p=.001953. Gains resolve 6 initial-size, 3 prior-consumption, 1 multi-carrier; all types nonnegative. Protecting the strongest tail removes DA-037's loss. Ceiling 250; reader/runtime/fresh unvalidated. Zero calls.
+
+**DA-039 protected sentinel residual audit (2026-08-30).** DOMINANT_PRIOR_SENTINEL_ATOMIC_CONSUMPTION. Of 18 reachable misses after DA-038, 17 fit in initial sentinel slack then lose fit to earlier append-only payloads; 1 is initially too large, 0 unaccounted, 0 fit postpack. Initial/final slack p50 765/41.5 vs missing cost 239. Next signal is compact dependency references before materialization, not rescoring. Zero calls.
+
+**DA-040 compact dependency frontier (2026-08-30).** COMPACT_DEPENDENCY_FRONTIER_SIGNAL, resolver only. Five-char local member refs append after immutable DA-038: 3,325 fit/4,730 overflow; 7/18 residual sets become fully externally reachable (6 prior-consumption, 1 initial-size), 11 remain. Per-member metadata still scales linearly; next signal is one range/head ref to the deterministic frontier. References are not delivered facts; no reader/runtime/fresh claim. Zero calls.
+
+**DA-041 frontier head (2026-08-30).** FRONTIER_HEAD_SIGNAL, resolver only. One 3/5-char head names the deterministic absent-member list after immutable DA-038: 436/465 heads fit, resolving 7,551 targets; 17/18 residual sets become reachable (all multi-session), zero mutation. DA-040 reached 7/18 with linear refs. One miss lacks even 3 chars, locating the next boundary in out-of-band control-plane metadata. Not delivered evidence; zero calls.
+
+**DA-042 control-plane head (2026-08-30).** CONTROL_PLANE_HEAD_SIGNAL, addressability only. A typed out-of-band head preserves DA-038 prompt bytes/charge exactly and resolves 8,055 absent members; all 18 residual sets become graph-reachable, zero rendered chars/mutations. Flat refs reached 7/18 and rendered head 17/18. This separates immutable payload nodes from dependency graph metadata. Delivery remains 232; dereference/materialization, reader/runtime/fresh transfer unvalidated. Zero calls.
+
+**DA-043 dereference burden (2026-08-30).** SHALLOW_SINGLETON_DEREFERENCE. All 18 DA-042 residuals map uniquely to one frontier node; no conjunctions. Required depth p50 15, p90 21.9, max 30. Rendered payload chars p50 351, p90 463.5, max 1,906; 16/18 fit 512, 17/18 fit 1,024, all fit 2,048. A fixed first-32 auxiliary page is the next blind materialization probe; reader/delivery untested. Zero calls.
+
+**DA-044 auxiliary frontier page (2026-08-30).** WEAK_AUXILIARY_FRONTIER_PAGE_SIGNAL. Separate 16k prefix pages raise Long 232->237, +5/0, p=.0625, but p50 page is 14,817 chars and only 7 nodes. Population adds 6.54M chars, 1.31M/gain; no multi-session or temporal residual gains. This directly confirms inefficient token flooding. Fixed pages close; next signal is replaceable one-node traversal with bounded peak and explicit cumulative cost. Zero calls.
+
+**DA-045 replaceable node stream (2026-08-30).** REPLACEABLE_NODE_STREAM_SIGNAL, exposure only. Fixed depth-32 traversal exposes all 18 residual payloads with immutable DA-038 and <=2,048 peak chars. Through target: cumulative chars p50 5,569/p90 17,692; frames 7/16; peak 1,851.5/2,037.1. This removes simultaneous flood, not cumulative work. Reader recognition, retention and stopping remain untested; another offline score cannot answer them. Zero calls.
+
+**DA-046 single retained frame (2026-08-31).** ORACLE_SINGLE_REGISTER_SUFFICIENT. Sealed current/retained contract plus evidence-aware KEEP raises Long 232->250, +18/0, p=7.63e-6, reaching the one-hop ceiling with immutable DA-038. Oracle path peak <=2,047 chars; retained p50 355, cumulative traversal p50 5,569. Proves bounded retention if recognized; recognition/stopping/reader remain untested. Zero calls.
+
+**DA-047 protected boundary substitution (2026-08-31).** REGISTERED blind contract. DA-038 order and DA-046 retained frame stay immutable; only transient current may be atomically replaced by an exact hash-verified frame of no greater cost within 2,048 chars. Rejection rolls back byte-for-byte. No outcome, utility, reader or adoption claim; zero calls.
+
+**DA-048 directional continuation (2026-08-31).** SECOND_HOP_CAPACITY_SIGNAL. Continuing each frozen temporal edge one episode in direction raises protected Long availability 250->295, +45/0 (p=5.68e-14). Gains: temporal 27, multi-session 9; useful frame ordinal p50 5, frame 309 chars, cumulative p50 1,361. Immutable payload; evidence-aware KEEP only; reader untested. Zero calls.
+
+**DA-049 directional residual audit (2026-08-31).** FARTHER_DIRECTIONAL_SIGNAL. After DA-048, 170 misses split into 37 singleton targets farther on frozen rays, 78 multi-member, and 55 off-ray. Directional distances are d3=18, d4=10, d5=9; all 37 fit a 2,048-char frame. Next probe is a frozen cursor through distance 5, then grouped retention. Evidence-aware anatomy only; zero calls.
+
+**DA-050 directional cursor (2026-08-31).** FAR_DIRECTIONAL_CAPACITY_SIGNAL. A replaceable distance-3-to-5 cursor raises protected Long availability 295->332, +37/0 (p=1.46e-11), recovering every farther-ray singleton. Useful ordinal p50 7, frame p50 285 chars, cumulative p50 3,190/p90 9,909.6. Fixed 2,048 peak; evidence-aware KEEP, reader/stopping untested. Zero calls.
+
+**DA-051 grouped residual audit (2026-08-31).** DISTRIBUTED_DEPENDENCY_SIGNAL. Remaining 133 split into 55 one-member, 2 one-episode multi-member, 6 same-session multi-episode and 70 multi-session. Both grouped episodes overflow 2,048. Distributed cases need 2/3/4/5 episodes in 47/18/8/3 rows. Grouping closes; next is a protected exact retained set up to five. Zero calls.
+
+**DA-052 protected retained set (2026-08-31).** RETAINED_SET_CAPACITY_SIGNAL. Five append-only exact slots over sealed streams raise protected Long availability 332->363, +31/0 (p=9.31e-10). Gains need k2/3/4/5 frames=24/4/1/2; retained p50 646 chars, peak p50 2,223. Traversal p50 27,333 chars, so recognition/stopping now dominate. Evidence-aware KEEP; zero calls.
+
+**DA-053 retained-set residual audit (2026-08-31).** ADDRESSABILITY_BLOCKER. Of 102 residual questions, 100 are all-absent from sealed temporal streams and 2 all-overflow; 134/136 missing members are absent and 2 overflow at distance 2. Compression can address at most two. Next separate farther evidence in seeded sessions from unseeded-session evidence. Evidence-aware anatomy; zero calls.
+
+**DA-054 session address audit (2026-08-31).** UNSEEDED_SESSION_BLOCKER. Of 134 absent members, 133 are in sessions untouched by the complete direct pack; 1 is in a top-16 session at distance 3 and 0 are direct-tail-only. Questions: 99 untouched, 1 seeded, 2 overflow-only. Longer rays close; next is an out-of-band deterministic session directory. Evidence-aware anatomy; zero calls.
+
+**DA-055 session directory (2026-08-31).** SESSION_DIRECTORY_ADDRESSABILITY_SIGNAL. An out-of-band sidecar links 22,182 sessions, 106,412 episodes and 212,824 members with zero rendered chars, resolving all 134/134 absent members unambiguously. Target session ordinal p50 27.5, but episode order p50 0/p90 2 and pointer hops p50 3. Session choice, not local depth, is next. Zero calls.
+
+**DA-056 session-local materialization (2026-08-31).** SESSION_LOCAL_CAPACITY_SIGNAL. Exact directory dereference plus five retained slots raises protected Long availability 363->459, +96/0 (p=2.52e-29). Gains open p50 1 session, use p50 4 pointer hops, retain p50 409.5 chars and peak p50 2,029.5. Six misses remain, all 2,488-3,094-char exact-member overflow. Head choice oracle-only; zero calls.
+
+**DA-057 episode derivative codec (2026-08-31).** NO_EPISODE_DERIVATIVE_CAPACITY_SIGNAL. Frozen DA-031 user->assistant backrefs select coded form for 104,084/106,412 episodes and save 14.4M chars, but residual frames remain 2,589-3,399 (savings 29-286); Long stays 459, +0/0. Premise backrefs close; next is exact retained chunk chaining. Zero calls; reader interpretation untested.
+
+**DA-058 exact chunk chain (2026-08-31).** EXACT_CHUNK_CAPACITY_SIGNAL. Deterministic 1,984-char contiguous chains raise protected Long availability 459->465, +6/0 (p=.03125), reaching the full mechanical ceiling. All six use 2 chunks; total retained slots 2-3, retained/peak p50 2,814, max 3,111. Capacity is solved mechanically; session choice and reader reconstruction remain oracle-only. Zero calls.
+
+**DA-059 sparse session postings (2026-08-31).** BROAD_SPARSE_SESSION_SIGNAL. Exact query-token unions cover required sessions 465/465 but route p50 44 sessions, fraction p50 .918/p90 .960; first/last required rank p50 13/28. It is score-free control-plane flooding, not selective head choice. Singleton union closes; next is exact token-pair postings. Zero calls; no delivery/reader claim.
+
+**DA-060 token-pair postings (2026-08-31).** BROAD_TOKEN_PAIR_SESSION_SIGNAL. Exact unordered query-pair unions retain required-session coverage 465/465 but route p50 43 sessions, fraction p50 .909/p90 .957; only one median session better than singleton union. Pair co-occurrence remains control-plane flooding. Next is exact contiguous bigram postings. Zero calls; no delivery/reader claim.
+
+**HH-004 DA-098 decoded benchmark (2026-09-01).** CHARACTERIZED. On 842 matched LoCoMo items, decoded DA-098 scored 606 (.720): episodic 655, aspect 670, CDW 655, RAG 383, full 622. Paired net: -49/-64/-49/+223/-16; full p=.271. Mechanical evidence ceiling did not transfer to answer accuracy. One watchdog restart recovered; zero failed/malformed. No adoption.
+
+**HH-005 semantic+DA aspect-v2 (2026-09-02).** NO_ASPECT_V2_IMPROVEMENT. On 842 matched items, DA-v2 16k/32k scored 649/654 vs ASPECT-v1 670. Versus v1: 26/47 (p=.0186) and 32/48 (p=.0929); 32k vs 16k 27/22 (p=.568). Preserving semantic restored HH-004's loss, but DA order still trades useful contexts. Zero failures; no adoption.
+
+**DA-061 contiguous bigram postings (2026-08-31).** NO_CONTIGUOUS_BIGRAM_SESSION_SIGNAL. Exact adjacent query phrases cover required sessions 401/465 (.862), below .90, while routing p50 21 sessions/.447 of corpus, above .25. Phrase order narrows DA-060 but is neither reliable nor selective enough for protected substitution. Strongest order stays immutable. Zero calls; no delivery/reader claim.
+
+**DA-062 pack-activated heads (2026-08-31).** NO_PACK_ACTIVATED_HEAD_SIGNAL. Immutable represented episodes route p50 8 session heads/.170 and place present required heads at p50 1/2, but complete coverage is 350/465 (.753), below .90. Posthoc DA-061 union reaches 438/465 but floods p50 .509. Next is descriptive replaceable head streaming, not a late rescue. Zero calls; no traversal/delivery.
+
+**DA-063 replaceable head stream (2026-08-31).** POSTHOC. DA-062 then unseen DA-061 heads reach required sessions 438/465 with one head/frame and zero displacement. Last required head p50 3/p90 14.3; traversal p50 32 members/p90 168. Peak is bounded at 2,048 chars, but cumulative scan remains. Next is exact occurrence coordinates. Zero calls; no reader/delivery.
+
+**DA-064 occurrence coordinates (2026-08-31).** NO_OCCURRENCE_COORDINATE_SIGNAL. Immutable episodes plus exact query-bigram occurrences reach required episodes 382/465 (.822), any 440/465. Complete rows finish at p50 18.5/p90 71; coordinates are efficient when present but miss .90 coverage. Next is fixed-radius local expansion. Zero calls; no reader/delivery.
+
+**DA-065 local occurrence frontier (2026-08-31).** NO_LOCAL_OCCURRENCE_FRONTIER_SIGNAL. Radius-5 expansion lifts episode reachability 382->416/465 (.8946), just below .90; p50/p90 completion 24.5/129. All 72 misses are session-unreachable (35) or lack any lexical anchor in a reached session (37); none are beyond radius. Larger radii close; next use immutable pack episodes as anchors. Zero calls.
+
+**DA-066 dual-anchor frontier (2026-08-31).** DUAL_ANCHOR_LOCAL_FRONTIER_SIGNAL. Pack plus lexical radius-5 anchors raise reachability 416->438/465 (.942), matching DA-063's ceiling; p50/p90 completion 21/78.3. All 35 residual episodes are in unreached sessions; zero miss remains within reached sessions. Next append unigram occurrences after the protected order. Zero calls; no reader/delivery.
+
+**DA-067 hierarchical unigram frontier (2026-08-31).** HIERARCHICAL_UNIGRAM_FRONTIER_SIGNAL. Append-only unigram neighborhoods reach 465/465 with one frame and zero displacement, but median stream is 228 episodes. The 27 gains need p50/p90 62/128 additions and finish p50 158: simultaneous capacity becomes cumulative flooding. Next is query-pair witness intervals. Zero calls; no reader/delivery.
+
+**DA-068 minimum pair witnesses (2026-08-31).** NO_MINIMUM_PAIR_WITNESS_SIGNAL. Deterministic minimum pair intervals retain 465/465 and cut median stream 228->227, but 27 gain cases still need p50 62 additions, exactly tying rather than beating DA-067's `<62` bar; p90 125.4. Pair witnesses do not reduce central work-to-target and close. Next is maximal conjunctive session signatures. Zero calls.
+
+**DA-069 maximal conjunctive signatures (2026-08-31).** NO_MAXIMAL_CONJUNCTIVE_SIGNATURE_SIGNAL. Maximal session sets add 2,335 episodes and recover 8/27 residuals at p50 1 addition, but complete is 446/465 (.959), below .98; median stream 141. Specificity is efficient, but pruning loses 19 needed subset sessions. Next descend explicit signature-lattice edges. Zero calls; no reader/delivery.
+
+**DA-070 signature-lattice descent (2026-08-31).** SIGNATURE_LATTICE_DESCENT_SIGNAL. Hasse BFS reaches 465/465; residual p50 additions fall 62->37 (p90 113.6), passing both bars. Full stream p50 is 228. Posthoc, all 35 DA-066-missing episodes lie at lattice depth 0-3 (median 1); none need d4-7. Depth-3 replay is descriptive only. Zero calls; no reader/delivery.
+
+**DA-071 bounded lattice replay (2026-08-31).** POSTHOC. Outcome-informed depth<=3 preserves 465/465 and residual p50/p90 work 37/113.6, while saving 2,549 entries and reducing median full stream only 228->224. Deep nodes are unnecessary here, but burden remains among shallow siblings. Next separate equal-signature collisions from unique-node branch ambiguity. Zero calls; no transfer/reader claim.
+
+**DA-072 lattice identifiability (2026-08-31).** POSTHOC. Of 31 target sessions, 16 share an exact signature with others and 15 are unique shallow branches; questions split 13/13 plus 1 mixed. Group size p50/p90 2/8; BFS position 7/24. Burden has two mechanisms. Next enrich signatures with exact adjacent query bigrams; branch choice remains separate. Zero calls; no selector/transfer claim.
+
+**DA-073 ordered-feature lattice (2026-08-31).** NO_ORDERED_FEATURE_LATTICE_SIGNAL. Exact unigram+bigram signatures retain 465/465 and reduce target collisions 16->13, but residual p50 work worsens 37->38 (p90 130.4), failing the joint bar; full stream p50 228. Adjacency improves identity, not branch order. Next role-type exact features for source provenance. Zero calls; no reader/delivery.
+
+**DA-074 role-typed feature lattice (2026-08-31).** ROLE_TYPED_FEATURE_LATTICE_SIGNAL. User/assistant provenance retains 465/465, cuts residual p50 work 37->31 (p90 114.6), and target collisions 13->5, passing all bars with zero displacement. Full stream p50 remains 228, so exhaustive traversal is broad. Next audit residual collisions and role-lattice depth. Zero calls; no reader/delivery.
+
+**DA-099/100 indexed codec runtime (2026-09-01).** Exact 1,098-row LoCoMo replay fell from hours to 4.94 min with unchanged SHA. DA-100 p50/p95/max=75.7/216.5/242.1 ms; replay p95=265.8. Equivalence and zero calls pass, but the <=200 ms p95 tier fails. Fusion alone closes; Python suffix-state overhead remains.
+
+**DA-101 flat suffix runtime (2026-09-01).** RUNTIME_SIGNAL. Flat state preserves the exact 1,098-row allocation and cuts first-pass p50/p95/max to 59.9/76.9/85.9 ms; replay max 95.9. Double replay is 153.4 s, zero calls. The <=200 ms runtime tier passes; the <=25 ms median production tier does not. Reader use remains untested.
+
+**DA-098 frozen NF budget replay (2026-09-01).** SIGNAL. Pair16/32=935/1024; protected arch16/32=986/1068. ARCH32 gains 44/loses 0 vs pair32 and is positive in all 6 conversations. It recovers all 57 pair32-only items while preserving 19 arch16-only. 209,257 additions show broad compressed exposure; 30 misses are fit overflow. Reader/fresh untested.
+
+**DA-075 role-lattice anatomy (2026-08-31).** POSTHOC. Provenance splits 11/16 collisions: 26/31 targets are unique, 5 collide; all 15 prior unique stay unique. Target depth p50/p90 1/2, but width grows to 14/22 and BFS position 7->15. Identity improves while branches widen. Next test ordered episode-feature sequences on five residual collisions. Zero calls; no selector/transfer claim.
+
+**DA-076 sequence separability (2026-08-31).** POSTHOC. Exact ordered episode-feature sequences split all 5 residual role-union collisions; every target becomes unique within groups of 2/4/5/6/7. Length alone splits 3; ordered contents are needed for 2. This supplies deterministic carrier identity, not replacement safety, traversal, or delivery. Byte-identical replay; zero calls.
+
+**DA-077 sequence-prefix witness (2026-08-31).** POSTHOC. All 5 residual carriers become unique after 1-2 episodes (p50 1), versus full length 5-6. Exact witness cost is 36-236 chars, p50 135, versus full-sequence p50 594. Prefix provenance is compact enough for branching, but remains metadata and cannot replace evidence. Byte-identical replay; zero calls.
+
+**DA-078 optimal sentinel parse (2026-08-31).** PROTECTED_OPTIMAL_PARSE_SIGNAL. Exact DP re-encoding preserves DA-038 and saves p50 273 chars, admitting 618 append-only members. LongMem complete rises 232->237, +5/0 (p=.0625); all gains resolve prior consumption and all types are nonnegative. Double replay took ~25 min/1.2 GB. Reader/runtime/transfer unvalidated; zero calls.
+
+**DA-079 optimal residual audit (2026-08-31).** POSTHOC. Of 13 misses after DA-078, 9 fit initially then lose fit to earlier immutable admissions; 4 are initially too large, with deficits 23/98/143/1391 chars; 0 fit postpack. Prior-consumption arrival deficits are 28-245. The dominant boundary is lazy materialization/scheduling, not another parse score. Byte-identical replay; zero calls.
+
+**DA-080 protected stream crosswalk (2026-08-31).** COMPLETE. All 13 DA-079 residuals map to one exact DA-045 replaceable node with zero DA-078 mutation. Peak frame p50/p90 is 1968/2040.6 chars, but target work is 13/16 frames and 5781/19264 chars. Offline capacity is structurally available; reader recognition, retention and stopping remain unknown. Byte-identical replay; zero calls.
+
+**DA-081 frame-state anatomy (2026-08-31).** POSTHOC. Of 13 required frames, 7 add role/query features at arrival and 6 are redundant. Earlier state changes are p50 0/p90 1.8, so novelty is locally clean but not universal. Only 1/13 carriers has a sibling in DA-078. Lexical transitions and sibling completion cannot solve stopping alone. Byte-identical replay; zero calls.
+
+**DA-082 unary-edge anatomy (2026-08-31).** POSTHOC. Twelve of 13 residuals are branch-ambiguous, 1 is a present sibling and 0 have a unary represented seed. Each target has one seed; represented branch degree is p50 2/p90 4, and 5 seeds are absent. The sibling overlaps lexical novelty, so union coverage stays 7/13. Payload-only frames omit parent provenance. Byte-identical replay; zero calls.
+
+**DA-083 provenance paths (2026-08-31).** POSTHOC. Seven residual carriers have a directed prompt-root path, 1 is a root and 5 have orphan parents. Linked depth is always 1; child degree p50/p90 1/2. Provenance plus lexical novelty descriptively covers 11/13; the two uncovered rows are redundant orphan-parent cases. Next signal is a transient parent-child bridge. Byte-identical replay; zero calls.
+
+**DA-084 orphan parent bridge (2026-08-31).** POSTHOC. All 5 bridges are partial: parent user and child fit, but every parent assistant overflows at 2215-3304 chars. Peak/cumulative p50 is 284/539 chars with zero DA-078 mutation. Parents add 0 query features, so provenance creates no lexical stop. Next signal is exact chunked parent materialization. Byte-identical replay; zero calls.
+
+**DA-085 chunked parent bridge (2026-08-31).** CHUNKED_PARENT_BRIDGE_SIGNAL. Fixed 1900-char chunks make all 5 orphan bridges complete with zero DA-078 mutation. Each uses 2 chunks/4 frames; peak p50/p90 is 1916/1919.2 chars and cumulative 2804/3984.6. Overflow is solved, but cross-frame retention is not. Next signal is a simultaneous endpoint edge frame. Byte-identical replay; zero calls.
+
+**DA-086 endpoint coframe (2026-08-31).** ENDPOINT_COFRAME_SIGNAL. Five exact parent-user/child coframes fit at p50/p90 549/724 chars with zero DA-078 mutation. Four frames and peak p50 1916 are unchanged; endpoint repeat adds p50 265 chars, cumulative 3072. Endpoints are simultaneous; assistant context stays separate. Next anchors endpoints around each chunk. Byte-identical replay; zero calls.
+
+**DA-087 anchored edge slices (2026-08-31).** ANCHORED_EDGE_SLICE_SIGNAL. All 5 orphan bridges become self-contained edge slices with zero DA-078 mutation. Frames fall to p50/p90 2/3; peak is 1771/1946 chars and cumulative 3362/5474. Repeating endpoints costs p50 +306 chars vs DA-086, but every frame carries parent, context chunk, child and direction together. Byte-identical replay; zero calls.
+
+**DA-088 protected dependency envelope (2026-08-31).** PROTECTED_DEPENDENCY_ENVELOPE_SIGNAL. All 13 residuals get exact envelopes, zero mutation: 7 linked, 1 sibling, 5 slices. Frames p50/p90 1/2.8; peak 555/1908 chars; cumulative 555/4872. Offline capacity/representation closes for this set; reader recognition, retention, stopping/use remain untested. Replay identical; zero calls.
+
+**DA-089 full-frontier stress (2026-08-31).** PARTIAL_FRONTIER_ENVELOPE_SIGNAL. Blind DA-088 transfer completes 4556/8055 (56.6%), with 2701 full-child and 798 anchored overflows; assistants cause 2672/732. Deficit p50 is 488/1454 chars. The 13-item renderer does not generalize; next needs exact component packetization, not route scoring. Zero DA-078 mutation, byte-identical replay, zero calls.
+
+**DA-090 exact packet fallback (2026-08-31).** EXACT_PACKET_FALLBACK_SIGNAL. Fixed 1800-char packets make all 8055 blind frontier targets exact with zero DA-078 mutation and preserve 4556 DA-089 rows. Fallbacks: 2701 child, 798 edge. Frames p50/p90 1/3; peak 1812/1819 chars; cumulative 2033/3537. Full-frontier capacity closes; reader use remains untested. Replay identical; zero calls.
+
+**DA-091 typed edge child stream (2026-08-31).** TYPED_EDGE_CHILD_STREAM_SIGNAL. Control-plane edges replace parent payloads on all 798 eligible DA-090 rows; exact child streams save p50 2220.5 chars, every row saves, peak never rises. Other 7257 rows and DA-078 stay fixed. Dependency representation improves; reader use remains untested. Replay identical; zero calls.
+
+**DA-092 content-addressed nodes (2026-08-31).** NO_CONTENT_ADDRESSED_NODE_REUSE_SIGNAL. The 8055 frontier references contain 7659 exact nodes: 396 reuse (4.92%), below 10%. Shared storage saves 788890/12593382 chars (6.26%); median/p90 reuse are one. Exact collision-free identity is viable, but dedup is too sparse for capacity. DA-091 exposure is unchanged; replay identical; zero calls.
+
+**DA-093 prompt-relative child stream (2026-08-31).** PROMPT_RELATIVE_CHILD_CAPACITY_SIGNAL. All 3499 linked child streams use exact pointers into immutable DA-078 history; cumulative savings p10/p50/p90 are 13.73/22.50/35.05%. Median exposure is 2 frames/1895 chars. Other 4556 rows and DA-078 stay fixed; exact decode and replay pass. Reader decoding/use remain untested; zero calls.
+
+**DA-094 prompt dependency topology (2026-08-31).** FRAGMENTED_PROMPT_DEPENDENCY_TOPOLOGY. DA-093 children use p50 123 pointers across 24 prior members; the largest supplies only 23.43% of referenced chars. P90 is 162 pointers/29 members; median distance 23. DA-093 is strong compression, not a sparse dependency graph. Exact accounting/replay pass; zero calls. Next: exact node-local encoding.
+
+**DA-095 node-local child stream (2026-08-31).** NODE_LOCAL_CHILD_CAPACITY_SIGNAL. All 3499 children stay smaller than literal while referencing one prompt node. Savings p10/p50/p90 are 2.50/6.36/14.83%; p50 retains 27.87% of DA-093's gain. Pointer count falls 123->25 median. This is a sparse dependency edge with exact decode and protected controls; reader use untested. Replay passes; zero calls.
+
+**DA-096 bound-node span stream (2026-08-31).** NO_BOUND_NODE_SPAN_CAPACITY_SIGNAL. One header plus local spans improves 3458/3499 rows; incremental savings vs DA-095 are p10/p50/p90 .44/.956/2.13%, missing the 1% median bar. Absolute savings vs literal reach 3.09/7.30/16.54%. Exact one-source decode and replay pass. Rendered binding overhead closes; next is control-plane binding. Zero calls.
+
+**DA-019 protected boundary substitution (2026-08-30).** STOPPED_AT_PF4 unopened. The blind rule executes 571 NF and 188 LongMem swaps, with fit/lexical/semantic rejections 8,631/359/6,786, but zero required duplicate rejections because parent edges are already deduped. No evidence outcomes opened. A successor must test duplicates synthetically; no in-study repair.
+
+**DA-020 boundary substitution continuation (2026-08-30).** NO_PROTECTED_BOUNDARY_SUBSTITUTION_SIGNAL. One guarded final-payload swap changes NF 970->966 (0/4) and LongMem 188->188 (2/2). Replacements are smaller and more query-similar, yet remove answer evidence. Unique query-token preservation plus cosine dominance is not a protection invariant. Keep strongest orders immutable; no tuning/reader/adoption.
+
+**DA-021 immutable-pack dictionary (2026-08-30).** STOP unopened; cross-corpus mechanical bar fails. Joint exact coding preserves every baseline payload and recovers median 480.5 chars on NF (1,544 pairs +1,038 turns) but only 32 on already phrase-coded LongMem (2+104), below 64. Zero expansion/calls. Frozen NF-only continuation is eligible; LongMem needs a different representation.
+
+**DA-022 NF immutable-pack continuation (2026-08-30).** NO_NF_IMMUTABLE_PACK_CAPACITY_SIGNAL. Joint coding raises 970->973, 3/0, p=.25, below +5. Median +480.5 chars admits 2,582 actions, but only 6 carry missing evidence. Zero losses are structural; one-hop gap remains 13. Phrase capacity is no longer the main NF bottleneck. No reader/tuning/adoption.
+
+**DA-023 backward span references (2026-08-30).** BACKREFERENCE_DELIVERY_SIGNAL. Immutable exact references raise NF 970->976 (+6/0,p=.03125) and LongMem 188->202 (+14/0,p=.000122); all groups nonnegative. Median slack +1,028.5/+546 chars. Arbitrary prior spans beat declared phrases without displacement. Ceilings 986/250; reader/runtime unvalidated, no adoption.
+
+**DA-024 backreference residual audit (2026-08-30).** NF residual 10: prior consumption 7, wrong member 2, conjunction 1; prior consumption dominates. LongMem residual 48: wrong member 20, prior consumption 17, initial size 6, conjunction 5; mixed. No unaccounted or shared successor. Next: LongMem additive atomic fallback; NF whole-additive-pack allocation. Evidence-aware audit only.
+
+**DA-008 reversible direct rendering (2026-08-30).** RANKED_COMPACT_SIGNAL, spent availability. Exact speaker dictionaries save median 504 chars with direct fixed at 935. Benefit links reach 961 (+26/0; all 6 positive) vs coverage/temporal 956. Model contrasts p=.227/.332, not differentiated. One-hop oracle 986. No reader/adoption.
+
+**DA-009 role-pattern compression (2026-08-30).** INCREMENTAL_COMPACT_SIGNAL, spent availability. Exact modal speaker-order encoding saves another median 147 chars and raises frozen benefit links 961->966 (+31/0 vs direct); all conversations nondecrease. Incremental 7/2, p=.180. Oracle 986; 20 gains remain. No reader/adoption.
+
+**DA-010 link payloads (2026-08-30).** COMPACT_PAYLOAD_SIGNAL, spent availability. Full/best-turn/atomic/fallback complete 966/962/970/970. Atomic and overflow-only fallback add 4/0 (p=.125), +35/0 vs direct; global best-turn loses 10 to full. Atomic and fallback complete sets match. Oracle 986 leaves 16. No reader/adoption.
+
+**DA-011 residual blockers (2026-08-30).** PRIOR_CONSUMPTION_DOMINATES, spent audit. Of 16 reachable fallback misses, 13 are prior-consumption and 3 multi-pair conjunction; none are wrong-member/base-capacity. Initial/arrival/required chars p50 623/45/192; carrier rank p50 7. Oracle member +0; carrier-first +16/0, p=3.05e-5. Nondeployable.
+
+**DA-012 carrier ranking (2026-08-30).** NO_CARRIER_RANK_SIGNAL. Grouped carrier AUC .765, all 6 .660-.929, but carrier/benefit both complete 970 with 3/3 trades (p=1); conv-50 regresses. Coverage gives 966. Carrier rank p50 stays 2, p90 11.5->10.5. Stable pooled prediction does not improve within-question allocation. No tuning/adoption.
+
 **NF-005 information dilution (2026-08-13).** SUPPORTED; CHARACTERIZED. Same 465 LongMemEval items/32k/turn packing: own-turn rank raises any exact evidence 361->461, 100 gains/0 losses, p=7.89e-31; all 208->454. Evidence turns p50 298 chars vs parent episodes 2,550. Supports localization/dilution moderator, not raw-length causality or reader value.
 
 **NF-006 internal statement ranking (2026-08-13).** INTERNAL_DILUTION_RESCUES_Q11; CHARACTERIZED. At 32k, episode/inherited-statement/own-statement availability is 12/7/14 of 17. T1 restores monetary 4/4; targeted ties 21/21 with 0 losses. No T1 statement is from turn 90: store-level dilution is supported, but DX-001's exact carrier remains unresolved. No live/adoption.

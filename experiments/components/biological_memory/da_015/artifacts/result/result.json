@@ -1,0 +1,34 @@
+{
+  "by_question_type": {
+    "knowledge-update": {
+      "cleared": 12,
+      "n": 12
+    },
+    "multi-session": {
+      "cleared": 15,
+      "n": 15
+    },
+    "single-session-assistant": {
+      "cleared": 0,
+      "n": 2
+    },
+    "single-session-user": {
+      "cleared": 9,
+      "n": 9
+    },
+    "temporal-reasoning": {
+      "cleared": 11,
+      "n": 11
+    }
+  },
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "capacity_cleared": 47,
+  "claim_boundary": "opened-label oracle capacity only; no allocation or reader claim",
+  "population": 49,
+  "schema": "da015-capacity-oracle-v1",
+  "still_too_large": 2
+}

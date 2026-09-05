@@ -1,0 +1,320 @@
+{
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "claim_boundary": "spent-corpus exact availability only; no reader or adoption claim",
+  "corpora": {
+    "LONGMEM": {
+      "by_group": {
+        "knowledge-update": {
+          "complete": {
+            "CONTROL": 31,
+            "DIRECT": 24,
+            "TREATMENT": 31
+          },
+          "contrast": {
+            "discordant": 0,
+            "gains": 0,
+            "losses": 0,
+            "net": 0,
+            "ties": 72,
+            "two_sided_exact_p": 1.0
+          },
+          "executed": 32,
+          "n": 72
+        },
+        "multi-session": {
+          "complete": {
+            "CONTROL": 30,
+            "DIRECT": 24,
+            "TREATMENT": 29
+          },
+          "contrast": {
+            "discordant": 1,
+            "gains": 0,
+            "losses": 1,
+            "net": -1,
+            "ties": 120,
+            "two_sided_exact_p": 1.0
+          },
+          "executed": 48,
+          "n": 121
+        },
+        "single-session-assistant": {
+          "complete": {
+            "CONTROL": 45,
+            "DIRECT": 45,
+            "TREATMENT": 45
+          },
+          "contrast": {
+            "discordant": 0,
+            "gains": 0,
+            "losses": 0,
+            "net": 0,
+            "ties": 51,
+            "two_sided_exact_p": 1.0
+          },
+          "executed": 15,
+          "n": 51
+        },
+        "single-session-preference": {
+          "complete": {
+            "CONTROL": 15,
+            "DIRECT": 13,
+            "TREATMENT": 15
+          },
+          "contrast": {
+            "discordant": 0,
+            "gains": 0,
+            "losses": 0,
+            "net": 0,
+            "ties": 30,
+            "two_sided_exact_p": 1.0
+          },
+          "executed": 13,
+          "n": 30
+        },
+        "single-session-user": {
+          "complete": {
+            "CONTROL": 41,
+            "DIRECT": 35,
+            "TREATMENT": 41
+          },
+          "contrast": {
+            "discordant": 2,
+            "gains": 1,
+            "losses": 1,
+            "net": 0,
+            "ties": 62,
+            "two_sided_exact_p": 1.0
+          },
+          "executed": 34,
+          "n": 64
+        },
+        "temporal-reasoning": {
+          "complete": {
+            "CONTROL": 26,
+            "DIRECT": 23,
+            "TREATMENT": 27
+          },
+          "contrast": {
+            "discordant": 1,
+            "gains": 1,
+            "losses": 0,
+            "net": 1,
+            "ties": 126,
+            "two_sided_exact_p": 1.0
+          },
+          "executed": 46,
+          "n": 127
+        }
+      },
+      "complete": {
+        "CONTROL": 188,
+        "DIRECT": 164,
+        "TREATMENT": 188
+      },
+      "contrast": {
+        "discordant": 4,
+        "gains": 2,
+        "losses": 2,
+        "net": 0,
+        "ties": 461,
+        "two_sided_exact_p": 1.0
+      },
+      "mechanism": {
+        "added_target_identities": 3,
+        "incumbent_cosine": {
+          "p10": 0.07449353522703359,
+          "p50": 0.16678195144149677,
+          "p90": 0.25332954085631615
+        },
+        "incumbent_cost": {
+          "p10": 115.1,
+          "p50": 276.0,
+          "p90": 1171.9
+        },
+        "incumbent_kind": {
+          "PAIR": 57,
+          "TURN": 131
+        },
+        "removed_target_identities": 4,
+        "replacement_cosine": {
+          "p10": 0.1524655766115722,
+          "p50": 0.22649145388616432,
+          "p90": 0.2900736975538011
+        },
+        "replacement_cost": {
+          "p10": 98.7,
+          "p50": 241.5,
+          "p90": 728.2
+        },
+        "replacement_kind": {
+          "PAIR": 55,
+          "TURN": 133
+        }
+      },
+      "n": 465,
+      "one_hop_ceiling": 250
+    },
+    "NF004": {
+      "by_group": {
+        "conv-26": {
+          "complete": {
+            "CONTROL": 183,
+            "DIRECT": 169,
+            "TREATMENT": 182
+          },
+          "contrast": {
+            "discordant": 1,
+            "gains": 0,
+            "losses": 1,
+            "net": -1,
+            "ties": 197,
+            "two_sided_exact_p": 1.0
+          },
+          "executed": 94,
+          "n": 198
+        },
+        "conv-30": {
+          "complete": {
+            "CONTROL": 99,
+            "DIRECT": 97,
+            "TREATMENT": 98
+          },
+          "contrast": {
+            "discordant": 1,
+            "gains": 0,
+            "losses": 1,
+            "net": -1,
+            "ties": 104,
+            "two_sided_exact_p": 1.0
+          },
+          "executed": 48,
+          "n": 105
+        },
+        "conv-43": {
+          "complete": {
+            "CONTROL": 216,
+            "DIRECT": 210,
+            "TREATMENT": 215
+          },
+          "contrast": {
+            "discordant": 1,
+            "gains": 0,
+            "losses": 1,
+            "net": -1,
+            "ties": 240,
+            "two_sided_exact_p": 1.0
+          },
+          "executed": 143,
+          "n": 241
+        },
+        "conv-44": {
+          "complete": {
+            "CONTROL": 130,
+            "DIRECT": 129,
+            "TREATMENT": 130
+          },
+          "contrast": {
+            "discordant": 0,
+            "gains": 0,
+            "losses": 0,
+            "net": 0,
+            "ties": 158,
+            "two_sided_exact_p": 1.0
+          },
+          "executed": 88,
+          "n": 158
+        },
+        "conv-49": {
+          "complete": {
+            "CONTROL": 160,
+            "DIRECT": 152,
+            "TREATMENT": 159
+          },
+          "contrast": {
+            "discordant": 1,
+            "gains": 0,
+            "losses": 1,
+            "net": -1,
+            "ties": 192,
+            "two_sided_exact_p": 1.0
+          },
+          "executed": 101,
+          "n": 193
+        },
+        "conv-50": {
+          "complete": {
+            "CONTROL": 182,
+            "DIRECT": 178,
+            "TREATMENT": 182
+          },
+          "contrast": {
+            "discordant": 0,
+            "gains": 0,
+            "losses": 0,
+            "net": 0,
+            "ties": 203,
+            "two_sided_exact_p": 1.0
+          },
+          "executed": 97,
+          "n": 203
+        }
+      },
+      "complete": {
+        "CONTROL": 970,
+        "DIRECT": 935,
+        "TREATMENT": 966
+      },
+      "contrast": {
+        "discordant": 4,
+        "gains": 0,
+        "losses": 4,
+        "net": -4,
+        "ties": 1094,
+        "two_sided_exact_p": 0.125
+      },
+      "mechanism": {
+        "added_target_identities": 2,
+        "incumbent_cosine": {
+          "p10": 0.3396202325820923,
+          "p50": 0.43014010787010193,
+          "p90": 0.5438680648803711
+        },
+        "incumbent_cost": {
+          "p10": 62.0,
+          "p50": 140.0,
+          "p90": 352.0
+        },
+        "incumbent_kind": {
+          "PAIR": 225,
+          "TURN": 346
+        },
+        "removed_target_identities": 5,
+        "replacement_cosine": {
+          "p10": 0.3865993022918701,
+          "p50": 0.46435868740081787,
+          "p90": 0.5655489563941956
+        },
+        "replacement_cost": {
+          "p10": 55.0,
+          "p50": 116.0,
+          "p90": 239.0
+        },
+        "replacement_kind": {
+          "PAIR": 202,
+          "TURN": 369
+        }
+      },
+      "n": 1098,
+      "one_hop_ceiling": 986
+    }
+  },
+  "outcomes_sha256": "1da9345512bcda2df5c9ea152ff97a6f2a0f792a561ea389ae703ab3b060a8d9",
+  "replay_byte_identical": true,
+  "schema": "da020-boundary-substitution-result-v1",
+  "status": "NO_PROTECTED_BOUNDARY_SUBSTITUTION_SIGNAL"
+}

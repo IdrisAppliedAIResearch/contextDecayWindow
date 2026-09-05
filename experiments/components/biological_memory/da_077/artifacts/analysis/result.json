@@ -1,0 +1,49 @@
+{
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "claim_boundary": "posthoc exact-prefix compactness only; no address, selector, reader, transfer, delivery, or adoption",
+  "full_sequence_canonical_chars": {
+    "max": 1289.0,
+    "min": 437.0,
+    "n": 5,
+    "p50": 594.0,
+    "p90": 1109.8000000000002
+  },
+  "full_sequence_length": {
+    "max": 6.0,
+    "min": 5.0,
+    "n": 5,
+    "p50": 6.0,
+    "p90": 6.0
+  },
+  "length_alone_unique": 3,
+  "replay_byte_identical": true,
+  "schema": "da077-sequence-prefix-witness-v1",
+  "status": "POSTHOC_SEQUENCE_PREFIX_WITNESS_CHARACTERIZED",
+  "target_sessions": 5,
+  "target_sessions_sha256": "d634e213fbbfee3173fea14110c539ce14dfcbfd0cb880af5dc4969c4696303d",
+  "witness_canonical_chars": {
+    "max": 236.0,
+    "min": 36.0,
+    "n": 5,
+    "p50": 135.0,
+    "p90": 214.0
+  },
+  "witness_depth": {
+    "max": 2.0,
+    "min": 1.0,
+    "n": 5,
+    "p50": 1.0,
+    "p90": 2.0
+  },
+  "witness_fraction": {
+    "max": 0.3333333333333333,
+    "min": 0.16666666666666666,
+    "n": 5,
+    "p50": 0.2,
+    "p90": 0.3333333333333333
+  }
+}

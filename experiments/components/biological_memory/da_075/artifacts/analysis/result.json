@@ -1,0 +1,86 @@
+{
+  "bfs_position_change": {
+    "max": 26.0,
+    "min": -22.0,
+    "n": 31,
+    "p10": -4.0,
+    "p50": 3.0,
+    "p90": 16.0
+  },
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "claim_boundary": "posthoc role-lattice anatomy only; no selector, stopping, transfer, or adoption",
+  "replay_byte_identical": true,
+  "role_bfs_node_position": {
+    "max": 40.0,
+    "min": 1.0,
+    "n": 31,
+    "p10": 3.0,
+    "p50": 15.0,
+    "p90": 30.0
+  },
+  "role_child_count": {
+    "max": 8.0,
+    "min": 0.0,
+    "n": 31,
+    "p10": 1.0,
+    "p50": 2.0,
+    "p90": 4.0
+  },
+  "role_depth_width": {
+    "max": 24.0,
+    "min": 3.0,
+    "n": 31,
+    "p10": 7.0,
+    "p50": 14.0,
+    "p90": 22.0
+  },
+  "role_lattice_depth": {
+    "max": 2.0,
+    "min": 0.0,
+    "n": 31,
+    "p10": 0.0,
+    "p50": 1.0,
+    "p90": 2.0
+  },
+  "role_parent_count": {
+    "max": 13.0,
+    "min": 0.0,
+    "n": 31,
+    "p10": 0.0,
+    "p50": 1.0,
+    "p90": 4.0
+  },
+  "role_signature_group_rank": {
+    "max": 5.0,
+    "min": 1.0,
+    "n": 31,
+    "p10": 1.0,
+    "p50": 1.0,
+    "p90": 2.0
+  },
+  "role_signature_group_size": {
+    "max": 7.0,
+    "min": 1.0,
+    "n": 31,
+    "p10": 1.0,
+    "p50": 1.0,
+    "p90": 4.0
+  },
+  "role_states": {
+    "ROLE_SIGNATURE_COLLISION": 5,
+    "ROLE_SIGNATURE_UNIQUE": 26
+  },
+  "schema": "da075-role-lattice-anatomy-v1",
+  "status": "POSTHOC_ROLE_LATTICE_ANATOMY_CHARACTERIZED",
+  "target_sessions": 31,
+  "target_sessions_sha256": "1673943685b8d75f1815b314eac68cd4f0edfa50095cf51290cb246c0c540b54",
+  "transitions": {
+    "EQUAL_SIGNATURE_COLLISION->ROLE_SIGNATURE_COLLISION": 5,
+    "EQUAL_SIGNATURE_COLLISION->ROLE_SIGNATURE_UNIQUE": 11,
+    "UNIQUE_SIGNATURE_BRANCH_AMBIGUITY->ROLE_SIGNATURE_UNIQUE": 15
+  }
+}

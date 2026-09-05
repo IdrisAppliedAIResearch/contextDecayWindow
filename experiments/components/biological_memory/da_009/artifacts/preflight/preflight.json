@@ -1,0 +1,33 @@
+{
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "conversations": [
+    "conv-26",
+    "conv-30",
+    "conv-43",
+    "conv-44",
+    "conv-49",
+    "conv-50"
+  ],
+  "default_patterns": {
+    "0,1": 730,
+    "1,0": 374
+  },
+  "max_incremental_savings": 235,
+  "median_incremental_savings": 147.0,
+  "min_incremental_savings": 79,
+  "reachability": {
+    "exception_pairs": 27614,
+    "expanding_rows": 0,
+    "matching_pairs": 43939,
+    "positive_savings_rows": 1104
+  },
+  "replay_byte_identical": true,
+  "rows": 1104,
+  "schema": "da009-role-pattern-preflight-v1",
+  "selection_sha256": "0fbe8e54d3385575749d779429488d3e1efe2e5b5815a87aa7403a4650cbf0bb",
+  "status": "PASS"
+}

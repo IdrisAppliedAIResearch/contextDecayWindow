@@ -1,0 +1,113 @@
+{
+  "by_conversation": {
+    "conv-26": {
+      "DA010_CONTROL": 183,
+      "DA017_PHRASE_LINKS": 183,
+      "DIRECT": 169,
+      "contrast": {
+        "discordant": 0,
+        "gains": 0,
+        "losses": 0,
+        "net": 0,
+        "ties": 198,
+        "two_sided_exact_p": 1.0
+      },
+      "n": 198
+    },
+    "conv-30": {
+      "DA010_CONTROL": 99,
+      "DA017_PHRASE_LINKS": 99,
+      "DIRECT": 97,
+      "contrast": {
+        "discordant": 0,
+        "gains": 0,
+        "losses": 0,
+        "net": 0,
+        "ties": 105,
+        "two_sided_exact_p": 1.0
+      },
+      "n": 105
+    },
+    "conv-43": {
+      "DA010_CONTROL": 216,
+      "DA017_PHRASE_LINKS": 217,
+      "DIRECT": 210,
+      "contrast": {
+        "discordant": 1,
+        "gains": 1,
+        "losses": 0,
+        "net": 1,
+        "ties": 240,
+        "two_sided_exact_p": 1.0
+      },
+      "n": 241
+    },
+    "conv-44": {
+      "DA010_CONTROL": 130,
+      "DA017_PHRASE_LINKS": 130,
+      "DIRECT": 129,
+      "contrast": {
+        "discordant": 0,
+        "gains": 0,
+        "losses": 0,
+        "net": 0,
+        "ties": 158,
+        "two_sided_exact_p": 1.0
+      },
+      "n": 158
+    },
+    "conv-49": {
+      "DA010_CONTROL": 160,
+      "DA017_PHRASE_LINKS": 161,
+      "DIRECT": 152,
+      "contrast": {
+        "discordant": 1,
+        "gains": 1,
+        "losses": 0,
+        "net": 1,
+        "ties": 192,
+        "two_sided_exact_p": 1.0
+      },
+      "n": 193
+    },
+    "conv-50": {
+      "DA010_CONTROL": 182,
+      "DA017_PHRASE_LINKS": 183,
+      "DIRECT": 178,
+      "contrast": {
+        "discordant": 1,
+        "gains": 1,
+        "losses": 0,
+        "net": 1,
+        "ties": 202,
+        "two_sided_exact_p": 1.0
+      },
+      "n": 203
+    }
+  },
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "claim_boundary": "spent NF-004 exact availability; phrase reader use and fresh transfer untested",
+  "complete": {
+    "DA010_CONTROL": 970,
+    "DA017_PHRASE_LINKS": 973,
+    "DIRECT": 935
+  },
+  "contrast": {
+    "discordant": 3,
+    "gains": 3,
+    "losses": 0,
+    "net": 3,
+    "ties": 1095,
+    "two_sided_exact_p": 0.25
+  },
+  "one_hop_ceiling": 986,
+  "outcomes_sha256": "ee1cc57eac9b0b99a13d9df3ccc1d4351ae1395a23ac657e8b190e2304cec554",
+  "population": 1098,
+  "replay_byte_identical": true,
+  "schema": "da017-nf004-phrase-link-result-v1",
+  "status": "NO_CROSS_CORPUS_PHRASE_LINK_SIGNAL"
+}

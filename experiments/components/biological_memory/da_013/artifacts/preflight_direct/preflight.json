@@ -1,0 +1,41 @@
+{
+  "calls": {
+    "cache_misses": 0,
+    "cache_mode": "read-only",
+    "embedding": 0,
+    "model": 0
+  },
+  "direct": {
+    "max_savings": 550,
+    "median_savings": 176.0,
+    "min_savings": 74,
+    "positive_savings_questions": 465,
+    "selected_episodes": 5965
+  },
+  "edges": {
+    "cache_hits": 106877,
+    "fallback_reachable_edges": 1358,
+    "idf_terms": 118411,
+    "overflow_edges": 7230,
+    "pair_reachable_edges": 171,
+    "total": 7401
+  },
+  "phase": "mechanical direct/edge seal; transferred features and scores remain unopened",
+  "population": {
+    "episodes": 106412,
+    "question_types": {
+      "knowledge-update": 72,
+      "multi-session": 121,
+      "single-session-assistant": 51,
+      "single-session-preference": 30,
+      "single-session-user": 64,
+      "temporal-reasoning": 127
+    },
+    "questions": 465,
+    "sessions": 20379
+  },
+  "replay_byte_identical": true,
+  "schema": "da013-blind-direct-preflight-v1",
+  "selection_sha256": "9544fd5bc6ad85515f5cb99472cb844e2c8b9f97cd1f51a19de2d882da47ff5c",
+  "status": "PASS"
+}

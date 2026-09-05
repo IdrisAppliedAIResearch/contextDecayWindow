@@ -1,0 +1,36 @@
+{
+  "allocation_sha256": "f5327a9b5946f217910f2de5df222da66bda59d5f7b18267f8154763f98d44f9",
+  "disposition": "FLAT_SUFFIX_RUNTIME_SIGNAL",
+  "equivalence": {
+    "byte_identical_replay": true,
+    "cache_misses": 0,
+    "calls": {
+      "cache_access": 2744,
+      "embedding": 0,
+      "model": 0
+    },
+    "rows": 1098
+  },
+  "runtime": {
+    "allocation_ms": {
+      "max": 85.8639,
+      "p50": 59.89465,
+      "p95": 76.87093499999999,
+      "p99": 80.65286699999999,
+      "total": 65305.18310000001
+    },
+    "machine": "AMD64",
+    "processor": "AMD64 Family 26 Model 68 Stepping 0, AuthenticAMD",
+    "python": "3.13.13",
+    "replay_allocation_ms": {
+      "max": 95.8892,
+      "p50": 59.76475000000001,
+      "p95": 64.682455,
+      "p99": 67.66082899999999,
+      "total": 63266.577
+    },
+    "total_wall_ms": 153423.958
+  },
+  "schema": "da101-flat-suffix-runtime-v1",
+  "status": "PASS"
+}

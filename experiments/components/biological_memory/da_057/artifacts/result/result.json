@@ -1,0 +1,135 @@
+{
+  "by_question_type": {
+    "knowledge-update": {
+      "complete": {
+        "CONTROL": 72,
+        "TREATMENT": 72
+      },
+      "contrast": {
+        "discordant": 0,
+        "gains": 0,
+        "losses": 0,
+        "net": 0,
+        "ties": 72,
+        "two_sided_exact_p": 1.0
+      },
+      "n": 72
+    },
+    "multi-session": {
+      "complete": {
+        "CONTROL": 120,
+        "TREATMENT": 120
+      },
+      "contrast": {
+        "discordant": 0,
+        "gains": 0,
+        "losses": 0,
+        "net": 0,
+        "ties": 121,
+        "two_sided_exact_p": 1.0
+      },
+      "n": 121
+    },
+    "single-session-assistant": {
+      "complete": {
+        "CONTROL": 47,
+        "TREATMENT": 47
+      },
+      "contrast": {
+        "discordant": 0,
+        "gains": 0,
+        "losses": 0,
+        "net": 0,
+        "ties": 51,
+        "two_sided_exact_p": 1.0
+      },
+      "n": 51
+    },
+    "single-session-preference": {
+      "complete": {
+        "CONTROL": 30,
+        "TREATMENT": 30
+      },
+      "contrast": {
+        "discordant": 0,
+        "gains": 0,
+        "losses": 0,
+        "net": 0,
+        "ties": 30,
+        "two_sided_exact_p": 1.0
+      },
+      "n": 30
+    },
+    "single-session-user": {
+      "complete": {
+        "CONTROL": 63,
+        "TREATMENT": 63
+      },
+      "contrast": {
+        "discordant": 0,
+        "gains": 0,
+        "losses": 0,
+        "net": 0,
+        "ties": 64,
+        "two_sided_exact_p": 1.0
+      },
+      "n": 64
+    },
+    "temporal-reasoning": {
+      "complete": {
+        "CONTROL": 127,
+        "TREATMENT": 127
+      },
+      "contrast": {
+        "discordant": 0,
+        "gains": 0,
+        "losses": 0,
+        "net": 0,
+        "ties": 127,
+        "two_sided_exact_p": 1.0
+      },
+      "n": 127
+    }
+  },
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "claim_boundary": "exact episode-local codec availability; reader interpretation untested",
+  "complete": {
+    "CONTROL": 459,
+    "TREATMENT": 459
+  },
+  "contrast": {
+    "discordant": 0,
+    "gains": 0,
+    "losses": 0,
+    "net": 0,
+    "ties": 465,
+    "two_sided_exact_p": 1.0
+  },
+  "oracle_gains": {
+    "episode_frames": {},
+    "n": 0,
+    "peak_auxiliary_chars": {
+      "max": null,
+      "p50": null
+    },
+    "saved_chars": {
+      "max": null,
+      "p50": null
+    },
+    "selected_cost": {
+      "max": null,
+      "p50": null
+    }
+  },
+  "outcomes_sha256": "f8cfd17f532782386f9572ed4dc1e8c610e153bd4b3601d98e7d7416eb752bbb",
+  "population": 465,
+  "protected_payload_mutations": 0,
+  "remaining_overflow": 6,
+  "replay_byte_identical": true,
+  "schema": "da057-episode-derivative-result-v1",
+  "status": "NO_EPISODE_DERIVATIVE_CAPACITY_SIGNAL"
+}

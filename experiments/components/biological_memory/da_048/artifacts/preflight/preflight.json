@@ -1,0 +1,27 @@
+{
+  "actions": {
+    "FRAME": 6670,
+    "OVERFLOW": 1860
+  },
+  "artifact_sha256": "8ea82cc737b65bf457e05bf921043907d70f0f82f0e878b340ab6c7f04c41bd3",
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "candidate_members": 8546,
+  "continuation_episodes": 4273,
+  "depth_truncated_questions": 4,
+  "immutable_prompt_mutations": 0,
+  "peak_frame_chars": 2048,
+  "questions": 465,
+  "rejections": {
+    "CORPUS_BOUNDARY": 37,
+    "DUPLICATE": 150,
+    "PRIOR_REPRESENTATION": 1351,
+    "SESSION_BOUNDARY": 1590
+  },
+  "replay_byte_identical": true,
+  "schema": "da048-directional-continuation-preflight-v1",
+  "status": "PASS"
+}

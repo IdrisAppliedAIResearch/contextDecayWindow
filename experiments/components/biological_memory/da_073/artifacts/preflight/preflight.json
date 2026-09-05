@@ -1,0 +1,34 @@
+{
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "cover_edges": 24890,
+  "equal_signature_sessions": 8418,
+  "interval_episodes": 52293,
+  "leakage_scan_clean": true,
+  "max_depth": 6,
+  "max_stream_episodes": 284,
+  "min_stream_episodes": 191,
+  "observed_bigram_features": 39147,
+  "ordered_feature_additions": 41351,
+  "peak_current_frame_chars": 2048,
+  "protected_payload_mutations": 0,
+  "query_bigram_features": 6873,
+  "query_unigram_features": 6868,
+  "questions": 465,
+  "rejections": {
+    "PRIOR_REPRESENTATION": 157537,
+    "SESSION_BOUNDARY": 191615
+  },
+  "rendered_char_delta": 0,
+  "replay_byte_identical": true,
+  "root_nodes": 3998,
+  "schema": "da073-ordered-feature-lattice-preflight-v1",
+  "signature_nodes": 14291,
+  "simultaneously_rendered_episodes": 1,
+  "status": "PASS",
+  "streams_sha256": "38bbe1ffe58f4b2c27b4a8ef85512850ac17f3967bca8f83e30e5735d439caa7",
+  "synthetic_hasse_check": true
+}

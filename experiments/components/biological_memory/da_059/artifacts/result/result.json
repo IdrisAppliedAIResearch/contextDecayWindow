@@ -1,0 +1,71 @@
+{
+  "any_coverage": 465,
+  "by_question_type": {
+    "knowledge-update": {
+      "any_coverage": 72,
+      "complete_coverage": 72,
+      "n": 72
+    },
+    "multi-session": {
+      "any_coverage": 121,
+      "complete_coverage": 121,
+      "n": 121
+    },
+    "single-session-assistant": {
+      "any_coverage": 51,
+      "complete_coverage": 51,
+      "n": 51
+    },
+    "single-session-preference": {
+      "any_coverage": 30,
+      "complete_coverage": 30,
+      "n": 30
+    },
+    "single-session-user": {
+      "any_coverage": 64,
+      "complete_coverage": 64,
+      "n": 64
+    },
+    "temporal-reasoning": {
+      "any_coverage": 127,
+      "complete_coverage": 127,
+      "n": 127
+    }
+  },
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "claim_boundary": "exact-token session address coverage only; no delivery",
+  "complete_coverage": 465,
+  "complete_coverage_rate": 1.0,
+  "coverage_sha256": "10e339ea5bd5994155c109be4622c6609dd387867adade3070419f64f7a6680e",
+  "first_required_rank": {
+    "max": 49.0,
+    "p10": 3.0,
+    "p50": 13.0,
+    "p90": 34.0
+  },
+  "last_required_rank": {
+    "max": 49.0,
+    "p10": 9.0,
+    "p50": 28.0,
+    "p90": 39.0
+  },
+  "questions": 465,
+  "routed_fraction": {
+    "max": 1.0,
+    "p10": 0.8541666666666666,
+    "p50": 0.9183673469387755,
+    "p90": 0.9604705882352942
+  },
+  "routed_sessions": {
+    "max": 55.0,
+    "p10": 39.0,
+    "p50": 44.0,
+    "p90": 48.0
+  },
+  "schema": "da059-sparse-session-postings-result-v1",
+  "status": "BROAD_SPARSE_SESSION_SIGNAL"
+}

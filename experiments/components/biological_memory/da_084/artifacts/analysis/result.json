@@ -1,0 +1,37 @@
+{
+  "bridges_sha256": "c041a806b7a33025018e8fc03b4f6a5b8a8fb9b234adb06b07214b06beaa2f4b",
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "claim_boundary": "posthoc bounded parent-child exposure only; no reader, stopping, transfer, delivery, or adoption",
+  "cumulative_frame_chars": {
+    "p10": 435.6,
+    "p50": 539.0,
+    "p90": 713.2
+  },
+  "orphans": 5,
+  "parent_members_exposed": {
+    "p10": 1.0,
+    "p50": 1.0,
+    "p90": 1.0
+  },
+  "parent_new_vs_prompt": {
+    "p10": 0.0,
+    "p50": 0.0,
+    "p90": 0.0
+  },
+  "peak_frame_chars": {
+    "p10": 243.6,
+    "p50": 284.0,
+    "p90": 423.2
+  },
+  "protected_da078_mutations": 0,
+  "replay_byte_identical": true,
+  "schema": "da084-orphan-parent-bridge-v1",
+  "states": {
+    "PARTIAL_PARENT_BRIDGE": 5
+  },
+  "status": "POSTHOC_ORPHAN_PARENT_BRIDGE_CHARACTERIZED"
+}

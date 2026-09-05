@@ -1,0 +1,38 @@
+{
+  "assistant_chunks": {
+    "p10": 2.0,
+    "p50": 2.0,
+    "p90": 2.0
+  },
+  "bridges": 5,
+  "bridges_sha256": "defe4e35e507ebe7de6832c2318457106626333d3f429c5468707f5c50ec8e3f",
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "claim_boundary": "exact chunked parent-child exposure only; no reader, stopping, transfer, delivery, runtime, or adoption",
+  "complete": 5,
+  "cumulative_frame_chars": {
+    "p10": 2681.2,
+    "p50": 2804.0,
+    "p90": 3984.6
+  },
+  "frames": {
+    "p10": 4.0,
+    "p50": 4.0,
+    "p90": 4.0
+  },
+  "peak_frame_chars": {
+    "p10": 1916.0,
+    "p50": 1916.0,
+    "p90": 1919.2
+  },
+  "protected_da078_mutations": 0,
+  "replay_byte_identical": true,
+  "schema": "da085-exact-chunked-parent-bridge-v1",
+  "states": {
+    "COMPLETE_CHUNKED_BRIDGE": 5
+  },
+  "status": "CHUNKED_PARENT_BRIDGE_SIGNAL"
+}

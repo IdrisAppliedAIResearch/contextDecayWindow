@@ -1,0 +1,75 @@
+{
+  "additional_episodes_through_required": {
+    "max": 157.0,
+    "p10": 0.0,
+    "p50": 0.0,
+    "p90": 0.0
+  },
+  "any_reachability": 465,
+  "by_question_type": {
+    "knowledge-update": {
+      "any_reachability": 72,
+      "complete_reachability": 72,
+      "n": 72
+    },
+    "multi-session": {
+      "any_reachability": 121,
+      "complete_reachability": 121,
+      "n": 121
+    },
+    "single-session-assistant": {
+      "any_reachability": 51,
+      "complete_reachability": 51,
+      "n": 51
+    },
+    "single-session-preference": {
+      "any_reachability": 30,
+      "complete_reachability": 30,
+      "n": 30
+    },
+    "single-session-user": {
+      "any_reachability": 64,
+      "complete_reachability": 64,
+      "n": 64
+    },
+    "temporal-reasoning": {
+      "any_reachability": 127,
+      "complete_reachability": 127,
+      "n": 127
+    }
+  },
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "claim_boundary": "unigram-frontier episode reachability only; no reader, stopping, reconstruction, or delivery",
+  "complete_reachability": 465,
+  "complete_reachability_rate": 1.0,
+  "da066_prefix_complete": 438,
+  "first_required_position": {
+    "max": 218.0,
+    "p10": 1.0,
+    "p50": 3.0,
+    "p90": 42.0
+  },
+  "last_required_position": {
+    "max": 225.0,
+    "p10": 1.0,
+    "p50": 22.0,
+    "p90": 106.80000000000007
+  },
+  "peak_current_frame_chars": 2048,
+  "protected_payload_mutations": 0,
+  "questions": 465,
+  "reachability_sha256": "f6804ba3be3e36d4e0ca265261fcd25f853f01fc2de814d7f4f7e67cad2a1ef6",
+  "schema": "da067-hierarchical-unigram-frontier-result-v1",
+  "simultaneously_rendered_episodes": 1,
+  "status": "HIERARCHICAL_UNIGRAM_FRONTIER_SIGNAL",
+  "stream_episodes": {
+    "max": 289.0,
+    "p10": 209.4,
+    "p50": 228.0,
+    "p90": 248.0
+  }
+}

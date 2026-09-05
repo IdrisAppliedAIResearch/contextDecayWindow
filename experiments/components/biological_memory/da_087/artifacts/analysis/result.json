@@ -1,0 +1,45 @@
+{
+  "bridges": 5,
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "claim_boundary": "exact self-contained edge-slice exposure only; no reader, retention, stopping, transfer, delivery, runtime, or adoption",
+  "complete": 5,
+  "cumulative_frame_chars": {
+    "p10": 3150.8,
+    "p50": 3362.0,
+    "p90": 5473.8
+  },
+  "delta_chars_vs_da085": {
+    "p10": 464.4,
+    "p50": 571.0,
+    "p90": 1489.2
+  },
+  "delta_chars_vs_da086": {
+    "p10": 262.4,
+    "p50": 306.0,
+    "p90": 1187.8
+  },
+  "delta_frames_vs_da086": {
+    "p10": -2.0,
+    "p50": -2.0,
+    "p90": -1.0
+  },
+  "frames": {
+    "p10": 2.0,
+    "p50": 2.0,
+    "p90": 3.0
+  },
+  "peak_frame_chars": {
+    "p10": 1669.2,
+    "p50": 1771.0,
+    "p90": 1946.4
+  },
+  "protected_da078_mutations": 0,
+  "replay_byte_identical": true,
+  "schema": "da087-anchored-edge-slices-v1",
+  "slices_sha256": "ebf95ba5ecbd7ea51dbab3f4483ad7e0ee505c71b5f1895255c26cd71021274d",
+  "status": "ANCHORED_EDGE_SLICE_SIGNAL"
+}

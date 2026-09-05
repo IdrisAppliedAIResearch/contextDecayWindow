@@ -1,0 +1,606 @@
+{
+  "arms": [
+    "DIRECT",
+    "TEMPORAL_1",
+    "TEMPORAL_2",
+    "TEMPORAL_4",
+    "TEMPORAL_8",
+    "TEMPORAL_16",
+    "EVENT_1",
+    "EVENT_2",
+    "EVENT_4",
+    "EVENT_8",
+    "EVENT_16"
+  ],
+  "blind_summary": {
+    "DIRECT": {
+      "displaced_chars": {
+        "max": 0,
+        "min": 0,
+        "p10": 0,
+        "p50": 0,
+        "p90": 0
+      },
+      "displaced_count": {
+        "max": 0,
+        "min": 0,
+        "p10": 0,
+        "p50": 0,
+        "p90": 0
+      },
+      "linked_admissions": {
+        "max": 0,
+        "min": 0,
+        "p10": 0,
+        "p50": 0,
+        "p90": 0
+      },
+      "linked_chars": {
+        "max": 0,
+        "min": 0,
+        "p10": 0,
+        "p50": 0,
+        "p90": 0
+      },
+      "packed_chars": {
+        "max": 16000,
+        "min": 15890,
+        "p10": 15960,
+        "p50": 15988,
+        "p90": 15999
+      },
+      "questions_different_from_direct": 0,
+      "selected_count": {
+        "max": 91,
+        "min": 42,
+        "p10": 53,
+        "p50": 65,
+        "p90": 76
+      },
+      "sessions_touched": {
+        "max": 30,
+        "min": 15,
+        "p10": 18,
+        "p50": 22,
+        "p90": 26
+      }
+    },
+    "EVENT_1": {
+      "displaced_chars": {
+        "max": 4774,
+        "min": 0,
+        "p10": 735,
+        "p50": 1718,
+        "p90": 3207
+      },
+      "displaced_count": {
+        "max": 26,
+        "min": 0,
+        "p10": 3,
+        "p50": 7,
+        "p90": 13
+      },
+      "linked_admissions": {
+        "max": 23,
+        "min": 4,
+        "p10": 7,
+        "p50": 10,
+        "p90": 18
+      },
+      "linked_chars": {
+        "max": 5304,
+        "min": 990,
+        "p10": 1715,
+        "p50": 2576,
+        "p90": 4420
+      },
+      "packed_chars": {
+        "max": 16000,
+        "min": 15904,
+        "p10": 15962,
+        "p50": 15987,
+        "p90": 15998
+      },
+      "questions_different_from_direct": 1104,
+      "selected_count": {
+        "max": 91,
+        "min": 44,
+        "p10": 54,
+        "p50": 65,
+        "p90": 75
+      },
+      "sessions_touched": {
+        "max": 29,
+        "min": 14,
+        "p10": 17,
+        "p50": 21,
+        "p90": 25
+      }
+    },
+    "EVENT_16": {
+      "displaced_chars": {
+        "max": 13818,
+        "min": 6515,
+        "p10": 8526,
+        "p50": 10346,
+        "p90": 11815
+      },
+      "displaced_count": {
+        "max": 67,
+        "min": 21,
+        "p10": 31,
+        "p50": 41,
+        "p90": 51
+      },
+      "linked_admissions": {
+        "max": 71,
+        "min": 44,
+        "p10": 50,
+        "p50": 57,
+        "p90": 65
+      },
+      "linked_chars": {
+        "max": 15433,
+        "min": 13031,
+        "p10": 13873,
+        "p50": 14472,
+        "p90": 14966
+      },
+      "packed_chars": {
+        "max": 16000,
+        "min": 15927,
+        "p10": 15965,
+        "p50": 15987,
+        "p90": 15998
+      },
+      "questions_different_from_direct": 1104,
+      "selected_count": {
+        "max": 77,
+        "min": 50,
+        "p10": 56,
+        "p50": 63,
+        "p90": 71
+      },
+      "sessions_touched": {
+        "max": 10,
+        "min": 4,
+        "p10": 5,
+        "p50": 7,
+        "p90": 8
+      }
+    },
+    "EVENT_2": {
+      "displaced_chars": {
+        "max": 8993,
+        "min": 0,
+        "p10": 1195,
+        "p50": 3148,
+        "p90": 5371
+      },
+      "displaced_count": {
+        "max": 38,
+        "min": 0,
+        "p10": 5,
+        "p50": 13,
+        "p90": 22
+      },
+      "linked_admissions": {
+        "max": 42,
+        "min": 5,
+        "p10": 9,
+        "p50": 18,
+        "p90": 28
+      },
+      "linked_chars": {
+        "max": 9921,
+        "min": 1332,
+        "p10": 2461,
+        "p50": 4737,
+        "p90": 7156
+      },
+      "packed_chars": {
+        "max": 16000,
+        "min": 15880,
+        "p10": 15963,
+        "p50": 15987,
+        "p90": 15998
+      },
+      "questions_different_from_direct": 1104,
+      "selected_count": {
+        "max": 86,
+        "min": 46,
+        "p10": 55,
+        "p50": 64,
+        "p90": 75
+      },
+      "sessions_touched": {
+        "max": 29,
+        "min": 12,
+        "p10": 16,
+        "p50": 20,
+        "p90": 24
+      }
+    },
+    "EVENT_4": {
+      "displaced_chars": {
+        "max": 12777,
+        "min": 0,
+        "p10": 2911,
+        "p50": 5914,
+        "p90": 9250
+      },
+      "displaced_count": {
+        "max": 66,
+        "min": 0,
+        "p10": 11,
+        "p50": 23,
+        "p90": 37
+      },
+      "linked_admissions": {
+        "max": 64,
+        "min": 7,
+        "p10": 20,
+        "p50": 34,
+        "p90": 47
+      },
+      "linked_chars": {
+        "max": 15215,
+        "min": 1594,
+        "p10": 5156,
+        "p50": 8555,
+        "p90": 12361
+      },
+      "packed_chars": {
+        "max": 16000,
+        "min": 15887,
+        "p10": 15963,
+        "p50": 15989,
+        "p90": 15999
+      },
+      "questions_different_from_direct": 1104,
+      "selected_count": {
+        "max": 87,
+        "min": 48,
+        "p10": 55,
+        "p50": 64,
+        "p90": 73
+      },
+      "sessions_touched": {
+        "max": 28,
+        "min": 4,
+        "p10": 11,
+        "p50": 17,
+        "p90": 22
+      }
+    },
+    "EVENT_8": {
+      "displaced_chars": {
+        "max": 13818,
+        "min": 527,
+        "p10": 6838,
+        "p50": 10045,
+        "p90": 11729
+      },
+      "displaced_count": {
+        "max": 66,
+        "min": 2,
+        "p10": 26,
+        "p50": 39,
+        "p90": 50
+      },
+      "linked_admissions": {
+        "max": 71,
+        "min": 21,
+        "p10": 44,
+        "p50": 54,
+        "p90": 63
+      },
+      "linked_chars": {
+        "max": 15433,
+        "min": 5232,
+        "p10": 11028,
+        "p50": 14195,
+        "p90": 14893
+      },
+      "packed_chars": {
+        "max": 16000,
+        "min": 15934,
+        "p10": 15963,
+        "p50": 15987,
+        "p90": 15998
+      },
+      "questions_different_from_direct": 1104,
+      "selected_count": {
+        "max": 83,
+        "min": 50,
+        "p10": 56,
+        "p50": 63,
+        "p90": 71
+      },
+      "sessions_touched": {
+        "max": 25,
+        "min": 4,
+        "p10": 5,
+        "p50": 7,
+        "p90": 15
+      }
+    },
+    "TEMPORAL_1": {
+      "displaced_chars": {
+        "max": 1137,
+        "min": 0,
+        "p10": 0,
+        "p50": 0,
+        "p90": 578
+      },
+      "displaced_count": {
+        "max": 7,
+        "min": 0,
+        "p10": 0,
+        "p50": 0,
+        "p90": 3
+      },
+      "linked_admissions": {
+        "max": 2,
+        "min": 1,
+        "p10": 1,
+        "p50": 2,
+        "p90": 2
+      },
+      "linked_chars": {
+        "max": 1017,
+        "min": 34,
+        "p10": 279,
+        "p50": 474,
+        "p90": 768
+      },
+      "packed_chars": {
+        "max": 16000,
+        "min": 15890,
+        "p10": 15960,
+        "p50": 15988,
+        "p90": 15998
+      },
+      "questions_different_from_direct": 1064,
+      "selected_count": {
+        "max": 91,
+        "min": 42,
+        "p10": 53,
+        "p50": 65,
+        "p90": 76
+      },
+      "sessions_touched": {
+        "max": 30,
+        "min": 14,
+        "p10": 18,
+        "p50": 22,
+        "p90": 26
+      }
+    },
+    "TEMPORAL_16": {
+      "displaced_chars": {
+        "max": 7600,
+        "min": 522,
+        "p10": 2241,
+        "p50": 3616,
+        "p90": 5052
+      },
+      "displaced_count": {
+        "max": 32,
+        "min": 2,
+        "p10": 9,
+        "p50": 14,
+        "p90": 20
+      },
+      "linked_admissions": {
+        "max": 32,
+        "min": 15,
+        "p10": 20,
+        "p50": 24,
+        "p90": 27
+      },
+      "linked_chars": {
+        "max": 9889,
+        "min": 3725,
+        "p10": 5059,
+        "p50": 6253,
+        "p90": 7675
+      },
+      "packed_chars": {
+        "max": 16000,
+        "min": 15895,
+        "p10": 15965,
+        "p50": 15988,
+        "p90": 15998
+      },
+      "questions_different_from_direct": 1104,
+      "selected_count": {
+        "max": 92,
+        "min": 43,
+        "p10": 53,
+        "p50": 63,
+        "p90": 74
+      },
+      "sessions_touched": {
+        "max": 28,
+        "min": 13,
+        "p10": 16,
+        "p50": 19,
+        "p90": 24
+      }
+    },
+    "TEMPORAL_2": {
+      "displaced_chars": {
+        "max": 1694,
+        "min": 0,
+        "p10": 0,
+        "p50": 382,
+        "p90": 864
+      },
+      "displaced_count": {
+        "max": 9,
+        "min": 0,
+        "p10": 0,
+        "p50": 2,
+        "p90": 4
+      },
+      "linked_admissions": {
+        "max": 4,
+        "min": 2,
+        "p10": 2,
+        "p50": 3,
+        "p90": 4
+      },
+      "linked_chars": {
+        "max": 1967,
+        "min": 243,
+        "p10": 567,
+        "p50": 897,
+        "p90": 1329
+      },
+      "packed_chars": {
+        "max": 16000,
+        "min": 15890,
+        "p10": 15962,
+        "p50": 15988,
+        "p90": 15999
+      },
+      "questions_different_from_direct": 1097,
+      "selected_count": {
+        "max": 91,
+        "min": 42,
+        "p10": 53,
+        "p50": 65,
+        "p90": 76
+      },
+      "sessions_touched": {
+        "max": 30,
+        "min": 14,
+        "p10": 18,
+        "p50": 22,
+        "p90": 26
+      }
+    },
+    "TEMPORAL_4": {
+      "displaced_chars": {
+        "max": 2796,
+        "min": 0,
+        "p10": 253,
+        "p50": 775,
+        "p90": 1439
+      },
+      "displaced_count": {
+        "max": 11,
+        "min": 0,
+        "p10": 1,
+        "p50": 3,
+        "p90": 6
+      },
+      "linked_admissions": {
+        "max": 8,
+        "min": 3,
+        "p10": 5,
+        "p50": 6,
+        "p90": 8
+      },
+      "linked_chars": {
+        "max": 3413,
+        "min": 659,
+        "p10": 1185,
+        "p50": 1719,
+        "p90": 2347
+      },
+      "packed_chars": {
+        "max": 16000,
+        "min": 15893,
+        "p10": 15966,
+        "p50": 15988,
+        "p90": 15999
+      },
+      "questions_different_from_direct": 1104,
+      "selected_count": {
+        "max": 90,
+        "min": 43,
+        "p10": 53,
+        "p50": 65,
+        "p90": 75
+      },
+      "sessions_touched": {
+        "max": 30,
+        "min": 14,
+        "p10": 18,
+        "p50": 22,
+        "p90": 26
+      }
+    },
+    "TEMPORAL_8": {
+      "displaced_chars": {
+        "max": 4206,
+        "min": 0,
+        "p10": 766,
+        "p50": 1650,
+        "p90": 2670
+      },
+      "displaced_count": {
+        "max": 16,
+        "min": 0,
+        "p10": 3,
+        "p50": 7,
+        "p90": 11
+      },
+      "linked_admissions": {
+        "max": 16,
+        "min": 6,
+        "p10": 10,
+        "p50": 12,
+        "p90": 14
+      },
+      "linked_chars": {
+        "max": 5560,
+        "min": 1529,
+        "p10": 2479,
+        "p50": 3283,
+        "p90": 4231
+      },
+      "packed_chars": {
+        "max": 16000,
+        "min": 15885,
+        "p10": 15966,
+        "p50": 15988,
+        "p90": 15998
+      },
+      "questions_different_from_direct": 1104,
+      "selected_count": {
+        "max": 90,
+        "min": 41,
+        "p10": 53,
+        "p50": 64,
+        "p90": 75
+      },
+      "sessions_touched": {
+        "max": 29,
+        "min": 13,
+        "p10": 18,
+        "p50": 21,
+        "p90": 25
+      }
+    }
+  },
+  "cache": {
+    "hits": 2750,
+    "misses": 0
+  },
+  "calls": {
+    "embedding": 0,
+    "model": 0
+  },
+  "claim_boundary": "label-blind traversal characterization only",
+  "leakage_scan_clean": true,
+  "m_zero_control": "covered by linked_order unit test; planted direct order is unchanged",
+  "replay_byte_identical": true,
+  "replay_cache_misses": 0,
+  "rows": 1104,
+  "schema": "da001-linked-context-preflight-v1",
+  "selection_sha256": "76f537ca26ee6e6212cdf0669c19e5c59fb291aed9007cddb0a1d0d6cc7ae831",
+  "status": "PASS"
+}

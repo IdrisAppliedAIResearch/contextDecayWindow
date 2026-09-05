@@ -1,0 +1,135 @@
+{
+  "by_question_type": {
+    "knowledge-update": {
+      "complete": {
+        "CONTROL": 37,
+        "TREATMENT": 41
+      },
+      "contrast": {
+        "discordant": 4,
+        "gains": 4,
+        "losses": 0,
+        "net": 4,
+        "ties": 68,
+        "two_sided_exact_p": 0.125
+      },
+      "n": 72
+    },
+    "multi-session": {
+      "complete": {
+        "CONTROL": 34,
+        "TREATMENT": 36
+      },
+      "contrast": {
+        "discordant": 2,
+        "gains": 2,
+        "losses": 0,
+        "net": 2,
+        "ties": 119,
+        "two_sided_exact_p": 0.5
+      },
+      "n": 121
+    },
+    "single-session-assistant": {
+      "complete": {
+        "CONTROL": 46,
+        "TREATMENT": 46
+      },
+      "contrast": {
+        "discordant": 0,
+        "gains": 0,
+        "losses": 0,
+        "net": 0,
+        "ties": 51,
+        "two_sided_exact_p": 1.0
+      },
+      "n": 51
+    },
+    "single-session-preference": {
+      "complete": {
+        "CONTROL": 15,
+        "TREATMENT": 18
+      },
+      "contrast": {
+        "discordant": 3,
+        "gains": 3,
+        "losses": 0,
+        "net": 3,
+        "ties": 27,
+        "two_sided_exact_p": 0.25
+      },
+      "n": 30
+    },
+    "single-session-user": {
+      "complete": {
+        "CONTROL": 44,
+        "TREATMENT": 45
+      },
+      "contrast": {
+        "discordant": 1,
+        "gains": 1,
+        "losses": 0,
+        "net": 1,
+        "ties": 63,
+        "two_sided_exact_p": 1.0
+      },
+      "n": 64
+    },
+    "temporal-reasoning": {
+      "complete": {
+        "CONTROL": 35,
+        "TREATMENT": 36
+      },
+      "contrast": {
+        "discordant": 1,
+        "gains": 1,
+        "losses": 0,
+        "net": 1,
+        "ties": 126,
+        "two_sided_exact_p": 1.0
+      },
+      "n": 127
+    }
+  },
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "claim_boundary": "spent LongMem exact availability; reader and runtime unvalidated",
+  "complete": {
+    "CONTROL": 211,
+    "TREATMENT": 222
+  },
+  "contrast": {
+    "discordant": 11,
+    "gains": 11,
+    "losses": 0,
+    "net": 11,
+    "ties": 454,
+    "two_sided_exact_p": 0.0009765625
+  },
+  "mechanism": {
+    "admitted_members": 842,
+    "gain_blockers": {
+      "MULTI_CARRIER_CONJUNCTION": 2,
+      "WRONG_FROZEN_MEMBER": 9
+    },
+    "member_cost": {
+      "p10": 39.0,
+      "p50": 113.0,
+      "p90": 233.89999999999998
+    },
+    "member_position": {
+      "p10": 0.0,
+      "p50": 3.0,
+      "p90": 10.0
+    }
+  },
+  "one_hop_ceiling": 250,
+  "outcomes_sha256": "cd02a10856d84780ec31834e9bfb096409f60a908e702f315190f452f12b097b",
+  "population": 465,
+  "replay_byte_identical": true,
+  "schema": "da033-longmem-varint-atomic-result-v1",
+  "status": "LONGMEM_VARINT_ATOMIC_SIGNAL"
+}

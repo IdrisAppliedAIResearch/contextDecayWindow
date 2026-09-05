@@ -1,0 +1,145 @@
+{
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "claim_boundary": "spent-corpus availability diagnostic; no reader, transfer, or adoption",
+  "incremental_discordance": {
+    "da008_only_complete": 2,
+    "da009_only_complete": 7,
+    "exact_two_sided_p": 0.1796875
+  },
+  "matrix": {
+    "DA008": {
+      "by_conversation": {
+        "conv-26": {
+          "complete": 181,
+          "gains": 12,
+          "losses": 0
+        },
+        "conv-30": {
+          "complete": 99,
+          "gains": 2,
+          "losses": 0
+        },
+        "conv-43": {
+          "complete": 214,
+          "gains": 4,
+          "losses": 0
+        },
+        "conv-44": {
+          "complete": 130,
+          "gains": 1,
+          "losses": 0
+        },
+        "conv-49": {
+          "complete": 156,
+          "gains": 4,
+          "losses": 0
+        },
+        "conv-50": {
+          "complete": 181,
+          "gains": 3,
+          "losses": 0
+        }
+      },
+      "complete": 961,
+      "distributions": {
+        "link_chars": {
+          "p10": 351.0,
+          "p50": 480.0,
+          "p90": 885.9000000000002
+        },
+        "total_chars": {
+          "p10": 15887.0,
+          "p50": 15958.0,
+          "p90": 15993.0
+        },
+        "unused_slack": {
+          "p10": 7.0,
+          "p50": 42.0,
+          "p90": 113.0
+        }
+      },
+      "gain_depth": {
+        "p10": 1.0,
+        "p50": 1.0,
+        "p90": 2.0
+      },
+      "gains": 26,
+      "links_admitted": 2561,
+      "losses": 0,
+      "overflow_skips": 11419
+    },
+    "DA009": {
+      "by_conversation": {
+        "conv-26": {
+          "complete": 183,
+          "gains": 14,
+          "losses": 0
+        },
+        "conv-30": {
+          "complete": 99,
+          "gains": 2,
+          "losses": 0
+        },
+        "conv-43": {
+          "complete": 214,
+          "gains": 4,
+          "losses": 0
+        },
+        "conv-44": {
+          "complete": 130,
+          "gains": 1,
+          "losses": 0
+        },
+        "conv-49": {
+          "complete": 158,
+          "gains": 6,
+          "losses": 0
+        },
+        "conv-50": {
+          "complete": 182,
+          "gains": 4,
+          "losses": 0
+        }
+      },
+      "complete": 966,
+      "distributions": {
+        "link_chars": {
+          "p10": 470.7,
+          "p50": 634.5,
+          "p90": 1048.0
+        },
+        "total_chars": {
+          "p10": 15882.7,
+          "p50": 15959.0,
+          "p90": 15993.0
+        },
+        "unused_slack": {
+          "p10": 7.0,
+          "p50": 41.0,
+          "p90": 117.30000000000007
+        }
+      },
+      "gain_depth": {
+        "p10": 1.0,
+        "p50": 1.0,
+        "p90": 2.0
+      },
+      "gains": 31,
+      "links_admitted": 3181,
+      "losses": 0,
+      "overflow_skips": 10799
+    }
+  },
+  "population": {
+    "direct_complete": 935,
+    "edges": 25941,
+    "one_hop_oracle_complete": 986,
+    "questions": 1098
+  },
+  "schema": "da009-role-pattern-result-v1",
+  "status": "INCREMENTAL_COMPACT_SIGNAL"
+}

@@ -1,0 +1,62 @@
+{
+  "actions": {
+    "LONGMEM": {
+      "COSINE_PER_CHAR": {
+        "PAIR": 360,
+        "SKIP": 5501,
+        "TURN": 1540
+      },
+      "MARGINAL_UTILITY": {
+        "PAIR": 365,
+        "SKIP": 5637,
+        "TURN": 1399
+      },
+      "PAYLOAD_COSINE": {
+        "PAIR": 433,
+        "SKIP": 6126,
+        "TURN": 842
+      }
+    },
+    "NF004": {
+      "COSINE_PER_CHAR": {
+        "PAIR": 3637,
+        "SKIP": 8063,
+        "TURN": 2280
+      },
+      "MARGINAL_UTILITY": {
+        "PAIR": 2937,
+        "SKIP": 9295,
+        "TURN": 1748
+      },
+      "PAYLOAD_COSINE": {
+        "PAIR": 2953,
+        "SKIP": 9935,
+        "TURN": 1092
+      }
+    }
+  },
+  "allocation_sha256": "3928700040ffe7931b5865414867b149595db67a431f32dc97a72d4e9f7ffcdb",
+  "cache": {
+    "hits": 7866,
+    "misses": 0
+  },
+  "calls": {
+    "embedding": 0,
+    "model": 0
+  },
+  "coverage_margins": {
+    "positive": 2059,
+    "zero": 62084
+  },
+  "order_signatures": {
+    "LONGMEM": 1385,
+    "NF004": 3276
+  },
+  "questions": {
+    "LONGMEM": 465,
+    "NF004": 1098
+  },
+  "replay_byte_identical": true,
+  "schema": "da018-blind-allocation-v1",
+  "status": "PASS"
+}
