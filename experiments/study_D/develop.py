@@ -15,10 +15,13 @@ ROOT=Path(__file__).resolve().parents[2]
 CONTROL=ROOT.parent/'contextDecayWindow-study-D-control'
 sys.path[:0]=[str(CONTROL/'episodic/src'),str(CONTROL/'src')]
 import numpy as np
-from corpus import make_session
+if '--dense' in sys.argv:
+    from corpus_dense import make_session
+else:
+    from corpus import make_session
 from temporal import build
 
-OUT=ROOT/'experiments/study_D/artifacts/part1/development'
+OUT=ROOT/'experiments/study_D/artifacts/part1'/('development_dense' if '--dense' in sys.argv else 'development')
 MODEL=Path(r'C:\Users\muzaf\.cache\huggingface\hub\Qwen3-Embedding-0.6B-GGUF\Qwen3-Embedding-0.6B-Q8_0.gguf')
 
 def save(name,data):
