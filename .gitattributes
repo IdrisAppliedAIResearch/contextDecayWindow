@@ -535,3 +535,22 @@ experiments/components/live_validation_009/artifacts/part1/prompts.jsonl.gz filt
 experiments/components/biological_memory/da_057/artifacts/preflight/blind_codec.jsonl.gz filter=lfs diff=lfs merge=lfs -text
 experiments/components/biological_memory/da_058/artifacts/preflight/blind_chunks.jsonl.gz filter=lfs diff=lfs merge=lfs -text
 experiments/components/biological_memory/da_056/artifacts/preflight/blind_materializations.jsonl.gz filter=lfs diff=lfs merge=lfs -text
+
+# Locked registrations whose integrity anchors are defined over LF bytes.
+experiments/components/live_validation_002/LV_002_PRE_REGISTRATION.md text eol=lf
+experiments/components/live_validation_002/amendments/AMENDMENT_001_closed_think_prefill.md text eol=lf
+experiments/components/live_validation_005/LV_005_PRE_REGISTRATION.md text eol=lf
+experiments/components/live_validation_005/amendments/AMENDMENT_001_EXACT_RENDER_TEXT.md text eol=lf
+experiments/components/live_validation_004/artifacts/run/answers_repaired.jsonl text eol=lf
+experiments/components/live_validation_008/LV_008_PRE_REGISTRATION.md text eol=lf
+experiments/components/tier_cost/TC_005_PRE_REGISTRATION.md text eol=lf
+experiments/components/tier_cost/TC_007_PRE_REGISTRATION.md text eol=lf
+experiments/components/tier_cost/TC_008_PRE_REGISTRATION.md text eol=lf
+experiments/components/tier_cost/TC_009_PRE_REGISTRATION.md text eol=lf
+src/analysis/beam001_parent_opportunity.py text eol=lf
+
+# BEAM-001 registered Part 1 raw traces exceed GitHub's 100 MiB file cap.
+experiments/comparisons/beam_001/artifacts/exploration/contexts.jsonl.gz filter=lfs diff=lfs merge=lfs -text
+experiments/comparisons/beam_001/artifacts/exploration/payloads.sealed.jsonl.gz filter=lfs diff=lfs merge=lfs -text
+experiments/comparisons/beam_001/artifacts/exploration/rankings.jsonl.gz filter=lfs diff=lfs merge=lfs -text
+experiments/comparisons/beam_001/artifacts/corpus/mechanism_surface.jsonl.gz filter=lfs diff=lfs merge=lfs -text
