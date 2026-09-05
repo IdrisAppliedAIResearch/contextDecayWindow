@@ -1,0 +1,45 @@
+{
+  "api_requests_made": 0,
+  "cache": {
+    "bindings": 2,
+    "quick_check": "ok",
+    "vector_digest_mismatches": 0,
+    "vectors": 2
+  },
+  "disposition": "READY_FOR_DETACHED_GPU_POPULATION",
+  "gate": "PASS",
+  "inputs": 61011,
+  "longest": {
+    "episode_key": "f52f820509c5b290965ac9f33eb5d54f840751d2d0dc8db8e8792120e0a29834",
+    "reopen_sha256": "e81c77ddef7f75529bf147cea16337d90688bd634f931e4f7fbff38bb1d91825",
+    "seconds": 0.29796880000503734,
+    "tokens": 26960,
+    "vector_sha256": "e81c77ddef7f75529bf147cea16337d90688bd634f931e4f7fbff38bb1d91825"
+  },
+  "max_tokens": 26960,
+  "mechanism_surface_sha256": "0377df4ddafa6899f9b21c4f908a5061852b75580958dd480d31511b9261acec",
+  "outcomes_opened": false,
+  "over_n_ctx": 0,
+  "runtime_spec": {
+    "backend": "CUDA",
+    "call_shape": "solo",
+    "dimension": 1024,
+    "dtype": "float32",
+    "llama_cpp_version": "0.3.25",
+    "model_path": "C:\\Users\\muzaf\\.cache\\huggingface\\hub\\Qwen3-Embedding-0.6B-GGUF\\Qwen3-Embedding-0.6B-Q8_0.gguf",
+    "model_sha256": "06507c7b42688469c4e7298b0a1e16deff06caf291cf0a5b278c308249c3e439",
+    "n_batch": 2048,
+    "n_ctx": 32768,
+    "n_gpu_layers": -1,
+    "n_ubatch": 512
+  },
+  "runtime_spec_sha256": "ada8c7d279ad4d40ee8442c15830f75f478892f50ecc896017f3d4677a3bfedd",
+  "script_sha256": "ab78f2256848930e526758e29dc4279b412f33cc1c5d059a9321adee48bdd145",
+  "sentinel": {
+    "reopen_sha256": "a52c6019c79957d0ea3af9bb15d863a826f825deebc9f7aa03232e31e601df3a",
+    "seconds": 0.037406899966299534,
+    "tokens": 13,
+    "vector_sha256": "a52c6019c79957d0ea3af9bb15d863a826f825deebc9f7aa03232e31e601df3a"
+  },
+  "unique_input_sha256": 60990
+}
