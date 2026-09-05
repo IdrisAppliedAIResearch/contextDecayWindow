@@ -15,8 +15,12 @@ def temporal_order(episodes,query,ranking):
     names=re.findall(r'"([^"\n]+)"',query)
     def carriers(name):
         return [i for i,e in enumerate(episodes) if f'"{name}"' in e['user_message']]
+    if len(re.findall(r'\b(before|after)\b',query,re.I))>1:
+        return [],{'reason':'ambiguous_temporal_clauses'}
     if len(names)==2 and re.search(r'\b(before|after)\b',query,re.I):
         subject,anchor=names
+        if not carriers(subject):
+            return [],{'reason':'missing_subject'}
         anchors=[i for i in carriers(anchor) if re.search(r'\b(meeting|event)\b',episodes[i]['user_message'],re.I)]
         if len(anchors)!=1:
             return [],{'reason':'ambiguous_or_missing_anchor','anchors':anchors}
