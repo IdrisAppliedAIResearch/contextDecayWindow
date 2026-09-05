@@ -185,6 +185,29 @@ def _digest(requests: Sequence[BatchRequest]) -> str:
     return h.hexdigest()
 
 
+def await_file_ready(
+    client: Any,
+    file_id: str,
+    *,
+    timeout_seconds: float = 300.0,
+    poll_seconds: float = 1.0,
+) -> None:
+    """Do not create a batch until its uploaded input is organization-visible."""
+    deadline = time.monotonic() + timeout_seconds
+    while True:
+        uploaded = client.files.retrieve(file_id)
+        status = str(getattr(uploaded, "status", ""))
+        if status == "processed":
+            return
+        if status in {"error", "deleted"}:
+            raise HH002BatchError(f"Uploaded file {file_id} ended {status}")
+        if time.monotonic() >= deadline:
+            raise HH002BatchError(
+                f"Uploaded file {file_id} was not processed within {timeout_seconds}s"
+            )
+        time.sleep(poll_seconds)
+
+
 def submit_job(
     client: Any,
     requests: Sequence[BatchRequest],
@@ -192,6 +215,7 @@ def submit_job(
     key: str,
     log: Callable[[str], None] = print,
     study: str = "HH-002",
+    file_ready_timeout_seconds: float = 300.0,
 ) -> str:
     """Upload and enqueue one job, or adopt one already in flight."""
     digest = _digest(requests)
@@ -209,6 +233,9 @@ def submit_job(
     payload = ("\n".join(r.as_line() for r in requests) + "\n").encode("utf-8")
     uploaded = client.files.create(
         file=(f"{key}.jsonl", payload), purpose="batch"
+    )
+    await_file_ready(
+        client, uploaded.id, timeout_seconds=file_ready_timeout_seconds
     )
     batch = client.batches.create(
         input_file_id=uploaded.id,
@@ -300,6 +327,8 @@ def run_scheduled(
     log: Callable[[str], None] = print,
     on_result: Callable[[str, dict[str, dict[str, Any]]], None] | None = None,
     study: str = "HH-002",
+    max_job_retries: int | None = None,
+    deadline_unix: float | None = None,
 ) -> dict[str, dict[str, dict[str, Any]]]:
     """Drive many prefixes to completion under one enqueued-token ceiling.
 
@@ -336,7 +365,15 @@ def run_scheduled(
         return sum(tokens for _, _, tokens in outstanding.values())
 
     pending = list(queue)
+    retry_counts: dict[str, int] = {}
     while pending or outstanding:
+        if deadline_unix is not None and time.time() >= deadline_unix:
+            for _, batch_id, _ in outstanding.values():
+                try:
+                    client.batches.cancel(batch_id)
+                except Exception:  # noqa: BLE001
+                    pass
+            raise HH002BatchError("Runtime deadline exceeded; active batches cancelled")
         # Top the queue up.
         while pending:
             prefix, key, job = pending[0]
@@ -344,7 +381,18 @@ def run_scheduled(
             if outstanding and in_flight_tokens() + tokens > in_flight_target:
                 break
             pending.pop(0)
-            batch_id = submit_job(client, job, ledger, key, log, study=study)
+            file_timeout = 300.0
+            if deadline_unix is not None:
+                file_timeout = max(0.001, min(file_timeout, deadline_unix - time.time()))
+            batch_id = submit_job(
+                client,
+                job,
+                ledger,
+                key,
+                log,
+                study=study,
+                file_ready_timeout_seconds=file_timeout,
+            )
             outstanding[key] = (prefix, batch_id, tokens)
 
         if not outstanding:
@@ -358,6 +406,14 @@ def run_scheduled(
             outstanding.pop(key)
             landed = True
             if state["status"] in RETRYABLE and not state["output_file_id"]:
+                retry_counts[key] = retry_counts.get(key, 0) + 1
+                if (
+                    max_job_retries is not None
+                    and retry_counts[key] > max_job_retries
+                ):
+                    raise HH002BatchError(
+                        f"{key} exhausted {max_job_retries} batch retry"
+                    )
                 job = next(j for p, k, j in queue if k == key)
                 log(f"    {key}: {state['status']}, requeued")
                 pending.append((prefix, key, job))
@@ -511,6 +567,7 @@ __all__ = [
     "DEFAULT_BATCH_MAX_LINES",
     "DEFAULT_BATCH_TOKEN_BUDGET",
     "HH002BatchError",
+    "await_file_ready",
     "answer_request",
     "chunk_requests",
     "collect_job",
