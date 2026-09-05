@@ -85,7 +85,7 @@ class RateBucket:
         self._updated = time.monotonic()
         self._lock = threading.Lock()
 
-    def acquire(self, amount: float) -> None:
+    def acquire(self, amount: float, deadline_unix: float | None = None) -> None:
         """Block until ``amount`` is available, then spend it.
 
         A request larger than the whole per-minute budget would never be
@@ -94,6 +94,8 @@ class RateBucket:
         """
         want = min(float(amount), self.capacity)
         while True:
+            if deadline_unix is not None and time.time() >= deadline_unix:
+                raise TimeoutError("rate bucket deadline exceeded")
             with self._lock:
                 now = time.monotonic()
                 elapsed = now - self._updated
@@ -106,7 +108,10 @@ class RateBucket:
                     self._available -= want
                     return
                 deficit = want - self._available
-            time.sleep(min(deficit * 60.0 / self.per_minute, 5.0))
+            delay = min(deficit * 60.0 / self.per_minute, 5.0)
+            if deadline_unix is not None:
+                delay = min(delay, max(0.0, deadline_unix - time.time()))
+            time.sleep(delay)
 
 
 def run_sync_arm(

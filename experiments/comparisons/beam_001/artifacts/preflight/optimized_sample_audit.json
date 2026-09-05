@@ -1,0 +1,49 @@
+{
+  "api_calls_made_by_audit": 0,
+  "expected_live_schedule": {
+    "charged_reader_tokens": 56649073,
+    "input_reader_tokens": 53884273,
+    "judge_calls": 4119,
+    "reader_calls": 1350,
+    "rubric_items": 1373,
+    "total_calls": 5469
+  },
+  "hh002_comparison": {
+    "beam_to_hh002_charged_token_ratio": 0.878,
+    "hh002_ledger_tokens": 64551127,
+    "hh002_submission_span_hours": 5.7269
+  },
+  "pilot_question_overlap": 0,
+  "prompt_tokens": {
+    "median": 38598.0,
+    "p95": 49559
+  },
+  "sample": {
+    "conversations": 90,
+    "per_category": 45,
+    "questions": 450,
+    "questions_per_conversation": 5,
+    "scale_counts": {
+      "100K": 100,
+      "1M": 175,
+      "500K": 175
+    },
+    "scale_category_counts": {
+      "100K": [10, 10, 10, 10, 10, 10, 10, 10, 10, 10],
+      "1M": [19, 18, 17, 16, 15, 16, 17, 18, 19, 20],
+      "500K": [16, 17, 18, 19, 20, 19, 18, 17, 16, 15]
+    }
+  },
+  "selection": {
+    "category_order": "lexicographic",
+    "conversation_order": "conversation_key within scale",
+    "domain": "beam001-optimized-sample-v1",
+    "scale_offsets": {
+      "100K": 0,
+      "1M": 5,
+      "500K": 0
+    },
+    "within_category": "minimum SHA256(domain || NUL || question_key) of the two questions",
+    "window": "five consecutive cyclic categories beginning at conversation_index + scale_offset"
+  }
+}

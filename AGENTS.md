@@ -150,6 +150,8 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **LV-009 full-LoCoMO renderer validation (2026-08-27).** PAIRWISE_RETAINED. On 1,540 primary QAs, pairwise/community/QB/QEACH = 907/876/914/920. QB vs pairwise net +7 (82/75), transfer -1; QEACH vs QB +6 (44/38). Neither co-primary clears practical or statistical bars. Question repetition recovers community loss but does not beat control. Internal Qwen3.8 result only; no port.
 
+**BEAM-001 parent-opportunity ASPECT (2026-08-28).** CHARACTERIZED; diagnostic NO_DEMONSTRATED_GAIN. On 360 balanced questions/90 conversations, T1-C0=.00518 (95% CI -.01757,.02765; p=.658); T1-A0=-.00698 (lower -.02293), failing non-inferiority. Three runtime/judge deviations; all 1,080 answers and 360 judgments sealed. No confirmatory claim.
+
 **PS-001 pattern-separated engram formation (2026-08-11).** CHARACTERIZED. Nine deterministic sparse cells on 119 episodes; only D=4096,K=41 passed G3-G5: 119/119 fixed points and exact 1/10/30/50% swap recovery. Six of seven degenerates reached stored codes; the union-biased cue cycled. Code-space result only; no natural cue, retrieval, live run, promotion, or adoption.
 
 **PS-002 natural-language cue binding (2026-08-11).** STOP AT PART 1; NATURAL_CUES_NOT_BOUND, CHARACTERIZED. Nine label-blind cells ran 24 sealed queries x8 rounds. Best M=4,tau=.025 reached stored codes 190/192 but one cue cycled and one reached a spurious fixed point; no cell emitted 8 clean ids/query. Labels, PF1-PF10, answers, live run, promotion and adoption not entered.

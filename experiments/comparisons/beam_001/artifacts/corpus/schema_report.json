@@ -1,0 +1,133 @@
+{
+  "batch_count_distribution": {
+    "max": 10,
+    "median": 10,
+    "min": 3,
+    "n": 90,
+    "p05": 3,
+    "p25": 10,
+    "p75": 10,
+    "p95": 10
+  },
+  "batch_message_count_distribution": {
+    "max": 492,
+    "median": 132,
+    "min": 46,
+    "n": 790,
+    "p05": 58,
+    "p25": 96,
+    "p75": 202,
+    "p95": 270
+  },
+  "behavioral_identity": "Flatten source batches in order and admit one episode for each exact adjacent user/assistant pair, without merging, dropping or inventing content.",
+  "counts": {
+    "conversations": 90,
+    "questions": 1800,
+    "timestamp_missing": 117630,
+    "timestamp_present": 790
+  },
+  "flattened_character_distribution": {
+    "max": 7376557,
+    "median": 2335622,
+    "min": 401167,
+    "n": 90,
+    "p05": 507762,
+    "p25": 1787384,
+    "p75": 4194968,
+    "p95": 5787526
+  },
+  "flattened_token_distribution": {
+    "max": 1490290,
+    "median": 525789,
+    "min": 92824,
+    "n": 90,
+    "p05": 112604,
+    "p25": 416443,
+    "p75": 945143,
+    "p95": 1204059,
+    "tokenizer": "cl100k_base"
+  },
+  "gate": "PASS",
+  "message_count_distribution": {
+    "max": 3008,
+    "median": 1182,
+    "min": 188,
+    "n": 90,
+    "p05": 238,
+    "p25": 836,
+    "p75": 1966,
+    "p95": 2612
+  },
+  "question_categories": {
+    "abstention": 180,
+    "contradiction_resolution": 180,
+    "event_ordering": 180,
+    "information_extraction": 180,
+    "instruction_following": 180,
+    "knowledge_update": 180,
+    "multi_session_reasoning": 180,
+    "preference_following": 180,
+    "summarization": 180,
+    "temporal_reasoning": 180
+  },
+  "question_field_presence": {
+    "abstention_type": 180,
+    "answer": 900,
+    "bullet_points_covered": 180,
+    "calculation_required": 180,
+    "complexity_factors": 78,
+    "compliance_indicators": 360,
+    "contradiction_type": 180,
+    "conversation_reference": 180,
+    "conversation_references": 900,
+    "conversation_sessions": 176,
+    "difficulty": 1800,
+    "expected_compliance": 360,
+    "extraction_challenge": 52,
+    "ideal_answer": 180,
+    "ideal_response": 180,
+    "ideal_summary": 180,
+    "instruction_being_tested": 180,
+    "instruction_type": 180,
+    "key_elements_tested": 179,
+    "key_facts_tested": 180,
+    "non_compliance_signs": 360,
+    "ordering_tested": 180,
+    "ordering_type": 180,
+    "plan_reference": 180,
+    "potential_confusion": 180,
+    "preference_being_tested": 180,
+    "preference_type": 180,
+    "question": 1800,
+    "question_type": 180,
+    "reasoning_steps": 180,
+    "reasoning_type": 180,
+    "rubric": 1800,
+    "sessions_required": 180,
+    "source_chat_ids": 1615,
+    "summarization_type": 180,
+    "synthesis_required": 179,
+    "temporal_type": 180,
+    "tests_for": 180,
+    "tests_retention_of": 180,
+    "time_points": 180,
+    "topic_questioned": 180,
+    "total_mentions": 180,
+    "update_type": 180,
+    "why_unanswerable": 180
+  },
+  "role_transitions": {
+    "assistant->user": 59120,
+    "user->assistant": 59210
+  },
+  "roles": {
+    "assistant": 59210,
+    "user": 59210
+  },
+  "scale_conversations": {
+    "100K": 20,
+    "1M": 35,
+    "500K": 35
+  },
+  "strict_lossless_pair_mapping": true
+}
