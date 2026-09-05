@@ -1,0 +1,66 @@
+{
+  "anchor": {
+    "da052": 363
+  },
+  "by_question_type": {
+    "knowledge-update": {
+      "classes": {
+        "ALL_ABSENT": 12
+      },
+      "n": 12
+    },
+    "multi-session": {
+      "classes": {
+        "ALL_ABSENT": 38,
+        "ALL_OVERFLOW": 1
+      },
+      "n": 39
+    },
+    "single-session-assistant": {
+      "classes": {
+        "ALL_ABSENT": 3,
+        "ALL_OVERFLOW": 1
+      },
+      "n": 4
+    },
+    "single-session-preference": {
+      "classes": {
+        "ALL_ABSENT": 7
+      },
+      "n": 7
+    },
+    "single-session-user": {
+      "classes": {
+        "ALL_ABSENT": 10
+      },
+      "n": 10
+    },
+    "temporal-reasoning": {
+      "classes": {
+        "ALL_ABSENT": 30
+      },
+      "n": 30
+    }
+  },
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "claim_boundary": "evidence-aware residual reachability anatomy only",
+  "member_states": {
+    "ABSENT": 134,
+    "OVERFLOW_ONLY": 2
+  },
+  "question_classes": {
+    "ALL_ABSENT": 100,
+    "ALL_OVERFLOW": 2
+  },
+  "represented_sources": {
+    "DISTANCE_2": 2
+  },
+  "residuals": 102,
+  "residuals_sha256": "559f610177d6e4e9f499a3fe9ee4a7bd844b96d3e84558a2b5ccd634dd827560",
+  "schema": "da053-retained-set-residual-audit-v1",
+  "status": "COMPLETE"
+}

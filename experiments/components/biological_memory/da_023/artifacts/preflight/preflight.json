@@ -1,0 +1,40 @@
+{
+  "allocation_sha256": "2982a79056945933267525701281ce8ae7882224ad5e9f2427e008c53fa221e4",
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "corpora": {
+    "LONGMEM": {
+      "added_pairs": 170,
+      "added_turns": 524,
+      "backref_renderers": 449,
+      "baseline_references": 93259,
+      "expanding_rows": 0,
+      "max_final_chars": 16000,
+      "median_recovered_chars": 546.0,
+      "p10_recovered_chars": 159.60000000000002,
+      "p90_recovered_chars": 1024.8000000000002,
+      "questions": 465,
+      "remaining_skips": 5303
+    },
+    "NF004": {
+      "added_pairs": 3892,
+      "added_turns": 907,
+      "backref_renderers": 1098,
+      "baseline_references": 266819,
+      "expanding_rows": 0,
+      "max_final_chars": 16000,
+      "median_recovered_chars": 1028.5,
+      "p10_recovered_chars": 826.0,
+      "p90_recovered_chars": 1272.0,
+      "questions": 1098,
+      "remaining_skips": 5470
+    }
+  },
+  "replay_byte_identical": true,
+  "rows": 1563,
+  "schema": "da023-backreference-preflight-v1",
+  "status": "BACKREFERENCE_MECHANICAL_PASS"
+}

@@ -1,0 +1,94 @@
+{
+  "additional_episodes_beyond_da066": {
+    "max": 173.0,
+    "n": 465,
+    "p10": 0.0,
+    "p50": 0.0,
+    "p90": 0.0
+  },
+  "additions_beyond_da069": {
+    "max": 199.0,
+    "n": 465,
+    "p10": 6.400000000000006,
+    "p50": 80.0,
+    "p90": 152.0
+  },
+  "any_reachability": 465,
+  "by_question_type": {
+    "knowledge-update": {
+      "any_reachability": 72,
+      "complete_reachability": 72,
+      "n": 72
+    },
+    "multi-session": {
+      "any_reachability": 121,
+      "complete_reachability": 121,
+      "n": 121
+    },
+    "single-session-assistant": {
+      "any_reachability": 51,
+      "complete_reachability": 51,
+      "n": 51
+    },
+    "single-session-preference": {
+      "any_reachability": 30,
+      "complete_reachability": 30,
+      "n": 30
+    },
+    "single-session-user": {
+      "any_reachability": 64,
+      "complete_reachability": 64,
+      "n": 64
+    },
+    "temporal-reasoning": {
+      "any_reachability": 127,
+      "complete_reachability": 127,
+      "n": 127
+    }
+  },
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "claim_boundary": "outcome-informed depth-three burden replay only; no transfer, reader, or delivery",
+  "complete_reachability": 465,
+  "first_required_position": {
+    "max": 213.0,
+    "n": 465,
+    "p10": 1.0,
+    "p50": 3.0,
+    "p90": 42.0
+  },
+  "gain_only": {
+    "additional_episodes_beyond_da066": {
+      "max": 173.0,
+      "n": 27,
+      "p10": 1.0,
+      "p50": 37.0,
+      "p90": 113.60000000000005
+    },
+    "questions": 27
+  },
+  "last_required_position": {
+    "max": 241.0,
+    "n": 465,
+    "p10": 1.0,
+    "p50": 22.0,
+    "p90": 100.0
+  },
+  "peak_current_frame_chars": 2048,
+  "protected_payload_mutations": 0,
+  "questions": 465,
+  "reachability_sha256": "95a1a62edc176e7d4318783f540c936ad0ea2034806c0d2a113d2b610dec196e",
+  "schema": "da071-bounded-lattice-replay-result-v1",
+  "simultaneously_rendered_episodes": 1,
+  "status": "POSTHOC_BOUNDED_LATTICE_CHARACTERIZED",
+  "stream_episodes": {
+    "max": 284.0,
+    "n": 465,
+    "p10": 199.0,
+    "p50": 224.0,
+    "p90": 243.60000000000002
+  }
+}

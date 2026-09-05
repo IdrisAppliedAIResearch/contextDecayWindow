@@ -1,0 +1,267 @@
+{
+  "arms": {
+    "A_SEMANTIC_DA_V2_16K": {
+      "answer_usage": {
+        "cached_tokens": 130816,
+        "calls": 842,
+        "completion_tokens": 8972,
+        "prompt_tokens": 6243827,
+        "seconds": 929.926
+      },
+      "by_category": {
+        "1": {
+          "correct": 125,
+          "exact_match": 0.0,
+          "f1": 0.319535,
+          "llm_score": 0.730994,
+          "n": 171
+        },
+        "2": {
+          "correct": 113,
+          "exact_match": 0.011299,
+          "f1": 0.38591,
+          "llm_score": 0.638418,
+          "n": 177
+        },
+        "3": {
+          "correct": 30,
+          "exact_match": 0.0,
+          "f1": 0.26861,
+          "llm_score": 0.588235,
+          "n": 51
+        },
+        "4": {
+          "correct": 381,
+          "exact_match": 0.018059,
+          "f1": 0.534443,
+          "llm_score": 0.860045,
+          "n": 443
+        }
+      },
+      "by_conversation": {
+        "conv-26": {
+          "correct": 119,
+          "exact_match": 0.0,
+          "f1": 0.375878,
+          "llm_score": 0.788079,
+          "n": 151
+        },
+        "conv-30": {
+          "correct": 66,
+          "exact_match": 0.012346,
+          "f1": 0.416717,
+          "llm_score": 0.814815,
+          "n": 81
+        },
+        "conv-43": {
+          "correct": 132,
+          "exact_match": 0.039548,
+          "f1": 0.464653,
+          "llm_score": 0.745763,
+          "n": 177
+        },
+        "conv-44": {
+          "correct": 95,
+          "exact_match": 0.00813,
+          "f1": 0.496798,
+          "llm_score": 0.772358,
+          "n": 123
+        },
+        "conv-49": {
+          "correct": 115,
+          "exact_match": 0.0,
+          "f1": 0.432998,
+          "llm_score": 0.751634,
+          "n": 153
+        },
+        "conv-50": {
+          "correct": 122,
+          "exact_match": 0.006369,
+          "f1": 0.466841,
+          "llm_score": 0.77707,
+          "n": 157
+        }
+      },
+      "context_chars": {
+        "max": 29570.0,
+        "min": 26798.0,
+        "p10": 26999.4,
+        "p50": 28207.5,
+        "p90": 29467.3
+      },
+      "malformed": 0,
+      "prompt_tokens": {
+        "max": 7736.0,
+        "min": 6896.0,
+        "p10": 7104.1,
+        "p50": 7453.0,
+        "p90": 7625.9
+      },
+      "response_seconds": {
+        "max": 5.3172,
+        "min": 0.47,
+        "p10": 0.7761,
+        "p50": 0.9563,
+        "p90": 1.5336
+      },
+      "score": {
+        "correct": 649,
+        "exact_match": 0.011876,
+        "f1": 0.443473,
+        "llm_score": 0.770784,
+        "n": 842
+      }
+    },
+    "A_SEMANTIC_DA_V2_32K": {
+      "answer_usage": {
+        "cached_tokens": 112896,
+        "calls": 842,
+        "completion_tokens": 9185,
+        "prompt_tokens": 9664706,
+        "seconds": 1047.186
+      },
+      "by_category": {
+        "1": {
+          "correct": 125,
+          "exact_match": 0.0,
+          "f1": 0.338864,
+          "llm_score": 0.730994,
+          "n": 171
+        },
+        "2": {
+          "correct": 111,
+          "exact_match": 0.0,
+          "f1": 0.386849,
+          "llm_score": 0.627119,
+          "n": 177
+        },
+        "3": {
+          "correct": 34,
+          "exact_match": 0.019608,
+          "f1": 0.269395,
+          "llm_score": 0.666667,
+          "n": 51
+        },
+        "4": {
+          "correct": 384,
+          "exact_match": 0.009029,
+          "f1": 0.533122,
+          "llm_score": 0.866817,
+          "n": 443
+        }
+      },
+      "by_conversation": {
+        "conv-26": {
+          "correct": 121,
+          "exact_match": 0.006623,
+          "f1": 0.374833,
+          "llm_score": 0.801325,
+          "n": 151
+        },
+        "conv-30": {
+          "correct": 67,
+          "exact_match": 0.0,
+          "f1": 0.43849,
+          "llm_score": 0.82716,
+          "n": 81
+        },
+        "conv-43": {
+          "correct": 134,
+          "exact_match": 0.011299,
+          "f1": 0.456847,
+          "llm_score": 0.757062,
+          "n": 177
+        },
+        "conv-44": {
+          "correct": 96,
+          "exact_match": 0.0,
+          "f1": 0.492028,
+          "llm_score": 0.780488,
+          "n": 123
+        },
+        "conv-49": {
+          "correct": 115,
+          "exact_match": 0.006536,
+          "f1": 0.432899,
+          "llm_score": 0.751634,
+          "n": 153
+        },
+        "conv-50": {
+          "correct": 121,
+          "exact_match": 0.006369,
+          "f1": 0.487883,
+          "llm_score": 0.770701,
+          "n": 157
+        }
+      },
+      "context_chars": {
+        "max": 45554.0,
+        "min": 42862.0,
+        "p10": 43008.2,
+        "p50": 44226.0,
+        "p90": 45439.7
+      },
+      "malformed": 0,
+      "prompt_tokens": {
+        "max": 11867.0,
+        "min": 10794.0,
+        "p10": 11118.1,
+        "p50": 11523.5,
+        "p90": 11714.7
+      },
+      "response_seconds": {
+        "max": 5.8409,
+        "min": 0.6015,
+        "p10": 0.8438,
+        "p50": 1.05,
+        "p90": 1.7997
+      },
+      "score": {
+        "correct": 654,
+        "exact_match": 0.005938,
+        "f1": 0.446948,
+        "llm_score": 0.776722,
+        "n": 842
+      }
+    }
+  },
+  "aspect_v1": {
+    "correct": 670,
+    "exact_match": 0.014252,
+    "f1": 0.449996,
+    "llm_score": 0.795724,
+    "n": 842
+  },
+  "comparisons": {
+    "16K_vs_ASPECT_V1": {
+      "discordant": 73,
+      "gains": 26,
+      "losses": 47,
+      "net": -21,
+      "ties": 769,
+      "two_sided_exact_p": 0.018617751433194638
+    },
+    "32K_vs_16K": {
+      "discordant": 49,
+      "gains": 27,
+      "losses": 22,
+      "net": 5,
+      "ties": 793,
+      "two_sided_exact_p": 0.5681724128491652
+    },
+    "32K_vs_ASPECT_V1": {
+      "discordant": 80,
+      "gains": 32,
+      "losses": 48,
+      "net": -16,
+      "ties": 762,
+      "two_sided_exact_p": 0.09291188222054621
+    }
+  },
+  "failed_items": 0,
+  "judge_usage_note": "Judge token totals are not exact because one interrupted process checkpoint was superseded; all 1,684 sealed judgements are complete.",
+  "population": 842,
+  "schema": "hh005-report-v1",
+  "status": "COMPLETE",
+  "watchdog_restarts": 4
+}

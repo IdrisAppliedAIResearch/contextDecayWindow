@@ -1,0 +1,213 @@
+{
+  "answer_usage": {
+    "cached_tokens": 12800,
+    "calls": 842,
+    "completion_tokens": 7988,
+    "prompt_tokens": 11234303,
+    "seconds": 1236.94
+  },
+  "arm": "A_DA098_ARCH32_DECODED",
+  "by_category": {
+    "1": {
+      "correct": 129,
+      "exact_match": 0.0,
+      "f1": 0.347824,
+      "llm_score": 0.754386,
+      "n": 171
+    },
+    "2": {
+      "correct": 59,
+      "exact_match": 0.0,
+      "f1": 0.124989,
+      "llm_score": 0.333333,
+      "n": 177
+    },
+    "3": {
+      "correct": 31,
+      "exact_match": 0.039216,
+      "f1": 0.277221,
+      "llm_score": 0.607843,
+      "n": 51
+    },
+    "4": {
+      "correct": 387,
+      "exact_match": 0.031603,
+      "f1": 0.559194,
+      "llm_score": 0.873589,
+      "n": 443
+    }
+  },
+  "by_conversation": {
+    "conv-26": {
+      "correct": 111,
+      "exact_match": 0.006623,
+      "f1": 0.342816,
+      "llm_score": 0.735099,
+      "n": 151
+    },
+    "conv-30": {
+      "correct": 48,
+      "exact_match": 0.0,
+      "f1": 0.256338,
+      "llm_score": 0.592593,
+      "n": 81
+    },
+    "conv-43": {
+      "correct": 135,
+      "exact_match": 0.050847,
+      "f1": 0.446819,
+      "llm_score": 0.762712,
+      "n": 177
+    },
+    "conv-44": {
+      "correct": 90,
+      "exact_match": 0.00813,
+      "f1": 0.47324,
+      "llm_score": 0.731707,
+      "n": 123
+    },
+    "conv-49": {
+      "correct": 104,
+      "exact_match": 0.013072,
+      "f1": 0.420124,
+      "llm_score": 0.679739,
+      "n": 153
+    },
+    "conv-50": {
+      "correct": 118,
+      "exact_match": 0.019108,
+      "f1": 0.441779,
+      "llm_score": 0.751592,
+      "n": 157
+    }
+  },
+  "comparisons": {
+    "A_CDW": {
+      "discordant": 149,
+      "gains": 50,
+      "losses": 99,
+      "net": -49,
+      "ties": 693,
+      "two_sided_exact_p": 7.327950544840741e-05
+    },
+    "A_EPISODIC": {
+      "discordant": 169,
+      "gains": 60,
+      "losses": 109,
+      "net": -49,
+      "ties": 673,
+      "two_sided_exact_p": 0.00020239774375449275
+    },
+    "A_EPISODIC_ASPECT": {
+      "discordant": 184,
+      "gains": 60,
+      "losses": 124,
+      "net": -64,
+      "ties": 658,
+      "two_sided_exact_p": 2.736842808757901e-06
+    },
+    "A_FULL": {
+      "discordant": 186,
+      "gains": 85,
+      "losses": 101,
+      "net": -16,
+      "ties": 656,
+      "two_sided_exact_p": 0.2713523673730987
+    },
+    "A_RAG": {
+      "discordant": 317,
+      "gains": 270,
+      "losses": 47,
+      "net": 223,
+      "ties": 525,
+      "two_sided_exact_p": 3.4250216829440253e-39
+    }
+  },
+  "context_chars": {
+    "max": 58091.0,
+    "min": 52798.0,
+    "p10": 54028.4,
+    "p50": 55205.0,
+    "p90": 56218.7
+  },
+  "controls": {
+    "A_CDW": {
+      "correct": 655,
+      "exact_match": 0.033254,
+      "f1": 0.49904,
+      "llm_score": 0.77791,
+      "n": 842
+    },
+    "A_EPISODIC": {
+      "correct": 655,
+      "exact_match": 0.011876,
+      "f1": 0.445447,
+      "llm_score": 0.77791,
+      "n": 842
+    },
+    "A_EPISODIC_ASPECT": {
+      "correct": 670,
+      "exact_match": 0.014252,
+      "f1": 0.449996,
+      "llm_score": 0.795724,
+      "n": 842
+    },
+    "A_FULL": {
+      "correct": 622,
+      "exact_match": 0.003563,
+      "f1": 0.417575,
+      "llm_score": 0.738717,
+      "n": 842
+    },
+    "A_RAG": {
+      "correct": 383,
+      "exact_match": 0.039192,
+      "f1": 0.294548,
+      "llm_score": 0.454869,
+      "n": 842
+    }
+  },
+  "estimated_usd": 1.7434,
+  "failed_items": 0,
+  "hashes": {
+    "contexts": "43e0bcadd19af5f5915b3f4a4cbcf8539f094a2250ce14196beb04a333942924",
+    "judgements": "542508c3b871599b2d4db08a75cb0ab916d6eaf661ca4cf375a1e82aa9ba0cc8",
+    "predictions": "dc1709010e8741bc36e10c2a139e35cb4a651a2071d83f3c05eab8b8151570ba"
+  },
+  "judge_usage": {
+    "cached_tokens": 0,
+    "calls": 842,
+    "completion_tokens": 5052,
+    "prompt_tokens": 342878,
+    "seconds": 533.74
+  },
+  "malformed_judgements": 0,
+  "model": "gpt-4o-mini-2024-07-18",
+  "population": 842,
+  "prompt_tokens": {
+    "max": 14354.0,
+    "min": 12438.0,
+    "p10": 12940.3,
+    "p50": 13337.5,
+    "p90": 13757.8
+  },
+  "response_seconds": {
+    "max": 9.826,
+    "min": 0.7407,
+    "p10": 0.9246,
+    "p50": 1.1752,
+    "p90": 2.3078
+  },
+  "restart_accounting_note": "Successful sealed calls only; up to eight uncheckpointed answer calls may have completed during the stale-process restart.",
+  "schema": "hh004-report-v1",
+  "score": {
+    "correct": 606,
+    "exact_match": 0.019002,
+    "f1": 0.407912,
+    "llm_score": 0.719715,
+    "n": 842
+  },
+  "status": "COMPLETE",
+  "successful_calls": 1684,
+  "watchdog_restarts": 1
+}

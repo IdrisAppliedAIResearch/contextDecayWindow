@@ -1,0 +1,579 @@
+{
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "claim_boundary": "availability diagnostic only; no reserve, renderer, reader, or adoption",
+  "matrix": {
+    "PAIR_R1024": {
+      "by_conversation": {
+        "conv-26": {
+          "gains": 15,
+          "losses": 53,
+          "net": -38
+        },
+        "conv-30": {
+          "gains": 4,
+          "losses": 0,
+          "net": 4
+        },
+        "conv-43": {
+          "gains": 12,
+          "losses": 74,
+          "net": -62
+        },
+        "conv-44": {
+          "gains": 1,
+          "losses": 71,
+          "net": -70
+        },
+        "conv-49": {
+          "gains": 11,
+          "losses": 0,
+          "net": 11
+        },
+        "conv-50": {
+          "gains": 5,
+          "losses": 22,
+          "net": -17
+        }
+      },
+      "chars": {
+        "core_chars": {
+          "p10": 14663,
+          "p50": 14846,
+          "p90": 14951
+        },
+        "payload_chars": {
+          "p10": 138,
+          "p50": 251,
+          "p90": 428
+        },
+        "total_chars": {
+          "p10": 14742,
+          "p50": 14957,
+          "p90": 15248
+        },
+        "unused_reserve": {
+          "p10": 639,
+          "p50": 878,
+          "p90": 1024
+        }
+      },
+      "complete_edge_actions": 21773,
+      "gains": 48,
+      "link_admissions": 14642,
+      "link_carried_gains": 48,
+      "losses": 220,
+      "net": -172,
+      "retained_da004_benefits": {
+        "DOWNSTREAM": 0,
+        "NEIGHBOR": 48
+      },
+      "status": "NO_PROTECTED_CAPACITY_SIGNAL",
+      "suffix_losses": 220
+    },
+    "PAIR_R2048": {
+      "by_conversation": {
+        "conv-26": {
+          "gains": 13,
+          "losses": 101,
+          "net": -88
+        },
+        "conv-30": {
+          "gains": 3,
+          "losses": 25,
+          "net": -22
+        },
+        "conv-43": {
+          "gains": 12,
+          "losses": 96,
+          "net": -84
+        },
+        "conv-44": {
+          "gains": 1,
+          "losses": 95,
+          "net": -94
+        },
+        "conv-49": {
+          "gains": 11,
+          "losses": 50,
+          "net": -39
+        },
+        "conv-50": {
+          "gains": 5,
+          "losses": 89,
+          "net": -84
+        }
+      },
+      "chars": {
+        "core_chars": {
+          "p10": 13630,
+          "p50": 13824,
+          "p90": 13924
+        },
+        "payload_chars": {
+          "p10": 138,
+          "p50": 251,
+          "p90": 428
+        },
+        "total_chars": {
+          "p10": 13717,
+          "p50": 13936,
+          "p90": 14226
+        },
+        "unused_reserve": {
+          "p10": 1661,
+          "p50": 1889,
+          "p90": 2048
+        }
+      },
+      "complete_edge_actions": 21534,
+      "gains": 45,
+      "link_admissions": 15211,
+      "link_carried_gains": 45,
+      "losses": 456,
+      "net": -411,
+      "retained_da004_benefits": {
+        "DOWNSTREAM": 0,
+        "NEIGHBOR": 45
+      },
+      "status": "NO_PROTECTED_CAPACITY_SIGNAL",
+      "suffix_losses": 456
+    },
+    "PAIR_R256": {
+      "by_conversation": {
+        "conv-26": {
+          "gains": 2,
+          "losses": 0,
+          "net": 2
+        },
+        "conv-30": {
+          "gains": 1,
+          "losses": 0,
+          "net": 1
+        },
+        "conv-43": {
+          "gains": 3,
+          "losses": 25,
+          "net": -22
+        },
+        "conv-44": {
+          "gains": 1,
+          "losses": 48,
+          "net": -47
+        },
+        "conv-49": {
+          "gains": 2,
+          "losses": 0,
+          "net": 2
+        },
+        "conv-50": {
+          "gains": 1,
+          "losses": 0,
+          "net": 1
+        }
+      },
+      "chars": {
+        "core_chars": {
+          "p10": 15435,
+          "p50": 15622,
+          "p90": 15724
+        },
+        "payload_chars": {
+          "p10": 138,
+          "p50": 251,
+          "p90": 428
+        },
+        "total_chars": {
+          "p10": 15463,
+          "p50": 15655,
+          "p90": 15831
+        },
+        "unused_reserve": {
+          "p10": 48,
+          "p50": 256,
+          "p90": 256
+        }
+      },
+      "complete_edge_actions": 21882,
+      "gains": 10,
+      "link_admissions": 6831,
+      "link_carried_gains": 10,
+      "losses": 73,
+      "net": -63,
+      "retained_da004_benefits": {
+        "DOWNSTREAM": 0,
+        "NEIGHBOR": 10
+      },
+      "status": "NO_PROTECTED_CAPACITY_SIGNAL",
+      "suffix_losses": 73
+    },
+    "PAIR_R512": {
+      "by_conversation": {
+        "conv-26": {
+          "gains": 11,
+          "losses": 27,
+          "net": -16
+        },
+        "conv-30": {
+          "gains": 4,
+          "losses": 0,
+          "net": 4
+        },
+        "conv-43": {
+          "gains": 12,
+          "losses": 48,
+          "net": -36
+        },
+        "conv-44": {
+          "gains": 1,
+          "losses": 48,
+          "net": -47
+        },
+        "conv-49": {
+          "gains": 11,
+          "losses": 0,
+          "net": 11
+        },
+        "conv-50": {
+          "gains": 4,
+          "losses": 0,
+          "net": 4
+        }
+      },
+      "chars": {
+        "core_chars": {
+          "p10": 15192,
+          "p50": 15360,
+          "p90": 15465
+        },
+        "payload_chars": {
+          "p10": 138,
+          "p50": 251,
+          "p90": 428
+        },
+        "total_chars": {
+          "p10": 15254,
+          "p50": 15464,
+          "p90": 15742
+        },
+        "unused_reserve": {
+          "p10": 147,
+          "p50": 397,
+          "p90": 512
+        }
+      },
+      "complete_edge_actions": 21865,
+      "gains": 43,
+      "link_admissions": 13815,
+      "link_carried_gains": 43,
+      "losses": 123,
+      "net": -80,
+      "retained_da004_benefits": {
+        "DOWNSTREAM": 0,
+        "NEIGHBOR": 43
+      },
+      "status": "NO_PROTECTED_CAPACITY_SIGNAL",
+      "suffix_losses": 123
+    },
+    "TURN_R1024": {
+      "by_conversation": {
+        "conv-26": {
+          "gains": 12,
+          "losses": 53,
+          "net": -41
+        },
+        "conv-30": {
+          "gains": 2,
+          "losses": 0,
+          "net": 2
+        },
+        "conv-43": {
+          "gains": 10,
+          "losses": 74,
+          "net": -64
+        },
+        "conv-44": {
+          "gains": 0,
+          "losses": 71,
+          "net": -71
+        },
+        "conv-49": {
+          "gains": 8,
+          "losses": 0,
+          "net": 8
+        },
+        "conv-50": {
+          "gains": 3,
+          "losses": 22,
+          "net": -19
+        }
+      },
+      "chars": {
+        "core_chars": {
+          "p10": 14663,
+          "p50": 14846,
+          "p90": 14951
+        },
+        "payload_chars": {
+          "p10": 64,
+          "p50": 127,
+          "p90": 245
+        },
+        "total_chars": {
+          "p10": 14722,
+          "p50": 14911,
+          "p90": 15088
+        },
+        "unused_reserve": {
+          "p10": 810,
+          "p50": 957,
+          "p90": 1024
+        }
+      },
+      "complete_edge_actions": 21760,
+      "gains": 35,
+      "link_admissions": 14642,
+      "link_carried_gains": 35,
+      "losses": 220,
+      "net": -185,
+      "retained_da004_benefits": {
+        "DOWNSTREAM": 0,
+        "NEIGHBOR": 35
+      },
+      "status": "NO_PROTECTED_CAPACITY_SIGNAL",
+      "suffix_losses": 220
+    },
+    "TURN_R2048": {
+      "by_conversation": {
+        "conv-26": {
+          "gains": 11,
+          "losses": 101,
+          "net": -90
+        },
+        "conv-30": {
+          "gains": 1,
+          "losses": 25,
+          "net": -24
+        },
+        "conv-43": {
+          "gains": 10,
+          "losses": 96,
+          "net": -86
+        },
+        "conv-44": {
+          "gains": 0,
+          "losses": 95,
+          "net": -95
+        },
+        "conv-49": {
+          "gains": 8,
+          "losses": 50,
+          "net": -42
+        },
+        "conv-50": {
+          "gains": 3,
+          "losses": 89,
+          "net": -86
+        }
+      },
+      "chars": {
+        "core_chars": {
+          "p10": 13630,
+          "p50": 13824,
+          "p90": 13924
+        },
+        "payload_chars": {
+          "p10": 64,
+          "p50": 127,
+          "p90": 245
+        },
+        "total_chars": {
+          "p10": 13695,
+          "p50": 13893,
+          "p90": 14067
+        },
+        "unused_reserve": {
+          "p10": 1830,
+          "p50": 1976,
+          "p90": 2048
+        }
+      },
+      "complete_edge_actions": 21522,
+      "gains": 33,
+      "link_admissions": 15211,
+      "link_carried_gains": 33,
+      "losses": 456,
+      "net": -423,
+      "retained_da004_benefits": {
+        "DOWNSTREAM": 0,
+        "NEIGHBOR": 33
+      },
+      "status": "NO_PROTECTED_CAPACITY_SIGNAL",
+      "suffix_losses": 456
+    },
+    "TURN_R256": {
+      "by_conversation": {
+        "conv-26": {
+          "gains": 10,
+          "losses": 0,
+          "net": 10
+        },
+        "conv-30": {
+          "gains": 2,
+          "losses": 0,
+          "net": 2
+        },
+        "conv-43": {
+          "gains": 9,
+          "losses": 25,
+          "net": -16
+        },
+        "conv-44": {
+          "gains": 0,
+          "losses": 48,
+          "net": -48
+        },
+        "conv-49": {
+          "gains": 7,
+          "losses": 0,
+          "net": 7
+        },
+        "conv-50": {
+          "gains": 2,
+          "losses": 0,
+          "net": 2
+        }
+      },
+      "chars": {
+        "core_chars": {
+          "p10": 15435,
+          "p50": 15622,
+          "p90": 15724
+        },
+        "payload_chars": {
+          "p10": 64,
+          "p50": 127,
+          "p90": 245
+        },
+        "total_chars": {
+          "p10": 15481,
+          "p50": 15674,
+          "p90": 15835
+        },
+        "unused_reserve": {
+          "p10": 72,
+          "p50": 222,
+          "p90": 256
+        }
+      },
+      "complete_edge_actions": 21902,
+      "gains": 30,
+      "link_admissions": 13067,
+      "link_carried_gains": 30,
+      "losses": 73,
+      "net": -43,
+      "retained_da004_benefits": {
+        "DOWNSTREAM": 0,
+        "NEIGHBOR": 30
+      },
+      "status": "NO_PROTECTED_CAPACITY_SIGNAL",
+      "suffix_losses": 73
+    },
+    "TURN_R512": {
+      "by_conversation": {
+        "conv-26": {
+          "gains": 12,
+          "losses": 27,
+          "net": -15
+        },
+        "conv-30": {
+          "gains": 2,
+          "losses": 0,
+          "net": 2
+        },
+        "conv-43": {
+          "gains": 10,
+          "losses": 48,
+          "net": -38
+        },
+        "conv-44": {
+          "gains": 0,
+          "losses": 48,
+          "net": -48
+        },
+        "conv-49": {
+          "gains": 8,
+          "losses": 0,
+          "net": 8
+        },
+        "conv-50": {
+          "gains": 3,
+          "losses": 0,
+          "net": 3
+        }
+      },
+      "chars": {
+        "core_chars": {
+          "p10": 15192,
+          "p50": 15360,
+          "p90": 15465
+        },
+        "payload_chars": {
+          "p10": 64,
+          "p50": 127,
+          "p90": 245
+        },
+        "total_chars": {
+          "p10": 15242,
+          "p50": 15431,
+          "p90": 15603
+        },
+        "unused_reserve": {
+          "p10": 298,
+          "p50": 447,
+          "p90": 512
+        }
+      },
+      "complete_edge_actions": 21857,
+      "gains": 35,
+      "link_admissions": 14372,
+      "link_carried_gains": 35,
+      "losses": 123,
+      "net": -88,
+      "retained_da004_benefits": {
+        "DOWNSTREAM": 0,
+        "NEIGHBOR": 35
+      },
+      "status": "NO_PROTECTED_CAPACITY_SIGNAL",
+      "suffix_losses": 123
+    }
+  },
+  "pair_turn_discordance": {
+    "1024": {
+      "pair_only_complete": 13,
+      "turn_only_complete": 0
+    },
+    "2048": {
+      "pair_only_complete": 12,
+      "turn_only_complete": 0
+    },
+    "256": {
+      "pair_only_complete": 4,
+      "turn_only_complete": 24
+    },
+    "512": {
+      "pair_only_complete": 12,
+      "turn_only_complete": 4
+    }
+  },
+  "population": {
+    "direct_complete": 935,
+    "edge_actions": 25941,
+    "questions": 1098
+  },
+  "schema": "da007-prefix-result-v1",
+  "standing": "post-outcome representation diagnostic on spent NF-004 LoCoMo"
+}

@@ -1,0 +1,68 @@
+{
+  "anchor": {
+    "da050": 332
+  },
+  "by_question_type": {
+    "knowledge-update": {
+      "n": 17,
+      "topology": {
+        "MULTI_SESSION": 9,
+        "ONE_MEMBER": 8
+      }
+    },
+    "multi-session": {
+      "n": 55,
+      "topology": {
+        "MULTI_SESSION": 39,
+        "ONE_EPISODE_MULTI_MEMBER": 1,
+        "ONE_MEMBER": 13,
+        "ONE_SESSION_MULTI_EPISODE": 2
+      }
+    },
+    "single-session-assistant": {
+      "n": 4,
+      "topology": {
+        "ONE_MEMBER": 4
+      }
+    },
+    "single-session-preference": {
+      "n": 7,
+      "topology": {
+        "ONE_MEMBER": 3,
+        "ONE_SESSION_MULTI_EPISODE": 4
+      }
+    },
+    "single-session-user": {
+      "n": 10,
+      "topology": {
+        "ONE_EPISODE_MULTI_MEMBER": 1,
+        "ONE_MEMBER": 9
+      }
+    },
+    "temporal-reasoning": {
+      "n": 40,
+      "topology": {
+        "MULTI_SESSION": 22,
+        "ONE_MEMBER": 18
+      }
+    }
+  },
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "claim_boundary": "evidence-aware dependency topology only",
+  "grouped_episode_fit_2048": 0,
+  "grouped_episode_overflow": 2,
+  "residuals": 133,
+  "residuals_sha256": "8ae436d03dcccd912729fa33eeb38eb0fbb14db2f0f7e9a214de12f42bdc9106",
+  "schema": "da051-grouped-residual-audit-v1",
+  "status": "COMPLETE",
+  "topology": {
+    "MULTI_SESSION": 70,
+    "ONE_EPISODE_MULTI_MEMBER": 2,
+    "ONE_MEMBER": 55,
+    "ONE_SESSION_MULTI_EPISODE": 6
+  }
+}

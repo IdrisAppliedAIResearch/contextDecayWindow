@@ -1,0 +1,49 @@
+{
+  "by_blocker": {
+    "INITIAL_SENTINEL_ATOMIC_SIZE": {
+      "n": 1,
+      "reachable": 1
+    },
+    "PRIOR_SENTINEL_ATOMIC_CONSUMPTION": {
+      "n": 17,
+      "reachable": 16
+    }
+  },
+  "by_question_type": {
+    "knowledge-update": {
+      "n": 4,
+      "reachable": 4
+    },
+    "multi-session": {
+      "n": 4,
+      "reachable": 4
+    },
+    "single-session-assistant": {
+      "n": 1,
+      "reachable": 1
+    },
+    "single-session-user": {
+      "n": 4,
+      "reachable": 3
+    },
+    "temporal-reasoning": {
+      "n": 5,
+      "reachable": 5
+    }
+  },
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "claim_boundary": "exact external-resolver reachability only; head is not delivered evidence",
+  "heads_admitted": 17,
+  "newly_reachable": 17,
+  "protected_da038_mutations": 0,
+  "reachability_sha256": "e91e2e4c40a52477354b0fd4290adf778f4ce2944be2fceb33a794117d782d9b",
+  "remaining_unreachable": 1,
+  "replay_byte_identical": true,
+  "residuals": 18,
+  "schema": "da041-frontier-head-result-v1",
+  "status": "FRONTIER_HEAD_SIGNAL"
+}

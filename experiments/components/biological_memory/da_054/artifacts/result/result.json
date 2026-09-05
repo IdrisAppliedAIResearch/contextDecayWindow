@@ -1,0 +1,72 @@
+{
+  "absent_members": 134,
+  "addresses_sha256": "ce7cc7a316b2164e32d4ac114b73d0e7c5c4dd40dc08418fd3bea08533277fca",
+  "by_question_type": {
+    "knowledge-update": {
+      "combinations": {
+        "TOP16_SESSION": 1,
+        "UNTOUCHED_SESSION": 11
+      },
+      "n": 12
+    },
+    "multi-session": {
+      "combinations": {
+        "NO_ABSENT_MEMBER": 1,
+        "UNTOUCHED_SESSION": 38
+      },
+      "n": 39
+    },
+    "single-session-assistant": {
+      "combinations": {
+        "NO_ABSENT_MEMBER": 1,
+        "UNTOUCHED_SESSION": 3
+      },
+      "n": 4
+    },
+    "single-session-preference": {
+      "combinations": {
+        "UNTOUCHED_SESSION": 7
+      },
+      "n": 7
+    },
+    "single-session-user": {
+      "combinations": {
+        "UNTOUCHED_SESSION": 10
+      },
+      "n": 10
+    },
+    "temporal-reasoning": {
+      "combinations": {
+        "UNTOUCHED_SESSION": 30
+      },
+      "n": 30
+    }
+  },
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "claim_boundary": "evidence-aware session-entry anatomy only",
+  "distance_by_address": {
+    "DIRECT_TAIL_SESSION": null,
+    "TOP16_SESSION": {
+      "max": 3,
+      "min": 3,
+      "p50": 3,
+      "p90": 3
+    }
+  },
+  "member_addresses": {
+    "TOP16_SESSION": 1,
+    "UNTOUCHED_SESSION": 133
+  },
+  "question_combinations": {
+    "NO_ABSENT_MEMBER": 2,
+    "TOP16_SESSION": 1,
+    "UNTOUCHED_SESSION": 99
+  },
+  "questions": 102,
+  "schema": "da054-session-addressability-audit-v1",
+  "status": "COMPLETE"
+}

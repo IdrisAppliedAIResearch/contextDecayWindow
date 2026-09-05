@@ -1,0 +1,54 @@
+{
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "claim_boundary": "blind exact packet exposure only; no reader, retention, stopping, delivery, runtime, outcomes, or adoption",
+  "complete": 8055,
+  "cumulative_frame_chars": {
+    "p10": 178.0,
+    "p50": 2033.0,
+    "p90": 3537.0
+  },
+  "fallback_only": {
+    "cumulative_frame_chars": {
+      "p10": 2189.0,
+      "p50": 2669.0,
+      "p90": 4482.400000000001
+    },
+    "frames": {
+      "p10": 2.0,
+      "p50": 2.0,
+      "p90": 4.0
+    },
+    "peak_frame_chars": {
+      "p10": 1817.0,
+      "p50": 1817.0,
+      "p90": 1819.0
+    },
+    "targets": 3499
+  },
+  "fallbacks": {
+    "CHILD_PACKET_STREAM": 2701,
+    "EDGE_COMPONENT_PACKET_STREAM": 798,
+    "NONE": 4556
+  },
+  "frames": {
+    "p10": 1.0,
+    "p50": 1.0,
+    "p90": 3.0
+  },
+  "peak_frame_chars": {
+    "p10": 178.0,
+    "p50": 1812.0,
+    "p90": 1819.0
+  },
+  "preserved_da089_complete": 4556,
+  "protected_da078_mutations": 0,
+  "replay_byte_identical": true,
+  "schema": "da090-exact-component-packet-fallback-v1",
+  "status": "EXACT_PACKET_FALLBACK_SIGNAL",
+  "targets": 8055,
+  "targets_sha256": "76a07552baaf87504cb130bb45f706263c5c2a9d961223bd5c779dd1d3375923"
+}

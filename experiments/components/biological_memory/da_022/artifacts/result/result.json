@@ -1,0 +1,164 @@
+{
+  "by_conversation": {
+    "conv-26": {
+      "complete": {
+        "CONTROL": 183,
+        "DIRECT": 169,
+        "TREATMENT": 183
+      },
+      "contrast": {
+        "discordant": 0,
+        "gains": 0,
+        "losses": 0,
+        "net": 0,
+        "ties": 198,
+        "two_sided_exact_p": 1.0
+      },
+      "n": 198
+    },
+    "conv-30": {
+      "complete": {
+        "CONTROL": 99,
+        "DIRECT": 97,
+        "TREATMENT": 99
+      },
+      "contrast": {
+        "discordant": 0,
+        "gains": 0,
+        "losses": 0,
+        "net": 0,
+        "ties": 105,
+        "two_sided_exact_p": 1.0
+      },
+      "n": 105
+    },
+    "conv-43": {
+      "complete": {
+        "CONTROL": 216,
+        "DIRECT": 210,
+        "TREATMENT": 217
+      },
+      "contrast": {
+        "discordant": 1,
+        "gains": 1,
+        "losses": 0,
+        "net": 1,
+        "ties": 240,
+        "two_sided_exact_p": 1.0
+      },
+      "n": 241
+    },
+    "conv-44": {
+      "complete": {
+        "CONTROL": 130,
+        "DIRECT": 129,
+        "TREATMENT": 130
+      },
+      "contrast": {
+        "discordant": 0,
+        "gains": 0,
+        "losses": 0,
+        "net": 0,
+        "ties": 158,
+        "two_sided_exact_p": 1.0
+      },
+      "n": 158
+    },
+    "conv-49": {
+      "complete": {
+        "CONTROL": 160,
+        "DIRECT": 152,
+        "TREATMENT": 161
+      },
+      "contrast": {
+        "discordant": 1,
+        "gains": 1,
+        "losses": 0,
+        "net": 1,
+        "ties": 192,
+        "two_sided_exact_p": 1.0
+      },
+      "n": 193
+    },
+    "conv-50": {
+      "complete": {
+        "CONTROL": 182,
+        "DIRECT": 178,
+        "TREATMENT": 183
+      },
+      "contrast": {
+        "discordant": 1,
+        "gains": 1,
+        "losses": 0,
+        "net": 1,
+        "ties": 202,
+        "two_sided_exact_p": 1.0
+      },
+      "n": 203
+    }
+  },
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "claim_boundary": "spent NF exact availability; joint dictionary reader use untested",
+  "complete": {
+    "CONTROL": 970,
+    "DIRECT": 935,
+    "TREATMENT": 973
+  },
+  "contrast": {
+    "discordant": 3,
+    "gains": 3,
+    "losses": 0,
+    "net": 3,
+    "ties": 1095,
+    "two_sided_exact_p": 0.25
+  },
+  "mechanism": {
+    "admitted_actions": 2582,
+    "admitted_cost": {
+      "p10": 62.0,
+      "p50": 189.0,
+      "p90": 353.9000000000001
+    },
+    "admitted_order_position": {
+      "p10": 2.0,
+      "p50": 4.0,
+      "p90": 7.0
+    },
+    "admitted_seed_rank": {
+      "p10": 3.0,
+      "p50": 8.0,
+      "p90": 15.0
+    },
+    "decisive_actions": 6,
+    "decisive_cost": {
+      "p10": 162.0,
+      "p50": 244.5,
+      "p90": 284.0
+    },
+    "decisive_order_position": {
+      "p10": 1.0,
+      "p50": 2.0,
+      "p90": 3.0
+    },
+    "decisive_seed_rank": {
+      "p10": 4.0,
+      "p50": 8.5,
+      "p90": 12.5
+    },
+    "recovered_chars": {
+      "p10": 306.7,
+      "p50": 480.5,
+      "p90": 660.3000000000001
+    }
+  },
+  "one_hop_ceiling": 986,
+  "outcomes_sha256": "31327315b661a0a50728dd561e577df6044df7817ec4856f5d608fb2212bd5df",
+  "population": 1098,
+  "replay_byte_identical": true,
+  "schema": "da022-nf-immutable-pack-result-v1",
+  "status": "NO_NF_IMMUTABLE_PACK_CAPACITY_SIGNAL"
+}

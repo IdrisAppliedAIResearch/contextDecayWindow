@@ -1,0 +1,137 @@
+{
+  "by_question_type": {
+    "knowledge-update": {
+      "complete": {
+        "CONTROL": 72,
+        "TREATMENT": 72
+      },
+      "contrast": {
+        "discordant": 0,
+        "gains": 0,
+        "losses": 0,
+        "net": 0,
+        "ties": 72,
+        "two_sided_exact_p": 1.0
+      },
+      "n": 72
+    },
+    "multi-session": {
+      "complete": {
+        "CONTROL": 120,
+        "TREATMENT": 121
+      },
+      "contrast": {
+        "discordant": 1,
+        "gains": 1,
+        "losses": 0,
+        "net": 1,
+        "ties": 120,
+        "two_sided_exact_p": 1.0
+      },
+      "n": 121
+    },
+    "single-session-assistant": {
+      "complete": {
+        "CONTROL": 47,
+        "TREATMENT": 51
+      },
+      "contrast": {
+        "discordant": 4,
+        "gains": 4,
+        "losses": 0,
+        "net": 4,
+        "ties": 47,
+        "two_sided_exact_p": 0.125
+      },
+      "n": 51
+    },
+    "single-session-preference": {
+      "complete": {
+        "CONTROL": 30,
+        "TREATMENT": 30
+      },
+      "contrast": {
+        "discordant": 0,
+        "gains": 0,
+        "losses": 0,
+        "net": 0,
+        "ties": 30,
+        "two_sided_exact_p": 1.0
+      },
+      "n": 30
+    },
+    "single-session-user": {
+      "complete": {
+        "CONTROL": 63,
+        "TREATMENT": 64
+      },
+      "contrast": {
+        "discordant": 1,
+        "gains": 1,
+        "losses": 0,
+        "net": 1,
+        "ties": 63,
+        "two_sided_exact_p": 1.0
+      },
+      "n": 64
+    },
+    "temporal-reasoning": {
+      "complete": {
+        "CONTROL": 127,
+        "TREATMENT": 127
+      },
+      "contrast": {
+        "discordant": 0,
+        "gains": 0,
+        "losses": 0,
+        "net": 0,
+        "ties": 127,
+        "two_sided_exact_p": 1.0
+      },
+      "n": 127
+    }
+  },
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "claim_boundary": "exact chunk-chain availability; reader reconstruction untested",
+  "complete": {
+    "CONTROL": 459,
+    "TREATMENT": 465
+  },
+  "contrast": {
+    "discordant": 6,
+    "gains": 6,
+    "losses": 0,
+    "net": 6,
+    "ties": 459,
+    "two_sided_exact_p": 0.03125
+  },
+  "oracle_gains": {
+    "n": 6,
+    "new_chunks": {
+      "2": 6
+    },
+    "peak_auxiliary_chars": {
+      "max": 3111,
+      "p50": 2814.0
+    },
+    "retained_chars": {
+      "max": 3111,
+      "p50": 2814.0
+    },
+    "retained_slots": {
+      "2": 4,
+      "3": 2
+    }
+  },
+  "outcomes_sha256": "1b3a6c42d65ea87d9c4e1da240b96028128e259ca998a7dba7117d1e41c05f7f",
+  "population": 465,
+  "protected_payload_mutations": 0,
+  "remaining": 0,
+  "replay_byte_identical": true,
+  "schema": "da058-exact-chunk-result-v1",
+  "status": "EXACT_CHUNK_CAPACITY_SIGNAL"
+}

@@ -1,0 +1,151 @@
+{
+  "by_question_type": {
+    "knowledge-update": {
+      "complete": {
+        "CONTROL": 60,
+        "TREATMENT": 72
+      },
+      "contrast": {
+        "discordant": 12,
+        "gains": 12,
+        "losses": 0,
+        "net": 12,
+        "ties": 60,
+        "two_sided_exact_p": 0.00048828125
+      },
+      "n": 72
+    },
+    "multi-session": {
+      "complete": {
+        "CONTROL": 82,
+        "TREATMENT": 120
+      },
+      "contrast": {
+        "discordant": 38,
+        "gains": 38,
+        "losses": 0,
+        "net": 38,
+        "ties": 83,
+        "two_sided_exact_p": 7.275957614183426e-12
+      },
+      "n": 121
+    },
+    "single-session-assistant": {
+      "complete": {
+        "CONTROL": 47,
+        "TREATMENT": 47
+      },
+      "contrast": {
+        "discordant": 0,
+        "gains": 0,
+        "losses": 0,
+        "net": 0,
+        "ties": 51,
+        "two_sided_exact_p": 1.0
+      },
+      "n": 51
+    },
+    "single-session-preference": {
+      "complete": {
+        "CONTROL": 23,
+        "TREATMENT": 30
+      },
+      "contrast": {
+        "discordant": 7,
+        "gains": 7,
+        "losses": 0,
+        "net": 7,
+        "ties": 23,
+        "two_sided_exact_p": 0.015625
+      },
+      "n": 30
+    },
+    "single-session-user": {
+      "complete": {
+        "CONTROL": 54,
+        "TREATMENT": 63
+      },
+      "contrast": {
+        "discordant": 9,
+        "gains": 9,
+        "losses": 0,
+        "net": 9,
+        "ties": 55,
+        "two_sided_exact_p": 0.00390625
+      },
+      "n": 64
+    },
+    "temporal-reasoning": {
+      "complete": {
+        "CONTROL": 97,
+        "TREATMENT": 127
+      },
+      "contrast": {
+        "discordant": 30,
+        "gains": 30,
+        "losses": 0,
+        "net": 30,
+        "ties": 97,
+        "two_sided_exact_p": 1.862645149230957e-09
+      },
+      "n": 127
+    }
+  },
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "claim_boundary": "evidence-aware session-head and member-coordinate oracle only",
+  "complete": {
+    "CONTROL": 363,
+    "TREATMENT": 459
+  },
+  "contrast": {
+    "discordant": 96,
+    "gains": 96,
+    "losses": 0,
+    "net": 96,
+    "ties": 369,
+    "two_sided_exact_p": 2.524354896707238e-29
+  },
+  "oracle_gains": {
+    "n": 96,
+    "new_frames": {
+      "1": 68,
+      "2": 23,
+      "3": 5
+    },
+    "peak_auxiliary_chars": {
+      "max": 3125,
+      "p10": 1912.0,
+      "p50": 2029.5,
+      "p90": 2427.5
+    },
+    "pointer_hops": {
+      "max": 18,
+      "p10": 3.0,
+      "p50": 4.0,
+      "p90": 8.5
+    },
+    "retained_chars": {
+      "max": 1628,
+      "p10": 224.0,
+      "p50": 409.5,
+      "p90": 1147.5
+    },
+    "sessions_opened": {
+      "max": 3,
+      "p10": 1.0,
+      "p50": 1.0,
+      "p90": 2.0
+    }
+  },
+  "outcomes_sha256": "6ccec9bf69e13fb5503e8b43f9482bab4be2c1b2d50b1b30e4b8682b98d876ee",
+  "population": 465,
+  "protected_payload_mutations": 0,
+  "replay_byte_identical": true,
+  "residual_overflow_questions": 6,
+  "schema": "da056-session-local-materialization-result-v1",
+  "status": "SESSION_LOCAL_CAPACITY_SIGNAL"
+}

@@ -1,0 +1,136 @@
+{
+  "by_question_type": {
+    "knowledge-update": {
+      "complete": {
+        "CONTROL": 41,
+        "TREATMENT": 43
+      },
+      "contrast": {
+        "discordant": 2,
+        "gains": 2,
+        "losses": 0,
+        "net": 2,
+        "ties": 70,
+        "two_sided_exact_p": 0.5
+      },
+      "n": 72
+    },
+    "multi-session": {
+      "complete": {
+        "CONTROL": 36,
+        "TREATMENT": 42
+      },
+      "contrast": {
+        "discordant": 6,
+        "gains": 6,
+        "losses": 0,
+        "net": 6,
+        "ties": 115,
+        "two_sided_exact_p": 0.03125
+      },
+      "n": 121
+    },
+    "single-session-assistant": {
+      "complete": {
+        "CONTROL": 46,
+        "TREATMENT": 46
+      },
+      "contrast": {
+        "discordant": 0,
+        "gains": 0,
+        "losses": 0,
+        "net": 0,
+        "ties": 51,
+        "two_sided_exact_p": 1.0
+      },
+      "n": 51
+    },
+    "single-session-preference": {
+      "complete": {
+        "CONTROL": 18,
+        "TREATMENT": 18
+      },
+      "contrast": {
+        "discordant": 0,
+        "gains": 0,
+        "losses": 0,
+        "net": 0,
+        "ties": 30,
+        "two_sided_exact_p": 1.0
+      },
+      "n": 30
+    },
+    "single-session-user": {
+      "complete": {
+        "CONTROL": 45,
+        "TREATMENT": 46
+      },
+      "contrast": {
+        "discordant": 1,
+        "gains": 1,
+        "losses": 0,
+        "net": 1,
+        "ties": 63,
+        "two_sided_exact_p": 1.0
+      },
+      "n": 64
+    },
+    "temporal-reasoning": {
+      "complete": {
+        "CONTROL": 36,
+        "TREATMENT": 37
+      },
+      "contrast": {
+        "discordant": 1,
+        "gains": 1,
+        "losses": 0,
+        "net": 1,
+        "ties": 126,
+        "two_sided_exact_p": 1.0
+      },
+      "n": 127
+    }
+  },
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "claim_boundary": "spent LongMem exact availability; reader and runtime unvalidated",
+  "complete": {
+    "CONTROL": 222,
+    "TREATMENT": 232
+  },
+  "contrast": {
+    "discordant": 10,
+    "gains": 10,
+    "losses": 0,
+    "net": 10,
+    "ties": 455,
+    "two_sided_exact_p": 0.001953125
+  },
+  "mechanism": {
+    "admitted_members": 1749,
+    "gain_blockers": {
+      "INITIAL_ATOMIC_SIZE": 6,
+      "MULTI_CARRIER_CONJUNCTION": 1,
+      "PRIOR_ATOMIC_CONSUMPTION": 3
+    },
+    "member_cost": {
+      "p10": 70.0,
+      "p50": 141.0,
+      "p90": 284.0
+    },
+    "member_position": {
+      "p10": 1.0,
+      "p50": 5.0,
+      "p90": 11.0
+    }
+  },
+  "one_hop_ceiling": 250,
+  "outcomes_sha256": "639b693b925ee7e92e5fef57276f2403f62e7834b9b69dfd1a991e5c1b1c9232",
+  "population": 465,
+  "replay_byte_identical": true,
+  "schema": "da038-protected-da033-sentinel-result-v1",
+  "status": "PROTECTED_DA033_SENTINEL_SIGNAL"
+}

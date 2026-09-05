@@ -1,0 +1,298 @@
+{
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "claim_boundary": "spent-corpus availability diagnostic; no payload adoption, reader, or transfer",
+  "discordance": {
+    "ATOMIC_TURNS": {
+      "arm_only_complete": 4,
+      "exact_two_sided_p": 0.125,
+      "full_only_complete": 0
+    },
+    "BEST_TURN": {
+      "arm_only_complete": 6,
+      "exact_two_sided_p": 0.454498291015625,
+      "full_only_complete": 10
+    },
+    "PAIR_THEN_TURN": {
+      "arm_only_complete": 4,
+      "exact_two_sided_p": 0.125,
+      "full_only_complete": 0
+    }
+  },
+  "matrix": {
+    "ATOMIC_TURNS": {
+      "by_conversation": {
+        "conv-26": {
+          "complete": 183,
+          "gains": 14,
+          "losses": 0
+        },
+        "conv-30": {
+          "complete": 99,
+          "gains": 2,
+          "losses": 0
+        },
+        "conv-43": {
+          "complete": 216,
+          "gains": 6,
+          "losses": 0
+        },
+        "conv-44": {
+          "complete": 130,
+          "gains": 1,
+          "losses": 0
+        },
+        "conv-49": {
+          "complete": 160,
+          "gains": 8,
+          "losses": 0
+        },
+        "conv-50": {
+          "complete": 182,
+          "gains": 4,
+          "losses": 0
+        }
+      },
+      "complete": 970,
+      "distributions": {
+        "link_chars": {
+          "p10": 518.0,
+          "p50": 653.0,
+          "p90": 1095.6000000000001
+        },
+        "total_chars": {
+          "p10": 15960.0,
+          "p50": 15985.0,
+          "p90": 15998.0
+        },
+        "unused_slack": {
+          "p10": 2.0,
+          "p50": 15.0,
+          "p90": 40.0
+        }
+      },
+      "fallback_admissions": 0,
+      "gain_depth": {
+        "p10": 1.0,
+        "p50": 1.0,
+        "p90": 3.0
+      },
+      "gain_requires_both_same_pair": 0,
+      "gains": 35,
+      "losses": 0,
+      "member_admissions": 6266,
+      "member_overflows": 21340,
+      "pair_admissions": 0,
+      "pair_overflows": 0
+    },
+    "BEST_TURN": {
+      "by_conversation": {
+        "conv-26": {
+          "complete": 180,
+          "gains": 11,
+          "losses": 0
+        },
+        "conv-30": {
+          "complete": 97,
+          "gains": 0,
+          "losses": 0
+        },
+        "conv-43": {
+          "complete": 216,
+          "gains": 6,
+          "losses": 0
+        },
+        "conv-44": {
+          "complete": 129,
+          "gains": 0,
+          "losses": 0
+        },
+        "conv-49": {
+          "complete": 159,
+          "gains": 7,
+          "losses": 0
+        },
+        "conv-50": {
+          "complete": 181,
+          "gains": 3,
+          "losses": 0
+        }
+      },
+      "complete": 962,
+      "distributions": {
+        "link_chars": {
+          "p10": 508.0,
+          "p50": 643.0,
+          "p90": 1065.3000000000002
+        },
+        "total_chars": {
+          "p10": 15929.0,
+          "p50": 15974.0,
+          "p90": 15996.0
+        },
+        "unused_slack": {
+          "p10": 4.0,
+          "p50": 26.0,
+          "p90": 71.0
+        }
+      },
+      "fallback_admissions": 0,
+      "gain_depth": {
+        "p10": 1.0,
+        "p50": 1.0,
+        "p90": 3.0
+      },
+      "gain_requires_both_same_pair": 0,
+      "gains": 27,
+      "losses": 0,
+      "member_admissions": 5880,
+      "member_overflows": 8100,
+      "pair_admissions": 0,
+      "pair_overflows": 0
+    },
+    "FULL_PAIR": {
+      "by_conversation": {
+        "conv-26": {
+          "complete": 183,
+          "gains": 14,
+          "losses": 0
+        },
+        "conv-30": {
+          "complete": 99,
+          "gains": 2,
+          "losses": 0
+        },
+        "conv-43": {
+          "complete": 214,
+          "gains": 4,
+          "losses": 0
+        },
+        "conv-44": {
+          "complete": 130,
+          "gains": 1,
+          "losses": 0
+        },
+        "conv-49": {
+          "complete": 158,
+          "gains": 6,
+          "losses": 0
+        },
+        "conv-50": {
+          "complete": 182,
+          "gains": 4,
+          "losses": 0
+        }
+      },
+      "complete": 966,
+      "distributions": {
+        "link_chars": {
+          "p10": 470.7,
+          "p50": 634.5,
+          "p90": 1048.0
+        },
+        "total_chars": {
+          "p10": 15882.7,
+          "p50": 15959.0,
+          "p90": 15993.0
+        },
+        "unused_slack": {
+          "p10": 7.0,
+          "p50": 41.0,
+          "p90": 117.30000000000007
+        }
+      },
+      "fallback_admissions": 0,
+      "gain_depth": {
+        "p10": 1.0,
+        "p50": 1.0,
+        "p90": 2.0
+      },
+      "gain_requires_both_same_pair": 0,
+      "gains": 31,
+      "losses": 0,
+      "member_admissions": 0,
+      "member_overflows": 0,
+      "pair_admissions": 3181,
+      "pair_overflows": 10799
+    },
+    "PAIR_THEN_TURN": {
+      "by_conversation": {
+        "conv-26": {
+          "complete": 183,
+          "gains": 14,
+          "losses": 0
+        },
+        "conv-30": {
+          "complete": 99,
+          "gains": 2,
+          "losses": 0
+        },
+        "conv-43": {
+          "complete": 216,
+          "gains": 6,
+          "losses": 0
+        },
+        "conv-44": {
+          "complete": 130,
+          "gains": 1,
+          "losses": 0
+        },
+        "conv-49": {
+          "complete": 160,
+          "gains": 8,
+          "losses": 0
+        },
+        "conv-50": {
+          "complete": 182,
+          "gains": 4,
+          "losses": 0
+        }
+      },
+      "complete": 970,
+      "distributions": {
+        "link_chars": {
+          "p10": 512.0,
+          "p50": 649.0,
+          "p90": 1092.0
+        },
+        "total_chars": {
+          "p10": 15944.0,
+          "p50": 15981.0,
+          "p90": 15997.0
+        },
+        "unused_slack": {
+          "p10": 3.0,
+          "p50": 19.0,
+          "p90": 56.0
+        }
+      },
+      "fallback_admissions": 1176,
+      "gain_depth": {
+        "p10": 1.0,
+        "p50": 1.0,
+        "p90": 3.0
+      },
+      "gain_requires_both_same_pair": 0,
+      "gains": 35,
+      "losses": 0,
+      "member_admissions": 1176,
+      "member_overflows": 10269,
+      "pair_admissions": 2535,
+      "pair_overflows": 11445
+    }
+  },
+  "population": {
+    "direct_complete": 935,
+    "edges": 25941,
+    "questions": 1098
+  },
+  "schema": "da010-payload-result-v1",
+  "statuses": {
+    "ATOMIC_TURNS": "COMPACT_PAYLOAD_SIGNAL",
+    "BEST_TURN": "NO_COMPACT_PAYLOAD_SIGNAL",
+    "PAIR_THEN_TURN": "COMPACT_PAYLOAD_SIGNAL"
+  }
+}

@@ -1,0 +1,137 @@
+{
+  "by_conversation": {
+    "conv-26": {
+      "complete": {
+        "CONTROL": 185,
+        "TREATMENT": 185
+      },
+      "contrast": {
+        "discordant": 0,
+        "gains": 0,
+        "losses": 0,
+        "net": 0,
+        "ties": 198,
+        "two_sided_exact_p": 1.0
+      },
+      "n": 198
+    },
+    "conv-30": {
+      "complete": {
+        "CONTROL": 101,
+        "TREATMENT": 101
+      },
+      "contrast": {
+        "discordant": 0,
+        "gains": 0,
+        "losses": 0,
+        "net": 0,
+        "ties": 105,
+        "two_sided_exact_p": 1.0
+      },
+      "n": 105
+    },
+    "conv-43": {
+      "complete": {
+        "CONTROL": 222,
+        "TREATMENT": 222
+      },
+      "contrast": {
+        "discordant": 0,
+        "gains": 0,
+        "losses": 0,
+        "net": 0,
+        "ties": 241,
+        "two_sided_exact_p": 1.0
+      },
+      "n": 241
+    },
+    "conv-44": {
+      "complete": {
+        "CONTROL": 130,
+        "TREATMENT": 130
+      },
+      "contrast": {
+        "discordant": 0,
+        "gains": 0,
+        "losses": 0,
+        "net": 0,
+        "ties": 158,
+        "two_sided_exact_p": 1.0
+      },
+      "n": 158
+    },
+    "conv-49": {
+      "complete": {
+        "CONTROL": 162,
+        "TREATMENT": 162
+      },
+      "contrast": {
+        "discordant": 0,
+        "gains": 0,
+        "losses": 0,
+        "net": 0,
+        "ties": 193,
+        "two_sided_exact_p": 1.0
+      },
+      "n": 193
+    },
+    "conv-50": {
+      "complete": {
+        "CONTROL": 183,
+        "TREATMENT": 183
+      },
+      "contrast": {
+        "discordant": 0,
+        "gains": 0,
+        "losses": 0,
+        "net": 0,
+        "ties": 203,
+        "two_sided_exact_p": 1.0
+      },
+      "n": 203
+    }
+  },
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "claim_boundary": "spent NF exact availability; reader and runtime unvalidated",
+  "complete": {
+    "CONTROL": 983,
+    "TREATMENT": 983
+  },
+  "contrast": {
+    "discordant": 0,
+    "gains": 0,
+    "losses": 0,
+    "net": 0,
+    "ties": 1098,
+    "two_sided_exact_p": 1.0
+  },
+  "mechanism": {
+    "admitted_actions": 389,
+    "admitted_cost": {
+      "p10": 104.80000000000001,
+      "p50": 191.0,
+      "p90": 305.2
+    },
+    "admitted_position": {
+      "p10": 13.0,
+      "p50": 15.0,
+      "p90": 18.0
+    },
+    "gain_blockers": {},
+    "savings": {
+      "p10": 757.0,
+      "p50": 823.0,
+      "p90": 884.0
+    }
+  },
+  "one_hop_ceiling": 986,
+  "outcomes_sha256": "672498f7b4aa80e05446cca1146c20425c5cbf5a8e0ac3fab1a2edd088c6eaff",
+  "population": 1098,
+  "replay_byte_identical": true,
+  "schema": "da034-nf-sentinel-result-v1",
+  "status": "NO_NF_SENTINEL_VARINT_SIGNAL"
+}

@@ -1,0 +1,37 @@
+{
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "claim_boundary": "exact node-local representation only; no reader, delivery, runtime, or adoption claim",
+  "da093_capacity_retention": {
+    "p10": 0.15777524952164246,
+    "p50": 0.2786885245901639,
+    "p90": 0.5080745841891184
+  },
+  "eligible": 3499,
+  "exact_decode": true,
+  "max_referenced_members": 1,
+  "protected_mutations": {
+    "da078": 0,
+    "da091": 0,
+    "da093": 0
+  },
+  "replay_byte_identical": true,
+  "schema": "da095-exact-node-local-child-stream-v1",
+  "selected": 3499,
+  "selected_pointer_count": {
+    "p10": 12.0,
+    "p50": 25.0,
+    "p90": 46.0
+  },
+  "selected_savings_fraction_vs_da091": {
+    "p10": 0.024964918605053756,
+    "p50": 0.06357615894039735,
+    "p90": 0.14831769856160112
+  },
+  "selection_rate": 1.0,
+  "status": "NODE_LOCAL_CHILD_CAPACITY_SIGNAL",
+  "targets_sha256": "50c719e4d776262b852f0a778a5a0de81aa8517c54206371c3c62b622a0cceda"
+}

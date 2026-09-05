@@ -1,0 +1,67 @@
+{
+  "absent_members": 134,
+  "ambiguities": 0,
+  "by_question_type": {
+    "knowledge-update": {
+      "absent_members": 13,
+      "questions": 12,
+      "resolved_members": 13
+    },
+    "multi-session": {
+      "absent_members": 56,
+      "questions": 39,
+      "resolved_members": 56
+    },
+    "single-session-assistant": {
+      "absent_members": 3,
+      "questions": 4,
+      "resolved_members": 3
+    },
+    "single-session-preference": {
+      "absent_members": 12,
+      "questions": 7,
+      "resolved_members": 12
+    },
+    "single-session-user": {
+      "absent_members": 11,
+      "questions": 10,
+      "resolved_members": 11
+    },
+    "temporal-reasoning": {
+      "absent_members": 39,
+      "questions": 30,
+      "resolved_members": 39
+    }
+  },
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "claim_boundary": "exact control-plane addressability only; no payload delivery",
+  "episode_order": {
+    "max": 6,
+    "p10": 0.0,
+    "p50": 0.0,
+    "p90": 2.0
+  },
+  "payload_mutations": 0,
+  "pointer_hops": {
+    "max": 9,
+    "p10": 3.0,
+    "p50": 3.0,
+    "p90": 5.0
+  },
+  "questions": 102,
+  "rendered_char_delta": 0,
+  "resolved_members": 134,
+  "resolved_sha256": "daa46007a762420a5202fd5fec8d95189227525eec0b0f770ebad7b07c03ffb2",
+  "schema": "da055-session-directory-addressability-result-v1",
+  "session_order": {
+    "max": 53,
+    "p10": 6.0,
+    "p50": 27.5,
+    "p90": 42.7
+  },
+  "status": "SESSION_DIRECTORY_ADDRESSABILITY_SIGNAL"
+}

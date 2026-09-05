@@ -1,0 +1,148 @@
+{
+  "by_question_type": {
+    "knowledge-update": {
+      "COMPACT_DIRECT": 24,
+      "DIRECT_ORIGINAL": 24,
+      "ONE_HOP_ORACLE": 47,
+      "TEMPORAL_ORDER": 26,
+      "TRANSFER_BENEFIT": 26,
+      "benefit_vs_direct": {
+        "discordant": 2,
+        "gains": 2,
+        "losses": 0,
+        "net": 2,
+        "ties": 70,
+        "two_sided_exact_p": 0.5
+      },
+      "n": 72
+    },
+    "multi-session": {
+      "COMPACT_DIRECT": 24,
+      "DIRECT_ORIGINAL": 24,
+      "ONE_HOP_ORACLE": 46,
+      "TEMPORAL_ORDER": 26,
+      "TRANSFER_BENEFIT": 26,
+      "benefit_vs_direct": {
+        "discordant": 2,
+        "gains": 2,
+        "losses": 0,
+        "net": 2,
+        "ties": 119,
+        "two_sided_exact_p": 0.5
+      },
+      "n": 121
+    },
+    "single-session-assistant": {
+      "COMPACT_DIRECT": 45,
+      "DIRECT_ORIGINAL": 45,
+      "ONE_HOP_ORACLE": 47,
+      "TEMPORAL_ORDER": 45,
+      "TRANSFER_BENEFIT": 45,
+      "benefit_vs_direct": {
+        "discordant": 0,
+        "gains": 0,
+        "losses": 0,
+        "net": 0,
+        "ties": 51,
+        "two_sided_exact_p": 1.0
+      },
+      "n": 51
+    },
+    "single-session-preference": {
+      "COMPACT_DIRECT": 13,
+      "DIRECT_ORIGINAL": 13,
+      "ONE_HOP_ORACLE": 18,
+      "TEMPORAL_ORDER": 15,
+      "TRANSFER_BENEFIT": 15,
+      "benefit_vs_direct": {
+        "discordant": 2,
+        "gains": 2,
+        "losses": 0,
+        "net": 2,
+        "ties": 28,
+        "two_sided_exact_p": 0.5
+      },
+      "n": 30
+    },
+    "single-session-user": {
+      "COMPACT_DIRECT": 35,
+      "DIRECT_ORIGINAL": 35,
+      "ONE_HOP_ORACLE": 50,
+      "TEMPORAL_ORDER": 36,
+      "TRANSFER_BENEFIT": 36,
+      "benefit_vs_direct": {
+        "discordant": 1,
+        "gains": 1,
+        "losses": 0,
+        "net": 1,
+        "ties": 63,
+        "two_sided_exact_p": 1.0
+      },
+      "n": 64
+    },
+    "temporal-reasoning": {
+      "COMPACT_DIRECT": 23,
+      "DIRECT_ORIGINAL": 23,
+      "ONE_HOP_ORACLE": 42,
+      "TEMPORAL_ORDER": 23,
+      "TRANSFER_BENEFIT": 23,
+      "benefit_vs_direct": {
+        "discordant": 0,
+        "gains": 0,
+        "losses": 0,
+        "net": 0,
+        "ties": 127,
+        "two_sided_exact_p": 1.0
+      },
+      "n": 127
+    }
+  },
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "claim_boundary": "spent-corpus exact availability only; no reader, fresh-validation, safety, or adoption claim",
+  "complete": {
+    "COMPACT_DIRECT": 164,
+    "DIRECT_ORIGINAL": 164,
+    "ONE_HOP_ORACLE": 250,
+    "TEMPORAL_ORDER": 171,
+    "TRANSFER_BENEFIT": 171
+  },
+  "contrasts": {
+    "benefit_vs_direct": {
+      "discordant": 7,
+      "gains": 7,
+      "losses": 0,
+      "net": 7,
+      "ties": 458,
+      "two_sided_exact_p": 0.015625
+    },
+    "benefit_vs_temporal": {
+      "discordant": 0,
+      "gains": 0,
+      "losses": 0,
+      "net": 0,
+      "ties": 465,
+      "two_sided_exact_p": 1.0
+    },
+    "temporal_vs_direct": {
+      "discordant": 7,
+      "gains": 7,
+      "losses": 0,
+      "net": 7,
+      "ties": 458,
+      "two_sided_exact_p": 0.015625
+    }
+  },
+  "outcomes_sha256": "832b85bff370fdfb0de619df2b4b280f5b50e375ebfee0190fb22bfa488c2f49",
+  "population": {
+    "questions": 465,
+    "target_turns": 881
+  },
+  "replay_byte_identical": true,
+  "schema": "da013-cross-corpus-result-v1",
+  "standing": "spent LongMemEval cross-corpus availability stress test",
+  "status": "NO_CROSS_CORPUS_CAPACITY_SIGNAL"
+}

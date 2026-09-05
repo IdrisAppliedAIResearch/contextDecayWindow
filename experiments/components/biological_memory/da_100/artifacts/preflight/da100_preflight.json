@@ -1,0 +1,36 @@
+{
+  "allocation_sha256": "f5327a9b5946f217910f2de5df222da66bda59d5f7b18267f8154763f98d44f9",
+  "disposition": "NO_FUSED_SINGLETON_RUNTIME_SIGNAL",
+  "equivalence": {
+    "byte_identical_replay": true,
+    "cache_misses": 0,
+    "calls": {
+      "cache_access": 2744,
+      "embedding": 0,
+      "model": 0
+    },
+    "rows": 1098
+  },
+  "runtime": {
+    "allocation_ms": {
+      "max": 242.1277,
+      "p50": 75.6506,
+      "p95": 216.45258,
+      "p99": 224.230132,
+      "total": 135751.0722
+    },
+    "machine": "AMD64",
+    "processor": "AMD64 Family 26 Model 68 Stepping 0, AuthenticAMD",
+    "python": "3.13.13",
+    "replay_allocation_ms": {
+      "max": 286.1741,
+      "p50": 73.21430000000001,
+      "p95": 265.7513549999998,
+      "p99": 279.762563,
+      "total": 130540.8412
+    },
+    "total_wall_ms": 296372.4291
+  },
+  "schema": "da100-fused-singleton-runtime-v1",
+  "status": "FAIL"
+}

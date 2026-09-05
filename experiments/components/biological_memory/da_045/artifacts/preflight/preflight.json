@@ -1,0 +1,34 @@
+{
+  "actions": {
+    "FRAME": 4905,
+    "OVERFLOW": 3101
+  },
+  "allocation_sha256": "ba527732771e4bcba3d7e5b289b5cb8f3f9daf9b53f0601acac293e401ef2a0a",
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "cumulative_exposed_chars": {
+    "p10": 2876.6,
+    "p50": 9978.0,
+    "p90": 16222.600000000002
+  },
+  "frames": {
+    "p10": 2.0,
+    "p50": 10.0,
+    "p90": 19.0
+  },
+  "immutable_da038": true,
+  "peak_frame_chars": {
+    "max": 2048,
+    "p10": 1461.6000000000001,
+    "p50": 1931.0,
+    "p90": 2035.6
+  },
+  "prefix_only": true,
+  "questions": 465,
+  "replay_byte_identical": true,
+  "schema": "da045-replaceable-node-stream-preflight-v1",
+  "status": "PASS"
+}

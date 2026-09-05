@@ -1,0 +1,40 @@
+{
+  "blockers": {
+    "INITIAL_OPTIMAL_ATOMIC_SIZE": 4,
+    "PRIOR_OPTIMAL_ATOMIC_CONSUMPTION": 9
+  },
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "claim_boundary": "sealed structural exposure crosswalk only; no reader recognition, retention, stopping, or answer use",
+  "crosswalk_sha256": "12c37c79b51b47062dee5f231d169b7fcd25828e56857affe2bfd8351c3c9aaa",
+  "cumulative_chars_through_requirement": {
+    "p10": 2915.8000000000006,
+    "p50": 5781.0,
+    "p90": 19264.2
+  },
+  "exposed": 13,
+  "frames_through_requirement": {
+    "p10": 4.4,
+    "p50": 13.0,
+    "p90": 16.0
+  },
+  "not_exposed": 0,
+  "peak_frame_chars": {
+    "p10": 1470.2,
+    "p50": 1968.0,
+    "p90": 2040.6
+  },
+  "protected_da078_mutations": 0,
+  "replay_byte_identical": true,
+  "required_nodes": {
+    "p10": 1.0,
+    "p50": 1.0,
+    "p90": 1.0
+  },
+  "residuals": 13,
+  "schema": "da080-protected-stream-crosswalk-v1",
+  "status": "PROTECTED_STREAM_CROSSWALK_COMPLETE"
+}

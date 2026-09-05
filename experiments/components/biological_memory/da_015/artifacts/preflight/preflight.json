@@ -1,0 +1,34 @@
+{
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "corpora": {
+    "DA013": {
+      "max_dictionary_entries": 98,
+      "max_incremental_savings": 4160,
+      "median_incremental_savings": 863.0,
+      "p10_incremental_savings": 562.2,
+      "p90_incremental_savings": 1457.0,
+      "rows": 465,
+      "total_replacements": 80652,
+      "zero_dictionary_rows": 0
+    },
+    "NF004": {
+      "max_dictionary_entries": 44,
+      "max_incremental_savings": 804,
+      "median_incremental_savings": 448.5,
+      "p10_incremental_savings": 290.6,
+      "p90_incremental_savings": 624.0,
+      "rows": 1104,
+      "total_replacements": 158858,
+      "zero_dictionary_rows": 0
+    }
+  },
+  "replay_byte_identical": true,
+  "rows": 1569,
+  "schema": "da015-phrase-preflight-v1",
+  "selection_sha256": "7ccc9908c04acc951d90cdb118bb0ca1d974f141e1f623b9670167e774231fe4",
+  "status": "TRANSFERABLE_CAPACITY_SIGNAL"
+}

@@ -1,0 +1,91 @@
+{
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "claim_boundary": "blind exact dependency topology only; no reader, delivery, runtime, or adoption claim",
+  "da093_mutations": 0,
+  "exact_accounting": true,
+  "overall": {
+    "largest_source_share": {
+      "p10": 0.1471543048285341,
+      "p50": 0.23425499231950844,
+      "p90": 0.4215921785259416
+    },
+    "pointer_count": {
+      "p10": 79.0,
+      "p50": 123.0,
+      "p90": 162.0
+    },
+    "reference_coverage": {
+      "p10": 0.39338156120510626,
+      "p50": 0.5406954528085595,
+      "p90": 0.6864154312841008
+    },
+    "rows": 3499,
+    "unique_source_members": {
+      "p10": 18.0,
+      "p50": 24.0,
+      "p90": 29.0
+    }
+  },
+  "pointer_distance": {
+    "p10": 6.0,
+    "p50": 23.0,
+    "p90": 34.0
+  },
+  "replay_byte_identical": true,
+  "route_cells": {
+    "CHILD_PACKET_STREAM": {
+      "largest_source_share": {
+        "p10": 0.157429718875502,
+        "p50": 0.24894810659186536,
+        "p90": 0.44321329639889195
+      },
+      "pointer_count": {
+        "p10": 98.0,
+        "p50": 128.0,
+        "p90": 165.0
+      },
+      "reference_coverage": {
+        "p10": 0.42778793418647165,
+        "p50": 0.5644465740297077,
+        "p90": 0.7001445086705202
+      },
+      "rows": 2701,
+      "unique_source_members": {
+        "p10": 19.0,
+        "p50": 24.0,
+        "p90": 30.0
+      }
+    },
+    "EDGE_COMPONENT_PACKET_STREAM": {
+      "largest_source_share": {
+        "p10": 0.12820169026577743,
+        "p50": 0.18803888419273035,
+        "p90": 0.32849011146117396
+      },
+      "pointer_count": {
+        "p10": 41.0,
+        "p50": 95.0,
+        "p90": 145.0
+      },
+      "reference_coverage": {
+        "p10": 0.3378596167554866,
+        "p50": 0.46017132851383913,
+        "p90": 0.5932350918557815
+      },
+      "rows": 798,
+      "unique_source_members": {
+        "p10": 15.0,
+        "p50": 23.0,
+        "p90": 29.0
+      }
+    }
+  },
+  "schema": "da094-prompt-dependency-topology-v1",
+  "status": "FRAGMENTED_PROMPT_DEPENDENCY_TOPOLOGY",
+  "targets": 3499,
+  "topology_sha256": "9ab65ca7212fed99c81f73907ef004d07d2124b6ed263915f58b23a0ca34cbdb"
+}

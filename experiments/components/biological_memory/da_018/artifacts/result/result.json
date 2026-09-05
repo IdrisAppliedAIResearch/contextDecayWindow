@@ -1,0 +1,525 @@
+{
+  "calls": {
+    "cache_misses": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "claim_boundary": "spent-corpus exact availability only; no reader or adoption claim",
+  "corpora": {
+    "LONGMEM": {
+      "by_group": {
+        "knowledge-update": {
+          "complete": {
+            "CONTROL": 31,
+            "COSINE_PER_CHAR": 33,
+            "DIRECT": 24,
+            "MARGINAL_UTILITY": 31,
+            "PAYLOAD_COSINE": 30
+          },
+          "contrasts": {
+            "COSINE_PER_CHAR": {
+              "discordant": 4,
+              "gains": 3,
+              "losses": 1,
+              "net": 2,
+              "ties": 68,
+              "two_sided_exact_p": 0.625
+            },
+            "MARGINAL_UTILITY": {
+              "discordant": 0,
+              "gains": 0,
+              "losses": 0,
+              "net": 0,
+              "ties": 72,
+              "two_sided_exact_p": 1.0
+            },
+            "PAYLOAD_COSINE": {
+              "discordant": 5,
+              "gains": 2,
+              "losses": 3,
+              "net": -1,
+              "ties": 67,
+              "two_sided_exact_p": 1.0
+            }
+          },
+          "n": 72
+        },
+        "multi-session": {
+          "complete": {
+            "CONTROL": 30,
+            "COSINE_PER_CHAR": 29,
+            "DIRECT": 24,
+            "MARGINAL_UTILITY": 30,
+            "PAYLOAD_COSINE": 27
+          },
+          "contrasts": {
+            "COSINE_PER_CHAR": {
+              "discordant": 3,
+              "gains": 1,
+              "losses": 2,
+              "net": -1,
+              "ties": 118,
+              "two_sided_exact_p": 1.0
+            },
+            "MARGINAL_UTILITY": {
+              "discordant": 2,
+              "gains": 1,
+              "losses": 1,
+              "net": 0,
+              "ties": 119,
+              "two_sided_exact_p": 1.0
+            },
+            "PAYLOAD_COSINE": {
+              "discordant": 5,
+              "gains": 1,
+              "losses": 4,
+              "net": -3,
+              "ties": 116,
+              "two_sided_exact_p": 0.375
+            }
+          },
+          "n": 121
+        },
+        "single-session-assistant": {
+          "complete": {
+            "CONTROL": 45,
+            "COSINE_PER_CHAR": 45,
+            "DIRECT": 45,
+            "MARGINAL_UTILITY": 45,
+            "PAYLOAD_COSINE": 45
+          },
+          "contrasts": {
+            "COSINE_PER_CHAR": {
+              "discordant": 0,
+              "gains": 0,
+              "losses": 0,
+              "net": 0,
+              "ties": 51,
+              "two_sided_exact_p": 1.0
+            },
+            "MARGINAL_UTILITY": {
+              "discordant": 0,
+              "gains": 0,
+              "losses": 0,
+              "net": 0,
+              "ties": 51,
+              "two_sided_exact_p": 1.0
+            },
+            "PAYLOAD_COSINE": {
+              "discordant": 0,
+              "gains": 0,
+              "losses": 0,
+              "net": 0,
+              "ties": 51,
+              "two_sided_exact_p": 1.0
+            }
+          },
+          "n": 51
+        },
+        "single-session-preference": {
+          "complete": {
+            "CONTROL": 15,
+            "COSINE_PER_CHAR": 14,
+            "DIRECT": 13,
+            "MARGINAL_UTILITY": 14,
+            "PAYLOAD_COSINE": 14
+          },
+          "contrasts": {
+            "COSINE_PER_CHAR": {
+              "discordant": 1,
+              "gains": 0,
+              "losses": 1,
+              "net": -1,
+              "ties": 29,
+              "two_sided_exact_p": 1.0
+            },
+            "MARGINAL_UTILITY": {
+              "discordant": 1,
+              "gains": 0,
+              "losses": 1,
+              "net": -1,
+              "ties": 29,
+              "two_sided_exact_p": 1.0
+            },
+            "PAYLOAD_COSINE": {
+              "discordant": 1,
+              "gains": 0,
+              "losses": 1,
+              "net": -1,
+              "ties": 29,
+              "two_sided_exact_p": 1.0
+            }
+          },
+          "n": 30
+        },
+        "single-session-user": {
+          "complete": {
+            "CONTROL": 41,
+            "COSINE_PER_CHAR": 39,
+            "DIRECT": 35,
+            "MARGINAL_UTILITY": 44,
+            "PAYLOAD_COSINE": 37
+          },
+          "contrasts": {
+            "COSINE_PER_CHAR": {
+              "discordant": 8,
+              "gains": 3,
+              "losses": 5,
+              "net": -2,
+              "ties": 56,
+              "two_sided_exact_p": 0.7265625
+            },
+            "MARGINAL_UTILITY": {
+              "discordant": 3,
+              "gains": 3,
+              "losses": 0,
+              "net": 3,
+              "ties": 61,
+              "two_sided_exact_p": 0.25
+            },
+            "PAYLOAD_COSINE": {
+              "discordant": 6,
+              "gains": 1,
+              "losses": 5,
+              "net": -4,
+              "ties": 58,
+              "two_sided_exact_p": 0.21875
+            }
+          },
+          "n": 64
+        },
+        "temporal-reasoning": {
+          "complete": {
+            "CONTROL": 26,
+            "COSINE_PER_CHAR": 29,
+            "DIRECT": 23,
+            "MARGINAL_UTILITY": 27,
+            "PAYLOAD_COSINE": 26
+          },
+          "contrasts": {
+            "COSINE_PER_CHAR": {
+              "discordant": 7,
+              "gains": 5,
+              "losses": 2,
+              "net": 3,
+              "ties": 120,
+              "two_sided_exact_p": 0.453125
+            },
+            "MARGINAL_UTILITY": {
+              "discordant": 3,
+              "gains": 2,
+              "losses": 1,
+              "net": 1,
+              "ties": 124,
+              "two_sided_exact_p": 1.0
+            },
+            "PAYLOAD_COSINE": {
+              "discordant": 6,
+              "gains": 3,
+              "losses": 3,
+              "net": 0,
+              "ties": 121,
+              "two_sided_exact_p": 1.0
+            }
+          },
+          "n": 127
+        }
+      },
+      "complete": {
+        "CONTROL": 188,
+        "COSINE_PER_CHAR": 189,
+        "DIRECT": 164,
+        "MARGINAL_UTILITY": 191,
+        "PAYLOAD_COSINE": 179
+      },
+      "contrasts": {
+        "COSINE_PER_CHAR": {
+          "discordant": 23,
+          "gains": 12,
+          "losses": 11,
+          "net": 1,
+          "ties": 442,
+          "two_sided_exact_p": 1.0
+        },
+        "MARGINAL_UTILITY": {
+          "discordant": 9,
+          "gains": 6,
+          "losses": 3,
+          "net": 3,
+          "ties": 456,
+          "two_sided_exact_p": 0.5078125
+        },
+        "PAYLOAD_COSINE": {
+          "discordant": 23,
+          "gains": 7,
+          "losses": 16,
+          "net": -9,
+          "ties": 442,
+          "two_sided_exact_p": 0.0931396484375
+        }
+      },
+      "n": 465,
+      "one_hop_ceiling": 250
+    },
+    "NF004": {
+      "by_group": {
+        "conv-26": {
+          "complete": {
+            "CONTROL": 183,
+            "COSINE_PER_CHAR": 172,
+            "DIRECT": 169,
+            "MARGINAL_UTILITY": 178,
+            "PAYLOAD_COSINE": 172
+          },
+          "contrasts": {
+            "COSINE_PER_CHAR": {
+              "discordant": 13,
+              "gains": 1,
+              "losses": 12,
+              "net": -11,
+              "ties": 185,
+              "two_sided_exact_p": 0.00341796875
+            },
+            "MARGINAL_UTILITY": {
+              "discordant": 5,
+              "gains": 0,
+              "losses": 5,
+              "net": -5,
+              "ties": 193,
+              "two_sided_exact_p": 0.0625
+            },
+            "PAYLOAD_COSINE": {
+              "discordant": 11,
+              "gains": 0,
+              "losses": 11,
+              "net": -11,
+              "ties": 187,
+              "two_sided_exact_p": 0.0009765625
+            }
+          },
+          "n": 198
+        },
+        "conv-30": {
+          "complete": {
+            "CONTROL": 99,
+            "COSINE_PER_CHAR": 97,
+            "DIRECT": 97,
+            "MARGINAL_UTILITY": 98,
+            "PAYLOAD_COSINE": 98
+          },
+          "contrasts": {
+            "COSINE_PER_CHAR": {
+              "discordant": 2,
+              "gains": 0,
+              "losses": 2,
+              "net": -2,
+              "ties": 103,
+              "two_sided_exact_p": 0.5
+            },
+            "MARGINAL_UTILITY": {
+              "discordant": 1,
+              "gains": 0,
+              "losses": 1,
+              "net": -1,
+              "ties": 104,
+              "two_sided_exact_p": 1.0
+            },
+            "PAYLOAD_COSINE": {
+              "discordant": 3,
+              "gains": 1,
+              "losses": 2,
+              "net": -1,
+              "ties": 102,
+              "two_sided_exact_p": 1.0
+            }
+          },
+          "n": 105
+        },
+        "conv-43": {
+          "complete": {
+            "CONTROL": 216,
+            "COSINE_PER_CHAR": 211,
+            "DIRECT": 210,
+            "MARGINAL_UTILITY": 216,
+            "PAYLOAD_COSINE": 216
+          },
+          "contrasts": {
+            "COSINE_PER_CHAR": {
+              "discordant": 5,
+              "gains": 0,
+              "losses": 5,
+              "net": -5,
+              "ties": 236,
+              "two_sided_exact_p": 0.0625
+            },
+            "MARGINAL_UTILITY": {
+              "discordant": 2,
+              "gains": 1,
+              "losses": 1,
+              "net": 0,
+              "ties": 239,
+              "two_sided_exact_p": 1.0
+            },
+            "PAYLOAD_COSINE": {
+              "discordant": 4,
+              "gains": 2,
+              "losses": 2,
+              "net": 0,
+              "ties": 237,
+              "two_sided_exact_p": 1.0
+            }
+          },
+          "n": 241
+        },
+        "conv-44": {
+          "complete": {
+            "CONTROL": 130,
+            "COSINE_PER_CHAR": 130,
+            "DIRECT": 129,
+            "MARGINAL_UTILITY": 130,
+            "PAYLOAD_COSINE": 129
+          },
+          "contrasts": {
+            "COSINE_PER_CHAR": {
+              "discordant": 0,
+              "gains": 0,
+              "losses": 0,
+              "net": 0,
+              "ties": 158,
+              "two_sided_exact_p": 1.0
+            },
+            "MARGINAL_UTILITY": {
+              "discordant": 0,
+              "gains": 0,
+              "losses": 0,
+              "net": 0,
+              "ties": 158,
+              "two_sided_exact_p": 1.0
+            },
+            "PAYLOAD_COSINE": {
+              "discordant": 1,
+              "gains": 0,
+              "losses": 1,
+              "net": -1,
+              "ties": 157,
+              "two_sided_exact_p": 1.0
+            }
+          },
+          "n": 158
+        },
+        "conv-49": {
+          "complete": {
+            "CONTROL": 160,
+            "COSINE_PER_CHAR": 154,
+            "DIRECT": 152,
+            "MARGINAL_UTILITY": 158,
+            "PAYLOAD_COSINE": 156
+          },
+          "contrasts": {
+            "COSINE_PER_CHAR": {
+              "discordant": 6,
+              "gains": 0,
+              "losses": 6,
+              "net": -6,
+              "ties": 187,
+              "two_sided_exact_p": 0.03125
+            },
+            "MARGINAL_UTILITY": {
+              "discordant": 2,
+              "gains": 0,
+              "losses": 2,
+              "net": -2,
+              "ties": 191,
+              "two_sided_exact_p": 0.5
+            },
+            "PAYLOAD_COSINE": {
+              "discordant": 8,
+              "gains": 2,
+              "losses": 6,
+              "net": -4,
+              "ties": 185,
+              "two_sided_exact_p": 0.2890625
+            }
+          },
+          "n": 193
+        },
+        "conv-50": {
+          "complete": {
+            "CONTROL": 182,
+            "COSINE_PER_CHAR": 180,
+            "DIRECT": 178,
+            "MARGINAL_UTILITY": 180,
+            "PAYLOAD_COSINE": 181
+          },
+          "contrasts": {
+            "COSINE_PER_CHAR": {
+              "discordant": 2,
+              "gains": 0,
+              "losses": 2,
+              "net": -2,
+              "ties": 201,
+              "two_sided_exact_p": 0.5
+            },
+            "MARGINAL_UTILITY": {
+              "discordant": 2,
+              "gains": 0,
+              "losses": 2,
+              "net": -2,
+              "ties": 201,
+              "two_sided_exact_p": 0.5
+            },
+            "PAYLOAD_COSINE": {
+              "discordant": 3,
+              "gains": 1,
+              "losses": 2,
+              "net": -1,
+              "ties": 200,
+              "two_sided_exact_p": 1.0
+            }
+          },
+          "n": 203
+        }
+      },
+      "complete": {
+        "CONTROL": 970,
+        "COSINE_PER_CHAR": 944,
+        "DIRECT": 935,
+        "MARGINAL_UTILITY": 960,
+        "PAYLOAD_COSINE": 952
+      },
+      "contrasts": {
+        "COSINE_PER_CHAR": {
+          "discordant": 28,
+          "gains": 1,
+          "losses": 27,
+          "net": -26,
+          "ties": 1070,
+          "two_sided_exact_p": 2.1606683731079102e-07
+        },
+        "MARGINAL_UTILITY": {
+          "discordant": 12,
+          "gains": 1,
+          "losses": 11,
+          "net": -10,
+          "ties": 1086,
+          "two_sided_exact_p": 0.00634765625
+        },
+        "PAYLOAD_COSINE": {
+          "discordant": 30,
+          "gains": 6,
+          "losses": 24,
+          "net": -18,
+          "ties": 1068,
+          "two_sided_exact_p": 0.001430906355381012
+        }
+      },
+      "n": 1098,
+      "one_hop_ceiling": 986
+    }
+  },
+  "outcomes_sha256": "daceb9e0204524705fab787447ae8a72cced0d68db3158f766e770989548bcfd",
+  "qualifying_arms": [],
+  "replay_byte_identical": true,
+  "schema": "da018-frozen-query-result-v1",
+  "status": "NO_CROSS_CORPUS_CARRIER_UTILITY_SIGNAL"
+}

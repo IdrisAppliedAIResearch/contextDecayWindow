@@ -1,0 +1,38 @@
+{
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "claim_boundary": "reversible prompt-relative representation only; reader use and delivery untested",
+  "eligible": 3499,
+  "preserved_noneligible": 4556,
+  "protected_da078_mutations": 0,
+  "replay_byte_identical": true,
+  "schema": "da093-prompt-relative-exact-child-stream-v1",
+  "selected": 3499,
+  "selected_cumulative_frame_chars": {
+    "p10": 1386.8,
+    "p50": 1895.0,
+    "p90": 2460.0
+  },
+  "selected_frames": {
+    "p10": 1.0,
+    "p50": 2.0,
+    "p90": 2.0
+  },
+  "selected_peak_frame_chars": {
+    "p10": 1386.8,
+    "p50": 1816.0,
+    "p90": 1816.0
+  },
+  "selected_savings_fraction": {
+    "p10": 0.13726830062787385,
+    "p50": 0.22497269748816892,
+    "p90": 0.35050029459046833
+  },
+  "selection_rate": 1.0,
+  "status": "PROMPT_RELATIVE_CHILD_CAPACITY_SIGNAL",
+  "targets": 8055,
+  "targets_sha256": "157b766f1734ab6d163a9a3359c768de6714d3793e5c16889e57b319f5779459"
+}

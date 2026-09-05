@@ -1,0 +1,58 @@
+{
+  "by_question_type": {
+    "knowledge-update": {
+      "INITIAL_PAYLOAD_TOO_LARGE": 12,
+      "MULTI_CARRIER_CONJUNCTION": 2,
+      "PRIOR_CONSUMPTION": 4,
+      "RESCUED": 2,
+      "WRONG_MEMBER_CHOICE": 3
+    },
+    "multi-session": {
+      "INITIAL_PAYLOAD_TOO_LARGE": 15,
+      "MULTI_CARRIER_CONJUNCTION": 4,
+      "PRIOR_CONSUMPTION": 1,
+      "RESCUED": 2
+    },
+    "single-session-assistant": {
+      "INITIAL_PAYLOAD_TOO_LARGE": 2
+    },
+    "single-session-preference": {
+      "MULTI_CARRIER_CONJUNCTION": 1,
+      "RESCUED": 2,
+      "WRONG_MEMBER_CHOICE": 2
+    },
+    "single-session-user": {
+      "INITIAL_PAYLOAD_TOO_LARGE": 9,
+      "PRIOR_CONSUMPTION": 4,
+      "RESCUED": 1,
+      "WRONG_MEMBER_CHOICE": 1
+    },
+    "temporal-reasoning": {
+      "INITIAL_PAYLOAD_TOO_LARGE": 11,
+      "MULTI_CARRIER_CONJUNCTION": 5,
+      "PRIOR_CONSUMPTION": 3
+    }
+  },
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "claim_boundary": "post-outcome spent-data causal accounting only",
+  "classes": {
+    "INITIAL_PAYLOAD_TOO_LARGE": 49,
+    "MULTI_CARRIER_CONJUNCTION": 12,
+    "PRIOR_CONSUMPTION": 12,
+    "RESCUED": 7,
+    "WRONG_MEMBER_CHOICE": 6
+  },
+  "population": {
+    "misses": 79,
+    "reachable": 86,
+    "rescued": 7
+  },
+  "replay_byte_identical": true,
+  "schema": "da014-gap-audit-v1",
+  "status": "CAPACITY_BLOCKER",
+  "traces_sha256": "8c9ea6565d127ef3d1d6cef8ad969fce689236d40acaaee9e333eb52e074856a"
+}

@@ -1,0 +1,45 @@
+{
+  "allocation_sha256": "84c56868ce44a8349a0eee5fccdf5e1c5dde45aff28f17059470558125d25b57",
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "corpora": {
+    "LONGMEM": {
+      "actions": {
+        "PAIR": 297,
+        "SKIP": 4209,
+        "TURN": 216
+      },
+      "codecs": {
+        "DA028": 2,
+        "VARINT": 463
+      },
+      "max_final_chars": 16000,
+      "median_selected_savings": 889.0,
+      "p10_selected_savings": 740.4,
+      "p90_selected_savings": 1030.4,
+      "questions": 465
+    },
+    "NF004": {
+      "actions": {
+        "PAIR": 2290,
+        "SKIP": 428,
+        "TURN": 153
+      },
+      "codecs": {
+        "VARINT": 1098
+      },
+      "max_final_chars": 16000,
+      "median_selected_savings": 1066.0,
+      "p10_selected_savings": 992.0,
+      "p90_selected_savings": 1155.3000000000002,
+      "questions": 1098
+    }
+  },
+  "replay_byte_identical": true,
+  "rows": 1563,
+  "schema": "da031-varint-preflight-v1",
+  "status": "PASS"
+}

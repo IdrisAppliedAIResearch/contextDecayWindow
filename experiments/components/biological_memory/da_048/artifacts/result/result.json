@@ -1,0 +1,137 @@
+{
+  "by_question_type": {
+    "knowledge-update": {
+      "complete": {
+        "CONTROL": 47,
+        "TREATMENT": 50
+      },
+      "contrast": {
+        "discordant": 3,
+        "gains": 3,
+        "losses": 0,
+        "net": 3,
+        "ties": 69,
+        "two_sided_exact_p": 0.25
+      },
+      "n": 72
+    },
+    "multi-session": {
+      "complete": {
+        "CONTROL": 46,
+        "TREATMENT": 55
+      },
+      "contrast": {
+        "discordant": 9,
+        "gains": 9,
+        "losses": 0,
+        "net": 9,
+        "ties": 112,
+        "two_sided_exact_p": 0.00390625
+      },
+      "n": 121
+    },
+    "single-session-assistant": {
+      "complete": {
+        "CONTROL": 47,
+        "TREATMENT": 47
+      },
+      "contrast": {
+        "discordant": 0,
+        "gains": 0,
+        "losses": 0,
+        "net": 0,
+        "ties": 51,
+        "two_sided_exact_p": 1.0
+      },
+      "n": 51
+    },
+    "single-session-preference": {
+      "complete": {
+        "CONTROL": 18,
+        "TREATMENT": 22
+      },
+      "contrast": {
+        "discordant": 4,
+        "gains": 4,
+        "losses": 0,
+        "net": 4,
+        "ties": 26,
+        "two_sided_exact_p": 0.125
+      },
+      "n": 30
+    },
+    "single-session-user": {
+      "complete": {
+        "CONTROL": 50,
+        "TREATMENT": 52
+      },
+      "contrast": {
+        "discordant": 2,
+        "gains": 2,
+        "losses": 0,
+        "net": 2,
+        "ties": 62,
+        "two_sided_exact_p": 0.5
+      },
+      "n": 64
+    },
+    "temporal-reasoning": {
+      "complete": {
+        "CONTROL": 42,
+        "TREATMENT": 69
+      },
+      "contrast": {
+        "discordant": 27,
+        "gains": 27,
+        "losses": 0,
+        "net": 27,
+        "ties": 100,
+        "two_sided_exact_p": 1.4901161193847656e-08
+      },
+      "n": 127
+    }
+  },
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "claim_boundary": "evidence-aware one-frame oracle over frozen second-hop stream only",
+  "complete": {
+    "CONTROL": 250,
+    "TREATMENT": 295
+  },
+  "contrast": {
+    "discordant": 45,
+    "gains": 45,
+    "losses": 0,
+    "net": 45,
+    "ties": 420,
+    "two_sided_exact_p": 5.684341886080802e-14
+  },
+  "da038_complete": 232,
+  "oracle_gains": {
+    "cumulative_chars": {
+      "p10": 282.8,
+      "p50": 1361.0,
+      "p90": 5801.2
+    },
+    "frame_chars": {
+      "p10": 186.0,
+      "p50": 309.0,
+      "p90": 400.4
+    },
+    "n": 45,
+    "ordinal": {
+      "p10": 1.0,
+      "p50": 5.0,
+      "p90": 14.200000000000003
+    }
+  },
+  "outcomes_sha256": "335c4bbceb57e8ae98a4cbb030cc044813aa6ba8e3cbe4aecc01f94fa65b5b36",
+  "population": 465,
+  "protected_payload_mutations": 0,
+  "replay_byte_identical": true,
+  "schema": "da048-directional-continuation-result-v1",
+  "status": "SECOND_HOP_CAPACITY_SIGNAL"
+}

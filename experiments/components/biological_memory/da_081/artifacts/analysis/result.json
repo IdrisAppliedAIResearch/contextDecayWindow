@@ -1,0 +1,47 @@
+{
+  "calls": {
+    "cache_access": 0,
+    "embedding": 0,
+    "model": 0
+  },
+  "claim_boundary": "posthoc exact query-feature state anatomy only; no stopping, reader, transfer, delivery, or adoption",
+  "earlier_state_change_frames": {
+    "p10": 0.0,
+    "p50": 0.0,
+    "p90": 1.8000000000000007
+  },
+  "exact_signature_prior_count": {
+    "p10": 0.0,
+    "p50": 0.0,
+    "p90": 0.0
+  },
+  "feature_count": {
+    "p10": 10.0,
+    "p50": 14.0,
+    "p90": 27.200000000000003
+  },
+  "new_at_arrival": {
+    "p10": 0.0,
+    "p50": 1.0,
+    "p90": 8.8
+  },
+  "new_vs_prompt": {
+    "p10": 0.0,
+    "p50": 2.0,
+    "p90": 8.8
+  },
+  "replay_byte_identical": true,
+  "required_frame_index": {
+    "p10": 4.4,
+    "p50": 13.0,
+    "p90": 16.0
+  },
+  "residuals": 13,
+  "schema": "da081-frame-state-transition-anatomy-v1",
+  "states": {
+    "NOVEL_AT_ARRIVAL": 7,
+    "REDUNDANT_AT_ARRIVAL": 6
+  },
+  "status": "POSTHOC_FRAME_STATE_TRANSITIONS_CHARACTERIZED",
+  "transitions_sha256": "71fb088390feaa0eadeb94f718182a3c45b4666677d0a11b8ceacff8a3ab8d56"
+}
