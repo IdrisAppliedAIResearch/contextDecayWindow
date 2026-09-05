@@ -1,0 +1,286 @@
+{
+  "api_requests_made": 0,
+  "behavioral_identity": "Embed each exact public-store episode text and each exact question as one OpenAI embeddings input, with no truncation or segmentation.",
+  "conversations": 90,
+  "dimensions": 1024,
+  "disposition": "EMBEDDING_INPUT_NOT_IDENTIFIED",
+  "episode_tokens": {
+    "max": 26954,
+    "median": 920,
+    "min": 40,
+    "n": 59210,
+    "over_limit": 35,
+    "p05": 538,
+    "p25": 783,
+    "p75": 1074,
+    "p95": 1412,
+    "total": 56364323
+  },
+  "gate": "FAIL",
+  "max_input_tokens": 8192,
+  "mechanism_surface_sha256": "0377df4ddafa6899f9b21c4f908a5061852b75580958dd480d31511b9261acec",
+  "model": "text-embedding-3-small",
+  "official_reference": "https://developers.openai.com/api/reference/resources/embeddings/methods/create",
+  "outcomes_opened": false,
+  "oversized_episodes": [
+    {
+      "conversation_key": "345a2898355e61f64117317ba93a7a140b17a36a652ffa6f4a726a6b78758e10",
+      "episode_key": "63b4b368d41d20dee2e0955ab3b32d95143632f21f39957ddee33b469e43c3af",
+      "excess_tokens": 17884,
+      "tokens": 26076,
+      "turn_number": 62
+    },
+    {
+      "conversation_key": "a6022451e94ef03528c82d05631cab2ee4a65a36c2259837160cf0cdcec31d50",
+      "episode_key": "487e7eb85ba024efc6049a9960e8e5866a2c247d91ae851f616a6b0d3261a9eb",
+      "excess_tokens": 2838,
+      "tokens": 11030,
+      "turn_number": 374
+    },
+    {
+      "conversation_key": "a6022451e94ef03528c82d05631cab2ee4a65a36c2259837160cf0cdcec31d50",
+      "episode_key": "f52f820509c5b290965ac9f33eb5d54f840751d2d0dc8db8e8792120e0a29834",
+      "excess_tokens": 18762,
+      "tokens": 26954,
+      "turn_number": 423
+    },
+    {
+      "conversation_key": "a6022451e94ef03528c82d05631cab2ee4a65a36c2259837160cf0cdcec31d50",
+      "episode_key": "1b6a64502641ce2337b1ca3cebe2d697f67907b5a5f7f546b70796c506ab757f",
+      "excess_tokens": 3651,
+      "tokens": 11843,
+      "turn_number": 783
+    },
+    {
+      "conversation_key": "50de0ffb5fcb54c03f38a7451b8e70871f9f091a0cf1f655927bff487c82a5f5",
+      "episode_key": "3ec9bd1a86a9823558f078dfdd41d7ede5487ef63e3aefda8c6272a734db4520",
+      "excess_tokens": 10944,
+      "tokens": 19136,
+      "turn_number": 316
+    },
+    {
+      "conversation_key": "50de0ffb5fcb54c03f38a7451b8e70871f9f091a0cf1f655927bff487c82a5f5",
+      "episode_key": "ceaccd8220296318698a77f45ef5ab4711fe5840af4c8c2947a02ff0a332b2c6",
+      "excess_tokens": 1918,
+      "tokens": 10110,
+      "turn_number": 537
+    },
+    {
+      "conversation_key": "50de0ffb5fcb54c03f38a7451b8e70871f9f091a0cf1f655927bff487c82a5f5",
+      "episode_key": "adf8fcdc87487fdea58a5d084f6d15a15e964dc15176ebac61fec7b676f0b63f",
+      "excess_tokens": 903,
+      "tokens": 9095,
+      "turn_number": 699
+    },
+    {
+      "conversation_key": "c52451694a209555e2a67c1c15b68fd45c79e9da210d5f7e24af2356e257d0a9",
+      "episode_key": "d4e3ec4057eb6d057611ce2717750e4dea1491d0ead0c4cfbf2505062ef73a04",
+      "excess_tokens": 3827,
+      "tokens": 12019,
+      "turn_number": 275
+    },
+    {
+      "conversation_key": "c52451694a209555e2a67c1c15b68fd45c79e9da210d5f7e24af2356e257d0a9",
+      "episode_key": "635b9ede280fd822a7aad3ce32214436bf9e3e5512fa8d78ce1da0b8ddd390fe",
+      "excess_tokens": 6093,
+      "tokens": 14285,
+      "turn_number": 304
+    },
+    {
+      "conversation_key": "0f9ed4e7bbd066f26751b45071a3b8ad66a7e1fac3787e0dec7b6d888b1a751b",
+      "episode_key": "4089de0ec143c5b94b89d16fc71310253a5ead151d856b9fc1c9145756c8be57",
+      "excess_tokens": 5843,
+      "tokens": 14035,
+      "turn_number": 296
+    },
+    {
+      "conversation_key": "0f9ed4e7bbd066f26751b45071a3b8ad66a7e1fac3787e0dec7b6d888b1a751b",
+      "episode_key": "71a0e7d1b1f6d6a971f6a53212deb1696415b5e9997392d4ce9082ba6cf03c5c",
+      "excess_tokens": 490,
+      "tokens": 8682,
+      "turn_number": 298
+    },
+    {
+      "conversation_key": "0f9ed4e7bbd066f26751b45071a3b8ad66a7e1fac3787e0dec7b6d888b1a751b",
+      "episode_key": "5178e4bdd9e7ae5e117af33c4cdb2e353bc6efe3ab9051b8e78bcd2ee992f304",
+      "excess_tokens": 7386,
+      "tokens": 15578,
+      "turn_number": 389
+    },
+    {
+      "conversation_key": "0f9ed4e7bbd066f26751b45071a3b8ad66a7e1fac3787e0dec7b6d888b1a751b",
+      "episode_key": "2f2b6784b9c7575f1692e5b95f9a4c59d9cb3de703816015d9e68578d5775d66",
+      "excess_tokens": 5340,
+      "tokens": 13532,
+      "turn_number": 401
+    },
+    {
+      "conversation_key": "0f9ed4e7bbd066f26751b45071a3b8ad66a7e1fac3787e0dec7b6d888b1a751b",
+      "episode_key": "c46c4cf30ac4e7c0d24ddffcab181399832808abd1c521473cd223c2e41fd2a4",
+      "excess_tokens": 262,
+      "tokens": 8454,
+      "turn_number": 416
+    },
+    {
+      "conversation_key": "0f9ed4e7bbd066f26751b45071a3b8ad66a7e1fac3787e0dec7b6d888b1a751b",
+      "episode_key": "a5e05083b807ecafc53a480e27417a21d52c8d8a3abf7c4a544b4e955492888d",
+      "excess_tokens": 7551,
+      "tokens": 15743,
+      "turn_number": 447
+    },
+    {
+      "conversation_key": "3f995b1a682f44938f97ebc1c198a67af8d88706cc8cb8e791d661eb07f8bc93",
+      "episode_key": "e6c734519ca25ceb28aa77fa57752d94454c0ebd9fdf7e3e2d3e6baa1a1affd0",
+      "excess_tokens": 976,
+      "tokens": 9168,
+      "turn_number": 535
+    },
+    {
+      "conversation_key": "3f995b1a682f44938f97ebc1c198a67af8d88706cc8cb8e791d661eb07f8bc93",
+      "episode_key": "a9407cedf80af6c95292fe46b94a60541c008d361dbbaef8ec982dc76657e68a",
+      "excess_tokens": 4958,
+      "tokens": 13150,
+      "turn_number": 739
+    },
+    {
+      "conversation_key": "15a8c4c510919051fc1f5ff8a8e42bced7233e45c58865def60a578aa62ed88e",
+      "episode_key": "76961675efe2df925c107b32f68278656ddfba03635d5bc07a4606ee4ff8a076",
+      "excess_tokens": 8053,
+      "tokens": 16245,
+      "turn_number": 489
+    },
+    {
+      "conversation_key": "2fa7ba06c51056b4356f0da7bb0b16ba80a88f48b168d93978d15f4d692fa4dd",
+      "episode_key": "9a1b7190b42ab1a8e159a1b4d494731c2843a04afde1a85ba4e82e07f5ef551b",
+      "excess_tokens": 1197,
+      "tokens": 9389,
+      "turn_number": 119
+    },
+    {
+      "conversation_key": "2fa7ba06c51056b4356f0da7bb0b16ba80a88f48b168d93978d15f4d692fa4dd",
+      "episode_key": "4f70f3ce10568997549517c72b55560060cfe2eb5e1901f93b37a7c7f37e7e54",
+      "excess_tokens": 10808,
+      "tokens": 19000,
+      "turn_number": 512
+    },
+    {
+      "conversation_key": "7f3feb74456c11c9eaa8f150ef7b386704d5d5085adabe195afa4542e19e131f",
+      "episode_key": "6ea270ca4de7e7e7c1cba1faf754d9c1cafa69f9f15d3cfef53176331d6a8097",
+      "excess_tokens": 5016,
+      "tokens": 13208,
+      "turn_number": 1304
+    },
+    {
+      "conversation_key": "4e5b7a622db78bdbab653dd1e030ecd654f2ef4ce7463fa4c35de27bdc536c2f",
+      "episode_key": "3a2674360fc4e296226532ce4c1e83b436c78abaa388910c49b6776f2eef5313",
+      "excess_tokens": 3195,
+      "tokens": 11387,
+      "turn_number": 357
+    },
+    {
+      "conversation_key": "d633d748b4b9f9cac2b9e4b253d376dee9e3372142949616b62b37c068076a97",
+      "episode_key": "6aa5a86a12ad99a8ba9a31560374f68331ed0ac4fdb892e9b4e240abccdea16b",
+      "excess_tokens": 1794,
+      "tokens": 9986,
+      "turn_number": 287
+    },
+    {
+      "conversation_key": "2827869222b956d72301fa67ae0846338b59e28e40e46da581971fb0a7bdd4fc",
+      "episode_key": "ddf7bf84228c856d5d63f1eedbcef361e867bcc234a0cbae24f694cd1e99912d",
+      "excess_tokens": 6728,
+      "tokens": 14920,
+      "turn_number": 363
+    },
+    {
+      "conversation_key": "2827869222b956d72301fa67ae0846338b59e28e40e46da581971fb0a7bdd4fc",
+      "episode_key": "3aed3264066bea514d6b0ccde280f8eea576c8327c7485ba0dd1ef6363306e21",
+      "excess_tokens": 1604,
+      "tokens": 9796,
+      "turn_number": 394
+    },
+    {
+      "conversation_key": "2827869222b956d72301fa67ae0846338b59e28e40e46da581971fb0a7bdd4fc",
+      "episode_key": "5405cada94108345930e23fce57af4ff4e5dba218c5c81dfa5798d7c8204df3c",
+      "excess_tokens": 4291,
+      "tokens": 12483,
+      "turn_number": 434
+    },
+    {
+      "conversation_key": "2827869222b956d72301fa67ae0846338b59e28e40e46da581971fb0a7bdd4fc",
+      "episode_key": "4fa70ee9d85f721101e77bb2b7b97b5d34f458d7811a5e42fcb22121ce06ae39",
+      "excess_tokens": 420,
+      "tokens": 8612,
+      "turn_number": 459
+    },
+    {
+      "conversation_key": "2827869222b956d72301fa67ae0846338b59e28e40e46da581971fb0a7bdd4fc",
+      "episode_key": "d57231acaf2ea9c94d61f707f74dea7f514fa597007e1b88d42d4ff3fdcee227",
+      "excess_tokens": 1114,
+      "tokens": 9306,
+      "turn_number": 529
+    },
+    {
+      "conversation_key": "2827869222b956d72301fa67ae0846338b59e28e40e46da581971fb0a7bdd4fc",
+      "episode_key": "329b6545418eb39a6dcf3e4ef0de29d334b42ba9bb50f74506477890552ffa3d",
+      "excess_tokens": 3474,
+      "tokens": 11666,
+      "turn_number": 605
+    },
+    {
+      "conversation_key": "c182211ebd3248ba90186555cce0b6561db620bb5b094d68dc6aa50ca2c3baf9",
+      "episode_key": "30dced4c904746e32ed5a97bcd4197749723b84ced71129b1d355256ac2147ec",
+      "excess_tokens": 5705,
+      "tokens": 13897,
+      "turn_number": 113
+    },
+    {
+      "conversation_key": "0e1d90647ce5740ab97b182159209138494364a32d4e495d697f0ae621baf1a0",
+      "episode_key": "61b7279075aaab628fabb3712b4123edd34a4160f46776df77229f87686d7691",
+      "excess_tokens": 10146,
+      "tokens": 18338,
+      "turn_number": 231
+    },
+    {
+      "conversation_key": "0e1d90647ce5740ab97b182159209138494364a32d4e495d697f0ae621baf1a0",
+      "episode_key": "290f2bb594164aa30177d4f0ea1d7c580be99c8f32edb48c697959c60fe3b929",
+      "excess_tokens": 16841,
+      "tokens": 25033,
+      "turn_number": 354
+    },
+    {
+      "conversation_key": "9046cf4478f7f227a46c5802cc3f18684d1102e3acbe9c11186a169a326b2484",
+      "episode_key": "7bedb9240608db54ddd64f57015506dc54f8a75575732b98386e3e32de423eaa",
+      "excess_tokens": 6298,
+      "tokens": 14490,
+      "turn_number": 153
+    },
+    {
+      "conversation_key": "9046cf4478f7f227a46c5802cc3f18684d1102e3acbe9c11186a169a326b2484",
+      "episode_key": "74fdcd9530d5c167efa0206dd4ddd5633bcc8fbe20fc849739ae9ec5f72a7653",
+      "excess_tokens": 8930,
+      "tokens": 17122,
+      "turn_number": 260
+    },
+    {
+      "conversation_key": "9046cf4478f7f227a46c5802cc3f18684d1102e3acbe9c11186a169a326b2484",
+      "episode_key": "52f3eaef11c054bcba08181fa38de49d6e5d3f9caf71029997261f7059c2b8e4",
+      "excess_tokens": 11857,
+      "tokens": 20049,
+      "turn_number": 421
+    }
+  ],
+  "question_tokens": {
+    "max": 93,
+    "median": 19,
+    "min": 7,
+    "n": 1800,
+    "over_limit": 0,
+    "p05": 10,
+    "p25": 14,
+    "p75": 26,
+    "p95": 37,
+    "total": 37766
+  },
+  "script_sha256": "685481a69531578a3a744221f9425009e7d080257ed46cb51b96457a3210b3cf",
+  "tokenizer": "cl100k_base"
+}

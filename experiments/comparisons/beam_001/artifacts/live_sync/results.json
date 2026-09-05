@@ -1,0 +1,52 @@
+{
+  "a0_guardrail": {
+    "difference": -0.006979717813051149,
+    "one_sided_95_lower": -0.022932153880070548
+  },
+  "arm_means": {
+    "A0_CC80_QWEN_GPU_COMMON": 0.4814547759339426,
+    "C0_STATIC_ASPECT_QWEN_GPU_COMMON": 0.4692953843995511,
+    "T1_PARENT_OPPORTUNITY_ASPECT_QWEN_GPU_COMMON": 0.4744750581208914
+  },
+  "category_t1_minus_c0": {
+    "abstention": 0.05555555555555555,
+    "contradiction_resolution": 0.05555555555555555,
+    "event_ordering": 0.06730599647266315,
+    "information_extraction": -0.03125,
+    "instruction_following": 0.0046296296296296285,
+    "knowledge_update": -0.08796296296296297,
+    "multi_session_reasoning": -0.019212962962962963,
+    "preference_following": 0.0162037037037037,
+    "summarization": -0.0020833333333333415,
+    "temporal_reasoning": -0.006944444444444444
+  },
+  "conversations": 90,
+  "deviations": [
+    "DEVIATION_002",
+    "DEVIATION_003",
+    "DEVIATION_004"
+  ],
+  "diagnostic_disposition": "NO_DEMONSTRATED_GAIN",
+  "disposition": "CHARACTERIZED",
+  "primary": {
+    "bootstrap_95": [
+      -0.01757277888007055,
+      0.02765268132716049
+    ],
+    "difference": 0.005179673721340386,
+    "sign_flip_p": 0.657970342029658
+  },
+  "questions": 360,
+  "registered_g_judges": "FAIL",
+  "registered_g_runtime": "FAIL",
+  "scale_t1_minus_a0": {
+    "100K": -0.014583333333333334,
+    "1M": -0.001747448979591836,
+    "500K": -0.007867063492063495
+  },
+  "scale_t1_minus_c0": {
+    "100K": -0.009479166666666667,
+    "1M": -0.005216836734693881,
+    "500K": 0.02395266439909297
+  }
+}

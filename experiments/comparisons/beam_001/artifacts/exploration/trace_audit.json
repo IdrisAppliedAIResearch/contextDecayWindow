@@ -1,0 +1,159 @@
+{
+  "absent_registered_states": [
+    "fewer_than_32_recent",
+    "no_fitting_child",
+    "no_positive_child",
+    "no_semantic_parent",
+    "one_semantic_parent"
+  ],
+  "examples": {
+    "A0_C0.changed_selection": {
+      "category": "contradiction_resolution",
+      "conversation_key": "a6022451e94ef03528c82d05631cab2ee4a65a36c2259837160cf0cdcec31d50",
+      "pair": "A0_C0",
+      "payload_char_absolute_difference": 436,
+      "question_key": "0015124423fee747396c2c775c04bfa38b3869e981d5dae0c2453e61d3c97952",
+      "split": "1M",
+      "symmetric_difference": 8
+    },
+    "A0_C0.identical_selection": {
+      "category": "preference_following",
+      "conversation_key": "37cc0528c7c9ff999b5f523d0f2d9df4c065c6cbeae6defbb110ad05eb073d72",
+      "pair": "A0_C0",
+      "payload_char_absolute_difference": 0,
+      "question_key": "15fc4831e1e2a98942db346347c47cf53bbf4be1a618532cb09a751df51bf71e",
+      "split": "100K",
+      "symmetric_difference": 0
+    },
+    "A0_T1.changed_selection": {
+      "category": "preference_following",
+      "conversation_key": "ac27af9c2cab27e2fecf9e0265166ccdc82c74a7019c98428887fee6f92bcbc1",
+      "pair": "A0_T1",
+      "payload_char_absolute_difference": 22,
+      "question_key": "001d8013bf1e45ddc04d782760b947efbf0ee7c6d807874fd9006b9ea0233151",
+      "split": "1M",
+      "symmetric_difference": 5
+    },
+    "A0_T1.identical_selection": {
+      "category": "contradiction_resolution",
+      "conversation_key": "a6022451e94ef03528c82d05631cab2ee4a65a36c2259837160cf0cdcec31d50",
+      "pair": "A0_T1",
+      "payload_char_absolute_difference": 0,
+      "question_key": "0015124423fee747396c2c775c04bfa38b3869e981d5dae0c2453e61d3c97952",
+      "split": "1M",
+      "symmetric_difference": 0
+    },
+    "C0_T1.changed_selection": {
+      "category": "contradiction_resolution",
+      "conversation_key": "a6022451e94ef03528c82d05631cab2ee4a65a36c2259837160cf0cdcec31d50",
+      "pair": "C0_T1",
+      "payload_char_absolute_difference": 436,
+      "question_key": "0015124423fee747396c2c775c04bfa38b3869e981d5dae0c2453e61d3c97952",
+      "split": "1M",
+      "symmetric_difference": 8
+    },
+    "C0_T1.identical_selection": {
+      "category": "knowledge_update",
+      "conversation_key": "ad0a27920994de5fe906c87760c99bef485a185beb0c5905b25eb5d23bc5cf31",
+      "pair": "C0_T1",
+      "payload_char_absolute_difference": 0,
+      "question_key": "07ad9b508608cdf5867f9b6afa05ebfbaa291e95ab124d012c8b0ac6f32b4bf3",
+      "split": "100K",
+      "symmetric_difference": 0
+    },
+    "all_proposed_children_retained": {
+      "arm": "C0_STATIC_ASPECT_QWEN_GPU_COMMON",
+      "category": "contradiction_resolution",
+      "conversation_key": "a6022451e94ef03528c82d05631cab2ee4a65a36c2259837160cf0cdcec31d50",
+      "count": 4,
+      "question_key": "0015124423fee747396c2c775c04bfa38b3869e981d5dae0c2453e61d3c97952",
+      "split": "1M"
+    },
+    "exactly_32_recent": {
+      "arm": "A0_CC80_QWEN_GPU_COMMON",
+      "category": "contradiction_resolution",
+      "conversation_key": "a6022451e94ef03528c82d05631cab2ee4a65a36c2259837160cf0cdcec31d50",
+      "question_key": "0015124423fee747396c2c775c04bfa38b3869e981d5dae0c2453e61d3c97952",
+      "split": "1M"
+    },
+    "many_semantic_parents": {
+      "arm": "A0_CC80_QWEN_GPU_COMMON",
+      "category": "contradiction_resolution",
+      "conversation_key": "a6022451e94ef03528c82d05631cab2ee4a65a36c2259837160cf0cdcec31d50",
+      "count": 8,
+      "question_key": "0015124423fee747396c2c775c04bfa38b3869e981d5dae0c2453e61d3c97952",
+      "split": "1M"
+    },
+    "no_protected_slack_returned": {
+      "arm": "A0_CC80_QWEN_GPU_COMMON",
+      "category": "contradiction_resolution",
+      "conversation_key": "a6022451e94ef03528c82d05631cab2ee4a65a36c2259837160cf0cdcec31d50",
+      "question_key": "0015124423fee747396c2c775c04bfa38b3869e981d5dae0c2453e61d3c97952",
+      "split": "1M"
+    },
+    "protected_slack_returned": {
+      "arm": "T1_PARENT_OPPORTUNITY_ASPECT_QWEN_GPU_COMMON",
+      "category": "contradiction_resolution",
+      "conversation_key": "a6022451e94ef03528c82d05631cab2ee4a65a36c2259837160cf0cdcec31d50",
+      "count": 2,
+      "question_key": "0015124423fee747396c2c775c04bfa38b3869e981d5dae0c2453e61d3c97952",
+      "split": "1M"
+    },
+    "rejected_capacity": {
+      "arm": "T1_PARENT_OPPORTUNITY_ASPECT_QWEN_GPU_COMMON",
+      "category": "multi_session_reasoning",
+      "conversation_key": "c182211ebd3248ba90186555cce0b6561db620bb5b094d68dc6aa50ca2c3baf9",
+      "count": 3,
+      "question_key": "008bb55eab22c5b93cfddc2497957531756bb5a4047321e358480bc096789a7b",
+      "split": "500K"
+    },
+    "rejected_value": {
+      "arm": "T1_PARENT_OPPORTUNITY_ASPECT_QWEN_GPU_COMMON",
+      "category": "contradiction_resolution",
+      "conversation_key": "a6022451e94ef03528c82d05631cab2ee4a65a36c2259837160cf0cdcec31d50",
+      "count": 2,
+      "question_key": "0015124423fee747396c2c775c04bfa38b3869e981d5dae0c2453e61d3c97952",
+      "split": "1M"
+    }
+  },
+  "finite_attempt_rows": 1800,
+  "largest_arm_disagreement": {
+    "category": "information_extraction",
+    "conversation_key": "0e1d90647ce5740ab97b182159209138494364a32d4e495d697f0ae621baf1a0",
+    "pair": "A0_C0",
+    "payload_char_absolute_difference": 548,
+    "question_key": "6ed11f045f2f5aaf48132111fb351fb877c8c36facc641f2b5f49c144d22fe24",
+    "split": "500K",
+    "symmetric_difference": 17
+  },
+  "largest_candidate_pool": {
+    "arm": "A0_CC80_QWEN_GPU_COMMON",
+    "candidate_pool": 1504,
+    "category": "multi_session_reasoning",
+    "conversation_key": "4fe57d2b10d72d356f2c5b7c1a8ddc2004d729bf03ce932fceeade1c294ae3c1",
+    "question_key": "0413c4d3d17861709adf80fab4e8bcbbad802e0bb7f79a319e557c2979b96354",
+    "split": "1M"
+  },
+  "largest_question": {
+    "category": "summarization",
+    "chars": 427,
+    "conversation_key": "c182211ebd3248ba90186555cce0b6561db620bb5b094d68dc6aa50ca2c3baf9",
+    "question_key": "784bac3569634c2ceb3ba3b718ca323ec4ecde95a3bbeefb761d532d6a8e097a",
+    "split": "500K"
+  },
+  "longest_episode": {
+    "chars": 349043,
+    "conversation_key": "3a705473d35f721f0b0e365e74b851b1093f02469105514ea7273044f675580f",
+    "episode_key": "5411a84959d11b1c0e228b3c51dd25417822cdf0f21713775392eeb01ab87b07",
+    "split": "100K"
+  },
+  "longest_store": {
+    "conversation_key": "4fe57d2b10d72d356f2c5b7c1a8ddc2004d729bf03ce932fceeade1c294ae3c1",
+    "episode_chars": 7376557,
+    "episodes": 1504,
+    "split": "1M"
+  },
+  "no_reentry_rows": 1800,
+  "outcomes_opened": false,
+  "schema": "beam001-trace-audit-v1"
+}

@@ -1,0 +1,40 @@
+{
+  "anchors": {
+    "path": "experiments/comparisons/beam_001/artifacts/anchors/reproduction.json",
+    "sha256": "42edcca2ec614fd3500a4d624521b67f0cd6ed680c517e0a4af9bcdd00d8506f",
+    "status": "PASS"
+  },
+  "artifacts": {
+    "contexts_sha256": "1ece50518448b19dc3b4ae4eb2c9d5d51a9417263f8070e98f58fee05ea3b8ae",
+    "payloads_sha256": "59f12e55f7f851633b049fdb416d990eda32820ee83897cbd7b10a804f8124dd",
+    "rankings_sha256": "82e89405d0ba5de52b7b6c4c2e542b3ae0974716289596c6e8178b6f19625c6a"
+  },
+  "calls": {
+    "embedding_model": 0,
+    "llm_or_generative": 0
+  },
+  "gates": {
+    "G_BASELINE": "PASS",
+    "G_BUDGET": "PASS",
+    "G_TREATMENT": "PASS"
+  },
+  "outcomes_opened": false,
+  "question_arms": 5400,
+  "questions": 1800,
+  "runtime": {
+    "gpu_required": false,
+    "mode": "finalize_completed_checkpoints"
+  },
+  "schema": "beam001-part1-summary-v1",
+  "selection_set_changes": {
+    "A0_C0": 1787,
+    "A0_T1": 1376,
+    "C0_T1": 1753
+  },
+  "separation": {
+    "forbidden_imports": [],
+    "planted_field_rejected": true
+  },
+  "status": "COMPLETE",
+  "updated_unix": 1787931486.2842426
+}
