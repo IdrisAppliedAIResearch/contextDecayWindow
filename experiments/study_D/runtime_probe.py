@@ -1,6 +1,7 @@
 """Six-call development runtime gate specified in Part 1 extension 001."""
 import hashlib
 import json
+import os
 from pathlib import Path
 import subprocess
 import sys
@@ -8,7 +9,8 @@ import time
 import urllib.request
 
 ROOT = Path(__file__).resolve().parents[2]
-OUT = ROOT / 'experiments/study_D/artifacts/part1/runtime'
+GPU = '--gpu' in sys.argv
+OUT = ROOT / 'experiments/study_D/artifacts/part1' / ('runtime_gpu' if GPU else 'runtime')
 CONTROL = ROOT.parent / 'contextDecayWindow-study-D-control'
 SERVER = 'http://127.0.0.1:8097'
 
@@ -31,9 +33,17 @@ def main():
     binary = files[0]['path']
     model = files[2]['path']
     command = [binary,'--model',model,'--host','127.0.0.1','--port','8097','--ctx-size','65536','--parallel','1','--n-gpu-layers','999','--cache-type-k','q8_0','--cache-type-v','q8_0','--flash-attn','on','--no-context-shift','--seed','5005']
+    child_env = os.environ.copy()
+    if GPU:
+        added = [r'C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.2\bin\x64', r'C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\bin']
+        child_env['PATH'] = ';'.join(added) + ';' + child_env['PATH']
+        devices = subprocess.check_output([binary,'--list-devices'],env=child_env,stderr=subprocess.STDOUT,text=True)
+        assert 'CUDA0' in devices
+        save('devices.json',{'listing':devices,'path_additions':added})
+        command += ['--device','CUDA0']
     stdout = (OUT/'server_stdout.txt').open('w',encoding='utf-8')
     stderr = (OUT/'server_stderr.txt').open('w',encoding='utf-8')
-    process = subprocess.Popen(command,stdout=stdout,stderr=stderr,creationflags=getattr(subprocess,'CREATE_NO_WINDOW',0))
+    process = subprocess.Popen(command,stdout=stdout,stderr=stderr,env=child_env,creationflags=getattr(subprocess,'CREATE_NO_WINDOW',0))
     save('launch.json',{'command':command,'pid':process.pid,'files':files})
     ready = False
     for _ in range(120):
@@ -52,6 +62,10 @@ def main():
         return
     props=request('/props')
     save('props.json',props)
+    if GPU:
+        memory=subprocess.check_output(['nvidia-smi','--query-gpu=memory.used','--format=csv,noheader,nounits'],text=True)
+        save('gpu_memory.json',{'used_mib':memory})
+        assert int(memory.strip().splitlines()[0]) > 17000
     # Guard the actual runtime before generating, not only the requested flags.
     params=props.get('default_generation_settings',{}).get('params',{})
     save('readiness.json',{'health':request('/health'),'total_slots':props.get('total_slots'),'params':params})
