@@ -1,0 +1,1190 @@
+{
+  "status": "PASS",
+  "scope": "Registered descriptive diagnostics; no extra efficacy tests",
+  "primary_questions": 128,
+  "all_questions": 192,
+  "by_type": {
+    "primary": {
+      "C0": {
+        "n": 128,
+        "availability_applicable": true,
+        "candidate_complete": 128,
+        "temporal_complete": 19,
+        "packed_complete": 64,
+        "rendered_complete": 64,
+        "distributions": {
+          "candidate_n": {
+            "n": 128,
+            "min": 55,
+            "median": 72.0,
+            "p95": 94.0,
+            "max": 95
+          },
+          "temporal_n": {
+            "n": 128,
+            "min": 10,
+            "median": 10.0,
+            "p95": 10.0,
+            "max": 10
+          },
+          "selected_n": {
+            "n": 128,
+            "min": 40,
+            "median": 41.0,
+            "p95": 41.0,
+            "max": 41
+          },
+          "retrieval_chars": {
+            "n": 128,
+            "min": 31227,
+            "median": 31933.5,
+            "p95": 31993.65,
+            "max": 32000
+          },
+          "temporal_chars": {
+            "n": 128,
+            "min": 7784,
+            "median": 7822.5,
+            "p95": 7883.65,
+            "max": 7897
+          },
+          "full_prompt_chars": {
+            "n": 128,
+            "min": 57337,
+            "median": 58051.0,
+            "p95": 58116.95,
+            "max": 58135
+          }
+        },
+        "carrier_ranks": {
+          "cc80_rank": {
+            "n": 320,
+            "min": 1,
+            "median": 70.5,
+            "p95": 108.0,
+            "max": 108
+          },
+          "temporal_candidate_rank": {
+            "n": 320,
+            "min": 1,
+            "median": 4.0,
+            "p95": 77.10000000000002,
+            "max": 94
+          },
+          "temporal_admission_rank": {
+            "n": 182,
+            "min": 1,
+            "median": 1.0,
+            "p95": 6.949999999999989,
+            "max": 10
+          },
+          "packed_rank": {
+            "n": 243,
+            "min": 1,
+            "median": 1.0,
+            "p95": 33.89999999999998,
+            "max": 41
+          }
+        }
+      },
+      "C1": {
+        "n": 128,
+        "availability_applicable": true,
+        "candidate_complete": 128,
+        "temporal_complete": 85,
+        "packed_complete": 109,
+        "rendered_complete": 109,
+        "distributions": {
+          "candidate_n": {
+            "n": 128,
+            "min": 55,
+            "median": 72.0,
+            "p95": 94.0,
+            "max": 95
+          },
+          "temporal_n": {
+            "n": 128,
+            "min": 10,
+            "median": 10.0,
+            "p95": 10.0,
+            "max": 10
+          },
+          "selected_n": {
+            "n": 128,
+            "min": 40,
+            "median": 40.0,
+            "p95": 41.0,
+            "max": 41
+          },
+          "retrieval_chars": {
+            "n": 128,
+            "min": 31226,
+            "median": 31345.5,
+            "p95": 31994.0,
+            "max": 32000
+          },
+          "temporal_chars": {
+            "n": 128,
+            "min": 7821,
+            "median": 7912.5,
+            "p95": 7972.65,
+            "max": 7981
+          },
+          "full_prompt_chars": {
+            "n": 128,
+            "min": 57326,
+            "median": 57471.5,
+            "p95": 58112.65,
+            "max": 58125
+          }
+        },
+        "carrier_ranks": {
+          "cc80_rank": {
+            "n": 320,
+            "min": 1,
+            "median": 70.5,
+            "p95": 108.0,
+            "max": 108
+          },
+          "temporal_candidate_rank": {
+            "n": 320,
+            "min": 1,
+            "median": 3.0,
+            "p95": 13.0,
+            "max": 13
+          },
+          "temporal_admission_rank": {
+            "n": 277,
+            "min": 1,
+            "median": 2.0,
+            "p95": 9.0,
+            "max": 10
+          },
+          "packed_rank": {
+            "n": 301,
+            "min": 1,
+            "median": 3.0,
+            "p95": 16.0,
+            "max": 39
+          }
+        }
+      }
+    },
+    "straight": {
+      "C0": {
+        "n": 32,
+        "availability_applicable": true,
+        "candidate_complete": 32,
+        "temporal_complete": 9,
+        "packed_complete": 20,
+        "rendered_complete": 20,
+        "distributions": {
+          "candidate_n": {
+            "n": 32,
+            "min": 55,
+            "median": 76.5,
+            "p95": 94.45,
+            "max": 95
+          },
+          "temporal_n": {
+            "n": 32,
+            "min": 10,
+            "median": 10.0,
+            "p95": 10.0,
+            "max": 10
+          },
+          "selected_n": {
+            "n": 32,
+            "min": 41,
+            "median": 41.0,
+            "p95": 41.0,
+            "max": 41
+          },
+          "retrieval_chars": {
+            "n": 32,
+            "min": 31866,
+            "median": 31899.0,
+            "p95": 31925.4,
+            "max": 31940
+          },
+          "temporal_chars": {
+            "n": 32,
+            "min": 7784,
+            "median": 7799.0,
+            "p95": 7807.8,
+            "max": 7815
+          },
+          "full_prompt_chars": {
+            "n": 32,
+            "min": 57965,
+            "median": 58015.5,
+            "p95": 58049.2,
+            "max": 58061
+          }
+        },
+        "carrier_ranks": {
+          "cc80_rank": {
+            "n": 64,
+            "min": 3,
+            "median": 91.0,
+            "p95": 108.0,
+            "max": 108
+          },
+          "temporal_candidate_rank": {
+            "n": 64,
+            "min": 1,
+            "median": 2.5,
+            "p95": 65.54999999999998,
+            "max": 75
+          },
+          "temporal_admission_rank": {
+            "n": 41,
+            "min": 1,
+            "median": 1.0,
+            "p95": 7.0,
+            "max": 9
+          },
+          "packed_rank": {
+            "n": 52,
+            "min": 1,
+            "median": 1.0,
+            "p95": 29.449999999999996,
+            "max": 40
+          }
+        }
+      },
+      "C1": {
+        "n": 32,
+        "availability_applicable": true,
+        "candidate_complete": 32,
+        "temporal_complete": 19,
+        "packed_complete": 27,
+        "rendered_complete": 27,
+        "distributions": {
+          "candidate_n": {
+            "n": 32,
+            "min": 55,
+            "median": 76.5,
+            "p95": 94.45,
+            "max": 95
+          },
+          "temporal_n": {
+            "n": 32,
+            "min": 10,
+            "median": 10.0,
+            "p95": 10.0,
+            "max": 10
+          },
+          "selected_n": {
+            "n": 32,
+            "min": 41,
+            "median": 41.0,
+            "p95": 41.0,
+            "max": 41
+          },
+          "retrieval_chars": {
+            "n": 32,
+            "min": 31897,
+            "median": 31950.5,
+            "p95": 31972.0,
+            "max": 31991
+          },
+          "temporal_chars": {
+            "n": 32,
+            "min": 7821,
+            "median": 7862.5,
+            "p95": 7882.0,
+            "max": 7888
+          },
+          "full_prompt_chars": {
+            "n": 32,
+            "min": 58005,
+            "median": 58062.5,
+            "p95": 58097.35,
+            "max": 58109
+          }
+        },
+        "carrier_ranks": {
+          "cc80_rank": {
+            "n": 64,
+            "min": 3,
+            "median": 91.0,
+            "p95": 108.0,
+            "max": 108
+          },
+          "temporal_candidate_rank": {
+            "n": 64,
+            "min": 1,
+            "median": 3.5,
+            "p95": 13.0,
+            "max": 13
+          },
+          "temporal_admission_rank": {
+            "n": 51,
+            "min": 1,
+            "median": 1.0,
+            "p95": 9.0,
+            "max": 10
+          },
+          "packed_rank": {
+            "n": 59,
+            "min": 1,
+            "median": 1.0,
+            "p95": 17.399999999999977,
+            "max": 38
+          }
+        }
+      }
+    },
+    "irrelevant": {
+      "C0": {
+        "n": 32,
+        "availability_applicable": true,
+        "candidate_complete": 32,
+        "temporal_complete": 4,
+        "packed_complete": 22,
+        "rendered_complete": 22,
+        "distributions": {
+          "candidate_n": {
+            "n": 32,
+            "min": 55,
+            "median": 69.0,
+            "p95": 90.45,
+            "max": 94
+          },
+          "temporal_n": {
+            "n": 32,
+            "min": 10,
+            "median": 10.0,
+            "p95": 10.0,
+            "max": 10
+          },
+          "selected_n": {
+            "n": 32,
+            "min": 41,
+            "median": 41.0,
+            "p95": 41.0,
+            "max": 41
+          },
+          "retrieval_chars": {
+            "n": 32,
+            "min": 31933,
+            "median": 31953.0,
+            "p95": 31976.95,
+            "max": 31985
+          },
+          "temporal_chars": {
+            "n": 32,
+            "min": 7802,
+            "median": 7815.0,
+            "p95": 7827.0,
+            "max": 7836
+          },
+          "full_prompt_chars": {
+            "n": 32,
+            "min": 58030,
+            "median": 58071.5,
+            "p95": 58097.0,
+            "max": 58097
+          }
+        },
+        "carrier_ranks": {
+          "cc80_rank": {
+            "n": 64,
+            "min": 1,
+            "median": 94.0,
+            "p95": 108.0,
+            "max": 108
+          },
+          "temporal_candidate_rank": {
+            "n": 64,
+            "min": 1,
+            "median": 1.5,
+            "p95": 53.0,
+            "max": 80
+          },
+          "temporal_admission_rank": {
+            "n": 36,
+            "min": 1,
+            "median": 1.0,
+            "p95": 3.5,
+            "max": 10
+          },
+          "packed_rank": {
+            "n": 54,
+            "min": 1,
+            "median": 1.0,
+            "p95": 33.0,
+            "max": 37
+          }
+        }
+      },
+      "C1": {
+        "n": 32,
+        "availability_applicable": true,
+        "candidate_complete": 32,
+        "temporal_complete": 23,
+        "packed_complete": 28,
+        "rendered_complete": 28,
+        "distributions": {
+          "candidate_n": {
+            "n": 32,
+            "min": 55,
+            "median": 69.0,
+            "p95": 90.45,
+            "max": 94
+          },
+          "temporal_n": {
+            "n": 32,
+            "min": 10,
+            "median": 10.0,
+            "p95": 10.0,
+            "max": 10
+          },
+          "selected_n": {
+            "n": 32,
+            "min": 40,
+            "median": 40.0,
+            "p95": 41.0,
+            "max": 41
+          },
+          "retrieval_chars": {
+            "n": 32,
+            "min": 31226,
+            "median": 31264.0,
+            "p95": 31999.0,
+            "max": 32000
+          },
+          "temporal_chars": {
+            "n": 32,
+            "min": 7852,
+            "median": 7880.0,
+            "p95": 7911.9,
+            "max": 7916
+          },
+          "full_prompt_chars": {
+            "n": 32,
+            "min": 57326,
+            "median": 57388.0,
+            "p95": 58122.9,
+            "max": 58125
+          }
+        },
+        "carrier_ranks": {
+          "cc80_rank": {
+            "n": 64,
+            "min": 1,
+            "median": 94.0,
+            "p95": 108.0,
+            "max": 108
+          },
+          "temporal_candidate_rank": {
+            "n": 64,
+            "min": 1,
+            "median": 3.5,
+            "p95": 12.0,
+            "max": 13
+          },
+          "temporal_admission_rank": {
+            "n": 55,
+            "min": 1,
+            "median": 1.0,
+            "p95": 9.0,
+            "max": 10
+          },
+          "packed_rank": {
+            "n": 60,
+            "min": 1,
+            "median": 1.0,
+            "p95": 14.34999999999998,
+            "max": 37
+          }
+        }
+      }
+    },
+    "future": {
+      "C0": {
+        "n": 32,
+        "availability_applicable": true,
+        "candidate_complete": 32,
+        "temporal_complete": 6,
+        "packed_complete": 22,
+        "rendered_complete": 22,
+        "distributions": {
+          "candidate_n": {
+            "n": 32,
+            "min": 55,
+            "median": 71.0,
+            "p95": 91.8,
+            "max": 95
+          },
+          "temporal_n": {
+            "n": 32,
+            "min": 10,
+            "median": 10.0,
+            "p95": 10.0,
+            "max": 10
+          },
+          "selected_n": {
+            "n": 32,
+            "min": 40,
+            "median": 41.0,
+            "p95": 41.0,
+            "max": 41
+          },
+          "retrieval_chars": {
+            "n": 32,
+            "min": 31231,
+            "median": 31979.5,
+            "p95": 31999.0,
+            "max": 32000
+          },
+          "temporal_chars": {
+            "n": 32,
+            "min": 7798,
+            "median": 7876.5,
+            "p95": 7891.45,
+            "max": 7897
+          },
+          "full_prompt_chars": {
+            "n": 32,
+            "min": 57341,
+            "median": 58095.0,
+            "p95": 58123.15,
+            "max": 58132
+          }
+        },
+        "carrier_ranks": {
+          "cc80_rank": {
+            "n": 96,
+            "min": 1,
+            "median": 31.5,
+            "p95": 108.0,
+            "max": 108
+          },
+          "temporal_candidate_rank": {
+            "n": 96,
+            "min": 1,
+            "median": 2.0,
+            "p95": 54.0,
+            "max": 70
+          },
+          "temporal_admission_rank": {
+            "n": 68,
+            "min": 1,
+            "median": 2.0,
+            "p95": 6.649999999999999,
+            "max": 10
+          },
+          "packed_rank": {
+            "n": 86,
+            "min": 1,
+            "median": 2.0,
+            "p95": 34.0,
+            "max": 41
+          }
+        }
+      },
+      "C1": {
+        "n": 32,
+        "availability_applicable": true,
+        "candidate_complete": 32,
+        "temporal_complete": 22,
+        "packed_complete": 28,
+        "rendered_complete": 28,
+        "distributions": {
+          "candidate_n": {
+            "n": 32,
+            "min": 55,
+            "median": 71.0,
+            "p95": 91.8,
+            "max": 95
+          },
+          "temporal_n": {
+            "n": 32,
+            "min": 10,
+            "median": 10.0,
+            "p95": 10.0,
+            "max": 10
+          },
+          "selected_n": {
+            "n": 32,
+            "min": 40,
+            "median": 40.0,
+            "p95": 40.45,
+            "max": 41
+          },
+          "retrieval_chars": {
+            "n": 32,
+            "min": 31227,
+            "median": 31272.0,
+            "p95": 31613.7,
+            "max": 31990
+          },
+          "temporal_chars": {
+            "n": 32,
+            "min": 7910,
+            "median": 7946.5,
+            "p95": 7974.45,
+            "max": 7976
+          },
+          "full_prompt_chars": {
+            "n": 32,
+            "min": 57347,
+            "median": 57386.5,
+            "p95": 57727.05,
+            "max": 58112
+          }
+        },
+        "carrier_ranks": {
+          "cc80_rank": {
+            "n": 96,
+            "min": 1,
+            "median": 31.5,
+            "p95": 108.0,
+            "max": 108
+          },
+          "temporal_candidate_rank": {
+            "n": 96,
+            "min": 1,
+            "median": 3.0,
+            "p95": 12.25,
+            "max": 13
+          },
+          "temporal_admission_rank": {
+            "n": 86,
+            "min": 1,
+            "median": 3.0,
+            "p95": 9.75,
+            "max": 10
+          },
+          "packed_rank": {
+            "n": 92,
+            "min": 1,
+            "median": 3.0,
+            "p95": 12.900000000000006,
+            "max": 39
+          }
+        }
+      }
+    },
+    "proposal": {
+      "C0": {
+        "n": 32,
+        "availability_applicable": true,
+        "candidate_complete": 32,
+        "temporal_complete": 0,
+        "packed_complete": 0,
+        "rendered_complete": 0,
+        "distributions": {
+          "candidate_n": {
+            "n": 32,
+            "min": 55,
+            "median": 77.5,
+            "p95": 93.45,
+            "max": 95
+          },
+          "temporal_n": {
+            "n": 32,
+            "min": 10,
+            "median": 10.0,
+            "p95": 10.0,
+            "max": 10
+          },
+          "selected_n": {
+            "n": 32,
+            "min": 40,
+            "median": 40.0,
+            "p95": 41.0,
+            "max": 41
+          },
+          "retrieval_chars": {
+            "n": 32,
+            "min": 31227,
+            "median": 31250.0,
+            "p95": 31998.35,
+            "max": 32000
+          },
+          "temporal_chars": {
+            "n": 32,
+            "min": 7814,
+            "median": 7829.5,
+            "p95": 7840.0,
+            "max": 7843
+          },
+          "full_prompt_chars": {
+            "n": 32,
+            "min": 57337,
+            "median": 57372.0,
+            "p95": 58131.8,
+            "max": 58135
+          }
+        },
+        "carrier_ranks": {
+          "cc80_rank": {
+            "n": 96,
+            "min": 3,
+            "median": 95.0,
+            "p95": 108.0,
+            "max": 108
+          },
+          "temporal_candidate_rank": {
+            "n": 96,
+            "min": 1,
+            "median": 37.0,
+            "p95": 87.0,
+            "max": 94
+          },
+          "temporal_admission_rank": {
+            "n": 37,
+            "min": 1,
+            "median": 1.0,
+            "p95": 4.199999999999996,
+            "max": 7
+          },
+          "packed_rank": {
+            "n": 51,
+            "min": 1,
+            "median": 1.0,
+            "p95": 38.0,
+            "max": 41
+          }
+        }
+      },
+      "C1": {
+        "n": 32,
+        "availability_applicable": true,
+        "candidate_complete": 32,
+        "temporal_complete": 21,
+        "packed_complete": 26,
+        "rendered_complete": 26,
+        "distributions": {
+          "candidate_n": {
+            "n": 32,
+            "min": 55,
+            "median": 77.5,
+            "p95": 93.45,
+            "max": 95
+          },
+          "temporal_n": {
+            "n": 32,
+            "min": 10,
+            "median": 10.0,
+            "p95": 10.0,
+            "max": 10
+          },
+          "selected_n": {
+            "n": 32,
+            "min": 40,
+            "median": 40.0,
+            "p95": 40.0,
+            "max": 40
+          },
+          "retrieval_chars": {
+            "n": 32,
+            "min": 31301,
+            "median": 31352.0,
+            "p95": 31395.95,
+            "max": 31414
+          },
+          "temporal_chars": {
+            "n": 32,
+            "min": 7912,
+            "median": 7944.0,
+            "p95": 7975.9,
+            "max": 7981
+          },
+          "full_prompt_chars": {
+            "n": 32,
+            "min": 57401,
+            "median": 57475.0,
+            "p95": 57509.05,
+            "max": 57534
+          }
+        },
+        "carrier_ranks": {
+          "cc80_rank": {
+            "n": 96,
+            "min": 3,
+            "median": 95.0,
+            "p95": 108.0,
+            "max": 108
+          },
+          "temporal_candidate_rank": {
+            "n": 96,
+            "min": 1,
+            "median": 3.0,
+            "p95": 12.0,
+            "max": 13
+          },
+          "temporal_admission_rank": {
+            "n": 85,
+            "min": 1,
+            "median": 2.0,
+            "p95": 8.0,
+            "max": 10
+          },
+          "packed_rank": {
+            "n": 90,
+            "min": 1,
+            "median": 2.0,
+            "p95": 12.199999999999989,
+            "max": 30
+          }
+        }
+      }
+    },
+    "latest": {
+      "C0": {
+        "n": 32,
+        "availability_applicable": true,
+        "candidate_complete": 0,
+        "temporal_complete": 13,
+        "packed_complete": 21,
+        "rendered_complete": 21,
+        "distributions": {
+          "candidate_n": {
+            "n": 32,
+            "min": 0,
+            "median": 0.0,
+            "p95": 0.0,
+            "max": 0
+          },
+          "temporal_n": {
+            "n": 32,
+            "min": 10,
+            "median": 10.0,
+            "p95": 10.0,
+            "max": 10
+          },
+          "selected_n": {
+            "n": 32,
+            "min": 40,
+            "median": 41.0,
+            "p95": 41.0,
+            "max": 41
+          },
+          "retrieval_chars": {
+            "n": 32,
+            "min": 31262,
+            "median": 31989.0,
+            "p95": 31999.0,
+            "max": 32000
+          },
+          "temporal_chars": {
+            "n": 32,
+            "min": 7907,
+            "median": 7926.5,
+            "p95": 7938.0,
+            "max": 7939
+          },
+          "full_prompt_chars": {
+            "n": 32,
+            "min": 57357,
+            "median": 58069.5,
+            "p95": 58090.35,
+            "max": 58098
+          }
+        },
+        "carrier_ranks": {
+          "cc80_rank": {
+            "n": 32,
+            "min": 4,
+            "median": 35.0,
+            "p95": 71.9,
+            "max": 75
+          },
+          "temporal_candidate_rank": {
+            "n": 0
+          },
+          "temporal_admission_rank": {
+            "n": 13,
+            "min": 4,
+            "median": 6.0,
+            "p95": 9.399999999999999,
+            "max": 10
+          },
+          "packed_rank": {
+            "n": 21,
+            "min": 4,
+            "median": 8.0,
+            "p95": 40.0,
+            "max": 40
+          }
+        }
+      },
+      "C1": {
+        "n": 32,
+        "availability_applicable": true,
+        "candidate_complete": 0,
+        "temporal_complete": 13,
+        "packed_complete": 21,
+        "rendered_complete": 21,
+        "distributions": {
+          "candidate_n": {
+            "n": 32,
+            "min": 0,
+            "median": 0.0,
+            "p95": 0.0,
+            "max": 0
+          },
+          "temporal_n": {
+            "n": 32,
+            "min": 10,
+            "median": 10.0,
+            "p95": 10.0,
+            "max": 10
+          },
+          "selected_n": {
+            "n": 32,
+            "min": 40,
+            "median": 41.0,
+            "p95": 41.0,
+            "max": 41
+          },
+          "retrieval_chars": {
+            "n": 32,
+            "min": 31262,
+            "median": 31989.0,
+            "p95": 31999.0,
+            "max": 32000
+          },
+          "temporal_chars": {
+            "n": 32,
+            "min": 7907,
+            "median": 7926.5,
+            "p95": 7938.0,
+            "max": 7939
+          },
+          "full_prompt_chars": {
+            "n": 32,
+            "min": 57357,
+            "median": 58069.5,
+            "p95": 58090.35,
+            "max": 58098
+          }
+        },
+        "carrier_ranks": {
+          "cc80_rank": {
+            "n": 32,
+            "min": 4,
+            "median": 35.0,
+            "p95": 71.9,
+            "max": 75
+          },
+          "temporal_candidate_rank": {
+            "n": 0
+          },
+          "temporal_admission_rank": {
+            "n": 13,
+            "min": 4,
+            "median": 6.0,
+            "p95": 9.399999999999999,
+            "max": 10
+          },
+          "packed_rank": {
+            "n": 21,
+            "min": 4,
+            "median": 8.0,
+            "p95": 40.0,
+            "max": 40
+          }
+        }
+      }
+    },
+    "absent": {
+      "C0": {
+        "n": 32,
+        "availability_applicable": false,
+        "candidate_complete": 0,
+        "temporal_complete": 0,
+        "packed_complete": 0,
+        "rendered_complete": 0,
+        "distributions": {
+          "candidate_n": {
+            "n": 32,
+            "min": 55,
+            "median": 74.5,
+            "p95": 94.45,
+            "max": 95
+          },
+          "temporal_n": {
+            "n": 32,
+            "min": 10,
+            "median": 10.0,
+            "p95": 10.0,
+            "max": 10
+          },
+          "selected_n": {
+            "n": 32,
+            "min": 40,
+            "median": 40.0,
+            "p95": 40.0,
+            "max": 40
+          },
+          "retrieval_chars": {
+            "n": 32,
+            "min": 31718,
+            "median": 31739.0,
+            "p95": 31760.25,
+            "max": 31768
+          },
+          "temporal_chars": {
+            "n": 32,
+            "min": 7937,
+            "median": 7942.0,
+            "p95": 7948.7,
+            "max": 7953
+          },
+          "full_prompt_chars": {
+            "n": 32,
+            "min": 57824,
+            "median": 57853.5,
+            "p95": 57875.45,
+            "max": 57897
+          }
+        },
+        "carrier_ranks": {
+          "cc80_rank": {
+            "n": 0
+          },
+          "temporal_candidate_rank": {
+            "n": 0
+          },
+          "temporal_admission_rank": {
+            "n": 0
+          },
+          "packed_rank": {
+            "n": 0
+          }
+        }
+      },
+      "C1": {
+        "n": 32,
+        "availability_applicable": false,
+        "candidate_complete": 0,
+        "temporal_complete": 0,
+        "packed_complete": 0,
+        "rendered_complete": 0,
+        "distributions": {
+          "candidate_n": {
+            "n": 32,
+            "min": 55,
+            "median": 74.5,
+            "p95": 94.45,
+            "max": 95
+          },
+          "temporal_n": {
+            "n": 32,
+            "min": 10,
+            "median": 10.0,
+            "p95": 10.0,
+            "max": 10
+          },
+          "selected_n": {
+            "n": 32,
+            "min": 40,
+            "median": 40.0,
+            "p95": 40.0,
+            "max": 40
+          },
+          "retrieval_chars": {
+            "n": 32,
+            "min": 31670,
+            "median": 31688.0,
+            "p95": 31710.0,
+            "max": 31716
+          },
+          "temporal_chars": {
+            "n": 32,
+            "min": 7891,
+            "median": 7902.5,
+            "p95": 7910.0,
+            "max": 7912
+          },
+          "full_prompt_chars": {
+            "n": 32,
+            "min": 57768,
+            "median": 57808.0,
+            "p95": 57829.9,
+            "max": 57832
+          }
+        },
+        "carrier_ranks": {
+          "cc80_rank": {
+            "n": 0
+          },
+          "temporal_candidate_rank": {
+            "n": 0
+          },
+          "temporal_admission_rank": {
+            "n": 0
+          },
+          "packed_rank": {
+            "n": 0
+          }
+        }
+      }
+    }
+  },
+  "primary_displacement": {
+    "added": {
+      "n": 128,
+      "min": 4,
+      "median": 8.0,
+      "p95": 9.0,
+      "max": 9
+    },
+    "removed": {
+      "n": 128,
+      "min": 4,
+      "median": 8.0,
+      "p95": 10.0,
+      "max": 10
+    },
+    "required_added": 61,
+    "required_removed": 3
+  },
+  "primary_availability_pairs": {
+    "C0_1_C1_1": 62,
+    "C0_0_C1_1": 47,
+    "C0_0_C1_0": 17,
+    "C0_1_C1_0": 2
+  },
+  "noncanonical_abstentions": {
+    "C1": 35,
+    "C0": 29
+  },
+  "opening_revisions_by_final_correctness": {
+    "C0_1": 7,
+    "C0_0": 2,
+    "C1_0": 2,
+    "C1_1": 1
+  },
+  "runtime": {
+    "calls": 3508,
+    "latency_seconds": {
+      "n": 3508,
+      "min": 0.2187551999813877,
+      "median": 3.4596179999934975,
+      "p95": 4.01886879497324,
+      "max": 33.28704180003842
+    },
+    "summed_request_seconds": 7060.410372400656,
+    "output_tokens": {
+      "n": 3508,
+      "min": 2,
+      "median": 4.0,
+      "p95": 6.0,
+      "max": 2155
+    }
+  },
+  "input_hashes": {
+    "restart005\\scores_resolved.json": "4c0efbd791590db7500fce95700fdb08472d634b8848b79e3f8710ff9977cf11",
+    "restart005\\mapping.json": "ef25d1abdb278c99ba3a180b36754fd91223ba607b8eceb42d24cd5f0b44bae8",
+    "restart005\\prompt_store.json": "3d85297d8cfeb7f43b0a50b02861312fead161e72db495095e26b6953bbc8ec2",
+    "development_inputs\\traces_sealed.json": "3820a52ac8ceccf3803abb22d2f214d45784e099a2488a6dd41e9cc3d3b4db34",
+    "development_inputs\\sources.json": "c18ebb1011de6655cde5dc1b4ed99db51679994e5a059942df4257ec905fcb0a",
+    "development_inputs\\labels.json": "f458319c1f32820d32ce9315d5a15641c55667138e6c50a29403c33baa899872"
+  }
+}

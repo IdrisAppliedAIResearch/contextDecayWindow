@@ -1,7 +1,7 @@
 # Study E current status
 
-Updated 2026-09-06. **Thinking-off restart authorized under Amendment 005 (6603aca3).** Amendment 004's repair exhausted the doubled 16,384-token cap. Both stopped attempts are preserved and will contribute no answers to the new run.
+2026-09-06. **Confirmation complete: READER D1_WORKS.** Fresh thinking-off C0/C1 before correctness177/640→302/640, +19.53pp (95% group interval13.91–25.16; p=.00001). All harm guards pass. See [final confirmation report](CONFIRMATION_REPORT.md).
 
-The native thinking-off template passed calibration. Serial/two/four-slot tests completed 48 development calls; each 16-call workload took 65.18/67.21/67.67 seconds. Batching changed one response and was slower, so serial was selected under runtime lock36e2347c. Fresh confirmation is running after input lock59e7cc8c: 3,508 physical calls, 3,840 logical answers. Both longest-prompt calibration responses match. The original confirmation population, retrieval and efficacy criteria are unchanged. No confirmation correctness or mechanism comparison has been opened.
+Amendment0056603aca3 authorized a full native thinking-off restart and bounded batching tests. Runtime36e2347c and input59e7cc8c preceded3508 physical calls for3840 logical answers, all complete. Both earlier capped attempts remain preserved and excluded. Complete raw captures efc72ce9 preceded blind scoring; all resolved scores ad97703a preceded unsealing e48fe4e8.114 unique agent judgments, no human audit.
 
-The previous GPU sample showed 97% median utilization and about 19.9 GiB allocated VRAM. The bounded batching benchmark now tests whether the memory headroom produces faster reproducible execution. Its artifacts live in `artifacts/amendment005`.
+The native reader interface changed; this is not an isolated thinking experiment or a direct comparison to Study D percentages. Complete evidence rose64/128→109/128 questions but243 C1 answers remained wrong despite complete evidence. No adoption, merge or deployment. Dedicated server stopped; same PR95 closeout.
