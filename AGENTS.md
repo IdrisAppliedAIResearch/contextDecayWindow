@@ -192,7 +192,7 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **Study D address reader probe (2026-09-05).** EXPLORATORY, reader-only. Five complete short histories yield expected answers with event citations; a missing-update case starts wrongly at office then corrects to Cannot determine. Eight calls including two preflight repeats. Different explanatory prompt; no formal score, transfer or Study D failure attribution.
 
-**Study E before ordering (2026-09-06).** THINKING-OFF RESTART, Amendment005. Both 8192/16384-cap attempts stopped unscored. Native-template serial probe: 16/16 EOS, exact replay; 2/4 slots slower and changed one response. All 3840 logical answers regenerated under one reader setting. Outcomes sealed; development3/12->6/12,4 gains/1 loss. No adoption.
+**Study E before ordering (2026-09-06).** READER D1_WORKS. Before177/640→302/640 (+19.53pp; CI13.91–25.16; p=.00001),32 synthetic groups; guards pass. Evidence64/128→109/128, but243 complete-evidence answers wrong. Native thinking-off restart; two capped attempts excluded.114 unique agent judgments, no human audit. Reader interface changed; no transfer/adoption.
 
 ## 3. Failure Pattern
 

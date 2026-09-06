@@ -1,3 +1,13 @@
+# ACTIVE: Study E confirmation complete — READER D1_WORKS
+
+2026-09-06. Full fresh run complete; dedicated server2152 stopped after identity verification. No inference remains. Scores and mechanism comparison are unsealed in registered order: completion efc72ce9, blind scores e2ea9523, judgments cfee7468, resolved scores ad97703a, result and verified diagnostics e48fe4e8. Read CONFIRMATION_REPORT.md for the final result and limits. No scoring, inference restart, tuning, merge or adoption is pending or authorized.
+
+Primary C0=177/640 (27.66%), C1=302/640 (47.19%), gain19.53pp, group CI13.91–25.16, p=.0000099999; D1_WORKS and all guards pass. Latest102/160 each, absence160/160 each. ORACLE524/640 before. Evidence64/128→109/128; C1 complete-correct302, complete-wrong243, incomplete-correct0, incomplete-wrong95.114 unique agent exceptions representing148 logical answers, no human audit. Same synthetic generator and within-run reader interface; do not claim unchanged prompt versus Study D or causal thinking effect. All3508 fresh calls/3840 logical answers captured; both old attempts excluded.
+
+Verified diagnostic filenames end in _verified.json. Preliminary diagnostics had an unchanged-latest candidate extraction error; see DIAGNOSTIC_VALIDATION_NOTE.md. Scores, primary results and final evidence were unaffected. Root README, AGENTS digest and memory updated for closeout; same PR95. Completion hook should be paused after PR update and push. Earlier ACTIVE headers below are historical and cannot authorize restarting work.
+
+---
+
 # ACTIVE: Amendment 005 fresh thinking-off confirmation running
 
 Compaction checkpoint: user explicitly requested durable notes and autonomous continuation through scoring/closeout. Branch `study/E-before-ordering`, PR https://github.com/IdrisAppliedAIResearch/contextDecayWindow/pull/95. Use `.venv/Scripts/python.exe` in this repository. No new study, inference restart, subagents, merge or adoption is authorized. Existing agent-scoring authorization persists.

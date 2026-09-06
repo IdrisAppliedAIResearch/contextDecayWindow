@@ -144,9 +144,9 @@ flush against the page there rather than showing as a panel.*
 
 ## Current State of Work
 
-*Last updated 2026-09-06, after Study E development.*
+*Last updated 2026-09-06, after Study E confirmation.*
 
-**Study E's amended development improved final answers from 3/12 to 6/12**, with four gains and one loss. Four answers still failed despite complete evidence. Two confirmation attempts stopped at output limits. A fresh run now uses the native thinking-off reader interface; batching was tested and was slower on the development workload. Results remain unopened; the pilot is not a confirmation verdict. [Development report](experiments/study_E/AMENDMENT_003_REPORT.md).
+**Study E confirmed a reader benefit from newest-first before-event ordering:** correct final answers rose from 177/640 (27.66%) to 302/640 (47.19%), a 19.53-point gain (95% interval 13.91–25.16; p=.00001), passing the registered bar and harm guards. Complete-evidence delivery rose from 64/128 to 109/128 questions, but 243 answers still failed with complete evidence. This synthetic result uses an amended native thinking-off reader interface and 114 blinded agent judgments; it has not been adopted. [Confirmation report](experiments/study_E/CONFIRMATION_REPORT.md).
 
 **Temporal allocation improved correctly generated reader answers.** Scored final-answer accuracy rose from 19.7% to 63.4% across 32 randomized synthetic histories, clearing the registered reader-success bar. Evidence availability is reported separately as a diagnostic. Latest-setting retrieval improved most; immediately-before accuracy remains 26.9%. Eight answers used explicitly authorized single-agent scoring instead of the registered human review. This has not been adopted. [Report](experiments/study_D/REPORT.md).
 
@@ -431,7 +431,7 @@ confirmation.
 
 ## Next Steps
 
-Complete the [fresh thinking-off confirmation](experiments/study_E/amendments/AMENDMENT_005_RUNTIME_LOCK.md), then score every arm before opening the comparison. Both stopped attempts are preserved and excluded; confirmation outcomes remain sealed.
+Review the [Study E confirmation](experiments/study_E/CONFIRMATION_REPORT.md) and its remaining complete-evidence errors before choosing a successor. The ordering gain is demonstrated within this synthetic setting; naturalistic transfer and improved interpretation need a separately agreed design. No adoption is automatic.
 
 1. **Validate episodic-chat 0.2.0 outside the spent LoCoMo corpus.** Freeze an
    external reader and retrieval study—preferably EnterpriseRAG-Bench or an
@@ -473,7 +473,7 @@ Commercial enquiries: **idrisappliedairesearch@gmail.com**.
 
 # For LLM Context
 
-> **Study E confirmation restart (2026-09-06).** Amendment005 authorizes fresh generation of all 3840 logical answers with native thinking-off prompts. Original call456/3508 hit8192 tokens; its Amendment004 repair hit16384. Both attempts remain unscored. Development runtime probe: 16 calls in 65.18/67.21/67.67 seconds at 1/2/4 slots; batched runs changed one response, so serial selected. Input and completeness gates precede scoring. See `experiments/study_E/amendments/AMENDMENT_005_RUNTIME_LOCK.md`.
+> **Study E confirmation (2026-09-06).** READER D1_WORKS: before answers177/640→302/640 (+19.53pp; group CI13.91–25.16; p=.00001),184 gains/59 losses. All guards pass; latest102/160 and absence160/160 each. Exact-source availability64/128→109/128; C1 complete-evidence wrong243/545. ORACLE524/640. Fresh native thinking-off run3508 calls/3840 logical answers; both capped attempts excluded.114 unique agent judgments, no human audit. Same-study Amendment005; no adoption. See `experiments/study_E/CONFIRMATION_REPORT.md`.
 
 > **Study E amended development (2026-09-06).** Amendment003 competing-update histories: exact required-source delivery4/16->13/16,9 gains/0 losses. Completed 43-call reader check gives before correctness3/12->6/12,4 gains/1 loss; latest3/4 and absence4/4 in both arms. Thirteen agent-scored exceptions; development only. Text-only duplicate-value counts are invalid. See `experiments/study_E/AMENDMENT_003_REPORT.md`.
 
@@ -989,7 +989,7 @@ Runs use a scripted 120-turn conversation with facts planted at known positions 
 
 | # | Added | Result | Finding |
 |---|---|---|---|
-| E | Before-event candidate ordering | THINKING-OFF RESTART | Both cap attempts preserved unscored; serial selected after 1/2/4-slot probe; full fresh reader comparison, outcomes sealed |
+| E | Before-event candidate ordering | READER D1_WORKS | Final answers177/640→302/640 (+19.53pp); 32 synthetic groups; complete-evidence errors remain243; amended reader interface, agent review, no adoption |
 | D | Deterministic temporal allocation | READER D1_WORKS; scoring deviation | Correct generated answers 63/320->203/320; 32 synthetic sessions; eight agent judgments; transfer untested |
 | 001 | Recency and similarity retrieval | PARTIAL (2/3) | Similarity fired once in 32 turns |
 | 002 | Consolidation, rule pinning, 120 turns | PARTIAL (3/4) | Similarity recovered buried facts; consolidation produced 52 topics |
