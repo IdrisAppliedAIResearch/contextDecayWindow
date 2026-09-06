@@ -190,6 +190,8 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **Study D temporal retrieval (2026-09-05).** READER D1_WORKS, scoring deviation. Generated-answer correctness 63/320->203/320 (+43.75pp; CI 33.44-53.75; p=.00001), 32 synthetic sessions. Latest 30%->100%; before 9.38%->26.88%. Availability is diagnostic. Eight agent judgments, no human audit. HH-001 prompt; transfer/absence harm untested; no adoption.
 
+**Study D address reader probe (2026-09-05).** EXPLORATORY, reader-only. Five complete short histories yield expected answers with event citations; a missing-update case starts wrongly at office then corrects to Cannot determine. Eight calls including two preflight repeats. Different explanatory prompt; no formal score, transfer or Study D failure attribution.
+
 ## 3. Failure Pattern
 
 The recurring failure class is a surrogate that can pass without the property it claims to certify: record count for information, novelty for importance, density for factual value, or a rubric score for a correct answer.
