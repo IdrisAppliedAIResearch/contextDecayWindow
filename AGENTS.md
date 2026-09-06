@@ -202,6 +202,8 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **Fusion difference probe (2026-09-06).** EXPLORATORY. Six rescues follow forward links;7 losses demote direct ranks20–30. Forward-only109→110 (7g/6l), backward99 (0/10), pre-anchor108 (6/7). Scores overlap;10–12-turn carrier distance is generator-dependent. C1 retained; relational admission reason unresolved. Plan86a1d7c9/gatedaeeb2fc.192 exact replays; no reader calls.
 
+**Chronology reader probe (2026-09-06).** EXPLORATORY. Same C1 retrieval: original/no-recency/chronological-no-recency before5/12,5/12,8/12 (3g0l);4guards correct. All8complete cases correct,4incomplete wrong.48 native-off calls,one seed.192 exact source checks;context57,331→31,686chars median. Plan c9158936; no adoption. Negative gate fixture executed post-run, disclosed.
+
 ## 3. Failure Pattern
 
 The recurring failure class is a surrogate that can pass without the property it claims to certify: record count for information, novelty for importance, density for factual value, or a rubric score for a correct answer.

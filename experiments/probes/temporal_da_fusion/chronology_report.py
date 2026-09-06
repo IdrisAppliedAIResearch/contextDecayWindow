@@ -20,7 +20,9 @@ def main():
     for r in result['rows']:
         gold=set(labels[r['id']]['gold_ids']);complete=bool(gold) and gold.issubset(by[r['id']]['selected_ids'])
         availability.append(dict(id=r['id'],type=r['type'],applicable=bool(gold),complete=complete))
-    save('layout_and_availability.json',dict(arms=extras,availability=availability))
+    layout=dict(arms=extras,availability=availability)
+    if (OUT/'layout_and_availability.json').exists():assert read(OUT/'layout_and_availability.json')==layout
+    else:save('layout_and_availability.json',layout)
     lines=['# Same retrieval, recency removed, chronological reader probe','',
         'Exploratory, September 6, 2026. Plan c9158936; code9ea35762; input gate5c6d3306; calibration618b85ab. Native thinking off; one fresh seed per arm;16 fixed questions;48 measurement calls plus two arithmetic calibration calls. No original study scores or deployed defaults changed.','',
         'All192 source contexts were checked offline. ORIGINAL exactly reproduces C1; NO_RECENT removes the additive32 exchanges; CHRONO_NO_RECENT sorts the same selected retrieved records oldest to newest after removal. No replacement records or extra retrieval were introduced. The empty recent-context marker remains, without any recent exchanges.','',
@@ -41,8 +43,15 @@ def main():
         'The sample uses the first three content ids in each of four before conditions and the first two latest/absence ids, without filtering by correctness or completeness. It is16 exposed synthetic questions, not a heldout population estimate. One seed does not characterize reader variance. Four guards are too few to establish safety. The comparison concerns the C1 baseline, not the fusion variants.','',
         'Native thinking was kept off consistently under the standing test rule. These results cannot be compared causally with the earlier thinking-on probe, which selected failures and changed the native system prefix. Availability is identical across these presentation arms; final-answer changes are reader outcomes under a joint input intervention, not improved retrieval.','',
         'Canonical final answers are scored under the frozen Study E grammar. Reasoning-only output is not awarded credit. Raw responses, per-item scores, gates, selection and all transformed contexts are retained in chronology_artifacts. No human or independent-rater audit is claimed.','',
+        'The explicit failed-input-gate fault-injection check was executed during closeout, after reader calls. The actual input and calibration gates were committed and enforced before calls; this is a timing deviation from the planned preflight fixture, not retroactive proof that the fixture ran before measurement. See negative_gate_fixture.json.','',
         'Original study registrations, answers, source data, retrieval code and production defaults remain unchanged. This exploratory probe tests the user-requested presentation without a new success disposition.','']
-    path=P/'CHRONOLOGY_REPORT.md';assert not path.exists();path.write_text('\n'.join(lines),encoding='utf-8')
+    primary=[r for r in result['rows'] if r['type'] not in ['latest','absent']]
+    av={r['id']:r for r in availability}
+    assert all(bool(r['arms']['CHRONO_NO_RECENT']['score'])==av[r['id']]['complete'] for r in primary)
+    lines[4:4]=['**Chronological ordering without recency improves the before-question score from5/12 to8/12 in this sample: three gains, zero losses. Removing recency alone leaves correctness at5/12.** All eight evidence-complete before cases are correct under chronological presentation; all four remaining misses lack complete required evidence. This is a small one-seed probe, not an established100% conditional accuracy rate.','',
+        'The three repairs are Harbor-113 (annex/workshop → studio), Orchard-657 (depot → hangar), and Orchard-219 (office → hangar). The exact source contents and retrieval identities did not change. The four latest/absence guards stay4/4 in every arm.','',
+        'Recommendation: carry this no-recency chronological presentation as the candidate for a larger paired reader check before further fusion tuning. The evidence supports prioritizing that check; it does not yet justify production adoption or a general recency-removal claim.','']
+    path=P/'CHRONOLOGY_REPORT.md';path.write_text('\n'.join(lines),encoding='utf-8')
     print(json.dumps(dict(extras=extras,availability=availability),indent=2))
 
 

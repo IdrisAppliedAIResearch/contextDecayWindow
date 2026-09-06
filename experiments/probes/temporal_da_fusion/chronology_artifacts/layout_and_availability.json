@@ -1,0 +1,123 @@
+{
+  "arms": {
+    "ORIGINAL": {
+      "context_chars_median": 57331.0,
+      "context_words_median": 7590.0,
+      "prompt_tokens_median": 11923.0,
+      "seconds": 65.04143940005451,
+      "output_tokens_total": 55
+    },
+    "NO_RECENT": {
+      "context_chars_median": 31686.0,
+      "context_words_median": 4229.0,
+      "prompt_tokens_median": 6794.0,
+      "seconds": 38.19498339993879,
+      "output_tokens_total": 53
+    },
+    "CHRONO_NO_RECENT": {
+      "context_chars_median": 31686.0,
+      "context_words_median": 4229.0,
+      "prompt_tokens_median": 6794.0,
+      "seconds": 38.14011510001728,
+      "output_tokens_total": 49
+    }
+  },
+  "availability": [
+    {
+      "id": "0ff74c9a653a67d59916c81366c325b3aa9f3e278e2067df15ef8fb4f4f8ce9b",
+      "type": "straight",
+      "applicable": true,
+      "complete": true
+    },
+    {
+      "id": "1454502bbf18db4a79d3a128bba10384a4f8215888a23496c8bf10a831247169",
+      "type": "straight",
+      "applicable": true,
+      "complete": false
+    },
+    {
+      "id": "15e05bc88bb47a68a58b71eb00700ee89dd5fad113a85de34005d87695b7b989",
+      "type": "straight",
+      "applicable": true,
+      "complete": true
+    },
+    {
+      "id": "0c01e4617e64f859c55c3ba7caf09f9fe8f3684b881c05c1234b03b0df5c53da",
+      "type": "irrelevant",
+      "applicable": true,
+      "complete": true
+    },
+    {
+      "id": "0fb8d2cc4acf5802b62f2fc17acf0debd5dcf3af5093170d1d3c0e58ef8cf805",
+      "type": "irrelevant",
+      "applicable": true,
+      "complete": true
+    },
+    {
+      "id": "153258b1e875944a391c7540f214a2dde7c2185b64e29cec28a0e5b30f5c5804",
+      "type": "irrelevant",
+      "applicable": true,
+      "complete": true
+    },
+    {
+      "id": "05d782e63a2940af0b50ed4ced06a6a985638a5b446f986f9dc15690e07c9e73",
+      "type": "future",
+      "applicable": true,
+      "complete": true
+    },
+    {
+      "id": "1917f04e14fa2ac4fffcc24246750fc2436e227851036fa160cb9fef92c95dc4",
+      "type": "future",
+      "applicable": true,
+      "complete": true
+    },
+    {
+      "id": "19b7803aac3774bc3156462da65e17cf5904c54843bfeb7455ca1b5c4b8b1080",
+      "type": "future",
+      "applicable": true,
+      "complete": false
+    },
+    {
+      "id": "04626861ac09011f12590a3f5b2aaf0d2c32525f24f94335e681e6bb3c31037b",
+      "type": "proposal",
+      "applicable": true,
+      "complete": false
+    },
+    {
+      "id": "0b5d6903e27b10ce7305134b3bed3f3995f045e1cfe841c201a580f843b6e1be",
+      "type": "proposal",
+      "applicable": true,
+      "complete": false
+    },
+    {
+      "id": "321b345d4a91be34084cd6a13d7399ebe075a60cd5788ff0919a37694b022a8b",
+      "type": "proposal",
+      "applicable": true,
+      "complete": true
+    },
+    {
+      "id": "0530f61af5663841c9da7acded5770209dff7c92a1baf44f28f444f77c68fb29",
+      "type": "latest",
+      "applicable": true,
+      "complete": true
+    },
+    {
+      "id": "1395a80fe95f18430814e3070157858cb8d4d31255a0050cb66968a6104ab893",
+      "type": "latest",
+      "applicable": true,
+      "complete": true
+    },
+    {
+      "id": "00cd5455f3efbb0d57670abb0fd8d117c8e42535edad50f7e305d0bd7b65cb15",
+      "type": "absent",
+      "applicable": false,
+      "complete": false
+    },
+    {
+      "id": "0779f937da3df4f97903b54f6db72bb778101503cdb40368d2f7bdd0619a658f",
+      "type": "absent",
+      "applicable": false,
+      "complete": false
+    }
+  ]
+}
