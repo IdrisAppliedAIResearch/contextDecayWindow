@@ -1,0 +1,4930 @@
+{
+  "eb85ee3c64d2897a148e4c7a6fd4b3472e43c73e21107d852367cff197c0abbb": {
+    "answer": "studio",
+    "gold_ids": [
+      "eefc5f4b8eaa368bf5af4486a66d191c0a664e62126b2c91bee43cac787c0248",
+      "8079133c204cbde3d93cc50d39dba48ab2186441cd4e5a4fb7a9e590ea8365a0"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Harbor-493\" is now the studio. This replaces its previous location.",
+        "The meeting \"Harbor-493 review\" took place at this point in the conversation."
+      ]
+    ],
+    "rationale": {
+      "kind": "straight",
+      "subject": "Harbor-493",
+      "anchor": 95,
+      "target": 88,
+      "near": 92,
+      "later": 99,
+      "gold": "studio",
+      "support_turns": [
+        88,
+        95
+      ],
+      "query": "What was the delivery location for \"Harbor-493\" immediately before \"Harbor-493 review\"?"
+    }
+  },
+  "d45db88a60f7d9fe0fb1db6f505d3638e5a2e1be37e6a14659546e583a7c310a": {
+    "answer": "hangar",
+    "gold_ids": [
+      "7626bd9d35b63f73f1727a99c8424193bf0e5f1c9e3446afd2d6aa5bc331c6f3",
+      "ead90beb612cfc1c3e92e46782f353b907e484f5eeb2824451592dcbf272c43f"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Orchard-390\" is now the hangar. This replaces its previous location.",
+        "The meeting \"Orchard-390 review\" took place at this point in the conversation."
+      ]
+    ],
+    "rationale": {
+      "kind": "irrelevant",
+      "subject": "Orchard-390",
+      "anchor": 70,
+      "target": 59,
+      "near": 69,
+      "later": 96,
+      "gold": "hangar",
+      "support_turns": [
+        59,
+        70
+      ],
+      "query": "What was the delivery location for \"Orchard-390\" immediately before \"Orchard-390 review\"?"
+    }
+  },
+  "ecd0417da8d51fefa33da58d2c61967d456b228c44bcd9b49b4a4e5878b5a14b": {
+    "answer": "depot",
+    "gold_ids": [
+      "10e030041a80e18c59be2103a1513da0ade1a037592e3b26704996d42ece7ec7",
+      "9727fbacb810a2c7070269ec6b5c3712f0342e5af2a6e440252d6428f170589a",
+      "5eefad5d36649106d6ce22dd9d8aee7bb46d032995cc5c0baa85acc26065258d"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Meadow-797\" is now the depot. This replaces its previous location.",
+        "The meeting \"Meadow-797 review\" took place at this point in the conversation.",
+        "The team announced that the delivery location for \"Meadow-797\" will become the studio next month. It is explicitly not effective anywhere in the current recorded history."
+      ]
+    ],
+    "rationale": {
+      "kind": "future",
+      "subject": "Meadow-797",
+      "anchor": 67,
+      "target": 55,
+      "near": 65,
+      "later": 102,
+      "gold": "depot",
+      "support_turns": [
+        55,
+        67,
+        65
+      ],
+      "query": "What was the delivery location for \"Meadow-797\" immediately before \"Meadow-797 review\"?"
+    }
+  },
+  "c968cce5d94ca49f5929772f70a6594581d94628fe1f2eab4a0a6004f1d9616e": {
+    "answer": "workshop",
+    "gold_ids": [
+      "24e7892335894d2b1100ebba825a2bc11e885746aa44836f1158bd8ddeb1d852",
+      "6082a19ee4d795bf290d2c25b220f592004865909ecb39a47ee3b0b2fd65799c",
+      "420fb69bddd99423722f4dec821083c16bb6cf60ff58e99cdeba015cc766ebc4"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Riverside-606\" is now the workshop. This replaces its previous location.",
+        "The meeting \"Riverside-606 review\" took place at this point in the conversation.",
+        "A proposal would move the delivery location for \"Riverside-606\" to the warehouse. It has not been accepted; no delivery-location change takes effect."
+      ]
+    ],
+    "rationale": {
+      "kind": "proposal",
+      "subject": "Riverside-606",
+      "anchor": 87,
+      "target": 81,
+      "near": 85,
+      "later": 93,
+      "gold": "workshop",
+      "support_turns": [
+        81,
+        87,
+        85
+      ],
+      "query": "What was the delivery location for \"Riverside-606\" immediately before \"Riverside-606 review\"?"
+    }
+  },
+  "7d7050fbab42647e9fe46265914ce1b860a7f148c3fbb375e4d8b9dd5f5b0f29": {
+    "answer": "office",
+    "gold_ids": [
+      "e6d04835cfa311eb1bc8e11b7c754c1bf2822222a01558b223c622aefc76cd48"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Cedar-293\" is now the office. This replaces its previous location."
+      ]
+    ],
+    "rationale": {
+      "kind": "latest",
+      "subject": "Cedar-293",
+      "anchor": 66,
+      "target": 54,
+      "near": 64,
+      "later": 80,
+      "gold": "office",
+      "support_turns": [
+        80
+      ],
+      "query": "What is the latest delivery location for \"Cedar-293\"?"
+    }
+  },
+  "f7635231aba54c83d4cecdd1d70a5a84ed9a81641211067c5d2f3ee1eb40d41d": {
+    "answer": "I don't know",
+    "gold_ids": [],
+    "sufficient_sets": [],
+    "rationale": {
+      "kind": "absent",
+      "subject": "Summit-601",
+      "anchor": 78,
+      "target": 73,
+      "near": 77,
+      "later": 101,
+      "gold": "I don't know",
+      "support_turns": [],
+      "query": "What was the delivery location for \"Summit-601\" immediately before \"Summit-601 review\"?"
+    }
+  },
+  "15e05bc88bb47a68a58b71eb00700ee89dd5fad113a85de34005d87695b7b989": {
+    "answer": "studio",
+    "gold_ids": [
+      "d8f13d84ca2f358733421745d58201e1ba20eb1eaf4f56234c472f521c021685",
+      "c835413052a00eba4aec5f7a02f0b1bd3976f3b020beed813d3a3a83c952f059"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Harbor-113\" is now the studio. This replaces its previous location.",
+        "The meeting \"Harbor-113 review\" took place at this point in the conversation."
+      ]
+    ],
+    "rationale": {
+      "kind": "straight",
+      "subject": "Harbor-113",
+      "anchor": 81,
+      "target": 76,
+      "near": 80,
+      "later": 98,
+      "gold": "studio",
+      "support_turns": [
+        76,
+        81
+      ],
+      "query": "What was the delivery location for \"Harbor-113\" immediately before \"Harbor-113 review\"?"
+    }
+  },
+  "0c01e4617e64f859c55c3ba7caf09f9fe8f3684b881c05c1234b03b0df5c53da": {
+    "answer": "hangar",
+    "gold_ids": [
+      "4f97632d7f90add5249b2ebdeff7a2ad0a9f3a846e3920459293b1ff9d82380d",
+      "92ec1fe79979a18bcbf97b57d1b9d4e8d6edad0a8653d12fbd7a226dee58fa8d"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Orchard-186\" is now the hangar. This replaces its previous location.",
+        "The meeting \"Orchard-186 review\" took place at this point in the conversation."
+      ]
+    ],
+    "rationale": {
+      "kind": "irrelevant",
+      "subject": "Orchard-186",
+      "anchor": 77,
+      "target": 68,
+      "near": 75,
+      "later": 91,
+      "gold": "hangar",
+      "support_turns": [
+        68,
+        77
+      ],
+      "query": "What was the delivery location for \"Orchard-186\" immediately before \"Orchard-186 review\"?"
+    }
+  },
+  "581624418dc5454d072eaed3b71e09c6445c4ade44ba2a59331692ca9e2504fe": {
+    "answer": "workshop",
+    "gold_ids": [
+      "98cc7bbc3d0b2c2159d08ee3a48814b5d9f1d3401e4eeced68225e3a5d7eac12",
+      "c6d43b978aecfd809a6a5b9ad13f09e063297ed87d0d43d73f2c655e69e9c451",
+      "d5490aa1ed326aa04f86b82d8922d8f510dcc4e6559455913208d352ce277c00"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Meadow-641\" is now the workshop. This replaces its previous location.",
+        "The meeting \"Meadow-641 review\" took place at this point in the conversation.",
+        "The team announced that the delivery location for \"Meadow-641\" will become the studio next month. It is explicitly not effective anywhere in the current recorded history."
+      ]
+    ],
+    "rationale": {
+      "kind": "future",
+      "subject": "Meadow-641",
+      "anchor": 71,
+      "target": 64,
+      "near": 70,
+      "later": 101,
+      "gold": "workshop",
+      "support_turns": [
+        64,
+        71,
+        70
+      ],
+      "query": "What was the delivery location for \"Meadow-641\" immediately before \"Meadow-641 review\"?"
+    }
+  },
+  "68e4d73574e6d626f32cdf8bd05cefc0fa024074c938a8353d128b99c0e2c160": {
+    "answer": "hangar",
+    "gold_ids": [
+      "363eb6a45178f6c4b3cb3f1a7255826a6594a66ffe8df4b3381c7f155c232ded",
+      "0250cfb8e8c8f0f96d8695ed3289895609f4c32ba7bd4348504f0ad7565a612f",
+      "a34aaf8273d229d103b2c220da2fa6b9ca4dc4493c8be1262175a030c5455d30"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Riverside-140\" is now the hangar. This replaces its previous location.",
+        "The meeting \"Riverside-140 review\" took place at this point in the conversation.",
+        "A proposal would move the delivery location for \"Riverside-140\" to the depot. It has not been accepted; no delivery-location change takes effect."
+      ]
+    ],
+    "rationale": {
+      "kind": "proposal",
+      "subject": "Riverside-140",
+      "anchor": 94,
+      "target": 85,
+      "near": 92,
+      "later": 99,
+      "gold": "hangar",
+      "support_turns": [
+        85,
+        94,
+        92
+      ],
+      "query": "What was the delivery location for \"Riverside-140\" immediately before \"Riverside-140 review\"?"
+    }
+  },
+  "99524ea78a6088337a517fa7c39bf4108caffc16cd9752ea416f876ee323870c": {
+    "answer": "warehouse",
+    "gold_ids": [
+      "52fe513b7c5b236282dacd5b18f9ea7b2cf077e3c17be0b118740b5a09deee43"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Cedar-816\" is now the warehouse. This replaces its previous location."
+      ]
+    ],
+    "rationale": {
+      "kind": "latest",
+      "subject": "Cedar-816",
+      "anchor": 55,
+      "target": 43,
+      "near": 52,
+      "later": 103,
+      "gold": "warehouse",
+      "support_turns": [
+        103
+      ],
+      "query": "What is the latest delivery location for \"Cedar-816\"?"
+    }
+  },
+  "f0e7ef7e769e9e1ac9ab3cda0b5919a2f20f74cf6f89d6dcf6b45fd9fb55e4c4": {
+    "answer": "I don't know",
+    "gold_ids": [],
+    "sufficient_sets": [],
+    "rationale": {
+      "kind": "absent",
+      "subject": "Summit-328",
+      "anchor": 66,
+      "target": 54,
+      "near": 65,
+      "later": 95,
+      "gold": "I don't know",
+      "support_turns": [],
+      "query": "What was the delivery location for \"Summit-328\" immediately before \"Summit-328 review\"?"
+    }
+  },
+  "a05652d15164dffbc620ee85f3230a132fe76da95a0c93c354b0819800191266": {
+    "answer": "laboratory",
+    "gold_ids": [
+      "33e7698480ef2b6e1bcf2e3c63c2bd925ab5b38e364bc4dbb6ad462195a65c7f",
+      "772aa304be57634f6ecd76b4ed15bf36af73f1815be41486dcd60e5753a77e3e"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Harbor-547\" is now the laboratory. This replaces its previous location.",
+        "The meeting \"Harbor-547 review\" took place at this point in the conversation."
+      ]
+    ],
+    "rationale": {
+      "kind": "straight",
+      "subject": "Harbor-547",
+      "anchor": 84,
+      "target": 75,
+      "near": 82,
+      "later": 90,
+      "gold": "laboratory",
+      "support_turns": [
+        75,
+        84
+      ],
+      "query": "What was the delivery location for \"Harbor-547\" immediately before \"Harbor-547 review\"?"
+    }
+  },
+  "fc2d31b1b60f8e62691b098d3a0447ee70c0a34367149805349d3632f8f03ad8": {
+    "answer": "hangar",
+    "gold_ids": [
+      "c8038272c22799b90c7b71e98b7f98f9002e0c524859cc55c1a27a0b0be22bbc",
+      "81e085ca20f36eeb548b0f46da9ffc702235b582fd2f3c1964cc3e932f04c9c1"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Orchard-664\" is now the hangar. This replaces its previous location.",
+        "The meeting \"Orchard-664 review\" took place at this point in the conversation."
+      ]
+    ],
+    "rationale": {
+      "kind": "irrelevant",
+      "subject": "Orchard-664",
+      "anchor": 55,
+      "target": 44,
+      "near": 53,
+      "later": 60,
+      "gold": "hangar",
+      "support_turns": [
+        44,
+        55
+      ],
+      "query": "What was the delivery location for \"Orchard-664\" immediately before \"Orchard-664 review\"?"
+    }
+  },
+  "1a479cf309f010d5fae700105e9f21f74bc4be50c062f83aac74252c4e2afe91": {
+    "answer": "warehouse",
+    "gold_ids": [
+      "7f04c088653cd8d6c8f037a778e7f5dee4aabb63f7557e34cfba1ac1d0a83343",
+      "ff2e5a371b80bd9746b10f7ef0f072446e8c9af170db780b4a44ac4b64b98921",
+      "f75471aa2c8c8a30b4cbb36ec2b29fdf9046feb9c0a1daaf6824b2f7a2a1d902"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Meadow-836\" is now the warehouse. This replaces its previous location.",
+        "The meeting \"Meadow-836 review\" took place at this point in the conversation.",
+        "The team announced that the delivery location for \"Meadow-836\" will become the hangar next month. It is explicitly not effective anywhere in the current recorded history."
+      ]
+    ],
+    "rationale": {
+      "kind": "future",
+      "subject": "Meadow-836",
+      "anchor": 78,
+      "target": 67,
+      "near": 77,
+      "later": 95,
+      "gold": "warehouse",
+      "support_turns": [
+        67,
+        78,
+        77
+      ],
+      "query": "What was the delivery location for \"Meadow-836\" immediately before \"Meadow-836 review\"?"
+    }
+  },
+  "fd2ebc751b6e6cd91645d0663b6803adb9fbaf4e95c5a42ca7c29a41af83b420": {
+    "answer": "hangar",
+    "gold_ids": [
+      "2e64fadcf58d831272c6ebee8a156ba123f6133502e1d1241feb11b690d7c3a4",
+      "0091ed25abcaf2385e4bab624de8dd93319da6e229f776f8a01345727a338d14",
+      "c275e14f51bc31fd60b431576004a4d9d87d62416d3b851a42ffe3a959319b49"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Riverside-728\" is now the hangar. This replaces its previous location.",
+        "The meeting \"Riverside-728 review\" took place at this point in the conversation.",
+        "A proposal would move the delivery location for \"Riverside-728\" to the annex. It has not been accepted; no delivery-location change takes effect."
+      ]
+    ],
+    "rationale": {
+      "kind": "proposal",
+      "subject": "Riverside-728",
+      "anchor": 72,
+      "target": 65,
+      "near": 69,
+      "later": 81,
+      "gold": "hangar",
+      "support_turns": [
+        65,
+        72,
+        69
+      ],
+      "query": "What was the delivery location for \"Riverside-728\" immediately before \"Riverside-728 review\"?"
+    }
+  },
+  "8f929faf677a69f67e3cb13fafb0d5c3b539fb22d4530f89f642e250e133759c": {
+    "answer": "workshop",
+    "gold_ids": [
+      "cf8f1fe022e7e95699be0a6d20e0a1a46b987235fa3dc2c9253469df967d8fc3"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Cedar-882\" is now the workshop. This replaces its previous location."
+      ]
+    ],
+    "rationale": {
+      "kind": "latest",
+      "subject": "Cedar-882",
+      "anchor": 68,
+      "target": 59,
+      "near": 66,
+      "later": 80,
+      "gold": "workshop",
+      "support_turns": [
+        80
+      ],
+      "query": "What is the latest delivery location for \"Cedar-882\"?"
+    }
+  },
+  "0779f937da3df4f97903b54f6db72bb778101503cdb40368d2f7bdd0619a658f": {
+    "answer": "I don't know",
+    "gold_ids": [],
+    "sufficient_sets": [],
+    "rationale": {
+      "kind": "absent",
+      "subject": "Summit-899",
+      "anchor": 63,
+      "target": 52,
+      "near": 62,
+      "later": 89,
+      "gold": "I don't know",
+      "support_turns": [],
+      "query": "What was the delivery location for \"Summit-899\" immediately before \"Summit-899 review\"?"
+    }
+  },
+  "674914c2ac2592214eef418c86af0444e117a65f5e8c4b53aea8b1c5d27c43e7": {
+    "answer": "office",
+    "gold_ids": [
+      "4795fea9571e0d7d14205d66f8245af92007bdceccb6c83382a7d372b3fe4a7b",
+      "a93a43066684964ba863832d0906526cc6098294df27c6c954048bb7f5a3dd7d"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Harbor-618\" is now the office. This replaces its previous location.",
+        "The meeting \"Harbor-618 review\" took place at this point in the conversation."
+      ]
+    ],
+    "rationale": {
+      "kind": "straight",
+      "subject": "Harbor-618",
+      "anchor": 86,
+      "target": 75,
+      "near": 85,
+      "later": 96,
+      "gold": "office",
+      "support_turns": [
+        75,
+        86
+      ],
+      "query": "What was the delivery location for \"Harbor-618\" immediately before \"Harbor-618 review\"?"
+    }
+  },
+  "c6fec1f2532dfe005301977d073457b6fe0232cf1d5c6299d97772207229aecc": {
+    "answer": "studio",
+    "gold_ids": [
+      "eb6b4cac4f3326d998bb3a2c4f62185598fdf1e79f216b99489f5f95d4bda475",
+      "e9c7e8f3ac0932b506581db694d3674d15f5ef6ac247c769d3415ac625dc456e"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Orchard-612\" is now the studio. This replaces its previous location.",
+        "The meeting \"Orchard-612 review\" took place at this point in the conversation."
+      ]
+    ],
+    "rationale": {
+      "kind": "irrelevant",
+      "subject": "Orchard-612",
+      "anchor": 78,
+      "target": 70,
+      "near": 76,
+      "later": 84,
+      "gold": "studio",
+      "support_turns": [
+        70,
+        78
+      ],
+      "query": "What was the delivery location for \"Orchard-612\" immediately before \"Orchard-612 review\"?"
+    }
+  },
+  "19b7803aac3774bc3156462da65e17cf5904c54843bfeb7455ca1b5c4b8b1080": {
+    "answer": "warehouse",
+    "gold_ids": [
+      "0cacb35995bc77b45ce992f5ce84a38daff3f2746f638882215bd0148f3da5d5",
+      "5fb914bc39085ae79a6f735960c0bf656df3250a364929eb04a13f024d23c902",
+      "b6ba9eeed4dac6928fa9d3c5320957ef296cf153e1450accf6bd4bc7b44a35be"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Meadow-228\" is now the warehouse. This replaces its previous location.",
+        "The meeting \"Meadow-228 review\" took place at this point in the conversation.",
+        "The team announced that the delivery location for \"Meadow-228\" will become the hangar next month. It is explicitly not effective anywhere in the current recorded history."
+      ]
+    ],
+    "rationale": {
+      "kind": "future",
+      "subject": "Meadow-228",
+      "anchor": 71,
+      "target": 60,
+      "near": 69,
+      "later": 73,
+      "gold": "warehouse",
+      "support_turns": [
+        60,
+        71,
+        69
+      ],
+      "query": "What was the delivery location for \"Meadow-228\" immediately before \"Meadow-228 review\"?"
+    }
+  },
+  "4a7ab40a17abcd70b5fd489fc768d47d6b2fc8a11283cd6835af534303707bdb": {
+    "answer": "office",
+    "gold_ids": [
+      "391edf0bc32e3df576f18793e70fcb7f6a670f3d49f92f0036f0e4465dbbc04e",
+      "195deae963a4905093c157547556e62cec2c440ab302bbaa46f38a7a5ccd7e87",
+      "6c5d959d9ac7da3ca41d3d7b6d074dfc89b7e94ae50ac0b9d1487183c33182db"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Riverside-600\" is now the office. This replaces its previous location.",
+        "The meeting \"Riverside-600 review\" took place at this point in the conversation.",
+        "A proposal would move the delivery location for \"Riverside-600\" to the annex. It has not been accepted; no delivery-location change takes effect."
+      ]
+    ],
+    "rationale": {
+      "kind": "proposal",
+      "subject": "Riverside-600",
+      "anchor": 83,
+      "target": 77,
+      "near": 80,
+      "later": 100,
+      "gold": "office",
+      "support_turns": [
+        77,
+        83,
+        80
+      ],
+      "query": "What was the delivery location for \"Riverside-600\" immediately before \"Riverside-600 review\"?"
+    }
+  },
+  "c6a0adc91b3c571e32b511041c7ec97eb81b36f9484cbd746f806094384ac26c": {
+    "answer": "annex",
+    "gold_ids": [
+      "7b8f04b12e25d40dbd0250229cf59ff68f4f5bb4badd7452b9743af155aff78a"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Cedar-697\" is now the annex. This replaces its previous location."
+      ]
+    ],
+    "rationale": {
+      "kind": "latest",
+      "subject": "Cedar-697",
+      "anchor": 82,
+      "target": 74,
+      "near": 81,
+      "later": 102,
+      "gold": "annex",
+      "support_turns": [
+        102
+      ],
+      "query": "What is the latest delivery location for \"Cedar-697\"?"
+    }
+  },
+  "25e7828319037ff27d90cfaf9bec6ade0e77ef2b8f69cc4d0339d2684fb3360f": {
+    "answer": "I don't know",
+    "gold_ids": [],
+    "sufficient_sets": [],
+    "rationale": {
+      "kind": "absent",
+      "subject": "Summit-353",
+      "anchor": 58,
+      "target": 49,
+      "near": 57,
+      "later": 88,
+      "gold": "I don't know",
+      "support_turns": [],
+      "query": "What was the delivery location for \"Summit-353\" immediately before \"Summit-353 review\"?"
+    }
+  },
+  "67b51e769988a0d71182304a66e4ae5d51f04191e3b24dbbbcd74b0cf3a10cbf": {
+    "answer": "annex",
+    "gold_ids": [
+      "86270e34bdb29d7f8b5df60412159c6267681042fd3ac631e228d2857ab5aa68",
+      "ac8e7ea8bd197d24db448421dc711f2a3f34178ee7e4bd5c90d467947636b0a6"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Harbor-374\" is now the annex. This replaces its previous location.",
+        "The meeting \"Harbor-374 review\" took place at this point in the conversation."
+      ]
+    ],
+    "rationale": {
+      "kind": "straight",
+      "subject": "Harbor-374",
+      "anchor": 92,
+      "target": 87,
+      "near": 90,
+      "later": 95,
+      "gold": "annex",
+      "support_turns": [
+        87,
+        92
+      ],
+      "query": "What was the delivery location for \"Harbor-374\" immediately before \"Harbor-374 review\"?"
+    }
+  },
+  "5e19e0f07832021c34eb86e87c7d3cdef21112121d9b0883d64a42e15dcfa635": {
+    "answer": "hangar",
+    "gold_ids": [
+      "f4c155184e32241d28b405c20a160fec46ea4f3456872f4b198affa9db501f2f",
+      "0fb85e8d6da95dc940ff42ef8be3755ea0be306c617036f54909f47ec4840623"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Orchard-700\" is now the hangar. This replaces its previous location.",
+        "The meeting \"Orchard-700 review\" took place at this point in the conversation."
+      ]
+    ],
+    "rationale": {
+      "kind": "irrelevant",
+      "subject": "Orchard-700",
+      "anchor": 55,
+      "target": 44,
+      "near": 54,
+      "later": 58,
+      "gold": "hangar",
+      "support_turns": [
+        44,
+        55
+      ],
+      "query": "What was the delivery location for \"Orchard-700\" immediately before \"Orchard-700 review\"?"
+    }
+  },
+  "c8ffed9f1c944367207607611627ef6d7fcf85d68ba486bda61390e5c1cf0fd8": {
+    "answer": "warehouse",
+    "gold_ids": [
+      "a7b6070b98b0efc0a413bd506a224b22ac9fb7aed1c81dab259a80c1da0cf28e",
+      "713a665a2979f84fd9ba2c88b97c66701bba11b063ced807fedfc464d9f99d32",
+      "d21dae44a1f0c9b8fde7c31c288fccc84d39969150b6ee85987bf8a89eb8d877"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Meadow-550\" is now the warehouse. This replaces its previous location.",
+        "The meeting \"Meadow-550 review\" took place at this point in the conversation.",
+        "The team announced that the delivery location for \"Meadow-550\" will become the annex next month. It is explicitly not effective anywhere in the current recorded history."
+      ]
+    ],
+    "rationale": {
+      "kind": "future",
+      "subject": "Meadow-550",
+      "anchor": 78,
+      "target": 73,
+      "near": 75,
+      "later": 80,
+      "gold": "warehouse",
+      "support_turns": [
+        73,
+        78,
+        75
+      ],
+      "query": "What was the delivery location for \"Meadow-550\" immediately before \"Meadow-550 review\"?"
+    }
+  },
+  "b1d74e60a876c2edf2bb09b79ac7082bfaf574af070588cde700977d8fb59e49": {
+    "answer": "workshop",
+    "gold_ids": [
+      "1e054d91b18b2a9c63138a81bf75685e88c37741433edabb4fd65b581d9d6093",
+      "4ff5227cacb1e0692f569d908c58af89762955f1ea5a8fb5eee94d4774c60d01",
+      "96dc0981c4850aa24f023b5410e8f25d551348caf8778ad200d187af482a640b"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Riverside-854\" is now the workshop. This replaces its previous location.",
+        "The meeting \"Riverside-854 review\" took place at this point in the conversation.",
+        "A proposal would move the delivery location for \"Riverside-854\" to the studio. It has not been accepted; no delivery-location change takes effect."
+      ]
+    ],
+    "rationale": {
+      "kind": "proposal",
+      "subject": "Riverside-854",
+      "anchor": 71,
+      "target": 65,
+      "near": 70,
+      "later": 74,
+      "gold": "workshop",
+      "support_turns": [
+        65,
+        71,
+        70
+      ],
+      "query": "What was the delivery location for \"Riverside-854\" immediately before \"Riverside-854 review\"?"
+    }
+  },
+  "8e5e95f77cbdf795176eedb8fc6eff1c980b78420ddcaa6fe9f16d9f0ff788a6": {
+    "answer": "warehouse",
+    "gold_ids": [
+      "5b1126daff0d7b82874b3f9cf5998e307494a68c918e27ece5dcbc819a893bdc"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Cedar-863\" is now the warehouse. This replaces its previous location."
+      ]
+    ],
+    "rationale": {
+      "kind": "latest",
+      "subject": "Cedar-863",
+      "anchor": 85,
+      "target": 77,
+      "near": 82,
+      "later": 105,
+      "gold": "warehouse",
+      "support_turns": [
+        105
+      ],
+      "query": "What is the latest delivery location for \"Cedar-863\"?"
+    }
+  },
+  "0cc4acd6ac0885319841aee4a91466e46223fc06b0967465acbf73c6a9ce15a9": {
+    "answer": "I don't know",
+    "gold_ids": [],
+    "sufficient_sets": [],
+    "rationale": {
+      "kind": "absent",
+      "subject": "Summit-522",
+      "anchor": 61,
+      "target": 51,
+      "near": 59,
+      "later": 91,
+      "gold": "I don't know",
+      "support_turns": [],
+      "query": "What was the delivery location for \"Summit-522\" immediately before \"Summit-522 review\"?"
+    }
+  },
+  "6e66523b5c52c6f3477e23c29e53e513911c5bc9253417fca86da7e313d77d1a": {
+    "answer": "warehouse",
+    "gold_ids": [
+      "e61e093e03cdd079b8ef10ecead294f5cd63985bc71f4e96230c74d3bf41be29",
+      "416afdf715efa1b65451ab2b868fdff9bd6aa9be3195d72a32f74fbdcaa5dd89"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Harbor-211\" is now the warehouse. This replaces its previous location.",
+        "The meeting \"Harbor-211 review\" took place at this point in the conversation."
+      ]
+    ],
+    "rationale": {
+      "kind": "straight",
+      "subject": "Harbor-211",
+      "anchor": 95,
+      "target": 83,
+      "near": 93,
+      "later": 105,
+      "gold": "warehouse",
+      "support_turns": [
+        83,
+        95
+      ],
+      "query": "What was the delivery location for \"Harbor-211\" immediately before \"Harbor-211 review\"?"
+    }
+  },
+  "153258b1e875944a391c7540f214a2dde7c2185b64e29cec28a0e5b30f5c5804": {
+    "answer": "hangar",
+    "gold_ids": [
+      "4c530ddb4e46ca774a38e2959e450250a8c4edf3f5e473408288d9a5644ecdcb",
+      "bac3c8f269cfcc02dd1a10eb5a96be2ef9851b5c38d54940d2d135cfd0a5eccc"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Orchard-219\" is now the hangar. This replaces its previous location.",
+        "The meeting \"Orchard-219 review\" took place at this point in the conversation."
+      ]
+    ],
+    "rationale": {
+      "kind": "irrelevant",
+      "subject": "Orchard-219",
+      "anchor": 68,
+      "target": 63,
+      "near": 65,
+      "later": 91,
+      "gold": "hangar",
+      "support_turns": [
+        63,
+        68
+      ],
+      "query": "What was the delivery location for \"Orchard-219\" immediately before \"Orchard-219 review\"?"
+    }
+  },
+  "1917f04e14fa2ac4fffcc24246750fc2436e227851036fa160cb9fef92c95dc4": {
+    "answer": "annex",
+    "gold_ids": [
+      "d451c062a762cff827b8c6e9c648da41d694e98687ae3cf8cfa5f3b271e77632",
+      "6dda790399acd84e2ede1ef6e48412e69c451096f5a2999955fa956024cd53a6",
+      "142dca1392b2ce09d3ba755a3509a5c6ab310bf84c0382d2c6a3727c2e0f45b3"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Meadow-792\" is now the annex. This replaces its previous location.",
+        "The meeting \"Meadow-792 review\" took place at this point in the conversation.",
+        "The team announced that the delivery location for \"Meadow-792\" will become the office next month. It is explicitly not effective anywhere in the current recorded history."
+      ]
+    ],
+    "rationale": {
+      "kind": "future",
+      "subject": "Meadow-792",
+      "anchor": 81,
+      "target": 74,
+      "near": 78,
+      "later": 98,
+      "gold": "annex",
+      "support_turns": [
+        74,
+        81,
+        78
+      ],
+      "query": "What was the delivery location for \"Meadow-792\" immediately before \"Meadow-792 review\"?"
+    }
+  },
+  "4a56f058c2a3143c51e31c2de58d3dfe9a0049f5172259d2511e5fb2bb7844ee": {
+    "answer": "depot",
+    "gold_ids": [
+      "d31b7b6549a289ef9643f7d03e3c5e46d9e66fbfa7770ba5008fa2a2107654fc",
+      "152f831d462a9db3da8053c64730d914f64334ae027b957c325165dbeed83739",
+      "17b381324eb3c541ec4dd19152796966b337efe3447082d60db3c23599d130ec"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Riverside-152\" is now the depot. This replaces its previous location.",
+        "The meeting \"Riverside-152 review\" took place at this point in the conversation.",
+        "A proposal would move the delivery location for \"Riverside-152\" to the annex. It has not been accepted; no delivery-location change takes effect."
+      ]
+    ],
+    "rationale": {
+      "kind": "proposal",
+      "subject": "Riverside-152",
+      "anchor": 64,
+      "target": 59,
+      "near": 62,
+      "later": 66,
+      "gold": "depot",
+      "support_turns": [
+        59,
+        64,
+        62
+      ],
+      "query": "What was the delivery location for \"Riverside-152\" immediately before \"Riverside-152 review\"?"
+    }
+  },
+  "dde88675ef7882f1e35ba612ccd2ee5a71d7157b8b7fa86acaf45ed2f9847ef5": {
+    "answer": "office",
+    "gold_ids": [
+      "1239e8f10b014d6a2e5412bb8cd03ffff6dd6a43b87fc82f71ee151d501ed0c4"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Cedar-949\" is now the office. This replaces its previous location."
+      ]
+    ],
+    "rationale": {
+      "kind": "latest",
+      "subject": "Cedar-949",
+      "anchor": 89,
+      "target": 77,
+      "near": 88,
+      "later": 92,
+      "gold": "office",
+      "support_turns": [
+        92
+      ],
+      "query": "What is the latest delivery location for \"Cedar-949\"?"
+    }
+  },
+  "9e15820f0130bf3fbbbbba124c9502e52ffe8939ff1c54e021e6e7462afe5205": {
+    "answer": "I don't know",
+    "gold_ids": [],
+    "sufficient_sets": [],
+    "rationale": {
+      "kind": "absent",
+      "subject": "Summit-498",
+      "anchor": 86,
+      "target": 76,
+      "near": 85,
+      "later": 102,
+      "gold": "I don't know",
+      "support_turns": [],
+      "query": "What was the delivery location for \"Summit-498\" immediately before \"Summit-498 review\"?"
+    }
+  },
+  "ca7110eee654a2b1f9cbfb7d568788364edb9857acc7a6df112615dd215f250a": {
+    "answer": "workshop",
+    "gold_ids": [
+      "7a347e3b2db562f3562c0bef649dfe2d8508f8fcac256465c2356360fdb68ce0",
+      "78aab2a572c4d2b39649bd5f3b99cfa0c4a48fccf06175926820c853b62d285b"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Harbor-788\" is now the workshop. This replaces its previous location.",
+        "The meeting \"Harbor-788 review\" took place at this point in the conversation."
+      ]
+    ],
+    "rationale": {
+      "kind": "straight",
+      "subject": "Harbor-788",
+      "anchor": 69,
+      "target": 57,
+      "near": 67,
+      "later": 79,
+      "gold": "workshop",
+      "support_turns": [
+        57,
+        69
+      ],
+      "query": "What was the delivery location for \"Harbor-788\" immediately before \"Harbor-788 review\"?"
+    }
+  },
+  "854d9b0ef1d763272478b428dbad7a41aa6ed79ed23853dd70a35b2276b76382": {
+    "answer": "hangar",
+    "gold_ids": [
+      "bd212356ad7af9cb2658b7cd3128041ec383ac7cc1a179725bd612b622384338",
+      "dc76c3d086c43d647a9b042869d1b807aec5a988f2e51b6ba51b1208c5665fe3"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Orchard-656\" is now the hangar. This replaces its previous location.",
+        "The meeting \"Orchard-656 review\" took place at this point in the conversation."
+      ]
+    ],
+    "rationale": {
+      "kind": "irrelevant",
+      "subject": "Orchard-656",
+      "anchor": 61,
+      "target": 51,
+      "near": 60,
+      "later": 93,
+      "gold": "hangar",
+      "support_turns": [
+        51,
+        61
+      ],
+      "query": "What was the delivery location for \"Orchard-656\" immediately before \"Orchard-656 review\"?"
+    }
+  },
+  "b79c6ce25d089486dc06be42d4985b69cb0f2ad4b3215e9aba2d9cc0f5557303": {
+    "answer": "studio",
+    "gold_ids": [
+      "e9f9dc4befd948c0c30109f5ebdf59627502b9a908ae65eafc9fc8959e166c8d",
+      "31b46e93dd602cab861895240b0822f0668754e7b45e5c8fa7d11a501ddc2d30",
+      "64d8ecdb1539884fe722a21de6662bd4e693b5e586f4ae6c34a6872a8ac64e76"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Meadow-513\" is now the studio. This replaces its previous location.",
+        "The meeting \"Meadow-513 review\" took place at this point in the conversation.",
+        "The team announced that the delivery location for \"Meadow-513\" will become the annex next month. It is explicitly not effective anywhere in the current recorded history."
+      ]
+    ],
+    "rationale": {
+      "kind": "future",
+      "subject": "Meadow-513",
+      "anchor": 81,
+      "target": 75,
+      "near": 78,
+      "later": 90,
+      "gold": "studio",
+      "support_turns": [
+        75,
+        81,
+        78
+      ],
+      "query": "What was the delivery location for \"Meadow-513\" immediately before \"Meadow-513 review\"?"
+    }
+  },
+  "c0f7bd792a9cc1b2cc0494a371f4c0e275dad2e66393ebc1403e48830e751d61": {
+    "answer": "workshop",
+    "gold_ids": [
+      "f89c64054947d4e34c6c019fc99d2b6fa0177333fb7ae1f77ec42fd97fd5ef77",
+      "38fe4f3e7ae73214314c73367bba1e3c4b41e4a974579266666d7dbcf34c7ca3",
+      "013e6e1ac85ea474de19ec77b2f9f452a512c3e12cbe00df60427e9dc0fafcf7"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Riverside-696\" is now the workshop. This replaces its previous location.",
+        "The meeting \"Riverside-696 review\" took place at this point in the conversation.",
+        "A proposal would move the delivery location for \"Riverside-696\" to the laboratory. It has not been accepted; no delivery-location change takes effect."
+      ]
+    ],
+    "rationale": {
+      "kind": "proposal",
+      "subject": "Riverside-696",
+      "anchor": 59,
+      "target": 52,
+      "near": 58,
+      "later": 100,
+      "gold": "workshop",
+      "support_turns": [
+        52,
+        59,
+        58
+      ],
+      "query": "What was the delivery location for \"Riverside-696\" immediately before \"Riverside-696 review\"?"
+    }
+  },
+  "f33e8c0912347de0058fc39cae8e6b4eb9d875242db9932037ff7fc878c1bd1e": {
+    "answer": "annex",
+    "gold_ids": [
+      "380a526919ad7ec8aef86b2fbecc7ac86bf712ff70c13a3be5986164b7983205"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Cedar-184\" is now the annex. This replaces its previous location."
+      ]
+    ],
+    "rationale": {
+      "kind": "latest",
+      "subject": "Cedar-184",
+      "anchor": 64,
+      "target": 54,
+      "near": 63,
+      "later": 98,
+      "gold": "annex",
+      "support_turns": [
+        98
+      ],
+      "query": "What is the latest delivery location for \"Cedar-184\"?"
+    }
+  },
+  "329533dad36bb941f088400fa33115ef8acea55d9fb08cc2983442a30d4b23e9": {
+    "answer": "I don't know",
+    "gold_ids": [],
+    "sufficient_sets": [],
+    "rationale": {
+      "kind": "absent",
+      "subject": "Summit-871",
+      "anchor": 82,
+      "target": 71,
+      "near": 80,
+      "later": 86,
+      "gold": "I don't know",
+      "support_turns": [],
+      "query": "What was the delivery location for \"Summit-871\" immediately before \"Summit-871 review\"?"
+    }
+  },
+  "eb665ffd4d5c14befa9882b055fd4aabc292c780c5dce670b0060d4a847da29e": {
+    "answer": "hangar",
+    "gold_ids": [
+      "b16eafc8893e812027c4db07c9829d7bf74dce40cec51229bb230b33af683941",
+      "3f7b55ec10e9bbd004933fd6a60cfcdaaeeeabed611885ce567f9b9c06d70d8b"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Harbor-447\" is now the hangar. This replaces its previous location.",
+        "The meeting \"Harbor-447 review\" took place at this point in the conversation."
+      ]
+    ],
+    "rationale": {
+      "kind": "straight",
+      "subject": "Harbor-447",
+      "anchor": 92,
+      "target": 84,
+      "near": 91,
+      "later": 100,
+      "gold": "hangar",
+      "support_turns": [
+        84,
+        92
+      ],
+      "query": "What was the delivery location for \"Harbor-447\" immediately before \"Harbor-447 review\"?"
+    }
+  },
+  "dccbaecbd9a7c147e247f8901962da1873454a17f959c98478cb24dce93cd4bf": {
+    "answer": "annex",
+    "gold_ids": [
+      "1b8ad3739fdd68d81ea5dc7d241c4e132df33a01718cdcb64b711ffef2e0ed78",
+      "77ecc4654a0268cf1fde2885078317190d54a4c2f1ec98d6ba633a4c138bd147"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Orchard-828\" is now the annex. This replaces its previous location.",
+        "The meeting \"Orchard-828 review\" took place at this point in the conversation."
+      ]
+    ],
+    "rationale": {
+      "kind": "irrelevant",
+      "subject": "Orchard-828",
+      "anchor": 61,
+      "target": 51,
+      "near": 58,
+      "later": 73,
+      "gold": "annex",
+      "support_turns": [
+        51,
+        61
+      ],
+      "query": "What was the delivery location for \"Orchard-828\" immediately before \"Orchard-828 review\"?"
+    }
+  },
+  "7690471d5d492ed776e516667910db0dee5dd36beb9e17efe77dd2206be1b7da": {
+    "answer": "warehouse",
+    "gold_ids": [
+      "61030e05122aca925c032cb05c64e09dbabadeee052bdeb32e39e568d75607ae",
+      "4df1bd0196dc8c4ceec73a3ce8c43dc52e074948cf79df7ac3c3a76e6268b4e9",
+      "27f81a9eda022ace07c094a35b1bb3849d19ed9b05e641a70f2dc1e34d02dc69"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Meadow-491\" is now the warehouse. This replaces its previous location.",
+        "The meeting \"Meadow-491 review\" took place at this point in the conversation.",
+        "The team announced that the delivery location for \"Meadow-491\" will become the office next month. It is explicitly not effective anywhere in the current recorded history."
+      ]
+    ],
+    "rationale": {
+      "kind": "future",
+      "subject": "Meadow-491",
+      "anchor": 56,
+      "target": 47,
+      "near": 54,
+      "later": 64,
+      "gold": "warehouse",
+      "support_turns": [
+        47,
+        56,
+        54
+      ],
+      "query": "What was the delivery location for \"Meadow-491\" immediately before \"Meadow-491 review\"?"
+    }
+  },
+  "bb94d326dd8430a55db4e198fe72516667d8bea0a72fe99352405d94c34f5146": {
+    "answer": "hangar",
+    "gold_ids": [
+      "aee08cf7a4b9ed376ac112d518cd78b40207ea371744fb64a01db953851882cf",
+      "2f05439efdcb74fe91567faf63b48a5dc64a3f34ddfdd0a8d306c4cf17a44bb4",
+      "57aaf1e77448fb5816cc8274278d88f3bc2c64e674916121119348d8c8543ed4"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Riverside-281\" is now the hangar. This replaces its previous location.",
+        "The meeting \"Riverside-281 review\" took place at this point in the conversation.",
+        "A proposal would move the delivery location for \"Riverside-281\" to the laboratory. It has not been accepted; no delivery-location change takes effect."
+      ]
+    ],
+    "rationale": {
+      "kind": "proposal",
+      "subject": "Riverside-281",
+      "anchor": 93,
+      "target": 81,
+      "near": 90,
+      "later": 102,
+      "gold": "hangar",
+      "support_turns": [
+        81,
+        93,
+        90
+      ],
+      "query": "What was the delivery location for \"Riverside-281\" immediately before \"Riverside-281 review\"?"
+    }
+  },
+  "5de087b68cebe94fbda0bdff1a3e9ec8ab12155baa3ad33c6d306d2afdf9ebc6": {
+    "answer": "studio",
+    "gold_ids": [
+      "2fc55e4cd758b3989e250e3756e6160c03cddec3a27d45515d1a79f124d68ab1"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Cedar-589\" is now the studio. This replaces its previous location."
+      ]
+    ],
+    "rationale": {
+      "kind": "latest",
+      "subject": "Cedar-589",
+      "anchor": 88,
+      "target": 82,
+      "near": 87,
+      "later": 104,
+      "gold": "studio",
+      "support_turns": [
+        104
+      ],
+      "query": "What is the latest delivery location for \"Cedar-589\"?"
+    }
+  },
+  "ad4760dbf9bb9a8e6ee0df79ed77cb378a237759103fa61c7d610fc53473dfa5": {
+    "answer": "I don't know",
+    "gold_ids": [],
+    "sufficient_sets": [],
+    "rationale": {
+      "kind": "absent",
+      "subject": "Summit-539",
+      "anchor": 71,
+      "target": 59,
+      "near": 69,
+      "later": 78,
+      "gold": "I don't know",
+      "support_turns": [],
+      "query": "What was the delivery location for \"Summit-539\" immediately before \"Summit-539 review\"?"
+    }
+  },
+  "73725993dffa7a8ba9e6814c30f77700a3f80d90798d0bf9372d7ca4b7467c0f": {
+    "answer": "workshop",
+    "gold_ids": [
+      "842cd1dd2c9d07fb652d06c60ffc9c30a3acc0b10df583df2a590a39d9bcc554",
+      "e8be63ce3608d7af5ea4220ca63331084181e527e7076305e0725b4498c41546"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Harbor-815\" is now the workshop. This replaces its previous location.",
+        "The meeting \"Harbor-815 review\" took place at this point in the conversation."
+      ]
+    ],
+    "rationale": {
+      "kind": "straight",
+      "subject": "Harbor-815",
+      "anchor": 94,
+      "target": 87,
+      "near": 92,
+      "later": 97,
+      "gold": "workshop",
+      "support_turns": [
+        87,
+        94
+      ],
+      "query": "What was the delivery location for \"Harbor-815\" immediately before \"Harbor-815 review\"?"
+    }
+  },
+  "e939cb362e1b3a60c51a65c8834e5e2b654519cf0a52a6a1f87e5f65e6d530f8": {
+    "answer": "laboratory",
+    "gold_ids": [
+      "e32fb05ac68a3db8dcc31b50d035983d2d6c8e2397ae8e2043de508412509b71",
+      "dcd6a3909d6e319b3e8c79c67fe0dc945468a39bac18f70dbe520841c3b10d96"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Orchard-428\" is now the laboratory. This replaces its previous location.",
+        "The meeting \"Orchard-428 review\" took place at this point in the conversation."
+      ]
+    ],
+    "rationale": {
+      "kind": "irrelevant",
+      "subject": "Orchard-428",
+      "anchor": 89,
+      "target": 83,
+      "near": 86,
+      "later": 95,
+      "gold": "laboratory",
+      "support_turns": [
+        83,
+        89
+      ],
+      "query": "What was the delivery location for \"Orchard-428\" immediately before \"Orchard-428 review\"?"
+    }
+  },
+  "823d82f7f1e1485c8f027447b34ae19a232fb4f5dbeeb1174a1d212dbbc8e5fd": {
+    "answer": "warehouse",
+    "gold_ids": [
+      "a1a1195731cd596911568f526eb1d920163a93277345c451400bd33085471238",
+      "ae567f87634cd79018f3bd554e1abc17d4ca628a809df3535b9d7c372ccf6aff",
+      "9d90e93c3aa1962f94c74898d2316a06e2239460a12b68572d59c21ed2c5290f"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Meadow-840\" is now the warehouse. This replaces its previous location.",
+        "The meeting \"Meadow-840 review\" took place at this point in the conversation.",
+        "The team announced that the delivery location for \"Meadow-840\" will become the workshop next month. It is explicitly not effective anywhere in the current recorded history."
+      ]
+    ],
+    "rationale": {
+      "kind": "future",
+      "subject": "Meadow-840",
+      "anchor": 76,
+      "target": 64,
+      "near": 74,
+      "later": 80,
+      "gold": "warehouse",
+      "support_turns": [
+        64,
+        76,
+        74
+      ],
+      "query": "What was the delivery location for \"Meadow-840\" immediately before \"Meadow-840 review\"?"
+    }
+  },
+  "54c7ccf8df1f083d5bf633ce80e5ad82c0fa5d6d4c591b9f6fda08a59f13e3ec": {
+    "answer": "warehouse",
+    "gold_ids": [
+      "35c8e1fa32143f672d1c3ba8b6c22f167389cebe64e39d3fe1f051a9d6328ca4",
+      "7423e79f5bea3ea8cf555eb57bcbc1d89efd53d9f807e84dfb452d0217dc4ec2",
+      "cf90ab53358c17a197344455c09e073293e7f23df49fbc52031246eef9cfdaf6"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Riverside-363\" is now the warehouse. This replaces its previous location.",
+        "The meeting \"Riverside-363 review\" took place at this point in the conversation.",
+        "A proposal would move the delivery location for \"Riverside-363\" to the hangar. It has not been accepted; no delivery-location change takes effect."
+      ]
+    ],
+    "rationale": {
+      "kind": "proposal",
+      "subject": "Riverside-363",
+      "anchor": 79,
+      "target": 73,
+      "near": 78,
+      "later": 105,
+      "gold": "warehouse",
+      "support_turns": [
+        73,
+        79,
+        78
+      ],
+      "query": "What was the delivery location for \"Riverside-363\" immediately before \"Riverside-363 review\"?"
+    }
+  },
+  "3a7bc455ed011efc91ba2a3da887e0648a04bb4508e115c54a5143530f6e8dbf": {
+    "answer": "annex",
+    "gold_ids": [
+      "97f60ac4019c061732b3ae44c3de5e4220b3ad78b72a0674e2fa38db4bf50abf"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Cedar-894\" is now the annex. This replaces its previous location."
+      ]
+    ],
+    "rationale": {
+      "kind": "latest",
+      "subject": "Cedar-894",
+      "anchor": 60,
+      "target": 52,
+      "near": 58,
+      "later": 100,
+      "gold": "annex",
+      "support_turns": [
+        100
+      ],
+      "query": "What is the latest delivery location for \"Cedar-894\"?"
+    }
+  },
+  "f19636f1701fdc2f6d6b65262f75d86588ab0166d0a8d43dce8df1e48ded21ae": {
+    "answer": "I don't know",
+    "gold_ids": [],
+    "sufficient_sets": [],
+    "rationale": {
+      "kind": "absent",
+      "subject": "Summit-241",
+      "anchor": 62,
+      "target": 50,
+      "near": 59,
+      "later": 102,
+      "gold": "I don't know",
+      "support_turns": [],
+      "query": "What was the delivery location for \"Summit-241\" immediately before \"Summit-241 review\"?"
+    }
+  },
+  "ab70e4c477659872c36569fe9d50b2c51f9c614b1cc75104f705d7c01d46e60f": {
+    "answer": "laboratory",
+    "gold_ids": [
+      "7955daf3ae832df6acbc4c3aa7b6c2740777d89befdd2b45438782edbc5da8b2",
+      "bed17b14539ca61b9171a2b524ab1067327273658fe8305460ef01a1da15cf6b"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Harbor-553\" is now the laboratory. This replaces its previous location.",
+        "The meeting \"Harbor-553 review\" took place at this point in the conversation."
+      ]
+    ],
+    "rationale": {
+      "kind": "straight",
+      "subject": "Harbor-553",
+      "anchor": 92,
+      "target": 82,
+      "near": 90,
+      "later": 95,
+      "gold": "laboratory",
+      "support_turns": [
+        82,
+        92
+      ],
+      "query": "What was the delivery location for \"Harbor-553\" immediately before \"Harbor-553 review\"?"
+    }
+  },
+  "0fb8d2cc4acf5802b62f2fc17acf0debd5dcf3af5093170d1d3c0e58ef8cf805": {
+    "answer": "hangar",
+    "gold_ids": [
+      "0bfdb0c3c0d66e55c53681dfb42eeff53da23c36d568b32afa83a14a116c396e",
+      "95b56fa214002f094949daee98d3e9762c04cbd121670d20002b78e1879d5e69"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Orchard-657\" is now the hangar. This replaces its previous location.",
+        "The meeting \"Orchard-657 review\" took place at this point in the conversation."
+      ]
+    ],
+    "rationale": {
+      "kind": "irrelevant",
+      "subject": "Orchard-657",
+      "anchor": 59,
+      "target": 52,
+      "near": 58,
+      "later": 60,
+      "gold": "hangar",
+      "support_turns": [
+        52,
+        59
+      ],
+      "query": "What was the delivery location for \"Orchard-657\" immediately before \"Orchard-657 review\"?"
+    }
+  },
+  "92fdaac77f548b47b98f53156a14fc0239a1b0d240a131853fba7da82cfa8c28": {
+    "answer": "office",
+    "gold_ids": [
+      "560a3a31cbad49762cf9ffbbd4c00bd1fbbfa4b53f4aea45cbca6f7952d1033b",
+      "8302f69ad52d9329a0970c42cc9d9eee6de722f253bf30bbfcc8199b30db508e",
+      "ce7948a30aad00d480f6a1b3e88cbc87f1d03e33cfc970279247df7c0e55c6e8"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Meadow-210\" is now the office. This replaces its previous location.",
+        "The meeting \"Meadow-210 review\" took place at this point in the conversation.",
+        "The team announced that the delivery location for \"Meadow-210\" will become the studio next month. It is explicitly not effective anywhere in the current recorded history."
+      ]
+    ],
+    "rationale": {
+      "kind": "future",
+      "subject": "Meadow-210",
+      "anchor": 85,
+      "target": 80,
+      "near": 83,
+      "later": 88,
+      "gold": "office",
+      "support_turns": [
+        80,
+        85,
+        83
+      ],
+      "query": "What was the delivery location for \"Meadow-210\" immediately before \"Meadow-210 review\"?"
+    }
+  },
+  "fb473458beaf1ad2dbd4675a4e68c53937f6efd38f4012be18987bc813af4f06": {
+    "answer": "hangar",
+    "gold_ids": [
+      "5ff3514f0109bd34dc6e06fadfac56d1e0553b2f825ef0ff86fae612b4c53231",
+      "d6b629f9d9dd89881a52c82e7fccadcb258e4c281c56d751d244ef4b77513ad5",
+      "99117504ddd501f70706fac2775aa74b49737be7c736f6224336d3735fbfe173"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Riverside-604\" is now the hangar. This replaces its previous location.",
+        "The meeting \"Riverside-604 review\" took place at this point in the conversation.",
+        "A proposal would move the delivery location for \"Riverside-604\" to the laboratory. It has not been accepted; no delivery-location change takes effect."
+      ]
+    ],
+    "rationale": {
+      "kind": "proposal",
+      "subject": "Riverside-604",
+      "anchor": 56,
+      "target": 51,
+      "near": 55,
+      "later": 74,
+      "gold": "hangar",
+      "support_turns": [
+        51,
+        56,
+        55
+      ],
+      "query": "What was the delivery location for \"Riverside-604\" immediately before \"Riverside-604 review\"?"
+    }
+  },
+  "1395a80fe95f18430814e3070157858cb8d4d31255a0050cb66968a6104ab893": {
+    "answer": "office",
+    "gold_ids": [
+      "21cd5bd45eac4825aca19717774f78fc3ea8f44edb91b1aedd54232001f9d205"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Cedar-967\" is now the office. This replaces its previous location."
+      ]
+    ],
+    "rationale": {
+      "kind": "latest",
+      "subject": "Cedar-967",
+      "anchor": 68,
+      "target": 57,
+      "near": 67,
+      "later": 72,
+      "gold": "office",
+      "support_turns": [
+        72
+      ],
+      "query": "What is the latest delivery location for \"Cedar-967\"?"
+    }
+  },
+  "4db0d2a3d6ee4409f1cc0321698093de1d3405e184d7b72e50bb04a7d1e96a1a": {
+    "answer": "I don't know",
+    "gold_ids": [],
+    "sufficient_sets": [],
+    "rationale": {
+      "kind": "absent",
+      "subject": "Summit-119",
+      "anchor": 94,
+      "target": 86,
+      "near": 93,
+      "later": 101,
+      "gold": "I don't know",
+      "support_turns": [],
+      "query": "What was the delivery location for \"Summit-119\" immediately before \"Summit-119 review\"?"
+    }
+  },
+  "cc3544964344bf18287edf826a4ed9820a39cfea4d3c7e65b0032889dbbc0dec": {
+    "answer": "hangar",
+    "gold_ids": [
+      "c9d38fd7cfc7f9208d7ce686cb0da0a808cf2dd9384ccabc116f62438354aab6",
+      "2f8d7ab3fb57888b110cc1f3b330cd0e530a6ee8aa5be48c9501c260ac596924"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Harbor-432\" is now the hangar. This replaces its previous location.",
+        "The meeting \"Harbor-432 review\" took place at this point in the conversation."
+      ]
+    ],
+    "rationale": {
+      "kind": "straight",
+      "subject": "Harbor-432",
+      "anchor": 90,
+      "target": 78,
+      "near": 88,
+      "later": 101,
+      "gold": "hangar",
+      "support_turns": [
+        78,
+        90
+      ],
+      "query": "What was the delivery location for \"Harbor-432\" immediately before \"Harbor-432 review\"?"
+    }
+  },
+  "906f8523a22d68e240ee3619bbe8386b40d16dd87871723130b4211e367bfeee": {
+    "answer": "office",
+    "gold_ids": [
+      "70f8532b2e2d46614504f69cdf6058e6c58cfe11ef7e78c49a5e9db2569c2b5f",
+      "11ad4f2fa9ee4395d11960a5e5de9098218fad8a1da28d349c35433f6390263e"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Orchard-547\" is now the office. This replaces its previous location.",
+        "The meeting \"Orchard-547 review\" took place at this point in the conversation."
+      ]
+    ],
+    "rationale": {
+      "kind": "irrelevant",
+      "subject": "Orchard-547",
+      "anchor": 55,
+      "target": 48,
+      "near": 52,
+      "later": 72,
+      "gold": "office",
+      "support_turns": [
+        48,
+        55
+      ],
+      "query": "What was the delivery location for \"Orchard-547\" immediately before \"Orchard-547 review\"?"
+    }
+  },
+  "5219137d40fe870e492e2b7fd2c6e26e29713350da62fd494ed9282aaf7a6c4d": {
+    "answer": "workshop",
+    "gold_ids": [
+      "e7449987c73860f9c1a6256e2e056551f65c2174f691d4e23adebd7326f145fa",
+      "c64bf10fae652425add5979449e6486410de366be1d2dd9018a5a7d6d35854a4",
+      "a7d4706d028aeb31dec7a5bce1c18d7cd1ee72dbb642734e7228e7a1fab3c1f3"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Meadow-197\" is now the workshop. This replaces its previous location.",
+        "The meeting \"Meadow-197 review\" took place at this point in the conversation.",
+        "The team announced that the delivery location for \"Meadow-197\" will become the annex next month. It is explicitly not effective anywhere in the current recorded history."
+      ]
+    ],
+    "rationale": {
+      "kind": "future",
+      "subject": "Meadow-197",
+      "anchor": 60,
+      "target": 53,
+      "near": 58,
+      "later": 97,
+      "gold": "workshop",
+      "support_turns": [
+        53,
+        60,
+        58
+      ],
+      "query": "What was the delivery location for \"Meadow-197\" immediately before \"Meadow-197 review\"?"
+    }
+  },
+  "f8fc5b0b42d034146654fdcbce7e7c36c1d6f4284b26ee12bd9aa1faacc0e5ca": {
+    "answer": "annex",
+    "gold_ids": [
+      "770d55305995f6838d2245180cc41f22b5fe7f6c85b2ddad350d12c4478845fd",
+      "8dac81270eda9be36b3292484cccf1f227bf2e2ff8b702899a3c51b0e95493ed",
+      "68a22e618b1b3342a6c2a24c04823223f1c25397419228944ea1d44548216673"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Riverside-337\" is now the annex. This replaces its previous location.",
+        "The meeting \"Riverside-337 review\" took place at this point in the conversation.",
+        "A proposal would move the delivery location for \"Riverside-337\" to the studio. It has not been accepted; no delivery-location change takes effect."
+      ]
+    ],
+    "rationale": {
+      "kind": "proposal",
+      "subject": "Riverside-337",
+      "anchor": 80,
+      "target": 73,
+      "near": 77,
+      "later": 100,
+      "gold": "annex",
+      "support_turns": [
+        73,
+        80,
+        77
+      ],
+      "query": "What was the delivery location for \"Riverside-337\" immediately before \"Riverside-337 review\"?"
+    }
+  },
+  "a28f731b6f490f6eb3b50367e634f0dca1841d0fe365338f21924a8b6927f33d": {
+    "answer": "hangar",
+    "gold_ids": [
+      "fc1973663315917b4959f61e34201465df2bcece81415526c6f58e7d1c864202"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Cedar-267\" is now the hangar. This replaces its previous location."
+      ]
+    ],
+    "rationale": {
+      "kind": "latest",
+      "subject": "Cedar-267",
+      "anchor": 68,
+      "target": 59,
+      "near": 65,
+      "later": 102,
+      "gold": "hangar",
+      "support_turns": [
+        102
+      ],
+      "query": "What is the latest delivery location for \"Cedar-267\"?"
+    }
+  },
+  "bdeefad80b2c33d19d68e4c8050012bc8047abe2823641d1e6be106ed7f5ea8f": {
+    "answer": "I don't know",
+    "gold_ids": [],
+    "sufficient_sets": [],
+    "rationale": {
+      "kind": "absent",
+      "subject": "Summit-192",
+      "anchor": 92,
+      "target": 82,
+      "near": 89,
+      "later": 94,
+      "gold": "I don't know",
+      "support_turns": [],
+      "query": "What was the delivery location for \"Summit-192\" immediately before \"Summit-192 review\"?"
+    }
+  },
+  "b8cd312282f343c25f96bbc23846d4e65f1c45304783c9061a2ce6841c7ef666": {
+    "answer": "depot",
+    "gold_ids": [
+      "e18c874836d9f30d8ce63010eaef418be1b00980e9c4aeb6c98438d38fac6bbc",
+      "ce85442bd2071f97bdb83a22d6c20cd1b74420bcce083508df049c60bb0bac02"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Harbor-954\" is now the depot. This replaces its previous location.",
+        "The meeting \"Harbor-954 review\" took place at this point in the conversation."
+      ]
+    ],
+    "rationale": {
+      "kind": "straight",
+      "subject": "Harbor-954",
+      "anchor": 89,
+      "target": 81,
+      "near": 87,
+      "later": 91,
+      "gold": "depot",
+      "support_turns": [
+        81,
+        89
+      ],
+      "query": "What was the delivery location for \"Harbor-954\" immediately before \"Harbor-954 review\"?"
+    }
+  },
+  "f4101df08abca306d9f66668d23526b7f3af7174b5d4280f2de23189a9eefecc": {
+    "answer": "studio",
+    "gold_ids": [
+      "5826fe9556a031bdf0d96ddec4463c9c45a9bde65fbc545cc7699b66d81979c5",
+      "85c56e843b0c4fcbeb1d50240ca20e71f2b564ea704620fc5163f6d95ab32dc1"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Orchard-800\" is now the studio. This replaces its previous location.",
+        "The meeting \"Orchard-800 review\" took place at this point in the conversation."
+      ]
+    ],
+    "rationale": {
+      "kind": "irrelevant",
+      "subject": "Orchard-800",
+      "anchor": 62,
+      "target": 57,
+      "near": 59,
+      "later": 98,
+      "gold": "studio",
+      "support_turns": [
+        57,
+        62
+      ],
+      "query": "What was the delivery location for \"Orchard-800\" immediately before \"Orchard-800 review\"?"
+    }
+  },
+  "b243c7dfa6f1c3122b3edf17c2736e45156a0e8d41c0834bb9f59289de493cf4": {
+    "answer": "depot",
+    "gold_ids": [
+      "a97f7ca0defe0b0d59667f62a6c834a94140a82562c1918f3e6385369f782ed7",
+      "5c981a11f148d098a342b4315e579c5a2f25345bb8f633b0d015917c9f71bd47",
+      "b2d5713c277af42ee70e28fac7e714998482c448fa8fead39e70b0092e5de738"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Meadow-940\" is now the depot. This replaces its previous location.",
+        "The meeting \"Meadow-940 review\" took place at this point in the conversation.",
+        "The team announced that the delivery location for \"Meadow-940\" will become the studio next month. It is explicitly not effective anywhere in the current recorded history."
+      ]
+    ],
+    "rationale": {
+      "kind": "future",
+      "subject": "Meadow-940",
+      "anchor": 70,
+      "target": 64,
+      "near": 69,
+      "later": 75,
+      "gold": "depot",
+      "support_turns": [
+        64,
+        70,
+        69
+      ],
+      "query": "What was the delivery location for \"Meadow-940\" immediately before \"Meadow-940 review\"?"
+    }
+  },
+  "b71212df30962a2d2b1784e730f13b8d45f53d452e36687fc78b818ef707cef1": {
+    "answer": "warehouse",
+    "gold_ids": [
+      "7040e4740b0ed757f5b81ac60aa858640f6b1719b2fc8dcde34b2f9ec03abb28",
+      "7d7bd2983178b5690eec0575e74061d396ce5a1e884494ba28cf6147b5342c35",
+      "b689d5468d9c53fa999ca2ab2f38f887ac044c957df1b73f3e899cb9f35242d2"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Riverside-768\" is now the warehouse. This replaces its previous location.",
+        "The meeting \"Riverside-768 review\" took place at this point in the conversation.",
+        "A proposal would move the delivery location for \"Riverside-768\" to the annex. It has not been accepted; no delivery-location change takes effect."
+      ]
+    ],
+    "rationale": {
+      "kind": "proposal",
+      "subject": "Riverside-768",
+      "anchor": 80,
+      "target": 72,
+      "near": 79,
+      "later": 99,
+      "gold": "warehouse",
+      "support_turns": [
+        72,
+        80,
+        79
+      ],
+      "query": "What was the delivery location for \"Riverside-768\" immediately before \"Riverside-768 review\"?"
+    }
+  },
+  "c3b08693b536ffc6b3c1917d406eee5fb66ddb9cad5b666f22f5e8585f9b7589": {
+    "answer": "hangar",
+    "gold_ids": [
+      "19d15ab49bf749f56c78a24bbcd6c1a567545b7869da8563480a69bb156cd619"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Cedar-675\" is now the hangar. This replaces its previous location."
+      ]
+    ],
+    "rationale": {
+      "kind": "latest",
+      "subject": "Cedar-675",
+      "anchor": 84,
+      "target": 77,
+      "near": 82,
+      "later": 102,
+      "gold": "hangar",
+      "support_turns": [
+        102
+      ],
+      "query": "What is the latest delivery location for \"Cedar-675\"?"
+    }
+  },
+  "53238521fc18596fc224ed73ca6bb0c0b23795fc22411807914cae7c1192d575": {
+    "answer": "I don't know",
+    "gold_ids": [],
+    "sufficient_sets": [],
+    "rationale": {
+      "kind": "absent",
+      "subject": "Summit-570",
+      "anchor": 95,
+      "target": 88,
+      "near": 92,
+      "later": 97,
+      "gold": "I don't know",
+      "support_turns": [],
+      "query": "What was the delivery location for \"Summit-570\" immediately before \"Summit-570 review\"?"
+    }
+  },
+  "b141771743fba148c76301f43c28521faa8597ac3b57ddb73076fe640cd488d5": {
+    "answer": "studio",
+    "gold_ids": [
+      "31bf31e73bbfa6ef3a06659014b07f7ec53e212552d0fb02420c5fbda1654ade",
+      "6d542eb98b92ebdde9e3dca23c1fedce8e9e44235b6bd0cfbcbfb7d3126daaa8"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Harbor-833\" is now the studio. This replaces its previous location.",
+        "The meeting \"Harbor-833 review\" took place at this point in the conversation."
+      ]
+    ],
+    "rationale": {
+      "kind": "straight",
+      "subject": "Harbor-833",
+      "anchor": 76,
+      "target": 71,
+      "near": 74,
+      "later": 105,
+      "gold": "studio",
+      "support_turns": [
+        71,
+        76
+      ],
+      "query": "What was the delivery location for \"Harbor-833\" immediately before \"Harbor-833 review\"?"
+    }
+  },
+  "9e5281bcea3ee61f5862c092af12d5fb71685c630d4c1c17941233732585b2dd": {
+    "answer": "office",
+    "gold_ids": [
+      "d691357bee9dcf6626249a8d48c22e3888961fd7f08dd10a933ed54e07d504c0",
+      "7b0d07dd2d4788fb931d64e5b6f2353866e729272e3d18bba78de654eb7a4ae6"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Orchard-584\" is now the office. This replaces its previous location.",
+        "The meeting \"Orchard-584 review\" took place at this point in the conversation."
+      ]
+    ],
+    "rationale": {
+      "kind": "irrelevant",
+      "subject": "Orchard-584",
+      "anchor": 66,
+      "target": 54,
+      "near": 65,
+      "later": 70,
+      "gold": "office",
+      "support_turns": [
+        54,
+        66
+      ],
+      "query": "What was the delivery location for \"Orchard-584\" immediately before \"Orchard-584 review\"?"
+    }
+  },
+  "8ba6f92c24dd4e5d2a6be2239795bd1e57de96bf4e0af335457d480be671bebf": {
+    "answer": "office",
+    "gold_ids": [
+      "86e13647be428426182fc39e3e7ea883ff64deed0f070acd40bf6c155ecd6630",
+      "265f9231ef6ecc440d669da55b44484b1043293ef74e822c7e7fb9abd5f5d0e4",
+      "225373b3ce8fb4faf0796b512f9d733139004aa1444acd6f6905aedb1892e94f"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Meadow-557\" is now the office. This replaces its previous location.",
+        "The meeting \"Meadow-557 review\" took place at this point in the conversation.",
+        "The team announced that the delivery location for \"Meadow-557\" will become the hangar next month. It is explicitly not effective anywhere in the current recorded history."
+      ]
+    ],
+    "rationale": {
+      "kind": "future",
+      "subject": "Meadow-557",
+      "anchor": 84,
+      "target": 75,
+      "near": 81,
+      "later": 92,
+      "gold": "office",
+      "support_turns": [
+        75,
+        84,
+        81
+      ],
+      "query": "What was the delivery location for \"Meadow-557\" immediately before \"Meadow-557 review\"?"
+    }
+  },
+  "82419ae497bd4e5e8b8c0e91c88b99732e1e65c1b9943d54ea5fc70f21d51fa6": {
+    "answer": "depot",
+    "gold_ids": [
+      "a3ae6a409d932e4ec3b0795d9b9dbc3f4d143b4474d6e414a7203012f41beffd",
+      "f8d4d28ddf1da6bb378cadd0829a78c4cb9a5100e5d5dc623da9937b83dd4c30",
+      "d68648277ae73db62a21d734fbca27d33354583404dce0a0d9db686c09de31bd"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Riverside-652\" is now the depot. This replaces its previous location.",
+        "The meeting \"Riverside-652 review\" took place at this point in the conversation.",
+        "A proposal would move the delivery location for \"Riverside-652\" to the laboratory. It has not been accepted; no delivery-location change takes effect."
+      ]
+    ],
+    "rationale": {
+      "kind": "proposal",
+      "subject": "Riverside-652",
+      "anchor": 79,
+      "target": 73,
+      "near": 77,
+      "later": 98,
+      "gold": "depot",
+      "support_turns": [
+        73,
+        79,
+        77
+      ],
+      "query": "What was the delivery location for \"Riverside-652\" immediately before \"Riverside-652 review\"?"
+    }
+  },
+  "66a877411afca67b9266bdfdce49b470e8e1dedf3c5d7819287d5871fbff4ca2": {
+    "answer": "annex",
+    "gold_ids": [
+      "7b398f13b56051e5c5f97822f856dc7a9cb170d907ee5147893e4c02969f4236"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Cedar-128\" is now the annex. This replaces its previous location."
+      ]
+    ],
+    "rationale": {
+      "kind": "latest",
+      "subject": "Cedar-128",
+      "anchor": 88,
+      "target": 83,
+      "near": 85,
+      "later": 104,
+      "gold": "annex",
+      "support_turns": [
+        104
+      ],
+      "query": "What is the latest delivery location for \"Cedar-128\"?"
+    }
+  },
+  "766fb9ce76792717ce1f2d6bd9e8b70040f2287a13423b5830222f38cbd0f9e7": {
+    "answer": "I don't know",
+    "gold_ids": [],
+    "sufficient_sets": [],
+    "rationale": {
+      "kind": "absent",
+      "subject": "Summit-953",
+      "anchor": 56,
+      "target": 51,
+      "near": 55,
+      "later": 60,
+      "gold": "I don't know",
+      "support_turns": [],
+      "query": "What was the delivery location for \"Summit-953\" immediately before \"Summit-953 review\"?"
+    }
+  },
+  "d2232ab64aa21387d15b67a6d3a3b69aa4c27a0bcf94a8750fb2a5fe89fc53fe": {
+    "answer": "studio",
+    "gold_ids": [
+      "34560e868b687a87af1a33ea92e25670f4dc3d6281803b393e57be8a7ac753c3",
+      "c884a5dd37b93a7feab8733e12a9cacbae751f1399a22784c38cc4e900fe9d90"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Harbor-792\" is now the studio. This replaces its previous location.",
+        "The meeting \"Harbor-792 review\" took place at this point in the conversation."
+      ]
+    ],
+    "rationale": {
+      "kind": "straight",
+      "subject": "Harbor-792",
+      "anchor": 86,
+      "target": 74,
+      "near": 84,
+      "later": 103,
+      "gold": "studio",
+      "support_turns": [
+        74,
+        86
+      ],
+      "query": "What was the delivery location for \"Harbor-792\" immediately before \"Harbor-792 review\"?"
+    }
+  },
+  "2146926b9cc97c843b224c1aa4c522300b126051be05817c5dca48bcf8391d8f": {
+    "answer": "workshop",
+    "gold_ids": [
+      "2c781ca469ecd8d3af17064a162ded296902fdb5d372ade71f491bf7af8adc82",
+      "983cd6381f94051d8d84aa77d966168ae79429b4ba6c9fcb8510ce1564fcba7c"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Orchard-402\" is now the workshop. This replaces its previous location.",
+        "The meeting \"Orchard-402 review\" took place at this point in the conversation."
+      ]
+    ],
+    "rationale": {
+      "kind": "irrelevant",
+      "subject": "Orchard-402",
+      "anchor": 77,
+      "target": 65,
+      "near": 76,
+      "later": 92,
+      "gold": "workshop",
+      "support_turns": [
+        65,
+        77
+      ],
+      "query": "What was the delivery location for \"Orchard-402\" immediately before \"Orchard-402 review\"?"
+    }
+  },
+  "70d26e06032b1495e9f92efa04ac6f881a6de31ba2803e8956017de583690e10": {
+    "answer": "laboratory",
+    "gold_ids": [
+      "fe4c84d4fb2e2ea3216b8bc52f14ed682af0e9a459291358dc7d9ce03694d70e",
+      "356bac7d151c8db207b5a68259a4fa49d955ef6d698d91eded0b114e3c739fe8",
+      "2d5b7a2d0a557be442bdfddc6dda1ec23f6da53ad1b370acdbe82dc429549416"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Meadow-798\" is now the laboratory. This replaces its previous location.",
+        "The meeting \"Meadow-798 review\" took place at this point in the conversation.",
+        "The team announced that the delivery location for \"Meadow-798\" will become the office next month. It is explicitly not effective anywhere in the current recorded history."
+      ]
+    ],
+    "rationale": {
+      "kind": "future",
+      "subject": "Meadow-798",
+      "anchor": 72,
+      "target": 67,
+      "near": 70,
+      "later": 79,
+      "gold": "laboratory",
+      "support_turns": [
+        67,
+        72,
+        70
+      ],
+      "query": "What was the delivery location for \"Meadow-798\" immediately before \"Meadow-798 review\"?"
+    }
+  },
+  "5054c332f87e9e7385df20786db2c54a181b838b9ac6f483f2e31160b4ff7463": {
+    "answer": "studio",
+    "gold_ids": [
+      "b523afdd1c0b935c14d15686edd5b4edccb607ae75ef67ea7059ed1b97ebb2a1",
+      "e13c9dc9ee8fcbfd32390fdae9da4b439e4c25f2b77c9cfe878573d95326ed56",
+      "31ce9b392fe61ee7cb79e3afcba2a4fd06576cfbd8593fb19b7c416f65f941a6"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Riverside-111\" is now the studio. This replaces its previous location.",
+        "The meeting \"Riverside-111 review\" took place at this point in the conversation.",
+        "A proposal would move the delivery location for \"Riverside-111\" to the depot. It has not been accepted; no delivery-location change takes effect."
+      ]
+    ],
+    "rationale": {
+      "kind": "proposal",
+      "subject": "Riverside-111",
+      "anchor": 57,
+      "target": 46,
+      "near": 55,
+      "later": 61,
+      "gold": "studio",
+      "support_turns": [
+        46,
+        57,
+        55
+      ],
+      "query": "What was the delivery location for \"Riverside-111\" immediately before \"Riverside-111 review\"?"
+    }
+  },
+  "3b78affaac3ae7be3d2076fb97d0791226f200e7626e05f6b8af0ae6976cae45": {
+    "answer": "depot",
+    "gold_ids": [
+      "27565d7c5d5e17b74c6ac00c67059f6d30104983f1711a234263fa8e01a90194"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Cedar-947\" is now the depot. This replaces its previous location."
+      ]
+    ],
+    "rationale": {
+      "kind": "latest",
+      "subject": "Cedar-947",
+      "anchor": 90,
+      "target": 78,
+      "near": 89,
+      "later": 97,
+      "gold": "depot",
+      "support_turns": [
+        97
+      ],
+      "query": "What is the latest delivery location for \"Cedar-947\"?"
+    }
+  },
+  "c1302be056f0b352aff2121c2687807ec660305465a4433938aeb1865058c479": {
+    "answer": "I don't know",
+    "gold_ids": [],
+    "sufficient_sets": [],
+    "rationale": {
+      "kind": "absent",
+      "subject": "Summit-555",
+      "anchor": 91,
+      "target": 83,
+      "near": 88,
+      "later": 100,
+      "gold": "I don't know",
+      "support_turns": [],
+      "query": "What was the delivery location for \"Summit-555\" immediately before \"Summit-555 review\"?"
+    }
+  },
+  "81b34fca87616e5ebf2e3eb596384cd7d510dc32e20c5d38747d14fb1661d8c9": {
+    "answer": "laboratory",
+    "gold_ids": [
+      "6351d5b0ca769f1f612ed28ef793dbd7b1e21fcc5ef41d225b5512e027a39df5",
+      "197293864cddb73c987960f38e5e9fe208b2651a5d36958d582d87e3dcdcdae7"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Harbor-227\" is now the laboratory. This replaces its previous location.",
+        "The meeting \"Harbor-227 review\" took place at this point in the conversation."
+      ]
+    ],
+    "rationale": {
+      "kind": "straight",
+      "subject": "Harbor-227",
+      "anchor": 55,
+      "target": 49,
+      "near": 53,
+      "later": 69,
+      "gold": "laboratory",
+      "support_turns": [
+        49,
+        55
+      ],
+      "query": "What was the delivery location for \"Harbor-227\" immediately before \"Harbor-227 review\"?"
+    }
+  },
+  "a5e039ff0b56304f10bf03ce98c703ee55e7ea7e209860b2cae579b8ca44cb21": {
+    "answer": "laboratory",
+    "gold_ids": [
+      "f954b133e37f2cbbd2a4f6eeef54302475b9135d67ed1183f94fe6fdcf4856c4",
+      "c4a1c02ebff7160c2607491416cead6ea64f457eb3aad74481f088e44854d8fa"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Orchard-470\" is now the laboratory. This replaces its previous location.",
+        "The meeting \"Orchard-470 review\" took place at this point in the conversation."
+      ]
+    ],
+    "rationale": {
+      "kind": "irrelevant",
+      "subject": "Orchard-470",
+      "anchor": 72,
+      "target": 64,
+      "near": 70,
+      "later": 87,
+      "gold": "laboratory",
+      "support_turns": [
+        64,
+        72
+      ],
+      "query": "What was the delivery location for \"Orchard-470\" immediately before \"Orchard-470 review\"?"
+    }
+  },
+  "25017b172417e8c3afa04694ddabfad9bb0ad84477985670c138ea0532aea072": {
+    "answer": "hangar",
+    "gold_ids": [
+      "cdf1ac33b8251e33fbfd0592ec634de7a56f396cd011682ca73819138b07a870",
+      "51c2459258382b36dab38c530cb7d121447f7981cc83aae4704984318cc678b0",
+      "9bec520be68a99039b4bd76518d378e01039d31721c36146571c5c639a48d464"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Meadow-455\" is now the hangar. This replaces its previous location.",
+        "The meeting \"Meadow-455 review\" took place at this point in the conversation.",
+        "The team announced that the delivery location for \"Meadow-455\" will become the annex next month. It is explicitly not effective anywhere in the current recorded history."
+      ]
+    ],
+    "rationale": {
+      "kind": "future",
+      "subject": "Meadow-455",
+      "anchor": 71,
+      "target": 61,
+      "near": 68,
+      "later": 95,
+      "gold": "hangar",
+      "support_turns": [
+        61,
+        71,
+        68
+      ],
+      "query": "What was the delivery location for \"Meadow-455\" immediately before \"Meadow-455 review\"?"
+    }
+  },
+  "bce82eb354ec99a02434767bf5106d920b56551a17ca43f9c3c6e5fe6c8d004e": {
+    "answer": "office",
+    "gold_ids": [
+      "65ffbebac608c968b5bf00e0119dc414b85258aa6f76b5e43f31fa79c7578225",
+      "105c5329499c42368dee487d17159b0bfdab0e8a94e3aa5a537f198320de1cd4",
+      "b6eba5b105d4c151dbbbf099c10a1dc26ac7ee352fbacb2cd4450ff91d19ec17"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Riverside-849\" is now the office. This replaces its previous location.",
+        "The meeting \"Riverside-849 review\" took place at this point in the conversation.",
+        "A proposal would move the delivery location for \"Riverside-849\" to the warehouse. It has not been accepted; no delivery-location change takes effect."
+      ]
+    ],
+    "rationale": {
+      "kind": "proposal",
+      "subject": "Riverside-849",
+      "anchor": 79,
+      "target": 73,
+      "near": 78,
+      "later": 102,
+      "gold": "office",
+      "support_turns": [
+        73,
+        79,
+        78
+      ],
+      "query": "What was the delivery location for \"Riverside-849\" immediately before \"Riverside-849 review\"?"
+    }
+  },
+  "580d8365dc9b2032b84f46080d871c1d76d45475ac7f8eeb28519c2c1f2b71e1": {
+    "answer": "warehouse",
+    "gold_ids": [
+      "09cc200649d27754af52f7996361526ef2e055bd6ffc6938292800c08f370752"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Cedar-248\" is now the warehouse. This replaces its previous location."
+      ]
+    ],
+    "rationale": {
+      "kind": "latest",
+      "subject": "Cedar-248",
+      "anchor": 82,
+      "target": 74,
+      "near": 81,
+      "later": 96,
+      "gold": "warehouse",
+      "support_turns": [
+        96
+      ],
+      "query": "What is the latest delivery location for \"Cedar-248\"?"
+    }
+  },
+  "8e5201df37afac08a057194d81048e923886d9f073e3d1c13e7901984bdc4215": {
+    "answer": "I don't know",
+    "gold_ids": [],
+    "sufficient_sets": [],
+    "rationale": {
+      "kind": "absent",
+      "subject": "Summit-451",
+      "anchor": 91,
+      "target": 84,
+      "near": 90,
+      "later": 103,
+      "gold": "I don't know",
+      "support_turns": [],
+      "query": "What was the delivery location for \"Summit-451\" immediately before \"Summit-451 review\"?"
+    }
+  },
+  "332cac14645199eb6e2359fcb5aebecdba2fb2a5aaa7dbb60cb0d741bb6151ce": {
+    "answer": "depot",
+    "gold_ids": [
+      "cc50e49e997c989e0abbb87e79a67ecab6c793a62a6b3261c7a47eb5ba914745",
+      "c114e8aaa9fb2c5870da7ac85e65221d56ca373d8e612f70f45f9b331a724955"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Harbor-542\" is now the depot. This replaces its previous location.",
+        "The meeting \"Harbor-542 review\" took place at this point in the conversation."
+      ]
+    ],
+    "rationale": {
+      "kind": "straight",
+      "subject": "Harbor-542",
+      "anchor": 74,
+      "target": 68,
+      "near": 73,
+      "later": 83,
+      "gold": "depot",
+      "support_turns": [
+        68,
+        74
+      ],
+      "query": "What was the delivery location for \"Harbor-542\" immediately before \"Harbor-542 review\"?"
+    }
+  },
+  "ffdacc9caf364638824176852b286c84bc4a1a0f90b77c3f7ab3dc47c78b87d9": {
+    "answer": "annex",
+    "gold_ids": [
+      "e60aef87955a936cc873bb14aa98f82446879542d213774d32d11b96f3af053b",
+      "7c2addd7458832b1800284d8c07c68454f200616100f9a6316e8ea8e5a0599a1"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Orchard-199\" is now the annex. This replaces its previous location.",
+        "The meeting \"Orchard-199 review\" took place at this point in the conversation."
+      ]
+    ],
+    "rationale": {
+      "kind": "irrelevant",
+      "subject": "Orchard-199",
+      "anchor": 67,
+      "target": 62,
+      "near": 64,
+      "later": 71,
+      "gold": "annex",
+      "support_turns": [
+        62,
+        67
+      ],
+      "query": "What was the delivery location for \"Orchard-199\" immediately before \"Orchard-199 review\"?"
+    }
+  },
+  "05d782e63a2940af0b50ed4ced06a6a985638a5b446f986f9dc15690e07c9e73": {
+    "answer": "depot",
+    "gold_ids": [
+      "90296a8cc72fc13234df705f9eb1c29f1731f7bbe131bc89fe9f0b00d015b58d",
+      "72b8a960ea64d84cbdf3c760737a94b76e3eedbe578dac9b0fa948c552db5ec6",
+      "5faf6fb1fb76064d9f8f01cac9f474a2ddd29627fc1de7758e0edca930f05ede"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Meadow-637\" is now the depot. This replaces its previous location.",
+        "The meeting \"Meadow-637 review\" took place at this point in the conversation.",
+        "The team announced that the delivery location for \"Meadow-637\" will become the workshop next month. It is explicitly not effective anywhere in the current recorded history."
+      ]
+    ],
+    "rationale": {
+      "kind": "future",
+      "subject": "Meadow-637",
+      "anchor": 85,
+      "target": 76,
+      "near": 82,
+      "later": 89,
+      "gold": "depot",
+      "support_turns": [
+        76,
+        85,
+        82
+      ],
+      "query": "What was the delivery location for \"Meadow-637\" immediately before \"Meadow-637 review\"?"
+    }
+  },
+  "987b22dddb5af71cc0af20720705748a35595e64dd98a109589e36ac75961ad7": {
+    "answer": "studio",
+    "gold_ids": [
+      "237b29dcf1c5d260d3b58deaf5d648e12ed2804f47870d2487eaa1c3c610f06f",
+      "3ed0bdf71cedf214de444e005edc3bdee0718cae81fd95241535a1551730d745",
+      "d4ad744429ba870e883f1d04d1e2dbbe6d281850e142c5884b3237e94328062c"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Riverside-604\" is now the studio. This replaces its previous location.",
+        "The meeting \"Riverside-604 review\" took place at this point in the conversation.",
+        "A proposal would move the delivery location for \"Riverside-604\" to the warehouse. It has not been accepted; no delivery-location change takes effect."
+      ]
+    ],
+    "rationale": {
+      "kind": "proposal",
+      "subject": "Riverside-604",
+      "anchor": 81,
+      "target": 69,
+      "near": 79,
+      "later": 103,
+      "gold": "studio",
+      "support_turns": [
+        69,
+        81,
+        79
+      ],
+      "query": "What was the delivery location for \"Riverside-604\" immediately before \"Riverside-604 review\"?"
+    }
+  },
+  "d0ed33508b0c2b36bf5c617b8829e5e83ad89ec31aab2e9cea6fe59c938a0493": {
+    "answer": "depot",
+    "gold_ids": [
+      "f7948a4155d322688420ad9a51faa957634e63dc43b5e4c98b217073b01cde08"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Cedar-453\" is now the depot. This replaces its previous location."
+      ]
+    ],
+    "rationale": {
+      "kind": "latest",
+      "subject": "Cedar-453",
+      "anchor": 61,
+      "target": 50,
+      "near": 60,
+      "later": 66,
+      "gold": "depot",
+      "support_turns": [
+        66
+      ],
+      "query": "What is the latest delivery location for \"Cedar-453\"?"
+    }
+  },
+  "f0888a49e78ca2a0fe089744815598f051daf611cac692084b9e01194fa1cef1": {
+    "answer": "I don't know",
+    "gold_ids": [],
+    "sufficient_sets": [],
+    "rationale": {
+      "kind": "absent",
+      "subject": "Summit-842",
+      "anchor": 72,
+      "target": 63,
+      "near": 70,
+      "later": 77,
+      "gold": "I don't know",
+      "support_turns": [],
+      "query": "What was the delivery location for \"Summit-842\" immediately before \"Summit-842 review\"?"
+    }
+  },
+  "bda195e92518f52d6478f5d72ca6684afb00a6528de23b3d23b2d217494b6384": {
+    "answer": "hangar",
+    "gold_ids": [
+      "8a0d9b4a8ac5523fccda7ab379872af1980253ddb5f00e0a947ab584fcc933d1",
+      "65586918b4915aeebd38d70b6efc02286c5cf23a99108dfaeb0febdc7f47057c"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Harbor-194\" is now the hangar. This replaces its previous location.",
+        "The meeting \"Harbor-194 review\" took place at this point in the conversation."
+      ]
+    ],
+    "rationale": {
+      "kind": "straight",
+      "subject": "Harbor-194",
+      "anchor": 55,
+      "target": 50,
+      "near": 53,
+      "later": 72,
+      "gold": "hangar",
+      "support_turns": [
+        50,
+        55
+      ],
+      "query": "What was the delivery location for \"Harbor-194\" immediately before \"Harbor-194 review\"?"
+    }
+  },
+  "92641837f29835ec577c946139f1830726890902323b0ed732d866f72f5615a4": {
+    "answer": "warehouse",
+    "gold_ids": [
+      "1709a5cbda493f009ac65b80c9e87be1334081373a4bd82f33e6214be646cf5c",
+      "a48b999d3b0a7ba8ba89636933495290565b029e59504b25164a66fa6f9e9665"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Orchard-244\" is now the warehouse. This replaces its previous location.",
+        "The meeting \"Orchard-244 review\" took place at this point in the conversation."
+      ]
+    ],
+    "rationale": {
+      "kind": "irrelevant",
+      "subject": "Orchard-244",
+      "anchor": 70,
+      "target": 63,
+      "near": 68,
+      "later": 97,
+      "gold": "warehouse",
+      "support_turns": [
+        63,
+        70
+      ],
+      "query": "What was the delivery location for \"Orchard-244\" immediately before \"Orchard-244 review\"?"
+    }
+  },
+  "e31f01a26bc9764a32f202e62941ad2169b9283358cf671825d063df0d96663f": {
+    "answer": "depot",
+    "gold_ids": [
+      "abbc30066ef8a730d3f01caf046f3cfef9454e98dff4d9e49483b94f04b2194d",
+      "095b423fe2db70c25ef931ee1c3892ec42741afe0e2bad42120c40d9ac9406bc",
+      "2dfb0922218266f1dc81cf74f871165756c37065571184e778bedac415b2c8ab"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Meadow-607\" is now the depot. This replaces its previous location.",
+        "The meeting \"Meadow-607 review\" took place at this point in the conversation.",
+        "The team announced that the delivery location for \"Meadow-607\" will become the warehouse next month. It is explicitly not effective anywhere in the current recorded history."
+      ]
+    ],
+    "rationale": {
+      "kind": "future",
+      "subject": "Meadow-607",
+      "anchor": 90,
+      "target": 85,
+      "near": 88,
+      "later": 96,
+      "gold": "depot",
+      "support_turns": [
+        85,
+        90,
+        88
+      ],
+      "query": "What was the delivery location for \"Meadow-607\" immediately before \"Meadow-607 review\"?"
+    }
+  },
+  "3465b22dd2a60fb766c6e292b1779ce1d2add8331d4ebf440ac4a7aa18c8f3b4": {
+    "answer": "studio",
+    "gold_ids": [
+      "f9915a70ab9b67b0b04f179a4cd2df9505172ba14ff246639d4226ce05cc1be3",
+      "78255a7cee4e4a721b26aff4b2277fa79aa6de14417db06c850f07bc426ec6e4",
+      "9da7fc652db7c0a6f86d83fb45da4974fbf871df4b1c862a9cf0306a5c0e6df1"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Riverside-544\" is now the studio. This replaces its previous location.",
+        "The meeting \"Riverside-544 review\" took place at this point in the conversation.",
+        "A proposal would move the delivery location for \"Riverside-544\" to the hangar. It has not been accepted; no delivery-location change takes effect."
+      ]
+    ],
+    "rationale": {
+      "kind": "proposal",
+      "subject": "Riverside-544",
+      "anchor": 66,
+      "target": 60,
+      "near": 64,
+      "later": 92,
+      "gold": "studio",
+      "support_turns": [
+        60,
+        66,
+        64
+      ],
+      "query": "What was the delivery location for \"Riverside-544\" immediately before \"Riverside-544 review\"?"
+    }
+  },
+  "0530f61af5663841c9da7acded5770209dff7c92a1baf44f28f444f77c68fb29": {
+    "answer": "warehouse",
+    "gold_ids": [
+      "f49dd8f8ad2ab24c6ff6f44b05b3b853be194bdee193acd6a376276cf5d0e18d"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Cedar-443\" is now the warehouse. This replaces its previous location."
+      ]
+    ],
+    "rationale": {
+      "kind": "latest",
+      "subject": "Cedar-443",
+      "anchor": 74,
+      "target": 65,
+      "near": 71,
+      "later": 103,
+      "gold": "warehouse",
+      "support_turns": [
+        103
+      ],
+      "query": "What is the latest delivery location for \"Cedar-443\"?"
+    }
+  },
+  "2f643a05d6869b0561a2b8f3fa1c885437e3912e7503af960bfdb41a84d6323a": {
+    "answer": "I don't know",
+    "gold_ids": [],
+    "sufficient_sets": [],
+    "rationale": {
+      "kind": "absent",
+      "subject": "Summit-717",
+      "anchor": 62,
+      "target": 57,
+      "near": 61,
+      "later": 84,
+      "gold": "I don't know",
+      "support_turns": [],
+      "query": "What was the delivery location for \"Summit-717\" immediately before \"Summit-717 review\"?"
+    }
+  },
+  "44b01138ed34c4ae38178fe7d0777d1340626dc27cecbc0d7ea6f07e8a62094e": {
+    "answer": "warehouse",
+    "gold_ids": [
+      "5018dada5ee6f0842ad51409872b48a6af87e7d1c1022c0dc793f6e77c832197",
+      "315b8c653c3060b2699a9fcbe15b0f8d446a8eb8c26a6b3bd44f6585ea101ef0"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Harbor-795\" is now the warehouse. This replaces its previous location.",
+        "The meeting \"Harbor-795 review\" took place at this point in the conversation."
+      ]
+    ],
+    "rationale": {
+      "kind": "straight",
+      "subject": "Harbor-795",
+      "anchor": 56,
+      "target": 51,
+      "near": 53,
+      "later": 71,
+      "gold": "warehouse",
+      "support_turns": [
+        51,
+        56
+      ],
+      "query": "What was the delivery location for \"Harbor-795\" immediately before \"Harbor-795 review\"?"
+    }
+  },
+  "7efb2eae5eee42a53788b28d1f5e4bd359402006897bba75d9eef2021701b985": {
+    "answer": "warehouse",
+    "gold_ids": [
+      "e12dc2b6b1e4d1ea8aada024b6429e74ce18f5bb600e5aafbfe8c9b3a4f2fd17",
+      "2377e432de73b1efdb4ff73f154933035d947646fa3af5b6e04fc75a0ab3ed00"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Orchard-379\" is now the warehouse. This replaces its previous location.",
+        "The meeting \"Orchard-379 review\" took place at this point in the conversation."
+      ]
+    ],
+    "rationale": {
+      "kind": "irrelevant",
+      "subject": "Orchard-379",
+      "anchor": 62,
+      "target": 52,
+      "near": 59,
+      "later": 78,
+      "gold": "warehouse",
+      "support_turns": [
+        52,
+        62
+      ],
+      "query": "What was the delivery location for \"Orchard-379\" immediately before \"Orchard-379 review\"?"
+    }
+  },
+  "e4401180aaacf6b89cd6c74b2c6d282c87f87d8abc876c748dae542a9da993e5": {
+    "answer": "workshop",
+    "gold_ids": [
+      "b2ba1da1dfb407d2aa95c52394d1b1aa132bd130bea6c94b9893981efb3bdd39",
+      "dddb3555297eca5e167c02b34ef8a37172d9dd79f13ddcad03fdb3dd61d16a60",
+      "c3bc61a8087eb700f841bfa7cdfd6be8154ea63cdf4b3bf975589b8dc8b60324"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Meadow-219\" is now the workshop. This replaces its previous location.",
+        "The meeting \"Meadow-219 review\" took place at this point in the conversation.",
+        "The team announced that the delivery location for \"Meadow-219\" will become the office next month. It is explicitly not effective anywhere in the current recorded history."
+      ]
+    ],
+    "rationale": {
+      "kind": "future",
+      "subject": "Meadow-219",
+      "anchor": 55,
+      "target": 43,
+      "near": 54,
+      "later": 64,
+      "gold": "workshop",
+      "support_turns": [
+        43,
+        55,
+        54
+      ],
+      "query": "What was the delivery location for \"Meadow-219\" immediately before \"Meadow-219 review\"?"
+    }
+  },
+  "83d396ff503607aa888c87c5a7af14ae6418bcd9466eccc12c1f3129fc44579f": {
+    "answer": "warehouse",
+    "gold_ids": [
+      "9aa2472229d7102357b16d4683f2c29a4ecf4f205c187dd991931c170523afd3",
+      "7787b87ffc0b4dcc3fd8e72e028ebed0347be640c570570fe1ba7bb4f8e6d715",
+      "ae427d44d87350afcead28c7d837c1fef43ebe90665669816341e3b7ce443317"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Riverside-207\" is now the warehouse. This replaces its previous location.",
+        "The meeting \"Riverside-207 review\" took place at this point in the conversation.",
+        "A proposal would move the delivery location for \"Riverside-207\" to the annex. It has not been accepted; no delivery-location change takes effect."
+      ]
+    ],
+    "rationale": {
+      "kind": "proposal",
+      "subject": "Riverside-207",
+      "anchor": 72,
+      "target": 61,
+      "near": 69,
+      "later": 93,
+      "gold": "warehouse",
+      "support_turns": [
+        61,
+        72,
+        69
+      ],
+      "query": "What was the delivery location for \"Riverside-207\" immediately before \"Riverside-207 review\"?"
+    }
+  },
+  "62251d89669f75cbf688121a8282fdea0f34c0c96ddc2fca855015017b777963": {
+    "answer": "warehouse",
+    "gold_ids": [
+      "95022c8f40216d0d4e0db2f32ac8f6183deca893a14b91cc79a7990794d76459"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Cedar-249\" is now the warehouse. This replaces its previous location."
+      ]
+    ],
+    "rationale": {
+      "kind": "latest",
+      "subject": "Cedar-249",
+      "anchor": 76,
+      "target": 68,
+      "near": 73,
+      "later": 77,
+      "gold": "warehouse",
+      "support_turns": [
+        77
+      ],
+      "query": "What is the latest delivery location for \"Cedar-249\"?"
+    }
+  },
+  "d3abdf6464d0d0b0f724505f99d7d03ee560f033df2400bf27a32dfe63924805": {
+    "answer": "I don't know",
+    "gold_ids": [],
+    "sufficient_sets": [],
+    "rationale": {
+      "kind": "absent",
+      "subject": "Summit-283",
+      "anchor": 58,
+      "target": 49,
+      "near": 57,
+      "later": 88,
+      "gold": "I don't know",
+      "support_turns": [],
+      "query": "What was the delivery location for \"Summit-283\" immediately before \"Summit-283 review\"?"
+    }
+  },
+  "1824eca9ff34ad722d57818e879b93d7f058be8505a4e2a12fdde980860fbe31": {
+    "answer": "workshop",
+    "gold_ids": [
+      "51e82d8ac52fc86ebcea7fe448d7b005c50d823437bfc2f9c7576828cb30b5cd",
+      "3d07878c4d06f07d22842eb9ae54fe8d0711b964c93ceab1df2cc64afa5634cb"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Harbor-967\" is now the workshop. This replaces its previous location.",
+        "The meeting \"Harbor-967 review\" took place at this point in the conversation."
+      ]
+    ],
+    "rationale": {
+      "kind": "straight",
+      "subject": "Harbor-967",
+      "anchor": 71,
+      "target": 61,
+      "near": 68,
+      "later": 80,
+      "gold": "workshop",
+      "support_turns": [
+        61,
+        71
+      ],
+      "query": "What was the delivery location for \"Harbor-967\" immediately before \"Harbor-967 review\"?"
+    }
+  },
+  "8b37e22c8ddd0c79414c2044d23eba7fde2d99fbdcfa382130f200b547b76c5d": {
+    "answer": "depot",
+    "gold_ids": [
+      "f244eece89fd890f33f2d2a65433843535d0aca84bb2ef170c8288453bf751f6",
+      "1602a08ee51f33c37f93ed835538a8cde2eb202a9a2621e1fcfa4e5e36638436"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Orchard-335\" is now the depot. This replaces its previous location.",
+        "The meeting \"Orchard-335 review\" took place at this point in the conversation."
+      ]
+    ],
+    "rationale": {
+      "kind": "irrelevant",
+      "subject": "Orchard-335",
+      "anchor": 79,
+      "target": 74,
+      "near": 76,
+      "later": 100,
+      "gold": "depot",
+      "support_turns": [
+        74,
+        79
+      ],
+      "query": "What was the delivery location for \"Orchard-335\" immediately before \"Orchard-335 review\"?"
+    }
+  },
+  "a4f4b2264715a1a500ab658ebba6313f6fbefb3c73adeaaa1096e7d817474857": {
+    "answer": "depot",
+    "gold_ids": [
+      "9ecc93b06e3270987b41cf83ae12e46b7a568c52af6b4db5a8a41bd678b698ff",
+      "e27d90e6ca9936b928723517900f86b47d8a105cbf23d16e96b9567589e36f97",
+      "896559d4989eae12204617c9b319428afe7aff5d33cc2695e2c4adf6c0cc700c"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Meadow-624\" is now the depot. This replaces its previous location.",
+        "The meeting \"Meadow-624 review\" took place at this point in the conversation.",
+        "The team announced that the delivery location for \"Meadow-624\" will become the warehouse next month. It is explicitly not effective anywhere in the current recorded history."
+      ]
+    ],
+    "rationale": {
+      "kind": "future",
+      "subject": "Meadow-624",
+      "anchor": 94,
+      "target": 86,
+      "near": 91,
+      "later": 96,
+      "gold": "depot",
+      "support_turns": [
+        86,
+        94,
+        91
+      ],
+      "query": "What was the delivery location for \"Meadow-624\" immediately before \"Meadow-624 review\"?"
+    }
+  },
+  "0b5d6903e27b10ce7305134b3bed3f3995f045e1cfe841c201a580f843b6e1be": {
+    "answer": "laboratory",
+    "gold_ids": [
+      "b846576903adba59f8242becb72ecfb696f7389a367c34ec1dfd07983a689dfe",
+      "610fa9382db8f715cb17e70ec33d8447000d5f761332df8ddfaf905cd6c77097",
+      "88848d3d4998af258ef15e5aae3b20cd1279ee80a00786e5707e51f02e53f96e"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Riverside-481\" is now the laboratory. This replaces its previous location.",
+        "The meeting \"Riverside-481 review\" took place at this point in the conversation.",
+        "A proposal would move the delivery location for \"Riverside-481\" to the warehouse. It has not been accepted; no delivery-location change takes effect."
+      ]
+    ],
+    "rationale": {
+      "kind": "proposal",
+      "subject": "Riverside-481",
+      "anchor": 55,
+      "target": 45,
+      "near": 54,
+      "later": 60,
+      "gold": "laboratory",
+      "support_turns": [
+        45,
+        55,
+        54
+      ],
+      "query": "What was the delivery location for \"Riverside-481\" immediately before \"Riverside-481 review\"?"
+    }
+  },
+  "b5c3fffb78af4b0d28b4736ead1456e742b7153fbcb106b9543a2cd72db11500": {
+    "answer": "hangar",
+    "gold_ids": [
+      "36674f71779556d81d1d7a83da6537e8c4f4efbc5cee78347c794bb379b8d45b"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Cedar-134\" is now the hangar. This replaces its previous location."
+      ]
+    ],
+    "rationale": {
+      "kind": "latest",
+      "subject": "Cedar-134",
+      "anchor": 65,
+      "target": 57,
+      "near": 62,
+      "later": 77,
+      "gold": "hangar",
+      "support_turns": [
+        77
+      ],
+      "query": "What is the latest delivery location for \"Cedar-134\"?"
+    }
+  },
+  "85ccde0db3e1a23e2ed64095fc354de4aaa1eb3bb77c096ca87953495dfa4e5c": {
+    "answer": "I don't know",
+    "gold_ids": [],
+    "sufficient_sets": [],
+    "rationale": {
+      "kind": "absent",
+      "subject": "Summit-444",
+      "anchor": 73,
+      "target": 67,
+      "near": 72,
+      "later": 82,
+      "gold": "I don't know",
+      "support_turns": [],
+      "query": "What was the delivery location for \"Summit-444\" immediately before \"Summit-444 review\"?"
+    }
+  },
+  "2c54d6b13cbf065001c4a30df0c82ded546da42d345d3e5cc545372b4b8e0ab9": {
+    "answer": "office",
+    "gold_ids": [
+      "d98319400c46725763bded99c788c4509b32b732609140eb5765b8951a5a392c",
+      "76e3ad2660599fa4068c0de1b8e5c0f6c8045dddbe2243b877e68c3f6e65dcee"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Harbor-170\" is now the office. This replaces its previous location.",
+        "The meeting \"Harbor-170 review\" took place at this point in the conversation."
+      ]
+    ],
+    "rationale": {
+      "kind": "straight",
+      "subject": "Harbor-170",
+      "anchor": 59,
+      "target": 51,
+      "near": 58,
+      "later": 90,
+      "gold": "office",
+      "support_turns": [
+        51,
+        59
+      ],
+      "query": "What was the delivery location for \"Harbor-170\" immediately before \"Harbor-170 review\"?"
+    }
+  },
+  "ca4306dc3a9834ca0b02c270fb20e778044ce44eae69a3447408a9255cf1aee8": {
+    "answer": "laboratory",
+    "gold_ids": [
+      "7e266e1bedd1a3357b4ffd4c84966f12d1fc50c6b70487364480b280a2e3f4a3",
+      "cbb01544360121154c55110518ccc192aec1982515f9417a8983c7cbcd4103c8"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Orchard-533\" is now the laboratory. This replaces its previous location.",
+        "The meeting \"Orchard-533 review\" took place at this point in the conversation."
+      ]
+    ],
+    "rationale": {
+      "kind": "irrelevant",
+      "subject": "Orchard-533",
+      "anchor": 74,
+      "target": 67,
+      "near": 73,
+      "later": 77,
+      "gold": "laboratory",
+      "support_turns": [
+        67,
+        74
+      ],
+      "query": "What was the delivery location for \"Orchard-533\" immediately before \"Orchard-533 review\"?"
+    }
+  },
+  "9bad8852f1e25c013d305ed307a6a4edff605bcca250c53b9af3244b61da7909": {
+    "answer": "annex",
+    "gold_ids": [
+      "f0fdddb7561d9c9cab40ca277aeee1de566ea52f19997cf5019512c6984b2b51",
+      "ea419f986fe559b4a2eeb9b5ef37153d24f3d960997f000edd906aaac9abb4df",
+      "a80135304c0cfb459a3cf4cecac0ae7718f9506f3337964530b0dc072d83e4f7"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Meadow-784\" is now the annex. This replaces its previous location.",
+        "The meeting \"Meadow-784 review\" took place at this point in the conversation.",
+        "The team announced that the delivery location for \"Meadow-784\" will become the warehouse next month. It is explicitly not effective anywhere in the current recorded history."
+      ]
+    ],
+    "rationale": {
+      "kind": "future",
+      "subject": "Meadow-784",
+      "anchor": 60,
+      "target": 49,
+      "near": 57,
+      "later": 92,
+      "gold": "annex",
+      "support_turns": [
+        49,
+        60,
+        57
+      ],
+      "query": "What was the delivery location for \"Meadow-784\" immediately before \"Meadow-784 review\"?"
+    }
+  },
+  "e4608d94f8a0b704c7b446f4c02e6e99f7b6158e9e354fe338253850a96a5ebf": {
+    "answer": "hangar",
+    "gold_ids": [
+      "6137459528dac9ee950451e275bf86132183228d706ee79a03b2409d952482f5",
+      "16163bb37409418411c4bffeb219f1d8b8d318591258fd191da8ea71ab20bbaf",
+      "aaabdcf17b872468ef3f62a60112bad463bb39b42bb2a1c355c6d25784a0f94f"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Riverside-454\" is now the hangar. This replaces its previous location.",
+        "The meeting \"Riverside-454 review\" took place at this point in the conversation.",
+        "A proposal would move the delivery location for \"Riverside-454\" to the warehouse. It has not been accepted; no delivery-location change takes effect."
+      ]
+    ],
+    "rationale": {
+      "kind": "proposal",
+      "subject": "Riverside-454",
+      "anchor": 76,
+      "target": 64,
+      "near": 75,
+      "later": 103,
+      "gold": "hangar",
+      "support_turns": [
+        64,
+        76,
+        75
+      ],
+      "query": "What was the delivery location for \"Riverside-454\" immediately before \"Riverside-454 review\"?"
+    }
+  },
+  "8a12530c549a6682e745c0e454eb6cfc78c2f5db1c9bd86486112c770df71aa5": {
+    "answer": "depot",
+    "gold_ids": [
+      "72029738ae212e7a7699aca6d5618bec5f3c030e984f930ea240ad2f202a2567"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Cedar-272\" is now the depot. This replaces its previous location."
+      ]
+    ],
+    "rationale": {
+      "kind": "latest",
+      "subject": "Cedar-272",
+      "anchor": 85,
+      "target": 79,
+      "near": 83,
+      "later": 104,
+      "gold": "depot",
+      "support_turns": [
+        104
+      ],
+      "query": "What is the latest delivery location for \"Cedar-272\"?"
+    }
+  },
+  "73c29fafbc597b7237f67237dc83011a1de14b53836b047a0d4d6e8aabef4977": {
+    "answer": "I don't know",
+    "gold_ids": [],
+    "sufficient_sets": [],
+    "rationale": {
+      "kind": "absent",
+      "subject": "Summit-874",
+      "anchor": 95,
+      "target": 89,
+      "near": 93,
+      "later": 101,
+      "gold": "I don't know",
+      "support_turns": [],
+      "query": "What was the delivery location for \"Summit-874\" immediately before \"Summit-874 review\"?"
+    }
+  },
+  "c87ff12383d7d6d4a6185baa86fbcfc39ddc96dd5fa08e8048d8242771a18cd5": {
+    "answer": "depot",
+    "gold_ids": [
+      "68293045816eb9165e8ce29b186369f3063d8361b2c71ff3d3f7f787ac8c77c3",
+      "281fd34e2929e1f85598745cf97d65f05456703911b3e7b33798a67c6fb09f78"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Harbor-573\" is now the depot. This replaces its previous location.",
+        "The meeting \"Harbor-573 review\" took place at this point in the conversation."
+      ]
+    ],
+    "rationale": {
+      "kind": "straight",
+      "subject": "Harbor-573",
+      "anchor": 62,
+      "target": 50,
+      "near": 60,
+      "later": 97,
+      "gold": "depot",
+      "support_turns": [
+        50,
+        62
+      ],
+      "query": "What was the delivery location for \"Harbor-573\" immediately before \"Harbor-573 review\"?"
+    }
+  },
+  "5351485d1592f0561a568bc4a0e7a8b8b791bc0f174e54988cbf860ad6d44aa0": {
+    "answer": "hangar",
+    "gold_ids": [
+      "9c21f7c962efd82d71648d3079e78bc9a651014765565c8c7857a953413b5b51",
+      "19296fc7d6762fb77ea015c344367efe95773a2f49d7795c11763a67f91f0fcc"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Orchard-410\" is now the hangar. This replaces its previous location.",
+        "The meeting \"Orchard-410 review\" took place at this point in the conversation."
+      ]
+    ],
+    "rationale": {
+      "kind": "irrelevant",
+      "subject": "Orchard-410",
+      "anchor": 91,
+      "target": 85,
+      "near": 88,
+      "later": 103,
+      "gold": "hangar",
+      "support_turns": [
+        85,
+        91
+      ],
+      "query": "What was the delivery location for \"Orchard-410\" immediately before \"Orchard-410 review\"?"
+    }
+  },
+  "b990d0bad06d42f792d7459861e771b2de530f6bc0514696291d2d9cfdd45523": {
+    "answer": "hangar",
+    "gold_ids": [
+      "a100fecd26fe28df99b0983d540bd481d5318c1c377083e403b6654b9e84646c",
+      "88be3e27a5abdd4902bb57c0395fef8683f47e974966f760a3596ef3f72cbf1a",
+      "ffd1e38cc65f87d24651775c76b512b65d63fca01f808d357304d198022099c2"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Meadow-767\" is now the hangar. This replaces its previous location.",
+        "The meeting \"Meadow-767 review\" took place at this point in the conversation.",
+        "The team announced that the delivery location for \"Meadow-767\" will become the office next month. It is explicitly not effective anywhere in the current recorded history."
+      ]
+    ],
+    "rationale": {
+      "kind": "future",
+      "subject": "Meadow-767",
+      "anchor": 68,
+      "target": 61,
+      "near": 67,
+      "later": 104,
+      "gold": "hangar",
+      "support_turns": [
+        61,
+        68,
+        67
+      ],
+      "query": "What was the delivery location for \"Meadow-767\" immediately before \"Meadow-767 review\"?"
+    }
+  },
+  "bc776ababaaec648ea3001dc0f11431d9fb79847e101261fc249a233fc871d47": {
+    "answer": "studio",
+    "gold_ids": [
+      "5be8b72af8b1963bbeda5d57c49a0c9706fff7a68d0779529ed9c144550e92d9",
+      "46ed4a7f4db8499fbab7a7e957a2e0e694db6b453cb137a447386f1abf2b5ad7",
+      "7e2a650b83ee6ad2746219d7bc079b1801d59336ade62bf9f09fd1c03cf9639c"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Riverside-560\" is now the studio. This replaces its previous location.",
+        "The meeting \"Riverside-560 review\" took place at this point in the conversation.",
+        "A proposal would move the delivery location for \"Riverside-560\" to the annex. It has not been accepted; no delivery-location change takes effect."
+      ]
+    ],
+    "rationale": {
+      "kind": "proposal",
+      "subject": "Riverside-560",
+      "anchor": 72,
+      "target": 66,
+      "near": 71,
+      "later": 83,
+      "gold": "studio",
+      "support_turns": [
+        66,
+        72,
+        71
+      ],
+      "query": "What was the delivery location for \"Riverside-560\" immediately before \"Riverside-560 review\"?"
+    }
+  },
+  "4db31dfd5a8b70a3802a7d984ce508dbf48be44e50708ab418e1e343093fae75": {
+    "answer": "annex",
+    "gold_ids": [
+      "dea09aadda72fac62db0485993df615b3d4573b4d83f93877a10dd4203b29643"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Cedar-661\" is now the annex. This replaces its previous location."
+      ]
+    ],
+    "rationale": {
+      "kind": "latest",
+      "subject": "Cedar-661",
+      "anchor": 90,
+      "target": 82,
+      "near": 87,
+      "later": 93,
+      "gold": "annex",
+      "support_turns": [
+        93
+      ],
+      "query": "What is the latest delivery location for \"Cedar-661\"?"
+    }
+  },
+  "349103b07340cd112e1945e44971fd0e56c6e3a711534cf9125711880c545fb9": {
+    "answer": "I don't know",
+    "gold_ids": [],
+    "sufficient_sets": [],
+    "rationale": {
+      "kind": "absent",
+      "subject": "Summit-853",
+      "anchor": 94,
+      "target": 89,
+      "near": 92,
+      "later": 102,
+      "gold": "I don't know",
+      "support_turns": [],
+      "query": "What was the delivery location for \"Summit-853\" immediately before \"Summit-853 review\"?"
+    }
+  },
+  "53c3daca3e8914e829ef7869884a68b116f3c9c4a76d16963f66da015c2f5f5d": {
+    "answer": "annex",
+    "gold_ids": [
+      "0a0e8926a6fb78d0a6110a2c5cb13303d48d958ba1e7d3068fda266cffceea76",
+      "0733e79cf10b7261b50562e2474b4c6b6a4b2c337f9b20ce4fa8e5f1feba610b"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Harbor-269\" is now the annex. This replaces its previous location.",
+        "The meeting \"Harbor-269 review\" took place at this point in the conversation."
+      ]
+    ],
+    "rationale": {
+      "kind": "straight",
+      "subject": "Harbor-269",
+      "anchor": 62,
+      "target": 52,
+      "near": 61,
+      "later": 70,
+      "gold": "annex",
+      "support_turns": [
+        52,
+        62
+      ],
+      "query": "What was the delivery location for \"Harbor-269\" immediately before \"Harbor-269 review\"?"
+    }
+  },
+  "2b309f519102ae4a6ee2d9cc42b3bd72106c6568808a7c6a44912785608700fb": {
+    "answer": "studio",
+    "gold_ids": [
+      "e18aebc20fb021cbdf1f75b6ce350cb03d82cbfa77563c37e1a0dced6f4f21a0",
+      "614a983096bcd050c778a18be390562c74dd5061c6cd04056fe13432e532e3f0"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Orchard-604\" is now the studio. This replaces its previous location.",
+        "The meeting \"Orchard-604 review\" took place at this point in the conversation."
+      ]
+    ],
+    "rationale": {
+      "kind": "irrelevant",
+      "subject": "Orchard-604",
+      "anchor": 83,
+      "target": 71,
+      "near": 82,
+      "later": 104,
+      "gold": "studio",
+      "support_turns": [
+        71,
+        83
+      ],
+      "query": "What was the delivery location for \"Orchard-604\" immediately before \"Orchard-604 review\"?"
+    }
+  },
+  "3475d8c5a2704e7e3f6eb514bd40e48647f47dea050436947fd61bd7fc28fa9e": {
+    "answer": "hangar",
+    "gold_ids": [
+      "ab3453594f7ca9abdaf444b743f3538bcabe57d43006110663ab25c2f989982d",
+      "d2157264228dece7ecd7028206fd87fb07c427859ff72fe40303a3ea07799ecb",
+      "a09961e06ad056bef94d8873db639cfd12bea25ad2349692b41a79943fd313db"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Meadow-284\" is now the hangar. This replaces its previous location.",
+        "The meeting \"Meadow-284 review\" took place at this point in the conversation.",
+        "The team announced that the delivery location for \"Meadow-284\" will become the laboratory next month. It is explicitly not effective anywhere in the current recorded history."
+      ]
+    ],
+    "rationale": {
+      "kind": "future",
+      "subject": "Meadow-284",
+      "anchor": 72,
+      "target": 60,
+      "near": 69,
+      "later": 92,
+      "gold": "hangar",
+      "support_turns": [
+        60,
+        72,
+        69
+      ],
+      "query": "What was the delivery location for \"Meadow-284\" immediately before \"Meadow-284 review\"?"
+    }
+  },
+  "e2a88cbfce9ea668307756eb9aca78555231ac4129b6fcd0fc29f0749f7c9b96": {
+    "answer": "laboratory",
+    "gold_ids": [
+      "2fd2be2e8bfa6ccb15670fbfd593fd090a307745fee479e84bd5be86d1c721ec",
+      "c9c8e346bd70ba744c8fad02a87fe17f4672668dc734ec7c0cb4053ccede7a97",
+      "0cc985b72c1ab310f605274465cc0a29bd20107b9c3a565472769be03d9055a1"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Riverside-852\" is now the laboratory. This replaces its previous location.",
+        "The meeting \"Riverside-852 review\" took place at this point in the conversation.",
+        "A proposal would move the delivery location for \"Riverside-852\" to the annex. It has not been accepted; no delivery-location change takes effect."
+      ]
+    ],
+    "rationale": {
+      "kind": "proposal",
+      "subject": "Riverside-852",
+      "anchor": 90,
+      "target": 78,
+      "near": 88,
+      "later": 97,
+      "gold": "laboratory",
+      "support_turns": [
+        78,
+        90,
+        88
+      ],
+      "query": "What was the delivery location for \"Riverside-852\" immediately before \"Riverside-852 review\"?"
+    }
+  },
+  "459414ea088d3545d98601607e77f4778e0e2a330065173b04a6dce1a0626122": {
+    "answer": "annex",
+    "gold_ids": [
+      "f766a2679409f88936c8a1280fb0b030dfa5bddd98deadf38579602ac77faeef"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Cedar-906\" is now the annex. This replaces its previous location."
+      ]
+    ],
+    "rationale": {
+      "kind": "latest",
+      "subject": "Cedar-906",
+      "anchor": 85,
+      "target": 79,
+      "near": 84,
+      "later": 101,
+      "gold": "annex",
+      "support_turns": [
+        101
+      ],
+      "query": "What is the latest delivery location for \"Cedar-906\"?"
+    }
+  },
+  "591c01055994a3626867dba6da38a291b221ec6d2b8b5847701585726f15119c": {
+    "answer": "I don't know",
+    "gold_ids": [],
+    "sufficient_sets": [],
+    "rationale": {
+      "kind": "absent",
+      "subject": "Summit-896",
+      "anchor": 74,
+      "target": 68,
+      "near": 73,
+      "later": 95,
+      "gold": "I don't know",
+      "support_turns": [],
+      "query": "What was the delivery location for \"Summit-896\" immediately before \"Summit-896 review\"?"
+    }
+  },
+  "43e78698842c43c86005926424776e655148a3bbcff5ac720164877f49bb19c8": {
+    "answer": "workshop",
+    "gold_ids": [
+      "5ca02a3baa3569634c751b6a0c6d278a50280c4b7c1cf0ec9ca2337c46039179",
+      "28cbda9e9ddbf2dfa8d52619c4a85f9ca31d96163aeceaa4b58bc53baa432bd3"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Harbor-580\" is now the workshop. This replaces its previous location.",
+        "The meeting \"Harbor-580 review\" took place at this point in the conversation."
+      ]
+    ],
+    "rationale": {
+      "kind": "straight",
+      "subject": "Harbor-580",
+      "anchor": 68,
+      "target": 61,
+      "near": 67,
+      "later": 75,
+      "gold": "workshop",
+      "support_turns": [
+        61,
+        68
+      ],
+      "query": "What was the delivery location for \"Harbor-580\" immediately before \"Harbor-580 review\"?"
+    }
+  },
+  "4f7b7fea09f72b7481f0a1a3466da33e48ca99da77bdca5ed99e26fdd86c6e66": {
+    "answer": "laboratory",
+    "gold_ids": [
+      "834e6ff0c2c93389c73627811385abcf2b5fefe3b83ef11c3a1844fa735675d5",
+      "b6d84d1e340d591b28d89f6ebbd0e63b09165341439e42418119b80a7788291d"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Orchard-994\" is now the laboratory. This replaces its previous location.",
+        "The meeting \"Orchard-994 review\" took place at this point in the conversation."
+      ]
+    ],
+    "rationale": {
+      "kind": "irrelevant",
+      "subject": "Orchard-994",
+      "anchor": 94,
+      "target": 88,
+      "near": 91,
+      "later": 104,
+      "gold": "laboratory",
+      "support_turns": [
+        88,
+        94
+      ],
+      "query": "What was the delivery location for \"Orchard-994\" immediately before \"Orchard-994 review\"?"
+    }
+  },
+  "7cacd6a51c2cac945083dbaae567f38992af49ee4a49da8342cbd571c0eb40a1": {
+    "answer": "warehouse",
+    "gold_ids": [
+      "db04fb17dc09d627a068d05f94e51bb4d88fbe0ca6480ee0cd1fe58e675b86e9",
+      "7f7b8387d9a0bd2804c6d1e36bfc67cf78c991d383206d693e85db681794a421",
+      "0f111f0ff081204c27b9fc87ff2805559908f37a9c7610747b535ba7ae4fb369"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Meadow-327\" is now the warehouse. This replaces its previous location.",
+        "The meeting \"Meadow-327 review\" took place at this point in the conversation.",
+        "The team announced that the delivery location for \"Meadow-327\" will become the depot next month. It is explicitly not effective anywhere in the current recorded history."
+      ]
+    ],
+    "rationale": {
+      "kind": "future",
+      "subject": "Meadow-327",
+      "anchor": 71,
+      "target": 62,
+      "near": 69,
+      "later": 73,
+      "gold": "warehouse",
+      "support_turns": [
+        62,
+        71,
+        69
+      ],
+      "query": "What was the delivery location for \"Meadow-327\" immediately before \"Meadow-327 review\"?"
+    }
+  },
+  "e758edc399d4d372ba60b9d7ccdee611858f740b9c40b145730027ec7edc9502": {
+    "answer": "studio",
+    "gold_ids": [
+      "f6686cadd29d2c45ee269f602df48758050a3dee87a5a350fa7702c1b88a1d2f",
+      "3963dbfdcf6a229c57a5abec8610689046ebac2cd538801b1863ce7c705a9f0c",
+      "496858cbfd4103bb2b6b00850fb2dd0051f45bc757e5e384c9e6d6ec631c03ce"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Riverside-371\" is now the studio. This replaces its previous location.",
+        "The meeting \"Riverside-371 review\" took place at this point in the conversation.",
+        "A proposal would move the delivery location for \"Riverside-371\" to the hangar. It has not been accepted; no delivery-location change takes effect."
+      ]
+    ],
+    "rationale": {
+      "kind": "proposal",
+      "subject": "Riverside-371",
+      "anchor": 63,
+      "target": 54,
+      "near": 60,
+      "later": 85,
+      "gold": "studio",
+      "support_turns": [
+        54,
+        63,
+        60
+      ],
+      "query": "What was the delivery location for \"Riverside-371\" immediately before \"Riverside-371 review\"?"
+    }
+  },
+  "7f51f595acdd76adaf840555bd7d55ab9ceaf82ff46f22cc19d277d70f62d774": {
+    "answer": "laboratory",
+    "gold_ids": [
+      "3365e2992f97e1d0365318515c87d8497ebbde1da60228b6001ecc35965a6038"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Cedar-217\" is now the laboratory. This replaces its previous location."
+      ]
+    ],
+    "rationale": {
+      "kind": "latest",
+      "subject": "Cedar-217",
+      "anchor": 78,
+      "target": 66,
+      "near": 77,
+      "later": 82,
+      "gold": "laboratory",
+      "support_turns": [
+        82
+      ],
+      "query": "What is the latest delivery location for \"Cedar-217\"?"
+    }
+  },
+  "5b474d8113b45b75276961bc16eb762fb1d249f850a44446c13c7b46c2557d08": {
+    "answer": "I don't know",
+    "gold_ids": [],
+    "sufficient_sets": [],
+    "rationale": {
+      "kind": "absent",
+      "subject": "Summit-116",
+      "anchor": 55,
+      "target": 49,
+      "near": 52,
+      "later": 84,
+      "gold": "I don't know",
+      "support_turns": [],
+      "query": "What was the delivery location for \"Summit-116\" immediately before \"Summit-116 review\"?"
+    }
+  },
+  "b1d6bfce113082d3530e3f015871ddeddd51744ba2b9b2f8d01187bc397ad2cc": {
+    "answer": "workshop",
+    "gold_ids": [
+      "4e35d75193970cbd40f374f509b01cd28ae744bf200100fbe580478bb5244f87",
+      "682b7c68d9a5d4b0d8bc553be502aeb7746f6bf88525e2ea9b40f0468f70b450"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Harbor-371\" is now the workshop. This replaces its previous location.",
+        "The meeting \"Harbor-371 review\" took place at this point in the conversation."
+      ]
+    ],
+    "rationale": {
+      "kind": "straight",
+      "subject": "Harbor-371",
+      "anchor": 77,
+      "target": 72,
+      "near": 75,
+      "later": 101,
+      "gold": "workshop",
+      "support_turns": [
+        72,
+        77
+      ],
+      "query": "What was the delivery location for \"Harbor-371\" immediately before \"Harbor-371 review\"?"
+    }
+  },
+  "f347bb5b8c86ed87f91c36fd24a42a5d4387a4e3ce72e4bda78a4479b6eb3ba4": {
+    "answer": "office",
+    "gold_ids": [
+      "214f7266d825bf2c079ba4bd4dbbad5f7d735422a5794626e2e311b5f93018f7",
+      "78c542f377037f41eb39095fff3667376625acc4c0d25fd7c1a994a12a83cb2f"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Orchard-632\" is now the office. This replaces its previous location.",
+        "The meeting \"Orchard-632 review\" took place at this point in the conversation."
+      ]
+    ],
+    "rationale": {
+      "kind": "irrelevant",
+      "subject": "Orchard-632",
+      "anchor": 71,
+      "target": 62,
+      "near": 69,
+      "later": 102,
+      "gold": "office",
+      "support_turns": [
+        62,
+        71
+      ],
+      "query": "What was the delivery location for \"Orchard-632\" immediately before \"Orchard-632 review\"?"
+    }
+  },
+  "4aecd1c8b9becd9a510f412f99df2b135843cbd95e54a4817bff7a5ffa778e8a": {
+    "answer": "warehouse",
+    "gold_ids": [
+      "e77154e299c1100226630a16a10f5e0304a46b76daec737ab145b62aa6d56550",
+      "4ce3153672b1e69ebfd6fe0d1324504fec3abfbc039b192c2d6ff4a8c9f46b2f",
+      "b89c1d1764ac972f3a1b6d1982c53dcb4922ab60abede64ca68f01276c2bf964"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Meadow-311\" is now the warehouse. This replaces its previous location.",
+        "The meeting \"Meadow-311 review\" took place at this point in the conversation.",
+        "The team announced that the delivery location for \"Meadow-311\" will become the annex next month. It is explicitly not effective anywhere in the current recorded history."
+      ]
+    ],
+    "rationale": {
+      "kind": "future",
+      "subject": "Meadow-311",
+      "anchor": 95,
+      "target": 89,
+      "near": 92,
+      "later": 104,
+      "gold": "warehouse",
+      "support_turns": [
+        89,
+        95,
+        92
+      ],
+      "query": "What was the delivery location for \"Meadow-311\" immediately before \"Meadow-311 review\"?"
+    }
+  },
+  "7c3430b6defe407a1c09e3184d39d2cb5c248eebd27c9cf6fe94f4344b93dda3": {
+    "answer": "workshop",
+    "gold_ids": [
+      "d7c6b303563b02a1cdda28e35fb8d274106a650c811a2d4ac9b8693d40182a12",
+      "e40226b49ac12259b3bf6395367bb45ca7f4fb4f432eb298e0e041b3a6bc3b0a",
+      "df1042fdee20685a085c055ecc97e0d609a5ceb12004c989e73dae29954d4413"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Riverside-108\" is now the workshop. This replaces its previous location.",
+        "The meeting \"Riverside-108 review\" took place at this point in the conversation.",
+        "A proposal would move the delivery location for \"Riverside-108\" to the studio. It has not been accepted; no delivery-location change takes effect."
+      ]
+    ],
+    "rationale": {
+      "kind": "proposal",
+      "subject": "Riverside-108",
+      "anchor": 64,
+      "target": 59,
+      "near": 63,
+      "later": 90,
+      "gold": "workshop",
+      "support_turns": [
+        59,
+        64,
+        63
+      ],
+      "query": "What was the delivery location for \"Riverside-108\" immediately before \"Riverside-108 review\"?"
+    }
+  },
+  "3a1ba05b609a29090e83db7b14e9c1b1d5a6ded49a573974ffca71211e58f75a": {
+    "answer": "annex",
+    "gold_ids": [
+      "cd1ae36fb3b0626144afd17b9b6aaad7e789930560e85fce8128fbb81911e768"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Cedar-433\" is now the annex. This replaces its previous location."
+      ]
+    ],
+    "rationale": {
+      "kind": "latest",
+      "subject": "Cedar-433",
+      "anchor": 80,
+      "target": 73,
+      "near": 79,
+      "later": 88,
+      "gold": "annex",
+      "support_turns": [
+        88
+      ],
+      "query": "What is the latest delivery location for \"Cedar-433\"?"
+    }
+  },
+  "00cd5455f3efbb0d57670abb0fd8d117c8e42535edad50f7e305d0bd7b65cb15": {
+    "answer": "I don't know",
+    "gold_ids": [],
+    "sufficient_sets": [],
+    "rationale": {
+      "kind": "absent",
+      "subject": "Summit-519",
+      "anchor": 67,
+      "target": 60,
+      "near": 66,
+      "later": 83,
+      "gold": "I don't know",
+      "support_turns": [],
+      "query": "What was the delivery location for \"Summit-519\" immediately before \"Summit-519 review\"?"
+    }
+  },
+  "1454502bbf18db4a79d3a128bba10384a4f8215888a23496c8bf10a831247169": {
+    "answer": "office",
+    "gold_ids": [
+      "c8cfb9a3198eb27b0cab10e81c04f1fc4aba79fc4ff0f515874ffdcdbe415ab7",
+      "258e1276131a0b69c69d73c2f70d58cc641912778821a97c34fe8c7f1bd9d685"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Harbor-485\" is now the office. This replaces its previous location.",
+        "The meeting \"Harbor-485 review\" took place at this point in the conversation."
+      ]
+    ],
+    "rationale": {
+      "kind": "straight",
+      "subject": "Harbor-485",
+      "anchor": 66,
+      "target": 55,
+      "near": 65,
+      "later": 72,
+      "gold": "office",
+      "support_turns": [
+        55,
+        66
+      ],
+      "query": "What was the delivery location for \"Harbor-485\" immediately before \"Harbor-485 review\"?"
+    }
+  },
+  "dc3bc299e216a26904a5a3447ced4fecac8cbabf522d77002821aacf6a493fd0": {
+    "answer": "office",
+    "gold_ids": [
+      "2fbe9f3a82343c49ba331f5db46babaaab63bb7b22ac2ea948a019d887c80102",
+      "76c006e4b69c9a1897e64f08259ebb9060730cbec75f8bdb43ab57d1cf990dec"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Orchard-358\" is now the office. This replaces its previous location.",
+        "The meeting \"Orchard-358 review\" took place at this point in the conversation."
+      ]
+    ],
+    "rationale": {
+      "kind": "irrelevant",
+      "subject": "Orchard-358",
+      "anchor": 61,
+      "target": 56,
+      "near": 58,
+      "later": 101,
+      "gold": "office",
+      "support_turns": [
+        56,
+        61
+      ],
+      "query": "What was the delivery location for \"Orchard-358\" immediately before \"Orchard-358 review\"?"
+    }
+  },
+  "19f31c4808481d44b5d0dc289ebf8a013d75453ccd29542a90aa2e3976883418": {
+    "answer": "workshop",
+    "gold_ids": [
+      "78ac5aa719350937d78ac859a309d51e12d9ff3c1bd4dbb0141b5ca0dfdd1613",
+      "35fe5ec223bc2c11b67b8563642725f5a80e3e50aad34627e098e3a7d8e79a46",
+      "8547027e0e4da8d7faefb9e2f958fca254124a3df14d828f1a17563b5f256fef"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Meadow-624\" is now the workshop. This replaces its previous location.",
+        "The meeting \"Meadow-624 review\" took place at this point in the conversation.",
+        "The team announced that the delivery location for \"Meadow-624\" will become the laboratory next month. It is explicitly not effective anywhere in the current recorded history."
+      ]
+    ],
+    "rationale": {
+      "kind": "future",
+      "subject": "Meadow-624",
+      "anchor": 63,
+      "target": 57,
+      "near": 60,
+      "later": 64,
+      "gold": "workshop",
+      "support_turns": [
+        57,
+        63,
+        60
+      ],
+      "query": "What was the delivery location for \"Meadow-624\" immediately before \"Meadow-624 review\"?"
+    }
+  },
+  "321b345d4a91be34084cd6a13d7399ebe075a60cd5788ff0919a37694b022a8b": {
+    "answer": "annex",
+    "gold_ids": [
+      "0d68fe12b15ed519084e7cc50b1d4a7bbf002161bca906c7ce893554b1990deb",
+      "18e59eed77c70e7c20ef2e7c54ee68adf17e690d85ca605a3005410f8be5e2e4",
+      "c9115fb4d0775cca2a38bbddf2efacdd982f1bbbe32ab731e29bf711b072432a"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Riverside-755\" is now the annex. This replaces its previous location.",
+        "The meeting \"Riverside-755 review\" took place at this point in the conversation.",
+        "A proposal would move the delivery location for \"Riverside-755\" to the warehouse. It has not been accepted; no delivery-location change takes effect."
+      ]
+    ],
+    "rationale": {
+      "kind": "proposal",
+      "subject": "Riverside-755",
+      "anchor": 95,
+      "target": 90,
+      "near": 92,
+      "later": 105,
+      "gold": "annex",
+      "support_turns": [
+        90,
+        95,
+        92
+      ],
+      "query": "What was the delivery location for \"Riverside-755\" immediately before \"Riverside-755 review\"?"
+    }
+  },
+  "b1bbf7e46469c6b1c5c2a6a748b3824a2ec8d736e99140ee3a6aa557983cbe69": {
+    "answer": "office",
+    "gold_ids": [
+      "99ebf85ebb8014d93aee0b164c193c9d4e6cdb92cdbfdd8c19482058edf82824"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Cedar-266\" is now the office. This replaces its previous location."
+      ]
+    ],
+    "rationale": {
+      "kind": "latest",
+      "subject": "Cedar-266",
+      "anchor": 73,
+      "target": 68,
+      "near": 70,
+      "later": 99,
+      "gold": "office",
+      "support_turns": [
+        99
+      ],
+      "query": "What is the latest delivery location for \"Cedar-266\"?"
+    }
+  },
+  "67cc592448f2e856f5b5af158a57019e11d566e5bff342f69873bd3cfe1780bd": {
+    "answer": "I don't know",
+    "gold_ids": [],
+    "sufficient_sets": [],
+    "rationale": {
+      "kind": "absent",
+      "subject": "Summit-497",
+      "anchor": 88,
+      "target": 77,
+      "near": 85,
+      "later": 93,
+      "gold": "I don't know",
+      "support_turns": [],
+      "query": "What was the delivery location for \"Summit-497\" immediately before \"Summit-497 review\"?"
+    }
+  },
+  "0ff74c9a653a67d59916c81366c325b3aa9f3e278e2067df15ef8fb4f4f8ce9b": {
+    "answer": "hangar",
+    "gold_ids": [
+      "5523a8dbe8f9202c4b94bbfa759240470fe744a2eb062e2f2e0392f763f8889c",
+      "2c79b0e6173cbeaedc076dc28edd23f2880def77a1ec58f22fbbf9dbcceae9bd"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Harbor-292\" is now the hangar. This replaces its previous location.",
+        "The meeting \"Harbor-292 review\" took place at this point in the conversation."
+      ]
+    ],
+    "rationale": {
+      "kind": "straight",
+      "subject": "Harbor-292",
+      "anchor": 80,
+      "target": 68,
+      "near": 78,
+      "later": 100,
+      "gold": "hangar",
+      "support_turns": [
+        68,
+        80
+      ],
+      "query": "What was the delivery location for \"Harbor-292\" immediately before \"Harbor-292 review\"?"
+    }
+  },
+  "bf8bc9aa47151df8914883b84ad417a9ba1fefe8a487ea1d752295e79c61b7fa": {
+    "answer": "hangar",
+    "gold_ids": [
+      "8e02a6188d6e1d91024b6a760e56438242f792a09973004acf272d89831e4caf",
+      "251d533d595d0257f6658b75e8db26504e8902d704fbfda9f8eb83d418a58475"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Orchard-921\" is now the hangar. This replaces its previous location.",
+        "The meeting \"Orchard-921 review\" took place at this point in the conversation."
+      ]
+    ],
+    "rationale": {
+      "kind": "irrelevant",
+      "subject": "Orchard-921",
+      "anchor": 90,
+      "target": 83,
+      "near": 89,
+      "later": 101,
+      "gold": "hangar",
+      "support_turns": [
+        83,
+        90
+      ],
+      "query": "What was the delivery location for \"Orchard-921\" immediately before \"Orchard-921 review\"?"
+    }
+  },
+  "52ee42eb254a093df7bdf224f4e5c2ddf42180b8470e9ecbf8aa8c3935174663": {
+    "answer": "depot",
+    "gold_ids": [
+      "f8245e0ebd79c10e4012ca75f00c69ff517c9a2ef944c84a3c4dec1c720eb6e7",
+      "1193f64142c76357d80e3223e20e6fbbc6174cbc961d0fe3ac6cf74fcf50c8fa",
+      "5f1d11745bbae34b483a92dc85941fc90d84872cbb85aadb8f5d2a8f63435884"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Meadow-103\" is now the depot. This replaces its previous location.",
+        "The meeting \"Meadow-103 review\" took place at this point in the conversation.",
+        "The team announced that the delivery location for \"Meadow-103\" will become the studio next month. It is explicitly not effective anywhere in the current recorded history."
+      ]
+    ],
+    "rationale": {
+      "kind": "future",
+      "subject": "Meadow-103",
+      "anchor": 62,
+      "target": 56,
+      "near": 59,
+      "later": 84,
+      "gold": "depot",
+      "support_turns": [
+        56,
+        62,
+        59
+      ],
+      "query": "What was the delivery location for \"Meadow-103\" immediately before \"Meadow-103 review\"?"
+    }
+  },
+  "5cb02bde46bc83b75f135db306622d68f769e371fb69bda8a608d2cd7f284104": {
+    "answer": "depot",
+    "gold_ids": [
+      "b3bb0f6310fd111cdfd2165de3e4560491e5e55fbb3ef1661448e211f3b31781",
+      "ac961e248f73762e7032108a8aa35fedb1c224a37557411e3280b5cabc650591",
+      "ec122fe0584891e08e9fb5e1640005c43edfeee7c2ffcf0c5ab9c09a5f94a0ee"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Riverside-405\" is now the depot. This replaces its previous location.",
+        "The meeting \"Riverside-405 review\" took place at this point in the conversation.",
+        "A proposal would move the delivery location for \"Riverside-405\" to the office. It has not been accepted; no delivery-location change takes effect."
+      ]
+    ],
+    "rationale": {
+      "kind": "proposal",
+      "subject": "Riverside-405",
+      "anchor": 58,
+      "target": 50,
+      "near": 57,
+      "later": 66,
+      "gold": "depot",
+      "support_turns": [
+        50,
+        58,
+        57
+      ],
+      "query": "What was the delivery location for \"Riverside-405\" immediately before \"Riverside-405 review\"?"
+    }
+  },
+  "f9256311c29646ab588c50d4b6bfb5c9c6b933136bcda4455728b074223f759f": {
+    "answer": "hangar",
+    "gold_ids": [
+      "1cc8da1435cd281113b64c1f4a9f33992086899ac743859e36f2586cbf076817"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Cedar-216\" is now the hangar. This replaces its previous location."
+      ]
+    ],
+    "rationale": {
+      "kind": "latest",
+      "subject": "Cedar-216",
+      "anchor": 55,
+      "target": 49,
+      "near": 52,
+      "later": 86,
+      "gold": "hangar",
+      "support_turns": [
+        86
+      ],
+      "query": "What is the latest delivery location for \"Cedar-216\"?"
+    }
+  },
+  "c997882d462a2c5efc91c802f8031d0488219a284532751a167055b7a6d572f8": {
+    "answer": "I don't know",
+    "gold_ids": [],
+    "sufficient_sets": [],
+    "rationale": {
+      "kind": "absent",
+      "subject": "Summit-872",
+      "anchor": 94,
+      "target": 88,
+      "near": 93,
+      "later": 95,
+      "gold": "I don't know",
+      "support_turns": [],
+      "query": "What was the delivery location for \"Summit-872\" immediately before \"Summit-872 review\"?"
+    }
+  },
+  "617d41ad88b098cafadcd4e2ba8bd0f265acb75d9ab9c20e0faa5364fc288b71": {
+    "answer": "studio",
+    "gold_ids": [
+      "86d4f01bbec7a9c7e17596b76f599e8f90517ab92401efe55b009c6ea5a00e8b",
+      "29006c21e390674c026bd2e9c4d8ba90d1add2218e2288307aacbc34308f2dc3"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Harbor-696\" is now the studio. This replaces its previous location.",
+        "The meeting \"Harbor-696 review\" took place at this point in the conversation."
+      ]
+    ],
+    "rationale": {
+      "kind": "straight",
+      "subject": "Harbor-696",
+      "anchor": 94,
+      "target": 89,
+      "near": 91,
+      "later": 102,
+      "gold": "studio",
+      "support_turns": [
+        89,
+        94
+      ],
+      "query": "What was the delivery location for \"Harbor-696\" immediately before \"Harbor-696 review\"?"
+    }
+  },
+  "2129226536d9b1166b2c5b14d6cc03100e2d4df74aa4c1ebdb40fc1c7bd955f9": {
+    "answer": "office",
+    "gold_ids": [
+      "88991c22e391614aac65e70de7a11d5f985f66c91bb0d9ec1bf0aae9d0ae26ba",
+      "714a83f5509f26245ea0fa7d1147973fccb54bf404965997a375ff550c68a404"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Orchard-360\" is now the office. This replaces its previous location.",
+        "The meeting \"Orchard-360 review\" took place at this point in the conversation."
+      ]
+    ],
+    "rationale": {
+      "kind": "irrelevant",
+      "subject": "Orchard-360",
+      "anchor": 60,
+      "target": 53,
+      "near": 58,
+      "later": 95,
+      "gold": "office",
+      "support_turns": [
+        53,
+        60
+      ],
+      "query": "What was the delivery location for \"Orchard-360\" immediately before \"Orchard-360 review\"?"
+    }
+  },
+  "49bdd793e93e98dcc050848070dac0948e12882ade57870a12130ee3d0cd9416": {
+    "answer": "hangar",
+    "gold_ids": [
+      "89200d7c7ee022a67dcbedda590a950b82faa6d1c1ebebfec1e4b50f723c3dcd",
+      "aa303f758577888b62a994b85b4479fa04771eeb0172e7f039a9ece665b1e6ad",
+      "a971a5046c231edeb8cd5eca7dcc739d96d307192854ba43aa0557dced263ca6"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Meadow-861\" is now the hangar. This replaces its previous location.",
+        "The meeting \"Meadow-861 review\" took place at this point in the conversation.",
+        "The team announced that the delivery location for \"Meadow-861\" will become the warehouse next month. It is explicitly not effective anywhere in the current recorded history."
+      ]
+    ],
+    "rationale": {
+      "kind": "future",
+      "subject": "Meadow-861",
+      "anchor": 71,
+      "target": 62,
+      "near": 70,
+      "later": 76,
+      "gold": "hangar",
+      "support_turns": [
+        62,
+        71,
+        70
+      ],
+      "query": "What was the delivery location for \"Meadow-861\" immediately before \"Meadow-861 review\"?"
+    }
+  },
+  "d019140e922f86767fec8a7e49b90e4c5ddae05c3a90827d59095496fcb7d290": {
+    "answer": "warehouse",
+    "gold_ids": [
+      "892c0e67b51ea66beb5c5a83af46c88550180d46eb57c051465d9e7b2e73ddaf",
+      "50c37b46fe840ddfddfe76cc8128e9eb37d82f50abb27ee5bdac3a0479609ba5",
+      "3fb282030b96e0b52a7bd8b8f2183847c95cd9a088eb78aa8a0420595a84dfe4"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Riverside-576\" is now the warehouse. This replaces its previous location.",
+        "The meeting \"Riverside-576 review\" took place at this point in the conversation.",
+        "A proposal would move the delivery location for \"Riverside-576\" to the workshop. It has not been accepted; no delivery-location change takes effect."
+      ]
+    ],
+    "rationale": {
+      "kind": "proposal",
+      "subject": "Riverside-576",
+      "anchor": 61,
+      "target": 56,
+      "near": 59,
+      "later": 90,
+      "gold": "warehouse",
+      "support_turns": [
+        56,
+        61,
+        59
+      ],
+      "query": "What was the delivery location for \"Riverside-576\" immediately before \"Riverside-576 review\"?"
+    }
+  },
+  "5e06e96948dbf9dd946f9dcb6cf7dbd4ef0b6ee0bb5cce28c12b631b44e457cd": {
+    "answer": "laboratory",
+    "gold_ids": [
+      "7ecba958d3167df7e72b38455084a5292549e1ed1ba3b217c9c4f8a8d2943827"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Cedar-435\" is now the laboratory. This replaces its previous location."
+      ]
+    ],
+    "rationale": {
+      "kind": "latest",
+      "subject": "Cedar-435",
+      "anchor": 72,
+      "target": 66,
+      "near": 69,
+      "later": 103,
+      "gold": "laboratory",
+      "support_turns": [
+        103
+      ],
+      "query": "What is the latest delivery location for \"Cedar-435\"?"
+    }
+  },
+  "ed2f067e88ca6d106b6c1befbb39dd90f27432311aec63f123f85b7063524ebc": {
+    "answer": "I don't know",
+    "gold_ids": [],
+    "sufficient_sets": [],
+    "rationale": {
+      "kind": "absent",
+      "subject": "Summit-551",
+      "anchor": 57,
+      "target": 46,
+      "near": 55,
+      "later": 85,
+      "gold": "I don't know",
+      "support_turns": [],
+      "query": "What was the delivery location for \"Summit-551\" immediately before \"Summit-551 review\"?"
+    }
+  },
+  "3753f73225f0377e58d12818023dd47e1b41da3ceb2bbafaebb24697c128473b": {
+    "answer": "office",
+    "gold_ids": [
+      "b8077928064b03b380be7d6a07d0483f855659a1326848834751bdad5f6321be",
+      "72bee1b0e50cefc6bd46526314aeb475eba47f15ddaeefdcf87b520f2fdd7988"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Harbor-502\" is now the office. This replaces its previous location.",
+        "The meeting \"Harbor-502 review\" took place at this point in the conversation."
+      ]
+    ],
+    "rationale": {
+      "kind": "straight",
+      "subject": "Harbor-502",
+      "anchor": 62,
+      "target": 55,
+      "near": 61,
+      "later": 76,
+      "gold": "office",
+      "support_turns": [
+        55,
+        62
+      ],
+      "query": "What was the delivery location for \"Harbor-502\" immediately before \"Harbor-502 review\"?"
+    }
+  },
+  "24423babbd2cedeca47117b6c3f2743f861af48324e0e4f1dba8d36779e9f4a8": {
+    "answer": "studio",
+    "gold_ids": [
+      "6a2f7547cc026b4c51022e8efd900566c311f4656226e9b5938ba8445d72a7f3",
+      "fe1e67f10d5e267e25bb5f07cd7edb6df3059b6bf376f9a290e8e4f3cfec4d0f"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Orchard-892\" is now the studio. This replaces its previous location.",
+        "The meeting \"Orchard-892 review\" took place at this point in the conversation."
+      ]
+    ],
+    "rationale": {
+      "kind": "irrelevant",
+      "subject": "Orchard-892",
+      "anchor": 60,
+      "target": 54,
+      "near": 59,
+      "later": 99,
+      "gold": "studio",
+      "support_turns": [
+        54,
+        60
+      ],
+      "query": "What was the delivery location for \"Orchard-892\" immediately before \"Orchard-892 review\"?"
+    }
+  },
+  "4e66303ff8cdfed954c16342e54d4d65ad927cd327421e38aab3e8f725ae57d0": {
+    "answer": "hangar",
+    "gold_ids": [
+      "ebb4671aef6afaabd77c714d7885c3990469cc7e9056d35711cd6ba57b4c2959",
+      "e9e21b64baf927d08c1d77b12cc3fbcd47704a1fc32ec124a4517629315e8c6e",
+      "bb07d38a01daf0626028c6b9d512de6553073eaa1dfe38ad93243d52d5ee5e79"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Meadow-837\" is now the hangar. This replaces its previous location.",
+        "The meeting \"Meadow-837 review\" took place at this point in the conversation.",
+        "The team announced that the delivery location for \"Meadow-837\" will become the studio next month. It is explicitly not effective anywhere in the current recorded history."
+      ]
+    ],
+    "rationale": {
+      "kind": "future",
+      "subject": "Meadow-837",
+      "anchor": 88,
+      "target": 81,
+      "near": 86,
+      "later": 96,
+      "gold": "hangar",
+      "support_turns": [
+        81,
+        88,
+        86
+      ],
+      "query": "What was the delivery location for \"Meadow-837\" immediately before \"Meadow-837 review\"?"
+    }
+  },
+  "542f68c98e72d63d98c0149d3c2584ea0a98b25c426861b968ac01b1905a2993": {
+    "answer": "hangar",
+    "gold_ids": [
+      "4da6be85284e56245a627440fadbfa00ab35d135064aa07bc14f1c654301aaef",
+      "3cede23b20058f21343885ed2d002c59cb53ee814117f73a626bec6ed11777af",
+      "1027834be99cd9e32caa9d2d59cc340e4f6ca404fa9319e589af574b8774dc67"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Riverside-377\" is now the hangar. This replaces its previous location.",
+        "The meeting \"Riverside-377 review\" took place at this point in the conversation.",
+        "A proposal would move the delivery location for \"Riverside-377\" to the workshop. It has not been accepted; no delivery-location change takes effect."
+      ]
+    ],
+    "rationale": {
+      "kind": "proposal",
+      "subject": "Riverside-377",
+      "anchor": 83,
+      "target": 72,
+      "near": 82,
+      "later": 104,
+      "gold": "hangar",
+      "support_turns": [
+        72,
+        83,
+        82
+      ],
+      "query": "What was the delivery location for \"Riverside-377\" immediately before \"Riverside-377 review\"?"
+    }
+  },
+  "9d31dd634a8c0e3d9a6336700b937e7ba427029ceef763f52e9ad381b0baddde": {
+    "answer": "workshop",
+    "gold_ids": [
+      "b069017ee71c759e7db7c9a06b6bc5edfbbf458920444a8dd9c477954901bca4"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Cedar-484\" is now the workshop. This replaces its previous location."
+      ]
+    ],
+    "rationale": {
+      "kind": "latest",
+      "subject": "Cedar-484",
+      "anchor": 75,
+      "target": 70,
+      "near": 73,
+      "later": 91,
+      "gold": "workshop",
+      "support_turns": [
+        91
+      ],
+      "query": "What is the latest delivery location for \"Cedar-484\"?"
+    }
+  },
+  "bd5e1e2940a21c814d811c13b403249cb289fd313c764f295a0f4725662535d2": {
+    "answer": "I don't know",
+    "gold_ids": [],
+    "sufficient_sets": [],
+    "rationale": {
+      "kind": "absent",
+      "subject": "Summit-230",
+      "anchor": 93,
+      "target": 85,
+      "near": 90,
+      "later": 95,
+      "gold": "I don't know",
+      "support_turns": [],
+      "query": "What was the delivery location for \"Summit-230\" immediately before \"Summit-230 review\"?"
+    }
+  },
+  "9cd1a9bf6469ccd307f220dc13a16f8cf3413b3618d27e823850ea17af6cfc43": {
+    "answer": "hangar",
+    "gold_ids": [
+      "1e1c62fc126d5046e9386ec4c33736200ed159eef047bf38c8ececc1f4041b7e",
+      "76aff94ebaa4f615e977d8d0f96d4fdf7cb644a2c678b46bec5022d81ee0c7d4"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Harbor-196\" is now the hangar. This replaces its previous location.",
+        "The meeting \"Harbor-196 review\" took place at this point in the conversation."
+      ]
+    ],
+    "rationale": {
+      "kind": "straight",
+      "subject": "Harbor-196",
+      "anchor": 59,
+      "target": 49,
+      "near": 57,
+      "later": 100,
+      "gold": "hangar",
+      "support_turns": [
+        49,
+        59
+      ],
+      "query": "What was the delivery location for \"Harbor-196\" immediately before \"Harbor-196 review\"?"
+    }
+  },
+  "74a5d6daeab3b2a51b24d3e50e610d0da99cf4b1d0311c7e84a01cad1ce2028c": {
+    "answer": "warehouse",
+    "gold_ids": [
+      "72096f906960e309f79665797ad8aaf6b1bb80f57e27ec16c7fae2d194af2a58",
+      "2dfcb0ac32c552d1ebfa2c6d014522e1f0c6a1aad676802a872df1ee3b8ddfa6"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Orchard-416\" is now the warehouse. This replaces its previous location.",
+        "The meeting \"Orchard-416 review\" took place at this point in the conversation."
+      ]
+    ],
+    "rationale": {
+      "kind": "irrelevant",
+      "subject": "Orchard-416",
+      "anchor": 64,
+      "target": 56,
+      "near": 63,
+      "later": 102,
+      "gold": "warehouse",
+      "support_turns": [
+        56,
+        64
+      ],
+      "query": "What was the delivery location for \"Orchard-416\" immediately before \"Orchard-416 review\"?"
+    }
+  },
+  "97c7bec662b1a58dd83e6d236c5e7aeefed49abb7e57bbf4f09e8fc82ddbb949": {
+    "answer": "office",
+    "gold_ids": [
+      "1dab79d9d4478c4aabfb4775507a28f25875f287a76e10a1053026161ff883a0",
+      "a6c6e60ae1125a984b01a6e9b8e0fde0d780f66a9c61469b748ed5efdacdbd88",
+      "e0c47dff91e83847ca934dc5e38825556006446cab05cd97a013a41ac60ed9f8"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Meadow-933\" is now the office. This replaces its previous location.",
+        "The meeting \"Meadow-933 review\" took place at this point in the conversation.",
+        "The team announced that the delivery location for \"Meadow-933\" will become the depot next month. It is explicitly not effective anywhere in the current recorded history."
+      ]
+    ],
+    "rationale": {
+      "kind": "future",
+      "subject": "Meadow-933",
+      "anchor": 83,
+      "target": 71,
+      "near": 80,
+      "later": 94,
+      "gold": "office",
+      "support_turns": [
+        71,
+        83,
+        80
+      ],
+      "query": "What was the delivery location for \"Meadow-933\" immediately before \"Meadow-933 review\"?"
+    }
+  },
+  "ac8a49c3731b449797a905e3b3fb813cb676f12793adf36a91c3b2c43cf7c007": {
+    "answer": "laboratory",
+    "gold_ids": [
+      "0fe9ac620a9707dfa2ff647e184e13f57128fceb54e42c17c42bcaf47e6cdb55",
+      "647f019c5c146d8fed5ea1b61d64510fc5f67afab16e3689b981174052464054",
+      "d25324a1f1e85628ccec28d6e112f5913f24df7b16e5ecd7f9f7d2b473983056"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Riverside-501\" is now the laboratory. This replaces its previous location.",
+        "The meeting \"Riverside-501 review\" took place at this point in the conversation.",
+        "A proposal would move the delivery location for \"Riverside-501\" to the warehouse. It has not been accepted; no delivery-location change takes effect."
+      ]
+    ],
+    "rationale": {
+      "kind": "proposal",
+      "subject": "Riverside-501",
+      "anchor": 87,
+      "target": 76,
+      "near": 86,
+      "later": 95,
+      "gold": "laboratory",
+      "support_turns": [
+        76,
+        87,
+        86
+      ],
+      "query": "What was the delivery location for \"Riverside-501\" immediately before \"Riverside-501 review\"?"
+    }
+  },
+  "1ce8ce42fa7c503f4793d1955422402347072dc4b8435eea91d54fdd27bfaa14": {
+    "answer": "office",
+    "gold_ids": [
+      "683b928f19ac9b43f20a8f7bf81022f745141e45fcf3a2a31be0cb887d2bb40c"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Cedar-558\" is now the office. This replaces its previous location."
+      ]
+    ],
+    "rationale": {
+      "kind": "latest",
+      "subject": "Cedar-558",
+      "anchor": 91,
+      "target": 79,
+      "near": 90,
+      "later": 96,
+      "gold": "office",
+      "support_turns": [
+        96
+      ],
+      "query": "What is the latest delivery location for \"Cedar-558\"?"
+    }
+  },
+  "0b3ae2e960a7eea0f20d703d5dafb4df02b5440478e1fa334c0e2f0d511b8a93": {
+    "answer": "I don't know",
+    "gold_ids": [],
+    "sufficient_sets": [],
+    "rationale": {
+      "kind": "absent",
+      "subject": "Summit-175",
+      "anchor": 92,
+      "target": 81,
+      "near": 89,
+      "later": 99,
+      "gold": "I don't know",
+      "support_turns": [],
+      "query": "What was the delivery location for \"Summit-175\" immediately before \"Summit-175 review\"?"
+    }
+  },
+  "c42a4c7448e84abec11465f0c47c8b24b179e9dfcf9518109da3d23fa79f856d": {
+    "answer": "workshop",
+    "gold_ids": [
+      "c1f34458ceb1c0935a853316459e36c4642bbcec684c19ae4a0c0719a8be5af9",
+      "97ff7beb1a94d1aae6bfc08c5c5a3fb93245e6884287600a7a11fd3a0186d159"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Harbor-152\" is now the workshop. This replaces its previous location.",
+        "The meeting \"Harbor-152 review\" took place at this point in the conversation."
+      ]
+    ],
+    "rationale": {
+      "kind": "straight",
+      "subject": "Harbor-152",
+      "anchor": 72,
+      "target": 63,
+      "near": 70,
+      "later": 81,
+      "gold": "workshop",
+      "support_turns": [
+        63,
+        72
+      ],
+      "query": "What was the delivery location for \"Harbor-152\" immediately before \"Harbor-152 review\"?"
+    }
+  },
+  "59cee1831a1e73d0b22ebd44a11eae6aab4d5d804bd983a10f24f46c4533b797": {
+    "answer": "studio",
+    "gold_ids": [
+      "8638370dca346b80838c214219f0f4ab02ea7d47eff51280df1577dd3cfc94eb",
+      "8f89c4bd5edf47ac61621e412ea60b8141c95bb036b2405a46f92bf8ac6ed3c2"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Orchard-599\" is now the studio. This replaces its previous location.",
+        "The meeting \"Orchard-599 review\" took place at this point in the conversation."
+      ]
+    ],
+    "rationale": {
+      "kind": "irrelevant",
+      "subject": "Orchard-599",
+      "anchor": 55,
+      "target": 49,
+      "near": 52,
+      "later": 86,
+      "gold": "studio",
+      "support_turns": [
+        49,
+        55
+      ],
+      "query": "What was the delivery location for \"Orchard-599\" immediately before \"Orchard-599 review\"?"
+    }
+  },
+  "c92d1b0dfd0a2925fc84f675f50fc41e2e265cf578ea1ecc104f2e9bed8a402c": {
+    "answer": "hangar",
+    "gold_ids": [
+      "4b2fe556b6754b5d146616214a83c6e6ef80bf0fcff0d5f7d84d702105cc796b",
+      "2510ccf04243c0ee9e8dc02b75ce60597603f2b15dde6a62ebf87228f2f91cc8",
+      "a681736445ea779d5ff273f141943b9a1985030d71e8b1666de12d400bbfe673"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Meadow-557\" is now the hangar. This replaces its previous location.",
+        "The meeting \"Meadow-557 review\" took place at this point in the conversation.",
+        "The team announced that the delivery location for \"Meadow-557\" will become the warehouse next month. It is explicitly not effective anywhere in the current recorded history."
+      ]
+    ],
+    "rationale": {
+      "kind": "future",
+      "subject": "Meadow-557",
+      "anchor": 65,
+      "target": 60,
+      "near": 64,
+      "later": 83,
+      "gold": "hangar",
+      "support_turns": [
+        60,
+        65,
+        64
+      ],
+      "query": "What was the delivery location for \"Meadow-557\" immediately before \"Meadow-557 review\"?"
+    }
+  },
+  "e00ff57cc6e75403b1e79eaf29e3ea7331a9a7dc979fd7179832d1758b2c9e81": {
+    "answer": "annex",
+    "gold_ids": [
+      "ac9bba31f64228856106e85c8aeb7adb565a026f6b3f2b9d8319bb464695c090",
+      "82e3273c4c084ab8bb281f4a1a904efd5652350b9355ece89af70877142218ac",
+      "03989c2d41b11a7a4af0d9cc1497ff608316455fa044ec5ad8723231fb5c94a5"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Riverside-978\" is now the annex. This replaces its previous location.",
+        "The meeting \"Riverside-978 review\" took place at this point in the conversation.",
+        "A proposal would move the delivery location for \"Riverside-978\" to the warehouse. It has not been accepted; no delivery-location change takes effect."
+      ]
+    ],
+    "rationale": {
+      "kind": "proposal",
+      "subject": "Riverside-978",
+      "anchor": 69,
+      "target": 59,
+      "near": 67,
+      "later": 76,
+      "gold": "annex",
+      "support_turns": [
+        59,
+        69,
+        67
+      ],
+      "query": "What was the delivery location for \"Riverside-978\" immediately before \"Riverside-978 review\"?"
+    }
+  },
+  "2a36d3ff78104fa334fb824e2ea87f778d589f8a75fff23c1196af9ab7666cc2": {
+    "answer": "workshop",
+    "gold_ids": [
+      "ff46817f22fbd53a87aaec09dccd71478c60c4be3ae9b99d3e8e002c8a678de2"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Cedar-259\" is now the workshop. This replaces its previous location."
+      ]
+    ],
+    "rationale": {
+      "kind": "latest",
+      "subject": "Cedar-259",
+      "anchor": 82,
+      "target": 74,
+      "near": 80,
+      "later": 97,
+      "gold": "workshop",
+      "support_turns": [
+        97
+      ],
+      "query": "What is the latest delivery location for \"Cedar-259\"?"
+    }
+  },
+  "6986800f0150de9d20b31a68ced7cf21b191b29316b2a1fdf4efc3703df6ca45": {
+    "answer": "I don't know",
+    "gold_ids": [],
+    "sufficient_sets": [],
+    "rationale": {
+      "kind": "absent",
+      "subject": "Summit-356",
+      "anchor": 75,
+      "target": 66,
+      "near": 73,
+      "later": 89,
+      "gold": "I don't know",
+      "support_turns": [],
+      "query": "What was the delivery location for \"Summit-356\" immediately before \"Summit-356 review\"?"
+    }
+  },
+  "4348e9d7d9dc922b24c29386489111e6e560d93a99db49edac88e9159405d400": {
+    "answer": "hangar",
+    "gold_ids": [
+      "11a12fd2d16020e0676f699187f489496d32f9a7212928b3599aaea124d79d57",
+      "fa78e6af0df735997f3d21ca9823f9fdb84ffdf0c6632c5ed63c3322e6d15f77"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Harbor-821\" is now the hangar. This replaces its previous location.",
+        "The meeting \"Harbor-821 review\" took place at this point in the conversation."
+      ]
+    ],
+    "rationale": {
+      "kind": "straight",
+      "subject": "Harbor-821",
+      "anchor": 65,
+      "target": 57,
+      "near": 64,
+      "later": 89,
+      "gold": "hangar",
+      "support_turns": [
+        57,
+        65
+      ],
+      "query": "What was the delivery location for \"Harbor-821\" immediately before \"Harbor-821 review\"?"
+    }
+  },
+  "6db4d06f652e8cea76c2455c999fe4e093db2f3439990b15e25847f285519883": {
+    "answer": "workshop",
+    "gold_ids": [
+      "146ae417f1340945c5b5e6a0cdfc3eb57600e7fa2156ef7ab1aa33c84045ceb3",
+      "b17ebf34c71eabac4222d325d96f920761ea78ba41b590209a0137e3860544df"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Orchard-215\" is now the workshop. This replaces its previous location.",
+        "The meeting \"Orchard-215 review\" took place at this point in the conversation."
+      ]
+    ],
+    "rationale": {
+      "kind": "irrelevant",
+      "subject": "Orchard-215",
+      "anchor": 72,
+      "target": 66,
+      "near": 71,
+      "later": 102,
+      "gold": "workshop",
+      "support_turns": [
+        66,
+        72
+      ],
+      "query": "What was the delivery location for \"Orchard-215\" immediately before \"Orchard-215 review\"?"
+    }
+  },
+  "b85dabb540294871b544236a5f483bb1d4946aefa21bcdac0b086e901b30314b": {
+    "answer": "laboratory",
+    "gold_ids": [
+      "c6a9afb9e7718f200872c0d7f031d378a76a1b8cea3f051143a8393f62b18502",
+      "e030baa2754f56fced7a28df20c5d9c3a61cfd477ba7428611c5fabba2c9a6a4",
+      "d59ee62d3af3062e58a89e2e7a0c4542cfcf3cffc9ecb77fb1c25018a6c68f03"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Meadow-283\" is now the laboratory. This replaces its previous location.",
+        "The meeting \"Meadow-283 review\" took place at this point in the conversation.",
+        "The team announced that the delivery location for \"Meadow-283\" will become the annex next month. It is explicitly not effective anywhere in the current recorded history."
+      ]
+    ],
+    "rationale": {
+      "kind": "future",
+      "subject": "Meadow-283",
+      "anchor": 58,
+      "target": 47,
+      "near": 55,
+      "later": 84,
+      "gold": "laboratory",
+      "support_turns": [
+        47,
+        58,
+        55
+      ],
+      "query": "What was the delivery location for \"Meadow-283\" immediately before \"Meadow-283 review\"?"
+    }
+  },
+  "51a0f3fdbb890ed07d8a535c9c3e4f21ec476ba9bbe19b3dd878db78ccd68931": {
+    "answer": "annex",
+    "gold_ids": [
+      "580d24d601d536e26f0ada295909b9ca87f65f4967726009e78e35dab3d53a96",
+      "fd503fcef71f1af4aa58a555adf2f38bf8443e10eaa654ce874f82346129b785",
+      "fcb67ad5feb7e82248aacecce1aa922867c38867b560dbef32e2ae63a35bfe63"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Riverside-287\" is now the annex. This replaces its previous location.",
+        "The meeting \"Riverside-287 review\" took place at this point in the conversation.",
+        "A proposal would move the delivery location for \"Riverside-287\" to the studio. It has not been accepted; no delivery-location change takes effect."
+      ]
+    ],
+    "rationale": {
+      "kind": "proposal",
+      "subject": "Riverside-287",
+      "anchor": 93,
+      "target": 86,
+      "near": 90,
+      "later": 105,
+      "gold": "annex",
+      "support_turns": [
+        86,
+        93,
+        90
+      ],
+      "query": "What was the delivery location for \"Riverside-287\" immediately before \"Riverside-287 review\"?"
+    }
+  },
+  "d5290cd5870b05b19b0e4751643268f5b2936cc17ef5811922823180d1bfc8a5": {
+    "answer": "warehouse",
+    "gold_ids": [
+      "99616a1b9f26d59e4371dd9b2b827f580c24b72a9367897768446f3f58715680"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Cedar-415\" is now the warehouse. This replaces its previous location."
+      ]
+    ],
+    "rationale": {
+      "kind": "latest",
+      "subject": "Cedar-415",
+      "anchor": 82,
+      "target": 77,
+      "near": 81,
+      "later": 95,
+      "gold": "warehouse",
+      "support_turns": [
+        95
+      ],
+      "query": "What is the latest delivery location for \"Cedar-415\"?"
+    }
+  },
+  "4b68a271e8220509ca2de1e5a0e8daf45930814cf24fcc734265e90da5574a9b": {
+    "answer": "I don't know",
+    "gold_ids": [],
+    "sufficient_sets": [],
+    "rationale": {
+      "kind": "absent",
+      "subject": "Summit-397",
+      "anchor": 92,
+      "target": 85,
+      "near": 91,
+      "later": 99,
+      "gold": "I don't know",
+      "support_turns": [],
+      "query": "What was the delivery location for \"Summit-397\" immediately before \"Summit-397 review\"?"
+    }
+  },
+  "e7532101f8d760de4d563a80232f213706f147760a4e3cbbbc4d01d3a9091162": {
+    "answer": "office",
+    "gold_ids": [
+      "23728861ac71b4519f3cb7f0804df0ec586e45d1927b3c907b9da50647b674e2",
+      "b25e5f629b4a43078dd008098cb3b9c3daaa24b9e12d1f5fab669f34fbc44fd5"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Harbor-701\" is now the office. This replaces its previous location.",
+        "The meeting \"Harbor-701 review\" took place at this point in the conversation."
+      ]
+    ],
+    "rationale": {
+      "kind": "straight",
+      "subject": "Harbor-701",
+      "anchor": 85,
+      "target": 73,
+      "near": 84,
+      "later": 105,
+      "gold": "office",
+      "support_turns": [
+        73,
+        85
+      ],
+      "query": "What was the delivery location for \"Harbor-701\" immediately before \"Harbor-701 review\"?"
+    }
+  },
+  "9ef8c3924d72bea8026b39af40cfe5d460a679bc0727a9ace0313bf44a87f7eb": {
+    "answer": "office",
+    "gold_ids": [
+      "2a11b2ad257f0c7472e8660e8be99cdebb9f6da9c52fd270740fea02d28c28e7",
+      "c18e19dfd0fabd6dd7ad5a9db908cfcd4e09805abf40a1e29ec17b1cb4d7d4ba"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Orchard-797\" is now the office. This replaces its previous location.",
+        "The meeting \"Orchard-797 review\" took place at this point in the conversation."
+      ]
+    ],
+    "rationale": {
+      "kind": "irrelevant",
+      "subject": "Orchard-797",
+      "anchor": 78,
+      "target": 72,
+      "near": 75,
+      "later": 88,
+      "gold": "office",
+      "support_turns": [
+        72,
+        78
+      ],
+      "query": "What was the delivery location for \"Orchard-797\" immediately before \"Orchard-797 review\"?"
+    }
+  },
+  "89d8066069ca670c02aa677f8f50d043e519ab33505a88781e3b76322a591470": {
+    "answer": "office",
+    "gold_ids": [
+      "5b19b338dab827855195f9001f1af8b1734c5253358aed9c775172ead8ebb3b4",
+      "a67269fb5a900d589ac47ca75e58188107ad34107a2328babe7f71f67402c04c",
+      "8e04686ccac72b91c6376c6ff918c0b188f97675ddc02c2eb419827d34f4ccfa"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Meadow-232\" is now the office. This replaces its previous location.",
+        "The meeting \"Meadow-232 review\" took place at this point in the conversation.",
+        "The team announced that the delivery location for \"Meadow-232\" will become the warehouse next month. It is explicitly not effective anywhere in the current recorded history."
+      ]
+    ],
+    "rationale": {
+      "kind": "future",
+      "subject": "Meadow-232",
+      "anchor": 59,
+      "target": 51,
+      "near": 58,
+      "later": 95,
+      "gold": "office",
+      "support_turns": [
+        51,
+        59,
+        58
+      ],
+      "query": "What was the delivery location for \"Meadow-232\" immediately before \"Meadow-232 review\"?"
+    }
+  },
+  "04626861ac09011f12590a3f5b2aaf0d2c32525f24f94335e681e6bb3c31037b": {
+    "answer": "annex",
+    "gold_ids": [
+      "b0f48fb5138271e3bae6a67ede4ced98219034f51f92a0c0bc58f3abfb591abf",
+      "2474c21037aca900d5130a4628cf9aadf5a3a0cef2e05efc6b1e91b909ec28d9",
+      "1ee6f129e3580ad74917f99ba60a894e34e4310b76f6148f2ee50d0dcfc7d576"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Riverside-324\" is now the annex. This replaces its previous location.",
+        "The meeting \"Riverside-324 review\" took place at this point in the conversation.",
+        "A proposal would move the delivery location for \"Riverside-324\" to the laboratory. It has not been accepted; no delivery-location change takes effect."
+      ]
+    ],
+    "rationale": {
+      "kind": "proposal",
+      "subject": "Riverside-324",
+      "anchor": 92,
+      "target": 81,
+      "near": 91,
+      "later": 97,
+      "gold": "annex",
+      "support_turns": [
+        81,
+        92,
+        91
+      ],
+      "query": "What was the delivery location for \"Riverside-324\" immediately before \"Riverside-324 review\"?"
+    }
+  },
+  "a9ddae2a778eceeeaef6ae7674c12b2e24eef9f4b044b2053077f5d24ad444fb": {
+    "answer": "warehouse",
+    "gold_ids": [
+      "fa9467c4dbd12db8dff079eac0e9d06cfed662b6740622dfef0f1bbcad447f3a"
+    ],
+    "sufficient_sets": [
+      [
+        "The delivery location for \"Cedar-658\" is now the warehouse. This replaces its previous location."
+      ]
+    ],
+    "rationale": {
+      "kind": "latest",
+      "subject": "Cedar-658",
+      "anchor": 55,
+      "target": 48,
+      "near": 52,
+      "later": 89,
+      "gold": "warehouse",
+      "support_turns": [
+        89
+      ],
+      "query": "What is the latest delivery location for \"Cedar-658\"?"
+    }
+  },
+  "3263b10cc31b00c6aeb78aeab94a64c689c2521c7866dbe4da5ea28a822ed7e7": {
+    "answer": "I don't know",
+    "gold_ids": [],
+    "sufficient_sets": [],
+    "rationale": {
+      "kind": "absent",
+      "subject": "Summit-291",
+      "anchor": 69,
+      "target": 57,
+      "near": 68,
+      "later": 94,
+      "gold": "I don't know",
+      "support_turns": [],
+      "query": "What was the delivery location for \"Summit-291\" immediately before \"Summit-291 review\"?"
+    }
+  }
+}
