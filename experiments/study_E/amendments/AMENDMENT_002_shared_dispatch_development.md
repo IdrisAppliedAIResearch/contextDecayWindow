@@ -1,0 +1,26 @@
+# Amendment 002: shared-dispatch development within Study E
+
+2026-09-06. User authorization: "we can make a quick amendment and continue from there rather than registering a new study."
+
+This reopens bounded development within Study E. It does not create another study, edit the completed pilot, or change a locked confirmation registration (none exists). The ordering-only intervention, reader, prompt, budgets, source count and six question conditions remain fixed. Confirmation still requires a design-only lock after development, within Study E.
+
+## Trigger and corpus revision
+
+Initial and dense development supplied every sufficient set in both arms. Six disjoint subject histories made each query's competing pool small. Tripling operational prose did not fix this. Replace that disjoint organization with shared dispatch logs: retain the original one-paragraph generator, its event heads, effective updates, anchors, references and placement algorithm. Append one neutral dispatch-audit paragraph to every pre-continuity record (turns 1–108). On odd turns it names subjects 0, 2 and 4; on even turns subjects 1, 3 and 5. Its wording is fixed:
+
+`The dispatch audit for {three exact quoted names} reviewed delivery-location records, including the office, warehouse, studio, depot, workshop, laboratory, annex and hangar. This audit supplies no new delivery-location value and changes no instruction for any project.`
+
+This creates overlapping subject mentions and competing location language without introducing an effective update, answer-specific selection or a field-aware retrieval mechanism. Keep turns 109–140 unchanged. Use exactly four new development seeds 93101–93104, excluded from confirmation. One variant, no coefficient, budget, density or seed sweep. Preserve all prior artifacts in place; write only under `artifacts/amendment002`.
+
+## Bounded stages and decision order
+
+1. Commit this amendment before code or generation. Generate the four histories; independently reconstruct gold from explicit effective-update source text. Verify event heads and ledger semantics against the underlying generator. Hash all sources, vectors and prompts. Use the same eight independent single-text embedding workers and sentinel; record utilization.
+2. Replay C0/C1 at the unchanged allowances, preserving every valid instance regardless of direction. Report sufficient evidence and candidate/packed membership, including gains and losses. Require unchanged non-before routes, active before/absence interventions, and at least one complete and one incomplete C0 before case to establish a mixed-support development instrument. This is a development-readiness check, not a confirmation inclusion rule or a requirement for C1 benefit. If it fails, preserve and report the failed instrument; do not silently alter this variant or start reader calls.
+3. If ready, freeze a maximum 43-call reader schedule: two largest-prompt identical repeats, one short calibration, paired before questions from the first three sessions (24 calls), and paired latest/absence guards from all four sessions (16 calls). One seed 5005, same runtime and HH-001 prompt, no explanation request. No correctness-based extra calls or retries. Persist each response and uncertain-request journal; missing/empty/truncated/unfinished output stops scoring. Commit completeness before scores and scores before aggregate analysis.
+4. Reuse the mechanical grammar and explicit-final-commitment development rubric. Human review remains the default for new exceptions: Amendment 001 covered only the earlier 17 answers. Do not presume new independent human ratings or silently extend that waiver. Record initial wrong assertions separately. This stage is descriptive and cannot claim confirmation success. Use the findings to finalize Study E's same-study registration if the instrument is ready; otherwise state the exact remaining design issue.
+
+## Preflight
+
+PF1: new source, label, vector and prompt manifests; all required records before turn 109. PF2: shared mentions enlarge actual eligible pools, not only record length; compare distributions with completed pilot. PF3: amendment before implementation; readiness gate before reader; committed completeness before scores; committed scores before mapping. PF4: mixed C0 support and active intervention required without requiring treatment gains; future/proposal/irrelevant hazards preserved. PF5: stable source and query content identities; separate artifact directory. PF6: prior 224/224 control replay remains the anchor; both isolated controls must remain clean and pinned. PF7: pure repeat identity and unchanged sources; no feedback. PF8: complete 140-record snapshots and maximum-token runtime check, no endurance claim. PF9: neutral audit is synthetic competition, not ecological transfer; availability remains diagnostic, and no treatment-gain eligibility gate is allowed. PF10: paired reader correctness is required for any live comparison; this development stage carries no confirmatory bar.
+
+No DA fusion, field parser, prompt change, extra treatment or product adoption. Any further corpus repair requires a separately recorded amendment within Study E rather than changing these completed inputs.
