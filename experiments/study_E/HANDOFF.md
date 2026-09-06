@@ -1,4 +1,18 @@
-# ACTIVE: Amendment 004 stopped at the doubled output cap
+# ACTIVE: Amendment 005 fresh thinking-off confirmation running
+
+User authorized thinking off, batching test and restart. Amendment 005 design-only commit6603aca3; runtime lock36e2347c; fresh input lock59e7cc8c. ALREADY STARTED: restart_confirmation005.py run, unified session59669, dedicated llama-server PID2152 on port8097. Do not start it again. Terminal artifacts are artifacts/confirmation/restart005/complete.json or failure.json. Quiet five-minute hook is active; no repeated healthy polling.
+
+Benchmark completed48 development calls: 1/2/4 slots took65.18/67.21/67.67 seconds per16 calls. Each repeated itself exactly; both batched configurations changed one response relative to serial and were slower. Selected one slot, native chat template with thinking explicitly off, cache disabled, context32768, outputcap16384. This changes the reader interface; no causal attribution to thinking alone. All3840 logical answers/3508 physical calls including3 calibration are regenerated. Old452 EOS measurements and both capped responses are excluded. No confirmation scores or mechanism traces opened.
+
+On full PASS verify and stop only server2152. Commit complete.json, prefix gate, arrival.jsonl.gz, schedule-ordered responses.jsonl.gz and final server logs BEFORE running score_restart005.py score. Raw responses.jsonl is ignored. The unchanged scorer uses the new directory via adapter. Commit blind mechanical scores, surface and mapping; force-add pending_adjudication.json. Review unique pending groups under the registered single-agent authorization, after calibration using amendments/AMENDMENT_003_RATER_CALIBRATION.json. Save adjudications/batch_NNN.json with review_key,score,evidence,rationale,corrected_wrong_opening. Commit batches, run score_restart005.py resolve, then commit all resolved scores and scoring gate BEFORE score_restart005.py analyze. Complete remaining registered trace/rank/cost diagnostics and closeout report, README, AGENTS <=400 chars, memory and PR95. No repeat scoring permission, no merge/adoption.
+
+On any instrument failure: preserve raw capture, any pending journal and final logs in new archives; stop only verified2152. No uncertain retries or cap increases. No partial-population verdict. Notify the precise instrument problem and pause hook for a new decision. Both prior stopped attempts remain immutable.
+
+Earlier ACTIVE headers below are historical; this header governs.
+
+---
+
+# Historical: Amendment 004 stopped at the doubled output cap
 
 The single repair reached 16,384 tokens and stopped at limit after 276 seconds decoding. Two calibration calls passed. All three captures are preserved in continuation004/capture_stopped.jsonl.gz with stop_audit.json; no outcomes opened. Dedicated server PID 18980 stopped after identity verification. Completion monitor paused. Remaining 3,052 calls were not issued. No further retry or cap increase authorized. This is an instrument stop, not a mechanism verdict. A revised reader protocol needs a new authorized amendment.
 
