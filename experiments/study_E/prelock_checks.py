@@ -30,7 +30,8 @@ def classify(deltas):
 def main():
     fixtures=[]
     for name,n,expected in [('positive',7,'D1_WORKS'),('signal',4,'D2_CARRIES_SIGNAL'),('tie',0,'NO_DEMONSTRATED_BENEFIT')]:
-        delta=np.zeros((32,6));delta[:n,:4]=.5
+        delta=np.zeros((32,6));delta[:n,:4]=[.4,.6,.4,.6]
+        assert np.allclose(delta*5,np.round(delta*5))
         got,mean,p=classify(delta);assert got==expected
         fixtures.append(dict(name=name,expected=expected,observed=got,mean=mean,p=p))
     for name,column in [('primary_harm',None),('irrelevant_harm',1),('future_harm',2),('proposal_harm',3),('absence_harm',5),('latest_violation',4)]:
@@ -48,12 +49,13 @@ def main():
     for name in ['corpus.py','prepare_amendment003.py','mechanism.py','prelock_checks.py']:
         pins[name]=hashlib.sha256((P/name).read_bytes()).hexdigest()
     out=dict(status='PASS',fixtures=fixtures,pins=pins,
+             supersedes='confirmation_prelock.json used unattainable .5 per-question differences with five seeds; this version uses .4/.6/.4/.6, preserving attainable .5 group means',
              control_replay='artifacts/part1/replay.json:224/224 exact,224 repeat',
              empirical_population='artifacts/amendment003/development/readiness_gate_exact.json: mixed C0 support and active guards',
              completed_reader='artifacts/amendment003/reader/complete.json:43 EOS calls, maximum prompt12047 tokens',
              scoring_calibration='amendments/AMENDMENT_003_RATER_CALIBRATION.json',
              unit='32 groups; five seeds averaged within question and four primary conditions within group')
-    target=P/'artifacts/confirmation_prelock.json';assert not target.exists()
+    target=P/'artifacts/confirmation_prelock_v2.json';assert not target.exists()
     target.write_text(json.dumps(out,indent=2)+'\n',encoding='utf-8')
     print(json.dumps(out,indent=2))
 
