@@ -192,7 +192,7 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **Study D address reader probe (2026-09-05).** EXPLORATORY, reader-only. Five complete short histories yield expected answers with event citations; a missing-update case starts wrongly at office then corrects to Cannot determine. Eight calls including two preflight repeats. Different explanatory prompt; no formal score, transfer or Study D failure attribution.
 
-**Study E before ordering (2026-09-06).** AUTHORIZED CAP REPAIR RUNNING, amendment1019f3e2. Originalcall456hit8192;455priorEOS preserved. Common16384outputcap, samecontext/thinking; calibrationidentityPASS, cappedprefixrepairpending. Outcomessealed. Development3/12->6/12,4gains1loss; no adoption.
+**Study E before ordering (2026-09-06).** THINKING-OFF RESTART, Amendment005. Both 8192/16384-cap attempts stopped unscored. Native-template serial probe: 16/16 EOS, exact replay; 2/4 slots slower and changed one response. All 3840 logical answers regenerated under one reader setting. Outcomes sealed; development3/12->6/12,4 gains/1 loss. No adoption.
 
 ## 3. Failure Pattern
 
