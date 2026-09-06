@@ -1,5 +1,6 @@
 """Offline source-to-final-prompt audit; no reader calls or score changes."""
 import re,json
+from pathlib import Path
 from preflight import P,I,ROOT,read,sha,committed,E,save
 from analysis.hh001_prompt import render_reader_prompt
 O=P/'relevance_artifacts/full_e_reader'
@@ -45,7 +46,7 @@ def main():
             matches_previous=wrong==prior['value'],matches_first_later=wrong==later['value'],
             matches_near=bool(re.search(r'\b'+wrong+r'\b',near['user_message'].splitlines()[0])),
             matching_update_turns=[e['turn'] for e in updates if e['value']==wrong],
-            target_filler_mentions_wrong=bool(re.search(r'\b'+wrong+r'\b',' '.join(by[k]['user_message'].splitlines()[1:] for k in []))) if False else wrong in h['episodes'][target-1]['user_message'].split('\n',1)[-1],
+            target_filler_mentions_wrong=wrong in h['episodes'][target-1]['user_message'].split('\n',1)[-1],
             complete_literal_support=True))
     assert len(rows)==22
     counts={k:sum(r[k] for r in rows) for k in ['matches_previous','matches_first_later','matches_near','target_filler_mentions_wrong']}
