@@ -1,3 +1,5 @@
+The full Study E single-arm reader is now complete: **106/128 (82.8%) before**, **32/32 latest**, **32/32 absence**; all22misses have complete evidence. This extends the small probe to192questions with frozen cosine>=.48+anchors, chronological uncapped delivery and native thinking off. It is exposed synthetic validation, not a controlled gain or generalization claim. Plan2519aff9; raw52d61701; resolved scores7fe9b86a. 179canonical and13authorized agent scores; nohuman audit. [Full report](experiments/probes/temporal_da_fusion/FULL_E_REPORT.md). Owned server stopped, allcaptures preserved, no production changes.
+
 ## Preliminary fusion and result
 
 Latest: an uncapped chronological timeline uses the carried **raw cosine>=0.48 plus existing question anchors**, with no8k/32k retrieval cap or additive last32. It reaches128/128Ebefore evidence vs109C1, retaining108records/84,627chars median. Pure threshold111/128 omits17anchors. This is a fixed starting relevance boundary, not an adaptive completion certificate.
