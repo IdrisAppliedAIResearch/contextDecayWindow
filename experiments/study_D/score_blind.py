@@ -9,7 +9,7 @@ ROOT=Path(__file__).resolve().parents[2]
 OUT=Path(__file__).resolve().parent/'artifacts/confirmation'
 
 def normalize(text):
-    return text.strip().replace('\u2019',"'").replace('\u2018',"'").strip(' \t\n\r"\'`').rstrip('.').strip()
+    return text.strip().replace('\u2019',"'").replace('\u2018',"'").strip(' \t\n\r"\'`.')
 
 def score(row):
     if not row.get('complete') or not row['response'].strip():
