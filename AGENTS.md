@@ -200,6 +200,8 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **Temporal–DA fusion draft (2026-09-06).** EXPLORATORY. DA-001 adjacency after protected E temporal records; not DA-098 compression.192 exact C1/no-link replays. Evidence109/128→108/128,6 gains7 losses;13 discordances count-matched. Median11 replacements. Latest unchanged; absence contexts changed, safety untested. No reader/adoption. Plan168b9cfd; gate76a6e9b9.
 
+**Fusion difference probe (2026-09-06).** EXPLORATORY. Six rescues follow forward links;7 losses demote direct ranks20–30. Forward-only109→110 (7g/6l), backward99 (0/10), pre-anchor108 (6/7). Scores overlap;10–12-turn carrier distance is generator-dependent. C1 retained; relational admission reason unresolved. Plan86a1d7c9/gatedaeeb2fc.192 exact replays; no reader calls.
+
 ## 3. Failure Pattern
 
 The recurring failure class is a surrogate that can pass without the property it claims to certify: record count for information, novelty for importance, density for factual value, or a rubric score for a correct answer.
