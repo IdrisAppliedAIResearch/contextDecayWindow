@@ -144,9 +144,9 @@ flush against the page there rather than showing as a panel.*
 
 ## Current State of Work
 
-*Last updated 2026-09-06, after the same-retrieval chronological reader probe.*
+*Last updated 2026-09-06, after the uncapped relevance-timeline reader probe.*
 
-The [chronological reader probe](experiments/probes/temporal_da_fusion/CHRONOLOGY_REPORT.md) keeps C1 retrieval fixed: before answers score5/12 originally,5/12 without recent context, and8/12 when the remaining records are chronological. Four guards stay correct; native thinking is off. [The four remaining misses](experiments/probes/temporal_da_fusion/MISSES_REPORT.md) lose eligible updates during packing behind no-change notes; each answer matches the latest delivered, stale state. Production defaults are unchanged.
+The [uncapped relevance timeline](experiments/probes/temporal_da_fusion/RELEVANCE_REPORT.md) selects by cosine0.48 plus the question anchor, then presents chronologically without additive recency. Complete evidence reaches128/128 before questions; a fresh small reader comparison improves8/12→11/12 (four gains,one loss), with four guards unchanged. It retains most related history, about108records. The threshold is a starting point, not a validated completion rule; production defaults are unchanged.
 
 **Study E confirmed a reader benefit from newest-first before-event ordering:** correct final answers rose from 177/640 (27.66%) to 302/640 (47.19%), a 19.53-point gain (95% interval 13.91–25.16; p=.00001), passing the registered bar and harm guards. Complete-evidence delivery rose from 64/128 to 109/128 questions, but 243 answers still failed with complete evidence. This synthetic result uses an amended native thinking-off reader interface and 114 blinded agent judgments; it has not been adopted. [Confirmation report](experiments/study_E/CONFIRMATION_REPORT.md).
 
@@ -433,7 +433,7 @@ confirmation.
 
 ## Next Steps
 
-Prioritize a larger paired reader check of [chronological presentation without additive recency](experiments/probes/temporal_da_fusion/CHRONOLOGY_REPORT.md), preserving C1's retrieval. The16-question probe is promising but too small for adoption. Unconditional fusion still displaces useful evidence; any linked successor needs an independent admission reason.
+Carry the fixed [cosine0.48 plus anchor chronological timeline](experiments/probes/temporal_da_fusion/RELEVANCE_REPORT.md) into a broader reader comparison before choosing an adaptive relevance boundary. Preserve uncapped outputs and examine the complete-evidence regression; the exposed16-question probe cannot establish reliability or transfer. Unconditional fusion still displaces useful evidence.
 
 1. **Validate episodic-chat 0.2.0 outside the spent LoCoMo corpus.** Freeze an
    external reader and retrieval study—preferably EnterpriseRAG-Bench or an
@@ -474,6 +474,8 @@ Commercial enquiries: **idrisappliedairesearch@gmail.com**.
 ---
 
 # For LLM Context
+
+> **Uncapped relevance timeline (2026-09-06).** EXPLORATORY. Legacy rawcosine>=.48 plus existing anchors, no8k/32k cap or additive recency, chronological. Ebefore128/128complete vs109C1;PURE111/128 loses17anchors. Median108records/84,627chars. Fresh native-off paired reader8/12→11/12 (4g1l),fourguards correct;3agent prosejudgments. All4prior misses corrected,Meadow637 newcomplete-evidence error. Dpure11/32before is different diagnostic. Plan1676445b/read860ea072; allresolvedscores7cec805. `experiments/probes/temporal_da_fusion/RELEVANCE_REPORT.md`; noadoption.
 
 > **Chronology residual miss audit (2026-09-06).** Four wrong before cases all have stored/eligible updates at temporal positions11–12;8k fits10 records. Semantic ranks41/33/64/35 become merged51/42/74/45, and32k packing also rejects each. Anchors/qualifiers present; four answers match latest delivered effective update, now stale. Recency removal did not cause absence. Eight exact packing replays; no new calls/policy. Planba9d0dd6; `experiments/probes/temporal_da_fusion/MISSES_REPORT.md`.
 
@@ -1006,6 +1008,7 @@ Runs use a scripted 120-turn conversation with facts planted at known positions 
 | Fusion draft | DA adjacency after protected E temporal records | EXPLORATORY | Evidence109/128→108/128;6 gains7 losses; exact replay192/192; no reader calls or full DA codec port |
 | Fusion difference | Direction and before-anchor link ablations | EXPLORATORY | Forward110/128 (7g/6l), backward99 (0/10), before-anchor108 (6/7); no safe admission signal or reader result |
 | Chronology probe | Same retrieved evidence, remove recent context, sort ascending | EXPLORATORY reader | Before5/12→5/12→8/12;4guards correct;native off,16questions,48calls; no adoption |
+| Relevance timeline | Cosine0.48 plus anchor, uncapped chronological records | EXPLORATORY reader | Evidence128/128;fresh before8/12→11/12 (4g1l),4guards correct;108records median,3agentjudgments;noadoption |
 | E | Before-event candidate ordering | READER D1_WORKS | Final answers177/640→302/640 (+19.53pp); 32 synthetic groups; complete-evidence errors remain243; amended reader interface, agent review, no adoption |
 | D | Deterministic temporal allocation | READER D1_WORKS; scoring deviation | Correct generated answers 63/320->203/320; 32 synthetic sessions; eight agent judgments; transfer untested |
 | 001 | Recency and similarity retrieval | PARTIAL (2/3) | Similarity fired once in 32 turns |

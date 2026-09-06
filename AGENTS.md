@@ -206,6 +206,8 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **Chronology miss audit (2026-09-06).** Four wrong cases: stored/eligible updates at temporal11–12, but8k fits10; semantic ranks33–64 also miss32k packing. No-change notes precede needed updates. All4 answers match latest delivered stale state. Anchors/qualifiers present; recency removal did not cause absence.8 exact pack replays; no new calls/policy. Planba9d0dd6.
 
+**Relevance timeline (2026-09-06).** EXPLORATORY. Cosine>=.48+anchors,uncapped,no recency,chronological. Ebefore evidence109/128→128/128 (pure111). Fresh native-off reader8/12→11/12 (4g1l),guards4/4. Median108records/84,627chars.3agent judgments;1complete-evidence regression. .48 is legacy default,not optimum. Plan1676445b; noadoption.
+
 ## 3. Failure Pattern
 
 The recurring failure class is a surrogate that can pass without the property it claims to certify: record count for information, novelty for importance, density for factual value, or a rubric score for a correct answer.
