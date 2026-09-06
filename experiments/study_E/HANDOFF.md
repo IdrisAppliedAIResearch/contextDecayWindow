@@ -1,3 +1,17 @@
+# ACTIVE: Study E confirmation reader running
+
+Reader session64499; dedicated serverPID20516 on8097. Registered confirmation inputs completed and committed2c781515. Runtime/tokenizer/compact schedules and scorer sealed92cb3a3d. check_run passed; maximum input12042tokens; prefix and short calibration passed (3/3508). There are3840logicalanswers and3508physicalcalls including3calibration. Reader_confirmation.py run is already active; do not start again or poll healthy progress.
+
+Terminal artifacts: artifacts/confirmation/reader/complete.json or failure.json. Healthy fsynced responses.jsonl is intentionally ignored inGit. On PASS the runner creates lossless responses.jsonl.gz and complete hashes. Verify process identity before stopping only20516. Commitcomplete,prefix,gzip,fullserverlogs before scoring. Never open confirmationanswer content or traces early. Anyfailure/uncertainjournal: preserve and reportinstrumentstop, no retries/capchange. Quiet completion/failure hooks own ongoing work.
+
+Postcompletion code now exists: score_confirmation.py verifiescommittedgzip andcompleteness, emits3840blindlogicalrows, frozenmechanicalscores,mapping and unique pending groups. Force-addpending_adjudication.json (ignored pattern); commitallscores/surface/mapping beforemanualreview. Calibrateagain on frozenAmend003RATER_CALIBRATION beforeopeninganswers. Manualblindreviewunderregisteredagent-onlyauthorization: write batches under reader/adjudications/*.json, eachrow review_key,score,evidence,rationale,corrected_wrong_opening boolean. Reviewkeygroups identicalquestion/ref/response; preserve alllogicalscoreIDs. Noarms/source/historyshown inpacket. Do notaskagainforauthorizedagent review. Genuinecriterionambiguityblocks unseal.
+
+Commit alladjudicationbatches. resolve_confirmation.py requirescommittedbatches, exactcoverage andno conflicts; writesimmutable scores_resolved/newgate. Committhese BEFORE analyze_confirmation.py, whichopensmapping andtraces andcomputesregistered group-leveldecision/CI/guards pluscorrectness×exactevidence. The analyzer'sthresholdsuseexactcountfractions, avoiding floatthresholdrounding; positive/signal/tie/eachharmfixtures passed. Still complete registered descriptive diagnostics in finalreport: candidate/temporal/final carrier survival andranks/costs/displacement, referencearms andconditional comparisonsdescriptive only. Do notreinterpret bar orretune.
+
+Older preparation context below is historical; the currentheadergoverns stage. Confirmationgenerator/data/reference artifacts remainfrozen. No confirmationoutcomesopened. Useraskedquiet hooks. UpdateREADME/AGENTS<=400/memory/PR95 onterminalmeaningfulchanges; no merge/deploy/adoption.
+
+---
+
 # Study E: registered confirmation preparation
 
 Current stage: confirmation inputs being prepared. User authorized end-to-end work, agent scoring and same-study amendments. Continue Study E on study/E-before-ordering, PR95; no new study. Read PRE_REGISTRATION.md, which governs all future confirmation work. Registration design-only SHA2e047c41c80748b16f0e6df15dcc70ac54145598. No confirmation outcome has been opened.
