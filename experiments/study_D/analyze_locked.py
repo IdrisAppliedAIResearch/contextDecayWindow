@@ -35,6 +35,7 @@ def main():
         return mean(r['score'] for r in rows)
     differences=[rate('C1',['T1','T2'],s)-rate('C0',['T1','T2'],s) for s in sessions]
     primary=summarize(differences)
+    primary['reverse_direction_p']=summarize([-d for d in differences])['one_sided_p']
     primary['C0_accuracy']=rate('C0',['T1','T2'])
     primary['C1_accuracy']=rate('C1',['T1','T2'])
     primary['correct_samples']={a:sum(r['score'] for r in mapping if r['arm']==a and r['type'] in ('T1','T2')) for a in arms}

@@ -36,6 +36,21 @@ def main():
     if (OUT/'scoring_gate.json').exists():
         scoring=json.loads((OUT/'scoring_gate.json').read_text())
         assert sha(OUT/'blind_scores.json')==scoring['blind_scores_sha256']
+    if (OUT/'resolved_scoring_gate.json').exists():
+        resolved=json.loads((OUT/'resolved_scoring_gate.json').read_text())
+        assert resolved['status']=='PASS'
+        assert sha(OUT/'resolved_scores.json')==resolved['blind_scores_sha256']
+        assert sha(OUT/'agent_adjudication.json')==resolved['adjudication_sha256']
+        original={r['blind_id']:r for r in json.loads((OUT/'blind_scores.json').read_text())}
+        completed=json.loads((OUT/'resolved_scores.json').read_text())
+        judgments={r['blind_id']:r for r in json.loads((OUT/'agent_adjudication.json').read_text())}
+        assert len(completed)==len(original)==3675
+        assert set(judgments)=={k for k,v in original.items() if v['score'] is None}
+        for r in completed:
+            old=original[r['blind_id']]
+            assert r['score'] in (0,1)
+            if old['score'] is not None: assert r==old
+            else: assert r['score']==judgments[r['blind_id']]['score']
     print(json.dumps({'status':'PASS','artifact_checks':len(checks),'physical_response_rows':len(raw.splitlines()),'reader_gate':reader['status'],'new_model_calls':0}))
 
 if __name__=='__main__':
