@@ -57,7 +57,8 @@ def main():
     result.update(registration=REGISTRATION,status='COMPLETE',unit='32 groups; five seeds within question, four primary conditions',
         primary={arm:dict(correct=int(array[i,:,:4,:].sum()),n=640) for i,arm in enumerate(ARMS)},
         by_type={kind:{arm:dict(correct=int(array[i,:,k,:].sum()),n=160) for i,arm in enumerate(ARMS)} for k,kind in enumerate(KINDS)},
-        logical_answers=3840,physical_calls=completion['calls'],scoring=gate)
+        logical_answers=3840,physical_calls=completion.get('actual_calls',completion['calls']),
+        selected_archive_records=completion['calls'],scoring=gate)
     for arm_index,arm in enumerate(ARMS):
         rows=[r for r in mapping if r['arm']==arm]
         result.setdefault('corrected_wrong_openings',{})[arm]=sum(scores[r['blind_id']]['corrected_wrong_opening'] for r in rows)

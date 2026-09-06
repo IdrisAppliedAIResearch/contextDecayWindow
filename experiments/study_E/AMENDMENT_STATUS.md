@@ -1,7 +1,7 @@
 # Study E current status
 
-Updated2026-09-06. **Confirmation stopped at its registered output-completion gate.** One response reached8192tokens on physical call456/3508. The preceding455calls reachedEOS, includingthreecalibrationcalls. All outputs are preserved; no correctness or confirmation mechanism comparison has been opened.
+Updated2026-09-06. **Authorized cap-repair preflight running.** Amendment004 is committed at1019f3e2. The output allowance is16384tokens; model context, thinking behavior and other reader settings remain unchanged. The original452EOSmeasurement responses are preserved. Two new calibration responses match each other and the originals; the single capped-response repair is running.
 
-This is an instrument stop, not a mechanism verdict. The dedicatedserver is stopped and monitoring paused. A same-study Amendment004 draft proposes one bounded continuation at a common16384-token cap, requiring exact calibration and capped-response prefix identity. It awaits authorization because the locked registration prohibits automatic cap increases.
+The remaining3052calls can resume only after the repair reachesEOS and matches the original capped response's exact prefix. Any new cap or identity failure stops this bounded repair. No confirmation correctness or mechanism comparison has been opened.
 
-See CONFIRMATION_STOP_REPORT.md and amendments/AMENDMENT_004_output_cap_continuation_DRAFT.md. Original development results remain unchanged: amended before answers3/12->6/12, four gains and one loss. They are not a confirmation result. No adoption/deployment.
+The requested read-onlyGPU sample showed97%median utilization andabout19.9GiB VRAMallocated. SpareVRAM warrants a controlledbatchingbenchmark; no batching was applied to this scoredrun. SeeGPU_UTILIZATION_NOTE.md.
