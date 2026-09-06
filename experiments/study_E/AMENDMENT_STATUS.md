@@ -1,9 +1,7 @@
-# Study E continuation status
+# Study E current status
 
-Updated 2026-09-06. **Amended development complete; registered confirmation reader is running.** This continues the same Study E and PR95.
+Updated2026-09-06. **Confirmation stopped at its registered output-completion gate.** One response reached8192tokens on physical call456/3508. The preceding455calls reachedEOS, includingthreecalibrationcalls. All outputs are preserved; no correctness or confirmation mechanism comparison has been opened.
 
-The Amendment003 reader scored C0 3/12 and C1 6/12 on before questions: four gains, one loss. Latest tied3/4; absence tied4/4. On those12 questions complete evidence rose3/12 to10/12, but C1 still missed four complete-evidence cases. Thirteen exceptions used authorized agent judgments without human audit. See AMENDMENT_003_REPORT.md; these are development results, not a confirmation verdict.
+This is an instrument stop, not a mechanism verdict. The dedicatedserver is stopped and monitoring paused. A same-study Amendment004 draft proposes one bounded continuation at a common16384-token cap, requiring exact calibration and capped-response prefix identity. It awaits authorization because the locked registration prohibits automatic cap increases.
 
-Confirmation registration2e047c41c80748b16f0e6df15dcc70ac54145598 is a design-only commit. It retains the original numerical bars and ordering-only mechanism. The prospective population has32 groups,192 independent140-record histories, five seeds and four logical arms, yielding3,840 logical answers. Exact duplicate prompt/seed pairs share physical calls. Input preparation passed and was committed at2c781515. The runtime gate passed at92cb3a3d:3840 logical answers across3508 physical calls including calibration, maximum12042 input tokens, identical prefix. The reader is running; confirmation answers and mechanism comparisons remain unopened.
-
-The shared-log variant in Amendment002 and initial pilot remain preserved. Text-only duplicate-value counts in Amendment003 are invalid; exact required source identities govern all current availability measurements. Confirmation mechanism traces and reader outcomes remain unopened until all scores are committed. No adoption or deployment.
+See CONFIRMATION_STOP_REPORT.md and amendments/AMENDMENT_004_output_cap_continuation_DRAFT.md. Original development results remain unchanged: amended before answers3/12->6/12, four gains and one loss. They are not a confirmation result. No adoption/deployment.

@@ -1,3 +1,13 @@
+# ACTIVE: confirmation stopped at output cap; authorization pending
+
+2026-09-06: reader stopped after456/3508physicalcalls. Lastresponse endedstop_type=limit,tokens_predicted8192,truncatedfalse.455EOS incl3calibration,452measurementEOS;3052originalcallsunissued. No uncertainjournal. Rawarchive andstop_audit committed98bf6e14. No correctness orconfirmationtracesopened. Dedicatedserver20516 stopped afterverifiedidentity. DO NOT rerunreader_confirmation.py orscoreincompletepopulation.
+
+CONFIRMATION_STOP_REPORT.md iscurrentstatus. Amendment004_output_cap_continuation_DRAFT.md isconcreteproposalforonecommon16384capcontinuation withstrictcalibration/prefixidentitychecks,alloriginalidentitiesretained. It isDRAFT, requiresuserauthorizationbecause lockedregistrationprohibitsautomaticcapincrease. No continuationcode/callswritten. Monitoringpausedpendingdecision. SameStudyE/PR95, notnewstudy. Ifuserapproves: commitauthorizedamendmentdesign-onlybeforeimplementation, preserveoriginals, implementexactproposal,gates andboundedstop. Do notinferapprovalfromelapsedtime.
+
+Prior running/preparation contextbelowishistorical; currentheadergoverns.
+
+---
+
 # ACTIVE: Study E confirmation reader running
 
 Reader session64499; dedicated serverPID20516 on8097. Registered confirmation inputs completed and committed2c781515. Runtime/tokenizer/compact schedules and scorer sealed92cb3a3d. check_run passed; maximum input12042tokens; prefix and short calibration passed (3/3508). There are3840logicalanswers and3508physicalcalls including3calibration. Reader_confirmation.py run is already active; do not start again or poll healthy progress.

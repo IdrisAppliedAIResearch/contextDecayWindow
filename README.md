@@ -146,7 +146,7 @@ flush against the page there rather than showing as a panel.*
 
 *Last updated 2026-09-06, after Study E development.*
 
-**Study E's amended development improved final answers from 3/12 to 6/12**, with four gains and one loss. Four answers still failed despite complete evidence. The same study's confirmation design is now locked, and the full confirmation reader is running; the pilot is not a confirmation verdict. [Development report](experiments/study_E/AMENDMENT_003_REPORT.md).
+**Study E's amended development improved final answers from 3/12 to 6/12**, with four gains and one loss. Four answers still failed despite complete evidence. The same study's confirmation design is now locked, and confirmation stopped when one response reached its output cap. Results remain unopened; the pilot is not a confirmation verdict. [Development report](experiments/study_E/AMENDMENT_003_REPORT.md).
 
 **Temporal allocation improved correctly generated reader answers.** Scored final-answer accuracy rose from 19.7% to 63.4% across 32 randomized synthetic histories, clearing the registered reader-success bar. Evidence availability is reported separately as a diagnostic. Latest-setting retrieval improved most; immediately-before accuracy remains 26.9%. Eight answers used explicitly authorized single-agent scoring instead of the registered human review. This has not been adopted. [Report](experiments/study_D/REPORT.md).
 
@@ -431,7 +431,7 @@ confirmation.
 
 ## Next Steps
 
-Complete [Study E confirmation](experiments/study_E/PRE_REGISTRATION.md) through input validation, gated reader inference and blind scoring. Keep reader correctness distinct from evidence availability; the development gain is not a confirmation verdict.
+Review the [same-study continuation amendment](experiments/study_E/amendments/AMENDMENT_004_output_cap_continuation_DRAFT.md) for Study E's output-cap stop. No confirmation verdict is available; the frozen outputs remain unscored.
 
 1. **Validate episodic-chat 0.2.0 outside the spent LoCoMo corpus.** Freeze an
    external reader and retrieval study—preferably EnterpriseRAG-Bench or an
@@ -472,6 +472,8 @@ Commercial enquiries: **idrisappliedairesearch@gmail.com**.
 ---
 
 # For LLM Context
+
+> **Study E confirmation stop (2026-09-06).** INSTRUMENT STOP at call456/3508: one response hit8192tokens,455priorEOS including3calibration. All raw outputs preserved; no correctness or mechanism comparison opened. Same-study cap-continuation draft awaits authorization. See `experiments/study_E/CONFIRMATION_STOP_REPORT.md`.
 
 > **Study E amended development (2026-09-06).** Amendment 003 uses competing-update histories after shared neutral logs still saturated. Exact required-source delivery is 4/16 vs 13/16, nine gains and no losses. The 43-call reader check is running; no reader result or confirmation claim yet. Text-only duplicate-value counts are invalid. See `experiments/study_E/AMENDMENT_STATUS.md`.
 
@@ -987,7 +989,7 @@ Runs use a scripted 120-turn conversation with facts planted at known positions 
 
 | # | Added | Result | Finding |
 |---|---|---|---|
-| E | Before-event candidate ordering | CONFIRMATION RUNNING | Amended development reader3/12->6/12,4gains1loss; evidence not sufficient for correctness; confirmation locked |
+| E | Before-event candidate ordering | CONFIRMATION INSTRUMENT STOP | Amended development reader3/12->6/12,4gains1loss; evidence not sufficient for correctness; confirmation locked |
 | D | Deterministic temporal allocation | READER D1_WORKS; scoring deviation | Correct generated answers 63/320->203/320; 32 synthetic sessions; eight agent judgments; transfer untested |
 | 001 | Recency and similarity retrieval | PARTIAL (2/3) | Similarity fired once in 32 turns |
 | 002 | Consolidation, rule pinning, 120 turns | PARTIAL (3/4) | Similarity recovered buried facts; consolidation produced 52 topics |
