@@ -144,7 +144,9 @@ flush against the page there rather than showing as a panel.*
 
 ## Current State of Work
 
-*Last updated 2026-09-05, after Study D temporal retrieval.*
+*Last updated 2026-09-06, after Study E development.*
+
+**Study E development is complete; its confirmation design needs revision.** Newest-first before-event ordering tied the prior temporal reader at 11/12 final answers, with one gain and one loss. Both development corpora already delivered all sufficient evidence, so this did not test recovery from missing evidence. Seventeen exceptions used authorized agent adjudication; seven answers corrected an initially wrong assertion. No confirmation or adoption. [Report](experiments/study_E/REPORT.md).
 
 **Temporal allocation improved correctly generated reader answers.** Scored final-answer accuracy rose from 19.7% to 63.4% across 32 randomized synthetic histories, clearing the registered reader-success bar. Evidence availability is reported separately as a diagnostic. Latest-setting retrieval improved most; immediately-before accuracy remains 26.9%. Eight answers used explicitly authorized single-agent scoring instead of the registered human review. This has not been adopted. [Report](experiments/study_D/REPORT.md).
 
@@ -429,7 +431,7 @@ confirmation.
 
 ## Next Steps
 
-Review [Study D](experiments/study_D/REPORT.md) before considering a separately registered transfer study. Its before-event weakness and untested temporal fabrication harm remain open; no successor is automatically authorized.
+Revise the [Study E confirmation design](experiments/study_E/DESIGN_REVIEW.md) to exercise missing-evidence competition and freeze exception scoring before another run. The completed pilot does not resolve Study D's before-event weakness or establish an absence-harm comparison. Confirmation remains unregistered.
 
 1. **Validate episodic-chat 0.2.0 outside the spent LoCoMo corpus.** Freeze an
    external reader and retrieval study—preferably EnterpriseRAG-Bench or an
@@ -470,6 +472,8 @@ Commercial enquiries: **idrisappliedairesearch@gmail.com**.
 ---
 
 # For LLM Context
+
+> **Study E before ordering (2026-09-06).** PART 1 COMPLETE; DESIGN RETURNED. Reader C0/C1 11/12 each, 1 gain/1 loss; C1 latest/absence 4/4 each. New development evidence complete20/20 both; exposed Study D replay16->32/32, availability only. Seventeen agent adjudications; seven corrected initial errors. No confirmation, equivalence or adoption. See `experiments/study_E/REPORT.md`.
 
 > **Study D address reader probe (2026-09-05).** EXPLORATORY, reader-only. Five complete short histories yield expected answers with event citations; a missing-update case starts wrongly at office then corrects to Cannot determine. Eight calls including two preflight repeats. Different explanatory prompt; no formal score, transfer or Study D failure attribution. See `experiments/probes/study_D_reader_address/REPORT.md`.
 
@@ -981,6 +985,7 @@ Runs use a scripted 120-turn conversation with facts planted at known positions 
 
 | # | Added | Result | Finding |
 |---|---|---|---|
+| E development | Before-event candidate ordering | PART 1 COMPLETE; DESIGN RETURNED | Reader 11/12 each, 1 gain/1 loss; evidence complete in both; 17 agent adjudications; no confirmation |
 | D | Deterministic temporal allocation | READER D1_WORKS; scoring deviation | Correct generated answers 63/320->203/320; 32 synthetic sessions; eight agent judgments; transfer untested |
 | 001 | Recency and similarity retrieval | PARTIAL (2/3) | Similarity fired once in 32 turns |
 | 002 | Consolidation, rule pinning, 120 turns | PARTIAL (3/4) | Similarity recovered buried facts; consolidation produced 52 topics |

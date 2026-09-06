@@ -192,6 +192,8 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **Study D address reader probe (2026-09-05).** EXPLORATORY, reader-only. Five complete short histories yield expected answers with event citations; a missing-update case starts wrongly at office then corrects to Cannot determine. Eight calls including two preflight repeats. Different explanatory prompt; no formal score, transfer or Study D failure attribution.
 
+**Study E before ordering (2026-09-06).** PART 1 COMPLETE; DESIGN RETURNED. Reader C0/C1 11/12 each, 1 gain/1 loss; C1 latest/absence 4/4 each. New development evidence complete20/20 both; exposed Study D replay16->32/32, availability only. Seventeen agent adjudications; seven corrected initial errors. No confirmation, equivalence or adoption.
+
 ## 3. Failure Pattern
 
 The recurring failure class is a surrogate that can pass without the property it claims to certify: record count for information, novelty for importance, density for factual value, or a rubric score for a correct answer.
