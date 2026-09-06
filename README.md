@@ -144,7 +144,9 @@ flush against the page there rather than showing as a panel.*
 
 ## Current State of Work
 
-*Last updated 2026-09-06, after Study E confirmation.*
+*Last updated 2026-09-06, after the preliminary temporal–DA fusion preflight.*
+
+The [preliminary temporal–DA fusion](experiments/probes/temporal_da_fusion/REPORT.md) passes exact replay checks but trades six recovered evidence cases for seven losses on existing Study E data. This establishes complementary reach in some cases, not an overall improvement or a reader benefit. The draft uses DA adjacency, without DA's compressed allocator.
 
 **Study E confirmed a reader benefit from newest-first before-event ordering:** correct final answers rose from 177/640 (27.66%) to 302/640 (47.19%), a 19.53-point gain (95% interval 13.91–25.16; p=.00001), passing the registered bar and harm guards. Complete-evidence delivery rose from 64/128 to 109/128 questions, but 243 answers still failed with complete evidence. This synthetic result uses an amended native thinking-off reader interface and 114 blinded agent judgments; it has not been adopted. [Confirmation report](experiments/study_E/CONFIRMATION_REPORT.md).
 
@@ -431,7 +433,7 @@ confirmation.
 
 ## Next Steps
 
-Review the [Study E confirmation](experiments/study_E/CONFIRMATION_REPORT.md) and its remaining complete-evidence errors before choosing a successor. The ordering gain is demonstrated within this synthetic setting; naturalistic transfer and improved interpretation need a separately agreed design. No adoption is automatic.
+Review the [fusion draft's six evidence gains and seven losses](experiments/probes/temporal_da_fusion/REPORT.md) before choosing another admission rule or a reader test. Study E's ordering gain remains demonstrated within its synthetic setting; this preliminary fusion has not improved overall availability and has no reader result.
 
 1. **Validate episodic-chat 0.2.0 outside the spent LoCoMo corpus.** Freeze an
    external reader and retrieval study—preferably EnterpriseRAG-Bench or an
@@ -472,6 +474,8 @@ Commercial enquiries: **idrisappliedairesearch@gmail.com**.
 ---
 
 # For LLM Context
+
+> **Temporal–DA fusion draft (2026-09-06).** EXPLORATORY Part 1 complete. DA-001 temporal links after protected E temporal block, full-record 32k; not DA-098 compression.192 exact C1/no-link replays. Before availability109/128→108/128,6 gains7 losses, all13 discordances count-matched; median11 replacements. Latest unchanged;32 absence contexts changed, reader safety untested. Plan168b9cfd; gate76a6e9b9. See `experiments/probes/temporal_da_fusion/REPORT.md`.
 
 > **Retrieval score-curve probe (2026-09-06).** EXPLORATORY, zero model calls.192 E rankings replay exactly;224 D arrays checked. On128 E before queries, largest CC80 drop follows108 records at the corpus/continuity seam.19 missing updates still score88.4–94.5% of the maximum. Within the relevant pool, the largest gap omits anchors. D before gaps differ. No threshold selected; see `experiments/probes/retrieval_score_curves/REPORT.md`.
 
@@ -993,6 +997,7 @@ Runs use a scripted 120-turn conversation with facts planted at known positions 
 
 | # | Added | Result | Finding |
 |---|---|---|---|
+| Fusion draft | DA adjacency after protected E temporal records | EXPLORATORY | Evidence109/128→108/128;6 gains7 losses; exact replay192/192; no reader calls or full DA codec port |
 | E | Before-event candidate ordering | READER D1_WORKS | Final answers177/640→302/640 (+19.53pp); 32 synthetic groups; complete-evidence errors remain243; amended reader interface, agent review, no adoption |
 | D | Deterministic temporal allocation | READER D1_WORKS; scoring deviation | Correct generated answers 63/320->203/320; 32 synthetic sessions; eight agent judgments; transfer untested |
 | 001 | Recency and similarity retrieval | PARTIAL (2/3) | Similarity fired once in 32 turns |

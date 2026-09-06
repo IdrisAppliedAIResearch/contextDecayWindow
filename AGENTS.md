@@ -198,6 +198,8 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **Score-curve probe (2026-09-06).** EXPLORATORY.192 E rankings replayed;224 D arrays checked. E before largest CC80 drop is108/140 on128/128, separating continuity.19 missed updates score88.4–94.5% of top. Inner gap omits anchor, not state update; D before gaps vary87–107. No threshold fitted, reader calls or adoption; curves are clues, not completion.
 
+**Temporal–DA fusion draft (2026-09-06).** EXPLORATORY. DA-001 adjacency after protected E temporal records; not DA-098 compression.192 exact C1/no-link replays. Evidence109/128→108/128,6 gains7 losses;13 discordances count-matched. Median11 replacements. Latest unchanged; absence contexts changed, safety untested. No reader/adoption. Plan168b9cfd; gate76a6e9b9.
+
 ## 3. Failure Pattern
 
 The recurring failure class is a surrogate that can pass without the property it claims to certify: record count for information, novelty for importance, density for factual value, or a rubric score for a correct answer.

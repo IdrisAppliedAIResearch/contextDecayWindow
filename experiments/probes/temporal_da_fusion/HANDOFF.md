@@ -1,0 +1,9 @@
+# Fusion draft handoff
+
+User authorized preliminary implementation plus preflight, completed September 6. Branch codex/temporal-da-fusion-draft is stacked on study/E-before-ordering at 8d18ee7c. Plan168b9cfd, implementation4324f641, timing-comparison repair e19704ad, gate/output76a6e9b9, analysis6556c468. No jobs or inference started, no adoption, no changes to prior studies.
+
+Original DA-001 TEMPORAL function is executed by exact AST extraction from clean C:/Users/muzaf/wt91 at de20ac79, adapting E whole episodes to pair nodes and one history to one session. Every ranked candidate is a seed. Preserve all E temporal admissions, then DA-interleaved CC80 stream, exact32k renderer, additive last32. This is explicitly not the full DA-098/101 compressed allocator. E control is a new clean worktree ../contextDecayWindow-fusion-E-control at8d18ee7c; prior D/engine worktrees are reused unchanged.
+
+All192 original C1 contexts and no-link contexts reproduce exactly;160 anchored-before queries activate (128 answerable plus32absence),32latest unchanged. Availability109→108 of128:6gains7losses. All13 discordances count-matched.6/19 previous misses rescued;13persist7new. Each rescue follows the preceding turn to its effective update. Median11 records replaced,20 linked-first records outside protected block. No threshold tuning or resource sweep.32absence contexts changed; no answer-safety claim.
+
+Report and full per-question evidence/parent details committed with artifacts. No new reader run requested in this turn. Current user intent is to assess precedent before developing further. Existing data are exposed; no confirmatory/success disposition. Availability-only results cannot override the user's reader-enabled success criterion. Latest discussion hypothesized selective linked completion; this draft demonstrates complementary reach in individual cases and displacement, not selective completion overall.
