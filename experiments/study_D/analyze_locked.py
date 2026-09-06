@@ -14,11 +14,11 @@ def read(name):
     return json.loads((OUT/name).read_text())
 
 def main():
-    scoring=read('scoring_gate.json')
+    scoring=read('resolved_scoring_gate.json')
     assert scoring['status']=='PASS','Do not unseal outcomes while adjudication is pending'
-    raw=(OUT/'blind_scores.json').read_bytes()
+    raw=(OUT/'resolved_scores.json').read_bytes()
     assert hashlib.sha256(raw).hexdigest()==scoring['blind_scores_sha256']
-    rel=(OUT/'blind_scores.json').relative_to(ROOT).as_posix()
+    rel=(OUT/'resolved_scores.json').relative_to(ROOT).as_posix()
     assert subprocess.check_output(['git','show','HEAD:'+rel],cwd=ROOT).replace(b'\r\n',b'\n')==raw.replace(b'\r\n',b'\n')
     scores={r['blind_id']:r['score'] for r in json.loads(raw)}
     assert all(v in (0,1) for v in scores.values())
@@ -56,6 +56,7 @@ def main():
     common={k for k,t in traces.items() if t['availability']['C0'] and t['availability']['C0']['complete'] and t['availability']['C1']['complete']}
     conditional['common']={'queries':len(common),'accuracy':{a:mean(r['score'] for r in mapping if r['item'] in common and r['arm']==a) if common else None for a in ('C0','C1','ORACLE')}}
     result={'registration_commit':'7b7506d2aa64c86a50ec88181b72137c66b44f02','disposition':disposition(primary,delivery,guard_other,guard_absence),'primary':primary,'primary_complete_evidence_difference':delivery,'guardrail_other_difference':guard_other,'guardrail_absence_difference':guard_absence,'by_type':by_type,'conditional_reader':conditional,'per_session_difference':dict(zip(sessions,differences)),'reader_calls':read('reader_gate.json')['physical_calls'],'scope':'Restricted synthetic quoted-name revision-history family, one reader; no adoption.'}
+    result['scoring_deviation']='Amendment 001: eight single-agent judgments; no human or three-pass validation.'
     result['seed_primary_accuracy']={str(seed):{a:mean(r['score'] for r in mapping if r['arm']==a and r['type'] in ('T1','T2') and r['seed']==seed) for a in arms} for seed in range(5005,5010)}
     result['guardrail_other_ci95']=summarize([rate('C1',['T3','T4','M1','M2'],s)-rate('C0',['T3','T4','M1','M2'],s) for s in sessions])['ci95']
     result['guardrail_absence_ci95']=summarize([rate('C1',['N1'],s)-rate('C0',['N1'],s) for s in sessions])['ci95']
