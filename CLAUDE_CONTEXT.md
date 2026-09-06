@@ -12,6 +12,8 @@ Authoritative closeout: `experiments/study_D/REPORT.md`. Original pending scores
 > Study 010 LTM Q13/Q14 violated the 32k budget by 67.9%/68.2%. AS-001's
 > post-result Branch D primacy interpretation is invalid.
 
+**Study D address reader probe (2026-09-05).** EXPLORATORY, reader-only. Five complete short histories yield expected answers with event citations; a missing-update case starts wrongly at office then corrects to Cannot determine. Eight calls including two preflight repeats. Different explanatory prompt; no formal score, transfer or Study D failure attribution.
+
 ## Current TC arc result — 2026-08-22
 
 TC-003 is complete as `REGISTERED-OFFLINE` characterization. At the 16k
