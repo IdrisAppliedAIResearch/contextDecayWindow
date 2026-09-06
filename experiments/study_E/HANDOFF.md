@@ -1,5 +1,13 @@
 # ACTIVE: Amendment 005 fresh thinking-off confirmation running
 
+Compaction checkpoint: user explicitly requested durable notes and autonomous continuation through scoring/closeout. Branch `study/E-before-ordering`, PR https://github.com/IdrisAppliedAIResearch/contextDecayWindow/pull/95. Use `.venv/Scripts/python.exe` in this repository. No new study, inference restart, subagents, merge or adoption is authorized. Existing agent-scoring authorization persists.
+
+Last user-requested status check at 2026-09-06 19:50:35 UTC: 1,571/3,508 physical calls complete (45%), no failure, about 65 minutes of generation remaining at ~2 seconds/request. This is a historical estimate, not a fresh status or deadline. Do not poll to refresh it unless requested or the quiet hook fires. Prefix calibration already passed. Active automation ID `study-e-development-completion`, five-minute heartbeat, notifies only completion/failure/required decisions. Do not create a duplicate hook.
+
+User requested a standing prevention rule after this repeated thinking-control issue. Commit06189bbc adds it to AGENTS.md: reader tests default to thinking off, verified with native setting, rendered template and live response; hiding reasoning or adding empty tags is insufficient. Do not compensate for an unverified thinking setting by raising caps. Current run already uses the verified setting.
+
+Only live server logs are expected untracked; preserve and commit them at terminal completion/failure. Do not edit any sealed runtime, input, registration, response or scoring artifact. Current mutable documentation may be updated. Use the restart005 scoring adapter, not the original reader or continuation004 adapters.
+
 User authorized thinking off, batching test and restart. Amendment 005 design-only commit6603aca3; runtime lock36e2347c; fresh input lock59e7cc8c. ALREADY STARTED: restart_confirmation005.py run, unified session59669, dedicated llama-server PID2152 on port8097. Do not start it again. Terminal artifacts are artifacts/confirmation/restart005/complete.json or failure.json. Quiet five-minute hook is active; no repeated healthy polling.
 
 Benchmark completed48 development calls: 1/2/4 slots took65.18/67.21/67.67 seconds per16 calls. Each repeated itself exactly; both batched configurations changed one response relative to serial and were slower. Selected one slot, native chat template with thinking explicitly off, cache disabled, context32768, outputcap16384. This changes the reader interface; no causal attribution to thinking alone. All3840 logical answers/3508 physical calls including3 calibration are regenerated. Old452 EOS measurements and both capped responses are excluded. No confirmation scores or mechanism traces opened.

@@ -1,5 +1,9 @@
 # Study E memory update — 2026-09-06
 
+Compaction checkpoint: continue the already running job, then authorized scoring and PR95 closeout. Last requested status at19:50:35 UTC was1,571/3,508 calls (45%), healthy, estimated65 minutes remaining; estimate is historical. Do not restart inference. Automation `study-e-development-completion` remains active and quiet on healthy progress.
+
+Commit06189bbc adds the user's standing AGENTS.md rule: keep reader thinking off for brevity and verify native setting, actual template and live response. `reasoning_format=none` and empty thinking tags alone do not verify this. Current run already complies. Do not repeat the previous cap-escalation workaround.
+
 Current: fresh thinking-off confirmation started under Amendment005 (6603aca3), runtime lock36e2347c and input lock59e7cc8c. Session59669, dedicated server2152/8097. HANDOFF.md owns terminal and scoring instructions. Quiet completion/failure hook active; no healthy polling.
 
 The user authorized thinking off, batching tests and restart. Native chat template now wraps the unchanged carried user payload, excluding its old empty-think suffix; explicit thinking-off control is verified. Cache disabled, one slot,32768 context,16384 output cap. Benchmark48 calls: serial/two/four slots65.18/67.21/67.67 seconds per16 calls; all EOS and within-setting exact replay. Batched settings changed one response and were slower. Serial selected without confirmation outcome review.
