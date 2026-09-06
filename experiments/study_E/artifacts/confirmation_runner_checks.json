@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "date": "2026-09-06",
+  "registration": "2e047c41c80748b16f0e6df15dcc70ac54145598",
+  "checks": [
+    "Design-only registration commit and exact source pins verified before generation.",
+    "All 24 Amendment003 development histories regenerated with exact JSON bytes after newline normalization; source IDs identical.",
+    "Both isolated controls clean and pinned; embedding model SHA verified.",
+    "Registered Python3.13.13 and NumPy2.4.6 verified.",
+    "Compact schedule on 96 frozen development arm prompts preserves all480 logical answers across five seeds and deduplicates only full prompt plus seed.",
+    "Every latest C0/C1 pair at every development seed shares exactly one physical call identity.",
+    "check_run rejected invocation without committed input_gate.json before any model request.",
+    "Confirmation reader module compiles."
+  ],
+  "confirmation_reader_started": false
+}

@@ -144,7 +144,9 @@ flush against the page there rather than showing as a panel.*
 
 ## Current State of Work
 
-*Last updated 2026-09-05, after Study D temporal retrieval.*
+*Last updated 2026-09-06, after Study E confirmation.*
+
+**Study E confirmed a reader benefit from newest-first before-event ordering:** correct final answers rose from 177/640 (27.66%) to 302/640 (47.19%), a 19.53-point gain (95% interval 13.91–25.16; p=.00001), passing the registered bar and harm guards. Complete-evidence delivery rose from 64/128 to 109/128 questions, but 243 answers still failed with complete evidence. This synthetic result uses an amended native thinking-off reader interface and 114 blinded agent judgments; it has not been adopted. [Confirmation report](experiments/study_E/CONFIRMATION_REPORT.md).
 
 **Temporal allocation improved correctly generated reader answers.** Scored final-answer accuracy rose from 19.7% to 63.4% across 32 randomized synthetic histories, clearing the registered reader-success bar. Evidence availability is reported separately as a diagnostic. Latest-setting retrieval improved most; immediately-before accuracy remains 26.9%. Eight answers used explicitly authorized single-agent scoring instead of the registered human review. This has not been adopted. [Report](experiments/study_D/REPORT.md).
 
@@ -429,7 +431,7 @@ confirmation.
 
 ## Next Steps
 
-Review [Study D](experiments/study_D/REPORT.md) before considering a separately registered transfer study. Its before-event weakness and untested temporal fabrication harm remain open; no successor is automatically authorized.
+Review the [Study E confirmation](experiments/study_E/CONFIRMATION_REPORT.md) and its remaining complete-evidence errors before choosing a successor. The ordering gain is demonstrated within this synthetic setting; naturalistic transfer and improved interpretation need a separately agreed design. No adoption is automatic.
 
 1. **Validate episodic-chat 0.2.0 outside the spent LoCoMo corpus.** Freeze an
    external reader and retrieval study—preferably EnterpriseRAG-Bench or an
@@ -470,6 +472,16 @@ Commercial enquiries: **idrisappliedairesearch@gmail.com**.
 ---
 
 # For LLM Context
+
+> **Retrieval score-curve probe (2026-09-06).** EXPLORATORY, zero model calls.192 E rankings replay exactly;224 D arrays checked. On128 E before queries, largest CC80 drop follows108 records at the corpus/continuity seam.19 missing updates still score88.4–94.5% of the maximum. Within the relevant pool, the largest gap omits anchors. D before gaps differ. No threshold selected; see `experiments/probes/retrieval_score_curves/REPORT.md`.
+
+> **Study E thinking-on probe (2026-09-06).** EXPLORATORY.12 selected complete-evidence wrong C1 question/seed cases became12/12 correct with unchanged evidence under native thinking-on; full traces show effective-update/qualifier reasoning.243 original failures span97 questions;85 distinct questions remain untested. Native system prefix also changes, so no pure thinking-effect or population estimate. Study E verdict unchanged. See `experiments/probes/study_E_thinking/REPORT.md`.
+
+> **Study E confirmation (2026-09-06).** READER D1_WORKS: before answers177/640→302/640 (+19.53pp; group CI13.91–25.16; p=.00001),184 gains/59 losses. All guards pass; latest102/160 and absence160/160 each. Exact-source availability64/128→109/128; C1 complete-evidence wrong243/545. ORACLE524/640. Fresh native thinking-off run3508 calls/3840 logical answers; both capped attempts excluded.114 unique agent judgments, no human audit. Same-study Amendment005; no adoption. See `experiments/study_E/CONFIRMATION_REPORT.md`.
+
+> **Study E amended development (2026-09-06).** Amendment003 competing-update histories: exact required-source delivery4/16->13/16,9 gains/0 losses. Completed 43-call reader check gives before correctness3/12->6/12,4 gains/1 loss; latest3/4 and absence4/4 in both arms. Thirteen agent-scored exceptions; development only. Text-only duplicate-value counts are invalid. See `experiments/study_E/AMENDMENT_003_REPORT.md`.
+
+> **Study E before ordering (2026-09-06).** PART 1 COMPLETE; DESIGN RETURNED. Reader C0/C1 11/12 each, 1 gain/1 loss; C1 latest/absence 4/4 each. New development evidence complete20/20 both; exposed Study D replay16->32/32, availability only. Seventeen agent adjudications; seven corrected initial errors. No confirmation, equivalence or adoption. See `experiments/study_E/REPORT.md`.
 
 > **Study D address reader probe (2026-09-05).** EXPLORATORY, reader-only. Five complete short histories yield expected answers with event citations; a missing-update case starts wrongly at office then corrects to Cannot determine. Eight calls including two preflight repeats. Different explanatory prompt; no formal score, transfer or Study D failure attribution. See `experiments/probes/study_D_reader_address/REPORT.md`.
 
@@ -981,6 +993,7 @@ Runs use a scripted 120-turn conversation with facts planted at known positions 
 
 | # | Added | Result | Finding |
 |---|---|---|---|
+| E | Before-event candidate ordering | READER D1_WORKS | Final answers177/640→302/640 (+19.53pp); 32 synthetic groups; complete-evidence errors remain243; amended reader interface, agent review, no adoption |
 | D | Deterministic temporal allocation | READER D1_WORKS; scoring deviation | Correct generated answers 63/320->203/320; 32 synthetic sessions; eight agent judgments; transfer untested |
 | 001 | Recency and similarity retrieval | PARTIAL (2/3) | Similarity fired once in 32 turns |
 | 002 | Consolidation, rule pinning, 120 turns | PARTIAL (3/4) | Similarity recovered buried facts; consolidation produced 52 topics |

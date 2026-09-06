@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "reviewer": "single agent; calibration before new answer review; not independent human audit",
+  "cases": [
+    {"response": "<think>The location is office.</think>", "reference": "office", "score": 0, "rationale": "NO_ANSWER: reasoning-only, no final commitment outside tagged reasoning."},
+    {"response": "", "reference": "office", "score": 0, "rationale": "NO_ANSWER; also fails completeness."},
+    {"response": "The depot. Correction: the office. Final answer: office.", "reference": "office", "score": 1, "initial_wrong_assertion": true, "rationale": "Explicit final correction; record opening error separately."},
+    {"response": "Final answer: office or depot; I cannot choose.", "reference": "office", "score": 0, "rationale": "Unresolved competing final values."},
+    {"response": "The depot. It is not office.", "reference": "office", "score": 0, "rationale": "Wrong final commitment; reference substring cannot confer credit."},
+    {"response": "I don know.", "reference": "I don't know", "score": 1, "exact_format_compliant": false, "rationale": "Unambiguous misspelled semantic abstention."}
+  ]
+}
