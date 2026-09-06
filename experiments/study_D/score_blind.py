@@ -23,7 +23,7 @@ def score(row):
         correct=row['type']=='T4' and reference.isdigit() and number==int(reference)
         return {'score':int(correct),'parsed':number,'rationale':'Bare integer/day duration compared exactly; no substring matching.'}
     if re.fullmatch(r'[A-Za-z]{2,5}-[A-Za-z0-9-]+',value):
-        return {'score':int(value.casefold()==reference.casefold()),'parsed':value,'rationale':'Single bare identifier compared with the registered identifier; no other claim present.'}
+        return {'score':int(value==reference),'parsed':value,'rationale':'Single bare identifier compared exactly with the registered identifier; no other claim present.'}
     return {'score':None,'parsed':None,'rationale':'NEEDS_ADJUDICATION: surface is outside the prespecified unambiguous mechanical grammar.'}
 
 def main():
