@@ -6,6 +6,8 @@ On the same exposed 128 before questions, complete evidence changes **109→108:
 
 ## Validation and scope
 
+Follow-up difference probe (plan86a1d7c9, gate daeeb2fc) reproduces all192 original fusion contexts and tests three structural ablations. Forward-only gives110/128 (7 gains/6 losses), backward-only99 (0/10), and before-anchor child promotion108 (6/7). All six original rescues follow earlier location statements forward; seven losses demote direct ranks20–30. The115-case remainder is exposed, not a holdout. Scores overlap and simple temporal scope does not repair losses. Recommendation: retain C1 and require a defensible relational admission reason before promoting neighbors. Full findings in DIFFERENCE_REPORT.md; no reader claim or automatic successor run.
+
 - Plan-only commit168b9cfd precedes implementation; structural outputs/gate76a6e9b9 precede measurement.
 - All192 C1 payloads and stable selector traces replay exactly from a separate pinned checkout. Link-disabled payloads and repeated fusion are also exact.
 - Original DA function executes unchanged via AST extraction from pinned historical source. Session-boundary, active/inert, permutation, failed-gate and planted leakage fixtures pass.
