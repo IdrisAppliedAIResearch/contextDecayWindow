@@ -1,0 +1,5 @@
+# Development scoring freeze
+
+Before opening development final-answer content: score canonical location names from the fixed eight-value vocabulary with optional leading article "the", case folding, surrounding whitespace/quotes and trailing punctuation only. Canonical I don't know allows apostrophe normalization. Any other surface, including explanatory or self-correcting text, remains NEEDS_ADJUDICATION. Do not infer scores from substring matches. Blank receives zero but also invalidates reader completeness. Calibration/prefix outputs are never scored.
+
+Make a blinded surface without arm/source/trace; commit raw responses and completeness first. Commit mechanical scores, every rationale and any pending packet before descriptive aggregate analysis. Human review owns pending entries. No confirmation disposition comes from these development counts. This file fixes a grammar for simple human-readable locations, not a new response-format instruction to the reader. No reader prompt changes.
