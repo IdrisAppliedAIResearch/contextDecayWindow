@@ -1,0 +1,7 @@
+# Part 1 density extension — before confirmation
+
+The initial six-subject development population (seeds93001-93004) delivers every answerable sufficient set in both arms: 20/20 each. Preserve its corpus, vectors and traces. Ordering changes all16 primary prompts but availability saturates. Confirmation seeds remain unopened.
+
+Bounded extension: create one denser development version using three independently instantiated operational paragraphs per record, rather than one; keep the six subjects, placements, questions, golds, record count and intervention fixed. Expected record size about2,000-2,500chars. Use new artifact directory development_dense. Generate no additional seed or budget alternatives. New vectors are necessary for changed full records, using the same frozen single-text embedder. After offline characterization decide whether the instrument offers missing-evidence and harm opportunities; do not claim that artificial record length generalizes to organic conversations. A long-format corpus changes the proposed population from the initial draft and must be explicit in final registration.
+
+This is an outcome-unopened development repair, not a change to any registered confirmation or an optimization on reader scores. All prior preflight requirements remain binding. The unchanged max35call development reader schedule will use only this revised version if valid; no new live scope is added.
