@@ -1,11 +1,9 @@
-# Study E continuation by amendment
+# Study E continuation status
 
-Updated 2026-09-06. **Amendment 003 reader running; no reader result yet.** This continues Study E and does not register another study. [REPORT.md](REPORT.md) documents the earlier completed pilot only.
+Updated 2026-09-06. **Amended development complete; registered confirmation inputs are being prepared.** This continues the same Study E and PR95.
 
-Amendment 002 expanded the eligible pools with shared neutral dispatch logs, but exact required support still saturated at 16/16 in each arm. Its readiness check stopped the reader stage.
+The Amendment003 reader scored C0 3/12 and C1 6/12 on before questions: four gains, one loss. Latest tied3/4; absence tied4/4. On those12 questions complete evidence rose3/12 to10/12, but C1 still missed four complete-evidence cases. Thirteen exceptions used authorized agent judgments without human audit. See AMENDMENT_003_REPORT.md; these are development results, not a confirmation verdict.
 
-Amendment 003 uses six independent 140-record histories per group, retaining the original six conditions while adding genuine earlier updates. Four development groups contain 24 histories. The exact-source readiness check gives C0 complete 4/16 and C1 complete 13/16 before questions, nine gains and no losses. This is availability, not reader correctness. The old text-only helper miscounted repeated values; its original counts are invalid and preserved alongside the additive exact correction.
+Confirmation registration2e047c41c80748b16f0e6df15dcc70ac54145598 is a design-only commit. It retains the original numerical bars and ordering-only mechanism. The prospective population has32 groups,192 independent140-record histories, five seeds and four logical arms, yielding3,840 logical answers. Exact duplicate prompt/seed pairs share physical calls. The reader has not started; source/vector preparation runs on eight CPU workers.
 
-The 43-call schedule is sealed: three calibration calls, 24 paired before answers and 16 paired latest/absence guards. The prefix passed. Reader, prompt and budgets are unchanged. Agent adjudication of development exceptions is explicitly authorized and will be disclosed; no human-audit claim. Confirmation remains unregistered and unopened, within this same study.
-
-Anchors: Amendment002 dbf48376; Amendment003 e9873fb5; measurement correction ea9ad203; exactinputs cf640b14; reader/scoringseal e06398d0. No further density or outcome-selected sweep. Completion and failures are monitored quietly.
+The shared-log variant in Amendment002 and initial pilot remain preserved. Text-only duplicate-value counts in Amendment003 are invalid; exact required source identities govern all current availability measurements. Confirmation mechanism traces and reader outcomes remain unopened until all scores are committed. No adoption or deployment.

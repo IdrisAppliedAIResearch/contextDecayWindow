@@ -146,7 +146,7 @@ flush against the page there rather than showing as a panel.*
 
 *Last updated 2026-09-06, after Study E development.*
 
-**Study E continues by amendment.** The initial reader pilot tied at 11/12. Revised competing-update histories now provide the intended mixed-support test: exact evidence is complete on 4/16 before questions under the prior ordering and 13/16 under newest-first ordering. The bounded reader check is running; availability is not yet a reader result. Confirmation remains within Study E and is not locked. [Status](experiments/study_E/AMENDMENT_STATUS.md).
+**Study E's amended development improved final answers from 3/12 to 6/12**, with four gains and one loss. Four answers still failed despite complete evidence. The same study's confirmation design is now locked, and full inputs are being prepared; the pilot is not a confirmation verdict. [Development report](experiments/study_E/AMENDMENT_003_REPORT.md).
 
 **Temporal allocation improved correctly generated reader answers.** Scored final-answer accuracy rose from 19.7% to 63.4% across 32 randomized synthetic histories, clearing the registered reader-success bar. Evidence availability is reported separately as a diagnostic. Latest-setting retrieval improved most; immediately-before accuracy remains 26.9%. Eight answers used explicitly authorized single-agent scoring instead of the registered human review. This has not been adopted. [Report](experiments/study_D/REPORT.md).
 
@@ -431,7 +431,7 @@ confirmation.
 
 ## Next Steps
 
-Complete blind scoring of [Study E's amended reader check](experiments/study_E/AMENDMENT_STATUS.md), then use those development findings to finalize the same study's confirmation design. Do not treat recovered evidence as successful answers; confirmation inputs remain unopened.
+Complete [Study E confirmation](experiments/study_E/PRE_REGISTRATION.md) through input validation, gated reader inference and blind scoring. Keep reader correctness distinct from evidence availability; the development gain is not a confirmation verdict.
 
 1. **Validate episodic-chat 0.2.0 outside the spent LoCoMo corpus.** Freeze an
    external reader and retrieval study—preferably EnterpriseRAG-Bench or an
@@ -987,7 +987,7 @@ Runs use a scripted 120-turn conversation with facts planted at known positions 
 
 | # | Added | Result | Finding |
 |---|---|---|---|
-| E development | Before-event candidate ordering | AMENDED DEVELOPMENT RUNNING | Initial reader 11/12 each; revised exact evidence 4/16->13/16; reader running, no confirmation |
+| E | Before-event candidate ordering | CONFIRMATION PREPARING | Amended development reader3/12->6/12,4gains1loss; evidence not sufficient for correctness; confirmation locked |
 | D | Deterministic temporal allocation | READER D1_WORKS; scoring deviation | Correct generated answers 63/320->203/320; 32 synthetic sessions; eight agent judgments; transfer untested |
 | 001 | Recency and similarity retrieval | PARTIAL (2/3) | Similarity fired once in 32 turns |
 | 002 | Consolidation, rule pinning, 120 turns | PARTIAL (3/4) | Similarity recovered buried facts; consolidation produced 52 topics |
