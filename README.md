@@ -144,7 +144,9 @@ flush against the page there rather than showing as a panel.*
 
 ## Current State of Work
 
-*Last updated 2026-08-24, after HH-003 deployed-library validation.*
+*Last updated 2026-09-05, after Study D temporal retrieval.*
+
+**Temporal allocation improved this synthetic reader test.** Primary accuracy rose from 19.7% to 63.4% across 32 randomized histories. Latest-setting retrieval improved most; immediately-before accuracy remains 26.9%. Eight answers used explicitly authorized single-agent scoring instead of the registered human review. This has not been adopted. [Report](experiments/study_D/REPORT.md).
 
 **The deployable read path is now episodic-chat 0.2.0.** The latest 32 complete
 exchanges are always additive continuity context and do not spend the long-term
@@ -427,6 +429,8 @@ confirmation.
 
 ## Next Steps
 
+Review [Study D](experiments/study_D/REPORT.md) before considering a separately registered transfer study. Its before-event weakness and untested temporal fabrication harm remain open; no successor is automatically authorized.
+
 1. **Validate episodic-chat 0.2.0 outside the spent LoCoMo corpus.** Freeze an
    external reader and retrieval study—preferably EnterpriseRAG-Bench or an
    equivalently conflict-bearing enterprise corpus—before tuning anything.
@@ -466,6 +470,8 @@ Commercial enquiries: **idrisappliedairesearch@gmail.com**.
 ---
 
 # For LLM Context
+
+> **Study D temporal retrieval (2026-09-05).** D1_WORKS with authorized scoring deviation: 32 synthetic sessions, primary 63/320->203/320 (+43.75pp; CI 33.44-53.75; p=.00001). Latest 30%->100%, before 9.38%->26.88%; evidence 20/64->48/64. Eight single-agent judgments, no human audit. Absence harm untested; multi-hop shortcuts. No adoption. See `experiments/study_D/REPORT.md`, `amendments/AMENDMENT_001_agent_adjudication.md`, and `artifacts/confirmation/result.json` within that study.
 
 **Everything below this line is the full record.** It is written for an agent
 picking up this work with no prior context, and it is deliberately dense: every
@@ -973,6 +979,7 @@ Runs use a scripted 120-turn conversation with facts planted at known positions 
 
 | # | Added | Result | Finding |
 |---|---|---|---|
+| D | Deterministic temporal allocation | D1_WORKS; scoring deviation | Primary 63/320->203/320; 32 synthetic sessions; eight agent judgments; no adoption |
 | 001 | Recency and similarity retrieval | PARTIAL (2/3) | Similarity fired once in 32 turns |
 | 002 | Consolidation, rule pinning, 120 turns | PARTIAL (3/4) | Similarity recovered buried facts; consolidation produced 52 topics |
 | 003 | LTM write path | PARTIAL (2/3) | Promotion behaved as novelty detection, not salience judgment |

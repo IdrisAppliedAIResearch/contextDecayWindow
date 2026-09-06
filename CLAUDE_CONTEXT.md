@@ -1,5 +1,9 @@
 # contextDecayWindow Research Context
 
+**Study D temporal retrieval (2026-09-05).** D1_WORKS with authorized scoring deviation: 32 synthetic sessions, primary 63/320->203/320 (+43.75pp; CI 33.44-53.75; p=.00001). Latest 30%->100%, before 9.38%->26.88%; evidence 20/64->48/64. Eight single-agent judgments, no human audit. Absence harm untested; multi-hop shortcuts. No adoption.
+
+Authoritative closeout: `experiments/study_D/REPORT.md`. Original pending scores remain immutable; Amendment 001 resolved eight entries on explicit user direction. No further inference or adoption authorized.
+
 > **Current-record warning (2026-07-29):** Sections below preserve older
 > working context and contain pre-audit scores. `AGENTS.md`, `ERRATA.md`, and
 > the committed reports are authoritative. Study 009 S is 9.0, not 10.5.

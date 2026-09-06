@@ -32,3 +32,7 @@ These commands are not instructions to repeat a completed registered run. Existi
 The immutable baseline is imported from the prior-code worktree. `temporal.py` receives only source records, a query and vectors; it imports no corpus-authoring or scoring code. `corpus*.py` create source and measurement manifests. The confirmation driver uses labels only for oracle construction and separated measurement. `score_blind.py` reads only the sealed blind surface and completeness gate. Outcome analysis opens the mapping and mechanism traces only after committed scoring.
 
 The implemented study uses the shipped 32,000-character retrieval allowance and identical additive continuity, while recording exact prompt tokens. It is not a matched-token-spend experiment. All seven query types share a restricted synthetic generator, and only T1/T2 constitute the primary reader contrast. Five seed outputs do not create five independent sessions.
+
+## Amendment 001 scoring resolution
+
+The original scoring gate remains PENDING_ADJUDICATION as an immutable historical artifact. The user authorized single-agent adjudication; `agent_adjudication.json`, `resolved_scores.json` and `resolved_scoring_gate.json` are additive. The analyzer consumes the committed resolved set and verifies its hash. `verify_artifacts.py` verifies both sets and asserts every mechanical entry is unchanged. See the amendment and REPORT.md for the scoring deviation. No human review is claimed.
