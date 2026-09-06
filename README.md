@@ -144,9 +144,9 @@ flush against the page there rather than showing as a panel.*
 
 ## Current State of Work
 
-*Last updated 2026-09-06, after the uncapped relevance-timeline reader probe.*
+*Last updated 2026-09-06, after the full Study E single-arm reader.*
 
-The [uncapped relevance timeline](experiments/probes/temporal_da_fusion/RELEVANCE_REPORT.md) selects by cosine0.48 plus the question anchor, then presents chronologically without additive recency. Complete evidence reaches128/128 before questions; a fresh small reader comparison improves8/12→11/12 (four gains,one loss), with four guards unchanged. It retains most related history, about108records. The threshold is a starting point, not a validated completion rule; production defaults are unchanged.
+The [full Study E reader](experiments/probes/temporal_da_fusion/FULL_E_REPORT.md) scores106/128 (82.8%) on immediately-before questions and32/32 each on latest and absence. It uses uncapped cosine0.48 plus anchors, chronological presentation, and thinking off. All22 misses have complete evidence present. This expands the small probe to192 questions on the familiar synthetic corpus; it does not establish generalization or change production defaults.
 
 **Study E confirmed a reader benefit from newest-first before-event ordering:** correct final answers rose from 177/640 (27.66%) to 302/640 (47.19%), a 19.53-point gain (95% interval 13.91–25.16; p=.00001), passing the registered bar and harm guards. Complete-evidence delivery rose from 64/128 to 109/128 questions, but 243 answers still failed with complete evidence. This synthetic result uses an amended native thinking-off reader interface and 114 blinded agent judgments; it has not been adopted. [Confirmation report](experiments/study_E/CONFIRMATION_REPORT.md).
 
@@ -433,7 +433,7 @@ confirmation.
 
 ## Next Steps
 
-Carry the fixed [cosine0.48 plus anchor chronological timeline](experiments/probes/temporal_da_fusion/RELEVANCE_REPORT.md) into a broader reader comparison before choosing an adaptive relevance boundary. Preserve uncapped outputs and examine the complete-evidence regression; the exposed16-question probe cannot establish reliability or transfer. Unconditional fusion still displaces useful evidence.
+Keep the relevance timeline frozen. Diagnose the22 evidence-complete reader errors from the [full E run](experiments/probes/temporal_da_fusion/FULL_E_REPORT.md), then test transfer on untouched natural-conversation temporal questions. The expanded synthetic run does not justify threshold tuning or an adoption claim.
 
 1. **Validate episodic-chat 0.2.0 outside the spent LoCoMo corpus.** Freeze an
    external reader and retrieval study—preferably EnterpriseRAG-Bench or an
@@ -474,6 +474,8 @@ Commercial enquiries: **idrisappliedairesearch@gmail.com**.
 ---
 
 # For LLM Context
+
+> **Full E relevance reader (2026-09-06).** EXPLORATORY single arm: before106/128,latest32/32,absence32/32,total170/192. All22errors evidence-complete; prior16 15/16,remainder155/176,not holdout. NativeOFF,seed5005,179canonical+13agent scores. Plan2519aff9; [report](experiments/probes/temporal_da_fusion/FULL_E_REPORT.md). No control/generalization/adoption.
 
 > **Uncapped relevance timeline (2026-09-06).** EXPLORATORY. Legacy rawcosine>=.48 plus existing anchors, no8k/32k cap or additive recency, chronological. Ebefore128/128complete vs109C1;PURE111/128 loses17anchors. Median108records/84,627chars. Fresh native-off paired reader8/12→11/12 (4g1l),fourguards correct;3agent prosejudgments. All4prior misses corrected,Meadow637 newcomplete-evidence error. Dpure11/32before is different diagnostic. Plan1676445b/read860ea072; allresolvedscores7cec805. `experiments/probes/temporal_da_fusion/RELEVANCE_REPORT.md`; noadoption.
 
@@ -1008,6 +1010,7 @@ Runs use a scripted 120-turn conversation with facts planted at known positions 
 | Fusion draft | DA adjacency after protected E temporal records | EXPLORATORY | Evidence109/128→108/128;6 gains7 losses; exact replay192/192; no reader calls or full DA codec port |
 | Fusion difference | Direction and before-anchor link ablations | EXPLORATORY | Forward110/128 (7g/6l), backward99 (0/10), before-anchor108 (6/7); no safe admission signal or reader result |
 | Chronology probe | Same retrieved evidence, remove recent context, sort ascending | EXPLORATORY reader | Before5/12→5/12→8/12;4guards correct;native off,16questions,48calls; no adoption |
+| Full E relevance reader | Frozen uncapped chronology,192questions | EXPLORATORY single arm | Before106/128;latest32/32;absence32/32;all22misses evidence-complete;no generalization claim |
 | Relevance timeline | Cosine0.48 plus anchor, uncapped chronological records | EXPLORATORY reader | Evidence128/128;fresh before8/12→11/12 (4g1l),4guards correct;108records median,3agentjudgments;noadoption |
 | E | Before-event candidate ordering | READER D1_WORKS | Final answers177/640→302/640 (+19.53pp); 32 synthetic groups; complete-evidence errors remain243; amended reader interface, agent review, no adoption |
 | D | Deterministic temporal allocation | READER D1_WORKS; scoring deviation | Correct generated answers 63/320->203/320; 32 synthetic sessions; eight agent judgments; transfer untested |

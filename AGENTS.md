@@ -208,6 +208,8 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **Relevance timeline (2026-09-06).** EXPLORATORY. Cosine>=.48+anchors,uncapped,no recency,chronological. Ebefore evidence109/128→128/128 (pure111). Fresh native-off reader8/12→11/12 (4g1l),guards4/4. Median108records/84,627chars.3agent judgments;1complete-evidence regression. .48 is legacy default,not optimum. Plan1676445b; noadoption.
 
+**Full E relevance reader (2026-09-06).** EXPLORATORY single arm,192questions/seed5005/nativeOFF. Before106/128 (82.81%),latest32/32,absent32/32;total170/192. All22misses evidence-complete. Prior16 15/16,remainder155/176 (not holdout).179canonical+13agent judgments;2200output tokens,17.68min. Plan2519aff9; no control/generalization/adoption claim.
+
 ## 3. Failure Pattern
 
 The recurring failure class is a surrogate that can pass without the property it claims to certify: record count for information, novelty for importance, density for factual value, or a rubric score for a correct answer.

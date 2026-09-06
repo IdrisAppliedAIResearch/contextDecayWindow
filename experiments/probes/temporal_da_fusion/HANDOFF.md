@@ -1,8 +1,6 @@
-# ACTIVE: full Study E single-arm inference running
+# ACTIVE: full E relevance run complete
 
-September6 user authorized full E single arm. Plan2519aff9; runner7ec5b2bc; exact192 timeline and16 native prompt replay/input gatef9b47817; duplicate arithmetic45 calibrationd0280749. Running full_e_reader.py run, runner8452, owned llama-server26204, port8097. Output relevance_artifacts/full_e_reader. All192 distinct questions once seed5005/nativeOFF/output4096/context32768; maxinput18707, no crop. Frozen .48+anchors chronology/no additive recency/no retrieval cap. Quiet heartbeat study-e-development-completion resumed every5min, will finish scoring/closeout or report failure. No duplicate calls or uncertain retries.
-
-Next: complete.json PASS and192 hashes -> verify/stop owned server/save server_stopped.json -> commit raw captures and logs -> full_e_reader.py score -> commit blinded scores -> adjudicate prose under carried single-agent authorization into separate files -> commit resolved scores before aggregate. Write FULL_E_REPORT.md with128before,32latest,32absent/six strata, wrong answers+availability,16 prior-probe overlap vs176 remainder (not holdout), output token use/runtime. Update README/AGENTS<=400chars/PR96 and pause heartbeat. No formal generalization/control/adoption claim. Previous results below are completed and immutable.
+Full192 single arm COMPLETE. Plan2519aff9,code7ec5b2bc,inputf9b47817,cald0280749,raw52d61701,mechanicaldaee2ce6,13judgments024bed06,resolved7fe9b86a beforeaggregate. Before106/12882.8125%;latest32/32;absent32/32;total170/192. All22wrong evidence-complete. Prior16 15/16,remainder155/176 notheldout.179canonical+13single-agent (8correct5wrong);nohuman audit. NativeOFF/seed5005/output4096/context32768/frozen.48+anchor chronology,uncapped,no additive recency. Output2200total,median3,max414;17.68min. Server26204 verified/stopped;runnerdone. FULL_E_REPORT.md lists22misses;result.json all192. No control/transfer/adoption claim. Closeout must pause existing heartbeat and updatePR96. Earlier results below preserved.
 
 # Fusion draft handoff
 
