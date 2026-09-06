@@ -1,11 +1,11 @@
 import json,hashlib,os,time,concurrent.futures,sys,html
 from pathlib import Path
 import numpy as np
-from corpus import make_session
+from corpus_dense import make_session
 from mechanism import build,ENGINE
 from analysis.hh001_prompt import render_reader_prompt
 from episodic._render import render_stm_payload
-P=Path(__file__).parent/'artifacts/part1/development'
+P=Path(__file__).parent/'artifacts/part1/development_dense'
 def init():
  global EMB,SENT
  from episodic._embedding import PinnedEmbedder
