@@ -1,12 +1,9 @@
-# Study E memory update â€” 2026-09-06
+# Study E memory update — 2026-09-06
 
-Part 1 complete; confirmation design returned for revision, not a mechanism-failure verdict. Plan anchor 5693e6b0dba579ab059f5b5abe8398f3c4b5916e; no confirmation registration or generation. Sole intervention: accepted before-anchor candidates newest-first, same anchor/set/8k temporal/32k final/full-record renderer and HH-001 reader.
+Same-study continuation authorized. Branch study/E-before-ordering; PR95. Original Part1 pilot: reader11/12each,1gain1loss;17agent exceptions; nohuman audit. Both original corpora complete20/20, so corpus revision was required for missing-evidence competition. Those artifacts and REPORT.md remain historical.
 
-Replay 224/224 prior Study D prompts exact. Exposed before complete evidence 16->32/32, zero new reader calls on that replay. New initial and dense development both complete20/20 each arm. Dense prompts changed16 before+4absence;8 membership changes. This generator does not exercise missing-evidence rescue.
+Amendment002 expanded neutral subject mentions but complete16/16each; stopped before reader. Amendment003 competing-update histories passed exact-source readiness4/16->13/16,9gains0losses. Text-only duplicate-value counts are invalid and superseded by exact required source IDs.
 
-35 physical calls complete:3calibration+24paired before+8C1 guards. Final before C0/C1 11/12 each:1gain1loss10ties; latest4/4 and absent4/4 C1 only. Seven initially wrong assertions corrected by final answer (3C0,4C1). Final-answer score is not response consistency. Seventeen noncanonical responses agent-adjudicated under explicit user authorization, Amendment001; no human audit. All resolved scores committed3928e6ea before aggregate opened. Prior files immutable.
+Amendment003 reader COMPLETE:3/12->6/12,4gains1loss7ties. Latest3/4each byteidentical; absence4/4each. On the12 read beforequestions, complete3->10 and C1completewrong4. Thirteen agent adjudications, nohuman audit. Scores5ad31974 precede aggregate4c28e643. AMENDMENT_003_REPORT.md owns these development results.
 
-No literal perfect-reader ceiling stop fired: near ceiling with two discordant errors. Return design for source-competition and scoring specification, not outcome-selected tuning. No confirmation, adoption or further run automatically authorized. REPORT.md and DESIGN_REVIEW.md own interpretation. Server stopped; automation paused; development closeout PR only.
-
-
-Continuation: user authorized amendments within Study E. See AMENDMENT_STATUS.md and HANDOFF.md for active Amendment003. Initial closeout is historical, not an execution block. Exactsource readiness4/16->13/16;43callreader running. Authorizationforagentdevelopmentadjudication explicitlycontinued; no repeatapprovalneeded. No confirmation opened.
+Same StudyE confirmation design-only registration2e047c41c80748b16f0e6df15dcc70ac54145598. Thirty-two groups,192 histories of140records, five seeds,four logicalarms=3840logicalanswers. Confirmation input preparation running session92869. Original thresholds retained; single-agent exception scoring prospectively disclosed. No confirmation outcomes opened. HANDOFF.md owns next runtime/scoring stages. Dedicated development server9544 stopped. No merge/adoption/deployment.
