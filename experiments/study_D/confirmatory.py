@@ -26,6 +26,7 @@ from develop import worker_init,embed
 from statistics_locked import reachability
 from analysis.hh001_prompt import render_reader_prompt
 from episodic._render import render_stm_payload
+from episodic._ranking import rank_cc80
 
 def digest(data):
     return hashlib.sha256(data if isinstance(data,bytes) else data.encode()).hexdigest()
@@ -124,9 +125,13 @@ def prepare():
         for p in s['probes']:
             start=time.perf_counter()
             a,b,trace=build(es,p['query'],vectors[p['query']])
+            scored_rank=rank_cc80(es,p['query'],vectors[p['query']],dense_weight=.8,bm25_k1=1.2,bm25_b=.75)
+            assert list(scored_rank.order)==trace['ranking']
+            trace['scores']={'cc80':list(scored_rank.scores),'dense':list(scored_rank.dense_scores),'bm25':list(scored_rank.bm25_scores)}
             latency=time.perf_counter()-start
             # Gold enters only this reference construction/measurement block.
             label=labels[p['id']]
+            trace['candidate_gold_ids_present']={identifier:identifier in by_id for identifier in label['gold_ids']}
             oracle=render_stm_payload([],sorted([by_id[x] for x in label['gold_ids']],key=lambda e:e['turn_number'])) if label['gold_ids'] else ''
             blocks={'C0':a,'C1':b,'ORACLE':oracle,'NULL':''}
             delivered={arm:re.findall(r'<episode turn="(\d+)">',text) for arm,text in blocks.items()}
