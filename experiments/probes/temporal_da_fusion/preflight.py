@@ -30,6 +30,12 @@ def require_gate(g):
     if g.get('status') != 'PASS': raise ValueError('Structural gate has not passed')
 
 
+def stable_trace(t):
+    t = json.loads(json.dumps(t))
+    t['prior']['baseline_report'].pop('latency_ms')
+    return t
+
+
 def fixtures():
     nodes = [SimpleNamespace(session_identity=s, pair_order=i) for s,i in [('a',0),('a',1),('a',2),('b',0),('b',1)]]
     order = (1,4,0,3,2)
@@ -73,7 +79,7 @@ def main():
         q = h['probes'][0]
         es = [dict(e,embedding=vectors[e['user_message']+'\n'+e['assistant_message']]) for e in h['episodes']]
         _,baseline,trace = E.build(es,q['query'],vectors[q['query']])
-        assert trace == traces[h['id']]
+        assert stable_trace(trace) == stable_trace(traces[h['id']])
         assert render_reader_prompt(q['query'],baseline)+'\n<think>\n</think>\n' == prompts[h['id'],'C1']
         assert list(trace['prior']['ranking']) == curves[h['id']]['order']
         neutral,_ = fuse(es,q['query'],trace,baseline,links=False)
@@ -102,7 +108,8 @@ def main():
     save(O/'blind_outputs.json',rows)
     paths = [I/n for n in ['sources.json','vectors.npz','traces_sealed.json','prompts.json','manifest.json']]
     paths += [DA_SOURCE,CONTROL/'experiments/study_E/mechanism.py',P/'mechanism.py',P/'preflight.py',P/'PLAN.md']
-    gate = dict(status='PASS',baseline_contexts_exact=192,baseline_traces_exact=192,no_link_contexts_exact=192,
+    gate = dict(status='PASS',baseline_contexts_exact=192,baseline_stable_traces_exact=192,no_link_contexts_exact=192,
+        trace_normalization='JSON tuple/list normalization; remove only measured latency_ms',
         repeated_fusion_exact=192,fixtures=checks,outputs_sha256=sha(O/'blind_outputs.json'),
         inputs={str(p):sha(p) for p in paths},workers=4,numeric_threads=1,
         wall_seconds=time.monotonic()-started,cpu_seconds=time.process_time()-cpu,
