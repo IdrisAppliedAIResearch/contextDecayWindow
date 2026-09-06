@@ -144,9 +144,9 @@ flush against the page there rather than showing as a panel.*
 
 ## Current State of Work
 
-*Last updated 2026-09-06, after the preliminary temporal–DA fusion preflight.*
+*Last updated 2026-09-06, after the same-retrieval chronological reader probe.*
 
-The [fusion difference probe](experiments/probes/temporal_da_fusion/DIFFERENCE_REPORT.md) finds that forward links recover later updates, while neighbor priority displaces strong direct evidence. Forward-only gives seven evidence gains and six losses; backward-only gives no gains and ten losses. C1 remains the working baseline. These exposed-data diagnostics have no reader result.
+The [chronological reader probe](experiments/probes/temporal_da_fusion/CHRONOLOGY_REPORT.md) keeps C1 retrieval fixed: before answers score5/12 originally,5/12 without recent context, and8/12 when the remaining records are chronological. Four guards stay correct; native thinking is off. This small reader result favors checking presentation before further fusion tuning. Production defaults are unchanged.
 
 **Study E confirmed a reader benefit from newest-first before-event ordering:** correct final answers rose from 177/640 (27.66%) to 302/640 (47.19%), a 19.53-point gain (95% interval 13.91–25.16; p=.00001), passing the registered bar and harm guards. Complete-evidence delivery rose from 64/128 to 109/128 questions, but 243 answers still failed with complete evidence. This synthetic result uses an amended native thinking-off reader interface and 114 blinded agent judgments; it has not been adopted. [Confirmation report](experiments/study_E/CONFIRMATION_REPORT.md).
 
@@ -433,7 +433,7 @@ confirmation.
 
 ## Next Steps
 
-Preserve C1's direct evidence while developing a defensible reason to admit a linked successor. The [difference probe](experiments/probes/temporal_da_fusion/DIFFERENCE_REPORT.md) shows that direction and temporal scope alone do not supply that reason. Avoid tuning a distance threshold to this generator; a relational successor needs independent examples and reader validation.
+Prioritize a larger paired reader check of [chronological presentation without additive recency](experiments/probes/temporal_da_fusion/CHRONOLOGY_REPORT.md), preserving C1's retrieval. The16-question probe is promising but too small for adoption. Unconditional fusion still displaces useful evidence; any linked successor needs an independent admission reason.
 
 1. **Validate episodic-chat 0.2.0 outside the spent LoCoMo corpus.** Freeze an
    external reader and retrieval study—preferably EnterpriseRAG-Bench or an
@@ -474,6 +474,8 @@ Commercial enquiries: **idrisappliedairesearch@gmail.com**.
 ---
 
 # For LLM Context
+
+> **Chronological same-retrieval reader probe (2026-09-06).** EXPLORATORY. Original/no-recency/chronological-no-recency before5/12,5/12,8/12; chronology3g0l. All8 evidence-complete cases correct,4 incomplete wrong; latest2/2 and absence2/2 each.48 fresh native-off calls,16 fixed questions,seed5005,canonical scoring.192 exact membership/render checks. Context median57,331→31,686chars. Plan c9158936; raw db6c770c; scores4f5c458. Post-run negative gate fixture timing disclosed. No adoption; `experiments/probes/temporal_da_fusion/CHRONOLOGY_REPORT.md`.
 
 > **Fusion difference probe (2026-09-06).** EXPLORATORY. Six rescues follow seeds rank4–11 forward; seven losses demote direct evidence rank20–30 to traversal41–53. Forward-only109→110 (7g/6l), backward99 (0/10), pre-anchor108 (6/7). Exposed115-case remainder forward1g/0l. Scores overlap;10–12-turn carrier distance is generator-dependent, not a cutoff. Keep C1, require a relational admission reason. Plan86a1d7c9/gatedaeeb2fc; no reader calls. See `experiments/probes/temporal_da_fusion/DIFFERENCE_REPORT.md`.
 
@@ -1001,6 +1003,7 @@ Runs use a scripted 120-turn conversation with facts planted at known positions 
 |---|---|---|---|
 | Fusion draft | DA adjacency after protected E temporal records | EXPLORATORY | Evidence109/128→108/128;6 gains7 losses; exact replay192/192; no reader calls or full DA codec port |
 | Fusion difference | Direction and before-anchor link ablations | EXPLORATORY | Forward110/128 (7g/6l), backward99 (0/10), before-anchor108 (6/7); no safe admission signal or reader result |
+| Chronology probe | Same retrieved evidence, remove recent context, sort ascending | EXPLORATORY reader | Before5/12→5/12→8/12;4guards correct;native off,16questions,48calls; no adoption |
 | E | Before-event candidate ordering | READER D1_WORKS | Final answers177/640→302/640 (+19.53pp); 32 synthetic groups; complete-evidence errors remain243; amended reader interface, agent review, no adoption |
 | D | Deterministic temporal allocation | READER D1_WORKS; scoring deviation | Correct generated answers 63/320->203/320; 32 synthetic sessions; eight agent judgments; transfer untested |
 | 001 | Recency and similarity retrieval | PARTIAL (2/3) | Similarity fired once in 32 turns |
