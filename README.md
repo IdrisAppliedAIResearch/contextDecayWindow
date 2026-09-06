@@ -146,7 +146,7 @@ flush against the page there rather than showing as a panel.*
 
 *Last updated 2026-09-06, after Study E development.*
 
-**Study E continues by amendment.** The initial reader pilot tied at11/12. Revised competing-update histories now provide the intended mixed-support test: exact evidence is complete on4/16 before questions under the prior ordering and13/16 under newest-first ordering. The bounded reader check is running; availability is not yet a reader result. Confirmation remains within Study E and is not locked. [Status](experiments/study_E/AMENDMENT_STATUS.md).
+**Study E continues by amendment.** The initial reader pilot tied at 11/12. Revised competing-update histories now provide the intended mixed-support test: exact evidence is complete on 4/16 before questions under the prior ordering and 13/16 under newest-first ordering. The bounded reader check is running; availability is not yet a reader result. Confirmation remains within Study E and is not locked. [Status](experiments/study_E/AMENDMENT_STATUS.md).
 
 **Temporal allocation improved correctly generated reader answers.** Scored final-answer accuracy rose from 19.7% to 63.4% across 32 randomized synthetic histories, clearing the registered reader-success bar. Evidence availability is reported separately as a diagnostic. Latest-setting retrieval improved most; immediately-before accuracy remains 26.9%. Eight answers used explicitly authorized single-agent scoring instead of the registered human review. This has not been adopted. [Report](experiments/study_D/REPORT.md).
 
@@ -472,6 +472,8 @@ Commercial enquiries: **idrisappliedairesearch@gmail.com**.
 ---
 
 # For LLM Context
+
+> **Study E amended development (2026-09-06).** Amendment 003 uses competing-update histories after shared neutral logs still saturated. Exact required-source delivery is 4/16 vs 13/16, nine gains and no losses. The 43-call reader check is running; no reader result or confirmation claim yet. Text-only duplicate-value counts are invalid. See `experiments/study_E/AMENDMENT_STATUS.md`.
 
 > **Study E before ordering (2026-09-06).** PART 1 COMPLETE; DESIGN RETURNED. Reader C0/C1 11/12 each, 1 gain/1 loss; C1 latest/absence 4/4 each. New development evidence complete20/20 both; exposed Study D replay16->32/32, availability only. Seventeen agent adjudications; seven corrected initial errors. No confirmation, equivalence or adoption. See `experiments/study_E/REPORT.md`.
 
@@ -985,7 +987,7 @@ Runs use a scripted 120-turn conversation with facts planted at known positions 
 
 | # | Added | Result | Finding |
 |---|---|---|---|
-| E development | Before-event candidate ordering | PART 1 COMPLETE; DESIGN RETURNED | Reader 11/12 each, 1 gain/1 loss; evidence complete in both; 17 agent adjudications; no confirmation |
+| E development | Before-event candidate ordering | AMENDED DEVELOPMENT RUNNING | Initial reader 11/12 each; revised exact evidence 4/16->13/16; reader running, no confirmation |
 | D | Deterministic temporal allocation | READER D1_WORKS; scoring deviation | Correct generated answers 63/320->203/320; 32 synthetic sessions; eight agent judgments; transfer untested |
 | 001 | Recency and similarity retrieval | PARTIAL (2/3) | Similarity fired once in 32 turns |
 | 002 | Consolidation, rule pinning, 120 turns | PARTIAL (3/4) | Similarity recovered buried facts; consolidation produced 52 topics |
