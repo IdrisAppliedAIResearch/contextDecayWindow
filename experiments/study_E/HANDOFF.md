@@ -17,3 +17,8 @@ Meaningfulchecks: fourtests test_contract.py pass; sourcegold independentlyregex
 Knownpreparationsfixedbefore reader: syntheticwrongvectordimension, generatorallocationslotscollision, denseinitialwrongartifactdir(caughtcache-textgate; restoredalloriginalbytesclean), oneautomaticapprovalrejectionofcombinedcommand(resolvedbyseparatingoperations). All notedPart1_READER_GATE. No inference retry.
 
 Closeout ifstageends: report preciseinstrumentfinding and successorneed, updateREADME/AGENTS<=400/memory, commitlogsandgates, open ownPR stackedon study/D-reader-address-probe (currentbase4e01f4d8). Do not alterStudyD or probeoutcomes. Do not merge/adopt.
+
+
+## Completion update
+
+All 35 calls completed; raw outputs and completeness committed at acc6a07. Dedicated server stopped after identity verification. Blind mechanical scoring committed at 2a237b0c: 17 of 32 measurement answers require adjudication. REVIEW_PACKET.md preserves their complete answers with references and no arm identities. No aggregate analysis opened. Pending review requires human adjudication or explicit Study E authorization for agent scoring; prior Study D waiver is not assumed. Automation paused. Confirmation remains unregistered and unopened.
