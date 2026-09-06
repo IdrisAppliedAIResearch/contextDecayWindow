@@ -11,7 +11,7 @@ import urllib.request
 
 ROOT = Path(__file__).resolve().parents[3]
 P = Path(__file__).resolve().parent
-O = P / 'artifacts'
+O = P / 'artifacts_v2'
 OLD = ROOT / 'experiments/study_E/artifacts/confirmation/restart005'
 I = OLD.parent / 'development_inputs'
 CAP = 16384
@@ -78,6 +78,7 @@ def fixtures():
 
 def prepare():
     committed(P/'PLAN.md'); committed(Path(__file__).resolve())
+    committed(P/'TEMPLATE_NOTE.md')
     assert not O.exists(), 'NO_OVERWRITE'
     assert subprocess.check_output(['git','diff-tree','--no-commit-id','--name-only','-r',PLAN], cwd=ROOT, text=True).splitlines() == [str((P/'PLAN.md').relative_to(ROOT)).replace('\\','/')]
     scores = {r['blind_id']:r for r in read(OLD/'scores_resolved.json')}
@@ -134,7 +135,8 @@ def prepare():
         payload=original[:-len(suffix)]
         off=render(payload,False); on=render(payload,True)
         assert off==prior_store[old['prompt_sha256']], 'OFF_TEMPLATE_REPLAY_MISMATCH'
-        assert on.endswith('<think>\n') and off==on+'\n</think>\n\n', 'UNEXPECTED_TEMPLATE_CHANGE'
+        prefix='<|im_start|>system\nReasoning effort is set to xhigh. Please think carefully through the task, validate key assumptions, consider plausible alternatives, and prioritize correctness, consistency, and clarity in the final answer.<|im_end|>\n'
+        assert on.startswith(prefix) and on.endswith('<think>\n') and off==on[len(prefix):]+'\n</think>\n\n', 'UNEXPECTED_TEMPLATE_CHANGE'
         h=histories[row['history']]; by_id={e['id']:e for e in h['episodes']}
         required=labels[row['question_id']]['gold_ids']
         for identity in required:
@@ -153,7 +155,7 @@ def prepare():
     save('input_gate.json',dict(status='PASS',plan=PLAN,count=12,eligible_logical=243,eligible_questions=97,
         runner_sha256=sha(Path(__file__)),input_hashes={f:sha(O/f) for f in files},
         old_hashes={str(p.relative_to(ROOT)):sha(p) for p in [OLD/'scores_resolved.json',OLD/'logical_schedule.json',OLD/'prompt_store.json',I/'sources.json',I/'labels.json',I/'traces_sealed.json']},
-        off_template_replay_exact=True,only_assistant_thinking_boundary_changed=True,required_source_fragments_verified=True))
+        off_template_replay_exact=True,native_system_prefix_and_thinking_boundary_verified=True,required_source_fragments_verified=True))
     print(json.dumps(dict(prepared=12,server_pid=process.pid)),flush=True)
 
 
