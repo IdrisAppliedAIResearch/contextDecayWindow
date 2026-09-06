@@ -1,3 +1,9 @@
+# ACTIVE: full Study E single-arm inference running
+
+September6 user authorized full E single arm. Plan2519aff9; runner7ec5b2bc; exact192 timeline and16 native prompt replay/input gatef9b47817; duplicate arithmetic45 calibrationd0280749. Running full_e_reader.py run, runner8452, owned llama-server26204, port8097. Output relevance_artifacts/full_e_reader. All192 distinct questions once seed5005/nativeOFF/output4096/context32768; maxinput18707, no crop. Frozen .48+anchors chronology/no additive recency/no retrieval cap. Quiet heartbeat study-e-development-completion resumed every5min, will finish scoring/closeout or report failure. No duplicate calls or uncertain retries.
+
+Next: complete.json PASS and192 hashes -> verify/stop owned server/save server_stopped.json -> commit raw captures and logs -> full_e_reader.py score -> commit blinded scores -> adjudicate prose under carried single-agent authorization into separate files -> commit resolved scores before aggregate. Write FULL_E_REPORT.md with128before,32latest,32absent/six strata, wrong answers+availability,16 prior-probe overlap vs176 remainder (not holdout), output token use/runtime. Update README/AGENTS<=400chars/PR96 and pause heartbeat. No formal generalization/control/adoption claim. Previous results below are completed and immutable.
+
 # Fusion draft handoff
 
 ## Uncapped relevance timeline completed — latest working candidate
