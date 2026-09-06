@@ -39,7 +39,7 @@ if sys.argv[1]=='preflight':
  print(a['content'])
 else:
  assert json.loads((P/'gate.json').read_text())['status']=='PASS'
- assert subprocess.check_output(['git','show','HEAD:'+ (P/'gate.json').as_posix()]).replace(b'\r\n',b'\n')==(P/'gate.json').read_bytes().replace(b'\r\n',b'\n')
+ assert subprocess.check_output(['git','show','HEAD:'+ (P/'gate.json').relative_to(Path.cwd()).as_posix()]).replace(b'\r\n',b'\n')==(P/'gate.json').read_bytes().replace(b'\r\n',b'\n')
  rows=json.loads((P/'cases.json').read_text());assert hashlib.sha256((P/'cases.json').read_bytes()).hexdigest()==json.loads((P/'gate.json').read_text())['cases_sha256']
  assert not (P/'pending.json').exists()
  assert len((P/'responses.jsonl').read_text().splitlines())==2
