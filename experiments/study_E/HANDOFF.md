@@ -1,3 +1,11 @@
+# ACTIVE: Amendment 004 stopped at the doubled output cap
+
+The single repair reached 16,384 tokens and stopped at limit after 276 seconds decoding. Two calibration calls passed. All three captures are preserved in continuation004/capture_stopped.jsonl.gz with stop_audit.json; no outcomes opened. Dedicated server PID 18980 stopped after identity verification. Completion monitor paused. Remaining 3,052 calls were not issued. No further retry or cap increase authorized. This is an instrument stop, not a mechanism verdict. A revised reader protocol needs a new authorized amendment.
+
+Earlier headers below are historical.
+
+---
+
 # ACTIVE: authorized Amendment004 prefix repair running
 
 User approved "Sure, you can extend context" after16,384outputcapproposal. Authorizeddesign-onlyamendment1019f3e2a68d64b3e45077ef85cc50226a3302bc; implementation23ccdb96; inputsealf99da00c. Commonoutputcap16384; context65536,thinking,prompt,model,samplerunchanged. OneHTTPrequesttimeout600s tofit doubleddecodeallowance,no retries.
