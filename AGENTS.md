@@ -192,7 +192,7 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **Study D address reader probe (2026-09-05).** EXPLORATORY, reader-only. Five complete short histories yield expected answers with event citations; a missing-update case starts wrongly at office then corrects to Cannot determine. Eight calls including two preflight repeats. Different explanatory prompt; no formal score, transfer or Study D failure attribution.
 
-**Study E before ordering (2026-09-06).** CONFIRMATION RUNNING, lock2e047c41. Amended reader3/12->6/12,4gains1loss; exactevidence3->10 on12,4 C1completewrong. Latest3/4,absence4/4each;13agent judgments. Confirmation3840logical/3508physical calls, prefixPASS; outcomes sealed. Initial11/12tie preserved. No adoption.
+**Study E before ordering (2026-09-06).** CONFIRMATION INSTRUMENT STOP, lock2e047c41. Call456/3508hit8192cap;455priorEOS incl3calibration. Outputssealed/unscored; no verdict. Cap-continuationdraftawaitsauthorization. Developmentreader3/12->6/12,4gains1loss;13agent judgments. No adoption.
 
 ## 3. Failure Pattern
 

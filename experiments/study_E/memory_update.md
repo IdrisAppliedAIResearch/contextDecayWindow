@@ -10,3 +10,6 @@ Same StudyE confirmation design-only registration2e047c41c80748b16f0e6df15dcc70a
 
 
 Confirmation preparation COMPLETE2c781515. Reader RUNNING session64499/server20516; inputseal92cb3a3d, prefixpassed,3840logical/3508physical includingcalibration. Source/evidenceoutcomesunopened. Scorer/resolver/analyzer implemented withallscorecommitgate; seeHANDOFFactiveheader.
+
+
+Confirmation STOP98bf6e14:456physicalreturned,one8192cap,455EOSincl3calibration. No scores/tracesopened. Server20516stopped. AMENDMENT004DRAFT awaitingexplicitcap-continuationauthorization; no retry/capchange. CONFIRMATION_STOP_REPORT.md andHANDOFFcurrentheadergovern.
