@@ -262,6 +262,12 @@ test that answers it.
 ### Runtime and determinism
 
 - Use a fixed seed, `--parallel 1`, and no speculative decoding.
+- Keep reader thinking off during tests for brevity unless the user or a locked
+  registration explicitly requires it. Before inference, verify the native
+  thinking-off setting, rendered chat template and a short live response;
+  `reasoning_format=none` or an empty `<think>` suffix alone is not verification.
+  Apply the same setting to every arm. Amend conflicting locked runtimes before
+  changing them; do not increase output caps as a substitute for this check.
 - Saturate available hardware for CPU-bound offline exploration, replay,
   preprocessing, sealing and scoring whenever deterministic independent shards
   exist. Measure worker count and aggregate utilization early; do not leave a
