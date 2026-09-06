@@ -473,6 +473,8 @@ Commercial enquiries: **idrisappliedairesearch@gmail.com**.
 
 # For LLM Context
 
+> **Retrieval score-curve probe (2026-09-06).** EXPLORATORY, zero model calls.192 E rankings replay exactly;224 D arrays checked. On128 E before queries, largest CC80 drop follows108 records at the corpus/continuity seam.19 missing updates still score88.4–94.5% of the maximum. Within the relevant pool, the largest gap omits anchors. D before gaps differ. No threshold selected; see `experiments/probes/retrieval_score_curves/REPORT.md`.
+
 > **Study E thinking-on probe (2026-09-06).** EXPLORATORY.12 selected complete-evidence wrong C1 question/seed cases became12/12 correct with unchanged evidence under native thinking-on; full traces show effective-update/qualifier reasoning.243 original failures span97 questions;85 distinct questions remain untested. Native system prefix also changes, so no pure thinking-effect or population estimate. Study E verdict unchanged. See `experiments/probes/study_E_thinking/REPORT.md`.
 
 > **Study E confirmation (2026-09-06).** READER D1_WORKS: before answers177/640→302/640 (+19.53pp; group CI13.91–25.16; p=.00001),184 gains/59 losses. All guards pass; latest102/160 and absence160/160 each. Exact-source availability64/128→109/128; C1 complete-evidence wrong243/545. ORACLE524/640. Fresh native thinking-off run3508 calls/3840 logical answers; both capped attempts excluded.114 unique agent judgments, no human audit. Same-study Amendment005; no adoption. See `experiments/study_E/CONFIRMATION_REPORT.md`.
