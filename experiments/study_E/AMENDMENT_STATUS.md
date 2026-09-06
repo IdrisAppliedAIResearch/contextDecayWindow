@@ -1,7 +1,7 @@
 # Study E current status
 
-Updated2026-09-06. **Authorized cap-repair preflight running.** Amendment004 is committed at1019f3e2. The output allowance is16384tokens; model context, thinking behavior and other reader settings remain unchanged. The original452EOSmeasurement responses are preserved. Two new calibration responses match each other and the originals; the single capped-response repair is running.
+Updated 2026-09-06. **Thinking-off restart authorized under Amendment 005 (6603aca3).** Amendment 004's repair exhausted the doubled 16,384-token cap. Both stopped attempts are preserved and will contribute no answers to the new run.
 
-The remaining3052calls can resume only after the repair reachesEOS and matches the original capped response's exact prefix. Any new cap or identity failure stops this bounded repair. No confirmation correctness or mechanism comparison has been opened.
+The native thinking-off template and serial/two/four-slot execution are being tested on development prompts. Selection uses completion, byte identity and runtime only. All four arms and five seeds will be generated afresh after the runtime and input gates are committed. The original confirmation population, retrieval and efficacy criteria are unchanged. No confirmation correctness or mechanism comparison has been opened.
 
-The requested read-onlyGPU sample showed97%median utilization andabout19.9GiB VRAMallocated. SpareVRAM warrants a controlledbatchingbenchmark; no batching was applied to this scoredrun. SeeGPU_UTILIZATION_NOTE.md.
+The previous GPU sample showed 97% median utilization and about 19.9 GiB allocated VRAM. The bounded batching benchmark now tests whether the memory headroom produces faster reproducible execution. Its artifacts live in `artifacts/amendment005`.
