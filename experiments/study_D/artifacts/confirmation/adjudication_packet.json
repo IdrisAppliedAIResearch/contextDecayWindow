@@ -1,0 +1,66 @@
+[
+  {
+    "blind_id": "fa442e6fc46909896248cc4df1547814b804bf4a3765668fe00908b42c6e5c69",
+    "complete": true,
+    "query": "What was the approved setting for \"Alder-737\" immediately before \"Dahlia-216\"?",
+    "reference": "VX-95E65178848F",
+    "response": "VX-EC8F3CED2F18 (set at turn 93, which is the most recent approved setting for \"Alder-737\" before the meeting \"Dahlia-216\" at turn 109)\n\nWait, let me re-read the context. The meeting \"Dahlia-216\" is mentioned at turn 45 in the retrieved_stm.\n\"The meeting \"Dahlia-216\" took place at this point in the conversation.\" is in turn 45.\n\nSo I need the approved setting for \"Alder-737\" immediately before turn 45.\n\nLooking at the retrieved_stm and recent_context for \"Alder-737\" settings:\nTurn 3: VX-2494BB8D7771\nTurn 6: VX-A9148155C5B8\nTurn 9: VX-49475DE14DE9\nTurn 11: VX-E483DC9D51A6\nTurn 12: VX-EF2AC04D3089\nTurn 17: VX-B52B18DB80C8\nTurn 18: VX-AE1D82454CE8\nTurn 21: VX-E8CE90FA7CC9\nTurn 24: VX-6F7A9B568438\nTurn 26: VX-F2DA94019F83\nTurn 27: VX-A70D0DA607ED\nTurn 28: VX-5058DB196211\nTurn 31: VX-586B61730F86\nTurn 33: VX-0384FDB295DD\nTurn 34: VX-FA410B24D28F\nTurn 36: VX-8303504A1A04\nTurn 39: VX-EF1EFF96E8F4\nTurn 42: VX-6EC4596F1EFA\n\nTurn 45 is the meeting.\nThe setting immediately before turn 45 is the one set at turn 42.\n\nThe approved setting at turn 42 was VX-6EC4596F1EFA.\n\nLet me double check if there are any other settings between 42 and 45.\nTurn 43, 44 are not in the provided context.\nThe most recent one provided before 45 is turn 42.\n\nSo the answer is VX-6EC4596F1EFA.\n\nVX-6EC4596F1EFA",
+    "type": "T1"
+  },
+  {
+    "blind_id": "d48578869cbf9d7dc4ff98135ca9fd65a9b2560c6dd10557fc67d6a1e9f98141",
+    "complete": true,
+    "query": "What is the badge code of the person who raised the archive concern?",
+    "reference": "PY-2631",
+    "response": "The person who raised the archive concern is \"Grove-897\" (turn 40). The badge code assigned to \"Grove-897\" is PY-2631 (turn 80).\n\nPY-2631",
+    "type": "M1"
+  },
+  {
+    "blind_id": "3107fcbb485ad2c62c565c18d3937ebdbad2ccf9e4142beb97d447a66300e93a",
+    "complete": true,
+    "query": "How many days elapsed between \"Elm-561\" and \"Fir-754\"?",
+    "reference": "6",
+    "response": "6 days.\n\n\"Elm-561\" occurred on 2025-04-29 and \"Fir-754\" occurred on 2025-05-05.\nApril has 30 days.\nFrom April 29 to April 30 is 1 day.\nFrom April 30 to May 5 is 5 days.\nTotal = 1 + 5 = 6 days.\n\nAlternatively: May 5 is the 125th day of the year (non-leap year 2025).\nApril 29 is the 119th day of the year (31+28+31+29 = 119).\n125 - 119 = 6.\n\nAnswer: 6 days.",
+    "type": "T4"
+  },
+  {
+    "blind_id": "e7d430f75782f33e89f840dc33528813f645b31f0f8ef58563b5db971f5d23ba",
+    "complete": true,
+    "query": "What is the badge code of the person who raised the archive concern?",
+    "reference": "CS-9997",
+    "response": "The person who raised the archive concern is \"Grove-860\" (turn 40). The badge code assigned to \"Grove-860\" is CS-9997 (turn 80).\n\nCS-9997",
+    "type": "M1"
+  },
+  {
+    "blind_id": "7ea2570664b45e81643774657b88b991b03444806f20fe69eedce87f13ea629a",
+    "complete": true,
+    "query": "What is the latest approved setting for \"Alder-935\"?",
+    "reference": "VX-E9835A270F9D",
+    "response": "VX-DEDE6E5269BF\n\nWait, let me double-check the turns to find the latest one.\nTurn 99: VX-E644F6870034\nTurn 96: VX-5D2E94E37600\nTurn 93: VX-DEDE6E5269BF\nTurn 92: VX-4D8209002B09 (Note: The user says \"The approved setting for 'Alder-935' is now VX-4D8209002B09\" but the operations note is for \"Cedar-455\". The question asks for the setting for \"Alder-935\". The text explicitly states \"The approved setting for 'Alder-935' is now...\". So I should look for the latest turn where this specific sentence appears for Alder-935.\n\nLet's list the turns where the user explicitly states the approved setting for \"Alder-935\":\nTurn 3: VX-205674112BF2\nTurn 6: VX-063D939483C6\nTurn 9: VX-5D9709B262A4\nTurn 12: VX-58F1F0111A16\nTurn 13: VX-855A2AB5BE24 (Note: Operations note is for Birch-241, but the setting change is for Alder-935)\nTurn 14: VX-B25C956BF729 (Note: Operations note is for Cedar-455, but the setting change is for Alder-935)\nTurn 17: VX-C7E303FDBF67 (Note: Operations note is for Cedar-455, but the setting change is for Alder-935)\nTurn 18: VX-C600DC617016\nTurn 21: VX-2DFFC45F03BF\nTurn 23: VX-D49502F9C4C7 (Note: Operations note is for Cedar-455, but the setting change is for Alder-935)\nTurn 24: VX-572AA6153CE9\nTurn 27: VX-1E895AD1CCA0\nTurn 33: VX-B45A0D3642FD\nTurn 34: VX-94014F6B9860 (Note: Operations note is for Birch-241, but the setting change is for Alder-935)\nTurn 36: VX-39E774A116BF\nTurn 38: VX-4B92ADAF9A89 (Note: Operations note is for Cedar-455, but the setting change is for Alder-935)\nTurn 39: VX-C775FD16AB04\nTurn 42: VX-DAB357CA3D40\nTurn 44: VX-EB3195B14B3E (Note: Operations note is for Cedar-455, but the setting change is for Alder-935)\nTurn 47: VX-053F89B31008 (Note: Operations note is for Cedar-455, but the setting change is for Alder-935)\nTurn 48: VX-804E74113EAF\nTurn 51: VX-D860A4438165\nTurn 54: VX-E6B16025FCBB\nTurn 56: VX-C768A234DBEF (Note: Operations note is for Cedar-455, but the setting change is for Alder-935)\nTurn 57: VX-81701F93B13D\nTurn 60: VX-7260F27631E1\nTurn 62: VX-7877F1503C3D (Note: Operations note is for Cedar-455, but the setting change is for Alder-935)\nTurn 63: VX-A7FEB49D12CA\nTurn 64: VX-248D7EF66C7F (Note: Operations note is for Birch-241, but the setting change is for Alder-935)\nTurn 65: LD-1448 (Note: Operations note is for Cedar-455, but the setting change is for Alder-935)\nTurn 66: VX-459DBDA35543\nTurn 69: VX-813802F46A81\nTurn 72: VX-2A5E5566B6FA\nTurn 74: VX-66F473169D16 (Note: Operations note is for Cedar-455, but the setting change is for Alder-935)\nTurn 78: VX-484DD2DBDFB4\nTurn 81: VX-946B6F4AB248\nTurn 83: VX-14C9363E6AB3 (Note: Operations note is for Cedar-455, but the setting change is for Alder-935)\nTurn 84: VX-A00258940347\nTurn 86: VX-6F8139E19A31 (Note: Operations note is for Cedar-455, but the setting change is for Alder-935)\nTurn 87: VX-027F4DBDC61B\nTurn 88: VX-515264DDDFB7 (Note: Operations note is for Birch-241, but the setting change is for Alder-935)\nTurn 92: VX-4D8209002B09 (Note: Operations note is for Cedar-455, but the setting change is for Alder-935)\nTurn 93: VX-DEDE6E5269BF\nTurn 96: VX-5D2E94E37600\nTurn 99: VX-E644F6870034\n\nThe latest turn is 99. The setting is VX-E644F6870034.\n\nVX-E644F6870034",
+    "type": "T2"
+  },
+  {
+    "blind_id": "b3e3e5e264bdb05e252b7c3836b95b6cfdf3e6bcbe02226fa998b2958049d6c0",
+    "complete": true,
+    "query": "What was the approved setting for \"Alder-346\" immediately before \"Dahlia-475\"?",
+    "reference": "VX-E75038C73424",
+    "response": "VX-3EB09EF52FE0\n\nWait, let me trace the turns carefully.\nThe meeting \"Dahlia-475\" took place at turn 45.\nI need the approved setting for \"Alder-346\" immediately before turn 45.\nLooking at the retrieved STM:\nTurn 42: \"The approved setting for \"Alder-346\" is now VX-997EEAF5F784; this replaces the previous approved setting.\"\nTurn 45 is the meeting.\nAre there any other setting changes between 42 and 45?\nTurn 43: Not in retrieved STM (but let's check if it's in recent context? No, recent context starts at 109).\nTurn 44: Not in retrieved STM.\nTurn 45: Meeting.\nThe last known setting change for \"Alder-346\" before turn 45 in the provided memory is at turn 42, which set it to VX-997EEAF5F784.\nLet me double check the turns in retrieved STM:\nTurn 42: VX-997EEAF5F784\nTurn 45: Meeting \"Dahlia-475\"\nTurn 48: VX-6924A542AC9F\nSo immediately before the meeting at turn 45, the setting was the one established at turn 42.\n\nAnswer: VX-997EEAF5F784",
+    "type": "T1"
+  },
+  {
+    "blind_id": "74413e3350fe1e52767efad23644c39c070416ce68c3d45207116fd7e0ce1363",
+    "complete": true,
+    "query": "What is the latest approved setting for \"Alder-985\"?",
+    "reference": "VX-40D698F6D6F8",
+    "response": "VX-E2B5DD6FBE89 (from turn 88)\n\nWait, let me check the turns again. The retrieved STM has turns up to 99. Let me find the latest turn number for \"Alder-985\" approved setting.\n\nLooking at the retrieved STM:\n- Turn 1: VX-F4BA34B43136\n- Turn 4: VX-1A6CA35565CA\n- Turn 5: VX-A340A1D2568A\n- Turn 7: VX-04F72B0C41B7\n- Turn 13: VX-A321AEC021B2\n- Turn 16: VX-DE8BE36AAD47\n- Turn 18: VX-73860322F06C\n- Turn 19: VX-947F4A5E0087\n- Turn 22: VX-1320C97F967B\n- Turn 26: VX-669760DC6539\n- Turn 27: VX-9094704445C9\n- Turn 28: VX-667031069BC9\n- Turn 31: VX-917A7AEE09F7\n- Turn 34: VX-FDC32E792E49\n- Turn 36: VX-03473577CD94\n- Turn 37: VX-1A57C5A5E4A3\n- Turn 42: VX-9CA85CE67B3C\n- Turn 43: VX-EE37DCF91AF9\n- Turn 44: VX-D3D980A7F843\n- Turn 46: VX-470B1C37D783\n- Turn 49: VX-2F29CA4FB7D1\n- Turn 52: VX-01AF7D67DBAC\n- Turn 54: VX-9134525F3690\n- Turn 55: VX-49E50DABDDCC\n- Turn 56: VX-D337181842EE\n- Turn 58: VX-5B694DDF3FFC\n- Turn 61: VX-5972FAF53094\n- Turn 63: VX-7846ACD4B9A2\n- Turn 64: VX-197C4CF355AC\n- Turn 67: VX-3185CF062CF5\n- Turn 69: VX-0D4F20E95039\n- Turn 70: VX-58759F2D4D8E\n- Turn 73: VX-64870F44A099\n- Turn 76: VX-C642C8159038\n- Turn 79: VX-E84626645D19\n- Turn 82: VX-A9795CA0B68F\n- Turn 83: VX-017D6407879D\n- Turn 88: VX-E2B5DD6FBE89\n- Turn 89: VX-662121B2A404\n- Turn 91: VX-CBC210DE0E28\n- Turn 93: VX-E7538F6CED4F\n- Turn 94: VX-93839460132F\n- Turn 97: VX-BB8A212BF89E\n- Turn 99: VX-7E820D0F1D4F\n\nThe latest turn is 99, with setting VX-7E820D0F1D4F.\n\nVX-7E820D0F1D4F",
+    "type": "T2"
+  },
+  {
+    "blind_id": "06ff3eb55608eebb87d371d6b6c540a692e2c00910fe8b7160c541e2dfc371e1",
+    "complete": true,
+    "query": "What is the badge code of the person who raised the archive concern?",
+    "reference": "UP-4471",
+    "response": "The badge code assigned to \"Grove-872\" is UP-4471.\n\nAnswer: UP-4471",
+    "type": "M1"
+  }
+]

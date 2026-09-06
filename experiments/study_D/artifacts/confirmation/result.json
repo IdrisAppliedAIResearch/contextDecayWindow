@@ -1,0 +1,271 @@
+{
+  "by_type": {
+    "M1": {
+      "accuracy": {
+        "C0": 1,
+        "C1": 1,
+        "NULL": 0,
+        "ORACLE": 1
+      },
+      "complete_evidence": {
+        "C0": 32,
+        "C1": 32,
+        "NULL": 0,
+        "ORACLE": 32
+      },
+      "queries": 32,
+      "reader_difference_ci95": [
+        0.0,
+        0.0
+      ]
+    },
+    "M2": {
+      "accuracy": {
+        "C0": 1,
+        "C1": 1,
+        "NULL": 0,
+        "ORACLE": 1
+      },
+      "complete_evidence": {
+        "C0": 32,
+        "C1": 32,
+        "NULL": 0,
+        "ORACLE": 32
+      },
+      "queries": 32,
+      "reader_difference_ci95": [
+        0.0,
+        0.0
+      ]
+    },
+    "N1": {
+      "accuracy": {
+        "C0": 1,
+        "C1": 1,
+        "NULL": 1,
+        "ORACLE": 1
+      },
+      "complete_evidence": null,
+      "queries": 32,
+      "reader_difference_ci95": [
+        0.0,
+        0.0
+      ]
+    },
+    "T1": {
+      "accuracy": {
+        "C0": 0.09375,
+        "C1": 0.26875,
+        "NULL": 0,
+        "ORACLE": 1
+      },
+      "complete_evidence": {
+        "C0": 4,
+        "C1": 16,
+        "NULL": 0,
+        "ORACLE": 32
+      },
+      "queries": 32,
+      "reader_difference_ci95": [
+        0.04375,
+        0.30625
+      ]
+    },
+    "T2": {
+      "accuracy": {
+        "C0": 0.3,
+        "C1": 1,
+        "NULL": 0,
+        "ORACLE": 1
+      },
+      "complete_evidence": {
+        "C0": 16,
+        "C1": 32,
+        "NULL": 0,
+        "ORACLE": 32
+      },
+      "queries": 32,
+      "reader_difference_ci95": [
+        0.5625,
+        0.83125
+      ]
+    },
+    "T3": {
+      "accuracy": {
+        "C0": 1,
+        "C1": 1,
+        "NULL": 0,
+        "ORACLE": 1
+      },
+      "complete_evidence": {
+        "C0": 32,
+        "C1": 32,
+        "NULL": 0,
+        "ORACLE": 32
+      },
+      "queries": 32,
+      "reader_difference_ci95": [
+        0.0,
+        0.0
+      ]
+    },
+    "T4": {
+      "accuracy": {
+        "C0": 0.95625,
+        "C1": 0.95625,
+        "NULL": 0,
+        "ORACLE": 1
+      },
+      "complete_evidence": {
+        "C0": 32,
+        "C1": 32,
+        "NULL": 0,
+        "ORACLE": 32
+      },
+      "queries": 32,
+      "reader_difference_ci95": [
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "conditional_reader": {
+    "C0": {
+      "arm_accuracy": 0.9405405405405406,
+      "queries": 148,
+      "same_item_oracle_accuracy": 1
+    },
+    "C1": {
+      "arm_accuracy": 0.95,
+      "queries": 176,
+      "same_item_oracle_accuracy": 1
+    },
+    "common": {
+      "accuracy": {
+        "C0": 0.9405405405405406,
+        "C1": 0.9756756756756757,
+        "ORACLE": 1
+      },
+      "queries": 148
+    }
+  },
+  "context_cost": {
+    "C0": {
+      "max_prompt_tokens": 13752,
+      "mean_prompt_tokens": 13639.379464285714
+    },
+    "C1": {
+      "max_prompt_tokens": 13738,
+      "mean_prompt_tokens": 13646.223214285714
+    },
+    "NULL": {
+      "max_prompt_tokens": 95,
+      "mean_prompt_tokens": 87.28571428571429
+    },
+    "ORACLE": {
+      "max_prompt_tokens": 631,
+      "mean_prompt_tokens": 385.58035714285717
+    }
+  },
+  "disposition": "D1_WORKS",
+  "guardrail_absence_ci95": [
+    0.0,
+    0.0
+  ],
+  "guardrail_absence_difference": 0,
+  "guardrail_other_ci95": [
+    0.0,
+    0.0
+  ],
+  "guardrail_other_difference": 0.0,
+  "per_session_difference": {
+    "session-92001": 0.09999999999999998,
+    "session-92002": 0.5,
+    "session-92003": 0.0,
+    "session-92004": 0.6,
+    "session-92005": 1,
+    "session-92006": 0.09999999999999998,
+    "session-92007": 0.4,
+    "session-92008": 0.8,
+    "session-92009": 0.0,
+    "session-92010": 0.4,
+    "session-92011": 0.6,
+    "session-92012": 0.0,
+    "session-92013": -0.09999999999999998,
+    "session-92014": 0.8,
+    "session-92015": 0.4,
+    "session-92016": 0.5,
+    "session-92017": 0.4,
+    "session-92018": 0.4,
+    "session-92019": 0.5,
+    "session-92020": 0.6,
+    "session-92021": 0.3,
+    "session-92022": 0.5,
+    "session-92023": 0.8,
+    "session-92024": 0.09999999999999998,
+    "session-92025": 0.5,
+    "session-92026": 0.8,
+    "session-92027": 0.09999999999999998,
+    "session-92028": 0.5,
+    "session-92029": 0.9,
+    "session-92030": 0.2,
+    "session-92031": 0.5,
+    "session-92032": 0.8
+  },
+  "primary": {
+    "C0_accuracy": 0.196875,
+    "C1_accuracy": 0.634375,
+    "ci95": [
+      0.334375,
+      0.5375000000000001
+    ],
+    "correct_samples": {
+      "C0": 63,
+      "C1": 203,
+      "NULL": 0,
+      "ORACLE": 320
+    },
+    "difference": 0.4375,
+    "one_sided_p": 9.99990000099999e-06,
+    "reverse_direction_p": 1.0,
+    "samples_per_arm": 320,
+    "sessions": 32
+  },
+  "primary_complete_evidence_difference": 0.4375,
+  "reader_calls": 3355,
+  "registration_commit": "7b7506d2aa64c86a50ec88181b72137c66b44f02",
+  "scope": "Restricted synthetic quoted-name revision-history family, one reader; no adoption.",
+  "scoring_deviation": "Amendment 001: eight single-agent judgments; no human or three-pass validation.",
+  "seed_primary_accuracy": {
+    "5005": {
+      "C0": 0.234375,
+      "C1": 0.6875,
+      "NULL": 0,
+      "ORACLE": 1
+    },
+    "5006": {
+      "C0": 0.234375,
+      "C1": 0.671875,
+      "NULL": 0,
+      "ORACLE": 1
+    },
+    "5007": {
+      "C0": 0.234375,
+      "C1": 0.671875,
+      "NULL": 0,
+      "ORACLE": 1
+    },
+    "5008": {
+      "C0": 0.109375,
+      "C1": 0.546875,
+      "NULL": 0,
+      "ORACLE": 1
+    },
+    "5009": {
+      "C0": 0.171875,
+      "C1": 0.59375,
+      "NULL": 0,
+      "ORACLE": 1
+    }
+  }
+}

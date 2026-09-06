@@ -1,5 +1,9 @@
 # contextDecayWindow Research Context
 
+**Study D temporal retrieval (2026-09-05).** READER D1_WORKS, scoring deviation. Generated-answer correctness 63/320->203/320 (+43.75pp; CI 33.44-53.75; p=.00001), 32 synthetic sessions. Latest 30%->100%; before 9.38%->26.88%. Availability is diagnostic. Eight agent judgments, no human audit. HH-001 prompt; transfer/absence harm untested; no adoption.
+
+Authoritative closeout: `experiments/study_D/REPORT.md`. Original pending scores remain immutable; Amendment 001 resolved eight entries on explicit user direction. No further inference or adoption authorized.
+
 > **Current-record warning (2026-07-29):** Sections below preserve older
 > working context and contain pre-audit scores. `AGENTS.md`, `ERRATA.md`, and
 > the committed reports are authoritative. Study 009 S is 9.0, not 10.5.

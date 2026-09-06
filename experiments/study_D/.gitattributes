@@ -1,0 +1,8 @@
+# Preserve the bytes used by Study D's integrity manifests on fresh checkouts.
+*.py text eol=lf
+*.md text eol=lf
+*.json text eol=crlf
+artifacts/**/*.json text eol=crlf
+artifacts/**/*.jsonl text eol=crlf
+*.npz -text
+*.gz -text
