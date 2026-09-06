@@ -23,9 +23,10 @@ def main():
     scores={r['blind_id']:r['score'] for r in json.loads(raw)}
     assert all(v in (0,1) for v in scores.values())
     mapping=read('mapping.json')
+    aliases=read('score_aliases.json')
     traces={r['id']:r for r in read('mechanism_sealed.json')}
     for r in mapping:
-        r['score']=scores[r['call_key']]
+        r['score']=scores[aliases[r['item']+':'+r['call_key']]]
     sessions=sorted({r['session'] for r in mapping})
     types=['T1','T2','T3','T4','M1','M2','N1']
     arms=['C0','C1','ORACLE','NULL']

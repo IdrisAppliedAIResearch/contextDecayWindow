@@ -177,6 +177,11 @@ def validate_gate():
     committed('prompt_gate.json')
     for name,sha in gate['files'].items():
         assert digest((OUT/name).read_bytes())==sha,name
+    instrument=read('instrument_gate.json')
+    committed('instrument_gate.json')
+    assert instrument['status']=='PASS'
+    for name,sha in instrument['files'].items():
+        assert digest((OUT/name).read_bytes())==sha,name
 
 def prefix():
     validate_gate()
@@ -228,14 +233,19 @@ def run():
     labels=read('labels.json')
     surface=[]
     seen=set()
+    score_aliases={}
     for cell in mapping:
         k=cell['call_key']
-        if k in seen:
+        reference=labels[cell['item']]['answer']
+        blind_id=digest(k+':'+reference)
+        score_aliases[cell['item']+':'+k]=blind_id
+        if blind_id in seen:
             continue
-        seen.add(k)
-        surface.append({'blind_id':k,'query':cell['query'],'type':cell['type'],'reference':labels[cell['item']]['answer'],'response':done[k]['response']['content'],'complete':True})
+        seen.add(blind_id)
+        surface.append({'blind_id':blind_id,'query':cell['query'],'type':cell['type'],'reference':reference,'response':done[k]['response']['content'],'complete':True})
     surface.sort(key=lambda x:digest('study-D-blind-order:'+x['blind_id']))
     save('blind_surface.json',surface)
+    save('score_aliases.json',score_aliases)
     save('reader_gate.json',{'status':'PASS','physical_calls':len(done),'logical_cells':len(mapping),'responses_sha256':digest((OUT/'responses.jsonl').read_bytes()),'blind_surface_sha256':digest((OUT/'blind_surface.json').read_bytes())})
     print(json.dumps({'stage':'reader','status':'PASS','physical_calls':len(done)}),flush=True)
 
