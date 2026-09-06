@@ -1,3 +1,19 @@
+# ACTIVE: authorized Amendment004 prefix repair running
+
+User approved "Sure, you can extend context" after16,384outputcapproposal. Authorizeddesign-onlyamendment1019f3e2a68d64b3e45077ef85cc50226a3302bc; implementation23ccdb96; inputsealf99da00c. Commonoutputcap16384; context65536,thinking,prompt,model,samplerunchanged. OneHTTPrequesttimeout600s tofit doubleddecodeallowance,no retries.
+
+RUNNING continue_confirmation004.py prefix, unifiedsession50749; dedicatedserverPID18980 port8097. Newdir artifacts/confirmation/continuation004. Two calibrationcalls passed exactidentitywithoriginal; singlecapped-response repairrunningatlastcheck. Originalcapturesunchanged. Terminalrepair_gate.json PASS orfailure.json. Do notpollhealthy. OnrepairPASS: preservefirst3capture records inNEWprefix_capture.jsonl.gz, commitcalibration_gate/repair_gate/prefixarchive BEFORE issuingremainingcalls. Then run continue_confirmation004.py resume once; itrequirescommittedrepairgate andexactcaptureprefixSHA. Updatecurrentheader+monitor withnewsession. Itissues3052unissuedcalls atcommon16384cap; no priorEOSmeasurementreruns. Anyfailure,cap,nonEOS,prefixmismatchoruncertainjournalstops; no furtherautomaticrepairauthorized.
+
+Onprefixfailure: verify/stoponlyserver18980, archiveallnewrawcapture andlogs innewnames,commitfailure/metadatawithoutopeningcorrectness. Reportinstrumentstopandprecisecap/identityfailure. Preservealloriginals. No additionalcap/retrywithoutnewdecision.
+
+OnfullresumePASS: combinedcomplete.json andresponses.jsonl.gz liveincontinuation004,alongsidefullcapture.jsonl.gz andcombined_index.json. Combinedselectedarchive3508records (originalcal3+452EOSmeasurement+repaired1+new3052); actualrequestsacrossattempts3511. No outcomesopened. Stopverifieddedicatedserver,commitcomplete,archives,indexandlogsBEFOREscoring. score_continuation004.py score/resolve/analyze adaptsUNCHANGEDscorer tocontinuationdirectory. Commitblindmechanicalscores andforce-addpending_adjudication.json; calibratedsingleagentreview uniquegroups underadjudications/*.json,commitbatches;resolve thencommitallscores beforeanalyze. Analyzeractual_calls nowreports3511whilekeepingselectedarchivedenominator3508. Registeredcriteriaunchanged. Finishregistereddetailedtrace/rank/costdiagnosticsafterunseal.
+
+UserrequestedGPU/batchingprobe: read-only30samples duringrepair,medianGPU97%,VRAM~19.9GiB,~11.5GiBfree idlebaseline; no batchingperformed. GPU_UTILIZATION_NOTE.md ownsinterpretation. Keepcurrentstudyserial; batchbenchmarkrequiresseparateruntimeamendment,don'tsilentlychangeongoingscoredrun.
+
+Earlierheadersbelowarehistorical; thiscurrentheadergoverns.
+
+---
+
 # ACTIVE: confirmation stopped at output cap; authorization pending
 
 2026-09-06: reader stopped after456/3508physicalcalls. Lastresponse endedstop_type=limit,tokens_predicted8192,truncatedfalse.455EOS incl3calibration,452measurementEOS;3052originalcallsunissued. No uncertainjournal. Rawarchive andstop_audit committed98bf6e14. No correctness orconfirmationtracesopened. Dedicatedserver20516 stopped afterverifiedidentity. DO NOT rerunreader_confirmation.py orscoreincompletepopulation.

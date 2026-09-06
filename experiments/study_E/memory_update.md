@@ -13,3 +13,6 @@ Confirmation preparation COMPLETE2c781515. Reader RUNNING session64499/server205
 
 
 Confirmation STOP98bf6e14:456physicalreturned,one8192cap,455EOSincl3calibration. No scores/tracesopened. Server20516stopped. AMENDMENT004DRAFT awaitingexplicitcap-continuationauthorization; no retry/capchange. CONFIRMATION_STOP_REPORT.md andHANDOFFcurrentheadergovern.
+
+
+Amend004 AUTHORIZED1019f3e2, outputcap16384/context65536/thinkingunchanged. Prefixphase running50749/server18980, calibrationexactPASS; repair_gate orfailureterminal. CurrentHANDOFFheaderdetailsresumeandnewscoringdirectory. GPUprobe97%median,19.9GiBused; batchingnotperformed.
