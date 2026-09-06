@@ -5,6 +5,8 @@ Status: COMPLETE, D1_WORKS under registered numerical bars, with an authorized s
 
 ## Finding
 
+**Study D demonstrates a reader-answer correctness improvement in the tested synthetic population.** The reader generated final answers, and those answers were scored against reference answers. D1 success is based on this reader endpoint; evidence availability is a separate diagnostic and cannot establish success by itself. The outstanding question is transfer beyond this population, not whether a reader benefit was measured here.
+
 The deterministic temporal allocation raised primary reader correctness from 63/320 (19.6875%) to 203/320 (63.4375%): +43.75 percentage points. The session bootstrap 95% interval is +33.4375 to +53.75 points; the one-sided 100,000-draw session sign-flip p is 0.0000099999 (Monte Carlo resolution, not an exact p). Reverse-direction descriptive p is 1. There are 32 independent randomized sessions, not 320 independent trials. Session differences are positive in 28, negative in one, and zero in three.
 
 This clears the fixed +10-point practical and p<=.05 D1 bars, with primary complete evidence increasing from 20/64 to 48/64 and observed diagnostic guard differences zero. The weaker D2 bar was +2.5 points and p<=.10. No bar or population changed after inference.
@@ -30,6 +32,8 @@ Latest-setting accuracy rises 30%->100%. Immediately-before rises 9.375%->26.875
 On C0's 148 complete-evidence answerable questions, C0 scores 94.054% versus same-item ORACLE 100%. On C1's 176 complete-evidence questions, C1 scores 95% versus same-item ORACLE 100%. On the common 148-question subset, C0/C1/ORACLE are 94.054%/97.568%/100%. Different selected subsets are not a causal decomposition. These observations leave both evidence-delivery and context-sensitive reader limitations; they do not identify a particular reasoning defect.
 
 ## Scope and mandatory limitations
+
+Both arms used the frozen HH-001 reader prompt, which asks for a brief factual answer and explicit abstention when the answer is absent, plus an empty `<think></think>` suffix. It was sent as a raw completion prompt with no separate system-role message. This was not a verified reproduction of the Mem0 paper prompt, and Study D contained no Mem0 comparison. Only the supplied memory differed between the primary arms. Selection and ordering effects were not independently isolated.
 
 This is a restricted synthetic quoted-name grammar, one generator family, 32 randomized instances of 140 source episodes, and one local Qwen3.8 reader. It is not naturalistic transfer, organic conversation, endurance, or a general temporal-reasoning result. The matched allowance is 32,000 serialized retrieval characters with identical additive last-32 continuity, not a matched token expenditure.
 
@@ -57,4 +61,4 @@ All 15 study tests pass. Read-only verification passes 21 registered/prepared ar
 - [Reproduction](REPRODUCTION.md), [resolved scores](artifacts/confirmation/resolved_scores.json), [original pending scores](artifacts/confirmation/blind_scores.json).
 - [Lossless response archive](artifacts/confirmation/responses.jsonl.gz), [archive hashes](artifacts/confirmation/response_archive.json).
 
-The supported finding is a substantial instance-family gain from deterministic temporal allocation, especially latest-setting retrieval. Any successor needs separate authorization and registration; priorities are immediately-before delivery, naturalistic transfer, and an absence-harm instrument that actually activates treatment. This study authorizes no tuning or adoption.
+The supported finding is a substantial gain in correctly generated reader answers from deterministic temporal allocation within this synthetic instance family, especially latest-setting questions. Any successor needs separate authorization and registration; priorities are immediately-before delivery, naturalistic transfer, and an absence-harm instrument that actually activates treatment. This study authorizes no tuning or adoption.
