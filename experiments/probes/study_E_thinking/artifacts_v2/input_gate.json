@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "plan": "c6b955d3",
+  "count": 12,
+  "eligible_logical": 243,
+  "eligible_questions": 97,
+  "runner_sha256": "a8a21098310439b8196dc8d67b5a28444a34fff452879c56556fce1e62429179",
+  "input_hashes": {
+    "selection.json": "9ff04a11fe56fba71db96d4565192e89a278b83ebef055cb35608666f4ea47c8",
+    "inventory.json": "3d177bb9e6107e6f5267c1881c73b9885e47142735b6e0b49e301c32123573cb",
+    "runtime_pins.json": "8ed32d52543787ee38d0e7ad0f2ae9c72f9b897c3c60ac3f978c5404594e20d5",
+    "launch.json": "c28ba216b0c9a0ecd5ef81aac2580b2c423cca13881a37d2269b66718a5c12d7",
+    "props.json": "d05cf38b4cdbb78c352efa8bc35cbfcb68dfd71f4c714f43d55ad5e6993665b9",
+    "calibration_prompt.json": "5385198ce3fa05673b3243b50fb4438b8847a74fbdb9fb734e68e2c0da274bda",
+    "parser_fixtures.json": "59a0d4be850942105fe7f8a19888afb368344c5378a3f87c9b8809935d891e27"
+  },
+  "old_hashes": {
+    "experiments\\study_E\\artifacts\\confirmation\\restart005\\scores_resolved.json": "4c0efbd791590db7500fce95700fdb08472d634b8848b79e3f8710ff9977cf11",
+    "experiments\\study_E\\artifacts\\confirmation\\restart005\\logical_schedule.json": "edbf91a7447cb4026dd7334d9147d1550ac048d7edfc11d182ce5506261ca5d3",
+    "experiments\\study_E\\artifacts\\confirmation\\restart005\\prompt_store.json": "3d85297d8cfeb7f43b0a50b02861312fead161e72db495095e26b6953bbc8ec2",
+    "experiments\\study_E\\artifacts\\confirmation\\development_inputs\\sources.json": "c18ebb1011de6655cde5dc1b4ed99db51679994e5a059942df4257ec905fcb0a",
+    "experiments\\study_E\\artifacts\\confirmation\\development_inputs\\labels.json": "f458319c1f32820d32ce9315d5a15641c55667138e6c50a29403c33baa899872",
+    "experiments\\study_E\\artifacts\\confirmation\\development_inputs\\traces_sealed.json": "3820a52ac8ceccf3803abb22d2f214d45784e099a2488a6dd41e9cc3d3b4db34"
+  },
+  "off_template_replay_exact": true,
+  "native_system_prefix_and_thinking_boundary_verified": true,
+  "required_source_fragments_verified": true
+}
