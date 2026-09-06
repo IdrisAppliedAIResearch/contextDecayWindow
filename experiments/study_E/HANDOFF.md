@@ -4,7 +4,7 @@
 
 Primary C0=177/640 (27.66%), C1=302/640 (47.19%), gain19.53pp, group CI13.91–25.16, p=.0000099999; D1_WORKS and all guards pass. Latest102/160 each, absence160/160 each. ORACLE524/640 before. Evidence64/128→109/128; C1 complete-correct302, complete-wrong243, incomplete-correct0, incomplete-wrong95.114 unique agent exceptions representing148 logical answers, no human audit. Same synthetic generator and within-run reader interface; do not claim unchanged prompt versus Study D or causal thinking effect. All3508 fresh calls/3840 logical answers captured; both old attempts excluded.
 
-Verified diagnostic filenames end in _verified.json. Preliminary diagnostics had an unchanged-latest candidate extraction error; see DIAGNOSTIC_VALIDATION_NOTE.md. Scores, primary results and final evidence were unaffected. Root README, AGENTS digest and memory updated for closeout; same PR95. Completion hook should be paused after PR update and push. Earlier ACTIVE headers below are historical and cannot authorize restarting work.
+Verified diagnostic filenames end in _verified.json. Preliminary diagnostics had an unchanged-latest candidate extraction error; see DIAGNOSTIC_VALIDATION_NOTE.md. Scores, primary results and final evidence were unaffected. Root README, AGENTS digest and memory updated for closeout; same PR95. PR95 is updated to the final reader result; all artifacts and closeout documents are pushed. Completion hook is PAUSED. Earlier ACTIVE headers below are historical and cannot authorize restarting work.
 
 ---
 
