@@ -146,7 +146,7 @@ flush against the page there rather than showing as a panel.*
 
 *Last updated 2026-09-06, after Study E development.*
 
-**Study E development is complete; its confirmation design needs revision.** Newest-first before-event ordering tied the prior temporal reader at 11/12 final answers, with one gain and one loss. Both development corpora already delivered all sufficient evidence, so this did not test recovery from missing evidence. Seventeen exceptions used authorized agent adjudication; seven answers corrected an initially wrong assertion. No confirmation or adoption. [Report](experiments/study_E/REPORT.md).
+**Study E continues by amendment.** The initial reader pilot tied at11/12. Revised competing-update histories now provide the intended mixed-support test: exact evidence is complete on4/16 before questions under the prior ordering and13/16 under newest-first ordering. The bounded reader check is running; availability is not yet a reader result. Confirmation remains within Study E and is not locked. [Status](experiments/study_E/AMENDMENT_STATUS.md).
 
 **Temporal allocation improved correctly generated reader answers.** Scored final-answer accuracy rose from 19.7% to 63.4% across 32 randomized synthetic histories, clearing the registered reader-success bar. Evidence availability is reported separately as a diagnostic. Latest-setting retrieval improved most; immediately-before accuracy remains 26.9%. Eight answers used explicitly authorized single-agent scoring instead of the registered human review. This has not been adopted. [Report](experiments/study_D/REPORT.md).
 
@@ -431,7 +431,7 @@ confirmation.
 
 ## Next Steps
 
-Revise the [Study E confirmation design](experiments/study_E/DESIGN_REVIEW.md) to exercise missing-evidence competition and freeze exception scoring before another run. The completed pilot does not resolve Study D's before-event weakness or establish an absence-harm comparison. Confirmation remains unregistered.
+Complete blind scoring of [Study E's amended reader check](experiments/study_E/AMENDMENT_STATUS.md), then use those development findings to finalize the same study's confirmation design. Do not treat recovered evidence as successful answers; confirmation inputs remain unopened.
 
 1. **Validate episodic-chat 0.2.0 outside the spent LoCoMo corpus.** Freeze an
    external reader and retrieval study—preferably EnterpriseRAG-Bench or an
