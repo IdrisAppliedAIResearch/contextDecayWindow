@@ -1,3 +1,13 @@
+# COMPLETE: twelve-case thinking-on probe
+
+All12 prior complete-evidence wrong cases now correct; no residual wrong finals.3/3 in each before condition. Full thoughts and finals retained under artifacts_v2; CASES.md is the readable inspection. Generation150seconds total,335–740tokens per case. Raw captures f8e98aab preceded all exact final scores cf3bc6ef, then trace inspection. No agent scoring exceptions. Server24108 stopped; watcher and run complete. No inference pending. Read REPORT.md for findings and caveats.
+
+This is12 selected question/seed failures from243 logical failures across97 distinct questions. Remaining85 distinct questions untested. Native thinking-on adds a verified system effort prefix; original user payload/evidence unchanged, off-template exact replay. No population estimate, causal reasoning-only effect or changed Study E verdict. User wants conversational discussion of reasoning and misses; there are no missed finals in the small sample. Do not start97/243-case run without explicit scope choice. No merge/adoption.
+
+---
+
+Historical active handoff follows; do not restart it.
+
 # Active thinking-on probe
 
 User requested a small follow-up on Study E complete-evidence C1 errors, retaining native thinking to inspect mistakes. Original243 failed logical answers span97 questions. Optional scope question offered12/97/243; user emphasized thinking traces. Proceeded with stated small12-case sample:3 per condition, lowest content IDs, lowest originally failed seed. No extrapolation to243. Plan c6b955d3, native template note72417c2b; user payload and evidence identical, native thinking-on adds a verified system effort prefix and open thinking boundary. No new retrieval or explanatory prompt. Original Study E verdict unchanged.
