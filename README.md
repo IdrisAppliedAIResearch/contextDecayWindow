@@ -473,6 +473,8 @@ Commercial enquiries: **idrisappliedairesearch@gmail.com**.
 
 # For LLM Context
 
+> **Study E thinking-on probe (2026-09-06).** EXPLORATORY.12 selected complete-evidence wrong C1 question/seed cases became12/12 correct with unchanged evidence under native thinking-on; full traces show effective-update/qualifier reasoning.243 original failures span97 questions;85 distinct questions remain untested. Native system prefix also changes, so no pure thinking-effect or population estimate. Study E verdict unchanged. See `experiments/probes/study_E_thinking/REPORT.md`.
+
 > **Study E confirmation (2026-09-06).** READER D1_WORKS: before answers177/640→302/640 (+19.53pp; group CI13.91–25.16; p=.00001),184 gains/59 losses. All guards pass; latest102/160 and absence160/160 each. Exact-source availability64/128→109/128; C1 complete-evidence wrong243/545. ORACLE524/640. Fresh native thinking-off run3508 calls/3840 logical answers; both capped attempts excluded.114 unique agent judgments, no human audit. Same-study Amendment005; no adoption. See `experiments/study_E/CONFIRMATION_REPORT.md`.
 
 > **Study E amended development (2026-09-06).** Amendment003 competing-update histories: exact required-source delivery4/16->13/16,9 gains/0 losses. Completed 43-call reader check gives before correctness3/12->6/12,4 gains/1 loss; latest3/4 and absence4/4 in both arms. Thirteen agent-scored exceptions; development only. Text-only duplicate-value counts are invalid. See `experiments/study_E/AMENDMENT_003_REPORT.md`.

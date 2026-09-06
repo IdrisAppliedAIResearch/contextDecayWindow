@@ -194,6 +194,8 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **Study E before ordering (2026-09-06).** READER D1_WORKS. Before177/640→302/640 (+19.53pp; CI13.91–25.16; p=.00001),32 synthetic groups; guards pass. Evidence64/128→109/128, but243 complete-evidence answers wrong. Native thinking-off restart; two capped attempts excluded.114 unique agent judgments, no human audit. Reader interface changed; no transfer/adoption.
 
+**Study E thinking probe (2026-09-06).** EXPLORATORY.12 selected complete-evidence failures became12/12 correct with native thinking on; evidence/seeds unchanged. Traces select last effective updates and reject future/proposed changes.243 failures span97 questions;85 untested. Native system prefix changes too; no population/pure-thinking claim. Study E unchanged.
+
 ## 3. Failure Pattern
 
 The recurring failure class is a surrogate that can pass without the property it claims to certify: record count for information, novelty for importance, density for factual value, or a rubric score for a correct answer.
