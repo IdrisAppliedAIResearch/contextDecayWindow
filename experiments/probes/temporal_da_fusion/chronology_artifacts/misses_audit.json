@@ -1,0 +1,610 @@
+{
+  "status": "PASS",
+  "plan": "ba9d0dd6",
+  "exact_pack_replays": 8,
+  "original_and_chrono_exact": 4,
+  "candidate_presence": 4,
+  "no_new_reader_calls": true,
+  "inputs": {
+    "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\probes\\temporal_da_fusion\\chronology_artifacts\\result.json": "bf5a4d469c9ff9e8801c53b5a02934f06cda86a05628834f693498fc9466d680",
+    "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\probes\\temporal_da_fusion\\chronology_artifacts\\contexts.json": "e689880e69c0c19c777213a6b120014aa8d6bd0ac2dbfbe7e09511ac7582296d",
+    "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\study_E\\artifacts\\confirmation\\development_inputs\\sources.json": "c18ebb1011de6655cde5dc1b4ed99db51679994e5a059942df4257ec905fcb0a",
+    "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\study_E\\artifacts\\confirmation\\development_inputs\\labels.json": "f458319c1f32820d32ce9315d5a15641c55667138e6c50a29403c33baa899872",
+    "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\study_E\\artifacts\\confirmation\\development_inputs\\traces_sealed.json": "3820a52ac8ceccf3803abb22d2f214d45784e099a2488a6dd41e9cc3d3b4db34",
+    "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\study_E\\artifacts\\confirmation\\restart005\\diagnostics_rows_verified.json": "b9f0eae7bf5d505996bc419180b3eafb687e4295841b325e6716bb45c1d1e499",
+    "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\probes\\temporal_da_fusion\\artifacts\\blind_outputs.json": "a25497d0cf90993923289c5a0b904ec0d304027e377e450e084f5aca381fe5de",
+    "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\probes\\temporal_da_fusion\\difference_artifacts\\outcomes.json": "9f008859ff282d988a5c2c60ab74ae425df0ce8213465b34361613dd510e209e"
+  },
+  "rows": [
+    {
+      "id": "1454502bbf18db4a79d3a128bba10384a4f8215888a23496c8bf10a831247169",
+      "history": "session-94025-straight",
+      "question": "What was the delivery location for \"Harbor-485\" immediately before \"Harbor-485 review\"?",
+      "gold": "office",
+      "reader_answer": "workshop",
+      "target": {
+        "turn_number": 55,
+        "user_message": "The delivery location for \"Harbor-485\" is now the office. This replaces its previous location.\nOperations note 98230. The receiving team inspected 28 containers at the studio. Labels and fasteners were checked against the inventory register. The measurement was 216 millimetres. A supplier receipt was filed under reference 147494. The facilities committee discussed equipment handling, packaging and staffing. These operational observations do not establish or revise any project delivery location. The next routine inspection will review stock counts and maintenance logs. The shift supervisor signed the inspection sheet and requested a separate receipt for the new supplies.",
+        "assistant_message": "Recorded the operations note.",
+        "id": "c8cfb9a3198eb27b0cab10e81c04f1fc4aba79fc4ff0f515874ffdcdbe415ab7"
+      },
+      "anchor": 66,
+      "carrier": {
+        "id": "c8cfb9a3198eb27b0cab10e81c04f1fc4aba79fc4ff0f515874ffdcdbe415ab7",
+        "turn": 55,
+        "source_chars": 707,
+        "episode_serialized_chars": 775,
+        "rendered": false,
+        "cc80_rank": 41,
+        "temporal_candidate_rank": 12,
+        "temporal_admission_rank": null,
+        "packed_rank": null
+      },
+      "temporal": {
+        "id": "c8cfb9a3198eb27b0cab10e81c04f1fc4aba79fc4ff0f515874ffdcdbe415ab7",
+        "turn": 55,
+        "position": 12,
+        "used_before": 7871,
+        "remaining": 129,
+        "cost": 776,
+        "admitted": false
+      },
+      "final": {
+        "id": "c8cfb9a3198eb27b0cab10e81c04f1fc4aba79fc4ff0f515874ffdcdbe415ab7",
+        "turn": 55,
+        "position": 51,
+        "used_before": 31954,
+        "remaining": 46,
+        "cost": 776,
+        "admitted": false
+      },
+      "temporal_selected_turns": [
+        66,
+        65,
+        64,
+        63,
+        62,
+        61,
+        60,
+        59,
+        58,
+        57
+      ],
+      "selected_count": 41,
+      "final_chars": 31954,
+      "window": [
+        {
+          "turn": 53,
+          "selected": false,
+          "temporal": false,
+          "text": "The delivery location for \"Harbor-485\" is now the workshop. This replaces its previous location."
+        },
+        {
+          "turn": 54,
+          "selected": true,
+          "temporal": false,
+          "text": "The delivery location for \"Harbor-485\" is now the workshop. This replaces its previous location."
+        },
+        {
+          "turn": 55,
+          "selected": false,
+          "temporal": false,
+          "text": "The delivery location for \"Harbor-485\" is now the office. This replaces its previous location."
+        },
+        {
+          "turn": 56,
+          "selected": false,
+          "temporal": false,
+          "text": "The team reviewed delivery records for \"Harbor-485\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 57,
+          "selected": true,
+          "temporal": true,
+          "text": "The team reviewed delivery records for \"Harbor-485\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 58,
+          "selected": true,
+          "temporal": true,
+          "text": "The team reviewed delivery records for \"Harbor-485\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 59,
+          "selected": true,
+          "temporal": true,
+          "text": "The team reviewed delivery records for \"Harbor-485\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 60,
+          "selected": true,
+          "temporal": true,
+          "text": "The team reviewed delivery records for \"Harbor-485\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 61,
+          "selected": true,
+          "temporal": true,
+          "text": "The team reviewed delivery records for \"Harbor-485\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 62,
+          "selected": true,
+          "temporal": true,
+          "text": "The team reviewed delivery records for \"Harbor-485\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 63,
+          "selected": true,
+          "temporal": true,
+          "text": "The team reviewed delivery records for \"Harbor-485\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 64,
+          "selected": true,
+          "temporal": true,
+          "text": "The team reviewed delivery records for \"Harbor-485\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 65,
+          "selected": true,
+          "temporal": true,
+          "text": "The team checked the schedule for \"Harbor-485\" without changing any instructions."
+        },
+        {
+          "turn": 66,
+          "selected": true,
+          "temporal": true,
+          "text": "The meeting \"Harbor-485 review\" took place at this point in the conversation."
+        }
+      ],
+      "earlier_fusion_has_target": false,
+      "existing_variants": {
+        "forward": false,
+        "backward": false,
+        "before_anchor": false
+      }
+    },
+    {
+      "id": "19b7803aac3774bc3156462da65e17cf5904c54843bfeb7455ca1b5c4b8b1080",
+      "history": "session-94004-future",
+      "question": "What was the delivery location for \"Meadow-228\" immediately before \"Meadow-228 review\"?",
+      "gold": "warehouse",
+      "reader_answer": "studio",
+      "target": {
+        "turn_number": 60,
+        "user_message": "The delivery location for \"Meadow-228\" is now the warehouse. This replaces its previous location.\nOperations note 15143. The receiving team inspected 16 containers at the warehouse. Labels and fasteners were checked against the inventory register. The measurement was 569 millimetres. A supplier receipt was filed under reference 640951. The facilities committee discussed equipment handling, packaging and staffing. These operational observations do not establish or revise any project delivery location. The next routine inspection will review stock counts and maintenance logs. The shift supervisor signed the inspection sheet and requested a separate receipt for the new supplies.",
+        "assistant_message": "Recorded the operations note.",
+        "id": "0cacb35995bc77b45ce992f5ce84a38daff3f2746f638882215bd0148f3da5d5"
+      },
+      "anchor": 71,
+      "carrier": {
+        "id": "0cacb35995bc77b45ce992f5ce84a38daff3f2746f638882215bd0148f3da5d5",
+        "turn": 60,
+        "source_chars": 713,
+        "episode_serialized_chars": 781,
+        "rendered": false,
+        "cc80_rank": 33,
+        "temporal_candidate_rank": 12,
+        "temporal_admission_rank": null,
+        "packed_rank": null
+      },
+      "temporal": {
+        "id": "0cacb35995bc77b45ce992f5ce84a38daff3f2746f638882215bd0148f3da5d5",
+        "turn": 60,
+        "position": 12,
+        "used_before": 7962,
+        "remaining": 38,
+        "cost": 782,
+        "admitted": false
+      },
+      "final": {
+        "id": "0cacb35995bc77b45ce992f5ce84a38daff3f2746f638882215bd0148f3da5d5",
+        "turn": 60,
+        "position": 42,
+        "used_before": 31258,
+        "remaining": 742,
+        "cost": 782,
+        "admitted": false
+      },
+      "temporal_selected_turns": [
+        71,
+        70,
+        69,
+        68,
+        67,
+        66,
+        65,
+        64,
+        63,
+        62
+      ],
+      "selected_count": 40,
+      "final_chars": 31258,
+      "window": [
+        {
+          "turn": 58,
+          "selected": false,
+          "temporal": false,
+          "text": "The delivery location for \"Meadow-228\" is now the office. This replaces its previous location."
+        },
+        {
+          "turn": 59,
+          "selected": false,
+          "temporal": false,
+          "text": "The delivery location for \"Meadow-228\" is now the laboratory. This replaces its previous location."
+        },
+        {
+          "turn": 60,
+          "selected": false,
+          "temporal": false,
+          "text": "The delivery location for \"Meadow-228\" is now the warehouse. This replaces its previous location."
+        },
+        {
+          "turn": 61,
+          "selected": false,
+          "temporal": false,
+          "text": "The team reviewed delivery records for \"Meadow-228\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 62,
+          "selected": true,
+          "temporal": true,
+          "text": "The team reviewed delivery records for \"Meadow-228\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 63,
+          "selected": true,
+          "temporal": true,
+          "text": "The team reviewed delivery records for \"Meadow-228\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 64,
+          "selected": true,
+          "temporal": true,
+          "text": "The team reviewed delivery records for \"Meadow-228\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 65,
+          "selected": true,
+          "temporal": true,
+          "text": "The team reviewed delivery records for \"Meadow-228\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 66,
+          "selected": true,
+          "temporal": true,
+          "text": "The team reviewed delivery records for \"Meadow-228\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 67,
+          "selected": true,
+          "temporal": true,
+          "text": "The team reviewed delivery records for \"Meadow-228\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 68,
+          "selected": true,
+          "temporal": true,
+          "text": "The team reviewed delivery records for \"Meadow-228\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 69,
+          "selected": true,
+          "temporal": true,
+          "text": "The team announced that the delivery location for \"Meadow-228\" will become the hangar next month. It is explicitly not effective anywhere in the current recorded history."
+        },
+        {
+          "turn": 70,
+          "selected": true,
+          "temporal": true,
+          "text": "The team reviewed delivery records for \"Meadow-228\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 71,
+          "selected": true,
+          "temporal": true,
+          "text": "The meeting \"Meadow-228 review\" took place at this point in the conversation."
+        }
+      ],
+      "earlier_fusion_has_target": false,
+      "existing_variants": {
+        "forward": false,
+        "backward": false,
+        "before_anchor": false
+      }
+    },
+    {
+      "id": "04626861ac09011f12590a3f5b2aaf0d2c32525f24f94335e681e6bb3c31037b",
+      "history": "session-94032-proposal",
+      "question": "What was the delivery location for \"Riverside-324\" immediately before \"Riverside-324 review\"?",
+      "gold": "annex",
+      "reader_answer": "office",
+      "target": {
+        "turn_number": 81,
+        "user_message": "The delivery location for \"Riverside-324\" is now the annex. This replaces its previous location.\nOperations note 29184. The receiving team inspected 84 containers at the warehouse. Labels and fasteners were checked against the inventory register. The measurement was 257 millimetres. A supplier receipt was filed under reference 714904. The facilities committee discussed equipment handling, packaging and staffing. These operational observations do not establish or revise any project delivery location. The next routine inspection will review stock counts and maintenance logs. The shift supervisor signed the inspection sheet and requested a separate receipt for the new supplies.",
+        "assistant_message": "Recorded the operations note.",
+        "id": "b0f48fb5138271e3bae6a67ede4ced98219034f51f92a0c0bc58f3abfb591abf"
+      },
+      "anchor": 92,
+      "carrier": {
+        "id": "b0f48fb5138271e3bae6a67ede4ced98219034f51f92a0c0bc58f3abfb591abf",
+        "turn": 81,
+        "source_chars": 712,
+        "episode_serialized_chars": 780,
+        "rendered": false,
+        "cc80_rank": 64,
+        "temporal_candidate_rank": 12,
+        "temporal_admission_rank": null,
+        "packed_rank": null
+      },
+      "temporal": {
+        "id": "b0f48fb5138271e3bae6a67ede4ced98219034f51f92a0c0bc58f3abfb591abf",
+        "turn": 81,
+        "position": 12,
+        "used_before": 7968,
+        "remaining": 32,
+        "cost": 781,
+        "admitted": false
+      },
+      "final": {
+        "id": "b0f48fb5138271e3bae6a67ede4ced98219034f51f92a0c0bc58f3abfb591abf",
+        "turn": 81,
+        "position": 74,
+        "used_before": 31357,
+        "remaining": 643,
+        "cost": 781,
+        "admitted": false
+      },
+      "temporal_selected_turns": [
+        92,
+        91,
+        90,
+        89,
+        88,
+        87,
+        86,
+        85,
+        84,
+        83
+      ],
+      "selected_count": 40,
+      "final_chars": 31357,
+      "window": [
+        {
+          "turn": 79,
+          "selected": false,
+          "temporal": false,
+          "text": "The delivery location for \"Riverside-324\" is now the hangar. This replaces its previous location."
+        },
+        {
+          "turn": 80,
+          "selected": true,
+          "temporal": false,
+          "text": "The delivery location for \"Riverside-324\" is now the office. This replaces its previous location."
+        },
+        {
+          "turn": 81,
+          "selected": false,
+          "temporal": false,
+          "text": "The delivery location for \"Riverside-324\" is now the annex. This replaces its previous location."
+        },
+        {
+          "turn": 82,
+          "selected": false,
+          "temporal": false,
+          "text": "The team reviewed delivery records for \"Riverside-324\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 83,
+          "selected": true,
+          "temporal": true,
+          "text": "The team reviewed delivery records for \"Riverside-324\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 84,
+          "selected": true,
+          "temporal": true,
+          "text": "The team reviewed delivery records for \"Riverside-324\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 85,
+          "selected": true,
+          "temporal": true,
+          "text": "The team reviewed delivery records for \"Riverside-324\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 86,
+          "selected": true,
+          "temporal": true,
+          "text": "The team reviewed delivery records for \"Riverside-324\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 87,
+          "selected": true,
+          "temporal": true,
+          "text": "The team reviewed delivery records for \"Riverside-324\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 88,
+          "selected": true,
+          "temporal": true,
+          "text": "The team reviewed delivery records for \"Riverside-324\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 89,
+          "selected": true,
+          "temporal": true,
+          "text": "The team reviewed delivery records for \"Riverside-324\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 90,
+          "selected": true,
+          "temporal": true,
+          "text": "The team reviewed delivery records for \"Riverside-324\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 91,
+          "selected": true,
+          "temporal": true,
+          "text": "A proposal would move the delivery location for \"Riverside-324\" to the laboratory. It has not been accepted; no delivery-location change takes effect."
+        },
+        {
+          "turn": 92,
+          "selected": true,
+          "temporal": true,
+          "text": "The meeting \"Riverside-324 review\" took place at this point in the conversation."
+        }
+      ],
+      "earlier_fusion_has_target": true,
+      "existing_variants": {
+        "forward": true,
+        "backward": false,
+        "before_anchor": true
+      }
+    },
+    {
+      "id": "0b5d6903e27b10ce7305134b3bed3f3995f045e1cfe841c201a580f843b6e1be",
+      "history": "session-94019-proposal",
+      "question": "What was the delivery location for \"Riverside-481\" immediately before \"Riverside-481 review\"?",
+      "gold": "laboratory",
+      "reader_answer": "hangar",
+      "target": {
+        "turn_number": 45,
+        "user_message": "The delivery location for \"Riverside-481\" is now the laboratory. This replaces its previous location.\nOperations note 73654. The receiving team inspected 28 containers at the laboratory. Labels and fasteners were checked against the inventory register. The measurement was 840 millimetres. A supplier receipt was filed under reference 278587. The facilities committee discussed equipment handling, packaging and staffing. These operational observations do not establish or revise any project delivery location. The next routine inspection will review stock counts and maintenance logs. The shift supervisor signed the inspection sheet and requested a separate receipt for the new supplies.",
+        "assistant_message": "Recorded the operations note.",
+        "id": "b846576903adba59f8242becb72ecfb696f7389a367c34ec1dfd07983a689dfe"
+      },
+      "anchor": 55,
+      "carrier": {
+        "id": "b846576903adba59f8242becb72ecfb696f7389a367c34ec1dfd07983a689dfe",
+        "turn": 45,
+        "source_chars": 718,
+        "episode_serialized_chars": 786,
+        "rendered": false,
+        "cc80_rank": 35,
+        "temporal_candidate_rank": 11,
+        "temporal_admission_rank": null,
+        "packed_rank": null
+      },
+      "temporal": {
+        "id": "b846576903adba59f8242becb72ecfb696f7389a367c34ec1dfd07983a689dfe",
+        "turn": 45,
+        "position": 11,
+        "used_before": 7977,
+        "remaining": 23,
+        "cost": 787,
+        "admitted": false
+      },
+      "final": {
+        "id": "b846576903adba59f8242becb72ecfb696f7389a367c34ec1dfd07983a689dfe",
+        "turn": 45,
+        "position": 45,
+        "used_before": 31391,
+        "remaining": 609,
+        "cost": 787,
+        "admitted": false
+      },
+      "temporal_selected_turns": [
+        55,
+        54,
+        53,
+        52,
+        51,
+        50,
+        49,
+        48,
+        47,
+        46
+      ],
+      "selected_count": 40,
+      "final_chars": 31391,
+      "window": [
+        {
+          "turn": 43,
+          "selected": true,
+          "temporal": false,
+          "text": "The delivery location for \"Riverside-481\" is now the hangar. This replaces its previous location."
+        },
+        {
+          "turn": 44,
+          "selected": false,
+          "temporal": false,
+          "text": "The delivery location for \"Riverside-481\" is now the office. This replaces its previous location."
+        },
+        {
+          "turn": 45,
+          "selected": false,
+          "temporal": false,
+          "text": "The delivery location for \"Riverside-481\" is now the laboratory. This replaces its previous location."
+        },
+        {
+          "turn": 46,
+          "selected": true,
+          "temporal": true,
+          "text": "The team reviewed delivery records for \"Riverside-481\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 47,
+          "selected": true,
+          "temporal": true,
+          "text": "The team reviewed delivery records for \"Riverside-481\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 48,
+          "selected": true,
+          "temporal": true,
+          "text": "The team reviewed delivery records for \"Riverside-481\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 49,
+          "selected": true,
+          "temporal": true,
+          "text": "The team reviewed delivery records for \"Riverside-481\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 50,
+          "selected": true,
+          "temporal": true,
+          "text": "The team reviewed delivery records for \"Riverside-481\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 51,
+          "selected": true,
+          "temporal": true,
+          "text": "The team reviewed delivery records for \"Riverside-481\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 52,
+          "selected": true,
+          "temporal": true,
+          "text": "The team reviewed delivery records for \"Riverside-481\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 53,
+          "selected": true,
+          "temporal": true,
+          "text": "The team reviewed delivery records for \"Riverside-481\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 54,
+          "selected": true,
+          "temporal": true,
+          "text": "A proposal would move the delivery location for \"Riverside-481\" to the warehouse. It has not been accepted; no delivery-location change takes effect."
+        },
+        {
+          "turn": 55,
+          "selected": true,
+          "temporal": true,
+          "text": "The meeting \"Riverside-481 review\" took place at this point in the conversation."
+        }
+      ],
+      "earlier_fusion_has_target": false,
+      "existing_variants": {
+        "forward": false,
+        "backward": false,
+        "before_anchor": false
+      }
+    }
+  ]
+}

@@ -146,7 +146,7 @@ flush against the page there rather than showing as a panel.*
 
 *Last updated 2026-09-06, after the same-retrieval chronological reader probe.*
 
-The [chronological reader probe](experiments/probes/temporal_da_fusion/CHRONOLOGY_REPORT.md) keeps C1 retrieval fixed: before answers score5/12 originally,5/12 without recent context, and8/12 when the remaining records are chronological. Four guards stay correct; native thinking is off. This small reader result favors checking presentation before further fusion tuning. Production defaults are unchanged.
+The [chronological reader probe](experiments/probes/temporal_da_fusion/CHRONOLOGY_REPORT.md) keeps C1 retrieval fixed: before answers score5/12 originally,5/12 without recent context, and8/12 when the remaining records are chronological. Four guards stay correct; native thinking is off. [The four remaining misses](experiments/probes/temporal_da_fusion/MISSES_REPORT.md) lose eligible updates during packing behind no-change notes; each answer matches the latest delivered, stale state. Production defaults are unchanged.
 
 **Study E confirmed a reader benefit from newest-first before-event ordering:** correct final answers rose from 177/640 (27.66%) to 302/640 (47.19%), a 19.53-point gain (95% interval 13.91–25.16; p=.00001), passing the registered bar and harm guards. Complete-evidence delivery rose from 64/128 to 109/128 questions, but 243 answers still failed with complete evidence. This synthetic result uses an amended native thinking-off reader interface and 114 blinded agent judgments; it has not been adopted. [Confirmation report](experiments/study_E/CONFIRMATION_REPORT.md).
 
@@ -474,6 +474,8 @@ Commercial enquiries: **idrisappliedairesearch@gmail.com**.
 ---
 
 # For LLM Context
+
+> **Chronology residual miss audit (2026-09-06).** Four wrong before cases all have stored/eligible updates at temporal positions11–12;8k fits10 records. Semantic ranks41/33/64/35 become merged51/42/74/45, and32k packing also rejects each. Anchors/qualifiers present; four answers match latest delivered effective update, now stale. Recency removal did not cause absence. Eight exact packing replays; no new calls/policy. Planba9d0dd6; `experiments/probes/temporal_da_fusion/MISSES_REPORT.md`.
 
 > **Chronological same-retrieval reader probe (2026-09-06).** EXPLORATORY. Original/no-recency/chronological-no-recency before5/12,5/12,8/12; chronology3g0l. All8 evidence-complete cases correct,4 incomplete wrong; latest2/2 and absence2/2 each.48 fresh native-off calls,16 fixed questions,seed5005,canonical scoring.192 exact membership/render checks. Context median57,331→31,686chars. Plan c9158936; raw db6c770c; scores4f5c458. Post-run negative gate fixture timing disclosed. No adoption; `experiments/probes/temporal_da_fusion/CHRONOLOGY_REPORT.md`.
 

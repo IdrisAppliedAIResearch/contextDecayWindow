@@ -204,6 +204,8 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **Chronology reader probe (2026-09-06).** EXPLORATORY. Same C1 retrieval: original/no-recency/chronological-no-recency before5/12,5/12,8/12 (3g0l);4guards correct. All8complete cases correct,4incomplete wrong.48 native-off calls,one seed.192 exact source checks;context57,331→31,686chars median. Plan c9158936; no adoption. Negative gate fixture executed post-run, disclosed.
 
+**Chronology miss audit (2026-09-06).** Four wrong cases: stored/eligible updates at temporal11–12, but8k fits10; semantic ranks33–64 also miss32k packing. No-change notes precede needed updates. All4 answers match latest delivered stale state. Anchors/qualifiers present; recency removal did not cause absence.8 exact pack replays; no new calls/policy. Planba9d0dd6.
+
 ## 3. Failure Pattern
 
 The recurring failure class is a surrogate that can pass without the property it claims to certify: record count for information, novelty for importance, density for factual value, or a rubric score for a correct answer.
