@@ -146,7 +146,7 @@ flush against the page there rather than showing as a panel.*
 
 *Last updated 2026-09-05, after Study D temporal retrieval.*
 
-**Temporal allocation improved this synthetic reader test.** Primary accuracy rose from 19.7% to 63.4% across 32 randomized histories. Latest-setting retrieval improved most; immediately-before accuracy remains 26.9%. Eight answers used explicitly authorized single-agent scoring instead of the registered human review. This has not been adopted. [Report](experiments/study_D/REPORT.md).
+**Temporal allocation improved correctly generated reader answers.** Scored final-answer accuracy rose from 19.7% to 63.4% across 32 randomized synthetic histories, clearing the registered reader-success bar. Evidence availability is reported separately as a diagnostic. Latest-setting retrieval improved most; immediately-before accuracy remains 26.9%. Eight answers used explicitly authorized single-agent scoring instead of the registered human review. This has not been adopted. [Report](experiments/study_D/REPORT.md).
 
 **The deployable read path is now episodic-chat 0.2.0.** The latest 32 complete
 exchanges are always additive continuity context and do not spend the long-term
@@ -471,7 +471,7 @@ Commercial enquiries: **idrisappliedairesearch@gmail.com**.
 
 # For LLM Context
 
-> **Study D temporal retrieval (2026-09-05).** D1_WORKS with authorized scoring deviation: 32 synthetic sessions, primary 63/320->203/320 (+43.75pp; CI 33.44-53.75; p=.00001). Latest 30%->100%, before 9.38%->26.88%; evidence 20/64->48/64. Eight single-agent judgments, no human audit. Absence harm untested; multi-hop shortcuts. No adoption. See `experiments/study_D/REPORT.md`, `amendments/AMENDMENT_001_agent_adjudication.md`, and `artifacts/confirmation/result.json` within that study.
+> **Study D temporal retrieval (2026-09-05).** READER D1_WORKS, scoring deviation. Generated-answer correctness 63/320->203/320 (+43.75pp; CI 33.44-53.75; p=.00001), 32 synthetic sessions. Latest 30%->100%; before 9.38%->26.88%. Availability is diagnostic. Eight agent judgments, no human audit. HH-001 prompt; transfer/absence harm untested; no adoption. See `experiments/study_D/REPORT.md`, `amendments/AMENDMENT_001_agent_adjudication.md`, and `artifacts/confirmation/result.json` within that study.
 
 **Everything below this line is the full record.** It is written for an agent
 picking up this work with no prior context, and it is deliberately dense: every
@@ -979,7 +979,7 @@ Runs use a scripted 120-turn conversation with facts planted at known positions 
 
 | # | Added | Result | Finding |
 |---|---|---|---|
-| D | Deterministic temporal allocation | D1_WORKS; scoring deviation | Primary 63/320->203/320; 32 synthetic sessions; eight agent judgments; no adoption |
+| D | Deterministic temporal allocation | READER D1_WORKS; scoring deviation | Correct generated answers 63/320->203/320; 32 synthetic sessions; eight agent judgments; transfer untested |
 | 001 | Recency and similarity retrieval | PARTIAL (2/3) | Similarity fired once in 32 turns |
 | 002 | Consolidation, rule pinning, 120 turns | PARTIAL (3/4) | Similarity recovered buried facts; consolidation produced 52 topics |
 | 003 | LTM write path | PARTIAL (2/3) | Promotion behaved as novelty detection, not salience judgment |
