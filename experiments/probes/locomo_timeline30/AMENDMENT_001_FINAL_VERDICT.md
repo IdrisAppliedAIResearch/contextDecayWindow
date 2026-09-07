@@ -1,0 +1,7 @@
+# Instrument repair: explicit final judge verdict
+
+Post-run raw review found the carried HH001 parser reads the first verdict before REASON and ignores later explicit corrections. On the James cooking-class question, all three judge responses begin INCORRECT but calculate September4 minus2days=September2 and explicitly finish CORRECT with a matching final rationale. Original blind_votes.json at a454fa8f is preserved. Its4/10 temporal tally is an instrument artifact, not the judges' final majority.
+
+Apply one bidirectional rule to all90 raw responses: require at least one complete line VERDICT: CORRECT or INCORRECT; take the last such line and its following nonempty REASON. Preserve every earlier verdict and flag changes. Reject missing final reason rather than inventing a vote. No additional reader/judge calls, altered rubric, changed answer or sample. Add corrected_votes.json and corrected_results.json; do not edit original scores. Test positive,negative,negative-to-positive,positive-to-negative,and no-answer/missing-reason fixtures before execution. Commit corrected votes before new aggregation.
+
+This is a minimum measurement repair within the user's end-to-end probe authorization, not a change to semantic criteria. The primary remains three-judge majority. Relative-date ambiguity in the separate Harry Potter item is disclosed and not silently adjudicated. Single-agent review is not independent human review. Errata records the preliminary4/10 -> final5/10 temporal tally; broad13/20 unchanged. Reader behavior and full LoCoMo pause remain unchanged.

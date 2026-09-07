@@ -220,6 +220,12 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **LoCoMo batch timing (2026-09-07).** Nine matched historical prompts: serial37.44s vs concurrent9 38.20s, throughput0.9802x. Peak slots1/9 verified; no cache/truncation. Outputs172/234tokens,8/9identical; no accuracy scoring. NativeOFF; min2282MiB free. Capacity fits, speed benefit unobserved. Plan b483b398.
 
+**LoCoMo timeline preflight (2026-09-07).** INFERENCE PAUSED. Existing anchor grammar unsupported on1,986/1,986. Selected/full median input8,494/36,048tokens; paired retained median26.44%,46retain>=90%. Longest33,841/34,259 (98.78%). All128Eprefixes replay;40,960context fits. No answers. Plan4193702b; size rawc3555066. Resolve transfer scope before inference.
+
+**Reader anchor probe (2026-09-07).** Eight short synthetic histories: status fields match expected resolution/ambiguity; later clarification and retrospective evidence both flagged unsafe to cut. NativeOFF, explicit diagnostic prompt,1,117output tokens. Citation sets incomplete; hypothetical alternatives appear. No natural-transfer/chronology-causality score. Plan1b6c79ef; rawb04da2a3.
+
+**LoCoMo timeline30 (2026-09-07).** Current deterministic arm: broad13/20,extra temporal5/10; complete evidence16/20,10/10. NativeOFF,one answer/question,chronological,no anchor. Three-pass judge; final-verdict repair changes temporal4→5. Relative-date ambiguity and plan/completion caveat.30reader calls89.35s; no causal/transfer verdict. Plan68df803d; full run paused.
+
 ## 3. Failure Pattern
 
 The recurring failure class is a surrogate that can pass without the property it claims to certify: record count for information, novelty for importance, density for factual value, or a rubric score for a correct answer.

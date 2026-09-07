@@ -144,6 +144,10 @@ flush against the page there rather than showing as a panel.*
 
 ## Current State of Work
 
+A small current-arm LoCoMo probe scored13/20 on broadly sampled questions and5/10 on additional temporal questions, with one answering call each and fully deterministic chronological retrieval. The temporal group received all annotated evidence; date handling and abstentions remain issues. [Probe report](experiments/probes/locomo_timeline30/REPORT.md). The full run remains paused.
+
+The LoCoMo relevance-timeline run is paused before inference: the carried anchor parser activates on none of its questions. Matched input checks show substantial typical reduction, but a small tail approaches full context. [Preflight findings](experiments/locomo_relevance_timeline/FULL_CONTEXT_REPORT.md).
+
 *Last updated 2026-09-07, after the GPU batching capacity probe.*
 
 The [review-boundary prefix](experiments/probes/temporal_da_fusion/PREFIX_106_REPORT.md) now scores126/128 (98.4%) before questions versus106/128 (82.8%) for the full relevance timeline:22recoveries and2regressions. It preserves all preceding selected evidence and removes later records, with thinking off. Coverage comes from two sequential diagnostic batches; naturalistic generalization and production adoption remain untested.
@@ -433,6 +437,8 @@ confirmation.
 
 ## Next Steps
 
+Resolve whether the next LoCoMo test should evaluate the chronological relevance filter alone or first establish a natural-language anchor mechanism. Full reader inference is paused pending that discussion.
+
 Complete the LoCoMo relevance-timeline design with live batched inference. Nine concurrent32k reader slots passed the [capacity probe](experiments/probes/temporal_da_fusion/BATCH_CAPACITY_REPORT.md); full uncapped prompt fit and reader/judge calibration remain. LoCoMo is previously used, so this tests transfer of the current configuration, not an untouched holdout.
 
 1. **Validate episodic-chat 0.2.0 outside the spent LoCoMo corpus.** Freeze an
@@ -518,6 +524,12 @@ Start with `AGENTS.md` — it is the operating manual and the study digest — a
 read `ERRATA.md` before quoting any number.
 
 ## Status Ledger
+
+> **LoCoMo timeline30, September7:** broad13/20,additional temporal5/10; evidence complete16/20 and10/10. NativeOFF,one answer per question,unchanged deterministic retrieval. Three-pass final majority after a documented parser repair(4→5temporal); relative-date judging remains imperfect. [All questions,answers and limitations](experiments/probes/locomo_timeline30/REPORT.md). No full-study or chronology-causality claim.
+
+> **Reader anchor diagnostic, September7:** eight short synthetic histories produced expected event-resolution status; later clarification and retrospective evidence were both flagged unsafe to cut. Native thinkingOFF with explicit diagnostic instructions. Citation sets remain incomplete; no natural transfer or causal chronology result. [Report](experiments/probes/reader_anchor/REPORT.md). Full LoCoMo remains paused.
+
+> **LoCoMo relevance timeline preflight, September7:** zero anchors on1,986questions; no reader calls. Selected/full input medians8,494/36,048tokens, median paired retained26.44%;46/1,986 retain>=90%. Longest33,841/34,259. Common40,960context fits. [Report and raw-artifact links](experiments/locomo_relevance_timeline/FULL_CONTEXT_REPORT.md). Inference paused; no efficacy verdict.
 
 **Can a language model hold a long conversation by rebuilding a small, relevant context every turn, instead of re-reading the whole transcript or summarising it away?**
 
