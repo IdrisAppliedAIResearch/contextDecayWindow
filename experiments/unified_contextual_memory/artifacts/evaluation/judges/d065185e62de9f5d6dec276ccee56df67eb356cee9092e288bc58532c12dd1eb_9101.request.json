@@ -1,0 +1,18 @@
+{
+  "prompt_sha256": "9dadc06c8a46408eb7898cceb8b629571b795e803c274ff4070eef00141f5f74",
+  "request": {
+    "cache_prompt": false,
+    "id_slot": 0,
+    "min_p": 0,
+    "n_predict": 4096,
+    "presence_penalty": 0,
+    "prompt": "<|im_start|>user\nYou are grading one answer against a reference answer.\n\nQuestion: What activities has Dave participated in with his friends?\nReference answer: weekly visits to local parks, countryside roadtrip, celebration of the opening of his car maintenance shop, card-playing nights\nAnswer to grade: Dave has participated in the following activities with his friends:\n*   Attended a music festival in Boston (Session 2)\n*   Went on a road trip (Session 11)\n*   Held a card night (Session 15)\n*   Arranged regular walks together in the park (Session 10)\n*   Jammed/rehearsed with his band (Session 19)\n\nThe answer is CORRECT if it states the same fact as the reference answer, even in different words, a different format, or with extra detail. The answer is INCORRECT if it states a different fact, contradicts the reference, refuses, says it does not know, or is empty.\n\nReply with exactly two lines:\nVERDICT: CORRECT or INCORRECT\nREASON: one sentence\n\nVERDICT:<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+    "reasoning_format": "none",
+    "repeat_penalty": 1,
+    "seed": 9101,
+    "temperature": 0.2,
+    "top_k": 20,
+    "top_p": 0.9
+  },
+  "time": 1788821442.6663685
+}

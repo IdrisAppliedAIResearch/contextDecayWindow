@@ -1,0 +1,18 @@
+{
+  "prompt_sha256": "46b2029bb972c6f65244a5c0849d7753b0da3f604cee03443f2196d2fe51de68",
+  "request": {
+    "cache_prompt": false,
+    "id_slot": 0,
+    "min_p": 0,
+    "n_predict": 4096,
+    "presence_penalty": 0,
+    "prompt": "<|im_start|>user\nYou are grading one answer against a reference answer.\n\nQuestion: What ways do Deborah and Jolene use to enhance their yoga practice?\nReference answer: candles, music, essential oils\nAnswer to grade: They use scents (such as candles, essential oils, lavender, and rosemary) and music (instrumental tracks with mellow melodies).\n\nThe answer is CORRECT if it states the same fact as the reference answer, even in different words, a different format, or with extra detail. The answer is INCORRECT if it states a different fact, contradicts the reference, refuses, says it does not know, or is empty.\n\nReply with exactly two lines:\nVERDICT: CORRECT or INCORRECT\nREASON: one sentence\n\nVERDICT:<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+    "reasoning_format": "none",
+    "repeat_penalty": 1,
+    "seed": 9102,
+    "temperature": 0.2,
+    "top_k": 20,
+    "top_p": 0.9
+  },
+  "time": 1788820740.889544
+}

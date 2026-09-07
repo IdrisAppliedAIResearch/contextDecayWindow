@@ -1,0 +1,18 @@
+{
+  "prompt_sha256": "8a04a39c5edfb856f6ad43ce4e6c9fe1e699ce4aa98d1215c8de002f392b3e69",
+  "request": {
+    "cache_prompt": false,
+    "id_slot": 0,
+    "min_p": 0,
+    "n_predict": 4096,
+    "presence_penalty": 0,
+    "prompt": "<|im_start|>user\nYou are grading one answer against a reference answer.\n\nQuestion: Which locations does Deborah practice her yoga at?\nReference answer: at her mother's old home, park, yoga studio, beach\nAnswer to grade: Her old home, a dance studio, a park, a beach, and a room with yoga mats.\n\nThe answer is CORRECT if it states the same fact as the reference answer, even in different words, a different format, or with extra detail. The answer is INCORRECT if it states a different fact, contradicts the reference, refuses, says it does not know, or is empty.\n\nReply with exactly two lines:\nVERDICT: CORRECT or INCORRECT\nREASON: one sentence\n\nVERDICT:<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+    "reasoning_format": "none",
+    "repeat_penalty": 1,
+    "seed": 9102,
+    "temperature": 0.2,
+    "top_k": 20,
+    "top_p": 0.9
+  },
+  "time": 1788820515.8934772
+}

@@ -1,0 +1,18 @@
+{
+  "prompt_sha256": "0d64dca7a07107a199c6a6bf9cac669971786eb003c50d6f7fd7f79d28e20246",
+  "request": {
+    "cache_prompt": false,
+    "id_slot": 0,
+    "min_p": 0,
+    "n_predict": 4096,
+    "presence_penalty": 0,
+    "prompt": "<|im_start|>user\nYou are grading one answer against a reference answer.\n\nQuestion: What symbolic gifts do Deborah and Jolene have from their mothers?\nReference answer: pendants\nAnswer to grade: Deborah has a pendant (amulet) from her mother, and Jolene has a heart-shaped pendant with a bird on it that her mother gave her in Paris.\n\nThe answer is CORRECT if it states the same fact as the reference answer, even in different words, a different format, or with extra detail. The answer is INCORRECT if it states a different fact, contradicts the reference, refuses, says it does not know, or is empty.\n\nReply with exactly two lines:\nVERDICT: CORRECT or INCORRECT\nREASON: one sentence\n\nVERDICT:<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+    "reasoning_format": "none",
+    "repeat_penalty": 1,
+    "seed": 9200,
+    "temperature": 0.2,
+    "top_k": 20,
+    "top_p": 0.9
+  },
+  "time": 1788821151.6790886
+}
