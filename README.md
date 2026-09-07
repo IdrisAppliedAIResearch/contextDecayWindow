@@ -433,7 +433,7 @@ confirmation.
 
 ## Next Steps
 
-Keep the relevance timeline frozen. Diagnose the22 evidence-complete reader errors from the [full E run](experiments/probes/temporal_da_fusion/FULL_E_REPORT.md), then test transfer on untouched natural-conversation temporal questions. The expanded synthetic run does not justify threshold tuning or an adoption claim.
+Keep the relevance timeline frozen. The [22-case audit](experiments/probes/temporal_da_fusion/FULL_E_MISSES_REPORT.md) confirms literal evidence presence;17wrong values match later updates. Test temporal-boundary sensitivity before transfer on untouched natural-conversation questions. The expanded synthetic run does not justify threshold tuning or an adoption claim.
 
 1. **Validate episodic-chat 0.2.0 outside the spent LoCoMo corpus.** Freeze an
    external reader and retrieval study—preferably EnterpriseRAG-Bench or an
@@ -474,6 +474,8 @@ Commercial enquiries: **idrisappliedairesearch@gmail.com**.
 ---
 
 # For LLM Context
+
+> **Full E miss audit.** All22 literal source/prompt checks and independently reconstructed gold states pass.17wrong values match first post-review update,8previous state,9near proposal/future; overlapping associations,not causal attribution. Four future-case wording concerns documented. No new calls. [Report](experiments/probes/temporal_da_fusion/FULL_E_MISSES_REPORT.md).
 
 > **Full E relevance reader (2026-09-06).** EXPLORATORY single arm: before106/128,latest32/32,absence32/32,total170/192. All22errors evidence-complete; prior16 15/16,remainder155/176,not holdout. NativeOFF,seed5005,179canonical+13agent scores. Plan2519aff9; [report](experiments/probes/temporal_da_fusion/FULL_E_REPORT.md). No control/generalization/adoption.
 

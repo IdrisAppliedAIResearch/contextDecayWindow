@@ -210,6 +210,8 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **Full E relevance reader (2026-09-06).** EXPLORATORY single arm,192questions/seed5005/nativeOFF. Before106/128 (82.81%),latest32/32,absent32/32;total170/192. All22misses evidence-complete. Prior16 15/16,remainder155/176 (not holdout).179canonical+13agent judgments;2200output tokens,17.68min. Plan2519aff9; no control/generalization/adoption claim.
 
+**Full E miss audit (2026-09-06).**22literal prompt/source checks and independent before-state reconstructions pass. Targets cosine.597–.741>.48. Wrong values match first later update17,previous state8,near proposal/future9 (overlap); not causal traces. Four future cases have ambiguous global non-effect wording. No calls/scores changed. Plan16f1820b.
+
 ## 3. Failure Pattern
 
 The recurring failure class is a surrogate that can pass without the property it claims to certify: record count for information, novelty for importance, density for factual value, or a rubric score for a correct answer.

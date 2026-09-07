@@ -1,0 +1,1516 @@
+{
+  "plan": "16f1820b",
+  "status": "PASS",
+  "inputs": {
+    "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\probes\\temporal_da_fusion\\relevance_artifacts\\full_e_reader\\result.json": "c85ab083f7b7c391b728d624d011c39b437324107f84e858d460f462703bdbf7",
+    "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\probes\\temporal_da_fusion\\relevance_artifacts\\full_e_reader\\scores_resolved.json": "bd3615cab77f626cdf221d386fc28296c7a6f723c99c9f5fc35cc143ab3501c2",
+    "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\probes\\temporal_da_fusion\\relevance_artifacts\\full_e_reader\\schedule.json": "0300f720da6c1a7eed7b2ea429e5793fff1855747a2a67cc7446c52d81b11c62",
+    "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\probes\\temporal_da_fusion\\relevance_artifacts\\full_e_reader\\complete.json": "bbd0f6afea4275a01d6afa20ce645ab016757d75bd0e70509828b558341ced80",
+    "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\probes\\temporal_da_fusion\\FULL_E_MISSES_PLAN.md": "e773063f366950eb573326f77d290e2684878b53bd9de9fb60e540c4b2874b87",
+    "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\probes\\temporal_da_fusion\\full_e_misses.py": "c763464556c5c1d33d4c2705202e4e5e81c8638c4290217d2502a8fb0a1ad210",
+    "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\study_E\\artifacts\\confirmation\\development_inputs\\sources.json": "c18ebb1011de6655cde5dc1b4ed99db51679994e5a059942df4257ec905fcb0a",
+    "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\study_E\\artifacts\\confirmation\\development_inputs\\labels.json": "f458319c1f32820d32ce9315d5a15641c55667138e6c50a29403c33baa899872"
+  },
+  "exact_prompt_replays": 22,
+  "independent_gold_reconstructions": 22,
+  "negative_support_fixture": true,
+  "counts": {
+    "matches_previous": 8,
+    "matches_first_later": 17,
+    "matches_near": 9,
+    "target_filler_mentions_wrong": 1
+  },
+  "rows": [
+    {
+      "id": "05d782e63a2940af0b50ed4ced06a6a985638a5b446f986f9dc15690e07c9e73",
+      "query": "What was the delivery location for \"Meadow-637\" immediately before \"Meadow-637 review\"?",
+      "type": "future",
+      "gold": "depot",
+      "wrong": "studio",
+      "target": 76,
+      "anchor": 85,
+      "target_cosine": 0.6876324415206909,
+      "previous": {
+        "turn": 75,
+        "value": "studio",
+        "text": "The delivery location for \"Meadow-637\" is now the studio. This replaces its previous location."
+      },
+      "first_later": {
+        "turn": 89,
+        "value": "workshop",
+        "text": "The delivery location for \"Meadow-637\" is now the workshop. This replaces its previous location."
+      },
+      "near": "The team announced that the delivery location for \"Meadow-637\" will become the workshop next month. It is explicitly not effective anywhere in the current recorded history.",
+      "intervening": [
+        {
+          "turn": 77,
+          "statement": "The team reviewed delivery records for \"Meadow-637\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 78,
+          "statement": "The team reviewed delivery records for \"Meadow-637\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 79,
+          "statement": "The team reviewed delivery records for \"Meadow-637\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 80,
+          "statement": "The team reviewed delivery records for \"Meadow-637\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 81,
+          "statement": "The team reviewed delivery records for \"Meadow-637\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 82,
+          "statement": "The team announced that the delivery location for \"Meadow-637\" will become the workshop next month. It is explicitly not effective anywhere in the current recorded history."
+        },
+        {
+          "turn": 83,
+          "statement": "The team reviewed delivery records for \"Meadow-637\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 84,
+          "statement": "The team reviewed delivery records for \"Meadow-637\". This review made no change to its delivery location."
+        }
+      ],
+      "matches_previous": true,
+      "matches_first_later": false,
+      "matches_near": false,
+      "matching_update_turns": [
+        3,
+        13,
+        26,
+        33,
+        36,
+        44,
+        47,
+        51,
+        58,
+        75
+      ],
+      "target_filler_mentions_wrong": false,
+      "complete_literal_support": true
+    },
+    {
+      "id": "24423babbd2cedeca47117b6c3f2743f861af48324e0e4f1dba8d36779e9f4a8",
+      "query": "What was the delivery location for \"Orchard-892\" immediately before \"Orchard-892 review\"?",
+      "type": "irrelevant",
+      "gold": "studio",
+      "wrong": "depot",
+      "target": 54,
+      "anchor": 60,
+      "target_cosine": 0.6952493190765381,
+      "previous": {
+        "turn": 53,
+        "value": "warehouse",
+        "text": "The delivery location for \"Orchard-892\" is now the warehouse. This replaces its previous location."
+      },
+      "first_later": {
+        "turn": 99,
+        "value": "warehouse",
+        "text": "The delivery location for \"Orchard-892\" is now the warehouse. This replaces its previous location."
+      },
+      "near": "The maintenance contact for \"Orchard-892\" changed today. This says nothing about its delivery location.",
+      "intervening": [
+        {
+          "turn": 55,
+          "statement": "The team reviewed delivery records for \"Orchard-892\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 56,
+          "statement": "The team reviewed delivery records for \"Orchard-892\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 57,
+          "statement": "The team reviewed delivery records for \"Orchard-892\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 58,
+          "statement": "The team reviewed delivery records for \"Orchard-892\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 59,
+          "statement": "The maintenance contact for \"Orchard-892\" changed today. This says nothing about its delivery location."
+        }
+      ],
+      "matches_previous": false,
+      "matches_first_later": false,
+      "matches_near": false,
+      "matching_update_turns": [
+        3,
+        7,
+        8,
+        21,
+        22,
+        26,
+        38,
+        50,
+        51
+      ],
+      "target_filler_mentions_wrong": false,
+      "complete_literal_support": true
+    },
+    {
+      "id": "43e78698842c43c86005926424776e655148a3bbcff5ac720164877f49bb19c8",
+      "query": "What was the delivery location for \"Harbor-580\" immediately before \"Harbor-580 review\"?",
+      "type": "straight",
+      "gold": "workshop",
+      "wrong": "depot",
+      "target": 61,
+      "anchor": 68,
+      "target_cosine": 0.734849214553833,
+      "previous": {
+        "turn": 60,
+        "value": "office",
+        "text": "The delivery location for \"Harbor-580\" is now the office. This replaces its previous location."
+      },
+      "first_later": {
+        "turn": 75,
+        "value": "depot",
+        "text": "The delivery location for \"Harbor-580\" is now the depot. This replaces its previous location."
+      },
+      "near": "The team checked the schedule for \"Harbor-580\" without changing any instructions.",
+      "intervening": [
+        {
+          "turn": 62,
+          "statement": "The team reviewed delivery records for \"Harbor-580\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 63,
+          "statement": "The team reviewed delivery records for \"Harbor-580\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 64,
+          "statement": "The team reviewed delivery records for \"Harbor-580\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 65,
+          "statement": "The team reviewed delivery records for \"Harbor-580\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 66,
+          "statement": "The team reviewed delivery records for \"Harbor-580\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 67,
+          "statement": "The team checked the schedule for \"Harbor-580\" without changing any instructions."
+        }
+      ],
+      "matches_previous": false,
+      "matches_first_later": true,
+      "matches_near": false,
+      "matching_update_turns": [
+        4,
+        18,
+        20,
+        23,
+        31,
+        32,
+        75
+      ],
+      "target_filler_mentions_wrong": false,
+      "complete_literal_support": true
+    },
+    {
+      "id": "44b01138ed34c4ae38178fe7d0777d1340626dc27cecbc0d7ea6f07e8a62094e",
+      "query": "What was the delivery location for \"Harbor-795\" immediately before \"Harbor-795 review\"?",
+      "type": "straight",
+      "gold": "warehouse",
+      "wrong": "depot",
+      "target": 51,
+      "anchor": 56,
+      "target_cosine": 0.7157585024833679,
+      "previous": {
+        "turn": 50,
+        "value": "depot",
+        "text": "The delivery location for \"Harbor-795\" is now the depot. This replaces its previous location."
+      },
+      "first_later": {
+        "turn": 71,
+        "value": "depot",
+        "text": "The delivery location for \"Harbor-795\" is now the depot. This replaces its previous location."
+      },
+      "near": "The team checked the schedule for \"Harbor-795\" without changing any instructions.",
+      "intervening": [
+        {
+          "turn": 52,
+          "statement": "The team reviewed delivery records for \"Harbor-795\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 53,
+          "statement": "The team checked the schedule for \"Harbor-795\" without changing any instructions."
+        },
+        {
+          "turn": 54,
+          "statement": "The team reviewed delivery records for \"Harbor-795\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 55,
+          "statement": "The team reviewed delivery records for \"Harbor-795\". This review made no change to its delivery location."
+        }
+      ],
+      "matches_previous": true,
+      "matches_first_later": true,
+      "matches_near": false,
+      "matching_update_turns": [
+        5,
+        21,
+        23,
+        29,
+        32,
+        37,
+        50,
+        71
+      ],
+      "target_filler_mentions_wrong": false,
+      "complete_literal_support": true
+    },
+    {
+      "id": "4a56f058c2a3143c51e31c2de58d3dfe9a0049f5172259d2511e5fb2bb7844ee",
+      "query": "What was the delivery location for \"Riverside-152\" immediately before \"Riverside-152 review\"?",
+      "type": "proposal",
+      "gold": "depot",
+      "wrong": "annex",
+      "target": 59,
+      "anchor": 64,
+      "target_cosine": 0.6464405059814453,
+      "previous": {
+        "turn": 58,
+        "value": "annex",
+        "text": "The delivery location for \"Riverside-152\" is now the annex. This replaces its previous location."
+      },
+      "first_later": {
+        "turn": 66,
+        "value": "annex",
+        "text": "The delivery location for \"Riverside-152\" is now the annex. This replaces its previous location."
+      },
+      "near": "A proposal would move the delivery location for \"Riverside-152\" to the annex. It has not been accepted; no delivery-location change takes effect.",
+      "intervening": [
+        {
+          "turn": 60,
+          "statement": "The team reviewed delivery records for \"Riverside-152\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 61,
+          "statement": "The team reviewed delivery records for \"Riverside-152\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 62,
+          "statement": "A proposal would move the delivery location for \"Riverside-152\" to the annex. It has not been accepted; no delivery-location change takes effect."
+        },
+        {
+          "turn": 63,
+          "statement": "The team reviewed delivery records for \"Riverside-152\". This review made no change to its delivery location."
+        }
+      ],
+      "matches_previous": true,
+      "matches_first_later": true,
+      "matches_near": true,
+      "matching_update_turns": [
+        2,
+        3,
+        5,
+        9,
+        11,
+        23,
+        38,
+        58,
+        66
+      ],
+      "target_filler_mentions_wrong": false,
+      "complete_literal_support": true
+    },
+    {
+      "id": "53c3daca3e8914e829ef7869884a68b116f3c9c4a76d16963f66da015c2f5f5d",
+      "query": "What was the delivery location for \"Harbor-269\" immediately before \"Harbor-269 review\"?",
+      "type": "straight",
+      "gold": "annex",
+      "wrong": "office",
+      "target": 52,
+      "anchor": 62,
+      "target_cosine": 0.7334533333778381,
+      "previous": {
+        "turn": 51,
+        "value": "laboratory",
+        "text": "The delivery location for \"Harbor-269\" is now the laboratory. This replaces its previous location."
+      },
+      "first_later": {
+        "turn": 70,
+        "value": "office",
+        "text": "The delivery location for \"Harbor-269\" is now the office. This replaces its previous location."
+      },
+      "near": "The team checked the schedule for \"Harbor-269\" without changing any instructions.",
+      "intervening": [
+        {
+          "turn": 53,
+          "statement": "The team reviewed delivery records for \"Harbor-269\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 54,
+          "statement": "The team reviewed delivery records for \"Harbor-269\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 55,
+          "statement": "The team reviewed delivery records for \"Harbor-269\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 56,
+          "statement": "The team reviewed delivery records for \"Harbor-269\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 57,
+          "statement": "The team reviewed delivery records for \"Harbor-269\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 58,
+          "statement": "The team reviewed delivery records for \"Harbor-269\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 59,
+          "statement": "The team reviewed delivery records for \"Harbor-269\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 60,
+          "statement": "The team reviewed delivery records for \"Harbor-269\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 61,
+          "statement": "The team checked the schedule for \"Harbor-269\" without changing any instructions."
+        }
+      ],
+      "matches_previous": false,
+      "matches_first_later": true,
+      "matches_near": false,
+      "matching_update_turns": [
+        1,
+        4,
+        6,
+        22,
+        31,
+        45,
+        70
+      ],
+      "target_filler_mentions_wrong": false,
+      "complete_literal_support": true
+    },
+    {
+      "id": "5cb02bde46bc83b75f135db306622d68f769e371fb69bda8a608d2cd7f284104",
+      "query": "What was the delivery location for \"Riverside-405\" immediately before \"Riverside-405 review\"?",
+      "type": "proposal",
+      "gold": "depot",
+      "wrong": "office",
+      "target": 50,
+      "anchor": 58,
+      "target_cosine": 0.6599156856536865,
+      "previous": {
+        "turn": 49,
+        "value": "workshop",
+        "text": "The delivery location for \"Riverside-405\" is now the workshop. This replaces its previous location."
+      },
+      "first_later": {
+        "turn": 66,
+        "value": "office",
+        "text": "The delivery location for \"Riverside-405\" is now the office. This replaces its previous location."
+      },
+      "near": "A proposal would move the delivery location for \"Riverside-405\" to the office. It has not been accepted; no delivery-location change takes effect.",
+      "intervening": [
+        {
+          "turn": 51,
+          "statement": "The team reviewed delivery records for \"Riverside-405\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 52,
+          "statement": "The team reviewed delivery records for \"Riverside-405\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 53,
+          "statement": "The team reviewed delivery records for \"Riverside-405\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 54,
+          "statement": "The team reviewed delivery records for \"Riverside-405\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 55,
+          "statement": "The team reviewed delivery records for \"Riverside-405\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 56,
+          "statement": "The team reviewed delivery records for \"Riverside-405\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 57,
+          "statement": "A proposal would move the delivery location for \"Riverside-405\" to the office. It has not been accepted; no delivery-location change takes effect."
+        }
+      ],
+      "matches_previous": false,
+      "matches_first_later": true,
+      "matches_near": true,
+      "matching_update_turns": [
+        4,
+        9,
+        11,
+        16,
+        19,
+        22,
+        29,
+        32,
+        36,
+        37,
+        66
+      ],
+      "target_filler_mentions_wrong": false,
+      "complete_literal_support": true
+    },
+    {
+      "id": "67b51e769988a0d71182304a66e4ae5d51f04191e3b24dbbbcd74b0cf3a10cbf",
+      "query": "What was the delivery location for \"Harbor-374\" immediately before \"Harbor-374 review\"?",
+      "type": "straight",
+      "gold": "annex",
+      "wrong": "warehouse",
+      "target": 87,
+      "anchor": 92,
+      "target_cosine": 0.7237315773963928,
+      "previous": {
+        "turn": 86,
+        "value": "warehouse",
+        "text": "The delivery location for \"Harbor-374\" is now the warehouse. This replaces its previous location."
+      },
+      "first_later": {
+        "turn": 95,
+        "value": "warehouse",
+        "text": "The delivery location for \"Harbor-374\" is now the warehouse. This replaces its previous location."
+      },
+      "near": "The team checked the schedule for \"Harbor-374\" without changing any instructions.",
+      "intervening": [
+        {
+          "turn": 88,
+          "statement": "The team reviewed delivery records for \"Harbor-374\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 89,
+          "statement": "The team reviewed delivery records for \"Harbor-374\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 90,
+          "statement": "The team checked the schedule for \"Harbor-374\" without changing any instructions."
+        },
+        {
+          "turn": 91,
+          "statement": "The team reviewed delivery records for \"Harbor-374\". This review made no change to its delivery location."
+        }
+      ],
+      "matches_previous": true,
+      "matches_first_later": true,
+      "matches_near": false,
+      "matching_update_turns": [
+        2,
+        14,
+        18,
+        23,
+        25,
+        28,
+        32,
+        52,
+        86,
+        95
+      ],
+      "target_filler_mentions_wrong": false,
+      "complete_literal_support": true
+    },
+    {
+      "id": "7cacd6a51c2cac945083dbaae567f38992af49ee4a49da8342cbd571c0eb40a1",
+      "query": "What was the delivery location for \"Meadow-327\" immediately before \"Meadow-327 review\"?",
+      "type": "future",
+      "gold": "warehouse",
+      "wrong": "depot",
+      "target": 62,
+      "anchor": 71,
+      "target_cosine": 0.7015120983123779,
+      "previous": {
+        "turn": 61,
+        "value": "annex",
+        "text": "The delivery location for \"Meadow-327\" is now the annex. This replaces its previous location."
+      },
+      "first_later": {
+        "turn": 73,
+        "value": "depot",
+        "text": "The delivery location for \"Meadow-327\" is now the depot. This replaces its previous location."
+      },
+      "near": "The team announced that the delivery location for \"Meadow-327\" will become the depot next month. It is explicitly not effective anywhere in the current recorded history.",
+      "intervening": [
+        {
+          "turn": 63,
+          "statement": "The team reviewed delivery records for \"Meadow-327\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 64,
+          "statement": "The team reviewed delivery records for \"Meadow-327\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 65,
+          "statement": "The team reviewed delivery records for \"Meadow-327\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 66,
+          "statement": "The team reviewed delivery records for \"Meadow-327\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 67,
+          "statement": "The team reviewed delivery records for \"Meadow-327\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 68,
+          "statement": "The team reviewed delivery records for \"Meadow-327\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 69,
+          "statement": "The team announced that the delivery location for \"Meadow-327\" will become the depot next month. It is explicitly not effective anywhere in the current recorded history."
+        },
+        {
+          "turn": 70,
+          "statement": "The team reviewed delivery records for \"Meadow-327\". This review made no change to its delivery location."
+        }
+      ],
+      "matches_previous": false,
+      "matches_first_later": true,
+      "matches_near": true,
+      "matching_update_turns": [
+        2,
+        5,
+        16,
+        25,
+        29,
+        40,
+        48,
+        49,
+        57,
+        73
+      ],
+      "target_filler_mentions_wrong": false,
+      "complete_literal_support": true
+    },
+    {
+      "id": "823d82f7f1e1485c8f027447b34ae19a232fb4f5dbeeb1174a1d212dbbc8e5fd",
+      "query": "What was the delivery location for \"Meadow-840\" immediately before \"Meadow-840 review\"?",
+      "type": "future",
+      "gold": "warehouse",
+      "wrong": "workshop",
+      "target": 64,
+      "anchor": 76,
+      "target_cosine": 0.6953620910644531,
+      "previous": {
+        "turn": 63,
+        "value": "warehouse",
+        "text": "The delivery location for \"Meadow-840\" is now the warehouse. This replaces its previous location."
+      },
+      "first_later": {
+        "turn": 80,
+        "value": "workshop",
+        "text": "The delivery location for \"Meadow-840\" is now the workshop. This replaces its previous location."
+      },
+      "near": "The team announced that the delivery location for \"Meadow-840\" will become the workshop next month. It is explicitly not effective anywhere in the current recorded history.",
+      "intervening": [
+        {
+          "turn": 65,
+          "statement": "The team reviewed delivery records for \"Meadow-840\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 66,
+          "statement": "The team reviewed delivery records for \"Meadow-840\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 67,
+          "statement": "The team reviewed delivery records for \"Meadow-840\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 68,
+          "statement": "The team reviewed delivery records for \"Meadow-840\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 69,
+          "statement": "The team reviewed delivery records for \"Meadow-840\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 70,
+          "statement": "The team reviewed delivery records for \"Meadow-840\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 71,
+          "statement": "The team reviewed delivery records for \"Meadow-840\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 72,
+          "statement": "The team reviewed delivery records for \"Meadow-840\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 73,
+          "statement": "The team reviewed delivery records for \"Meadow-840\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 74,
+          "statement": "The team announced that the delivery location for \"Meadow-840\" will become the workshop next month. It is explicitly not effective anywhere in the current recorded history."
+        },
+        {
+          "turn": 75,
+          "statement": "The team reviewed delivery records for \"Meadow-840\". This review made no change to its delivery location."
+        }
+      ],
+      "matches_previous": false,
+      "matches_first_later": true,
+      "matches_near": true,
+      "matching_update_turns": [
+        1,
+        11,
+        17,
+        19,
+        31,
+        36,
+        41,
+        47,
+        50,
+        80
+      ],
+      "target_filler_mentions_wrong": true,
+      "complete_literal_support": true
+    },
+    {
+      "id": "ab70e4c477659872c36569fe9d50b2c51f9c614b1cc75104f705d7c01d46e60f",
+      "query": "What was the delivery location for \"Harbor-553\" immediately before \"Harbor-553 review\"?",
+      "type": "straight",
+      "gold": "laboratory",
+      "wrong": "workshop",
+      "target": 82,
+      "anchor": 92,
+      "target_cosine": 0.7040684819221497,
+      "previous": {
+        "turn": 81,
+        "value": "annex",
+        "text": "The delivery location for \"Harbor-553\" is now the annex. This replaces its previous location."
+      },
+      "first_later": {
+        "turn": 95,
+        "value": "workshop",
+        "text": "The delivery location for \"Harbor-553\" is now the workshop. This replaces its previous location."
+      },
+      "near": "The team checked the schedule for \"Harbor-553\" without changing any instructions.",
+      "intervening": [
+        {
+          "turn": 83,
+          "statement": "The team reviewed delivery records for \"Harbor-553\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 84,
+          "statement": "The team reviewed delivery records for \"Harbor-553\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 85,
+          "statement": "The team reviewed delivery records for \"Harbor-553\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 86,
+          "statement": "The team reviewed delivery records for \"Harbor-553\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 87,
+          "statement": "The team reviewed delivery records for \"Harbor-553\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 88,
+          "statement": "The team reviewed delivery records for \"Harbor-553\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 89,
+          "statement": "The team reviewed delivery records for \"Harbor-553\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 90,
+          "statement": "The team checked the schedule for \"Harbor-553\" without changing any instructions."
+        },
+        {
+          "turn": 91,
+          "statement": "The team reviewed delivery records for \"Harbor-553\". This review made no change to its delivery location."
+        }
+      ],
+      "matches_previous": false,
+      "matches_first_later": true,
+      "matches_near": false,
+      "matching_update_turns": [
+        2,
+        15,
+        30,
+        32,
+        38,
+        42,
+        44,
+        57,
+        60,
+        61,
+        71,
+        80,
+        95
+      ],
+      "target_filler_mentions_wrong": false,
+      "complete_literal_support": true
+    },
+    {
+      "id": "b243c7dfa6f1c3122b3edf17c2736e45156a0e8d41c0834bb9f59289de493cf4",
+      "query": "What was the delivery location for \"Meadow-940\" immediately before \"Meadow-940 review\"?",
+      "type": "future",
+      "gold": "depot",
+      "wrong": "studio",
+      "target": 64,
+      "anchor": 70,
+      "target_cosine": 0.7054404616355896,
+      "previous": {
+        "turn": 63,
+        "value": "office",
+        "text": "The delivery location for \"Meadow-940\" is now the office. This replaces its previous location."
+      },
+      "first_later": {
+        "turn": 75,
+        "value": "studio",
+        "text": "The delivery location for \"Meadow-940\" is now the studio. This replaces its previous location."
+      },
+      "near": "The team announced that the delivery location for \"Meadow-940\" will become the studio next month. It is explicitly not effective anywhere in the current recorded history.",
+      "intervening": [
+        {
+          "turn": 65,
+          "statement": "The team reviewed delivery records for \"Meadow-940\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 66,
+          "statement": "The team reviewed delivery records for \"Meadow-940\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 67,
+          "statement": "The team reviewed delivery records for \"Meadow-940\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 68,
+          "statement": "The team reviewed delivery records for \"Meadow-940\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 69,
+          "statement": "The team announced that the delivery location for \"Meadow-940\" will become the studio next month. It is explicitly not effective anywhere in the current recorded history."
+        }
+      ],
+      "matches_previous": false,
+      "matches_first_later": true,
+      "matches_near": true,
+      "matching_update_turns": [
+        1,
+        13,
+        25,
+        27,
+        31,
+        53,
+        75
+      ],
+      "target_filler_mentions_wrong": false,
+      "complete_literal_support": true
+    },
+    {
+      "id": "bb94d326dd8430a55db4e198fe72516667d8bea0a72fe99352405d94c34f5146",
+      "query": "What was the delivery location for \"Riverside-281\" immediately before \"Riverside-281 review\"?",
+      "type": "proposal",
+      "gold": "hangar",
+      "wrong": "laboratory",
+      "target": 81,
+      "anchor": 93,
+      "target_cosine": 0.6629566550254822,
+      "previous": {
+        "turn": 80,
+        "value": "office",
+        "text": "The delivery location for \"Riverside-281\" is now the office. This replaces its previous location."
+      },
+      "first_later": {
+        "turn": 102,
+        "value": "laboratory",
+        "text": "The delivery location for \"Riverside-281\" is now the laboratory. This replaces its previous location."
+      },
+      "near": "A proposal would move the delivery location for \"Riverside-281\" to the laboratory. It has not been accepted; no delivery-location change takes effect.",
+      "intervening": [
+        {
+          "turn": 82,
+          "statement": "The team reviewed delivery records for \"Riverside-281\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 83,
+          "statement": "The team reviewed delivery records for \"Riverside-281\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 84,
+          "statement": "The team reviewed delivery records for \"Riverside-281\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 85,
+          "statement": "The team reviewed delivery records for \"Riverside-281\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 86,
+          "statement": "The team reviewed delivery records for \"Riverside-281\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 87,
+          "statement": "The team reviewed delivery records for \"Riverside-281\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 88,
+          "statement": "The team reviewed delivery records for \"Riverside-281\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 89,
+          "statement": "The team reviewed delivery records for \"Riverside-281\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 90,
+          "statement": "A proposal would move the delivery location for \"Riverside-281\" to the laboratory. It has not been accepted; no delivery-location change takes effect."
+        },
+        {
+          "turn": 91,
+          "statement": "The team reviewed delivery records for \"Riverside-281\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 92,
+          "statement": "The team reviewed delivery records for \"Riverside-281\". This review made no change to its delivery location."
+        }
+      ],
+      "matches_previous": false,
+      "matches_first_later": true,
+      "matches_near": true,
+      "matching_update_turns": [
+        6,
+        7,
+        21,
+        25,
+        39,
+        43,
+        45,
+        57,
+        70,
+        71,
+        77,
+        102
+      ],
+      "target_filler_mentions_wrong": false,
+      "complete_literal_support": true
+    },
+    {
+      "id": "c42a4c7448e84abec11465f0c47c8b24b179e9dfcf9518109da3d23fa79f856d",
+      "query": "What was the delivery location for \"Harbor-152\" immediately before \"Harbor-152 review\"?",
+      "type": "straight",
+      "gold": "workshop",
+      "wrong": "studio",
+      "target": 63,
+      "anchor": 72,
+      "target_cosine": 0.713935375213623,
+      "previous": {
+        "turn": 62,
+        "value": "depot",
+        "text": "The delivery location for \"Harbor-152\" is now the depot. This replaces its previous location."
+      },
+      "first_later": {
+        "turn": 81,
+        "value": "studio",
+        "text": "The delivery location for \"Harbor-152\" is now the studio. This replaces its previous location."
+      },
+      "near": "The team checked the schedule for \"Harbor-152\" without changing any instructions.",
+      "intervening": [
+        {
+          "turn": 64,
+          "statement": "The team reviewed delivery records for \"Harbor-152\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 65,
+          "statement": "The team reviewed delivery records for \"Harbor-152\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 66,
+          "statement": "The team reviewed delivery records for \"Harbor-152\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 67,
+          "statement": "The team reviewed delivery records for \"Harbor-152\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 68,
+          "statement": "The team reviewed delivery records for \"Harbor-152\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 69,
+          "statement": "The team reviewed delivery records for \"Harbor-152\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 70,
+          "statement": "The team checked the schedule for \"Harbor-152\" without changing any instructions."
+        },
+        {
+          "turn": 71,
+          "statement": "The team reviewed delivery records for \"Harbor-152\". This review made no change to its delivery location."
+        }
+      ],
+      "matches_previous": false,
+      "matches_first_later": true,
+      "matches_near": false,
+      "matching_update_turns": [
+        4,
+        23,
+        46,
+        81
+      ],
+      "target_filler_mentions_wrong": false,
+      "complete_literal_support": true
+    },
+    {
+      "id": "ca7110eee654a2b1f9cbfb7d568788364edb9857acc7a6df112615dd215f250a",
+      "query": "What was the delivery location for \"Harbor-788\" immediately before \"Harbor-788 review\"?",
+      "type": "straight",
+      "gold": "workshop",
+      "wrong": "studio",
+      "target": 57,
+      "anchor": 69,
+      "target_cosine": 0.7234821319580078,
+      "previous": {
+        "turn": 56,
+        "value": "laboratory",
+        "text": "The delivery location for \"Harbor-788\" is now the laboratory. This replaces its previous location."
+      },
+      "first_later": {
+        "turn": 79,
+        "value": "studio",
+        "text": "The delivery location for \"Harbor-788\" is now the studio. This replaces its previous location."
+      },
+      "near": "The team checked the schedule for \"Harbor-788\" without changing any instructions.",
+      "intervening": [
+        {
+          "turn": 58,
+          "statement": "The team reviewed delivery records for \"Harbor-788\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 59,
+          "statement": "The team reviewed delivery records for \"Harbor-788\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 60,
+          "statement": "The team reviewed delivery records for \"Harbor-788\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 61,
+          "statement": "The team reviewed delivery records for \"Harbor-788\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 62,
+          "statement": "The team reviewed delivery records for \"Harbor-788\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 63,
+          "statement": "The team reviewed delivery records for \"Harbor-788\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 64,
+          "statement": "The team reviewed delivery records for \"Harbor-788\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 65,
+          "statement": "The team reviewed delivery records for \"Harbor-788\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 66,
+          "statement": "The team reviewed delivery records for \"Harbor-788\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 67,
+          "statement": "The team checked the schedule for \"Harbor-788\" without changing any instructions."
+        },
+        {
+          "turn": 68,
+          "statement": "The team reviewed delivery records for \"Harbor-788\". This review made no change to its delivery location."
+        }
+      ],
+      "matches_previous": false,
+      "matches_first_later": true,
+      "matches_near": false,
+      "matching_update_turns": [
+        6,
+        19,
+        23,
+        47,
+        48,
+        79
+      ],
+      "target_filler_mentions_wrong": false,
+      "complete_literal_support": true
+    },
+    {
+      "id": "e00ff57cc6e75403b1e79eaf29e3ea7331a9a7dc979fd7179832d1758b2c9e81",
+      "query": "What was the delivery location for \"Riverside-978\" immediately before \"Riverside-978 review\"?",
+      "type": "proposal",
+      "gold": "annex",
+      "wrong": "warehouse",
+      "target": 59,
+      "anchor": 69,
+      "target_cosine": 0.5970309972763062,
+      "previous": {
+        "turn": 58,
+        "value": "workshop",
+        "text": "The delivery location for \"Riverside-978\" is now the workshop. This replaces its previous location."
+      },
+      "first_later": {
+        "turn": 76,
+        "value": "warehouse",
+        "text": "The delivery location for \"Riverside-978\" is now the warehouse. This replaces its previous location."
+      },
+      "near": "A proposal would move the delivery location for \"Riverside-978\" to the warehouse. It has not been accepted; no delivery-location change takes effect.",
+      "intervening": [
+        {
+          "turn": 60,
+          "statement": "The team reviewed delivery records for \"Riverside-978\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 61,
+          "statement": "The team reviewed delivery records for \"Riverside-978\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 62,
+          "statement": "The team reviewed delivery records for \"Riverside-978\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 63,
+          "statement": "The team reviewed delivery records for \"Riverside-978\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 64,
+          "statement": "The team reviewed delivery records for \"Riverside-978\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 65,
+          "statement": "The team reviewed delivery records for \"Riverside-978\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 66,
+          "statement": "The team reviewed delivery records for \"Riverside-978\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 67,
+          "statement": "A proposal would move the delivery location for \"Riverside-978\" to the warehouse. It has not been accepted; no delivery-location change takes effect."
+        },
+        {
+          "turn": 68,
+          "statement": "The team reviewed delivery records for \"Riverside-978\". This review made no change to its delivery location."
+        }
+      ],
+      "matches_previous": false,
+      "matches_first_later": true,
+      "matches_near": true,
+      "matching_update_turns": [
+        4,
+        6,
+        7,
+        20,
+        21,
+        25,
+        41,
+        43,
+        51,
+        76
+      ],
+      "target_filler_mentions_wrong": false,
+      "complete_literal_support": true
+    },
+    {
+      "id": "e4401180aaacf6b89cd6c74b2c6d282c87f87d8abc876c748dae542a9da993e5",
+      "query": "What was the delivery location for \"Meadow-219\" immediately before \"Meadow-219 review\"?",
+      "type": "future",
+      "gold": "workshop",
+      "wrong": "office",
+      "target": 43,
+      "anchor": 55,
+      "target_cosine": 0.7069593071937561,
+      "previous": {
+        "turn": 42,
+        "value": "laboratory",
+        "text": "The delivery location for \"Meadow-219\" is now the laboratory. This replaces its previous location."
+      },
+      "first_later": {
+        "turn": 64,
+        "value": "office",
+        "text": "The delivery location for \"Meadow-219\" is now the office. This replaces its previous location."
+      },
+      "near": "The team announced that the delivery location for \"Meadow-219\" will become the office next month. It is explicitly not effective anywhere in the current recorded history.",
+      "intervening": [
+        {
+          "turn": 44,
+          "statement": "The team reviewed delivery records for \"Meadow-219\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 45,
+          "statement": "The team reviewed delivery records for \"Meadow-219\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 46,
+          "statement": "The team reviewed delivery records for \"Meadow-219\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 47,
+          "statement": "The team reviewed delivery records for \"Meadow-219\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 48,
+          "statement": "The team reviewed delivery records for \"Meadow-219\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 49,
+          "statement": "The team reviewed delivery records for \"Meadow-219\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 50,
+          "statement": "The team reviewed delivery records for \"Meadow-219\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 51,
+          "statement": "The team reviewed delivery records for \"Meadow-219\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 52,
+          "statement": "The team reviewed delivery records for \"Meadow-219\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 53,
+          "statement": "The team reviewed delivery records for \"Meadow-219\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 54,
+          "statement": "The team announced that the delivery location for \"Meadow-219\" will become the office next month. It is explicitly not effective anywhere in the current recorded history."
+        }
+      ],
+      "matches_previous": false,
+      "matches_first_later": true,
+      "matches_near": true,
+      "matching_update_turns": [
+        3,
+        4,
+        8,
+        20,
+        28,
+        37,
+        64
+      ],
+      "target_filler_mentions_wrong": false,
+      "complete_literal_support": true
+    },
+    {
+      "id": "e939cb362e1b3a60c51a65c8834e5e2b654519cf0a52a6a1f87e5f65e6d530f8",
+      "query": "What was the delivery location for \"Orchard-428\" immediately before \"Orchard-428 review\"?",
+      "type": "irrelevant",
+      "gold": "laboratory",
+      "wrong": "workshop",
+      "target": 83,
+      "anchor": 89,
+      "target_cosine": 0.6526468992233276,
+      "previous": {
+        "turn": 82,
+        "value": "depot",
+        "text": "The delivery location for \"Orchard-428\" is now the depot. This replaces its previous location."
+      },
+      "first_later": {
+        "turn": 95,
+        "value": "annex",
+        "text": "The delivery location for \"Orchard-428\" is now the annex. This replaces its previous location."
+      },
+      "near": "The maintenance contact for \"Orchard-428\" changed today. This says nothing about its delivery location.",
+      "intervening": [
+        {
+          "turn": 84,
+          "statement": "The team reviewed delivery records for \"Orchard-428\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 85,
+          "statement": "The team reviewed delivery records for \"Orchard-428\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 86,
+          "statement": "The maintenance contact for \"Orchard-428\" changed today. This says nothing about its delivery location."
+        },
+        {
+          "turn": 87,
+          "statement": "The team reviewed delivery records for \"Orchard-428\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 88,
+          "statement": "The team reviewed delivery records for \"Orchard-428\". This review made no change to its delivery location."
+        }
+      ],
+      "matches_previous": false,
+      "matches_first_later": false,
+      "matches_near": false,
+      "matching_update_turns": [
+        7,
+        14,
+        17,
+        39,
+        47,
+        78,
+        81
+      ],
+      "target_filler_mentions_wrong": false,
+      "complete_literal_support": true
+    },
+    {
+      "id": "eb665ffd4d5c14befa9882b055fd4aabc292c780c5dce670b0060d4a847da29e",
+      "query": "What was the delivery location for \"Harbor-447\" immediately before \"Harbor-447 review\"?",
+      "type": "straight",
+      "gold": "hangar",
+      "wrong": "studio",
+      "target": 84,
+      "anchor": 92,
+      "target_cosine": 0.7414666414260864,
+      "previous": {
+        "turn": 83,
+        "value": "studio",
+        "text": "The delivery location for \"Harbor-447\" is now the studio. This replaces its previous location."
+      },
+      "first_later": {
+        "turn": 100,
+        "value": "annex",
+        "text": "The delivery location for \"Harbor-447\" is now the annex. This replaces its previous location."
+      },
+      "near": "The team checked the schedule for \"Harbor-447\" without changing any instructions.",
+      "intervening": [
+        {
+          "turn": 85,
+          "statement": "The team reviewed delivery records for \"Harbor-447\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 86,
+          "statement": "The team reviewed delivery records for \"Harbor-447\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 87,
+          "statement": "The team reviewed delivery records for \"Harbor-447\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 88,
+          "statement": "The team reviewed delivery records for \"Harbor-447\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 89,
+          "statement": "The team reviewed delivery records for \"Harbor-447\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 90,
+          "statement": "The team reviewed delivery records for \"Harbor-447\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 91,
+          "statement": "The team checked the schedule for \"Harbor-447\" without changing any instructions."
+        }
+      ],
+      "matches_previous": true,
+      "matches_first_later": false,
+      "matches_near": false,
+      "matching_update_turns": [
+        4,
+        20,
+        39,
+        41,
+        47,
+        67,
+        83
+      ],
+      "target_filler_mentions_wrong": false,
+      "complete_literal_support": true
+    },
+    {
+      "id": "eb85ee3c64d2897a148e4c7a6fd4b3472e43c73e21107d852367cff197c0abbb",
+      "query": "What was the delivery location for \"Harbor-493\" immediately before \"Harbor-493 review\"?",
+      "type": "straight",
+      "gold": "studio",
+      "wrong": "office",
+      "target": 88,
+      "anchor": 95,
+      "target_cosine": 0.7234973907470703,
+      "previous": {
+        "turn": 87,
+        "value": "office",
+        "text": "The delivery location for \"Harbor-493\" is now the office. This replaces its previous location."
+      },
+      "first_later": {
+        "turn": 99,
+        "value": "office",
+        "text": "The delivery location for \"Harbor-493\" is now the office. This replaces its previous location."
+      },
+      "near": "The team checked the schedule for \"Harbor-493\" without changing any instructions.",
+      "intervening": [
+        {
+          "turn": 89,
+          "statement": "The team reviewed delivery records for \"Harbor-493\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 90,
+          "statement": "The team reviewed delivery records for \"Harbor-493\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 91,
+          "statement": "The team reviewed delivery records for \"Harbor-493\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 92,
+          "statement": "The team checked the schedule for \"Harbor-493\" without changing any instructions."
+        },
+        {
+          "turn": 93,
+          "statement": "The team reviewed delivery records for \"Harbor-493\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 94,
+          "statement": "The team reviewed delivery records for \"Harbor-493\". This review made no change to its delivery location."
+        }
+      ],
+      "matches_previous": true,
+      "matches_first_later": true,
+      "matches_near": false,
+      "matching_update_turns": [
+        4,
+        6,
+        18,
+        22,
+        27,
+        32,
+        33,
+        35,
+        36,
+        38,
+        43,
+        47,
+        50,
+        62,
+        69,
+        70,
+        82,
+        87,
+        99
+      ],
+      "target_filler_mentions_wrong": false,
+      "complete_literal_support": true
+    },
+    {
+      "id": "fb473458beaf1ad2dbd4675a4e68c53937f6efd38f4012be18987bc813af4f06",
+      "query": "What was the delivery location for \"Riverside-604\" immediately before \"Riverside-604 review\"?",
+      "type": "proposal",
+      "gold": "hangar",
+      "wrong": "laboratory",
+      "target": 51,
+      "anchor": 56,
+      "target_cosine": 0.6630675792694092,
+      "previous": {
+        "turn": 50,
+        "value": "laboratory",
+        "text": "The delivery location for \"Riverside-604\" is now the laboratory. This replaces its previous location."
+      },
+      "first_later": {
+        "turn": 74,
+        "value": "laboratory",
+        "text": "The delivery location for \"Riverside-604\" is now the laboratory. This replaces its previous location."
+      },
+      "near": "A proposal would move the delivery location for \"Riverside-604\" to the laboratory. It has not been accepted; no delivery-location change takes effect.",
+      "intervening": [
+        {
+          "turn": 52,
+          "statement": "The team reviewed delivery records for \"Riverside-604\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 53,
+          "statement": "The team reviewed delivery records for \"Riverside-604\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 54,
+          "statement": "The team reviewed delivery records for \"Riverside-604\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 55,
+          "statement": "A proposal would move the delivery location for \"Riverside-604\" to the laboratory. It has not been accepted; no delivery-location change takes effect."
+        }
+      ],
+      "matches_previous": true,
+      "matches_first_later": true,
+      "matches_near": true,
+      "matching_update_turns": [
+        7,
+        11,
+        16,
+        17,
+        25,
+        36,
+        41,
+        44,
+        50,
+        74
+      ],
+      "target_filler_mentions_wrong": false,
+      "complete_literal_support": true
+    },
+    {
+      "id": "ffdacc9caf364638824176852b286c84bc4a1a0f90b77c3f7ab3dc47c78b87d9",
+      "query": "What was the delivery location for \"Orchard-199\" immediately before \"Orchard-199 review\"?",
+      "type": "irrelevant",
+      "gold": "annex",
+      "wrong": "laboratory",
+      "target": 62,
+      "anchor": 67,
+      "target_cosine": 0.632652997970581,
+      "previous": {
+        "turn": 61,
+        "value": "laboratory",
+        "text": "The delivery location for \"Orchard-199\" is now the laboratory. This replaces its previous location."
+      },
+      "first_later": {
+        "turn": 71,
+        "value": "warehouse",
+        "text": "The delivery location for \"Orchard-199\" is now the warehouse. This replaces its previous location."
+      },
+      "near": "The maintenance contact for \"Orchard-199\" changed today. This says nothing about its delivery location.",
+      "intervening": [
+        {
+          "turn": 63,
+          "statement": "The team reviewed delivery records for \"Orchard-199\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 64,
+          "statement": "The maintenance contact for \"Orchard-199\" changed today. This says nothing about its delivery location."
+        },
+        {
+          "turn": 65,
+          "statement": "The team reviewed delivery records for \"Orchard-199\". This review made no change to its delivery location."
+        },
+        {
+          "turn": 66,
+          "statement": "The team reviewed delivery records for \"Orchard-199\". This review made no change to its delivery location."
+        }
+      ],
+      "matches_previous": true,
+      "matches_first_later": false,
+      "matches_near": false,
+      "matching_update_turns": [
+        1,
+        2,
+        3,
+        13,
+        14,
+        31,
+        32,
+        36,
+        38,
+        41,
+        54,
+        56,
+        59,
+        61
+      ],
+      "target_filler_mentions_wrong": false,
+      "complete_literal_support": true
+    }
+  ]
+}
