@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import hashlib
+import argparse
 import json
 from pathlib import Path
 import subprocess
@@ -86,12 +87,15 @@ def main() -> None:
     arrays, metadata = {}, {}
     texts = {"solo": TARGET, **{k: p + TARGET for k, p in PREFIXES.items()}}
     texts["future"] = texts["northstar"] + "\nThe offer was from Cedar."
+    if args.boundary_check:
+        texts["northstar"] += "\n"
     for name, text in texts.items():
         count = len(token_model.tokenize(text.encode("utf-8")))
         assert count <= 8192
         states = np.asarray(token_model.embed(text, truncate=False), dtype=np.float32)
         assert states.shape == (count, 1024) and np.isfinite(states).all()
         indices = target_indices(token_model, text, TARGET)
+        tokens = token_model.tokenize(text.encode("utf-8"))
         arrays[name + "_last"] = states[indices[-1]].copy()
         arrays[name + "_mean"] = states[indices].mean(axis=0, dtype=np.float64).astype(np.float32)
         if name == "solo":
@@ -99,6 +103,7 @@ def main() -> None:
             assert np.array_equal(states, repeated), "Repeated token states differ"
             assert np.array_equal(native_vector, states[-1]), "Native last pooling differs"
         metadata[name] = dict(text=text, token_count=count, target_indices=indices,
+                              tokens=tokens,
                               states_sha256=digest_array(states))
     token_model.close()
     assert native_pooling == llama_cpp.LLAMA_POOLING_TYPE_LAST
@@ -114,6 +119,7 @@ def main() -> None:
             for key in PREFIXES} for mode in ("last", "mean")},
         future_last_max_absolute_difference=float(np.max(np.abs(arrays["northstar_last"] - arrays["future_last"]))),
         future_last_cosine=cosine(arrays["northstar_last"], arrays["future_last"]),
+        target_prefix_tokens_equal=(metadata["northstar"]["tokens"][:metadata["northstar"]["target_indices"][-1]+1] == metadata["future"]["tokens"][:metadata["future"]["target_indices"][-1]+1]),
         artifacts={name: sha(OUT / name) for name in ("header.json", "raw.json")},
         status="MECHANICAL_FEASIBILITY_ONLY", generative_calls=0)
     save("result.json", result)
@@ -121,6 +127,11 @@ def main() -> None:
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--boundary-check", action="store_true")
+    args = parser.parse_args()
+    if args.boundary_check:
+        OUT = OUT.parent / "encoder_boundary_probe"
     try:
         main()
     except BaseException as exc:
