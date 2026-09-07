@@ -220,9 +220,9 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **LoCoMo batch timing (2026-09-07).** Nine matched historical prompts: serial37.44s vs concurrent9 38.20s, throughput0.9802x. Peak slots1/9 verified; no cache/truncation. Outputs172/234tokens,8/9identical; no accuracy scoring. NativeOFF; min2282MiB free. Capacity fits, speed benefit unobserved. Plan b483b398.
 
-## 3. Failure Pattern
-
 **LoCoMo timeline preflight (2026-09-07).** INFERENCE PAUSED. Existing anchor grammar unsupported on1,986/1,986. Selected/full median input8,494/36,048tokens; paired retained median26.44%,46retain>=90%. Longest33,841/34,259 (98.78%). All128Eprefixes replay;40,960context fits. No answers. Plan4193702b; size rawc3555066. Resolve transfer scope before inference.
+
+## 3. Failure Pattern
 
 The recurring failure class is a surrogate that can pass without the property it claims to certify: record count for information, novelty for importance, density for factual value, or a rubric score for a correct answer.
 
