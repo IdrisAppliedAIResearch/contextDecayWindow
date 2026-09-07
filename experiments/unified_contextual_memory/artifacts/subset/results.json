@@ -1,0 +1,4739 @@
+{
+  "adversarial": {
+    "C0": {
+      "exact_abstentions": 149,
+      "n": 175
+    },
+    "C1": {
+      "exact_abstentions": 155,
+      "n": 175
+    }
+  },
+  "conversations": {
+    "conv-26": {
+      "C0": 32,
+      "C1": 32,
+      "ci95": [
+        0.0,
+        0.0
+      ],
+      "difference": 0.0,
+      "gains": 3,
+      "losses": 3,
+      "n": 52
+    },
+    "conv-30": {
+      "C0": 18,
+      "C1": 20,
+      "ci95": [
+        0.07407407407407407,
+        0.07407407407407407
+      ],
+      "difference": 0.07407407407407407,
+      "gains": 2,
+      "losses": 0,
+      "n": 27
+    },
+    "conv-41": {
+      "C0": 44,
+      "C1": 47,
+      "ci95": [
+        0.046875,
+        0.046875
+      ],
+      "difference": 0.046875,
+      "gains": 5,
+      "losses": 2,
+      "n": 64
+    },
+    "conv-42": {
+      "C0": 48,
+      "C1": 49,
+      "ci95": [
+        0.013333333333333334,
+        0.013333333333333334
+      ],
+      "difference": 0.013333333333333334,
+      "gains": 2,
+      "losses": 1,
+      "n": 75
+    },
+    "conv-43": {
+      "C0": 40,
+      "C1": 38,
+      "ci95": [
+        -0.03225806451612903,
+        -0.03225806451612903
+      ],
+      "difference": -0.03225806451612903,
+      "gains": 1,
+      "losses": 3,
+      "n": 62
+    },
+    "conv-44": {
+      "C0": 27,
+      "C1": 27,
+      "ci95": [
+        0.0,
+        0.0
+      ],
+      "difference": 0.0,
+      "gains": 0,
+      "losses": 0,
+      "n": 40
+    },
+    "conv-47": {
+      "C0": 40,
+      "C1": 43,
+      "ci95": [
+        0.05263157894736842,
+        0.05263157894736842
+      ],
+      "difference": 0.05263157894736842,
+      "gains": 3,
+      "losses": 0,
+      "n": 57
+    },
+    "conv-48": {
+      "C0": 64,
+      "C1": 69,
+      "ci95": [
+        0.058823529411764705,
+        0.058823529411764705
+      ],
+      "difference": 0.058823529411764705,
+      "gains": 6,
+      "losses": 1,
+      "n": 85
+    },
+    "conv-49": {
+      "C0": 42,
+      "C1": 45,
+      "ci95": [
+        0.05084745762711865,
+        0.05084745762711865
+      ],
+      "difference": 0.05084745762711865,
+      "gains": 3,
+      "losses": 0,
+      "n": 59
+    },
+    "conv-50": {
+      "C0": 29,
+      "C1": 29,
+      "ci95": [
+        0.0,
+        0.0
+      ],
+      "difference": 0.0,
+      "gains": 2,
+      "losses": 2,
+      "n": 45
+    }
+  },
+  "majority_sensitivity": {
+    "C0": 383,
+    "C1": 399,
+    "ci95": [
+      0.005746851717544669,
+      0.04819277108433735
+    ],
+    "difference": 0.028268551236749116,
+    "gains": 27,
+    "losses": 11,
+    "n": 566
+  },
+  "primary": {
+    "C0": 384,
+    "C1": 399,
+    "ci95": [
+      0.0053285968028419185,
+      0.045307443365695796
+    ],
+    "difference": 0.026501766784452298,
+    "gains": 27,
+    "losses": 12,
+    "n": 566
+  },
+  "rows": [
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-50",
+      "key": "005c058e8b2ef49288e1e79e12bfb0a23b2fe9563a1cf9ca65a946618ec0e25b",
+      "question": "When did Dave have a great jam session with his band?"
+    },
+    {
+      "C0": 0,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-41",
+      "key": "0064a6ca04fb26affed76f85c5b1654c0a6bc4ef02d408f11df5c00485f10371",
+      "question": "When did John go to a convention with colleagues?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-43",
+      "key": "0066e67a1c58fb48b8d54a4a71cc780a5a6a4d34c4a13d8895c509f73df02a2a",
+      "question": "What year did John start surfing?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 2,
+      "conversation": "conv-48",
+      "key": "0089383a93cb12f18979f732e6c0482434ec49a002962158521a5421e321d41d",
+      "question": "When did Jolene`s mother pass away?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-47",
+      "key": "00c9c418de8549f731af9923579ae539a9886da4f8f3548930570c025f6ce59a",
+      "question": "What has John mostly found with the metal detector so far?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-48",
+      "key": "012074870a0194c250972cf311bb24bff4c794ba13a80c5a5b9c5a7d0469eff7",
+      "question": "How old is Max?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 2,
+      "conversation": "conv-48",
+      "key": "012673935d5fa453d80e22a3e88e73af5a61925119f5acb6a50174a1e79044c2",
+      "question": "When did Jolene take Seraphim to the park?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-42",
+      "key": "012ca57755490934daf651c22ed91336edfc0dc928f6a1171fcaebe30a378cd0",
+      "question": "When did Nate attend a cooking show?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 4,
+      "conversation": "conv-26",
+      "key": "014f2e2a9ff1abfa74fc602abc332f58362b4ef71768737eb2a9091ef04581e9",
+      "question": "What precautionary sign did Melanie see at the café?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 1,
+      "conversation": "conv-48",
+      "key": "01912419432a966596d1e86d3669add95c1e30781fdd38b8d6135a37f9c1a9bc",
+      "question": "Which locations does Deborah practice her yoga at?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 3,
+      "conversation": "conv-43",
+      "key": "019cdd4d542566abc75a59b04e38e67441b30b604e1a2b8413180ba51554e562",
+      "question": "What is a prominent charity organization that John might want to work with and why?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 3,
+      "conversation": "conv-43",
+      "key": "0261d27959d4a19d3a075f0e327dca8dc0b0618212228058800900a29b148371",
+      "question": "What is a Star Wars book that Tim might enjoy?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-47",
+      "key": "0266d31e48162c5907314d3f9c26677e38c9d2db184e82746b007d3a79a5cc20",
+      "question": "What project did John work on with a game developer by 7 November, 2022?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 4,
+      "conversation": "conv-42",
+      "key": "02745e537803b54abb19fb0d21d47aeff8363a50d7d3bacd647296829c1836f4",
+      "question": "What kind of films does Joanna enjoy?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-50",
+      "key": "02c1c6aa7d563334b2be765609c983605f51f4c6ae9633f7e2bc886533739537",
+      "question": "What type of content does Dave post on his blog that inspired others to start their own DIY projects?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-26",
+      "key": "02c5fcc8920afe9a9aa07e47743b9a61966b23444c581cd07e1d22cd9a8f6f1c",
+      "question": "Why did Melanie choose to use colors and patterns in her pottery project?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-50",
+      "key": "02e713d7e581b1b702454ec5bb485ace77f04ddf5d3c51c708e785889380b09c",
+      "question": "What do Calvin and Dave use to reach their goals?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-50",
+      "key": "033b04327de046fce8f7b6dba2d2b0fde064aa028f404317c649dcc74074cb05",
+      "question": "Which part of Tokyo is described as Tokyo's Times Square by Calvin?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 3,
+      "conversation": "conv-41",
+      "key": "034efa1f6f63112e2ece9330924ea9c1268f635c6a1c0b3bcd440f0e83b6c491",
+      "question": "Would John be considered a patriotic person?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-43",
+      "key": "039dc82070c70d27819cf15f132544c7b3f152e63a50de11d19a54e4dfd76aa2",
+      "question": "What J.K. Rowling quote does Tim resonate with?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-42",
+      "key": "03a3a44a91d7c2a6e93754dc76874bd6d41f7b1f2af1a97d8834fd65546e9011",
+      "question": "What is one of Nate's favorite dairy-free treats besides coconut milk ice cream?"
+    },
+    {
+      "C0": 0,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-43",
+      "key": "03b49ed544649e9da52f6e3512dfc01237aaa608b9479acea383c92f252501dd",
+      "question": "What is one cause that John supports with his influence and resources?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-47",
+      "key": "03e12ce917fa31a9ebb6bf0ad826b027f87497475c9ad35bd2f77fcb61d1e3de",
+      "question": "What did James offer to do for John regarding pets?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-48",
+      "key": "0409e2f607c6a6ac156527a1bf39afe8a9212e7bcea5c75a1fb27539d03fd09e",
+      "question": "What kind of yoga routine does Deborah recommend to Jolene?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 3,
+      "conversation": "conv-49",
+      "key": "0418e04e98190e1d105809c90bb28c2b351131d5053b927c1288051bfc712f71",
+      "question": "In light of the health and dietary changes discussed, what would be an appropriate gift for both Evan and Sam to encourage their healthy lifestyles?"
+    },
+    {
+      "C0": 1,
+      "C1": 0,
+      "category": 1,
+      "conversation": "conv-26",
+      "key": "043f79f5d9c30f00a5dd15fc029d4d462a76b67698656118560f5db77e53bb63",
+      "question": "What activities has Melanie done with her family?"
+    },
+    {
+      "C0": 1,
+      "C1": 0,
+      "category": 1,
+      "conversation": "conv-43",
+      "key": "04a353052ab6df7217abe35fa53f4875884472168be323bf31b6029274bd328f",
+      "question": "What fantasy movies does Tim like?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-42",
+      "key": "04cb9382eb21f55f4dbfc2f356cb83fda3ace74092012e45c88ff72974a06802",
+      "question": "How long has Nate had his first two turtles?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 4,
+      "conversation": "conv-50",
+      "key": "0521159e1a1eb3a5c371d9e401dd227dc71be114f2f0b2001016fd17f91f6da5",
+      "question": "When did Calvin first get interested in cars?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 1,
+      "conversation": "conv-43",
+      "key": "053fd929487503959a3ff1cc8c31fe128133090e50d8c0112938bd2ca13844e1",
+      "question": "What does Tim do to escape reality?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-44",
+      "key": "054a38c91201cccc59e340f4c67df933f8df2d7f48a4a6bebc84587ef6c3fc92",
+      "question": "How long does Audrey typically walk her dogs for?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-42",
+      "key": "057f1a3fe13c52c624e9d53527d228bd730273167de75fbacd3875581dbcda54",
+      "question": "What is Nate's favorite dish from the cooking show he hosted?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 4,
+      "conversation": "conv-42",
+      "key": "05ba5b5948a89b13eeb58e722275ed19f5e22d3ba6eceb855eb9b5a978f04ea7",
+      "question": "What motivates Joanna to keep writing even on tough days?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-49",
+      "key": "05cceb3a3a9287098a8f11d8ed4bf3f29a7a067b591f32a505db315f8429056d",
+      "question": "What did Evan start doing a few years back as a stress-buster?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 4,
+      "conversation": "conv-41",
+      "key": "05d12b390c7df87d923ddcd5142ba6298fe3f9e7dfcebbf408920ae0336bc001",
+      "question": "What does John appreciate about the veteran's hospital visit?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-48",
+      "key": "05d8ebbfbdd242fa0870db9f91258c29447bad0bcab923c00010325d5e280c65",
+      "question": "When did Jolene's parents give her first console?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-30",
+      "key": "05f3c147e74c92286ca2391b732d1381cdf615bba984f134fd680929543aa4bb",
+      "question": "What advice does Gina give to Jon about running a successful business?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-30",
+      "key": "0651200d29c40ccac92a69846be7b2fefec3277a35616dd83718493446d27bf5",
+      "question": "What did Gina design for her store?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 4,
+      "conversation": "conv-42",
+      "key": "0664825869e1db6f3b009e8e2bfe70314080c12a916cc75b76419949f89dbdd2",
+      "question": "What does Nate want to do when he goes over to Joanna's place?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 4,
+      "conversation": "conv-43",
+      "key": "06780697a30858a4f5d94580b38b567eb2fae13c51847ef6eabacf015480ac4c",
+      "question": "Where did Tim capture the photography of the sunset over the mountain range?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 3,
+      "conversation": "conv-43",
+      "key": "06b3f8cd15e2cd63b3fb65a3c99bec525774c610e3b73bc34bd0229d3fb52b1d",
+      "question": "What could John do after his basketball career?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 1,
+      "conversation": "conv-43",
+      "key": "06e65b62c660b8dd9a5e422195f9574d16e75cb6e3d84a1d2204cd67f6f9cdb0",
+      "question": "What similar sports collectible do Tim and John own?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-49",
+      "key": "06fb77a7e56660d81c8628edc1e906d8e353fb6a8f14f352d453a5f18820bb43",
+      "question": "What advice did Evan suggest Sam seek from a doctor?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-26",
+      "key": "0704c4b8bfdfc3d64f5fe56d97b257d8eea261fed86fc3ab72a7302127ce73c2",
+      "question": "When did Caroline have a picnic?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 4,
+      "conversation": "conv-50",
+      "key": "072251145b804ec7c93ea127a37c28b22b96fef03772517f690e9d85806140c5",
+      "question": "Which Disney movie did Dave mention as one of his favorites?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-49",
+      "key": "072f84730d32780c583bb60e7194ce1f6ccb6edaad19c93a620f52f0253ef23c",
+      "question": "Why did Evan decide to get the bonsai tree?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 1,
+      "conversation": "conv-44",
+      "key": "074f3307561941353e75fc70582c0167b01d741aef4d6551bdac5dd5d7f4b014",
+      "question": "What is a skill that Audrey learned to take care of her dogs?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-43",
+      "key": "077027a86e33f8f29f0d01e2f1fd98383b69024ef196882c822bdbaeab7f6c85",
+      "question": "What was John's way of dealing with doubts and stress when he was younger?"
+    },
+    {
+      "C0": 0,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-41",
+      "key": "07c68480a0b0dc9a265de2c9cc3a06337dce96c0533fb9b93cf1d9a03872c5e0",
+      "question": "When did John join the online support group?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-42",
+      "key": "080a34130b7bf3698efb20bd89e321baf457f6b9cb71ea801ae470921fa420ef",
+      "question": "What did Nate think of the coconut milk ice cream he made?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-49",
+      "key": "08116f022232cc84129fde6317b737a71871f224c193913a1d9d2cbc635db610",
+      "question": "What did Sam recently start enjoying to clear his head?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-48",
+      "key": "084abef0b09cb557555b4f9c528ce39d5a1e46ee08343a38aa588edefa52b11f",
+      "question": "What was one of Jolene's favorite games to play with her mom on the nintendo wii game system?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 3,
+      "conversation": "conv-49",
+      "key": "0859b06a180344fa3fde142e2fa2105d18da0244fec28645111513887f22d690",
+      "question": "What electronic device could Evan gift Sam to help him keep up with his fitness goals?"
+    },
+    {
+      "C0": 0,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-26",
+      "key": "089fa02052cd00869a526c519c095bf795c22e483c165de75cada1b1f744ddf8",
+      "question": "What did Melanie and her family do while camping?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-41",
+      "key": "08a2cf967f52b8cc75848c78a0b66a1f81bea4f38339517ccdfddb8fa0bd94ed",
+      "question": "What does John think about trying new classes at the yoga studio?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-26",
+      "key": "08a5f371e388300a2881a1897e54e0c375f2343597dfde095accc062e30301d5",
+      "question": "What type of individuals does the adoption agency Caroline is considering support?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 2,
+      "conversation": "conv-30",
+      "key": "08a957c89aabc00544a5a4465f6d3bbef25271bc65323e4ecabb44c7896e0ba4",
+      "question": "When did Jon go to a fair to get more exposure for his dance studio?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-50",
+      "key": "08ba9d01cee21863ec53994b34cd052f87785270c99b4e4517b2939bad1c34a6",
+      "question": "How does Calvin describe his music in relation to capturing feelings?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-47",
+      "key": "08bf79592c5434c8ef5b3b408b8d6b8cd26a8e541a516e160308a5c55be7be09",
+      "question": "What kind of assignment was giving John a hard time at work?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-48",
+      "key": "09140433ddc5bfe99506db706ba0591b695749e535f22371dcc70fe720403f56",
+      "question": "What are the names of Jolene's snakes?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 1,
+      "conversation": "conv-44",
+      "key": "0932d0d78c2398061d5ee54b1e0ee1a6b7bc555404ec6d487842f413b8cf013e",
+      "question": "Did Audrey and Andrew grow up with a pet dog?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-50",
+      "key": "0986282225defef96b78b908487281f5679097f53a2149e0dbf8297ca46133e0",
+      "question": "What type of music has Dave been getting into lately?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-50",
+      "key": "098970a2e9ae570d8ab167200b03de36e81f6568cb13f291b1d10d854b9a4bf0",
+      "question": "Which hobby did Dave pick up in October 2023?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-26",
+      "key": "09981965303f899e2de6ef9aa9cbff45274e2b08692b5b7e3d1b59e599c2eaf4",
+      "question": "When did Caroline give a speech at a school?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-41",
+      "key": "09aa94897df3c1ede56029dc18acf648db5d66be39ea6b37492e4ac756a88057",
+      "question": "What did Maria plan to do later on the evening of 7 July, 2023?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-44",
+      "key": "09ac8d063f4ae60a9fce6dcdc5e9bf9e627404d7918d60311d7b40e389139508",
+      "question": "Why did Audrey sign up for a workshop about bonding with pets?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-47",
+      "key": "09f3634f148da59cea070198eef8f15dbe0dff952319ffe6b77c186a75c70bb0",
+      "question": "When did James start taking cooking classes?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-48",
+      "key": "0a2619092e2a77b4d576a5a8c5d727883671e192534f6534ce22379ba20e6268",
+      "question": "What does Deborah find comforting about going to art shows?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-26",
+      "key": "0a362b248ad830c8e02678432e22e7a8cf8c1e4b63c5b7429ebcdb75505f945d",
+      "question": "What inspired Caroline's painting for the art show?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-50",
+      "key": "0a87620aee7f7d9150f16ac951ad1d99d2d1262d9fdcfa1ff6fede2c89d1d674",
+      "question": "How did the audience in Tokyo react when Calvin sang one of his songs?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 1,
+      "conversation": "conv-50",
+      "key": "0aa92d800637a8bb8fd5fdee7867e0a1a26ad70039c65577c0dcc9b7118a9a7b",
+      "question": "Which places or events has Calvin visited in Tokyo?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-47",
+      "key": "0aaa9cbecb9378b3e72f494b4951f81909086c557d7819d877494f600f35f92d",
+      "question": "What was the purpose of the gaming tournament organized by John on 31 October, 2022?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 2,
+      "conversation": "conv-49",
+      "key": "0aab7cdf0e383fe3d41412407844ecffdafd202382e2b65f0b5caaf9fce451c3",
+      "question": "When did Sam start working out at the gym?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-41",
+      "key": "0b1e6084b4294c1c994c094483958260e095d38fede9aabae819f0ee5b29778a",
+      "question": "What did John and the veterans do during the small party?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-49",
+      "key": "0b267e6e5b5c232b9f9cd2d210bf65769705f65afb3c0c641ccb2b2112821620",
+      "question": "When did Evan announce his marriage to his extended family?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-42",
+      "key": "0b3e18effa4ebff9cc97053c4bfd55f9f3c6141fa2edd2785686ba2c45aab92f",
+      "question": "When did Joanna make a desert with almond milk?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-48",
+      "key": "0b5d7cefd38bc2c6e1ff2ea1482c4a6ce5c7d634fd2533933ac89db0d4a93e2b",
+      "question": "When did Jolene's parents give her first console?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-47",
+      "key": "0b70f9f4a85770fe200826ff5966cea37a3673c1c720fcd6af703df2c5150acd",
+      "question": "What breed is Daisy, one of James' dogs?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-30",
+      "key": "0ba66e307458666dc9507fea8537e6ad69c6bbc2df4f982b89b6bae2eec14064",
+      "question": "How does Jon feel about the opening night of his dance studio?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-42",
+      "key": "0bd9e533aa1c0962248f206a365dc29205b71a69681efc984113021fb7e7bc4a",
+      "question": "What genre is Joanna's first screenplay?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 1,
+      "conversation": "conv-43",
+      "key": "0be3459e30b74fe96b63d2d8e519733ca0e07d631f3cddf4a3330d8621963695",
+      "question": "what are John's goals with regards to his basketball career?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-44",
+      "key": "0c104a3957a989e294faa46d36ca23cb6cbca1255dba42ba24b5559ce45d2162",
+      "question": "What did Audrey do to give her dogs extra comfort as the weather cooled down?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-26",
+      "key": "0c307badfd8f1962ea22357be31f332bd7d270f6ff93ba303d5f34d67e5ae87d",
+      "question": "Which song motivates Caroline to be courageous?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-41",
+      "key": "0c329ffeefd45dd3d814c7ca3bebc39b21373829fed27b1e971b2d2310117d5f",
+      "question": "What areas is John particularly interested in for policymaking?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 1,
+      "conversation": "conv-41",
+      "key": "0c40c0f07aaee5e02c30788ae21cedce5bd584a9e007edd279286970a191e4de",
+      "question": "What are the names of John's children?"
+    },
+    {
+      "C0": 0,
+      "C1": 1,
+      "category": 1,
+      "conversation": "conv-41",
+      "key": "0c659345121837773bf81b42011093d45a7b4984719404882758128691ab381f",
+      "question": "What food item did Maria drop off at the homeless shelter?"
+    },
+    {
+      "C0": 0,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-26",
+      "key": "0c761fc84c9ca1142bac9e5754e624ef288f87afe1a21f78002bec349cb271b4",
+      "question": "When did Melanie get hurt?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 4,
+      "conversation": "conv-50",
+      "key": "0c7c514c72bd2ba5ad8546ed247895e09dc22f0542cf617b47bb545267fd59ff",
+      "question": "What kind of modifications has Dave been working on in the car mod workshop?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-30",
+      "key": "0c91b20465b99ed11014866c7468debe906a1f760573a3337b39ada033ee32f7",
+      "question": "When did Jon start learning marketing and analytics tools?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-42",
+      "key": "0cc40a341772c1edbed82114ecef106910cc7b2c6726301fea99f87e22e466be",
+      "question": "What is Joanna's project called in the writers group?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-41",
+      "key": "0cc59836145c7bd9f512fb663347fb599cb3e1faea376a11e79df55637532956",
+      "question": "Why did John decide to run for office again?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-47",
+      "key": "0cc86852ccf79e38ba085f19bd3eaad7f468bd4097c73925c578582168b71c7c",
+      "question": "What impresses John about Japan?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-48",
+      "key": "0cfcdcf01734718b1e2a129b8cfc2f21dd47134d11f0d61cd36ea329d93f2062",
+      "question": "When did Jolene and her partner return home from Rio de Janeiro?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-41",
+      "key": "0d38a62bcbb470c5d03d64d35fd6359553266495a920c7628a377f9a22401098",
+      "question": "What activity did John and Max enjoy together last summer?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-41",
+      "key": "0dd15de6005f4500dbea96e2a02ddc370b6dc5270e2313116a65fa5259fc40dd",
+      "question": "What does Maria need to spread the word about for the fundraiser for the volunteer shelter?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-26",
+      "key": "0e0637987fa53acc79131434cc08c412fcc271f51c1d9d5ee96193f5a0dbd3bc",
+      "question": "How long have Mel and her husband been married?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-42",
+      "key": "0e07042b93e4dc86b70195346bc5284be1cafbe8be1edae05119bd987632ce78",
+      "question": "What did Joanna discover at the library in Woodhaven?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 2,
+      "conversation": "conv-50",
+      "key": "0e58fc7ce11840184e1ffef1c6afbf844abfb695a5024ba9f41fc4b4c453697d",
+      "question": "When did Calvin plan on travelling to Tokyo the second time?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 1,
+      "conversation": "conv-47",
+      "key": "0e974b3c522d59a95444ba1131e38fafecd491c6a73878c8731f5e548212eb4f",
+      "question": "What kind of tricks do James's pets know?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 4,
+      "conversation": "conv-47",
+      "key": "0f3079ffe35cc21428b38ac6156c789d35b0c02e3644cce52965ba9b468e5630",
+      "question": "Which RPG game is John playing and enjoying on 10 August, 2022?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-47",
+      "key": "0fa039ecbd9fc7248a61d52f061fa18c251615780f724832877eea42fbde0557",
+      "question": "What were some difficulties James faced during the development of his game?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-42",
+      "key": "0fa706476b90476046afc8faba2fb3fffb1912f7dca7dcbff99ad2519c8c5af5",
+      "question": "What did Nate make and share with his vegan diet group?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-26",
+      "key": "0fc02baee4b37cd34aed28729c46a0b1f7f4132452a75289e5dc68d5d1b1f2ad",
+      "question": "What did Caroline see at the council meeting for adoption?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 3,
+      "conversation": "conv-47",
+      "key": "10e45f696913cd76087e80f9e9adc0bfbc9aaac8a963efc0507844a60c0febaa",
+      "question": "Did John and James study together?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-48",
+      "key": "1116dfa35c10d1e0fb14931b518395a35c414269435388f58524600e18f3e407",
+      "question": "What food did Deborah's mom make for her on birthdays?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-47",
+      "key": "11747a6eb17cc752d8f60fc541602ebc4bbefc9ef4ba00034147163dcbac741d",
+      "question": "Who does James support in football matches?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-41",
+      "key": "118181a80a922e72d12aaca140b9ee4df0beea476333f3dbe6f3c9715d2842c5",
+      "question": "What did John do to help his community last year in his hometown?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-30",
+      "key": "1189b315cb73d144c10e2c8dcdd4e194ef7d6c2eea0e3b74f7d80d43b4dba60a",
+      "question": "When did Jon and Gina decide to collaborate to create dance content?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-43",
+      "key": "119e4b3ea7e6405cd099fc8fec3b75b26eda2b67332b9c69ff060f8da4ba76e6",
+      "question": "How was John's experience in New York City?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-41",
+      "key": "11bf00a0c5741606b401e251de47dfe98410f15c433dd329d6adcb6ce1551eaa",
+      "question": "What recognition did Maria receive at the homeless shelter in August 2023?"
+    },
+    {
+      "C0": 1,
+      "C1": 0,
+      "category": 1,
+      "conversation": "conv-26",
+      "key": "11d24c24dc0339d9b314659aa47c532493be1b92cbd864ba067017d2d6de179e",
+      "question": "What LGBTQ+ events has Caroline participated in?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-44",
+      "key": "11d34053112c758d43d636810b164379fedbf56007dd184601b83e70ba49e818",
+      "question": "How does Audrey help out the animal shelter?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-43",
+      "key": "11fb4d42e42f1c406bd2b922885df6110f53b4cb11cf2c31b5991cd2e5b385f8",
+      "question": "What was Johns's reaction to sealing the deal with the beverage company?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 2,
+      "conversation": "conv-41",
+      "key": "121f3c3f7ee850913c9c92d52cf74a4510a502553ea4c278d49a895f2938d564",
+      "question": "When did John have his first firefighter call-out?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-44",
+      "key": "126d1ed06ffd95355430d2f848cb9120021da7f36885c9e6cdecf5e3b46a2bc1",
+      "question": "How often does Audrey take her pups to the park for practice?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-30",
+      "key": "126fde7a50942cf87457c23d0da468a14a4a1f67f8409c3c7165962ba5a841cc",
+      "question": "What is Jon working on opening?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 3,
+      "conversation": "conv-43",
+      "key": "12b44373461ef4e8164632a0750e2cf07128f2ab409ea4a2c79c3b9d423a7b86",
+      "question": "Which popular music composer's tunes does Tim enjoy playing on the piano?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-43",
+      "key": "13423b6cd9124f2456ebf3185698a46a3ddb35db37b677376a4c9aaec2baab2d",
+      "question": "When did John attend the Harry Potter trivia?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 2,
+      "conversation": "conv-47",
+      "key": "1360396d190213217a39407d229a4725b775ba31aa1a1dab335208792a34d5d2",
+      "question": "Which recreational activity was James pursuing on March 16, 2022?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-47",
+      "key": "13868ae0bcd7cb91e1d11728cd532620b95ada3faf2c0d2d613e592fc079eb1e",
+      "question": "What is John organizing with his siblings?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-48",
+      "key": "1390c9c199cdb45b80abe9fb691f43bba5d680a5dc7282efb98756150edcf283",
+      "question": "What music pieces does Deborah listen to during her yoga practice?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 3,
+      "conversation": "conv-49",
+      "key": "13bc78c7a247c05ae85f5626882113da180ddf4f27e74070c6c6be0c6c87fab2",
+      "question": "Which type of vacation would Evan prefer with his family, walking tours in metropolitan cities or camping trip in the outdoors?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-49",
+      "key": "14144e64cd060d8f140a1b70f700fd5e78efe64a0aaf9a55c30e9a165dd0cac5",
+      "question": "What did Sam suggest Evan should do with his keys?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 1,
+      "conversation": "conv-50",
+      "key": "145b7855986abd59bb9a8d52d7ffa4dbe989793a83cdbda26bd91381a1b251e8",
+      "question": "What items did Calvin buy in March 2023?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-48",
+      "key": "14609f08683ae697082a3906fa7c26441def069f03b90d101c57d03849d30a00",
+      "question": "When was the last photo of Deborah and Karlie taken?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-43",
+      "key": "147d0b0bb59f66d4080b9c0a9fd8ba9e5c74e4d1f628f7ac2195f82b90672d4f",
+      "question": "How did John feel about the atmosphere during the big game against the rival team?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-30",
+      "key": "14867ec290ed79824a6ea5b59aa08aacef05c7ddb251d2428eba52560bad1acb",
+      "question": "What did Gina find for her clothing store on 1 February, 2023?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-44",
+      "key": "14b7c7b0b4e3bfc669659cf67d0314da188606fc558bb4286345e463d6d43d01",
+      "question": "What challenge is Andrew facing in their search for a pet?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 1,
+      "conversation": "conv-42",
+      "key": "14e8936c545c8d3526c3d9248ef473ab9a6ea535d5ad193c986cfd74c0ddd43a",
+      "question": "How many video game tournaments has Nate participated in?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-43",
+      "key": "14efee4df360c36e73cc171e0c26e23446fc174e504d2bd6acb21f728cd4acb6",
+      "question": "Which book did Tim recommend to John as a good story on 8th December, 2023?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-41",
+      "key": "14ff20a483a09e27130df4abd7798a4aa2929b37598ad5c5d84b3cf4eef1b836",
+      "question": "What did Maria say it was like being at the waterfall in Oregon?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-42",
+      "key": "152e23f05878d8d0a614e449c6ae1be3d028344ed103ea4700609eafd1cc2045",
+      "question": "What did Nate share a photo of when mentioning unwinding at home?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 1,
+      "conversation": "conv-43",
+      "key": "1533a146a46a716a0fa72c5daa18f4233dca1596b169fe35701c306fa80c4c47",
+      "question": "Which geographical locations has Tim been to?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 3,
+      "conversation": "conv-41",
+      "key": "15ef3f23e9c1e400c71d141c0336ed962eedd96be39bfdff9cdecf32c9433406",
+      "question": "What might John's degree be in?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-43",
+      "key": "16161091be3f71a939d8c90acdac507b878b535979a002e573f7d3c55aff9030",
+      "question": "How long has John been surfing?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-49",
+      "key": "162d1605ff35d58adc0e63581cef04a2c2767067c4744f6a721cb26f00950564",
+      "question": "When did Evan lose his job?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-43",
+      "key": "16323e48c9adeb39eead58e7711ce238c6513ff1e73ad774cdea47c8feb05cec",
+      "question": "What did John celebrate at a restaurant with teammates?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-48",
+      "key": "16434bc6a04569abbfbe8e2710c011697dcb3ca04a1e3ef97af267075c0f6f0f",
+      "question": "When did Jolene's mom gift her a pendant?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-30",
+      "key": "1648e7ba6b14d02b03793bdf26dedd947c1f99f5c749c276b0aeb20e5b2bcb06",
+      "question": "When did Gina design a limited collection of hoodies?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-41",
+      "key": "165fb1606d2b7fda277d4c63b88a4cd54a336cdeed8135c1d06fc34d47cd86c6",
+      "question": "What did Maria make for her home to remind her of a trip to England?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 2,
+      "conversation": "conv-30",
+      "key": "16b0415c1a0955c696d33fd6f2ba0c61f02ad255e41e01be34e8465336643d80",
+      "question": "When did Jon start reading \"The Lean Startup\"?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 2,
+      "conversation": "conv-50",
+      "key": "16bba4955b1e4911e1c1193571778f30016fe857975cb785c28eaf3e2e0aded8",
+      "question": "When did Calvin buy his second Ferrari?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 1,
+      "conversation": "conv-42",
+      "key": "16c1230c5d5f4de0547c17bfd95a888c51bbf4c2972ee3a122200b6e4e08a0a5",
+      "question": "What things has Nate reccomended to Joanna?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 4,
+      "conversation": "conv-47",
+      "key": "16c23135e52e85751a592d8c7fb1e484aa781168f6489d1d71dfefd7a5febe08",
+      "question": "What advice did James receive from the famous players he met at the tournament?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 3,
+      "conversation": "conv-49",
+      "key": "16c7f8ba821fe5d338af89a8793bdfe468568710f1ddbc0f079839eef7d9f818",
+      "question": "Which major holiday season conincides with Evan's wedding?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 1,
+      "conversation": "conv-48",
+      "key": "1723cba7d2ae91dc3330f398873d58df056b9da3f8f27403dbef9ae969a58032",
+      "question": "What gifts has Deborah received?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 3,
+      "conversation": "conv-26",
+      "key": "17464f6981f26f52906074e665a45d9ec2bbfdfff28175d40e5e37f3d4f9b47f",
+      "question": "Would Caroline pursue writing as a career option?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 3,
+      "conversation": "conv-44",
+      "key": "174ab24a86133e0c56caceb8194a679658295083fc26eb66ab8404d65a3463d5",
+      "question": "Which meat does Audrey prefer eating more than others?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-41",
+      "key": "174ac0cfd9839a28a00ce2e757364671bc09cecd5287e917153c0ab1bd20d5c9",
+      "question": "What did John take away from visiting the veteran's hospital?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-49",
+      "key": "17560e5550f1e34cb318cb80a82a1bb8bedadb8cd094f1fe3ead88962b2d05ee",
+      "question": "What sports activity did Evan and his partner try in a recent weekend?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-48",
+      "key": "17933fe2a7d39d97910b0f79db7433c793bdcafb3c335b4a682dec54dc25fd20",
+      "question": "What activity does Deborah do with her cats?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-26",
+      "key": "179e53dc79d84e70712975939eceacddac9ebb075b5564f79c55d7d203fbf37c",
+      "question": "What kind of place does Caroline want to create for people?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-48",
+      "key": "180726977cb6aabbbcec8a322c436c688b358f95e102f69ad58e8b680fee19e1",
+      "question": "What did Jolene design inspired by their love for space and engines?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-44",
+      "key": "18298b9e10d8d762b84277a07431fa0b02627a2d1dc73765080cb42a015715fe",
+      "question": "What activity do Andrew and Buddy enjoy doing together?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-47",
+      "key": "185eb650b47a2fcf536ecb5836d439c0314aa300b623d57c43164261dc30ec53",
+      "question": "What does John do to stay informed and constantly learn about game design?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 2,
+      "conversation": "conv-44",
+      "key": "188c1778ad5dea01c5fb61314e23b8b8c8f88d3c7bcd60e28e81abc2d5aeb10c",
+      "question": "How many years passed between Audrey adopting Pixie and her other three dogs?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 1,
+      "conversation": "conv-48",
+      "key": "18a0e603f494babb4a2aefa4da72f86e95944b5e2d36f0b022c6fece29973db2",
+      "question": "What symbolic gifts do Deborah and Jolene have from their mothers?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 2,
+      "conversation": "conv-26",
+      "key": "18be287fb856fa960c05a54332d5a35eba4f61c7981b86e1f4d4523e90553acc",
+      "question": "When did Caroline and Melanie go to a pride fesetival together?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-48",
+      "key": "18c54de8c78849e34d7056b58f30eaefa5b6f978d115b4099e2eb3eb4042530a",
+      "question": "What music pieces does Deborah listen to during her yoga practice?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 1,
+      "conversation": "conv-47",
+      "key": "18f71b6821aa221e067dc8960681e23a0d37ae7375ae5e7a81845bb8933826fd",
+      "question": "Which countries did James visit in July 2022?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 1,
+      "conversation": "conv-43",
+      "key": "18fd440dd8c8129f55db30d286bc0e9fb5d4971f596d821c9f44a823fa24ba5d",
+      "question": "What instruments does Tim play?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-41",
+      "key": "190d25bdf14f37f706285f2025ac31cc396a698cf3364adc8c060b0189b44687",
+      "question": "Why does Maria think it's important for younger generations to visit military memorials?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 4,
+      "conversation": "conv-48",
+      "key": "195e673b1bc6e1b05b7bdc6f258785996151663fda3d49c9a4b6ee7520fe06ae",
+      "question": "How does Jolene describe the time spent with her snakes and partner?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-26",
+      "key": "1984b7b569094f00f9ac0aa51ac283bb09136e1e6e45cb33141044bf7645fda6",
+      "question": "When did Caroline go to the LGBTQ conference?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 2,
+      "conversation": "conv-48",
+      "key": "198fb3851cc80f8fe5ce3bc9306dc482fc1275d5bab0665f55799d13371085fa",
+      "question": "When did Deborah`s mother pass away?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-50",
+      "key": "199537d1360e42796d92a9780d82108f6ed55a7e64fd0cabab02b079fd2a4cae",
+      "question": "What design is featured on Calvin's guitar?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-50",
+      "key": "19a94248e0d24e5405dcb001b04107067ba026b6f0a0e5743643e62514e6736c",
+      "question": "How does Calvin balance his job and personal life?"
+    },
+    {
+      "C0": 0,
+      "C1": 1,
+      "category": 1,
+      "conversation": "conv-49",
+      "key": "19bfc85d9b82e0647e6fbf454955fc62c85a00c643239b4a036cf21e139e32f8",
+      "question": "What kind of healthy meals did Sam start eating after getting a health scare?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 2,
+      "conversation": "conv-48",
+      "key": "19f8ee2b28b43ffe9853328376ab8a900349c24589d6a4141c96a3e4465d2db7",
+      "question": "Where did Jolene and her partner spend most of September 2023?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 1,
+      "conversation": "conv-50",
+      "key": "1a386591173b592b1861b4aff8c5a19f08185278f72330ecf662401b5ebd2b22",
+      "question": "Which types of cars does Dave like the most?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-48",
+      "key": "1a4eff92ba44df7ae6065b4b2bfeaf8633746930b056edda0a09af48c66eb885",
+      "question": "What does Jolene enjoy doing with her partner after a long day?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 2,
+      "conversation": "conv-44",
+      "key": "1a73976ead91ad1130b544f5a854f8f18a8898b219c9595800663f59e55e9e3e",
+      "question": "How many months passed between Andrew adopting Buddy and Scout"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-47",
+      "key": "1a78fc04f7af0eb12feeeb20d70c134d9f312081652b806e59eaee8160e8338c",
+      "question": "What sparked James' passion for gaming when he was a kid?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-44",
+      "key": "1a930b18201af3e80b812a74b508bee34b28ae6dc116a5d8832b5fdb3288f16c",
+      "question": "What kind of experiences are Audrey's dogs the best companions for?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 1,
+      "conversation": "conv-42",
+      "key": "1a94bffb7c3ae1eded5800c028aceff56caaefcf0ae8d8ff3f61fb61e66e6216",
+      "question": "What mediums does Nate use to play games?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-49",
+      "key": "1aa2dd374d1e47fe3d19e3f0a3de17233b9e3984864e2d5050c4941a124c4c6e",
+      "question": "When did Sam and his friend decide to try kayaking?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-48",
+      "key": "1b0291667510cb3c5d67869c935316516b72c41e148201d1bfa87eb3a9093f23",
+      "question": "What gave Deborah peace in the garden she visited?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 2,
+      "conversation": "conv-50",
+      "key": "1b035edefc900a94f4fa7eae2175ab89b80107dd2d32d4741dd78596da0fa0e3",
+      "question": "How long did Dave's work on the Ford Mustang take?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-48",
+      "key": "1b089620dbb2a62845de4a3b6db056f4a9362c48c3af1829bd0747b3b07be3a0",
+      "question": "What picture did Jolene share related to feeling overwhelmed?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-49",
+      "key": "1b37bc7f41251d68697f686265b17a87ac046a3e4716079d138f3a9988709603",
+      "question": "When did Sam first go to the doctor and find out he had a weight problem?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-50",
+      "key": "1b7432f19021073c0a589aade05dfff2b43a246202b89e7a964cef95dfb54330",
+      "question": "What car brand does Calvin own that he is proud of?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 4,
+      "conversation": "conv-43",
+      "key": "1b77de5ba09b8c989e39a5cb420dfc280dda068855a1069c58811fc9ff9d46a8",
+      "question": "What did John share with the person he skyped about?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-47",
+      "key": "1ba4cc568e68dcf0569a81a6f36dffbccd1abf9437b63dcd0003488ef395359e",
+      "question": "What instrument did James used to play when he was younger?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 2,
+      "conversation": "conv-41",
+      "key": "1bbacbad15d014181e414c6a2b8cf74318cc7057f905699d7f262e458a4e2e45",
+      "question": "When did Maria's grandmother pass away?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 4,
+      "conversation": "conv-30",
+      "key": "1bca284534652b4fb4ef23c06c92a02b70525d4e26ccd7a15088dfb54d8b731f",
+      "question": "What did Gina want her customers to feel in her store?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-43",
+      "key": "1bd0567a14e6136522b36e151cdec9dbace1346d0d274dbce62e129585543ab2",
+      "question": "How did \"The Alchemist\" impact John's perspective on following dreams?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-44",
+      "key": "1be6f699b36c0b2a2f12f87a2f7160bd05e1831d3d7daa90dbeee8460b9d5565",
+      "question": "What did Andrew suggest as a way to reduce carbon footprint?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-42",
+      "key": "1bf9dc10cbf6bbb8ece8ca5c9fba89642b796a37c0411d7dc8f6b8cd70661ea2",
+      "question": "What kind of cake did Joanna share a photo of that she likes making for birthdays and special days?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 1,
+      "conversation": "conv-44",
+      "key": "1c8c81a43b79b719f74a2878dcd477402a6a5eef619b36ba0d75604b19eb817b",
+      "question": "What are the names of Andrew's dogs?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 2,
+      "conversation": "conv-50",
+      "key": "1ce1bed61da1eaea2326c77607cbefaaa443ace4290af11b909b01ff72ff38e7",
+      "question": "When did Calvin first travel to Tokyo?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-49",
+      "key": "1d8b1fd13dac9434544c9a942d0cf4d895381b279a16cf83031d10a1bc402612",
+      "question": "What does the bonsai tree symbolize for Evan?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 4,
+      "conversation": "conv-49",
+      "key": "1d9afee79b53c877aabcfe170b62663c6c87d25e628d2b52807a36fbd8a5c102",
+      "question": "What did Sam offer Evan regarding yoga?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 1,
+      "conversation": "conv-50",
+      "key": "1dbf04a4c696fa0be50950e0254b31e5334e52fe1a4fc5575fd5a9a8c265fc48",
+      "question": "What mishaps has Calvin run into?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-26",
+      "key": "1dc0b421f5b43a73195013b98ea74a399c73db00fc4db16bb1f57aa2e262f528",
+      "question": "What does Melanie do to keep herself busy during her pottery break?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-48",
+      "key": "1df25845f292e52f08c39852bd7123381fa687c53ce190f066b700375df614a4",
+      "question": "How did Jolene feel about her progress in practicing mindfulness and gratitude?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-48",
+      "key": "1df43a70a4de5c99e98428cc0a4d88072222a088650a9381fe7b650fbee97c03",
+      "question": "When did Deborah lead a meditation session during the sunset?"
+    },
+    {
+      "C0": 0,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-47",
+      "key": "1df748105fa7d66763d7e78b034626eba7aafda82175b36b003cbba536f0be0e",
+      "question": "When did James volunteer at an organization?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 2,
+      "conversation": "conv-44",
+      "key": "1dfa84cd4f200f8ef434c92deb79b76b4373647498b18623fa332eeb06812046",
+      "question": "Which year did Audrey adopt the first three of her dogs?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 1,
+      "conversation": "conv-41",
+      "key": "1eab244811a24bf4bb1a65e4c3f9700261afc143c9921357d485227f057c93aa",
+      "question": "What causes does John feel passionate about supporting?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-41",
+      "key": "1ee3a2cb6dcee3b9be335952d07f96de4def91da5882b18e9ba6e464148ae0d1",
+      "question": "When did Maria receive a medal from the homeless shelter?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-26",
+      "key": "1f03242a5b1d84d79f90187ac3a8366ebc80ecca2463c12cd7f2c318c2262b7f",
+      "question": "What creative project do Mel and her kids do together besides pottery?"
+    },
+    {
+      "C0": 0,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-26",
+      "key": "1f035f3fcc67a417d95acfb44e72a8f5351cadfb9cf16b9aa35c4a92a5875884",
+      "question": "When did Melanie go camping in June?"
+    },
+    {
+      "C0": 0,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-48",
+      "key": "1f35cdeb00d108633c9e24c0af7f3cdd3aa6b9c53f4de966f2357658d683ba87",
+      "question": "What did Jolene participate in recently that provided her with a rewarding experience?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 4,
+      "conversation": "conv-47",
+      "key": "1f7cc9d7c04424616bdc99a4dfcc5ea738564e2fc18cd1bf7c531c06b374ea93",
+      "question": "What did John organize with his friends on May 8, 2022?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 2,
+      "conversation": "conv-42",
+      "key": "1f9b7432d66345b69c10d51c686d53afd7919106711e2e15c2803d5b3c40b35f",
+      "question": "When is Joanna going to make Nate's ice cream for her family?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-41",
+      "key": "2043419f33d12d3c0d4e497e5ef252ea671d0de767dbb0d23164761133de22f8",
+      "question": "What kind of food did Maria have on her dinner spread iwth her mother?"
+    },
+    {
+      "C0": 0,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-41",
+      "key": "2067d79168f67b0a2f258b2f9c75c707cd74ec24cc71a3bdd13932e77436aab3",
+      "question": "How does John plan to honor the memories of his beloved pet?"
+    },
+    {
+      "C0": 0,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-49",
+      "key": "208a026c09d8fdd1aa7b51b83485653ff59ea19cdbeb094927f10641c36dea5d",
+      "question": "When did Evan start lifting weights?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 1,
+      "conversation": "conv-49",
+      "key": "2104957c4b99c7cb9aad007e92e6b5bbf1e5c2aef15d4b4b657420919b1d7ed0",
+      "question": "How did Evan get into painting?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-41",
+      "key": "21428bea4d375f617d9e9d46ad1e4ac4b4b379386fd7bed18b0a52c81aebb503",
+      "question": "What kind of meal did John and his family make together in the photo shared by John?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 3,
+      "conversation": "conv-49",
+      "key": "21500368f64b5ee370ad89a63b1237edc2d9bdaf82de3a97e1570c484a6e863d",
+      "question": "Does Evan live close to a beach or mountains?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-42",
+      "key": "21a34d5a0870b13912d12aa92dd6d22bac94a254203aba97188b05c99211f152",
+      "question": "What did Joanna make for one of the ladies at her writing club?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-41",
+      "key": "222c9eb2a868543d1a4e96e58397a0ae898108c7d0b5e792de1e2912a03bb01d",
+      "question": "What cause did the 5K charity run organized by John support?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-41",
+      "key": "2235a6dff8e4134761450d7a3fa6a0626181c48e3aeba2898ae294fd2e2bcc80",
+      "question": "How does John describe the support he received during his journey to becoming assistant manager?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-48",
+      "key": "22845109a308bee22c90f428705f2ee7be9e65ecc0c6a4fbc7c0af3da823d020",
+      "question": "Where did Deborah meet her new neighbor Anna?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-44",
+      "key": "22b0f02ad7ec58730cf3be5040004a1363572c02706892e09598f45201dca556",
+      "question": "How many pets will Andrew have, as of December 2023?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 3,
+      "conversation": "conv-49",
+      "key": "23336f86e409f83e46a6ce6802bed56c0a6664ed591f080c571c4b7ec5f15f1d",
+      "question": "How might Evan and Sam's experiences with health and lifestyle changes influence their approach to stress and challenges?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-26",
+      "key": "235aabf1157e568ad38aa3a5909acc54c07c49ae0b7782bd453a87cd1d95bc7d",
+      "question": "What motivated Caroline to pursue counseling?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-26",
+      "key": "23ed90ca0555966f41ba5af675497b0df63e2cacf62936f13441936cd8578a5e",
+      "question": "What is Melanie's reason for getting into running?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 1,
+      "conversation": "conv-43",
+      "key": "23fe00abb0e816502df5f6d152dd42b7996cedd6e0bf01a08b4ad97269d156fb",
+      "question": "What authors has Tim read books from?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-42",
+      "key": "244a322a9f02e71f32a725f526417bca60824144e7fd9f4d85ed2b86d1cb4df0",
+      "question": "Who invited Nate to join her on the trails sometime?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 1,
+      "conversation": "conv-47",
+      "key": "24660cf324ca35d072b7e925fde82ea37da1cc76a46b691d2cca64ac7bc5c93b",
+      "question": "Which new games did John start play during the course of the conversation with James?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-42",
+      "key": "248e745a6779dd2a50932797b7e797ca7ddc00dc4ff4a97d3957a7454506a709",
+      "question": "What type of show did Nate host where he taught vegan ice cream recipes?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-48",
+      "key": "24c4498b1b0bd8d05d6a87e58f61bb1b9b1397870d12f0cea98d9afa6476471d",
+      "question": "What does Deborah bring with her whenever she comes to reflect on her mom?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 3,
+      "conversation": "conv-48",
+      "key": "24e630645d2f62b1b489225b15945bbfb06cf55882a571acdcd069c74db8f44b",
+      "question": "What card game is Deborah talking about?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-41",
+      "key": "25003dccdba8c6cadeca97e85350366955ac3195a60665d22f7506381b63636d",
+      "question": "What motivated Maria and John to discuss potential solutions for their community on 7 July, 2023?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 1,
+      "conversation": "conv-41",
+      "key": "252b24f7d5525d9eb257408be74ccf10cbe49de4e9bab70c729c1df59ac3ea5d",
+      "question": "What area was hit by a flood?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-42",
+      "key": "2546587620f22d9794c5371cbf4093fc921016cb26607aa66b9f7151c0feae29",
+      "question": "When did Nate win his first video game tournament?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-41",
+      "key": "2553c018798d25e72ab0fbe67d822c8ba1172c1d480d119acb98051557452311",
+      "question": "What is the name of Maria's puppy she got two weeks before August 11, 2023?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-42",
+      "key": "255c1ea28346fd26b7819e9ca47752bc456a8e54a8f741dd841fdf9d9a02734c",
+      "question": "What color did Nate choose for his hair?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-26",
+      "key": "258f92ef5534494aa4ce58788912a316ffbc53f8e89c021cf9ef7d0dc1419730",
+      "question": "What does Caroline's drawing symbolize for her?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 2,
+      "conversation": "conv-44",
+      "key": "25bc352ad7ccaab613bebafae378f56926f15cff779ff2d35e594765eb54e24d",
+      "question": "When did Audrey see a hummingbird?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-43",
+      "key": "25bfc1df2f8f6cd73f888aeacc6f542a7a0b3ed96a1b903887aac2487166ffa1",
+      "question": "Where will Tim be going for a semester abroad?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 1,
+      "conversation": "conv-26",
+      "key": "25ddf9831ed028adbed39a799ff5c9534d461f39f48cd578c5117e6aa732d253",
+      "question": "What symbols are important to Caroline?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-49",
+      "key": "25f44604e58b9e91908fa0186bb299467a309f0cd2b795deb49eaec2e7a63114",
+      "question": "When Evan get back from a vacation with his SO?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 1,
+      "conversation": "conv-26",
+      "key": "266b8e2c7c091582a5c8e5d247edf87a266769714f74043983a0c3a631a02a44",
+      "question": "What types of pottery have Melanie and her kids made?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-44",
+      "key": "26ada0eab77673b29e79d528ec9a08af3776595a117f7722317ae89ac46fef4c",
+      "question": "What kind of flowers does Audrey have a tattoo of?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-41",
+      "key": "26b44c771ca3a2ee950009eb4aaca96b763b07b1617abfa0d6360f6af3caac5d",
+      "question": "When did John have a party with veterans?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-48",
+      "key": "26b892159d8c3d8a54195ce4ee575ae2cdcc84cb400f63fc3e69d6fd53fab9c4",
+      "question": "How did Jolene come to have her pet, Susie?"
+    },
+    {
+      "C0": 0,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-42",
+      "key": "26bd5a1bdafe4d53aa209ae0f1626189f4a8747ef0a8fdeafaa11eaed5259ef4",
+      "question": "What major achievement did Joanna accomplish in January 2022?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-42",
+      "key": "26f467222ba5a434818b1a50abd1e440204125912f9b4360059e355e07661179",
+      "question": "When did Nate take time off to chill with his pets?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-42",
+      "key": "272de886d71dbe007888366a8c690df17a254756d26d5f9f9e5c9cb66d60baee",
+      "question": "What did Joanna find in old notebooks last week that prompted her to reflect on her progress as a writer?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-48",
+      "key": "27d1bba7bacac0c5e477ee8ae57b3d0c4a5697c4ffeef86d3893d450587e3fc6",
+      "question": "How did Jolene and her partner initially meet?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-42",
+      "key": "27d7d258ae906f077772d6876f0b1f31f1cfc138effbea854601fcfc8a93c6ba",
+      "question": "What is \"Little Women\" about according to Joanna?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 2,
+      "conversation": "conv-50",
+      "key": "27f1fa3663887fdb75456345c00d3c07c31358ab1902c9fe763502e7b9974605",
+      "question": "When was Calvin's concert in Tokyo?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-42",
+      "key": "280ed5a1707562ccf33ea5bf8002ff58a83a6d93350dc9810386a6c665244619",
+      "question": "Which torunament did Nate win in the beginning of November 2022?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 1,
+      "conversation": "conv-43",
+      "key": "284077e7af4504c33b0c5ebaca1891b218e59aa4e50f6b7a584c24d7a5a33eaf",
+      "question": "Which US cities does John mention visiting to Tim?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-50",
+      "key": "28c55332e6ed010227e33c888ccdac23b3d9c3de2c97e0867c0781ad3761d842",
+      "question": "What do Dave and Calvin agree on regarding their pursuits?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 2,
+      "conversation": "conv-43",
+      "key": "28c7c14142c7cdba4b239c74e110b00e3ca0124ffe71932d5c7f1cf81bb2024d",
+      "question": "Where was Tim in the week before 16 November 2023?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-48",
+      "key": "2908132b1ca6d64cb16c04cd4622c5d027059614b4584955300e58e3912aa355",
+      "question": "When did Deborah go for her first morning jog in a nearby park?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-43",
+      "key": "295674195aba455932c580186409b8da592ea8efff33598b8be7d6f8d69efdb7",
+      "question": "What book did Tim just finish reading on 8th December, 2023?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-48",
+      "key": "2976e337f016a804cd8985082ebe3ae30259c015f170aaacb35c35548b411fd9",
+      "question": "What activity did Jolene and her partner plan to do together instead of resuming yoga?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-50",
+      "key": "29c4693e6839f8e5bd9e81b792be3478aafcb3b3f90b500ba2965899d06d2947",
+      "question": "When did Calvin visit some of the sights in Boston with a former high school friend?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-44",
+      "key": "29ee802f98802dba05be2ddcc2329e6039056c232d5081e5df9c1fbd157a9fd1",
+      "question": "What did Audrey share to show ways to keep dogs active in the city?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 4,
+      "conversation": "conv-48",
+      "key": "2a1f92734489cfc1d0998897cb0047d881e5e181877ad39bad97db632135ede7",
+      "question": "According to Jolene, what does exercise help her to feel?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 1,
+      "conversation": "conv-48",
+      "key": "2a4d031eee5432482ed575db6a128cbb7a779430f78636b1519316185986c3a4",
+      "question": "Which of Deborah`s family and friends have passed away?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-43",
+      "key": "2aefd43a03ffa5be1a895390e05010d5eba05eaa6f67641e7a491b14c6b94d19",
+      "question": "What is the main intention behind Tim wanting to attend the book conference?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 3,
+      "conversation": "conv-42",
+      "key": "2b256771737c02716983aff0f793ea852d7f0f85f4da4ce2792cdce07b9f5e4d",
+      "question": "What pets wouldn't cause any discomfort to Joanna?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-30",
+      "key": "2b4ff83aaf511d55bfa3a3fb2056038d6a51c6bbb7b1b9d479b796d1f0cdba70",
+      "question": "What kind of dance piece did Gina's team perform to win first place?"
+    },
+    {
+      "C0": 1,
+      "C1": 0,
+      "category": 4,
+      "conversation": "conv-50",
+      "key": "2b5101c0755756a059795cf8d68ed1ef5daae59c0c4025c17b0c9333712eed67",
+      "question": "What does Dave do when he feels his creativity is frozen?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 3,
+      "conversation": "conv-50",
+      "key": "2b80f1d4c5de0556be24c9c94a4466bc7019c40c40dd3e81a7d8335bc8710197",
+      "question": "Would Calvin enjoy performing at the Hollywood Bowl?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 1,
+      "conversation": "conv-41",
+      "key": "2b83055ad2de9154ed3da49d17f9cb2d726fda5f37d2a69c58089dfa47258853",
+      "question": "What European countries has Maria been to?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 4,
+      "conversation": "conv-26",
+      "key": "2c4133530d7fd758df65ffa7f132d49b16156021953f99692619f825a76d7200",
+      "question": "How did Melanie's children handle the accident?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 4,
+      "conversation": "conv-48",
+      "key": "2c958be5e18544ac9ee175e78fee5f61224d643f21fe0de10f256596384b68ac",
+      "question": "What habits does Jolene practice to feel balanced?"
+    },
+    {
+      "C0": 1,
+      "C1": 0,
+      "category": 1,
+      "conversation": "conv-41",
+      "key": "2d1ecf6a02bbbcf8152abb7dd0bc0e081311c2530ea40880ae1b013afe6e637e",
+      "question": "Where has Maria made friends?"
+    },
+    {
+      "C0": 0,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-30",
+      "key": "2d38f318546d98ade73e9455bbbc5944bf66e986670260113cc2bcb3af1d31b6",
+      "question": "Why did Jon decide to start his dance studio?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 2,
+      "conversation": "conv-42",
+      "key": "2d707ea478093a8221e023b3923599caf32cb47e7c3c8836b2e94da0dd420bf1",
+      "question": "When did Joanna first watch \"Eternal Sunshine of the Spotless Mind?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-44",
+      "key": "2dcb2806677b31f94cc6ee564eb97075120ce42c3713cc1fecb4f2e8132068e7",
+      "question": "What advice did Audrey give to Andrew regarding grooming Toby?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-47",
+      "key": "2dd2a1a5b14889365761ba806b91c5d82392167d05b82e5f3711934236c91c61",
+      "question": "Will there be an interview required to volunteer with the organization James volunteered for?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 3,
+      "conversation": "conv-41",
+      "key": "2e3785433f14192561e28f77ce5a9647aef63f6fe9b867e3e8ee89442b328c31",
+      "question": "What might John's financial status be?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-42",
+      "key": "2e6a0946564ae7a726a47a7f2afd50593cb96949f1701fe6745171ebc3fd7e20",
+      "question": "How many video game tournaments has Nate won by July 10, 2022?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-49",
+      "key": "2e73a717776b12870cda63eda80b56069f0ada7a5fd44c9ccb3c28986a9037ed",
+      "question": "What kind of water does Evan suggest Sam try as an alternative to soda?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-42",
+      "key": "2ecda204da72f226901970fe6d55114749592556017faf9d7135060271252269",
+      "question": "What movie has Nate recently seen that blew his mind?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 4,
+      "conversation": "conv-48",
+      "key": "2f36258e234d0a922ca72ab6cca3dde2072bf1c420d48ac622d0cd4c46c8b9bf",
+      "question": "Which new yoga pose did Deborah share a photo of?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-47",
+      "key": "2f62a0de3ac02a2323bf8be8c9ac94435b066b75455cc3e1237451c08aca8274",
+      "question": "What is the main focus of the organization that James volunteered with?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-44",
+      "key": "2f76a328124278a19486efa94de4d0a83829542b5a037ea5f9956f5ad2dd4f5b",
+      "question": "Did Andrew have a pet dog during March 2023?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-26",
+      "key": "2f8c318caea328a81e75f686e8623a346d863d04c463abfa19974f1299be3701",
+      "question": "Where did Oliver hide his bone once?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 1,
+      "conversation": "conv-44",
+      "key": "2fa6e81b620f89011dbc11dbec8342d7504612a1a2d1c993ba0c8434fa0dc256",
+      "question": "What items has Audrey bought or made for her dogs?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-48",
+      "key": "2fb5486a67a36f8dae768c5d4cb4669af45edef622e1b4d33231e8ab970803bd",
+      "question": "What outdoor activity did Jolene suggest doing together with Deborah?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 2,
+      "conversation": "conv-42",
+      "key": "3016d6ee6762f4097931242a91fad09e20427057c1a1a247b23af88bfe4b4257",
+      "question": "When did Nate win his third tourney?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 1,
+      "conversation": "conv-49",
+      "key": "302d5197d3299ecbf6a8c6533b08bfd0472918572c6e8fb55c08d794bd49a36a",
+      "question": "What kind of foods or recipes has Sam recommended to Evan?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 1,
+      "conversation": "conv-47",
+      "key": "308e19752d29fed67a49c61f862c23d1dea31b1c66d5480e90d4d1de7d97948b",
+      "question": "Which books has John recommended to James?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 1,
+      "conversation": "conv-26",
+      "key": "3145cbc71ad17045497063dee963363fbe4bdad5c0819ce642191afb5a4dafda",
+      "question": "What is Caroline's identity?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-26",
+      "key": "314bbe7190b76fb34d3f650148e133a9077f051a4dfb3897b2a00f6c841d4890",
+      "question": "When did Melanie go to the museum?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 1,
+      "conversation": "conv-49",
+      "key": "319dec2336f5efbe3965951f573f9c1c6c3b161fffe5d47db0c2c614bab3ca92",
+      "question": "What hobby did Evan start practicing a few years ago that he enjoys?"
+    },
+    {
+      "C0": 1,
+      "C1": 0,
+      "category": 1,
+      "conversation": "conv-43",
+      "key": "3224d9730f6df867c40a8a36aec1a62b291eeb52c278d784172d60697127d006",
+      "question": "Which endorsement deals has John been offered?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-41",
+      "key": "3237dafbd30aed2c71a02bad35748b978bdf830a462640397a3df9dcf62a5a4c",
+      "question": "What did John do that put a strain on his wallet?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-42",
+      "key": "3248b26a0530a5e1c30c9ca2de1056ed68551bf2beeee3ea02e1f35744045c45",
+      "question": "When did Nate make vegan icecream and share it with a vegan diet group?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-47",
+      "key": "3287f004be2bb078c1001d4aae37e78addc4b2e6378e1c88239c4f7b55677607",
+      "question": "What kind of programs are John's siblings making?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-50",
+      "key": "32a5a53780dc904fd08d13951b06a014d4921fece46d60d4882f2bac9c050b56",
+      "question": "What kind of music has Calvin been creating lately?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 2,
+      "conversation": "conv-41",
+      "key": "32ea9843ee21c2e184eb59377d131eddd97664d2e3eec97793fcd918b7f9b269",
+      "question": "When did John participate in a 5K charity run?"
+    },
+    {
+      "C0": 0,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-48",
+      "key": "33328bc8a2ba2d2a23a79118c438c8ef265e5ea0efda95ff2c0f3077d60623ac",
+      "question": "What milestone did Jolene achieve recently on 4 February, 2023?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 2,
+      "conversation": "conv-44",
+      "key": "3333de681cbd3e5b0dae81481191ef59dece9a51abf71bb35c268e2e2b9e0016",
+      "question": "When did Audrey make muffins for herself?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 4,
+      "conversation": "conv-48",
+      "key": "33349e91244aeb0af6b3017118b02f301d144ac112d608b9a8f2599625e6d72a",
+      "question": "What projects is Jolene planning for next year?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-43",
+      "key": "334e800730e5eb18fd407fe80bde802cc71df2992120678201bbdf793a62d12f",
+      "question": "How does John say his team handles tough opponents?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 2,
+      "conversation": "conv-49",
+      "key": "33594c9c935e3f001c49227441bcadc61efb3e2b8d986491b0b5a58844d18347",
+      "question": "How many months lapsed between Sam's first and second doctor's appointment?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 1,
+      "conversation": "conv-49",
+      "key": "33639bc40c6052c520d3424c5f10ec6fabf7966e09d77a7825591d9fb1b1b211",
+      "question": "What accidents has Evan's son faced lately?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-50",
+      "key": "33afc2aed88f63f0cc182559660859e464c69dbcd1db81949bd4a2d3ae1fbdff",
+      "question": "What did Calvin recently get that is a \"masterpiece on wheels\"?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-47",
+      "key": "3422451e77065c57b2f0aa08b9e24693bfafdc84f75b2da8fc2315d1c910669c",
+      "question": "What was the main goal of the money raised from the charity tournament organized by John and his friends in May 2022?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-47",
+      "key": "3443c2e18407452d66d78b815b68f1f6af6309ff01bced3d2218a3b9b27725ec",
+      "question": "Which football club does John support?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-48",
+      "key": "34ca9c4ea11d7d03c1edfd197d61dbb612198055514653e2d830a27f228c137b",
+      "question": "How did Deborah's mom support her yoga practice when she first started?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-49",
+      "key": "34d72e01149ae27c14d0a0951616ac40a6a0eb5c635e6618289a975ee45d8e92",
+      "question": "Who helped Evan get the painting published in the exhibition?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 1,
+      "conversation": "conv-49",
+      "key": "34e18cbe226a167faf05aa672c479e0de9ac2a2d90c7d6b6c942b4b600ddc83e",
+      "question": "What recurring adventure does Evan have with strangers?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 1,
+      "conversation": "conv-47",
+      "key": "351767e5045230a7cce7de2235f90bbe2a631c0433916765f5aba6236b5b217b",
+      "question": "What games has John played with his friends at charity tournaments?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-44",
+      "key": "35326ca21979dc2d94614e7838fc7e7a64d905d8a12bbb5390038f6958daeff9",
+      "question": "How often does Audrey meet up with other dog owners for tips and playdates?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 4,
+      "conversation": "conv-43",
+      "key": "3561488c18e1d405734f6e68c20e99657aa9bf58f47c917ef33d59fdcd2f3bd7",
+      "question": "What is John's favorite book series?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-48",
+      "key": "35724ed4a3290eecfb4e3d27713af47592050a938e31383414925ea59b16883f",
+      "question": "How does Jolene plan to pursue her dream of learning to surf?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-41",
+      "key": "357968abeb60254ad78b5d71d9c61f7c77002a7f60948ee666e7994be502b2dc",
+      "question": "What exciting news did Maria share on 16 June, 2023?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 1,
+      "conversation": "conv-42",
+      "key": "35b32831dd71c33f332510f788b9358ec82825bea1c41422c181aec8546c3650",
+      "question": "What is Joanna allergic to?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 1,
+      "conversation": "conv-42",
+      "key": "367c51b202d337f4dcc771419e14cb27ddf4c63325021b87b6915e0e2b093a45",
+      "question": "What book recommendations has Joanna given to Nate?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-43",
+      "key": "36b8976735251465f198b2402d472a3b092c8658776dd93f9a7a74951e979e3e",
+      "question": "What is John trying out to improve his strength and flexibility after recovery from ankle injury?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-49",
+      "key": "36d345e4069b1e4896ef67408a393297afbc3b2916de3a43c9c57b66c9ef523d",
+      "question": "What activity does Evan do to keep himself busy while healing his knee?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 2,
+      "conversation": "conv-30",
+      "key": "36e191052c2c301879263f04672768b7827b4faa63cbada152af45bae9c3b06e",
+      "question": "When is Jon's group performing at a festival?"
+    },
+    {
+      "C0": 1,
+      "C1": 0,
+      "category": 4,
+      "conversation": "conv-48",
+      "key": "36ea29fa9935ce06d1b314e2640baca08c746ad3fd8ed952d6e073f693da61a6",
+      "question": "What new outlook did Jolene gain after her mini retreat on 9 February, 2023?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-47",
+      "key": "372a5e364bab1116a17ce98a3875542aeeba865604a2f9f020583f469e92225a",
+      "question": "When did James try Cyberpunk 2077 game?"
+    },
+    {
+      "C0": 1,
+      "C1": 0,
+      "category": 1,
+      "conversation": "conv-42",
+      "key": "373c7f223a979369f3b054358f7dab96e3dea6cadc99b42270f3f03bb7a9d6a8",
+      "question": "What emotions is Joanna feeling about  the screenplay she submitted?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 1,
+      "conversation": "conv-50",
+      "key": "375d8bd2c73c2c0d440066592c815f51c0cad9c3661ab3842300b4657d1d911e",
+      "question": "What does help Calvin stay connected to the creative process?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-50",
+      "key": "37ca710db4aab6ba040a5a1feee15b4e454e2183c1cfcb774f8b58e30ff2bd3b",
+      "question": "Where did Dave take a stunning photo of a waterfall?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-50",
+      "key": "3806d62e96bbad3492eae02d395e0255d0a5122568739d764cb5327724a5e057",
+      "question": "What new item did Dave buy recently?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-49",
+      "key": "380d461daddcab86c5cd7ac24d5c90c03ea0739d334f82313775dceba6c9a09c",
+      "question": "What did Evan offer to share with Sam after talking about healthy snacks?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-26",
+      "key": "3832293fe74d8ad9edbc94dc0b8328b755d5d19cd6d79ce5fd8ff09d0465dae9",
+      "question": "What pet does Caroline have?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-41",
+      "key": "38362439833b597f2f43c7815e42fc8ae874ce305574fc5b0b8329a14e3a4a26",
+      "question": "What happened to John's job in August 2023?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-30",
+      "key": "38381c41a588bfd377a4f09add231c914b4b1ecb75b525b96379997dcfe67530",
+      "question": "What is Jon's attitude towards being part of the dance festival?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 1,
+      "conversation": "conv-42",
+      "key": "3878e93fd02359eacef7e7b655d373389a12269d2978a69ca3cfe62bd6af0059",
+      "question": "When did Nate get Tilly for Joanna?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-42",
+      "key": "3971e81aecd637b9bc173e438a645a52399df3fc9a2f0a3fe20cbb35c8dc7f9e",
+      "question": "When did Nate win his second tournament?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-47",
+      "key": "398e256aa92688c9eec118a74c7d43c1c8cd5f5fa37b5c2142c3f93514cbb29b",
+      "question": "What did James learn to make in the cooking class besides omelette and meringue?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-42",
+      "key": "39cedd739e8d43043827ee43e65fa4bda1c134eb990fe4ddfd4dbd617fa180bd",
+      "question": "When did Nate get purple hair?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-48",
+      "key": "39d4245616417558d0216226d5eaf0d399b001146ca05c65db5a4d68eadcb6f1",
+      "question": "When did Jolene buy her pet snake?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-42",
+      "key": "39d7b51f81dd68ecccc88244d2d76c906199b64300df32f105911dc65720f1ef",
+      "question": "How many people attended the gaming party hosted by Nate in June 2022?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-41",
+      "key": "39ff7f8adfe0204b0b62bd2a00adffea3a4a87a3f98f76bac9b8b6f6214008c9",
+      "question": "What inspired John to join the marching event for veterans' rights?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 1,
+      "conversation": "conv-43",
+      "key": "3a6529d120fbcfcd9fb21d307d2032fa6492c8aeb58cfa3bed51fe9150428986",
+      "question": "What kind of writing does Tim do?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-41",
+      "key": "3a81204e59625c149c77ba973fe48c5698ed4ea5f782fc4fde79d2220870d0f6",
+      "question": "What did John host for the veterans in May 2023 as part of the project?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-43",
+      "key": "3a87e88a94b08f1a7d8af1fcaf3cae52a774a0bc4bae4cc9245b600b1bfe9eb2",
+      "question": "According to John, who is his favorite character from Lord of the Rings?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 1,
+      "conversation": "conv-49",
+      "key": "3aaf2b9665d50d86cc6a9699e7fb4826546955a30e453b245ebaca6dca2c30b6",
+      "question": "What kind of unhealthy snacks does Sam enjoy eating?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 2,
+      "conversation": "conv-42",
+      "key": "3abcdb49d74cd0cf587e2a002f6af0530dc5ccbc408061c76b3a02568dfe6431",
+      "question": "Where did Joanna travel to in July 2022?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-47",
+      "key": "3acf58ba6af888a1d8283ee8cd124c8b9f243d9bc2a5faf61655169b800122e3",
+      "question": "What type of pizza is John's favorite?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-43",
+      "key": "3ad449d37e166821e6a7431b50855219673f7ff6b2852cfcebeb8010202f48df",
+      "question": "What book recommendation did Tim give to John for the trip?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 1,
+      "conversation": "conv-44",
+      "key": "3b5cfcda2b6b47d1cb69fedcfd936818ed6abe9f18dcb464baa15b64c94bdb03",
+      "question": "Where did Audrey get Pixie from?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 3,
+      "conversation": "conv-43",
+      "key": "3b7ec7165b8dbccdfcff1df7dc9ecd88c4d8e9ac2b1d73f74e11ba95f2a2634e",
+      "question": "Would Tim enjoy reading books by C. S. Lewis or John Greene?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-30",
+      "key": "3b87730ca299dc27b5928b5f05ea400f9fd19f49cb0a7119a5f194c8a8117fc6",
+      "question": "What did Gina receive from a dance contest?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 2,
+      "conversation": "conv-41",
+      "key": "3be3fa019f4a1cfcb7bc618545c7fb295e770fcaa58d02e171f228d8ce8353cf",
+      "question": "Who did Maria have dinner with on May 3, 2023?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 2,
+      "conversation": "conv-47",
+      "key": "3bfaff5aa4f3e500a123dcb176792a77f1f4f7db72f2fd1398c6c78a26cba620",
+      "question": "When will John start his new job?"
+    },
+    {
+      "C0": 0,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-47",
+      "key": "3c004e8c722f232ad6700a4f9583b91a77083fc1447329034c191ccb11e4a7af",
+      "question": "When did James and his family visit Mark and Josh?"
+    },
+    {
+      "C0": 0,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-50",
+      "key": "3c31b11a3d14d83c1c085f387a6019358e2c904a3f0a8ac7e6e49899ef607f3d",
+      "question": "What activity did Calvin enjoy during his summer drives?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-44",
+      "key": "3c3ac9da203dc9f883edeb9903db4db417a3d37cc70dbefddfeedf7358717ff7",
+      "question": "What type of games do Audrey's dogs like to play at the park?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-41",
+      "key": "3c6721faef2329c2360263cd662cc7c7484e82963bf46c7245802c333e842515",
+      "question": "How did John describe his kids' reaction at the military memorial?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 1,
+      "conversation": "conv-49",
+      "key": "3cbeb1e7f25539adf182753790dd0d37412e96f1a6c7ddf3a21df7cffc295d97",
+      "question": "What is a stress reliever for Sam?"
+    },
+    {
+      "C0": 1,
+      "C1": 0,
+      "category": 1,
+      "conversation": "conv-43",
+      "key": "3cee1d6a94ce0f16b4ad01e6c9602a3a62d73a117e112a44dd865ee29feea655",
+      "question": "What schools did John play basketball in and how many years was he with his team during high school?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-30",
+      "key": "3d29582c2fb996bca82c85cbd57ce370dcdcc243da24e068a2c7ce60bbd0ca11",
+      "question": "What does Jon tell Gina he won't do?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-42",
+      "key": "3db283fb7abc42bed2113705e2b470f04e990cdc34b5a3656e6dcb827db320c0",
+      "question": "What game has Nate been playing nonstop with a futuristic setting and gameplay on October 9, 2022?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 1,
+      "conversation": "conv-48",
+      "key": "3dcceebe4e0c598a24993ddf9ec4ca7bcf15ee5af507903dcc2fba655df0971e",
+      "question": "What kind of engineering projects has Jolene worked on?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-47",
+      "key": "3dd88d088ba31b82613be1928b3355057aa6e8ada4ff4a36630e35d6ac16e146",
+      "question": "What game is John hooked on playing on 5 November, 2022?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-48",
+      "key": "3de5dec8282c392b609e53417cea1934fae802d1d7a7408c2d0a75f1d5f19401",
+      "question": "What was Deborah's mom passionate about?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-42",
+      "key": "3df155ef1a71466b53f1c5161f197d6e8190cfae831859f9b0b9715311759ffa",
+      "question": "What filling did Joanna use in the cake she made recently in May 2022?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-48",
+      "key": "3e0cdedd679d84c9f1c537ae3c1c5bf088cc8440f2a1e05016b8a9e0bed46a88",
+      "question": "What method does Deb suggest Jolene to try for organizing tasks based on importance and urgency?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-48",
+      "key": "3e29ab6ee530ded0cd25e2475c390b4b87debe039fb0301f5125b019790bd0cc",
+      "question": "When did Deborah receive an appreciation letter from her community?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-30",
+      "key": "3e2a86030a264104a58cf9bfa7591e3e9fdff3cd46f153c51d48a6ccc536ad2a",
+      "question": "What offer does Gina make to Jon regarding social media?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 4,
+      "conversation": "conv-47",
+      "key": "3e68ecdb348efb89c8d0cef20e5ed56b16ee69b0c14e85634c2daf6cb9b363b8",
+      "question": "Why did James embody the appearance of the game character from the woman he saw during a walk?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 1,
+      "conversation": "conv-41",
+      "key": "3e75ac58a335f93f02c99deaeb56509adc3764d78edae2ca1e311821e0045f06",
+      "question": "What damages have happened to John's car?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 3,
+      "conversation": "conv-44",
+      "key": "3e910c8706cd6fb6538f8cb76bd02e17ccc5ba05d41c5f89f56cefd151c4bfae",
+      "question": "What is an indoor activity that Andrew would enjoy doing while make his dog happy?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-48",
+      "key": "3ec4d3879e2e34b2fb136314ffb588c6c5cfd118c0df3ab5ef89b519f2acd367",
+      "question": "What kind of project was Jolene working on in the beginning of January 2023?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-49",
+      "key": "3ed4dfd421cf38e1970f3483b9bd4b40d8246cfd7255e0e0c937692b172d3899",
+      "question": "How does Evan describe the island he grew up on?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-42",
+      "key": "3ee26c1832ccb63ab2c2324faee817861dfb430ab581103d6758ccea128e6f35",
+      "question": "What helps Joanna stay focused and brings her joy?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-42",
+      "key": "3fd3d0aeacb65bc590f98cdec2675b818cceb8f2f61907ad2f4cfc16463c89a2",
+      "question": "How does Nate describe the stuffed animal he got for Joanna?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-41",
+      "key": "40203e43cc9029c0734ff1c4fec5e9fa01f6c419b8bbb354b284ee69943f46a1",
+      "question": "Who inspired Maria to start volunteering?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-43",
+      "key": "4025c61477df0a2ca6339d9958aed0cb1d89f0af0260505650e9bc74b176621a",
+      "question": "Which city did John recommend to Tim in January 2024?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 1,
+      "conversation": "conv-42",
+      "key": "4026e8b72f37ccb66a2e90fc67aeb6cbbcb04e7d0be87884fcb4d57f4eef9156",
+      "question": "What do both Joanna and Nate appreciate the beauty of?"
+    },
+    {
+      "C0": 0,
+      "C1": 1,
+      "category": 1,
+      "conversation": "conv-48",
+      "key": "4045e8d9a1e854aa8a50b08c28549938e6b7254bd0c02d2b55a2632b3f7b149f",
+      "question": "What new yoga poses did Deborah try?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 1,
+      "conversation": "conv-48",
+      "key": "404e09b9d647a83b1076b6952eccf66c9a8aa294456da6dbc7b2bd5c765ad878",
+      "question": "What ways do Deborah and Jolene use to enhance their yoga practice?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-43",
+      "key": "407329fd6d0e9b661b27c64992a08716a39b13c35369495756b081dc9cabf5af",
+      "question": "How does John feel about being seen as a mentor by some of the younger players?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 4,
+      "conversation": "conv-42",
+      "key": "409084afdc1d2eef722e2408c1ce6f63824d4a719b3b1462197d096cec44e7f2",
+      "question": "What is one of Joanna's favorite movies?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-48",
+      "key": "40a452607f2a97660386d1ca74bda3ccdebdc73bbee24de60db9ea40a2a19488",
+      "question": "When did Deborah go to a yoga retreat near her mom's place?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-43",
+      "key": "41239b44ae07ed970cccce9cb1e853962f40bfed412c50cabd0f43ab72fec0ae",
+      "question": "Which city in Ireland will Tim be staying in during his semester abroad?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-48",
+      "key": "412ad57418a60514028005979d7c15876a5f46844f541035a31c1ab1fe166019",
+      "question": "Which yoga pose is Jolene a fan of for rest and calmness?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-43",
+      "key": "41399d28f04c98361f60fd90c9714f06747b3e620b5740e5c7432ba56cc23bc9",
+      "question": "What tradition does Tim mention they love during Thanksgiving?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 4,
+      "conversation": "conv-50",
+      "key": "41485db71aa5122935391379c66c3547842e39e480198cd9485ceee54b37793a",
+      "question": "What hobby did Calvin take up recently?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-42",
+      "key": "41b2e51b50379843806b9a25bac1705fcfc972fc4ce86d9d8aaa8f5099a5fa62",
+      "question": "What event is Nate organizing in June 2022?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 3,
+      "conversation": "conv-42",
+      "key": "422c7cd562baaf72e0a5009f8b68a6265dd885c6f1b2a5d61fa242ff745d5800",
+      "question": "What state did Nate visit?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-48",
+      "key": "42392641d9338d9fa1db7b236efe1e996964720c88ec3c15b683f9d6f1d9ddc1",
+      "question": "Which year did Jolene and her partner start dating?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-43",
+      "key": "4263293d08566cd7e180fadd2927e689503d8e2f29c6c35cca5b6a7ef12641d0",
+      "question": "How does John feel while surfing?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 1,
+      "conversation": "conv-49",
+      "key": "4273612ecf5e8d8deab189a7f9f60f08c4db0dfe99fa171dd027da973410ddfe",
+      "question": "What personal health incidents does Evan face in 2023?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 4,
+      "conversation": "conv-42",
+      "key": "4277abe62dd92842efffa566f3e5af5637aed27331edb68717faa7a7f83c234d",
+      "question": "What does Nate do that he loves and can make money from?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-41",
+      "key": "42b0a4c1ea157e72cd750c074a4ccfce9219af58b204cc8e41fe0c58ede30b2d",
+      "question": "How is Maria's new puppy adjusting to its new home?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-48",
+      "key": "42cf160f3c7ce9479c9d8cfea1db0188088d1914f8899e23c5ea21479d0c3961",
+      "question": "What was the video game console that Jolene's parents got her at age 10?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 4,
+      "conversation": "conv-43",
+      "key": "42ff81810ff916d509d091ec04ce7170bf49f1c540941190794309be7526c67e",
+      "question": "How does Tim stay motivated during difficult study sessions?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 4,
+      "conversation": "conv-42",
+      "key": "431e6c97f635142847d850c5789896e6f2d34b01025fb00fefe659ad3157dfb8",
+      "question": "What did Nate share a photo of as a part of his experimentation in November 2022?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-47",
+      "key": "4343db3f5cc494bb6dfe8bad01d6f9d0180f1d085edd9b97cf49c839db7e704c",
+      "question": "Why did James and Samantha choose an apartment near McGee's bar?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 2,
+      "conversation": "conv-41",
+      "key": "43d2a4870947db59b1bd340f7df7aa41e554a0eda9c960f56d63245363bc8983",
+      "question": "When did John go on a camping trip with Max?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-48",
+      "key": "43f23bee2a4c0593d94cab3b481c8a9fc2e79bde48bac0d04470124aad9d841b",
+      "question": "How old are Deborah's cats?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-47",
+      "key": "44430ad7e729766f718913172d63bf3fb8b86b08a0ac1947e27a900b65d1ad3e",
+      "question": "When did John and his programming friends host an online programming competition?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-49",
+      "key": "44550a1d4833e5d833549960b48b4a02932ba27441ee0054165be18edaa23d3a",
+      "question": "Which year did Evan start taking care of his health seriously?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-42",
+      "key": "446975f43115c2b1aba2b16642a1616ca04bb533bfaeef678fd980776ceaad6c",
+      "question": "What flavor of ice cream did Nate make for his friend on 25 February, 2022?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 2,
+      "conversation": "conv-42",
+      "key": "449bc7ec3507900722686d5a28a0d9c2c432c775c9e18606928731749d7c3a74",
+      "question": "When did Nate win his fourth video game tournament?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-48",
+      "key": "44cb01feb9d8ba76c6b770955c0d4a72f1cecc7f7210ddbf2a5bfb69b489116f",
+      "question": "Have Deborah and Jolene been to Rio de Janeiro?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-41",
+      "key": "44e7147d5c2b14aad16c6b5c24727017313a5ac55280b58b26884a9db2a19495",
+      "question": "What is the name of Maria's second puppy?"
+    },
+    {
+      "C0": 1,
+      "C1": 0,
+      "category": 2,
+      "conversation": "conv-26",
+      "key": "45360a747b459a61a57a68e39a1de2342f43802d79338efd5fc74a727bcfcf11",
+      "question": "When did Caroline encounter people on a hike and have a negative experience?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-47",
+      "key": "4597674b6ecdd1bfeb2e8a5fba01010b73bd48f4860c2380bbf73398a64d2e90",
+      "question": "Where does James get his ideas from?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-26",
+      "key": "45e4d6495e4d24222f49fd35ece4da16cb33ec6e9b927f5c2867465ccb296c08",
+      "question": "What kind of counseling and mental health services is Caroline interested in pursuing?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 1,
+      "conversation": "conv-42",
+      "key": "45f1f5d56207b560f0924c5b2b6ee2dca115ad4cc9ad113d416a526f686ac61b",
+      "question": "What are the skills that Nate has helped others learn?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-42",
+      "key": "465830ca771d8e067d4cea6848cbef07e27a9c09f5627506c8b7cf4864214dba",
+      "question": "What type of diet do Nate's turtles have?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-42",
+      "key": "4661970b3f47f2a9b2f2421cd6b511dd31f309d2d8acfa9fa3315d1d290e12f8",
+      "question": "When did someone write Joanna a touching letter?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-50",
+      "key": "46b641368f55db8f1541a053152a6a1a45410dc4c1cb71a74985436d99145640",
+      "question": "What does working on cars represent for Dave?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 3,
+      "conversation": "conv-44",
+      "key": "46e6a345a4ff62ce0d440b3acaaf70680b04bb47a99aae44611fecae1faccbbb",
+      "question": "What is a career that Andrew could potentially pursue with his love for animals and nature?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 1,
+      "conversation": "conv-49",
+      "key": "47574bde84f65aaa96a5b823980df343038a82f466d74fa149478e9dfedd494a",
+      "question": "What recurring frustration does Evan experience?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-42",
+      "key": "476df85cb11e548e2f690ef91cee7cc4c56cc338c0ddc79e9c8166aa15e9ff93",
+      "question": "What encouragement does Nate give to Joanna after her setback?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-26",
+      "key": "477d2c4dc6cadd7ca43e7d9c1a8a81e36306ec570c0903d2563ad0f61a28d363",
+      "question": "Did Melanie make the black and white bowl in the photo?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 1,
+      "conversation": "conv-43",
+      "key": "47a5b25809be1e4c9932afcd8b8e42fb43ca77e425199d2270bf8ccfa08a462f",
+      "question": "What items does John collect?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-42",
+      "key": "48041f7081a3941523a0c50299f4be6d859d2d33f310ea558ffa39f9eb1a9f67",
+      "question": "What did Joanna take a picture of near Fort Wayne last summer?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 1,
+      "conversation": "conv-48",
+      "key": "481188b1c75c034a0cad12777eac30bf530afc3f8031bd3d4abe6f228a8cb441",
+      "question": "Has Deborah tried surfing?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-48",
+      "key": "4836a832a9ca3bd8b3cc9c296d3cd914a71b917d63b17610fc998f3f3b1bf9b7",
+      "question": "What did Deborah do with their mom's old friends?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 1,
+      "conversation": "conv-49",
+      "key": "486b28cd07e62e215fb2f69db13e489e7686d5472b44c477da23b40108d12e33",
+      "question": "What is Sam's persistent problem with his phone?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 1,
+      "conversation": "conv-49",
+      "key": "488e2c785c91f01e4ee2335087431c6ff08fd122bd17caff3f47975d4973b5b3",
+      "question": "How many Prius has Evan owned?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-47",
+      "key": "48d0ebc2893431e139467a3bad977c4554cc6c4e198257d2fae38f13c021f39f",
+      "question": "What games were played at the gaming tournament organized by John on 31 October, 2022?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-50",
+      "key": "48f98ab2e14a108261d54abda2e8ef189f8c871da00808a13fb3573f92953a4a",
+      "question": "Where did Calvin start shooting a video for his new album?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 4,
+      "conversation": "conv-43",
+      "key": "492d754fddb659f4998667c2c8d67bb3a9eecfbbf163b94d2b35d3601add6274",
+      "question": "What is one of Tim's favorite fantasy TV shows, as mentioned on November 11, 2023?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-48",
+      "key": "4984c4521190a1f74f026d236d1df1cbd9cf5d6895a905d7914139b964f7112a",
+      "question": "Why does Deborah take her cats out for a run in the park every day?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 1,
+      "conversation": "conv-44",
+      "key": "49ab58ed65bbc9013a6eb4f50b73ccb667bd64b9e963b56794ff14f3327a8866",
+      "question": "What kind of places have Andrew and his girlfriend checked out around the city?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-47",
+      "key": "49d6421c985a93eba50435bee9ccba67c60a79b47499dd2f24b0a743a6194490",
+      "question": "What did John receive for achieving second place in the tournament?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 2,
+      "conversation": "conv-42",
+      "key": "4a2eba086f8be57d1af5426d439381a2828486dfb7b916547dc71fd511734ac2",
+      "question": "What movie did Joanna watch on 1 May, 2022?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-49",
+      "key": "4a3e0964c0dcea3bc68d6a9c00ef39368499426f7a3dc51ab6831e787a19605d",
+      "question": "What activity helped Evan with stress and flexibility?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 4,
+      "conversation": "conv-26",
+      "key": "4a5bf4e1e20e760bddaa3f9bf2b4ee5fb5b782728d68eeddebe62993c6682830",
+      "question": "How do Melanie and Caroline describe their journey through life together?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-47",
+      "key": "4a62276c6da8eb17b65c8184375175cc152a22d4360432498fbd4323bd3168a6",
+      "question": "What type of game is John's upcoming mobile game?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-43",
+      "key": "4a927d487e45c94f13d5dc4e7094c35373bae2db09d068b09280e9211e631ff0",
+      "question": "What challenge did John encounter during pre-season training?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-48",
+      "key": "4aab7f3c40e8285f621f41f72365ebb357d2a74a43eed074e2502ff1bd45a1c6",
+      "question": "When did Jolene lose a lot of progress in her work?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-49",
+      "key": "4ab0c7629c77178d1b9e36cc56af9fb7d2b644a6bef8e9d234cca3f7ca80f8d5",
+      "question": "What habit is Sam trying to change in terms of diet?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 2,
+      "conversation": "conv-48",
+      "key": "4aea90b695fabd4c43bfbde6a83da176d8124b1758b3e4f69e3868f64bcac110",
+      "question": "Which book did Jolene read in January 2023?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-43",
+      "key": "4b0484825dd0440791e6a77ca3974f1a0c3195ff46efbef454d79a8d47519073",
+      "question": "What special memory does \"Harry Potter and the Philosopher's Stone\" bring to Tim?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 1,
+      "conversation": "conv-26",
+      "key": "4b1b82f61320ccb2b20fbdaeed066006e621b1dab4b067bb3dad9844cbce7d43",
+      "question": "What items has Melanie bought?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-26",
+      "key": "4b3d88f09b33759b2b34a442554669a2378c39931306fdf6e1cef1abc148dd8f",
+      "question": "How long has Caroline had her current group of friends for?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-26",
+      "key": "4b8e423378733789838f34af31533901424aa1ccbdb08a29f30860400ebe699d",
+      "question": "Who is Melanie a fan of in terms of modern music?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 3,
+      "conversation": "conv-26",
+      "key": "4bc36808736f49fb7cb973306c0f642a9e6701daba0a6405a3ceb2413a28bc5f",
+      "question": "Would Caroline want to move back to her home country soon?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-47",
+      "key": "4be251c8bc99a602b0f0bc9abaaca0865e1c3e8b531b10160004bcf7842f89d7",
+      "question": "What did James and Samantha discover they both enjoy at McGee's bar?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-50",
+      "key": "4c2799fcdbebfa2d482e2143920254009d5a6443dd3a84a17d537d99b79b9a79",
+      "question": "What type of videos does Calvin usually watch on his television?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-48",
+      "key": "4cb66ecb294423bff4ca6869b7112f1b25b51e5e3d9806c9bab0b1293a13248f",
+      "question": "What type of classes did Jolene and her partner check out during their trip to Rio de Janeiro on 30 August, 2023?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-49",
+      "key": "4cf096f0db85d009ac8516592d1969d63f52129374b2c54b0f2cf081de3b2de4",
+      "question": "What kind of recipe did Evan request from Sam on 19 August, 2023?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-49",
+      "key": "4cf4b8bc625265949f3a4ab24f49cfbc2a6aa422764fc90fe3ceebdbccba3c42",
+      "question": "What activity did Evan start one year ago?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-30",
+      "key": "4d01e329119c9e5886bae8718f038c953b2db21bd7968a83e454cf7f67efd008",
+      "question": "What does Jon's dance make him?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-49",
+      "key": "4d0bcd26dd518718ab1043aac65a97436a176980e5dc12a7f2538b4a6bba1fc6",
+      "question": "What movie did Sam watch that motivated him to keep up with his routine?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 1,
+      "conversation": "conv-26",
+      "key": "4d0ed8794519cf10be498b9b53b225b9c9e06312a01087fa663c446d3770a720",
+      "question": "What books has Melanie read?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-48",
+      "key": "4d6c55a14a68dd33903836f390bc7f880a622e8e32b872525a284ed16c309338",
+      "question": "What did Jolene's mom stress the value of, which she wants to keep in mind for her engineering projects?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-44",
+      "key": "4d6efd587bd75936f9deb84c0513a5a8a8db1edba8518361c52b95990d1b0cbb",
+      "question": "What type of training was the workshop Audrey signed up for in May 2023?"
+    },
+    {
+      "C0": 0,
+      "C1": 1,
+      "category": 1,
+      "conversation": "conv-41",
+      "key": "4d707f734c5c45c792d3b06311bf97f00244f6b524894abf3a7214f4d6c5b375",
+      "question": "What outdoor activities has John done with his colleagues?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-49",
+      "key": "4d9be71348da11cd2181630eea96230467cf12c5125b2ce5ddf8e91291a6f364",
+      "question": "How did Evan feel when he painted the piece with the bird flying over it?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-44",
+      "key": "4dab4884131bfe08ecec2c5e5b8c535242767296438a7a3d734d6d7407217a81",
+      "question": "What type of classes did Audrey start with her pups recently on 4 August, 2023?"
+    },
+    {
+      "C0": 0,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-49",
+      "key": "4db330a303528e0c99d431ef967ebcdbf1e42289aadccecdefb1e95dcf86c2e7",
+      "question": "What type of car did Evan get after his old Prius broke down?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 1,
+      "conversation": "conv-44",
+      "key": "4dce7b3e91ebdcea8f42acd41af33466cf2dd64ad46580c93c4b31893bafd46c",
+      "question": "What kind of classes or groups has Audrey joined to take better care of her dogs?"
+    },
+    {
+      "C0": 0,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-48",
+      "key": "4dd7e11f0c9383d0ce7ccf15b825bf28871fa177ea40bc0b03a2c8f015ae9fe3",
+      "question": "Which country was Jolene located in during the last week of August 2023?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-48",
+      "key": "4de2c4dbe69f6e5ef6e2c7b8e02e847590b86347308a9afc7e223b952ec1a293",
+      "question": "What type of place does Jolene visit to meditate?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 3,
+      "conversation": "conv-47",
+      "key": "4de957b5e65d112b604f9bbe4417339c4c7787b851e35d49663d0dac6081dc5e",
+      "question": "Was James feeling lonely before meeting Samantha?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-43",
+      "key": "4e2693cfef08842daac5bcf69eb86a0bac11e13f217965e332cb357dc06b5d32",
+      "question": "How did John overcome a mistake he made during a big game in basketball?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-48",
+      "key": "4e5edf68ee0e0d0352b2a5eccbd598e607568ace83cecbfe754732bdbd9931c0",
+      "question": "How long has Jolene been doing yoga and meditation?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 4,
+      "conversation": "conv-42",
+      "key": "4e61d30fcc14dd5d3a2be08c681a978721561f647d17b6a2550ab03eaca242be",
+      "question": "Which dairy-free dessert flavors does Nate enjoy?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-49",
+      "key": "4e80328e330a0fc579510fc8590205b9d8cb0b8f89ae58c6266ec26b67a41afa",
+      "question": "What did Evan want to share with his work friends?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 3,
+      "conversation": "conv-43",
+      "key": "4e9a13033e7b4c1ff913b659b64dfcdb724851370f93f261d5bb6ade249953c5",
+      "question": "What kind of yoga for building core strength might John benefit from?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 2,
+      "conversation": "conv-30",
+      "key": "4ed159ce9516a2904980ba0963bbd88ae018e48081518412520d85e8347e1c64",
+      "question": "When did Jon visit networking events for his store?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 4,
+      "conversation": "conv-41",
+      "key": "4eda0dec8907177a97fc215e7a798340995c51c31a3f25ef762dd5c22a217ee3",
+      "question": "Why did John feel inspired to join the military after the visit to the hospital?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-42",
+      "key": "4f32ac270005edfd34f6587e6c02bcf18fa1956f561f21507484ecefa6d810b7",
+      "question": "What movie did Nate recently watch and enjoy on October 6, 2022?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-50",
+      "key": "4fd320050ef90f2e202fc3297b8a59497341bd770cca3035a2b1e8db0887327c",
+      "question": "What did Dave open in May 2023?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-43",
+      "key": "4fe83de48a6ac5a84bb97aad4a192368158926030b4dc2a9ec1d20904c7a7dc3",
+      "question": "What genre is the novel that Tim is writing?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-50",
+      "key": "5027f86f6506e96802dbae3445e754736564be28958834e8e55d5618708f3535",
+      "question": "How did Calvin feel about performing with someone he admires?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 2,
+      "conversation": "conv-26",
+      "key": "50a6d6632f2357e4baedf863465534898ea8568e3351ced34def8c409cdfd6b7",
+      "question": "When did Melanie go to the park?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-43",
+      "key": "50bba7302254eb57efab4152ec60771e3bbf7187533c5c02054bf3bffe877ee8",
+      "question": "Which language is Tim learning?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 4,
+      "conversation": "conv-26",
+      "key": "51073c06eb2c51440ec54d78d6e5b4ca83f48ec08568c5c52c4a16afe1dc7ec2",
+      "question": "What was Melanie's reaction to her children enjoying the Grand Canyon?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 2,
+      "conversation": "conv-49",
+      "key": "511144c10fd4b8b02e8cc9564e2dbc776b3d144aa9a597e13b4a6b3058d353a9",
+      "question": "When did Evan and Sam planned a trip to the beach together?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 2,
+      "conversation": "conv-30",
+      "key": "519fcf8ab8ee24d6a7b9644e6fd195bcef8189ac4fc32097fe6e018895695259",
+      "question": "When did Gina interview for a design internship?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 2,
+      "conversation": "conv-43",
+      "key": "51b58f16a95b434b75dcd3ef022f50089f73446d6e1a4d7e192b8196df1e0d7a",
+      "question": "When did John organize a basketball camp for kids?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 2,
+      "conversation": "conv-43",
+      "key": "51c95e68f89dabe8ac36089df95ef664944fee0a03cdc360eb637bae2c798909",
+      "question": "In which month's game did John achieve a career-high score in points?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 3,
+      "conversation": "conv-26",
+      "key": "51fc73af341ede35f07320034ccb381fb334616c919262209b89b136e0b37571",
+      "question": "Would Melanie be considered an ally to the transgender community?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-41",
+      "key": "52574dc2a77b05478d253fea778e3a8c964ebaa9abe707fc5b251fdc4e15fffa",
+      "question": "What does John believe is important for children regarding veterans?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-47",
+      "key": "52588ccb6d88b51b2470361269c85764afee86dacd873ca04030e6b0b48dc5cb",
+      "question": "What does John feel about starting the journey as a programming mentor for game developers?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-41",
+      "key": "528dadb24bcd06df396f2cd3b678b9ef51d7e154a849de6d3aea410ba7566cd2",
+      "question": "What kind of activities did Maria do at the picnic with her church friends?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-47",
+      "key": "52e27e80e571bea470adc75968f263ce3e1b6aa6ad85d2ee0ac668d4fb0afb73",
+      "question": "How does James communicate with his gaming team?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 4,
+      "conversation": "conv-26",
+      "key": "531c1e993b95431a4b2a5eaa2aaf1efe43055c390f4f5275080773c238da06ec",
+      "question": "What did the posters at the poetry reading say?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-41",
+      "key": "532f9be7da4b39f287c724b6bfe678c2c6d5587e1ba6fcd199d118590a94a6bb",
+      "question": "What topic has John been blogging about recently?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 2,
+      "conversation": "conv-26",
+      "key": "532fbbd68c6da32cbd6e5cec651025e89d282e71b081ae5429967583722ecaf3",
+      "question": "When did Caroline attend a pride parade in August?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-41",
+      "key": "533949cc11cac0185012a0ae3912884045490595729e2954450078ecadf0cb9b",
+      "question": "What did Jean go through before meeting Maria?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 1,
+      "conversation": "conv-47",
+      "key": "539f233ca9e33941fcfb140e5f8c36afc9e916f5b4d7399e9c4eb3e9f64155bb",
+      "question": "What kind of games has James tried to develop?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-48",
+      "key": "53c27cd215bd3fdb22891e551bd6202f5ad635f04f0828c9dd51afb08caa52e2",
+      "question": "When did Jolene have a mini-retreat to reflect on her career?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-47",
+      "key": "53ddf82b1135cd3ec0739710998db2100d814342af1c0b31811300e25560495b",
+      "question": "When did James buy himself a new adventure book?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-30",
+      "key": "54ab69455187886aeb1f9c23f42cac6b8b6df4d005fd2af0862c1730775af373",
+      "question": "What was Gina's favorite dancing memory?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-50",
+      "key": "54bd99a327eddcf47aa4c6659446991cd4fbb196fb3ddcf1f6f67ae78099b985",
+      "question": "What type of car did Dave work on during the workshop?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-41",
+      "key": "54d54f7b9d60b33fefe491fdb5460aff9ef0d4cab50a481da698b833f337f314",
+      "question": "Why did John start blogging about politics and policies?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 3,
+      "conversation": "conv-47",
+      "key": "54e1dcba2cafe5c396301494df45e8dea05497f4b046ff3a98222258fea5713d",
+      "question": "What is the board game where you have to find the imposter that John mentions to James?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-42",
+      "key": "55120320a674e1ceb9b7be3821cfb595674c5cb9d42889999b294e77cf83e874",
+      "question": "What was Joanna's audition for?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-43",
+      "key": "5532fed0efd890bac66d0f216222ff537a6123381d0d6cc6285a7b0ccd6b0e67",
+      "question": "Which month was John in Italy?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 1,
+      "conversation": "conv-48",
+      "key": "553ccae6484f08b298e7e35ee7998a07beccbc8f3075cd6c6aac847100d8c46e",
+      "question": "Did Jolene teach herself how to play the console?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-44",
+      "key": "554065da7fdd2c27d5152da6b17ebebefc01e6cbaacf7db94f15ab6d0e78d994",
+      "question": "Which type of sushi did Audrey suggest trying first to someone new to sushi?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-48",
+      "key": "5572afee2a1a6a8373812ce83380b8408550df140b65095c7c44dc627bfc6749",
+      "question": "When did Deborah's father pass away?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-44",
+      "key": "559f4654d270cd00116b053fcacb646c1c0765a1422cf4b2e40eec41d9c0adaf",
+      "question": "What special memories does Audrey have with her childhood dog, Max?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 1,
+      "conversation": "conv-26",
+      "key": "55b96ff0a75aeec334c385b63a29da2299d876b1d0ae697843bc7cd0afed7e69",
+      "question": "How many times has Melanie gone to the beach in 2023?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-50",
+      "key": "55ca910c9982e78c83a41d39153116656d949740dd4d66cee165c6c211f033c8",
+      "question": "When did Calvin attend a gala in Boston?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-49",
+      "key": "55ef18e1994c6b5b6a06ba61937ef4cc9ed3e76726dc35fc6f83824a8ff337da",
+      "question": "What was Evan limiting himself to on his new diet?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 4,
+      "conversation": "conv-49",
+      "key": "55fa373761b3cc4ec8c3ece9f4ed16ecccd39003befbfa53645ce775efa0c962",
+      "question": "What type of landscapes does Evan love painting the most?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 2,
+      "conversation": "conv-30",
+      "key": "561592145422cb9f81d5b7390663b00177ccc09ddd4d2d6ccdebd504d5b5a41c",
+      "question": "When did Jon host a dance competition?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-41",
+      "key": "5621fa79c21dfb48c403e2933f02748f72bb2489735ea8785d583c18d2e84189",
+      "question": "When did Maria go hiking with her church friends?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-42",
+      "key": "5635f53bb983a161e15f2df99c82388c488f81461693276eda7b504235c4a6e8",
+      "question": "What does Joanna use to remember her dog from Michigan?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-26",
+      "key": "564fe3c5d5fecc032909280d0b9746337309a4499a23396945d5abc37edb76c9",
+      "question": "What does Caroline's necklace symbolize?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 1,
+      "conversation": "conv-41",
+      "key": "565e1c6218017afd0d4862770183f91dd7f28fe0dba7e6b706c6bb86e3c85185",
+      "question": "What events for veterans has John participated in?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-47",
+      "key": "5662f75260dc6ce9fe41e659e5ca698d4b49fc9819ab68bf02e943b75997db90",
+      "question": "What project is James working on in his game design course?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-42",
+      "key": "56818651c86557c2a125845488970686c5c0376f99be1ba5e7c300326b7db93e",
+      "question": "When did Joanna finish up the writing for her book?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 2,
+      "conversation": "conv-26",
+      "key": "56ce2d669b57dee0b9a314060c98215730ab8126d3c26dc5e221f1ec0c88e4c5",
+      "question": "When did Melanie read the book \"nothing is impossible\"?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-41",
+      "key": "56d1b4bad56f25c30d101ef19b816a0b2194bc228c020ecfa00dbf6aadaccb28",
+      "question": "Where did John explore on a road trip last year?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 4,
+      "conversation": "conv-47",
+      "key": "56e6d868d56203be7ff3c01815e7844bbe22208c8d8b3e283c13acb5ef879ad5",
+      "question": "What game was James playing in the online gaming tournament in April 2022?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 4,
+      "conversation": "conv-42",
+      "key": "5703d95bd262ca944fa82aaf013769c77acda3320112e82fd1b06b5cc545dfce",
+      "question": "Which activity helps Nate escape and stimulates his imagination?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-41",
+      "key": "570c89e7d4e9530b954e2f1dbafc80d5c5ed075596c2e53933842e0f837712ee",
+      "question": "What activity did Maria take up with her friends from church in August 2023?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-43",
+      "key": "5740a6b24d715b2023dd8fbdf9ac7a942fb50cc384ac277e094e59c3dc7fded1",
+      "question": "What spice did John add to the soup for flavor?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 1,
+      "conversation": "conv-48",
+      "key": "576be823de2b8ef968910963067311525aa8090e7688b8a95faf8ec8a4f4bdb0",
+      "question": "What kind of professional activities does Jolene participate in to gain more experience in her field?"
+    },
+    {
+      "C0": 1,
+      "C1": 0,
+      "category": 2,
+      "conversation": "conv-41",
+      "key": "57993bf6ec09d0829faa1277793b47edd709c43b903a5fca24a8915d98a0308b",
+      "question": "When did John start boot camp with his family?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 1,
+      "conversation": "conv-49",
+      "key": "57cec4de78df13d1b5deb8050d0862b68ab7a75ab18bcb43792892e0b1105cc7",
+      "question": "What new diet and lifestyle change did Sam adopt over time?"
+    },
+    {
+      "C0": 0,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-48",
+      "key": "583698cf62f4c6f8afbffec9d1105c5c881c410059b9076a36d3d8b6504703d0",
+      "question": "When did Jolene do yoga at Talkeetna?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 1,
+      "conversation": "conv-49",
+      "key": "587ae09ea04a2f80ffbad57da8b837cb1881b9db29bc4d16524dadf508dd7bc5",
+      "question": "How does Evan spend his time with his bride after the wedding?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-47",
+      "key": "58960e9a6c9691272ebe52b1e6287426a082af533eb61a7369debc07d3df4744",
+      "question": "What kind of music does John like?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-44",
+      "key": "590c3bd6ef3ffc4750577fb80fe0873f56e96a76ff533b1bdf31d2967ea20a0b",
+      "question": "What is the name of Audrey's childhood dog?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 1,
+      "conversation": "conv-41",
+      "key": "590c7811def4cf30bb3e421f9c85a4f4aad2302b539b15af0006b000b23819ba",
+      "question": "What desserts has Maria made?"
+    },
+    {
+      "C0": 0,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-48",
+      "key": "5923f0b2489f15c50a250187158ae82527b80f9cd983c33870d6c8df6820d12f",
+      "question": "What is Jolene's favorite book which she mentioned on 4 February, 2023?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-48",
+      "key": "592f36803709841994f04a7f102f9265c71f94d9cefd45205e20e33598da917a",
+      "question": "What activities have been helping Jolene stay distracted during tough times?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-44",
+      "key": "5931c09aedd7cfbafb4bf4d1760f658c765b075e4cf65ddceaa21eec45ebfc61",
+      "question": "How does Audrey describe the new beds for her dogs?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-26",
+      "key": "595f4c99256579d4215c32784e68d583d4aedf649264c275e1ca6ef1fe155584",
+      "question": "When is Caroline going to the transgender conference?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-26",
+      "key": "59aa3d0eab7dd29a8ac06b6f497eaaf8bb105237e85658569584017cb700d5a8",
+      "question": "Who performed at the concert at Melanie's daughter's birthday?"
+    },
+    {
+      "C0": 0,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-30",
+      "key": "59b5a0dfa8b9ed57b02c8af4fa97ae04c2969242df028187d45aa23fabfc19e4",
+      "question": "When was Jon in Paris?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 1,
+      "conversation": "conv-44",
+      "key": "59cfe71cafaa1f7a1082616d04a7b109784033f5f5bdc2ea9c8cfa2989db9398",
+      "question": "What are the classes that Audrey took for her dogs to?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 1,
+      "conversation": "conv-50",
+      "key": "59de63b5f656fb9306276e060a5c2677bc28065788754f90bcd25b45711c2a37",
+      "question": "What activities has Dave participated in with his friends?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-49",
+      "key": "59e2ef814f3bc590b4228927d1445642c7fe9f93e152b31d8004006306cd486c",
+      "question": "What suggestion did Sam give to Evan to help with his knee issue?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-48",
+      "key": "5a33569a1b817c5459b9852a2585902f2b3d6503bd35f768851c42682f82719b",
+      "question": "What activity did Deborah enjoy at the music festival with their pals on September 20, 2023?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-47",
+      "key": "5a83442f016f39fcea1f165158590512f6e09561b43e4e43614cb0648dc1d99e",
+      "question": "What kind of games is James excited to play with his new video card?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 2,
+      "conversation": "conv-49",
+      "key": "5a944ecf2ea29e46577c75606518fe01a533d694da4ad9ce5344fb1a35b7e365",
+      "question": "Which places in Canada was Evan visiting in July 2023?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 2,
+      "conversation": "conv-43",
+      "key": "5aa2d81cfee36c43e328b22959ff62c5fead5d95e546ef4cc2894964a4dd407b",
+      "question": "What year did Tim go to the Smoky Mountains?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 1,
+      "conversation": "conv-49",
+      "key": "5aa4cf5e1dbc993ce53ee14a4301b83ea2547d96d745f993ad95729552ba4425",
+      "question": "Which two significant life events occur in Evan's life in December 2023 with his partner?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-41",
+      "key": "5aab41da2add8d0de12ba49375ed27b5f1a52fcdc5f2a2669d5f4dd53093fa4b",
+      "question": "What did the donations help John's community acquire on 16 August, 2023?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-42",
+      "key": "5ab8d0f6511ec630bb4b67ba8e042a8852daf637d9d27692463f7c94b80d03dd",
+      "question": "What game is Nate currently playing and recommends to others on November 7, 2022?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-42",
+      "key": "5ac86e3c78c21d7208f4d08a08bff700c0609679361a17f44b0c0bad4bac5a6f",
+      "question": "When did Nate take his turtles to the beach?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-43",
+      "key": "5ace2d53eacb2a7d8ba2858d360e6ca8919b8fb27e605e0cd7b63fa7156677f3",
+      "question": "How did John describe the views during their road trip out on the European coastline?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-42",
+      "key": "5ae6fafa85382623ea379204fe30dca8792c84cf43c44e6f1b40337db0f945e9",
+      "question": "What is Nate creating for YouTube on 9 November, 2022?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-48",
+      "key": "5b12a737a7d197d224ea06aeea01c844c65ff6bbd16ce4bf2bce3a54d30a13fb",
+      "question": "What kind of event did Jolene present at recently?"
+    },
+    {
+      "C0": 0,
+      "C1": 1,
+      "category": 1,
+      "conversation": "conv-50",
+      "key": "5b296242322842923b88c6c9294f4fda5a95116a5a476023d71d361fb38df93e",
+      "question": "What are Dave's hobbies other than fixing cars?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 2,
+      "conversation": "conv-42",
+      "key": "5ba7fda4af65415f0a63d6c1b6cc0355822e217c17f526a98f209904d2d99bc3",
+      "question": "When is Nate hosting a gaming party?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-50",
+      "key": "5bc3aefa292059cda1e784a70ade1ff5e68ebc23db91c7ad139fd765469f2307",
+      "question": "What kind of impact does Dave's blog on car mods have on people?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-30",
+      "key": "5bcb79618fe8abafc2b3e416986ca47d6718048f971f16ab628889ced60f451f",
+      "question": "What did Gina say about creating an experience for her customers?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-47",
+      "key": "5be385810236bfb4d6c9e4844096f0ad5212e5754a10404fe2f8a238888f0e2e",
+      "question": "What is the name of John's cousin's dog?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 2,
+      "conversation": "conv-26",
+      "key": "5c0816cce68bc0e3019a687695a3927f349ebad5c149070649e7ab751b907b2c",
+      "question": "When did Caroline join a new activist group?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 1,
+      "conversation": "conv-49",
+      "key": "5c1ba981f712a9f081a667d4e6ec3eb7d429a6f519a1803f18345506e630bda4",
+      "question": "Who did Evan tell about his marriage?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 3,
+      "conversation": "conv-42",
+      "key": "5c208b681419fcf92e5beec8e0005996cfdb6df57e9a8e815038f8786a8f447b",
+      "question": "What state did Joanna visit in summer 2021?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-30",
+      "key": "5c4865dcd0c6e46c6ec9067eadf1ea993cf0f1b6fdc86bdb7c3ca065388a8082",
+      "question": "Why did Gina combine her clothing business with dance?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-43",
+      "key": "5c4b50cc9692dcf4b41a777b1947fccf811da5489152d312d08a1f9cebad96ab",
+      "question": "Which country was Tim visiting in the second week of November?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-49",
+      "key": "5c6b6a9cfc2bfc9921933ef4f15a0f1bd255db53cb917120deeb644067a45cf8",
+      "question": "What kind of writing does Sam enjoy as a form of expression?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-41",
+      "key": "5cc1d6e9bab2e7c5b4002ceae9d45cee57ea27576b01b219033dc9e25bd76c27",
+      "question": "When did Maria get Coco?"
+    },
+    {
+      "C0": 0,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-42",
+      "key": "5cf7af6ebdff58320547fa93f5d6a827fd6a469a45f3d1efab1be31d48e46022",
+      "question": "Why did Nate get a third turtle?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-26",
+      "key": "5cfa46cc51d9d24d527d975421903b1258da8fb2c6efc832ab7105ae54779b9a",
+      "question": "What setback did Melanie face in October 2023?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-44",
+      "key": "5d3583a9f680906bd809a2d721d71a51876f0ca714e43e091984581f6801d530",
+      "question": "What are some of the personalities of Audrey's four fur babies?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 2,
+      "conversation": "conv-47",
+      "key": "5d69c5f7ec1299d50c89f98749ce06f9acd049eb35fdc60f23ff5108ab0884ba",
+      "question": "When did John and his gaming friends organize the charity tournament?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-42",
+      "key": "5d9c00d0e25ca1ab8fd244da50f813d3338fb8f36a849fa3332ea320415f9214",
+      "question": "For how long has Nate had his turtles?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-42",
+      "key": "5d9ed0755063ef36b8b5f54450aac8805de9f0123cc50bea35e39ecdb47e02e3",
+      "question": "Why did Nate choose the hair color he did?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 2,
+      "conversation": "conv-49",
+      "key": "5db3e2e85e9a63ef5d1709f03768759bd1fb8fbc2f0cd12751453a764d38e4cd",
+      "question": "What was Sam doing on December 4, 2023?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-44",
+      "key": "5df25debef7d70e13914aa4e49dbbd498e96d21bb7c6659f115c22c7136833df",
+      "question": "What organization does Audrey donate a portion of his profits to?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-48",
+      "key": "5e1eab48bf492e72bd8ed965de0b3f3fc3d2549fb1814bda6a56ff2b70c34840",
+      "question": "How does Jolene plan to involve local engineers in her idea of teaching STEM to underprivileged kids?"
+    },
+    {
+      "C0": 1,
+      "C1": 0,
+      "category": 1,
+      "conversation": "conv-50",
+      "key": "5e3b98d950d866b73edb17d230a167607c841198b0ce0c9f04fb05f6b5feca6c",
+      "question": "What are Dave's dreams?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 2,
+      "conversation": "conv-43",
+      "key": "5ffb5c0dcdbaf0f975f699758de8209bd1a8644e0b6e544fcaac2f72ae5b902e",
+      "question": "When did John start playing professionally?"
+    },
+    {
+      "C0": 0,
+      "C1": 1,
+      "category": 1,
+      "conversation": "conv-47",
+      "key": "601c82e41aca7c83fabf92f0c7d187d7a8ea5db790610b4f4c0387a2ecf073b8",
+      "question": "How many charity tournaments has John organized till date?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-26",
+      "key": "602a9db647b34ec17bb504228f4d3a788e6d093958feba6ad49f03d5555d414f",
+      "question": "How does Melanie prioritize self-care?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 4,
+      "conversation": "conv-43",
+      "key": "6032b4c6be79d124f4e1ffd739c516fafd181eb2d160787e9385d6ef9e78b147",
+      "question": "Which two fantasy novels does Tim particularly enjoy writing about?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 2,
+      "conversation": "conv-48",
+      "key": "60818443125ae6c3310905c3722b89e5c887946162f5977e1559c4520b7b4605",
+      "question": "When did Deborah visit Brazil?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 2,
+      "conversation": "conv-30",
+      "key": "608d18664f7b5a5937d72791f3386cdbedc984e99758cf615321ef268b6143f2",
+      "question": "When did Gina team up with a local artist for some cool designs?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-48",
+      "key": "8812b1bf596affe5458cb7172d43f0a215329d578da67c2eecaed0be8535dcb3",
+      "question": "What are the names of Jolene's snakes?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-48",
+      "key": "b3985a652d95ec3cf655b9c10d81a742c7f1a8eb04cfd89c60f4dc5690c2ca1b",
+      "question": "How old are Deborah's cats?"
+    },
+    {
+      "C0": 0,
+      "C1": 0,
+      "category": 4,
+      "conversation": "conv-48",
+      "key": "b5ad3bb219f6bb9a105c8cd74a9a8c96dae648fefa2bca78fe645eb3a664dcbb",
+      "question": "What projects is Jolene planning for next year?"
+    },
+    {
+      "C0": 1,
+      "C1": 1,
+      "category": 4,
+      "conversation": "conv-48",
+      "key": "e0eb68d84905732d5b298a5a2e14f4e511d15c010049e726c3f69f0835d5f37b",
+      "question": "Have Deborah and Jolene been to Rio de Janeiro?"
+    }
+  ],
+  "status": "EXPLORATORY_USER_STOPPED_SUBSET",
+  "strata": {
+    "1": {
+      "C0": 41,
+      "C1": 39,
+      "ci95": [
+        -0.12244897959183673,
+        0.06097560975609756
+      ],
+      "difference": -0.022727272727272728,
+      "gains": 6,
+      "losses": 8,
+      "n": 88
+    },
+    "2": {
+      "C0": 60,
+      "C1": 69,
+      "ci95": [
+        0.043478260869565216,
+        0.10526315789473684
+      ],
+      "difference": 0.07317073170731707,
+      "gains": 11,
+      "losses": 2,
+      "n": 123
+    },
+    "3": {
+      "C0": 6,
+      "C1": 6,
+      "ci95": [
+        0.0,
+        0.0
+      ],
+      "difference": 0.0,
+      "gains": 0,
+      "losses": 0,
+      "n": 29
+    },
+    "4": {
+      "C0": 277,
+      "C1": 285,
+      "ci95": [
+        0.014326647564469915,
+        0.034220532319391636
+      ],
+      "difference": 0.024539877300613498,
+      "gains": 10,
+      "losses": 2,
+      "n": 326
+    }
+  }
+}
