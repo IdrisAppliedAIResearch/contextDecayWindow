@@ -1,5 +1,7 @@
 # LoCoMo relevance timeline: inference paused for design discussion
 
+Latest follow-up: user authorized a reader anchor capability probe, now complete at experiments/probes/reader_anchor/REPORT.md (plan1b6c79ef, rawb04da2a3). Eight synthetic short histories, nativeOFF, explicit diagnostic instructions. All status fields match expected; both later-evidence cases flagged unsafe to cut. Citation sets incomplete and hypothetical alternatives appear. No full LoCoMo inference; original pause persists. No jobs/hooks. Next discussion: small natural-context capability test before changing retrieval/cutoff.
+
 Full-context check COMPLETE, rawc3555066: all1,986 paired sizes exact; median selected8,494/full36,048, paired ratio26.44%;46>=90%,15>=95%. Longest33,841/34,25998.78%. Primary median ratio27.00%. FULL_CONTEXT_REPORT.md. Tokenizer servers stopped; no jobs or hooks. Preserve pause; do not auto-resume inference.
 
 Latest user steering: asks whether to delay because the anchor is inactive and selected prompts may approach full context; requests a matched full-context token check. Full inference and registration are paused. Do not start reader or judge calls until that discussion resolves. No automation was activated and no study answers have been generated.
