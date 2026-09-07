@@ -18,6 +18,11 @@ def verdict(text):
     return last.group(1).upper() == "CORRECT", reason.group(1)
 
 
+def outside_reasoning(text):
+    """Measurement fixture only; actual native-off outputs reject reasoning tags."""
+    return re.sub(r"<think>.*?</think>", "", text, flags=re.S).strip()
+
+
 def committed(path):
     relative = str(Path(path).resolve().relative_to(ROOT))
     subprocess.run(["git", "ls-files", "--error-unmatch", relative], cwd=ROOT,

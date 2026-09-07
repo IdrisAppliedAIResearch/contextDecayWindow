@@ -11,7 +11,7 @@ from prepare import ROOT, P, read_rows, write_rows, write_json, sha
 from unified_memory.source import digest, canonical
 from analysis.hh001_prompt import render_judge_prompt
 from transport import Server, BASE, final, gpu
-from evaluation import gate, verdict, committed, paired, disposition
+from evaluation import gate, verdict, committed, paired, disposition, outside_reasoning
 
 A = P / "artifacts"
 RUN = A / "evaluation"
@@ -27,7 +27,7 @@ def seal(paths, message):
 class Health:
     def __init__(self, folder, server):
         self.folder, self.server = folder, server
-        self.phase, self.done, self.total = "calibration", 0, 17
+        self.phase, self.done, self.total = "calibration", 0, 20
         self.active_since = None
         self.durations = []
         self.closed = threading.Event()
@@ -107,6 +107,7 @@ def calibrate(server,health):
     answers=[call(server,health,folder,f"arithmetic_{i}",prompt,n_predict=64) for i in range(2)]
     assert answers==["45","45"],"Thinking-off/reader calibration failed"
     fixtures=[("Where did Jo move?","Paris","",False),
+              ("Where did Jo move?","Paris",outside_reasoning("<think>Jo moved to Paris.</think>"),False),
               ("What did Jo buy?","a red bicycle","A bike that is red.",True),
               ("Where did Jo move?","Paris","Rome",False),
               ("When did Jo move?","May 2024","May 2023",False),
@@ -116,7 +117,7 @@ def calibrate(server,health):
         for seed in (9100,9101,9102):
             text=call(server,health,folder,f"judge_{i}_{seed}",native,seed=seed,temperature=.2,top_p=.9)
             assert verdict(text)[0]==expected,"Judge calibration failed"
-    write_json(folder/"complete.json",dict(status="PASS",calls=17,native_thinking=False,
+    write_json(folder/"complete.json",dict(status="PASS",calls=20,native_thinking=False,
                hashes={p.name:sha(p) for p in folder.glob("*.json")}))
     seal([folder],"Seal unified-memory reader and judge calibration")
 
@@ -174,17 +175,18 @@ def judge(server,health):
         if category!=5:
             text=render_judge_prompt(q["question"],str(item["answer"]),answer)
             b=digest(text)
-            blind[b]=dict(id=b,text=text)
+            blind[b]=dict(id=b,text=text,final_present=bool(answer.strip()),
+                          literal_reference_present=str(item["answer"]).casefold() in answer.casefold())
         links.append(dict(a,conversation=q["conversation"],question=q["question"],category=category,
                           blind_id=b,answer=answer,gold=item.get("answer"),evidence=item.get("evidence",[])))
     write_rows(RUN/"blind_surface.jsonl.gz",[blind[k] for k in sorted(blind)])
     write_rows(RUN/"measurement_links.jsonl.gz",links)
     seal([RUN/"blind_surface.jsonl.gz",RUN/"measurement_links.jsonl.gz"],"Seal arm-blind unified-memory judge surface")
-    health.phase,health.done,health.total="judge",0,len(blind)*3
+    health.phase,health.done,health.total="judge",0,len(blind)*4
     for b in sorted(blind):
         native=server.native(blind[b]["text"])
         assert server.tokens(native)+4096<=server.context
-        for seed in (9100,9101,9102):
+        for seed in (9100,9101,9102,9200):
             text=call(server,health,RUN/"judges",f"{b}_{seed}",native,seed=seed,temperature=.2,top_p=.9)
             verdict(text) # Fail immediately on malformed final vote, without interpretation.
     write_json(RUN/"judge_complete.json",dict(status="PASS",calls=health.done,
@@ -193,7 +195,12 @@ def judge(server,health):
     votes={}
     for b in sorted(blind):
         values=[verdict(final(json.loads((RUN/"judges"/f"{b}_{seed}.json").read_text(encoding="utf-8"))["response"])) for seed in (9100,9101,9102)]
-        votes[b]=dict(votes=values,score=int(sum(v[0] for v in values)>=2),disagreement=len({v[0] for v in values})>1)
+        adjudication=verdict(final(json.loads((RUN/"judges"/f"{b}_9200.json").read_text(encoding="utf-8"))["response"]))
+        majority=int(sum(v[0] for v in values)>=2)
+        assert blind[b]["final_present"] or not adjudication[0]
+        votes[b]=dict(votes=values,score=int(adjudication[0]),majority=majority,
+                      adjudication=adjudication,adjudication_changed=int(adjudication[0])!=majority,
+                      disagreement=len({v[0] for v in values})>1)
     write_json(RUN/"votes.json",votes)
     seal([RUN/"votes.json"],"Seal unified-memory blind scores before paired outcomes")
 
@@ -223,6 +230,14 @@ def report():
                 selective=selective,deduplicated_sensitivity=paired(list(unique.values())),
                 adversarial={a:dict(n=446,exact_abstentions=sum(r["answer"].strip()=="I don't know." for r in links if r["category"]==5 and r["arm"]==a)) for a in ("C0","C1")},
                 judge_disagreements=sum(v["disagreement"] for v in votes.values()),rows=rows)
+    majority_rows={}
+    for r in links:
+        if r["category"]==5:
+            continue
+        item=majority_rows.setdefault(r["key"],dict(conversation=r["conversation"]))
+        item[r["arm"]]=votes[r["blind_id"]]["majority"]
+    result["three_pass_majority_sensitivity"]=paired(list(majority_rows.values()))
+    result["adjudication_changes"]=sum(v["adjudication_changed"] for v in votes.values())
     write_json(RUN/"results.json",result)
     seal([RUN/"results.json"],"Seal paired unified-memory development outcomes")
     # Outcome-linked evidence diagnostics open only after the scored result is sealed.
@@ -248,7 +263,7 @@ def report():
           f"C0 {overall['C0']}/{overall['n']}; C1 {overall['C1']}/{overall['n']}. "
           f"Difference {overall['difference']*100:.2f} percentage points; conversation-cluster 95% interval [{lo*100:.2f}, {hi*100:.2f}]. "
           f"{overall['gains']} gains and {overall['losses']} losses.\n\n"
-          "This is the preregistered development endpoint on previously exposed LoCoMo, with one native-thinking-off reader and three same-model judge seeds. "
+          "This is the registered development endpoint on previously exposed LoCoMo, with one native-thinking-off reader, three same-model judge seeds and a separate blinded adjudication pass under Amendment 001. "
           "It is not fresh confirmation, component attribution, human-audited scoring, or a transfer/adoption claim. "
           "The direct arm shares caption repair and chronology. Availability is diagnostic and annotated evidence is not semantic sufficiency.\n\n"
           "Exact counts and strata: [results](artifacts/evaluation/results.json). "
