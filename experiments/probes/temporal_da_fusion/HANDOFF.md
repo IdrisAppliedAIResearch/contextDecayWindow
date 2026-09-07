@@ -1,3 +1,7 @@
+# ACTIVE: prefix preservation and combined before results complete
+
+Plan c6f99a6; code f13f6f75; input b94b1040; calibration c2218867; raw f7480f6f; canonical scores ab5d9a8e. Preserved104/106,2regressions: Orchard186 hangar→depot; Harbor371 workshop→depot. Combined prior22/22 gives126/12898.4375% vs106/12882.8125%,22g2l,net20. Two sequential diagnostic batches,not independent confirmation. Latest/absenceNOT rerun. All106canonical,noadjudication;392.60seconds274outputtokens; combined484.15s335tokens. Required evidence remains106/106. Exact106native/22prefix replay and disjoint128 verified; nativeOFF unchanged. Server3856verified/stopped;nojobs. PREFIX_106_REPORT.md. Pause completion hook after closeout; no adoption.
+
 # ACTIVE:106 previously correct prefix run in progress
 
 User authorized106 previous correct before questions with same prefix. Planc6f99a6,codef13f6f75,inputb94b1040,calc2218867. Runner12784,ownedserver3856/port8097. prefix_106_reader.py run; relevance_artifacts/prefix_106_reader outputs. Same nativeOFF/seed5005/4096output/32768context.106original native prompts exact;prior22prefixes exact;106+22disjointall128;allliteral goldsupport preserved106. Quiet5minhookstudy-e-development-completionactive. No duplicate or uncertain retries.

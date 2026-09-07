@@ -214,6 +214,8 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **Post-review removal (2026-09-06).**22/22 prior full E misses recovered with same nativeOFF reader/seed5005. Retain exact retrieved prefix through selector anchor; remove15–55later records. Allsupport intact;22canonical scores,61output tokens,91.55s. Failure-selected/historical control;previous106correct untested. Plan5085934f; no adoption.
 
+**Prefix preservation (2026-09-06).**104/106previous correct retained;2regressions (Orchard186,Harbor371). Combined22recoveries gives126/12898.44% vs106/12882.81%,22g2l. NativeOFF/seed5005;allcanonical;two diagnostic batches,not confirmation. Latest/absence not rerun. Allsupport intact. Plan c6f99a6; no adoption.
+
 ## 3. Failure Pattern
 
 The recurring failure class is a surrogate that can pass without the property it claims to certify: record count for information, novelty for importance, density for factual value, or a rubric score for a correct answer.
