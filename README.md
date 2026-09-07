@@ -523,6 +523,8 @@ read `ERRATA.md` before quoting any number.
 
 ## Status Ledger
 
+> **Reader anchor diagnostic, September7:** eight short synthetic histories produced expected event-resolution status; later clarification and retrospective evidence were both flagged unsafe to cut. Native thinkingOFF with explicit diagnostic instructions. Citation sets remain incomplete; no natural transfer or causal chronology result. [Report](experiments/probes/reader_anchor/REPORT.md). Full LoCoMo remains paused.
+
 > **LoCoMo relevance timeline preflight, September7:** zero anchors on1,986questions; no reader calls. Selected/full input medians8,494/36,048tokens, median paired retained26.44%;46/1,986 retain>=90%. Longest33,841/34,259. Common40,960context fits. [Report and raw-artifact links](experiments/locomo_relevance_timeline/FULL_CONTEXT_REPORT.md). Inference paused; no efficacy verdict.
 
 **Can a language model hold a long conversation by rebuilding a small, relevant context every turn, instead of re-reading the whole transcript or summarising it away?**

@@ -222,6 +222,8 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **LoCoMo timeline preflight (2026-09-07).** INFERENCE PAUSED. Existing anchor grammar unsupported on1,986/1,986. Selected/full median input8,494/36,048tokens; paired retained median26.44%,46retain>=90%. Longest33,841/34,259 (98.78%). All128Eprefixes replay;40,960context fits. No answers. Plan4193702b; size rawc3555066. Resolve transfer scope before inference.
 
+**Reader anchor probe (2026-09-07).** Eight short synthetic histories: status fields match expected resolution/ambiguity; later clarification and retrospective evidence both flagged unsafe to cut. NativeOFF, explicit diagnostic prompt,1,117output tokens. Citation sets incomplete; hypothetical alternatives appear. No natural-transfer/chronology-causality score. Plan1b6c79ef; rawb04da2a3.
+
 ## 3. Failure Pattern
 
 The recurring failure class is a surrogate that can pass without the property it claims to certify: record count for information, novelty for importance, density for factual value, or a rubric score for a correct answer.
