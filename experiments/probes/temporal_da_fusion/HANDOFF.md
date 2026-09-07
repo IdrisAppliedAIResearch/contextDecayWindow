@@ -1,3 +1,7 @@
+# ACTIVE: GPU batching capacity probe complete
+
+User requires batching for upcoming LoCoMo design. Plan ece1f77d; raw748f2a38; audit40d92576. Nine concurrent32768-token slots pass two27920-input/64-forced-output waves, minimum2282 MiB free. Ten loads but938 MiB free fails1536 MiB reserve, unstressed. Use parallel9,totalctx294912,q8KV,nativeOFF; all66/66 layersGPU. Ninety stress plus18 calibration responses; slot overlap/cachezero verified. Only~2.1% throughput gain on long-input fixture, not LoCoMo performance. Initial log-verbosity gate failure preserved/repaired. All owned servers stopped; no jobs. LoCoMo draft updated for batching; full prompt fit and batched reader/judge calibration still required. BATCH_CAPACITY_REPORT.md. No new study answers or adoption.
+
 # ACTIVE: prefix preservation and combined before results complete
 
 Plan c6f99a6; code f13f6f75; input b94b1040; calibration c2218867; raw f7480f6f; canonical scores ab5d9a8e. Preserved104/106,2regressions: Orchard186 hangar→depot; Harbor371 workshop→depot. Combined prior22/22 gives126/12898.4375% vs106/12882.8125%,22g2l,net20. Two sequential diagnostic batches,not independent confirmation. Latest/absenceNOT rerun. All106canonical,noadjudication;392.60seconds274outputtokens; combined484.15s335tokens. Required evidence remains106/106. Exact106native/22prefix replay and disjoint128 verified; nativeOFF unchanged. Server3856verified/stopped;nojobs. PREFIX_106_REPORT.md. Pause completion hook after closeout; no adoption.
