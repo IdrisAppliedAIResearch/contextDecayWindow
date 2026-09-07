@@ -4,7 +4,7 @@ Read this file before doing anything in this repository. It carries the program'
 
 **If this file and a study's pre-registration disagree, the pre-registration governs. Stop and flag the conflict rather than reconciling it silently.**
 
-**Current handoff (2026-09-07):** the user accepted the integrated contextual-memory design at `8927134a` and is compacting before implementation. Read [the resume notes](experiments/locomo_relevance_timeline/HANDOFF.md) and [the design](experiments/designs/unified_contextual_memory/DESIGN.md). No implementation or new inference has begun; the handoff records accepted direction, open choices, and registration requirements.
+**Current handoff (2026-09-07):** integrated contextual memory is implemented and preregistered (20d75b5a; scoring amendment143237b6), with amended preflight6484d67a passing. The serial native-thinking-OFF paired evaluation has been launched. Read [the current handoff](experiments/unified_contextual_memory/HANDOFF.md) and its durable status before taking action. Quiet failure/completion follow-up is active; do not poll the live inference repeatedly.
 
 ## 1. Program
 
