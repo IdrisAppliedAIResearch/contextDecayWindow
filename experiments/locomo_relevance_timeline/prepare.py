@@ -19,6 +19,7 @@ P = Path(__file__).resolve().parent
 OUT = P / 'artifacts'
 CONTROL = Path('C:/Users/muzaf/contextDecayWindow-locomo-timeline-control')
 sys.path.insert(0, str(CONTROL / 'src'))
+sys.path.insert(0, str(CONTROL / 'episodic/src'))
 from analysis import lv009_exploration as prior
 from analysis.hh001_prompt import render_reader_prompt
 from episodic._render import render_stm_payload
@@ -128,6 +129,9 @@ def main():
     assert Path(prior.__file__).resolve().is_relative_to(CONTROL)
     checks = fixtures() | e_replay()
     cases = prior.load_blind_cases()
+    # Cache binaries are intentionally untracked; use original immutable files.
+    prior.DEV_CACHE = ROOT / prior.DEV_CACHE.relative_to(CONTROL)
+    prior.HOLDOUT_CACHE = ROOT / prior.HOLDOUT_CACHE.relative_to(CONTROL)
     vectors, caches = prior.load_full_vectors(cases)
     raw = read(prior.DATASET_PATH)
     source = {r['sample_id']: r['conversation'] for r in raw}
