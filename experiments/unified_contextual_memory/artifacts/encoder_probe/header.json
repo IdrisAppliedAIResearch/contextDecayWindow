@@ -1,0 +1,28 @@
+{
+  "model_sha256": "06507c7b42688469c4e7298b0a1e16deff06caf291cf0a5b278c308249c3e439",
+  "script_sha256": "c088cd5db7a74c6f73df14f733aaeefd81db0ea937f464521f75a23b50d8b587",
+  "design_sha256": "30af1e83ea387b2b3b782c2709830597d8f0f2b7d34013c2aee237054fc3a3f9",
+  "commit": "64bdbdc722171ae028f5159e9da6efc359663e10",
+  "runtime": {
+    "model_path": "C:\\Users\\muzaf\\.cache\\huggingface\\hub\\Qwen3-Embedding-0.6B-GGUF\\Qwen3-Embedding-0.6B-Q8_0.gguf",
+    "embedding": true,
+    "n_gpu_layers": -1,
+    "n_ctx": 8192,
+    "n_batch": 8192,
+    "n_ubatch": 8192,
+    "n_threads": 8,
+    "n_threads_batch": 8,
+    "seed": 5005,
+    "verbose": false
+  },
+  "llama_cpp": "0.3.25",
+  "libraries": {
+    "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\.venv\\Lib\\site-packages\\llama_cpp\\lib\\ggml-base.dll": "643408b0b61a626c0293e7ded04d00e9a214e966f816921fdad771574a71cb0d",
+    "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\.venv\\Lib\\site-packages\\llama_cpp\\lib\\ggml-cpu.dll": "90d33fac8031bf6dd5e5f966a2d63cc8e53cbab0643cb72a6ec83dbd18fe2d07",
+    "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\.venv\\Lib\\site-packages\\llama_cpp\\lib\\ggml-cuda.dll": "7e2a31f2ca26c3d68b31524096a433b8c25cb3ab07e8315c7eae91756e1f5902",
+    "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\.venv\\Lib\\site-packages\\llama_cpp\\lib\\ggml.dll": "6fd888f082f69f0f45dafce84f2e7e817377ef24d6d547a8638f89f4c0919c0e",
+    "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\.venv\\Lib\\site-packages\\llama_cpp\\lib\\llama.dll": "bd94277bfed432a67431fb26ac7284ae2e27030e93bc097ddaf01af42ef5dc34",
+    "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\.venv\\Lib\\site-packages\\llama_cpp\\lib\\mtmd.dll": "1aacf4aad3d62118b51f09f641227061ef67fe9f26087e7b92dd09d217b234a6"
+  },
+  "generative_calls": 0
+}

@@ -1,0 +1,27 @@
+{
+  "native_last_exact": true,
+  "solo_token_replay_exact": true,
+  "byte_offsets_exact": true,
+  "native_pooling": 3,
+  "dimension": 1024,
+  "contextual_cosines": {
+    "last": {
+      "northstar": 0.8103881478309631,
+      "cedar": 0.7855870723724365,
+      "cooking": 0.9006494283676147
+    },
+    "mean": {
+      "northstar": 0.845073938369751,
+      "cedar": 0.8308249115943909,
+      "cooking": 0.8391886949539185
+    }
+  },
+  "future_last_max_absolute_difference": 13.042011260986328,
+  "future_last_cosine": 0.9545595049858093,
+  "artifacts": {
+    "header.json": "ee35495beab7dea7a88f677a1cdec5cadd8241db1defb6f01bc385e6ac528698",
+    "raw.json": "d7d2b30a153ce993431bd288b8e10054e277004407160b7a3637e7e14c787dbf"
+  },
+  "status": "MECHANICAL_FEASIBILITY_ONLY",
+  "generative_calls": 0
+}
