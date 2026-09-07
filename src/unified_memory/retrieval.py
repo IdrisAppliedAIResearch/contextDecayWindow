@@ -11,9 +11,10 @@ class Policy:
     contextual: float
     support: float
     reference: float
+    path_floor: float = .48
 
     def __post_init__(self):
-        if any(not np.isfinite(v) or not -1 <= v <= 1 for v in (self.contextual, self.support, self.reference)):
+        if any(not np.isfinite(v) or not -1 <= v <= 1 for v in (self.contextual, self.support, self.reference)) or not 0 <= self.path_floor <= 1:
             raise ValueError("Invalid route threshold")
 
 
@@ -64,31 +65,33 @@ def retrieve(units, direct_vectors, contextual_vectors, contexts, references, cu
     if static_scores is not None:
         if static_scores["ids"] != ids or set(static_scores["references"]) != set(refs):
             raise ValueError("Static score domain differs")
-    selected, admissions, queue, scheduled = set(), {}, [], set()
+    selected, admissions, queue, finalized, activation = set(), {}, [], set(), {}
     bindings, unresolved = [], []
+    suppressed = 0
 
-    def schedule(kind, key):
-        op = (kind, key)
-        if op not in scheduled:
-            scheduled.add(op)
-            heapq.heappush(queue, op)
-
-    def admit(key, reason):
+    def admit(key, reason, strength):
         admissions.setdefault(key, set()).add(reason)
-        if key not in selected:
-            selected.add(key)
-            schedule(1, key)
+        selected.add(key)
+        if strength > activation.get(key, -1):
+            if key in finalized:
+                raise AssertionError("Finalized activation improved")
+            activation[key] = strength
+            heapq.heappush(queue, (-strength, key))
 
     for key in sorted(direct):
-        admit(key, "direct")
+        admit(key, "direct", float(ds[ids.index(key)]))
     for key in sorted(contextual):
-        admit(key, "contextual")
-        schedule(0, key)
+        admit(key, "contextual", float(cs[ids.index(key)]))
     operations = 0
     while queue:
-        kind, key = heapq.heappop(queue)
+        negative, key = heapq.heappop(queue)
+        if key in finalized or -negative < activation[key]:
+            continue
+        finalized.add(key)
+        parent_activation = activation[key]
         operations += 1
-        if kind == 0:
+        if key in contextual:
+            operations += 1
             index = ids.index(key)
             scores = dm @ dm[index] if static_scores is None else static_scores["support"][index]
             additional = []
@@ -96,31 +99,37 @@ def retrieve(units, direct_vectors, contextual_vectors, contexts, references, cu
                 if candidate not in contexts[key] or set(by_id[candidate].member_ids).intersection(by_id[key].member_ids):
                     continue
                 if score >= policy.support:
+                    strength = parent_activation * max(0., min(1., float(score)))
+                    if strength < policy.path_floor:
+                        suppressed += 1
+                        continue
                     additional.append(candidate)
-                    admit(candidate, "context-support:" + key)
+                    admit(candidate, "context-support:" + key, strength)
             if not additional:
                 unresolved.append(key)
-        elif kind == 1:
-            for ref in by_unit[key]:
-                schedule(2, ref.id)
-        else:
-            ref = refs[key]
-            cue = np.asarray(cue_vectors[key], dtype=np.float64)
+        for ref in by_unit[key]:
+            operations += 1
+            cue = np.asarray(cue_vectors[ref.id], dtype=np.float64)
             if not np.isfinite(cue).all() or not np.linalg.norm(cue):
                 raise ValueError("Invalid reference cue vector")
-            scores = dm @ (cue / np.linalg.norm(cue)) if static_scores is None else static_scores["references"][key]
+            scores = dm @ (cue / np.linalg.norm(cue)) if static_scores is None else static_scores["references"][ref.id]
             for candidate, score in zip(ids, scores):
                 if set(by_id[candidate].member_ids).intersection(by_id[ref.unit_id].member_ids):
                     continue
                 if score < policy.reference:
                     continue
-                conflict = forbidden.get((key, candidate))
-                bindings.append(dict(reference=key, source=ref.unit_id, candidate=candidate,
+                strength = parent_activation * max(0., min(1., float(score)))
+                if strength < policy.path_floor:
+                    suppressed += 1
+                    continue
+                conflict = forbidden.get((ref.id, candidate))
+                bindings.append(dict(reference=ref.id, source=ref.unit_id, candidate=candidate,
                                      score=float(score), status="rejected-under-rule" if conflict else "unresolved",
+                                     activation=strength,
                                      relation="candidate-antecedent" if by_id[candidate].position < by_id[ref.unit_id].position else "candidate-corroboration",
                                      conflict_rule=conflict.rule if conflict else None))
                 if conflict is None:
-                    admit(candidate, "reference:" + key)
+                    admit(candidate, "reference:" + ref.id, strength)
             # Every reference search has one immutable cue and finite domain.
     bound = len(units) + len(references) + len(contextual)
     if operations > bound or not direct.issubset(selected):
@@ -129,5 +138,7 @@ def retrieve(units, direct_vectors, contextual_vectors, contexts, references, cu
                 direct=[key for key in ids if key in direct],
                 contextual=[key for key in ids if key in contextual],
                 bindings=bindings, admissions={key: sorted(value) for key, value in sorted(admissions.items())},
+                activation={key:float(value) for key, value in sorted(activation.items())},
+                weak_paths_suppressed=suppressed,
                 operations=operations, operation_bound=bound, stop="FRONTIER_EXHAUSTED",
                 unresolved_support=sorted(unresolved))

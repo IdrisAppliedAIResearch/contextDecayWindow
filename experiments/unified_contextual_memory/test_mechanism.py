@@ -97,3 +97,18 @@ def test_cache_rejects_overwrite_and_readonly_miss(tmp_path):
     with pytest.raises(KeyError):
         cache.get({"text": "missing"})
     cache.close()
+
+
+def test_long_weak_chain_decays_without_depth_or_item_cap():
+    n = 30
+    units = tuple(Unit(str(i), "c", "s", i, "", (str(i),), f"Record {i}.", f"Record {i}.", ("A",)) for i in range(n))
+    basis = np.eye(n)
+    vectors = {u.id:basis[i] for i,u in enumerate(units)}
+    refs = [Reference(f"r{i}", str(i), units[i].text, 0, ("it",)) for i in range(n-1)]
+    cues = {f"r{i}": .9*basis[i+1] + np.sqrt(.19)*basis[i] for i in range(n-1)}
+    q = basis[0].copy()
+    result = retrieve(units, vectors, vectors, {u.id:[u.id] for u in units}, refs, cues, q, Policy(.99, .99, .8))
+    assert result["selected"] == [str(i) for i in range(7)]
+    assert np.array_equal(q, basis[0]), "Caller query vector was mutated"
+    assert result["weak_paths_suppressed"] > 0
+    assert result["operations"] <= result["operation_bound"]
