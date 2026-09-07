@@ -525,6 +525,8 @@ read `ERRATA.md` before quoting any number.
 
 ## Status Ledger
 
+> **LoCoMo retrieval miss audit:** all30 selections/prompts replay exactly. Five missing annotations fail.48; café answer is in an omitted image caption, patriotism was already answered correctly, and two recommendation questions do not equate annotation loss with unavailable answers. [Source-to-prompt diagnosis](experiments/probes/locomo_timeline30/MISS_AUDIT_REPORT.md). No new calls, scores or retrieval changes.
+
 > **LoCoMo timeline30, September7:** broad13/20,additional temporal5/10; evidence complete16/20 and10/10. NativeOFF,one answer per question,unchanged deterministic retrieval. Three-pass final majority after a documented parser repair(4→5temporal); relative-date judging remains imperfect. [All questions,answers and limitations](experiments/probes/locomo_timeline30/REPORT.md). No full-study or chronology-causality claim.
 
 > **Reader anchor diagnostic, September7:** eight short synthetic histories produced expected event-resolution status; later clarification and retrospective evidence were both flagged unsafe to cut. Native thinkingOFF with explicit diagnostic instructions. Citation sets remain incomplete; no natural transfer or causal chronology result. [Report](experiments/probes/reader_anchor/REPORT.md). Full LoCoMo remains paused.

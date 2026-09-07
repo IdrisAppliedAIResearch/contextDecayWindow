@@ -226,6 +226,8 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **LoCoMo timeline30 (2026-09-07).** Current deterministic arm: broad13/20,extra temporal5/10; complete evidence16/20,10/10. NativeOFF,one answer/question,chronological,no anchor. Three-pass judge; final-verdict repair changes temporal4→5. Relative-date ambiguity and plan/completion caveat.30reader calls89.35s; no causal/transfer verdict. Plan68df803d; full run paused.
 
+**LoCoMo retrieval miss audit (2026-09-07).** Four cases/five missing annotations all below.48(.312–.459);30exact replays. Café gold is omitted image caption; selected reaction lacks antecedent. Patriotism already correct. Charity/gift golds are recommendations; gift’s missing supportive remark not demonstrated necessary. No calls/tuning. Plan2883ac93; raw8a16e6be.
+
 ## 3. Failure Pattern
 
 The recurring failure class is a surrogate that can pass without the property it claims to certify: record count for information, novelty for importance, density for factual value, or a rubric score for a correct answer.
