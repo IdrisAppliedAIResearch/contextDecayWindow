@@ -14,6 +14,8 @@ import urllib.request
 import prepare as p
 
 OUT = p.OUT
+CONTEXT = 40960
+FIT = OUT/'fit40960/fit.json'
 OLD = p.ROOT/'experiments/study_E/artifacts/confirmation/restart005'
 BASE = dict(seed=5005, temperature=.6, top_p=.95, top_k=20, min_p=0, repeat_penalty=1, presence_penalty=0, cache_prompt=False, reasoning_format='none', n_predict=4096, id_slot=0)
 
@@ -57,7 +59,7 @@ def launch(folder):
     with socket.socket() as s:
         assert s.connect_ex(('127.0.0.1',8099)) != 0, 'PORT_IN_USE'
     command = p.read(OLD/'launch.json')['command']
-    for flag, value in [('--port','8099'),('--parallel','1'),('--ctx-size','32768')]:
+    for flag, value in [('--port','8099'),('--parallel','1'),('--ctx-size',str(CONTEXT))]:
         command[command.index(flag)+1] = value
     assert command[command.index('--reasoning')+1]=='off'
     assert command[command.index('--reasoning-budget')+1]=='0'
@@ -101,7 +103,7 @@ def fit():
     for name,h in part['outputs'].items(): assert p.sha(OUT/name)==h
     pins=p.read(OLD/'runtime_pins.json')
     for pin in pins: assert p.sha(pin['path'])==pin['sha256']
-    folder=OUT/'fit'
+    folder=OUT/'fit40960'
     process=launch(folder)
     try:
         prompts=[]
@@ -109,20 +111,20 @@ def fit():
             prompt=native(r['text'])
             n=len(req('tokenize',dict(content=prompt,add_special=False))['tokens'])
             prompts.append(dict(r,prompt=prompt,prompt_sha256=p.digest(prompt),tokens=n))
-        p.prior._write_gzip_rows(OUT/'native_prompts.jsonl.gz',prompts)
+        assert prompts == rows('native_prompts.jsonl.gz'), 'CONTEXT_CHANGE_PROMPT_DRIFT'
         lengths=sorted(r['tokens'] for r in prompts)
-        p.save(folder/'fit.json',dict(status='PASS' if max(lengths)+4096<=32768 else 'CAPACITY_BLOCK', tokens=lengths, max_tokens=max(lengths), context=32768, output=4096, pins=pins, native_prompts_sha256=p.sha(OUT/'native_prompts.jsonl.gz'), native_thinking=False, code=p.sha(__file__)))
-        print(json.dumps(dict(max_tokens=max(lengths),fits=max(lengths)+4096<=32768)),flush=True)
+        p.save(folder/'fit.json',dict(status='PASS' if max(lengths)+4096<=CONTEXT else 'CAPACITY_BLOCK', tokens=lengths, max_tokens=max(lengths), context=CONTEXT, output=4096, pins=pins, native_prompts_sha256=p.sha(OUT/'native_prompts.jsonl.gz'), native_thinking=False, code=p.sha(__file__), original_prompts_exact=True))
+        print(json.dumps(dict(max_tokens=max(lengths),fits=max(lengths)+4096<=CONTEXT)),flush=True)
     finally: stop(process,folder)
 
 
 def gate(require_calibration=False):
-    for path in [p.P/'PRE_REGISTRATION.md', OUT/'preflight.json', OUT/'fit/fit.json', Path(__file__), p.P/'prepare.py']:
+    for path in [p.P/'PRE_REGISTRATION.md', OUT/'preflight.json', FIT, Path(__file__), p.P/'prepare.py']:
         p.committed(path)
     g=p.read(OUT/'preflight.json')
     assert g['status']=='PASS'
     for path,h in g['hashes'].items(): assert p.sha(path)==h, path
-    assert p.read(OUT/'fit/fit.json')['status']=='PASS'
+    assert p.read(FIT)['status']=='PASS'
     if require_calibration:
         p.committed(OUT/'reader/calibration.json')
         assert p.read(OUT/'reader/calibration.json')['status']=='PASS'

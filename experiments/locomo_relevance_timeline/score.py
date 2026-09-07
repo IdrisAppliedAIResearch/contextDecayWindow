@@ -65,7 +65,7 @@ def run():
                 assert process.poll() is None and r.gpu()['free_mib']>=1536
                 identity=item['blind_id']+'_'+str(seed)
                 prompt=r.native(render_judge_prompt(item['question'],item['gold'],item['answer']))
-                assert len(r.req('tokenize',dict(content=prompt,add_special=False))['tokens'])+4096<=32768
+                assert len(r.req('tokenize',dict(content=prompt,add_special=False))['tokens'])+4096<=r.CONTEXT
                 state.update(phase='judges',request_started=time.time(),current=identity)
                 p.save(folder/(identity+'.pending.json'),dict(prompt_sha256=p.digest(prompt),started=state['request_started']))
                 response=r.req('completion',dict(r.BASE,prompt=prompt,seed=seed,temperature=.2,top_p=.9))
