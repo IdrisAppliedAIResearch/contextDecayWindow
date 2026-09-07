@@ -219,11 +219,45 @@ def report():
     for r in rows:
         unique.setdefault((r["conversation"],r["question"]),r)
     result=dict(primary=overall,strata=strata,disposition=disposition(overall,strata,selective),
+                per_conversation={c:paired([r for r in rows if r["conversation"]==c]) for c in sorted({r["conversation"] for r in rows})},
                 selective=selective,deduplicated_sensitivity=paired(list(unique.values())),
                 adversarial={a:dict(n=446,exact_abstentions=sum(r["answer"].strip()=="I don't know." for r in links if r["category"]==5 and r["arm"]==a)) for a in ("C0","C1")},
                 judge_disagreements=sum(v["disagreement"] for v in votes.values()),rows=rows)
     write_json(RUN/"results.json",result)
     seal([RUN/"results.json"],"Seal paired unified-memory development outcomes")
+    # Outcome-linked evidence diagnostics open only after the scored result is sealed.
+    sources={u["id"]:u for u in read_rows(A/"prepared/sources.jsonl.gz")}
+    selected={"C0":{r["key"]:r["selected_ids"] for r in read_rows(A/"control/selections.jsonl.gz")},
+              "C1":{r["key"]:r["selected_ids"] for r in read_rows(A/"characterization_v2/selections.jsonl.gz")}}
+    diagnostics=[]
+    for r in links:
+        if r["category"]==5:
+            continue
+        delivered={member for uid in selected[r["arm"]][r["key"]] for member in sources[uid]["member_ids"]}
+        evidence=set(r["evidence"])
+        diagnostics.append(dict(r,score=votes[r["blind_id"]]["score"],
+                    annotated_all=bool(evidence) and evidence<=delivered,
+                    annotated_any=bool(evidence&delivered),has_annotation=bool(evidence),
+                    missing_annotation_ids=sorted(evidence-delivered),delivered_ids=sorted(delivered)))
+    write_rows(RUN/"diagnostics.jsonl.gz",diagnostics)
+    cross={a:{f"all_{int(available)}_correct_{correct}":sum(r["arm"]==a and r["has_annotation"] and r["annotated_all"]==available and r["score"]==correct for r in diagnostics)
+              for available in (False,True) for correct in (0,1)} for a in ("C0","C1")}
+    write_json(RUN/"availability_cross_tabs.json",cross)
+    lo,hi=overall["ci95"]
+    text=(f"# Unified contextual memory development result\n\n{result['disposition']}. "
+          f"C0 {overall['C0']}/{overall['n']}; C1 {overall['C1']}/{overall['n']}. "
+          f"Difference {overall['difference']*100:.2f} percentage points; conversation-cluster 95% interval [{lo*100:.2f}, {hi*100:.2f}]. "
+          f"{overall['gains']} gains and {overall['losses']} losses.\n\n"
+          "This is the preregistered development endpoint on previously exposed LoCoMo, with one native-thinking-off reader and three same-model judge seeds. "
+          "It is not fresh confirmation, component attribution, human-audited scoring, or a transfer/adoption claim. "
+          "The direct arm shares caption repair and chronology. Availability is diagnostic and annotated evidence is not semantic sufficiency.\n\n"
+          "Exact counts and strata: [results](artifacts/evaluation/results.json). "
+          "Question/gold/answer/evidence records: [diagnostics](artifacts/evaluation/diagnostics.jsonl.gz). "
+          "[Registered protocol](PRE_REGISTRATION.md).\n")
+    with (P/"REPORT.md").open("x",encoding="utf-8") as f:
+        f.write(text)
+    seal([RUN/"diagnostics.jsonl.gz",RUN/"availability_cross_tabs.json",P/"REPORT.md"],
+         "Record unified-memory evidence diagnostics and development report")
     print(json.dumps({k:v for k,v in result.items() if k!="rows"}),flush=True)
 
 
