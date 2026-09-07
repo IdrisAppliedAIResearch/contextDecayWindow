@@ -1,0 +1,257 @@
+{
+  "stats": {
+    "n": 22,
+    "recovered": 22,
+    "remaining_wrong": 0,
+    "seconds": 91.5500611999305,
+    "output_tokens": 61,
+    "retained_min": 55,
+    "retained_max": 95,
+    "removed_min": 15,
+    "removed_max": 55
+  },
+  "rows": [
+    {
+      "id": "05d782e63a2940af0b50ed4ced06a6a985638a5b446f986f9dc15690e07c9e73",
+      "type": "future",
+      "blind_id": "457fcd361640e28605f242cd0d94838d20a36ff21a3f3fe3bc1bef0408061b35",
+      "query": "What was the delivery location for \"Meadow-637\" immediately before \"Meadow-637 review\"?",
+      "reference": "depot",
+      "answer": "depot",
+      "score": 1,
+      "rationale": "Frozen canonical value compared exactly.",
+      "old_answer": "studio"
+    },
+    {
+      "id": "24423babbd2cedeca47117b6c3f2743f861af48324e0e4f1dba8d36779e9f4a8",
+      "type": "irrelevant",
+      "blind_id": "711257391f67caa634f1a4ef1f375d5fe99d52314fa2d497bef95bc27ae602cd",
+      "query": "What was the delivery location for \"Orchard-892\" immediately before \"Orchard-892 review\"?",
+      "reference": "studio",
+      "answer": "studio",
+      "score": 1,
+      "rationale": "Frozen canonical value compared exactly.",
+      "old_answer": "depot"
+    },
+    {
+      "id": "43e78698842c43c86005926424776e655148a3bbcff5ac720164877f49bb19c8",
+      "type": "straight",
+      "blind_id": "846d6b6e3857c85d3e7faffa9a017aa80248742340f8beffe158e9f3d04d5c5b",
+      "query": "What was the delivery location for \"Harbor-580\" immediately before \"Harbor-580 review\"?",
+      "reference": "workshop",
+      "answer": "workshop",
+      "score": 1,
+      "rationale": "Frozen canonical value compared exactly.",
+      "old_answer": "The delivery location for \"Harbor-580\" immediately before the \"Harbor-580 review\" meeting was the depot."
+    },
+    {
+      "id": "44b01138ed34c4ae38178fe7d0777d1340626dc27cecbc0d7ea6f07e8a62094e",
+      "type": "straight",
+      "blind_id": "1a13cf7dc2e8c0a3036c401401cdc59c2c11e980c0d7ec450abda36f125dc34a",
+      "query": "What was the delivery location for \"Harbor-795\" immediately before \"Harbor-795 review\"?",
+      "reference": "warehouse",
+      "answer": "warehouse",
+      "score": 1,
+      "rationale": "Frozen canonical value compared exactly.",
+      "old_answer": "The delivery location for \"Harbor-795\" immediately before the \"Harbor-795 review\" was the depot."
+    },
+    {
+      "id": "4a56f058c2a3143c51e31c2de58d3dfe9a0049f5172259d2511e5fb2bb7844ee",
+      "type": "proposal",
+      "blind_id": "b013d24a1b8254aa1d90606b8ba249b5bcadc70b18cfec2d91e506aa9e848642",
+      "query": "What was the delivery location for \"Riverside-152\" immediately before \"Riverside-152 review\"?",
+      "reference": "depot",
+      "answer": "depot",
+      "score": 1,
+      "rationale": "Frozen canonical value compared exactly.",
+      "old_answer": "annex"
+    },
+    {
+      "id": "53c3daca3e8914e829ef7869884a68b116f3c9c4a76d16963f66da015c2f5f5d",
+      "type": "straight",
+      "blind_id": "d7e5f2250e49e168e5f95d9d308757a317450e2d5f95ccdce09dc0b53e821dea",
+      "query": "What was the delivery location for \"Harbor-269\" immediately before \"Harbor-269 review\"?",
+      "reference": "annex",
+      "answer": "annex",
+      "score": 1,
+      "rationale": "Frozen canonical value compared exactly.",
+      "old_answer": "office"
+    },
+    {
+      "id": "5cb02bde46bc83b75f135db306622d68f769e371fb69bda8a608d2cd7f284104",
+      "type": "proposal",
+      "blind_id": "a18cce3190e0eb1097ce8423882a9c6ea6f05b124726d1377457c550a11b7a35",
+      "query": "What was the delivery location for \"Riverside-405\" immediately before \"Riverside-405 review\"?",
+      "reference": "depot",
+      "answer": "depot",
+      "score": 1,
+      "rationale": "Frozen canonical value compared exactly.",
+      "old_answer": "office"
+    },
+    {
+      "id": "67b51e769988a0d71182304a66e4ae5d51f04191e3b24dbbbcd74b0cf3a10cbf",
+      "type": "straight",
+      "blind_id": "99fcf5d8eacea61d126d42e60737d449092a79bff6807e93f8b649671a4f8917",
+      "query": "What was the delivery location for \"Harbor-374\" immediately before \"Harbor-374 review\"?",
+      "reference": "annex",
+      "answer": "annex",
+      "score": 1,
+      "rationale": "Frozen canonical value compared exactly.",
+      "old_answer": "warehouse"
+    },
+    {
+      "id": "7cacd6a51c2cac945083dbaae567f38992af49ee4a49da8342cbd571c0eb40a1",
+      "type": "future",
+      "blind_id": "7f1044274135b4feaa8a3a20f4d9c39480a36f757f9bed07ecb90943623985fa",
+      "query": "What was the delivery location for \"Meadow-327\" immediately before \"Meadow-327 review\"?",
+      "reference": "warehouse",
+      "answer": "warehouse",
+      "score": 1,
+      "rationale": "Frozen canonical value compared exactly.",
+      "old_answer": "depot"
+    },
+    {
+      "id": "823d82f7f1e1485c8f027447b34ae19a232fb4f5dbeeb1174a1d212dbbc8e5fd",
+      "type": "future",
+      "blind_id": "7f0a78085ed3c0c9f600e78975b5b9bae8850c6e75cd8c72d66038ca952cf18b",
+      "query": "What was the delivery location for \"Meadow-840\" immediately before \"Meadow-840 review\"?",
+      "reference": "warehouse",
+      "answer": "warehouse",
+      "score": 1,
+      "rationale": "Frozen canonical value compared exactly.",
+      "old_answer": "The workshop"
+    },
+    {
+      "id": "ab70e4c477659872c36569fe9d50b2c51f9c614b1cc75104f705d7c01d46e60f",
+      "type": "straight",
+      "blind_id": "a43adefa592232528ff0f50502d98cf210147825b22c6d7f349d3930a2c635f7",
+      "query": "What was the delivery location for \"Harbor-553\" immediately before \"Harbor-553 review\"?",
+      "reference": "laboratory",
+      "answer": "laboratory",
+      "score": 1,
+      "rationale": "Frozen canonical value compared exactly.",
+      "old_answer": "The delivery location for \"Harbor-553\" immediately before the \"Harbor-553 review\" meeting (turn 92) was the workshop."
+    },
+    {
+      "id": "b243c7dfa6f1c3122b3edf17c2736e45156a0e8d41c0834bb9f59289de493cf4",
+      "type": "future",
+      "blind_id": "505f8eb7ad9bdfc1cc8943bde17cc856384a891b4700bb0ff6ccd97273989897",
+      "query": "What was the delivery location for \"Meadow-940\" immediately before \"Meadow-940 review\"?",
+      "reference": "depot",
+      "answer": "depot",
+      "score": 1,
+      "rationale": "Frozen canonical value compared exactly.",
+      "old_answer": "studio"
+    },
+    {
+      "id": "bb94d326dd8430a55db4e198fe72516667d8bea0a72fe99352405d94c34f5146",
+      "type": "proposal",
+      "blind_id": "fe343229308cb0ecdf1b71376979127b0520dca940fbce3dbc6da26ed03b309a",
+      "query": "What was the delivery location for \"Riverside-281\" immediately before \"Riverside-281 review\"?",
+      "reference": "hangar",
+      "answer": "hangar",
+      "score": 1,
+      "rationale": "Frozen canonical value compared exactly.",
+      "old_answer": "The delivery location for \"Riverside-281\" immediately before the \"Riverside-281 review\" (which occurred at turn 93) was the **laboratory** (set at turn 90, with no changes in turns 91 and 92).\n\nAnswer: laboratory"
+    },
+    {
+      "id": "c42a4c7448e84abec11465f0c47c8b24b179e9dfcf9518109da3d23fa79f856d",
+      "type": "straight",
+      "blind_id": "c138f21c1533c4b6f7ae8247eab0e690c15cceba41c0a3d4ca46ebede22ec591",
+      "query": "What was the delivery location for \"Harbor-152\" immediately before \"Harbor-152 review\"?",
+      "reference": "workshop",
+      "answer": "workshop",
+      "score": 1,
+      "rationale": "Frozen canonical value compared exactly.",
+      "old_answer": "studio"
+    },
+    {
+      "id": "ca7110eee654a2b1f9cbfb7d568788364edb9857acc7a6df112615dd215f250a",
+      "type": "straight",
+      "blind_id": "d3d74d5019829ef1f1b80b6fda224d7850e4a560c67b98eb04d8b5268e50f56a",
+      "query": "What was the delivery location for \"Harbor-788\" immediately before \"Harbor-788 review\"?",
+      "reference": "workshop",
+      "answer": "workshop",
+      "score": 1,
+      "rationale": "Frozen canonical value compared exactly.",
+      "old_answer": "studio"
+    },
+    {
+      "id": "e00ff57cc6e75403b1e79eaf29e3ea7331a9a7dc979fd7179832d1758b2c9e81",
+      "type": "proposal",
+      "blind_id": "efc16049f13e33d0b47f1d3622d75292423542674a2469175e2688b87b272a8c",
+      "query": "What was the delivery location for \"Riverside-978\" immediately before \"Riverside-978 review\"?",
+      "reference": "annex",
+      "answer": "annex",
+      "score": 1,
+      "rationale": "Frozen canonical value compared exactly.",
+      "old_answer": "warehouse"
+    },
+    {
+      "id": "e4401180aaacf6b89cd6c74b2c6d282c87f87d8abc876c748dae542a9da993e5",
+      "type": "future",
+      "blind_id": "d9cee3f77f54f9c4c91894118ae41087095b640e5bfaaee5545dbbf3f8122513",
+      "query": "What was the delivery location for \"Meadow-219\" immediately before \"Meadow-219 review\"?",
+      "reference": "workshop",
+      "answer": "workshop",
+      "score": 1,
+      "rationale": "Frozen canonical value compared exactly.",
+      "old_answer": "office"
+    },
+    {
+      "id": "e939cb362e1b3a60c51a65c8834e5e2b654519cf0a52a6a1f87e5f65e6d530f8",
+      "type": "irrelevant",
+      "blind_id": "c75be28c50b5bf29f021ce1511b0136021bc544c41b6ea45d51fe5ced448a745",
+      "query": "What was the delivery location for \"Orchard-428\" immediately before \"Orchard-428 review\"?",
+      "reference": "laboratory",
+      "answer": "laboratory",
+      "score": 1,
+      "rationale": "Frozen canonical value compared exactly.",
+      "old_answer": "The workshop"
+    },
+    {
+      "id": "eb665ffd4d5c14befa9882b055fd4aabc292c780c5dce670b0060d4a847da29e",
+      "type": "straight",
+      "blind_id": "499f85dc3faa5dbac5de2339a9d6dab0436fdc00874dad9d6af564d190288b4c",
+      "query": "What was the delivery location for \"Harbor-447\" immediately before \"Harbor-447 review\"?",
+      "reference": "hangar",
+      "answer": "hangar",
+      "score": 1,
+      "rationale": "Frozen canonical value compared exactly.",
+      "old_answer": "The delivery location for \"Harbor-447\" immediately before the \"Harbor-447 review\" meeting (turn 92) was the **studio** (set in turn 83, with no changes in turns 84-91)."
+    },
+    {
+      "id": "eb85ee3c64d2897a148e4c7a6fd4b3472e43c73e21107d852367cff197c0abbb",
+      "type": "straight",
+      "blind_id": "53730fa5cdeb06ff7631cdbe63da14852aed10d4cc07574ffe0afd6c27946a28",
+      "query": "What was the delivery location for \"Harbor-493\" immediately before \"Harbor-493 review\"?",
+      "reference": "studio",
+      "answer": "studio",
+      "score": 1,
+      "rationale": "Frozen canonical value compared exactly.",
+      "old_answer": "office"
+    },
+    {
+      "id": "fb473458beaf1ad2dbd4675a4e68c53937f6efd38f4012be18987bc813af4f06",
+      "type": "proposal",
+      "blind_id": "d7d4a259c17e44af480da789116db87095ac6348f98802e9a487449f1ca96962",
+      "query": "What was the delivery location for \"Riverside-604\" immediately before \"Riverside-604 review\"?",
+      "reference": "hangar",
+      "answer": "hangar",
+      "score": 1,
+      "rationale": "Frozen canonical value compared exactly.",
+      "old_answer": "laboratory"
+    },
+    {
+      "id": "ffdacc9caf364638824176852b286c84bc4a1a0f90b77c3f7ab3dc47c78b87d9",
+      "type": "irrelevant",
+      "blind_id": "13837c86b960f5befa26e11b50c5042542df3e564b389509d09f459fff89ce06",
+      "query": "What was the delivery location for \"Orchard-199\" immediately before \"Orchard-199 review\"?",
+      "reference": "annex",
+      "answer": "annex",
+      "score": 1,
+      "rationale": "Frozen canonical value compared exactly.",
+      "old_answer": "The laboratory"
+    }
+  ]
+}
