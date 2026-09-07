@@ -4,6 +4,8 @@ Read this file before doing anything in this repository. It carries the program'
 
 **If this file and a study's pre-registration disagree, the pre-registration governs. Stop and flag the conflict rather than reconciling it silently.**
 
+**Current handoff (2026-09-07):** the user accepted the integrated contextual-memory design at `8927134a` and is compacting before implementation. Read [the resume notes](experiments/locomo_relevance_timeline/HANDOFF.md) and [the design](experiments/designs/unified_contextual_memory/DESIGN.md). No implementation or new inference has begun; the handoff records accepted direction, open choices, and registration requirements.
+
 ## 1. Program
 
 This repository contains ten pre-registered studies testing whether a language model can sustain a long conversation by rebuilding a small, relevant context each turn rather than carrying the whole transcript. Each study adds one component and addresses the previous study's documented failures.
