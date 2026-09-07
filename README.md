@@ -437,9 +437,7 @@ confirmation.
 
 ## Next Steps
 
-Resolve whether the next LoCoMo test should evaluate the chronological relevance filter alone or first establish a natural-language anchor mechanism. Full reader inference is paused pending that discussion.
-
-Complete the LoCoMo relevance-timeline design with live batched inference. Nine concurrent32k reader slots passed the [capacity probe](experiments/probes/temporal_da_fusion/BATCH_CAPACITY_REPORT.md); full uncapped prompt fit and reader/judge calibration remain. LoCoMo is previously used, so this tests transfer of the current configuration, not an untouched holdout.
+Review the [unified contextual-memory subset result](experiments/unified_contextual_memory/REPORT.md): reader correctness384/566→399/566, with27gains and12losses. Examine the mixed category results and annotation-completeness transitions before choosing any further experiment. The user stopped full-corpus generation; it remains stopped.
 
 1. **Validate episodic-chat 0.2.0 outside the spent LoCoMo corpus.** Freeze an
    external reader and retrieval study—preferably EnterpriseRAG-Bench or an
@@ -526,6 +524,8 @@ read `ERRATA.md` before quoting any number.
 ## Status Ledger
 
 > **LoCoMo retrieval miss audit:** all30 selections/prompts replay exactly. Five missing annotations fail.48; café answer is in an omitted image caption, patriotism was already answered correctly, and two recommendation questions do not equate annotation loss with unavailable answers. [Source-to-prompt diagnosis](experiments/probes/locomo_timeline30/MISS_AUDIT_REPORT.md). No new calls, scores or retrieval changes.
+
+> **Unified contextual memory subset (2026-09-07).** User stopped generation before scoring:741complete pairs,566primary and175adversarial. Reader C0 384/566→C1 399/566 (+2.65pp; descriptive cluster95%CI0.53–4.53;27g12l). Complete annotation493→516/565. Category1 regresses2. Same-model blinded adjudication; independent reconstruction passes. Exposed nonrandom subset; full run not completed, no adoption/transfer/component claim. [Report](experiments/unified_contextual_memory/REPORT.md).
 
 > **LoCoMo timeline30, September7:** broad13/20,additional temporal5/10; evidence complete16/20 and10/10. NativeOFF,one answer per question,unchanged deterministic retrieval. Three-pass final majority after a documented parser repair(4→5temporal); relative-date judging remains imperfect. [All questions,answers and limitations](experiments/probes/locomo_timeline30/REPORT.md). No full-study or chronology-causality claim.
 
@@ -1029,6 +1029,7 @@ Runs use a scripted 120-turn conversation with facts planted at known positions 
 
 | # | Added | Result | Finding |
 |---|---|---|---|
+| Unified memory subset | Contextual access and composed reference traversal, shared captions/chronology | EXPLORATORY reader |384/566→399/566;+2.65pp;27g12l;nonrandom stopped subset;no adoption|
 | Fusion draft | DA adjacency after protected E temporal records | EXPLORATORY | Evidence109/128→108/128;6 gains7 losses; exact replay192/192; no reader calls or full DA codec port |
 | Fusion difference | Direction and before-anchor link ablations | EXPLORATORY | Forward110/128 (7g/6l), backward99 (0/10), before-anchor108 (6/7); no safe admission signal or reader result |
 | Chronology probe | Same retrieved evidence, remove recent context, sort ascending | EXPLORATORY reader | Before5/12→5/12→8/12;4guards correct;native off,16questions,48calls; no adoption |

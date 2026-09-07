@@ -4,7 +4,7 @@ Read this file before doing anything in this repository. It carries the program'
 
 **If this file and a study's pre-registration disagree, the pre-registration governs. Stop and flag the conflict rather than reconciling it silently.**
 
-**Current handoff (2026-09-07):** user stopped unified-memory full-corpus generation to gauge exploratory signal. Amendment002 freezes741 complete paired questions; raw preserved at1b96adc. Subset scoring is launched; no further benchmark generation. Read [current handoff](experiments/unified_contextual_memory/HANDOFF.md) and durable status. Quiet completion/failure follow-up is active.
+**Current handoff (2026-09-07):** unified-memory exploratory subset COMPLETE: C0 384/566 versus C1 399/566 (+2.65pp; descriptive CI0.53–4.53;27g/12l). Independent audit passed. Full-corpus generation remains stopped. Read [report](experiments/unified_contextual_memory/REPORT.md); no further inference or adoption authorized.
 
 ## 1. Program
 
@@ -229,6 +229,8 @@ The coding agent implements the registered design. Do not design studies, choose
 **LoCoMo timeline30 (2026-09-07).** Current deterministic arm: broad13/20,extra temporal5/10; complete evidence16/20,10/10. NativeOFF,one answer/question,chronological,no anchor. Three-pass judge; final-verdict repair changes temporal4→5. Relative-date ambiguity and plan/completion caveat.30reader calls89.35s; no causal/transfer verdict. Plan68df803d; full run paused.
 
 **LoCoMo retrieval miss audit (2026-09-07).** Four cases/five missing annotations all below.48(.312–.459);30exact replays. Café gold is omitted image caption; selected reaction lacks antecedent. Patriotism already correct. Charity/gift golds are recommendations; gift’s missing supportive remark not demonstrated necessary. No calls/tuning. Plan2883ac93; raw8a16e6be.
+
+**Unified memory subset (2026-09-07).** EXPLORATORY: user-stopped741pairs,566primary. Reader384→399 (+2.65pp; descriptive clusterCI.53–4.53;27g12l). All annotation493→516/565;23g0l. Category1 loses2. Same-model adjudication, no human audit. Nonrandom exposed subset; no full-population/adoption claim. Raw1b96adc7; scores a0fc0940; results c3d55da1.
 
 ## 3. Failure Pattern
 
