@@ -23,6 +23,9 @@ def main():
             for w in d['waves']:
                 assert {r['id_slot'] for r in w['responses']}==set(range(n))
                 assert all(r['timings']['cache_n']==0 and r['tokens_predicted']==64 and not r['truncated'] for r in w['responses'])
+            hashes=[[hashlib.sha256(r['prompt'].encode()).hexdigest() for r in w['responses']] for w in d['waves']]
+            assert hashes[0]==hashes[1] and len(set(hashes[0]))==n
+            row['prompt_sha256']=hashes[0]
             row.update(min_free_mib=min(s['free'] for w in d['waves'] for s in w['samples']),wave_seconds=[w['seconds'] for w in d['waves']],input_tokens=sorted(set(r['tokens_evaluated'] for w in d['waves'] for r in w['responses'])))
             row['responses_per_second']=2*n/sum(row['wave_seconds'])
         row['raw_sha256']=hashlib.sha256(f.read_bytes()).hexdigest();rows.append(row)
