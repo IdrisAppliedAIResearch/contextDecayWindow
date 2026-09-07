@@ -21,6 +21,7 @@ def main():
     for path in list((ROOT/"src/unified_memory").glob("*.py"))+list(P.glob("*.py")):
         pin(path)
     pin(P/"PRE_REGISTRATION.md")
+    pin(P/"AMENDMENT_001_SCORING.md")
     pin(ROOT/"src/analysis/hh001_prompt.py")
     for folder in ("prepared","references","calibration","characterization_v1","characterization_v2","control","fit_v2","capacity"):
         for path in (A/folder).glob("*"):

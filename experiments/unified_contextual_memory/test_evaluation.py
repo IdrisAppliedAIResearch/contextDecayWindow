@@ -1,5 +1,5 @@
 import pytest
-from evaluation import verdict, gate, paired, disposition
+from evaluation import verdict, gate, paired, disposition, outside_reasoning
 from transport import Server, final
 
 
@@ -21,6 +21,7 @@ def test_missing_gate_precedes_generation(tmp_path):
 
 
 def test_bad_outputs_fail():
+    assert outside_reasoning("<think>The answer is Paris.</think>")==""
     for response in ({"truncated":True}, {"stop_type":"limit"}, {"stop_type":"eos","content":"<think>x</think>45"}):
         with pytest.raises(ValueError):
             final(response)
