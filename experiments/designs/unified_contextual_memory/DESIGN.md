@@ -1,6 +1,6 @@
 # Unified contextual memory: architecture design
 
-**Status: review draft. Not preregistered; no implementation or inference authorized.**
+**Status: accepted architecture; development authorized 2026-09-07. Experimental comparison not yet preregistered.**
 
 **Date:** 2026-09-07. **Evidence snapshot:** `4c33842724c93e7389377a2622b2dd37518e98fe`.
 
@@ -356,3 +356,26 @@ These open entries are substantive research and instrument choices. They must be
 - [QAFD (2026)](https://arxiv.org/html/2605.18775v1) and [query-aware spreading activation (2026)](https://arxiv.org/abs/2606.30133): query-aware numerical traversal ideas. Their published pipelines include generative extraction or query/seed processing. Only appropriate mathematical components are candidates for reuse; query-alignment assumptions can exclude necessary low-similarity bridges.
 
 The external papers support component mechanisms. Their combination here is our architectural hypothesis and has not been evaluated by those papers or by the repository's earlier studies.
+
+## 13. Authorized development protocol (2026-09-07)
+
+After accepting this document, the user instructed: "You can begin end to end implementation." This authorizes development of the combined architecture and its instrument, including the source-matched control. The bundled scope is intentional, rather than a silent exception inferred from a component name. A separate experimental preregistration will restate that scope and freeze the outcome comparison after Part 1. Earlier study registrations are unchanged.
+
+Work on `study/unified-contextual-memory`, based on `71ce3cbb`. Development code/artifacts live under `experiments/unified_contextual_memory`; reusable mechanism code may live under `src/unified_memory`. Keep this document as the single architecture/development design. The following phase precedes selecting experimental thresholds or opening new reader outcomes.
+
+### Phase A: encoder and source feasibility
+
+- Inventory and hash the installed Qwen3-Embedding-0.6B Q8_0 model, llama-cpp-python/runtime libraries, source corpus, prior vector manifests, and historical selected prompts. Use the existing local encoder first. No model or corpus download is assumed necessary.
+- In an isolated process, expose unpooled token vectors with `LLAMA_POOLING_TYPE_NONE`, one text per call, seed 5005, GPU offload, context/batch/microbatch 8192, and eight CPU threads. Pass `truncate=False`; enforce exact token fit before every call. These are technical probe settings, not retrieval budgets or confirmed settings for the final run.
+- Use fixed illustrative texts about Northstar/Cedar interviews and an unrelated cooking context. Measure independent native pooling versus the corresponding unpooled last-token vector; repeated token-vector identity; contextual target pooling (last token and mean); token/source-offset integrity; sensitivity to preceding context; and invariance to unavailable following context for the causal encoder. Persist all numeric outputs and runtime identities before interpretation. This checks representation mechanics, not reader accuracy or benchmark evidence recovery.
+- A causal model cannot encode following records into earlier token states. Record that limitation explicitly. A last-token contextual representation may preserve the model's native pooling better than mean pooling, but neither is selected merely by whichever gives the desired job answer. Select an implementation only after its pooling semantics and replay behavior are demonstrated; document the decision before corpus capture.
+- Independently inspect the LoCoMo source schema without using answers/evidence labels in mechanism code. Preserve original text/speaker/date/dialogue IDs and supplied `blip_caption` text with explicit annotation provenance. Images remain references; no caption-generation calls. Enumerate other metadata and state its treatment. Shared preprocessing must not import the treatment retrieval engine.
+- Replay the historical 1,986 selected ID/payload groups before new selection measurements. Previously examined LoCoMo is development data. No fresh confirmation claim or test population is selected by this phase.
+
+### Phase B: development instrument and operating points
+
+Implement the policy in section 6.3 with immutable identities, exact knowledge horizons, source-matched independent control, finite monotone assertions, and transparent per-route traces. Verify self-support rejection, actual support delivery, ambiguous/missing references, forbidden future context, rejected-path continuation, cyclic references, and near-full-context degenerate controls before benchmark interpretation.
+
+Auxiliary thresholds must be calibrated separately from `.48`. First record query/context, source-cue/support, and reference-cue candidate score distributions on the exposed development surface, including mismatched-conversation controls, without consulting gold support or generated answers. Commit those measurements and the chosen operating rule before any paired reader run. Do not perform a sweep over reader accuracy. The actual thresholds and their selection justification belong in the same document and final registration once observed scale is known.
+
+Part 1 ends with a committed manifest/report of the actual implementation, configuration, limitations, gates, and remaining decisions. A failed feasibility check triggers a documented repair or an explicit revision of the bundle, not an unreported substitute. Until the separate experimental registration and preflight exist, the live comparison must fail closed. Reader settings, source parity, single-call boundaries, scoring order, and quiet long-run hooks remain as specified above.
