@@ -222,6 +222,8 @@ The coding agent implements the registered design. Do not design studies, choose
 
 ## 3. Failure Pattern
 
+**LoCoMo timeline preflight (2026-09-07).** INFERENCE PAUSED. Existing anchor grammar unsupported on1,986/1,986. Selected/full median input8,494/36,048tokens; paired retained median26.44%,46retain>=90%. Longest33,841/34,259 (98.78%). All128Eprefixes replay;40,960context fits. No answers. Plan4193702b; size rawc3555066. Resolve transfer scope before inference.
+
 The recurring failure class is a surrogate that can pass without the property it claims to certify: record count for information, novelty for importance, density for factual value, or a rubric score for a correct answer.
 
 Before implementing any gate or criterion, ask whether it can pass while the certified property is false. Flag that possibility before writing code.
