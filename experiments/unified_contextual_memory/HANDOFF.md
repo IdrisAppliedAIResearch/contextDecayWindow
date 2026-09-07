@@ -25,3 +25,5 @@ Automation `unified-memory-evaluation-completion-and-failures` is ACTIVE on this
 ## Remaining closeout
 
 Verify terminal state and stage commits. On success, independently recompute primary counts, majority sensitivity, strata and availability×correctness from committed raw/mappings. Inspect missed retrievals only after scored outcomes are sealed. Distinguish annotation availability from sufficiency and reader value. Report limitations and exact questions/gold/answers as useful; no adoption/causal component claim. Update AGENTS/README study ledger and report; push branch/artifacts and reviewable draft PR. A failed gate is an instrument/mechanism-specific finding, not a blanket deterministic-memory failure. Any repair must follow the existing amendment procedure before affected measurement.
+
+Draft PR98: https://github.com/IdrisAppliedAIResearch/contextDecayWindow/pull/98 . Implementation, registration, preflight and calibration were pushed through4f59c540. Update this PR at closeout; do not create a duplicate. Live benchmark outputs remain local until their automatic stage commits and subsequent push.
