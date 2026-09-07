@@ -1,3 +1,5 @@
+The [22-case miss audit](experiments/probes/temporal_da_fusion/FULL_E_MISSES_REPORT.md) confirms literal evidence delivery and independently reconstructs all gold states.17wrong values match first post-review updates;8match preceding states (overlap). This supports a temporal-selection hypothesis, not missing retrieval or a proven internal cause. Four future wording concerns documented; no new inference or scoring.
+
 The full Study E single-arm reader is now complete: **106/128 (82.8%) before**, **32/32 latest**, **32/32 absence**; all22misses have complete evidence. This extends the small probe to192questions with frozen cosine>=.48+anchors, chronological uncapped delivery and native thinking off. It is exposed synthetic validation, not a controlled gain or generalization claim. Plan2519aff9; raw52d61701; resolved scores7fe9b86a. 179canonical and13authorized agent scores; nohuman audit. [Full report](experiments/probes/temporal_da_fusion/FULL_E_REPORT.md). Owned server stopped, allcaptures preserved, no production changes.
 
 ## Preliminary fusion and result

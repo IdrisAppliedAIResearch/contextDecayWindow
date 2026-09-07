@@ -1,3 +1,7 @@
+# Latest: full E miss audit complete
+
+Plan16f1820b,implementation7a5b71ed; FULL_E_MISSES_REPORT.md. All22 wrong targets and support literally in reader prompts; independent state reconstruction agrees22/22. Target cosine.597–.741>.48. Wrong matches first later update17/22,previous state8/22,near proposal/future9/22 (overlap). Two remaining values matcholderstates. Temporal selection hypothesis,notmissingretrieval. Four future cases have potentially confusing globally-not-effective announcement followed by later same-location update; beforegold remainsclear. No new calls/scores. Keep prior results; do not claim cause from repeated values.
+
 # ACTIVE: full E relevance run complete
 
 Full192 single arm COMPLETE. Plan2519aff9,code7ec5b2bc,inputf9b47817,cald0280749,raw52d61701,mechanicaldaee2ce6,13judgments024bed06,resolved7fe9b86a beforeaggregate. Before106/12882.8125%;latest32/32;absent32/32;total170/192. All22wrong evidence-complete. Prior16 15/16,remainder155/176 notheldout.179canonical+13single-agent (8correct5wrong);nohuman audit. NativeOFF/seed5005/output4096/context32768/frozen.48+anchor chronology,uncapped,no additive recency. Output2200total,median3,max414;17.68min. Server26204 verified/stopped;runnerdone. FULL_E_REPORT.md lists22misses;result.json all192. No control/transfer/adoption claim. Closeout must pause existing heartbeat and updatePR96. Earlier results below preserved.
