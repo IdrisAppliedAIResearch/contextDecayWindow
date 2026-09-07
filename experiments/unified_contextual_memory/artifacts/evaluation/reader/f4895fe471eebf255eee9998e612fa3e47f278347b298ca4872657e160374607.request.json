@@ -1,0 +1,18 @@
+{
+  "prompt_sha256": "f4895fe471eebf255eee9998e612fa3e47f278347b298ca4872657e160374607",
+  "request": {
+    "cache_prompt": false,
+    "id_slot": 0,
+    "min_p": 0,
+    "n_predict": 4096,
+    "presence_penalty": 0,
+    "prompt": "<|im_start|>user\nYou are answering a question about a conversation between two people.\n\nHere is what you remember of the conversation:\n\n<record session=\"session_26\" date=\"1:59 pm on 31 July, 2023\" dialogue_ids=\"D26:3 D26:4\">\nMaria: Wow John, joining the fire brigade? That's great! How's it been so far?\nJohn: Thanks, Maria! It's been tough, but really rewarding. The training was intense and taxing, but it changed my view on helping others. Last Sunday we had our first call-out, and it was intense. We responded to a situation and our team worked together to help those in need. Seeing their relief was awesome.\n[Supplied image-caption annotation, D26:4]: a photo of a firefighter's gear laid out on the floor\n</record>\n<record session=\"session_32\" date=\"11:08 am on 16 August, 2023\" dialogue_ids=\"D32:1 D32:2\">\nJohn: Hey Maria! Guess what? I'm now part of the fire-fighting brigade. I'm super excited to be involved and help out my community!\nMaria: Wow John, that's impressive! You're really enthusiastic about making a change. How's your experience been so far?\n</record>\n\nQuestion: When did John have his first firefighter call-out?\n\nAnswer with the fact itself, as briefly as the question allows. Do not explain your reasoning. If the material above does not contain the answer, reply exactly: I don't know.\n\nAnswer:<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+    "reasoning_format": "none",
+    "repeat_penalty": 1,
+    "seed": 5005,
+    "temperature": 0.6,
+    "top_k": 20,
+    "top_p": 0.95
+  },
+  "time": 1788815108.672074
+}

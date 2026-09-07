@@ -1,0 +1,18 @@
+{
+  "prompt_sha256": "bb73861eb7039740f24c10c9d29cd8eb534da80161867f8d10f9416aedd4add3",
+  "request": {
+    "cache_prompt": false,
+    "id_slot": 0,
+    "min_p": 0,
+    "n_predict": 4096,
+    "presence_penalty": 0,
+    "prompt": "<|im_start|>user\nYou are answering a question about a conversation between two people.\n\nHere is what you remember of the conversation:\n\n<record session=\"session_15\" date=\"7:38 pm on 20 May, 2023\" dialogue_ids=\"D15:1 D15:2\">\nJohn: Hey Maria, how's it going? Been real busy tackling a project to support military veterans. Trying to get a petition going, it's pretty rewarding but kinda stressful. How are you?\nMaria: Hey John, I'm good. Sorry to hear it's been rough. How did you decide to take on that project?\n</record>\n<record session=\"session_19\" date=\"7:20 pm on 16 June, 2023\" dialogue_ids=\"D19:5 D19:6\">\nMaria: No, I haven't tried it yet. But it sounds like a great way to push yourself. Let me know how it goes if you give it a shot!\nJohn: Yeah, sure thing. I'll let you know. Oh, also...something massive happened since we last spoke. I got promoted at work! It's been a loooong time coming, and I'm over the moon about it!\n</record>\n<record session=\"session_28\" date=\"5:19 pm on 5 August, 2023\" dialogue_ids=\"D28:1 D28:2\">\nJohn: Hey Maria, great chatting with you again! Crazy thing happened since we last talked. I lost my job at the mechanical engineering company. They tanked and it's been really rough. Never saw this coming.\nMaria: Sorry to hear about your job, John. I can only imagine how tough it must be. How are you holding up?\n</record>\n<record session=\"session_28\" date=\"5:19 pm on 5 August, 2023\" dialogue_ids=\"D28:3 D28:4\">\nJohn: Thanks for your care, Maria. It's been tough but I'm trying to stay up. I've been looking into some opportunities in the tech industry for a while now. Maybe this is the change I need, you gave me the push!\nMaria: Hey John, glad you're looking into other avenues. Any promising leads come up?\n</record>\n<record session=\"session_28\" date=\"5:19 pm on 5 August, 2023\" dialogue_ids=\"D28:5 D28:6\">\nJohn: Thanks Maria! I may have found a job at a tech company I like that needs my mechanical skills for their hardware team. It feels different, but I think it's a great opportunity to learn and contribute.\nMaria: Wow, John, that sounds like the perfect job for you! You're so adaptable, I'm sure you'll do great. Good luck!\n</record>\n<record session=\"session_30\" date=\"12:10 am on 11 August, 2023\" dialogue_ids=\"D30:13 D30:14\">\nMaria: Sorry to hear that, John. Is there anything on your mind lately?\nJohn: Lately, I've been stumped about something. Don't feel like I'm making much of an impact here, which has me questioning my decisions and goals.\n</record>\n\nQuestion: What happened to John's job in August 2023?\n\nAnswer with the fact itself, as briefly as the question allows. Do not explain your reasoning. If the material above does not contain the answer, reply exactly: I don't know.\n\nAnswer:<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+    "reasoning_format": "none",
+    "repeat_penalty": 1,
+    "seed": 5005,
+    "temperature": 0.6,
+    "top_k": 20,
+    "top_p": 0.95
+  },
+  "time": 1788817351.46676
+}

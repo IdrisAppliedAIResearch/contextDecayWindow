@@ -1,0 +1,18 @@
+{
+  "prompt_sha256": "54a2b5952a0c632ac33a7474fe31cfbe19760f568dcf2654d5d4c19604da0bd2",
+  "request": {
+    "cache_prompt": false,
+    "id_slot": 0,
+    "min_p": 0,
+    "n_predict": 4096,
+    "presence_penalty": 0,
+    "prompt": "<|im_start|>user\nYou are answering a question about a conversation between two people.\n\nHere is what you remember of the conversation:\n\n<record session=\"session_10\" date=\"2:52 pm on 31 August, 2023\" dialogue_ids=\"D10:5 D10:6\">\nTim: Wow, that looks great! How did you make it? Do you have a recipe you can share?\nJohn: Thanks, I just sort of made it up on the spot so I don't have a recipe.\n</record>\n<record session=\"session_10\" date=\"2:52 pm on 31 August, 2023\" dialogue_ids=\"D10:7 D10:8\">\nTim: That's ok! I can look some up. Can you tell me what spices you used in the soup?\nJohn: I added some sage for a nice flavor. Enjoy!\n</record>\n<record session=\"session_15\" date=\"5:51 pm on 21 October, 2023\" dialogue_ids=\"D15:31 D15:32\">\nTim: That slow cooker meal looks yum! Cooking is a great way to chill and be creative. Do you have any favorite recipes you can show me?\nJohn: Definitely! I make this yummy honey garlic chicken with roasted veg a lot. It's one of my favorites. I'm always trying out new recipes, so let me know if you want suggestions!\n[Supplied image-caption annotation, D15:32]: a photo of a pan of chicken and vegetables cooking on a stove\n</record>\n<record session=\"session_15\" date=\"5:51 pm on 21 October, 2023\" dialogue_ids=\"D15:33 D15:34\">\nTim: Mmm, that sounds delicious, John! Can I get the recipe for it?\nJohn: Sure thing! I can write it down for you and mail it to you.\n</record>\n<record session=\"session_15\" date=\"5:51 pm on 21 October, 2023\" dialogue_ids=\"D15:35 D15:36\">\nTim: Can't wait to try it. Thanks for sharing the recipe!\nJohn: No worries. Hope you enjoy it! Let me know how it turns out.\n</record>\n\nQuestion: What spice did John add to the soup for flavor?\n\nAnswer with the fact itself, as briefly as the question allows. Do not explain your reasoning. If the material above does not contain the answer, reply exactly: I don't know.\n\nAnswer:<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+    "reasoning_format": "none",
+    "repeat_penalty": 1,
+    "seed": 5005,
+    "temperature": 0.6,
+    "top_k": 20,
+    "top_p": 0.95
+  },
+  "time": 1788819129.6439164
+}

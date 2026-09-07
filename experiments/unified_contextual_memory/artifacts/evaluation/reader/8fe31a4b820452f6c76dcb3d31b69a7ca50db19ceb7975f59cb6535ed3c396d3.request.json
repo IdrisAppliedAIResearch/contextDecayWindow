@@ -1,0 +1,18 @@
+{
+  "prompt_sha256": "8fe31a4b820452f6c76dcb3d31b69a7ca50db19ceb7975f59cb6535ed3c396d3",
+  "request": {
+    "cache_prompt": false,
+    "id_slot": 0,
+    "min_p": 0,
+    "n_predict": 4096,
+    "presence_penalty": 0,
+    "prompt": "<|im_start|>user\nYou are answering a question about a conversation between two people.\n\nHere is what you remember of the conversation:\n\n<record session=\"session_8\" date=\"4:29 pm on 21 August, 2023\" dialogue_ids=\"D8:11 D8:12\">\nJohn: Thanks! Appreciate your support. It's been a journey, but I'm happy with the progress. Excited to see what's next. What about you? How have you been?\nTim: Things have been great since we last talked - I've been focusing on school and reading a bunch of fantasy books. It's a nice way to take a break from all the stress. I've also started learning how to play the piano - it's a learning curve, but it's so satisfying seeing the progress I make! Life's good.\n</record>\n<record session=\"session_8\" date=\"4:29 pm on 21 August, 2023\" dialogue_ids=\"D8:13 D8:14\">\nJohn: Wow! You're staying busy and having fun. Learning to play this is awesome - it's such a beautiful instrument. Do you have any favorite songs you like playing on it?\nTim: Thanks! I love playing different songs on the piano, but my favorite one to jam to is a theme from a movie I really enjoy. It brings back lots of great memories.\n</record>\n<record session=\"session_21\" date=\"5:34 pm on 6 December, 2023\" dialogue_ids=\"D21:9 D21:10\">\nTim: Joined a travel club and, like I said, working on studies. Also picked up new skills. Recently started learning an instrument. Challenging but fun, always admired musicians. Finally giving it a go.\nJohn: Learning an instrument is really cool. What instrument are you playing? What genres of music do you want to learn?\n</record>\n<record session=\"session_21\" date=\"5:34 pm on 6 December, 2023\" dialogue_ids=\"D21:11 D21:12\">\nTim: I'm learning how to play the violin now. I'm mostly into classical music but I'm keen to try out jazz and film scores too. It's a great way to chill and get creative.\n[Supplied image-caption annotation, D21:11]: a photography of a violin and a violin stick on a sheet of music\nJohn: Wow! I hope I can hear you play the violin some day. How long have you been playing the piano again?\n</record>\n\nQuestion: Which popular music composer's tunes does Tim enjoy playing on the piano?\n\nAnswer with the fact itself, as briefly as the question allows. Do not explain your reasoning. If the material above does not contain the answer, reply exactly: I don't know.\n\nAnswer:<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+    "reasoning_format": "none",
+    "repeat_penalty": 1,
+    "seed": 5005,
+    "temperature": 0.6,
+    "top_k": 20,
+    "top_p": 0.95
+  },
+  "time": 1788815135.3161073
+}

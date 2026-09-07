@@ -1,0 +1,18 @@
+{
+  "prompt_sha256": "6c8782414c8cdd8fe149dd3094a1eef8e561c3e357feb36c2b1954eae111478a",
+  "request": {
+    "cache_prompt": false,
+    "id_slot": 0,
+    "min_p": 0,
+    "n_predict": 4096,
+    "presence_penalty": 0,
+    "prompt": "<|im_start|>user\nYou are answering a question about a conversation between two people.\n\nHere is what you remember of the conversation:\n\n<record session=\"session_2\" date=\"5:08 pm on 15 June, 2023\" dialogue_ids=\"D2:17 D2:18\">\nTim: Wow! You look so into it in that pic – it must be so awesome playing at that level! Keep rockin' it!\nJohn: Thanks! It's a blast. Giving it my all every time I'm on the court. Really appreciate your support!\n</record>\n<record session=\"session_9\" date=\"6:59 pm on 26 August, 2023\" dialogue_ids=\"D9:3 D9:4\">\nTim: Thanks for the pic! That group looks like a great squad. How long did you all play together?\nJohn: We were teammates for four years in high school, so we've played together for quite some time. Have you ever been part of a sports team?\n</record>\n<record session=\"session_21\" date=\"5:34 pm on 6 December, 2023\" dialogue_ids=\"D21:3 D21:4\">\nTim: Wow! How long have you been playing professionally?\nJohn: I've been playing professionally for just under a year now. It's been a wild ride.\n</record>\n<record session=\"session_21\" date=\"5:34 pm on 6 December, 2023\" dialogue_ids=\"D21:9 D21:10\">\nTim: Joined a travel club and, like I said, working on studies. Also picked up new skills. Recently started learning an instrument. Challenging but fun, always admired musicians. Finally giving it a go.\nJohn: Learning an instrument is really cool. What instrument are you playing? What genres of music do you want to learn?\n</record>\n<record session=\"session_24\" date=\"3:37 pm on 16 December, 2023\" dialogue_ids=\"D24:9 D24:10\">\nTim: That's a good spot for a morning workout! Can you tell me about some challenges you've faced?\nJohn: Yeah, I injured myself not too long ago. It sucked because I had to miss some games and couldn't help my team.\n[Supplied image-caption annotation, D24:10]: a photo of a person with a cast on their foot\n</record>\n\nQuestion: When did John start playing professionally?\n\nAnswer with the fact itself, as briefly as the question allows. Do not explain your reasoning. If the material above does not contain the answer, reply exactly: I don't know.\n\nAnswer:<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+    "reasoning_format": "none",
+    "repeat_penalty": 1,
+    "seed": 5005,
+    "temperature": 0.6,
+    "top_k": 20,
+    "top_p": 0.95
+  },
+  "time": 1788819665.9731152
+}

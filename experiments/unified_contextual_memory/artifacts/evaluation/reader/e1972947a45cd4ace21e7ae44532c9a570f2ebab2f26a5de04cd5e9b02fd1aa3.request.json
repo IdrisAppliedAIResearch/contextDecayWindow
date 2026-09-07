@@ -1,0 +1,18 @@
+{
+  "prompt_sha256": "e1972947a45cd4ace21e7ae44532c9a570f2ebab2f26a5de04cd5e9b02fd1aa3",
+  "request": {
+    "cache_prompt": false,
+    "id_slot": 0,
+    "min_p": 0,
+    "n_predict": 4096,
+    "presence_penalty": 0,
+    "prompt": "<|im_start|>user\nYou are answering a question about a conversation between two people.\n\nHere is what you remember of the conversation:\n\n<record session=\"session_14\" date=\"1:50 pm on 17 October, 2023\" dialogue_ids=\"D14:15 D14:16\">\nJohn: Where did you capture this? Nature is truly amazing, isn't it?\nTim: I snapped that pic on my trip to the Smoky Mountains last year. It was incredible seeing it in person. Nature's really something else!\n</record>\n<record session=\"session_20\" date=\"9:52 am on 1 December, 2023\" dialogue_ids=\"D20:35 D20:36\">\nTim: Looks great! Where did you go camping?\nJohn: We went camping in the mountains and it was stunning! The air was so refreshing.\n</record>\n\nQuestion: What year did Tim go to the Smoky Mountains?\n\nAnswer with the fact itself, as briefly as the question allows. Do not explain your reasoning. If the material above does not contain the answer, reply exactly: I don't know.\n\nAnswer:<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+    "reasoning_format": "none",
+    "repeat_penalty": 1,
+    "seed": 5005,
+    "temperature": 0.6,
+    "top_k": 20,
+    "top_p": 0.95
+  },
+  "time": 1788819366.3323286
+}
