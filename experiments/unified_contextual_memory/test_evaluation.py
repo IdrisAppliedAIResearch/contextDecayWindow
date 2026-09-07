@@ -35,3 +35,22 @@ def test_disposition_reachable_in_both_directions():
     weak = dict(win,difference=.015,ci95=[-.01,.03])
     assert disposition(weak,{"test":weak},True)=="WEAK_SIGNAL_ON_EXPOSED_LOCOMO"
     assert disposition(win,{"test":win},False)=="NO_QUALIFYING_GAIN"
+
+
+def test_raw_failure_is_persisted_and_never_retried(tmp_path):
+    from types import SimpleNamespace
+    from run import call
+    class Fake:
+        calls=0
+        def post(self,route,request):
+            self.calls+=1
+            return {"stop_type":"limit","content":"partial","truncated":True}
+    server=Fake()
+    health=SimpleNamespace(active_since=None,durations=[],done=0)
+    with pytest.raises(ValueError):
+        call(server,health,tmp_path,"test","prompt")
+    assert (tmp_path/"test.json").is_file()
+    assert (tmp_path/"test.request.json").is_file()
+    with pytest.raises(FileExistsError):
+        call(server,health,tmp_path,"test","prompt")
+    assert server.calls==1

@@ -61,6 +61,7 @@ class Server:
                 raise TimeoutError("Server startup timed out")
             assert props["total_slots"] == 1
             assert "offloaded 66/66 layers to GPU" in (folder / "server.err").read_text(errors="replace")
+            assert "thinking = 0" in (folder / "server.err").read_text(errors="replace")
             assert gpu()["free_mib"] >= 1536
             write_json(folder / "props.json", props)
         except BaseException:
