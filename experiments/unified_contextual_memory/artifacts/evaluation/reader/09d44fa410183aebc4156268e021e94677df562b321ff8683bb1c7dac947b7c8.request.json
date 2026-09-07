@@ -1,0 +1,18 @@
+{
+  "prompt_sha256": "09d44fa410183aebc4156268e021e94677df562b321ff8683bb1c7dac947b7c8",
+  "request": {
+    "cache_prompt": false,
+    "id_slot": 0,
+    "min_p": 0,
+    "n_predict": 4096,
+    "presence_penalty": 0,
+    "prompt": "<|im_start|>user\nYou are answering a question about a conversation between two people.\n\nHere is what you remember of the conversation:\n\n<record session=\"session_2\" date=\"9:49 am on 27 January, 2023\" dialogue_ids=\"D2:1 D2:2\">\nDeborah: Hey Jolene, sorry to tell you this but my dad passed away two days ago. It's been really tough on us all - his sudden death left us all kinda shell-shocked. I'm trying to channel my grief by spending more time with family and cherishing the memories. These moments remind me to live life fully.\n[Supplied image-caption annotation, D2:1]: a photo of a woman hugging a woman who is sitting on a couch\nJolene: Sorry to hear about your dad, Deborah. Losing a parent is tough - how's it going for you and your family?\n</record>\n<record session=\"session_2\" date=\"9:49 am on 27 January, 2023\" dialogue_ids=\"D2:13 D2:14\">\nDeborah: That's my old home. I go there now and then for my mom, who passed away. Sitting in that spot by the window gives me peace.\nJolene: Must be great to have that place where you feel connected to her.\n</record>\n\nQuestion: When did Deborah's father pass away?\n\nAnswer with the fact itself, as briefly as the question allows. Do not explain your reasoning. If the material above does not contain the answer, reply exactly: I don't know.\n\nAnswer:<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+    "reasoning_format": "none",
+    "repeat_penalty": 1,
+    "seed": 5005,
+    "temperature": 0.6,
+    "top_k": 20,
+    "top_p": 0.95
+  },
+  "time": 1788818994.2696562
+}

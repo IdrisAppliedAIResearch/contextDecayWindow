@@ -1,0 +1,18 @@
+{
+  "prompt_sha256": "2c2a7c1b2f8538d45f7074abb952c27adc422ee699bfd1377107bef71f8ffe28",
+  "request": {
+    "cache_prompt": false,
+    "id_slot": 0,
+    "min_p": 0,
+    "n_predict": 4096,
+    "presence_penalty": 0,
+    "prompt": "<|im_start|>user\nYou are answering a question about a conversation between two people.\n\nHere is what you remember of the conversation:\n\n<record session=\"session_23\" date=\"6:29 pm on 7 July, 2023\" dialogue_ids=\"D23:1 D23:2\">\nJohn: Maria, since we talked, it's been tough. My old area was hit by a nasty flood last week. The infrastructure wasn't great so lots of homes were ruined. It's reminding me we need to fix things up in our community.\nMaria: Sorry to hear about what happened in your area, John. That must have been tough for you and everyone there. Is there anything I can do to help?\n</record>\n\nQuestion: What area was hit by a flood?\n\nAnswer with the fact itself, as briefly as the question allows. Do not explain your reasoning. If the material above does not contain the answer, reply exactly: I don't know.\n\nAnswer:<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+    "reasoning_format": "none",
+    "repeat_penalty": 1,
+    "seed": 5005,
+    "temperature": 0.6,
+    "top_k": 20,
+    "top_p": 0.95
+  },
+  "time": 1788816207.8787649
+}

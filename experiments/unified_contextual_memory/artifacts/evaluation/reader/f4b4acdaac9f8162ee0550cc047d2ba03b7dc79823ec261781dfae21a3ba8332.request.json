@@ -1,0 +1,18 @@
+{
+  "prompt_sha256": "f4b4acdaac9f8162ee0550cc047d2ba03b7dc79823ec261781dfae21a3ba8332",
+  "request": {
+    "cache_prompt": false,
+    "id_slot": 0,
+    "min_p": 0,
+    "n_predict": 4096,
+    "presence_penalty": 0,
+    "prompt": "<|im_start|>user\nYou are answering a question about a conversation between two people.\n\nHere is what you remember of the conversation:\n\n<record session=\"session_1\" date=\"4:06 pm on 23 January, 2023\" dialogue_ids=\"D1:1 D1:2\">\nDeborah: Hey Jolene, nice to meet you! How's your week going? Anything fun happened?\nJolene: Hi Deb! Good to meet you! Yeah, my week's been busy. I finished an electrical engineering project last week - took a lot of work, but it's done now. Anything fun happening for you?\n</record>\n<record session=\"session_2\" date=\"9:49 am on 27 January, 2023\" dialogue_ids=\"D2:23 D2:24\">\nDeborah: Awww, that's so nice! \nJolene: I bought it a year ago in Paris.\n</record>\n<record session=\"session_4\" date=\"9:48 am on 4 February, 2023\" dialogue_ids=\"D4:3 D4:4\">\nJolene: I had a major milestone last week and it went really well - I'm so relieved and proud. It was a huge accomplishment for me as an engineer.\nDeborah: That's awesome. You must have worked really hard for that. I'm so proud of you. Care to share more about it?\n</record>\n<record session=\"session_5\" date=\"9:03 pm on 9 February, 2023\" dialogue_ids=\"D5:17\">\nJolene: Stay safe!\n</record>\n<record session=\"session_9\" date=\"11:22 am on 13 March, 2023\" dialogue_ids=\"D9:1 D9:2\">\nDeborah: Hi Jolene! We haven't corresponded for a long time!\nJolene: Hey Deb, yeah life can get chaotic. How's it been going lately?\n</record>\n<record session=\"session_24\" date=\"2:14 pm on 3 September, 2023\" dialogue_ids=\"D24:13 D24:14\">\nDeborah: What's up this month? Anything fun happening for you?\nJolene: Got a lot of finals coming up this month, so I've been studying real hard. It's been quite stressful, but it'll be worth it in the end. Thinking about taking a trip somewhere to relax and recharge afterward.\n</record>\n<record session=\"session_26\" date=\"7:39 pm on 8 September, 2023\" dialogue_ids=\"D26:1 D26:2\">\nDeborah: Hey Jolene, had a tough week. Storm forced us to cancel our yoga getaway.\nJolene: Sorry to hear about it. How are you feeling now?\n</record>\n<record session=\"session_30\" date=\"10:17 am on 20 September, 2023\" dialogue_ids=\"D30:9 D30:10\">\nDeborah: Are you planning to experience it again soon?\nJolene: Yeah! I'm planning to get out in nature again next month. It's going to be great reconnecting with it!\n</record>\n\nQuestion: Which country was Jolene located in during the last week of August 2023?\n\nAnswer with the fact itself, as briefly as the question allows. Do not explain your reasoning. If the material above does not contain the answer, reply exactly: I don't know.\n\nAnswer:<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+    "reasoning_format": "none",
+    "repeat_penalty": 1,
+    "seed": 5005,
+    "temperature": 0.6,
+    "top_k": 20,
+    "top_p": 0.95
+  },
+  "time": 1788818550.8005607
+}

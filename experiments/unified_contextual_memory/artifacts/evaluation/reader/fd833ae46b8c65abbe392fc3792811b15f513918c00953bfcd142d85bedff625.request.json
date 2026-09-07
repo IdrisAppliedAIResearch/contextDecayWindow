@@ -1,0 +1,18 @@
+{
+  "prompt_sha256": "fd833ae46b8c65abbe392fc3792811b15f513918c00953bfcd142d85bedff625",
+  "request": {
+    "cache_prompt": false,
+    "id_slot": 0,
+    "min_p": 0,
+    "n_predict": 4096,
+    "presence_penalty": 0,
+    "prompt": "<|im_start|>user\nYou are answering a question about a conversation between two people.\n\nHere is what you remember of the conversation:\n\n<record session=\"session_2\" date=\"9:26 pm on 20 March, 2022\" dialogue_ids=\"D2:9 D2:10\">\nJames: Lately, I've been checking out different styles of it. It's been fun to try something fresh and test myself in other ways. What about you, John? Any new hobbies recently?\nJohn: I've been getting into a new hobby recently. I bought a metal detector and walk along the beaches looking for something worthwhile.\n</record>\n<record session=\"session_5\" date=\"9:52 am on 12 April, 2022\" dialogue_ids=\"D5:1 D5:2\">\nJames: Hey John! Long time no chat - I adopted a pup from a shelter in Stamford last week and my days have been so much happier with him in the fam. I named it Ned. Any progress on your gaming goals?\n[Supplied image-caption annotation, D5:1]: a photo of a dog and a cat sitting on a dog bed\nJohn: Hey James! Congrats on getting a pup! They really do make days brighter. I haven't made much progress with gaming lately, life's been busy with work and stuff but it's always nice to remember how happy gaming makes me. It's a good way to forget the stresses of life.\n</record>\n<record session=\"session_8\" date=\"2:36 pm on 29 April, 2022\" dialogue_ids=\"D8:1 D8:2\">\nJames: Hey John! What's up? Anything fun going on?\nJohn:  I'm currently taking on some freelance programming to hone my coding skills. It's challenging, but I'm determined to improve.\n</record>\n<record session=\"session_28\" date=\"7:36 pm on 21 October, 2022\" dialogue_ids=\"D28:33 D28:34\">\nJames: I'll definitely take your advice, John! Thank you for avoiding spoilers.\nJohn: Always happy to help. Well, I have to go! Bye!\n</record>\n\nQuestion: What did John adopt in April 2022?\n\nAnswer with the fact itself, as briefly as the question allows. Do not explain your reasoning. If the material above does not contain the answer, reply exactly: I don't know.\n\nAnswer:<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+    "reasoning_format": "none",
+    "repeat_penalty": 1,
+    "seed": 5005,
+    "temperature": 0.6,
+    "top_k": 20,
+    "top_p": 0.95
+  },
+  "time": 1788816921.551918
+}

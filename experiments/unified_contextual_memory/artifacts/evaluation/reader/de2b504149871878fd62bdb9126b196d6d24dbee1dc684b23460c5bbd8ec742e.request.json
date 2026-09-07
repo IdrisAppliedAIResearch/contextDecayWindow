@@ -1,0 +1,18 @@
+{
+  "prompt_sha256": "de2b504149871878fd62bdb9126b196d6d24dbee1dc684b23460c5bbd8ec742e",
+  "request": {
+    "cache_prompt": false,
+    "id_slot": 0,
+    "min_p": 0,
+    "n_predict": 4096,
+    "presence_penalty": 0,
+    "prompt": "<|im_start|>user\nYou are answering a question about a conversation between two people.\n\nHere is what you remember of the conversation:\n\n<record session=\"session_4\" date=\"7:06 pm on 9 January, 2023\" dialogue_ids=\"D4:15 D4:16\">\nMaria: Glad I could help, John. What's up next for you?\nJohn: Next week I have a community meeting coming up, we'll be discussing education and infrastructure upgrades.\n</record>\n<record session=\"session_13\" date=\"3:18 pm on 4 May, 2023\" dialogue_ids=\"D13:3 D13:4\">\nJohn: I just started going to boot camps with my fam last month. It's good for bonding and getting fit.\nMaria: Sounds awesome, John! Working out together is a great way of bonding as a family. Have you noticed any changes in your fitness since you started?\n</record>\n<record session=\"session_13\" date=\"3:18 pm on 4 May, 2023\" dialogue_ids=\"D13:13 D13:14\">\nJohn: Yeah, Maria! Family is the most important thing for me. They're my biggest support. We have each other's back through good times and bad.\nMaria: Wow, John! It's great to know that they're there for you. How have they been helping you out lately?\n</record>\n<record session=\"session_13\" date=\"3:18 pm on 4 May, 2023\" dialogue_ids=\"D13:15 D13:16\">\nJohn: We've all been helping and supporting each other during boot camp - cheering each other on during workouts and providing emotional support outside them. It's been amazing witnessing us come together and be there for each other.\nMaria: Wow, John! It's great when you have that kind of support. My mom and I made some dinner together last night!\n[Supplied image-caption annotation, D13:16]: a photo of a table with a variety of food on it\n</record>\n<record session=\"session_18\" date=\"2:47 pm on 12 June, 2023\" dialogue_ids=\"D18:23\">\nMaria: Wow, that's great to hear, John! Cherish those family time moments!\n</record>\n<record session=\"session_21\" date=\"8:43 pm on 3 July, 2023\" dialogue_ids=\"D21:23 D21:24\">\nMaria: Wow, John! What inspired you to join it?\nJohn: I've always had a great respect for our military and wanted to show my support. I think it's important to stand up for what we believe in.\n</record>\n<record session=\"session_26\" date=\"1:59 pm on 31 July, 2023\" dialogue_ids=\"D26:5 D26:6\">\nMaria: Wow, John! What was it like being part of that rescue mission?\nJohn: It was chaotic when we arrived, but we pulled together. I got a surge of energy and purpose, and we were able to save a family from a burning building. It was wild, but knowing we made a difference made it worth it.\n</record>\n<record session=\"session_32\" date=\"11:08 am on 16 August, 2023\" dialogue_ids=\"D32:1 D32:2\">\nJohn: Hey Maria! Guess what? I'm now part of the fire-fighting brigade. I'm super excited to be involved and help out my community!\nMaria: Wow John, that's impressive! You're really enthusiastic about making a change. How's your experience been so far?\n</record>\n\nQuestion: When did John start boot camp with his family?\n\nAnswer with the fact itself, as briefly as the question allows. Do not explain your reasoning. If the material above does not contain the answer, reply exactly: I don't know.\n\nAnswer:<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+    "reasoning_format": "none",
+    "repeat_penalty": 1,
+    "seed": 5005,
+    "temperature": 0.6,
+    "top_k": 20,
+    "top_p": 0.95
+  },
+  "time": 1788819141.0574033
+}

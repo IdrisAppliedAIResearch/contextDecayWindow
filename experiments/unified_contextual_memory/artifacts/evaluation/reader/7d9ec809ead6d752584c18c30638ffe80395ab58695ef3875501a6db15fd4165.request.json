@@ -1,0 +1,18 @@
+{
+  "prompt_sha256": "7d9ec809ead6d752584c18c30638ffe80395ab58695ef3875501a6db15fd4165",
+  "request": {
+    "cache_prompt": false,
+    "id_slot": 0,
+    "min_p": 0,
+    "n_predict": 4096,
+    "presence_penalty": 0,
+    "prompt": "<|im_start|>user\nYou are answering a question about a conversation between two people.\n\nHere is what you remember of the conversation:\n\n<record session=\"session_8\" date=\"4:29 pm on 21 August, 2023\" dialogue_ids=\"D8:11 D8:12\">\nJohn: Thanks! Appreciate your support. It's been a journey, but I'm happy with the progress. Excited to see what's next. What about you? How have you been?\nTim: Things have been great since we last talked - I've been focusing on school and reading a bunch of fantasy books. It's a nice way to take a break from all the stress. I've also started learning how to play the piano - it's a learning curve, but it's so satisfying seeing the progress I make! Life's good.\n</record>\n<record session=\"session_10\" date=\"2:52 pm on 31 August, 2023\" dialogue_ids=\"D10:17\">\nTim: Take care! Can't wait to catch up. Talk soon!\n</record>\n<record session=\"session_18\" date=\"3:59 pm on 16 November, 2023\" dialogue_ids=\"D18:3 D18:4\">\nTim: Ouch, bummer about the injury. Hang tight. This week has been swamped with exams for me but I'm plowing through.\nJohn: Cheers, Tim. Injury's been rough, but I'm staying positive. How's the exam prep coming? Confident?\n[Supplied image-caption annotation, D18:4]: a photo of a notebook with a bunch of notes on it\n</record>\n<record session=\"session_18\" date=\"3:59 pm on 16 November, 2023\" dialogue_ids=\"D18:15\">\nTim: Take care! Keep pushing on. Talk soon.\n</record>\n<record session=\"session_27\" date=\"5:26 pm on 2 January, 2024\" dialogue_ids=\"D27:1 D27:2\">\nTim: Hi John, how's it going? Interesting things have happened since we last talked - I joined a group of globetrotters who are into the same stuff as me. It's been awesome getting to know them and hear about their trips.\n[Supplied image-caption annotation, D27:1]: a photo of a man standing on a fence in front of a leaning tower\nJohn: Hey Tim! Cool to hear about your globetrotting group! Must be great connecting with other traveling buffs. By the way, have you been to Italy? I had a blast there last month.\n</record>\n<record session=\"session_28\" date=\"5:24 pm on 7 January, 2024\" dialogue_ids=\"D28:1 D28:2\">\nTim: Hey John, long time no talk. On Friday, I got great news - I'm finally in the study abroad program I applied for! Next month, I'm off to Ireland for a semester.\nJohn: Congrats, Tim! That's amazing news. So, where are you going to stay?\n</record>\n<record session=\"session_28\" date=\"5:24 pm on 7 January, 2024\" dialogue_ids=\"D28:21\">\nTim: No problem. Talk to you soon!\n</record>\n\nQuestion: Where was Tim in the week before 16 November 2023?\n\nAnswer with the fact itself, as briefly as the question allows. Do not explain your reasoning. If the material above does not contain the answer, reply exactly: I don't know.\n\nAnswer:<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+    "reasoning_format": "none",
+    "repeat_penalty": 1,
+    "seed": 5005,
+    "temperature": 0.6,
+    "top_k": 20,
+    "top_p": 0.95
+  },
+  "time": 1788816424.1044881
+}

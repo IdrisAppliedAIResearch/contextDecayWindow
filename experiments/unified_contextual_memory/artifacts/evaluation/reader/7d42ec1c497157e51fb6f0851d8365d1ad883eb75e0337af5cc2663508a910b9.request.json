@@ -1,0 +1,18 @@
+{
+  "prompt_sha256": "7d42ec1c497157e51fb6f0851d8365d1ad883eb75e0337af5cc2663508a910b9",
+  "request": {
+    "cache_prompt": false,
+    "id_slot": 0,
+    "min_p": 0,
+    "n_predict": 4096,
+    "presence_penalty": 0,
+    "prompt": "<|im_start|>user\nYou are answering a question about a conversation between two people.\n\nHere is what you remember of the conversation:\n\n<record session=\"session_2\" date=\"4:45 pm on 26 March, 2023\" dialogue_ids=\"D2:13 D2:14\">\nCalvin: Cool, Dave! Seeing your favorite singers live must have been wild! Did you get a chance to hang out with them after the show?\nDave: Nah, didn't get to hang with them after the show, but seeing them live was cool enough. It's always a dream to see your favorites performing!\n</record>\n<record session=\"session_2\" date=\"4:45 pm on 26 March, 2023\" dialogue_ids=\"D2:15 D2:16\">\nCalvin: Yeah, it's always a dream to see your favorites doing their thing! So glad you got to experience that.\nDave: Thanks, Calvin! Yeah, it was an incredible experience. So, anything new happening in your life?\n</record>\n<record session=\"session_19\" date=\"12:13 am on 15 September, 2023\" dialogue_ids=\"D19:3 D19:4\">\nDave: Hey Calvin! I wish we had recorded the jam, but we were way too into it and totally forgot.\nCalvin: Aww, bummer! I would've loved to hear that music. Oh well, some of the best memories can't be captured on video or audio. It's like those special moments that stay in our hearts and minds. Take a look at this cool Disney poster!\n[Supplied image-caption annotation, D19:4]: a photo of a poster for a disney movie with a chef\n</record>\n<record session=\"session_19\" date=\"12:13 am on 15 September, 2023\" dialogue_ids=\"D19:5 D19:6\">\nDave: Wow, that's a gorgeous poster! It reminds me of one of my favorite Disney movies. I love the lesson it teaches about following your dreams no matter what others say. Have you seen it yet?\nCalvin: Thanks! Ratatouille is one of my favorites! It's all about going after what you love, no matter what anyone says. Last time we talked, you mentioned your car hobby - how's that going?\n</record>\n<record session=\"session_28\" date=\"5:46 pm on 2 November, 2023\" dialogue_ids=\"D28:39 D28:40\">\nCalvin: Cool, Dave! What tunes are you listening to these days?\nDave: Lately, I've been getting into classic rock. The music from that era is timeless.\n</record>\n\nQuestion: Which Disney movie did Dave mention as one of his favorites?\n\nAnswer with the fact itself, as briefly as the question allows. Do not explain your reasoning. If the material above does not contain the answer, reply exactly: I don't know.\n\nAnswer:<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+    "reasoning_format": "none",
+    "repeat_penalty": 1,
+    "seed": 5005,
+    "temperature": 0.6,
+    "top_k": 20,
+    "top_p": 0.95
+  },
+  "time": 1788814452.3090346
+}
