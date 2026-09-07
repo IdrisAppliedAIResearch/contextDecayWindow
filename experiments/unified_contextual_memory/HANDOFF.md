@@ -1,3 +1,9 @@
+# COMPLETE: exploratory subset, full run stopped
+
+Results c3d55da1 and report ab97fb70; independent audit reproduces raw hashes, votes, primary/interval and annotation cross-tabs. C0 384/566, C1 399/566; +2.65pp;27g12l;descriptive clusterCI0.53–4.53. Total741pairs includes175adversarial. All annotation493→516/565. Reader/scorer processes exited; server stopped by owned cleanup. No further inference. See REPORT.md for limitations and breakdown. Closeout pauses the heartbeat and updates PR98.
+
+Historical notes follow.
+
 # Current scope: user-stopped exploratory paired subset
 
 The user stopped full-corpus generation to gauge signal on completed pairs. Amendment002 at d6d903af governs. Original runner15468/server14648 stopped after identity checks. Raw subset sealed at1b96adc:1458 valid persisted responses,741 complete paired question occurrences across all10conversations,one interrupted request preserved and never retried. Full-corpus comparison is NOT COMPLETED; no original WORKS disposition.
