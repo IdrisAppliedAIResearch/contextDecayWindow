@@ -4,7 +4,7 @@ Read this file before doing anything in this repository. It carries the program'
 
 **If this file and a study's pre-registration disagree, the pre-registration governs. Stop and flag the conflict rather than reconciling it silently.**
 
-**Current handoff (2026-09-07):** integrated contextual memory is implemented and preregistered (20d75b5a; scoring amendment143237b6), with amended preflight6484d67a passing. The serial native-thinking-OFF paired evaluation has been launched. Read [the current handoff](experiments/unified_contextual_memory/HANDOFF.md) and its durable status before taking action. Quiet failure/completion follow-up is active; do not poll the live inference repeatedly.
+**Current handoff (2026-09-07):** user stopped unified-memory full-corpus generation to gauge exploratory signal. Amendment002 freezes741 complete paired questions; raw preserved at1b96adc. Subset scoring is launched; no further benchmark generation. Read [current handoff](experiments/unified_contextual_memory/HANDOFF.md) and durable status. Quiet completion/failure follow-up is active.
 
 ## 1. Program
 

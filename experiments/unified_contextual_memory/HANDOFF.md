@@ -1,3 +1,11 @@
+# Current scope: user-stopped exploratory paired subset
+
+The user stopped full-corpus generation to gauge signal on completed pairs. Amendment002 at d6d903af governs. Original runner15468/server14648 stopped after identity checks. Raw subset sealed at1b96adc:1458 valid persisted responses,741 complete paired question occurrences across all10conversations,one interrupted request preserved and never retried. Full-corpus comparison is NOT COMPLETED; no original WORKS disposition.
+
+Subset scoring launched hidden with subset.py score (launcher PID24508); actual PID/stage live in artifacts/evaluation/status.json. Repeat calibration goes under artifacts/subset/calibration; scoring uses the original sealed reader files, blind four-pass instrument, then artifacts/subset/results.json and diagnostics.jsonl.gz. Check artifacts/subset/failure.json and artifacts/subset_runner.err on failure. No new benchmark reader calls. Quiet automation has been updated to this scope. On completion independently verify/recompute results, finish report/ledger/PR98 and pause hook.
+
+Historical full-run notes below are superseded where scope differs.
+
 # Unified contextual memory implementation and evaluation
 
 User authorized end-to-end implementation after accepting design8927134a. Work is on `study/unified-contextual-memory`, not the old LoCoMo timeline branch. Do not restart architecture discussion or ask for the same authorization.
