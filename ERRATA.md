@@ -719,3 +719,6 @@ Artifacts: `experiments/study_011/noise_band/band_verdict.json`,
 `NOISE_BAND_REPORT.md`, `DECISION_RULE.md` (committed `c07e1e27`, before any
 replicate ran), and `evaluation/` — three blind passes, mapping sealed until the
 scores were committed.
+# LoCoMo timeline30 final-verdict parsing repair (September7,2026)
+
+The provisional supplemental-temporal tally4/10 in experiments/probes/locomo_timeline30/artifacts/results.json is superseded by5/10 in corrected_results.json; broad13/20 unchanged. All three judges explicitly corrected the James cooking-class answer to CORRECT, but the carried parser retained initial INCORRECT lines. Amendment001 at254c6fdb applies a last-explicit-verdict rule bidirectionally to all90responses, changing3votes for1question. Original scores/raw retained; no new inference or rubric change. This is local majority scoring with a separately disclosed relative-date ambiguity, not independent human audit.
