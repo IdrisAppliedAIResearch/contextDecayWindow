@@ -1,0 +1,18 @@
+{
+  "prompt_sha256": "20483aef7203a3b703e8d3b49157619f7c0eea60e858f702195e149f6de36c56",
+  "request": {
+    "cache_prompt": false,
+    "id_slot": 0,
+    "min_p": 0,
+    "n_predict": 4096,
+    "presence_penalty": 0,
+    "prompt": "<|im_start|>user\nYou are grading one answer against a reference answer.\n\nQuestion: How do Melanie and Caroline describe their journey through life together?\nReference answer: An ongoing adventure of learning and growing.\nAnswer to grade: They describe it as a shared journey where they motivate and help each other out, tackle life's challenges together, and can make a real impact together.\n\nThe answer is CORRECT if it states the same fact as the reference answer, even in different words, a different format, or with extra detail. The answer is INCORRECT if it states a different fact, contradicts the reference, refuses, says it does not know, or is empty.\n\nReply with exactly two lines:\nVERDICT: CORRECT or INCORRECT\nREASON: one sentence\n\nVERDICT:<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+    "reasoning_format": "none",
+    "repeat_penalty": 1,
+    "seed": 9100,
+    "temperature": 0.2,
+    "top_k": 20,
+    "top_p": 0.9
+  },
+  "time": 1788820354.659446
+}
