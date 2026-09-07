@@ -33,6 +33,8 @@ class Server:
             if sha(pin["path"]) != pin["sha256"]:
                 raise RuntimeError("Pinned reader runtime changed")
         command = json.loads((OLD / "launch.json").read_text(encoding="utf-8"))["command"]
+        # This build assigns model-placement INFO logs to trace verbosity.
+        command.extend(["--log-verbosity", "4"])
         for flag, value in (("--port", "8099"), ("--parallel", "1"), ("--ctx-size", str(context))):
             command[command.index(flag)+1] = value
         assert command[command.index("--reasoning")+1] == "off"

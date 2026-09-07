@@ -1,5 +1,6 @@
 """Build paired prompts and exact tokenizer fit, without generation."""
 import json
+import argparse
 from pathlib import Path
 import sys
 import time
@@ -16,7 +17,10 @@ P = Path(__file__).parent / "artifacts"
 
 
 def main():
-    out = P / "fit"
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--output", default="fit")
+    args = parser.parse_args()
+    out = P / args.output
     assert not out.exists(), "No overwriting fit artifacts"
     out.mkdir()
     sources = [Unit(**row) for row in read_rows(P / "prepared/sources.jsonl.gz")]
