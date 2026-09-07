@@ -144,9 +144,9 @@ flush against the page there rather than showing as a panel.*
 
 ## Current State of Work
 
-*Last updated 2026-09-06, after the full Study E single-arm reader.*
+*Last updated 2026-09-06, after the post-review removal probe.*
 
-The [full Study E reader](experiments/probes/temporal_da_fusion/FULL_E_REPORT.md) scores106/128 (82.8%) on immediately-before questions and32/32 each on latest and absence. It uses uncapped cosine0.48 plus anchors, chronological presentation, and thinking off. All22 misses have complete evidence present. This expands the small probe to192 questions on the familiar synthetic corpus; it does not establish generalization or change production defaults.
+The [full Study E reader](experiments/probes/temporal_da_fusion/FULL_E_REPORT.md) scores106/128 (82.8%) on immediately-before questions and32/32 each on latest and absence. It uses uncapped cosine0.48 plus anchors, chronological presentation, and thinking off. All22 misses have complete evidence present. This expands the small probe to192 questions on the familiar synthetic corpus; it does not establish generalization or change production defaults. A [post-review removal probe](experiments/probes/temporal_da_fusion/POST_REVIEW_REPORT.md) then recovered all22 misses with thinking still off; effects on previously correct questions remain untested.
 
 **Study E confirmed a reader benefit from newest-first before-event ordering:** correct final answers rose from 177/640 (27.66%) to 302/640 (47.19%), a 19.53-point gain (95% interval 13.91–25.16; p=.00001), passing the registered bar and harm guards. Complete-evidence delivery rose from 64/128 to 109/128 questions, but 243 answers still failed with complete evidence. This synthetic result uses an amended native thinking-off reader interface and 114 blinded agent judgments; it has not been adopted. [Confirmation report](experiments/study_E/CONFIRMATION_REPORT.md).
 
@@ -433,7 +433,7 @@ confirmation.
 
 ## Next Steps
 
-Keep the relevance timeline frozen. The [22-case audit](experiments/probes/temporal_da_fusion/FULL_E_MISSES_REPORT.md) confirms literal evidence presence;17wrong values match later updates. Test temporal-boundary sensitivity before transfer on untouched natural-conversation questions. The expanded synthetic run does not justify threshold tuning or an adoption claim.
+Check whether the selector-anchor cutoff preserves the106 previously correct before answers before treating22/22 failure recovery as a full-set result. Then test the frozen setup on untouched natural-conversation temporal questions. No production change is implied.
 
 1. **Validate episodic-chat 0.2.0 outside the spent LoCoMo corpus.** Freeze an
    external reader and retrieval study—preferably EnterpriseRAG-Bench or an
@@ -474,6 +474,8 @@ Commercial enquiries: **idrisappliedairesearch@gmail.com**.
 ---
 
 # For LLM Context
+
+> **Post-review removal.** All22 previous misses recover under the same nativeOFF reader after removing only records after the existing selector anchor. Allprior selected evidence preserved;22canonical scores;91.55s,61outputtokens. Failure-selected historical-control diagnostic,not a full128-question rerun. [Report](experiments/probes/temporal_da_fusion/POST_REVIEW_REPORT.md).
 
 > **Full E miss audit.** All22 literal source/prompt checks and independently reconstructed gold states pass.17wrong values match first post-review update,8previous state,9near proposal/future; overlapping associations,not causal attribution. Four future-case wording concerns documented. No new calls. [Report](experiments/probes/temporal_da_fusion/FULL_E_MISSES_REPORT.md).
 
@@ -1012,6 +1014,7 @@ Runs use a scripted 120-turn conversation with facts planted at known positions 
 | Fusion draft | DA adjacency after protected E temporal records | EXPLORATORY | Evidence109/128→108/128;6 gains7 losses; exact replay192/192; no reader calls or full DA codec port |
 | Fusion difference | Direction and before-anchor link ablations | EXPLORATORY | Forward110/128 (7g/6l), backward99 (0/10), before-anchor108 (6/7); no safe admission signal or reader result |
 | Chronology probe | Same retrieved evidence, remove recent context, sort ascending | EXPLORATORY reader | Before5/12→5/12→8/12;4guards correct;native off,16questions,48calls; no adoption |
+| Post-review removal | Exact retrieved prefix through anchor | EXPLORATORY reader |22/22misses recovered;nativeOFF;previous106correct untested;noadoption|
 | Full E relevance reader | Frozen uncapped chronology,192questions | EXPLORATORY single arm | Before106/128;latest32/32;absence32/32;all22misses evidence-complete;no generalization claim |
 | Relevance timeline | Cosine0.48 plus anchor, uncapped chronological records | EXPLORATORY reader | Evidence128/128;fresh before8/12→11/12 (4g1l),4guards correct;108records median,3agentjudgments;noadoption |
 | E | Before-event candidate ordering | READER D1_WORKS | Final answers177/640→302/640 (+19.53pp); 32 synthetic groups; complete-evidence errors remain243; amended reader interface, agent review, no adoption |

@@ -1,3 +1,7 @@
+# Latest: post-review removal recovers22/22
+
+User-authorized prefix ablation COMPLETE. Plan5085934f/code82d82e90,inpute4038d78,cal915cb214,raw71ee6741,scorese6d16320,resolved175d6039. All22 former misses nowcorrect/nativeOFF/seed5005/sameHH001/sampling. No preceding retrieved recordchanged;cut onlyafter existing selectoranchor. Kept55–95records,removed15–55. All22canonical,noadjudication;91.55seconds,61outputtokens. Goldsupportpreserved22/22 and originalnativeprompts exact22/22. Server17168stopped. POST_REVIEW_REPORT.md and relevance_artifacts/post_review_reader/result.json. Failure-selected historical-control diagnostic: no measured128/128population score;untested effects on previous106correct questions. Latercontext interference supported,shorteningvscontent notisolated. No production change.
+
 # Latest: full E miss audit complete
 
 Plan16f1820b,implementation7a5b71ed; FULL_E_MISSES_REPORT.md. All22 wrong targets and support literally in reader prompts; independent state reconstruction agrees22/22. Target cosine.597–.741>.48. Wrong matches first later update17/22,previous state8/22,near proposal/future9/22 (overlap). Two remaining values matcholderstates. Temporal selection hypothesis,notmissingretrieval. Four future cases have potentially confusing globally-not-effective announcement followed by later same-location update; beforegold remainsclear. No new calls/scores. Keep prior results; do not claim cause from repeated values.
