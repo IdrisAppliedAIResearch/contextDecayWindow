@@ -144,7 +144,7 @@ flush against the page there rather than showing as a panel.*
 
 ## Current State of Work
 
-*Last updated 2026-09-06, after the post-review removal probe.*
+*Last updated 2026-09-07, after the GPU batching capacity probe.*
 
 The [review-boundary prefix](experiments/probes/temporal_da_fusion/PREFIX_106_REPORT.md) now scores126/128 (98.4%) before questions versus106/128 (82.8%) for the full relevance timeline:22recoveries and2regressions. It preserves all preceding selected evidence and removes later records, with thinking off. Coverage comes from two sequential diagnostic batches; naturalistic generalization and production adoption remain untested.
 
@@ -433,7 +433,7 @@ confirmation.
 
 ## Next Steps
 
-Keep the prefix configuration frozen, examine its two evidence-complete regressions, and test it on untouched natural-conversation temporal questions. The exposed synthetic result is not independent confirmation.
+Complete the LoCoMo relevance-timeline design with live batched inference. Nine concurrent32k reader slots passed the [capacity probe](experiments/probes/temporal_da_fusion/BATCH_CAPACITY_REPORT.md); full uncapped prompt fit and reader/judge calibration remain. LoCoMo is previously used, so this tests transfer of the current configuration, not an untouched holdout.
 
 1. **Validate episodic-chat 0.2.0 outside the spent LoCoMo corpus.** Freeze an
    external reader and retrieval study—preferably EnterpriseRAG-Bench or an
@@ -474,6 +474,8 @@ Commercial enquiries: **idrisappliedairesearch@gmail.com**.
 ---
 
 # For LLM Context
+
+> **GPU batch capacity.** Nine concurrent32k slots passed two long-input waves with2282 MiB minimum free. Ten left938 MiB idle, below1536 reserve. NativeOFF,90 synthetic stress calls; capacity only, no LoCoMo answers. [Report](experiments/probes/temporal_da_fusion/BATCH_CAPACITY_REPORT.md).
 
 > **Prefix preservation.**104/106retained;combined with22recoveries gives126/128 (98.44%),22g2l overfulltimeline. NativeOFF;all106canonical;two sequential diagnostic batches,latest/absence notrerun. [Report](experiments/probes/temporal_da_fusion/PREFIX_106_REPORT.md).
 
@@ -1017,6 +1019,7 @@ Runs use a scripted 120-turn conversation with facts planted at known positions 
 | Fusion difference | Direction and before-anchor link ablations | EXPLORATORY | Forward110/128 (7g/6l), backward99 (0/10), before-anchor108 (6/7); no safe admission signal or reader result |
 | Chronology probe | Same retrieved evidence, remove recent context, sort ascending | EXPLORATORY reader | Before5/12→5/12→8/12;4guards correct;native off,16questions,48calls; no adoption |
 | Prefix preservation | Remaining106before questions | EXPLORATORY reader |104/106retained;combined126/128;22g2l;noadoption|
+| GPU batch capacity | RTX5090,32k per slot | Engineering diagnostic |9concurrent validated,min2282 MiB free;10belowreserve;no study answers|
 | Post-review removal | Exact retrieved prefix through anchor | EXPLORATORY reader |22/22misses recovered;nativeOFF;previous106correct untested;noadoption|
 | Full E relevance reader | Frozen uncapped chronology,192questions | EXPLORATORY single arm | Before106/128;latest32/32;absence32/32;all22misses evidence-complete;no generalization claim |
 | Relevance timeline | Cosine0.48 plus anchor, uncapped chronological records | EXPLORATORY reader | Evidence128/128;fresh before8/12→11/12 (4g1l),4guards correct;108records median,3agentjudgments;noadoption |
