@@ -218,6 +218,8 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **GPU batch capacity (2026-09-07).** Nine concurrent32k slots pass two27,920-input/64-output waves, min2282 MiB free. Ten loads but938 MiB fails1536 reserve; unstressed. NativeOFF,q8KV,allGPU;90stress calls,overlap/cachezero verified. About2.1% throughput gain only on synthetic long-input load. LoCoMo fit/endurance pending. Plan ece1f77d; no study scores.
 
+**LoCoMo batch timing (2026-09-07).** Nine matched historical prompts: serial37.44s vs concurrent9 38.20s, throughput0.9802x. Peak slots1/9 verified; no cache/truncation. Outputs172/234tokens,8/9identical; no accuracy scoring. NativeOFF; min2282MiB free. Capacity fits, speed benefit unobserved. Plan b483b398.
+
 ## 3. Failure Pattern
 
 The recurring failure class is a surrogate that can pass without the property it claims to certify: record count for information, novelty for importance, density for factual value, or a rubric score for a correct answer.

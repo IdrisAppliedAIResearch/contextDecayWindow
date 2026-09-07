@@ -1662,3 +1662,5 @@ accounting — reproduce exactly.
 ---
 
 *Idris Applied AI Research | independent | failures published with the results*
+
+LoCoMo batching follow-up: nine matched real prompts took37.44s serial versus38.20s concurrent9; no speed benefit in this small sample. [Timing report](experiments/probes/temporal_da_fusion/LOCOMO_BATCH_REPORT.md). No accuracy scoring or full study run.

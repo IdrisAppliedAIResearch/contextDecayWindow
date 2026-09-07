@@ -1,3 +1,5 @@
+LoCoMo batching timing: same nine historical prompts took37.44s serial versus38.20s concurrent9 (0.9802x throughput). All9 slots overlapped;8/9 answers identical,172/234 output tokens. NativeOFF; no scoring. Nine fits but gave no speed benefit here. See LOCOMO_BATCH_REPORT.md. Servers stopped.
+
 # ACTIVE: GPU batching capacity probe complete
 
 User requires batching for upcoming LoCoMo design. Plan ece1f77d; raw748f2a38; audit40d92576. Nine concurrent32768-token slots pass two27920-input/64-forced-output waves, minimum2282 MiB free. Ten loads but938 MiB free fails1536 MiB reserve, unstressed. Use parallel9,totalctx294912,q8KV,nativeOFF; all66/66 layersGPU. Ninety stress plus18 calibration responses; slot overlap/cachezero verified. Only~2.1% throughput gain on long-input fixture, not LoCoMo performance. Initial log-verbosity gate failure preserved/repaired. All owned servers stopped; no jobs. LoCoMo draft updated for batching; full prompt fit and batched reader/judge calibration still required. BATCH_CAPACITY_REPORT.md. No new study answers or adoption.

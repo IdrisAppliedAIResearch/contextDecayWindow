@@ -1,3 +1,5 @@
+Batch timing update (September7): nine historical LoCoMo prompts took37.44s serial and38.20s concurrent9. Capacity is validated; speed improvement is not. See LOCOMO_BATCH_REPORT.md.
+
 # LoCoMo live-reader transfer of the relevance timeline
 
 Status: **DRAFT implementation design; not registered or runnable.** User requested this document. No corpus inference, new retrieval implementation, threshold tuning or deployment is authorized by drafting it. Proposed next experiment: one retrieval/reader arm over the repository's complete LoCoMo corpus.
