@@ -1,5 +1,7 @@
 # LoCoMo relevance timeline: inference paused for design discussion
 
+Full-context check COMPLETE, rawc3555066: all1,986 paired sizes exact; median selected8,494/full36,048, paired ratio26.44%;46>=90%,15>=95%. Longest33,841/34,25998.78%. Primary median ratio27.00%. FULL_CONTEXT_REPORT.md. Tokenizer servers stopped; no jobs or hooks. Preserve pause; do not auto-resume inference.
+
 Latest user steering: asks whether to delay because the anchor is inactive and selected prompts may approach full context; requests a matched full-context token check. Full inference and registration are paused. Do not start reader or judge calls until that discussion resolves. No automation was activated and no study answers have been generated.
 
 Branch study/locomo-relevance-timeline is based on codex/temporal-da-fusion-draft at 87c8ab37. Implementation plan 4193702b. Frozen clean checkout C:/Users/muzaf/contextDecayWindow-locomo-timeline-control at 87c8ab37. Prior source adapter, cached vectors, parser and HH001 templates reused. Separate image captions/metadata omitted by the carried adapter; dates and dialogue IDs explicitly rendered. Select full pair text by raw cosine >=.48, chronological, no cap/recent block. Parser route is unsupported for all 1,986 questions; zero anchors or before cutoffs.
