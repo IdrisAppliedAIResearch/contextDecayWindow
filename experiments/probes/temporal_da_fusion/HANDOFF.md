@@ -1,3 +1,9 @@
+# ACTIVE:106 previously correct prefix run in progress
+
+User authorized106 previous correct before questions with same prefix. Planc6f99a6,codef13f6f75,inputb94b1040,calc2218867. Runner12784,ownedserver3856/port8097. prefix_106_reader.py run; relevance_artifacts/prefix_106_reader outputs. Same nativeOFF/seed5005/4096output/32768context.106original native prompts exact;prior22prefixes exact;106+22disjointall128;allliteral goldsupport preserved106. Quiet5minhookstudy-e-development-completionactive. No duplicate or uncertain retries.
+
+On complete verify106hashes/finals,stop verifiedserver3856/save artifact,commitrawbefore score. Run prefix_106_reader.py score,commitblindscore;authorized single-agent prose adjudication if needed;commitresolvedbeforeaggregate. Report106preserved/regressions,combined with22/22frompost_review_readeraftercoverage/runtimecheck;two sequentialdiagnosticbatches,notconfirmation. Latest/absenceNOT rerun. PREFIX_106_REPORT.md,README,AGENTS<=400chars,PR96,HANDOFF;commit/push,pausehook. Prior reports below preserved.
+
 # Latest: post-review removal recovers22/22
 
 User-authorized prefix ablation COMPLETE. Plan5085934f/code82d82e90,inpute4038d78,cal915cb214,raw71ee6741,scorese6d16320,resolved175d6039. All22 former misses nowcorrect/nativeOFF/seed5005/sameHH001/sampling. No preceding retrieved recordchanged;cut onlyafter existing selectoranchor. Kept55–95records,removed15–55. All22canonical,noadjudication;91.55seconds,61outputtokens. Goldsupportpreserved22/22 and originalnativeprompts exact22/22. Server17168stopped. POST_REVIEW_REPORT.md and relevance_artifacts/post_review_reader/result.json. Failure-selected historical-control diagnostic: no measured128/128population score;untested effects on previous106correct questions. Latercontext interference supported,shorteningvscontent notisolated. No production change.
