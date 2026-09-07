@@ -1,3 +1,7 @@
+# Superseded resume pointer
+
+The accepted architecture is now implemented on study/unified-contextual-memory; its registered evaluation has been launched. Read [the current handoff](../unified_contextual_memory/HANDOFF.md) first. Historical notes below are retained and do not govern the new run.
+
 # Unified contextual memory: design accepted, implementation next
 
 ## Resume here after compaction
