@@ -224,6 +224,8 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **Reader anchor probe (2026-09-07).** Eight short synthetic histories: status fields match expected resolution/ambiguity; later clarification and retrospective evidence both flagged unsafe to cut. NativeOFF, explicit diagnostic prompt,1,117output tokens. Citation sets incomplete; hypothetical alternatives appear. No natural-transfer/chronology-causality score. Plan1b6c79ef; rawb04da2a3.
 
+**LoCoMo timeline30 (2026-09-07).** Current deterministic arm: broad13/20,extra temporal5/10; complete evidence16/20,10/10. NativeOFF,one answer/question,chronological,no anchor. Three-pass judge; final-verdict repair changes temporal4→5. Relative-date ambiguity and plan/completion caveat.30reader calls89.35s; no causal/transfer verdict. Plan68df803d; full run paused.
+
 ## 3. Failure Pattern
 
 The recurring failure class is a surrogate that can pass without the property it claims to certify: record count for information, novelty for importance, density for factual value, or a rubric score for a correct answer.

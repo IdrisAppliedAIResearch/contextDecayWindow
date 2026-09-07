@@ -144,6 +144,8 @@ flush against the page there rather than showing as a panel.*
 
 ## Current State of Work
 
+A small current-arm LoCoMo probe scored13/20 on broadly sampled questions and5/10 on additional temporal questions, with one answering call each and fully deterministic chronological retrieval. The temporal group received all annotated evidence; date handling and abstentions remain issues. [Probe report](experiments/probes/locomo_timeline30/REPORT.md). The full run remains paused.
+
 The LoCoMo relevance-timeline run is paused before inference: the carried anchor parser activates on none of its questions. Matched input checks show substantial typical reduction, but a small tail approaches full context. [Preflight findings](experiments/locomo_relevance_timeline/FULL_CONTEXT_REPORT.md).
 
 *Last updated 2026-09-07, after the GPU batching capacity probe.*
@@ -522,6 +524,8 @@ Start with `AGENTS.md` — it is the operating manual and the study digest — a
 read `ERRATA.md` before quoting any number.
 
 ## Status Ledger
+
+> **LoCoMo timeline30, September7:** broad13/20,additional temporal5/10; evidence complete16/20 and10/10. NativeOFF,one answer per question,unchanged deterministic retrieval. Three-pass final majority after a documented parser repair(4→5temporal); relative-date judging remains imperfect. [All questions,answers and limitations](experiments/probes/locomo_timeline30/REPORT.md). No full-study or chronology-causality claim.
 
 > **Reader anchor diagnostic, September7:** eight short synthetic histories produced expected event-resolution status; later clarification and retrospective evidence were both flagged unsafe to cut. Native thinkingOFF with explicit diagnostic instructions. Citation sets remain incomplete; no natural transfer or causal chronology result. [Report](experiments/probes/reader_anchor/REPORT.md). Full LoCoMo remains paused.
 
