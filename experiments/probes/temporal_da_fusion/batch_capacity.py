@@ -4,7 +4,7 @@ import hashlib,json,os,socket,subprocess,time,urllib.request
 from pathlib import Path
 P=Path(__file__).resolve().parent
 ROOT=P.parents[2]
-OUT=P/'batch_capacity_artifacts'
+OUT=P/'batch_capacity_artifacts_retry'
 OLD=ROOT/'experiments/study_E/artifacts/confirmation/restart005'
 def save(name,value):
     with (OUT/name).open('x',encoding='utf8') as f: json.dump(value,f,indent=2)
@@ -44,6 +44,7 @@ def main():
     for n in range(1,17):
         gate();cmd=command.copy()
         for flag,value in [('--port','8098'),('--parallel',str(n)),('--ctx-size',str(n*32768))]:cmd[cmd.index(flag)+1]=value
+        cmd+=['--verbosity','5']
         process=subprocess.Popen(cmd,env=env,stdout=(OUT/f'server_{n}.out').open('xb'),stderr=(OUT/f'server_{n}.err').open('xb'),creationflags=subprocess.CREATE_NO_WINDOW)
         row=dict(slots=n,command=cmd,pid=process.pid)
         try:
@@ -56,7 +57,7 @@ def main():
             print(json.dumps(dict(slots=n,idle_gpu=row['idle_gpu'])),flush=True)
             if not allowed(row['idle_gpu']):row['status']='BELOW_HEADROOM';break
             log=(OUT/f'server_{n}.err').read_text(errors='replace')
-            assert 'offloaded' in log
+            assert 'offloaded' in log, 'ALLOCATION_LOG_MISSING'
             # Native template and short seeded reproduction before concurrent stress.
             template=req('apply-template',dict(messages=[dict(role='user',content='What is 17 + 28? Answer only the number.')],add_generation_prompt=True,chat_template_kwargs={'enable_thinking':False},reasoning_effort='none'))['prompt']
             assert '<think>\n\n</think>' in template
