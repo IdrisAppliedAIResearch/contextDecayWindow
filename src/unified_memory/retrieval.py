@@ -26,7 +26,7 @@ class Conflict:
 
 
 def retrieve(units, direct_vectors, contextual_vectors, contexts, references, cue_vectors,
-             query_vector, policy: Policy, *, conflicts=()):
+             query_vector, policy: Policy, *, conflicts=(), static_scores=None):
     units = tuple(sorted(units, key=lambda u: (u.position, u.id)))
     ids = [u.id for u in units]
     if len(set(ids)) != len(ids) or len({u.conversation for u in units}) > 1:
@@ -61,6 +61,9 @@ def retrieve(units, direct_vectors, contextual_vectors, contexts, references, cu
                 or not conflict.source_ids or set(conflict.source_ids) - universe or not conflict.rule):
             raise ValueError("Conflict lacks eligible source provenance")
         forbidden[(conflict.reference_id, conflict.candidate_id)] = conflict
+    if static_scores is not None:
+        if static_scores["ids"] != ids or set(static_scores["references"]) != set(refs):
+            raise ValueError("Static score domain differs")
     selected, admissions, queue, scheduled = set(), {}, [], set()
     bindings, unresolved = [], []
 
@@ -87,7 +90,7 @@ def retrieve(units, direct_vectors, contextual_vectors, contexts, references, cu
         operations += 1
         if kind == 0:
             index = ids.index(key)
-            scores = dm @ dm[index]
+            scores = dm @ dm[index] if static_scores is None else static_scores["support"][index]
             additional = []
             for candidate, score in zip(ids, scores):
                 if candidate not in contexts[key] or set(by_id[candidate].member_ids).intersection(by_id[key].member_ids):
@@ -105,7 +108,7 @@ def retrieve(units, direct_vectors, contextual_vectors, contexts, references, cu
             cue = np.asarray(cue_vectors[key], dtype=np.float64)
             if not np.isfinite(cue).all() or not np.linalg.norm(cue):
                 raise ValueError("Invalid reference cue vector")
-            scores = dm @ (cue / np.linalg.norm(cue))
+            scores = dm @ (cue / np.linalg.norm(cue)) if static_scores is None else static_scores["references"][key]
             for candidate, score in zip(ids, scores):
                 if set(by_id[candidate].member_ids).intersection(by_id[ref.unit_id].member_ids):
                     continue
