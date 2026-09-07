@@ -1,0 +1,381 @@
+{
+  "scope": "Exploratory native-thinking-off reader probe",
+  "totals": {
+    "primary": {
+      "n": 12,
+      "scores": {
+        "ORIGINAL": 5,
+        "NO_RECENT": 5,
+        "CHRONO_NO_RECENT": 8
+      },
+      "pairs": {
+        "ORIGINAL\u2192NO_RECENT": {
+          "gains": 0,
+          "losses": 0
+        },
+        "NO_RECENT\u2192CHRONO_NO_RECENT": {
+          "gains": 3,
+          "losses": 0
+        }
+      }
+    },
+    "latest": {
+      "n": 2,
+      "scores": {
+        "ORIGINAL": 2,
+        "NO_RECENT": 2,
+        "CHRONO_NO_RECENT": 2
+      },
+      "pairs": {
+        "ORIGINAL\u2192NO_RECENT": {
+          "gains": 0,
+          "losses": 0
+        },
+        "NO_RECENT\u2192CHRONO_NO_RECENT": {
+          "gains": 0,
+          "losses": 0
+        }
+      }
+    },
+    "absent": {
+      "n": 2,
+      "scores": {
+        "ORIGINAL": 2,
+        "NO_RECENT": 2,
+        "CHRONO_NO_RECENT": 2
+      },
+      "pairs": {
+        "ORIGINAL\u2192NO_RECENT": {
+          "gains": 0,
+          "losses": 0
+        },
+        "NO_RECENT\u2192CHRONO_NO_RECENT": {
+          "gains": 0,
+          "losses": 0
+        }
+      }
+    }
+  },
+  "rows": [
+    {
+      "id": "0ff74c9a653a67d59916c81366c325b3aa9f3e278e2067df15ef8fb4f4f8ce9b",
+      "type": "straight",
+      "query": "What was the delivery location for \"Harbor-292\" immediately before \"Harbor-292 review\"?",
+      "reference": "hangar",
+      "arms": {
+        "ORIGINAL": {
+          "answer": "The hangar",
+          "score": 1
+        },
+        "NO_RECENT": {
+          "answer": "The hangar",
+          "score": 1
+        },
+        "CHRONO_NO_RECENT": {
+          "answer": "hangar",
+          "score": 1
+        }
+      }
+    },
+    {
+      "id": "1454502bbf18db4a79d3a128bba10384a4f8215888a23496c8bf10a831247169",
+      "type": "straight",
+      "query": "What was the delivery location for \"Harbor-485\" immediately before \"Harbor-485 review\"?",
+      "reference": "office",
+      "arms": {
+        "NO_RECENT": {
+          "answer": "The workshop",
+          "score": 0
+        },
+        "CHRONO_NO_RECENT": {
+          "answer": "workshop",
+          "score": 0
+        },
+        "ORIGINAL": {
+          "answer": "The hangar",
+          "score": 0
+        }
+      }
+    },
+    {
+      "id": "15e05bc88bb47a68a58b71eb00700ee89dd5fad113a85de34005d87695b7b989",
+      "type": "straight",
+      "query": "What was the delivery location for \"Harbor-113\" immediately before \"Harbor-113 review\"?",
+      "reference": "studio",
+      "arms": {
+        "CHRONO_NO_RECENT": {
+          "answer": "studio",
+          "score": 1
+        },
+        "ORIGINAL": {
+          "answer": "The annex",
+          "score": 0
+        },
+        "NO_RECENT": {
+          "answer": "The workshop",
+          "score": 0
+        }
+      }
+    },
+    {
+      "id": "0c01e4617e64f859c55c3ba7caf09f9fe8f3684b881c05c1234b03b0df5c53da",
+      "type": "irrelevant",
+      "query": "What was the delivery location for \"Orchard-186\" immediately before \"Orchard-186 review\"?",
+      "reference": "hangar",
+      "arms": {
+        "ORIGINAL": {
+          "answer": "The hangar",
+          "score": 1
+        },
+        "NO_RECENT": {
+          "answer": "The hangar",
+          "score": 1
+        },
+        "CHRONO_NO_RECENT": {
+          "answer": "hangar",
+          "score": 1
+        }
+      }
+    },
+    {
+      "id": "0fb8d2cc4acf5802b62f2fc17acf0debd5dcf3af5093170d1d3c0e58ef8cf805",
+      "type": "irrelevant",
+      "query": "What was the delivery location for \"Orchard-657\" immediately before \"Orchard-657 review\"?",
+      "reference": "hangar",
+      "arms": {
+        "NO_RECENT": {
+          "answer": "depot",
+          "score": 0
+        },
+        "CHRONO_NO_RECENT": {
+          "answer": "hangar",
+          "score": 1
+        },
+        "ORIGINAL": {
+          "answer": "The depot",
+          "score": 0
+        }
+      }
+    },
+    {
+      "id": "153258b1e875944a391c7540f214a2dde7c2185b64e29cec28a0e5b30f5c5804",
+      "type": "irrelevant",
+      "query": "What was the delivery location for \"Orchard-219\" immediately before \"Orchard-219 review\"?",
+      "reference": "hangar",
+      "arms": {
+        "CHRONO_NO_RECENT": {
+          "answer": "hangar",
+          "score": 1
+        },
+        "ORIGINAL": {
+          "answer": "The office",
+          "score": 0
+        },
+        "NO_RECENT": {
+          "answer": "office",
+          "score": 0
+        }
+      }
+    },
+    {
+      "id": "05d782e63a2940af0b50ed4ced06a6a985638a5b446f986f9dc15690e07c9e73",
+      "type": "future",
+      "query": "What was the delivery location for \"Meadow-637\" immediately before \"Meadow-637 review\"?",
+      "reference": "depot",
+      "arms": {
+        "ORIGINAL": {
+          "answer": "The depot",
+          "score": 1
+        },
+        "NO_RECENT": {
+          "answer": "depot",
+          "score": 1
+        },
+        "CHRONO_NO_RECENT": {
+          "answer": "depot",
+          "score": 1
+        }
+      }
+    },
+    {
+      "id": "1917f04e14fa2ac4fffcc24246750fc2436e227851036fa160cb9fef92c95dc4",
+      "type": "future",
+      "query": "What was the delivery location for \"Meadow-792\" immediately before \"Meadow-792 review\"?",
+      "reference": "annex",
+      "arms": {
+        "NO_RECENT": {
+          "answer": "The annex",
+          "score": 1
+        },
+        "CHRONO_NO_RECENT": {
+          "answer": "annex",
+          "score": 1
+        },
+        "ORIGINAL": {
+          "answer": "The annex",
+          "score": 1
+        }
+      }
+    },
+    {
+      "id": "19b7803aac3774bc3156462da65e17cf5904c54843bfeb7455ca1b5c4b8b1080",
+      "type": "future",
+      "query": "What was the delivery location for \"Meadow-228\" immediately before \"Meadow-228 review\"?",
+      "reference": "warehouse",
+      "arms": {
+        "CHRONO_NO_RECENT": {
+          "answer": "studio",
+          "score": 0
+        },
+        "ORIGINAL": {
+          "answer": "The studio",
+          "score": 0
+        },
+        "NO_RECENT": {
+          "answer": "The studio",
+          "score": 0
+        }
+      }
+    },
+    {
+      "id": "04626861ac09011f12590a3f5b2aaf0d2c32525f24f94335e681e6bb3c31037b",
+      "type": "proposal",
+      "query": "What was the delivery location for \"Riverside-324\" immediately before \"Riverside-324 review\"?",
+      "reference": "annex",
+      "arms": {
+        "ORIGINAL": {
+          "answer": "The office",
+          "score": 0
+        },
+        "NO_RECENT": {
+          "answer": "The office",
+          "score": 0
+        },
+        "CHRONO_NO_RECENT": {
+          "answer": "office",
+          "score": 0
+        }
+      }
+    },
+    {
+      "id": "0b5d6903e27b10ce7305134b3bed3f3995f045e1cfe841c201a580f843b6e1be",
+      "type": "proposal",
+      "query": "What was the delivery location for \"Riverside-481\" immediately before \"Riverside-481 review\"?",
+      "reference": "laboratory",
+      "arms": {
+        "NO_RECENT": {
+          "answer": "The annex",
+          "score": 0
+        },
+        "CHRONO_NO_RECENT": {
+          "answer": "hangar",
+          "score": 0
+        },
+        "ORIGINAL": {
+          "answer": "The workshop",
+          "score": 0
+        }
+      }
+    },
+    {
+      "id": "321b345d4a91be34084cd6a13d7399ebe075a60cd5788ff0919a37694b022a8b",
+      "type": "proposal",
+      "query": "What was the delivery location for \"Riverside-755\" immediately before \"Riverside-755 review\"?",
+      "reference": "annex",
+      "arms": {
+        "CHRONO_NO_RECENT": {
+          "answer": "annex",
+          "score": 1
+        },
+        "ORIGINAL": {
+          "answer": "The annex",
+          "score": 1
+        },
+        "NO_RECENT": {
+          "answer": "The annex",
+          "score": 1
+        }
+      }
+    },
+    {
+      "id": "0530f61af5663841c9da7acded5770209dff7c92a1baf44f28f444f77c68fb29",
+      "type": "latest",
+      "query": "What is the latest delivery location for \"Cedar-443\"?",
+      "reference": "warehouse",
+      "arms": {
+        "ORIGINAL": {
+          "answer": "warehouse",
+          "score": 1
+        },
+        "NO_RECENT": {
+          "answer": "warehouse",
+          "score": 1
+        },
+        "CHRONO_NO_RECENT": {
+          "answer": "warehouse",
+          "score": 1
+        }
+      }
+    },
+    {
+      "id": "1395a80fe95f18430814e3070157858cb8d4d31255a0050cb66968a6104ab893",
+      "type": "latest",
+      "query": "What is the latest delivery location for \"Cedar-967\"?",
+      "reference": "office",
+      "arms": {
+        "NO_RECENT": {
+          "answer": "office",
+          "score": 1
+        },
+        "CHRONO_NO_RECENT": {
+          "answer": "office",
+          "score": 1
+        },
+        "ORIGINAL": {
+          "answer": "office",
+          "score": 1
+        }
+      }
+    },
+    {
+      "id": "00cd5455f3efbb0d57670abb0fd8d117c8e42535edad50f7e305d0bd7b65cb15",
+      "type": "absent",
+      "query": "What was the delivery location for \"Summit-519\" immediately before \"Summit-519 review\"?",
+      "reference": "I don't know",
+      "arms": {
+        "CHRONO_NO_RECENT": {
+          "answer": "I don't know.",
+          "score": 1
+        },
+        "ORIGINAL": {
+          "answer": "I don't know.",
+          "score": 1
+        },
+        "NO_RECENT": {
+          "answer": "I don't know.",
+          "score": 1
+        }
+      }
+    },
+    {
+      "id": "0779f937da3df4f97903b54f6db72bb778101503cdb40368d2f7bdd0619a658f",
+      "type": "absent",
+      "query": "What was the delivery location for \"Summit-899\" immediately before \"Summit-899 review\"?",
+      "reference": "I don't know",
+      "arms": {
+        "ORIGINAL": {
+          "answer": "I don't know.",
+          "score": 1
+        },
+        "NO_RECENT": {
+          "answer": "I don't know.",
+          "score": 1
+        },
+        "CHRONO_NO_RECENT": {
+          "answer": "I don't know.",
+          "score": 1
+        }
+      }
+    }
+  ]
+}
