@@ -1,0 +1,9 @@
+# Post-result diagnostic: chronology, expansion and remaining misses
+
+User authorization: "Probe the results" and compare the disappointing result with earlier chronological-corpus findings. This is read-only diagnosis and exact frozen replay, with zero new encoder, reader or judge calls. No thresholds, answers, scores or prior registrations change.
+
+Inspect all12 answer losses, all27 gains and all49 annotated-incomplete C1 primary questions. Reproduce selected identities before examining source-level exclusions. For each missing annotated source carrier record direct/contextual cosine and the strongest qualifying support/reference link from finalized selected sources, its parent activation and composed score. Distinguish no qualifying edge from an edge suppressed by the path floor; this is a local frozen-frontier diagnostic, not a counterfactual alternative-policy result. Report cue/answer ambiguity and scoring concerns without rescoring.
+
+Part1 is the committed subset report/audit and known all-source v1/v2 replay. PF1 hash existing inputs; PF2 exact original mechanism replay; PF3 commit plan before diagnostic; PF4 no new success bars or dispositions; PF5 stable source/question hashes; PF6 equality against frozen C1 selected IDs and payloads; PF7 preserve finite queue assertions; PF8 all scored primary queries at full source scale, not a toy subset; PF9 annotations and local links are imperfect proxies for required support and global reachability, report them as such; PF10 existing reader results provide the outcome, no availability-only promotion.
+
+Use eight independent CPU workers where available. Preserve numeric outputs before interpretation. Compare earlier chronology-only, uncapped-plus-anchor and before-anchor prefix interventions separately; do not call the whole prior gain a chronology effect. Produce one diagnostic report and update PR98 without restarting inference.
