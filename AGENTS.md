@@ -4,7 +4,7 @@ Read this file before doing anything in this repository. It carries the program'
 
 **If this file and a study's pre-registration disagree, the pre-registration governs. Stop and flag the conflict rather than reconciling it silently.**
 
-**Current handoff (2026-09-07):** unified-memory exploratory subset COMPLETE: C0 384/566 versus C1 399/566 (+2.65pp; descriptive CI0.53–4.53;27g/12l). Independent audit passed. Full-corpus generation remains stopped. Read [report](experiments/unified_contextual_memory/REPORT.md); no further inference or adoption authorized.
+**Current handoff (2026-09-07):** [one-call LLM-assisted retrieval design](experiments/designs/llm_assisted_retrieval/DESIGN.md) drafted at1ad46665 for review. It proposes the first generative call inside retrieval, a bounded planner/executor and a small paired pilot. No implementation/inference authorized. Prior unified-memory subset is complete; full generation remains stopped.
 
 ## 1. Program
 
