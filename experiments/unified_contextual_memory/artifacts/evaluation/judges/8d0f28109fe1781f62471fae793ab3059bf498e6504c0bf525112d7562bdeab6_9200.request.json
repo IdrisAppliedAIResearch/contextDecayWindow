@@ -1,0 +1,18 @@
+{
+  "prompt_sha256": "07e5036aac7d7332c5d2f2bba6c4983b6788adfc8d46feb8830ea67746a5734e",
+  "request": {
+    "cache_prompt": false,
+    "id_slot": 0,
+    "min_p": 0,
+    "n_predict": 4096,
+    "presence_penalty": 0,
+    "prompt": "<|im_start|>user\nYou are grading one answer against a reference answer.\n\nQuestion: What does Deborah bring with her whenever she comes to reflect on her mom?\nReference answer: amulet\nAnswer to grade: An amulet from her mother\n\nThe answer is CORRECT if it states the same fact as the reference answer, even in different words, a different format, or with extra detail. The answer is INCORRECT if it states a different fact, contradicts the reference, refuses, says it does not know, or is empty.\n\nReply with exactly two lines:\nVERDICT: CORRECT or INCORRECT\nREASON: one sentence\n\nVERDICT:<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+    "reasoning_format": "none",
+    "repeat_penalty": 1,
+    "seed": 9200,
+    "temperature": 0.2,
+    "top_k": 20,
+    "top_p": 0.9
+  },
+  "time": 1788820920.3848486
+}

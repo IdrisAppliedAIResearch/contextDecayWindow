@@ -144,7 +144,17 @@ flush against the page there rather than showing as a panel.*
 
 ## Current State of Work
 
-*Last updated 2026-08-24, after HH-003 deployed-library validation.*
+A small current-arm LoCoMo probe scored13/20 on broadly sampled questions and5/10 on additional temporal questions, with one answering call each and fully deterministic chronological retrieval. The temporal group received all annotated evidence; date handling and abstentions remain issues. [Probe report](experiments/probes/locomo_timeline30/REPORT.md). The full run remains paused.
+
+The LoCoMo relevance-timeline run is paused before inference: the carried anchor parser activates on none of its questions. Matched input checks show substantial typical reduction, but a small tail approaches full context. [Preflight findings](experiments/locomo_relevance_timeline/FULL_CONTEXT_REPORT.md).
+
+*Last updated 2026-09-07, after the GPU batching capacity probe.*
+
+The [review-boundary prefix](experiments/probes/temporal_da_fusion/PREFIX_106_REPORT.md) now scores126/128 (98.4%) before questions versus106/128 (82.8%) for the full relevance timeline:22recoveries and2regressions. It preserves all preceding selected evidence and removes later records, with thinking off. Coverage comes from two sequential diagnostic batches; naturalistic generalization and production adoption remain untested.
+
+**Study E confirmed a reader benefit from newest-first before-event ordering:** correct final answers rose from 177/640 (27.66%) to 302/640 (47.19%), a 19.53-point gain (95% interval 13.91–25.16; p=.00001), passing the registered bar and harm guards. Complete-evidence delivery rose from 64/128 to 109/128 questions, but 243 answers still failed with complete evidence. This synthetic result uses an amended native thinking-off reader interface and 114 blinded agent judgments; it has not been adopted. [Confirmation report](experiments/study_E/CONFIRMATION_REPORT.md).
+
+**Temporal allocation improved correctly generated reader answers.** Scored final-answer accuracy rose from 19.7% to 63.4% across 32 randomized synthetic histories, clearing the registered reader-success bar. Evidence availability is reported separately as a diagnostic. Latest-setting retrieval improved most; immediately-before accuracy remains 26.9%. Eight answers used explicitly authorized single-agent scoring instead of the registered human review. This has not been adopted. [Report](experiments/study_D/REPORT.md).
 
 **The deployable read path is now episodic-chat 0.2.0.** The latest 32 complete
 exchanges are always additive continuity context and do not spend the long-term
@@ -427,6 +437,8 @@ confirmation.
 
 ## Next Steps
 
+Review the [unified contextual-memory subset result](experiments/unified_contextual_memory/REPORT.md): reader correctness384/566→399/566, with27gains and12losses. Examine the mixed category results and annotation-completeness transitions before choosing any further experiment. The user stopped full-corpus generation; it remains stopped.
+
 1. **Validate episodic-chat 0.2.0 outside the spent LoCoMo corpus.** Freeze an
    external reader and retrieval study—preferably EnterpriseRAG-Bench or an
    equivalently conflict-bearing enterprise corpus—before tuning anything.
@@ -467,6 +479,40 @@ Commercial enquiries: **idrisappliedairesearch@gmail.com**.
 
 # For LLM Context
 
+> **GPU batch capacity.** Nine concurrent32k slots passed two long-input waves with2282 MiB minimum free. Ten left938 MiB idle, below1536 reserve. NativeOFF,90 synthetic stress calls; capacity only, no LoCoMo answers. [Report](experiments/probes/temporal_da_fusion/BATCH_CAPACITY_REPORT.md).
+
+> **Prefix preservation.**104/106retained;combined with22recoveries gives126/128 (98.44%),22g2l overfulltimeline. NativeOFF;all106canonical;two sequential diagnostic batches,latest/absence notrerun. [Report](experiments/probes/temporal_da_fusion/PREFIX_106_REPORT.md).
+
+> **Post-review removal.** All22 previous misses recover under the same nativeOFF reader after removing only records after the existing selector anchor. Allprior selected evidence preserved;22canonical scores;91.55s,61outputtokens. Failure-selected historical-control diagnostic,not a full128-question rerun. [Report](experiments/probes/temporal_da_fusion/POST_REVIEW_REPORT.md).
+
+> **Full E miss audit.** All22 literal source/prompt checks and independently reconstructed gold states pass.17wrong values match first post-review update,8previous state,9near proposal/future; overlapping associations,not causal attribution. Four future-case wording concerns documented. No new calls. [Report](experiments/probes/temporal_da_fusion/FULL_E_MISSES_REPORT.md).
+
+> **Full E relevance reader (2026-09-06).** EXPLORATORY single arm: before106/128,latest32/32,absence32/32,total170/192. All22errors evidence-complete; prior16 15/16,remainder155/176,not holdout. NativeOFF,seed5005,179canonical+13agent scores. Plan2519aff9; [report](experiments/probes/temporal_da_fusion/FULL_E_REPORT.md). No control/generalization/adoption.
+
+> **Uncapped relevance timeline (2026-09-06).** EXPLORATORY. Legacy rawcosine>=.48 plus existing anchors, no8k/32k cap or additive recency, chronological. Ebefore128/128complete vs109C1;PURE111/128 loses17anchors. Median108records/84,627chars. Fresh native-off paired reader8/12→11/12 (4g1l),fourguards correct;3agent prosejudgments. All4prior misses corrected,Meadow637 newcomplete-evidence error. Dpure11/32before is different diagnostic. Plan1676445b/read860ea072; allresolvedscores7cec805. `experiments/probes/temporal_da_fusion/RELEVANCE_REPORT.md`; noadoption.
+
+> **Chronology residual miss audit (2026-09-06).** Four wrong before cases all have stored/eligible updates at temporal positions11–12;8k fits10 records. Semantic ranks41/33/64/35 become merged51/42/74/45, and32k packing also rejects each. Anchors/qualifiers present; four answers match latest delivered effective update, now stale. Recency removal did not cause absence. Eight exact packing replays; no new calls/policy. Planba9d0dd6; `experiments/probes/temporal_da_fusion/MISSES_REPORT.md`.
+
+> **Chronological same-retrieval reader probe (2026-09-06).** EXPLORATORY. Original/no-recency/chronological-no-recency before5/12,5/12,8/12; chronology3g0l. All8 evidence-complete cases correct,4 incomplete wrong; latest2/2 and absence2/2 each.48 fresh native-off calls,16 fixed questions,seed5005,canonical scoring.192 exact membership/render checks. Context median57,331→31,686chars. Plan c9158936; raw db6c770c; scores4f5c458. Post-run negative gate fixture timing disclosed. No adoption; `experiments/probes/temporal_da_fusion/CHRONOLOGY_REPORT.md`.
+
+> **Fusion difference probe (2026-09-06).** EXPLORATORY. Six rescues follow seeds rank4–11 forward; seven losses demote direct evidence rank20–30 to traversal41–53. Forward-only109→110 (7g/6l), backward99 (0/10), pre-anchor108 (6/7). Exposed115-case remainder forward1g/0l. Scores overlap;10–12-turn carrier distance is generator-dependent, not a cutoff. Keep C1, require a relational admission reason. Plan86a1d7c9/gatedaeeb2fc; no reader calls. See `experiments/probes/temporal_da_fusion/DIFFERENCE_REPORT.md`.
+
+> **Temporal–DA fusion draft (2026-09-06).** EXPLORATORY Part 1 complete. DA-001 temporal links after protected E temporal block, full-record 32k; not DA-098 compression.192 exact C1/no-link replays. Before availability109/128→108/128,6 gains7 losses, all13 discordances count-matched; median11 replacements. Latest unchanged;32 absence contexts changed, reader safety untested. Plan168b9cfd; gate76a6e9b9. See `experiments/probes/temporal_da_fusion/REPORT.md`.
+
+> **Retrieval score-curve probe (2026-09-06).** EXPLORATORY, zero model calls.192 E rankings replay exactly;224 D arrays checked. On128 E before queries, largest CC80 drop follows108 records at the corpus/continuity seam.19 missing updates still score88.4–94.5% of the maximum. Within the relevant pool, the largest gap omits anchors. D before gaps differ. No threshold selected; see `experiments/probes/retrieval_score_curves/REPORT.md`.
+
+> **Study E thinking-on probe (2026-09-06).** EXPLORATORY.12 selected complete-evidence wrong C1 question/seed cases became12/12 correct with unchanged evidence under native thinking-on; full traces show effective-update/qualifier reasoning.243 original failures span97 questions;85 distinct questions remain untested. Native system prefix also changes, so no pure thinking-effect or population estimate. Study E verdict unchanged. See `experiments/probes/study_E_thinking/REPORT.md`.
+
+> **Study E confirmation (2026-09-06).** READER D1_WORKS: before answers177/640→302/640 (+19.53pp; group CI13.91–25.16; p=.00001),184 gains/59 losses. All guards pass; latest102/160 and absence160/160 each. Exact-source availability64/128→109/128; C1 complete-evidence wrong243/545. ORACLE524/640. Fresh native thinking-off run3508 calls/3840 logical answers; both capped attempts excluded.114 unique agent judgments, no human audit. Same-study Amendment005; no adoption. See `experiments/study_E/CONFIRMATION_REPORT.md`.
+
+> **Study E amended development (2026-09-06).** Amendment003 competing-update histories: exact required-source delivery4/16->13/16,9 gains/0 losses. Completed 43-call reader check gives before correctness3/12->6/12,4 gains/1 loss; latest3/4 and absence4/4 in both arms. Thirteen agent-scored exceptions; development only. Text-only duplicate-value counts are invalid. See `experiments/study_E/AMENDMENT_003_REPORT.md`.
+
+> **Study E before ordering (2026-09-06).** PART 1 COMPLETE; DESIGN RETURNED. Reader C0/C1 11/12 each, 1 gain/1 loss; C1 latest/absence 4/4 each. New development evidence complete20/20 both; exposed Study D replay16->32/32, availability only. Seventeen agent adjudications; seven corrected initial errors. No confirmation, equivalence or adoption. See `experiments/study_E/REPORT.md`.
+
+> **Study D address reader probe (2026-09-05).** EXPLORATORY, reader-only. Five complete short histories yield expected answers with event citations; a missing-update case starts wrongly at office then corrects to Cannot determine. Eight calls including two preflight repeats. Different explanatory prompt; no formal score, transfer or Study D failure attribution. See `experiments/probes/study_D_reader_address/REPORT.md`.
+
+> **Study D temporal retrieval (2026-09-05).** READER D1_WORKS, scoring deviation. Generated-answer correctness 63/320->203/320 (+43.75pp; CI 33.44-53.75; p=.00001), 32 synthetic sessions. Latest 30%->100%; before 9.38%->26.88%. Availability is diagnostic. Eight agent judgments, no human audit. HH-001 prompt; transfer/absence harm untested; no adoption. See `experiments/study_D/REPORT.md`, `amendments/AMENDMENT_001_agent_adjudication.md`, and `artifacts/confirmation/result.json` within that study.
+
 **Everything below this line is the full record.** It is written for an agent
 picking up this work with no prior context, and it is deliberately dense: every
 claim carries its numbers and its artifact path so that a result can be checked
@@ -476,6 +522,16 @@ Start with `AGENTS.md` — it is the operating manual and the study digest — a
 read `ERRATA.md` before quoting any number.
 
 ## Status Ledger
+
+> **LoCoMo retrieval miss audit:** all30 selections/prompts replay exactly. Five missing annotations fail.48; café answer is in an omitted image caption, patriotism was already answered correctly, and two recommendation questions do not equate annotation loss with unavailable answers. [Source-to-prompt diagnosis](experiments/probes/locomo_timeline30/MISS_AUDIT_REPORT.md). No new calls, scores or retrieval changes.
+
+> **Unified contextual memory subset (2026-09-07).** User stopped generation before scoring:741complete pairs,566primary and175adversarial. Reader C0 384/566→C1 399/566 (+2.65pp; descriptive cluster95%CI0.53–4.53;27g12l). Complete annotation493→516/565. Category1 regresses2. Same-model blinded adjudication; independent reconstruction passes. Exposed nonrandom subset; full run not completed, no adoption/transfer/component claim. [Report](experiments/unified_contextual_memory/REPORT.md).
+
+> **LoCoMo timeline30, September7:** broad13/20,additional temporal5/10; evidence complete16/20 and10/10. NativeOFF,one answer per question,unchanged deterministic retrieval. Three-pass final majority after a documented parser repair(4→5temporal); relative-date judging remains imperfect. [All questions,answers and limitations](experiments/probes/locomo_timeline30/REPORT.md). No full-study or chronology-causality claim.
+
+> **Reader anchor diagnostic, September7:** eight short synthetic histories produced expected event-resolution status; later clarification and retrospective evidence were both flagged unsafe to cut. Native thinkingOFF with explicit diagnostic instructions. Citation sets remain incomplete; no natural transfer or causal chronology result. [Report](experiments/probes/reader_anchor/REPORT.md). Full LoCoMo remains paused.
+
+> **LoCoMo relevance timeline preflight, September7:** zero anchors on1,986questions; no reader calls. Selected/full input medians8,494/36,048tokens, median paired retained26.44%;46/1,986 retain>=90%. Longest33,841/34,259. Common40,960context fits. [Report and raw-artifact links](experiments/locomo_relevance_timeline/FULL_CONTEXT_REPORT.md). Inference paused; no efficacy verdict.
 
 **Can a language model hold a long conversation by rebuilding a small, relevant context every turn, instead of re-reading the whole transcript or summarising it away?**
 
@@ -973,6 +1029,17 @@ Runs use a scripted 120-turn conversation with facts planted at known positions 
 
 | # | Added | Result | Finding |
 |---|---|---|---|
+| Unified memory subset | Contextual access and composed reference traversal, shared captions/chronology | EXPLORATORY reader |384/566→399/566;+2.65pp;27g12l;nonrandom stopped subset;no adoption|
+| Fusion draft | DA adjacency after protected E temporal records | EXPLORATORY | Evidence109/128→108/128;6 gains7 losses; exact replay192/192; no reader calls or full DA codec port |
+| Fusion difference | Direction and before-anchor link ablations | EXPLORATORY | Forward110/128 (7g/6l), backward99 (0/10), before-anchor108 (6/7); no safe admission signal or reader result |
+| Chronology probe | Same retrieved evidence, remove recent context, sort ascending | EXPLORATORY reader | Before5/12→5/12→8/12;4guards correct;native off,16questions,48calls; no adoption |
+| Prefix preservation | Remaining106before questions | EXPLORATORY reader |104/106retained;combined126/128;22g2l;noadoption|
+| GPU batch capacity | RTX5090,32k per slot | Engineering diagnostic |9concurrent validated,min2282 MiB free;10belowreserve;no study answers|
+| Post-review removal | Exact retrieved prefix through anchor | EXPLORATORY reader |22/22misses recovered;nativeOFF;previous106correct untested;noadoption|
+| Full E relevance reader | Frozen uncapped chronology,192questions | EXPLORATORY single arm | Before106/128;latest32/32;absence32/32;all22misses evidence-complete;no generalization claim |
+| Relevance timeline | Cosine0.48 plus anchor, uncapped chronological records | EXPLORATORY reader | Evidence128/128;fresh before8/12→11/12 (4g1l),4guards correct;108records median,3agentjudgments;noadoption |
+| E | Before-event candidate ordering | READER D1_WORKS | Final answers177/640→302/640 (+19.53pp); 32 synthetic groups; complete-evidence errors remain243; amended reader interface, agent review, no adoption |
+| D | Deterministic temporal allocation | READER D1_WORKS; scoring deviation | Correct generated answers 63/320->203/320; 32 synthetic sessions; eight agent judgments; transfer untested |
 | 001 | Recency and similarity retrieval | PARTIAL (2/3) | Similarity fired once in 32 turns |
 | 002 | Consolidation, rule pinning, 120 turns | PARTIAL (3/4) | Similarity recovered buried facts; consolidation produced 52 topics |
 | 003 | LTM write path | PARTIAL (2/3) | Promotion behaved as novelty detection, not salience judgment |
@@ -1610,3 +1677,5 @@ accounting — reproduce exactly.
 ---
 
 *Idris Applied AI Research | independent | failures published with the results*
+
+LoCoMo batching follow-up: nine matched real prompts took37.44s serial versus38.20s concurrent9; no speed benefit in this small sample. [Timing report](experiments/probes/temporal_da_fusion/LOCOMO_BATCH_REPORT.md). No accuracy scoring or full study run.

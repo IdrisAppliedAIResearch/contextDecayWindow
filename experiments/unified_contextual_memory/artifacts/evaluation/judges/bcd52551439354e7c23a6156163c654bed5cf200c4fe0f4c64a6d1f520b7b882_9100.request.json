@@ -1,0 +1,18 @@
+{
+  "prompt_sha256": "cc88767424c946b0807b5240964ca4cc9105f2c1b4ea86f06201211ffb329e3e",
+  "request": {
+    "cache_prompt": false,
+    "id_slot": 0,
+    "min_p": 0,
+    "n_predict": 4096,
+    "presence_penalty": 0,
+    "prompt": "<|im_start|>user\nYou are grading one answer against a reference answer.\n\nQuestion: What is Nate's favorite dish from the cooking show he hosted?\nReference answer: Coconut milk ice cream\nAnswer to grade: Coconut milk ice cream\n\nThe answer is CORRECT if it states the same fact as the reference answer, even in different words, a different format, or with extra detail. The answer is INCORRECT if it states a different fact, contradicts the reference, refuses, says it does not know, or is empty.\n\nReply with exactly two lines:\nVERDICT: CORRECT or INCORRECT\nREASON: one sentence\n\nVERDICT:<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+    "reasoning_format": "none",
+    "repeat_penalty": 1,
+    "seed": 9100,
+    "temperature": 0.2,
+    "top_k": 20,
+    "top_p": 0.9
+  },
+  "time": 1788821313.5814798
+}

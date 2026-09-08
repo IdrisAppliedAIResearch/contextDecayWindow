@@ -1,0 +1,18 @@
+{
+  "prompt_sha256": "a24ae9b5f5052a9507f4feec46dcd5eeb3b7f7b6e9b4d9e55749538f9f4fffc7",
+  "request": {
+    "cache_prompt": false,
+    "id_slot": 0,
+    "min_p": 0,
+    "n_predict": 4096,
+    "presence_penalty": 0,
+    "prompt": "<|im_start|>user\nYou are grading one answer against a reference answer.\n\nQuestion: Why did Nate get a third turtle?\nReference answer: He saw another one at a pet store and wanted to get it\nAnswer to grade: He saw another turtle at a pet store and felt he had to get it, and the tank was big enough for three.\n\nThe answer is CORRECT if it states the same fact as the reference answer, even in different words, a different format, or with extra detail. The answer is INCORRECT if it states a different fact, contradicts the reference, refuses, says it does not know, or is empty.\n\nReply with exactly two lines:\nVERDICT: CORRECT or INCORRECT\nREASON: one sentence\n\nVERDICT:<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+    "reasoning_format": "none",
+    "repeat_penalty": 1,
+    "seed": 9200,
+    "temperature": 0.2,
+    "top_k": 20,
+    "top_p": 0.9
+  },
+  "time": 1788820723.769494
+}

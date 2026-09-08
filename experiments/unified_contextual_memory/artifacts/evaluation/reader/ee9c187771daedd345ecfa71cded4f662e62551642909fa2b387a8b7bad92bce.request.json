@@ -1,0 +1,18 @@
+{
+  "prompt_sha256": "ee9c187771daedd345ecfa71cded4f662e62551642909fa2b387a8b7bad92bce",
+  "request": {
+    "cache_prompt": false,
+    "id_slot": 0,
+    "min_p": 0,
+    "n_predict": 4096,
+    "presence_penalty": 0,
+    "prompt": "<|im_start|>user\nYou are answering a question about a conversation between two people.\n\nHere is what you remember of the conversation:\n\n<record session=\"session_17\" date=\"10:31 am on 13 October, 2023\" dialogue_ids=\"D17:17 D17:18\">\nCaroline: Yeah, it's very calming. It's awesome how art can show emotions. By the way, I went to a poetry reading last Fri - it was really powerful! Ever been to one?\n[Supplied image-caption annotation, D17:17]: a photo of a poster on a wall in a classroom\nMelanie: Nope, never been to something like that. What was it about? What made it so special?\n</record>\n<record session=\"session_17\" date=\"10:31 am on 13 October, 2023\" dialogue_ids=\"D17:19 D17:20\">\nCaroline: It was a transgender poetry reading where transgender people shared their stories through poetry. It was extra special 'cause it was a safe place for self-expression and it was really empowering to hear others share and celebrate their identities.\n[Supplied image-caption annotation, D17:19]: a photography of a sign that says trans lives matter\nMelanie: Wow, sounds amazing! What was the event like? Those posters are great!\n</record>\n\nQuestion: What did the posters at the poetry reading say?\n\nAnswer with the fact itself, as briefly as the question allows. Do not explain your reasoning. If the material above does not contain the answer, reply exactly: I don't know.\n\nAnswer:<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+    "reasoning_format": "none",
+    "repeat_penalty": 1,
+    "seed": 5005,
+    "temperature": 0.6,
+    "top_k": 20,
+    "top_p": 0.95
+  },
+  "time": 1788818861.22297
+}

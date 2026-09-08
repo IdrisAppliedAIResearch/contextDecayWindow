@@ -1,0 +1,18 @@
+{
+  "prompt_sha256": "f35f12cbbd3aed6a3116983327922374bc05e60df9a97c9378ee57d10f6d3042",
+  "request": {
+    "cache_prompt": false,
+    "id_slot": 0,
+    "min_p": 0,
+    "n_predict": 4096,
+    "presence_penalty": 0,
+    "prompt": "<|im_start|>user\nYou are grading one answer against a reference answer.\n\nQuestion: What kind of tricks do James's pets know?\nReference answer: swimming, catching frisbees, balancing on a skateboard, sit, stay, paw, and rollover\nAnswer to grade: sit, stay, paw, and rollover\n\nThe answer is CORRECT if it states the same fact as the reference answer, even in different words, a different format, or with extra detail. The answer is INCORRECT if it states a different fact, contradicts the reference, refuses, says it does not know, or is empty.\n\nReply with exactly two lines:\nVERDICT: CORRECT or INCORRECT\nREASON: one sentence\n\nVERDICT:<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+    "reasoning_format": "none",
+    "repeat_penalty": 1,
+    "seed": 9101,
+    "temperature": 0.2,
+    "top_k": 20,
+    "top_p": 0.9
+  },
+  "time": 1788821282.0406961
+}

@@ -1,0 +1,18 @@
+{
+  "prompt_sha256": "37631a28328026837aabb3c7c3e005f0a2c6c00ea934f31e0083728817cd5f87",
+  "request": {
+    "cache_prompt": false,
+    "id_slot": 0,
+    "min_p": 0,
+    "n_predict": 4096,
+    "presence_penalty": 0,
+    "prompt": "<|im_start|>user\nYou are grading one answer against a reference answer.\n\nQuestion: When did Calvin first get interested in cars?\nReference answer: at an early age\nAnswer to grade: I don't know.\n\nThe answer is CORRECT if it states the same fact as the reference answer, even in different words, a different format, or with extra detail. The answer is INCORRECT if it states a different fact, contradicts the reference, refuses, says it does not know, or is empty.\n\nReply with exactly two lines:\nVERDICT: CORRECT or INCORRECT\nREASON: one sentence\n\nVERDICT:<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+    "reasoning_format": "none",
+    "repeat_penalty": 1,
+    "seed": 9100,
+    "temperature": 0.2,
+    "top_k": 20,
+    "top_p": 0.9
+  },
+  "time": 1788820408.8164418
+}

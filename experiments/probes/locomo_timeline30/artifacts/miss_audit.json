@@ -1,0 +1,1502 @@
+{
+  "replay": {
+    "cases": 30,
+    "exact_selections_and_payloads": true,
+    "max_cosine_difference": 0
+  },
+  "cache": {
+    "development": {
+      "path": "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\external\\locomo\\artifacts\\locomo_dev_embeddings.db",
+      "bytes": 10821632,
+      "file_sha256": "2ba617018a1b043bf439bb50e756191d8141fb7ca01a2e4a68c9eb822eba26f8",
+      "content_sha256": "e103b2933ee9ec7b8e9236f43037797618da524e413b83a9f3973a19d28b1b2a",
+      "entries": 2236,
+      "hits": 2236,
+      "misses": 0,
+      "model_sha256": "06507c7b42688469c4e7298b0a1e16deff06caf291cf0a5b278c308249c3e439",
+      "call_shape": "solo",
+      "dtype": "float32",
+      "dimension": 1024,
+      "mode": "reuse"
+    },
+    "transfer": {
+      "path": "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\components\\biological_memory\\nf_004\\artifacts\\nf004_holdout_embeddings.db",
+      "bytes": 13344768,
+      "file_sha256": "96656024f79a360798be1c9461585ac47a2b6d6bdfb20d9357d52206e860874c",
+      "content_sha256": "2e73bff9178d054e0638a20c6af87d760fdcbe14348f921c5f9052e8df6d4892",
+      "entries": 2749,
+      "hits": 2749,
+      "misses": 0,
+      "model_sha256": "06507c7b42688469c4e7298b0a1e16deff06caf291cf0a5b278c308249c3e439",
+      "call_shape": "solo",
+      "dtype": "float32",
+      "dimension": 1024,
+      "mode": "reuse"
+    },
+    "embedding_calls": 0
+  },
+  "rows": [
+    {
+      "key": "014f2e2a9ff1abfa74fc602abc332f58362b4ef71768737eb2a9091ef04581e9",
+      "question": "What precautionary sign did Melanie see at the café?",
+      "gold": "A sign stating that someone is not being able to leave",
+      "answer": "I don't know.",
+      "score": 0,
+      "evidence": "none",
+      "missing": [
+        "D16:16"
+      ],
+      "conversation": "conv-26",
+      "selected_count": 33,
+      "total_candidates": 214,
+      "carriers": [
+        {
+          "dialogue": "D16:16",
+          "source": {
+            "speaker": "Melanie",
+            "img_url": [
+              "https://i.redd.it/epuj1xq8eaga1.jpg"
+            ],
+            "blip_caption": "a photo of a sign posted on a door stating that someone is not being able to leave",
+            "query": "me kids park joy love happiness",
+            "dia_id": "D16:16",
+            "text": "Caroline, it's got to be tough dealing with those changes. Glad you've found people who uplift and accept you! Here's to a good time at the café last weekend - they even had thoughtful signs like this! It brings me so much happiness.",
+            "session": "session_16",
+            "date": "12:09 am on 13 September, 2023"
+          },
+          "pair_id": "d278ac9c0d4343d7cab0b371b61553f95b80915f2e7ba60d36e84d6c445d649f",
+          "pair_text": "Caroline: Thanks, Melanie. It's definitely changed them. Some close friends kept supporting me, but a few weren't able to handle it. It wasn't easy, but I'm much happier being around those who accept and love me. Now my relationships feel more genuine.\nMelanie: Caroline, it's got to be tough dealing with those changes. Glad you've found people who uplift and accept you! Here's to a good time at the café last weekend - they even had thoughtful signs like this! It brings me so much happiness.",
+          "score": 0.3733009065835697,
+          "margin": -0.1066990934164303,
+          "rank": 170,
+          "selected": false,
+          "pair_present_in_prompt": false,
+          "neighbors": [
+            {
+              "offset": -2,
+              "ids": [
+                "D16:11",
+                "D16:12"
+              ],
+              "score": 0.4470057737890101,
+              "selected": false,
+              "text": "Caroline: I haven't done pottery yet, but I'm game for trying new art. I might try it sometime! Check out this piece I made!\nMelanie: Wow, Caroline! This painting is awesome. Love the red and blue. What gave you the idea?"
+            },
+            {
+              "offset": -1,
+              "ids": [
+                "D16:13",
+                "D16:14"
+              ],
+              "score": 0.3816324154776422,
+              "selected": false,
+              "text": "Caroline: Thanks, Melanie! I made this painting to show my path as a trans woman. The red and blue are for the binary gender system, and the mix of colors means smashing that rigid thinking. It's a reminder to love my authentic self - it's taken a while to get here but I'm finally proud of who I am.\nMelanie: Wow, Caro, that painting is amazing! You've made so much progress. I'm super proud of you for being your true self. What effect has the journey had on your relationships?"
+            },
+            {
+              "offset": 1,
+              "ids": [
+                "D16:17",
+                "D16:18"
+              ],
+              "score": 0.7661256528990901,
+              "selected": true,
+              "text": "Caroline: Whoa, Mel, that sign looks serious. Did anything happen?\nMelanie: The sign was just a precaution, I had a great time. But thank you for your concern, you're so thoughtful!"
+            },
+            {
+              "offset": 2,
+              "ids": [
+                "D16:19",
+                "D16:20"
+              ],
+              "score": 0.43038406635426196,
+              "selected": false,
+              "text": "Caroline: Phew! Glad it all worked out and you had a good time at the park!\nMelanie: Yeah, it was so much fun! Those joyful moments definitely show us life's beauty."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "034efa1f6f63112e2ece9330924ea9c1268f635c6a1c0b3bcd440f0e83b6c491",
+      "question": "Would John be considered a patriotic person?",
+      "gold": "Yes",
+      "answer": "Yes",
+      "score": 1,
+      "evidence": "partial",
+      "missing": [
+        "D8:18"
+      ],
+      "conversation": "conv-41",
+      "selected_count": 9,
+      "total_candidates": 340,
+      "carriers": [
+        {
+          "dialogue": "D8:18",
+          "source": {
+            "speaker": "John",
+            "blip_caption": "a photo of a wooden sign with a flag and eagle",
+            "dia_id": "D8:18",
+            "text": "Wow, having symbols of travel memories in our homes is so cool! Last week I retook the aptitude test with some great results, and I feel drawn to serving my country in this way.",
+            "session": "session_8",
+            "date": "6:03 pm on 6 March, 2023"
+          },
+          "pair_id": "4ae40840518d1dae956915aa90d6b0512870dc2ee704156c9e568d0dc87fc64b",
+          "pair_text": "Maria: It was in London. The architecture there was so captivating that I wanted to recreate some of that charm in my own space. It's a reminder of London's history and grace.\nJohn: Wow, having symbols of travel memories in our homes is so cool! Last week I retook the aptitude test with some great results, and I feel drawn to serving my country in this way.",
+          "score": 0.31246188501999617,
+          "margin": -0.16753811498000382,
+          "rank": 283,
+          "selected": false,
+          "pair_present_in_prompt": false,
+          "neighbors": [
+            {
+              "offset": -2,
+              "ids": [
+                "D8:13",
+                "D8:14"
+              ],
+              "score": 0.345750529018067,
+              "selected": false,
+              "text": "Maria: Wow, John, that's great! Making memories together is so valuable. I loved doing something similar with my siblings when I was young - it's amazing how something so simple can make such lasting memories.\nJohn: That pic is so cool! It looks like something from a storybook. What gave you the idea for this?"
+            },
+            {
+              "offset": -1,
+              "ids": [
+                "D8:15",
+                "D8:16"
+              ],
+              "score": 0.295142821907348,
+              "selected": false,
+              "text": "Maria: Thanks, John! I got the idea from that trip to England a few years ago - I was mesmerized by the castles. I wanted to bring that same magic to my home, like a reminder of the world's beauty. I made a painting too!\nJohn: Wow, that looks great! Where in England was it?"
+            },
+            {
+              "offset": 1,
+              "ids": [
+                "D8:19",
+                "D8:20"
+              ],
+              "score": 0.4834181698339369,
+              "selected": true,
+              "text": "Maria: Wow, that's really cool! Have you discussed it with anyone yet?\nJohn: Yeah, I chatted with my family and friends about it. They've been supportive and understand why I want to volunteer. I'm really proud to have this opportunity!"
+            },
+            {
+              "offset": 2,
+              "ids": [
+                "D8:21",
+                "D8:22"
+              ],
+              "score": 0.3611532444407891,
+              "selected": false,
+              "text": "Maria: Glad you have a good support system, John. It's been great having people behind me while volunteering at the homeless shelter. Positive influences make a big impact.\n\nJohn: Cool, Maria! You've built some awesome connections and you're making a big impact at the homeless shelter - nice work! How did you manage to do that?"
+            }
+          ]
+        },
+        {
+          "dialogue": "D8:20",
+          "source": {
+            "speaker": "John",
+            "dia_id": "D8:20",
+            "text": "Yeah, I chatted with my family and friends about it. They've been supportive and understand why I want to volunteer. I'm really proud to have this opportunity!",
+            "session": "session_8",
+            "date": "6:03 pm on 6 March, 2023"
+          },
+          "pair_id": "b05ba4a6c3aac9550093e09e48e2222082724dd07febf465c2bd8d246827a7d4",
+          "pair_text": "Maria: Wow, that's really cool! Have you discussed it with anyone yet?\nJohn: Yeah, I chatted with my family and friends about it. They've been supportive and understand why I want to volunteer. I'm really proud to have this opportunity!",
+          "score": 0.4834181698339369,
+          "margin": 0.0034181698339368904,
+          "rank": 9,
+          "selected": true,
+          "pair_present_in_prompt": true,
+          "neighbors": [
+            {
+              "offset": -2,
+              "ids": [
+                "D8:15",
+                "D8:16"
+              ],
+              "score": 0.295142821907348,
+              "selected": false,
+              "text": "Maria: Thanks, John! I got the idea from that trip to England a few years ago - I was mesmerized by the castles. I wanted to bring that same magic to my home, like a reminder of the world's beauty. I made a painting too!\nJohn: Wow, that looks great! Where in England was it?"
+            },
+            {
+              "offset": -1,
+              "ids": [
+                "D8:17",
+                "D8:18"
+              ],
+              "score": 0.31246188501999617,
+              "selected": false,
+              "text": "Maria: It was in London. The architecture there was so captivating that I wanted to recreate some of that charm in my own space. It's a reminder of London's history and grace.\nJohn: Wow, having symbols of travel memories in our homes is so cool! Last week I retook the aptitude test with some great results, and I feel drawn to serving my country in this way."
+            },
+            {
+              "offset": 1,
+              "ids": [
+                "D8:21",
+                "D8:22"
+              ],
+              "score": 0.3611532444407891,
+              "selected": false,
+              "text": "Maria: Glad you have a good support system, John. It's been great having people behind me while volunteering at the homeless shelter. Positive influences make a big impact.\n\nJohn: Cool, Maria! You've built some awesome connections and you're making a big impact at the homeless shelter - nice work! How did you manage to do that?"
+            },
+            {
+              "offset": 2,
+              "ids": [
+                "D8:23",
+                "D8:24"
+              ],
+              "score": 0.2921903594516919,
+              "selected": false,
+              "text": "Maria: Thanks, John! It took time and effort, but I slowly formed connections by listening and showing compassion. It's all about building trust and forming real relationships.\nJohn: Wow, Maria! I see, so that's the key to making a difference."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "019cdd4d542566abc75a59b04e38e67441b30b604e1a2b8413180ba51554e562",
+      "question": "What is a prominent charity organization that John might want to work with and why?",
+      "gold": "Good Sports, because they work with Nike, Gatorade, and Under Armour and they aim toprovide youth sports opportunities for kids ages 3-18 in high-need communities.",
+      "answer": "I don't know.",
+      "score": 0,
+      "evidence": "partial",
+      "missing": [
+        "D3:13",
+        "D3:15"
+      ],
+      "conversation": "conv-43",
+      "selected_count": 19,
+      "total_candidates": 349,
+      "carriers": [
+        {
+          "dialogue": "D3:13",
+          "source": {
+            "speaker": "John",
+            "dia_id": "D3:13",
+            "text": "I just signed up Nike for a basketball shoe and gear deal. I'm also in talks with Gatorade about a potential sponsorship. It's pretty cool to be working with such big brands!",
+            "session": "session_3",
+            "date": "4:21 pm on 16 July, 2023"
+          },
+          "pair_id": "922f161c08a8dbd9f97445b767aa685e1b9d604ee25f6b2b29062bf8e29d6838",
+          "pair_text": "John: I just signed up Nike for a basketball shoe and gear deal. I'm also in talks with Gatorade about a potential sponsorship. It's pretty cool to be working with such big brands!\nTim: Wow, Congrats on those deals with Nike and Gatorade! You're killing it! Any other brands you're dreaming of working with?",
+          "score": 0.42515581095362975,
+          "margin": -0.05484418904637023,
+          "rank": 65,
+          "selected": false,
+          "pair_present_in_prompt": false,
+          "neighbors": [
+            {
+              "offset": -2,
+              "ids": [
+                "D3:9",
+                "D3:10"
+              ],
+              "score": 0.5274459085586964,
+              "selected": true,
+              "text": "John: Yeah, I'm getting somewhere with endorsements. I've talked to some big names, which looks promising. Exciting to see what's in store!\nTim: How did you manage to connect with these big companies?"
+            },
+            {
+              "offset": -1,
+              "ids": [
+                "D3:11",
+                "D3:12"
+              ],
+              "score": 0.44882318780736985,
+              "selected": false,
+              "text": "John: I used my contacts in the basketball industry and my marketing skills to make connections. Networking plays a big role in getting endorsements, and I'm grateful for the support I've received.\nTim: Wow, what endorsements have you managed to get through networking?"
+            },
+            {
+              "offset": 1,
+              "ids": [
+                "D3:15",
+                "D3:16"
+              ],
+              "score": 0.41408402022267493,
+              "selected": false,
+              "text": "John: Thanks! The Nike and Gatorade deals have me stoked! I've always liked Under Armour, working with them would be really cool.\nTim: Wow! What kind of stuff are you exploring? It looks like good things are coming your way."
+            },
+            {
+              "offset": 2,
+              "ids": [
+                "D3:17",
+                "D3:18"
+              ],
+              "score": 0.4162342898865392,
+              "selected": false,
+              "text": "John: Just checking out some exciting things that are happening. Really looking forward to what's coming next! This is where I'm headed.\nTim: Wow, amazing view! Where's that? What's got you so excited?"
+            }
+          ]
+        },
+        {
+          "dialogue": "D3:15",
+          "source": {
+            "speaker": "John",
+            "img_url": [
+              "https://hips.hearstapps.com/hmg-prod/images/img-8577-1571255920.jpg"
+            ],
+            "blip_caption": "a photo of a mannequin in a blue suit and a chair",
+            "query": "under armour advertisement",
+            "dia_id": "D3:15",
+            "text": "Thanks! The Nike and Gatorade deals have me stoked! I've always liked Under Armour, working with them would be really cool.",
+            "session": "session_3",
+            "date": "4:21 pm on 16 July, 2023"
+          },
+          "pair_id": "ef988e171306cefbf4ed4c76f9ba2e0458591032d43361154318a11d9cfa83b5",
+          "pair_text": "John: Thanks! The Nike and Gatorade deals have me stoked! I've always liked Under Armour, working with them would be really cool.\nTim: Wow! What kind of stuff are you exploring? It looks like good things are coming your way.",
+          "score": 0.41408402022267493,
+          "margin": -0.06591597977732505,
+          "rank": 89,
+          "selected": false,
+          "pair_present_in_prompt": false,
+          "neighbors": [
+            {
+              "offset": -2,
+              "ids": [
+                "D3:11",
+                "D3:12"
+              ],
+              "score": 0.44882318780736985,
+              "selected": false,
+              "text": "John: I used my contacts in the basketball industry and my marketing skills to make connections. Networking plays a big role in getting endorsements, and I'm grateful for the support I've received.\nTim: Wow, what endorsements have you managed to get through networking?"
+            },
+            {
+              "offset": -1,
+              "ids": [
+                "D3:13",
+                "D3:14"
+              ],
+              "score": 0.42515581095362975,
+              "selected": false,
+              "text": "John: I just signed up Nike for a basketball shoe and gear deal. I'm also in talks with Gatorade about a potential sponsorship. It's pretty cool to be working with such big brands!\nTim: Wow, Congrats on those deals with Nike and Gatorade! You're killing it! Any other brands you're dreaming of working with?"
+            },
+            {
+              "offset": 1,
+              "ids": [
+                "D3:17",
+                "D3:18"
+              ],
+              "score": 0.4162342898865392,
+              "selected": false,
+              "text": "John: Just checking out some exciting things that are happening. Really looking forward to what's coming next! This is where I'm headed.\nTim: Wow, amazing view! Where's that? What's got you so excited?"
+            },
+            {
+              "offset": 2,
+              "ids": [
+                "D3:19",
+                "D3:20"
+              ],
+              "score": 0.3562773256591015,
+              "selected": false,
+              "text": "John: It's Seattle, I'm stoked for my game there next month! It's one of my favorite cities to explore - super vibrant!\nTim: Cool! What do you love about Seattle?"
+            }
+          ]
+        },
+        {
+          "dialogue": "D6:15",
+          "source": {
+            "speaker": "John",
+            "dia_id": "D6:15",
+            "text": "Yeah! Winning a championship is my number one goal. But I also want to make a difference away from the court, like through charity or inspiring people. Basketball has been great to me, so I want to give something back.",
+            "session": "session_6",
+            "date": "1:08 pm on 11 August, 2023"
+          },
+          "pair_id": "e79db30d0676b5ef76164fc9511feae9229dda84d867b5cd02cca8377f0c3354",
+          "pair_text": "John: Yeah! Winning a championship is my number one goal. But I also want to make a difference away from the court, like through charity or inspiring people. Basketball has been great to me, so I want to give something back.\nTim: Winning a title and making a difference off the court is inspiring. How do you plan to kick off your charity work?",
+          "score": 0.6294571464495251,
+          "margin": 0.14945714644952512,
+          "rank": 3,
+          "selected": true,
+          "pair_present_in_prompt": true,
+          "neighbors": [
+            {
+              "offset": -2,
+              "ids": [
+                "D6:11",
+                "D6:12"
+              ],
+              "score": 0.3081109132166134,
+              "selected": false,
+              "text": "John: Yes, these have been with me on my journey since the beginning. All the successes, the failures, the friends - I have so many stories to tell. They're more than just a pair of shoes, they symbolize resilience, determination, and a love for the game. They remind me of what I've achieved and how far I've come.\nTim: Those shoes are special. They show your hard work, your successes, and all the amazing times you've had with basketball. It's awesome how meaningful objects can become. So inspiring. How did you get into the game?"
+            },
+            {
+              "offset": -1,
+              "ids": [
+                "D6:13",
+                "D6:14"
+              ],
+              "score": 0.35069629314507406,
+              "selected": false,
+              "text": "John: Thanks! Basketball has been a part of my life ever since I was a kid. I'd watch NBA games with my dad and dream of playing on those big courts. When I turned ten, dad signed me up for a local league, and I've been playing ever since. I kept playing through middle and high school before earning a college scholarship. And after college, I was drafted by a team – my dream come true!\nTim: Wow! You really made your childhood dream come true. It's impressive how your dedication and hard work paid off. It's awesome how our passions shape our lives. Do you have any big goals for your basketball career?"
+            },
+            {
+              "offset": 1,
+              "ids": [
+                "D6:17",
+                "D6:18"
+              ],
+              "score": 0.7356640496026275,
+              "selected": true,
+              "text": "John: I'm teaming up with a local organization that helps disadvantaged kids with sports and school. I'm hoping to use my platform to have a positive impact on the community and inspire others as well.\nTim: Making a difference like that is truly amazing. I can't wait to see the impact it'll have. All the best for your charity work!"
+            },
+            {
+              "offset": 2,
+              "ids": [
+                "D6:19",
+                "D6:20"
+              ],
+              "score": 0.5414854767343307,
+              "selected": true,
+              "text": "John: Thanks! Really appreciate the support. It means a lot. I'm excited to work hard and make a positive impact.\nTim: No worries. I'm here to support you. You've got tons of determination and passion! Keep it up - you're gonna make a difference!"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "0418e04e98190e1d105809c90bb28c2b351131d5053b927c1288051bfc712f71",
+      "question": "In light of the health and dietary changes discussed, what would be an appropriate gift for both Evan and Sam to encourage their healthy lifestyles?",
+      "gold": "a cookbook with healthy recipes or a subscription to a healthy meal delivery service.",
+      "answer": "I don't know.",
+      "score": 0,
+      "evidence": "partial",
+      "missing": [
+        "D14:12"
+      ],
+      "conversation": "conv-49",
+      "selected_count": 155,
+      "total_candidates": 260,
+      "carriers": [
+        {
+          "dialogue": "D2:9",
+          "source": {
+            "speaker": "Evan",
+            "dia_id": "D2:9",
+            "text": "Yeah, what worked for me was finding a fitness routine I really enjoy. It's my go-to, I love the feeling of being healthy and strong. Making it fun and finding little ways to make smarter choices in my diet really added up. Don't forget, you got this!",
+            "session": "session_2",
+            "date": "7:11 pm on 24 May, 2023"
+          },
+          "pair_id": "e5d81122b1663c2830660ac671368d9b54fe15dd724ec9c1b941eec55a21da5d",
+          "pair_text": "Evan: Yeah, what worked for me was finding a fitness routine I really enjoy. It's my go-to, I love the feeling of being healthy and strong. Making it fun and finding little ways to make smarter choices in my diet really added up. Don't forget, you got this!\nSam: Thanks, Evan. Like you said, I've been looking for a hobby to stay motivated. I've been thinking about trying painting. Do you think it will help me de-stress?",
+          "score": 0.5246282202275101,
+          "margin": 0.04462822022751012,
+          "rank": 95,
+          "selected": true,
+          "pair_present_in_prompt": true,
+          "neighbors": [
+            {
+              "offset": -2,
+              "ids": [
+                "D2:5",
+                "D2:6"
+              ],
+              "score": 0.6353375175181448,
+              "selected": true,
+              "text": "Evan: Sorry to hear that, Sam. Is there anything I can do to help?\nSam: Thanks, Evan. Appreciate the offer, but had a check-up with my doctor a few days ago and, yikes, the weight wasn't great. It was pretty eye-opening."
+            },
+            {
+              "offset": -1,
+              "ids": [
+                "D2:7",
+                "D2:8"
+              ],
+              "score": 0.6614240745991871,
+              "selected": true,
+              "text": "Evan: That must have been a challenging experience, Sam. It's tough when we have to confront our own health challenges. Remember, it's never too late to make positive changes for a healthier lifestyle. Is there anything I can do to support you in this journey?\nSam: Thanks, Evan. Breaking old habits isn't easy. Do you have any tips for starting the process?"
+            },
+            {
+              "offset": 1,
+              "ids": [
+                "D2:11",
+                "D2:12"
+              ],
+              "score": 0.431935243258302,
+              "selected": false,
+              "text": "Evan: Of course, Sam! Painting is a great way to relieve stress and be creative. It gives you the freedom to explore colors and textures and express feelings. I've been doing it for a few years now and it helps me find peace. But unfortunately it won't help you with your weight problem, besides painting I recommend exercising!\nSam: Thanks, Evan! Appreciate the encouragement. I'll give it a go and let you know how it turns out."
+            },
+            {
+              "offset": 2,
+              "ids": [
+                "D2:13",
+                "D2:14"
+              ],
+              "score": 0.5024627526572262,
+              "selected": true,
+              "text": "Evan: Awesome, Sam! Have fun with it and don't put too much pressure on yourself. Can't wait to hear how it's going!\nSam: Cheers, Evan! I won't stress - just gonna enjoy it."
+            }
+          ]
+        },
+        {
+          "dialogue": "D3:1",
+          "source": {
+            "speaker": "Evan",
+            "img_url": [
+              "https://i.redd.it/e4esfhi1ekl61.jpg"
+            ],
+            "blip_caption": "a photo of a person holding a bottle of medicine in their hand",
+            "query": "medication reminder health scare",
+            "dia_id": "D3:1",
+            "text": "Hey Sam! Long time no talk! How're you doing? Life's been quite the rollercoaster lately. I had a health scare last week – a sudden heart palpitation incident that really shook me up. It's been a serious wake-up call about my lifestyle.",
+            "session": "session_3",
+            "date": "3:55 pm on 6 June, 2023"
+          },
+          "pair_id": "33b27862e191ad811fcfc9f264a27901e967c3783cbeedfe2e4524eed4090180",
+          "pair_text": "Evan: Hey Sam! Long time no talk! How're you doing? Life's been quite the rollercoaster lately. I had a health scare last week – a sudden heart palpitation incident that really shook me up. It's been a serious wake-up call about my lifestyle.\nSam: Hey Evan, great hearing from you! Sorry about that, glad you're feeling better now. Trying to eat healthier these days.",
+          "score": 0.621417723468489,
+          "margin": 0.14141772346848902,
+          "rank": 21,
+          "selected": true,
+          "pair_present_in_prompt": true,
+          "neighbors": [
+            {
+              "offset": -2,
+              "ids": [
+                "D2:15",
+                "D2:16"
+              ],
+              "score": 0.5238594286728806,
+              "selected": true,
+              "text": "Evan: Alright Sam, have fun with it! Keep me updated!\nSam: Thanks, Evan! Will do. Bye for now."
+            },
+            {
+              "offset": -1,
+              "ids": [
+                "D2:17"
+              ],
+              "score": 0.4959512050213011,
+              "selected": true,
+              "text": "Evan: Take care, Sam! I'll catch up with you later."
+            },
+            {
+              "offset": 1,
+              "ids": [
+                "D3:3",
+                "D3:4"
+              ],
+              "score": 0.6300146701638083,
+              "selected": true,
+              "text": "Evan: That salad looks yummy! I'm being extra careful with my health lately. I'm trying to eat less processed food and sugary snacks, even though I love ginger snaps. Have you made any changes to your diet recently?\nSam: Nah, no changes for me. Still enjoying my soda and candy, although I know it's not the best habit to have."
+            },
+            {
+              "offset": 2,
+              "ids": [
+                "D3:5",
+                "D3:6"
+              ],
+              "score": 0.5741282641922925,
+              "selected": true,
+              "text": "Evan: Yeah, breaking habits can be tough. Making small changes can have a big impact later on. Have you considered swapping soda for flavored seltzer water? It's still bubbly and tasty, but without the sugar. And instead of candy, you could try dark chocolate with high cocoa content - it's a healthier option. What do you think?\nSam: Yeah, good idea! I'll give it a try."
+            }
+          ]
+        },
+        {
+          "dialogue": "D3:3",
+          "source": {
+            "speaker": "Evan",
+            "dia_id": "D3:3",
+            "text": "That salad looks yummy! I'm being extra careful with my health lately. I'm trying to eat less processed food and sugary snacks, even though I love ginger snaps. Have you made any changes to your diet recently?",
+            "session": "session_3",
+            "date": "3:55 pm on 6 June, 2023"
+          },
+          "pair_id": "97d05082f566a5cbf5b7522b4db170252013beca9e26543d214b941a25fca577",
+          "pair_text": "Evan: That salad looks yummy! I'm being extra careful with my health lately. I'm trying to eat less processed food and sugary snacks, even though I love ginger snaps. Have you made any changes to your diet recently?\nSam: Nah, no changes for me. Still enjoying my soda and candy, although I know it's not the best habit to have.",
+          "score": 0.6300146701638083,
+          "margin": 0.15001467016380832,
+          "rank": 19,
+          "selected": true,
+          "pair_present_in_prompt": true,
+          "neighbors": [
+            {
+              "offset": -2,
+              "ids": [
+                "D2:17"
+              ],
+              "score": 0.4959512050213011,
+              "selected": true,
+              "text": "Evan: Take care, Sam! I'll catch up with you later."
+            },
+            {
+              "offset": -1,
+              "ids": [
+                "D3:1",
+                "D3:2"
+              ],
+              "score": 0.621417723468489,
+              "selected": true,
+              "text": "Evan: Hey Sam! Long time no talk! How're you doing? Life's been quite the rollercoaster lately. I had a health scare last week – a sudden heart palpitation incident that really shook me up. It's been a serious wake-up call about my lifestyle.\nSam: Hey Evan, great hearing from you! Sorry about that, glad you're feeling better now. Trying to eat healthier these days."
+            },
+            {
+              "offset": 1,
+              "ids": [
+                "D3:5",
+                "D3:6"
+              ],
+              "score": 0.5741282641922925,
+              "selected": true,
+              "text": "Evan: Yeah, breaking habits can be tough. Making small changes can have a big impact later on. Have you considered swapping soda for flavored seltzer water? It's still bubbly and tasty, but without the sugar. And instead of candy, you could try dark chocolate with high cocoa content - it's a healthier option. What do you think?\nSam: Yeah, good idea! I'll give it a try."
+            },
+            {
+              "offset": 2,
+              "ids": [
+                "D3:7",
+                "D3:8"
+              ],
+              "score": 0.7188514139069156,
+              "selected": true,
+              "text": "Evan: Awesome, Sam! Let me know how it goes. Making small changes can really help you live a healthier life. Don't forget - every step matters!\nSam: Hey Evan, thanks! Appreciate it. I'll definitely keep you posted."
+            }
+          ]
+        },
+        {
+          "dialogue": "D3:5",
+          "source": {
+            "speaker": "Evan",
+            "dia_id": "D3:5",
+            "text": "Yeah, breaking habits can be tough. Making small changes can have a big impact later on. Have you considered swapping soda for flavored seltzer water? It's still bubbly and tasty, but without the sugar. And instead of candy, you could try dark chocolate with high cocoa content - it's a healthier option. What do you think?",
+            "session": "session_3",
+            "date": "3:55 pm on 6 June, 2023"
+          },
+          "pair_id": "55b4f56e2ff87ae9283af773b26dc39de7ff30c771f51bcffb16b3018e56d8b5",
+          "pair_text": "Evan: Yeah, breaking habits can be tough. Making small changes can have a big impact later on. Have you considered swapping soda for flavored seltzer water? It's still bubbly and tasty, but without the sugar. And instead of candy, you could try dark chocolate with high cocoa content - it's a healthier option. What do you think?\nSam: Yeah, good idea! I'll give it a try.",
+          "score": 0.5741282641922925,
+          "margin": 0.09412826419229248,
+          "rank": 46,
+          "selected": true,
+          "pair_present_in_prompt": true,
+          "neighbors": [
+            {
+              "offset": -2,
+              "ids": [
+                "D3:1",
+                "D3:2"
+              ],
+              "score": 0.621417723468489,
+              "selected": true,
+              "text": "Evan: Hey Sam! Long time no talk! How're you doing? Life's been quite the rollercoaster lately. I had a health scare last week – a sudden heart palpitation incident that really shook me up. It's been a serious wake-up call about my lifestyle.\nSam: Hey Evan, great hearing from you! Sorry about that, glad you're feeling better now. Trying to eat healthier these days."
+            },
+            {
+              "offset": -1,
+              "ids": [
+                "D3:3",
+                "D3:4"
+              ],
+              "score": 0.6300146701638083,
+              "selected": true,
+              "text": "Evan: That salad looks yummy! I'm being extra careful with my health lately. I'm trying to eat less processed food and sugary snacks, even though I love ginger snaps. Have you made any changes to your diet recently?\nSam: Nah, no changes for me. Still enjoying my soda and candy, although I know it's not the best habit to have."
+            },
+            {
+              "offset": 1,
+              "ids": [
+                "D3:7",
+                "D3:8"
+              ],
+              "score": 0.7188514139069156,
+              "selected": true,
+              "text": "Evan: Awesome, Sam! Let me know how it goes. Making small changes can really help you live a healthier life. Don't forget - every step matters!\nSam: Hey Evan, thanks! Appreciate it. I'll definitely keep you posted."
+            },
+            {
+              "offset": 2,
+              "ids": [
+                "D3:9",
+                "D3:10"
+              ],
+              "score": 0.6592105839178967,
+              "selected": true,
+              "text": "Evan: I'm here for you, Sam. Let's continue supporting each other on our health journeys. It's important to remember that progress takes time.\nSam: Yeah, you're right. It takes time, but I'm up for keep trying and making those tiny changes."
+            }
+          ]
+        },
+        {
+          "dialogue": "D4:10",
+          "source": {
+            "speaker": "Evan",
+            "img_url": [
+              "https://jordecor.com/wp-content/uploads/2018/11/Photo-Nov-13-11-00-19-AM.jpg"
+            ],
+            "blip_caption": "a photo of a table with bowls of fruit and a bottle of alcohol",
+            "query": "flavored seltzer bowl colorful fruits",
+            "dia_id": "D4:10",
+            "text": "Definitely, how about some flavored seltzer with some air-popped popcorn or fruit? It's yum and healthy! The novel I'm reading is \"The Great Gatsby\".",
+            "session": "session_4",
+            "date": "10:52 am on 27 July, 2023"
+          },
+          "pair_id": "b789dabcad55f3f1bdee00cc8dad9ddc748a9c523dc876a93f30ab31652d13f4",
+          "pair_text": "Sam: Sounds good, Evan. I've tried it before and it was nice. Do you have any ideas for low-calorie snacks to pair with it? And what's the novel?\nEvan: Definitely, how about some flavored seltzer with some air-popped popcorn or fruit? It's yum and healthy! The novel I'm reading is \"The Great Gatsby\".",
+          "score": 0.5878776491164472,
+          "margin": 0.10787764911644726,
+          "rank": 40,
+          "selected": true,
+          "pair_present_in_prompt": true,
+          "neighbors": [
+            {
+              "offset": -2,
+              "ids": [
+                "D4:5",
+                "D4:6"
+              ],
+              "score": 0.7419423274240252,
+              "selected": true,
+              "text": "Sam: That's awesome, Evan! What do you think made the biggest impact on your health journey?\nEvan: I made some dietary changes, like cutting down on sugary snacks and eating more veggies and fruit, and it made a big impact on my health. Have you considered any changes?"
+            },
+            {
+              "offset": -1,
+              "ids": [
+                "D4:7",
+                "D4:8"
+              ],
+              "score": 0.5381938093180735,
+              "selected": true,
+              "text": "Sam: Yep, I'm reducing my soda and candy intake. It's tough, but I'm determined to make a change.\nEvan: Go for it, Sam! It's tough at first, but you got this. Try flavored seltzer water instead. It can be a great alternative to soda. Btw I can't stop thinking about that new mystery novel I started. It's so gripping!"
+            },
+            {
+              "offset": 1,
+              "ids": [
+                "D4:11",
+                "D4:12"
+              ],
+              "score": 0.6348453951600037,
+              "selected": true,
+              "text": "Sam: Yum, that sounds good! Thanks! And I'll definitely read that novel sometime.\nEvan: No worries, Sam! Focus on healthy swaps and taking small steps. Stay upbeat!"
+            },
+            {
+              "offset": 2,
+              "ids": [
+                "D4:13",
+                "D4:14"
+              ],
+              "score": 0.5913146590249173,
+              "selected": true,
+              "text": "Sam: That reminder is inspiring. Thanks for reminding me to focus on progress, not perfection.\nEvan: By the way, have you thought about exercising? Trust me, it's just as important as eating right."
+            }
+          ]
+        },
+        {
+          "dialogue": "D14:12",
+          "source": {
+            "speaker": "Evan",
+            "dia_id": "D14:12",
+            "text": "Sure thing! Our hike is going to be awesome, I can tell. I'm always here to support you.",
+            "session": "session_14",
+            "date": "1:50 pm on 17 October, 2023"
+          },
+          "pair_id": "b575caa6660b6e2f24e488c7f3434f5facb5b44de5f23b1ccaa98c7dadc9e6b5",
+          "pair_text": "Sam: Totally! I'm so pumped for this hike. Connecting with nature is exactly what I need. Thanks so much for the support and always being there. Means a lot.\nEvan: Sure thing! Our hike is going to be awesome, I can tell. I'm always here to support you.",
+          "score": 0.4585809146255291,
+          "margin": -0.021419085374470903,
+          "rank": 174,
+          "selected": false,
+          "pair_present_in_prompt": false,
+          "neighbors": [
+            {
+              "offset": -2,
+              "ids": [
+                "D14:7",
+                "D14:8"
+              ],
+              "score": 0.52957672230043,
+              "selected": true,
+              "text": "Sam: Sounds awesome, Evan! Can't wait to go on a hike with you. It's going to be a fun challenge and a great opportunity to appreciate the beauty of nature.\nEvan: Definitely, Sam! Hiking is an awesome way to bond with nature and push ourselves. It's gonna be a cool memory for us both. It's great to see progress, was just at the gym yesterday. Gaining strength!"
+            },
+            {
+              "offset": -1,
+              "ids": [
+                "D14:9",
+                "D14:10"
+              ],
+              "score": 0.5494029684272573,
+              "selected": true,
+              "text": "Sam: Super excited to get fit with ya. Let's hit the trails soon!\nEvan: Thanks, Sam! That's so nice of you. We'll definitely have a great time on our hike!"
+            },
+            {
+              "offset": 1,
+              "ids": [
+                "D14:13",
+                "D14:14"
+              ],
+              "score": 0.5530800578550497,
+              "selected": true,
+              "text": "Sam: Thanks, Evan. I appreciate your support.\nEvan: No problem, Sam. Whenever you need support, I'm here for you. Stay safe!"
+            },
+            {
+              "offset": 2,
+              "ids": [
+                "D14:15",
+                "D14:16"
+              ],
+              "score": 0.48203824668874695,
+              "selected": true,
+              "text": "Sam: Thanks, I'll get in touch if I need anything. Stay safe. Bye!\nEvan: Later! Stay safe and don't hesitate to holler if you need anything. Can't wait to hit the trail."
+            }
+          ]
+        },
+        {
+          "dialogue": "D5:9",
+          "source": {
+            "speaker": "Evan",
+            "img_url": [
+              "https://davethekayaker.files.wordpress.com/2019/04/20190430_110731.jpg"
+            ],
+            "blip_caption": "a photo of a person's wrist with a smart watch on it",
+            "query": "fitness tracker wrist",
+            "dia_id": "D5:9",
+            "text": "Thanks Sam! My family motivates me to stay healthy. Well, it helps a lot with my health goals. It tracks my progress really well and serves as a constant reminder to keep going.",
+            "session": "session_5",
+            "date": "7:52 pm on 7 August, 2023"
+          },
+          "pair_id": "d395c88906c5746823ed6d2c468121271db6bea99a64685330426217964ca48a",
+          "pair_text": "Evan: Thanks Sam! My family motivates me to stay healthy. Well, it helps a lot with my health goals. It tracks my progress really well and serves as a constant reminder to keep going.\nSam: Cool! It sounds like a really good tool to stay on track. How has it been working out for you?",
+          "score": 0.592476534715928,
+          "margin": 0.112476534715928,
+          "rank": 33,
+          "selected": true,
+          "pair_present_in_prompt": true,
+          "neighbors": [
+            {
+              "offset": -2,
+              "ids": [
+                "D5:5",
+                "D5:6"
+              ],
+              "score": 0.605310580804556,
+              "selected": true,
+              "text": "Evan: Ginger snaps are my weakness for sure! Dealing with health issues has been tough, but it's made me appreciate the good moments more. These are the ones who bring lots of joy even through the hard times.\nSam: It looks like your kids are having a great time! And how long have you been prioritizing your health?"
+            },
+            {
+              "offset": -1,
+              "ids": [
+                "D5:7",
+                "D5:8"
+              ],
+              "score": 0.5908603591291327,
+              "selected": true,
+              "text": "Evan: Yes, they bring me such joy. My healthy road has been a long one. I've been working on it for two years now, so there have been ups and downs, but I'm doing my best.\nSam: I wish your motivation never goes anywhere! I'm thinking of ordering myself some similar ones too, what do you think, are they worth it?"
+            },
+            {
+              "offset": 1,
+              "ids": [
+                "D5:11",
+                "D5:12"
+              ],
+              "score": 0.566597187786801,
+              "selected": true,
+              "text": "Evan: It's been awesome, Sam! That visual reminder has been really motivating.\nSam: Thanks for the recommendation, what else motivates you?"
+            },
+            {
+              "offset": 2,
+              "ids": [
+                "D5:13",
+                "D5:14"
+              ],
+              "score": 0.510279893724388,
+              "selected": true,
+              "text": "Evan: I'm motivated by a thirst for adventure on interesting hikes, that's pretty cool!\nSam: What an amazing view! The key is to find something that keeps you motivated."
+            }
+          ]
+        },
+        {
+          "dialogue": "D7:3",
+          "source": {
+            "speaker": "Evan",
+            "dia_id": "D7:3",
+            "text": "Hey Sam, sorry to hear you had a rough week. At least it's forcing us both to take better care of ourselves, right? I hear the class you're taking is packed with healthy recipes. How's it been going? Have you picked up any yummy new meals?",
+            "session": "session_7",
+            "date": "4:20 pm on 15 August, 2023"
+          },
+          "pair_id": "1c0a7a882f7be1994129f44efc342c0bb37be677cb70c1740c8071fcb93dcb08",
+          "pair_text": "Evan: Hey Sam, sorry to hear you had a rough week. At least it's forcing us both to take better care of ourselves, right? I hear the class you're taking is packed with healthy recipes. How's it been going? Have you picked up any yummy new meals?\nSam: The cooking class has been great, I've learned awesome recipes. Last night I made this yummy grilled dish, so good!",
+          "score": 0.5540797256270171,
+          "margin": 0.07407972562701715,
+          "rank": 61,
+          "selected": true,
+          "pair_present_in_prompt": true,
+          "neighbors": [
+            {
+              "offset": -2,
+              "ids": [
+                "D6:19"
+              ],
+              "score": 0.42945307248621,
+              "selected": false,
+              "text": "Evan: Go to bed already, bud! And take care!"
+            },
+            {
+              "offset": -1,
+              "ids": [
+                "D7:1",
+                "D7:2"
+              ],
+              "score": 0.5481127236355967,
+              "selected": true,
+              "text": "Evan: Hey Sam, what's up? It's been a few days since we talked. How have you been? Life's been tough lately - my son had a soccer accident last Saturday and hurt his ankle, it was tough seeing him hurt! I just been looking after him and taking him to the doctor. As a dad, it's hard to watch your kid go through something like that.\nSam: Hey Evan, sorry to hear about what happened. I can imagine how hard it must have been for you. Things haven't been easy for me either. Had a tough week and a doc's appointment, so it was kinda like a wake-up call to take better care of myself. On a bright side, I'm taking a cooking class to learn how to make healthier meals."
+            },
+            {
+              "offset": 1,
+              "ids": [
+                "D7:5",
+                "D7:6"
+              ],
+              "score": 0.5572396214943094,
+              "selected": true,
+              "text": "Evan: Mmm, it looks delicious! What did you put in it? I want to eat healthy, so what kind of recipes do you suggest?\nSam: Thanks, Evan! I marinated it with a few different ingredients and grilled it with some veggies. It turned out really flavorful! If you want, I can share more recipes from my cooking class. Just let me know what you're looking for!"
+            },
+            {
+              "offset": 2,
+              "ids": [
+                "D7:7",
+                "D7:8"
+              ],
+              "score": 0.6112189517255401,
+              "selected": true,
+              "text": "Evan: That'd be great, Sam! I'm looking to add more vegetables to my meals. Do you have any recipes for that?\nSam: Yeah definitely, Evan. I have a tasty and easy roasted veg recipe that I can share with you. Oh, by the way, how have you been doing after the soccer incident? Must've been tough."
+            }
+          ]
+        },
+        {
+          "dialogue": "D7:2",
+          "source": {
+            "speaker": "Sam",
+            "dia_id": "D7:2",
+            "text": "Hey Evan, sorry to hear about what happened. I can imagine how hard it must have been for you. Things haven't been easy for me either. Had a tough week and a doc's appointment, so it was kinda like a wake-up call to take better care of myself. On a bright side, I'm taking a cooking class to learn how to make healthier meals.",
+            "session": "session_7",
+            "date": "4:20 pm on 15 August, 2023"
+          },
+          "pair_id": "97b7f071da6771beb038aed85009063a76871b415431fcc998019e544a2d4a18",
+          "pair_text": "Evan: Hey Sam, what's up? It's been a few days since we talked. How have you been? Life's been tough lately - my son had a soccer accident last Saturday and hurt his ankle, it was tough seeing him hurt! I just been looking after him and taking him to the doctor. As a dad, it's hard to watch your kid go through something like that.\nSam: Hey Evan, sorry to hear about what happened. I can imagine how hard it must have been for you. Things haven't been easy for me either. Had a tough week and a doc's appointment, so it was kinda like a wake-up call to take better care of myself. On a bright side, I'm taking a cooking class to learn how to make healthier meals.",
+          "score": 0.5481127236355967,
+          "margin": 0.06811272363559673,
+          "rank": 67,
+          "selected": true,
+          "pair_present_in_prompt": true,
+          "neighbors": [
+            {
+              "offset": -2,
+              "ids": [
+                "D6:17",
+                "D6:18"
+              ],
+              "score": 0.41102246006720317,
+              "selected": false,
+              "text": "Evan: I'll just keep going, step by step, and I'll definitely find those keys!\nSam: That's for sure!"
+            },
+            {
+              "offset": -1,
+              "ids": [
+                "D6:19"
+              ],
+              "score": 0.42945307248621,
+              "selected": false,
+              "text": "Evan: Go to bed already, bud! And take care!"
+            },
+            {
+              "offset": 1,
+              "ids": [
+                "D7:3",
+                "D7:4"
+              ],
+              "score": 0.5540797256270171,
+              "selected": true,
+              "text": "Evan: Hey Sam, sorry to hear you had a rough week. At least it's forcing us both to take better care of ourselves, right? I hear the class you're taking is packed with healthy recipes. How's it been going? Have you picked up any yummy new meals?\nSam: The cooking class has been great, I've learned awesome recipes. Last night I made this yummy grilled dish, so good!"
+            },
+            {
+              "offset": 2,
+              "ids": [
+                "D7:5",
+                "D7:6"
+              ],
+              "score": 0.5572396214943094,
+              "selected": true,
+              "text": "Evan: Mmm, it looks delicious! What did you put in it? I want to eat healthy, so what kind of recipes do you suggest?\nSam: Thanks, Evan! I marinated it with a few different ingredients and grilled it with some veggies. It turned out really flavorful! If you want, I can share more recipes from my cooking class. Just let me know what you're looking for!"
+            }
+          ]
+        },
+        {
+          "dialogue": "D7:5",
+          "source": {
+            "speaker": "Evan",
+            "dia_id": "D7:5",
+            "text": "Mmm, it looks delicious! What did you put in it? I want to eat healthy, so what kind of recipes do you suggest?",
+            "session": "session_7",
+            "date": "4:20 pm on 15 August, 2023"
+          },
+          "pair_id": "f6a91947ca85e9cf06a3271c1e1bb58b13d91ee0c3ec072b8ef1f8ab0a27d053",
+          "pair_text": "Evan: Mmm, it looks delicious! What did you put in it? I want to eat healthy, so what kind of recipes do you suggest?\nSam: Thanks, Evan! I marinated it with a few different ingredients and grilled it with some veggies. It turned out really flavorful! If you want, I can share more recipes from my cooking class. Just let me know what you're looking for!",
+          "score": 0.5572396214943094,
+          "margin": 0.07723962149430941,
+          "rank": 59,
+          "selected": true,
+          "pair_present_in_prompt": true,
+          "neighbors": [
+            {
+              "offset": -2,
+              "ids": [
+                "D7:1",
+                "D7:2"
+              ],
+              "score": 0.5481127236355967,
+              "selected": true,
+              "text": "Evan: Hey Sam, what's up? It's been a few days since we talked. How have you been? Life's been tough lately - my son had a soccer accident last Saturday and hurt his ankle, it was tough seeing him hurt! I just been looking after him and taking him to the doctor. As a dad, it's hard to watch your kid go through something like that.\nSam: Hey Evan, sorry to hear about what happened. I can imagine how hard it must have been for you. Things haven't been easy for me either. Had a tough week and a doc's appointment, so it was kinda like a wake-up call to take better care of myself. On a bright side, I'm taking a cooking class to learn how to make healthier meals."
+            },
+            {
+              "offset": -1,
+              "ids": [
+                "D7:3",
+                "D7:4"
+              ],
+              "score": 0.5540797256270171,
+              "selected": true,
+              "text": "Evan: Hey Sam, sorry to hear you had a rough week. At least it's forcing us both to take better care of ourselves, right? I hear the class you're taking is packed with healthy recipes. How's it been going? Have you picked up any yummy new meals?\nSam: The cooking class has been great, I've learned awesome recipes. Last night I made this yummy grilled dish, so good!"
+            },
+            {
+              "offset": 1,
+              "ids": [
+                "D7:7",
+                "D7:8"
+              ],
+              "score": 0.6112189517255401,
+              "selected": true,
+              "text": "Evan: That'd be great, Sam! I'm looking to add more vegetables to my meals. Do you have any recipes for that?\nSam: Yeah definitely, Evan. I have a tasty and easy roasted veg recipe that I can share with you. Oh, by the way, how have you been doing after the soccer incident? Must've been tough."
+            },
+            {
+              "offset": 2,
+              "ids": [
+                "D7:9",
+                "D7:10"
+              ],
+              "score": 0.5492997914727824,
+              "selected": true,
+              "text": "Evan: Thanks, Sam. His ankle is getting better, but still sore. It was rough at first, but thank goodness it was nothing serious.\nSam: Glad to hear his ankle is getting better. It's hard seeing someone we care about hurt. Look after yourself too, yeah? We gotta look after our health."
+            }
+          ]
+        },
+        {
+          "dialogue": "D7:12",
+          "source": {
+            "speaker": "Sam",
+            "dia_id": "D7:12",
+            "text": "I have been feeling a mix of emotions - somewhat concerned about my health but also motivated to make positive changes. Taking things one step at a time.",
+            "session": "session_7",
+            "date": "4:20 pm on 15 August, 2023"
+          },
+          "pair_id": "b735a7f8d45e298ae4f69df3984c035e959289076aacd3e7067c919c74510511",
+          "pair_text": "Evan: Yep, taking care of ourselves is a must. How have you been feeling lately?\nSam: I have been feeling a mix of emotions - somewhat concerned about my health but also motivated to make positive changes. Taking things one step at a time.",
+          "score": 0.6360201526009263,
+          "margin": 0.15602015260092628,
+          "rank": 16,
+          "selected": true,
+          "pair_present_in_prompt": true,
+          "neighbors": [
+            {
+              "offset": -2,
+              "ids": [
+                "D7:7",
+                "D7:8"
+              ],
+              "score": 0.6112189517255401,
+              "selected": true,
+              "text": "Evan: That'd be great, Sam! I'm looking to add more vegetables to my meals. Do you have any recipes for that?\nSam: Yeah definitely, Evan. I have a tasty and easy roasted veg recipe that I can share with you. Oh, by the way, how have you been doing after the soccer incident? Must've been tough."
+            },
+            {
+              "offset": -1,
+              "ids": [
+                "D7:9",
+                "D7:10"
+              ],
+              "score": 0.5492997914727824,
+              "selected": true,
+              "text": "Evan: Thanks, Sam. His ankle is getting better, but still sore. It was rough at first, but thank goodness it was nothing serious.\nSam: Glad to hear his ankle is getting better. It's hard seeing someone we care about hurt. Look after yourself too, yeah? We gotta look after our health."
+            },
+            {
+              "offset": 1,
+              "ids": [
+                "D7:13",
+                "D7:14"
+              ],
+              "score": 0.4759682203449367,
+              "selected": false,
+              "text": "Evan: It's okay to feel overwhelmed, Sam. Just keep moving forward slowly and taking small steps. You're doing awesome.\nSam: Thanks, Evan, your encouragement means a lot to me. I'll keep going and take it one step at a time!"
+            },
+            {
+              "offset": 2,
+              "ids": [
+                "D7:15",
+                "D7:16"
+              ],
+              "score": 0.5240133538792152,
+              "selected": true,
+              "text": "Evan: No worries, just keep going and taking it one step at a time! You'll get there.\nSam: Thanks, Evan. I really appreciate that. It means a lot."
+            }
+          ]
+        },
+        {
+          "dialogue": "D8:1",
+          "source": {
+            "speaker": "Sam",
+            "img_url": [
+              "https://i0.wp.com/www.thedishonhealthy.com/wp-content/uploads/2018/06/Avocado-Strawberry-Spinach-Salad-5.jpg"
+            ],
+            "blip_caption": "a photo of a bowl of spinach, avocado, and strawberries",
+            "query": "healthy salad",
+            "dia_id": "D8:1",
+            "text": "Hey Evan, some big news: I'm on a diet and living healthier! Been tough, but I'm determined.",
+            "session": "session_8",
+            "date": "6:17 pm on 19 August, 2023"
+          },
+          "pair_id": "5dadf939b1543b4d3d4f2ef84c21dd66dc4cc9a6e796b2e3fa9056a5181607ad",
+          "pair_text": "Sam: Hey Evan, some big news: I'm on a diet and living healthier! Been tough, but I'm determined.\nEvan: Wow, Sam, that's great news! Making changes to live healthier can be challenging, how has it been going?",
+          "score": 0.6744238844892946,
+          "margin": 0.1944238844892946,
+          "rank": 5,
+          "selected": true,
+          "pair_present_in_prompt": true,
+          "neighbors": [
+            {
+              "offset": -2,
+              "ids": [
+                "D7:13",
+                "D7:14"
+              ],
+              "score": 0.4759682203449367,
+              "selected": false,
+              "text": "Evan: It's okay to feel overwhelmed, Sam. Just keep moving forward slowly and taking small steps. You're doing awesome.\nSam: Thanks, Evan, your encouragement means a lot to me. I'll keep going and take it one step at a time!"
+            },
+            {
+              "offset": -1,
+              "ids": [
+                "D7:15",
+                "D7:16"
+              ],
+              "score": 0.5240133538792152,
+              "selected": true,
+              "text": "Evan: No worries, just keep going and taking it one step at a time! You'll get there.\nSam: Thanks, Evan. I really appreciate that. It means a lot."
+            },
+            {
+              "offset": 1,
+              "ids": [
+                "D8:3",
+                "D8:4"
+              ],
+              "score": 0.5019005688612128,
+              "selected": true,
+              "text": "Sam: It's tough, but I'm sticking with it.\nEvan: Nice work, Sam! Proud of you sticking to it. Have you noticed any positive changes?"
+            },
+            {
+              "offset": 2,
+              "ids": [
+                "D8:5",
+                "D8:6"
+              ],
+              "score": 0.49758134178492436,
+              "selected": true,
+              "text": "Sam: Yes, there are many, such as more energy and less sluggishness after eating. This is really encouraging!\nEvan: Wow, Sam, that's great to hear! Feeling more energized after meals is such a positive change. Keep up the good work! And speaking of healthy meals, do you have any favorite recipes you'd like to share?"
+            }
+          ]
+        },
+        {
+          "dialogue": "D8:5",
+          "source": {
+            "speaker": "Sam",
+            "dia_id": "D8:5",
+            "text": "Yes, there are many, such as more energy and less sluggishness after eating. This is really encouraging!",
+            "session": "session_8",
+            "date": "6:17 pm on 19 August, 2023"
+          },
+          "pair_id": "38f783af5fcbe87927072e47fe5a7c7f4c886ec0801cf586b4d61067b00f8de7",
+          "pair_text": "Sam: Yes, there are many, such as more energy and less sluggishness after eating. This is really encouraging!\nEvan: Wow, Sam, that's great to hear! Feeling more energized after meals is such a positive change. Keep up the good work! And speaking of healthy meals, do you have any favorite recipes you'd like to share?",
+          "score": 0.49758134178492436,
+          "margin": 0.017581341784924376,
+          "rank": 137,
+          "selected": true,
+          "pair_present_in_prompt": true,
+          "neighbors": [
+            {
+              "offset": -2,
+              "ids": [
+                "D8:1",
+                "D8:2"
+              ],
+              "score": 0.6744238844892946,
+              "selected": true,
+              "text": "Sam: Hey Evan, some big news: I'm on a diet and living healthier! Been tough, but I'm determined.\nEvan: Wow, Sam, that's great news! Making changes to live healthier can be challenging, how has it been going?"
+            },
+            {
+              "offset": -1,
+              "ids": [
+                "D8:3",
+                "D8:4"
+              ],
+              "score": 0.5019005688612128,
+              "selected": true,
+              "text": "Sam: It's tough, but I'm sticking with it.\nEvan: Nice work, Sam! Proud of you sticking to it. Have you noticed any positive changes?"
+            },
+            {
+              "offset": 1,
+              "ids": [
+                "D8:7",
+                "D8:8"
+              ],
+              "score": 0.5031780213067708,
+              "selected": true,
+              "text": "Sam: Sure, I'm loving this recipe I found. It's a flavorful and healthy grilled chicken and veggie stir-fry. Wanna give it a go?\nEvan: Mmm, looks yummy! Is the sauce a family secret? I'm always down to try new recipes!"
+            },
+            {
+              "offset": 2,
+              "ids": [
+                "D8:9",
+                "D8:10"
+              ],
+              "score": 0.5020066757371695,
+              "selected": true,
+              "text": "Sam: Nah, it's just my homemade sauce. Want the recipe?\nEvan: Yeah, I'd love to! Thanks for sharing the recipe."
+            }
+          ]
+        },
+        {
+          "dialogue": "D8:7",
+          "source": {
+            "speaker": "Sam",
+            "img_url": [
+              "https://www.myrelationshipwithfood.com/wp-content/uploads/2021/08/Quinoa-Chicken-Stir-Fry-1.jpg"
+            ],
+            "blip_caption": "a photo of two bowls of food with chopsticks and sauce",
+            "query": "grilled chicken vegetable stir-fry",
+            "dia_id": "D8:7",
+            "text": "Sure, I'm loving this recipe I found. It's a flavorful and healthy grilled chicken and veggie stir-fry. Wanna give it a go?",
+            "session": "session_8",
+            "date": "6:17 pm on 19 August, 2023"
+          },
+          "pair_id": "4c41a1ea23da61b4002e97d320eb93c097073ac9b9e9de3ae8c86aa0311ab760",
+          "pair_text": "Sam: Sure, I'm loving this recipe I found. It's a flavorful and healthy grilled chicken and veggie stir-fry. Wanna give it a go?\nEvan: Mmm, looks yummy! Is the sauce a family secret? I'm always down to try new recipes!",
+          "score": 0.5031780213067708,
+          "margin": 0.023178021306770824,
+          "rank": 128,
+          "selected": true,
+          "pair_present_in_prompt": true,
+          "neighbors": [
+            {
+              "offset": -2,
+              "ids": [
+                "D8:3",
+                "D8:4"
+              ],
+              "score": 0.5019005688612128,
+              "selected": true,
+              "text": "Sam: It's tough, but I'm sticking with it.\nEvan: Nice work, Sam! Proud of you sticking to it. Have you noticed any positive changes?"
+            },
+            {
+              "offset": -1,
+              "ids": [
+                "D8:5",
+                "D8:6"
+              ],
+              "score": 0.49758134178492436,
+              "selected": true,
+              "text": "Sam: Yes, there are many, such as more energy and less sluggishness after eating. This is really encouraging!\nEvan: Wow, Sam, that's great to hear! Feeling more energized after meals is such a positive change. Keep up the good work! And speaking of healthy meals, do you have any favorite recipes you'd like to share?"
+            },
+            {
+              "offset": 1,
+              "ids": [
+                "D8:9",
+                "D8:10"
+              ],
+              "score": 0.5020066757371695,
+              "selected": true,
+              "text": "Sam: Nah, it's just my homemade sauce. Want the recipe?\nEvan: Yeah, I'd love to! Thanks for sharing the recipe."
+            },
+            {
+              "offset": 2,
+              "ids": [
+                "D8:11",
+                "D8:12"
+              ],
+              "score": 0.4831285446237663,
+              "selected": true,
+              "text": "Sam: Sure thing! Here's the recipe. Let me know how it went!\nEvan: Thanks Sam! I'll give it a shot and let you know how it went. Trying out new recipes is a great way to stay busy and creative. By the way, I also started taking a painting classes few days ago and I'm really enjoying it. It's all about trying new things, right?"
+            }
+          ]
+        },
+        {
+          "dialogue": "D8:8",
+          "source": {
+            "speaker": "Evan",
+            "dia_id": "D8:8",
+            "text": "Mmm, looks yummy! Is the sauce a family secret? I'm always down to try new recipes!",
+            "session": "session_8",
+            "date": "6:17 pm on 19 August, 2023"
+          },
+          "pair_id": "4c41a1ea23da61b4002e97d320eb93c097073ac9b9e9de3ae8c86aa0311ab760",
+          "pair_text": "Sam: Sure, I'm loving this recipe I found. It's a flavorful and healthy grilled chicken and veggie stir-fry. Wanna give it a go?\nEvan: Mmm, looks yummy! Is the sauce a family secret? I'm always down to try new recipes!",
+          "score": 0.5031780213067708,
+          "margin": 0.023178021306770824,
+          "rank": 128,
+          "selected": true,
+          "pair_present_in_prompt": true,
+          "neighbors": [
+            {
+              "offset": -2,
+              "ids": [
+                "D8:3",
+                "D8:4"
+              ],
+              "score": 0.5019005688612128,
+              "selected": true,
+              "text": "Sam: It's tough, but I'm sticking with it.\nEvan: Nice work, Sam! Proud of you sticking to it. Have you noticed any positive changes?"
+            },
+            {
+              "offset": -1,
+              "ids": [
+                "D8:5",
+                "D8:6"
+              ],
+              "score": 0.49758134178492436,
+              "selected": true,
+              "text": "Sam: Yes, there are many, such as more energy and less sluggishness after eating. This is really encouraging!\nEvan: Wow, Sam, that's great to hear! Feeling more energized after meals is such a positive change. Keep up the good work! And speaking of healthy meals, do you have any favorite recipes you'd like to share?"
+            },
+            {
+              "offset": 1,
+              "ids": [
+                "D8:9",
+                "D8:10"
+              ],
+              "score": 0.5020066757371695,
+              "selected": true,
+              "text": "Sam: Nah, it's just my homemade sauce. Want the recipe?\nEvan: Yeah, I'd love to! Thanks for sharing the recipe."
+            },
+            {
+              "offset": 2,
+              "ids": [
+                "D8:11",
+                "D8:12"
+              ],
+              "score": 0.4831285446237663,
+              "selected": true,
+              "text": "Sam: Sure thing! Here's the recipe. Let me know how it went!\nEvan: Thanks Sam! I'll give it a shot and let you know how it went. Trying out new recipes is a great way to stay busy and creative. By the way, I also started taking a painting classes few days ago and I'm really enjoying it. It's all about trying new things, right?"
+            }
+          ]
+        },
+        {
+          "dialogue": "D8:12",
+          "source": {
+            "speaker": "Evan",
+            "dia_id": "D8:12",
+            "text": "Thanks Sam! I'll give it a shot and let you know how it went. Trying out new recipes is a great way to stay busy and creative. By the way, I also started taking a painting classes few days ago and I'm really enjoying it. It's all about trying new things, right?",
+            "session": "session_8",
+            "date": "6:17 pm on 19 August, 2023"
+          },
+          "pair_id": "cc8aeb2ed4d9d60e511354e3338c83db08b4a3faa758df864348c1aaf2328700",
+          "pair_text": "Sam: Sure thing! Here's the recipe. Let me know how it went!\nEvan: Thanks Sam! I'll give it a shot and let you know how it went. Trying out new recipes is a great way to stay busy and creative. By the way, I also started taking a painting classes few days ago and I'm really enjoying it. It's all about trying new things, right?",
+          "score": 0.4831285446237663,
+          "margin": 0.0031285446237663272,
+          "rank": 152,
+          "selected": true,
+          "pair_present_in_prompt": true,
+          "neighbors": [
+            {
+              "offset": -2,
+              "ids": [
+                "D8:7",
+                "D8:8"
+              ],
+              "score": 0.5031780213067708,
+              "selected": true,
+              "text": "Sam: Sure, I'm loving this recipe I found. It's a flavorful and healthy grilled chicken and veggie stir-fry. Wanna give it a go?\nEvan: Mmm, looks yummy! Is the sauce a family secret? I'm always down to try new recipes!"
+            },
+            {
+              "offset": -1,
+              "ids": [
+                "D8:9",
+                "D8:10"
+              ],
+              "score": 0.5020066757371695,
+              "selected": true,
+              "text": "Sam: Nah, it's just my homemade sauce. Want the recipe?\nEvan: Yeah, I'd love to! Thanks for sharing the recipe."
+            },
+            {
+              "offset": 1,
+              "ids": [
+                "D8:13",
+                "D8:14"
+              ],
+              "score": 0.38635894942400195,
+              "selected": false,
+              "text": "Sam: You're already good at drawing, why did you decide to join a class? And why did you start painting then years ago anyway?\nEvan: Thanks, Sam! It all started when a friend of mine gave me this painting one day, it inspired me a lot and that's when I started painting. And I joined the classes to find like-minded people and show them what I can do, you can always improve your skills."
+            },
+            {
+              "offset": 2,
+              "ids": [
+                "D8:15",
+                "D8:16"
+              ],
+              "score": 0.46293551624662743,
+              "selected": false,
+              "text": "Sam: Wow, that's awesome! You're really talented. Did you take any other classes?\nEvan: Thanks, Sam! Just been painting with these for now, but might look into other classes. It's awesome for finding my peace and expressing myself!"
+            }
+          ]
+        },
+        {
+          "dialogue": "D9:1",
+          "source": {
+            "speaker": "Sam",
+            "dia_id": "D9:1",
+            "text": "Hey Evan! Exciting news: I started a new diet and exercise routine last Monday and it's made a huge difference. I feel great! What about you, what changes have you made recently?",
+            "session": "session_9",
+            "date": "10:18 am on 27 August, 2023"
+          },
+          "pair_id": "48d5042ba87e905988833a597be5080fc928120829ea689d9c29c20a63a15034",
+          "pair_text": "Sam: Hey Evan! Exciting news: I started a new diet and exercise routine last Monday and it's made a huge difference. I feel great! What about you, what changes have you made recently?\nEvan: Wow, Sam, great! Glad your new diet/exercise is going well. As for me, I've hit a sore spot lately. Twisted my knee last Friday and it's really painful, so it's been tough to stay consistent with my usual fitness routine. It's really frustrating because staying active is like, mega-important to me.",
+          "score": 0.5645424543199077,
+          "margin": 0.0845424543199077,
+          "rank": 54,
+          "selected": true,
+          "pair_present_in_prompt": true,
+          "neighbors": [
+            {
+              "offset": -2,
+              "ids": [
+                "D8:31",
+                "D8:32"
+              ],
+              "score": 0.4666420076697666,
+              "selected": false,
+              "text": "Sam: Wish I could join in on the fun! It sounds awesome.\nEvan: I'd like you to join me, too. Winter activities are a blast - hopefully someday you will!"
+            },
+            {
+              "offset": -1,
+              "ids": [
+                "D8:33"
+              ],
+              "score": 0.48806484949165163,
+              "selected": true,
+              "text": "Sam: Yeah, maybe. It's hard with that, you know. But who knows? Thanks for the understanding, Evan - it really means a lot."
+            },
+            {
+              "offset": 1,
+              "ids": [
+                "D9:3",
+                "D9:4"
+              ],
+              "score": 0.524978376027375,
+              "selected": true,
+              "text": "Sam: Oh no, sorry to hear about that, Evan. It's frustrating when our bodies don't cooperate, isn't it? Is there anything I can do to help?\nEvan: Thanks, Sam. I appreciate the concern. Life throws us curveballs - that's life, right? By the way, remember that book I was talking about? It just gets better with every page, can't let it out of my hands!"
+            },
+            {
+              "offset": 2,
+              "ids": [
+                "D9:5",
+                "D9:6"
+              ],
+              "score": 0.4430103224338642,
+              "selected": false,
+              "text": "Sam: Life sure can be unpredictable and tough. Being adaptable and finding other ways to stay active is key when you're facing an obstacle. Maybe look into low-impact exercises or physical therapy to help with that? And damn, you really got me interested in this book haha!\nEvan: Yeah, PT for my knee is on the cards. Hopefully I'll get an appointment soon. Till then, just keeping it low-key and swimming to stay active."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "model_calls": 0,
+  "hashes": {
+    "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\probes\\locomo_timeline30\\MISS_AUDIT_PLAN.md": "1fc78fe4e952bd421f56695bc890635eb1743b8e167cc92691570dbb076a5118",
+    "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\probes\\locomo_timeline30\\miss_audit.py": "8038caf51121f3a122e68e7138c8cc8cdc4a002868c51bac1b5a3a5718e721fb",
+    "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\probes\\locomo_timeline30\\artifacts\\corrected_results.json": "6f403bcfd2f205f66fbe78b562f8c0e6e7ba664dc026999718426c5eb07e4a39",
+    "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\locomo_relevance_timeline\\artifacts\\selections.jsonl.gz": "2d090c3719653bb4d572fc62b04ace6887543a005d8b94fc7b62ece35ed6bbd7",
+    "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\locomo_relevance_timeline\\artifacts\\adapter.jsonl.gz": "4e09314497cd0d3539109f7e6853ae805f9ebf664113c6ec65a1efe3fc30195f",
+    "C:\\Users\\muzaf\\Downloads\\locomo10.json": "79fa87e90f04081343b8c8debecb80a9a6842b76a7aa537dc9fdf651ea698ff4"
+  }
+}

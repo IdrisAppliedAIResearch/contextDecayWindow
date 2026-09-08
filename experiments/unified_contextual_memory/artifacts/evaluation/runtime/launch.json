@@ -1,0 +1,120 @@
+{
+  "allow_generation": true,
+  "command": [
+    "C:\\Users\\muzaf\\.unsloth\\llama.cpp\\build\\bin\\Release\\llama-server.exe",
+    "--model",
+    "C:\\Users\\muzaf\\.cache\\huggingface\\hub\\models--unsloth--Qwen3.8-27B-GGUF\\snapshots\\f1bfb127c64f7072bdd2cad55f258b9c8b2910fe\\Qwen3.8-27B-UD-Q4_K_XL.gguf",
+    "--host",
+    "127.0.0.1",
+    "--port",
+    "8099",
+    "--ctx-size",
+    "45056",
+    "--parallel",
+    "1",
+    "--n-gpu-layers",
+    "999",
+    "--cache-type-k",
+    "q8_0",
+    "--cache-type-v",
+    "q8_0",
+    "--flash-attn",
+    "on",
+    "--no-context-shift",
+    "--seed",
+    "5005",
+    "--device",
+    "CUDA0",
+    "--reasoning",
+    "off",
+    "--reasoning-budget",
+    "0",
+    "--cont-batching",
+    "--log-verbosity",
+    "4"
+  ],
+  "pid": 14648,
+  "pins": [
+    {
+      "name": "llama-server.exe",
+      "path": "C:\\Users\\muzaf\\.unsloth\\llama.cpp\\build\\bin\\Release\\llama-server.exe",
+      "sha256": "125e0938a280cba46c803a60178e51826203e030abacce03367a22108720f7ac"
+    },
+    {
+      "name": "llama-server-impl.dll",
+      "path": "C:\\Users\\muzaf\\.unsloth\\llama.cpp\\build\\bin\\Release\\llama-server-impl.dll",
+      "sha256": "5faafd11fa24912cb9d6f129b611cacdd8ec79201b4136b6dbf79ab51f3e0274"
+    },
+    {
+      "name": "llama-common.dll",
+      "path": "C:\\Users\\muzaf\\.unsloth\\llama.cpp\\build\\bin\\Release\\llama-common.dll",
+      "sha256": "24afcd98fc1de879084986572893bcf801f8b453fe4ed9b82006f3160d82f4f8"
+    },
+    {
+      "name": "llama.dll",
+      "path": "C:\\Users\\muzaf\\.unsloth\\llama.cpp\\build\\bin\\Release\\llama.dll",
+      "sha256": "0447b7b4398036160fb2eac2cfccc03cc452a9e1f6bc9d5a96076448b64805e7"
+    },
+    {
+      "name": "ggml.dll",
+      "path": "C:\\Users\\muzaf\\.unsloth\\llama.cpp\\build\\bin\\Release\\ggml.dll",
+      "sha256": "c2c3da08878a70d800770058c7d5c18d9119e740ef4985c9cb05e62bc0e6149b"
+    },
+    {
+      "name": "ggml-base.dll",
+      "path": "C:\\Users\\muzaf\\.unsloth\\llama.cpp\\build\\bin\\Release\\ggml-base.dll",
+      "sha256": "50226be2d83b2c51758eee429c22e87b5c53e15edc1076c362a2ba315d3926be"
+    },
+    {
+      "name": "ggml-cuda.dll",
+      "path": "C:\\Users\\muzaf\\.unsloth\\llama.cpp\\build\\bin\\Release\\ggml-cuda.dll",
+      "sha256": "fc89ad47cb9c3291d0c060bd257a17ee6ca72003f328e6855e880f74a7a2d810"
+    },
+    {
+      "name": "cublas64_13.dll",
+      "path": "C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v13.2\\bin\\x64\\cublas64_13.dll",
+      "sha256": "537d278122e2621d7202653cf873a9b8b872fac37122cb9d36246ded33c53e03"
+    },
+    {
+      "name": "cublasLt64_13.dll",
+      "path": "C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v13.2\\bin\\x64\\cublasLt64_13.dll",
+      "sha256": "b37233a1e3516a41d27dcea49595fd1cbaff979b65c80da69935cb59d0d23f5b"
+    },
+    {
+      "name": "nvcuda.dll",
+      "path": "C:\\Windows\\SYSTEM32\\nvcuda.dll",
+      "sha256": "d23629d0b171bcec8242e32d4dc625598aa0d977f6fbb324775243a0307f0993"
+    },
+    {
+      "name": "nvcuda64.dll",
+      "path": "C:\\Windows\\system32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_b26cc1edfbb8f4d0\\nvcuda64.dll",
+      "sha256": "5e56743c10d025bc626412c90c497b1e825a60fcfdb6edada5c6779aee139018"
+    },
+    {
+      "name": "nvcudart_hybrid64.dll",
+      "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_b26cc1edfbb8f4d0\\nvcudart_hybrid64.dll",
+      "sha256": "ea82fe6f6881867f715124cf92fdd40ee8e3292d55ef62d72cfb10a11703698c"
+    },
+    {
+      "name": "ggml-rpc.dll",
+      "path": "C:\\Users\\muzaf\\.unsloth\\llama.cpp\\build\\bin\\Release\\ggml-rpc.dll",
+      "sha256": "464566729b05eba428eacec76a3944a557b51f6fc32371e0934c9ee4815ca2ca"
+    },
+    {
+      "name": "ggml-cpu-cascadelake.dll",
+      "path": "C:\\Users\\muzaf\\.unsloth\\llama.cpp\\build\\bin\\Release\\ggml-cpu-cascadelake.dll",
+      "sha256": "28665d9e20b4603be37a3e399143e86e62734adb4c10f679c84a0e7b036b450c"
+    },
+    {
+      "bytes": 10752,
+      "path": "C:\\Users\\muzaf\\.unsloth\\llama.cpp\\build\\bin\\Release\\llama-server.exe",
+      "sha256": "125e0938a280cba46c803a60178e51826203e030abacce03367a22108720f7ac"
+    },
+    {
+      "bytes": 17923394624,
+      "path": "C:\\Users\\muzaf\\.cache\\huggingface\\hub\\models--unsloth--Qwen3.8-27B-GGUF\\snapshots\\f1bfb127c64f7072bdd2cad55f258b9c8b2910fe\\Qwen3.8-27B-UD-Q4_K_XL.gguf",
+      "sha256": "bee238bbeb3dc0a34bde4d0dedbaee1f98c009e8bb4226f03070054c12fb1372"
+    }
+  ],
+  "runner_pid": 15468
+}

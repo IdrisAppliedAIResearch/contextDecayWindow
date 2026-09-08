@@ -1,0 +1,18 @@
+{
+  "prompt_sha256": "e8a8fa6eb2cd0b57faf053ec98400d1e132ec74f7b33a21696b597f3b08d0c72",
+  "request": {
+    "cache_prompt": false,
+    "id_slot": 0,
+    "min_p": 0,
+    "n_predict": 4096,
+    "presence_penalty": 0,
+    "prompt": "<|im_start|>user\nYou are answering a question about a conversation between two people.\n\nHere is what you remember of the conversation:\n\n<record session=\"session_3\" date=\"4:21 pm on 16 July, 2023\" dialogue_ids=\"D3:23 D3:24\">\nJohn: Thanks! Can't wait for the seafood too. I love the ocean.\n[Supplied image-caption annotation, D3:23]: a photo of a person walking on the beach with a surfboard\nTim: That looks peaceful! Do you have a favorite beach memory?\n</record>\n<record session=\"session_3\" date=\"4:21 pm on 16 July, 2023\" dialogue_ids=\"D3:25 D3:26\">\nJohn: I had an awesome summer with my friends, surfing and riding the waves. The feeling was unreal!\n[Supplied image-caption annotation, D3:25]: a photo of a man holding a surfboard on a beach\nTim: Wow! How long have you been surfing?\n</record>\n<record session=\"session_3\" date=\"4:21 pm on 16 July, 2023\" dialogue_ids=\"D3:27 D3:28\">\nJohn: I started surfing five years ago and it's been great. I love the connection to nature.\nTim: Wow! That sounds amazing! The connection to nature must be incredible.\n[Supplied image-caption annotation, D3:28]: a photo of a person riding a surfboard on a body of water\n</record>\n<record session=\"session_21\" date=\"5:34 pm on 6 December, 2023\" dialogue_ids=\"D21:3 D21:4\">\nTim: Wow! How long have you been playing professionally?\nJohn: I've been playing professionally for just under a year now. It's been a wild ride.\n</record>\n\nQuestion: What year did John start surfing?\n\nAnswer with the fact itself, as briefly as the question allows. Do not explain your reasoning. If the material above does not contain the answer, reply exactly: I don't know.\n\nAnswer:<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+    "reasoning_format": "none",
+    "repeat_penalty": 1,
+    "seed": 5005,
+    "temperature": 0.6,
+    "top_k": 20,
+    "top_p": 0.95
+  },
+  "time": 1788814030.7551444
+}

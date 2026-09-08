@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "registration": "2e047c41c80748b16f0e6df15dcc70ac54145598",
+  "logical_answers": 3840,
+  "physical_measurement_calls": 3505,
+  "calls": 3508,
+  "maximum_input_tokens": 12042,
+  "inputs_manifest_sha256": "0902a2fffe0ba7da79f207b259457176de5d838bb6182ed703776bc2efae1745",
+  "source_sha256": "c18ebb1011de6655cde5dc1b4ed99db51679994e5a059942df4257ec905fcb0a",
+  "prompt_store_sha256": "b876eda14edc7d791d1247f3808758a032d6b36227fceca4e0016ebfe8cfdcb6",
+  "logical_schedule_sha256": "6053533dea6e16f7afc40bb44240a8ab72c6ac339a84e035167cc0dc0c36cf83",
+  "physical_schedule_sha256": "dd99e25fe6e8362f6461e41d93872e19a1e25eeb89e7cb0285abc03e407fdbf4",
+  "runner_sha256": "5be393b25eb63947d65c1d1630e27547c5e46ecd55882ac5184126d74c1699a8",
+  "prefix_required": true,
+  "runtime_files": [
+    {
+      "bytes": 10752,
+      "path": "C:\\Users\\muzaf\\.unsloth\\llama.cpp\\build\\bin\\Release\\llama-server.exe",
+      "sha256": "125e0938a280cba46c803a60178e51826203e030abacce03367a22108720f7ac"
+    },
+    {
+      "bytes": 17923394624,
+      "path": "C:\\Users\\muzaf\\.cache\\huggingface\\hub\\models--unsloth--Qwen3.8-27B-GGUF\\snapshots\\f1bfb127c64f7072bdd2cad55f258b9c8b2910fe\\Qwen3.8-27B-UD-Q4_K_XL.gguf",
+      "sha256": "bee238bbeb3dc0a34bde4d0dedbaee1f98c009e8bb4226f03070054c12fb1372"
+    }
+  ]
+}

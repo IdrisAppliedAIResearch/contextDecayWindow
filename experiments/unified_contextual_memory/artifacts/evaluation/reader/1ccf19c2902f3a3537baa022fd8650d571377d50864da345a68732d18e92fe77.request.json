@@ -1,0 +1,18 @@
+{
+  "prompt_sha256": "1ccf19c2902f3a3537baa022fd8650d571377d50864da345a68732d18e92fe77",
+  "request": {
+    "cache_prompt": false,
+    "id_slot": 0,
+    "min_p": 0,
+    "n_predict": 4096,
+    "presence_penalty": 0,
+    "prompt": "<|im_start|>user\nYou are answering a question about a conversation between two people.\n\nHere is what you remember of the conversation:\n\n<record session=\"session_1\" date=\"3:47 pm on 17 March, 2022\" dialogue_ids=\"D1:5 D1:6\">\nJohn: Haven't played it yet, but I hear it's awesome. Gonna give it a go. BTW, just signed up for a programming class. Have you ever done any programming?\nJames: Programming is an awesome skill. I tried it out one in college and now it`s all my life. Good luck in the class! Do you have any coding experience?\n</record>\n<record session=\"session_23\" date=\"9:23 pm on 4 September, 2022\" dialogue_ids=\"D23:13 D23:14\">\nJames: Yes, two days ago I signed up for a cooking class. I never liked cooking, but I felt that I wanted to learn something new. At the first lesson we prepared several simple dishes. I got a great omelette the first time!\nJohn: Cool! I’ve never heard of your desire to cook, you surprise me! How much do these cooking courses cost and what else did you cook there?\n</record>\n<record session=\"session_23\" date=\"9:23 pm on 4 September, 2022\" dialogue_ids=\"D23:15 D23:16\">\nJames: At only $10 per class, it's very cheap! Also, I made meringue there and they taught us how to make the dough.\nJohn: Really cheap. It's great that you are always looking for a way to improve yourself!\n</record>\n<record session=\"session_28\" date=\"7:36 pm on 21 October, 2022\" dialogue_ids=\"D28:17 D28:18\">\nJames: Appreciate it. Can't wait to check them out, and maybe learn something new!\nJohn: No worries, James. I hope they help. Let me know if you have any questions.\n</record>\n\nQuestion: How much does James pay per dance class?\n\nAnswer with the fact itself, as briefly as the question allows. Do not explain your reasoning. If the material above does not contain the answer, reply exactly: I don't know.\n\nAnswer:<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+    "reasoning_format": "none",
+    "repeat_penalty": 1,
+    "seed": 5005,
+    "temperature": 0.6,
+    "top_k": 20,
+    "top_p": 0.95
+  },
+  "time": 1788817383.0244684
+}

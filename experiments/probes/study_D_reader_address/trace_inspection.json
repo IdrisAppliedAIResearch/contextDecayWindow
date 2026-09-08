@@ -1,0 +1,780 @@
+{
+  "standing": "POSTHOC saved-trace replay, no new reader result",
+  "replayed": 32,
+  "missing": 16,
+  "inputs": {
+    "sources.json": "7662bce12c93cb8400d83e5d35ad137694c2a77f3ee83d25ff12826c39e3ad95",
+    "labels.json": "34f89cee2cff10ba06786cc125de7e1bd651cf9f019696472ccb3440d7ea55f0",
+    "mechanism_sealed.json": "da44c3127a2f3b2fdef1369a9f32e6780d9fd15a88c03aa5df099a6fd3273ec6"
+  },
+  "rows": [
+    {
+      "session": "session-92001",
+      "complete": true,
+      "target_turn": 44,
+      "anchor_delivered": true,
+      "target_eligible": true,
+      "target_global_rank": 41,
+      "temporal": {
+        "rank": 20,
+        "cost": 701,
+        "remaining": 318,
+        "admitted": false
+      },
+      "final": {
+        "rank": 41,
+        "cost": 701,
+        "remaining": 4062,
+        "admitted": true
+      },
+      "target_user_chars": 603,
+      "target_assistant_chars": 29,
+      "target_fact_chars": 105,
+      "temporal_admissions": 11
+    },
+    {
+      "session": "session-92002",
+      "complete": true,
+      "target_turn": 44,
+      "anchor_delivered": true,
+      "target_eligible": true,
+      "target_global_rank": 15,
+      "temporal": {
+        "rank": 8,
+        "cost": 696,
+        "remaining": 3088,
+        "admitted": true
+      },
+      "final": {
+        "rank": 8,
+        "cost": 696,
+        "remaining": 27088,
+        "admitted": true
+      },
+      "target_user_chars": 598,
+      "target_assistant_chars": 29,
+      "target_fact_chars": 105,
+      "temporal_admissions": 11
+    },
+    {
+      "session": "session-92003",
+      "complete": false,
+      "target_turn": 44,
+      "anchor_delivered": true,
+      "target_eligible": true,
+      "target_global_rank": 59,
+      "temporal": {
+        "rank": 24,
+        "cost": 699,
+        "remaining": 313,
+        "admitted": false
+      },
+      "final": {
+        "rank": 60,
+        "cost": 699,
+        "remaining": 660,
+        "admitted": false
+      },
+      "target_user_chars": 601,
+      "target_assistant_chars": 29,
+      "target_fact_chars": 105,
+      "temporal_admissions": 11
+    },
+    {
+      "session": "session-92004",
+      "complete": true,
+      "target_turn": 44,
+      "anchor_delivered": true,
+      "target_eligible": true,
+      "target_global_rank": 32,
+      "temporal": {
+        "rank": 14,
+        "cost": 698,
+        "remaining": 309,
+        "admitted": false
+      },
+      "final": {
+        "rank": 32,
+        "cost": 698,
+        "remaining": 10351,
+        "admitted": true
+      },
+      "target_user_chars": 600,
+      "target_assistant_chars": 29,
+      "target_fact_chars": 105,
+      "temporal_admissions": 11
+    },
+    {
+      "session": "session-92005",
+      "complete": true,
+      "target_turn": 44,
+      "anchor_delivered": true,
+      "target_eligible": true,
+      "target_global_rank": 16,
+      "temporal": {
+        "rank": 9,
+        "cost": 702,
+        "remaining": 2400,
+        "admitted": true
+      },
+      "final": {
+        "rank": 9,
+        "cost": 702,
+        "remaining": 26400,
+        "admitted": true
+      },
+      "target_user_chars": 604,
+      "target_assistant_chars": 29,
+      "target_fact_chars": 105,
+      "temporal_admissions": 11
+    },
+    {
+      "session": "session-92006",
+      "complete": false,
+      "target_turn": 44,
+      "anchor_delivered": true,
+      "target_eligible": true,
+      "target_global_rank": 70,
+      "temporal": {
+        "rank": 32,
+        "cost": 693,
+        "remaining": 306,
+        "admitted": false
+      },
+      "final": {
+        "rank": 71,
+        "cost": 693,
+        "remaining": 565,
+        "admitted": false
+      },
+      "target_user_chars": 595,
+      "target_assistant_chars": 29,
+      "target_fact_chars": 105,
+      "temporal_admissions": 11
+    },
+    {
+      "session": "session-92007",
+      "complete": true,
+      "target_turn": 44,
+      "anchor_delivered": true,
+      "target_eligible": true,
+      "target_global_rank": 16,
+      "temporal": {
+        "rank": 7,
+        "cost": 696,
+        "remaining": 3808,
+        "admitted": true
+      },
+      "final": {
+        "rank": 7,
+        "cost": 696,
+        "remaining": 27808,
+        "admitted": true
+      },
+      "target_user_chars": 598,
+      "target_assistant_chars": 29,
+      "target_fact_chars": 105,
+      "temporal_admissions": 11
+    },
+    {
+      "session": "session-92008",
+      "complete": true,
+      "target_turn": 44,
+      "anchor_delivered": true,
+      "target_eligible": true,
+      "target_global_rank": 5,
+      "temporal": {
+        "rank": 4,
+        "cost": 698,
+        "remaining": 5898,
+        "admitted": true
+      },
+      "final": {
+        "rank": 4,
+        "cost": 698,
+        "remaining": 29898,
+        "admitted": true
+      },
+      "target_user_chars": 600,
+      "target_assistant_chars": 29,
+      "target_fact_chars": 105,
+      "temporal_admissions": 11
+    },
+    {
+      "session": "session-92009",
+      "complete": false,
+      "target_turn": 44,
+      "anchor_delivered": true,
+      "target_eligible": true,
+      "target_global_rank": 87,
+      "temporal": {
+        "rank": 39,
+        "cost": 703,
+        "remaining": 323,
+        "admitted": false
+      },
+      "final": {
+        "rank": 88,
+        "cost": 703,
+        "remaining": 676,
+        "admitted": false
+      },
+      "target_user_chars": 605,
+      "target_assistant_chars": 29,
+      "target_fact_chars": 105,
+      "temporal_admissions": 11
+    },
+    {
+      "session": "session-92010",
+      "complete": false,
+      "target_turn": 44,
+      "anchor_delivered": true,
+      "target_eligible": true,
+      "target_global_rank": 70,
+      "temporal": {
+        "rank": 32,
+        "cost": 699,
+        "remaining": 314,
+        "admitted": false
+      },
+      "final": {
+        "rank": 70,
+        "cost": 699,
+        "remaining": 590,
+        "admitted": false
+      },
+      "target_user_chars": 601,
+      "target_assistant_chars": 29,
+      "target_fact_chars": 105,
+      "temporal_admissions": 11
+    },
+    {
+      "session": "session-92011",
+      "complete": true,
+      "target_turn": 44,
+      "anchor_delivered": true,
+      "target_eligible": true,
+      "target_global_rank": 24,
+      "temporal": {
+        "rank": 13,
+        "cost": 701,
+        "remaining": 308,
+        "admitted": false
+      },
+      "final": {
+        "rank": 25,
+        "cost": 701,
+        "remaining": 15253,
+        "admitted": true
+      },
+      "target_user_chars": 603,
+      "target_assistant_chars": 29,
+      "target_fact_chars": 105,
+      "temporal_admissions": 11
+    },
+    {
+      "session": "session-92012",
+      "complete": false,
+      "target_turn": 44,
+      "anchor_delivered": true,
+      "target_eligible": true,
+      "target_global_rank": 63,
+      "temporal": {
+        "rank": 30,
+        "cost": 700,
+        "remaining": 302,
+        "admitted": false
+      },
+      "final": {
+        "rank": 64,
+        "cost": 700,
+        "remaining": 611,
+        "admitted": false
+      },
+      "target_user_chars": 602,
+      "target_assistant_chars": 29,
+      "target_fact_chars": 105,
+      "temporal_admissions": 11
+    },
+    {
+      "session": "session-92013",
+      "complete": true,
+      "target_turn": 44,
+      "anchor_delivered": true,
+      "target_eligible": true,
+      "target_global_rank": 45,
+      "temporal": {
+        "rank": 20,
+        "cost": 702,
+        "remaining": 320,
+        "admitted": false
+      },
+      "final": {
+        "rank": 45,
+        "cost": 702,
+        "remaining": 1295,
+        "admitted": true
+      },
+      "target_user_chars": 604,
+      "target_assistant_chars": 29,
+      "target_fact_chars": 105,
+      "temporal_admissions": 11
+    },
+    {
+      "session": "session-92014",
+      "complete": true,
+      "target_turn": 44,
+      "anchor_delivered": true,
+      "target_eligible": true,
+      "target_global_rank": 14,
+      "temporal": {
+        "rank": 6,
+        "cost": 695,
+        "remaining": 4498,
+        "admitted": true
+      },
+      "final": {
+        "rank": 6,
+        "cost": 695,
+        "remaining": 28498,
+        "admitted": true
+      },
+      "target_user_chars": 597,
+      "target_assistant_chars": 29,
+      "target_fact_chars": 105,
+      "temporal_admissions": 11
+    },
+    {
+      "session": "session-92015",
+      "complete": false,
+      "target_turn": 44,
+      "anchor_delivered": true,
+      "target_eligible": true,
+      "target_global_rank": 49,
+      "temporal": {
+        "rank": 20,
+        "cost": 699,
+        "remaining": 303,
+        "admitted": false
+      },
+      "final": {
+        "rank": 50,
+        "cost": 699,
+        "remaining": 537,
+        "admitted": false
+      },
+      "target_user_chars": 601,
+      "target_assistant_chars": 29,
+      "target_fact_chars": 105,
+      "temporal_admissions": 11
+    },
+    {
+      "session": "session-92016",
+      "complete": false,
+      "target_turn": 44,
+      "anchor_delivered": true,
+      "target_eligible": true,
+      "target_global_rank": 83,
+      "temporal": {
+        "rank": 38,
+        "cost": 695,
+        "remaining": 307,
+        "admitted": false
+      },
+      "final": {
+        "rank": 83,
+        "cost": 695,
+        "remaining": 578,
+        "admitted": false
+      },
+      "target_user_chars": 597,
+      "target_assistant_chars": 29,
+      "target_fact_chars": 105,
+      "temporal_admissions": 11
+    },
+    {
+      "session": "session-92017",
+      "complete": true,
+      "target_turn": 44,
+      "anchor_delivered": true,
+      "target_eligible": true,
+      "target_global_rank": 22,
+      "temporal": {
+        "rank": 12,
+        "cost": 698,
+        "remaining": 299,
+        "admitted": false
+      },
+      "final": {
+        "rank": 23,
+        "cost": 698,
+        "remaining": 16636,
+        "admitted": true
+      },
+      "target_user_chars": 600,
+      "target_assistant_chars": 29,
+      "target_fact_chars": 105,
+      "temporal_admissions": 11
+    },
+    {
+      "session": "session-92018",
+      "complete": false,
+      "target_turn": 44,
+      "anchor_delivered": true,
+      "target_eligible": true,
+      "target_global_rank": 47,
+      "temporal": {
+        "rank": 24,
+        "cost": 698,
+        "remaining": 303,
+        "admitted": false
+      },
+      "final": {
+        "rank": 48,
+        "cost": 698,
+        "remaining": 574,
+        "admitted": false
+      },
+      "target_user_chars": 600,
+      "target_assistant_chars": 29,
+      "target_fact_chars": 105,
+      "temporal_admissions": 11
+    },
+    {
+      "session": "session-92019",
+      "complete": false,
+      "target_turn": 44,
+      "anchor_delivered": true,
+      "target_eligible": true,
+      "target_global_rank": 68,
+      "temporal": {
+        "rank": 29,
+        "cost": 699,
+        "remaining": 311,
+        "admitted": false
+      },
+      "final": {
+        "rank": 68,
+        "cost": 699,
+        "remaining": 585,
+        "admitted": false
+      },
+      "target_user_chars": 601,
+      "target_assistant_chars": 29,
+      "target_fact_chars": 105,
+      "temporal_admissions": 11
+    },
+    {
+      "session": "session-92020",
+      "complete": true,
+      "target_turn": 44,
+      "anchor_delivered": true,
+      "target_eligible": true,
+      "target_global_rank": 7,
+      "temporal": {
+        "rank": 6,
+        "cost": 695,
+        "remaining": 4498,
+        "admitted": true
+      },
+      "final": {
+        "rank": 6,
+        "cost": 695,
+        "remaining": 28498,
+        "admitted": true
+      },
+      "target_user_chars": 597,
+      "target_assistant_chars": 29,
+      "target_fact_chars": 105,
+      "temporal_admissions": 11
+    },
+    {
+      "session": "session-92021",
+      "complete": true,
+      "target_turn": 44,
+      "anchor_delivered": true,
+      "target_eligible": true,
+      "target_global_rank": 39,
+      "temporal": {
+        "rank": 18,
+        "cost": 697,
+        "remaining": 302,
+        "admitted": false
+      },
+      "final": {
+        "rank": 40,
+        "cost": 697,
+        "remaining": 4775,
+        "admitted": true
+      },
+      "target_user_chars": 599,
+      "target_assistant_chars": 29,
+      "target_fact_chars": 105,
+      "temporal_admissions": 11
+    },
+    {
+      "session": "session-92022",
+      "complete": false,
+      "target_turn": 44,
+      "anchor_delivered": true,
+      "target_eligible": true,
+      "target_global_rank": 54,
+      "temporal": {
+        "rank": 25,
+        "cost": 697,
+        "remaining": 292,
+        "admitted": false
+      },
+      "final": {
+        "rank": 54,
+        "cost": 697,
+        "remaining": 540,
+        "admitted": false
+      },
+      "target_user_chars": 599,
+      "target_assistant_chars": 29,
+      "target_fact_chars": 105,
+      "temporal_admissions": 11
+    },
+    {
+      "session": "session-92023",
+      "complete": true,
+      "target_turn": 44,
+      "anchor_delivered": true,
+      "target_eligible": true,
+      "target_global_rank": 6,
+      "temporal": {
+        "rank": 4,
+        "cost": 696,
+        "remaining": 5890,
+        "admitted": true
+      },
+      "final": {
+        "rank": 4,
+        "cost": 696,
+        "remaining": 29890,
+        "admitted": true
+      },
+      "target_user_chars": 598,
+      "target_assistant_chars": 29,
+      "target_fact_chars": 105,
+      "temporal_admissions": 11
+    },
+    {
+      "session": "session-92024",
+      "complete": false,
+      "target_turn": 44,
+      "anchor_delivered": true,
+      "target_eligible": true,
+      "target_global_rank": 77,
+      "temporal": {
+        "rank": 34,
+        "cost": 699,
+        "remaining": 303,
+        "admitted": false
+      },
+      "final": {
+        "rank": 78,
+        "cost": 699,
+        "remaining": 591,
+        "admitted": false
+      },
+      "target_user_chars": 601,
+      "target_assistant_chars": 29,
+      "target_fact_chars": 105,
+      "temporal_admissions": 11
+    },
+    {
+      "session": "session-92025",
+      "complete": false,
+      "target_turn": 44,
+      "anchor_delivered": true,
+      "target_eligible": true,
+      "target_global_rank": 52,
+      "temporal": {
+        "rank": 24,
+        "cost": 699,
+        "remaining": 302,
+        "admitted": false
+      },
+      "final": {
+        "rank": 52,
+        "cost": 699,
+        "remaining": 604,
+        "admitted": false
+      },
+      "target_user_chars": 601,
+      "target_assistant_chars": 29,
+      "target_fact_chars": 105,
+      "temporal_admissions": 11
+    },
+    {
+      "session": "session-92026",
+      "complete": true,
+      "target_turn": 44,
+      "anchor_delivered": true,
+      "target_eligible": true,
+      "target_global_rank": 17,
+      "temporal": {
+        "rank": 10,
+        "cost": 698,
+        "remaining": 1761,
+        "admitted": true
+      },
+      "final": {
+        "rank": 10,
+        "cost": 698,
+        "remaining": 25761,
+        "admitted": true
+      },
+      "target_user_chars": 600,
+      "target_assistant_chars": 29,
+      "target_fact_chars": 105,
+      "temporal_admissions": 11
+    },
+    {
+      "session": "session-92027",
+      "complete": false,
+      "target_turn": 44,
+      "anchor_delivered": true,
+      "target_eligible": true,
+      "target_global_rank": 60,
+      "temporal": {
+        "rank": 26,
+        "cost": 700,
+        "remaining": 309,
+        "admitted": false
+      },
+      "final": {
+        "rank": 61,
+        "cost": 700,
+        "remaining": 629,
+        "admitted": false
+      },
+      "target_user_chars": 602,
+      "target_assistant_chars": 29,
+      "target_fact_chars": 105,
+      "temporal_admissions": 11
+    },
+    {
+      "session": "session-92028",
+      "complete": false,
+      "target_turn": 44,
+      "anchor_delivered": true,
+      "target_eligible": true,
+      "target_global_rank": 71,
+      "temporal": {
+        "rank": 30,
+        "cost": 701,
+        "remaining": 314,
+        "admitted": false
+      },
+      "final": {
+        "rank": 71,
+        "cost": 701,
+        "remaining": 618,
+        "admitted": false
+      },
+      "target_user_chars": 603,
+      "target_assistant_chars": 29,
+      "target_fact_chars": 105,
+      "temporal_admissions": 11
+    },
+    {
+      "session": "session-92029",
+      "complete": true,
+      "target_turn": 44,
+      "anchor_delivered": true,
+      "target_eligible": true,
+      "target_global_rank": 19,
+      "temporal": {
+        "rank": 10,
+        "cost": 695,
+        "remaining": 1761,
+        "admitted": true
+      },
+      "final": {
+        "rank": 10,
+        "cost": 695,
+        "remaining": 25761,
+        "admitted": true
+      },
+      "target_user_chars": 597,
+      "target_assistant_chars": 29,
+      "target_fact_chars": 105,
+      "temporal_admissions": 11
+    },
+    {
+      "session": "session-92030",
+      "complete": false,
+      "target_turn": 44,
+      "anchor_delivered": true,
+      "target_eligible": true,
+      "target_global_rank": 68,
+      "temporal": {
+        "rank": 30,
+        "cost": 694,
+        "remaining": 315,
+        "admitted": false
+      },
+      "final": {
+        "rank": 69,
+        "cost": 694,
+        "remaining": 550,
+        "admitted": false
+      },
+      "target_user_chars": 596,
+      "target_assistant_chars": 29,
+      "target_fact_chars": 105,
+      "temporal_admissions": 11
+    },
+    {
+      "session": "session-92031",
+      "complete": false,
+      "target_turn": 44,
+      "anchor_delivered": true,
+      "target_eligible": true,
+      "target_global_rank": 68,
+      "temporal": {
+        "rank": 31,
+        "cost": 699,
+        "remaining": 302,
+        "admitted": false
+      },
+      "final": {
+        "rank": 68,
+        "cost": 699,
+        "remaining": 538,
+        "admitted": false
+      },
+      "target_user_chars": 601,
+      "target_assistant_chars": 29,
+      "target_fact_chars": 105,
+      "temporal_admissions": 11
+    },
+    {
+      "session": "session-92032",
+      "complete": true,
+      "target_turn": 44,
+      "anchor_delivered": true,
+      "target_eligible": true,
+      "target_global_rank": 20,
+      "temporal": {
+        "rank": 12,
+        "cost": 701,
+        "remaining": 329,
+        "admitted": false
+      },
+      "final": {
+        "rank": 21,
+        "cost": 701,
+        "remaining": 18061,
+        "admitted": true
+      },
+      "target_user_chars": 603,
+      "target_assistant_chars": 29,
+      "target_fact_chars": 105,
+      "temporal_admissions": 11
+    }
+  ]
+}

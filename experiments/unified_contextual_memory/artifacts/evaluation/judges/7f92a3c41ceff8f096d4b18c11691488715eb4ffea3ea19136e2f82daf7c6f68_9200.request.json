@@ -1,0 +1,18 @@
+{
+  "prompt_sha256": "83be531862f969e924f0ca530dd47e046e68f77e1ff776288887c7fe00dcab56",
+  "request": {
+    "cache_prompt": false,
+    "id_slot": 0,
+    "min_p": 0,
+    "n_predict": 4096,
+    "presence_penalty": 0,
+    "prompt": "<|im_start|>user\nYou are grading one answer against a reference answer.\n\nQuestion: What LGBTQ+ events has Caroline participated in?\nReference answer: Pride parade, school speech, support group\nAnswer to grade: LGBTQ support group, school event, LGBTQ+ pride parade, transgender conference, LGBTQ conference, mentorship program, LGBT pride event, LGBTQ art show, LGBTQ activist group, pride parade, hike, Pride fest, LGBTQ+ youth center\n\nThe answer is CORRECT if it states the same fact as the reference answer, even in different words, a different format, or with extra detail. The answer is INCORRECT if it states a different fact, contradicts the reference, refuses, says it does not know, or is empty.\n\nReply with exactly two lines:\nVERDICT: CORRECT or INCORRECT\nREASON: one sentence\n\nVERDICT:<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+    "reasoning_format": "none",
+    "repeat_penalty": 1,
+    "seed": 9200,
+    "temperature": 0.2,
+    "top_k": 20,
+    "top_p": 0.9
+  },
+  "time": 1788820829.0136878
+}

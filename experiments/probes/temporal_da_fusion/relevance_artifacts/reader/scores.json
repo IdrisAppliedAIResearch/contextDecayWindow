@@ -1,0 +1,258 @@
+[
+  {
+    "blind_id": "040a76d8f885d73b3e0dbfe959c1ce2862a58a70cb1834c74e1f09a7354b070b",
+    "query": "What was the delivery location for \"Meadow-792\" immediately before \"Meadow-792 review\"?",
+    "reference": "annex",
+    "answer": "annex",
+    "score": 1,
+    "rationale": "Frozen canonical value compared exactly."
+  },
+  {
+    "blind_id": "0ba16a383dca6a955ac625030465b86a241112dba6b38b2fb89f1c44fa3f8692",
+    "query": "What was the delivery location for \"Meadow-228\" immediately before \"Meadow-228 review\"?",
+    "reference": "warehouse",
+    "answer": "The delivery location for \"Meadow-228\" immediately before the \"Meadow-228 review\" (which occurred at turn 71) was the **warehouse**.\n\nThis is based on the sequence of location changes:\n- Turn 60: Location changed to **warehouse**.\n- Turns 61-70: Reviews with **no change** to the delivery location.\n- Turn 71: \"Meadow-228 review\" meeting took place.\n\nTherefore, the location was the warehouse.\n\n**warehouse**",
+    "score": null,
+    "rationale": "NEEDS_ADJUDICATION: outside frozen mechanical grammar."
+  },
+  {
+    "blind_id": "0e10f4ff366d3711b6bcab878cead2fea8b221f2c6c248a44f8f80a40ae11e3b",
+    "query": "What was the delivery location for \"Harbor-485\" immediately before \"Harbor-485 review\"?",
+    "reference": "office",
+    "answer": "office",
+    "score": 1,
+    "rationale": "Frozen canonical value compared exactly."
+  },
+  {
+    "blind_id": "10c03599e3ac3cfc1f8b802e1b972b57c31196bbf71a5ea34213bdc098af04c4",
+    "query": "What was the delivery location for \"Orchard-186\" immediately before \"Orchard-186 review\"?",
+    "reference": "hangar",
+    "answer": "hangar",
+    "score": 1,
+    "rationale": "Frozen canonical value compared exactly."
+  },
+  {
+    "blind_id": "133a34dd31be7e344b016a21ceb7e8f5b4a22facff2b77de3eccffbebeb915fa",
+    "query": "What was the delivery location for \"Summit-519\" immediately before \"Summit-519 review\"?",
+    "reference": "I don't know",
+    "answer": "I don't know.",
+    "score": 1,
+    "rationale": "Frozen canonical value compared exactly."
+  },
+  {
+    "blind_id": "1645e8623027fef22f23f35e48e3b56be81840b98564aefcd6b5117407bbacb3",
+    "query": "What was the delivery location for \"Orchard-186\" immediately before \"Orchard-186 review\"?",
+    "reference": "hangar",
+    "answer": "The hangar",
+    "score": 1,
+    "rationale": "Frozen canonical value compared exactly."
+  },
+  {
+    "blind_id": "1df83c2e71759908b919212636e4532c7873f2598274030e4ac64c6e2d62b785",
+    "query": "What was the delivery location for \"Orchard-219\" immediately before \"Orchard-219 review\"?",
+    "reference": "hangar",
+    "answer": "hangar",
+    "score": 1,
+    "rationale": "Frozen canonical value compared exactly."
+  },
+  {
+    "blind_id": "4b480d2a0a96937c0465ef442b72ac7d6f75d459938fa10c2f139f8c355638b8",
+    "query": "What was the delivery location for \"Orchard-219\" immediately before \"Orchard-219 review\"?",
+    "reference": "hangar",
+    "answer": "The hangar",
+    "score": 1,
+    "rationale": "Frozen canonical value compared exactly."
+  },
+  {
+    "blind_id": "4f8174cfb261ce47ce494bfe6055ebf9275c144bb1df373c02389e2c6a8ee6cb",
+    "query": "What was the delivery location for \"Meadow-792\" immediately before \"Meadow-792 review\"?",
+    "reference": "annex",
+    "answer": "annex",
+    "score": 1,
+    "rationale": "Frozen canonical value compared exactly."
+  },
+  {
+    "blind_id": "5738d0511f19350d920f55afa4b0f2c4a8142a54f1cc96fcccd2ded4ca3805e8",
+    "query": "What was the delivery location for \"Meadow-637\" immediately before \"Meadow-637 review\"?",
+    "reference": "depot",
+    "answer": "depot",
+    "score": 1,
+    "rationale": "Frozen canonical value compared exactly."
+  },
+  {
+    "blind_id": "573be3071b0b40d7bf317f6838974d411739f5815e41b2b03bbe97b87d59d9a7",
+    "query": "What was the delivery location for \"Summit-899\" immediately before \"Summit-899 review\"?",
+    "reference": "I don't know",
+    "answer": "I don't know.",
+    "score": 1,
+    "rationale": "Frozen canonical value compared exactly."
+  },
+  {
+    "blind_id": "5795ff08ab5d01b44828c7955a705b87167e08d119058a8eec71e933baab2b97",
+    "query": "What was the delivery location for \"Riverside-324\" immediately before \"Riverside-324 review\"?",
+    "reference": "annex",
+    "answer": "annex",
+    "score": 1,
+    "rationale": "Frozen canonical value compared exactly."
+  },
+  {
+    "blind_id": "6456ee7e2eaa0d56a2511e3dab03b6a7604d4f451b00733f8689e10169eec1d2",
+    "query": "What was the delivery location for \"Riverside-324\" immediately before \"Riverside-324 review\"?",
+    "reference": "annex",
+    "answer": "office",
+    "score": 0,
+    "rationale": "Frozen canonical value compared exactly."
+  },
+  {
+    "blind_id": "6bf0575778aff8202b9bc985adf420125e11cebdaa3df7d2cbfb01c3ed4fdd26",
+    "query": "What was the delivery location for \"Riverside-481\" immediately before \"Riverside-481 review\"?",
+    "reference": "laboratory",
+    "answer": "hangar",
+    "score": 0,
+    "rationale": "Frozen canonical value compared exactly."
+  },
+  {
+    "blind_id": "6fea30897656da3064c5942dcf3d33467acb82f15bceac51562f404e0d99b8d7",
+    "query": "What was the delivery location for \"Harbor-292\" immediately before \"Harbor-292 review\"?",
+    "reference": "hangar",
+    "answer": "hangar",
+    "score": 1,
+    "rationale": "Frozen canonical value compared exactly."
+  },
+  {
+    "blind_id": "709b4d3bd7013961c0c7da6f6d63e5954e797f4e4baf53ac22c8cb97c3cf435b",
+    "query": "What was the delivery location for \"Harbor-113\" immediately before \"Harbor-113 review\"?",
+    "reference": "studio",
+    "answer": "studio",
+    "score": 1,
+    "rationale": "Frozen canonical value compared exactly."
+  },
+  {
+    "blind_id": "830ee1163bbfdd5fae7834148e6c7d3c0d7f5f7c826bcd01bf57f010ea9f1695",
+    "query": "What was the delivery location for \"Orchard-657\" immediately before \"Orchard-657 review\"?",
+    "reference": "hangar",
+    "answer": "hangar",
+    "score": 1,
+    "rationale": "Frozen canonical value compared exactly."
+  },
+  {
+    "blind_id": "910e22fd4207d836c3b99ec5a1997f7ec1adfe8c04e44313c8d6b0ed312a3c54",
+    "query": "What was the delivery location for \"Riverside-755\" immediately before \"Riverside-755 review\"?",
+    "reference": "annex",
+    "answer": "annex",
+    "score": 1,
+    "rationale": "Frozen canonical value compared exactly."
+  },
+  {
+    "blind_id": "98b93654d9542422bdbd796370a80bd9656923b1d99e5aa52e237b4abb1877f0",
+    "query": "What was the delivery location for \"Riverside-755\" immediately before \"Riverside-755 review\"?",
+    "reference": "annex",
+    "answer": "annex",
+    "score": 1,
+    "rationale": "Frozen canonical value compared exactly."
+  },
+  {
+    "blind_id": "9d60c1fbbe9c37bd0dd80f359d61c4599f01cb18d5e8ae51235f2d5b60d77b4b",
+    "query": "What was the delivery location for \"Meadow-228\" immediately before \"Meadow-228 review\"?",
+    "reference": "warehouse",
+    "answer": "studio",
+    "score": 0,
+    "rationale": "Frozen canonical value compared exactly."
+  },
+  {
+    "blind_id": "9d8169d51fd6d6edb17cc14511ab907407e43340a9722fffa4113d64ba5a0925",
+    "query": "What was the delivery location for \"Harbor-485\" immediately before \"Harbor-485 review\"?",
+    "reference": "office",
+    "answer": "workshop",
+    "score": 0,
+    "rationale": "Frozen canonical value compared exactly."
+  },
+  {
+    "blind_id": "9fd5d5d57f00cfefcfd599429486262482eee99eeba414e5a990f74bda38e24a",
+    "query": "What was the delivery location for \"Harbor-113\" immediately before \"Harbor-113 review\"?",
+    "reference": "studio",
+    "answer": "studio",
+    "score": 1,
+    "rationale": "Frozen canonical value compared exactly."
+  },
+  {
+    "blind_id": "a6895c57fa456e02d08afcb0a7942d1d5cb54e57a33a927cb0f84629a612da5b",
+    "query": "What is the latest delivery location for \"Cedar-967\"?",
+    "reference": "office",
+    "answer": "office",
+    "score": 1,
+    "rationale": "Frozen canonical value compared exactly."
+  },
+  {
+    "blind_id": "aea3b55fd60fb1262b4b609b6213234b4acb968d392eab1457b1867b981b455b",
+    "query": "What is the latest delivery location for \"Cedar-967\"?",
+    "reference": "office",
+    "answer": "office",
+    "score": 1,
+    "rationale": "Frozen canonical value compared exactly."
+  },
+  {
+    "blind_id": "b41ca1f37c465476a716823d8e3c60aa99fc4ea68eadf79d53ce9dce678d9161",
+    "query": "What was the delivery location for \"Summit-519\" immediately before \"Summit-519 review\"?",
+    "reference": "I don't know",
+    "answer": "I don't know.",
+    "score": 1,
+    "rationale": "Frozen canonical value compared exactly."
+  },
+  {
+    "blind_id": "bb4daf1d51495e817187d997d9fd2c8b4d01b1192b5f298fcd78affe5d57f354",
+    "query": "What was the delivery location for \"Summit-899\" immediately before \"Summit-899 review\"?",
+    "reference": "I don't know",
+    "answer": "I don't know.",
+    "score": 1,
+    "rationale": "Frozen canonical value compared exactly."
+  },
+  {
+    "blind_id": "c1e99b644e38b512b1c3aaeff5f02d4d802139e43b56992c1ef07cf4d788807b",
+    "query": "What was the delivery location for \"Riverside-481\" immediately before \"Riverside-481 review\"?",
+    "reference": "laboratory",
+    "answer": "The delivery location for \"Riverside-481\" immediately before the \"Riverside-481 review\" (which occurred at turn 55) was the **warehouse**. This was set at turn 60? No, wait.\n\nLet's trace back from turn 55.\n- Turn 54: Proposal to move to warehouse. **Not accepted.** No change.\n- Turn 53: Review. No change.\n- Turn 52: Review. No change.\n- Turn 51: Review. No change.\n- Turn 50: Review. No change.\n- Turn 49: Review. No change.\n- Turn 48: Review. No change.\n- Turn 47: Review. No change.\n- Turn 46: Review. No change.\n- Turn 45: \"The delivery location for 'Riverside-481' is now the **laboratory**. This replaces its previous location.\"\n\nSo, at turn 45, the location became the laboratory.\nTurns 46-54 were reviews or non-accepted proposals, meaning the location remained the **laboratory**.\nTurn 55 is the review meeting.\n\nTherefore, the location immediately before the review was the laboratory.\n\nAnswer: laboratory",
+    "score": null,
+    "rationale": "NEEDS_ADJUDICATION: outside frozen mechanical grammar."
+  },
+  {
+    "blind_id": "d4c364358d8cdd9e1b197fcb15c10488e7b94bbc4e6089970db5111b8c0df55e",
+    "query": "What is the latest delivery location for \"Cedar-443\"?",
+    "reference": "warehouse",
+    "answer": "warehouse",
+    "score": 1,
+    "rationale": "Frozen canonical value compared exactly."
+  },
+  {
+    "blind_id": "e67e55419a5dac3c65a21e72f6c23f9e7a1ede361479db68d3b758834d922f26",
+    "query": "What was the delivery location for \"Orchard-657\" immediately before \"Orchard-657 review\"?",
+    "reference": "hangar",
+    "answer": "The delivery location for \"Orchard-657\" immediately before the \"Orchard-657 review\" (which occurred at turn 59) was the **hangar**.\n\nThis is determined by looking at the last location change before turn 59.\n- Turn 52: \"The delivery location for 'Orchard-657' is now the hangar.\"\n- Turns 53-58: Reviews or other notes that explicitly state they \"made no change to its delivery location\" or \"say nothing about its delivery location\".\n- Turn 59: \"The meeting 'Orchard-657 review' took place...\"\n\nTherefore, the location remained the hangar from turn 52 until the review at turn 59.\n\nAnswer: hangar",
+    "score": null,
+    "rationale": "NEEDS_ADJUDICATION: outside frozen mechanical grammar."
+  },
+  {
+    "blind_id": "e7c6309f06ff83891c009b84410247ecfa2b8b84e58cc3cbdbbc55863299512e",
+    "query": "What was the delivery location for \"Meadow-637\" immediately before \"Meadow-637 review\"?",
+    "reference": "depot",
+    "answer": "studio",
+    "score": 0,
+    "rationale": "Frozen canonical value compared exactly."
+  },
+  {
+    "blind_id": "edf7f9883e1507dc44c49d6e1357b4257f05440071bbe8f09fdf2db18bef0eee",
+    "query": "What was the delivery location for \"Harbor-292\" immediately before \"Harbor-292 review\"?",
+    "reference": "hangar",
+    "answer": "hangar",
+    "score": 1,
+    "rationale": "Frozen canonical value compared exactly."
+  },
+  {
+    "blind_id": "f3bf4a1d2b15c001852de60dfbb01e5f80a4a2003db7ec4de61effe4dbe255ce",
+    "query": "What is the latest delivery location for \"Cedar-443\"?",
+    "reference": "warehouse",
+    "answer": "warehouse",
+    "score": 1,
+    "rationale": "Frozen canonical value compared exactly."
+  }
+]

@@ -1,0 +1,18 @@
+{
+  "prompt_sha256": "1cfc5a91063e02b19bc40da46a5ae56bb1fdf141abe7c7d25be9ba3217012ca6",
+  "request": {
+    "cache_prompt": false,
+    "id_slot": 0,
+    "min_p": 0,
+    "n_predict": 4096,
+    "presence_penalty": 0,
+    "prompt": "<|im_start|>user\nYou are answering a question about a conversation between two people.\n\nHere is what you remember of the conversation:\n\n<record session=\"session_13\" date=\"3:31 pm on 23 August, 2023\" dialogue_ids=\"D13:5 D13:6\">\nCaroline: He's so cute! What’s the funniest thing Oliver's done? And sure, check out this pic of him eating parsley! Veggies are his fave!\n[Supplied image-caption annotation, D13:5]: a photography of a guinea in a cage with hay and hay\nMelanie: Oliver's hilarious! He hid his bone in my slipper once! Cute, right? Almost as silly as when I got to feed a horse a carrot. \n[Supplied image-caption annotation, D13:6]: a photo of a person holding a carrot in front of a horse\n</record>\n\nQuestion: Where did Oliver hide his bone once?\n\nAnswer with the fact itself, as briefly as the question allows. Do not explain your reasoning. If the material above does not contain the answer, reply exactly: I don't know.\n\nAnswer:<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+    "reasoning_format": "none",
+    "repeat_penalty": 1,
+    "seed": 5005,
+    "temperature": 0.6,
+    "top_k": 20,
+    "top_p": 0.95
+  },
+  "time": 1788816785.2543893
+}

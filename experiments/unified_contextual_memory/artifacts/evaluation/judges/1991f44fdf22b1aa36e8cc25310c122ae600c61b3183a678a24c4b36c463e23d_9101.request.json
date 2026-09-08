@@ -1,0 +1,18 @@
+{
+  "prompt_sha256": "77c57788a8d84d8f6eb80ef97998c393ec2b9d1b33581d73ddc48f40bcff3d1a",
+  "request": {
+    "cache_prompt": false,
+    "id_slot": 0,
+    "min_p": 0,
+    "n_predict": 4096,
+    "presence_penalty": 0,
+    "prompt": "<|im_start|>user\nYou are grading one answer against a reference answer.\n\nQuestion: What types of pottery have Melanie and her kids made?\nReference answer: bowls, cup\nAnswer to grade: Based on the conversation records, specifically session_8, Melanie and her kids made **pots** (in a general pottery workshop) and a **cup with a dog face on it**.\n\nAnswer: Pots and a cup with a dog face on it\n\nThe answer is CORRECT if it states the same fact as the reference answer, even in different words, a different format, or with extra detail. The answer is INCORRECT if it states a different fact, contradicts the reference, refuses, says it does not know, or is empty.\n\nReply with exactly two lines:\nVERDICT: CORRECT or INCORRECT\nREASON: one sentence\n\nVERDICT:<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+    "reasoning_format": "none",
+    "repeat_penalty": 1,
+    "seed": 9101,
+    "temperature": 0.2,
+    "top_k": 20,
+    "top_p": 0.9
+  },
+  "time": 1788820128.6445966
+}

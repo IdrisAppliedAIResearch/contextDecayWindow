@@ -1,0 +1,18 @@
+{
+  "prompt_sha256": "aea36d30a67e653fcd265df9b2e7f36e9774d6ca68df35c43f0d675771139727",
+  "request": {
+    "cache_prompt": false,
+    "id_slot": 0,
+    "min_p": 0,
+    "n_predict": 4096,
+    "presence_penalty": 0,
+    "prompt": "<|im_start|>user\nYou are answering a question about a conversation between two people.\n\nHere is what you remember of the conversation:\n\n<record session=\"session_8\" date=\"4:29 pm on 21 August, 2023\" dialogue_ids=\"D8:23 D8:24\">\nJohn: Thanksgiving dinner with family sounds great! Do you have any favorite movies you watch together?\nTim: During Thanksgiving, we usually watch a few movies. We love \"Home Alone\" - it always brings lots of laughs!\n[Supplied image-caption annotation, D8:24]: a photo of a dvd cover with a child in a house\n</record>\n<record session=\"session_10\" date=\"2:52 pm on 31 August, 2023\" dialogue_ids=\"D10:17\">\nTim: Take care! Can't wait to catch up. Talk soon!\n</record>\n<record session=\"session_22\" date=\"7:42 pm on 8 December, 2023\" dialogue_ids=\"D22:15 D22:16\">\nTim: Just the GoT series. Have you tried reading any of them?\nJohn: No, I haven't read them yet but I'll definitely check them out. Cheers!\n</record>\n<record session=\"session_26\" date=\"3:35 pm on 26 December, 2023\" dialogue_ids=\"D26:33 D26:34\">\nJohn: Wow, that's great! Are there any new fantasy movies that you're excited about?\nTim: Woo-hoo! There's a new fantasy TV series coming out next month - can't wait!\n</record>\n<record session=\"session_26\" date=\"3:35 pm on 26 December, 2023\" dialogue_ids=\"D26:35 D26:36\">\nJohn: What's it called? I'm always down for something new.\nTim: I'm really excited to watch this new show that's coming out called \"The Wheel of Time\". It's based on a book series that I love.\n</record>\n<record session=\"session_26\" date=\"3:35 pm on 26 December, 2023\" dialogue_ids=\"D26:37 D26:38\">\nJohn: That sounds exciting!\nTim: Yeah, can't wait to check out the series. It's always fun seeing the books come to life on screen! Talk to you later!\n</record>\n\nQuestion: What is one of Tim's favorite crime TV shows, as mentioned on November 11, 2023?\n\nAnswer with the fact itself, as briefly as the question allows. Do not explain your reasoning. If the material above does not contain the answer, reply exactly: I don't know.\n\nAnswer:<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+    "reasoning_format": "none",
+    "repeat_penalty": 1,
+    "seed": 5005,
+    "temperature": 0.6,
+    "top_k": 20,
+    "top_p": 0.95
+  },
+  "time": 1788815762.2217278
+}

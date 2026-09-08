@@ -4,6 +4,8 @@ Read this file before doing anything in this repository. It carries the program'
 
 **If this file and a study's pre-registration disagree, the pre-registration governs. Stop and flag the conflict rather than reconciling it silently.**
 
+**Current handoff (2026-09-07):** unified-memory exploratory subset COMPLETE: C0 384/566 versus C1 399/566 (+2.65pp; descriptive CI0.53–4.53;27g/12l). Independent audit passed. Full-corpus generation remains stopped. Read [report](experiments/unified_contextual_memory/REPORT.md); no further inference or adoption authorized.
+
 ## 1. Program
 
 This repository contains ten pre-registered studies testing whether a language model can sustain a long conversation by rebuilding a small, relevant context each turn rather than carrying the whole transcript. Each study adds one component and addresses the previous study's documented failures.
@@ -392,6 +394,48 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **Retrieval mechanism ledger (2026-08-03).** CLOSED. E002 KILL but exact-32k segmentation improved 6/17->10/17. AR-001 proves exact 14/17 costs 5,058 chars. E001 best-found .1204->.2103; 0/714 reached K=.48. F2 closed. EC-001 measures F3 externally: 0/500 component absence signals, but reader abstention 17/20. E003 unauthorized.
 
+**Study D temporal retrieval (2026-09-05).** READER D1_WORKS, scoring deviation. Generated-answer correctness 63/320->203/320 (+43.75pp; CI 33.44-53.75; p=.00001), 32 synthetic sessions. Latest 30%->100%; before 9.38%->26.88%. Availability is diagnostic. Eight agent judgments, no human audit. HH-001 prompt; transfer/absence harm untested; no adoption.
+
+**Study D address reader probe (2026-09-05).** EXPLORATORY, reader-only. Five complete short histories yield expected answers with event citations; a missing-update case starts wrongly at office then corrects to Cannot determine. Eight calls including two preflight repeats. Different explanatory prompt; no formal score, transfer or Study D failure attribution.
+
+**Study E before ordering (2026-09-06).** READER D1_WORKS. Before177/640→302/640 (+19.53pp; CI13.91–25.16; p=.00001),32 synthetic groups; guards pass. Evidence64/128→109/128, but243 complete-evidence answers wrong. Native thinking-off restart; two capped attempts excluded.114 unique agent judgments, no human audit. Reader interface changed; no transfer/adoption.
+
+**Study E thinking probe (2026-09-06).** EXPLORATORY.12 selected complete-evidence failures became12/12 correct with native thinking on; evidence/seeds unchanged. Traces select last effective updates and reject future/proposed changes.243 failures span97 questions;85 untested. Native system prefix changes too; no population/pure-thinking claim. Study E unchanged.
+
+**Score-curve probe (2026-09-06).** EXPLORATORY.192 E rankings replayed;224 D arrays checked. E before largest CC80 drop is108/140 on128/128, separating continuity.19 missed updates score88.4–94.5% of top. Inner gap omits anchor, not state update; D before gaps vary87–107. No threshold fitted, reader calls or adoption; curves are clues, not completion.
+
+**Temporal–DA fusion draft (2026-09-06).** EXPLORATORY. DA-001 adjacency after protected E temporal records; not DA-098 compression.192 exact C1/no-link replays. Evidence109/128→108/128,6 gains7 losses;13 discordances count-matched. Median11 replacements. Latest unchanged; absence contexts changed, safety untested. No reader/adoption. Plan168b9cfd; gate76a6e9b9.
+
+**Fusion difference probe (2026-09-06).** EXPLORATORY. Six rescues follow forward links;7 losses demote direct ranks20–30. Forward-only109→110 (7g/6l), backward99 (0/10), pre-anchor108 (6/7). Scores overlap;10–12-turn carrier distance is generator-dependent. C1 retained; relational admission reason unresolved. Plan86a1d7c9/gatedaeeb2fc.192 exact replays; no reader calls.
+
+**Chronology reader probe (2026-09-06).** EXPLORATORY. Same C1 retrieval: original/no-recency/chronological-no-recency before5/12,5/12,8/12 (3g0l);4guards correct. All8complete cases correct,4incomplete wrong.48 native-off calls,one seed.192 exact source checks;context57,331→31,686chars median. Plan c9158936; no adoption. Negative gate fixture executed post-run, disclosed.
+
+**Chronology miss audit (2026-09-06).** Four wrong cases: stored/eligible updates at temporal11–12, but8k fits10; semantic ranks33–64 also miss32k packing. No-change notes precede needed updates. All4 answers match latest delivered stale state. Anchors/qualifiers present; recency removal did not cause absence.8 exact pack replays; no new calls/policy. Planba9d0dd6.
+
+**Relevance timeline (2026-09-06).** EXPLORATORY. Cosine>=.48+anchors,uncapped,no recency,chronological. Ebefore evidence109/128→128/128 (pure111). Fresh native-off reader8/12→11/12 (4g1l),guards4/4. Median108records/84,627chars.3agent judgments;1complete-evidence regression. .48 is legacy default,not optimum. Plan1676445b; noadoption.
+
+**Full E relevance reader (2026-09-06).** EXPLORATORY single arm,192questions/seed5005/nativeOFF. Before106/128 (82.81%),latest32/32,absent32/32;total170/192. All22misses evidence-complete. Prior16 15/16,remainder155/176 (not holdout).179canonical+13agent judgments;2200output tokens,17.68min. Plan2519aff9; no control/generalization/adoption claim.
+
+**Full E miss audit (2026-09-06).**22literal prompt/source checks and independent before-state reconstructions pass. Targets cosine.597–.741>.48. Wrong values match first later update17,previous state8,near proposal/future9 (overlap); not causal traces. Four future cases have ambiguous global non-effect wording. No calls/scores changed. Plan16f1820b.
+
+**Post-review removal (2026-09-06).**22/22 prior full E misses recovered with same nativeOFF reader/seed5005. Retain exact retrieved prefix through selector anchor; remove15–55later records. Allsupport intact;22canonical scores,61output tokens,91.55s. Failure-selected/historical control;previous106correct untested. Plan5085934f; no adoption.
+
+**Prefix preservation (2026-09-06).**104/106previous correct retained;2regressions (Orchard186,Harbor371). Combined22recoveries gives126/12898.44% vs106/12882.81%,22g2l. NativeOFF/seed5005;allcanonical;two diagnostic batches,not confirmation. Latest/absence not rerun. Allsupport intact. Plan c6f99a6; no adoption.
+
+**GPU batch capacity (2026-09-07).** Nine concurrent32k slots pass two27,920-input/64-output waves, min2282 MiB free. Ten loads but938 MiB fails1536 reserve; unstressed. NativeOFF,q8KV,allGPU;90stress calls,overlap/cachezero verified. About2.1% throughput gain only on synthetic long-input load. LoCoMo fit/endurance pending. Plan ece1f77d; no study scores.
+
+**LoCoMo batch timing (2026-09-07).** Nine matched historical prompts: serial37.44s vs concurrent9 38.20s, throughput0.9802x. Peak slots1/9 verified; no cache/truncation. Outputs172/234tokens,8/9identical; no accuracy scoring. NativeOFF; min2282MiB free. Capacity fits, speed benefit unobserved. Plan b483b398.
+
+**LoCoMo timeline preflight (2026-09-07).** INFERENCE PAUSED. Existing anchor grammar unsupported on1,986/1,986. Selected/full median input8,494/36,048tokens; paired retained median26.44%,46retain>=90%. Longest33,841/34,259 (98.78%). All128Eprefixes replay;40,960context fits. No answers. Plan4193702b; size rawc3555066. Resolve transfer scope before inference.
+
+**Reader anchor probe (2026-09-07).** Eight short synthetic histories: status fields match expected resolution/ambiguity; later clarification and retrospective evidence both flagged unsafe to cut. NativeOFF, explicit diagnostic prompt,1,117output tokens. Citation sets incomplete; hypothetical alternatives appear. No natural-transfer/chronology-causality score. Plan1b6c79ef; rawb04da2a3.
+
+**LoCoMo timeline30 (2026-09-07).** Current deterministic arm: broad13/20,extra temporal5/10; complete evidence16/20,10/10. NativeOFF,one answer/question,chronological,no anchor. Three-pass judge; final-verdict repair changes temporal4→5. Relative-date ambiguity and plan/completion caveat.30reader calls89.35s; no causal/transfer verdict. Plan68df803d; full run paused.
+
+**LoCoMo retrieval miss audit (2026-09-07).** Four cases/five missing annotations all below.48(.312–.459);30exact replays. Café gold is omitted image caption; selected reaction lacks antecedent. Patriotism already correct. Charity/gift golds are recommendations; gift’s missing supportive remark not demonstrated necessary. No calls/tuning. Plan2883ac93; raw8a16e6be.
+
+**Unified memory subset (2026-09-07).** EXPLORATORY: user-stopped741pairs,566primary. Reader384→399 (+2.65pp; descriptive clusterCI.53–4.53;27g12l). All annotation493→516/565;23g0l. Category1 loses2. Same-model adjudication, no human audit. Nonrandom exposed subset; no full-population/adoption claim. Raw1b96adc7; scores a0fc0940; results c3d55da1.
+
 ## 3. Failure Pattern
 
 The recurring failure class is a surrogate that can pass without the property it claims to certify: record count for information, novelty for importance, density for factual value, or a rubric score for a correct answer.
@@ -460,6 +504,12 @@ test that answers it.
 ### Runtime and determinism
 
 - Use a fixed seed, `--parallel 1`, and no speculative decoding.
+- Keep reader thinking off during tests for brevity unless the user or a locked
+  registration explicitly requires it. Before inference, verify the native
+  thinking-off setting, rendered chat template and a short live response;
+  `reasoning_format=none` or an empty `<think>` suffix alone is not verification.
+  Apply the same setting to every arm. Amend conflicting locked runtimes before
+  changing them; do not increase output caps as a substitute for this check.
 - Saturate available hardware for CPU-bound offline exploration, replay,
   preprocessing, sealing and scoring whenever deterministic independent shards
   exist. Measure worker count and aggregate utilization early; do not leave a

@@ -1,0 +1,73 @@
+{
+  "code": {
+    "experiments\\unified_contextual_memory\\prepare.py": "18b413326d8529bd4a4733ee65808d15ab89a2406c0f4b2a6c803ec6787c8050",
+    "src\\unified_memory\\__init__.py": "6fd0b66c3cbcf9953a6c33fcfc41ab363fde338f923640e9e2b646c90c1c321b",
+    "src\\unified_memory\\control.py": "481216fc8bf0b098092308bd2210f2e6d07197fa619c63774a8298816a82133c",
+    "src\\unified_memory\\encoder.py": "c0f89aedccda61746aa67c8e3adffd4d83f5b3d348841220686fb7a36b82c95e",
+    "src\\unified_memory\\source.py": "21180e743599b3e649d65a21fe0256da087d113116c0c29bb55312071473b427"
+  },
+  "control_commit": "946c373d",
+  "corpus_sha256": "79fa87e90f04081343b8c8debecb80a9a6842b76a7aa537dc9fdf651ea698ff4",
+  "encoder_calls": 1363,
+  "files": {
+    "contexts.json": "e73e8849fc93bcb588ccec474b0324fb854d7a14a4b00324e764831e46a87b9e",
+    "historical_replay.json": "fbe16500418846bf3ef9df5823090e8c655d3ce3b5a5534ed4a29d86f664e100",
+    "origins.json": "e48e1d1be2b6ade8cf0d14469486886ddbe872751bbf1361e60cba6c51a3e6e4",
+    "questions.jsonl.gz": "0b91cc5990f748511cacf5daf84d7ffde7cfac980a86029b549466fa59a0f00c",
+    "sources.jsonl.gz": "2eaea56d48a58da5dffe56c0451ecfb2e8887bfebac7a8b962e3f85f8a04fe5b",
+    "vectors.npz": "8291ae0043fde261b9a077435fb87477d245d81b7b7db2ff2d4117adfec1aed5"
+  },
+  "generative_calls": 0,
+  "historical_caches": {
+    "development": {
+      "bytes": 10821632,
+      "call_shape": "solo",
+      "content_sha256": "e103b2933ee9ec7b8e9236f43037797618da524e413b83a9f3973a19d28b1b2a",
+      "dimension": 1024,
+      "dtype": "float32",
+      "entries": 2236,
+      "file_sha256": "2ba617018a1b043bf439bb50e756191d8141fb7ca01a2e4a68c9eb822eba26f8",
+      "hits": 2236,
+      "misses": 0,
+      "mode": "reuse",
+      "model_sha256": "06507c7b42688469c4e7298b0a1e16deff06caf291cf0a5b278c308249c3e439",
+      "path": "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\external\\locomo\\artifacts\\locomo_dev_embeddings.db"
+    },
+    "embedding_calls": 0,
+    "transfer": {
+      "bytes": 13344768,
+      "call_shape": "solo",
+      "content_sha256": "2e73bff9178d054e0638a20c6af87d760fdcbe14348f921c5f9052e8df6d4892",
+      "dimension": 1024,
+      "dtype": "float32",
+      "entries": 2749,
+      "file_sha256": "96656024f79a360798be1c9461585ac47a2b6d6bdfb20d9357d52206e860874c",
+      "hits": 2749,
+      "misses": 0,
+      "mode": "reuse",
+      "model_sha256": "06507c7b42688469c4e7298b0a1e16deff06caf291cf0a5b278c308249c3e439",
+      "path": "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\components\\biological_memory\\nf_004\\artifacts\\nf004_holdout_embeddings.db"
+    }
+  },
+  "origins": {
+    "historical-solo-cache": 1920,
+    "new-source-caption-solo": 1091
+  },
+  "questions": 1986,
+  "runtime": {
+    "batch": 8192,
+    "call_shape": "solo",
+    "context": 8192,
+    "dimension": 1024,
+    "dtype": "float32",
+    "microbatch": 8192,
+    "model_sha256": "06507c7b42688469c4e7298b0a1e16deff06caf291cf0a5b278c308249c3e439",
+    "pooling": "none-target-last",
+    "runtime": "llama-cpp-python-0.3.25",
+    "seed": 5005,
+    "threads": 8
+  },
+  "seconds": 54.217956500011496,
+  "source_units": 3011,
+  "status": "SOURCE_AND_CONTEXT_CAPTURED"
+}

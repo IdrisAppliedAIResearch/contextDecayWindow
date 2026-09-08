@@ -1,0 +1,752 @@
+{
+  "E/all/PURE": {
+    "n": 192,
+    "answerable": 160,
+    "complete": 143,
+    "baseline_complete": 130,
+    "gains": 26,
+    "losses": 13,
+    "records": {
+      "n": 192,
+      "min": 106,
+      "median": 108.0,
+      "p95": 110.0,
+      "max": 113
+    },
+    "chars": {
+      "n": 192,
+      "min": 82807,
+      "median": 84559.5,
+      "p95": 85954.45,
+      "max": 88512
+    },
+    "continuity": {
+      "n": 192,
+      "min": 0,
+      "median": 0.0,
+      "p95": 2.0,
+      "max": 5
+    },
+    "anchor_exceptions": 17
+  },
+  "E/all/ANCHORED": {
+    "n": 192,
+    "answerable": 160,
+    "complete": 160,
+    "baseline_complete": 130,
+    "gains": 30,
+    "losses": 0,
+    "records": {
+      "n": 192,
+      "min": 106,
+      "median": 108.0,
+      "p95": 110.0,
+      "max": 113
+    },
+    "chars": {
+      "n": 192,
+      "min": 82807,
+      "median": 84627.0,
+      "p95": 85954.45,
+      "max": 88512
+    },
+    "continuity": {
+      "n": 192,
+      "min": 0,
+      "median": 0.0,
+      "p95": 2.0,
+      "max": 5
+    },
+    "anchor_exceptions": 17
+  },
+  "E/before/PURE": {
+    "n": 128,
+    "answerable": 128,
+    "complete": 111,
+    "baseline_complete": 109,
+    "gains": 15,
+    "losses": 13,
+    "records": {
+      "n": 128,
+      "min": 107,
+      "median": 108.0,
+      "p95": 110.0,
+      "max": 113
+    },
+    "chars": {
+      "n": 128,
+      "min": 83789,
+      "median": 84559.5,
+      "p95": 86141.4,
+      "max": 88512
+    },
+    "continuity": {
+      "n": 128,
+      "min": 0,
+      "median": 0.0,
+      "p95": 2.0,
+      "max": 5
+    },
+    "anchor_exceptions": 17
+  },
+  "E/before/ANCHORED": {
+    "n": 128,
+    "answerable": 128,
+    "complete": 128,
+    "baseline_complete": 109,
+    "gains": 19,
+    "losses": 0,
+    "records": {
+      "n": 128,
+      "min": 108,
+      "median": 108.0,
+      "p95": 110.0,
+      "max": 113
+    },
+    "chars": {
+      "n": 128,
+      "min": 84193,
+      "median": 84627.0,
+      "p95": 86141.4,
+      "max": 88512
+    },
+    "continuity": {
+      "n": 128,
+      "min": 0,
+      "median": 0.0,
+      "p95": 2.0,
+      "max": 5
+    },
+    "anchor_exceptions": 17
+  },
+  "E/absent/PURE": {
+    "n": 32,
+    "answerable": 0,
+    "complete": 0,
+    "baseline_complete": 0,
+    "gains": 0,
+    "losses": 0,
+    "records": {
+      "n": 32,
+      "min": 108,
+      "median": 108.0,
+      "p95": 108.0,
+      "max": 108
+    },
+    "chars": {
+      "n": 32,
+      "min": 85654,
+      "median": 85701.0,
+      "p95": 85727.25,
+      "max": 85740
+    },
+    "continuity": {
+      "n": 32,
+      "min": 0,
+      "median": 0.0,
+      "p95": 0.0,
+      "max": 0
+    },
+    "anchor_exceptions": 0
+  },
+  "E/absent/ANCHORED": {
+    "n": 32,
+    "answerable": 0,
+    "complete": 0,
+    "baseline_complete": 0,
+    "gains": 0,
+    "losses": 0,
+    "records": {
+      "n": 32,
+      "min": 108,
+      "median": 108.0,
+      "p95": 108.0,
+      "max": 108
+    },
+    "chars": {
+      "n": 32,
+      "min": 85654,
+      "median": 85701.0,
+      "p95": 85727.25,
+      "max": 85740
+    },
+    "continuity": {
+      "n": 32,
+      "min": 0,
+      "median": 0.0,
+      "p95": 0.0,
+      "max": 0
+    },
+    "anchor_exceptions": 0
+  },
+  "E/future/PURE": {
+    "n": 32,
+    "answerable": 32,
+    "complete": 30,
+    "baseline_complete": 28,
+    "gains": 4,
+    "losses": 2,
+    "records": {
+      "n": 32,
+      "min": 107,
+      "median": 108.0,
+      "p95": 108.0,
+      "max": 108
+    },
+    "chars": {
+      "n": 32,
+      "min": 83855,
+      "median": 84515.5,
+      "p95": 84689.3,
+      "max": 84740
+    },
+    "continuity": {
+      "n": 32,
+      "min": 0,
+      "median": 0.0,
+      "p95": 0.0,
+      "max": 0
+    },
+    "anchor_exceptions": 2
+  },
+  "E/future/ANCHORED": {
+    "n": 32,
+    "answerable": 32,
+    "complete": 32,
+    "baseline_complete": 28,
+    "gains": 4,
+    "losses": 0,
+    "records": {
+      "n": 32,
+      "min": 108,
+      "median": 108.0,
+      "p95": 108.0,
+      "max": 108
+    },
+    "chars": {
+      "n": 32,
+      "min": 84287,
+      "median": 84531.5,
+      "p95": 84689.3,
+      "max": 84740
+    },
+    "continuity": {
+      "n": 32,
+      "min": 0,
+      "median": 0.0,
+      "p95": 0.0,
+      "max": 0
+    },
+    "anchor_exceptions": 2
+  },
+  "E/irrelevant/PURE": {
+    "n": 32,
+    "answerable": 32,
+    "complete": 26,
+    "baseline_complete": 28,
+    "gains": 3,
+    "losses": 5,
+    "records": {
+      "n": 32,
+      "min": 107,
+      "median": 108.0,
+      "p95": 108.0,
+      "max": 108
+    },
+    "chars": {
+      "n": 32,
+      "min": 83789,
+      "median": 84519.5,
+      "p95": 84716.45,
+      "max": 84808
+    },
+    "continuity": {
+      "n": 32,
+      "min": 0,
+      "median": 0.0,
+      "p95": 0.0,
+      "max": 0
+    },
+    "anchor_exceptions": 6
+  },
+  "E/irrelevant/ANCHORED": {
+    "n": 32,
+    "answerable": 32,
+    "complete": 32,
+    "baseline_complete": 28,
+    "gains": 4,
+    "losses": 0,
+    "records": {
+      "n": 32,
+      "min": 108,
+      "median": 108.0,
+      "p95": 108.0,
+      "max": 108
+    },
+    "chars": {
+      "n": 32,
+      "min": 84319,
+      "median": 84574.5,
+      "p95": 84754.3,
+      "max": 84808
+    },
+    "continuity": {
+      "n": 32,
+      "min": 0,
+      "median": 0.0,
+      "p95": 0.0,
+      "max": 0
+    },
+    "anchor_exceptions": 6
+  },
+  "E/latest/PURE": {
+    "n": 32,
+    "answerable": 32,
+    "complete": 32,
+    "baseline_complete": 21,
+    "gains": 11,
+    "losses": 0,
+    "records": {
+      "n": 32,
+      "min": 106,
+      "median": 107.0,
+      "p95": 108.0,
+      "max": 108
+    },
+    "chars": {
+      "n": 32,
+      "min": 82807,
+      "median": 83662.0,
+      "p95": 84401.4,
+      "max": 84466
+    },
+    "continuity": {
+      "n": 32,
+      "min": 0,
+      "median": 0.0,
+      "p95": 0.0,
+      "max": 0
+    },
+    "anchor_exceptions": 0
+  },
+  "E/latest/ANCHORED": {
+    "n": 32,
+    "answerable": 32,
+    "complete": 32,
+    "baseline_complete": 21,
+    "gains": 11,
+    "losses": 0,
+    "records": {
+      "n": 32,
+      "min": 106,
+      "median": 107.0,
+      "p95": 108.0,
+      "max": 108
+    },
+    "chars": {
+      "n": 32,
+      "min": 82807,
+      "median": 83662.0,
+      "p95": 84401.4,
+      "max": 84466
+    },
+    "continuity": {
+      "n": 32,
+      "min": 0,
+      "median": 0.0,
+      "p95": 0.0,
+      "max": 0
+    },
+    "anchor_exceptions": 0
+  },
+  "E/proposal/PURE": {
+    "n": 32,
+    "answerable": 32,
+    "complete": 23,
+    "baseline_complete": 26,
+    "gains": 3,
+    "losses": 6,
+    "records": {
+      "n": 32,
+      "min": 107,
+      "median": 108.0,
+      "p95": 108.0,
+      "max": 108
+    },
+    "chars": {
+      "n": 32,
+      "min": 83883,
+      "median": 84699.5,
+      "p95": 84951.0,
+      "max": 85035
+    },
+    "continuity": {
+      "n": 32,
+      "min": 0,
+      "median": 0.0,
+      "p95": 0.0,
+      "max": 0
+    },
+    "anchor_exceptions": 9
+  },
+  "E/proposal/ANCHORED": {
+    "n": 32,
+    "answerable": 32,
+    "complete": 32,
+    "baseline_complete": 26,
+    "gains": 6,
+    "losses": 0,
+    "records": {
+      "n": 32,
+      "min": 108,
+      "median": 108.0,
+      "p95": 108.0,
+      "max": 108
+    },
+    "chars": {
+      "n": 32,
+      "min": 84561,
+      "median": 84792.5,
+      "p95": 84951.0,
+      "max": 85035
+    },
+    "continuity": {
+      "n": 32,
+      "min": 0,
+      "median": 0.0,
+      "p95": 0.0,
+      "max": 0
+    },
+    "anchor_exceptions": 9
+  },
+  "E/straight/PURE": {
+    "n": 32,
+    "answerable": 32,
+    "complete": 32,
+    "baseline_complete": 27,
+    "gains": 5,
+    "losses": 0,
+    "records": {
+      "n": 32,
+      "min": 108,
+      "median": 109.0,
+      "p95": 112.0,
+      "max": 113
+    },
+    "chars": {
+      "n": 32,
+      "min": 84193,
+      "median": 85114.5,
+      "p95": 87453.15,
+      "max": 88512
+    },
+    "continuity": {
+      "n": 32,
+      "min": 0,
+      "median": 1.0,
+      "p95": 4.0,
+      "max": 5
+    },
+    "anchor_exceptions": 0
+  },
+  "E/straight/ANCHORED": {
+    "n": 32,
+    "answerable": 32,
+    "complete": 32,
+    "baseline_complete": 27,
+    "gains": 5,
+    "losses": 0,
+    "records": {
+      "n": 32,
+      "min": 108,
+      "median": 109.0,
+      "p95": 112.0,
+      "max": 113
+    },
+    "chars": {
+      "n": 32,
+      "min": 84193,
+      "median": 85114.5,
+      "p95": 87453.15,
+      "max": 88512
+    },
+    "continuity": {
+      "n": 32,
+      "min": 0,
+      "median": 1.0,
+      "p95": 4.0,
+      "max": 5
+    },
+    "anchor_exceptions": 0
+  },
+  "D/all/PURE": {
+    "n": 224,
+    "answerable": 192,
+    "complete": 81,
+    "baseline_complete": null,
+    "gains": null,
+    "losses": null,
+    "records": {
+      "n": 224,
+      "min": 0,
+      "median": 1.0,
+      "p95": 101.0,
+      "max": 105
+    },
+    "chars": {
+      "n": 224,
+      "min": 35,
+      "median": 739.0,
+      "p95": 69327.25,
+      "max": 71726
+    },
+    "continuity": {
+      "n": 224,
+      "min": 0,
+      "median": 0.0,
+      "p95": 10.0,
+      "max": 11
+    },
+    "anchor_exceptions": 0
+  },
+  "D/before/PURE": {
+    "n": 32,
+    "answerable": 32,
+    "complete": 11,
+    "baseline_complete": null,
+    "gains": null,
+    "losses": null,
+    "records": {
+      "n": 32,
+      "min": 88,
+      "median": 95.0,
+      "p95": 103.0,
+      "max": 104
+    },
+    "chars": {
+      "n": 32,
+      "min": 61427,
+      "median": 65631.5,
+      "p95": 70488.4,
+      "max": 70973
+    },
+    "continuity": {
+      "n": 32,
+      "min": 0,
+      "median": 3.0,
+      "p95": 9.45,
+      "max": 11
+    },
+    "anchor_exceptions": 0
+  },
+  "D/M1/PURE": {
+    "n": 32,
+    "answerable": 32,
+    "complete": 2,
+    "baseline_complete": null,
+    "gains": null,
+    "losses": null,
+    "records": {
+      "n": 32,
+      "min": 0,
+      "median": 1.0,
+      "p95": 1.4499999999999993,
+      "max": 2
+    },
+    "chars": {
+      "n": 32,
+      "min": 35,
+      "median": 700.5,
+      "p95": 992.0999999999996,
+      "max": 1346
+    },
+    "continuity": {
+      "n": 32,
+      "min": 0,
+      "median": 0.0,
+      "p95": 0.0,
+      "max": 0
+    },
+    "anchor_exceptions": 0
+  },
+  "D/M2/PURE": {
+    "n": 32,
+    "answerable": 32,
+    "complete": 0,
+    "baseline_complete": null,
+    "gains": null,
+    "losses": null,
+    "records": {
+      "n": 32,
+      "min": 1,
+      "median": 1.0,
+      "p95": 1.0,
+      "max": 1
+    },
+    "chars": {
+      "n": 32,
+      "min": 699,
+      "median": 703.0,
+      "p95": 706.0,
+      "max": 707
+    },
+    "continuity": {
+      "n": 32,
+      "min": 0,
+      "median": 0.0,
+      "p95": 0.0,
+      "max": 0
+    },
+    "anchor_exceptions": 0
+  },
+  "D/N1/PURE": {
+    "n": 32,
+    "answerable": 0,
+    "complete": 0,
+    "baseline_complete": null,
+    "gains": null,
+    "losses": null,
+    "records": {
+      "n": 32,
+      "min": 0,
+      "median": 0.5,
+      "p95": 2.0,
+      "max": 2
+    },
+    "chars": {
+      "n": 32,
+      "min": 35,
+      "median": 380.5,
+      "p95": 1429.95,
+      "max": 1449
+    },
+    "continuity": {
+      "n": 32,
+      "min": 0,
+      "median": 0.0,
+      "p95": 0.0,
+      "max": 0
+    },
+    "anchor_exceptions": 0
+  },
+  "D/T1/PURE": {
+    "n": 32,
+    "answerable": 32,
+    "complete": 11,
+    "baseline_complete": null,
+    "gains": null,
+    "losses": null,
+    "records": {
+      "n": 32,
+      "min": 88,
+      "median": 95.0,
+      "p95": 103.0,
+      "max": 104
+    },
+    "chars": {
+      "n": 32,
+      "min": 61427,
+      "median": 65631.5,
+      "p95": 70488.4,
+      "max": 70973
+    },
+    "continuity": {
+      "n": 32,
+      "min": 0,
+      "median": 3.0,
+      "p95": 9.45,
+      "max": 11
+    },
+    "anchor_exceptions": 0
+  },
+  "D/T2/PURE": {
+    "n": 32,
+    "answerable": 32,
+    "complete": 32,
+    "baseline_complete": null,
+    "gains": null,
+    "losses": null,
+    "records": {
+      "n": 32,
+      "min": 92,
+      "median": 100.0,
+      "p95": 104.0,
+      "max": 105
+    },
+    "chars": {
+      "n": 32,
+      "min": 63797,
+      "median": 68620.5,
+      "p95": 71098.25,
+      "max": 71726
+    },
+    "continuity": {
+      "n": 32,
+      "min": 2,
+      "median": 8.0,
+      "p95": 11.0,
+      "max": 11
+    },
+    "anchor_exceptions": 0
+  },
+  "D/T3/PURE": {
+    "n": 32,
+    "answerable": 32,
+    "complete": 32,
+    "baseline_complete": null,
+    "gains": null,
+    "losses": null,
+    "records": {
+      "n": 32,
+      "min": 29,
+      "median": 44.0,
+      "p95": 53.45,
+      "max": 63
+    },
+    "chars": {
+      "n": 32,
+      "min": 19815,
+      "median": 29670.0,
+      "p95": 35942.3,
+      "max": 42935
+    },
+    "continuity": {
+      "n": 32,
+      "min": 0,
+      "median": 7.0,
+      "p95": 10.45,
+      "max": 11
+    },
+    "anchor_exceptions": 0
+  },
+  "D/T4/PURE": {
+    "n": 32,
+    "answerable": 32,
+    "complete": 4,
+    "baseline_complete": null,
+    "gains": null,
+    "losses": null,
+    "records": {
+      "n": 32,
+      "min": 0,
+      "median": 1.0,
+      "p95": 2.0,
+      "max": 3
+    },
+    "chars": {
+      "n": 32,
+      "min": 35,
+      "median": 686.5,
+      "p95": 1323.45,
+      "max": 2014
+    },
+    "continuity": {
+      "n": 32,
+      "min": 0,
+      "median": 0.0,
+      "p95": 0.0,
+      "max": 0
+    },
+    "anchor_exceptions": 0
+  }
+}

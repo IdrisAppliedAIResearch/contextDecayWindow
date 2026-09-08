@@ -1,0 +1,18 @@
+{
+  "prompt_sha256": "9205a1261be2a5820aa94892495f5e1a8617ecbc3ac096585d51b0b9b1a96b67",
+  "request": {
+    "cache_prompt": false,
+    "id_slot": 0,
+    "min_p": 0,
+    "n_predict": 4096,
+    "presence_penalty": 0,
+    "prompt": "<|im_start|>user\nYou are answering a question about a conversation between two people.\n\nHere is what you remember of the conversation:\n\n<record session=\"session_1\" date=\"7:48 pm on 21 May, 2023\" dialogue_ids=\"D1:3 D1:4\">\nJohn: That's great! I just signed with a new team - excited for the season!\nTim: Woohoo! Congrats on the new team. Which team did you sign with?\n</record>\n<record session=\"session_1\" date=\"7:48 pm on 21 May, 2023\" dialogue_ids=\"D1:5 D1:6\">\nJohn: The Minnesota Wolves! I can't wait to play with them!\nTim: Cool! What position are you playing for the team? Any exciting games coming up?\n</record>\n\nQuestion: Which team did Tim sign with on 21 May, 2023?\n\nAnswer with the fact itself, as briefly as the question allows. Do not explain your reasoning. If the material above does not contain the answer, reply exactly: I don't know.\n\nAnswer:<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+    "reasoning_format": "none",
+    "repeat_penalty": 1,
+    "seed": 5005,
+    "temperature": 0.6,
+    "top_k": 20,
+    "top_p": 0.95
+  },
+  "time": 1788815289.052215
+}
