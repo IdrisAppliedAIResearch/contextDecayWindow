@@ -55,7 +55,7 @@ def _fake_embedder(text: str) -> np.ndarray:
 
 
 def _config(**overrides) -> EpisodicConfig:
-    base = {"recency_window_n": 2, "selector_cluster_count": 4}
+    base = {"read_policy": "legacy_cc80", "recency_window_n": 2, "selector_cluster_count": 4}
     base.update(overrides)
     return EpisodicConfig(**base)
 
@@ -231,7 +231,7 @@ def embedder(text):
 
 store = EpisodeStore(
     sys.argv[1],
-    EpisodicConfig(recency_window_n=2, selector_cluster_count=4),
+    EpisodicConfig(read_policy="legacy_cc80", recency_window_n=2, selector_cluster_count=4),
     embedder=embedder,
 )
 for index in range(6):

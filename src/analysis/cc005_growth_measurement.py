@@ -70,7 +70,7 @@ def measure_disk(episodes: list[dict], workdir: Path) -> dict:
 
     store = EpisodeStore(
         path,
-        EpisodicConfig(recency_window_n=32, selector_cluster_count=16),
+        EpisodicConfig(read_policy="legacy_cc80", recency_window_n=32, selector_cluster_count=16),
         embedder=_deterministic_embedder,
     )
     rows = []
@@ -119,7 +119,7 @@ def measure_disk(episodes: list[dict], workdir: Path) -> dict:
 
 def measure_latency(episodes: list[dict]) -> dict:
     """Wall-clock `build_context` against pool size, embedding excluded."""
-    config = EpisodicConfig()
+    config = EpisodicConfig(read_policy="legacy_cc80")
     query = episodes[-1]["embedding"]
     rows = []
     for size in LATENCY_POOL_SIZES:
@@ -182,7 +182,7 @@ def measure_components(episodes: list[dict]) -> dict:
         vector,
     )
 
-    config = EpisodicConfig()
+    config = EpisodicConfig(read_policy="legacy_cc80")
     rows = []
     for size in LATENCY_POOL_SIZES:
         pool = episodes[:size]

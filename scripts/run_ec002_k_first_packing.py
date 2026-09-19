@@ -650,7 +650,7 @@ def main() -> int:
     )
     original = load_original(args.original_run)
 
-    config = EpisodicConfig()
+    config = EpisodicConfig(read_policy="legacy_cc80")
     decisions = record["decisions"]
     budget = int(decisions["budget"]["budget_chars"])
     if budget != 32_000:

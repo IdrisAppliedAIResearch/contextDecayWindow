@@ -9,7 +9,13 @@ from dataclasses import dataclass
 class ContextReport:
     """What one context construction did, in exact numbers.
 
-    On the CC-007 public path, ``chars_delivered`` is total output and may
+    On the timeline path all delivered records share one chronological block.
+    ``budget_chars``, ``retrieval_budget_chars`` and ``chars_available`` are None:
+    there is no packing ceiling. Relevance exclusions are not capacity drops.
+    ``recency_count`` includes overlap; ``semantic_count`` counts additional
+    relevant records outside continuity. A protected anchor can add another.
+
+    On the legacy CC-007 path, ``chars_delivered`` is total output and may
     exceed the long-term allowance because recency is additive.
     ``retrieval_chars_delivered`` is the value governed by
     ``retrieval_budget_chars``. ``truncated`` and dropped identities describe
@@ -33,7 +39,7 @@ class ContextReport:
     pool_size: int
     dropped_ids: tuple[str, ...] = ()
     drop_policy: str = ""
-    budget_chars: int = 0
+    budget_chars: int | None = 0
     retrieval_chars_delivered: int | None = None
     retrieval_budget_chars: int | None = None
     recency_count: int = 0
@@ -43,11 +49,19 @@ class ContextReport:
     aspect_enabled: bool = False
     recent_ids: tuple[str, ...] = ()
     recency_additive: bool = False
+    read_policy: str = "legacy_cc80"
+    selected_ids: tuple[str, ...] = ()
+    eligible_count: int | None = None
+    through_turn: int | None = None
+    anchor_turn: int | None = None
+    relevance_threshold: float | None = None
 
     @property
-    def chars_available(self) -> int:
+    def chars_available(self) -> int | None:
         """Unused retrieval budget, excluding additive recent continuity."""
 
+        if self.read_policy == "timeline":
+            return None
         delivered = (
             self.chars_delivered
             if self.retrieval_chars_delivered is None

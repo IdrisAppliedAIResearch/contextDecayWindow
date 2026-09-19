@@ -1,5 +1,9 @@
 # Unified memory exploratory paired subset
 
+Original registration: **20d75b5a**; subset scope amendment: **d6d903af**.
+
+**Arc closeout, 2026-09-19:** this combined contextual/traversal configuration remains experimental. The user adopted the separate chronological relevance timeline with optional default-on last-32 continuity and paused the proposed LLM planner. [Product adoption and evidence limits](../components/episodic_chat/TIMELINE_REPORT.md). Scores and registered dispositions below are unchanged.
+
 C0 384/566; C1 399/566. Difference 2.65 percentage points; descriptive conversation-cluster 95% interval [0.53, 4.53]. 27 gains, 12 losses.
 
 Generation was stopped at the user's request before scoring. This is a nonrandom completed-pair subset of previously exposed LoCoMo; the full registered comparison is not completed and no full-population WORKS disposition is claimed. Same native-thinking-off reader, shared source/captions/chronology, three same-model votes and a separate blinded adjudication. No human audit, transfer, or component-attribution claim. Annotation availability is diagnostic, not sufficiency.
