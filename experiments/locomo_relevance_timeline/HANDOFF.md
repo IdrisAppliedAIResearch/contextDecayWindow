@@ -1,3 +1,7 @@
+# Current closeout — 2026-09-19
+
+The chronological arc is closed. User authorized the 0.3.0 timeline product update, with last-32 continuity on by default and optional off (`recency_window_n=0`). Explicit caller boundaries only; contextual/traversal fusion remains experimental. Extra LLM planning is paused. No new inference. See `experiments/components/episodic_chat/TIMELINE_REPORT.md` and `episodic/CHANGELOG.md`. Historical instructions below are superseded where they conflict; do not resume their jobs.
+
 # Superseded resume pointer
 
 The accepted architecture is now implemented on study/unified-contextual-memory; its registered evaluation has been launched. Read [the current handoff](../unified_contextual_memory/HANDOFF.md) first. Historical notes below are retained and do not govern the new run.

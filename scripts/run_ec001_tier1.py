@@ -85,7 +85,7 @@ def main() -> int:
 
     from episodic import EpisodicConfig
 
-    config = EpisodicConfig()
+    config = EpisodicConfig(read_policy="legacy_cc80")
     decisions = record["decisions"]
     if config.recency_window_n != int(
         decisions["recency_window"]["recency_window_n"]
