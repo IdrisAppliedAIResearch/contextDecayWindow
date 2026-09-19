@@ -1,6 +1,8 @@
 # One-call retrieval planning: implementation design
 
-**Status: DRAFT FOR REVIEW. Not preregistered, implemented, or runnable.**
+**Status: PAUSED by the user on 2026-09-19. Design only; not preregistered, implemented, or runnable.**
+
+The chronological product adoption is separate. Do not start planner implementation or inference from this draft.
 
 The user requested this design after reviewing the limitations of the deterministic contextual-memory arc. This authorizes document preparation, not inference. The completed unified-memory subset and its registrations remain unchanged; the full-corpus run stays stopped.
 

@@ -57,7 +57,7 @@ def embedder(text: str) -> np.ndarray:
 
 
 def config(**overrides) -> EpisodicConfig:
-    base = {"recency_window_n": 4, "selector_cluster_count": 4}
+    base = {"read_policy": "legacy_cc80", "recency_window_n": 4, "selector_cluster_count": 4}
     base.update(overrides)
     return EpisodicConfig(**base)
 
@@ -84,7 +84,7 @@ def run_child(path: Path, body: str, *, expect_kill: bool) -> None:
             from episodic import EpisodeStore, EpisodicConfig
             store = EpisodeStore(
                 {str(path)!r},
-                EpisodicConfig(recency_window_n=4, selector_cluster_count=4),
+                EpisodicConfig(read_policy="legacy_cc80", recency_window_n=4, selector_cluster_count=4),
                 embedder=embedder,
             )
             """

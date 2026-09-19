@@ -1,4 +1,4 @@
-"""episodic-chat - append-only conversational memory with budgeted retrieval.
+"""episodic-chat - append-only conversational memory with chronological retrieval.
 
 The installable surface includes the store and its vector-cache contract::
 
@@ -8,13 +8,12 @@ The installable surface includes the store and its vector-cache contract::
 
     store = EpisodeStore(path, config=EpisodicConfig())
     store.append(role, content)
-    block, report = store.context(query)  # additive last 32 + 32k CC80
+    block, report = store.context(query)  # cosine >= 0.48 + last 32, chronologically
     store.close()
 
-``store.context()`` is a pure function of (store state, query, retrieval budget,
-config):
-no mutation, no inference calls, no network. Same inputs, same output,
-byte-identical. Everything not exported here is private.
+Selection is deterministic given store state, query embedding, boundary and
+config. A context call embeds the query but makes no generative call and does
+not mutate the store. Exact repeatability requires identical vector bytes. Everything not exported here is private.
 """
 
 from ._config import EpisodicConfig
@@ -31,7 +30,7 @@ from ._errors import (
 from ._report import ContextReport
 from ._store import EpisodeStore
 
-__version__ = "0.2.0"
+__version__ = "0.3.0"
 
 __all__ = [
     "EpisodeStore",

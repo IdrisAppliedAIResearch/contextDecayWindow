@@ -1,3 +1,7 @@
+# Current closeout — 2026-09-19
+
+The chronological arc is closed. User authorized the 0.3.0 timeline product update, with last-32 continuity on by default and optional off (`recency_window_n=0`). Explicit caller boundaries only; contextual/traversal fusion remains experimental. Extra LLM planning is paused. No new inference. See `experiments/components/episodic_chat/TIMELINE_REPORT.md` and `episodic/CHANGELOG.md`. Historical instructions below are superseded where they conflict; do not resume their jobs.
+
 LoCoMo batching timing: same nine historical prompts took37.44s serial versus38.20s concurrent9 (0.9802x throughput). All9 slots overlapped;8/9 answers identical,172/234 output tokens. NativeOFF; no scoring. Nine fits but gave no speed benefit here. See LOCOMO_BATCH_REPORT.md. Servers stopped.
 
 # ACTIVE: GPU batching capacity probe complete
