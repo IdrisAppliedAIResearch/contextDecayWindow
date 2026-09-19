@@ -4,7 +4,7 @@ Read this file before doing anything in this repository. It carries the program'
 
 **If this file and a study's pre-registration disagree, the pre-registration governs. Stop and flag the conflict rather than reconciling it silently.**
 
-**Current handoff (2026-09-07):** [one-call LLM-assisted retrieval design](experiments/designs/llm_assisted_retrieval/DESIGN.md) drafted at1ad46665 for review. It proposes the first generative call inside retrieval, a bounded planner/executor and a small paired pilot. No implementation/inference authorized. Prior unified-memory subset is complete; full generation remains stopped.
+**Current handoff (2026-09-19):** Chronological arc closed; user authorized episodic-chat 0.3.0 adoption. Raw cosine >=.48, no packing cap, chronological original-source union. Keep last-32 continuity ON by default; `recency_window_n=0` disables it. Explicit caller horizon/anchor only. Legacy CC80 remains selectable. See [adoption report](experiments/components/episodic_chat/TIMELINE_REPORT.md) and [migration](episodic/CHANGELOG.md). Extra LLM planner PAUSED; contextual/traversal fusion unadopted; full inference stopped. Do not resume research from historical handoffs. No new reader score is claimed for the product composition.
 
 ## 1. Program
 
@@ -231,6 +231,8 @@ The coding agent implements the registered design. Do not design studies, choose
 **LoCoMo retrieval miss audit (2026-09-07).** Four cases/five missing annotations all below.48(.312–.459);30exact replays. Café gold is omitted image caption; selected reaction lacks antecedent. Patriotism already correct. Charity/gift golds are recommendations; gift’s missing supportive remark not demonstrated necessary. No calls/tuning. Plan2883ac93; raw8a16e6be.
 
 **Unified memory subset (2026-09-07).** EXPLORATORY: user-stopped741pairs,566primary. Reader384→399 (+2.65pp; descriptive clusterCI.53–4.53;27g12l). All annotation493→516/565;23g0l. Category1 loses2. Same-model adjudication, no human audit. Nonrandom exposed subset; no full-population/adoption claim. Raw1b96adc7; scores a0fc0940; results c3d55da1.
+
+**Timeline adoption (2026-09-19).** ENGINEERING ADOPTION.0.3.0:cosine>=.48,no packing cap,chronological union;last32default,on/off via recency_window_n. Explicit caller horizon/anchor.2,306 historical selection/payload checks exact with continuity off. Product composition not reader-scored. Arc closed;fusion unadopted;LLM planner paused. See TIMELINE_REPORT.md.
 
 ## 3. Failure Pattern
 

@@ -1,4 +1,4 @@
-"""The append-only episode store and its budgeted context constructor.
+"""The append-only episode store and its chronological context constructor.
 
 The store is verbatim and append-only: episodes are never updated or
 deleted, and ``context()`` never writes. The row shape and the embedded
@@ -96,10 +96,15 @@ class EpisodeStore:
         self._conn.execute("PRAGMA journal_mode=DELETE")
         self._conn.executescript(_SCHEMA)
         self._conn.commit()
-        self._check_integrity()
-        self._check_config(override_config)
-        self._check_model_identity()
-        self._check_call_shape()
+        try:
+            self._check_integrity()
+            self._check_model_identity()
+            self._check_config(override_config, persist=False)
+            self._check_call_shape()
+            self._check_config(override_config)
+        except Exception:
+            self._conn.close()
+            raise
 
     # -- open-time gates ---------------------------------------------------
 
@@ -126,13 +131,14 @@ class EpisodeStore:
                 "restore it from a checkpoint rather than reading around it."
             )
 
-    def _check_config(self, override_config: bool) -> None:
+    def _check_config(self, override_config: bool, *, persist: bool = True) -> None:
         stored = self._meta_get("config")
         current = self.config.to_json()
         if stored is None or override_config:
-            self._meta_set("config", current)
+            if persist:
+                self._meta_set("config", current)
             return
-        if stored != current:
+        if EpisodicConfig.from_json(stored).to_json() != current:
             raise ConfigMismatchError(
                 "Store was created under a different config. A store's "
                 "numbers are only meaningful under the config that produced "
@@ -210,14 +216,30 @@ class EpisodeStore:
         self._conn.commit()
 
     def context(
-        self, query: str, budget: int | None = None
+        self, query: str, budget: int | None = None, *,
+        through_turn: int | None = None, anchor_turn: int | None = None,
     ) -> tuple[str, ContextReport]:
-        """Build additive recency plus budgeted CC80/optional-ASPECT context.
+        """Return original evidence in chronological order under the default policy.
 
-        ``budget`` is the long-term retrieval allowance.  The latest 32
-        episodes (or configured recency window) are continuity context outside
-        that allowance.  Omit it to use the deployed 32,000-character default.
+        Timeline includes all cosine matches and last-32 continuity, without
+        packing. Set ``recency_window_n=0`` to disable continuity. An optional
+        inclusive ``through_turn`` limits source recording order; ``anchor_turn``
+        protects an explicit source exchange regardless of relevance. No natural
+        language anchor is inferred. ``budget`` is only for ``legacy_cc80``.
         """
+
+        if self.config.read_policy == "timeline":
+            if budget is not None:
+                raise EpisodicError('Timeline has no character budget; omit budget or select legacy_cc80')
+            if self.config.aspect_enabled:
+                raise EpisodicError('ASPECT requires read_policy="legacy_cc80"')
+            from ._timeline import build_timeline_context
+            return build_timeline_context(
+                episodes=self._all_episodes(),
+                query_embedding=embed_solo(self._embedder, query),
+                config=self.config, through_turn=through_turn, anchor_turn=anchor_turn)
+        if through_turn is not None or anchor_turn is not None:
+            raise EpisodicError('Explicit turn boundaries require read_policy="timeline"')
 
         from ._chat_context import build_chat_context
 

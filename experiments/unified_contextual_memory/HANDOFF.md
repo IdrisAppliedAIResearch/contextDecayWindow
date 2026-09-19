@@ -1,3 +1,7 @@
+# Current closeout — 2026-09-19
+
+The chronological arc is closed. User authorized the 0.3.0 timeline product update, with last-32 continuity on by default and optional off (`recency_window_n=0`). Explicit caller boundaries only; contextual/traversal fusion remains experimental. Extra LLM planning is paused. No new inference. See `experiments/components/episodic_chat/TIMELINE_REPORT.md` and `episodic/CHANGELOG.md`. Historical instructions below are superseded where they conflict; do not resume their jobs.
+
 # COMPLETE: exploratory subset, full run stopped
 
 Results c3d55da1 and report ab97fb70; independent audit reproduces raw hashes, votes, primary/interval and annotation cross-tabs. C0 384/566, C1 399/566; +2.65pp;27g12l;descriptive clusterCI0.53–4.53. Total741pairs includes175adversarial. All annotation493→516/565. Reader/scorer processes exited; server stopped by owned cleanup. No further inference. See REPORT.md for limitations and breakdown. Closeout pauses the heartbeat and updates PR98.
