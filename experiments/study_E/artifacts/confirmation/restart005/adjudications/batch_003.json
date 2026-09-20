@@ -1,0 +1,212 @@
+[
+  {
+    "review_key": "872f08c9c8d3b274c1a283fc68db54387d47a76217a1e922387b27226b7f18d0",
+    "score": 0,
+    "evidence": "The delivery location for \"Orchard-186\" immediately before the \"Orchard-186 review\" (turn 77) was the **workshop** (set at turn 67, with no subsequent changes before turn 77).",
+    "rationale": "Explicit final commitment is workshop; it differs from the reference hangar.",
+    "corrected_wrong_opening": false
+  },
+  {
+    "review_key": "87c5d92baa7d0ca71b59bb5c2a6f3add8f48481801060b616c7393b4dcdb1e48",
+    "score": 1,
+    "evidence": "The delivery location for \"Riverside-371\" immediately before the \"Riverside-371 review\" (turn 63) was the studio, as established in turn 54.\n\nAnswer: the studio",
+    "rationale": "Explicit final commitment is studio; it matches the reference studio.",
+    "corrected_wrong_opening": false
+  },
+  {
+    "review_key": "8d84c08291095f909e1d4c51695bd6b84eca600840d2cb371367d29316d0f1ff",
+    "score": 0,
+    "evidence": "The delivery location for \"Orchard-199\" immediately before the \"Orchard-199 review\" (which occurred at turn 67) was the **warehouse**, as established at turn 61 (turn 61 is the last location change before turn 67, setting it to \"laboratory\"? Wait, let me re-check the turns).\n\nLet's trace the location changes chronologically:\n- Turn 2: laboratory\n- Turn 3: laboratory\n- Turn 4: studio\n- Turn 7: workshop\n- Turn 10: workshop\n- Turn 11: studio\n- Turn 13: laboratory\n- Turn 15: workshop\n- Turn 16: warehouse\n- Turn 17: office\n- Turn 18: hangar\n- Turn 19: workshop\n- Turn 22: workshop\n- Turn 24: studio\n- Turn 25: workshop\n- Turn 26: workshop\n- Turn 27: warehouse\n- Turn 28: depot\n- Turn 31: laboratory\n- Turn 32: laboratory\n- Turn 33: workshop\n- Turn 34: studio\n- Turn 38: laboratory\n- Turn 39: hangar\n- Turn 40: hangar\n- Turn 41: laboratory\n- Turn 42: workshop\n- Turn 43: hangar\n- Turn 44: studio\n- Turn 45: studio\n- Turn 48: hangar\n- Turn 49: studio\n- Turn 52: warehouse\n- Turn 53: depot\n- Turn 54: laboratory\n- Turn 57: depot\n- Turn 58: warehouse\n- Turn 60: studio\n- Turn 61: laboratory\n- Turn 67: \"Orchard-199 review\" meeting takes place.\n\nThe last location change before turn 67 was at turn 61, where the location was set to the **laboratory**.\n\nAnswer: laboratory",
+    "rationale": "Explicit final commitment is laboratory; it differs from the reference annex. The final commitment supersedes an incorrect opening assertion; opening revision is recorded separately, even when the final value remains wrong.",
+    "corrected_wrong_opening": true
+  },
+  {
+    "review_key": "8f4ad946661efb7db93996fe7e1508c58373e2277427fd760300db25e66ebe0b",
+    "score": 1,
+    "evidence": "The delivery location for \"Orchard-533\" immediately before the \"Orchard-533 review\" was the laboratory.",
+    "rationale": "Explicit final commitment is laboratory; it matches the reference laboratory.",
+    "corrected_wrong_opening": false
+  },
+  {
+    "review_key": "914a0da50687d447d9028bb4f70e161e261bfccb6ea403fdcdcb6764434d5330",
+    "score": 1,
+    "evidence": "The delivery location for \"Riverside-652\" immediately before the \"Riverside-652 review\" (turn 79) was the depot, as established in turn 73.\n\nAnswer: the depot",
+    "rationale": "Explicit final commitment is depot; it matches the reference depot.",
+    "corrected_wrong_opening": false
+  },
+  {
+    "review_key": "9321a893efe0669a2852eb13819e8b5205aa6d63e5b0bc761b34eafd5672da41",
+    "score": 1,
+    "evidence": "The meeting \"Riverside-111 review\" took place at turn 57. The delivery location for \"Riverside-111\" immediately before this was set at turn 46, which is the most recent location change prior to turn 57 in the retrieved context.\n\nAt turn 46, the delivery location was changed to the **studio**.\n\nAnswer: the studio",
+    "rationale": "Explicit final commitment is studio; it matches the reference studio.",
+    "corrected_wrong_opening": false
+  },
+  {
+    "review_key": "98391624044046afef1956e15e9dadc1f9a19209de0ddb619b53ba088c76abfa",
+    "score": 1,
+    "evidence": "I don know.",
+    "rationale": "Unambiguous misspelled abstention; semantically matches the reference but is noncanonical.",
+    "corrected_wrong_opening": false
+  },
+  {
+    "review_key": "98e60277bd89d78627b78c76902c8b9d4c525be285facca3dff694ad7716ed3a",
+    "score": 0,
+    "evidence": "The delivery location for \"Harbor-292\" immediately before the \"Harbor-292 review\" (turn 80) was the **depot** (set at turn 67).",
+    "rationale": "Explicit final commitment is depot; it differs from the reference hangar.",
+    "corrected_wrong_opening": false
+  },
+  {
+    "review_key": "999020b2b0d3d3ee50503d0c918fcf9e23aecaffce377238c37f125529bc5b35",
+    "score": 0,
+    "evidence": "The delivery location for \"Orchard-379\" immediately before the \"Orchard-379 review\" (turn 62) was the office, as established in turn 50.\n\nAnswer: the office",
+    "rationale": "Explicit final commitment is office; it differs from the reference warehouse.",
+    "corrected_wrong_opening": false
+  },
+  {
+    "review_key": "9be0c96fafe997bbb5133197f96f53926e8bd9a429549e6b1cfcb6f46aeb7ea3",
+    "score": 1,
+    "evidence": "The delivery location for \"Harbor-371\" immediately before the \"Harbor-371 review\" (turn 77) was the workshop, as set in turn 72.\n\nAnswer: workshop",
+    "rationale": "Explicit final commitment is workshop; it matches the reference workshop.",
+    "corrected_wrong_opening": false
+  },
+  {
+    "review_key": "9be8de430d126edb0417ea6ba342f984b06ec723a8846d0e2cddf075139ae9bf",
+    "score": 0,
+    "evidence": "The delivery location for \"Meadow-840\" immediately before the \"Meadow-840 review\" was the workshop.",
+    "rationale": "Explicit final commitment is workshop; it differs from the reference warehouse.",
+    "corrected_wrong_opening": false
+  },
+  {
+    "review_key": "9cf2d5757a7f8972a6602b894cf6e9101fecd02eb8c0b8dd64c1deab1abe185e",
+    "score": 1,
+    "evidence": "The delivery location for \"Orchard-533\" immediately before the \"Orchard-533 review\" (turn 74) was the hangar, as established in the most recent prior location update at turn 77? No, turn 77 is after turn 74. Let's look at the turns before 74.\n\nTurn 74 is the review.\nThe most recent location change before turn 74 is at turn 67: \"The delivery location for 'Orchard-533' is now the laboratory.\"\nLet's check if there are any between 67 and 74.\nTurn 68, 69, 70, 71, 72, 73 are not in the retrieved STM explicitly with location changes, but we have:\nTurn 67: Laboratory\nTurn 66: Hangar\nTurn 65: Hangar\nTurn 57: Hangar\nTurn 56: Depot\nTurn 55: Hangar\n\nWait, I need to find the latest turn number less than 74 that explicitly sets the location.\nLooking at the retrieved STM:\n- Turn 67: \"The delivery location for 'Orchard-533' is now the laboratory.\"\n- Turn 66: \"The delivery location for 'Orchard-533' is now the hangar.\"\n- Turn 65: \"The delivery location for 'Orchard-533' is now the hangar.\"\n- Turn 57: \"The delivery location for 'Orchard-533' is now the hangar.\"\n- Turn 56: \"The delivery location for 'Orchard-533' is now the depot.\"\n- Turn 55: \"The delivery location for 'Orchard-533' is now the hangar.\"\n\nThere are no retrieved episodes between 67 and 74 that change the location. The recent context starts at turn 109. The retrieved STM has turns up to 77.\nTurn 77 is after turn 74.\nSo the last known location change before turn 74 is at turn 67, which set it to the laboratory.\n\nLet's double check if there are any other location changes in the retrieved STM between 67 and 74.\nThe retrieved STM contains:\nTurn 77 (After 74)\nTurn 74 (The review)\nTurn 67 (Laboratory)\nTurn 66 (Hangar)\n... and lower turns.\n\nSo the location immediately before the review at turn 74 was the laboratory.\n\nAnswer: the laboratory",
+    "rationale": "Explicit final commitment is laboratory; it matches the reference laboratory. The final commitment supersedes an incorrect opening assertion; opening revision is recorded separately, even when the final value remains wrong.",
+    "corrected_wrong_opening": true
+  },
+  {
+    "review_key": "9ee2c9bca5034f523f8331bd8171eeb1801247020f3cc79e071553ec701580c9",
+    "score": 1,
+    "evidence": "The delivery location for \"Harbor-152\" immediately before the \"Harbor-152 review\" (turn 72) was the workshop, as established in turn 63.\n\nAnswer: workshop",
+    "rationale": "Explicit final commitment is workshop; it matches the reference workshop.",
+    "corrected_wrong_opening": false
+  },
+  {
+    "review_key": "a107340b4b053a88591c17fe08a6187a0b3e8c5dcad9e0fa030aaffa0e0c6b27",
+    "score": 1,
+    "evidence": "The delivery location for \"Meadow-784\" immediately before the \"Meadow-784 review\" (turn 60) was the **warehouse**, as established in the most recent prior location change at turn 57 (which was explicitly noted as *not* effective in the current history, but wait — let's check the timeline carefully).\n\nActually, reviewing the retrieved STM in chronological order:\n\n- Turn 1: warehouse\n- Turn 8: hangar\n- Turn 9: studio\n- Turn 10: laboratory\n- Turn 11: depot\n- Turn 13: laboratory\n- Turn 15: depot\n- Turn 16: depot\n- Turn 17: warehouse\n- Turn 20: hangar\n- Turn 22: laboratory\n- Turn 24: annex\n- Turn 27: hangar\n- Turn 30: workshop\n- Turn 31: studio\n- Turn 32: hangar\n- Turn 33: studio\n- Turn 34: workshop\n- Turn 36: studio\n- Turn 38: warehouse\n- Turn 40: annex\n- Turn 41: workshop\n- Turn 42: depot\n- Turn 43: office\n- Turn 44: office\n- Turn 45: laboratory\n- Turn 47: studio\n- Turn 48: depot\n- Turn 49: annex\n- Turn 51: warehouse\n- Turn 52: studio\n- Turn 53: laboratory\n- Turn 54: workshop\n- Turn 55: depot\n- Turn 56: studio\n- Turn 57: **warehouse** (but explicitly stated: \"It is explicitly not effective anywhere in the current recorded history.\")\n- Turn 58: no change (review)\n- Turn 59: no change (review)\n- Turn 60: \"Meadow-784 review\"\n\nSince turn 57's change to warehouse is **not effective**, the last *effective* location change before turn 60 was at **turn 56**, which set the location to **studio**.\n\nWait — but turn 56 says: \"The team reviewed delivery records for 'Meadow-784'. This review made no change to its delivery location.\" So the location remained whatever it was before turn 56.\n\nTrace back:\n\n- Turn 55: \"reviewed... no change\" → location unchanged from before\n- Turn 54: \"reviewed... no change\"\n- Turn 53: \"reviewed... no change\"\n- Turn 52: \"reviewed... no change\"\n- Turn 51: \"reviewed... no change\"\n- Turn 49: \"The delivery location for 'Meadow-784' is now the annex. This replaces its previous location.\" → **annex**\n- Turn 50: not shown, but turn 51 is a review with no change, so location remains **annex**\n- Turns 51–56: all reviews with no change → location remains **annex**\n- Turn 57: announces change to warehouse, but **not effective**\n- Turns 58–60: reviews, no change\n\nTherefore, the effective location immediately before the \"Meadow-784 review\" at turn 60 was **annex**.\n\nAnswer: annex",
+    "rationale": "Explicit final commitment is annex; it matches the reference annex. The final commitment supersedes an incorrect opening assertion; opening revision is recorded separately, even when the final value remains wrong.",
+    "corrected_wrong_opening": true
+  },
+  {
+    "review_key": "a153ea8676a40e32c61bb40325f3e1ea550723ffc1adb832fe7862d67c469dd5",
+    "score": 0,
+    "evidence": "The delivery location for \"Harbor-618\" immediately before the \"Harbor-618 review\" (turn 86) was the **depot** (set at turn 96 is after, so I need to look for the one before 86).\n\nLet's check the turns in `retrieved_stm` that are before 86:\n- Turn 74: \"The delivery location for 'Harbor-618' is now the **annex**.\"\n- Turn 70: \"The delivery location for 'Harbor-618' is now the **warehouse**.\"\n- Turn 69: \"The delivery location for 'Harbor-618' is now the **workshop**.\"\n- Turn 68: \"The delivery location for 'Harbor-618' is now the **workshop**.\"\n- Turn 67: \"The delivery location for 'Harbor-618' is now the **warehouse**.\"\n- Turn 66: \"The delivery location for 'Harbor-618' is now the **laboratory**.\"\n- Turn 63: \"The delivery location for 'Harbor-618' is now the **workshop**.\"\n- Turn 61: \"The delivery location for 'Harbor-618' is now the **hangar**.\"\n- Turn 60: \"The delivery location for 'Harbor-618' is now the **office**.\"\n- Turn 59: \"The delivery location for 'Harbor-618' is now the **warehouse**.\"\n- Turn 58: \"The delivery location for 'Harbor-618' is now the **office**.\"\n- Turn 55: \"The delivery location for 'Harbor-618' is now the **hangar**.\"\n- Turn 52: \"The delivery location for 'Harbor-618' is now the **workshop**.\"\n- Turn 49: \"The delivery location for 'Harbor-618' is now the **hangar**.\"\n- Turn 48: \"The delivery location for 'Harbor-618' is now the **office**.\"\n- Turn 47: \"The delivery location for 'Harbor-618' is now the **studio**.\"\n- Turn 45: \"The delivery location for 'Harbor-618' is now the **hangar**.\"\n- Turn 44: \"The delivery location for 'Harbor-618' is now the **workshop**.\"\n- Turn 43: \"The delivery location for 'Harbor-618' is now the **hangar**.\"\n- Turn 41: \"The delivery location for 'Harbor-618' is now the **studio**.\"\n- Turn 40: \"The delivery location for 'Harbor-618' is now the **warehouse**.\"\n- Turn 38: \"The delivery location for 'Harbor-618' is now the **hangar**.\"\n- Turn 35: \"The delivery location for 'Harbor-618' is now the **warehouse**.\"\n- Turn 34: \"The delivery location for 'Harbor-618' is now the **workshop**.\"\n- Turn 33: \"The delivery location for 'Harbor-618' is now the **depot**.\"\n- Turn 30: \"The delivery location for 'Harbor-618' is now the **workshop**.\"\n- Turn 29: \"The delivery location for 'Harbor-618' is now the **hangar**.\"\n- Turn 27: \"The delivery location for 'Harbor-618' is now the **warehouse**.\"\n- Turn 26: \"The delivery location for 'Harbor-618' is now the **laboratory**.\"\n- Turn 24: \"The delivery location for 'Harbor-618' is now the **office**.\"\n- Turn 22: \"The delivery location for 'Harbor-618' is now the **warehouse**.\"\n- Turn 20: \"The delivery location for 'Harbor-618' is now the **workshop**.\"\n- Turn 18: \"The delivery location for 'Harbor-618' is now the **studio**.\"\n- Turn 17: \"The delivery location for 'Harbor-618' is now the **hangar**.\"\n- Turn 14: \"The delivery location for 'Harbor-618' is now the **hangar**.\"\n- Turn 8: \"The delivery location for 'Harbor-618' is now the **warehouse**.\"\n- Turn 7: \"The delivery location for 'Harbor-618' is now the **depot**.\"\n- Turn 3: \"The delivery location for 'Harbor-618' is now the **hangar**.\"\n- Turn 1: \"The delivery location for 'Harbor-618' is now the **hangar**.\"\n\nThe \"Harbor-618 review\" meeting took place at turn 86.\nI need to find the most recent location change before turn 86.\nLooking at the list, the largest turn number less than 86 is **74**.\nAt turn 74, the location was set to the **annex**.\n\nTherefore, the delivery location immediately before the review was the annex.\n\nannex",
+    "rationale": "Explicit final commitment is annex; it differs from the reference office. The final commitment supersedes an incorrect opening assertion; opening revision is recorded separately, even when the final value remains wrong.",
+    "corrected_wrong_opening": true
+  },
+  {
+    "review_key": "a4dd8439770a802d1cf40c940f8f0c17eeaba72420494457c6eba77a1f6ebb88",
+    "score": 0,
+    "evidence": "The delivery location for \"Harbor-795\" immediately before the \"Harbor-795 review\" (turn 56) was the **depot**, as established in turn 50.",
+    "rationale": "Explicit final commitment is depot; it differs from the reference warehouse.",
+    "corrected_wrong_opening": false
+  },
+  {
+    "review_key": "a61dbe3493bca398f768ff4c5c3868ba6428c1d5da9176debc2b6e3000de86ee",
+    "score": 1,
+    "evidence": "The delivery location for \"Harbor-152\" immediately before the \"Harbor-152 review\" (turn 72) was the workshop, as set in turn 63.\n\nAnswer: the workshop",
+    "rationale": "Explicit final commitment is workshop; it matches the reference workshop.",
+    "corrected_wrong_opening": false
+  },
+  {
+    "review_key": "a77b5c9f21dcedd3718779b0af60ff979f5c040482f919d6ab1ef95d85e9a2bd",
+    "score": 0,
+    "evidence": "The meeting \"Orchard-892 review\" took place at turn 60. The delivery location for \"Orchard-892\" immediately before this meeting was set at turn 53.\n\nAt turn 53, the user stated: \"The delivery location for \"Orchard-892\" is now the warehouse. This replaces its previous location.\"\n\nTherefore, the delivery location immediately before the review was the warehouse.\n\nAnswer: the warehouse",
+    "rationale": "Explicit final commitment is warehouse; it differs from the reference studio.",
+    "corrected_wrong_opening": false
+  },
+  {
+    "review_key": "a95497309940c7f8dd52442245342917e1cd2427f3d67fe696da06e31f97354d",
+    "score": 0,
+    "evidence": "The delivery location for \"Harbor-485\" immediately before the \"Harbor-485 review\" (turn 66) was the **hangar**, as established in turn 46 (and reaffirmed in later turns up to 54, though no new location was set between 54 and 66). Wait, let me trace the most recent location change before turn 66.\n\n- Turn 54: \"The delivery location for 'Harbor-485' is now the workshop.\"\n- Turns 55–65: No new location changes are mentioned in the retrieved STM or recent context. The entries from 57–65 state \"The team reviewed delivery records... made no change\".\n- Turn 66: \"The meeting 'Harbor-485 review' took place...\"\n\nTherefore, the last location change before turn 66 was in turn 54, which set the location to the **workshop**.\n\nAnswer: the workshop",
+    "rationale": "Explicit final commitment is workshop; it differs from the reference office. The final commitment supersedes an incorrect opening assertion; opening revision is recorded separately, even when the final value remains wrong.",
+    "corrected_wrong_opening": true
+  },
+  {
+    "review_key": "af85a5251a3af32b3b1c347df709fc529a95f46aa70baff807d7118970e750b7",
+    "score": 1,
+    "evidence": "I don know.",
+    "rationale": "Unambiguous misspelled abstention; semantically matches the reference but is noncanonical.",
+    "corrected_wrong_opening": false
+  },
+  {
+    "review_key": "b9435d9300d2b235fc28d8f82e77ba1c31d812cb103ab8ddfacf750b8f9648ac",
+    "score": 0,
+    "evidence": "The previous location",
+    "rationale": "Does not name the requested location. A previous-location placeholder is not a final commitment to the reference value.",
+    "corrected_wrong_opening": false
+  },
+  {
+    "review_key": "bfecdd96c12cf3855355c9addb5e2761f03ba0f191a6e07a94ce5df1f74d11b7",
+    "score": 1,
+    "evidence": "I don know.",
+    "rationale": "Unambiguous misspelled abstention; semantically matches the reference but is noncanonical.",
+    "corrected_wrong_opening": false
+  },
+  {
+    "review_key": "c09512a6a246c1cc904c9aa2970ea2f31736a75e5892f04475b535a57c086f03",
+    "score": 0,
+    "evidence": "The meeting \"Harbor-547 review\" took place at turn 84. I need to find the last delivery location change before turn 84.\n\nLooking at the retrieved STM for turns before 84:\n- Turn 74: \"The delivery location for 'Harbor-547' is now the depot.\"\n- Turn 73: \"The delivery location for 'Harbor-547' is now the studio.\"\n- Turn 66: \"The delivery location for 'Harbor-547' is now the office.\"\n- Turn 64: \"The delivery location for 'Harbor-547' is now the depot.\"\n- Turn 63: \"The delivery location for 'Harbor-547' is now the studio.\"\n- Turn 61: \"The delivery location for 'Harbor-547' is now the depot.\"\n- Turn 60: \"The delivery location for 'Harbor-547' is now the studio.\"\n- Turn 59: \"The delivery location for 'Harbor-547' is now the office.\"\n- Turn 56: \"The delivery location for 'Harbor-547' is now the office.\"\n- Turn 55: \"The delivery location for 'Harbor-547' is now the annex.\"\n- Turn 54: \"The delivery location for 'Harbor-547' is now the hangar.\"\n- Turn 52: \"The delivery location for 'Harbor-547' is now the annex.\"\n- Turn 50: \"The delivery location for 'Harbor-547' is now the annex.\"\n- Turn 49: \"The delivery location for 'Harbor-547' is now the depot.\"\n- Turn 48: \"The delivery location for 'Harbor-547' is now the studio.\"\n- Turn 46: \"The delivery location for 'Harbor-547' is now the studio.\"\n- Turn 45: \"The delivery location for 'Harbor-547' is now the annex.\"\n- Turn 42: \"The delivery location for 'Harbor-547' is now the workshop.\"\n- Turn 41: \"The delivery location for 'Harbor-547' is now the annex.\"\n- Turn 40: \"The delivery location for 'Harbor-547' is now the hangar.\"\n- Turn 38: \"The delivery location for 'Harbor-547' is now the studio.\"\n- Turn 37: \"The delivery location for 'Harbor-547' is now the warehouse.\"\n- Turn 35: \"The delivery location for 'Harbor-547' is now the studio.\"\n- Turn 34: \"The delivery location for 'Harbor-547' is now the workshop.\"\n- Turn 33: \"The delivery location for 'Harbor-547' is now the workshop.\"\n- Turn 30: \"The delivery location for 'Harbor-547' is now the depot.\"\n- Turn 29: \"The delivery location for 'Harbor-547' is now the office.\"\n- Turn 27: \"The delivery location for 'Harbor-547' is now the workshop.\"\n- Turn 25: \"The delivery location for 'Harbor-547' is now the depot.\"\n- Turn 21: \"The delivery location for 'Harbor-547' is now the studio.\"\n- Turn 16: \"The delivery location for 'Harbor-547' is now the depot.\"\n- Turn 15: \"The delivery location for 'Harbor-547' is now the depot.\"\n- Turn 10: \"The delivery location for 'Harbor-547' is now the depot.\"\n- Turn 8: \"The delivery location for 'Harbor-547' is now the warehouse.\"\n- Turn 7: \"The delivery location for 'Harbor-547' is now the depot.\"\n- Turn 6: \"The delivery location for 'Harbor-547' is now the studio.\"\n- Turn 5: \"The delivery location for 'Harbor-547' is now the hangar.\"\n- Turn 3: \"The delivery location for 'Harbor-547' is now the workshop.\"\n- Turn 2: \"The delivery location for 'Harbor-547' is now the annex.\"\n- Turn 1: \"The delivery location for 'Harbor-547' is now the studio.\"\n\nThe latest change before turn 84 is at turn 74, where the location was set to the depot.\n\nThe depot",
+    "rationale": "Explicit final commitment is depot; it differs from the reference laboratory.",
+    "corrected_wrong_opening": false
+  },
+  {
+    "review_key": "c23ae8a3ef6bb14d38106e71b8d7539a08f2352f474d89947363bd161013462c",
+    "score": 1,
+    "evidence": "The delivery location for \"Meadow-637\" immediately before the \"Meadow-637 review\" (turn 85) was the **depot**, as established at turn 76, with no changes recorded between turns 77 and 84.",
+    "rationale": "Explicit final commitment is depot; it matches the reference depot.",
+    "corrected_wrong_opening": false
+  },
+  {
+    "review_key": "ca37f4d79655bc69cf5eb2c18fdf970dbee77d536b002e82b1b85c6eacc52710",
+    "score": 1,
+    "evidence": "I don know.",
+    "rationale": "Unambiguous misspelled abstention; semantically matches the reference but is noncanonical.",
+    "corrected_wrong_opening": false
+  },
+  {
+    "review_key": "cb354a4e10e7bd6099be7b830800aa6f6b247199ffb36244137ab1c235beadf1",
+    "score": 1,
+    "evidence": "The delivery location for \"Harbor-227\" immediately before the \"Harbor-227 review\" (turn 55) was the **laboratory**, as established in turn 49.",
+    "rationale": "Explicit final commitment is laboratory; it matches the reference laboratory.",
+    "corrected_wrong_opening": false
+  },
+  {
+    "review_key": "cddf9d2c61f381b965ba1f1b28174813f5f064f1edc00c13ba25e569926667a4",
+    "score": 0,
+    "evidence": "The delivery location for \"Riverside-207\" immediately before the \"Riverside-207 review\" was the studio.",
+    "rationale": "Explicit final commitment is studio; it differs from the reference warehouse.",
+    "corrected_wrong_opening": false
+  },
+  {
+    "review_key": "ce71eb6f7987229616553aaa2e1a45e81c9f50d705e1fd517034bc7fecb3f84f",
+    "score": 1,
+    "evidence": "I don know.",
+    "rationale": "Unambiguous misspelled abstention; semantically matches the reference but is noncanonical.",
+    "corrected_wrong_opening": false
+  },
+  {
+    "review_key": "ced86b096d0ed3127203e6ff49c367167b4611231bcfc514e6597904dcb17dfd",
+    "score": 1,
+    "evidence": "I don know.",
+    "rationale": "Unambiguous misspelled abstention; semantically matches the reference but is noncanonical.",
+    "corrected_wrong_opening": false
+  },
+  {
+    "review_key": "d2bfab2250e5cd79a9a7d74cb8a3508e962e2dec9afe18b3c42068f710c6a9f4",
+    "score": 0,
+    "evidence": "The delivery location for \"Riverside-501\" immediately before the \"Riverside-501 review\" (turn 87) was the annex.\n\nLooking at the retrieved STM:\n- Turn 75: \"The delivery location for 'Riverside-501' is now the annex.\"\n- Turn 87: \"The meeting 'Riverside-501 review' took place...\"\n\nThere are no location change instructions between turn 75 and turn 87 in the provided context. Therefore, the location immediately prior to the review was the annex.\n\nAnswer: the annex",
+    "rationale": "Explicit final commitment is annex; it differs from the reference laboratory.",
+    "corrected_wrong_opening": false
+  }
+]

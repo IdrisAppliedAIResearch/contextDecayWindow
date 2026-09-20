@@ -1,0 +1,79 @@
+{
+  "status": "PASS",
+  "fixtures": [
+    {
+      "name": "positive",
+      "expected": "D1_WORKS",
+      "observed": "D1_WORKS",
+      "mean": 0.109375,
+      "p": 0.007939920600793992
+    },
+    {
+      "name": "signal",
+      "expected": "D2_CARRIES_SIGNAL",
+      "observed": "D2_CARRIES_SIGNAL",
+      "mean": 0.0625,
+      "p": 0.06254937450625493
+    },
+    {
+      "name": "tie",
+      "expected": "NO_DEMONSTRATED_BENEFIT",
+      "observed": "NO_DEMONSTRATED_BENEFIT",
+      "mean": 0.0,
+      "p": 1.0
+    },
+    {
+      "name": "primary_harm",
+      "expected": "REGRESSES",
+      "observed": "REGRESSES",
+      "mean": -0.2,
+      "p": 1.0
+    },
+    {
+      "name": "irrelevant_harm",
+      "expected": "REGRESSES",
+      "observed": "REGRESSES",
+      "mean": 0.25,
+      "p": 9.99990000099999e-06
+    },
+    {
+      "name": "future_harm",
+      "expected": "REGRESSES",
+      "observed": "REGRESSES",
+      "mean": 0.25,
+      "p": 9.99990000099999e-06
+    },
+    {
+      "name": "proposal_harm",
+      "expected": "REGRESSES",
+      "observed": "REGRESSES",
+      "mean": 0.25000000000000006,
+      "p": 9.99990000099999e-06
+    },
+    {
+      "name": "absence_harm",
+      "expected": "REGRESSES",
+      "observed": "REGRESSES",
+      "mean": 0.4,
+      "p": 9.99990000099999e-06
+    },
+    {
+      "name": "latest_violation",
+      "expected": "INSTRUMENT_FAILURE",
+      "observed": "INSTRUMENT_FAILURE",
+      "mean": null,
+      "p": null
+    }
+  ],
+  "pins": {
+    "corpus.py": "53abd4e029790576e3df09e7d17259d179d32e183bd884c888f010a1017fc7af",
+    "prepare_amendment003.py": "70eebdd24e6e3a2efc2fb7af963dc63dca69feb062ca310b9882f9a2e602cccf",
+    "mechanism.py": "cd04f01e35904405bd67fd98f3b1bf4689c00182a767fb297eafe415a2b476c5",
+    "prelock_checks.py": "fea85358551cf4ca719efcb62308fa8ebda73bb8f34349cbc523f2b18c4798dd"
+  },
+  "control_replay": "artifacts/part1/replay.json:224/224 exact,224 repeat",
+  "empirical_population": "artifacts/amendment003/development/readiness_gate_exact.json: mixed C0 support and active guards",
+  "completed_reader": "artifacts/amendment003/reader/complete.json:43 EOS calls, maximum prompt12047 tokens",
+  "scoring_calibration": "amendments/AMENDMENT_003_RATER_CALIBRATION.json",
+  "unit": "32 groups; five seeds averaged within question and four primary conditions within group"
+}

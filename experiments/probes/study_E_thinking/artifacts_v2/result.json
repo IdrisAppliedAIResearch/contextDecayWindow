@@ -1,0 +1,62 @@
+{
+  "status": "COMPLETE_EXPLORATORY",
+  "plan": "c6b955d3",
+  "template_note": "72417c2b",
+  "selected": 12,
+  "previous_wrong": 12,
+  "new_correct": 12,
+  "new_wrong": 0,
+  "eligible_failed_answers": 243,
+  "eligible_distinct_questions": 97,
+  "by_type": {
+    "straight": {
+      "n": 3,
+      "correct": 3
+    },
+    "irrelevant": {
+      "n": 3,
+      "correct": 3
+    },
+    "future": {
+      "n": 3,
+      "correct": 3
+    },
+    "proposal": {
+      "n": 3,
+      "correct": 3
+    }
+  },
+  "summed_case_seconds": 149.96472519997042,
+  "output_tokens": [
+    740,
+    377,
+    408,
+    612,
+    505,
+    489,
+    335,
+    687,
+    474,
+    625,
+    480,
+    370
+  ],
+  "latency_seconds": [
+    16.281703700020444,
+    10.301938999968115,
+    10.83540159999393,
+    14.205271299986634,
+    12.461200599966105,
+    12.20221020001918,
+    9.589527000032831,
+    15.422776499995962,
+    11.963188600027934,
+    14.40347679995466,
+    12.000167899997905,
+    10.297862000006717
+  ],
+  "scoring": "Frozen exact final-answer grammar; 12/12 canonical, no judgment exceptions",
+  "scores_sha256": "196f79624be68df7d69492a0a71656cf8d34d0e9b5902e4935dcbcc5c47a6054",
+  "inference_limit": "Selected failures, one matched seed per question; no estimate of recovery across243 or unbiased thinking effect",
+  "native_interface_change": "Verified system reasoning-effort prefix plus opened thinking boundary; user payload and delivered sources unchanged"
+}

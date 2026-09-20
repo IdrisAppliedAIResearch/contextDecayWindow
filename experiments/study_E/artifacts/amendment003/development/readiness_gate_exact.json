@@ -1,0 +1,84 @@
+{
+  "status": "PASS",
+  "measurement": "exact required source identities in final pack",
+  "C0_primary_complete": 4,
+  "C1_primary_complete": 13,
+  "primary_count": 16,
+  "non_before_identical": true,
+  "all_before_and_absence_active": true,
+  "complete_evidence_gains": 9,
+  "complete_evidence_losses": 0,
+  "reader_authorized": true,
+  "no_treatment_gain_gate": true,
+  "text_only_mismatches": [
+    {
+      "history": "session-93201-irrelevant",
+      "arm": "C0",
+      "text_only": true,
+      "exact": false
+    },
+    {
+      "history": "session-93201-future",
+      "arm": "C0",
+      "text_only": true,
+      "exact": false
+    },
+    {
+      "history": "session-93201-latest",
+      "arm": "C0",
+      "text_only": true,
+      "exact": false
+    },
+    {
+      "history": "session-93201-latest",
+      "arm": "C1",
+      "text_only": true,
+      "exact": false
+    },
+    {
+      "history": "session-93202-irrelevant",
+      "arm": "C0",
+      "text_only": true,
+      "exact": false
+    },
+    {
+      "history": "session-93202-future",
+      "arm": "C0",
+      "text_only": true,
+      "exact": false
+    },
+    {
+      "history": "session-93203-straight",
+      "arm": "C0",
+      "text_only": true,
+      "exact": false
+    },
+    {
+      "history": "session-93203-straight",
+      "arm": "C1",
+      "text_only": true,
+      "exact": false
+    },
+    {
+      "history": "session-93203-future",
+      "arm": "C0",
+      "text_only": true,
+      "exact": false
+    },
+    {
+      "history": "session-93204-irrelevant",
+      "arm": "C0",
+      "text_only": true,
+      "exact": false
+    },
+    {
+      "history": "session-93204-future",
+      "arm": "C0",
+      "text_only": true,
+      "exact": false
+    }
+  ],
+  "supersedes_for_authorization": "readiness_gate.json (text-only surrogate invalid)",
+  "source_sha256": "d26b0d9e82e00af5cdc342b960bed855c25c5f8f7d34c96b9d1a70e557e53996",
+  "prompts_sha256": "faab9793e6d48565ca1aa3c638a30f647553ebf9a7977f2ff278e9dcd6501f82"
+}

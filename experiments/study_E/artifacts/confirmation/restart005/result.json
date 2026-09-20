@@ -1,0 +1,219 @@
+{
+  "absence_delta_count": 0,
+  "by_type": {
+    "absent": {
+      "C0": {
+        "correct": 160,
+        "n": 160
+      },
+      "C1": {
+        "correct": 160,
+        "n": 160
+      },
+      "NULL": {
+        "correct": 160,
+        "n": 160
+      },
+      "ORACLE": {
+        "correct": 160,
+        "n": 160
+      }
+    },
+    "future": {
+      "C0": {
+        "correct": 48,
+        "n": 160
+      },
+      "C1": {
+        "correct": 105,
+        "n": 160
+      },
+      "NULL": {
+        "correct": 0,
+        "n": 160
+      },
+      "ORACLE": {
+        "correct": 129,
+        "n": 160
+      }
+    },
+    "irrelevant": {
+      "C0": {
+        "correct": 49,
+        "n": 160
+      },
+      "C1": {
+        "correct": 64,
+        "n": 160
+      },
+      "NULL": {
+        "correct": 0,
+        "n": 160
+      },
+      "ORACLE": {
+        "correct": 131,
+        "n": 160
+      }
+    },
+    "latest": {
+      "C0": {
+        "correct": 102,
+        "n": 160
+      },
+      "C1": {
+        "correct": 102,
+        "n": 160
+      },
+      "NULL": {
+        "correct": 0,
+        "n": 160
+      },
+      "ORACLE": {
+        "correct": 160,
+        "n": 160
+      }
+    },
+    "proposal": {
+      "C0": {
+        "correct": 39,
+        "n": 160
+      },
+      "C1": {
+        "correct": 72,
+        "n": 160
+      },
+      "NULL": {
+        "correct": 0,
+        "n": 160
+      },
+      "ORACLE": {
+        "correct": 160,
+        "n": 160
+      }
+    },
+    "straight": {
+      "C0": {
+        "correct": 41,
+        "n": 160
+      },
+      "C1": {
+        "correct": 61,
+        "n": 160
+      },
+      "NULL": {
+        "correct": 0,
+        "n": 160
+      },
+      "ORACLE": {
+        "correct": 104,
+        "n": 160
+      }
+    }
+  },
+  "challenge_delta_counts": [
+    15,
+    57,
+    33
+  ],
+  "ci95": [
+    0.1390625,
+    0.2515625
+  ],
+  "corrected_wrong_openings": {
+    "C0": 9,
+    "C1": 3,
+    "NULL": 0,
+    "ORACLE": 0
+  },
+  "delta_correct": 125,
+  "disposition": "D1_WORKS",
+  "group_differences": [
+    0.05,
+    0.3,
+    0.15,
+    0.15,
+    0.4,
+    0.35,
+    0.1,
+    0.1,
+    0.25,
+    0.3,
+    0.2,
+    0.25,
+    0.15,
+    0.15,
+    0.15,
+    0.6,
+    0.3,
+    0.25,
+    0.4,
+    0.15,
+    0.05,
+    0.05,
+    0.0,
+    0.15,
+    0.45,
+    0.35,
+    -0.05,
+    0.35,
+    0.2,
+    -0.2,
+    0.25,
+    -0.1
+  ],
+  "logical_answers": 3840,
+  "p_improvement": 9.99990000099999e-06,
+  "p_reverse": 1.0,
+  "paired_primary_logical": {
+    "gains": 184,
+    "losses": 59,
+    "ties": 397
+  },
+  "physical_calls": 3508,
+  "primary": {
+    "C0": {
+      "correct": 177,
+      "n": 640
+    },
+    "C1": {
+      "correct": 302,
+      "n": 640
+    },
+    "NULL": {
+      "correct": 0,
+      "n": 640
+    },
+    "ORACLE": {
+      "correct": 524,
+      "n": 640
+    }
+  },
+  "primary_delta": 0.1953125,
+  "primary_exact_evidence_by_correctness": {
+    "C0": {
+      "complete_correct": 133,
+      "complete_wrong": 187,
+      "incomplete_correct": 44,
+      "incomplete_wrong": 276
+    },
+    "C1": {
+      "complete_correct": 302,
+      "complete_wrong": 243,
+      "incomplete_correct": 0,
+      "incomplete_wrong": 95
+    }
+  },
+  "registration": "2e047c41c80748b16f0e6df15dcc70ac54145598",
+  "scoring": {
+    "agent_logical_judgments": 148,
+    "agent_unique_judgments": 114,
+    "count": 3840,
+    "measurement": "registered single-agent exceptions; no human audit",
+    "pending": 0,
+    "scores_sha256": "4c0efbd791590db7500fce95700fdb08472d634b8848b79e3f8710ff9977cf11",
+    "status": "PASS"
+  },
+  "selected_archive_records": 3508,
+  "status": "COMPLETE",
+  "unit": "32 groups; five seeds within question, four primary conditions"
+}

@@ -1,0 +1,7 @@
+# Development scoring responsibility for continued Study E
+
+Recorded before Amendment 003 reader inference. The user authorized "You can score and complete" and then explicitly directed continuation by amendment within Study E. Agent scoring responsibility continues for this additional development stage; no new human approval is required for the same authorized work.
+
+This explicitly supersedes Amendment 002's default-human-review sentence as carried into Amendment 003. It does not relabel agent review as human review or confer independent-rater status. Use one blinded agent adjudicator for noncanonical development answers and disclose that limitation. Preserve mechanical pending artifacts and add exception judgments and resolved scores; commit all scores before aggregate analysis. Confirmation reviewer responsibility remains a separate prospective design decision.
+
+The final-commitment rubric remains: only an explicit final answer outside tagged reasoning can earn credit; an explanation without a final answer is NO_ANSWER; clear corrections supersede earlier assertions for final correctness, while wrong initial assertions are recorded separately. Unresolved competing final answers are incorrect. Obvious unambiguous abstention misspellings count semantically and fail exact-format compliance. No substring-only correctness rule. Apply a blind NO_ANSWER/contradiction calibration before reviewing new responses. No outcome-dependent scoring change or inference retry.
