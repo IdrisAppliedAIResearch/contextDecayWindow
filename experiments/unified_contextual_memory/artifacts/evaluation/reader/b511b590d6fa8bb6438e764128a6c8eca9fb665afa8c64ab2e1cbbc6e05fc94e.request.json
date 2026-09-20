@@ -1,0 +1,18 @@
+{
+  "prompt_sha256": "b511b590d6fa8bb6438e764128a6c8eca9fb665afa8c64ab2e1cbbc6e05fc94e",
+  "request": {
+    "cache_prompt": false,
+    "id_slot": 0,
+    "min_p": 0,
+    "n_predict": 4096,
+    "presence_penalty": 0,
+    "prompt": "<|im_start|>user\nYou are answering a question about a conversation between two people.\n\nHere is what you remember of the conversation:\n\n<record session=\"session_8\" date=\"6:03 pm on 6 March, 2023\" dialogue_ids=\"D8:1 D8:2\">\nMaria: Hey John, I haven't talked to you in a while. Last week, my grandma passed away and it's been really hard. I'm trying to stay positive, but it's tough. How're you doing?\n[Supplied image-caption annotation, D8:1]: a photo of a bride and groom walking down the street\nJohn: So sorry to hear about your loss, Maria. I'm here for you if you need anything. I'm doing well, I just had a picnic with the wife and kids.\n[Supplied image-caption annotation, D8:2]: a photo of a family sitting on the grass with a baby\n</record>\n\nQuestion: When did Maria's grandmother pass away?\n\nAnswer with the fact itself, as briefly as the question allows. Do not explain your reasoning. If the material above does not contain the answer, reply exactly: I don't know.\n\nAnswer:<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+    "reasoning_format": "none",
+    "repeat_penalty": 1,
+    "seed": 5005,
+    "temperature": 0.6,
+    "top_k": 20,
+    "top_p": 0.95
+  },
+  "time": 1788815788.8316674
+}

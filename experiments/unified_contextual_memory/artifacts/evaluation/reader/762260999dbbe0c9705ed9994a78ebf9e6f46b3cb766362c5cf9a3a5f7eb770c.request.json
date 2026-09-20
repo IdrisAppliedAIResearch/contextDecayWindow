@@ -1,0 +1,18 @@
+{
+  "prompt_sha256": "762260999dbbe0c9705ed9994a78ebf9e6f46b3cb766362c5cf9a3a5f7eb770c",
+  "request": {
+    "cache_prompt": false,
+    "id_slot": 0,
+    "min_p": 0,
+    "n_predict": 4096,
+    "presence_penalty": 0,
+    "prompt": "<|im_start|>user\nYou are answering a question about a conversation between two people.\n\nHere is what you remember of the conversation:\n\n<record session=\"session_10\" date=\"2:52 pm on 31 August, 2023\" dialogue_ids=\"D10:3 D10:4\">\nTim: Thanks! Appreciate your encouragement. Yesterday, I tackled something new - I gave a presentation in class. I was nervous but I made it. Small step, but feels like progress.\nJohn: Cool, Tim! Taking the plunge and presenting can be tough, but awesome work! Progress is progress, keep it up. By the way, I've been trying out cooking recipes. Made this tasty soup recently - it was real good!\n[Supplied image-caption annotation, D10:4]: a photo of a bowl of soup with a spoon and a butternut on a cutting board\n</record>\n<record session=\"session_10\" date=\"2:52 pm on 31 August, 2023\" dialogue_ids=\"D10:7 D10:8\">\nTim: That's ok! I can look some up. Can you tell me what spices you used in the soup?\nJohn: I added some sage for a nice flavor. Enjoy!\n</record>\n\nQuestion: What spice did Tim add to the soup for flavor?\n\nAnswer with the fact itself, as briefly as the question allows. Do not explain your reasoning. If the material above does not contain the answer, reply exactly: I don't know.\n\nAnswer:<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+    "reasoning_format": "none",
+    "repeat_penalty": 1,
+    "seed": 5005,
+    "temperature": 0.6,
+    "top_k": 20,
+    "top_p": 0.95
+  },
+  "time": 1788817539.9566827
+}

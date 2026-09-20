@@ -75,7 +75,7 @@ class EpisodicArm:
         self.workdir = workdir
         self.aspect_enabled = aspect_enabled
         self.name = "A_EPISODIC_ASPECT" if aspect_enabled else "A_EPISODIC"
-        self.config = EpisodicConfig(aspect_enabled=aspect_enabled)
+        self.config = EpisodicConfig(read_policy="legacy_cc80", aspect_enabled=aspect_enabled)
         self.embedder = embedder
 
     def item_key(self, conversation: Conversation, question: Question) -> str:

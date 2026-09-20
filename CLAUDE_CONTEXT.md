@@ -1,5 +1,7 @@
 # contextDecayWindow Research Context
 
+**Current handoff — 2026-09-19:** chronological arc closed; user authorized episodic-chat 0.3.0 timeline adoption. Default last-32 continuity is retained and can be disabled with `recency_window_n=0`. Raw relevance >=.48, uncapped, chronological original-source union; caller-supplied boundaries only. Legacy CC80 selectable; explicit config migration required. Extra LLM planner paused, traversal fusion unadopted, full inference stopped. [Closeout](experiments/components/episodic_chat/TIMELINE_REPORT.md). Historical “no adoption” instructions below are superseded only for this authorized product decision.
+
 **Study D temporal retrieval (2026-09-05).** READER D1_WORKS, scoring deviation. Generated-answer correctness 63/320->203/320 (+43.75pp; CI 33.44-53.75; p=.00001), 32 synthetic sessions. Latest 30%->100%; before 9.38%->26.88%. Availability is diagnostic. Eight agent judgments, no human audit. HH-001 prompt; transfer/absence harm untested; no adoption.
 
 Authoritative closeout: `experiments/study_D/REPORT.md`. Original pending scores remain immutable; Amendment 001 resolved eight entries on explicit user direction. No further inference or adoption authorized.

@@ -28,10 +28,11 @@ _CALL_SHAPES = ("solo",)
 class EpisodicConfig:
     """Deployed episodic-chat defaults and historical compatibility fields.
 
-    The public read path always renders ``recency_window_n`` recent episodes
-    outside ``retrieval_budget_chars``, then ranks long-term memory with frozen
-    CC80. Static ASPECT is opt-in and its coefficients are locked because no
-    sweep or alternate parser was authorized. The K-threshold/A3 fields remain
+    The default timeline unions raw-cosine matches with the last
+    ``recency_window_n`` exchanges and renders the union chronologically.
+    Set that count to zero to disable continuity. ``legacy_cc80`` retains
+    budgeted CC80 and optional ASPECT; its capacity/ranking settings are unused
+    by the timeline. The K-threshold/A3 fields remain
     solely for the private pre-CC-007 builder used by historical checks; they
     do not alter ``EpisodeStore.context``.
 
@@ -62,10 +63,16 @@ class EpisodicConfig:
     embedder_sha256: str = CARRIED_EMBEDDER_SHA256
     embed_call_shape: str = "solo"
     seed: int = 5005
+    read_policy: str = "timeline"
+    timeline_threshold: float = 0.48
 
     def __post_init__(self) -> None:
-        if self.recency_window_n < 0:
-            raise EpisodicError("recency_window_n must be non-negative")
+        if self.read_policy not in ("timeline", "legacy_cc80"):
+            raise EpisodicError("read_policy must be timeline or legacy_cc80")
+        if not 0.0 <= self.timeline_threshold <= 1.0:
+            raise EpisodicError("timeline_threshold must be a finite cosine in [0, 1]")
+        if not isinstance(self.recency_window_n, int) or isinstance(self.recency_window_n, bool) or self.recency_window_n < 0:
+            raise EpisodicError("recency_window_n must be a non-negative integer")
         if self.retrieval_budget_chars < 0:
             raise EpisodicError("retrieval_budget_chars must be non-negative")
         if self.semantic_dense_weight != 0.8:
@@ -121,4 +128,6 @@ class EpisodicConfig:
         unknown = sorted(set(payload) - known)
         if unknown:
             raise EpisodicError(f"Unknown config fields: {unknown}")
+        # Serialized pre-0.3 configurations retain their original read policy.
+        payload.setdefault("read_policy", "legacy_cc80")
         return cls(**payload)

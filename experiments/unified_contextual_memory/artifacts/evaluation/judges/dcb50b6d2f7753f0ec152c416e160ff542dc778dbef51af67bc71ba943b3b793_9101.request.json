@@ -1,0 +1,18 @@
+{
+  "prompt_sha256": "fb38cd7d720dfe3bc5fcdabe1d5bb0c02b64926d49e12b8893dfdda21ebd7408",
+  "request": {
+    "cache_prompt": false,
+    "id_slot": 0,
+    "min_p": 0,
+    "n_predict": 4096,
+    "presence_penalty": 0,
+    "prompt": "<|im_start|>user\nYou are grading one answer against a reference answer.\n\nQuestion: What motivated Maria and John to discuss potential solutions for their community on 7 July, 2023?\nReference answer: Flood in John's old area\nAnswer to grade: A nasty flood that hit John's old area, which ruined many homes due to poor infrastructure.\n\nThe answer is CORRECT if it states the same fact as the reference answer, even in different words, a different format, or with extra detail. The answer is INCORRECT if it states a different fact, contradicts the reference, refuses, says it does not know, or is empty.\n\nReply with exactly two lines:\nVERDICT: CORRECT or INCORRECT\nREASON: one sentence\n\nVERDICT:<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+    "reasoning_format": "none",
+    "repeat_penalty": 1,
+    "seed": 9101,
+    "temperature": 0.2,
+    "top_k": 20,
+    "top_p": 0.9
+  },
+  "time": 1788821496.9837635
+}

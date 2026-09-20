@@ -122,7 +122,7 @@ class A3Arm:
 
         self._render_current_turn = render_current_turn
         self._system_prompt = system_prompt
-        self.config = EpisodicConfig()
+        self.config = EpisodicConfig(read_policy="legacy_cc80")
         self.store = EpisodeStore(workdir / "study.db", self.config,
                                   embedder=_EpisodicEmbedder(carried))
 

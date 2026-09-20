@@ -1,35 +1,116 @@
 # contextDecayWindow
 
-### → [**Read the paper: *Rank Fine, Pack Fine, Call Nothing***](paper/PAPER_002.md) · [**Download the PDF**](paper/Rank_Fine_Pack_Fine_Call_Nothing.pdf)
+[Read the research paper](paper/PAPER_002.md) · [Download the PDF](paper/Rank_Fine_Pack_Fine_Call_Nothing.pdf) · [Library guide](episodic/README.md) · [Migration notes](episodic/CHANGELOG.md)
 
-*Idris Applied AI Research — independent. Failures are published with the results.*
-
----
+*Idris Applied AI Research — independent. Failures are published with results. The paper and older benchmarks describe their recorded versions, not the current library default; see the [version scope note](paper/PRODUCT_VERSION_NOTE.md).*
 
 ## Executive Summary
 
-**A memory layer for long conversations.** Every turn, it decides what the model
-should be reminded of and fills a fixed amount of space with it — **without ever
-calling a language model to help.** No summarizing, no note-taking, no rewriting.
+**Conversational memory that retrieves original evidence and presents it chronologically.**
+The deployed library keeps complete exchanges verbatim, selects every exchange
+with raw cosine similarity at least 0.48, adds the latest 32 completed exchanges
+for continuity, and presents the deduplicated union in source order. Continuity
+can be disabled. There is no character packing cap and no generative call inside
+memory retrieval; an encoder supplies embeddings and your application supplies
+the answering model.
 
-The design copies three things human memory does, and runs all three at once:
+Four findings guide the current product:
 
-- **Recency — what just happened.** The most recent exchanges always go in,
-  automatically. You don't search your memory for what someone said a minute ago.
-- **Depth — what this reminds it of.** Every exchange ever had is kept word for
-  word and indexed by meaning, so mentioning *my sister's wedding* pulls back a
-  conversation from six months ago. This is recall by cue, and it is where most
-  memory systems stop.
-- **Spread — covering ground instead of repeating it.** Rank every past exchange
-  by how well it matches the question and take the best ten, and you often get
-  the same fact ten times over. The space is full and the model learned one
-  thing. Each slot is instead filled by asking what a candidate *adds* to what
-  has already been picked, so ten slots hold ten different things.
+1. **Delivery and answering are separate problems.** Missing evidence causes
+   failures, and readers can also answer incorrectly with the evidence present.
+2. **Chronological presentation helped a small controlled probe.** On 12
+   synthetic before-event questions, unchanged retrieval without recency scored
+   5/12 in the original order and 8/12 chronologically.
+3. **Known boundaries can matter as much as order.** Removing records after an
+   explicit review anchor moved synthetic before-event answers from 106/128 to
+   126/128 across two diagnostic batches. That is a combined relevance/prefix
+   result, not a chronology-only finding.
+4. **Natural context remains harder.** Indirect references, missing connections
+   and reader errors remain. Automatic general anchor resolution and broad
+   generalization have not been established.
 
-Everything is delivered exactly as it was said, so nothing the model is told
-about the past can be wrong.
+[The arc closeout](experiments/components/episodic_chat/TIMELINE_REPORT.md) traces
+these findings to their artifacts. Keeping last-32 continuity in the default is
+a user-authorized product composition; historical no-recency scores and older
+CC80 benchmark scores are not measurements of this release.
 
-### Episodic-chat + ASPECT scores 78.25%; Episodic-chat scores 77.34%
+## How It Works
+
+A completed user/assistant exchange is embedded and committed to the append-only
+store. Before answering, the library constructs this evidence block:
+
+```mermaid
+flowchart TD
+    Q[Question] --> E[Embed the question]
+    S[(Original complete exchanges)] --> H[Apply caller supplied source horizon if any]
+    H --> R[Select all exchanges meeting the relevance threshold]
+    E --> R
+    H --> C[Include latest completed exchanges when continuity is on]
+    H --> A[Protect caller supplied anchor if any]
+    R --> U[Union and deduplicate]
+    C --> U
+    A --> U
+    U --> O[Sort by source order]
+    O --> T[Render original evidence without packing]
+    T --> M[Application checks prompt capacity and calls its reader]
+```
+
+The library does not infer an event date or anchor. A source horizon also limits
+continuity; later testimony may be needed when answering about an earlier event.
+[Diagram source](docs/diagrams/how_it_works_remembering.mmd).
+
+## Current State of Work
+
+**2026-09-19 — episodic-chat 0.3.0; chronological arc closed.**
+
+| Component | Current state |
+|---|---|
+| Default retrieval | Raw cosine >=0.48, no relevance item or character packing cap |
+| Continuity | Latest 32 complete exchanges, on by default; `recency_window_n=0` disables it |
+| Presentation | One deduplicated chronological evidence block |
+| Explicit boundaries | Optional inclusive source horizon and protected anchor; never guessed |
+| Compatibility | Old CC80/ASPECT path available through `read_policy="legacy_cc80"`; deliberate migration for existing stores |
+| Validation | 2,306 exact historical selection/payload checks with continuity off; public API and compatibility checks recorded in the adoption report |
+| Unified contextual/traversal work | Experimental subset complete; full run stopped; not adopted |
+| Extra LLM planner | Paused; design only |
+
+The output can grow toward the whole history. The caller must check reader
+capacity. Preserving source text avoids rewriting loss; it does not make the
+source true, certify evidence completeness, or guarantee a correct answer.
+
+## Next Steps
+
+Use the [library guide](episodic/README.md) and [migration notes](episodic/CHANGELOG.md)
+to adopt the timeline or explicitly retain legacy behavior. The immediate
+research arc is closed. Any new live evaluation, traversal development or LLM
+planner work needs a new explicit scope; no inference is scheduled by this release.
+
+## Licence
+
+Dual licensed: **AGPL-3.0-or-later** ([`LICENSE`](LICENSE)) or a **commercial
+licence** from Idris Applied AI Research. You choose; absent a commercial
+agreement, the AGPL applies.
+
+The AGPL is enough for research, evaluation, reproduction, internal use, and any
+project released on compatible terms. You need a commercial licence to offer
+this over a network as part of a closed-source service, or to ship it inside a
+proprietary product — AGPL section 13 covers network use, not just distribution.
+
+Full terms, the scope of what is covered, the carve-out for third-party
+datasets, and the contribution grant: [`LICENSING.md`](LICENSING.md).
+Commercial enquiries: **idrisappliedairesearch@gmail.com**.
+
+---
+
+# For LLM Context
+
+**Current product: 0.3.0 chronological relevance timeline with optional default-on last-32 continuity.** Historical entries below retain their original dispositions; “no adoption” means at the time of that study. The 2026-09-19 adoption is a separate product decision, not an upgraded study verdict. See [closeout](experiments/components/episodic_chat/TIMELINE_REPORT.md).
+
+## Historical benchmark results
+
+These are earlier package/harness configurations. Their scores, costs and charts do not describe the 0.3.0 default.
+
+### Historical 0.2 benchmark: 78.25% with ASPECT; 77.34% without
 
 We ran the deployed `episodic-chat` library through the evaluation harness
 behind Mem0's published LoCoMo table: all 1,540 scored questions, with the same
@@ -95,391 +176,7 @@ process-wide and kept running 105 minutes past Mem0's last write. See
 - **LoCoMo fits a modern context window**, so this measures cost and accuracy,
   not reach. Not confirmatory: the corpus is spent on both splits.
 
-### The programme behind it
 
-Ten pre-registered studies and one registered bakeoff on a scripted 120-turn
-conversation, plus component work on an extracted library and external
-calibration against LongMemEval and LoCoMo. Each study adds one component and
-fixes the previous one's documented failures. Designs are committed before the
-run, gates are binding, and results are published as found — including the ones
-that killed the thing being tested.
-
-Four findings carry it:
-
-1. **The model is not the bottleneck.** At the hardest probe it used 10 of 10
-   delivered facts and invented none. What fails is delivery.
-2. **Selection, not capacity.** All 17 target facts fit in 7,592 characters of a
-   32,000-character window; the breadth bar needs 5,058. What binds is which
-   candidates are chosen and in what order they are packed.
-3. **Rank at the finest informative unit.** On a sealed LoCoMo holdout, ranking
-   adjacent-turn pairs by their own cosine raises complete evidence delivery
-   from **843 to 935 of 1,098**, p = 6.19e-12 — the programme's one confirmatory
-   positive result.
-4. **The live instrument is coarser than most verdicts placed on it.** Five
-   byte-identical replicates scored 8.0, 8.0, 8.0, 8.0 and 11.0 on a 13-point
-   rubric. Any live scored contrast under 3.0 points is *not demonstrated*.
-   Offline counts are untouched: they are counts, not scores.
-
----
-
-## How It Works
-
-What actually happens, end to end, traced from the shipped library source rather
-than from a design document. Two boxes are red because measurement found the
-system does not behave the way its own naming suggests.
-
-**Saving — happens once after every reply**
-
-![How saving works](docs/diagrams/how_it_works_saving.png)
-
-**Remembering — happens before every reply**
-
-![How remembering works](docs/diagrams/how_it_works_remembering.png)
-
-*Diagram sources: [`docs/diagrams/`](docs/diagrams/). Regenerate with*
-`npx @mermaid-js/mermaid-cli -i <file>.mmd -o <file>.png -t dark -b "#0d1117" -w 1600`
-
-*The canvas is `#0d1117`, GitHub's dark-mode background, so the diagrams sit
-flush against the page there rather than showing as a panel.*
-
-## Current State of Work
-
-A small current-arm LoCoMo probe scored13/20 on broadly sampled questions and5/10 on additional temporal questions, with one answering call each and fully deterministic chronological retrieval. The temporal group received all annotated evidence; date handling and abstentions remain issues. [Probe report](experiments/probes/locomo_timeline30/REPORT.md). The full run remains paused.
-
-The LoCoMo relevance-timeline run is paused before inference: the carried anchor parser activates on none of its questions. Matched input checks show substantial typical reduction, but a small tail approaches full context. [Preflight findings](experiments/locomo_relevance_timeline/FULL_CONTEXT_REPORT.md).
-
-*Last updated 2026-09-07, after the GPU batching capacity probe.*
-
-The [review-boundary prefix](experiments/probes/temporal_da_fusion/PREFIX_106_REPORT.md) now scores126/128 (98.4%) before questions versus106/128 (82.8%) for the full relevance timeline:22recoveries and2regressions. It preserves all preceding selected evidence and removes later records, with thinking off. Coverage comes from two sequential diagnostic batches; naturalistic generalization and production adoption remain untested.
-
-**Study E confirmed a reader benefit from newest-first before-event ordering:** correct final answers rose from 177/640 (27.66%) to 302/640 (47.19%), a 19.53-point gain (95% interval 13.91–25.16; p=.00001), passing the registered bar and harm guards. Complete-evidence delivery rose from 64/128 to 109/128 questions, but 243 answers still failed with complete evidence. This synthetic result uses an amended native thinking-off reader interface and 114 blinded agent judgments; it has not been adopted. [Confirmation report](experiments/study_E/CONFIRMATION_REPORT.md).
-
-**Temporal allocation improved correctly generated reader answers.** Scored final-answer accuracy rose from 19.7% to 63.4% across 32 randomized synthetic histories, clearing the registered reader-success bar. Evidence availability is reported separately as a diagnostic. Latest-setting retrieval improved most; immediately-before accuracy remains 26.9%. Eight answers used explicitly authorized single-agent scoring instead of the registered human review. This has not been adopted. [Report](experiments/study_D/REPORT.md).
-
-**The deployable read path is now episodic-chat 0.2.0.** The latest 32 complete
-exchanges are always additive continuity context and do not spend the long-term
-allowance. The long-term block defaults to 32,000 characters of full-store
-CC80 (`0.8` normalized cosine + `0.2` normalized BM25), with recent identities
-skipped and filling continued. Frozen static ASPECT is present behind an
-explicit flag, defaults off, and uses its tested 50/50 protected allocator with
-unused space returned to CC80. Before activation, the package port reproduced
-4,355/4,355 frozen order/selection/payload groups with zero mismatches. This is
-an authorized product composition, not a new reader or transfer result.
-
-**The tiered architecture does not earn its place on delivery.** TC-001 put the
-shipped four-tier read path against the earlier flat cosine development arm
-on the published LoCoMo table, over identical candidates, vectors, renderer,
-packer and budget. On 868 questions the flat arm delivered a question's complete
-evidence **749 times against the tiered stack's 314** — 8 gains, 443 losses,
-p = 6.98e-120 against a registered null band of 4. Every registered cut agrees:
-four conversations, five categories, both endpoints, both budgets.
-
-The composition says where it went. The recency window takes 32 of 32 episodes
-on every question and **61% of the delivered characters**; the coverage selector
-delivers nothing on 722 of 871 questions and carried a question's evidence on
-**8**. A post-run diagnostic found why the similarity tier underperforms: it
-filters by cosine and then delivers in *store order*, so the
-highest-cosine qualifying episode it drops has median relevance rank **1**.
-
-**TC-001B then took the two obvious objections away, and the gap survived one
-of them.** Removing the recency tier entirely — `build_context` with
-`recency_window_n=0`, relevance and coverage only — moves the tiered stack from
-314 to **472** and leaves it **277 behind** the flat arm's 749. That is the
-registered headline, `D3 FLAT_WINS` again. But ordering the K tier by relevance
-instead of by store position is worth **276 questions** on its own, and an arm
-with both changes lands at **748 against 749** — one question apart, on a
-contrast that carries no bar because PF4 established before the lock that none
-could fire there.
-
-So TC-001's 435-question deficit decomposes almost exactly: **158 from the
-recency tier, 276 from the order the similarity tier delivered its own members
-in.** The evidence the store order was discarding sat at median cosine rank 3.
-
-**TC-002 then asked whether the cheapest known repair transfers, and it does.**
-EC-002 had moved evidence availability 32.3 points on 500 LongMemEval stores by
-letting similarity candidates claim the budget before the recency window. On
-four LoCoMo conversations EC-002 never saw, at its own budget and its own
-endpoint, the same one-line reorder is worth **45 questions** — 732 against 687
-of 871, 80 gains against 35 losses, `D1 K_FIRST_WINS` against a band of 7. The
-gain generalizes.
-
-It is also the small lever, and the same shape appears a third time. Reordering
-the fill leaves the stack **110 behind** the flat arm; ordering the similarity
-tier's own members best-first is worth **111** and lands within one question of
-it. The two repairs are not alternatives — the 118 questions where the reordered
-stack still trails flat are *exactly* the 118 that re-ranking rescues, and the
-80 the reorder wins overlap none of them. Every one of the reorder's 35 losses
-is a question the recency window happened to be carrying.
-
-**TC-003 makes the allocation proposal pass its headline and fail its isolating
-contrast.** Equal-share floors plus a global cosine contest raise complete-
-evidence delivery from N-first's 314 and K-first's 461 to **656 of 868**. That
-is `D1 FLOORS_WINS`, +342 against the shipped order. It still trails the flat
-arm's 749 by 93. With recency removed, floors reach 718, but the already-ranked
-dual arm reaches **748**: C5 is `D3 RANKED_WINS`. Of C1's 357 gains, 351 include
-evidence admitted by the contested remainder and only 18 include reserved
-evidence. The registration's pre-locked reading fires: **the cosine contest,
-not the reservation, carries the gain.**
-
-Floors do exactly remove service order — all six permutations agree on 871/871
-questions at both budgets and configurations. They do not remove ownership
-order: at the 16k shipped primary, 0/871 delivered sets survive all ownership
-permutations, against 860/871 under the zero-floor reference. Floors make
-allocation independent of service order and leave it dependent on ownership
-order.
-
-**TC-004 then asks whether the candidate itself says when it should be split,
-and the registered predictor does not.** Replacing one adjacent pair by its two
-source turns creates 96 beneficial and 235 harmful cases at 16k. Across the 53
-questions with at least one beneficial parent, max-child-minus-parent embedding
-cosine beats length on 21, loses on 31, and ties on 1: `NO_PREDICTIVE_SIGNAL`,
-one-sided p=0.937. Its higher mean AP is an outlier effect; median AP is lower
-than length. Splitting the top 1% adds three complete deliveries descriptively,
-but splitting everything drops complete evidence from 749 to 687. More units
-are not automatically better context.
-
-**TC-005 then asks whether relevance can be made efficient enough to live on
-half of TC-007's budget.** Dense-plus-BM25 hybrid ranking raises targeted
-complete-evidence delivery from 593 to **624** at 8k (+31; 58 gains, 27 losses,
-p=.000508), but at 16k it moves 643 to **657** (+14; 36 gains, 22 losses,
-p=.0435) and misses the registered second operating-point bar. It is
-`TREATMENT_CARRIES_SIGNAL`, not `TREATMENT_WORKS`. BM25 alone loses at both
-budgets, 593 to 557 and 643 to 581, and dense `CARRIES_SIGNAL` against it.
-Hybrid's full-budget guardrails are benign at +6 at 16k and -6 at 32k. The
-pre-locked rule therefore keeps **dense ranking** as TC-007's relevance input.
-
-**TC-007 then tests the requested dual-route architecture, and 50/50 protected
-spread does not beat full-budget relevance.** A3 complete evidence versus dense
-is 739 against 749 at 16k and 812 against 810 at 32k. Breadth is 13/27 against
-16/27; targeted is 637/681 against 643/680. A3 is
-`MIXED_OR_NO_DIFFERENCE`. Facility location is worse at both budgets: combined
-nets -57/-36, targeted -40/-23, and breadth -7/-7; `CONTROL_WORKS`. Spread is
-not inert — A3 adds 5/7 evidence identities dense missed — but it loses 14/3,
-and the complete-breadth joint bar never fires. The frozen result is
-**`NO_SPLIT_SELECTED`; dense keeps the full budget.**
-
-**TC-008 then asks whether spread was grouped around the wrong thing, and real
-source sessions do not fix it.** The session arm keeps the same dense route,
-50/50 allocator and A3 relevance-plus-novelty objective; only embedding-cluster
-ids become conversation-session ids. It represents a median 30 sessions at 16k
-against dense's 24, but combined complete delivery falls **749 to 728**,
-targeted falls **643 to 629**, and breadth falls **16 to 13**. Breadth identity
-delivery has one gain and five losses. At 32k complete delivery ties dense while
-one breadth identity is lost. Of 27 evidence-changing 16k questions, 15 are
-losses specific to session grouping versus A3. Disposition is
-**`DENSE_CARRIES_SIGNAL`; dense remains the fallback.** More represented
-sessions is not a useful proxy for more answer evidence.
-
-**TC-009 then gives every session the continuing competition the hard grouping
-could not, and the soft penalty is worse.** Every session offers its best
-remaining cosine candidate; after a win its score is reduced by `.03` per item
-already selected, and it competes again immediately. The rule permits repeat
-wins on all 871 traces and is not a hard floor. Yet complete delivery falls
-from dense's 749/810 to **713/794** at 16k/32k. Breadth falls 16→12 and 27→21,
-with no complete-breadth gains; targeted falls 643→624 and 680→674. Most lost
-evidence is unique to the penalty, not inherited from fixed protection: 34
-identities at 16k and 22 at 32k. **`DENSE_WORKS`; dense keeps the full budget.**
-
-**A frozen post-run probe finds no safe-substitution signal in the obvious
-observables.** At 32k there are 7 required-identity gains, 23 losses and 838
-ties. None of 15 query-score, redundancy, novelty, rank, session, cost or
-penalty features passes. The strongest pooled margin reaches AUC .708 but
-reverses to .30 on one conversation and finds one gain in its top 20. No new
-selector is authorized from this exhausted-corpus diagnostic.
-
-**Noun and grammatical-subject spans are extractable, but their embedding
-scores are actively harmful as rerankers.** At 32k, whole-pair dense delivers
-810 complete questions; noun-phrase max delivers 443 and subject-sentence max
-659. Breadth falls 27→10/13 and targeted falls 680→391/580. Both arms regress
-all four conversations. The spans exist; maximum span cosine is not a safe
-proxy for answer-bearing content.
-
-**TC-011 then screens four mathematically different protected-spread routes,
-and none pays for half the budget.** Against full CC80's combined 771/819 at
-16k/32k, residual log determinant reaches 726/797, deterministic aspect
-coverage 749/810, anchored chaining 717/780 and pure chaining 717/778. ASPECT
-is closest but breadth is 15/23 against CC80's 17/24. Anchored and pure chains
-select different sets on every question at both budgets, yet both regress
-sharply. `NO_CANDIDATE`; CC80 keeps the full budget.
-
-**TC-012 dynamically recomputes ASPECT relevance after every hop, and feedback
-drift makes it worse.** Growing-prompt ASPECT reaches 720/787 combined at
-16k/32k versus static ASPECT 749/810 and full CC80 771/819; breadth falls to
-8/20 from static's 15/23. A residual-question-facet variant reaches 753/810,
-but its exact lexical binder changes only 146/71 of 871 sets and usually falls
-back to the original query. `NO_DYNAMIC_PROMPT_SIGNAL`; CC80 remains fallback.
-
-**TC-013 fans ASPECT out from every admitted CC80 result instead of building
-one global walk.** It improves on global static ASPECT at both budgets. At 32k
-it reaches 821 combined and 26 breadth versus full CC80's 819 and 24 while
-tying targeted at 689. At 16k it falls to 763/654/16 versus CC80's
-771/666/17. The positive signal is budget-specific and conversation nets are
-mixed; full CC80 remains fallback.
-
-**TC-014 separates traversal controls.** Exact semantic-opportunity admission
-helps TC-013 at 16k by +7 combined, +7 targeted and +3 breadth. Utility-first
-packing produces one clean combined/breadth gain at 32k with no loss. Parent
-cosine binding, global maximum-weight assignment and their requested T2+T3+T4
-combination do not help. The useful controls operate at admission and packing,
-not by making the graph more coherent.
-
-**LV-004 tests TC-014's descriptive 32k opportunity signal with a live reader.**
-On the 16 answerable questions where opportunity and full CC80 differed
-offline, both arms answer 5 correctly. Opportunity gains one targeted lookup
-and loses one breadth question. Combined net is zero, but the frozen breadth
-non-regression guardrail fires: `REGRESSES`. Availability did not convert;
-full CC80 remains the fallback and the opportunity arm is not adopted.
-
-**LV-005/006 probes downstream organization with frozen evidence.** Flat,
-grouped, chronological and guided renderers score 5/6/6/6 on the 16 selected
-items. The full guided bundle has one breadth gain and no losses, a registered
-`WEAK_SIGNAL`; guidance alone adds no semantic gain over chronology. Readable
-markup raises the median block from 31,983 to 42,542 characters, so it is not a
-fixed-32k deployment candidate.
-
-None of that authorizes deleting or shipping anything, and TC-002 decided the
-shipping question in its registration *before* the number existed: a positive
-result does not ship, because the same correction was already rejected on a live
-bar. Availability is not a verdict, and LoCoMo asks questions about a finished
-conversation, so a recency window is close to worthless there by construction.
-What the TC arc establishes together is narrower and sharper: on this
-corpus, the tiered machinery at its best delivers what a plain cosine ranking
-delivers, at roughly four times the latency. Changing allocation can rescue a
-bad fixed order, but it does not isolate a gain over ranking candidates well;
-one natural embedding-localization score does not reliably identify safe
-splits; and hybrid relevance has a promising tight-budget result without the
-two-budget evidence needed to replace dense. Fixed 50/50 A3 spread can add a
-few outliers at 32k without improving complete breadth at both budgets, while
-facility spread is decisively harmful. Replacing embedding clusters with real
-sessions raises coverage counts and worsens required evidence, and a cumulative
-session penalty worsens it again. Generic geometric novelty, structured facet
-coverage and associative chaining also fail to make a protected half pay for
-itself. Reader answers are next and remain separately registered work.
-Nothing in the TC arc is blocked.
-
-**The deployable component is done.** `episodic/` is an installable library with
-a public store, report, config and embedding-cache API. Extraction is certified
-behavior-preserving against committed artifacts rather than assumed; the budget
-is an enforced ceiling; `append()` is durable against real process kills; and the
-vector cache retains exact float32 bytes and refuses read-only misses.
-
-**The 120-turn live arc is retired for fine contrasts.** Its measured run-to-run
-band is 3.0 points on 13, and the runtime is not bit-reproducible — the same
-prompt at the same seed can produce a different answer. New work is offline,
-where results are counts and identities.
-
-**Deterministic memory retrieval (DMR) arc — 6 specifications, 4 run.**
-
-| stage | state |
-|---|---|
-| DMR-001 event formation | stopped at G3; the size cap became the partitioner |
-| DMR-001B adaptive drift | passes all gates, no sealed holdout, characterized |
-| DMR-001C sealed confirmation | transfer confirmed on 50 real conversations; boundary claim fails on recall |
-| DMR-004 query-obligation compiler | stopped on its sealed holdout; J .320 against a .50 bar |
-| DMR-002, DMR-003 | upstream dependency cleared, but **not executable yet** — both remain design-only with no Part 1 or pre-registration |
-| DMR-005, DMR-006 | blocked by their own dependency lines |
-
-**Novelty-floor (NF) diagnostic line — offline, zero model calls.**
-
-- **NF-001** stopped on the instrument, not the mechanism: never-stop was optimal
-  under the tested rule, so the rule could not be measured.
-- **NF-002** built an instrument that prices displacement, and found novelty
-  filtering to be a measured null. Its registered session-touch contrast gained
-  16 items; the posthoc strict audit retains a 13-item net gain.
-  `CARRIES_SIGNAL`, capped at `CHARACTERIZED` by a recorded deviation.
-- **NF-003 Part 1** stopped at its pre-registration surrogate audit. Session-touch
-  reproduced 396 → 445 and 49 gains/0 losses, but strict answer-episode delivery
-  fell 388 → 351 with **26 gains and 63 losses**. It remains unregistered.
-- **Three-arm synthesis** puts both levers on one strict scale: session/session
-  375, session/episode 388, episode/episode 351. The deployed middle corner is
-  the observed optimum: **rank coarse, pack fine**.
-- **LoCoMo development** supplies the untouched-corpus successor signal. Across
-  871 unique questions, strict exact-evidence delivery rose 820 → 855 with
-  **44 gains and 9 losses**; all four development conversations were positive.
-  This is exploration only, with no locked bars or disposition.
-- **Budget controls** reject the slack-budget explanation and a universal
-  binding-ratio rule. At 32k, LoCoMo source/session/pair all-evidence is
-  279/773/826; LongMemEval all-evidence changes sign between 16k and 24k while
-  LoCoMo remains positive at overlapping ratios.
-- **NF-004** is `WORKS`, availability only. On 1,098 sealed LoCoMo questions at
-  16k, pair ranking raises complete evidence from 843 to 935 over session-score
-  inheritance: **140 gains, 48 losses, ratio 2.92, p=6.19e-12**. All six
-  conversations are net positive; source order reaches only 258, and the 32k
-  secondary remains positive at 961 to 1,024. G0-G7 and byte replay pass.
-- **NF-005** is `INFORMATION_DILUTION_SUPPORTED`, capped at `CHARACTERIZED`.
-  On the same 465 LongMemEval items and 32k budget, with turn packing fixed,
-  ranking 298-character median source turns by their own cosine raises any exact
-  evidence from 361 to 461: **100 gains, zero losses, p=7.89e-31**. All-evidence
-  rises 208 to 454; source order reaches only 64/7. This supports candidate
-  localization/dilution as the moderator, not a raw character threshold.
-- **NF-006** is `INTERNAL_DILUTION_RESCUES_Q11`, capped at `CHARACTERIZED`.
-  On the internal 121-turn store, episode/inherited-statement/own-statement
-  availability is **12/7/14 of 17**. Own-statement ranking restores monetary
-  4/4 and ties the episode control at 21/21 targeted items with zero losses.
-  No selected treatment statement comes from turn 90, so the store-level
-  moderator is supported while DX-001's exact carrier remains unresolved.
-- **NF-007** stops as `FLOOR_INERT` before full registration. The sealed NF-006
-  T1 selection already touches all 16 carried clusters, so a hard floor of one
-  per nonempty cluster forces zero admissions. Renaissance-art episodes supply
-  194/791 statement candidates (24.5%) while T1 delivers 1/4 art facts. Cluster
-  0 is sampled 30/91 (33.0%), versus 9/168 (5.4%) across the five art-majority
-  clusters. Candidate scarcity, statement subdivision, and cluster entry do not
-  explain the remaining art loss; the carried coverage-count family is closed.
-
-**One constraint governs that whole line.** Every LongMemEval item has now been
-used by this program, so nothing in it can be *confirmed* on that corpus.
-Characterization is the ceiling there. LoCoMo was split by whole conversation
-before content inspection and its six-conversation holdout has now been used by
-NF-004; further work on these ten conversations is characterization, not a new
-confirmation.
-
----
-
-## Next Steps
-
-Resolve whether the next LoCoMo test should evaluate the chronological relevance filter alone or first establish a natural-language anchor mechanism. Full reader inference is paused pending that discussion.
-
-Complete the LoCoMo relevance-timeline design with live batched inference. Nine concurrent32k reader slots passed the [capacity probe](experiments/probes/temporal_da_fusion/BATCH_CAPACITY_REPORT.md); full uncapped prompt fit and reader/judge calibration remain. LoCoMo is previously used, so this tests transfer of the current configuration, not an untouched holdout.
-
-1. **Validate episodic-chat 0.2.0 outside the spent LoCoMo corpus.** Freeze an
-   external reader and retrieval study—preferably EnterpriseRAG-Bench or an
-   equivalently conflict-bearing enterprise corpus—before tuning anything.
-   Compare additive-last-32 + CC80 with ASPECT off/on, record latency at store
-   scale, and pre-register the prompt/model, replicate schedule, provenance-
-   aware scorer and achievable bars. Port parity is not reader value.
-
-2. **Write DMR-002 Part 1 and its final pre-registration before implementation.**
-   The former is upstream-cleared, but the only spec still forbids execution.
-
-3. **Do not promote embedding localization into a chunking rule.** TC-004 closes
-   max-child-minus-parent cosine on this observed store. A successor would need
-   a different prospectively registered predictor and an untouched corpus; the
-   descriptive 1% local maximum is not an optimum.
-
-4. **Stop optimizing Q11 with coverage counts on this store.** The carried
-   `k=16` selection already enters every region, and finer statements do not
-   repair art. Statement-grain temporal adjacency is a grounded but separate
-   availability successor; it is not part of the prepared live reader study.
-
-## Licence
-
-Dual licensed: **AGPL-3.0-or-later** ([`LICENSE`](LICENSE)) or a **commercial
-licence** from Idris Applied AI Research. You choose; absent a commercial
-agreement, the AGPL applies.
-
-The AGPL is enough for research, evaluation, reproduction, internal use, and any
-project released on compatible terms. You need a commercial licence to offer
-this over a network as part of a closed-source service, or to ship it inside a
-proprietary product — AGPL section 13 covers network use, not just distribution.
-
-Full terms, the scope of what is covered, the carve-out for third-party
-datasets, and the contribution grant: [`LICENSING.md`](LICENSING.md).
-Commercial enquiries: **idrisappliedairesearch@gmail.com**.
-
----
----
-
-# For LLM Context
 
 > **GPU batch capacity.** Nine concurrent32k slots passed two long-input waves with2282 MiB minimum free. Ten left938 MiB idle, below1536 reserve. NativeOFF,90 synthetic stress calls; capacity only, no LoCoMo answers. [Report](experiments/probes/temporal_da_fusion/BATCH_CAPACITY_REPORT.md).
 
@@ -525,7 +222,11 @@ read `ERRATA.md` before quoting any number.
 
 ## Status Ledger
 
+> **Timeline adoption (2026-09-19):** chronological study arc closed; episodic-chat 0.3.0 adopts uncapped raw cosine >=.48 plus default-on last-32 continuity (off with zero), original-source chronological union and explicit caller boundaries. 2,306 no-recency selection/payload checks exact. Product decision, no new reader score; fusion unadopted, extra LLM step paused. [Report](experiments/components/episodic_chat/TIMELINE_REPORT.md).
+
 > **LoCoMo retrieval miss audit:** all30 selections/prompts replay exactly. Five missing annotations fail.48; café answer is in an omitted image caption, patriotism was already answered correctly, and two recommendation questions do not equate annotation loss with unavailable answers. [Source-to-prompt diagnosis](experiments/probes/locomo_timeline30/MISS_AUDIT_REPORT.md). No new calls, scores or retrieval changes.
+
+> **Unified contextual memory subset (2026-09-07).** User stopped generation before scoring:741complete pairs,566primary and175adversarial. Reader C0 384/566→C1 399/566 (+2.65pp; descriptive cluster95%CI0.53–4.53;27g12l). Complete annotation493→516/565. Category1 regresses2. Same-model blinded adjudication; independent reconstruction passes. Exposed nonrandom subset; full run not completed, no adoption/transfer/component claim. [Report](experiments/unified_contextual_memory/REPORT.md).
 
 > **LoCoMo timeline30, September7:** broad13/20,additional temporal5/10; evidence complete16/20 and10/10. NativeOFF,one answer per question,unchanged deterministic retrieval. Three-pass final majority after a documented parser repair(4→5temporal); relative-date judging remains imperfect. [All questions,answers and limitations](experiments/probes/locomo_timeline30/REPORT.md). No full-study or chronology-causality claim.
 
@@ -1021,14 +722,16 @@ A long conversation forces a bad trade. Keep the full transcript and the model g
 
 ## The Approach
 
-Store every exchange as an episode. Each turn, retrieve recent and semantically similar episodes and construct a small context. Then add one memory component per study and measure its effect: long-term storage, retrieval, consolidation, and budgeting.
+Store every complete exchange as an episode. The current library unions relevant evidence with optional recent continuity and presents it chronologically, without a packing cap. Earlier studies separately tested storage, ranking, consolidation and budgeting.
 
-Runs use a scripted 120-turn conversation with facts planted at known positions and a rubric locked since Study 002.
+The early studies used scripted 120-turn conversations. Later arcs include synthetic temporal histories and natural LoCoMo conversations; consult each report for its population and scoring contract.
 
 ## What Has Been Tested
 
 | # | Added | Result | Finding |
 |---|---|---|---|
+| Timeline adoption | Uncapped chronological relevance plus optional last-32 continuity | ENGINEERING ADOPTION | 2,306 historical selection/payload checks; new default composition not reader-scored; [report](experiments/components/episodic_chat/TIMELINE_REPORT.md) |
+| Unified memory subset | Contextual access and composed reference traversal, shared captions/chronology | EXPLORATORY reader |384/566→399/566;+2.65pp;27g12l;nonrandom stopped subset;no adoption|
 | Fusion draft | DA adjacency after protected E temporal records | EXPLORATORY | Evidence109/128→108/128;6 gains7 losses; exact replay192/192; no reader calls or full DA codec port |
 | Fusion difference | Direction and before-anchor link ablations | EXPLORATORY | Forward110/128 (7g/6l), backward99 (0/10), before-anchor108 (6/7); no safe admission signal or reader result |
 | Chronology probe | Same retrieved evidence, remove recent context, sort ascending | EXPLORATORY reader | Before5/12→5/12→8/12;4guards correct;native off,16questions,48calls; no adoption |
@@ -1465,63 +1168,45 @@ The confirmatory record is
 
 ## Deployed Settings
 
-Every value that shapes the read path is a field on `EpisodicConfig`, not a
-module global. The graph above the divider is the same path in plain language.
+| Setting | Default | Contract |
+|---|---|---|
+| `read_policy` | `"timeline"` | Uncapped raw relevance plus optional continuity, chronological union |
+| `timeline_threshold` | 0.48 | Inclusive raw cosine; carried encoder-specific operating point |
+| `recency_window_n` | 32 | Latest eligible complete exchanges; set 0 to disable |
+| `through_turn` (per call) | `None` | Optional inclusive source horizon, including continuity |
+| `anchor_turn` (per call) | `None` | Explicit protected source exchange; must exist within horizon |
+| Character/item packing | None | No silent truncation; caller owns reader capacity |
+| `embed_call_shape` | `"solo"` | Pinned encoder identity and exact-vector cache contract |
+| `seed` | 5005 | Provenance only; selector draws no randomness |
 
-| What it controls | Field | Value | Why it is that value |
-|---|---|---|---|
-| Recent exchanges always included, outside retrieval budget | `recency_window_n` | 32 | user-authorized continuity contract; exact final 32 completed episodes |
-| Default long-term allowance | `retrieval_budget_chars` | 32,000 | continuity with the programme's 32k character budget; recency is additive |
-| Semantic ranking | `semantic_dense_weight` | 0.8 dense + 0.2 BM25 | frozen CC80 from TC-009; each component min-max normalized per query |
-| BM25 saturation/length constants | `bm25_k1`, `bm25_b` | 1.2, 0.75 | frozen TC-005/TC-009 implementation |
-| Protected spread enabled | `aspect_enabled` | `False` | TC-011 static ASPECT trails full CC80; available by explicit user choice only |
-| Protected spread share | `aspect_share` | 0.5 | tested TC-011 allocator; unused capacity and wrapper savings return to CC80 |
-| ASPECT parser | `aspect_model` | `en_core_web_sm` 3.8.0 | exact registered six-facet extractor; optional install dependency |
-| Size accounting | `budget_accounting` | `exact_serialized` | DR-001 — the prior method under-charged by 67.9%/68.2% |
-| Embedding call shape | `embed_call_shape` | `solo` | DX-001 — the same text embedded alone versus in a batch yields materially different vectors, so call shape is part of the model identity |
-| Seed | `seed` | 5005 | provenance only; no code path in the package draws randomness |
+`read_policy="legacy_cc80"` retains CC-007: additive recency, default
+`retrieval_budget_chars=32000`, dense/BM25 0.8/0.2, BM25 k1=1.2 and b=.75,
+optional `aspect_enabled=False` with share=.5 and `en_core_web_sm` 3.8.0.
+Those ranking/budget fields do not govern the timeline. The old `k_threshold`
+is private historical compatibility; it is not `timeline_threshold`.
 
-CC80 ranks the complete store, skips recent identities, and continues after an
-oversized candidate. When ASPECT is enabled, semantic and spread first receive
-solo half-allowances, merge once, and CC80 resumes into all remaining capacity.
-The exact long-term serialization never exceeds its allowance; the final block
-can, because continuity is deliberately additive.
-
-| Box on the graph | Where it lives |
+| Operation | Package implementation |
 |---|---|
-| Saving, start-up check | `episodic/src/episodic/_store.py` — `append`, sentinel verify |
-| Text into numbers | `_embedding.py` — `embed_solo` |
-| Additive recency composition | `_context.py` — `build_chat_context` |
-| CC80 dense + BM25 ranking | `_ranking.py` — `rank_cc80` |
-| Optional static spread | `_aspect.py` — `aspect_spread` |
-| Protected allocation and slack return | `_retrieval.py` — `retrieve_long_term` |
-| Filling the box | `_packing.py` — `pack_stm_payload` |
-| The two written sections | `_render.py` — `render_stm_payload` |
-| Every setting above | `_config.py` — `EpisodicConfig` |
+| Append, persistence and config/encoder gates | `episodic/src/episodic/_store.py` |
+| Timeline selection and chronological composition | `episodic/src/episodic/_timeline.py` |
+| Original source XML and escaping | `episodic/src/episodic/_render.py` |
+| Explicit legacy CC80 composition | `episodic/src/episodic/_chat_context.py` |
+| Configuration and report | `episodic/src/episodic/_config.py`, `_report.py` |
 
 ## The Extracted Library
 
-CC-002 moved the deployable memory component into an installable package.
-CC-007 renames the distribution to `episodic-chat` (stable Python namespace
-`episodic`) and replaces the public read path with additive last-32 continuity,
-32k CC80, identity deduplication, and optional static ASPECT. It has a public
-store, report, config, and embedding-cache
-API (`EpisodeStore`, `ContextReport`, `EpisodicConfig`, `EmbeddingCache`) and zero experiment machinery; the
-harness now imports the library and is its largest test. Extraction is
-certified rather than assumed: CC-007 reproduces 4,355/4,355 frozen CC80 and
-static-ASPECT order/selection/payload groups with zero mismatches before the
-store switch; the carried renderer still reproduces all three DR-001 blocks.
-`store.context()` remains byte-identical across processes. The two
-reproduction hazards found by gates in this program ship as contract
-requirements, not documentation: the embedder call-shape sentinel is
-asserted on every store open (H1, from DX-001), and candidate-pool
-trimming exists only under an `unsafe_` name carrying the DR-002 finding
-(H2). The library README makes measured claims only, each row with its
-artifact hash.
+CC-002 extracted the library; CC-007 introduced the `episodic-chat` distribution
+and the legacy budgeted path. Version 0.3.0 adopts the chronological relevance
+timeline with default-on, optional last-32 continuity. Its public surface remains
+`EpisodeStore`, `EpisodicConfig`, `ContextReport` and `EmbeddingCache` in the
+`episodic` namespace. The package imports no experiment machinery.
 
-See `episodic/README.md`,
-`experiments/components/episodic_chat/CC_007_PRE_REGISTRATION.md`, and
-`experiments/components/library_extraction/CC_002_library_extraction.md`.
+The [adoption report](experiments/components/episodic_chat/TIMELINE_REPORT.md)
+records the authorized scope, exact selector port, API tests and evidence limits.
+[Migration notes](episodic/CHANGELOG.md) explain old-config compatibility and the
+new unbounded report fields. Selection is deterministic given identical vectors;
+`context()` embeds the query, makes no generative call and does not mutate the
+store. The store-open sentinel and retained vector-cache digests remain required.
 
 CC-006 closes a second reproducibility hazard. A model-artifact hash and the
 H1 solo-call sentinel do not certify every vector byte: EC-002 recomputed the

@@ -554,3 +554,7 @@ experiments/comparisons/beam_001/artifacts/exploration/contexts.jsonl.gz filter=
 experiments/comparisons/beam_001/artifacts/exploration/payloads.sealed.jsonl.gz filter=lfs diff=lfs merge=lfs -text
 experiments/comparisons/beam_001/artifacts/exploration/rankings.jsonl.gz filter=lfs diff=lfs merge=lfs -text
 experiments/comparisons/beam_001/artifacts/corpus/mechanism_surface.jsonl.gz filter=lfs diff=lfs merge=lfs -text
+
+# Timeline adoption integrity hashes were recorded on LF source bytes.
+episodic/src/episodic/_timeline.py text eol=lf
+experiments/components/episodic_chat/timeline_gate.py text eol=lf

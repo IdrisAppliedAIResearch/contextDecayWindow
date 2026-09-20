@@ -1,7 +1,8 @@
 [project]
 name = "episodic-chat"
-version = "0.2.0"
-description = "Episodic chat memory with additive recency, CC80 retrieval, and optional protected ASPECT spread."
+version = "0.3.0"
+readme = "README.md"
+description = "Chronological relevance memory with optional last-32 continuity and no generative retrieval calls."
 requires-python = ">=3.11"
 license = "AGPL-3.0-or-later"
 license-files = ["LICENSE"]

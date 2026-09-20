@@ -1,0 +1,18 @@
+{
+  "prompt_sha256": "f97c7affb2929f3f0e3075b784ee08d1e79d9c4e18c28874d93795127f2c17dd",
+  "request": {
+    "cache_prompt": false,
+    "id_slot": 0,
+    "min_p": 0,
+    "n_predict": 4096,
+    "presence_penalty": 0,
+    "prompt": "<|im_start|>user\nYou are answering a question about a conversation between two people.\n\nHere is what you remember of the conversation:\n\n<record session=\"session_11\" date=\"2:24 pm on 14 August, 2023\" dialogue_ids=\"D11:1 D11:2\">\nMelanie: Hey Caroline! Last night was amazing! We celebrated my daughter's birthday with a concert surrounded by music, joy and the warm summer breeze. Seeing my kids' smiles was so awesome, and I'm so thankful for our special moments together.\nCaroline: Wow, sounds wonderful! Your love for your kids is so awesome. What concert was it? The advocacy event was a cool experience - so much love and support, amazing!\n[Supplied image-caption annotation, D11:2]: a photo of a poster for a concert with a picture of a man\n</record>\n<record session=\"session_11\" date=\"2:24 pm on 14 August, 2023\" dialogue_ids=\"D11:3 D11:4\">\nMelanie: Thanks, Caroline! It was Matt Patterson, he is so talented! His voice and songs were amazing. What's up with you? Anything interesting going on?\nCaroline: Wow, Mel, glad you had a blast at the concert. A lot's happened since we talked. I went to a pride parade last Friday and it was awesome - so much energy and love everywhere. Really made me proud and reminded me how important it is to keep standing up for equality.\n</record>\n<record session=\"session_15\" date=\"3:19 pm on 28 August, 2023\" dialogue_ids=\"D15:11 D15:12\">\nCaroline: We're putting together a talent show for the kids next month. I'm looking forward to seeing how much fun everyone has and how proud they'll feel of their talents!\nMelanie: That's so cool, Caroline! That's a great way to show off and be proud of everyone's skills. You know I love live music. Can't wait to hear about it!\n[Supplied image-caption annotation, D15:12]: a photo of a band playing on a stage in a park\n</record>\n<record session=\"session_15\" date=\"3:19 pm on 28 August, 2023\" dialogue_ids=\"D15:13 D15:14\">\nCaroline: Wow! Did you see that band?\nMelanie: Yeah, that pic was from a show I went to. It was so much fun and reminded me of how music brings us together.\n[Supplied image-caption annotation, D15:14]: a photo of a crowd of people at a concert with their hands in the air\n</record>\n<record session=\"session_15\" date=\"3:19 pm on 28 August, 2023\" dialogue_ids=\"D15:15 D15:16\">\nCaroline: Wow, what a fun moment! What's the band?\nMelanie: \"Summer Sounds\"- The playing an awesome pop song that got everyone dancing and singing. It was so fun and lively!\n</record>\n<record session=\"session_15\" date=\"3:19 pm on 28 August, 2023\" dialogue_ids=\"D15:25 D15:26\">\nCaroline: Thanks, Melanie! Appreciate it. You play any instruments?\nMelanie: Yeah, I play clarinet! Started when I was young and it's been great. Expression of myself and a way to relax.\n[Supplied image-caption annotation, D15:26]: a photo of a sheet music with notes and a pencil\n</record>\n\nQuestion: Who performed at the concert at Melanie's daughter's birthday?\n\nAnswer with the fact itself, as briefly as the question allows. Do not explain your reasoning. If the material above does not contain the answer, reply exactly: I don't know.\n\nAnswer:<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+    "reasoning_format": "none",
+    "repeat_penalty": 1,
+    "seed": 5005,
+    "temperature": 0.6,
+    "top_k": 20,
+    "top_p": 0.95
+  },
+  "time": 1788819278.067193
+}
