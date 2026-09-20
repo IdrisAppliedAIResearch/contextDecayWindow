@@ -1,0 +1,44 @@
+{
+  "command": [
+    "C:\\Users\\muzaf\\.unsloth\\llama.cpp\\build\\bin\\Release\\llama-server.exe",
+    "--model",
+    "C:\\Users\\muzaf\\.cache\\huggingface\\hub\\models--unsloth--Qwen3.8-27B-GGUF\\snapshots\\f1bfb127c64f7072bdd2cad55f258b9c8b2910fe\\Qwen3.8-27B-UD-Q4_K_XL.gguf",
+    "--host",
+    "127.0.0.1",
+    "--port",
+    "8097",
+    "--ctx-size",
+    "65536",
+    "--parallel",
+    "1",
+    "--n-gpu-layers",
+    "999",
+    "--cache-type-k",
+    "q8_0",
+    "--cache-type-v",
+    "q8_0",
+    "--flash-attn",
+    "on",
+    "--no-context-shift",
+    "--seed",
+    "5005"
+  ],
+  "files": [
+    {
+      "bytes": 10752,
+      "path": "C:\\Users\\muzaf\\.unsloth\\llama.cpp\\build\\bin\\Release\\llama-server.exe",
+      "sha256": "125e0938a280cba46c803a60178e51826203e030abacce03367a22108720f7ac"
+    },
+    {
+      "bytes": 639150592,
+      "path": "C:\\Users\\muzaf\\.cache\\huggingface\\hub\\Qwen3-Embedding-0.6B-GGUF\\Qwen3-Embedding-0.6B-Q8_0.gguf",
+      "sha256": "06507c7b42688469c4e7298b0a1e16deff06caf291cf0a5b278c308249c3e439"
+    },
+    {
+      "bytes": 17923394624,
+      "path": "C:\\Users\\muzaf\\.cache\\huggingface\\hub\\models--unsloth--Qwen3.8-27B-GGUF\\snapshots\\f1bfb127c64f7072bdd2cad55f258b9c8b2910fe\\Qwen3.8-27B-UD-Q4_K_XL.gguf",
+      "sha256": "bee238bbeb3dc0a34bde4d0dedbaee1f98c009e8bb4226f03070054c12fb1372"
+    }
+  ],
+  "pid": 28168
+}

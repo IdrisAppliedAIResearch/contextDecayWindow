@@ -1,0 +1,7 @@
+# Study D Part 1 extension 002 — GPU runtime repair
+
+The six extension-001 responses all completed and paired identically, but the server listed no devices and used CPU despite `--n-gpu-layers 999`. This is a runtime provenance defect, not a reader or temporal result. GPU availability was restored by prepending the installed CUDA v13.2 bin/x64 and v12.6 bin directories to the child process PATH; `--list-devices` then listed CUDA0, RTX 5090.
+
+Authorize one repeat of the same six development calls with identical prompts and sampling parameters, on an explicitly selected CUDA0 server. Keep the original outputs in `runtime/` and write new outputs in `runtime_gpu/`. Stop only the exact server PID recorded in the original launch manifest after checking its executable. Record the new child PATH additions, device listing, runtime DLL hashes and launch PID. Require CUDA0 enumeration before launch and verify active GPU memory use before calls. Byte identity and completeness remain the original bars. No confirmatory calls or changed reader caps are authorized.
+
+Preflight PF1-PF10 and residuals carry from extension 001. The original PASS covers its six CPU calls only; it does not certify GPU repeatability. This extension's committed SHA must precede GPU calls. Six additional calls maximum; a failed GPU check stops this instrument stage, not the temporal question. Local dependency-path repair changes no model or server file.
