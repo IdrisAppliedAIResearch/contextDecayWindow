@@ -1,0 +1,18 @@
+{
+  "prompt_sha256": "2a1f99f847ffec9407e3da73800729e0eb2d94354f04fc0cee4520e56361c3e0",
+  "request": {
+    "cache_prompt": false,
+    "id_slot": 0,
+    "min_p": 0,
+    "n_predict": 4096,
+    "presence_penalty": 0,
+    "prompt": "<|im_start|>user\nYou are grading one answer against a reference answer.\n\nQuestion: What music pieces does Deborah listen to during her yoga practice?\nReference answer: Savana, Sleep\nAnswer to grade: Instrumental tracks with mellow melodies and rhythms, the track \"Savana,\" and the album \"Sleep.\"\n\nThe answer is CORRECT if it states the same fact as the reference answer, even in different words, a different format, or with extra detail. The answer is INCORRECT if it states a different fact, contradicts the reference, refuses, says it does not know, or is empty.\n\nReply with exactly two lines:\nVERDICT: CORRECT or INCORRECT\nREASON: one sentence\n\nVERDICT:<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+    "reasoning_format": "none",
+    "repeat_penalty": 1,
+    "seed": 9101,
+    "temperature": 0.2,
+    "top_k": 20,
+    "top_p": 0.9
+  },
+  "time": 1788820416.8194463
+}

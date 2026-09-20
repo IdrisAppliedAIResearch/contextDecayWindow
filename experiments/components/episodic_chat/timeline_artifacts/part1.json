@@ -1,0 +1,44 @@
+{
+  "status": "PASS",
+  "E_count": 192,
+  "LoCoMo_count": 1986,
+  "E_selected": {
+    "min": 106.0,
+    "p25": 108.0,
+    "median": 108.0,
+    "p75": 108.0,
+    "max": 113.0
+  },
+  "E_chars": {
+    "min": 82807.0,
+    "p25": 84386.5,
+    "median": 84627.0,
+    "p75": 85092.75,
+    "max": 88512.0
+  },
+  "LoCoMo_selected": {
+    "min": 0.0,
+    "p25": 37.0,
+    "median": 79.0,
+    "p75": 143.75,
+    "max": 323.0
+  },
+  "LoCoMo_empty": 2,
+  "LoCoMo_full": 0,
+  "prefix_count": 128,
+  "identity": "All raw cosine >=.48 records, plus explicit E anchors; no cap; original source order.",
+  "feedback": "None: output is not fed back into selection. Public store purity tested at activation.",
+  "continuity": "Historical rows disable continuity; default union is separately tested, not scored.",
+  "model_calls": 0,
+  "input_sha256": {
+    "sources": "c18ebb1011de6655cde5dc1b4ed99db51679994e5a059942df4257ec905fcb0a",
+    "curves": "2c6c00b270d376054b21427988099f59ac027f3e51a7650d8521faeb50aafd69",
+    "blind": "3b96ddd0d3866abbd1b80bbfca904b92db30659c3c622ee75ec52701b35f3c87",
+    "misses": "d37d4c7a0b7c3c9b7f7016fdb521da133335e770210fc70443f07376ffdfb8a2",
+    "preserved": "0f0124ea2c072ffc69f9a1569010f82431de8d3117b57a016cb4cf0cd78b9861",
+    "locomo": "2d090c3719653bb4d572fc62b04ace6887543a005d8b94fc7b62ece35ed6bbd7",
+    "adapter": "4e09314497cd0d3539109f7e6853ae805f9ebf664113c6ec65a1efe3fc30195f"
+  },
+  "git_head": "fbd5cd42409351b22aa7dc9ad3205e86dd6d04c1",
+  "script_sha256": "127bf4166ce120a747f43d807661314060e24a6d61a3bfd6654fcc9b99665ddd"
+}

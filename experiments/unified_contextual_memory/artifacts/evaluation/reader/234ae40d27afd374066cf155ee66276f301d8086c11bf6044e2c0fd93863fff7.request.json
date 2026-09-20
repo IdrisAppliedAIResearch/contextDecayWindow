@@ -1,0 +1,18 @@
+{
+  "prompt_sha256": "234ae40d27afd374066cf155ee66276f301d8086c11bf6044e2c0fd93863fff7",
+  "request": {
+    "cache_prompt": false,
+    "id_slot": 0,
+    "min_p": 0,
+    "n_predict": 4096,
+    "presence_penalty": 0,
+    "prompt": "<|im_start|>user\nYou are answering a question about a conversation between two people.\n\nHere is what you remember of the conversation:\n\n<record session=\"session_7\" date=\"7:28 pm on 23 March, 2023\" dialogue_ids=\"D7:9 D7:10\">\nJon: Thanks for being there for me! It's really made a huge difference and it feels great.\nGina: Glad I could help, Jon! It's nice to be part of something positive. Supporting your dreams is awesome!\n</record>\n<record session=\"session_9\" date=\"10:33 am on 9 April, 2023\" dialogue_ids=\"D9:11 D9:12\">\nJon: Wow! It looks awesome! Thanks for the support, it really means a lot.\nGina: No prob, Jon! You earned all the kudos for your hard work. Keep it up!\n</record>\n<record session=\"session_9\" date=\"10:33 am on 9 April, 2023\" dialogue_ids=\"D9:13 D9:14\">\nJon: Thanks! Gonna keep pushing and working hard. Won't let anything hold me back!\nGina: Way to go, Jon! Keep it up, you're almost there!\n</record>\n<record session=\"session_11\" date=\"3:14 pm on 11 May, 2023\" dialogue_ids=\"D11:19 D11:20\">\nJon: Sure, Gina! Wanna see one of my routines? Lemme know when you got time and I'll send you a vid.\nGina: Yeah, Jon, I'll watch your routine! So proud of you!\n</record>\n<record session=\"session_16\" date=\"2:15 pm on 21 June, 2023\" dialogue_ids=\"D16:3 D16:4\">\nGina: Thanks! This hoodie isn't for sale, it's from my own collection. I made a limited edition line last week to show off my style and creativity - it was tough but worth it!\n[Supplied image-caption annotation, D16:3]: a photo of a hoodie with a camouflage print on it\nJon: What gave you the idea?\n</record>\n<record session=\"session_16\" date=\"2:15 pm on 21 June, 2023\" dialogue_ids=\"D16:9 D16:10\">\nGina: No worries, Jon! You got this! Let me know if you need anything.\n[Supplied image-caption annotation, D16:9]: a photo of a notepad with a pen and a pen on it\nJon: Your help matters to me. I am writing all my plans down.\n</record>\n<record session=\"session_17\" date=\"1:25 pm on 9 July, 2023\" dialogue_ids=\"D17:5 D17:6\">\nGina: Go get 'em, Jon!\nJon: I'm also excited to guide and mentor aspiring dancers on their dreams.\n</record>\n<record session=\"session_18\" date=\"5:44 pm on 21 July, 2023\" dialogue_ids=\"D18:9 D18:10\">\nGina: Wow, Jon! Congrats on the successful night! What are your plans now with the advice you got?\nJon: Taking your advice, I'm sprucing up my biz plan and tweaking my pitch to investors. I'm also working on an online platform to show off the dance studio's stuff.\n</record>\n\nQuestion: What did Jon make a limited edition line of?\n\nAnswer with the fact itself, as briefly as the question allows. Do not explain your reasoning. If the material above does not contain the answer, reply exactly: I don't know.\n\nAnswer:<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+    "reasoning_format": "none",
+    "repeat_penalty": 1,
+    "seed": 5005,
+    "temperature": 0.6,
+    "top_k": 20,
+    "top_p": 0.95
+  },
+  "time": 1788815106.5814197
+}

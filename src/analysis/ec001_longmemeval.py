@@ -1282,7 +1282,7 @@ def retrieve_block(
     if store_path.exists():
         raise EC001Error(f"Refusing to overwrite store: {store_path}")
 
-    config = EpisodicConfig()
+    config = EpisodicConfig(read_policy="legacy_cc80")
     with EpisodeStore(store_path, config=config, embedder=embedder) as store:
         for episode in mechanism.episodes:
             store.append("user", episode.user_message)

@@ -1,0 +1,18 @@
+{
+  "prompt_sha256": "65b3c4b938bf25561f11eb6d9e1bc48dd5da3a3fa36f7dc45f7ddc889d59f73b",
+  "request": {
+    "cache_prompt": false,
+    "id_slot": 0,
+    "min_p": 0,
+    "n_predict": 4096,
+    "presence_penalty": 0,
+    "prompt": "<|im_start|>user\nYou are grading one answer against a reference answer.\n\nQuestion: How did \"The Alchemist\" impact John's perspective on following dreams?\nReference answer: made him think again about following dreams and searching for personal legends\nAnswer to grade: It made him think about following dreams and searching for personal legends, motivating him to keep chasing dreams and trust the process.\n\nThe answer is CORRECT if it states the same fact as the reference answer, even in different words, a different format, or with extra detail. The answer is INCORRECT if it states a different fact, contradicts the reference, refuses, says it does not know, or is empty.\n\nReply with exactly two lines:\nVERDICT: CORRECT or INCORRECT\nREASON: one sentence\n\nVERDICT:<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+    "reasoning_format": "none",
+    "repeat_penalty": 1,
+    "seed": 9100,
+    "temperature": 0.2,
+    "top_k": 20,
+    "top_p": 0.9
+  },
+  "time": 1788820627.5976796
+}

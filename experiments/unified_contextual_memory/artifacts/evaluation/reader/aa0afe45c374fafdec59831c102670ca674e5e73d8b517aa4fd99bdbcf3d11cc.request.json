@@ -1,0 +1,18 @@
+{
+  "prompt_sha256": "aa0afe45c374fafdec59831c102670ca674e5e73d8b517aa4fd99bdbcf3d11cc",
+  "request": {
+    "cache_prompt": false,
+    "id_slot": 0,
+    "min_p": 0,
+    "n_predict": 4096,
+    "presence_penalty": 0,
+    "prompt": "<|im_start|>user\nYou are answering a question about a conversation between two people.\n\nHere is what you remember of the conversation:\n\n<record session=\"session_2\" date=\"5:08 pm on 15 June, 2023\" dialogue_ids=\"D2:11 D2:12\">\nTim: Thanks! I have lots of reminders of it - kind of a way to escape reality.\nJohn: Do those reminders help you escape the daily grind? Any chance you'll visit more places related to that world soon?\n</record>\n<record session=\"session_8\" date=\"4:29 pm on 21 August, 2023\" dialogue_ids=\"D8:13 D8:14\">\nJohn: Wow! You're staying busy and having fun. Learning to play this is awesome - it's such a beautiful instrument. Do you have any favorite songs you like playing on it?\nTim: Thanks! I love playing different songs on the piano, but my favorite one to jam to is a theme from a movie I really enjoy. It brings back lots of great memories.\n</record>\n<record session=\"session_15\" date=\"5:51 pm on 21 October, 2023\" dialogue_ids=\"D15:5 D15:6\">\nTim: Thanks! Books, movies, and real-life experiences all fire up my creativity. For example, reading about castles in the UK gave me loads of ideas. Plus, certain authors are like goldmines of inspiration for me. Connecting with the things I love makes writing even more fun.\nJohn: Wow! Sounds like a great mix. Is there a particular author whose work inspires you?\n</record>\n\nQuestion: Who is one of Tim's sources of inspiration for painting?\n\nAnswer with the fact itself, as briefly as the question allows. Do not explain your reasoning. If the material above does not contain the answer, reply exactly: I don't know.\n\nAnswer:<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+    "reasoning_format": "none",
+    "repeat_penalty": 1,
+    "seed": 5005,
+    "temperature": 0.6,
+    "top_k": 20,
+    "top_p": 0.95
+  },
+  "time": 1788814953.7817316
+}
