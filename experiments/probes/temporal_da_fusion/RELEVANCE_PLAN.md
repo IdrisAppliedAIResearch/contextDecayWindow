@@ -1,0 +1,17 @@
+# Budget-free relevance timeline, initial threshold
+
+User authorization September6: retain chronological presentation, replace hard retrieval budgets with a relevance boundary, beginning at the repository's carried threshold. Verified `episodic/_config.py` default k_threshold=.48 and `_context.py` comparison raw cosine>=threshold. The .48 value is a historical default, not an established optimum or universal relevance probability. No .43 starting point is adopted.
+
+## Mechanism and exploratory scope
+
+For every existing Study E query, admit every full source episode with raw query cosine>=.48. Union the existing temporal route's anchor ids, deduplicate, and sort ascending source turn. This is the candidate timeline. No8k temporal allocation,32k retrieval cap, top-N cutoff, additive last32, or exclusion of the last32 from the candidate pool. A recent record may enter if it passes relevance. No new source extraction, compression, embeddings or reader prompt instructions. Future records may qualify; their chronological position and original qualifiers remain visible.
+
+Diagnostic PURE arm omits anchor protection, to quantify its contribution without choosing based on outcomes. C1_CHRONO baseline is the frozen no-recency chronological context. Report all192 E histories and separately128 before,32latest,32absence. Read the224 previously verified Study D raw score arrays as a pure-threshold transfer diagnostic, stratified by query type, not a reader benchmark. Do not tune thresholds after observing these runs.
+
+A horizontal .48 cutoff is a first point on the relevance curve, not an adaptive decay/completion rule. Save full score distributions, lowest admitted/highest rejected scores, selected count and full serialized size, exact source ids, continuity admissions, and labeled evidence diagnostics. Fit no new parameter and make no sufficiency/success claim from availability. An uncapped output can approach full context; report that directly rather than trimming it silently.
+
+## Preflight
+
+PF1 committed sources, checked curves/replay gate, existing traces, chronological contexts and labels are hash-bound/count-checked. PF2 boundary fixtures at/below/above.48, anchor exception, ascending/dedup, and no top-N/payload cap; record threshold lineage. PF3 label-free construction and gate committed before outcome annotation. PF4 empty/full selection and anchor-below-threshold fixtures achievable, no efficacy bars. PF5 source ids and query hashes. PF6 reproduce192 frozen chronological C1 contexts by identity and bytes; verify curve identities/source turns against histories and prior ranking traces. Existing vector replay anchors score arrays. PF7 finite one-pass filter; no recursive state. PF8 full140records/history; no fresh transfer claim from exposed D/E. PF9 all-relevant records can contain conflicting values; presence is not a correct answer or a completion certificate. PF10 a reader-enabled comparison is required for success; current scope first establishes this concrete starting-point timeline.
+
+Reader readiness: compare produced prompt lengths with the known32768 reader context; never crop the timeline to make the probe pass. If these inputs fit with a defensible fixed output allowance, prepare the same16-question paired reader scope used in the chronology probe and disclose its runtime plan before calls. Otherwise report the input requirement and retain uncapped artifacts. This is context-fit verification, not a resource-limit sweep. No production adoption or prior study amendment.
