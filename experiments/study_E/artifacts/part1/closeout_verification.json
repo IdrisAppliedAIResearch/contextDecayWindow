@@ -1,0 +1,40 @@
+{
+  "status": "PASS",
+  "reader_calls": 35,
+  "measurement_calls": 32,
+  "all_nonempty_eos": true,
+  "raw_hash_verified": true,
+  "prefix_identical": true,
+  "resolved_scores": 32,
+  "variants": {
+    "development": {
+      "answerable": 20,
+      "C0_complete": 20,
+      "C1_complete": 20,
+      "active_prompt_changes": 20,
+      "membership_changes": 0
+    },
+    "development_dense": {
+      "answerable": 20,
+      "C0_complete": 20,
+      "C1_complete": 20,
+      "active_prompt_changes": 20,
+      "membership_changes": 8
+    }
+  },
+  "controls": [
+    {
+      "path": "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow-study-E-control",
+      "commit": "05ef90e29b849196515cf39f52ba09754656c599",
+      "clean": true
+    },
+    {
+      "path": "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow-study-D-control",
+      "commit": "5ebda1ef4510c1806709039aeb66e6d79cedbbd8",
+      "clean": true
+    }
+  ],
+  "carried_product_diff": [],
+  "contract_tests": "4 passed in 0.44s; executed 2026-09-06 during closeout",
+  "confirmation_registration_exists": false
+}

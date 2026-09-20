@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "E_rank_orders_exact": 192,
+  "D_rank_orders_exact": 224,
+  "workers": 4,
+  "numeric_threads": 1,
+  "elapsed_seconds": 1.6591766999918036,
+  "model_calls": 0,
+  "embedding_calls": 0,
+  "label_free_extraction": true,
+  "fixtures": "Separated,flat,singleton,monotone,nonmonotone passed",
+  "curves_sha256": "2c6c00b270d376054b21427988099f59ac027f3e51a7650d8521faeb50aafd69",
+  "inputs": {
+    "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\study_E\\artifacts\\confirmation\\development_inputs\\sources.json": "c18ebb1011de6655cde5dc1b4ed99db51679994e5a059942df4257ec905fcb0a",
+    "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\study_E\\artifacts\\confirmation\\development_inputs\\vector_manifest.json": "64f33c2392aa6564500180b1bc1401b6f5ca8ad547f5ce8543a3a98c87d682a6",
+    "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\study_E\\artifacts\\confirmation\\development_inputs\\vectors.npz": "3c46423c82c6e89317630508e230f8bd98eac623b8628b4dc26ec59347e77867",
+    "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\study_E\\artifacts\\confirmation\\development_inputs\\traces_sealed.json": "3820a52ac8ceccf3803abb22d2f214d45784e099a2488a6dd41e9cc3d3b4db34",
+    "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\study_D\\artifacts\\confirmation\\sources.json": "7662bce12c93cb8400d83e5d35ad137694c2a77f3ee83d25ff12826c39e3ad95",
+    "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow\\experiments\\study_D\\artifacts\\confirmation\\rank_scores.json": "54cdf9789215a5347741680bfa58b723d8b196f0a1382a77c852a5d5e54c9379",
+    "C:\\Users\\muzaf\\PycharmProjects\\contextDecayWindow-study-D-control\\episodic\\src\\episodic\\_ranking.py": "af654ac897ccc193bd1f9170e84769f83c6742f6caa67584fd8eca34d61cfcb4"
+  },
+  "runner_sha256": "6a4fb4931c3715dd2c72bf1bfa4233eb868c99fb4b6177231ad261bcf9044d89"
+}

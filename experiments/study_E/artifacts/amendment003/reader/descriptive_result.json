@@ -1,0 +1,102 @@
+{
+  "status": "DEVELOPMENT_ONLY",
+  "primary": {
+    "C0": {
+      "n": 12,
+      "correct": 3
+    },
+    "C1": {
+      "n": 12,
+      "correct": 6
+    }
+  },
+  "paired": {
+    "gains": 4,
+    "losses": 1,
+    "ties": 7
+  },
+  "by_type": {
+    "straight": {
+      "C0": {
+        "n": 3,
+        "correct": 1
+      },
+      "C1": {
+        "n": 3,
+        "correct": 1
+      }
+    },
+    "irrelevant": {
+      "C0": {
+        "n": 3,
+        "correct": 1
+      },
+      "C1": {
+        "n": 3,
+        "correct": 1
+      }
+    },
+    "future": {
+      "C0": {
+        "n": 3,
+        "correct": 0
+      },
+      "C1": {
+        "n": 3,
+        "correct": 1
+      }
+    },
+    "proposal": {
+      "C0": {
+        "n": 3,
+        "correct": 1
+      },
+      "C1": {
+        "n": 3,
+        "correct": 3
+      }
+    },
+    "latest": {
+      "C0": {
+        "n": 4,
+        "correct": 3
+      },
+      "C1": {
+        "n": 4,
+        "correct": 3
+      }
+    },
+    "absent": {
+      "C0": {
+        "n": 4,
+        "correct": 4
+      },
+      "C1": {
+        "n": 4,
+        "correct": 4
+      }
+    }
+  },
+  "primary_exact_evidence_by_correctness": {
+    "C0": {
+      "complete_correct": 1,
+      "complete_wrong": 2,
+      "incomplete_correct": 2,
+      "incomplete_wrong": 7
+    },
+    "C1": {
+      "complete_correct": 6,
+      "complete_wrong": 4,
+      "incomplete_correct": 0,
+      "incomplete_wrong": 2
+    }
+  },
+  "latest_response_identity": [
+    true,
+    true,
+    true,
+    true
+  ],
+  "scoring": "13 authorized agent judgments; no human audit",
+  "confirmation_disposition": null
+}

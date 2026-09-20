@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "checks": [
+    "Exact primary gain64/640=.10 passes D1 when p passes.",
+    "Exact16/640=.025 passes D2.",
+    "15/640 below D2 remains below threshold.",
+    "Exact negative16/640 triggers primary harm.",
+    "Challenge -8/160 does not cross strict -.05 bar; -9/160 does.",
+    "Latest seed-wise identity rejects equal totals with mismatched answers."
+  ],
+  "confirmation_outcomes_used": false
+}
