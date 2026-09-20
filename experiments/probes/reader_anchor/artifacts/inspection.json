@@ -1,0 +1,71 @@
+{
+  "rows": [
+    {
+      "name": "one_thread",
+      "status": "resolved",
+      "expected_status": "resolved",
+      "status_match": true,
+      "cutoff_safe": true,
+      "citations_in_range": true
+    },
+    {
+      "name": "two_threads",
+      "status": "ambiguous",
+      "expected_status": "ambiguous",
+      "status_match": true,
+      "cutoff_safe": null,
+      "citations_in_range": true
+    },
+    {
+      "name": "later_clarification",
+      "status": "resolved",
+      "expected_status": "resolved",
+      "status_match": true,
+      "cutoff_safe": false,
+      "citations_in_range": true
+    },
+    {
+      "name": "retrospective_residence",
+      "status": "resolved",
+      "expected_status": "resolved",
+      "status_match": true,
+      "cutoff_safe": false,
+      "citations_in_range": true
+    },
+    {
+      "name": "intention_not_event",
+      "status": "unresolved",
+      "expected_status": "unresolved",
+      "status_match": true,
+      "cutoff_safe": null,
+      "citations_in_range": true
+    },
+    {
+      "name": "different_people",
+      "status": "unresolved",
+      "expected_status": "unresolved",
+      "status_match": true,
+      "cutoff_safe": null,
+      "citations_in_range": true
+    },
+    {
+      "name": "missing_antecedent",
+      "status": "unresolved",
+      "expected_status": "unresolved",
+      "status_match": true,
+      "cutoff_safe": null,
+      "citations_in_range": true
+    },
+    {
+      "name": "older_named_thread",
+      "status": "resolved",
+      "expected_status": "resolved",
+      "status_match": true,
+      "cutoff_safe": true,
+      "citations_in_range": true
+    }
+  ],
+  "seconds": 19.25311040878296,
+  "output_tokens": 1117,
+  "scope": "Mechanical status and citation-range inspection, not semantic provenance validation or formal score"
+}
