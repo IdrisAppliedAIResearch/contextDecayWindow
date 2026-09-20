@@ -1,0 +1,597 @@
+{
+  "primary": {
+    "n": 128,
+    "availability_applicable": true,
+    "baseline_complete": 109,
+    "fusion_complete": 108,
+    "gain": 6,
+    "loss": 7,
+    "context_changed": 128,
+    "required_added": 6,
+    "required_removed": 7,
+    "same_record_count": 119,
+    "distributions": {
+      "baseline_n": {
+        "n": 128,
+        "min": 40,
+        "median": 40.0,
+        "p95": 41.0,
+        "max": 41
+      },
+      "fusion_n": {
+        "n": 128,
+        "min": 40,
+        "median": 40.0,
+        "p95": 41.0,
+        "max": 41
+      },
+      "baseline_chars": {
+        "n": 128,
+        "min": 31226,
+        "median": 31345.5,
+        "p95": 31994.0,
+        "max": 32000
+      },
+      "fusion_chars": {
+        "n": 128,
+        "min": 31228,
+        "median": 31356.5,
+        "p95": 31997.95,
+        "max": 32000
+      },
+      "linked_n": {
+        "n": 128,
+        "min": 18,
+        "median": 20.0,
+        "p95": 21.0,
+        "max": 22
+      },
+      "added_linked_n": {
+        "n": 128,
+        "min": 6,
+        "median": 11.0,
+        "p95": 15.0,
+        "max": 17
+      },
+      "baseline_context_chars": {
+        "n": 128,
+        "min": 56852,
+        "median": 56993.5,
+        "p95": 57639.65,
+        "max": 57651
+      },
+      "fusion_context_chars": {
+        "n": 128,
+        "min": 56850,
+        "median": 57004.5,
+        "p95": 57645.65,
+        "max": 57659
+      }
+    },
+    "added_records": {
+      "n": 128,
+      "min": 6,
+      "median": 11.0,
+      "p95": 15.0,
+      "max": 17
+    },
+    "removed_records": {
+      "n": 128,
+      "min": 6,
+      "median": 11.0,
+      "p95": 15.0,
+      "max": 17
+    }
+  },
+  "straight": {
+    "n": 32,
+    "availability_applicable": true,
+    "baseline_complete": 27,
+    "fusion_complete": 28,
+    "gain": 2,
+    "loss": 1,
+    "context_changed": 32,
+    "required_added": 2,
+    "required_removed": 1,
+    "same_record_count": 32,
+    "distributions": {
+      "baseline_n": {
+        "n": 32,
+        "min": 41,
+        "median": 41.0,
+        "p95": 41.0,
+        "max": 41
+      },
+      "fusion_n": {
+        "n": 32,
+        "min": 41,
+        "median": 41.0,
+        "p95": 41.0,
+        "max": 41
+      },
+      "baseline_chars": {
+        "n": 32,
+        "min": 31897,
+        "median": 31950.5,
+        "p95": 31972.0,
+        "max": 31991
+      },
+      "fusion_chars": {
+        "n": 32,
+        "min": 31907,
+        "median": 31957.5,
+        "p95": 31997.8,
+        "max": 32000
+      },
+      "linked_n": {
+        "n": 32,
+        "min": 19,
+        "median": 20.0,
+        "p95": 21.45,
+        "max": 22
+      },
+      "added_linked_n": {
+        "n": 32,
+        "min": 7,
+        "median": 12.0,
+        "p95": 15.0,
+        "max": 17
+      },
+      "baseline_context_chars": {
+        "n": 32,
+        "min": 57533,
+        "median": 57590.5,
+        "p95": 57625.35,
+        "max": 57637
+      },
+      "fusion_context_chars": {
+        "n": 32,
+        "min": 57559,
+        "median": 57601.5,
+        "p95": 57643.25,
+        "max": 57646
+      }
+    },
+    "added_records": {
+      "n": 32,
+      "min": 7,
+      "median": 12.0,
+      "p95": 15.0,
+      "max": 17
+    },
+    "removed_records": {
+      "n": 32,
+      "min": 7,
+      "median": 12.0,
+      "p95": 15.0,
+      "max": 17
+    }
+  },
+  "irrelevant": {
+    "n": 32,
+    "availability_applicable": true,
+    "baseline_complete": 28,
+    "fusion_complete": 27,
+    "gain": 1,
+    "loss": 2,
+    "context_changed": 32,
+    "required_added": 1,
+    "required_removed": 2,
+    "same_record_count": 24,
+    "distributions": {
+      "baseline_n": {
+        "n": 32,
+        "min": 40,
+        "median": 40.0,
+        "p95": 41.0,
+        "max": 41
+      },
+      "fusion_n": {
+        "n": 32,
+        "min": 40,
+        "median": 40.0,
+        "p95": 41.0,
+        "max": 41
+      },
+      "baseline_chars": {
+        "n": 32,
+        "min": 31226,
+        "median": 31264.0,
+        "p95": 31999.0,
+        "max": 32000
+      },
+      "fusion_chars": {
+        "n": 32,
+        "min": 31228,
+        "median": 31266.0,
+        "p95": 31999.45,
+        "max": 32000
+      },
+      "linked_n": {
+        "n": 32,
+        "min": 18,
+        "median": 20.0,
+        "p95": 21.0,
+        "max": 21
+      },
+      "added_linked_n": {
+        "n": 32,
+        "min": 6,
+        "median": 11.0,
+        "p95": 14.0,
+        "max": 16
+      },
+      "baseline_context_chars": {
+        "n": 32,
+        "min": 56852,
+        "median": 56914.0,
+        "p95": 57648.9,
+        "max": 57651
+      },
+      "fusion_context_chars": {
+        "n": 32,
+        "min": 56850,
+        "median": 56909.5,
+        "p95": 57647.45,
+        "max": 57651
+      }
+    },
+    "added_records": {
+      "n": 32,
+      "min": 6,
+      "median": 11.0,
+      "p95": 14.0,
+      "max": 16
+    },
+    "removed_records": {
+      "n": 32,
+      "min": 6,
+      "median": 11.0,
+      "p95": 14.0,
+      "max": 16
+    }
+  },
+  "future": {
+    "n": 32,
+    "availability_applicable": true,
+    "baseline_complete": 28,
+    "fusion_complete": 25,
+    "gain": 1,
+    "loss": 4,
+    "context_changed": 32,
+    "required_added": 1,
+    "required_removed": 4,
+    "same_record_count": 31,
+    "distributions": {
+      "baseline_n": {
+        "n": 32,
+        "min": 40,
+        "median": 40.0,
+        "p95": 40.45,
+        "max": 41
+      },
+      "fusion_n": {
+        "n": 32,
+        "min": 40,
+        "median": 40.0,
+        "p95": 41.0,
+        "max": 41
+      },
+      "baseline_chars": {
+        "n": 32,
+        "min": 31227,
+        "median": 31272.0,
+        "p95": 31613.7,
+        "max": 31990
+      },
+      "fusion_chars": {
+        "n": 32,
+        "min": 31239,
+        "median": 31275.5,
+        "p95": 31991.3,
+        "max": 32000
+      },
+      "linked_n": {
+        "n": 32,
+        "min": 18,
+        "median": 20.0,
+        "p95": 21.0,
+        "max": 21
+      },
+      "added_linked_n": {
+        "n": 32,
+        "min": 7,
+        "median": 12.0,
+        "p95": 15.0,
+        "max": 16
+      },
+      "baseline_context_chars": {
+        "n": 32,
+        "min": 56875,
+        "median": 56914.5,
+        "p95": 57255.05,
+        "max": 57640
+      },
+      "fusion_context_chars": {
+        "n": 32,
+        "min": 56884,
+        "median": 56921.5,
+        "p95": 57629.05,
+        "max": 57659
+      }
+    },
+    "added_records": {
+      "n": 32,
+      "min": 7,
+      "median": 12.0,
+      "p95": 15.0,
+      "max": 16
+    },
+    "removed_records": {
+      "n": 32,
+      "min": 7,
+      "median": 12.0,
+      "p95": 15.0,
+      "max": 16
+    }
+  },
+  "proposal": {
+    "n": 32,
+    "availability_applicable": true,
+    "baseline_complete": 26,
+    "fusion_complete": 28,
+    "gain": 2,
+    "loss": 0,
+    "context_changed": 32,
+    "required_added": 2,
+    "required_removed": 0,
+    "same_record_count": 32,
+    "distributions": {
+      "baseline_n": {
+        "n": 32,
+        "min": 40,
+        "median": 40.0,
+        "p95": 40.0,
+        "max": 40
+      },
+      "fusion_n": {
+        "n": 32,
+        "min": 40,
+        "median": 40.0,
+        "p95": 40.0,
+        "max": 40
+      },
+      "baseline_chars": {
+        "n": 32,
+        "min": 31301,
+        "median": 31352.0,
+        "p95": 31395.95,
+        "max": 31414
+      },
+      "fusion_chars": {
+        "n": 32,
+        "min": 31316,
+        "median": 31367.0,
+        "p95": 31409.15,
+        "max": 31450
+      },
+      "linked_n": {
+        "n": 32,
+        "min": 18,
+        "median": 19.0,
+        "p95": 21.0,
+        "max": 21
+      },
+      "added_linked_n": {
+        "n": 32,
+        "min": 7,
+        "median": 11.0,
+        "p95": 14.45,
+        "max": 17
+      },
+      "baseline_context_chars": {
+        "n": 32,
+        "min": 56923,
+        "median": 56997.0,
+        "p95": 57031.05,
+        "max": 57056
+      },
+      "fusion_context_chars": {
+        "n": 32,
+        "min": 56949,
+        "median": 57013.0,
+        "p95": 57051.7,
+        "max": 57075
+      }
+    },
+    "added_records": {
+      "n": 32,
+      "min": 7,
+      "median": 11.0,
+      "p95": 14.45,
+      "max": 17
+    },
+    "removed_records": {
+      "n": 32,
+      "min": 7,
+      "median": 11.0,
+      "p95": 14.45,
+      "max": 17
+    }
+  },
+  "latest": {
+    "n": 32,
+    "availability_applicable": true,
+    "baseline_complete": 21,
+    "fusion_complete": 21,
+    "gain": 0,
+    "loss": 0,
+    "context_changed": 0,
+    "required_added": 0,
+    "required_removed": 0,
+    "same_record_count": 32,
+    "distributions": {
+      "baseline_n": {
+        "n": 32,
+        "min": 40,
+        "median": 41.0,
+        "p95": 41.0,
+        "max": 41
+      },
+      "fusion_n": {
+        "n": 32,
+        "min": 40,
+        "median": 41.0,
+        "p95": 41.0,
+        "max": 41
+      },
+      "baseline_chars": {
+        "n": 32,
+        "min": 31262,
+        "median": 31989.0,
+        "p95": 31999.0,
+        "max": 32000
+      },
+      "fusion_chars": {
+        "n": 32,
+        "min": 31262,
+        "median": 31989.0,
+        "p95": 31999.0,
+        "max": 32000
+      },
+      "linked_n": {
+        "n": 32,
+        "min": 0,
+        "median": 0.0,
+        "p95": 0.0,
+        "max": 0
+      },
+      "added_linked_n": {
+        "n": 32,
+        "min": 0,
+        "median": 0.0,
+        "p95": 0.0,
+        "max": 0
+      },
+      "baseline_context_chars": {
+        "n": 32,
+        "min": 56919,
+        "median": 57631.5,
+        "p95": 57652.35,
+        "max": 57660
+      },
+      "fusion_context_chars": {
+        "n": 32,
+        "min": 56919,
+        "median": 57631.5,
+        "p95": 57652.35,
+        "max": 57660
+      }
+    },
+    "added_records": {
+      "n": 32,
+      "min": 0,
+      "median": 0.0,
+      "p95": 0.0,
+      "max": 0
+    },
+    "removed_records": {
+      "n": 32,
+      "min": 0,
+      "median": 0.0,
+      "p95": 0.0,
+      "max": 0
+    }
+  },
+  "absent": {
+    "n": 32,
+    "availability_applicable": false,
+    "baseline_complete": 0,
+    "fusion_complete": 0,
+    "gain": 0,
+    "loss": 0,
+    "context_changed": 32,
+    "required_added": 0,
+    "required_removed": 0,
+    "same_record_count": 32,
+    "distributions": {
+      "baseline_n": {
+        "n": 32,
+        "min": 40,
+        "median": 40.0,
+        "p95": 40.0,
+        "max": 40
+      },
+      "fusion_n": {
+        "n": 32,
+        "min": 40,
+        "median": 40.0,
+        "p95": 40.0,
+        "max": 40
+      },
+      "baseline_chars": {
+        "n": 32,
+        "min": 31670,
+        "median": 31688.0,
+        "p95": 31710.0,
+        "max": 31716
+      },
+      "fusion_chars": {
+        "n": 32,
+        "min": 31682,
+        "median": 31705.0,
+        "p95": 31720.15,
+        "max": 31731
+      },
+      "linked_n": {
+        "n": 32,
+        "min": 18,
+        "median": 20.0,
+        "p95": 20.0,
+        "max": 21
+      },
+      "added_linked_n": {
+        "n": 32,
+        "min": 10,
+        "median": 15.0,
+        "p95": 17.0,
+        "max": 18
+      },
+      "baseline_context_chars": {
+        "n": 32,
+        "min": 57296,
+        "median": 57336.0,
+        "p95": 57357.9,
+        "max": 57360
+      },
+      "fusion_context_chars": {
+        "n": 32,
+        "min": 57315,
+        "median": 57351.0,
+        "p95": 57370.25,
+        "max": 57380
+      }
+    },
+    "added_records": {
+      "n": 32,
+      "min": 10,
+      "median": 15.0,
+      "p95": 17.0,
+      "max": 18
+    },
+    "removed_records": {
+      "n": 32,
+      "min": 10,
+      "median": 15.0,
+      "p95": 17.0,
+      "max": 18
+    }
+  },
+  "scope": "Exploratory availability only; no reader scores or efficacy disposition",
+  "provenance": {
+    "preflight_sha256": "a43ec6d09a7d3dc70c7280a55e770404cbf75fabbec7e67dcd2efc0d7ea71212",
+    "labels_sha256": "f458319c1f32820d32ce9315d5a15641c55667138e6c50a29403c33baa899872",
+    "analysis_sha256": "aceb180c2009386d91c9dbad251a14aef6be9c5f9165a4944c8af7a3816ee3f9",
+    "measurement_gain_loss_fixtures": true
+  }
+}
