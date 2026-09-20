@@ -1,0 +1,50 @@
+[
+  {
+    "id": "latest",
+    "context": "E1 Monday: Send project deliveries to the office.\nE2 Tuesday: Use the warehouse instead; this replaces the previous delivery address.\nE3 Wednesday: We hold the launch meeting.\nE4 Thursday: From now on, send project deliveries to the studio instead.",
+    "question": "Where should project deliveries go now?",
+    "gold": "studio",
+    "prompt": "Answer the question using only the records below. E-numbers specify event order even if records are displayed out of order.\n\nE1 Monday: Send project deliveries to the office.\nE2 Tuesday: Use the warehouse instead; this replaces the previous delivery address.\nE3 Wednesday: We hold the launch meeting.\nE4 Thursday: From now on, send project deliveries to the studio instead.\n\nQuestion: Where should project deliveries go now?\n\nGive your answer, then a brief justification in at most two sentences identifying the supporting record IDs and relevant event boundary. If the records do not establish the answer, say \"Cannot determine\".\n\nAnswer:\n<think>\n</think>\n",
+    "sha256": "8161bb765388b649328df20e6e414edd347426948f943e903273cf4bac633746"
+  },
+  {
+    "id": "before",
+    "context": "E1 Monday: Send project deliveries to the office.\nE2 Tuesday: Use the warehouse instead; this replaces the previous delivery address.\nE3 Wednesday: We hold the launch meeting.\nE4 Thursday: From now on, send project deliveries to the studio instead.",
+    "question": "Where were project deliveries going immediately before the launch meeting?",
+    "gold": "warehouse",
+    "prompt": "Answer the question using only the records below. E-numbers specify event order even if records are displayed out of order.\n\nE1 Monday: Send project deliveries to the office.\nE2 Tuesday: Use the warehouse instead; this replaces the previous delivery address.\nE3 Wednesday: We hold the launch meeting.\nE4 Thursday: From now on, send project deliveries to the studio instead.\n\nQuestion: Where were project deliveries going immediately before the launch meeting?\n\nGive your answer, then a brief justification in at most two sentences identifying the supporting record IDs and relevant event boundary. If the records do not establish the answer, say \"Cannot determine\".\n\nAnswer:\n<think>\n</think>\n",
+    "sha256": "a68fb73d67ec1f4520cf790219a6d3f7e3a2b704122a1189d8807457831c1206"
+  },
+  {
+    "id": "shuffled",
+    "context": "E4 Thursday: From now on, send project deliveries to the studio instead.\nE1 Monday: Send project deliveries to the office.\nE3 Wednesday: We hold the launch meeting.\nE2 Tuesday: Use the warehouse instead; this replaces the previous delivery address.",
+    "question": "Where were project deliveries going immediately before the launch meeting?",
+    "gold": "warehouse",
+    "prompt": "Answer the question using only the records below. E-numbers specify event order even if records are displayed out of order.\n\nE4 Thursday: From now on, send project deliveries to the studio instead.\nE1 Monday: Send project deliveries to the office.\nE3 Wednesday: We hold the launch meeting.\nE2 Tuesday: Use the warehouse instead; this replaces the previous delivery address.\n\nQuestion: Where were project deliveries going immediately before the launch meeting?\n\nGive your answer, then a brief justification in at most two sentences identifying the supporting record IDs and relevant event boundary. If the records do not establish the answer, say \"Cannot determine\".\n\nAnswer:\n<think>\n</think>\n",
+    "sha256": "434e50df739604a3790f8c1f478cf6bf4a791fac4e188c0c42699f866840df03"
+  },
+  {
+    "id": "two_meetings",
+    "context": "E1 Monday: Send project deliveries to the office.\nE2 Tuesday: Use the warehouse instead; this replaces the previous delivery address.\nE3 Wednesday: We hold the launch meeting.\nE4 Thursday: From now on, send project deliveries to the studio instead.\nE5 Friday: We hold the review meeting.\nE6 Saturday: Use the depot instead for project deliveries.",
+    "question": "Where were project deliveries going immediately before the review meeting?",
+    "gold": "studio",
+    "prompt": "Answer the question using only the records below. E-numbers specify event order even if records are displayed out of order.\n\nE1 Monday: Send project deliveries to the office.\nE2 Tuesday: Use the warehouse instead; this replaces the previous delivery address.\nE3 Wednesday: We hold the launch meeting.\nE4 Thursday: From now on, send project deliveries to the studio instead.\nE5 Friday: We hold the review meeting.\nE6 Saturday: Use the depot instead for project deliveries.\n\nQuestion: Where were project deliveries going immediately before the review meeting?\n\nGive your answer, then a brief justification in at most two sentences identifying the supporting record IDs and relevant event boundary. If the records do not establish the answer, say \"Cannot determine\".\n\nAnswer:\n<think>\n</think>\n",
+    "sha256": "dac64971f7d266de7daf59f32d5eee7f3fd98fc1f9feb66aec6086c2ff58985b"
+  },
+  {
+    "id": "missing",
+    "context": "E1 Monday: Send project deliveries to the office.\nE2 Tuesday: The delivery address changed, replacing the previous address, but the new address is unavailable in this record.\nE3 Wednesday: We hold the launch meeting.\nE4 Thursday: From now on, send project deliveries to the studio instead.",
+    "question": "Where were project deliveries going immediately before the launch meeting?",
+    "gold": "cannot determine",
+    "prompt": "Answer the question using only the records below. E-numbers specify event order even if records are displayed out of order.\n\nE1 Monday: Send project deliveries to the office.\nE2 Tuesday: The delivery address changed, replacing the previous address, but the new address is unavailable in this record.\nE3 Wednesday: We hold the launch meeting.\nE4 Thursday: From now on, send project deliveries to the studio instead.\n\nQuestion: Where were project deliveries going immediately before the launch meeting?\n\nGive your answer, then a brief justification in at most two sentences identifying the supporting record IDs and relevant event boundary. If the records do not establish the answer, say \"Cannot determine\".\n\nAnswer:\n<think>\n</think>\n",
+    "sha256": "06f88ecaef2e5a59249a661b37d31e86aa2374a1ab71684d6993419b580f3444"
+  },
+  {
+    "id": "after_state",
+    "context": "E1 Monday: Send project deliveries to the office.\nE2 Tuesday: Use the warehouse instead; this replaces the previous delivery address.\nE3 Wednesday: We hold the launch meeting.\nE4 Thursday: From now on, send project deliveries to the studio instead.",
+    "question": "Immediately after the launch meeting ended, before Thursday's update, which delivery address was in effect?",
+    "gold": "warehouse",
+    "prompt": "Answer the question using only the records below. E-numbers specify event order even if records are displayed out of order.\n\nE1 Monday: Send project deliveries to the office.\nE2 Tuesday: Use the warehouse instead; this replaces the previous delivery address.\nE3 Wednesday: We hold the launch meeting.\nE4 Thursday: From now on, send project deliveries to the studio instead.\n\nQuestion: Immediately after the launch meeting ended, before Thursday's update, which delivery address was in effect?\n\nGive your answer, then a brief justification in at most two sentences identifying the supporting record IDs and relevant event boundary. If the records do not establish the answer, say \"Cannot determine\".\n\nAnswer:\n<think>\n</think>\n",
+    "sha256": "f9bd594664c6182326a7cc472f43f6736a4ba780f669626ead26c32aa9edfbd1"
+  }
+]
