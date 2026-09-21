@@ -1,0 +1,75 @@
+{
+  "s1": {
+    "gaps": 17,
+    "recovered": 17,
+    "misses": []
+  },
+  "s2": {
+    "anchor_event_rate": 0.5345,
+    "nonanchor_event_rate": 0.2929,
+    "difference_pp": 24.2,
+    "anchor_n": 116,
+    "per_family_anchor": {
+      "EVENT_NOUN": 27,
+      "TAKE_PLACE": 5,
+      "MOTION": 17,
+      "ATTEND": 2,
+      "STATE_CHANGE": 13,
+      "ANNOUNCE": 5,
+      "TEMPORAL_SHIFT": 32
+    },
+    "per_family_nonanchor": {
+      "EVENT_NOUN": 671,
+      "TAKE_PLACE": 73,
+      "MOTION": 743,
+      "ATTEND": 39,
+      "STATE_CHANGE": 248,
+      "ANNOUNCE": 54,
+      "TEMPORAL_SHIFT": 351
+    }
+  },
+  "s3": {
+    "bm25": 29,
+    "hybrid": 17,
+    "event_only": 1,
+    "n": 120,
+    "wilson_bm25": [
+      0.1739,
+      0.3255
+    ],
+    "wilson_hybrid": [
+      0.0904,
+      0.2152
+    ],
+    "net_hybrid_minus_bm25": -12,
+    "ce_only": 4,
+    "bm25_only": 16,
+    "p": 0.011818
+  },
+  "per_category": {
+    "1": {
+      "n": 23,
+      "bm": 0,
+      "hy": 0,
+      "anchor_ev": 12
+    },
+    "2": {
+      "n": 33,
+      "bm": 8,
+      "hy": 10,
+      "anchor_ev": 27
+    },
+    "3": {
+      "n": 7,
+      "bm": 0,
+      "hy": 0,
+      "anchor_ev": 4
+    },
+    "4": {
+      "n": 57,
+      "bm": 21,
+      "hy": 7,
+      "anchor_ev": 22
+    }
+  }
+}
