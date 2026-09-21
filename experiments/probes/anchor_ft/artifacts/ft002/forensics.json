@@ -1,0 +1,1953 @@
+{
+ "seed": 20261011,
+ "summary": {
+  "R0": {
+   "n": 120,
+   "n_miss": 54,
+   "pred_bm_rank_med_all": 6,
+   "pred_bm_rank_med_miss": 67,
+   "pred_in_pool_all": 0.6417,
+   "pred_in_pool_miss": 0.4259,
+   "jacc_med_all": 0.0714,
+   "jacc_med_miss": 0.0588,
+   "gold_rank_med_all": 0
+  },
+  "V1": {
+   "n": 120,
+   "n_miss": 87,
+   "pred_bm_rank_med_all": 329,
+   "pred_bm_rank_med_miss": 423,
+   "pred_in_pool_all": 0.25,
+   "pred_in_pool_miss": 0.046,
+   "jacc_med_all": 0.0238,
+   "jacc_med_miss": 0.0,
+   "gold_rank_med_all": 15
+  }
+ },
+ "raw": {
+  "R0": [
+   {
+    "qid": "conv-49:34",
+    "miss": 0,
+    "bm_rank": 0,
+    "in_pool": 1,
+    "jacc": 0.0714,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-41:62",
+    "miss": 0,
+    "bm_rank": 1,
+    "in_pool": 1,
+    "jacc": 0.0833,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-44:60",
+    "miss": 1,
+    "bm_rank": 31,
+    "in_pool": 0,
+    "jacc": 0.037,
+    "gold_rank": 36
+   },
+   {
+    "qid": "conv-41:60",
+    "miss": 0,
+    "bm_rank": 108,
+    "in_pool": 0,
+    "jacc": 0.0769,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-49:56",
+    "miss": 0,
+    "bm_rank": 119,
+    "in_pool": 0,
+    "jacc": 0.0462,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-48:19",
+    "miss": 1,
+    "bm_rank": 650,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 6
+   },
+   {
+    "qid": "conv-48:79",
+    "miss": 1,
+    "bm_rank": 473,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 2
+   },
+   {
+    "qid": "conv-26:4",
+    "miss": 1,
+    "bm_rank": 104,
+    "in_pool": 0,
+    "jacc": 0.0882,
+    "gold_rank": 193
+   },
+   {
+    "qid": "conv-41:2",
+    "miss": 0,
+    "bm_rank": 309,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-49:33",
+    "miss": 0,
+    "bm_rank": 0,
+    "in_pool": 1,
+    "jacc": 0.129,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-42:46",
+    "miss": 0,
+    "bm_rank": 15,
+    "in_pool": 1,
+    "jacc": 0.0417,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-47:60",
+    "miss": 0,
+    "bm_rank": 29,
+    "in_pool": 0,
+    "jacc": 0.0303,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-26:56",
+    "miss": 0,
+    "bm_rank": 44,
+    "in_pool": 0,
+    "jacc": 0.0645,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-48:39",
+    "miss": 0,
+    "bm_rank": 6,
+    "in_pool": 1,
+    "jacc": 0.0882,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-50:32",
+    "miss": 0,
+    "bm_rank": 1,
+    "in_pool": 1,
+    "jacc": 0.098,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-43:65",
+    "miss": 1,
+    "bm_rank": 15,
+    "in_pool": 1,
+    "jacc": 0.087,
+    "gold_rank": 1
+   },
+   {
+    "qid": "conv-41:52",
+    "miss": 0,
+    "bm_rank": 8,
+    "in_pool": 1,
+    "jacc": 0.0769,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-49:82",
+    "miss": 1,
+    "bm_rank": 7,
+    "in_pool": 1,
+    "jacc": 0.1111,
+    "gold_rank": 6
+   },
+   {
+    "qid": "conv-41:30",
+    "miss": 1,
+    "bm_rank": 63,
+    "in_pool": 0,
+    "jacc": 0.05,
+    "gold_rank": 1
+   },
+   {
+    "qid": "conv-44:56",
+    "miss": 1,
+    "bm_rank": 668,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 179
+   },
+   {
+    "qid": "conv-42:83",
+    "miss": 1,
+    "bm_rank": 111,
+    "in_pool": 0,
+    "jacc": 0.0714,
+    "gold_rank": 8
+   },
+   {
+    "qid": "conv-41:36",
+    "miss": 0,
+    "bm_rank": 1,
+    "in_pool": 1,
+    "jacc": 0.0364,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-26:79",
+    "miss": 0,
+    "bm_rank": 13,
+    "in_pool": 1,
+    "jacc": 0.0645,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-48:22",
+    "miss": 0,
+    "bm_rank": 14,
+    "in_pool": 1,
+    "jacc": 0.0278,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-47:13",
+    "miss": 0,
+    "bm_rank": 4,
+    "in_pool": 1,
+    "jacc": 0.0417,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-26:62",
+    "miss": 0,
+    "bm_rank": 10,
+    "in_pool": 1,
+    "jacc": 0.0488,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-49:58",
+    "miss": 0,
+    "bm_rank": 0,
+    "in_pool": 1,
+    "jacc": 0.0455,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-49:40",
+    "miss": 1,
+    "bm_rank": 0,
+    "in_pool": 1,
+    "jacc": 0.0682,
+    "gold_rank": 1
+   },
+   {
+    "qid": "conv-43:60",
+    "miss": 1,
+    "bm_rank": 0,
+    "in_pool": 1,
+    "jacc": 0.1111,
+    "gold_rank": 302
+   },
+   {
+    "qid": "conv-41:1",
+    "miss": 0,
+    "bm_rank": 12,
+    "in_pool": 1,
+    "jacc": 0.0278,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-48:54",
+    "miss": 0,
+    "bm_rank": 434,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-48:56",
+    "miss": 0,
+    "bm_rank": 0,
+    "in_pool": 1,
+    "jacc": 0.0943,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-49:13",
+    "miss": 0,
+    "bm_rank": 0,
+    "in_pool": 1,
+    "jacc": 0.1489,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-30:21",
+    "miss": 0,
+    "bm_rank": 0,
+    "in_pool": 1,
+    "jacc": 0.1905,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-26:33",
+    "miss": 1,
+    "bm_rank": 0,
+    "in_pool": 1,
+    "jacc": 0.098,
+    "gold_rank": 3
+   },
+   {
+    "qid": "conv-47:32",
+    "miss": 1,
+    "bm_rank": 68,
+    "in_pool": 0,
+    "jacc": 0.0556,
+    "gold_rank": 341
+   },
+   {
+    "qid": "conv-44:10",
+    "miss": 1,
+    "bm_rank": 0,
+    "in_pool": 1,
+    "jacc": 0.0638,
+    "gold_rank": 155
+   },
+   {
+    "qid": "conv-42:7",
+    "miss": 0,
+    "bm_rank": 3,
+    "in_pool": 1,
+    "jacc": 0.0645,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-44:16",
+    "miss": 1,
+    "bm_rank": 77,
+    "in_pool": 0,
+    "jacc": 0.0606,
+    "gold_rank": 3
+   },
+   {
+    "qid": "conv-41:38",
+    "miss": 1,
+    "bm_rank": 1,
+    "in_pool": 1,
+    "jacc": 0.0789,
+    "gold_rank": 14
+   },
+   {
+    "qid": "conv-49:17",
+    "miss": 0,
+    "bm_rank": 18,
+    "in_pool": 1,
+    "jacc": 0.0312,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-30:32",
+    "miss": 0,
+    "bm_rank": 0,
+    "in_pool": 1,
+    "jacc": 0.0811,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-42:15",
+    "miss": 1,
+    "bm_rank": 230,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 19
+   },
+   {
+    "qid": "conv-42:3",
+    "miss": 0,
+    "bm_rank": 1,
+    "in_pool": 1,
+    "jacc": 0.1905,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-47:21",
+    "miss": 1,
+    "bm_rank": 274,
+    "in_pool": 0,
+    "jacc": 0.0385,
+    "gold_rank": 7
+   },
+   {
+    "qid": "conv-50:0",
+    "miss": 1,
+    "bm_rank": 469,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 3
+   },
+   {
+    "qid": "conv-43:34",
+    "miss": 1,
+    "bm_rank": 13,
+    "in_pool": 1,
+    "jacc": 0.0408,
+    "gold_rank": 5
+   },
+   {
+    "qid": "conv-49:20",
+    "miss": 1,
+    "bm_rank": 67,
+    "in_pool": 0,
+    "jacc": 0.0962,
+    "gold_rank": 22
+   },
+   {
+    "qid": "conv-41:45",
+    "miss": 1,
+    "bm_rank": 463,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 225
+   },
+   {
+    "qid": "conv-43:19",
+    "miss": 1,
+    "bm_rank": 2,
+    "in_pool": 1,
+    "jacc": 0.1538,
+    "gold_rank": 3
+   },
+   {
+    "qid": "conv-44:52",
+    "miss": 1,
+    "bm_rank": 160,
+    "in_pool": 0,
+    "jacc": 0.0571,
+    "gold_rank": 5
+   },
+   {
+    "qid": "conv-42:85",
+    "miss": 1,
+    "bm_rank": 37,
+    "in_pool": 0,
+    "jacc": 0.0541,
+    "gold_rank": 197
+   },
+   {
+    "qid": "conv-47:36",
+    "miss": 1,
+    "bm_rank": 98,
+    "in_pool": 0,
+    "jacc": 0.1,
+    "gold_rank": 4
+   },
+   {
+    "qid": "conv-41:85",
+    "miss": 1,
+    "bm_rank": 2,
+    "in_pool": 1,
+    "jacc": 0.0588,
+    "gold_rank": 3
+   },
+   {
+    "qid": "conv-42:143",
+    "miss": 0,
+    "bm_rank": 0,
+    "in_pool": 1,
+    "jacc": 0.1569,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-43:151",
+    "miss": 1,
+    "bm_rank": 556,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 332
+   },
+   {
+    "qid": "conv-48:110",
+    "miss": 0,
+    "bm_rank": 0,
+    "in_pool": 1,
+    "jacc": 0.1111,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-50:128",
+    "miss": 0,
+    "bm_rank": 17,
+    "in_pool": 1,
+    "jacc": 0.0392,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-50:112",
+    "miss": 0,
+    "bm_rank": 0,
+    "in_pool": 1,
+    "jacc": 0.2059,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-44:114",
+    "miss": 0,
+    "bm_rank": 0,
+    "in_pool": 1,
+    "jacc": 0.129,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-50:75",
+    "miss": 1,
+    "bm_rank": 0,
+    "in_pool": 1,
+    "jacc": 0.0816,
+    "gold_rank": 75
+   },
+   {
+    "qid": "conv-43:127",
+    "miss": 0,
+    "bm_rank": 0,
+    "in_pool": 1,
+    "jacc": 0.2093,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-43:140",
+    "miss": 0,
+    "bm_rank": 0,
+    "in_pool": 1,
+    "jacc": 0.1071,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-41:123",
+    "miss": 1,
+    "bm_rank": 557,
+    "in_pool": 0,
+    "jacc": 0.0256,
+    "gold_rank": 49
+   },
+   {
+    "qid": "conv-50:153",
+    "miss": 0,
+    "bm_rank": 274,
+    "in_pool": 0,
+    "jacc": 0.0541,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-41:81",
+    "miss": 0,
+    "bm_rank": 1,
+    "in_pool": 1,
+    "jacc": 0.0682,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-26:140",
+    "miss": 0,
+    "bm_rank": 1,
+    "in_pool": 1,
+    "jacc": 0.0571,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-42:107",
+    "miss": 1,
+    "bm_rank": 1,
+    "in_pool": 1,
+    "jacc": 0.0435,
+    "gold_rank": 3
+   },
+   {
+    "qid": "conv-48:128",
+    "miss": 0,
+    "bm_rank": 0,
+    "in_pool": 1,
+    "jacc": 0.2143,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-30:56",
+    "miss": 1,
+    "bm_rank": 362,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 4
+   },
+   {
+    "qid": "conv-49:96",
+    "miss": 1,
+    "bm_rank": 92,
+    "in_pool": 0,
+    "jacc": 0.125,
+    "gold_rank": 1
+   },
+   {
+    "qid": "conv-50:71",
+    "miss": 0,
+    "bm_rank": 16,
+    "in_pool": 1,
+    "jacc": 0.1304,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-48:101",
+    "miss": 0,
+    "bm_rank": 184,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-50:125",
+    "miss": 1,
+    "bm_rank": 0,
+    "in_pool": 1,
+    "jacc": 0.1538,
+    "gold_rank": 2
+   },
+   {
+    "qid": "conv-42:120",
+    "miss": 1,
+    "bm_rank": 545,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 37
+   },
+   {
+    "qid": "conv-42:135",
+    "miss": 1,
+    "bm_rank": 536,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 69
+   },
+   {
+    "qid": "conv-49:142",
+    "miss": 1,
+    "bm_rank": 5,
+    "in_pool": 1,
+    "jacc": 0.1471,
+    "gold_rank": 3
+   },
+   {
+    "qid": "conv-48:163",
+    "miss": 0,
+    "bm_rank": 45,
+    "in_pool": 0,
+    "jacc": 0.0714,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-50:73",
+    "miss": 1,
+    "bm_rank": 1,
+    "in_pool": 1,
+    "jacc": 0.125,
+    "gold_rank": 1
+   },
+   {
+    "qid": "conv-50:98",
+    "miss": 0,
+    "bm_rank": 0,
+    "in_pool": 1,
+    "jacc": 0.2188,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-43:79",
+    "miss": 0,
+    "bm_rank": 2,
+    "in_pool": 1,
+    "jacc": 0.1053,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-41:102",
+    "miss": 0,
+    "bm_rank": 0,
+    "in_pool": 1,
+    "jacc": 0.2143,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-48:133",
+    "miss": 1,
+    "bm_rank": 362,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 60
+   },
+   {
+    "qid": "conv-49:145",
+    "miss": 1,
+    "bm_rank": 1,
+    "in_pool": 1,
+    "jacc": 0.125,
+    "gold_rank": 14
+   },
+   {
+    "qid": "conv-43:168",
+    "miss": 0,
+    "bm_rank": 661,
+    "in_pool": 0,
+    "jacc": 0.0333,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-48:118",
+    "miss": 0,
+    "bm_rank": 0,
+    "in_pool": 1,
+    "jacc": 0.1724,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-30:44",
+    "miss": 1,
+    "bm_rank": 4,
+    "in_pool": 1,
+    "jacc": 0.075,
+    "gold_rank": 33
+   },
+   {
+    "qid": "conv-41:141",
+    "miss": 0,
+    "bm_rank": 0,
+    "in_pool": 1,
+    "jacc": 0.25,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-43:81",
+    "miss": 0,
+    "bm_rank": 9,
+    "in_pool": 1,
+    "jacc": 0.1,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-42:106",
+    "miss": 0,
+    "bm_rank": 42,
+    "in_pool": 0,
+    "jacc": 0.0417,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-50:93",
+    "miss": 1,
+    "bm_rank": 176,
+    "in_pool": 0,
+    "jacc": 0.087,
+    "gold_rank": 5
+   },
+   {
+    "qid": "conv-26:87",
+    "miss": 0,
+    "bm_rank": 21,
+    "in_pool": 0,
+    "jacc": 0.0417,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-48:122",
+    "miss": 0,
+    "bm_rank": 0,
+    "in_pool": 1,
+    "jacc": 0.2222,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-26:110",
+    "miss": 1,
+    "bm_rank": 112,
+    "in_pool": 0,
+    "jacc": 0.0465,
+    "gold_rank": 1
+   },
+   {
+    "qid": "conv-42:91",
+    "miss": 1,
+    "bm_rank": 165,
+    "in_pool": 0,
+    "jacc": 0.037,
+    "gold_rank": 1
+   },
+   {
+    "qid": "conv-41:68",
+    "miss": 1,
+    "bm_rank": 610,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 3
+   },
+   {
+    "qid": "conv-30:52",
+    "miss": 0,
+    "bm_rank": 0,
+    "in_pool": 1,
+    "jacc": 0.1765,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-42:187",
+    "miss": 1,
+    "bm_rank": 3,
+    "in_pool": 1,
+    "jacc": 0.0833,
+    "gold_rank": 2
+   },
+   {
+    "qid": "conv-43:101",
+    "miss": 1,
+    "bm_rank": 553,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 1
+   },
+   {
+    "qid": "conv-41:129",
+    "miss": 0,
+    "bm_rank": 1,
+    "in_pool": 1,
+    "jacc": 0.1379,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-42:162",
+    "miss": 0,
+    "bm_rank": 15,
+    "in_pool": 1,
+    "jacc": 0.0312,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-49:130",
+    "miss": 1,
+    "bm_rank": 13,
+    "in_pool": 1,
+    "jacc": 0.0588,
+    "gold_rank": 219
+   },
+   {
+    "qid": "conv-26:92",
+    "miss": 0,
+    "bm_rank": 0,
+    "in_pool": 1,
+    "jacc": 0.1163,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-41:126",
+    "miss": 0,
+    "bm_rank": 0,
+    "in_pool": 1,
+    "jacc": 0.1351,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-43:106",
+    "miss": 0,
+    "bm_rank": 0,
+    "in_pool": 1,
+    "jacc": 0.2692,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-47:73",
+    "miss": 1,
+    "bm_rank": 53,
+    "in_pool": 0,
+    "jacc": 0.0833,
+    "gold_rank": 1
+   },
+   {
+    "qid": "conv-50:97",
+    "miss": 1,
+    "bm_rank": 3,
+    "in_pool": 1,
+    "jacc": 0.1081,
+    "gold_rank": 7
+   },
+   {
+    "qid": "conv-48:112",
+    "miss": 0,
+    "bm_rank": 0,
+    "in_pool": 1,
+    "jacc": 0.1379,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-43:167",
+    "miss": 0,
+    "bm_rank": 3,
+    "in_pool": 1,
+    "jacc": 0.1562,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-26:120",
+    "miss": 0,
+    "bm_rank": 3,
+    "in_pool": 1,
+    "jacc": 0.0238,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-43:143",
+    "miss": 0,
+    "bm_rank": 0,
+    "in_pool": 1,
+    "jacc": 0.1463,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-48:176",
+    "miss": 0,
+    "bm_rank": 0,
+    "in_pool": 1,
+    "jacc": 0.1489,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-48:96",
+    "miss": 0,
+    "bm_rank": 1,
+    "in_pool": 1,
+    "jacc": 0.1389,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-43:163",
+    "miss": 1,
+    "bm_rank": 14,
+    "in_pool": 1,
+    "jacc": 0.04,
+    "gold_rank": 3
+   },
+   {
+    "qid": "conv-47:136",
+    "miss": 1,
+    "bm_rank": 0,
+    "in_pool": 1,
+    "jacc": 0.175,
+    "gold_rank": 133
+   },
+   {
+    "qid": "conv-42:194",
+    "miss": 0,
+    "bm_rank": 2,
+    "in_pool": 1,
+    "jacc": 0.0667,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-49:84",
+    "miss": 1,
+    "bm_rank": 2,
+    "in_pool": 1,
+    "jacc": 0.0702,
+    "gold_rank": 1
+   },
+   {
+    "qid": "conv-42:138",
+    "miss": 0,
+    "bm_rank": 0,
+    "in_pool": 1,
+    "jacc": 0.1026,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-42:112",
+    "miss": 0,
+    "bm_rank": 1,
+    "in_pool": 1,
+    "jacc": 0.087,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-50:139",
+    "miss": 1,
+    "bm_rank": 386,
+    "in_pool": 0,
+    "jacc": 0.0357,
+    "gold_rank": 1
+   }
+  ],
+  "V1": [
+   {
+    "qid": "conv-49:34",
+    "miss": 0,
+    "bm_rank": 0,
+    "in_pool": 1,
+    "jacc": 0.0714,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-41:62",
+    "miss": 1,
+    "bm_rank": 553,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 52
+   },
+   {
+    "qid": "conv-44:60",
+    "miss": 1,
+    "bm_rank": 31,
+    "in_pool": 0,
+    "jacc": 0.037,
+    "gold_rank": 148
+   },
+   {
+    "qid": "conv-41:60",
+    "miss": 0,
+    "bm_rank": 108,
+    "in_pool": 0,
+    "jacc": 0.0769,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-49:56",
+    "miss": 1,
+    "bm_rank": 268,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 97
+   },
+   {
+    "qid": "conv-48:19",
+    "miss": 1,
+    "bm_rank": 650,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 48
+   },
+   {
+    "qid": "conv-48:79",
+    "miss": 1,
+    "bm_rank": 116,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 33
+   },
+   {
+    "qid": "conv-26:4",
+    "miss": 1,
+    "bm_rank": 104,
+    "in_pool": 0,
+    "jacc": 0.0882,
+    "gold_rank": 100
+   },
+   {
+    "qid": "conv-41:2",
+    "miss": 1,
+    "bm_rank": 587,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 1
+   },
+   {
+    "qid": "conv-49:33",
+    "miss": 1,
+    "bm_rank": 398,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 47
+   },
+   {
+    "qid": "conv-42:46",
+    "miss": 1,
+    "bm_rank": 437,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 1
+   },
+   {
+    "qid": "conv-47:60",
+    "miss": 0,
+    "bm_rank": 29,
+    "in_pool": 0,
+    "jacc": 0.0303,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-26:56",
+    "miss": 1,
+    "bm_rank": 349,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 1
+   },
+   {
+    "qid": "conv-48:39",
+    "miss": 1,
+    "bm_rank": 369,
+    "in_pool": 0,
+    "jacc": 0.0526,
+    "gold_rank": 3
+   },
+   {
+    "qid": "conv-50:32",
+    "miss": 0,
+    "bm_rank": 1,
+    "in_pool": 1,
+    "jacc": 0.098,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-43:65",
+    "miss": 1,
+    "bm_rank": 280,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 1
+   },
+   {
+    "qid": "conv-41:52",
+    "miss": 0,
+    "bm_rank": 8,
+    "in_pool": 1,
+    "jacc": 0.0769,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-49:82",
+    "miss": 1,
+    "bm_rank": 342,
+    "in_pool": 0,
+    "jacc": 0.037,
+    "gold_rank": 48
+   },
+   {
+    "qid": "conv-41:30",
+    "miss": 1,
+    "bm_rank": 63,
+    "in_pool": 0,
+    "jacc": 0.05,
+    "gold_rank": 1
+   },
+   {
+    "qid": "conv-44:56",
+    "miss": 1,
+    "bm_rank": 506,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 315
+   },
+   {
+    "qid": "conv-42:83",
+    "miss": 1,
+    "bm_rank": 125,
+    "in_pool": 0,
+    "jacc": 0.0526,
+    "gold_rank": 71
+   },
+   {
+    "qid": "conv-41:36",
+    "miss": 1,
+    "bm_rank": 582,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 14
+   },
+   {
+    "qid": "conv-26:79",
+    "miss": 0,
+    "bm_rank": 13,
+    "in_pool": 1,
+    "jacc": 0.0645,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-48:22",
+    "miss": 1,
+    "bm_rank": 633,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 2
+   },
+   {
+    "qid": "conv-47:13",
+    "miss": 1,
+    "bm_rank": 431,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 22
+   },
+   {
+    "qid": "conv-26:62",
+    "miss": 1,
+    "bm_rank": 280,
+    "in_pool": 0,
+    "jacc": 0.0256,
+    "gold_rank": 11
+   },
+   {
+    "qid": "conv-49:58",
+    "miss": 0,
+    "bm_rank": 0,
+    "in_pool": 1,
+    "jacc": 0.0455,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-49:40",
+    "miss": 1,
+    "bm_rank": 0,
+    "in_pool": 1,
+    "jacc": 0.0682,
+    "gold_rank": 5
+   },
+   {
+    "qid": "conv-43:60",
+    "miss": 1,
+    "bm_rank": 622,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 590
+   },
+   {
+    "qid": "conv-41:1",
+    "miss": 0,
+    "bm_rank": 12,
+    "in_pool": 1,
+    "jacc": 0.0278,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-48:54",
+    "miss": 1,
+    "bm_rank": 194,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 2
+   },
+   {
+    "qid": "conv-48:56",
+    "miss": 0,
+    "bm_rank": 0,
+    "in_pool": 1,
+    "jacc": 0.0943,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-49:13",
+    "miss": 1,
+    "bm_rank": 436,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 5
+   },
+   {
+    "qid": "conv-30:21",
+    "miss": 1,
+    "bm_rank": 202,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 54
+   },
+   {
+    "qid": "conv-26:33",
+    "miss": 1,
+    "bm_rank": 376,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 92
+   },
+   {
+    "qid": "conv-47:32",
+    "miss": 1,
+    "bm_rank": 68,
+    "in_pool": 0,
+    "jacc": 0.0556,
+    "gold_rank": 190
+   },
+   {
+    "qid": "conv-44:10",
+    "miss": 1,
+    "bm_rank": 500,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 553
+   },
+   {
+    "qid": "conv-42:7",
+    "miss": 0,
+    "bm_rank": 3,
+    "in_pool": 1,
+    "jacc": 0.0645,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-44:16",
+    "miss": 1,
+    "bm_rank": 636,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 193
+   },
+   {
+    "qid": "conv-41:38",
+    "miss": 1,
+    "bm_rank": 582,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 2
+   },
+   {
+    "qid": "conv-49:17",
+    "miss": 0,
+    "bm_rank": 18,
+    "in_pool": 1,
+    "jacc": 0.0312,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-30:32",
+    "miss": 1,
+    "bm_rank": 144,
+    "in_pool": 0,
+    "jacc": 0.04,
+    "gold_rank": 5
+   },
+   {
+    "qid": "conv-42:15",
+    "miss": 1,
+    "bm_rank": 240,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 84
+   },
+   {
+    "qid": "conv-42:3",
+    "miss": 0,
+    "bm_rank": 1,
+    "in_pool": 1,
+    "jacc": 0.1905,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-47:21",
+    "miss": 1,
+    "bm_rank": 541,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 216
+   },
+   {
+    "qid": "conv-50:0",
+    "miss": 1,
+    "bm_rank": 531,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 82
+   },
+   {
+    "qid": "conv-43:34",
+    "miss": 0,
+    "bm_rank": 599,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-49:20",
+    "miss": 1,
+    "bm_rank": 329,
+    "in_pool": 0,
+    "jacc": 0.0667,
+    "gold_rank": 45
+   },
+   {
+    "qid": "conv-41:45",
+    "miss": 1,
+    "bm_rank": 463,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 215
+   },
+   {
+    "qid": "conv-43:19",
+    "miss": 1,
+    "bm_rank": 508,
+    "in_pool": 0,
+    "jacc": 0.0357,
+    "gold_rank": 63
+   },
+   {
+    "qid": "conv-44:52",
+    "miss": 1,
+    "bm_rank": 485,
+    "in_pool": 0,
+    "jacc": 0.0357,
+    "gold_rank": 19
+   },
+   {
+    "qid": "conv-42:85",
+    "miss": 1,
+    "bm_rank": 457,
+    "in_pool": 0,
+    "jacc": 0.0385,
+    "gold_rank": 463
+   },
+   {
+    "qid": "conv-47:36",
+    "miss": 1,
+    "bm_rank": 98,
+    "in_pool": 0,
+    "jacc": 0.1,
+    "gold_rank": 28
+   },
+   {
+    "qid": "conv-41:85",
+    "miss": 1,
+    "bm_rank": 2,
+    "in_pool": 1,
+    "jacc": 0.0588,
+    "gold_rank": 6
+   },
+   {
+    "qid": "conv-42:143",
+    "miss": 0,
+    "bm_rank": 0,
+    "in_pool": 1,
+    "jacc": 0.1569,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-43:151",
+    "miss": 1,
+    "bm_rank": 580,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 387
+   },
+   {
+    "qid": "conv-48:110",
+    "miss": 1,
+    "bm_rank": 591,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 30
+   },
+   {
+    "qid": "conv-50:128",
+    "miss": 1,
+    "bm_rank": 500,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 19
+   },
+   {
+    "qid": "conv-50:112",
+    "miss": 1,
+    "bm_rank": 522,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 7
+   },
+   {
+    "qid": "conv-44:114",
+    "miss": 1,
+    "bm_rank": 660,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 61
+   },
+   {
+    "qid": "conv-50:75",
+    "miss": 1,
+    "bm_rank": 294,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 138
+   },
+   {
+    "qid": "conv-43:127",
+    "miss": 1,
+    "bm_rank": 529,
+    "in_pool": 0,
+    "jacc": 0.0238,
+    "gold_rank": 4
+   },
+   {
+    "qid": "conv-43:140",
+    "miss": 1,
+    "bm_rank": 414,
+    "in_pool": 0,
+    "jacc": 0.0455,
+    "gold_rank": 86
+   },
+   {
+    "qid": "conv-41:123",
+    "miss": 1,
+    "bm_rank": 634,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 72
+   },
+   {
+    "qid": "conv-50:153",
+    "miss": 1,
+    "bm_rank": 480,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 2
+   },
+   {
+    "qid": "conv-41:81",
+    "miss": 0,
+    "bm_rank": 1,
+    "in_pool": 1,
+    "jacc": 0.0682,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-26:140",
+    "miss": 1,
+    "bm_rank": 392,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 69
+   },
+   {
+    "qid": "conv-42:107",
+    "miss": 1,
+    "bm_rank": 131,
+    "in_pool": 0,
+    "jacc": 0.0278,
+    "gold_rank": 28
+   },
+   {
+    "qid": "conv-48:128",
+    "miss": 0,
+    "bm_rank": 0,
+    "in_pool": 1,
+    "jacc": 0.2143,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-30:56",
+    "miss": 1,
+    "bm_rank": 273,
+    "in_pool": 0,
+    "jacc": 0.0435,
+    "gold_rank": 1
+   },
+   {
+    "qid": "conv-49:96",
+    "miss": 1,
+    "bm_rank": 367,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 9
+   },
+   {
+    "qid": "conv-50:71",
+    "miss": 0,
+    "bm_rank": 16,
+    "in_pool": 1,
+    "jacc": 0.1304,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-48:101",
+    "miss": 0,
+    "bm_rank": 184,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-50:125",
+    "miss": 1,
+    "bm_rank": 0,
+    "in_pool": 1,
+    "jacc": 0.1538,
+    "gold_rank": 18
+   },
+   {
+    "qid": "conv-42:120",
+    "miss": 1,
+    "bm_rank": 545,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 46
+   },
+   {
+    "qid": "conv-42:135",
+    "miss": 1,
+    "bm_rank": 536,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 15
+   },
+   {
+    "qid": "conv-49:142",
+    "miss": 1,
+    "bm_rank": 423,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 242
+   },
+   {
+    "qid": "conv-48:163",
+    "miss": 1,
+    "bm_rank": 586,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 50
+   },
+   {
+    "qid": "conv-50:73",
+    "miss": 0,
+    "bm_rank": 85,
+    "in_pool": 0,
+    "jacc": 0.0769,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-50:98",
+    "miss": 1,
+    "bm_rank": 490,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 301
+   },
+   {
+    "qid": "conv-43:79",
+    "miss": 0,
+    "bm_rank": 2,
+    "in_pool": 1,
+    "jacc": 0.1053,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-41:102",
+    "miss": 1,
+    "bm_rank": 611,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 40
+   },
+   {
+    "qid": "conv-48:133",
+    "miss": 1,
+    "bm_rank": 362,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 42
+   },
+   {
+    "qid": "conv-49:145",
+    "miss": 1,
+    "bm_rank": 420,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 10
+   },
+   {
+    "qid": "conv-43:168",
+    "miss": 1,
+    "bm_rank": 162,
+    "in_pool": 0,
+    "jacc": 0.04,
+    "gold_rank": 1
+   },
+   {
+    "qid": "conv-48:118",
+    "miss": 0,
+    "bm_rank": 0,
+    "in_pool": 1,
+    "jacc": 0.1724,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-30:44",
+    "miss": 1,
+    "bm_rank": 276,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 54
+   },
+   {
+    "qid": "conv-41:141",
+    "miss": 0,
+    "bm_rank": 0,
+    "in_pool": 1,
+    "jacc": 0.25,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-43:81",
+    "miss": 0,
+    "bm_rank": 9,
+    "in_pool": 1,
+    "jacc": 0.1,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-42:106",
+    "miss": 0,
+    "bm_rank": 42,
+    "in_pool": 0,
+    "jacc": 0.0417,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-50:93",
+    "miss": 1,
+    "bm_rank": 378,
+    "in_pool": 0,
+    "jacc": 0.0417,
+    "gold_rank": 137
+   },
+   {
+    "qid": "conv-26:87",
+    "miss": 0,
+    "bm_rank": 21,
+    "in_pool": 0,
+    "jacc": 0.0417,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-48:122",
+    "miss": 0,
+    "bm_rank": 0,
+    "in_pool": 1,
+    "jacc": 0.2222,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-26:110",
+    "miss": 1,
+    "bm_rank": 205,
+    "in_pool": 0,
+    "jacc": 0.069,
+    "gold_rank": 37
+   },
+   {
+    "qid": "conv-42:91",
+    "miss": 1,
+    "bm_rank": 165,
+    "in_pool": 0,
+    "jacc": 0.037,
+    "gold_rank": 3
+   },
+   {
+    "qid": "conv-41:68",
+    "miss": 1,
+    "bm_rank": 610,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 24
+   },
+   {
+    "qid": "conv-30:52",
+    "miss": 0,
+    "bm_rank": 0,
+    "in_pool": 1,
+    "jacc": 0.1765,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-42:187",
+    "miss": 1,
+    "bm_rank": 521,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 339
+   },
+   {
+    "qid": "conv-43:101",
+    "miss": 1,
+    "bm_rank": 553,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 13
+   },
+   {
+    "qid": "conv-41:129",
+    "miss": 1,
+    "bm_rank": 614,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 41
+   },
+   {
+    "qid": "conv-42:162",
+    "miss": 0,
+    "bm_rank": 15,
+    "in_pool": 1,
+    "jacc": 0.0312,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-49:130",
+    "miss": 1,
+    "bm_rank": 419,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 123
+   },
+   {
+    "qid": "conv-26:92",
+    "miss": 0,
+    "bm_rank": 0,
+    "in_pool": 1,
+    "jacc": 0.1163,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-41:126",
+    "miss": 1,
+    "bm_rank": 657,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 180
+   },
+   {
+    "qid": "conv-43:106",
+    "miss": 1,
+    "bm_rank": 561,
+    "in_pool": 0,
+    "jacc": 0.04,
+    "gold_rank": 1
+   },
+   {
+    "qid": "conv-47:73",
+    "miss": 1,
+    "bm_rank": 424,
+    "in_pool": 0,
+    "jacc": 0.0417,
+    "gold_rank": 27
+   },
+   {
+    "qid": "conv-50:97",
+    "miss": 1,
+    "bm_rank": 546,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 157
+   },
+   {
+    "qid": "conv-48:112",
+    "miss": 0,
+    "bm_rank": 0,
+    "in_pool": 1,
+    "jacc": 0.1379,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-43:167",
+    "miss": 0,
+    "bm_rank": 3,
+    "in_pool": 1,
+    "jacc": 0.1562,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-26:120",
+    "miss": 1,
+    "bm_rank": 159,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 37
+   },
+   {
+    "qid": "conv-43:143",
+    "miss": 0,
+    "bm_rank": 0,
+    "in_pool": 1,
+    "jacc": 0.1463,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-48:176",
+    "miss": 0,
+    "bm_rank": 0,
+    "in_pool": 1,
+    "jacc": 0.1489,
+    "gold_rank": 0
+   },
+   {
+    "qid": "conv-48:96",
+    "miss": 1,
+    "bm_rank": 228,
+    "in_pool": 0,
+    "jacc": 0.0312,
+    "gold_rank": 69
+   },
+   {
+    "qid": "conv-43:163",
+    "miss": 1,
+    "bm_rank": 14,
+    "in_pool": 1,
+    "jacc": 0.04,
+    "gold_rank": 6
+   },
+   {
+    "qid": "conv-47:136",
+    "miss": 1,
+    "bm_rank": 659,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 167
+   },
+   {
+    "qid": "conv-42:194",
+    "miss": 1,
+    "bm_rank": 520,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 72
+   },
+   {
+    "qid": "conv-49:84",
+    "miss": 1,
+    "bm_rank": 295,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 9
+   },
+   {
+    "qid": "conv-42:138",
+    "miss": 1,
+    "bm_rank": 405,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 21
+   },
+   {
+    "qid": "conv-42:112",
+    "miss": 1,
+    "bm_rank": 382,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 58
+   },
+   {
+    "qid": "conv-50:139",
+    "miss": 1,
+    "bm_rank": 527,
+    "in_pool": 0,
+    "jacc": 0.0,
+    "gold_rank": 74
+   }
+  ]
+ }
+}
