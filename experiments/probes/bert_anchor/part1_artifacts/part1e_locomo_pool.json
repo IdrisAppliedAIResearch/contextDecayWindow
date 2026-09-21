@@ -1,0 +1,1567 @@
+{
+  "stats": {
+    "cat2_evidence_turns_1": 280,
+    "cat3_evidence_turns_2": 25,
+    "cat1_evidence_turns_1": 5,
+    "cat1_evidence_turns_2": 135,
+    "cat1_evidence_turns_4": 45,
+    "cat1_evidence_turns_3": 55,
+    "cat3_evidence_turns_1": 42,
+    "cat3_no_evidence": 4,
+    "cat1_evidence_not_in_dialogue": 4,
+    "cat1_evidence_turns_5": 38,
+    "cat3_evidence_turns_3": 9,
+    "cat4_evidence_turns_1": 795,
+    "cat4_evidence_turns_2": 39,
+    "cat5_excluded": 446,
+    "cat2_evidence_turns_2": 27,
+    "cat3_evidence_turns_4": 10,
+    "cat4_evidence_not_in_dialogue": 1,
+    "cat2_evidence_turns_4": 1,
+    "cat2_evidence_turns_3": 12,
+    "cat4_evidence_turns_3": 4,
+    "cat3_evidence_turns_5": 3,
+    "cat4_evidence_turns_4": 2,
+    "cat3_evidence_not_in_dialogue": 3,
+    "cat2_evidence_not_in_dialogue": 1,
+    "eligible_total": 1527,
+    "multi_evidence": 405,
+    "sample_taken": 120,
+    "sample_by_cat": {
+      "4": 57,
+      "2": 33,
+      "1": 23,
+      "3": 7
+    },
+    "sample_by_conv": {
+      "conv-48": 13,
+      "conv-49": 9,
+      "conv-50": 12,
+      "conv-42": 19,
+      "conv-41": 11,
+      "conv-47": 20,
+      "conv-44": 6,
+      "conv-43": 15,
+      "conv-26": 8,
+      "conv-30": 7
+    },
+    "sample_earliest_ne_latest": 34
+  },
+  "seed": 20260920,
+  "sample": [
+    {
+      "sample_id": "conv-48",
+      "qid": "conv-48:172",
+      "question": "What was one of Jolene's favorite games to play with her mom on the nintendo wii game system?",
+      "cat": "4",
+      "evidence": [
+        "D24:10"
+      ],
+      "gold_anchor_earliest": "D24:10",
+      "gold_anchor_latest": "D24:10",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-49",
+      "qid": "conv-49:79",
+      "question": "When will Evan and his partner have their honeymoon in Canada?",
+      "cat": "2",
+      "evidence": [
+        "D23:23"
+      ],
+      "gold_anchor_earliest": "D23:23",
+      "gold_anchor_latest": "D23:23",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-50",
+      "qid": "conv-50:84",
+      "question": "What fuels Calvin's soul?",
+      "cat": "4",
+      "evidence": [
+        "D7:11"
+      ],
+      "gold_anchor_earliest": "D7:11",
+      "gold_anchor_latest": "D7:11",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-42",
+      "qid": "conv-42:193",
+      "question": "What inspired Joanna to take a picture of the sunset in the field near Fort Wayne?",
+      "cat": "4",
+      "evidence": [
+        "D28:22"
+      ],
+      "gold_anchor_earliest": "D28:22",
+      "gold_anchor_latest": "D28:22",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-41",
+      "qid": "conv-41:31",
+      "question": "When did John get his dog Max?",
+      "cat": "2",
+      "evidence": [
+        "D17:1"
+      ],
+      "gold_anchor_earliest": "D17:1",
+      "gold_anchor_latest": "D17:1",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-47",
+      "qid": "conv-47:49",
+      "question": "What gaming equipments did John buy or refurbish?",
+      "cat": "1",
+      "evidence": [
+        "D20:9",
+        "D23:8",
+        "D23:10"
+      ],
+      "gold_anchor_earliest": "D20:9",
+      "gold_anchor_latest": "D23:10",
+      "texts": 3
+    },
+    {
+      "sample_id": "conv-44",
+      "qid": "conv-44:83",
+      "question": "What special memories does Audrey have with her childhood dog, Max?",
+      "cat": "4",
+      "evidence": [
+        "D13:10"
+      ],
+      "gold_anchor_earliest": "D13:10",
+      "gold_anchor_latest": "D13:10",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-43",
+      "qid": "conv-43:131",
+      "question": "What does Tim have that serves as a reminder of hard work and is his prized possession?",
+      "cat": "4",
+      "evidence": [
+        "D16:7"
+      ],
+      "gold_anchor_earliest": "D16:7",
+      "gold_anchor_latest": "D16:7",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-42",
+      "qid": "conv-42:114",
+      "question": "What kind of books does Nate enjoy?",
+      "cat": "4",
+      "evidence": [
+        "D9:14"
+      ],
+      "gold_anchor_earliest": "D9:14",
+      "gold_anchor_latest": "D9:14",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-47",
+      "qid": "conv-47:18",
+      "question": "Which books has John recommended to James?",
+      "cat": "1",
+      "evidence": [
+        "D8:14",
+        "D14:10"
+      ],
+      "gold_anchor_earliest": "D8:14",
+      "gold_anchor_latest": "D14:10",
+      "texts": 2
+    },
+    {
+      "sample_id": "conv-43",
+      "qid": "conv-43:132",
+      "question": "Why do Tim and John find LeBron inspiring?",
+      "cat": "4",
+      "evidence": [
+        "D16:9",
+        "D16:10"
+      ],
+      "gold_anchor_earliest": "D16:9",
+      "gold_anchor_latest": "D16:10",
+      "texts": 2
+    },
+    {
+      "sample_id": "conv-26",
+      "qid": "conv-26:45",
+      "question": "When did Caroline attend a pride parade in August?",
+      "cat": "2",
+      "evidence": [
+        "D11:4"
+      ],
+      "gold_anchor_earliest": "D11:4",
+      "gold_anchor_latest": "D11:4",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-41",
+      "qid": "conv-41:29",
+      "question": "What events is Maria planning for the homeless shelter funraiser?",
+      "cat": "1",
+      "evidence": [
+        "D15:18",
+        "D16:4"
+      ],
+      "gold_anchor_earliest": "D15:18",
+      "gold_anchor_latest": "D16:4",
+      "texts": 2
+    },
+    {
+      "sample_id": "conv-50",
+      "qid": "conv-50:111",
+      "question": "Which Disney movie did Dave mention as one of his favorites?",
+      "cat": "4",
+      "evidence": [
+        "D19:6"
+      ],
+      "gold_anchor_earliest": "D19:6",
+      "gold_anchor_latest": "D19:6",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-43",
+      "qid": "conv-43:20",
+      "question": "Which city was John in before traveling to Chicago?",
+      "cat": "2",
+      "evidence": [
+        "D3:19",
+        "D5:2",
+        "D6:1",
+        "D6:3"
+      ],
+      "gold_anchor_earliest": "D3:19",
+      "gold_anchor_latest": "D6:3",
+      "texts": 4
+    },
+    {
+      "sample_id": "conv-48",
+      "qid": "conv-48:18",
+      "question": "In what country did Jolene buy snake Seraphim?",
+      "cat": "3",
+      "evidence": [
+        "D2:24"
+      ],
+      "gold_anchor_earliest": "D2:24",
+      "gold_anchor_latest": "D2:24",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-47",
+      "qid": "conv-47:85",
+      "question": "What breed is Daisy, one of James' dogs?",
+      "cat": "4",
+      "evidence": [
+        "D9:12"
+      ],
+      "gold_anchor_earliest": "D9:12",
+      "gold_anchor_latest": "D9:12",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-44",
+      "qid": "conv-44:49",
+      "question": "What does Audrey view her pets as?",
+      "cat": "1",
+      "evidence": [
+        "D15:15",
+        "D23:18"
+      ],
+      "gold_anchor_earliest": "D15:15",
+      "gold_anchor_latest": "D23:18",
+      "texts": 2
+    },
+    {
+      "sample_id": "conv-41",
+      "qid": "conv-41:24",
+      "question": "When did John start boot camp with his family?",
+      "cat": "2",
+      "evidence": [
+        "D13:3"
+      ],
+      "gold_anchor_earliest": "D13:3",
+      "gold_anchor_latest": "D13:3",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-26",
+      "qid": "conv-26:143",
+      "question": "What happened to Melanie's son on their road trip?",
+      "cat": "4",
+      "evidence": [
+        "D18:1"
+      ],
+      "gold_anchor_earliest": "D18:1",
+      "gold_anchor_latest": "D18:1",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-42",
+      "qid": "conv-42:2",
+      "question": "When did Joanna first watch \"Eternal Sunshine of the Spotless Mind?",
+      "cat": "2",
+      "evidence": [
+        "D1:18"
+      ],
+      "gold_anchor_earliest": "D1:18",
+      "gold_anchor_latest": "D1:18",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-42",
+      "qid": "conv-42:134",
+      "question": "What recipe Nate offer to share with Joanna?",
+      "cat": "4",
+      "evidence": [
+        "D16:10"
+      ],
+      "gold_anchor_earliest": "D16:10",
+      "gold_anchor_latest": "D16:10",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-47",
+      "qid": "conv-47:0",
+      "question": "What are John's suspected health problems?",
+      "cat": "3",
+      "evidence": [
+        "D1:27"
+      ],
+      "gold_anchor_earliest": "D1:27",
+      "gold_anchor_latest": "D1:27",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-41",
+      "qid": "conv-41:148",
+      "question": "How is Maria's new puppy adjusting to its new home?",
+      "cat": "4",
+      "evidence": [
+        "D31:10"
+      ],
+      "gold_anchor_earliest": "D31:10",
+      "gold_anchor_latest": "D31:10",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-44",
+      "qid": "conv-44:18",
+      "question": "Where did Audrey get Pixie from?",
+      "cat": "1",
+      "evidence": [
+        "D2:1",
+        "D11:4"
+      ],
+      "gold_anchor_earliest": "D2:1",
+      "gold_anchor_latest": "D11:4",
+      "texts": 2
+    },
+    {
+      "sample_id": "conv-47",
+      "qid": "conv-47:132",
+      "question": "What career milestone did John achieve recently in September 2022?",
+      "cat": "4",
+      "evidence": [
+        "D25:7"
+      ],
+      "gold_anchor_earliest": "D25:7",
+      "gold_anchor_latest": "D25:7",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-47",
+      "qid": "conv-47:100",
+      "question": "Will there be an interview required to volunteer with the organization James volunteered for?",
+      "cat": "4",
+      "evidence": [
+        "D15:15"
+      ],
+      "gold_anchor_earliest": "D15:15",
+      "gold_anchor_latest": "D15:15",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-48",
+      "qid": "conv-48:119",
+      "question": "What picture did Jolene share related to feeling overwhelmed?",
+      "cat": "4",
+      "evidence": [
+        "D8:16"
+      ],
+      "gold_anchor_earliest": "D8:16",
+      "gold_anchor_latest": "D8:16",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-42",
+      "qid": "conv-42:69",
+      "question": "How many turtles does Nate have?",
+      "cat": "1",
+      "evidence": [
+        "D8:3",
+        "D28:23"
+      ],
+      "gold_anchor_earliest": "D8:3",
+      "gold_anchor_latest": "D28:23",
+      "texts": 2
+    },
+    {
+      "sample_id": "conv-43",
+      "qid": "conv-43:83",
+      "question": "What kind of articles has Tim been writing about for the online magazine?",
+      "cat": "4",
+      "evidence": [
+        "D4:5"
+      ],
+      "gold_anchor_earliest": "D4:5",
+      "gold_anchor_latest": "D4:5",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-50",
+      "qid": "conv-50:50",
+      "question": "When did Calvin buy his second Ferrari?",
+      "cat": "2",
+      "evidence": [
+        "D23:16"
+      ],
+      "gold_anchor_earliest": "D23:16",
+      "gold_anchor_latest": "D23:16",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-49",
+      "qid": "conv-49:123",
+      "question": "What adventurous theme is emerging in Evan's life as mentioned by Sam?",
+      "cat": "4",
+      "evidence": [
+        "D14:2"
+      ],
+      "gold_anchor_earliest": "D14:2",
+      "gold_anchor_latest": "D14:2",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-48",
+      "qid": "conv-48:43",
+      "question": "When did Deborah go for a bicycle ride with Anna?",
+      "cat": "2",
+      "evidence": [
+        "D12:1"
+      ],
+      "gold_anchor_earliest": "D12:1",
+      "gold_anchor_latest": "D12:1",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-47",
+      "qid": "conv-47:145",
+      "question": "Why did James and Samantha choose an apartment near McGee's bar?",
+      "cat": "4",
+      "evidence": [
+        "D29:12"
+      ],
+      "gold_anchor_earliest": "D29:12",
+      "gold_anchor_latest": "D29:12",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-43",
+      "qid": "conv-43:150",
+      "question": "Which book did Tim recommend to John as a good story on 8th December, 2023?",
+      "cat": "4",
+      "evidence": [
+        "D22:13"
+      ],
+      "gold_anchor_earliest": "D22:13",
+      "gold_anchor_latest": "D22:13",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-47",
+      "qid": "conv-47:78",
+      "question": "What did James adopt in April 2022?",
+      "cat": "4",
+      "evidence": [
+        "D5:1"
+      ],
+      "gold_anchor_earliest": "D5:1",
+      "gold_anchor_latest": "D5:1",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-42",
+      "qid": "conv-42:86",
+      "question": "When did Nate take his turtles to the beach?",
+      "cat": "2",
+      "evidence": [
+        "D29:6"
+      ],
+      "gold_anchor_earliest": "D29:6",
+      "gold_anchor_latest": "D29:6",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-48",
+      "qid": "conv-48:93",
+      "question": "What projects is Jolene planning for next year?",
+      "cat": "4",
+      "evidence": [
+        "D22:10",
+        "D22:12"
+      ],
+      "gold_anchor_earliest": "D22:10",
+      "gold_anchor_latest": "D22:12",
+      "texts": 2
+    },
+    {
+      "sample_id": "conv-44",
+      "qid": "conv-44:101",
+      "question": "What type of jewelry does Audrey make?",
+      "cat": "4",
+      "evidence": [
+        "D22:5"
+      ],
+      "gold_anchor_earliest": "D22:5",
+      "gold_anchor_latest": "D22:5",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-49",
+      "qid": "conv-49:53",
+      "question": "When did Evan and Sam decide to paint together?",
+      "cat": "2",
+      "evidence": [
+        "D10:12",
+        "D10:13",
+        "D10:14"
+      ],
+      "gold_anchor_earliest": "D10:12",
+      "gold_anchor_latest": "D10:14",
+      "texts": 3
+    },
+    {
+      "sample_id": "conv-42",
+      "qid": "conv-42:63",
+      "question": "What video games does Nate play?",
+      "cat": "1",
+      "evidence": [
+        "D1:7",
+        "D10:6",
+        "D23:17",
+        "D27:1",
+        "D27:23"
+      ],
+      "gold_anchor_earliest": "D1:7",
+      "gold_anchor_latest": "D27:23",
+      "texts": 5
+    },
+    {
+      "sample_id": "conv-26",
+      "qid": "conv-26:73",
+      "question": "When did Melanie get hurt?",
+      "cat": "2",
+      "evidence": [
+        "D17:8"
+      ],
+      "gold_anchor_earliest": "D17:8",
+      "gold_anchor_latest": "D17:8",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-41",
+      "qid": "conv-41:73",
+      "question": "Who inspired Maria to start volunteering?",
+      "cat": "4",
+      "evidence": [
+        "D5:8"
+      ],
+      "gold_anchor_earliest": "D5:8",
+      "gold_anchor_latest": "D5:8",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-43",
+      "qid": "conv-43:153",
+      "question": "What was John's way of dealing with doubts and stress when he was younger?",
+      "cat": "4",
+      "evidence": [
+        "D23:9"
+      ],
+      "gold_anchor_earliest": "D23:9",
+      "gold_anchor_latest": "D23:9",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-47",
+      "qid": "conv-47:29",
+      "question": "When did James depart for his trip to Canada?",
+      "cat": "2",
+      "evidence": [
+        "D16:9"
+      ],
+      "gold_anchor_earliest": "D16:9",
+      "gold_anchor_latest": "D16:9",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-48",
+      "qid": "conv-48:126",
+      "question": "What type of music does Deborah find helpful during her yoga practice?",
+      "cat": "4",
+      "evidence": [
+        "D11:8"
+      ],
+      "gold_anchor_earliest": "D11:8",
+      "gold_anchor_latest": "D11:8",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-50",
+      "qid": "conv-50:13",
+      "question": "Would Calvin enjoy performing at the Hollywood Bowl?",
+      "cat": "3",
+      "evidence": [
+        "D7:11"
+      ],
+      "gold_anchor_earliest": "D7:11",
+      "gold_anchor_latest": "D7:11",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-48",
+      "qid": "conv-48:60",
+      "question": "When did Deborah go to a yoga retreat near her mom's place?",
+      "cat": "2",
+      "evidence": [
+        "D21:1"
+      ],
+      "gold_anchor_earliest": "D21:1",
+      "gold_anchor_latest": "D21:1",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-49",
+      "qid": "conv-49:19",
+      "question": "Considering their conversations and personal growth, what advice might Evan and Sam give to someone facing a major life transition or challenge?",
+      "cat": "3",
+      "evidence": [
+        "D3:10",
+        "D3:15",
+        "D8:17",
+        "D8:22",
+        "D9:8",
+        "D9:11",
+        "D12:7",
+        "D12:11",
+        "D14:7",
+        "D14:12",
+        "D22:1"
+      ],
+      "gold_anchor_earliest": "D3:10",
+      "gold_anchor_latest": "D22:1",
+      "texts": 11
+    },
+    {
+      "sample_id": "conv-30",
+      "qid": "conv-30:8",
+      "question": "When was Jon in Paris?",
+      "cat": "2",
+      "evidence": [
+        "D2:4"
+      ],
+      "gold_anchor_earliest": "D2:4",
+      "gold_anchor_latest": "D2:4",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-50",
+      "qid": "conv-50:8",
+      "question": "When did Dave start his car maintenance shop?",
+      "cat": "2",
+      "evidence": [
+        "D4:1"
+      ],
+      "gold_anchor_earliest": "D4:1",
+      "gold_anchor_latest": "D4:1",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-43",
+      "qid": "conv-43:54",
+      "question": "When did John take a trip to the Rocky Mountains?",
+      "cat": "2",
+      "evidence": [
+        "D20:40"
+      ],
+      "gold_anchor_earliest": "D20:40",
+      "gold_anchor_latest": "D20:40",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-42",
+      "qid": "conv-42:168",
+      "question": "What helps Joanna stay focused and brings her joy?",
+      "cat": "4",
+      "evidence": [
+        "D24:8"
+      ],
+      "gold_anchor_earliest": "D24:8",
+      "gold_anchor_latest": "D24:8",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-41",
+      "qid": "conv-41:138",
+      "question": "What activity did Maria take up with her friends from church in August 2023?",
+      "cat": "4",
+      "evidence": [
+        "D28:8"
+      ],
+      "gold_anchor_earliest": "D28:8",
+      "gold_anchor_latest": "D28:8",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-42",
+      "qid": "conv-42:16",
+      "question": "What physical transformation did Nate undergo in April 2022?",
+      "cat": "2",
+      "evidence": [
+        "D7:1",
+        "D7:3"
+      ],
+      "gold_anchor_earliest": "D7:1",
+      "gold_anchor_latest": "D7:3",
+      "texts": 2
+    },
+    {
+      "sample_id": "conv-43",
+      "qid": "conv-43:24",
+      "question": "Where was John between August 11 and August 15 2023?",
+      "cat": "2",
+      "evidence": [
+        "D6:1",
+        "D6:3",
+        "D7:1"
+      ],
+      "gold_anchor_earliest": "D6:1",
+      "gold_anchor_latest": "D7:1",
+      "texts": 3
+    },
+    {
+      "sample_id": "conv-42",
+      "qid": "conv-42:5",
+      "question": "What are Joanna's hobbies?",
+      "cat": "1",
+      "evidence": [
+        "D1:10",
+        "D2:25"
+      ],
+      "gold_anchor_earliest": "D1:10",
+      "gold_anchor_latest": "D2:25",
+      "texts": 2
+    },
+    {
+      "sample_id": "conv-50",
+      "qid": "conv-50:25",
+      "question": "When did Dave host a card-playing night with his friends?",
+      "cat": "2",
+      "evidence": [
+        "D15:1"
+      ],
+      "gold_anchor_earliest": "D15:1",
+      "gold_anchor_latest": "D15:1",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-42",
+      "qid": "conv-42:125",
+      "question": "Who did Nate plan to invite to his gaming party in June 2022?",
+      "cat": "4",
+      "evidence": [
+        "D14:22"
+      ],
+      "gold_anchor_earliest": "D14:22",
+      "gold_anchor_latest": "D14:22",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-30",
+      "qid": "conv-30:25",
+      "question": "What does Jon's dance studio offer?",
+      "cat": "1",
+      "evidence": [
+        "D8:13",
+        "D13:7"
+      ],
+      "gold_anchor_earliest": "D8:13",
+      "gold_anchor_latest": "D13:7",
+      "texts": 2
+    },
+    {
+      "sample_id": "conv-42",
+      "qid": "conv-42:68",
+      "question": "How many hikes has Joanna been on?",
+      "cat": "3",
+      "evidence": [
+        "D7:6",
+        "D11:5",
+        "D14:21",
+        "D28:22"
+      ],
+      "gold_anchor_earliest": "D7:6",
+      "gold_anchor_latest": "D28:22",
+      "texts": 4
+    },
+    {
+      "sample_id": "conv-49",
+      "qid": "conv-49:131",
+      "question": "What did Sam suggest Evan try for stress relief and flexibility?",
+      "cat": "4",
+      "evidence": [
+        "D18:8"
+      ],
+      "gold_anchor_earliest": "D18:8",
+      "gold_anchor_latest": "D18:8",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-48",
+      "qid": "conv-48:41",
+      "question": "What ways do Deborah and Jolene use to enhance their yoga practice?",
+      "cat": "1",
+      "evidence": [
+        "D11:4",
+        "D11:7",
+        "D28:16",
+        "D28:18"
+      ],
+      "gold_anchor_earliest": "D11:4",
+      "gold_anchor_latest": "D28:18",
+      "texts": 4
+    },
+    {
+      "sample_id": "conv-42",
+      "qid": "conv-42:170",
+      "question": "Why did Joanna name the stuffed animal dog Tilly?",
+      "cat": "4",
+      "evidence": [
+        "D24:6"
+      ],
+      "gold_anchor_earliest": "D24:6",
+      "gold_anchor_latest": "D24:6",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-26",
+      "qid": "conv-26:76",
+      "question": "When did Melanie go on a hike after the roadtrip?",
+      "cat": "1",
+      "evidence": [
+        "D18:17"
+      ],
+      "gold_anchor_earliest": "D18:17",
+      "gold_anchor_latest": "D18:17",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-50",
+      "qid": "conv-50:68",
+      "question": "When did Dave find the car he repaired and started sharing in his blog?",
+      "cat": "2",
+      "evidence": [
+        "D28:20"
+      ],
+      "gold_anchor_earliest": "D28:20",
+      "gold_anchor_latest": "D28:20",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-50",
+      "qid": "conv-50:48",
+      "question": "What was Dave doing in the first weekend of October 2023?",
+      "cat": "2",
+      "evidence": [
+        "D22:1"
+      ],
+      "gold_anchor_earliest": "D22:1",
+      "gold_anchor_latest": "D22:1",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-30",
+      "qid": "conv-30:2",
+      "question": "How do Jon and Gina both like to destress?",
+      "cat": "4",
+      "evidence": [
+        "D1:6",
+        "D1:7"
+      ],
+      "gold_anchor_earliest": "D1:6",
+      "gold_anchor_latest": "D1:7",
+      "texts": 2
+    },
+    {
+      "sample_id": "conv-26",
+      "qid": "conv-26:16",
+      "question": "When did Melanie sign up for a pottery class?",
+      "cat": "2",
+      "evidence": [
+        "D5:4"
+      ],
+      "gold_anchor_earliest": "D5:4",
+      "gold_anchor_latest": "D5:4",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-47",
+      "qid": "conv-47:108",
+      "question": "Which game tournaments does John plan to organize besides CS:GO?",
+      "cat": "4",
+      "evidence": [
+        "D18:9"
+      ],
+      "gold_anchor_earliest": "D18:9",
+      "gold_anchor_latest": "D18:9",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-42",
+      "qid": "conv-42:174",
+      "question": "What does Nate rely on for cheer and joy?",
+      "cat": "4",
+      "evidence": [
+        "D24:3"
+      ],
+      "gold_anchor_earliest": "D24:3",
+      "gold_anchor_latest": "D24:3",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-47",
+      "qid": "conv-47:12",
+      "question": "Did James have a girlfriend during April 2022?",
+      "cat": "3",
+      "evidence": [
+        "D6:6"
+      ],
+      "gold_anchor_earliest": "D6:6",
+      "gold_anchor_latest": "D6:6",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-47",
+      "qid": "conv-47:40",
+      "question": "What kind of tricks do James's pets know?",
+      "cat": "1",
+      "evidence": [
+        "D2:17",
+        "D14:17",
+        "D14:23",
+        "D17:16"
+      ],
+      "gold_anchor_earliest": "D2:17",
+      "gold_anchor_latest": "D17:16",
+      "texts": 4
+    },
+    {
+      "sample_id": "conv-50",
+      "qid": "conv-50:5",
+      "question": "What are Dave's dreams?",
+      "cat": "1",
+      "evidence": [
+        "D4:5",
+        "D5:5"
+      ],
+      "gold_anchor_earliest": "D4:5",
+      "gold_anchor_latest": "D5:5",
+      "texts": 2
+    },
+    {
+      "sample_id": "conv-30",
+      "qid": "conv-30:24",
+      "question": "Which events has Jon participated in to promote his business venture?",
+      "cat": "1",
+      "evidence": [
+        "D8:4",
+        "D10:1",
+        "D16:6"
+      ],
+      "gold_anchor_earliest": "D8:4",
+      "gold_anchor_latest": "D16:6",
+      "texts": 3
+    },
+    {
+      "sample_id": "conv-48",
+      "qid": "conv-48:141",
+      "question": "What activity does Deborah do with her cats?",
+      "cat": "4",
+      "evidence": [
+        "D15:27"
+      ],
+      "gold_anchor_earliest": "D15:27",
+      "gold_anchor_latest": "D15:27",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-50",
+      "qid": "conv-50:30",
+      "question": "What kind of music does Dave listen to?",
+      "cat": "1",
+      "evidence": [
+        "D2:10",
+        "D10:11",
+        "D28:40"
+      ],
+      "gold_anchor_earliest": "D2:10",
+      "gold_anchor_latest": "D28:40",
+      "texts": 3
+    },
+    {
+      "sample_id": "conv-47",
+      "qid": "conv-47:28",
+      "question": "When did James volunteer at an organization?",
+      "cat": "2",
+      "evidence": [
+        "D15:9"
+      ],
+      "gold_anchor_earliest": "D15:9",
+      "gold_anchor_latest": "D15:9",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-48",
+      "qid": "conv-48:107",
+      "question": "What does Deborah bring with her whenever she comes to reflect on her mom?",
+      "cat": "4",
+      "evidence": [
+        "D4:36"
+      ],
+      "gold_anchor_earliest": "D4:36",
+      "gold_anchor_latest": "D4:36",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-44",
+      "qid": "conv-44:30",
+      "question": "When is Andrew planning to go to the beach with his girlfriend?",
+      "cat": "2",
+      "evidence": [
+        "D20:1"
+      ],
+      "gold_anchor_earliest": "D20:1",
+      "gold_anchor_latest": "D20:1",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-43",
+      "qid": "conv-43:21",
+      "question": "Which US cities does John mention visiting to Tim?",
+      "cat": "1",
+      "evidence": [
+        "D3:19",
+        "D6:3",
+        "D9:6"
+      ],
+      "gold_anchor_earliest": "D3:19",
+      "gold_anchor_latest": "D9:6",
+      "texts": 3
+    },
+    {
+      "sample_id": "conv-49",
+      "qid": "conv-49:92",
+      "question": "What frustrating issue did Sam face at the supermarket?",
+      "cat": "4",
+      "evidence": [
+        "D3:16"
+      ],
+      "gold_anchor_earliest": "D3:16",
+      "gold_anchor_latest": "D3:16",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-48",
+      "qid": "conv-48:138",
+      "question": "What made being part of the running group easy for Deborah to stay motivated?",
+      "cat": "4",
+      "evidence": [
+        "D15:3"
+      ],
+      "gold_anchor_earliest": "D15:3",
+      "gold_anchor_latest": "D15:3",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-42",
+      "qid": "conv-42:34",
+      "question": "What book recommendations has Joanna given to Nate?",
+      "cat": "1",
+      "evidence": [
+        "D3:17",
+        "D19:14",
+        "D19:16"
+      ],
+      "gold_anchor_earliest": "D3:17",
+      "gold_anchor_latest": "D19:16",
+      "texts": 3
+    },
+    {
+      "sample_id": "conv-47",
+      "qid": "conv-47:93",
+      "question": "What did John receive for achieving second place in the tournament?",
+      "cat": "4",
+      "evidence": [
+        "D12:5",
+        "D12:6"
+      ],
+      "gold_anchor_earliest": "D12:5",
+      "gold_anchor_latest": "D12:6",
+      "texts": 2
+    },
+    {
+      "sample_id": "conv-26",
+      "qid": "conv-26:133",
+      "question": "What precautionary sign did Melanie see at the caf\u00e9?",
+      "cat": "4",
+      "evidence": [
+        "D16:16"
+      ],
+      "gold_anchor_earliest": "D16:16",
+      "gold_anchor_latest": "D16:16",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-43",
+      "qid": "conv-43:42",
+      "question": "What has John cooked?",
+      "cat": "1",
+      "evidence": [
+        "D10:4",
+        "D15:30",
+        "D15:31",
+        "D15:32"
+      ],
+      "gold_anchor_earliest": "D10:4",
+      "gold_anchor_latest": "D15:32",
+      "texts": 4
+    },
+    {
+      "sample_id": "conv-50",
+      "qid": "conv-50:129",
+      "question": "What does Calvin find energizing during the tour?",
+      "cat": "4",
+      "evidence": [
+        "D25:2"
+      ],
+      "gold_anchor_earliest": "D25:2",
+      "gold_anchor_latest": "D25:2",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-50",
+      "qid": "conv-50:104",
+      "question": "Why did Calvin get his guitar customized with a shiny finish?",
+      "cat": "4",
+      "evidence": [
+        "D16:20"
+      ],
+      "gold_anchor_earliest": "D16:20",
+      "gold_anchor_latest": "D16:20",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-26",
+      "qid": "conv-26:53",
+      "question": "When did Caroline apply to adoption agencies?",
+      "cat": "2",
+      "evidence": [
+        "D13:1"
+      ],
+      "gold_anchor_earliest": "D13:1",
+      "gold_anchor_latest": "D13:1",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-41",
+      "qid": "conv-41:116",
+      "question": "Why did Maria need to help her cousin find a new place to live?",
+      "cat": "4",
+      "evidence": [
+        "D21:5"
+      ],
+      "gold_anchor_earliest": "D21:5",
+      "gold_anchor_latest": "D21:5",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-47",
+      "qid": "conv-47:102",
+      "question": "What did James enjoy doing on cold winter days?",
+      "cat": "4",
+      "evidence": [
+        "D16:9"
+      ],
+      "gold_anchor_earliest": "D16:9",
+      "gold_anchor_latest": "D16:9",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-41",
+      "qid": "conv-41:146",
+      "question": "Why does John say he feels stuck and questioning his decisions and goals?",
+      "cat": "4",
+      "evidence": [
+        "D30:14"
+      ],
+      "gold_anchor_earliest": "D30:14",
+      "gold_anchor_latest": "D30:14",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-47",
+      "qid": "conv-47:139",
+      "question": "What sparked James' passion for gaming when he was a kid?",
+      "cat": "4",
+      "evidence": [
+        "D28:25"
+      ],
+      "gold_anchor_earliest": "D28:25",
+      "gold_anchor_latest": "D28:25",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-47",
+      "qid": "conv-47:24",
+      "question": "What kind of games has James tried to develop?",
+      "cat": "1",
+      "evidence": [
+        "D1:4",
+        "D13:7",
+        "D27:2"
+      ],
+      "gold_anchor_earliest": "D1:4",
+      "gold_anchor_latest": "D27:2",
+      "texts": 3
+    },
+    {
+      "sample_id": "conv-30",
+      "qid": "conv-30:10",
+      "question": "When did Gina team up with a local artist for some cool designs?",
+      "cat": "2",
+      "evidence": [
+        "D5:5"
+      ],
+      "gold_anchor_earliest": "D5:5",
+      "gold_anchor_latest": "D5:5",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-49",
+      "qid": "conv-49:47",
+      "question": "When did Evan go skiing in Banff?",
+      "cat": "2",
+      "evidence": [
+        "D8:26",
+        "D8:27",
+        "D8:28"
+      ],
+      "gold_anchor_earliest": "D8:26",
+      "gold_anchor_latest": "D8:28",
+      "texts": 3
+    },
+    {
+      "sample_id": "conv-43",
+      "qid": "conv-43:40",
+      "question": "Has Tim been to North Carolina and/or Tennesee states in the US?",
+      "cat": "2",
+      "evidence": [
+        "D14:16"
+      ],
+      "gold_anchor_earliest": "D14:16",
+      "gold_anchor_latest": "D14:16",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-47",
+      "qid": "conv-47:117",
+      "question": "What were some difficulties James faced during the development of his game?",
+      "cat": "4",
+      "evidence": [
+        "D22:7"
+      ],
+      "gold_anchor_earliest": "D22:7",
+      "gold_anchor_latest": "D22:7",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-26",
+      "qid": "conv-26:98",
+      "question": "What was discussed in the LGBTQ+ counseling workshop?",
+      "cat": "4",
+      "evidence": [
+        "D4:13"
+      ],
+      "gold_anchor_earliest": "D4:13",
+      "gold_anchor_latest": "D4:13",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-42",
+      "qid": "conv-42:183",
+      "question": "What game is Nate currently playing and recommends to others on November 7, 2022?",
+      "cat": "4",
+      "evidence": [
+        "D27:23"
+      ],
+      "gold_anchor_earliest": "D27:23",
+      "gold_anchor_latest": "D27:23",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-49",
+      "qid": "conv-49:78",
+      "question": "Who did Evan tell about his marriage?",
+      "cat": "1",
+      "evidence": [
+        "D21:2",
+        "D22:4",
+        "D22:5",
+        "D23:1",
+        "D23:5"
+      ],
+      "gold_anchor_earliest": "D21:2",
+      "gold_anchor_latest": "D23:5",
+      "texts": 5
+    },
+    {
+      "sample_id": "conv-41",
+      "qid": "conv-41:80",
+      "question": "What did Maria make for her home to remind her of a trip to England?",
+      "cat": "4",
+      "evidence": [
+        "D8:15"
+      ],
+      "gold_anchor_earliest": "D8:15",
+      "gold_anchor_latest": "D8:15",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-49",
+      "qid": "conv-49:60",
+      "question": "Which new activity does Sam take up in October 2023?",
+      "cat": "2",
+      "evidence": [
+        "D13:8"
+      ],
+      "gold_anchor_earliest": "D13:8",
+      "gold_anchor_latest": "D13:8",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-43",
+      "qid": "conv-43:41",
+      "question": "What kind of fiction stories does Tim write?",
+      "cat": "1",
+      "evidence": [
+        "D15:3",
+        "D16:1"
+      ],
+      "gold_anchor_earliest": "D15:3",
+      "gold_anchor_latest": "D16:1",
+      "texts": 2
+    },
+    {
+      "sample_id": "conv-30",
+      "qid": "conv-30:64",
+      "question": "Where is Gina's fashion internship?",
+      "cat": "4",
+      "evidence": [
+        "D12:3"
+      ],
+      "gold_anchor_earliest": "D12:3",
+      "gold_anchor_latest": "D12:3",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-47",
+      "qid": "conv-47:4",
+      "question": "When did John resume playing drums in his adulthood?",
+      "cat": "2",
+      "evidence": [
+        "D3:5"
+      ],
+      "gold_anchor_earliest": "D3:5",
+      "gold_anchor_latest": "D3:5",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-43",
+      "qid": "conv-43:171",
+      "question": "What map does Tim show to his friend John?",
+      "cat": "4",
+      "evidence": [
+        "D27:33"
+      ],
+      "gold_anchor_earliest": "D27:33",
+      "gold_anchor_latest": "D27:33",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-43",
+      "qid": "conv-43:59",
+      "question": "Which career-high performances did John achieve in 2023?",
+      "cat": "1",
+      "evidence": [
+        "D3:1",
+        "D23:2"
+      ],
+      "gold_anchor_earliest": "D3:1",
+      "gold_anchor_latest": "D23:2",
+      "texts": 2
+    },
+    {
+      "sample_id": "conv-44",
+      "qid": "conv-44:109",
+      "question": "What kind of experiences are Audrey's dogs the best companions for?",
+      "cat": "4",
+      "evidence": [
+        "D23:24"
+      ],
+      "gold_anchor_earliest": "D23:24",
+      "gold_anchor_latest": "D23:24",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-30",
+      "qid": "conv-30:22",
+      "question": "When did Gina develop a video presentation to teach how to style her fashion pieces? ",
+      "cat": "2",
+      "evidence": [
+        "D13:4"
+      ],
+      "gold_anchor_earliest": "D13:4",
+      "gold_anchor_latest": "D13:4",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-48",
+      "qid": "conv-48:38",
+      "question": "When did Deborah start the yoga class in the neighborhood?",
+      "cat": "2",
+      "evidence": [
+        "D9:5"
+      ],
+      "gold_anchor_earliest": "D9:5",
+      "gold_anchor_latest": "D9:5",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-42",
+      "qid": "conv-42:55",
+      "question": "What is Joanna inspired by?",
+      "cat": "1",
+      "evidence": [
+        "D4:6",
+        "D7:6",
+        "D11:11",
+        "D25:10",
+        "D26:3",
+        "D26:7"
+      ],
+      "gold_anchor_earliest": "D4:6",
+      "gold_anchor_latest": "D26:7",
+      "texts": 6
+    },
+    {
+      "sample_id": "conv-48",
+      "qid": "conv-48:104",
+      "question": "What activity did Jolene and her partner plan to do together instead of resuming yoga?",
+      "cat": "4",
+      "evidence": [
+        "D3:11"
+      ],
+      "gold_anchor_earliest": "D3:11",
+      "gold_anchor_latest": "D3:11",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-42",
+      "qid": "conv-42:191",
+      "question": "What advice does Joanna give to Nate about making YouTube videos?",
+      "cat": "4",
+      "evidence": [
+        "D28:18"
+      ],
+      "gold_anchor_earliest": "D28:18",
+      "gold_anchor_latest": "D28:18",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-41",
+      "qid": "conv-41:64",
+      "question": "What job might Maria pursue in the future?",
+      "cat": "3",
+      "evidence": [
+        "D5:8",
+        "D11:10",
+        "D27:4",
+        "D32:14"
+      ],
+      "gold_anchor_earliest": "D5:8",
+      "gold_anchor_latest": "D32:14",
+      "texts": 4
+    },
+    {
+      "sample_id": "conv-47",
+      "qid": "conv-47:57",
+      "question": "When did James' mother and her friend visit him?",
+      "cat": "2",
+      "evidence": [
+        "D28:19"
+      ],
+      "gold_anchor_earliest": "D28:19",
+      "gold_anchor_latest": "D28:19",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-42",
+      "qid": "conv-42:153",
+      "question": "What substitution does Nate suggest for butter in dairy-free baking?",
+      "cat": "4",
+      "evidence": [
+        "D20:15"
+      ],
+      "gold_anchor_earliest": "D20:15",
+      "gold_anchor_latest": "D20:15",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-43",
+      "qid": "conv-43:174",
+      "question": "What charity event did John organize recently in 2024?",
+      "cat": "4",
+      "evidence": [
+        "D28:10"
+      ],
+      "gold_anchor_earliest": "D28:10",
+      "gold_anchor_latest": "D28:10",
+      "texts": 1
+    },
+    {
+      "sample_id": "conv-41",
+      "qid": "conv-41:137",
+      "question": "What happened to John's job in August 2023?",
+      "cat": "4",
+      "evidence": [
+        "D28:1"
+      ],
+      "gold_anchor_earliest": "D28:1",
+      "gold_anchor_latest": "D28:1",
+      "texts": 1
+    }
+  ]
+}
