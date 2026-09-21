@@ -1,0 +1,87 @@
+{
+  "fixtures": {
+    "F1": {
+      "LEX": false,
+      "BM25": false,
+      "BM25_scores": [
+        15.55,
+        18.8
+      ]
+    },
+    "F2": {
+      "LEX": false,
+      "BM25": false,
+      "BM25_scores": [
+        13.82,
+        39.73
+      ]
+    },
+    "F3": {
+      "LEX": false,
+      "BM25": false,
+      "BM25_scores": [
+        18.77,
+        35.81
+      ]
+    },
+    "F4": {
+      "LEX": false,
+      "BM25": true,
+      "BM25_scores": [
+        19.24,
+        3.54
+      ]
+    },
+    "F5": {
+      "LEX": false,
+      "BM25": true,
+      "BM25_scores": [
+        47.73,
+        18.11
+      ]
+    }
+  },
+  "checks": [
+    {
+      "name": "BM25 reproduces registered scores",
+      "ok": true
+    },
+    {
+      "name": "BM25 must fail F1",
+      "ok": true
+    },
+    {
+      "name": "BM25 reproduces registered scores",
+      "ok": true
+    },
+    {
+      "name": "BM25 must fail F2",
+      "ok": true
+    },
+    {
+      "name": "BM25 reproduces registered scores",
+      "ok": true
+    },
+    {
+      "name": "BM25 must fail F3",
+      "ok": true
+    },
+    {
+      "name": "BM25 reproduces registered scores",
+      "ok": true
+    },
+    {
+      "name": "BM25 must pass F4",
+      "ok": true
+    },
+    {
+      "name": "BM25 reproduces registered scores",
+      "ok": true
+    },
+    {
+      "name": "BM25 must pass F5",
+      "ok": true
+    }
+  ],
+  "passed": true
+}

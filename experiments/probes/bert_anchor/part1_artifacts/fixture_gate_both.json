@@ -1,0 +1,125 @@
+{
+  "fixtures": {
+    "F1": {
+      "LEX": false,
+      "BM25": false,
+      "BM25_scores": [
+        15.55,
+        18.8
+      ],
+      "QWEN-BI": true,
+      "CE": false
+    },
+    "F2": {
+      "LEX": false,
+      "BM25": false,
+      "BM25_scores": [
+        13.82,
+        39.73
+      ],
+      "QWEN-BI": false,
+      "CE": false
+    },
+    "F3": {
+      "LEX": false,
+      "BM25": false,
+      "BM25_scores": [
+        18.77,
+        35.81
+      ],
+      "QWEN-BI": false,
+      "CE": false
+    },
+    "F4": {
+      "LEX": false,
+      "BM25": true,
+      "BM25_scores": [
+        19.24,
+        3.54
+      ],
+      "QWEN-BI": true,
+      "CE": true
+    },
+    "F5": {
+      "LEX": false,
+      "BM25": true,
+      "BM25_scores": [
+        47.73,
+        18.11
+      ],
+      "QWEN-BI": true,
+      "CE": true
+    }
+  },
+  "checks": [
+    {
+      "name": "BM25 reproduces registered scores",
+      "ok": true
+    },
+    {
+      "name": "BM25 must fail F1",
+      "ok": true
+    },
+    {
+      "name": "CE matches registered expectation F1 (fail)",
+      "ok": true
+    },
+    {
+      "name": "BM25 reproduces registered scores",
+      "ok": true
+    },
+    {
+      "name": "BM25 must fail F2",
+      "ok": true
+    },
+    {
+      "name": "CE matches registered expectation F2 (fail)",
+      "ok": true
+    },
+    {
+      "name": "BM25 reproduces registered scores",
+      "ok": true
+    },
+    {
+      "name": "BM25 must fail F3",
+      "ok": true
+    },
+    {
+      "name": "CE matches registered expectation F3 (fail)",
+      "ok": false
+    },
+    {
+      "name": "BM25 reproduces registered scores",
+      "ok": true
+    },
+    {
+      "name": "BM25 must pass F4",
+      "ok": true
+    },
+    {
+      "name": "CE matches registered expectation F4 (pass)",
+      "ok": true
+    },
+    {
+      "name": "BM25 reproduces registered scores",
+      "ok": true
+    },
+    {
+      "name": "BM25 must pass F5",
+      "ok": true
+    },
+    {
+      "name": "CE matches registered expectation F5 (pass)",
+      "ok": true
+    },
+    {
+      "name": "CE instrument floor >= 2/5",
+      "ok": true
+    },
+    {
+      "name": "QWEN-BI instrument floor >= 2/5",
+      "ok": true
+    }
+  ],
+  "passed": false
+}
