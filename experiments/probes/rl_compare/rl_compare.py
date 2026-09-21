@@ -190,7 +190,7 @@ def eval_all():
     r_model, r_tok, _ = load_r()
 
     def load_ck(path):
-        from transformers import AutoModelForSequenceClassification
+        from transformers import AutoModelForSequenceClassification, AutoTokenizer
         m = AutoModelForSequenceClassification.from_pretrained(path).to('cuda').eval()
         return m, AutoTokenizer.from_pretrained(path)
 
