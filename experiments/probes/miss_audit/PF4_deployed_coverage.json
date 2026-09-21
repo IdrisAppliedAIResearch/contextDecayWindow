@@ -1,0 +1,41 @@
+{
+ "nf_rows": 1104,
+ "nf_conversations": [
+  "conv-26",
+  "conv-30",
+  "conv-43",
+  "conv-44",
+  "conv-49",
+  "conv-50"
+ ],
+ "sample2_in_nf": 63,
+ "sample2_in_hh": 63,
+ "misses_in_nf": 36,
+ "misses_in_hh": 36,
+ "misses_in_both": 36,
+ "nf_arms": [
+  "P_PAIR_RANK",
+  "P_PAIR_RANK_32K",
+  "SOURCE_ORDER",
+  "S_SESSION_RANK",
+  "S_SESSION_RANK_32K"
+ ],
+ "nf_budget": [
+  16000,
+  32000
+ ],
+ "hh_unitsdelivered_minus_textcontained_median": 0,
+ "hh_unitsdelivered_minus_textcontained_absmax": 1,
+ "hh_items_with_any_recovery_mismatch": 17,
+ "locomo_items_with_duplicate_turn_texts": 0,
+ "miss_any_evidence_P_PAIR_RANK": 33,
+ "miss_all_evidence_P_PAIR_RANK": 23,
+ "miss_any_evidence_P_PAIR_RANK_32K": 35,
+ "miss_all_evidence_P_PAIR_RANK_32K": 29,
+ "miss_any_evidence_SOURCE_ORDER": 16,
+ "miss_all_evidence_SOURCE_ORDER": 11,
+ "miss_any_evidence_S_SESSION_RANK": 33,
+ "miss_all_evidence_S_SESSION_RANK": 26,
+ "miss_any_evidence_S_SESSION_RANK_32K": 34,
+ "miss_all_evidence_S_SESSION_RANK_32K": 31
+}
