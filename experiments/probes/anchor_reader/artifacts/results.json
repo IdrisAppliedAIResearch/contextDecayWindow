@@ -1,0 +1,81 @@
+{
+ "summary": {
+  "plan": "f75f590d",
+  "arm_correct_primary": {
+   "A_DEPLOYED": 85,
+   "B_ANCHOR": 51,
+   "C_GATE": 68
+  },
+  "arm_correct_descriptive": {
+   "A_DEPLOYED": 76,
+   "B_ANCHOR": 43,
+   "C_GATE": 51
+  },
+  "mcnemar_C_vs_A": {
+   "n": 120,
+   "wins": 1,
+   "losses": 18,
+   "net": -17,
+   "p": 8e-05
+  },
+  "mcnemar_B_vs_A": {
+   "n": 120,
+   "wins": 1,
+   "losses": 35,
+   "net": -34,
+   "p": 0.0
+  },
+  "gate_counts": {
+   "anchor": 80,
+   "fallback": 40
+  },
+  "by_category": {
+   "1": {
+    "A_DEPLOYED": 26,
+    "B_ANCHOR": 26,
+    "C_GATE": 26
+   },
+   "2": {
+    "A_DEPLOYED": 20,
+    "B_ANCHOR": 20,
+    "C_GATE": 20
+   },
+   "3": {
+    "A_DEPLOYED": 6,
+    "B_ANCHOR": 6,
+    "C_GATE": 6
+   },
+   "4": {
+    "A_DEPLOYED": 68,
+    "B_ANCHOR": 68,
+    "C_GATE": 68
+   }
+  },
+  "pf9_fallback_discordances": 0,
+  "budget": {
+   "A_DEPLOYED": {
+    "median_prompt_chars": 28739.0,
+    "mean_tokens_in": 10715.2
+   },
+   "B_ANCHOR": {
+    "median_prompt_chars": 825.5,
+    "mean_tokens_in": 331.7
+   },
+   "C_GATE": {
+    "median_prompt_chars": 28739.0,
+    "mean_tokens_in": 3596.6
+   }
+  },
+  "tau_sweep_net_vs_A": {
+   "0.05": -6,
+   "0.1": -11,
+   "0.2": -17,
+   "0.4": -30,
+   "0.6": -32
+  },
+  "disposition": {
+   "WORKS": false,
+   "SIGNAL": false
+  }
+ }
+}
