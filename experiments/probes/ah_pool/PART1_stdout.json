@@ -1,0 +1,86 @@
+﻿{
+ "set": "sample-120 dev (unseen by ckpt2 and ckptM); sample2 untouched",
+ "n_items": 120,
+ "median_turns_per_conv": 663,
+ "ah_nine_way_reproduction": {
+  "top1": "62/120",
+  "af_pre_006_reported": "71/120 (59%)"
+ },
+ "ah_global_rank_of_gold": {
+  "median": 128,
+  "p25": 57,
+  "p75": 273,
+  "p90": 426,
+  "median_relative_position": 0.208,
+  "frac_top20": 0.067,
+  "frac_top30": 0.092
+ },
+ "pool_recall_at_m": {
+  "5": {
+   "ah": 4,
+   "bm": 55
+  },
+  "10": {
+   "ah": 5,
+   "bm": 60
+  },
+  "15": {
+   "ah": 7,
+   "bm": 66
+  },
+  "20": {
+   "ah": 8,
+   "bm": 72
+  },
+  "30": {
+   "ah": 11,
+   "bm": 73
+  }
+ },
+ "accuracy_pool_then_rerank_at_m": {
+  "5": {
+   "ah": 4,
+   "bm": 48
+  },
+  "10": {
+   "ah": 2,
+   "bm": 50
+  },
+  "15": {
+   "ah": 3,
+   "bm": 54
+  },
+  "20": {
+   "ah": 4,
+   "bm": 56
+  },
+  "30": {
+   "ah": 7,
+   "bm": 55
+  }
+ },
+ "e_gap_pool_recall_at_m": {
+  "5": {
+   "ah": 0,
+   "bm": 0
+  },
+  "10": {
+   "ah": 0,
+   "bm": 0
+  },
+  "15": {
+   "ah": 0,
+   "bm": 0
+  },
+  "20": {
+   "ah": 0,
+   "bm": 0
+  },
+  "30": {
+   "ah": 0,
+   "bm": 0
+  }
+ },
+ "e_gold_ah_rank_median": 108,
+ "spearman_ah_score_vs_turn_length": 0.404
+}
