@@ -1,4 +1,4 @@
-# ROUTE-001 — Question-Type Routing to Retrieval Mechanisms (draft v1, NOT LOCKED)
+# TRIAGE-001 — Question Triage: Router Dispatch to Structure-Matched Retrieval Mechanisms (draft v1, NOT LOCKED)
 
 **Status: DRAFT for user review. Stages 0–1 are zero-LLM and can run alongside AF-READ-003.
 Nothing here is pre-registered until the user approves and it is moved to the anchor_reader directory.**
@@ -38,7 +38,7 @@ From the audited 120 items (A=85, B=66, C=81):
 **The write-time insight:** R-TEMP below does not only retrieve better — it
 *rewrites* evidence with resolved absolute dates ("Starting tomorrow" + record
 dated 27 Jul 2023 → "2023-07-28"). The anchoring failures that A and C both
-suffered are fixed by construction. This is the one place ROUTE-001 could beat
+suffered are fixed by construction. This is the one place TRIAGE-001 could beat
 arm A, not just arm B. Routing is the enabling mechanism; the transformation
 is the novelty.
 
@@ -117,7 +117,7 @@ claim — a result no budget-matched arm achieves today).
 **Stage 3 — bars.**
 WORKS = learned dispatch beats B-universal by ≥+8pp at ≤1.1× B-tokens AND
 captures ≥50% of the oracle gain. DEAD = within noise of B-universal.
-Then (if alive) ROUTE-002 at n=1,420 scale, same server, and the real paper:
+Then (if alive) TRIAGE-002 at n=1,420 scale, same server, and the real paper:
 routing + transformation vs universal retrieval vs full timeline at cost.
 
 ## 7. Honest expected-value math (before running anything)
@@ -155,7 +155,7 @@ evidence that structure beats scale, not just beats one retrieval config.
    "dispatch-with-right-mechanisms converts admission that no single ranker
    can", with the oracle-dispatch ceiling as the load-bearing evidence.
 4. **Small n.** 120 items over 3 classes: per-class cells ~20–40. Stage 2 is a
-   pilot by design; the scale judgment is ROUTE-002.
+   pilot by design; the scale judgment is TRIAGE-002.
 
 ---
 
