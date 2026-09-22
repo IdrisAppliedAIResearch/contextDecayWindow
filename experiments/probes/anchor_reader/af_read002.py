@@ -150,8 +150,8 @@ def build():
                           anchor_lo=lo, anchor_hi=hi, n_anchor=len(anchor_ids),
                           n_cc80=len(cc80_ids), n_cc80_dropped=dropped,
                           pnull=it['pnull'], gate=it['gate'],
-                          block_b=block_b, b_sha=R.sha_text(block_b),
-                          block_c=block_c, c_sha=R.sha_text(block_c)))
+                          block_b=block_b, b_sha=R.sha_text(render_reader_prompt(q, block_b)),
+                          block_c=block_c, c_sha=R.sha_text(render_reader_prompt(q, block_c))))
     # PF6: V2 replay identity on 5 items (stored anchor_turn == fresh argmax)
     for it in [i for i in prim if i['gate'] == 'anchor'][:5]:
         cid, sidx = it['qid'].split(':')[0], int(it['qid'].split(':')[1])
@@ -201,7 +201,7 @@ def _prepare_natives(items):
             if qk in natives:
                 continue
             src = it['block_b'] if key == 'b_native' else it['block_c']
-            p = R.native(render_reader_prompt(_question(it['qid']), src))
+            p = R.native(render_reader_prompt(_Q(it['qid']), src))
             natives[qk] = p
             dirty += 1
             if dirty % 20 == 0:
@@ -319,8 +319,10 @@ def judge():
     process = R.launch(folder)
     try:
         # PF-J: replay 5 A-arm judge passes, majority must equal stored A verdict
+        pfj = {q: v for q, v in a_info.items() if q in gold}
+        assert len(pfj) >= 5, 'PF-J pool too small'
         checked = 0
-        for qid, (correct_a, ans) in list(a_info.items())[:5]:
+        for qid, (correct_a, ans) in list(pfj.items())[:5]:
             jp = R.native(R.render_judge_prompt(_Q(qid), gold[qid], ans))
             vs = []
             for seed in R.JUDGE_PASSES:
