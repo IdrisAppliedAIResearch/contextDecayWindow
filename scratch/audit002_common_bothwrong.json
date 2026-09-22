@@ -1,0 +1,1694 @@
+[
+ {
+  "qid": "conv-26:35",
+  "cat": "2",
+  "seed_src": "v2",
+  "gate": "anchor",
+  "n_cc80": 24,
+  "n_cc80_dropped": 2,
+  "question": "When did Melanie go camping in July?",
+  "gold": "two weekends before 17 July 2023",
+  "ansA": "I don't know.",
+  "ansC": "I don't know.",
+  "votesA": [
+   false,
+   false,
+   false
+  ],
+  "votesC": [
+   false,
+   false,
+   false
+  ],
+  "evidence": [
+   {
+    "id": "D9:1",
+    "text": "Hey Caroline, hope all's good! I had a quiet weekend after we went camping with my fam two weekends ago. It was great to unplug and hang with the kids. What've you been up to? Anything fun over the weekend?",
+    "in_a_prompt": true,
+    "in_block_c": true,
+    "elem_ids": [
+     "d637082c285bd4bbf584f9b99cfab835f64974d78f781a6c340f2146c7ef9200"
+    ],
+    "elem_in_a": true,
+    "elem_in_c": true,
+    "overlap_a": 1.0,
+    "overlap_c": 1.0,
+    "raw_turn_in_element": [
+     true
+    ]
+   }
+  ],
+  "ev_in_a": true,
+  "ev_in_c": true
+ },
+ {
+  "qid": "conv-26:41",
+  "cat": "2",
+  "seed_src": "v2",
+  "gate": "anchor",
+  "n_cc80": 21,
+  "n_cc80_dropped": 0,
+  "question": "When did Caroline join a new activist group?",
+  "gold": "The Tuesday before 20 July 2023",
+  "ansA": "Last Tuesday",
+  "ansC": "Last Tuesday",
+  "votesA": [
+   false,
+   false,
+   false
+  ],
+  "votesC": [
+   false,
+   false,
+   false
+  ],
+  "evidence": [
+   {
+    "id": "D10:3",
+    "text": "Hey Mel! A lot's happened since we last chatted - I just joined a new LGBTQ activist group last Tues. I'm meeting so many cool people who are as passionate as I am about rights and community support. I'm giving my voice and making a real difference, plus it's fulfilling in so many ways. It's just gr",
+    "in_a_prompt": true,
+    "in_block_c": true,
+    "elem_ids": [
+     "238454e11e99d592ce20e73fcdab2ff2dae00f235b6d57045627a94dbb6f21f1"
+    ],
+    "elem_in_a": true,
+    "elem_in_c": true,
+    "overlap_a": 1.0,
+    "overlap_c": 1.0,
+    "raw_turn_in_element": [
+     true
+    ]
+   }
+  ],
+  "ev_in_a": true,
+  "ev_in_c": true
+ },
+ {
+  "qid": "conv-26:49",
+  "cat": "2",
+  "seed_src": "v2",
+  "gate": "anchor",
+  "n_cc80": 25,
+  "n_cc80_dropped": 0,
+  "question": "When did Caroline and Melanie go to a pride fesetival together?",
+  "gold": "2022",
+  "ansA": "I don't know.",
+  "ansC": "I don't know.",
+  "votesA": [
+   false,
+   false,
+   false
+  ],
+  "votesC": [
+   false,
+   false,
+   false
+  ],
+  "evidence": [
+   {
+    "id": "D12:15",
+    "text": "I'm always here for you, Mel! We had a blast last year at the Pride fest. Those supportive friends definitely make everything worth it!",
+    "in_a_prompt": true,
+    "in_block_c": true,
+    "elem_ids": [
+     "5607301bc68e3f796c2968b0538e52d20df9f134068216a8c2b4b2fa8e65428d"
+    ],
+    "elem_in_a": true,
+    "elem_in_c": true,
+    "overlap_a": 1.0,
+    "overlap_c": 1.0,
+    "raw_turn_in_element": [
+     true
+    ]
+   }
+  ],
+  "ev_in_a": true,
+  "ev_in_c": true
+ },
+ {
+  "qid": "conv-26:7",
+  "cat": "1",
+  "seed_src": "bm25",
+  "gate": "fallback",
+  "n_cc80": 31,
+  "n_cc80_dropped": 3,
+  "question": "What is Caroline's relationship status?",
+  "gold": "Single",
+  "ansA": "I don't know.",
+  "ansC": "I don't know.",
+  "votesA": [
+   false,
+   false,
+   false
+  ],
+  "votesC": [
+   false,
+   false,
+   false
+  ],
+  "evidence": [
+   {
+    "id": "D3:13",
+    "text": "Yeah, I'm really lucky to have them. They've been there through everything, I've known these friends for 4 years, since I moved from my home country. Their love and help have been so important especially after that tough breakup. I'm super thankful. Who supports you, Mel?",
+    "in_a_prompt": true,
+    "in_block_c": false,
+    "elem_ids": [
+     "69ea448f5a06e9fcdac4db1ff5e17fcd016b07767de9b067c7b1cd8b2083b061"
+    ],
+    "elem_in_a": true,
+    "elem_in_c": false,
+    "overlap_a": 1.0,
+    "overlap_c": 0.78,
+    "raw_turn_in_element": [
+     true
+    ]
+   },
+   {
+    "id": "D2:14",
+    "text": "I'm thrilled to make a family for kids who need one. It'll be tough as a single parent, but I'm up for the challenge!",
+    "in_a_prompt": true,
+    "in_block_c": false,
+    "elem_ids": [
+     "495550ae8e85753cc9ab26138056afcbe98ac155e2d099fe1d065d921c1592b5"
+    ],
+    "elem_in_a": true,
+    "elem_in_c": false,
+    "overlap_a": 1.0,
+    "overlap_c": 0.73,
+    "raw_turn_in_element": [
+     true
+    ]
+   }
+  ],
+  "ev_in_a": true,
+  "ev_in_c": false
+ },
+ {
+  "qid": "conv-30:31",
+  "cat": "1",
+  "seed_src": "bm25",
+  "gate": "fallback",
+  "n_cc80": 23,
+  "n_cc80_dropped": 0,
+  "question": "How long did it take for Jon to open his studio?",
+  "gold": "six months",
+  "ansA": "I don't know",
+  "ansC": "I don't know.",
+  "votesA": [
+   false,
+   false,
+   false
+  ],
+  "votesC": [
+   false,
+   false,
+   false
+  ],
+  "evidence": [
+   {
+    "id": "D1:2",
+    "text": "Hey Gina! Good to see you too. Lost my job as a banker yesterday, so I'm gonna take a shot at starting my own business.",
+    "in_a_prompt": true,
+    "in_block_c": true,
+    "elem_ids": [
+     "1093ecea53591e5832e9a962463c5f9a875201576a39eded54ca883fb4e0de06"
+    ],
+    "elem_in_a": true,
+    "elem_in_c": true,
+    "overlap_a": 1.0,
+    "overlap_c": 1.0,
+    "raw_turn_in_element": [
+     true
+    ]
+   },
+   {
+    "id": "D15:13",
+    "text": "Yeah! Let's make some awesome memories tomorrow at the grand opening!",
+    "in_a_prompt": true,
+    "in_block_c": true,
+    "elem_ids": [
+     "6e5843b18dd551584566e67dcf06a059ef15665e15d58ac64d59f41a137f87a6"
+    ],
+    "elem_in_a": true,
+    "elem_in_c": true,
+    "overlap_a": 1.0,
+    "overlap_c": 1.0,
+    "raw_turn_in_element": [
+     true
+    ]
+   }
+  ],
+  "ev_in_a": true,
+  "ev_in_c": true
+ },
+ {
+  "qid": "conv-30:73",
+  "cat": "4",
+  "seed_src": "v2",
+  "gate": "anchor",
+  "n_cc80": 21,
+  "n_cc80_dropped": 0,
+  "question": "How does Gina describe the feeling that dance brings?",
+  "gold": "magical",
+  "ansA": "It's like air.",
+  "ansC": "It's like air.",
+  "votesA": [
+   false,
+   false,
+   false
+  ],
+  "votesC": [
+   false,
+   false,
+   false
+  ],
+  "evidence": [
+   {
+    "id": "D15:8",
+    "text": "Wow, Jon, you must be so excited! You've come so far since we last talked, and tomorrow's gonna be a blast! All those long nights were worth it - so take some time to savor it. Capture the joy and thrill that dance brings - it's magical!",
+    "in_a_prompt": true,
+    "in_block_c": true,
+    "elem_ids": [
+     "6b74a25bdcf0c05a5b342dd095785b0b89c25092b09ae77b4a6f4bda4d09c86b"
+    ],
+    "elem_in_a": true,
+    "elem_in_c": true,
+    "overlap_a": 1.0,
+    "overlap_c": 1.0,
+    "raw_turn_in_element": [
+     true
+    ]
+   }
+  ],
+  "ev_in_a": true,
+  "ev_in_c": true
+ },
+ {
+  "qid": "conv-41:23",
+  "cat": "1",
+  "seed_src": "v2",
+  "gate": "anchor",
+  "n_cc80": 25,
+  "n_cc80_dropped": 0,
+  "question": "What desserts has Maria made?",
+  "gold": "Banana split sundae, Peach cobbler",
+  "ansA": "peach cobbler",
+  "ansC": "Peach cobbler",
+  "votesA": [
+   false,
+   false,
+   false
+  ],
+  "votesC": [
+   false,
+   false,
+   false
+  ],
+  "evidence": [
+   {
+    "id": "D2:25",
+    "text": "I can picture you all laughing and having a blast making your own pizzas - a great way to bond! I made some peach cobbler recently, it was great.",
+    "in_a_prompt": true,
+    "in_block_c": true,
+    "elem_ids": [
+     "520af3f92e59aa287f804894d4d8e23b4a512e75753a1955b25ae886b5e41cd8"
+    ],
+    "elem_in_a": true,
+    "elem_in_c": true,
+    "overlap_a": 1.0,
+    "overlap_c": 1.0,
+    "raw_turn_in_element": [
+     true
+    ]
+   },
+   {
+    "id": "D13:18",
+    "text": "Thanks, John! It had lots of great things like salads, sandwiches, and homemade desserts. My favorite is the amazing banana split sundae - I enjoy it after a day of volunteering. It's a little moment of joy in life - balance is key!",
+    "in_a_prompt": true,
+    "in_block_c": true,
+    "elem_ids": [
+     "fe8fb06344e0b5d214a7327094492dd6d1dba8224a28872977b0fd7f19513927"
+    ],
+    "elem_in_a": true,
+    "elem_in_c": true,
+    "overlap_a": 1.0,
+    "overlap_c": 1.0,
+    "raw_turn_in_element": [
+     true
+    ]
+   }
+  ],
+  "ev_in_a": true,
+  "ev_in_c": true
+ },
+ {
+  "qid": "conv-41:69",
+  "cat": "4",
+  "seed_src": "v2",
+  "gate": "anchor",
+  "n_cc80": 19,
+  "n_cc80_dropped": 0,
+  "question": "What did Maria donate to a homeless shelter in December 2023?",
+  "gold": "old car",
+  "ansA": "I don't know.",
+  "ansC": "I don't know.",
+  "votesA": [
+   false,
+   false,
+   false
+  ],
+  "votesC": [
+   false,
+   false,
+   false
+  ],
+  "evidence": [
+   {
+    "id": "D2:1",
+    "text": "Hey John, been a few days since we chatted. In the meantime, I donated my old car to a homeless shelter I volunteer at yesterday. How's the campaign going? I'm keen to hearabout it.",
+    "in_a_prompt": true,
+    "in_block_c": true,
+    "elem_ids": [
+     "076b21161ddb3b3fc32640d9e7fd83b80a98f47aa865fb2345c8fe5cabd5e4a3"
+    ],
+    "elem_in_a": true,
+    "elem_in_c": true,
+    "overlap_a": 1.0,
+    "overlap_c": 1.0,
+    "raw_turn_in_element": [
+     true
+    ]
+   }
+  ],
+  "ev_in_a": true,
+  "ev_in_c": true
+ },
+ {
+  "qid": "conv-42:72",
+  "cat": "2",
+  "seed_src": "v2",
+  "gate": "anchor",
+  "n_cc80": 30,
+  "n_cc80_dropped": 0,
+  "question": "When did Joanna plan on going to Nate's to watch him play with his turtles?",
+  "gold": "10 November, 2022",
+  "ansA": "Tomorrow",
+  "ansC": "Tomorrow",
+  "votesA": [
+   false,
+   false,
+   false
+  ],
+  "votesC": [
+   false,
+   false,
+   false
+  ],
+  "evidence": [
+   {
+    "id": "D28:32",
+    "text": "Alright, see you tomorrow!",
+    "in_a_prompt": true,
+    "in_block_c": true,
+    "elem_ids": [
+     "aba522f0cd47b53261117d74e5f1028dca08e7b460dbe7deb92e366073b91b4c"
+    ],
+    "elem_in_a": true,
+    "elem_in_c": true,
+    "overlap_a": 1.0,
+    "overlap_c": 1.0,
+    "raw_turn_in_element": [
+     true
+    ]
+   }
+  ],
+  "ev_in_a": true,
+  "ev_in_c": true
+ },
+ {
+  "qid": "conv-42:73",
+  "cat": "3",
+  "seed_src": "bm25",
+  "gate": "fallback",
+  "n_cc80": 26,
+  "n_cc80_dropped": 2,
+  "question": "What state did Joanna visit in summer 2021?",
+  "gold": "Indiana",
+  "ansA": "I don't know.",
+  "ansC": "I don't know.",
+  "votesA": [
+   false,
+   false,
+   false
+  ],
+  "votesC": [
+   false,
+   false,
+   false
+  ],
+  "evidence": [
+   {
+    "id": "D28:22",
+    "text": "Thanks, Nate! I took that pic on a hike last summer near Fort Wayne. The sunset and the surrounding beauty were just incredible. It was an awesome reminder of nature's beauty.",
+    "in_a_prompt": true,
+    "in_block_c": true,
+    "elem_ids": [
+     "824ffac87a6c42f59009a9a9995e77d346c2d00e0c3873509bfb57c6d59c1002"
+    ],
+    "elem_in_a": true,
+    "elem_in_c": true,
+    "overlap_a": 1.0,
+    "overlap_c": 1.0,
+    "raw_turn_in_element": [
+     true
+    ]
+   }
+  ],
+  "ev_in_a": true,
+  "ev_in_c": true
+ },
+ {
+  "qid": "conv-43:113",
+  "cat": "4",
+  "seed_src": "bm25",
+  "gate": "fallback",
+  "n_cc80": 25,
+  "n_cc80_dropped": 0,
+  "question": "Which basketball team does Tim support?",
+  "gold": "The Wolves",
+  "ansA": "I don't know.",
+  "ansC": "I don't know.",
+  "votesA": [
+   false,
+   false,
+   false
+  ],
+  "votesC": [
+   false,
+   false,
+   false
+  ],
+  "evidence": [
+   {
+    "id": "D12:21",
+    "text": "The Wolves are solid and LeBron's skills and leadership are amazing.",
+    "in_a_prompt": true,
+    "in_block_c": false,
+    "elem_ids": [
+     "3c23c7c1e5438fa59149e32d9b8274e5fd8972c641c02b60a892b4588dd7bae4"
+    ],
+    "elem_in_a": true,
+    "elem_in_c": false,
+    "overlap_a": 1.0,
+    "overlap_c": 0.86,
+    "raw_turn_in_element": [
+     true
+    ]
+   }
+  ],
+  "ev_in_a": true,
+  "ev_in_c": true
+ },
+ {
+  "qid": "conv-43:56",
+  "cat": "2",
+  "seed_src": "bm25",
+  "gate": "fallback",
+  "n_cc80": 26,
+  "n_cc80_dropped": 0,
+  "question": "When did Tim start playing the violin?",
+  "gold": "August 2023",
+  "ansA": "I don't know.",
+  "ansC": "I don't know.",
+  "votesA": [
+   false,
+   false,
+   false
+  ],
+  "votesC": [
+   false,
+   false,
+   false
+  ],
+  "evidence": [
+   {
+    "id": "D21:13",
+    "text": "I've been playing for about four months now and it's been an amazing adventure. I'm really enjoying the progress I've been making.",
+    "in_a_prompt": false,
+    "in_block_c": true,
+    "elem_ids": [
+     "106b4fb459a758ca7ef80ade1e72454d9791c746688b7c7d9d4901d35ab5ccee"
+    ],
+    "elem_in_a": false,
+    "elem_in_c": true,
+    "overlap_a": 0.53,
+    "overlap_c": 1.0,
+    "raw_turn_in_element": [
+     true
+    ]
+   }
+  ],
+  "ev_in_a": false,
+  "ev_in_c": true
+ },
+ {
+  "qid": "conv-44:12",
+  "cat": "1",
+  "seed_src": "v2",
+  "gate": "anchor",
+  "n_cc80": 20,
+  "n_cc80_dropped": 0,
+  "question": "What outdoor activities has Andrew done other than hiking in nature?",
+  "gold": "rock climbing, fishing, camping",
+  "ansA": "Rock climbing, fishing, and bike riding",
+  "ansC": "Rock climbing",
+  "votesA": [
+   false,
+   false,
+   false
+  ],
+  "votesC": [
+   true,
+   false,
+   false
+  ],
+  "evidence": [
+   {
+    "id": "D8:1",
+    "text": "Hey! Long time no chat. Last Sunday was awesome - my friends and I took a rock climbing class and I made it to the top! It was a fantastic experience and now I'm hooked. Think I'm going to try to do more outdoor activities like this every week!",
+    "in_a_prompt": true,
+    "in_block_c": true,
+    "elem_ids": [
+     "c31707f47c5214c1ca980084ab7b0337cb09fa97f05686a295e10e4dd517c12b"
+    ],
+    "elem_in_a": true,
+    "elem_in_c": true,
+    "overlap_a": 1.0,
+    "overlap_c": 1.0,
+    "raw_turn_in_element": [
+     true
+    ]
+   },
+   {
+    "id": "D17:1",
+    "text": "Hey Audrey! What's up? Last weekend my girlfriend and I went fishing in one of the nearby lakes. It was so nice. We got a few fish and had a blast. Have you ever gone fishing before?",
+    "in_a_prompt": true,
+    "in_block_c": false,
+    "elem_ids": [
+     "10d21b28e01d8c38864b793834d97f32ed46535aa4c6879f8c9d21057705d553"
+    ],
+    "elem_in_a": true,
+    "elem_in_c": false,
+    "overlap_a": 1.0,
+    "overlap_c": 0.71,
+    "raw_turn_in_element": [
+     true
+    ]
+   },
+   {
+    "id": "D14:1",
+    "text": "Hey, Audrey! I can't wait for the weekend. My girlfriend, Toby and I are going camping. It's been forever since I've been in nature.",
+    "in_a_prompt": true,
+    "in_block_c": false,
+    "elem_ids": [
+     "bbfe4539e08e1b35131fcadfa2dea531f68a3aa17deba4cfcecdfb5216744629"
+    ],
+    "elem_in_a": true,
+    "elem_in_c": false,
+    "overlap_a": 1.0,
+    "overlap_c": 0.88,
+    "raw_turn_in_element": [
+     true
+    ]
+   }
+  ],
+  "ev_in_a": true,
+  "ev_in_c": true
+ },
+ {
+  "qid": "conv-44:17",
+  "cat": "1",
+  "seed_src": "v2",
+  "gate": "anchor",
+  "n_cc80": 27,
+  "n_cc80_dropped": 0,
+  "question": "How many times did Audrey and Andew plan to hike together?",
+  "gold": "three times",
+  "ansA": "I don't know.",
+  "ansC": "I don't know.",
+  "votesA": [
+   false,
+   false,
+   false
+  ],
+  "votesC": [
+   false,
+   false,
+   false
+  ],
+  "evidence": [
+   {
+    "id": "D11:7",
+    "text": "Yeah definitely ! I'm down for a hike with you and your furry friends. Let's do it next month when the weather is more pleasant. Here's the trail that I think it'd be great for the dogs.",
+    "in_a_prompt": true,
+    "in_block_c": false,
+    "elem_ids": [
+     "e98b7c9cd5a9d8bdea8f154fbc1ebf1aa23a9b1472c307a928ee220ea4cfc1e9"
+    ],
+    "elem_in_a": true,
+    "elem_in_c": false,
+    "overlap_a": 1.0,
+    "overlap_c": 0.9,
+    "raw_turn_in_element": [
+     true
+    ]
+   },
+   {
+    "id": "D24:13",
+    "text": "I can't wait for our hike with the furry friends next month - it's gonna be awesome!",
+    "in_a_prompt": true,
+    "in_block_c": true,
+    "elem_ids": [
+     "51759aeeda34b91b3834c6b808b3c8a59275e6f00644372d5ca882fe5eef96d2"
+    ],
+    "elem_in_a": true,
+    "elem_in_c": true,
+    "overlap_a": 1.0,
+    "overlap_c": 1.0,
+    "raw_turn_in_element": [
+     true
+    ]
+   },
+   {
+    "id": "D26:20",
+    "text": "Yay! Does Saturday sound good? We can grab some snacks and have a blast exploring. Because on Sunday I am going on a picnic date with my girlfriend.",
+    "in_a_prompt": true,
+    "in_block_c": true,
+    "elem_ids": [
+     "f6ef17b3bf63dc822c357b5c89344407e1a5a41312d5d17ef858e9d3ca393e85"
+    ],
+    "elem_in_a": true,
+    "elem_in_c": true,
+    "overlap_a": 1.0,
+    "overlap_c": 1.0,
+    "raw_turn_in_element": [
+     true
+    ]
+   }
+  ],
+  "ev_in_a": true,
+  "ev_in_c": true
+ },
+ {
+  "qid": "conv-44:21",
+  "cat": "1",
+  "seed_src": "v2",
+  "gate": "anchor",
+  "n_cc80": 24,
+  "n_cc80_dropped": 1,
+  "question": "What are the classes that Audrey took for her dogs to?",
+  "gold": "Positive reinforcement training class for bonding, dog training course, agility class",
+  "ansA": "Agility classes",
+  "ansC": "Agility classes",
+  "votesA": [
+   false,
+   false,
+   false
+  ],
+  "votesC": [
+   false,
+   false,
+   false
+  ],
+  "evidence": [
+   {
+    "id": "D6:4",
+    "text": "I know right? I saw this workshop flyer at my local pet store. It was a positive reinforcement training class and I wanted to give it a shot. The volunteer in the store was nice enough to let me meet their dog – he was so friendly and playful!",
+    "in_a_prompt": true,
+    "in_block_c": false,
+    "elem_ids": [
+     "50aa03293da166a65f9ff9af43de95785a33d5b4d570c96defd5cd7003fe41e2"
+    ],
+    "elem_in_a": true,
+    "elem_in_c": false,
+    "overlap_a": 1.0,
+    "overlap_c": 0.58,
+    "raw_turn_in_element": [
+     true
+    ]
+   },
+   {
+    "id": "D10:1",
+    "text": "Hey! It's been a while. I'm taking a dog training course and it's challenging but rewarding. My dogs are doing better already. What's new with you?",
+    "in_a_prompt": true,
+    "in_block_c": true,
+    "elem_ids": [
+     "6ecd03bd1eeb3349a64384625d786b9a0bd816ab0768d0439839e1fb534d8f05"
+    ],
+    "elem_in_a": true,
+    "elem_in_c": true,
+    "overlap_a": 1.0,
+    "overlap_c": 1.0,
+    "raw_turn_in_element": [
+     true
+    ]
+   },
+   {
+    "id": "D14:2",
+    "text": "That's awesome! That must be fun! I just started agility classes with my pups at a dog park. It's awesome to watch them learn and build relationships with other dogs. Seeing them face and conquer challenges really warms my heart.",
+    "in_a_prompt": true,
+    "in_block_c": true,
+    "elem_ids": [
+     "bbfe4539e08e1b35131fcadfa2dea531f68a3aa17deba4cfcecdfb5216744629"
+    ],
+    "elem_in_a": true,
+    "elem_in_c": true,
+    "overlap_a": 1.0,
+    "overlap_c": 1.0,
+    "raw_turn_in_element": [
+     true
+    ]
+   }
+  ],
+  "ev_in_a": true,
+  "ev_in_c": true
+ },
+ {
+  "qid": "conv-44:33",
+  "cat": "3",
+  "seed_src": "bm25",
+  "gate": "fallback",
+  "n_cc80": 23,
+  "n_cc80_dropped": 0,
+  "question": "What can Andrew potentially do to improve his stress and accomodate his living situation with his dogs?",
+  "gold": "Change to a hybrid or remote job so he can move away from the city to the suburbs to have a larger living space and be closer to nature.",
+  "ansA": "Based on the conversation, Andrew can **take a break from work** (as he did on September 19 to visit a cafe) and **check out a new cafe** or go for a walk to recharge. Additionally, he can **take his dogs on hikes** (planned for next month) or **camping** trips to get away from the city and find peace in nature. He can also **volunteer at a pet shelter** or **go on a beach trip** with his girlfriend and dogs.",
+  "ansC": "Keep them active",
+  "votesA": [
+   false,
+   false,
+   false
+  ],
+  "votesC": [
+   false,
+   false,
+   false
+  ],
+  "evidence": [
+   {
+    "id": "D12:3",
+    "text": "Haha yeah! Toby's definitely bringing a lot of joy. Since we last talked, work has been piling up and I've been stuck inside. I miss the peace and feeling of freedom that comes with going for a hike.",
+    "in_a_prompt": true,
+    "in_block_c": false,
+    "elem_ids": [
+     "778a75bfd5ce1465145fcfbfda02b277f59d9d4cb7847ddc49ae4724e4fdbc0c"
+    ],
+    "elem_in_a": true,
+    "elem_in_c": false,
+    "overlap_a": 1.0,
+    "overlap_c": 0.69,
+    "raw_turn_in_element": [
+     true
+    ]
+   },
+   {
+    "id": "D18:1",
+    "text": "Hey Audrey, how's it going? Since we last talked, a few new things have come up in my life. Work's been tough and stressful, so my outdoor activities have taken a backseat. Finding balance has been challenging.",
+    "in_a_prompt": true,
+    "in_block_c": true,
+    "elem_ids": [
+     "1c38ce18ead7eb55626ea3ace08582cf5e0395b72a0c233d8a766964c6376b48"
+    ],
+    "elem_in_a": true,
+    "elem_in_c": true,
+    "overlap_a": 1.0,
+    "overlap_c": 1.0,
+    "raw_turn_in_element": [
+     true
+    ]
+   },
+   {
+    "id": "D21:5",
+    "text": "Haven't been to the beach in a while. Miss being outdoors. It's hard to find open spaces in the city. Used to hike a lot, but it's more challenging now with my work life balance.",
+    "in_a_prompt": true,
+    "in_block_c": false,
+    "elem_ids": [
+     "678aea39946b3ae725afc15fb2374943cd6d55b4bd0c1bd41e536ccb4aeebb59"
+    ],
+    "elem_in_a": true,
+    "elem_in_c": false,
+    "overlap_a": 1.0,
+    "overlap_c": 0.92,
+    "raw_turn_in_element": [
+     true
+    ]
+   }
+  ],
+  "ev_in_a": true,
+  "ev_in_c": true
+ },
+ {
+  "qid": "conv-44:47",
+  "cat": "2",
+  "seed_src": "bm25",
+  "gate": "fallback",
+  "n_cc80": 28,
+  "n_cc80_dropped": 0,
+  "question": "How many months passed between Andrew adopting Buddy and Scout",
+  "gold": "one month",
+  "ansA": "2",
+  "ansC": "I don't know.",
+  "votesA": [
+   false,
+   false,
+   false
+  ],
+  "votesC": [
+   false,
+   false,
+   false
+  ],
+  "evidence": [
+   {
+    "id": "D24:2",
+    "text": "Hi Audrey! Pets really can make our lives better, huh? Speaking of which, I've got some awesome news -- I recently adopted another pup from a shelter. He's the best.",
+    "in_a_prompt": true,
+    "in_block_c": false,
+    "elem_ids": [
+     "79bfa96cbac6e157030939f6559b0698231789207853fc871887bf5ffa211c92"
+    ],
+    "elem_in_a": true,
+    "elem_in_c": false,
+    "overlap_a": 1.0,
+    "overlap_c": 0.78,
+    "raw_turn_in_element": [
+     true
+    ]
+   },
+   {
+    "id": "D28:6",
+    "text": "No, we haven't got the chance to take them to the groomer yet. But will do that soon! So guess what, I can't help myself but to adpot another dog the other day. Here's a photo of the doggo!",
+    "in_a_prompt": true,
+    "in_block_c": true,
+    "elem_ids": [
+     "78b7f91fe00630c70480d22fc0aca71042c13f527cd1f2bbd02e97cca78daa2d"
+    ],
+    "elem_in_a": true,
+    "elem_in_c": true,
+    "overlap_a": 1.0,
+    "overlap_c": 1.0,
+    "raw_turn_in_element": [
+     true
+    ]
+   }
+  ],
+  "ev_in_a": true,
+  "ev_in_c": true
+ },
+ {
+  "qid": "conv-47:16",
+  "cat": "3",
+  "seed_src": "v2",
+  "gate": "anchor",
+  "n_cc80": 25,
+  "n_cc80_dropped": 0,
+  "question": "What is the game with different colored cards that was John talking about with James?",
+  "gold": "UNO",
+  "ansA": "I don't know",
+  "ansC": "I don't know.",
+  "votesA": [
+   false,
+   false,
+   false
+  ],
+  "votesC": [
+   false,
+   false,
+   false
+  ],
+  "evidence": [
+   {
+    "id": "D8:34",
+    "text": "Yes, we played one game, but I forgot its name. Perhaps you know this game. There were multi-colored cards with numbers. You can only place a card with the same color or number on your opponent's card. Sometimes you trade cards, sometimes you need to draw a few extra from the deck or skip a turn.",
+    "in_a_prompt": true,
+    "in_block_c": true,
+    "elem_ids": [
+     "5551d9f19a761be42bf4025a0087c8f7420f8e016733041fea84b96ae2edbb61"
+    ],
+    "elem_in_a": true,
+    "elem_in_c": true,
+    "overlap_a": 1.0,
+    "overlap_c": 1.0,
+    "raw_turn_in_element": [
+     true
+    ]
+   }
+  ],
+  "ev_in_a": true,
+  "ev_in_c": true
+ },
+ {
+  "qid": "conv-47:61",
+  "cat": "2",
+  "seed_src": "bm25",
+  "gate": "fallback",
+  "n_cc80": 28,
+  "n_cc80_dropped": 0,
+  "question": "What was James' big moment with Samantha in October 2023?",
+  "gold": "They decided to live together and rented an apartment not far from McGee's bar.",
+  "ansA": "I don't know.",
+  "ansC": "I don't know.",
+  "votesA": [
+   false,
+   false,
+   false
+  ],
+  "votesC": [
+   false,
+   false,
+   false
+  ],
+  "evidence": [
+   {
+    "id": "D29:8",
+    "text": "I actually have something new, Samantha and I have decided to move in together!",
+    "in_a_prompt": true,
+    "in_block_c": true,
+    "elem_ids": [
+     "5d25fa1838a0b9c1caf0a8b37394ceef08bbc4bee98b2e9834d4c9f7b0e7c23d"
+    ],
+    "elem_in_a": true,
+    "elem_in_c": true,
+    "overlap_a": 1.0,
+    "overlap_c": 1.0,
+    "raw_turn_in_element": [
+     true
+    ]
+   },
+   {
+    "id": "D29:10",
+    "text": "Of course, this was a mutual and informed decision. We rented an apartment not far from McGee's bar.",
+    "in_a_prompt": false,
+    "in_block_c": false,
+    "elem_ids": [
+     "c9571d87fd4316260648347dc52ac0532a17f02c44deb269cb7cce6912be963e"
+    ],
+    "elem_in_a": false,
+    "elem_in_c": false,
+    "overlap_a": 0.45,
+    "overlap_c": 0.55,
+    "raw_turn_in_element": [
+     true
+    ]
+   }
+  ],
+  "ev_in_a": false,
+  "ev_in_c": true
+ },
+ {
+  "qid": "conv-48:87",
+  "cat": "1",
+  "seed_src": "v2",
+  "gate": "anchor",
+  "n_cc80": 30,
+  "n_cc80_dropped": 0,
+  "question": "Which countries has Deborah traveled to?",
+  "gold": "Thailand, Brazil",
+  "ansA": "Bali",
+  "ansC": "Bali and Rio de Janeiro",
+  "votesA": [
+   false,
+   false,
+   false
+  ],
+  "votesC": [
+   false,
+   false,
+   false
+  ],
+  "evidence": [
+   {
+    "id": "D6:10",
+    "text": "I've been blessed to travel to a few places and Bali last year was one of my favs. It was a gorgeous island that gave me peace, great for yoga.",
+    "in_a_prompt": true,
+    "in_block_c": true,
+    "elem_ids": [
+     "278244ea38263d3b6ad6ef88cff979c4b49611c12c899197b26ec678685bdad6"
+    ],
+    "elem_in_a": true,
+    "elem_in_c": true,
+    "overlap_a": 1.0,
+    "overlap_c": 1.0,
+    "raw_turn_in_element": [
+     true
+    ]
+   },
+   {
+    "id": "D23:18",
+    "text": "Wow, exploring those temples must have been incredible! Three years ago I was also in Rio de Janeiro, I took a beautiful photo on one of the excursions.",
+    "in_a_prompt": false,
+    "in_block_c": true,
+    "elem_ids": [
+     "45f33cbb685fe4bb199b06cad80815202ff338978ec5f3c887e4eef124670f81"
+    ],
+    "elem_in_a": false,
+    "elem_in_c": true,
+    "overlap_a": 0.63,
+    "overlap_c": 1.0,
+    "raw_turn_in_element": [
+     true
+    ]
+   }
+  ],
+  "ev_in_a": false,
+  "ev_in_c": true
+ },
+ {
+  "qid": "conv-48:88",
+  "cat": "1",
+  "seed_src": "v2",
+  "gate": "anchor",
+  "n_cc80": 24,
+  "n_cc80_dropped": 0,
+  "question": "What activities does Deborah pursue besides practicing and teaching yoga?",
+  "gold": "biking, going to art shows, running, organizing workshops to practice mindfulness and self-care, surfing, gardening",
+  "ansA": "Running, biking, gardening, and organizing community events",
+  "ansC": "Running and meditation",
+  "votesA": [
+   true,
+   false,
+   false
+  ],
+  "votesC": [
+   false,
+   false,
+   false
+  ],
+  "evidence": [
+   {
+    "id": "D12:1",
+    "text": "Hey Jolene! Great to see you! Had a blast biking nearby with my neighbor last week - was so freeing and beautiful. Checked out an art show with a friend today - really cool and inspiring stuff. Reminded me of my mom.",
+    "in_a_prompt": true,
+    "in_block_c": false,
+    "elem_ids": [
+     "507b8f09006345039999887c9b39be450e78d95c7970907bf5d2ff95b4b65ff7"
+    ],
+    "elem_in_a": true,
+    "elem_in_c": false,
+    "overlap_a": 1.0,
+    "overlap_c": 0.71,
+    "raw_turn_in_element": [
+     true
+    ]
+   },
+   {
+    "id": "D15:1",
+    "text": "Hey Jolene! I started a running group with Anna - it's awesome connecting with people who care about fitness!",
+    "in_a_prompt": true,
+    "in_block_c": true,
+    "elem_ids": [
+     "3c78615ef5b0c36d2128557ec00445edc50c33cd51e776afcbb14c5134c521c1"
+    ],
+    "elem_in_a": true,
+    "elem_in_c": true,
+    "overlap_a": 1.0,
+    "overlap_c": 1.0,
+    "raw_turn_in_element": [
+     true
+    ]
+   },
+   {
+    "id": "D15:11",
+    "text": "Yep, I do running and yoga/meditation with others. Connecting with people and creating a community is great. Plus, I love organizing workshops and events to practice mindfulness and self-care. It's an awesome way to have fun, build relationships, and support each other's growth.",
+    "in_a_prompt": true,
+    "in_block_c": true,
+    "elem_ids": [
+     "cc628a40d62bb679cb2359fecd43037c9454354400eb563434a10592a8915851"
+    ],
+    "elem_in_a": true,
+    "elem_in_c": true,
+    "overlap_a": 1.0,
+    "overlap_c": 1.0,
+    "raw_turn_in_element": [
+     true
+    ]
+   },
+   {
+    "id": "D28:11",
+    "text": "That beach is super special to me. It's where I got married and discovered my love for surfing. It's always filled with joy and peace.",
+    "in_a_prompt": true,
+    "in_block_c": false,
+    "elem_ids": [
+     "2c3ad867fcb0e1af15bbb73182a0ad28c3b1f68fdd7bc4e391a6ef1b12758c73"
+    ],
+    "elem_in_a": true,
+    "elem_in_c": false,
+    "overlap_a": 1.0,
+    "overlap_c": 0.64,
+    "raw_turn_in_element": [
+     true
+    ]
+   },
+   {
+    "id": "D29:1",
+    "text": "Hey Jolene, I'm so excited to tell you! Yesterday, me and my neighbor ran a free gardening class for the community, it was awesome! People of any age joined in and it was such a great thing to see.",
+    "in_a_prompt": true,
+    "in_block_c": false,
+    "elem_ids": [
+     "bdfc1883f720b08a0c51a3ebf4bf78b3260ed01285119c8ea63189ebd827763d"
+    ],
+    "elem_in_a": true,
+    "elem_in_c": false,
+    "overlap_a": 1.0,
+    "overlap_c": 0.67,
+    "raw_turn_in_element": [
+     true
+    ]
+   }
+  ],
+  "ev_in_a": true,
+  "ev_in_c": true
+ },
+ {
+  "qid": "conv-48:90",
+  "cat": "4",
+  "seed_src": "bm25",
+  "gate": "fallback",
+  "n_cc80": 31,
+  "n_cc80_dropped": 0,
+  "question": "What are Jolene's favorite books?",
+  "gold": "Sapiens, Avalanche by Neal Stephenson",
+  "ansA": "I don't know.",
+  "ansC": "I don't know.",
+  "votesA": [
+   false,
+   false,
+   false
+  ],
+  "votesC": [
+   false,
+   false,
+   false
+  ],
+  "evidence": [
+   {
+    "id": "D4:21",
+    "text": "Thanks Deborah! I'm really into this book called \"Sapiens\" - it's a fascinating look at human history and how technology has affected us. It's giving me a lot to think about!",
+    "in_a_prompt": false,
+    "in_block_c": true,
+    "elem_ids": [
+     "98369e84ded0b6ff745174e65cce3a0938c308252640bf3fca5202b96e16886b"
+    ],
+    "elem_in_a": false,
+    "elem_in_c": true,
+    "overlap_a": 0.59,
+    "overlap_c": 1.0,
+    "raw_turn_in_element": [
+     true
+    ]
+   },
+   {
+    "id": "D4:23",
+    "text": "Two weeks ago I read \"Avalanche\" by Neal Stephenson in one sitting! ",
+    "in_a_prompt": true,
+    "in_block_c": true,
+    "elem_ids": [
+     "a1e76461396b6dabf9c4ee3057d3ab4b0cd81fa0880f7a0c4ca7b44940568892"
+    ],
+    "elem_in_a": true,
+    "elem_in_c": true,
+    "overlap_a": 1.0,
+    "overlap_c": 1.0,
+    "raw_turn_in_element": [
+     true
+    ]
+   }
+  ],
+  "ev_in_a": false,
+  "ev_in_c": true
+ },
+ {
+  "qid": "conv-49:108",
+  "cat": "4",
+  "seed_src": "v2",
+  "gate": "anchor",
+  "n_cc80": 26,
+  "n_cc80_dropped": 0,
+  "question": "What type of landscapes does Evan love painting the most?",
+  "gold": "sunsets over the ocean",
+  "ansA": "Landscapes",
+  "ansC": "Landscapes",
+  "votesA": [
+   false,
+   false,
+   false
+  ],
+  "votesC": [
+   false,
+   false,
+   false
+  ],
+  "evidence": [
+   {
+    "id": "D8:20",
+    "text": "I love painting landscapes. Nature's beauty captivates me and brings me peace. Here's one of my recent works.",
+    "in_a_prompt": true,
+    "in_block_c": true,
+    "elem_ids": [
+     "cf950893b198c4bff4c047931f806138609b08f1f4a601d00c2b3a54501235f0"
+    ],
+    "elem_in_a": true,
+    "elem_in_c": true,
+    "overlap_a": 1.0,
+    "overlap_c": 1.0,
+    "raw_turn_in_element": [
+     true
+    ]
+   }
+  ],
+  "ev_in_a": true,
+  "ev_in_c": true
+ },
+ {
+  "qid": "conv-49:132",
+  "cat": "4",
+  "seed_src": "bm25",
+  "gate": "fallback",
+  "n_cc80": 26,
+  "n_cc80_dropped": 0,
+  "question": "What did Sam offer Evan regarding yoga?",
+  "gold": "Support and tips",
+  "ansA": "Sam offered to give Evan yoga tips.",
+  "ansC": "Sam offered to provide Evan with yoga tips if he needs them.",
+  "votesA": [
+   false,
+   false,
+   false
+  ],
+  "votesC": [
+   true,
+   false,
+   false
+  ],
+  "evidence": [
+   {
+    "id": "D18:10",
+    "text": "Anytime, Evan. If you need any yoga tips or anything else, just let me know.",
+    "in_a_prompt": true,
+    "in_block_c": true,
+    "elem_ids": [
+     "f7bea52f335c331904060d9d345193cda045831a7a728debbdf25330c08e2b26"
+    ],
+    "elem_in_a": true,
+    "elem_in_c": true,
+    "overlap_a": 1.0,
+    "overlap_c": 1.0,
+    "raw_turn_in_element": [
+     true
+    ]
+   }
+  ],
+  "ev_in_a": true,
+  "ev_in_c": true
+ },
+ {
+  "qid": "conv-49:140",
+  "cat": "4",
+  "seed_src": "bm25",
+  "gate": "fallback",
+  "n_cc80": 24,
+  "n_cc80_dropped": 0,
+  "question": "How did Evan feel when he painted the piece with the bird flying over it?",
+  "gold": "a sense of joy and freedom",
+  "ansA": "I don't know.",
+  "ansC": "I don't know",
+  "votesA": [
+   false,
+   false,
+   false
+  ],
+  "votesC": [
+   false,
+   false,
+   false
+  ],
+  "evidence": [
+   {
+    "id": "D21:16",
+    "text": "I painted this with a sense of joy and freedom. The spontaneous strokes and bold colors reflect a playful and liberated mood, embracing the creative process without restraint.",
+    "in_a_prompt": true,
+    "in_block_c": true,
+    "elem_ids": [
+     "bb5361c6799a9dd33e1af79ffab98e6663f47c43ba1d9b26552c109e64e3f052"
+    ],
+    "elem_in_a": true,
+    "elem_in_c": true,
+    "overlap_a": 1.0,
+    "overlap_c": 1.0,
+    "raw_turn_in_element": [
+     true
+    ]
+   }
+  ],
+  "ev_in_a": true,
+  "ev_in_c": true
+ },
+ {
+  "qid": "conv-49:23",
+  "cat": "2",
+  "seed_src": "v2",
+  "gate": "anchor",
+  "n_cc80": 22,
+  "n_cc80_dropped": 0,
+  "question": "When did Sam start working out at the gym?",
+  "gold": "July 28, 2023",
+  "ansA": "I don't know.",
+  "ansC": "I don't know.",
+  "votesA": [
+   false,
+   false,
+   false
+  ],
+  "votesC": [
+   false,
+   false,
+   false
+  ],
+  "evidence": [
+   {
+    "id": "D4:15",
+    "text": "Starting tomorrow, I will go to the gym and exercise regularly. The sooner I start, the sooner I will see the rewards of this activity.",
+    "in_a_prompt": true,
+    "in_block_c": true,
+    "elem_ids": [
+     "4371413731db6721b0591f9105aefaee26503d074056f527efe1cb02f669cad1"
+    ],
+    "elem_in_a": true,
+    "elem_in_c": true,
+    "overlap_a": 1.0,
+    "overlap_c": 1.0,
+    "raw_turn_in_element": [
+     true
+    ]
+   }
+  ],
+  "ev_in_a": true,
+  "ev_in_c": true
+ },
+ {
+  "qid": "conv-49:49",
+  "cat": "1",
+  "seed_src": "bm25",
+  "gate": "fallback",
+  "n_cc80": 22,
+  "n_cc80_dropped": 0,
+  "question": "Who was injured in Evan's family?",
+  "gold": "Evan's son and Evan himself",
+  "ansA": "His son",
+  "ansC": "His son",
+  "votesA": [
+   false,
+   false,
+   false
+  ],
+  "votesC": [
+   false,
+   false,
+   false
+  ],
+  "evidence": [
+   {
+    "id": "D7:1",
+    "text": "Hey Sam, what's up? It's been a few days since we talked. How have you been? Life's been tough lately - my son had a soccer accident last Saturday and hurt his ankle, it was tough seeing him hurt! I just been looking after him and taking him to the doctor. As a dad, it's hard to watch your kid go th",
+    "in_a_prompt": true,
+    "in_block_c": true,
+    "elem_ids": [
+     "97b7f071da6771beb038aed85009063a76871b415431fcc998019e544a2d4a18"
+    ],
+    "elem_in_a": true,
+    "elem_in_c": true,
+    "overlap_a": 1.0,
+    "overlap_c": 1.0,
+    "raw_turn_in_element": [
+     true
+    ]
+   },
+   {
+    "id": "D7:9",
+    "text": "Thanks, Sam. His ankle is getting better, but still sore. It was rough at first, but thank goodness it was nothing serious.",
+    "in_a_prompt": true,
+    "in_block_c": true,
+    "elem_ids": [
+     "b70345b3e4191d7ac921ed6c05ec8e52c07433234c5973010e038333c7208052"
+    ],
+    "elem_in_a": true,
+    "elem_in_c": true,
+    "overlap_a": 1.0,
+    "overlap_c": 1.0,
+    "raw_turn_in_element": [
+     true
+    ]
+   },
+   {
+    "id": "D7:10",
+    "text": "Glad to hear his ankle is getting better. It's hard seeing someone we care about hurt. Look after yourself too, yeah? We gotta look after our health.",
+    "in_a_prompt": true,
+    "in_block_c": true,
+    "elem_ids": [
+     "b70345b3e4191d7ac921ed6c05ec8e52c07433234c5973010e038333c7208052"
+    ],
+    "elem_in_a": true,
+    "elem_in_c": true,
+    "overlap_a": 1.0,
+    "overlap_c": 1.0,
+    "raw_turn_in_element": [
+     true
+    ]
+   },
+   {
+    "id": "D9:2",
+    "text": "Wow, Sam, great! Glad your new diet/exercise is going well. As for me, I've hit a sore spot lately. Twisted my knee last Friday and it's really painful, so it's been tough to stay consistent with my usual fitness routine. It's really frustrating because staying active is like, mega-important to me.",
+    "in_a_prompt": false,
+    "in_block_c": false,
+    "elem_ids": [
+     "48d5042ba87e905988833a597be5080fc928120829ea689d9c29c20a63a15034"
+    ],
+    "elem_in_a": false,
+    "elem_in_c": false,
+    "overlap_a": 0.74,
+    "overlap_c": 0.62,
+    "raw_turn_in_element": [
+     true
+    ]
+   },
+   {
+    "id": "D11:2",
+    "text": "Hey Sam! That's awesome about your healthier eating! For me, I had a setback last week - messed up my knee playing b-ball with the kids. It's been tough to stay active since. I really miss going on adventures like we did last year - good times with the family!",
+    "in_a_prompt": true,
+    "in_block_c": true,
+    "elem_ids": [
+     "ff25129887ae13796cb4becf330089c30e8c02e447cae64cadfc2791e3f1ced6"
+    ],
+    "elem_in_a": true,
+    "elem_in_c": true,
+    "overlap_a": 1.0,
+    "overlap_c": 1.0,
+    "raw_turn_in_element": [
+     true
+    ]
+   },
+   {
+    "id": "D11:3",
+    "text": "Hey Evan, sorry to hear about your knee. It must be tough. Are there any ways to stay active while you heal up?",
+    "in_a_prompt": false,
+    "in_block_c": false,
+    "elem_ids": [
+     "fbdf622ea6c1e42dffa7953e40f5ad612a0471093fbe520afbb2a228d0c0bfb4"
+    ],
+    "elem_in_a": false,
+    "elem_in_c": false,
+    "overlap_a": 0.94,
+    "overlap_c": 0.94,
+    "raw_turn_in_element": [
+     true
+    ]
+   }
+  ],
+  "ev_in_a": false,
+  "ev_in_c": true
+ },
+ {
+  "qid": "conv-49:54",
+  "cat": "1",
+  "seed_src": "v2",
+  "gate": "anchor",
+  "n_cc80": 20,
+  "n_cc80_dropped": 2,
+  "question": "What personal health incidents does Evan face in 2023?",
+  "gold": "heart palpitations, twisted ankle, twisted ankle",
+  "ansA": "Evan faced a sudden heart palpitation incident, twisted his knee, and experienced a health scare where something suspicious was found during a check-up (which turned out to be a misunderstanding).",
+  "ansC": "A sudden heart palpitation incident in June 2023 and a health scare involving a suspicious finding during a hospital check-up in November 2023.",
+  "votesA": [
+   false,
+   false,
+   false
+  ],
+  "votesC": [
+   false,
+   false,
+   false
+  ],
+  "evidence": [
+   {
+    "id": "D3:1",
+    "text": "Hey Sam! Long time no talk! How're you doing? Life's been quite the rollercoaster lately. I had a health scare last week – a sudden heart palpitation incident that really shook me up. It's been a serious wake-up call about my lifestyle.",
+    "in_a_prompt": true,
+    "in_block_c": true,
+    "elem_ids": [
+     "33b27862e191ad811fcfc9f264a27901e967c3783cbeedfe2e4524eed4090180"
+    ],
+    "elem_in_a": true,
+    "elem_in_c": true,
+    "overlap_a": 1.0,
+    "overlap_c": 1.0,
+    "raw_turn_in_element": [
+     true
+    ]
+   },
+   {
+    "id": "D9:2",
+    "text": "Wow, Sam, great! Glad your new diet/exercise is going well. As for me, I've hit a sore spot lately. Twisted my knee last Friday and it's really painful, so it's been tough to stay consistent with my usual fitness routine. It's really frustrating because staying active is like, mega-important to me.",
+    "in_a_prompt": true,
+    "in_block_c": false,
+    "elem_ids": [
+     "48d5042ba87e905988833a597be5080fc928120829ea689d9c29c20a63a15034"
+    ],
+    "elem_in_a": true,
+    "elem_in_c": false,
+    "overlap_a": 1.0,
+    "overlap_c": 0.71,
+    "raw_turn_in_element": [
+     true
+    ]
+   },
+   {
+    "id": "D11:2",
+    "text": "Hey Sam! That's awesome about your healthier eating! For me, I had a setback last week - messed up my knee playing b-ball with the kids. It's been tough to stay active since. I really miss going on adventures like we did last year - good times with the family!",
+    "in_a_prompt": true,
+    "in_block_c": false,
+    "elem_ids": [
+     "ff25129887ae13796cb4becf330089c30e8c02e447cae64cadfc2791e3f1ced6"
+    ],
+    "elem_in_a": true,
+    "elem_in_c": false,
+    "overlap_a": 1.0,
+    "overlap_c": 0.7,
+    "raw_turn_in_element": [
+     true
+    ]
+   }
+  ],
+  "ev_in_a": true,
+  "ev_in_c": true
+ },
+ {
+  "qid": "conv-50:51",
+  "cat": "2",
+  "seed_src": "v2",
+  "gate": "anchor",
+  "n_cc80": 20,
+  "n_cc80_dropped": 0,
+  "question": "When did Calvin and Frank Ocean start collaborating?",
+  "gold": "August 2022",
+  "ansA": "August last year",
+  "ansC": "August last year",
+  "votesA": [
+   false,
+   false,
+   false
+  ],
+  "votesC": [
+   false,
+   false,
+   false
+  ],
+  "evidence": [
+   {
+    "id": "D24:5",
+    "text": "It all started August last year when we met at a festival and he said he wanted to collaborate. We clicked right away and the chemistry on stage was incredible. I'm so lucky! Check the photo, of how we perfectly look together on stage!",
+    "in_a_prompt": true,
+    "in_block_c": true,
+    "elem_ids": [
+     "776e45f78a4383578949fffd13ae7786b1b263b99c3e58b49f403ce776d3e56d"
+    ],
+    "elem_in_a": true,
+    "elem_in_c": true,
+    "overlap_a": 1.0,
+    "overlap_c": 1.0,
+    "raw_turn_in_element": [
+     true
+    ]
+   },
+   {
+    "id": "D15:2",
+    "text": "Hey Dave! Great to hear from you, card night sounds like a blast! Always love having fun with friends. Guess what? I scored a deal to continue collaboration with Frank Ocean! This is a dream come true for me, I've been working hard and it's finally paying off. No words can describe how happy I am.",
+    "in_a_prompt": true,
+    "in_block_c": true,
+    "elem_ids": [
+     "8614ab6c6ebf7c04eefa2e7ee521b114c709bc73242a278893085c4c376ab3af"
+    ],
+    "elem_in_a": true,
+    "elem_in_c": true,
+    "overlap_a": 1.0,
+    "overlap_c": 1.0,
+    "raw_turn_in_element": [
+     true
+    ]
+   }
+  ],
+  "ev_in_a": true,
+  "ev_in_c": true
+ },
+ {
+  "qid": "conv-50:88",
+  "cat": "4",
+  "seed_src": "v2",
+  "gate": "anchor",
+  "n_cc80": 24,
+  "n_cc80_dropped": 1,
+  "question": "What did Calvin and his friends arrange for in the park?",
+  "gold": "regular walks together",
+  "ansA": "I don't know.",
+  "ansC": "I don't know.",
+  "votesA": [
+   false,
+   false,
+   false
+  ],
+  "votesC": [
+   false,
+   false,
+   false
+  ],
+  "evidence": [
+   {
+    "id": "D10:3",
+    "text": "Glad to hear your car's fixed and going strong! I've been good too. Just been hanging out with friends at parks lately. I arranged with friends for regular walks together in the park.",
+    "in_a_prompt": true,
+    "in_block_c": true,
+    "elem_ids": [
+     "74755176f46cb76b1b6405fddf21cae01384209a52f65b7df1bb8e9b453d3350"
+    ],
+    "elem_in_a": true,
+    "elem_in_c": true,
+    "overlap_a": 1.0,
+    "overlap_c": 1.0,
+    "raw_turn_in_element": [
+     true
+    ]
+   }
+  ],
+  "ev_in_a": true,
+  "ev_in_c": true
+ }
+]

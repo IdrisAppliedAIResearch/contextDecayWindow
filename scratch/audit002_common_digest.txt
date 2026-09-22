@@ -1,0 +1,327 @@
+====================================================================================================
+conv-26:35 cat2 seed=v2 gate=anchor dropped=2
+Q: When did Melanie go camping in July?
+GOLD: two weekends before 17 July 2023
+A([False, False, False]): I don't know.
+C([False, False, False]): I don't know.
+  ev D9:1: Hey Caroline, hope all's good! I had a quiet weekend after we went camping with my fam two weekends ago. It was great to unplug and hang with the kids
+    elem_verbatim_raw=True tok_ov_raw_vs_elem=1.00 elem_in_A=True elem_in_C=True elem_in_B=False tok_ov_elem_vs_Aprompt=1.00 tok_ov_elem_vs_C=1.00
+====================================================================================================
+conv-26:41 cat2 seed=v2 gate=anchor dropped=0
+Q: When did Caroline join a new activist group?
+GOLD: The Tuesday before 20 July 2023
+A([False, False, False]): Last Tuesday
+C([False, False, False]): Last Tuesday
+  ev D10:3: Hey Mel! A lot's happened since we last chatted - I just joined a new LGBTQ activist group last Tues. I'm meeting so many cool people who are as passi
+    elem_verbatim_raw=True tok_ov_raw_vs_elem=0.97 elem_in_A=True elem_in_C=True elem_in_B=True tok_ov_elem_vs_Aprompt=1.00 tok_ov_elem_vs_C=1.00
+====================================================================================================
+conv-26:49 cat2 seed=v2 gate=anchor dropped=0
+Q: When did Caroline and Melanie go to a pride fesetival together?
+GOLD: 2022
+A([False, False, False]): I don't know.
+C([False, False, False]): I don't know.
+  ev D12:15: I'm always here for you, Mel! We had a blast last year at the Pride fest. Those supportive friends definitely make everything worth it!
+    elem_verbatim_raw=True tok_ov_raw_vs_elem=1.00 elem_in_A=True elem_in_C=True elem_in_B=False tok_ov_elem_vs_Aprompt=1.00 tok_ov_elem_vs_C=1.00
+====================================================================================================
+conv-26:7 cat1 seed=bm25 gate=fallback dropped=3
+Q: What is Caroline's relationship status?
+GOLD: Single
+A([False, False, False]): I don't know.
+C([False, False, False]): I don't know.
+  ev D3:13: Yeah, I'm really lucky to have them. They've been there through everything, I've known these friends for 4 years, since I moved from my home country. 
+    elem_verbatim_raw=True tok_ov_raw_vs_elem=1.00 elem_in_A=True elem_in_C=False elem_in_B=False tok_ov_elem_vs_Aprompt=1.00 tok_ov_elem_vs_C=0.74
+    ELEM_TEXT_MISSING_IN_C: Caroline: Yeah, I'm really lucky to have them. They've been there through everything, I've known these friends for 4 years, since I moved from my home country. Their love and help have been so important especially after 
+  ev D2:14: I'm thrilled to make a family for kids who need one. It'll be tough as a single parent, but I'm up for the challenge!
+    elem_verbatim_raw=True tok_ov_raw_vs_elem=1.00 elem_in_A=True elem_in_C=False elem_in_B=False tok_ov_elem_vs_Aprompt=1.00 tok_ov_elem_vs_C=0.68
+    ELEM_TEXT_MISSING_IN_C: Melanie: That's great, Caroline! Loving the inclusivity and support. Anything you're excited for in the adoption process?
+Caroline: I'm thrilled to make a family for kids who need one. It'll be tough as a single parent, 
+====================================================================================================
+conv-30:31 cat1 seed=bm25 gate=fallback dropped=0
+Q: How long did it take for Jon to open his studio?
+GOLD: six months
+A([False, False, False]): I don't know
+C([False, False, False]): I don't know.
+  ev D1:2: Hey Gina! Good to see you too. Lost my job as a banker yesterday, so I'm gonna take a shot at starting my own business.
+    elem_verbatim_raw=True tok_ov_raw_vs_elem=1.00 elem_in_A=True elem_in_C=True elem_in_B=False tok_ov_elem_vs_Aprompt=1.00 tok_ov_elem_vs_C=1.00
+  ev D15:13: Yeah! Let's make some awesome memories tomorrow at the grand opening!
+    elem_verbatim_raw=True tok_ov_raw_vs_elem=1.00 elem_in_A=True elem_in_C=True elem_in_B=True tok_ov_elem_vs_Aprompt=1.00 tok_ov_elem_vs_C=1.00
+====================================================================================================
+conv-30:73 cat4 seed=v2 gate=anchor dropped=0
+Q: How does Gina describe the feeling that dance brings?
+GOLD: magical
+A([False, False, False]): It's like air.
+C([False, False, False]): It's like air.
+  ev D15:8: Wow, Jon, you must be so excited! You've come so far since we last talked, and tomorrow's gonna be a blast! All those long nights were worth it - so t
+    elem_verbatim_raw=True tok_ov_raw_vs_elem=1.00 elem_in_A=True elem_in_C=True elem_in_B=False tok_ov_elem_vs_Aprompt=1.00 tok_ov_elem_vs_C=1.00
+====================================================================================================
+conv-41:23 cat1 seed=v2 gate=anchor dropped=0
+Q: What desserts has Maria made?
+GOLD: Banana split sundae, Peach cobbler
+A([False, False, False]): peach cobbler
+C([False, False, False]): Peach cobbler
+  ev D2:25: I can picture you all laughing and having a blast making your own pizzas - a great way to bond! I made some peach cobbler recently, it was great.
+    elem_verbatim_raw=True tok_ov_raw_vs_elem=1.00 elem_in_A=True elem_in_C=True elem_in_B=False tok_ov_elem_vs_Aprompt=1.00 tok_ov_elem_vs_C=1.00
+  ev D13:18: Thanks, John! It had lots of great things like salads, sandwiches, and homemade desserts. My favorite is the amazing banana split sundae - I enjoy it 
+    elem_verbatim_raw=True tok_ov_raw_vs_elem=1.00 elem_in_A=True elem_in_C=True elem_in_B=True tok_ov_elem_vs_Aprompt=1.00 tok_ov_elem_vs_C=1.00
+====================================================================================================
+conv-41:69 cat4 seed=v2 gate=anchor dropped=0
+Q: What did Maria donate to a homeless shelter in December 2023?
+GOLD: old car
+A([False, False, False]): I don't know.
+C([False, False, False]): I don't know.
+  ev D2:1: Hey John, been a few days since we chatted. In the meantime, I donated my old car to a homeless shelter I volunteer at yesterday. How's the campaign g
+    elem_verbatim_raw=True tok_ov_raw_vs_elem=1.00 elem_in_A=True elem_in_C=True elem_in_B=False tok_ov_elem_vs_Aprompt=1.00 tok_ov_elem_vs_C=1.00
+====================================================================================================
+conv-42:72 cat2 seed=v2 gate=anchor dropped=0
+Q: When did Joanna plan on going to Nate's to watch him play with his turtles?
+GOLD: 10 November, 2022
+A([False, False, False]): Tomorrow
+C([False, False, False]): Tomorrow
+  ev D28:32: Alright, see you tomorrow!
+    elem_verbatim_raw=True tok_ov_raw_vs_elem=1.00 elem_in_A=True elem_in_C=True elem_in_B=True tok_ov_elem_vs_Aprompt=1.00 tok_ov_elem_vs_C=1.00
+====================================================================================================
+conv-42:73 cat3 seed=bm25 gate=fallback dropped=2
+Q: What state did Joanna visit in summer 2021?
+GOLD: Indiana
+A([False, False, False]): I don't know.
+C([False, False, False]): I don't know.
+  ev D28:22: Thanks, Nate! I took that pic on a hike last summer near Fort Wayne. The sunset and the surrounding beauty were just incredible. It was an awesome rem
+    elem_verbatim_raw=True tok_ov_raw_vs_elem=1.00 elem_in_A=True elem_in_C=True elem_in_B=False tok_ov_elem_vs_Aprompt=1.00 tok_ov_elem_vs_C=1.00
+====================================================================================================
+conv-43:113 cat4 seed=bm25 gate=fallback dropped=0
+Q: Which basketball team does Tim support?
+GOLD: The Wolves
+A([False, False, False]): I don't know.
+C([False, False, False]): I don't know.
+  ev D12:21: The Wolves are solid and LeBron's skills and leadership are amazing.
+    elem_verbatim_raw=True tok_ov_raw_vs_elem=1.00 elem_in_A=True elem_in_C=False elem_in_B=False tok_ov_elem_vs_Aprompt=1.00 tok_ov_elem_vs_C=0.69
+    ELEM_TEXT_MISSING_IN_C: Tim: The Wolves are solid and LeBron's skills and leadership are amazing.
+John: I really admire his work ethic and dedication to the game, such an inspiration.
+====================================================================================================
+conv-43:56 cat2 seed=bm25 gate=fallback dropped=0
+Q: When did Tim start playing the violin?
+GOLD: August 2023
+A([False, False, False]): I don't know.
+C([False, False, False]): I don't know.
+  ev D21:13: I've been playing for about four months now and it's been an amazing adventure. I'm really enjoying the progress I've been making.
+    elem_verbatim_raw=True tok_ov_raw_vs_elem=1.00 elem_in_A=False elem_in_C=True elem_in_B=True tok_ov_elem_vs_Aprompt=0.38 tok_ov_elem_vs_C=1.00
+====================================================================================================
+conv-44:12 cat1 seed=v2 gate=anchor dropped=0
+Q: What outdoor activities has Andrew done other than hiking in nature?
+GOLD: rock climbing, fishing, camping
+A([False, False, False]): Rock climbing, fishing, and bike riding
+C([True, False, False]): Rock climbing
+  ev D8:1: Hey! Long time no chat. Last Sunday was awesome - my friends and I took a rock climbing class and I made it to the top! It was a fantastic experience 
+    elem_verbatim_raw=True tok_ov_raw_vs_elem=1.00 elem_in_A=True elem_in_C=True elem_in_B=True tok_ov_elem_vs_Aprompt=1.00 tok_ov_elem_vs_C=1.00
+  ev D17:1: Hey Audrey! What's up? Last weekend my girlfriend and I went fishing in one of the nearby lakes. It was so nice. We got a few fish and had a blast. Ha
+    elem_verbatim_raw=True tok_ov_raw_vs_elem=1.00 elem_in_A=True elem_in_C=False elem_in_B=False tok_ov_elem_vs_Aprompt=1.00 tok_ov_elem_vs_C=0.65
+    ELEM_TEXT_MISSING_IN_C: Andrew: Hey Audrey! What's up? Last weekend my girlfriend and I went fishing in one of the nearby lakes. It was so nice. We got a few fish and had a blast. Have you ever gone fishing before?
+Audrey: Hey! Actually I've ne
+  ev D14:1: Hey, Audrey! I can't wait for the weekend. My girlfriend, Toby and I are going camping. It's been forever since I've been in nature.
+    elem_verbatim_raw=True tok_ov_raw_vs_elem=1.00 elem_in_A=True elem_in_C=False elem_in_B=False tok_ov_elem_vs_Aprompt=1.00 tok_ov_elem_vs_C=0.70
+    ELEM_TEXT_MISSING_IN_C: Andrew: Hey, Audrey! I can't wait for the weekend. My girlfriend, Toby and I are going camping. It's been forever since I've been in nature.
+Audrey: That's awesome! That must be fun! I just started agility classes with m
+====================================================================================================
+conv-44:17 cat1 seed=v2 gate=anchor dropped=0
+Q: How many times did Audrey and Andew plan to hike together?
+GOLD: three times
+A([False, False, False]): I don't know.
+C([False, False, False]): I don't know.
+  ev D11:7: Yeah definitely ! I'm down for a hike with you and your furry friends. Let's do it next month when the weather is more pleasant. Here's the trail that
+    elem_verbatim_raw=True tok_ov_raw_vs_elem=1.00 elem_in_A=True elem_in_C=False elem_in_B=False tok_ov_elem_vs_Aprompt=1.00 tok_ov_elem_vs_C=0.84
+    ELEM_TEXT_MISSING_IN_C: Andrew: Yeah definitely ! I'm down for a hike with you and your furry friends. Let's do it next month when the weather is more pleasant. Here's the trail that I think it'd be great for the dogs.
+Audrey: That'd be awesome
+  ev D24:13: I can't wait for our hike with the furry friends next month - it's gonna be awesome!
+    elem_verbatim_raw=True tok_ov_raw_vs_elem=1.00 elem_in_A=True elem_in_C=True elem_in_B=False tok_ov_elem_vs_Aprompt=1.00 tok_ov_elem_vs_C=1.00
+  ev D26:20: Yay! Does Saturday sound good? We can grab some snacks and have a blast exploring. Because on Sunday I am going on a picnic date with my girlfriend.
+    elem_verbatim_raw=True tok_ov_raw_vs_elem=1.00 elem_in_A=True elem_in_C=True elem_in_B=False tok_ov_elem_vs_Aprompt=1.00 tok_ov_elem_vs_C=1.00
+====================================================================================================
+conv-44:21 cat1 seed=v2 gate=anchor dropped=1
+Q: What are the classes that Audrey took for her dogs to?
+GOLD: Positive reinforcement training class for bonding, dog training course, agility class
+A([False, False, False]): Agility classes
+C([False, False, False]): Agility classes
+  ev D6:4: I know right? I saw this workshop flyer at my local pet store. It was a positive reinforcement training class and I wanted to give it a shot. The volu
+    elem_verbatim_raw=True tok_ov_raw_vs_elem=1.00 elem_in_A=True elem_in_C=False elem_in_B=False tok_ov_elem_vs_Aprompt=1.00 tok_ov_elem_vs_C=0.72
+    ELEM_TEXT_MISSING_IN_C: Andrew: That's awesome! Glad have the opportunity to bond with your pets. That workshop sounds cool. Where did you hear about it? And the one in the picture is adorable!
+Audrey: I know right? I saw this workshop flyer at
+  ev D10:1: Hey! It's been a while. I'm taking a dog training course and it's challenging but rewarding. My dogs are doing better already. What's new with you?
+    elem_verbatim_raw=True tok_ov_raw_vs_elem=1.00 elem_in_A=True elem_in_C=True elem_in_B=False tok_ov_elem_vs_Aprompt=1.00 tok_ov_elem_vs_C=1.00
+  ev D14:2: That's awesome! That must be fun! I just started agility classes with my pups at a dog park. It's awesome to watch them learn and build relationships 
+    elem_verbatim_raw=True tok_ov_raw_vs_elem=1.00 elem_in_A=True elem_in_C=True elem_in_B=True tok_ov_elem_vs_Aprompt=1.00 tok_ov_elem_vs_C=1.00
+====================================================================================================
+conv-44:33 cat3 seed=bm25 gate=fallback dropped=0
+Q: What can Andrew potentially do to improve his stress and accomodate his living situation with his dogs?
+GOLD: Change to a hybrid or remote job so he can move away from the city to the suburbs to have a larger living space and be closer to nature.
+A([False, False, False]): Based on the conversation, Andrew can **take a break from work** (as he did on September 19 to visit a cafe) and **check out a new cafe** or go for a walk to recharge. Additionally, he can **take his dogs on hikes** (planned for next month) or **camping** trip
+C([False, False, False]): Keep them active
+  ev D12:3: Haha yeah! Toby's definitely bringing a lot of joy. Since we last talked, work has been piling up and I've been stuck inside. I miss the peace and fee
+    elem_verbatim_raw=True tok_ov_raw_vs_elem=1.00 elem_in_A=True elem_in_C=False elem_in_B=False tok_ov_elem_vs_Aprompt=1.00 tok_ov_elem_vs_C=0.72
+    ELEM_TEXT_MISSING_IN_C: Andrew: Haha yeah! Toby's definitely bringing a lot of joy. Since we last talked, work has been piling up and I've been stuck inside. I miss the peace and feeling of freedom that comes with going for a hike.
+Audrey: Yeah
+  ev D18:1: Hey Audrey, how's it going? Since we last talked, a few new things have come up in my life. Work's been tough and stressful, so my outdoor activities 
+    elem_verbatim_raw=True tok_ov_raw_vs_elem=1.00 elem_in_A=True elem_in_C=True elem_in_B=False tok_ov_elem_vs_Aprompt=1.00 tok_ov_elem_vs_C=1.00
+  ev D21:5: Haven't been to the beach in a while. Miss being outdoors. It's hard to find open spaces in the city. Used to hike a lot, but it's more challenging no
+    elem_verbatim_raw=True tok_ov_raw_vs_elem=1.00 elem_in_A=True elem_in_C=False elem_in_B=False tok_ov_elem_vs_Aprompt=1.00 tok_ov_elem_vs_C=0.88
+    ELEM_TEXT_MISSING_IN_C: Andrew: Haven't been to the beach in a while. Miss being outdoors. It's hard to find open spaces in the city. Used to hike a lot, but it's more challenging now with my work life balance.
+Audrey: Oof, that's rough. I can 
+====================================================================================================
+conv-44:47 cat2 seed=bm25 gate=fallback dropped=0
+Q: How many months passed between Andrew adopting Buddy and Scout
+GOLD: one month
+A([False, False, False]): 2
+C([False, False, False]): I don't know.
+  ev D24:2: Hi Audrey! Pets really can make our lives better, huh? Speaking of which, I've got some awesome news -- I recently adopted another pup from a shelter.
+    elem_verbatim_raw=True tok_ov_raw_vs_elem=1.00 elem_in_A=True elem_in_C=False elem_in_B=False tok_ov_elem_vs_Aprompt=1.00 tok_ov_elem_vs_C=0.74
+    ELEM_TEXT_MISSING_IN_C: Audrey: Hey Andrew, hope you're doing ok. I recently had a good week - I went to a pet store last Monday to buy toys for my dogs and it was great seeing them so excited when I got them home. It made me realize how much I
+  ev D28:6: No, we haven't got the chance to take them to the groomer yet. But will do that soon! So guess what, I can't help myself but to adpot another dog the 
+    elem_verbatim_raw=True tok_ov_raw_vs_elem=1.00 elem_in_A=True elem_in_C=True elem_in_B=True tok_ov_elem_vs_Aprompt=1.00 tok_ov_elem_vs_C=1.00
+====================================================================================================
+conv-47:16 cat3 seed=v2 gate=anchor dropped=0
+Q: What is the game with different colored cards that was John talking about with James?
+GOLD: UNO
+A([False, False, False]): I don't know
+C([False, False, False]): I don't know.
+  ev D8:34: Yes, we played one game, but I forgot its name. Perhaps you know this game. There were multi-colored cards with numbers. You can only place a card wit
+    elem_verbatim_raw=True tok_ov_raw_vs_elem=1.00 elem_in_A=True elem_in_C=True elem_in_B=True tok_ov_elem_vs_Aprompt=1.00 tok_ov_elem_vs_C=1.00
+====================================================================================================
+conv-47:61 cat2 seed=bm25 gate=fallback dropped=0
+Q: What was James' big moment with Samantha in October 2023?
+GOLD: They decided to live together and rented an apartment not far from McGee's bar.
+A([False, False, False]): I don't know.
+C([False, False, False]): I don't know.
+  ev D29:8: I actually have something new, Samantha and I have decided to move in together!
+    elem_verbatim_raw=True tok_ov_raw_vs_elem=1.00 elem_in_A=True elem_in_C=True elem_in_B=False tok_ov_elem_vs_Aprompt=1.00 tok_ov_elem_vs_C=1.00
+  ev D29:10: Of course, this was a mutual and informed decision. We rented an apartment not far from McGee's bar.
+    elem_verbatim_raw=True tok_ov_raw_vs_elem=1.00 elem_in_A=False elem_in_C=False elem_in_B=False tok_ov_elem_vs_Aprompt=0.55 tok_ov_elem_vs_C=0.59
+    ELEM_TEXT_MISSING_IN_C: John: Wow, that's a really big decision! I hope you both have weighed the pros and cons. Where are you going to live?
+James: Of course, this was a mutual and informed decision. We rented an apartment not far from McGee's
+====================================================================================================
+conv-48:87 cat1 seed=v2 gate=anchor dropped=0
+Q: Which countries has Deborah traveled to?
+GOLD: Thailand, Brazil
+A([False, False, False]): Bali
+C([False, False, False]): Bali and Rio de Janeiro
+  ev D6:10: I've been blessed to travel to a few places and Bali last year was one of my favs. It was a gorgeous island that gave me peace, great for yoga.
+    elem_verbatim_raw=True tok_ov_raw_vs_elem=1.00 elem_in_A=True elem_in_C=True elem_in_B=False tok_ov_elem_vs_Aprompt=1.00 tok_ov_elem_vs_C=1.00
+  ev D23:18: Wow, exploring those temples must have been incredible! Three years ago I was also in Rio de Janeiro, I took a beautiful photo on one of the excursion
+    elem_verbatim_raw=True tok_ov_raw_vs_elem=1.00 elem_in_A=False elem_in_C=True elem_in_B=True tok_ov_elem_vs_Aprompt=0.64 tok_ov_elem_vs_C=1.00
+====================================================================================================
+conv-48:88 cat1 seed=v2 gate=anchor dropped=0
+Q: What activities does Deborah pursue besides practicing and teaching yoga?
+GOLD: biking, going to art shows, running, organizing workshops to practice mindfulness and self-care, surfing, gardening
+A([True, False, False]): Running, biking, gardening, and organizing community events
+C([False, False, False]): Running and meditation
+  ev D12:1: Hey Jolene! Great to see you! Had a blast biking nearby with my neighbor last week - was so freeing and beautiful. Checked out an art show with a frie
+    elem_verbatim_raw=True tok_ov_raw_vs_elem=1.00 elem_in_A=True elem_in_C=False elem_in_B=False tok_ov_elem_vs_Aprompt=1.00 tok_ov_elem_vs_C=0.73
+    ELEM_TEXT_MISSING_IN_C: Deborah: Hey Jolene! Great to see you! Had a blast biking nearby with my neighbor last week - was so freeing and beautiful. Checked out an art show with a friend today - really cool and inspiring stuff. Reminded me of my
+  ev D15:1: Hey Jolene! I started a running group with Anna - it's awesome connecting with people who care about fitness!
+    elem_verbatim_raw=True tok_ov_raw_vs_elem=1.00 elem_in_A=True elem_in_C=True elem_in_B=True tok_ov_elem_vs_Aprompt=1.00 tok_ov_elem_vs_C=1.00
+  ev D15:11: Yep, I do running and yoga/meditation with others. Connecting with people and creating a community is great. Plus, I love organizing workshops and eve
+    elem_verbatim_raw=True tok_ov_raw_vs_elem=1.00 elem_in_A=True elem_in_C=True elem_in_B=True tok_ov_elem_vs_Aprompt=1.00 tok_ov_elem_vs_C=1.00
+  ev D28:11: That beach is super special to me. It's where I got married and discovered my love for surfing. It's always filled with joy and peace.
+    elem_verbatim_raw=True tok_ov_raw_vs_elem=1.00 elem_in_A=True elem_in_C=False elem_in_B=False tok_ov_elem_vs_Aprompt=1.00 tok_ov_elem_vs_C=0.65
+    ELEM_TEXT_MISSING_IN_C: Deborah: That beach is super special to me. It's where I got married and discovered my love for surfing. It's always filled with joy and peace.
+Jolene: What pleasant memories.
+  ev D29:1: Hey Jolene, I'm so excited to tell you! Yesterday, me and my neighbor ran a free gardening class for the community, it was awesome! People of any age 
+    elem_verbatim_raw=True tok_ov_raw_vs_elem=1.00 elem_in_A=True elem_in_C=False elem_in_B=False tok_ov_elem_vs_Aprompt=1.00 tok_ov_elem_vs_C=0.69
+    ELEM_TEXT_MISSING_IN_C: Deborah: Hey Jolene, I'm so excited to tell you! Yesterday, me and my neighbor ran a free gardening class for the community, it was awesome! People of any age joined in and it was such a great thing to see.
+Jolene: Wow, 
+====================================================================================================
+conv-48:90 cat4 seed=bm25 gate=fallback dropped=0
+Q: What are Jolene's favorite books?
+GOLD: Sapiens, Avalanche by Neal Stephenson
+A([False, False, False]): I don't know.
+C([False, False, False]): I don't know.
+  ev D4:21: Thanks Deborah! I'm really into this book called "Sapiens" - it's a fascinating look at human history and how technology has affected us. It's giving 
+    elem_verbatim_raw=True tok_ov_raw_vs_elem=1.00 elem_in_A=False elem_in_C=True elem_in_B=True tok_ov_elem_vs_Aprompt=0.57 tok_ov_elem_vs_C=1.00
+  ev D4:23: Two weeks ago I read "Avalanche" by Neal Stephenson in one sitting! 
+    elem_verbatim_raw=True tok_ov_raw_vs_elem=1.00 elem_in_A=True elem_in_C=True elem_in_B=True tok_ov_elem_vs_Aprompt=1.00 tok_ov_elem_vs_C=1.00
+====================================================================================================
+conv-49:108 cat4 seed=v2 gate=anchor dropped=0
+Q: What type of landscapes does Evan love painting the most?
+GOLD: sunsets over the ocean
+A([False, False, False]): Landscapes
+C([False, False, False]): Landscapes
+  ev D8:20: I love painting landscapes. Nature's beauty captivates me and brings me peace. Here's one of my recent works.
+    elem_verbatim_raw=True tok_ov_raw_vs_elem=1.00 elem_in_A=True elem_in_C=True elem_in_B=True tok_ov_elem_vs_Aprompt=1.00 tok_ov_elem_vs_C=1.00
+====================================================================================================
+conv-49:132 cat4 seed=bm25 gate=fallback dropped=0
+Q: What did Sam offer Evan regarding yoga?
+GOLD: Support and tips
+A([False, False, False]): Sam offered to give Evan yoga tips.
+C([True, False, False]): Sam offered to provide Evan with yoga tips if he needs them.
+  ev D18:10: Anytime, Evan. If you need any yoga tips or anything else, just let me know.
+    elem_verbatim_raw=True tok_ov_raw_vs_elem=1.00 elem_in_A=True elem_in_C=True elem_in_B=False tok_ov_elem_vs_Aprompt=1.00 tok_ov_elem_vs_C=1.00
+====================================================================================================
+conv-49:140 cat4 seed=bm25 gate=fallback dropped=0
+Q: How did Evan feel when he painted the piece with the bird flying over it?
+GOLD: a sense of joy and freedom
+A([False, False, False]): I don't know.
+C([False, False, False]): I don't know
+  ev D21:16: I painted this with a sense of joy and freedom. The spontaneous strokes and bold colors reflect a playful and liberated mood, embracing the creative p
+    elem_verbatim_raw=True tok_ov_raw_vs_elem=1.00 elem_in_A=True elem_in_C=True elem_in_B=False tok_ov_elem_vs_Aprompt=1.00 tok_ov_elem_vs_C=1.00
+====================================================================================================
+conv-49:23 cat2 seed=v2 gate=anchor dropped=0
+Q: When did Sam start working out at the gym?
+GOLD: July 28, 2023
+A([False, False, False]): I don't know.
+C([False, False, False]): I don't know.
+  ev D4:15: Starting tomorrow, I will go to the gym and exercise regularly. The sooner I start, the sooner I will see the rewards of this activity.
+    elem_verbatim_raw=True tok_ov_raw_vs_elem=1.00 elem_in_A=True elem_in_C=True elem_in_B=False tok_ov_elem_vs_Aprompt=1.00 tok_ov_elem_vs_C=1.00
+====================================================================================================
+conv-49:49 cat1 seed=bm25 gate=fallback dropped=0
+Q: Who was injured in Evan's family?
+GOLD: Evan's son and Evan himself
+A([False, False, False]): His son
+C([False, False, False]): His son
+  ev D7:1: Hey Sam, what's up? It's been a few days since we talked. How have you been? Life's been tough lately - my son had a soccer accident last Saturday and
+    elem_verbatim_raw=True tok_ov_raw_vs_elem=0.97 elem_in_A=True elem_in_C=True elem_in_B=False tok_ov_elem_vs_Aprompt=1.00 tok_ov_elem_vs_C=1.00
+  ev D7:9: Thanks, Sam. His ankle is getting better, but still sore. It was rough at first, but thank goodness it was nothing serious.
+    elem_verbatim_raw=True tok_ov_raw_vs_elem=1.00 elem_in_A=True elem_in_C=True elem_in_B=False tok_ov_elem_vs_Aprompt=1.00 tok_ov_elem_vs_C=1.00
+  ev D7:10: Glad to hear his ankle is getting better. It's hard seeing someone we care about hurt. Look after yourself too, yeah? We gotta look after our health.
+    elem_verbatim_raw=True tok_ov_raw_vs_elem=1.00 elem_in_A=True elem_in_C=True elem_in_B=False tok_ov_elem_vs_Aprompt=1.00 tok_ov_elem_vs_C=1.00
+  ev D9:2: Wow, Sam, great! Glad your new diet/exercise is going well. As for me, I've hit a sore spot lately. Twisted my knee last Friday and it's really painfu
+    elem_verbatim_raw=True tok_ov_raw_vs_elem=1.00 elem_in_A=False elem_in_C=False elem_in_B=False tok_ov_elem_vs_Aprompt=0.70 tok_ov_elem_vs_C=0.60
+    ELEM_TEXT_MISSING_IN_C: Sam: Hey Evan! Exciting news: I started a new diet and exercise routine last Monday and it's made a huge difference. I feel great! What about you, what changes have you made recently?
+Evan: Wow, Sam, great! Glad your new
+  ev D11:2: Hey Sam! That's awesome about your healthier eating! For me, I had a setback last week - messed up my knee playing b-ball with the kids. It's been tou
+    elem_verbatim_raw=True tok_ov_raw_vs_elem=1.00 elem_in_A=True elem_in_C=True elem_in_B=False tok_ov_elem_vs_Aprompt=1.00 tok_ov_elem_vs_C=1.00
+  ev D11:3: Hey Evan, sorry to hear about your knee. It must be tough. Are there any ways to stay active while you heal up?
+    elem_verbatim_raw=True tok_ov_raw_vs_elem=1.00 elem_in_A=False elem_in_C=False elem_in_B=False tok_ov_elem_vs_Aprompt=0.86 tok_ov_elem_vs_C=0.81
+    ELEM_TEXT_MISSING_IN_C: Sam: Hey Evan, sorry to hear about your knee. It must be tough. Are there any ways to stay active while you heal up?
+Evan: Thanks, Sam. PT has helped some. I can't do intense workouts, but I'm doing easy exercises to kee
+====================================================================================================
+conv-49:54 cat1 seed=v2 gate=anchor dropped=2
+Q: What personal health incidents does Evan face in 2023?
+GOLD: heart palpitations, twisted ankle, twisted ankle
+A([False, False, False]): Evan faced a sudden heart palpitation incident, twisted his knee, and experienced a health scare where something suspicious was found during a check-up (which turned out to be a misunderstanding).
+C([False, False, False]): A sudden heart palpitation incident in June 2023 and a health scare involving a suspicious finding during a hospital check-up in November 2023.
+  ev D3:1: Hey Sam! Long time no talk! How're you doing? Life's been quite the rollercoaster lately. I had a health scare last week – a sudden heart palpitation 
+    elem_verbatim_raw=True tok_ov_raw_vs_elem=1.00 elem_in_A=True elem_in_C=True elem_in_B=False tok_ov_elem_vs_Aprompt=1.00 tok_ov_elem_vs_C=1.00
+  ev D9:2: Wow, Sam, great! Glad your new diet/exercise is going well. As for me, I've hit a sore spot lately. Twisted my knee last Friday and it's really painfu
+    elem_verbatim_raw=True tok_ov_raw_vs_elem=1.00 elem_in_A=True elem_in_C=False elem_in_B=False tok_ov_elem_vs_Aprompt=1.00 tok_ov_elem_vs_C=0.72
+    ELEM_TEXT_MISSING_IN_C: Sam: Hey Evan! Exciting news: I started a new diet and exercise routine last Monday and it's made a huge difference. I feel great! What about you, what changes have you made recently?
+Evan: Wow, Sam, great! Glad your new
+  ev D11:2: Hey Sam! That's awesome about your healthier eating! For me, I had a setback last week - messed up my knee playing b-ball with the kids. It's been tou
+    elem_verbatim_raw=True tok_ov_raw_vs_elem=1.00 elem_in_A=True elem_in_C=False elem_in_B=False tok_ov_elem_vs_Aprompt=1.00 tok_ov_elem_vs_C=0.72
+    ELEM_TEXT_MISSING_IN_C: Sam: Hey Evan, long time no see! I've started eating healthier - what's new with you? Picked up any new hobbies?
+Evan: Hey Sam! That's awesome about your healthier eating! For me, I had a setback last week - messed up my
+====================================================================================================
+conv-50:51 cat2 seed=v2 gate=anchor dropped=0
+Q: When did Calvin and Frank Ocean start collaborating?
+GOLD: August 2022
+A([False, False, False]): August last year
+C([False, False, False]): August last year
+  ev D24:5: It all started August last year when we met at a festival and he said he wanted to collaborate. We clicked right away and the chemistry on stage was i
+    elem_verbatim_raw=True tok_ov_raw_vs_elem=1.00 elem_in_A=True elem_in_C=True elem_in_B=True tok_ov_elem_vs_Aprompt=1.00 tok_ov_elem_vs_C=1.00
+  ev D15:2: Hey Dave! Great to hear from you, card night sounds like a blast! Always love having fun with friends. Guess what? I scored a deal to continue collabo
+    elem_verbatim_raw=True tok_ov_raw_vs_elem=1.00 elem_in_A=True elem_in_C=True elem_in_B=False tok_ov_elem_vs_Aprompt=1.00 tok_ov_elem_vs_C=1.00
+====================================================================================================
+conv-50:88 cat4 seed=v2 gate=anchor dropped=1
+Q: What did Calvin and his friends arrange for in the park?
+GOLD: regular walks together
+A([False, False, False]): I don't know.
+C([False, False, False]): I don't know.
+  ev D10:3: Glad to hear your car's fixed and going strong! I've been good too. Just been hanging out with friends at parks lately. I arranged with friends for re
+    elem_verbatim_raw=True tok_ov_raw_vs_elem=1.00 elem_in_A=True elem_in_C=True elem_in_B=True tok_ov_elem_vs_Aprompt=1.00 tok_ov_elem_vs_C=1.00
