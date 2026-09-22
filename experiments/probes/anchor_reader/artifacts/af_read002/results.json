@@ -1,0 +1,62 @@
+{
+ "summary": {
+  "plan": "AF-READ-002 + AMENDMENT_001",
+  "correct": {
+   "A_DEPLOYED": 85,
+   "B_ANCHOR8K": 59,
+   "C_ANCHOR8K_CC80": 81
+  },
+  "mcnemar_C_vs_A": {
+   "n": 120,
+   "wins": 5,
+   "losses": 9,
+   "net": -4,
+   "p": 0.42395
+  },
+  "mcnemar_B_vs_A": {
+   "n": 120,
+   "wins": 4,
+   "losses": 30,
+   "net": -26,
+   "p": 1e-05
+  },
+  "mean_tokens_in": {
+   "A_DEPLOYED": 11109.7,
+   "B_ANCHOR8K": 2471.3,
+   "C_ANCHOR8K_CC80": 4694.6
+  },
+  "seed_src": {
+   "v2": 80,
+   "bm25": 40
+  },
+  "cc80_dropped_total": 30,
+  "disposition": {
+   "IMPROVES": false,
+   "WORKS": true,
+   "SIGNAL": true,
+   "DEAD": false
+  },
+  "by_category": {
+   "1": {
+    "A_DEPLOYED": 14,
+    "B_ANCHOR8K": 4,
+    "C_ANCHOR8K_CC80": 11
+   },
+   "2": {
+    "A_DEPLOYED": 10,
+    "B_ANCHOR8K": 4,
+    "C_ANCHOR8K_CC80": 10
+   },
+   "3": {
+    "A_DEPLOYED": 3,
+    "B_ANCHOR8K": 1,
+    "C_ANCHOR8K_CC80": 3
+   },
+   "4": {
+    "A_DEPLOYED": 58,
+    "B_ANCHOR8K": 50,
+    "C_ANCHOR8K_CC80": 57
+   }
+  }
+ }
+}
