@@ -434,7 +434,9 @@ def score():
                  & set(corr['C_ANCHOR8K_CC80']))
     c = _mcn(corr['A_DEPLOYED'], corr['C_ANCHOR8K_CC80'], ids)
     b = _mcn(corr['A_DEPLOYED'], corr['B_ANCHOR8K'], ids)
-    dlo, dhi = delta_ci(c['wins'], c['losses'], len(ids))
+    nC = sum(corr['C_ANCHOR8K_CC80'][q] for q in ids)
+    nA = sum(corr['A_DEPLOYED'][q] for q in ids)
+    dlo, dhi = delta_ci(nC, nA, len(ids))
     tok = {}
     for arm in ARMS:
         tok[arm] = round(statistics.mean(
@@ -443,7 +445,7 @@ def score():
     abst = {a: 0 for a in ARMS}
     mapping = R.load(OUT / 'blind_map.json')
     for x in R.load(OUT / 'blind_surface.json'):
-        if 'NOT ENOUGH INFORMATION' in (x.get('answer') or '').upper():
+        if (x.get('answer') or '').strip().lower() == "i don't know":
             abst[mapping[x['blind_id']]['arm']] += 1
     summary = dict(
         plan='AF_READ_003_PLAN.md (e51d1907)', population='new', n=len(ids),
