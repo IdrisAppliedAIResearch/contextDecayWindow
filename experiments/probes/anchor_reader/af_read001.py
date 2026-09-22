@@ -181,6 +181,8 @@ def launch(folder):
     with socket.socket() as s:
         assert s.connect_ex(('127.0.0.1', PORT)) != 0, 'PORT_IN_USE — stop any running reader server first'
     command = list(load(LAUNCH)['command'])
+    # this build logs model placement only at verbosity >= 4 (see unified_contextual_memory/transport.py)
+    command += ['--log-verbosity', '4']
     for flag, value in [('--port', str(PORT)), ('--parallel', '1'), ('--ctx-size', str(CONTEXT))]:
         command[command.index(flag) + 1] = value
     assert command[command.index('--reasoning') + 1] == 'off'
@@ -188,8 +190,10 @@ def launch(folder):
     env = os.environ.copy()
     env['PATH'] = ('C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v13.2/bin/x64;'
                    'C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.6/bin;') + env['PATH']
+    err = folder / 'server.err'
+    err_offset = err.stat().st_size if err.exists() else 0
     process = subprocess.Popen(command, env=env, stdout=(folder / 'server.out').open('ab'),
-                               stderr=(folder / 'server.err').open('ab'),
+                               stderr=err.open('ab'),
                                creationflags=subprocess.CREATE_NO_WINDOW)
     save(folder / 'launch.json', dict(pid=process.pid, command=command,
                                       server_sha256=sha(command[0]), started=time.time()))
@@ -205,7 +209,7 @@ def launch(folder):
             raise RuntimeError('SERVER_TIMEOUT')
         assert props['total_slots'] == 1
         assert re.search(r'offloaded (\d+)/\1 layers',
-                         (folder / 'server.err').read_text(errors='replace')), 'NOT_FULLY_OFFLOADED'
+                         err.read_bytes()[err_offset:].decode('utf-8', errors='replace')), 'NOT_FULLY_OFFLOADED'
         save(folder / 'props.json', props)
         return process
     except BaseException:
@@ -463,7 +467,7 @@ def score():
         mcnemar_B_vs_A=mcn('B_ANCHOR', 'A_DEPLOYED'),
         gate_counts=dict(anchor=sum(1 for q in ac['A_DEPLOYED'] if meta[q]['gate'] == 'anchor'),
                          fallback=sum(1 for q in ac['A_DEPLOYED'] if meta[q]['gate'] == 'fallback')),
-        by_category={str(c): {arm: sum(1 for q in ac[arm] if meta[q]['cat'] == c)
+        by_category={str(c): {arm: sum(ac[arm][q] for q in ac[arm] if meta[q]['cat'] == c)
                               for arm in ARMS}
                      for c in sorted({meta[q]['cat'] for q in ac['A_DEPLOYED']})})
     # PF9 assertion: every C-vs-A discordance is carried by an anchored item
@@ -492,6 +496,28 @@ def score():
     summary['tau_sweep_net_vs_A'] = taus
     c = summary['mcnemar_C_vs_A']
     summary['disposition'] = dict(WORKS=c['net'] >= 8 and c['p'] < .05, SIGNAL=c['net'] >= 4)
+    ev = {}
+    for con in json.load(open(LOCOMO, encoding='utf-8')):
+        for j, qa in enumerate(con['qa']):
+            ev[f"{con['sample_id']}:{j}"] = set(qa.get('evidence', []))
+    pr = [it for it in ctx['items'] if it['kind'] == 'primary']
+
+    def sacc(arm, rows):
+        xs = [correct[(it['qid'], arm)] for it in rows if (it['qid'], arm) in correct]
+        return f'{sum(xs)}/{len(xs)}'
+    strat = {}
+    for name, rows in (
+            ('anchor_in_evidence', [i for i in pr if i['anchor_turn'] in ev.get(i['qid'], set())]),
+            ('anchor_off_evidence', [i for i in pr if i['anchor_turn'] not in ev.get(i['qid'], set())]),
+            ('gated_to_anchor', [i for i in pr if i['gate'] == 'anchor']),
+            ('multi_evidence', [i for i in pr if len(ev.get(i['qid'], set())) >= 2])):
+        strat[name] = dict(n=len(rows), **{arm: sacc(arm, rows) for arm in ARMS})
+    gated_rows = [i for i in pr if i['gate'] == 'anchor']
+    gw = sum(1 for i in gated_rows if correct[(i['qid'], 'C_GATE')] and not correct[(i['qid'], 'A_DEPLOYED')])
+    gl = sum(1 for i in gated_rows if not correct[(i['qid'], 'C_GATE')] and correct[(i['qid'], 'A_DEPLOYED')])
+    summary['guardrail_diagnostic'] = strat
+    summary['mcnemar_C_vs_A_gated'] = dict(n=len(gated_rows), wins=gw, losses=gl, net=gw - gl,
+                                           p=round(mcnemar_exact(gw, gl), 5))
     save(OUT / 'results.json', dict(summary=summary))
     commit([OUT / 'results.json'], 'AF-READ-001 scored results')
     print(json.dumps(summary, indent=1))
