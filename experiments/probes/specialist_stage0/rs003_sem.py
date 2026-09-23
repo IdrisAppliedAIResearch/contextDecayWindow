@@ -11,7 +11,7 @@ import re
 
 import numpy as np
 
-from episodic._ranking import normalize_scores, tokenize
+from episodic._ranking import tokenize
 from rs003_common import (ARTIFACTS, block_dia_ids, coverage, discordant,
                           double_run, get_vector, instrument_checks,
                           load_vectors, load_world, pack_ids, pack_order,
@@ -87,7 +87,7 @@ def apply_head(mu, sd, w, X):
     return Xs @ w
 
 
-def metric(order_fn, cap, qids, convs, golds, items):
+def metric(order_fn, cap, qids, convs, golds):
     out = {}
     for q in qids:
         elems = convs[q.split(":")[0]]["elements"]
@@ -168,19 +168,16 @@ def compute():
     arms = {}
     for cap in (8000, 16000):
         arms[f"CC80_{cap}"] = metric(lambda q: ctx[q]["order"], cap, allq,
-                                     convs, golds, items)
+                                      convs, golds)
         arms[f"ORACLE_rerank_{cap}"] = metric(oracle_order, cap, allq, convs,
-                                              golds, items)
+                                               golds)
         arms[f"R2_RRF_{cap}"] = metric(lambda q: ctx[q]["rrf_order"], cap,
-                                       allq, convs, golds, items)
+                                        allq, convs, golds)
     for cap in (8000, 16000):
         out = {}
         for q in allq:
             elems = convs[q.split(":")[0]]["elements"]
-            if cap == 8000:
-                chosen, chars = pack_order(head_order[q], elems, cap)
-            else:
-                chosen, chars = pack_order(head_order[q], elems, cap)
+            chosen, chars = pack_order(head_order[q], elems, cap)
             cov = coverage(golds[q]["gold_ids"], pack_ids(chosen, elems))
             out[q] = dict(coverage=cov, n_packed=len(chosen), chars=chars,
                           full=1 if cov == 1.0 else 0, zero=1 if cov == 0.0 else 0)
