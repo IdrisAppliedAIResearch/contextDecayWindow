@@ -6,6 +6,7 @@ windows over cached pool metadata fed through the registered packer.
 """
 from __future__ import annotations
 
+import calendar
 import datetime
 import re
 
@@ -132,6 +133,14 @@ NUMWORD = {"one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6,
            "seven": 7, "eight": 8, "nine": 9, "ten": 10}
 
 
+def _shift_months(anchor, delta):
+    """Deterministic month shift clamped to the target month's day length."""
+    total = (anchor.year * 12 + anchor.month - 1) + delta
+    y, mo = divmod(total, 12)
+    mo += 1
+    return datetime.date(y, mo, min(anchor.day, calendar.monthrange(y, mo)[1]))
+
+
 def resolve_relative(expr, anchor):
     """Deterministic resolve of one relative expression against anchor date."""
     e = expr.lower().strip()
@@ -141,21 +150,21 @@ def resolve_relative(expr, anchor):
         return anchor
     if "day before yesterday" in e:
         return anchor - datetime.timedelta(days=2)
+    if e == "the week before":
+        return anchor - datetime.timedelta(days=7)
     m = re.match(r"last (monday|tuesday|wednesday|thursday|friday|saturday|sunday)", e)
     if m:
         wd = WEEKDAYS[m.group(1)]
         return anchor - datetime.timedelta(days=(anchor.weekday() - wd) % 7 or 7)
-    m = (re.match(r"(?:last|the week before|the previous) (week|month|year)", e)
-         or re.match(r"this (?:past|last) (week|month)", e))
+    m = (re.match(r"(?:last|the previous) (week|month|year)", e)
+         or re.match(r"this (?:past|last) (?:week|month)", e))
     if m:
         unit = m.group(1)
         if unit == "week":
             return anchor - datetime.timedelta(days=7)
         if unit == "month":
-            y, mo = (anchor.year - 1, 12) if anchor.month == 1 else (
-                anchor.year, anchor.month - 1)
-            return anchor.replace(year=y, month=mo)
-        return anchor.replace(year=anchor.year - 1)
+            return _shift_months(anchor, -1)
+        return _shift_months(anchor, -12)
     m = re.match(r"(\d+|one|two|three|four|five|six|seven|eight|nine|ten) "
                  r"(days?|weeks?|months?|years?) (ago|before|after|later|earlier)", e)
     if m:
@@ -167,11 +176,9 @@ def resolve_relative(expr, anchor):
         if unit.startswith("week"):
             return anchor + datetime.timedelta(weeks=mult * n)
         if unit.startswith("month"):
-            mo = anchor.month + mult * n
-            return anchor.replace(year=anchor.year + (mo - 1) // 12,
-                                  month=(mo - 1) % 12 + 1)
+            return _shift_months(anchor, mult * n)
         if unit.startswith("year"):
-            return anchor.replace(year=anchor.year + mult * n)
+            return _shift_months(anchor, mult * 12 * n)
     return None
 
 
@@ -286,7 +293,15 @@ def compute():
     t1p = sum(arms["T1_gold_d7_chron_16000"][q]["full"] for q in parseable) / n_p
     ccp = sum(arms["CC80_16000"][q]["full"] for q in parseable) / n_p
     recovery = (margin_t2 / margin_t1) if margin_t1 > 0 else None
-    if margin_t1 >= 0.10:
+    # Registered bar is item-count based ('+10pp = 2 items' at n=20); gate on
+    # integer item counts so float rounding at the boundary cannot flip it.
+    bar_items = int(round(0.10 * len(cat2)))
+    bar_items_p = int(round(0.20 * len(parseable)))
+    n_t1 = t1["full"]
+    n_cc = cc["full"]
+    n_t1p = sum(arms["T1_gold_d7_chron_16000"][q]["full"] for q in parseable)
+    n_ccp = sum(arms["CC80_16000"][q]["full"] for q in parseable)
+    if (n_t1 - n_cc) >= bar_items:
         if t1["zero"] <= cc["zero"] and recovery is not None and recovery >= 0.5:
             disp = "BUILD"
         else:
@@ -298,7 +313,10 @@ def compute():
         t1_margin=round(margin_t1, 4), t2_margin=round(margin_t2, 4),
         recovery_pct=(round(recovery, 4) if recovery is not None else None),
         margin_parseable_subset=round(t1p - ccp, 4),
-        n_parseable=len(parseable), t1_zero=t1["zero"], cc80_zero=cc["zero"])
+        n_parseable=len(parseable), t1_zero=t1["zero"], cc80_zero=cc["zero"],
+        bar_items=bar_items, bar_items_parseable=bar_items_p,
+        t1_full_n=n_t1, cc80_full_n=n_cc,
+        t1_parseable_n=n_t1p, cc80_parseable_n=n_ccp)
 
     return {"cat": "2", "instrument": log, "arms": arms, "summary": summary,
             "buckets": bucket,

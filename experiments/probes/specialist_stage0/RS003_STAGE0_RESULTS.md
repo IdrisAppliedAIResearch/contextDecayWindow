@@ -61,10 +61,23 @@ T2 ≥ 50%).
 Observed: T1 margin **−40pp** (registered judge arm 50%; best of the 16
 registered window variants 60%; CC80 90%); on the
 gold-parseable subset (16/20) margin −37.5pp; recovery not computable
-(T1 margin negative). Gold-answer dates parseable on 16/20 items; bucket
-decomposition (relative wins over gold-parse): 9 absolute-in-gold (6 day
-anchors, 3 month anchors), 8 relative-in-evidence, 3 unparseable.
-Dual-parser resolution agreement where both sides parse: 4/7.
+(T1 margin negative). Disposition gate is item-count based per the
+registration ('+10pp = 2 items' at n=20): T1 10 vs CC80 18 (−8 < bar 2;
+parseable subset 10/16 vs 16/16, bar 3). Gold-answer dates parseable on
+16/20 items; bucket decomposition (relative wins over gold-parse): 9
+absolute-in-gold (6 day anchors, 3 month anchors), 8 relative-in-evidence,
+3 unparseable. Dual-parser resolution agreement where both sides parse: 4/7.
+
+**OCR review fixes (post-result, verdict-invariant).** OCR scan of the
+implementation found three rs003_temp.py defects, all fixed and re-executed
+with identical arm numbers and KILL: (1) the disposition gate compared
+rounded float rates, which can misbehave exactly at the +10pp boundary —
+now gated on integer item counts (bar 2; parseable bar 3); (2) the
+registered expression 'the week before' was matched for bucketing but never
+resolved (silent T2 drop) — now resolves to anchor−7 (no cat2 evidence turn
+contains it, so arm numbers are unchanged); (3) month/year shifts in
+`resolve_relative` could raise ValueError on end-of-month/Feb-29 anchors —
+now clamped via `calendar.monthrange` (no such anchor occurs in this data).
 
 **Gold-parser faithfulness note (implementation fix, post-result,
 verdict-invariant).** The initially committed run resolved
