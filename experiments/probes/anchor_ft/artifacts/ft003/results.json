@@ -1,0 +1,212 @@
+{
+ "plan": "3f841945",
+ "summary": {
+  "N1": {
+   "n_seeds": 3,
+   "exact_mean": 42.0,
+   "any_mean": 48.33,
+   "gated_any_mean": 59.33,
+   "e17": [
+    17,
+    17,
+    17
+   ],
+   "mcnemar_vs_R0": [
+    {
+     "seed": 20261011,
+     "net_any": -19,
+     "p_any": 0.00031,
+     "net_exact": -15,
+     "p_exact": 0.0026
+    },
+    {
+     "seed": 20261012,
+     "net_any": -20,
+     "p_any": 0.00018,
+     "net_exact": -15,
+     "p_exact": 0.00408
+    },
+    {
+     "seed": 20261013,
+     "net_any": -18,
+     "p_any": 0.00053,
+     "net_exact": -15,
+     "p_exact": 0.0026
+    }
+   ],
+   "null_seed0": {
+    "auroc": 0.7163,
+    "coverage_table": [
+     {
+      "threshold": 0.05,
+      "anchor_coverage": 1.0,
+      "null_leak": 0.9917
+     },
+     {
+      "threshold": 0.1,
+      "anchor_coverage": 1.0,
+      "null_leak": 1.0
+     },
+     {
+      "threshold": 0.2,
+      "anchor_coverage": 1.0,
+      "null_leak": 1.0
+     },
+     {
+      "threshold": 0.4,
+      "anchor_coverage": 1.0,
+      "null_leak": 1.0
+     },
+     {
+      "threshold": 0.6,
+      "anchor_coverage": 1.0,
+      "null_leak": 1.0
+     },
+     {
+      "threshold": 0.8,
+      "anchor_coverage": 1.0,
+      "null_leak": 1.0
+     }
+    ]
+   }
+  },
+  "N2": {
+   "n_seeds": 3,
+   "exact_mean": 42.33,
+   "any_mean": 49.0,
+   "gated_any_mean": 59.0,
+   "e17": [
+    17,
+    17,
+    17
+   ],
+   "mcnemar_vs_R0": [
+    {
+     "seed": 20261011,
+     "net_any": -18,
+     "p_any": 0.00053,
+     "net_exact": -14,
+     "p_exact": 0.00661
+    },
+    {
+     "seed": 20261012,
+     "net_any": -19,
+     "p_any": 0.00016,
+     "net_exact": -15,
+     "p_exact": 0.0026
+    },
+    {
+     "seed": 20261013,
+     "net_any": -18,
+     "p_any": 0.00053,
+     "net_exact": -15,
+     "p_exact": 0.0026
+    }
+   ],
+   "null_seed0": {
+    "auroc": 0.7242,
+    "coverage_table": [
+     {
+      "threshold": 0.05,
+      "anchor_coverage": 1.0,
+      "null_leak": 1.0
+     },
+     {
+      "threshold": 0.1,
+      "anchor_coverage": 1.0,
+      "null_leak": 1.0
+     },
+     {
+      "threshold": 0.2,
+      "anchor_coverage": 1.0,
+      "null_leak": 1.0
+     },
+     {
+      "threshold": 0.4,
+      "anchor_coverage": 1.0,
+      "null_leak": 1.0
+     },
+     {
+      "threshold": 0.6,
+      "anchor_coverage": 1.0,
+      "null_leak": 1.0
+     },
+     {
+      "threshold": 0.8,
+      "anchor_coverage": 1.0,
+      "null_leak": 1.0
+     }
+    ]
+   }
+  },
+  "N3": {
+   "n_seeds": 3,
+   "exact_mean": 42.67,
+   "any_mean": 47.67,
+   "gated_any_mean": 59.0,
+   "e17": [
+    17,
+    17,
+    17
+   ],
+   "mcnemar_vs_R0": [
+    {
+     "seed": 20261011,
+     "net_any": -20,
+     "p_any": 9e-05,
+     "net_exact": -15,
+     "p_exact": 0.0026
+    },
+    {
+     "seed": 20261012,
+     "net_any": -20,
+     "p_any": 9e-05,
+     "net_exact": -14,
+     "p_exact": 0.00661
+    },
+    {
+     "seed": 20261013,
+     "net_any": -19,
+     "p_any": 0.00016,
+     "net_exact": -14,
+     "p_exact": 0.00434
+    }
+   ],
+   "null_seed0": {
+    "auroc": 0.7118,
+    "coverage_table": [
+     {
+      "threshold": 0.05,
+      "anchor_coverage": 1.0,
+      "null_leak": 0.9917
+     },
+     {
+      "threshold": 0.1,
+      "anchor_coverage": 1.0,
+      "null_leak": 1.0
+     },
+     {
+      "threshold": 0.2,
+      "anchor_coverage": 1.0,
+      "null_leak": 1.0
+     },
+     {
+      "threshold": 0.4,
+      "anchor_coverage": 1.0,
+      "null_leak": 1.0
+     },
+     {
+      "threshold": 0.6,
+      "anchor_coverage": 1.0,
+      "null_leak": 1.0
+     },
+     {
+      "threshold": 0.8,
+      "anchor_coverage": 1.0,
+      "null_leak": 1.0
+     }
+    ]
+   }
+  }
+ }
+}

@@ -1,0 +1,751 @@
+{
+ "conv-26:13": {
+  "qid": "conv-26:13",
+  "cat": "1",
+  "seed_src": "bm25",
+  "seed_turn": "D4:12",
+  "seed_session": "session_4",
+  "seed_text": "Sounds great! What kind of counseling and mental health services do you want to persue?",
+  "n_anchor": 20,
+  "n_cc80": 24,
+  "n_dropped": 0,
+  "anchor_lo": 26,
+  "anchor_hi": 45,
+  "evidence": [
+   {
+    "id": "D4:13",
+    "session": "session_4",
+    "text": "I'm still figuring out the details, but I'm thinking of working with trans people, helping them accept themselves and supporting their mental health. Last Friday, I went to an LGBTQ+ counseling workshop and it was really enlightening. They talked abo",
+    "in_b": true,
+    "in_c": true
+   },
+   {
+    "id": "D1:11",
+    "session": "session_1",
+    "text": "I'm keen on counseling or working in mental health - I'd love to support those with similar issues.",
+    "in_b": false,
+    "in_c": false
+   }
+  ],
+  "ev_sessions": [
+   "session_1",
+   "session_4"
+  ],
+  "gold_in_b": false,
+  "gold_in_c": false,
+  "gold_in_A": false,
+  "cover_b": [
+   1.0,
+   []
+  ],
+  "cover_c": [
+   1.0,
+   []
+  ],
+  "cover_A": [
+   1.0,
+   []
+  ]
+ },
+ "conv-26:19": {
+  "qid": "conv-26:19",
+  "cat": "1",
+  "seed_src": "bm25",
+  "seed_turn": "D8:5",
+  "seed_session": "session_8",
+  "seed_text": "Aww, that's so sweet! That cup is so cute. It's awesome to see how kids show their personalities through art. What other creative projects do you do with them, besides pottery?",
+  "n_anchor": 24,
+  "n_cc80": 23,
+  "n_dropped": 0,
+  "anchor_lo": 60,
+  "anchor_hi": 83,
+  "evidence": [
+   {
+    "id": "D6:6",
+    "session": "session_6",
+    "text": "They were stoked for the dinosaur exhibit! They love learning about animals and the bones were so cool. It reminds me why I love being a mom.",
+    "in_b": false,
+    "in_c": true
+   },
+   {
+    "id": "D4:8",
+    "session": "session_4",
+    "text": "It was an awesome time, Caroline! We explored nature, roasted marshmallows around the campfire and even went on a hike. The view from the top was amazing! The 2 younger kids love nature. It was so special having these moments together as a family - I",
+    "in_b": false,
+    "in_c": true
+   }
+  ],
+  "ev_sessions": [
+   "session_4",
+   "session_6"
+  ],
+  "gold_in_b": false,
+  "gold_in_c": false,
+  "gold_in_A": false,
+  "cover_b": [
+   0.5,
+   [
+    "dinosaurs"
+   ]
+  ],
+  "cover_c": [
+   0.5,
+   [
+    "dinosaurs"
+   ]
+  ],
+  "cover_A": [
+   0.5,
+   [
+    "dinosaurs"
+   ]
+  ]
+ },
+ "conv-26:25": {
+  "qid": "conv-26:25",
+  "cat": "2",
+  "seed_src": "v2",
+  "seed_turn": "D7:1",
+  "seed_session": "session_7",
+  "seed_text": "Hey Mel, great to chat with you again! So much has happened since we last spoke - I went to an LGBTQ conference two days ago and it was really special. I got the chance to meet and connect with people",
+  "n_anchor": 20,
+  "n_cc80": 18,
+  "n_dropped": 0,
+  "anchor_lo": 46,
+  "anchor_hi": 65,
+  "evidence": [
+   {
+    "id": "D7:1",
+    "session": "session_7",
+    "text": "Hey Mel, great to chat with you again! So much has happened since we last spoke - I went to an LGBTQ conference two days ago and it was really special. I got the chance to meet and connect with people who've gone through similar journeys. It was such",
+    "in_b": true,
+    "in_c": true
+   }
+  ],
+  "ev_sessions": [
+   "session_7"
+  ],
+  "gold_in_b": false,
+  "gold_in_c": false,
+  "gold_in_A": false,
+  "cover_b": [
+   1.0,
+   []
+  ],
+  "cover_c": [
+   1.0,
+   []
+  ],
+  "cover_A": [
+   1.0,
+   []
+  ]
+ },
+ "conv-30:57": {
+  "qid": "conv-30:57",
+  "cat": "4",
+  "seed_src": "v2",
+  "seed_turn": "D14:10",
+  "seed_session": "session_14",
+  "seed_text": "Thanks, Jon! It was a huge jump, but totally worth it. My advice: stay passionate, focused and resilient. Challenges will come, but believe in yourself and keep going. And stay open to learning and im",
+  "n_anchor": 26,
+  "n_cc80": 22,
+  "n_dropped": 0,
+  "anchor_lo": 122,
+  "anchor_hi": 147,
+  "evidence": [
+   {
+    "id": "D7:5",
+    "session": "session_7",
+    "text": "Yeah, brand identity is key. Make sure yours stands out. Also be sure to build relationships with your customers – let them know you care. And don't forget to stay positive and motivate others. Your energy will be contagious!",
+    "in_b": false,
+    "in_c": false
+   }
+  ],
+  "ev_sessions": [
+   "session_7"
+  ],
+  "gold_in_b": false,
+  "gold_in_c": false,
+  "gold_in_A": false,
+  "cover_b": [
+   0.3,
+   [
+    "brand",
+    "build",
+    "create",
+    "customers",
+    "image",
+    "relationships",
+    "strong"
+   ]
+  ],
+  "cover_c": [
+   0.4,
+   [
+    "brand",
+    "build",
+    "create",
+    "image",
+    "relationships",
+    "strong"
+   ]
+  ],
+  "cover_A": [
+   1.0,
+   []
+  ]
+ },
+ "conv-41:56": {
+  "qid": "conv-41:56",
+  "cat": "2",
+  "seed_src": "v2",
+  "seed_turn": "D10:10",
+  "seed_session": "session_10",
+  "seed_text": "Last weekend I did something new that had an impact on me. I participated in a 5K charity run for a homeless shelter. It was awesome being surrounded by people all there for the same cause. There's so",
+  "n_anchor": 18,
+  "n_cc80": 18,
+  "n_dropped": 0,
+  "anchor_lo": 90,
+  "anchor_hi": 107,
+  "evidence": [
+   {
+    "id": "D29:2",
+    "session": "session_29",
+    "text": "Hey Maria! Congrats on the recognition! It's really touching to see how much you're doing to help out. Last weekend, I participated in a community event to raise money for a good cause. We got a great turnout and it was amazing to be surrounded by so",
+    "in_b": false,
+    "in_c": true
+   },
+   {
+    "id": "D29:4",
+    "session": "session_29",
+    "text": "I set up a 5K charity run in our neighborhood. It was all for a good cause - to help out veterans and their families. We were able to raise some funds! Here's a pic from the day.",
+    "in_b": false,
+    "in_c": true
+   }
+  ],
+  "ev_sessions": [
+   "session_29"
+  ],
+  "gold_in_b": false,
+  "gold_in_c": false,
+  "gold_in_A": false,
+  "cover_b": [
+   0.75,
+   [
+    "august"
+   ]
+  ],
+  "cover_c": [
+   1.0,
+   []
+  ],
+  "cover_A": [
+   0.75,
+   [
+    "first"
+   ]
+  ]
+ },
+ "conv-41:75": {
+  "qid": "conv-41:75",
+  "cat": "4",
+  "seed_src": "bm25",
+  "seed_turn": "D14:1",
+  "seed_session": "session_14",
+  "seed_text": "Hey Maria, great to chat again! A lot has happened since we last spoke. Last week, I decided to run for office again - even though I haven't been successful before. I guess I can't let go of my dream ",
+  "n_anchor": 20,
+  "n_cc80": 24,
+  "n_dropped": 2,
+  "anchor_lo": 136,
+  "anchor_hi": 155,
+  "evidence": [
+   {
+    "id": "D7:7",
+    "session": "session_7",
+    "text": "She had a tough time, going through a divorce, losing her job, and ending up homeless. Yet, she still values the little things and believes in the good of kindness.",
+    "in_b": false,
+    "in_c": false
+   }
+  ],
+  "ev_sessions": [
+   "session_7"
+  ],
+  "gold_in_b": false,
+  "gold_in_c": false,
+  "gold_in_A": false,
+  "cover_b": [
+   0.0,
+   [
+    "divorce",
+    "homelessness",
+    "job",
+    "loss"
+   ]
+  ],
+  "cover_c": [
+   0.5,
+   [
+    "divorce",
+    "homelessness"
+   ]
+  ],
+  "cover_A": [
+   0.75,
+   [
+    "homelessness"
+   ]
+  ]
+ },
+ "conv-43:11": {
+  "qid": "conv-43:11",
+  "cat": "1",
+  "seed_src": "bm25",
+  "seed_turn": "D23:8",
+  "seed_session": "session_23",
+  "seed_text": "Wow, John! Moments like that make us love sports, huh? I still think about this pic you sent me a while back.",
+  "n_anchor": 21,
+  "n_cc80": 22,
+  "n_dropped": 0,
+  "anchor_lo": 257,
+  "anchor_hi": 277,
+  "evidence": [
+   {
+    "id": "D1:7",
+    "session": "session_1",
+    "text": "I'm a shooting guard for the team and our season opener is next week - so excited!",
+    "in_b": false,
+    "in_c": false
+   },
+   {
+    "id": "D2:14",
+    "session": "session_2",
+    "text": "That sounds awesome! So cool that you get to immerse yourself in that world. So glad you found something that brings you so much joy. Keep diving in and enjoying it! Here's a pic from a recent game.",
+    "in_b": false,
+    "in_c": false
+   },
+   {
+    "id": "D3:1",
+    "session": "session_3",
+    "text": "Hey Tim! Good to see you again. So much has happened in the last month - on and off the court. Last week I scored 40 points, my highest ever, and it feels like all my hard work's paying off.",
+    "in_b": false,
+    "in_c": false
+   },
+   {
+    "id": "D3:25",
+    "session": "session_3",
+    "text": "I had an awesome summer with my friends, surfing and riding the waves. The feeling was unreal!",
+    "in_b": false,
+    "in_c": false
+   }
+  ],
+  "ev_sessions": [
+   "session_1",
+   "session_2",
+   "session_3"
+  ],
+  "gold_in_b": false,
+  "gold_in_c": false,
+  "gold_in_A": true,
+  "cover_b": [
+   0.0,
+   [
+    "surfing"
+   ]
+  ],
+  "cover_c": [
+   0.0,
+   [
+    "surfing"
+   ]
+  ],
+  "cover_A": [
+   1.0,
+   []
+  ]
+ },
+ "conv-43:52": {
+  "qid": "conv-43:52",
+  "cat": "1",
+  "seed_src": "bm25",
+  "seed_turn": "D8:8",
+  "seed_session": "session_8",
+  "seed_text": "That makes sense! Your holistic approach seems to have numerous benefits. Does strength training have a positive impact on your basketball performance?",
+  "n_anchor": 18,
+  "n_cc80": 21,
+  "n_dropped": 0,
+  "anchor_lo": 71,
+  "anchor_hi": 88,
+  "evidence": [
+   {
+    "id": "D8:5",
+    "session": "session_8",
+    "text": "Thanks! Took some trial and error but I figured out a schedule with both basketball stuff and strength training to balance it out. Listening to my body and giving it enough rest made it easier to push myself during practice but also look after me. He",
+    "in_b": true,
+    "in_c": true
+   },
+   {
+    "id": "D20:2",
+    "session": "session_20",
+    "text": "Hi Tim! Congrats on your success! Keep it up, you're doing great! I'm also trying out yoga to get a little extra strength and flexibility. It's challenging but worth it.",
+    "in_b": false,
+    "in_c": false
+   }
+  ],
+  "ev_sessions": [
+   "session_20",
+   "session_8"
+  ],
+  "gold_in_b": false,
+  "gold_in_c": false,
+  "gold_in_A": false,
+  "cover_b": [
+   0.67,
+   [
+    "yoga"
+   ]
+  ],
+  "cover_c": [
+   0.67,
+   [
+    "yoga"
+   ]
+  ],
+  "cover_A": [
+   1.0,
+   []
+  ]
+ },
+ "conv-44:111": {
+  "qid": "conv-44:111",
+  "cat": "4",
+  "seed_src": "v2",
+  "seed_turn": "D24:8",
+  "seed_session": "session_24",
+  "seed_text": "Yeah, Buddy and I have a great time doing walks. It's a nice way to spend time together and get some fresh air.",
+  "n_anchor": 21,
+  "n_cc80": 29,
+  "n_dropped": 0,
+  "anchor_lo": 275,
+  "anchor_hi": 295,
+  "evidence": [
+   {
+    "id": "D24:10",
+    "session": "session_24",
+    "text": "Yep, he loves checking out new hiking trails with us. It's awesome to see him so stoked and interested in everything nature has to offer.",
+    "in_b": true,
+    "in_c": true
+   }
+  ],
+  "ev_sessions": [
+   "session_24"
+  ],
+  "gold_in_b": true,
+  "gold_in_c": true,
+  "gold_in_A": true,
+  "cover_b": [
+   1.0,
+   []
+  ],
+  "cover_c": [
+   1.0,
+   []
+  ],
+  "cover_A": [
+   1.0,
+   []
+  ]
+ },
+ "conv-44:15": {
+  "qid": "conv-44:15",
+  "cat": "1",
+  "seed_src": "bm25",
+  "seed_turn": "D19:11",
+  "seed_session": "session_19",
+  "seed_text": "Hmm that does sound like a great way to bond! What breeds are they again? Their breeds might make a difference regarding how well they bond too.",
+  "n_anchor": 22,
+  "n_cc80": 26,
+  "n_dropped": 1,
+  "anchor_lo": 212,
+  "anchor_hi": 233,
+  "evidence": [
+   {
+    "id": "D7:8",
+    "session": "session_7",
+    "text": "I'm still on the hunt, but it's tough finding a pet-friendly spot in the city. Been checking out some places, but no luck so far. A bit discouraged but I'm determined to find the right place and dog.",
+    "in_b": false,
+    "in_c": true
+   },
+   {
+    "id": "D10:5",
+    "session": "session_10",
+    "text": "Seeing them do well is super rewarding! They give me so much love and happiness. I get how frustrating it can be not to find pet-friendly spots. Nature is so calming and restorative with them around. See how happy they are when they're out.",
+    "in_b": false,
+    "in_c": true
+   }
+  ],
+  "ev_sessions": [
+   "session_10",
+   "session_7"
+  ],
+  "gold_in_b": false,
+  "gold_in_c": false,
+  "gold_in_A": false,
+  "cover_b": [
+   0.71,
+   [
+    "able",
+    "spots"
+   ]
+  ],
+  "cover_c": [
+   1.0,
+   []
+  ],
+  "cover_A": [
+   1.0,
+   []
+  ]
+ },
+ "conv-44:51": {
+  "qid": "conv-44:51",
+  "cat": "1",
+  "seed_src": "v2",
+  "seed_turn": "D3:17",
+  "seed_session": "session_3",
+  "seed_text": "They taste great too! We had some delicious croissants, muffins, and tarts! It was amazing!",
+  "n_anchor": 24,
+  "n_cc80": 23,
+  "n_dropped": 2,
+  "anchor_lo": 22,
+  "anchor_hi": 45,
+  "evidence": [
+   {
+    "id": "D1:2",
+    "session": "session_1",
+    "text": "Hey Audrey! So, I started a new job as a Financial Analyst last week - it's been quite a change from my previous job. How about you? Anything interesting happening?",
+    "in_b": false,
+    "in_c": false
+   },
+   {
+    "id": "D9:5",
+    "session": "session_9",
+    "text": "Yep, I set up a doggy play area in the backyard with agility stuff and toys - they're loving it!",
+    "in_b": false,
+    "in_c": true
+   },
+   {
+    "id": "D18:10",
+    "session": "session_18",
+    "text": "I'm so happy seeing them have a great time. Last week I even got some new beds for them, just to give them some extra comfort now the weather's cooling down and they were happy! It's incredible how such a simple thing can bring them so much happiness",
+    "in_b": false,
+    "in_c": false
+   },
+   {
+    "id": "D24:1",
+    "session": "session_24",
+    "text": "Hey Andrew, hope you're doing ok. I recently had a good week - I went to a pet store last Monday to buy toys for my dogs and it was great seeing them so excited when I got them home. It made me realize how much I love them and how much joy they bring",
+    "in_b": false,
+    "in_c": true
+   }
+  ],
+  "ev_sessions": [
+   "session_1",
+   "session_18",
+   "session_24",
+   "session_9"
+  ],
+  "gold_in_b": false,
+  "gold_in_c": false,
+  "gold_in_A": false,
+  "cover_b": [
+   0.2,
+   [
+    "beds",
+    "collars",
+    "tags",
+    "toys"
+   ]
+  ],
+  "cover_c": [
+   0.8,
+   [
+    "beds"
+   ]
+  ],
+  "cover_A": [
+   1.0,
+   []
+  ]
+ },
+ "conv-47:126": {
+  "qid": "conv-47:126",
+  "cat": "4",
+  "seed_src": "bm25",
+  "seed_turn": "D24:2",
+  "seed_session": "session_24",
+  "seed_text": "Hey John! Cool, what kind of board game is this? I had a lot to do all this time. And in order not to forget to do something, I started writing down everything I needed in a notebook.",
+  "n_anchor": 23,
+  "n_cc80": 23,
+  "n_dropped": 0,
+  "anchor_lo": 256,
+  "anchor_hi": 278,
+  "evidence": [
+   {
+    "id": "D24:3",
+    "session": "session_24",
+    "text": "This game is called \"Dungeons of the Dragon\", very exciting! I'm really glad you're writing down what you need to do in a notebook. This will definitely help you not to forget anything! How did you come up with this idea? In general, where do you get",
+    "in_b": true,
+    "in_c": true
+   }
+  ],
+  "ev_sessions": [
+   "session_24"
+  ],
+  "gold_in_b": true,
+  "gold_in_c": true,
+  "gold_in_A": false,
+  "cover_b": [
+   1.0,
+   []
+  ],
+  "cover_c": [
+   1.0,
+   []
+  ],
+  "cover_A": [
+   0.33,
+   [
+    "dragon",
+    "dungeons"
+   ]
+  ]
+ },
+ "conv-48:8": {
+  "qid": "conv-48:8",
+  "cat": "1",
+  "seed_src": "v2",
+  "seed_turn": "D6:4",
+  "seed_session": "session_6",
+  "seed_text": "The roses and dahlias bring me peace. I lost a friend last week, so I've been spending time in the garden to find some comfort.",
+  "n_anchor": 24,
+  "n_cc80": 24,
+  "n_dropped": 0,
+  "anchor_lo": 54,
+  "anchor_hi": 77,
+  "evidence": [
+   {
+    "id": "D1:15",
+    "session": "session_1",
+    "text": "Yoga helped me find peace during a rough time, and now I'm passionate about sharing that with others.",
+    "in_b": false,
+    "in_c": true
+   },
+   {
+    "id": "D2:3",
+    "session": "session_2",
+    "text": "Even though it's hard, it's comforting to look back on the great memories. We looked at the family album. Photos give me peace during difficult times. This is my parents' wedding in 1993.",
+    "in_b": false,
+    "in_c": false
+   },
+   {
+    "id": "D6:4",
+    "session": "session_6",
+    "text": "The roses and dahlias bring me peace. I lost a friend last week, so I've been spending time in the garden to find some comfort.",
+    "in_b": true,
+    "in_c": true
+   },
+   {
+    "id": "D15:29",
+    "session": "session_15",
+    "text": "Nature helps me find peace every day - it's so refreshing!",
+    "in_b": false,
+    "in_c": false
+   }
+  ],
+  "ev_sessions": [
+   "session_1",
+   "session_15",
+   "session_2",
+   "session_6"
+  ],
+  "gold_in_b": false,
+  "gold_in_c": false,
+  "gold_in_A": false,
+  "cover_b": [
+   0.6,
+   [
+    "flower",
+    "nature",
+    "old",
+    "photos"
+   ]
+  ],
+  "cover_c": [
+   0.8,
+   [
+    "flower",
+    "photos"
+   ]
+  ],
+  "cover_A": [
+   0.9,
+   [
+    "flower"
+   ]
+  ]
+ },
+ "conv-49:112": {
+  "qid": "conv-49:112",
+  "cat": "4",
+  "seed_src": "bm25",
+  "seed_turn": "D22:19",
+  "seed_session": "session_22",
+  "seed_text": "Thanks, Evan! I'll give these a try. They look yum. Your help means a lot to me. Btw you know what? I went to the store again and, unsurprisingly, had issues with the self-checkout. It's becoming a re",
+  "n_anchor": 23,
+  "n_cc80": 26,
+  "n_dropped": 2,
+  "anchor_lo": 208,
+  "anchor_hi": 230,
+  "evidence": [
+   {
+    "id": "D9:5",
+    "session": "session_9",
+    "text": "Life sure can be unpredictable and tough. Being adaptable and finding other ways to stay active is key when you're facing an obstacle. Maybe look into low-impact exercises or physical therapy to help with that? And damn, you really got me interested ",
+    "in_b": false,
+    "in_c": false
+   }
+  ],
+  "ev_sessions": [
+   "session_9"
+  ],
+  "gold_in_b": false,
+  "gold_in_c": false,
+  "gold_in_A": false,
+  "cover_b": [
+   0.0,
+   [
+    "consider",
+    "exercises",
+    "impact",
+    "low",
+    "physical",
+    "therapy"
+   ]
+  ],
+  "cover_c": [
+   0.5,
+   [
+    "consider",
+    "physical",
+    "therapy"
+   ]
+  ],
+  "cover_A": [
+   0.83,
+   [
+    "consider"
+   ]
+  ]
+ }
+}

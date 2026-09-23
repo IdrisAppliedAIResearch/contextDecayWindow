@@ -1,0 +1,842 @@
+[
+ {
+  "sample_id": "conv-49",
+  "qid": "conv-49:34",
+  "question": "What accidents has Evan's son faced lately?",
+  "cat": "1",
+  "gold": "D7:1"
+ },
+ {
+  "sample_id": "conv-41",
+  "qid": "conv-41:62",
+  "question": "How many dogs has Maria adopted from the dog shelter she volunteers at?",
+  "cat": "1",
+  "gold": "D30:1"
+ },
+ {
+  "sample_id": "conv-44",
+  "qid": "conv-44:60",
+  "question": "How many dogs does Andrew have?",
+  "cat": "1",
+  "gold": "D12:1"
+ },
+ {
+  "sample_id": "conv-41",
+  "qid": "conv-41:60",
+  "question": "What are Maria's dogs' names?",
+  "cat": "1",
+  "gold": "D30:1"
+ },
+ {
+  "sample_id": "conv-49",
+  "qid": "conv-49:56",
+  "question": "What is Sam's persistent problem with his phone?",
+  "cat": "1",
+  "gold": "D11:15"
+ },
+ {
+  "sample_id": "conv-48",
+  "qid": "conv-48:19",
+  "question": "How many times has Jolene been to France?",
+  "cat": "1",
+  "gold": "D1:8"
+ },
+ {
+  "sample_id": "conv-48",
+  "qid": "conv-48:79",
+  "question": "Has Deborah tried surfing?",
+  "cat": "1",
+  "gold": "D28:11"
+ },
+ {
+  "sample_id": "conv-26",
+  "qid": "conv-26:4",
+  "question": "What is Caroline's identity?",
+  "cat": "1",
+  "gold": "D1:5"
+ },
+ {
+  "sample_id": "conv-41",
+  "qid": "conv-41:2",
+  "question": "What martial arts has John done?",
+  "cat": "1",
+  "gold": "D1:4"
+ },
+ {
+  "sample_id": "conv-49",
+  "qid": "conv-49:33",
+  "question": "What is the recurring dream that Sam keeps having?",
+  "cat": "1",
+  "gold": "D6:14"
+ },
+ {
+  "sample_id": "conv-42",
+  "qid": "conv-42:46",
+  "question": "What board games has Nate played?",
+  "cat": "1",
+  "gold": "D16:2"
+ },
+ {
+  "sample_id": "conv-47",
+  "qid": "conv-47:60",
+  "question": "What games has John played with his friends at charity tournaments?",
+  "cat": "1",
+  "gold": "D10:4"
+ },
+ {
+  "sample_id": "conv-26",
+  "qid": "conv-26:56",
+  "question": "What symbols are important to Caroline?",
+  "cat": "1",
+  "gold": "D4:1"
+ },
+ {
+  "sample_id": "conv-48",
+  "qid": "conv-48:39",
+  "question": "What time management techniques do Deborah and Jolene use?",
+  "cat": "1",
+  "gold": "D10:4"
+ },
+ {
+  "sample_id": "conv-50",
+  "qid": "conv-50:32",
+  "question": "Where did Dave return from with new knowledge of different techniques of car restoration?",
+  "cat": "1",
+  "gold": "D14:1"
+ },
+ {
+  "sample_id": "conv-43",
+  "qid": "conv-43:65",
+  "question": "What fantasy movies does Tim like?",
+  "cat": "1",
+  "gold": "D8:16"
+ },
+ {
+  "sample_id": "conv-41",
+  "qid": "conv-41:52",
+  "question": "Who have written notes of gratitude to Maria?",
+  "cat": "1",
+  "gold": "D21:19"
+ },
+ {
+  "sample_id": "conv-49",
+  "qid": "conv-49:82",
+  "question": "What is a stress reliever for Sam?",
+  "cat": "1",
+  "gold": "D10:6"
+ },
+ {
+  "sample_id": "conv-41",
+  "qid": "conv-41:30",
+  "question": "What shelters does Maria volunteer at?",
+  "cat": "1",
+  "gold": "D2:1"
+ },
+ {
+  "sample_id": "conv-44",
+  "qid": "conv-44:56",
+  "question": "Has Andrew moved into a new apartment for his dogs?",
+  "cat": "1",
+  "gold": "D5:5"
+ },
+ {
+  "sample_id": "conv-42",
+  "qid": "conv-42:83",
+  "question": "What are the skills that Nate has helped others learn?",
+  "cat": "1",
+  "gold": "D14:16"
+ },
+ {
+  "sample_id": "conv-41",
+  "qid": "conv-41:36",
+  "question": "What music events has John attended?",
+  "cat": "1",
+  "gold": "D8:12"
+ },
+ {
+  "sample_id": "conv-26",
+  "qid": "conv-26:79",
+  "question": "When did Caroline pass the adoption interview?",
+  "cat": "2",
+  "gold": "D19:1"
+ },
+ {
+  "sample_id": "conv-48",
+  "qid": "conv-48:22",
+  "question": "When did Deborah meet Anna?",
+  "cat": "2",
+  "gold": "D3:4"
+ },
+ {
+  "sample_id": "conv-47",
+  "qid": "conv-47:13",
+  "question": "When did James visit Italy?",
+  "cat": "2",
+  "gold": "D6:12"
+ },
+ {
+  "sample_id": "conv-26",
+  "qid": "conv-26:62",
+  "question": "When did Melanie go to the park?",
+  "cat": "2",
+  "gold": "D15:2"
+ },
+ {
+  "sample_id": "conv-49",
+  "qid": "conv-49:58",
+  "question": "When did Evan start lifting weights?",
+  "cat": "2",
+  "gold": "D12:2"
+ },
+ {
+  "sample_id": "conv-49",
+  "qid": "conv-49:40",
+  "question": "When did Evan start taking painting classes?",
+  "cat": "2",
+  "gold": "D8:12"
+ },
+ {
+  "sample_id": "conv-43",
+  "qid": "conv-43:60",
+  "question": "When did John achieve a career-high assist performance?",
+  "cat": "2",
+  "gold": "D23:2"
+ },
+ {
+  "sample_id": "conv-41",
+  "qid": "conv-41:1",
+  "question": "When did Maria donate her car?",
+  "cat": "2",
+  "gold": "D2:1"
+ },
+ {
+  "sample_id": "conv-48",
+  "qid": "conv-48:54",
+  "question": "Which pet did Jolene adopt first - Susie or Seraphim?",
+  "cat": "2",
+  "gold": "D2:24"
+ },
+ {
+  "sample_id": "conv-48",
+  "qid": "conv-48:56",
+  "question": "When did Deborah lead a meditation session during the sunset?",
+  "cat": "2",
+  "gold": "D18:8"
+ },
+ {
+  "sample_id": "conv-49",
+  "qid": "conv-49:13",
+  "question": "When did Evan have his sudden heart palpitation incident that really shocked him up?",
+  "cat": "2",
+  "gold": "D3:1"
+ },
+ {
+  "sample_id": "conv-30",
+  "qid": "conv-30:21",
+  "question": "When did Jon start reading \"The Lean Startup\"?",
+  "cat": "2",
+  "gold": "D12:6"
+ },
+ {
+  "sample_id": "conv-26",
+  "qid": "conv-26:33",
+  "question": "When did Caroline go to a pride parade during the summer?",
+  "cat": "2",
+  "gold": "D5:1"
+ },
+ {
+  "sample_id": "conv-47",
+  "qid": "conv-47:32",
+  "question": "Where was James at on July 12, 2022?",
+  "cat": "2",
+  "gold": "D16:9"
+ },
+ {
+  "sample_id": "conv-44",
+  "qid": "conv-44:10",
+  "question": "When did Audrey's positive reinforcement training course for dogs take place?",
+  "cat": "2",
+  "gold": "D6:2"
+ },
+ {
+  "sample_id": "conv-42",
+  "qid": "conv-42:7",
+  "question": "When did Joanna finish her first screenplay?",
+  "cat": "2",
+  "gold": "D2:3"
+ },
+ {
+  "sample_id": "conv-44",
+  "qid": "conv-44:16",
+  "question": "When is Andrew going to go hiking with Audrey?",
+  "cat": "2",
+  "gold": "D11:7"
+ },
+ {
+  "sample_id": "conv-41",
+  "qid": "conv-41:38",
+  "question": "When did Maria get in a car accident?",
+  "cat": "2",
+  "gold": "D21:3"
+ },
+ {
+  "sample_id": "conv-49",
+  "qid": "conv-49:17",
+  "question": "When did Sam's friends mock him for being overweight?",
+  "cat": "2",
+  "gold": "D4:1"
+ },
+ {
+  "sample_id": "conv-30",
+  "qid": "conv-30:32",
+  "question": "When did Gina design a limited collection of hoodies?",
+  "cat": "2",
+  "gold": "D16:3"
+ },
+ {
+  "sample_id": "conv-42",
+  "qid": "conv-42:15",
+  "question": "When did Nate get purple hair?",
+  "cat": "2",
+  "gold": "D7:1"
+ },
+ {
+  "sample_id": "conv-42",
+  "qid": "conv-42:3",
+  "question": "When did Nate win his first video game tournament?",
+  "cat": "2",
+  "gold": "D1:3"
+ },
+ {
+  "sample_id": "conv-47",
+  "qid": "conv-47:21",
+  "question": "When did John first organize a charity tournament with his friends?",
+  "cat": "2",
+  "gold": "D10:2"
+ },
+ {
+  "sample_id": "conv-50",
+  "qid": "conv-50:0",
+  "question": "When did Calvin first travel to Tokyo?",
+  "cat": "2",
+  "gold": "D3:1"
+ },
+ {
+  "sample_id": "conv-43",
+  "qid": "conv-43:34",
+  "question": "What could John do after his basketball career?",
+  "cat": "3",
+  "gold": "D11:19"
+ },
+ {
+  "sample_id": "conv-49",
+  "qid": "conv-49:20",
+  "question": "In light of the health and dietary changes discussed, what would be an appropriate gift for both Evan and Sam to encourage their healthy lifestyles?",
+  "cat": "3",
+  "gold": "D2:9"
+ },
+ {
+  "sample_id": "conv-41",
+  "qid": "conv-41:45",
+  "question": "Would John be open to moving to another country?",
+  "cat": "3",
+  "gold": "D7:2"
+ },
+ {
+  "sample_id": "conv-43",
+  "qid": "conv-43:19",
+  "question": "What is a prominent charity organization that John might want to work with and why?",
+  "cat": "3",
+  "gold": "D3:13"
+ },
+ {
+  "sample_id": "conv-44",
+  "qid": "conv-44:52",
+  "question": "What is something that Andrew could do to make birdwatching hobby to fit in his city schedule?",
+  "cat": "3",
+  "gold": "D1:14"
+ },
+ {
+  "sample_id": "conv-42",
+  "qid": "conv-42:85",
+  "question": "What kind of job is Joanna beginning to preform the duties of because of her movie scripts?",
+  "cat": "3",
+  "gold": "D29:1"
+ },
+ {
+  "sample_id": "conv-47",
+  "qid": "conv-47:36",
+  "question": "Who is Jill?",
+  "cat": "3",
+  "gold": "D17:24"
+ },
+ {
+  "sample_id": "conv-41",
+  "qid": "conv-41:85",
+  "question": "What event did John volunteer at last weekend?",
+  "cat": "4",
+  "gold": "D10:13"
+ },
+ {
+  "sample_id": "conv-42",
+  "qid": "conv-42:143",
+  "question": "How did Joanna feel when someone wrote her a letter after reading her blog post?",
+  "cat": "4",
+  "gold": "D18:5"
+ },
+ {
+  "sample_id": "conv-43",
+  "qid": "conv-43:151",
+  "question": "What is the topic of discussion between John and Tim on 11 December, 2023?",
+  "cat": "4",
+  "gold": "D23:1"
+ },
+ {
+  "sample_id": "conv-48",
+  "qid": "conv-48:110",
+  "question": "What idea did Jolene have to help underprivileged kids learn about STEM subjects on 9 February, 2023?",
+  "cat": "4",
+  "gold": "D5:7"
+ },
+ {
+  "sample_id": "conv-50",
+  "qid": "conv-50:128",
+  "question": "What dish does Dave recommend Calvin to try in Tokyo?",
+  "cat": "4",
+  "gold": "D24:20"
+ },
+ {
+  "sample_id": "conv-50",
+  "qid": "conv-50:112",
+  "question": "How does Dave feel about the reactions of people when they see the finished restoration project?",
+  "cat": "4",
+  "gold": "D19:9"
+ },
+ {
+  "sample_id": "conv-44",
+  "qid": "conv-44:114",
+  "question": "What type of date is Andrew going on Sunday?",
+  "cat": "4",
+  "gold": "D26:20"
+ },
+ {
+  "sample_id": "conv-50",
+  "qid": "conv-50:75",
+  "question": "What is Dave's new business venture as of 1 May, 2023?",
+  "cat": "4",
+  "gold": "D4:1"
+ },
+ {
+  "sample_id": "conv-43",
+  "qid": "conv-43:127",
+  "question": "What hobby is a therapy for John when away from the court?",
+  "cat": "4",
+  "gold": "D15:30"
+ },
+ {
+  "sample_id": "conv-43",
+  "qid": "conv-43:140",
+  "question": "How did John overcome a mistake he made during a big game in basketball?",
+  "cat": "4",
+  "gold": "D19:10"
+ },
+ {
+  "sample_id": "conv-41",
+  "qid": "conv-41:123",
+  "question": "What did Maria plan to do later on the evening of 7 July, 2023?",
+  "cat": "4",
+  "gold": "D23:14"
+ },
+ {
+  "sample_id": "conv-50",
+  "qid": "conv-50:153",
+  "question": "What type of photos does Dave like to capture with his new camera?",
+  "cat": "4",
+  "gold": "D30:9"
+ },
+ {
+  "sample_id": "conv-41",
+  "qid": "conv-41:81",
+  "question": "Where did Maria get the idea for the castle shadow box in her home?",
+  "cat": "4",
+  "gold": "D8:15"
+ },
+ {
+  "sample_id": "conv-26",
+  "qid": "conv-26:140",
+  "question": "What did the posters at the poetry reading say?",
+  "cat": "4",
+  "gold": "D17:19"
+ },
+ {
+  "sample_id": "conv-42",
+  "qid": "conv-42:107",
+  "question": "Why does Nate like turtles as pets?",
+  "cat": "4",
+  "gold": "D5:6"
+ },
+ {
+  "sample_id": "conv-48",
+  "qid": "conv-48:128",
+  "question": "What album does Deborah recommend for meditation and deep relaxation?",
+  "cat": "4",
+  "gold": "D11:10"
+ },
+ {
+  "sample_id": "conv-30",
+  "qid": "conv-30:56",
+  "question": "What did Jon and Gina compare their entrepreneurial journeys to?",
+  "cat": "4",
+  "gold": "D6:15"
+ },
+ {
+  "sample_id": "conv-49",
+  "qid": "conv-49:96",
+  "question": "What does the bonsai tree symbolize for Evan?",
+  "cat": "4",
+  "gold": "D5:17"
+ },
+ {
+  "sample_id": "conv-50",
+  "qid": "conv-50:71",
+  "question": "How long did Calvin plan to stay in Japan?",
+  "cat": "4",
+  "gold": "D1:15"
+ },
+ {
+  "sample_id": "conv-48",
+  "qid": "conv-48:101",
+  "question": "When did Jolene buy her pet snake?",
+  "cat": "4",
+  "gold": "D2:24"
+ },
+ {
+  "sample_id": "conv-50",
+  "qid": "conv-50:125",
+  "question": "Where did Calvin and Dave meet Frank Ocean to start collaborating?",
+  "cat": "4",
+  "gold": "D24:5"
+ },
+ {
+  "sample_id": "conv-42",
+  "qid": "conv-42:120",
+  "question": "What creative activity does Nate joke about pursuing after being inspired by their hikes with Jo?",
+  "cat": "4",
+  "gold": "D11:16"
+ },
+ {
+  "sample_id": "conv-42",
+  "qid": "conv-42:135",
+  "question": "What did Joanna plan to do with the recipe Nate promised to share?",
+  "cat": "4",
+  "gold": "D16:11"
+ },
+ {
+  "sample_id": "conv-49",
+  "qid": "conv-49:142",
+  "question": "How did Evan describe the process of creating the painting with the bird flying over it?",
+  "cat": "4",
+  "gold": "D21:16"
+ },
+ {
+  "sample_id": "conv-48",
+  "qid": "conv-48:163",
+  "question": "How did Deborah get Luna, one of her cats?",
+  "cat": "4",
+  "gold": "D22:25"
+ },
+ {
+  "sample_id": "conv-50",
+  "qid": "conv-50:73",
+  "question": "Where did Calvin attend a music festival in April 2023?",
+  "cat": "4",
+  "gold": "D3:1"
+ },
+ {
+  "sample_id": "conv-50",
+  "qid": "conv-50:98",
+  "question": "How did the audience in Tokyo react when Calvin sang one of his songs?",
+  "cat": "4",
+  "gold": "D14:6"
+ },
+ {
+  "sample_id": "conv-43",
+  "qid": "conv-43:79",
+  "question": "What kind of deals did John sign with Nike and Gatorade?",
+  "cat": "4",
+  "gold": "D3:13"
+ },
+ {
+  "sample_id": "conv-41",
+  "qid": "conv-41:102",
+  "question": "What does Maria need to spread the word about for the fundraiser for the volunteer shelter?",
+  "cat": "4",
+  "gold": "D16:4"
+ },
+ {
+  "sample_id": "conv-48",
+  "qid": "conv-48:133",
+  "question": "What is Jolene currently doing in June 2023?",
+  "cat": "4",
+  "gold": "D13:5"
+ },
+ {
+  "sample_id": "conv-49",
+  "qid": "conv-49:145",
+  "question": "What did Evan offer to share with Sam after talking about healthy snacks?",
+  "cat": "4",
+  "gold": "D22:12"
+ },
+ {
+  "sample_id": "conv-43",
+  "qid": "conv-43:168",
+  "question": "Why does John like Aragorn from Lord of the Rings?",
+  "cat": "4",
+  "gold": "D27:30"
+ },
+ {
+  "sample_id": "conv-48",
+  "qid": "conv-48:118",
+  "question": "What is one of Jolene's favorite dishes?",
+  "cat": "4",
+  "gold": "D8:2"
+ },
+ {
+  "sample_id": "conv-30",
+  "qid": "conv-30:44",
+  "question": "What does Gina say about the dancers in the photo?",
+  "cat": "4",
+  "gold": "D1:26"
+ },
+ {
+  "sample_id": "conv-41",
+  "qid": "conv-41:141",
+  "question": "Who did John work with to raise awareness and funds for victims of domestic abuse?",
+  "cat": "4",
+  "gold": "D29:10"
+ },
+ {
+  "sample_id": "conv-43",
+  "qid": "conv-43:81",
+  "question": "How long has John been surfing?",
+  "cat": "4",
+  "gold": "D3:27"
+ },
+ {
+  "sample_id": "conv-42",
+  "qid": "conv-42:106",
+  "question": "What inspired Joanna's new screenplay on 25 February, 2022?",
+  "cat": "4",
+  "gold": "D4:16"
+ },
+ {
+  "sample_id": "conv-50",
+  "qid": "conv-50:93",
+  "question": "What is Dave's advice to Calvin regarding his dreams?",
+  "cat": "4",
+  "gold": "D12:14"
+ },
+ {
+  "sample_id": "conv-26",
+  "qid": "conv-26:87",
+  "question": "Why did Caroline choose the adoption agency?",
+  "cat": "4",
+  "gold": "D2:12"
+ },
+ {
+  "sample_id": "conv-48",
+  "qid": "conv-48:122",
+  "question": "What method does Deb suggest Jolene to try for organizing tasks based on importance and urgency?",
+  "cat": "4",
+  "gold": "D10:13"
+ },
+ {
+  "sample_id": "conv-26",
+  "qid": "conv-26:110",
+  "question": "What kind of pot did Mel and her kids make with clay?",
+  "cat": "4",
+  "gold": "D8:4"
+ },
+ {
+  "sample_id": "conv-42",
+  "qid": "conv-42:91",
+  "question": "What is Nate's favorite book series about?",
+  "cat": "4",
+  "gold": "D9:14"
+ },
+ {
+  "sample_id": "conv-41",
+  "qid": "conv-41:68",
+  "question": "What type of workout class did Maria start doing in December 2023?",
+  "cat": "4",
+  "gold": "D1:3"
+ },
+ {
+  "sample_id": "conv-30",
+  "qid": "conv-30:52",
+  "question": "What did Jon say about creating a special experience for customers?",
+  "cat": "4",
+  "gold": "D3:9"
+ },
+ {
+  "sample_id": "conv-42",
+  "qid": "conv-42:187",
+  "question": "What project is Joanna working on in her notebook on November 9, 2022?",
+  "cat": "4",
+  "gold": "D28:12"
+ },
+ {
+  "sample_id": "conv-43",
+  "qid": "conv-43:101",
+  "question": "How was John's experience in New York City?",
+  "cat": "4",
+  "gold": "D9:8"
+ },
+ {
+  "sample_id": "conv-41",
+  "qid": "conv-41:129",
+  "question": "What does John think about trying new classes at the yoga studio?",
+  "cat": "4",
+  "gold": "D25:14"
+ },
+ {
+  "sample_id": "conv-42",
+  "qid": "conv-42:162",
+  "question": "What game did Nate play at the game convention he attended on 9 October, 2022?",
+  "cat": "4",
+  "gold": "D23:7"
+ },
+ {
+  "sample_id": "conv-49",
+  "qid": "conv-49:130",
+  "question": "How did Sam suggest Evan view the setback with his broken Prius?",
+  "cat": "4",
+  "gold": "D18:5"
+ },
+ {
+  "sample_id": "conv-26",
+  "qid": "conv-26:92",
+  "question": "What country is Caroline's grandma from?",
+  "cat": "4",
+  "gold": "D4:3"
+ },
+ {
+  "sample_id": "conv-41",
+  "qid": "conv-41:126",
+  "question": "What did John take away from visiting the veteran's hospital?",
+  "cat": "4",
+  "gold": "D24:1"
+ },
+ {
+  "sample_id": "conv-43",
+  "qid": "conv-43:106",
+  "question": "Where are John and his teammates planning to explore on a team trip?",
+  "cat": "4",
+  "gold": "D11:7"
+ },
+ {
+  "sample_id": "conv-47",
+  "qid": "conv-47:73",
+  "question": "How long has John been playing the drums as of 27 March, 2022?",
+  "cat": "4",
+  "gold": "D3:5"
+ },
+ {
+  "sample_id": "conv-50",
+  "qid": "conv-50:97",
+  "question": "What does Dave say is important for making his custom cars unique?",
+  "cat": "4",
+  "gold": "D13:11"
+ },
+ {
+  "sample_id": "conv-48",
+  "qid": "conv-48:112",
+  "question": "What gave Deborah peace in the garden she visited?",
+  "cat": "4",
+  "gold": "D6:4"
+ },
+ {
+  "sample_id": "conv-43",
+  "qid": "conv-43:167",
+  "question": "According to John, who is his favorite character from Lord of the Rings?",
+  "cat": "4",
+  "gold": "D27:24"
+ },
+ {
+  "sample_id": "conv-26",
+  "qid": "conv-26:120",
+  "question": "Whose birthday did Melanie celebrate recently?",
+  "cat": "4",
+  "gold": "D11:1"
+ },
+ {
+  "sample_id": "conv-43",
+  "qid": "conv-43:143",
+  "question": "What is John trying out to improve his strength and flexibility after recovery from ankle injury?",
+  "cat": "4",
+  "gold": "D20:2"
+ },
+ {
+  "sample_id": "conv-48",
+  "qid": "conv-48:176",
+  "question": "What was the main focus of the session that stood out to Jolene during the retreat?",
+  "cat": "4",
+  "gold": "D27:5"
+ },
+ {
+  "sample_id": "conv-48",
+  "qid": "conv-48:96",
+  "question": "What was Jolene doing with her partner in Rio de Janeiro?",
+  "cat": "4",
+  "gold": "D23:1"
+ },
+ {
+  "sample_id": "conv-43",
+  "qid": "conv-43:163",
+  "question": "Which language is Tim learning?",
+  "cat": "4",
+  "gold": "D27:5"
+ },
+ {
+  "sample_id": "conv-47",
+  "qid": "conv-47:136",
+  "question": "What does John feel about starting the journey as a programming mentor for game developers?",
+  "cat": "4",
+  "gold": "D26:5"
+ },
+ {
+  "sample_id": "conv-42",
+  "qid": "conv-42:194",
+  "question": "Why did Nate get a third turtle?",
+  "cat": "4",
+  "gold": "D28:25"
+ },
+ {
+  "sample_id": "conv-49",
+  "qid": "conv-49:84",
+  "question": "How did Evan get into watercolor painting?",
+  "cat": "4",
+  "gold": "D1:16"
+ },
+ {
+  "sample_id": "conv-42",
+  "qid": "conv-42:138",
+  "question": "What did Joanna discover at the library in Woodhaven?",
+  "cat": "4",
+  "gold": "D17:4"
+ },
+ {
+  "sample_id": "conv-42",
+  "qid": "conv-42:112",
+  "question": "What is Joanna's project called in the writers group?",
+  "cat": "4",
+  "gold": "D9:3"
+ },
+ {
+  "sample_id": "conv-50",
+  "qid": "conv-50:139",
+  "question": "What realization did the nightclub experience bring to Calvin?",
+  "cat": "4",
+  "gold": "D26:9"
+ }
+]

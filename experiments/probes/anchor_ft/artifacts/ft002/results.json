@@ -1,0 +1,140 @@
+{
+ "plan": "3f841945",
+ "summary": {
+  "F1": {
+   "n_seeds": 5,
+   "exact_mean": 53.6,
+   "any_mean": 63.2,
+   "gated_any_mean": 62.4,
+   "e17": [
+    17,
+    17,
+    17,
+    17,
+    17
+   ],
+   "mcnemar_vs_R0": [
+    {
+     "seed": 20261011,
+     "net_any": -3,
+     "p_any": 0.54883,
+     "net_exact": -3,
+     "p_exact": 0.50781
+    },
+    {
+     "seed": 20261012,
+     "net_any": -2,
+     "p_any": 0.72656,
+     "net_exact": -1,
+     "p_exact": 1.0
+    },
+    {
+     "seed": 20261013,
+     "net_any": -6,
+     "p_any": 0.17957,
+     "net_exact": -5,
+     "p_exact": 0.22656
+    },
+    {
+     "seed": 20261014,
+     "net_any": -6,
+     "p_any": 0.146,
+     "net_exact": -6,
+     "p_exact": 0.10938
+    },
+    {
+     "seed": 20261015,
+     "net_any": -2,
+     "p_any": 0.77441,
+     "net_exact": -1,
+     "p_exact": 1.0
+    }
+   ]
+  },
+  "F2": {
+   "n_seeds": 5,
+   "exact_mean": 59.2,
+   "any_mean": 67.8,
+   "gated_any_mean": 61.6,
+   "e17": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "mcnemar_vs_R0": [
+    {
+     "seed": 20261011,
+     "net_any": 1,
+     "p_any": 1.0,
+     "net_exact": 2,
+     "p_exact": 0.77441
+    },
+    {
+     "seed": 20261012,
+     "net_any": 1,
+     "p_any": 1.0,
+     "net_exact": 4,
+     "p_exact": 0.3877
+    },
+    {
+     "seed": 20261013,
+     "net_any": 1,
+     "p_any": 1.0,
+     "net_exact": 1,
+     "p_exact": 1.0
+    },
+    {
+     "seed": 20261014,
+     "net_any": 1,
+     "p_any": 1.0,
+     "net_exact": 1,
+     "p_exact": 1.0
+    },
+    {
+     "seed": 20261015,
+     "net_any": 0,
+     "p_any": 1.0,
+     "net_exact": 4,
+     "p_exact": 0.3877
+    }
+   ],
+   "null_seed0": {
+    "auroc": 0.9307,
+    "coverage_table": [
+     {
+      "threshold": 0.05,
+      "anchor_coverage": 0.5,
+      "null_leak": 0.025
+     },
+     {
+      "threshold": 0.1,
+      "anchor_coverage": 0.6167,
+      "null_leak": 0.05
+     },
+     {
+      "threshold": 0.2,
+      "anchor_coverage": 0.6667,
+      "null_leak": 0.0667
+     },
+     {
+      "threshold": 0.4,
+      "anchor_coverage": 0.8583,
+      "null_leak": 0.1583
+     },
+     {
+      "threshold": 0.6,
+      "anchor_coverage": 0.9333,
+      "null_leak": 0.275
+     },
+     {
+      "threshold": 0.8,
+      "anchor_coverage": 0.9833,
+      "null_leak": 0.4083
+     }
+    ]
+   }
+  }
+ }
+}

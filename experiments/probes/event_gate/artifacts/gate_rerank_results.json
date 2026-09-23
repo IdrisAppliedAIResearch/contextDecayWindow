@@ -1,0 +1,43 @@
+{
+  "summary": {
+    "P3": {
+      "event": "0/17",
+      "sample": 30,
+      "n_sample": 120,
+      "wilson": [
+        0.1811,
+        0.3344
+      ],
+      "net_vs_bm25": 1,
+      "p": 1.0
+    },
+    "P1": {
+      "event": "0/17",
+      "sample": 30,
+      "n_sample": 120,
+      "wilson": [
+        0.1811,
+        0.3344
+      ],
+      "net_vs_bm25": 1,
+      "p": 1.0
+    },
+    "P2": {
+      "event": "17/17",
+      "sample": 44,
+      "n_sample": 120,
+      "wilson": [
+        0.2858,
+        0.4558
+      ],
+      "net_vs_bm25": 15,
+      "p": 0.016674
+    }
+  },
+  "verdict": "DEAD",
+  "pool_event_counts": {
+    "median_nev": 30,
+    "zero_nev": 2,
+    "n": 137
+  }
+}

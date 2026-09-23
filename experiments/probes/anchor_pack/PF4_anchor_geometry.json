@@ -1,0 +1,25 @@
+{
+ "items": 120,
+ "items_multi_evidence": 30,
+ "turn_chars_median": 110,
+ "turn_chars_p90": 219,
+ "turns_fitting_budget": {
+  "500": 4,
+  "1000": 8,
+  "2000": 16,
+  "4000": 32,
+  "8000": 65,
+  "16000": 131
+ },
+ "gold_window_k_covers_all_evidence": {
+  "+/-0": "90/120",
+  "+/-1": "91/120",
+  "+/-2": "92/120",
+  "+/-4": "92/120"
+ },
+ "evidence_span_chars_median_if_single_session": 30630,
+ "evidence_span_chars_p90": 58364,
+ "anchor_turn_chars_median": 154,
+ "anchor_alone_fits_500": 120,
+ "anchor_alone_any_evidence": 90
+}

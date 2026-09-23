@@ -1,0 +1,63 @@
+{
+  "sample2": {
+    "R": {
+      "ungated": 56,
+      "gated": 54,
+      "n": 120,
+      "wins": 0,
+      "losses": 0,
+      "net": 0,
+      "p": 1.0,
+      "wilson": [
+        0.3798,
+        0.5556
+      ],
+      "verdict": null
+    },
+    "ckptH": {
+      "ungated": 58,
+      "gated": 54,
+      "n": 120,
+      "wins": 5,
+      "losses": 3,
+      "net": 2,
+      "p": 0.726562,
+      "wilson": [
+        0.3958,
+        0.5719
+      ],
+      "verdict": "SIGNAL"
+    },
+    "ckptC": {
+      "ungated": 58,
+      "gated": 55,
+      "n": 120,
+      "wins": 6,
+      "losses": 4,
+      "net": 2,
+      "p": 0.753906,
+      "wilson": [
+        0.3958,
+        0.5719
+      ],
+      "verdict": "SIGNAL"
+    }
+  },
+  "e_gaps": {
+    "R": {
+      "gated": 17,
+      "ungated": 17,
+      "n": 17
+    },
+    "ckptH": {
+      "gated": 17,
+      "ungated": 17,
+      "n": 17
+    },
+    "ckptC": {
+      "gated": 17,
+      "ungated": 17,
+      "n": 17
+    }
+  }
+}
