@@ -132,6 +132,15 @@ against a 20% degradation bar. Reports what an acceptance gate would have done.
 CPU only (GPU held by other processes). Estimated: bert-small ≈ 10–15 min,
 bert-base ≈ 25–45 min, no-train runs cheaper. Four runs total.
 
+## Amendment 001 (before first full run, no results observed)
+
+Q3 item materialization: a (checkpoint, query) item is evaluated when at least
+one gold turn ≤ checkpoint. Query text is taken from its locked script turn
+(112–119) regardless of checkpoint; the candidate store is truncated to turns
+≤ checkpoint as specified. The original code skipped any query whose turn
+number exceeded the checkpoint, which would have emptied Q3 except at c=121.
+Smoke run only (no measurements) had executed before this fix.
+
 ## Artifacts
 
 `probes.json`, `runs/{run_id}.metrics.jsonl`, `.q3.jsonl`, `.meta.json`,

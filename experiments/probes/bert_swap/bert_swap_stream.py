@@ -31,6 +31,29 @@ KEY_SHA = "C1B5C9C484C1BD82A13D7B1599BFEBC78A3200FDBD684A35DBA4D3BB4731ECA7"
 SCRIPT_SHA = "D8BA73FD02BFD41BEC156904FB6A3328BBED3D0DA8BFF05E4667D2E450752F01"
 
 
+def get_tok(model_name):
+    """prajjwal1 checkpoints ship vocab.txt only; transformers 5.x needs a fast
+    tokenizer. bert-base-uncased carries the identical WordPiece tokenizer
+    (vocab_size 30522), so it is the compatible fallback for the ladder."""
+    try:
+        return AutoTokenizer.from_pretrained(model_name), model_name
+    except Exception:
+        return AutoTokenizer.from_pretrained("bert-base-uncased"), "bert-base-uncased (fallback)"
+
+
+def get_model(model_name):
+    """prajjwal1 configs predate model_type; rebuild them as BertConfig."""
+    try:
+        return AutoModelForMaskedLM.from_pretrained(model_name)
+    except ValueError:
+        from huggingface_hub import snapshot_download
+        from transformers import BertConfig
+        d = json.loads((Path(snapshot_download(model_name)) / "config.json")
+                       .read_text(encoding="utf-8"))
+        cfg = BertConfig(**d)
+        return AutoModelForMaskedLM.from_pretrained(model_name, config=cfg)
+
+
 def setup():
     torch.manual_seed(SEED)
     np.random.seed(SEED)
@@ -55,19 +78,19 @@ def load_probes():
 def mlm_mask(ids, rng):
     labels = ids.clone()
     special = {0, 101, 102}
-    for i in range(ids.shape[0]):
-        if ids[i].item() in special:
-            labels[i] = -100
+    for i in range(ids.shape[1]):
+        if int(ids[0, i]) in special:
+            labels[0, i] = -100
             continue
         r = rng.random()
         if r < 0.15:
             if rng.random() < 0.8:
-                ids[i] = 103  # [MASK]
+                ids[0, i] = 103  # [MASK]
             elif rng.random() < 0.5:
-                ids[i] = rng.randrange(104, 30522)
+                ids[0, i] = rng.randrange(104, 30522)
             # else keep token; label stays original
         else:
-            labels[i] = -100
+            labels[0, i] = -100
     return ids, labels
 
 
@@ -80,6 +103,8 @@ def train_turn(model, tok, text, turn):
     out = model(input_ids=ids_m, attention_mask=ids.new_ones(ids_m.shape),
                 labels=labels)
     loss = out.loss
+    if loss.ndim > 0:
+        loss = loss.mean()
     loss.backward()
     torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
     return float(loss)
@@ -96,7 +121,10 @@ def slice_loss(model, tok, texts):
         ids_m, labels = mlm_mask(ids.clone(), rng)
         out = model(input_ids=ids_m, attention_mask=ids.new_ones(ids_m.shape),
                     labels=labels)
-        total += float(out.loss)
+        l = out.loss
+        if l.ndim > 0:
+            l = l.mean()
+        total += float(l)
         n += 1
     return total / max(n, 1)
 
@@ -120,7 +148,9 @@ def score_clozes(model, tok, probes):
             sp = spans[b0:b0 + B]
             enc = tok(chunk, padding=True, add_special_tokens=True,
                       return_tensors="pt", return_offsets_mapping=True)
-            om = enc.pop("offsets_mapping")
+            om = enc.pop("offset_mapping", enc.pop("offsets_mapping", None))
+            if om is None:
+                raise RuntimeError("tokenizer returned no offset mapping")
             logits = model(**enc).logits
             logp = F.log_softmax(logits, dim=-1)
             for bi in range(len(chunk)):
@@ -154,8 +184,8 @@ def embed_texts(model, tok, texts, bs=16):
         chunk = texts[b0:b0 + bs]
         enc = tok(chunk, padding=True, truncation=True, max_length=MAX_SEQ,
                   add_special_tokens=True, return_tensors="pt")
-        out = model(**enc)
-        hid = out.last_hidden_state
+        out = model(**enc, output_hidden_states=True)
+        hid = out.hidden_states[-1]
         mask = enc["attention_mask"].unsqueeze(-1).float()
         v = (hid * mask).sum(1) / mask.sum(1).clamp(min=1e-6)
         v = F.normalize(v, dim=-1)
@@ -179,8 +209,8 @@ def main():
     queries = {q["turn"]: q for q in pdata["queries"]}
     cps = [c for c in CHECKPOINTS if c <= args.max_turns]
 
-    tok = AutoTokenizer.from_pretrained(args.model)
-    model = AutoModelForMaskedLM.from_pretrained(args.model)
+    tok, tok_src = get_tok(args.model)
+    model = get_model(args.model)
     model.gradient_checkpointing_disable()
     opt = torch.optim.AdamW(model.parameters(), lr=LR)
 
@@ -189,7 +219,8 @@ def main():
     prev_embed = embed_texts(model, tok, align_texts)
     prev_slice = slice_loss(model, tok, slice_texts) if slice_texts else None
 
-    meta = {"run_id": args.id, "model": args.model, "seed": SEED, "lr": LR,
+    meta = {"run_id": args.id, "model": args.model, "tokenizer_source": tok_src,
+            "seed": SEED, "lr": LR,
             "train": not args.no_train, "max_turns": args.max_turns,
             "script_sha256": SCRIPT_SHA, "key_sha256": KEY_SHA,
             "checkpoints": cps}
@@ -240,7 +271,7 @@ def main():
             cand_embed = embed_texts(model, tok, [stream[t] for t in cand_turns])
             t1 = time.perf_counter()
             for qturn, q in queries.items():
-                if qturn > turn:
+                if all(g > turn for g in q["gold"]):
                     continue
                 qtext = stream[qturn]
                 qv = embed_texts(model, tok, [qtext])

@@ -1,0 +1,279 @@
+{
+ "spec": "bert_swap_stage0",
+ "probes": [
+  {
+   "fact_id": "civil_span",
+   "source_turn": 3,
+   "pre": "The main span of Halcyon Crossing measures ",
+   "post": " meters.",
+   "choices": [
+    "1483",
+    "92.4",
+    "600",
+    "847"
+   ],
+   "gold_idx": 3,
+   "kind": "planted"
+  },
+  {
+   "fact_id": "civil_engineer",
+   "source_turn": 3,
+   "pre": "The lead structural engineer assigned to Halcyon Crossing is Dr. ",
+   "post": ".",
+   "choices": [
+    "Elena Fischer",
+    "Priya Mehta",
+    "Kenji Watanabe",
+    "Anara Bekova"
+   ],
+   "gold_idx": 3,
+   "kind": "planted"
+  },
+  {
+   "fact_id": "civil_steel",
+   "source_turn": 4,
+   "pre": "The steel specification for Halcyon Crossing's primary structural members is grade ",
+   "post": ".",
+   "choices": [
+    "S460ML",
+    "S355",
+    "A36",
+    "S960"
+   ],
+   "gold_idx": 0,
+   "kind": "planted"
+  },
+  {
+   "fact_id": "civil_load",
+   "source_turn": 4,
+   "pre": "The bridge's maximum load rating is ",
+   "post": " metric tons per axle.",
+   "choices": [
+    "92.4",
+    "600",
+    "2.3",
+    "847"
+   ],
+   "gold_idx": 0,
+   "kind": "planted"
+  },
+  {
+   "fact_id": "art_identity",
+   "source_turn": 55,
+   "pre": "The Annunciation of Forlì was completed in ",
+   "post": " by Melozzo da Forlì.",
+   "choices": [
+    "1603",
+    "1993",
+    "1500",
+    "1483"
+   ],
+   "gold_idx": 3,
+   "kind": "planted"
+  },
+  {
+   "fact_id": "art_pigment",
+   "source_turn": 56,
+   "pre": "In The Annunciation of Forlì, Melozzo da Forlì applied layers of ",
+   "post": " glaze over a lead white ground.",
+   "choices": [
+    "ultramarine",
+    "vermilion",
+    "azurite",
+    "cobalt"
+   ],
+   "gold_idx": 0,
+   "kind": "planted"
+  },
+  {
+   "fact_id": "art_patron_role",
+   "source_turn": 60,
+   "pre": "Cardinal Giuliano della Rovere later became Pope ",
+   "post": ".",
+   "choices": [
+    "Julius II",
+    "Leo X",
+    "Paul III",
+    "Urban VI"
+   ],
+   "gold_idx": 0,
+   "kind": "planted"
+  },
+  {
+   "fact_id": "monetary_taylor",
+   "source_turn": 61,
+   "pre": "The Taylor Rule was originally formulated in the year ",
+   "post": ".",
+   "choices": [
+    "1483",
+    "1993",
+    "1913",
+    "2003"
+   ],
+   "gold_idx": 1,
+   "kind": "planted"
+  },
+  {
+   "fact_id": "monetary_fed",
+   "source_turn": 62,
+   "pre": "The Federal Reserve operates under a ",
+   "post": " mandate of maximum employment and stable prices.",
+   "choices": [
+    "triple",
+    "single",
+    "dual",
+    "narrow"
+   ],
+   "gold_idx": 2,
+   "kind": "planted"
+  },
+  {
+   "fact_id": "monetary_threshold",
+   "source_turn": 65,
+   "pre": "Dr. Priya Mehta argues that an inflation threshold of ",
+   "post": " percent better captures the Fed's revealed preference than the stated target.",
+   "choices": [
+    "3.5",
+    "2.3",
+    "1.5",
+    "4.2"
+   ],
+   "gold_idx": 1,
+   "kind": "planted"
+  },
+  {
+   "fact_id": "marine_identity",
+   "source_turn": 100,
+   "pre": "Dr. Kenji Watanabe's group studies Vampyroteuthis infernalis at depths of 600 to ",
+   "post": " meters.",
+   "choices": [
+    "900",
+    "300",
+    "3000",
+    "1200"
+   ],
+   "gold_idx": 0,
+   "kind": "planted"
+  },
+  {
+   "fact_id": "marine_photophores",
+   "source_turn": 101,
+   "pre": "The photophores of Vampyroteuthis infernalis are distributed along its ",
+   "post": " margin.",
+   "choices": [
+    "fin",
+    "mantle",
+    "dorsal",
+    "ventral"
+   ],
+   "gold_idx": 1,
+   "kind": "planted"
+  },
+  {
+   "fact_id": "marine_feeding",
+   "source_turn": 102,
+   "pre": "Vampyroteuthis infernalis feeds primarily through the aggregation of ",
+   "post": " snow particles.",
+   "choices": [
+    "glacial",
+    "volcanic",
+    "marine",
+    "mineral"
+   ],
+   "gold_idx": 2,
+   "kind": "planted"
+  },
+  {
+   "fact_id": "ctrl_kelso",
+   "source_turn": 999,
+   "pre": "The city of Kelso Harbor records a population of ",
+   "post": " residents in the latest census.",
+   "choices": [
+    "8450",
+    "11230",
+    "6030",
+    "9210"
+   ],
+   "gold_idx": 1,
+   "kind": "control"
+  },
+  {
+   "fact_id": "ctrl_lindqvist",
+   "source_turn": 999,
+   "pre": "Professor Yara Lindqvist's institute was founded in ",
+   "post": ".",
+   "choices": [
+    "1901",
+    "1983",
+    "1917",
+    "2017"
+   ],
+   "gold_idx": 2,
+   "kind": "control"
+  },
+  {
+   "fact_id": "ctrl_nordvind",
+   "source_turn": 999,
+   "pre": "The ferry Nordvind crosses the fjord in ",
+   "post": " minutes.",
+   "choices": [
+    "115",
+    "23",
+    "68",
+    "47"
+   ],
+   "gold_idx": 3,
+   "kind": "control"
+  }
+ ],
+ "queries": [
+  {
+   "turn": 112,
+   "gold": [
+    3,
+    4
+   ]
+  },
+  {
+   "turn": 113,
+   "gold": [
+    3,
+    4
+   ]
+  },
+  {
+   "turn": 115,
+   "gold": [
+    55,
+    60
+   ]
+  },
+  {
+   "turn": 116,
+   "gold": [
+    56
+   ]
+  },
+  {
+   "turn": 117,
+   "gold": [
+    55,
+    60
+   ]
+  },
+  {
+   "turn": 118,
+   "gold": [
+    100,
+    102
+   ]
+  },
+  {
+   "turn": 119,
+   "gold": [
+    101
+   ]
+  }
+ ],
+ "key_sha256": "C1B5C9C484C1BD82A13D7B1599BFEBC78A3200FDBD684A35DBA4D3BB4731ECA7"
+}
