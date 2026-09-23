@@ -102,7 +102,7 @@ def main():
                     if b < a - 0.05:
                         fires.append(u)
             prev = (u, g)
-        print(f"  plant-margin gate (−0.05 common-set rule) fires at: {fires}")
+        print(f"  plant-margin gate (-0.05 common-set rule) fires at: {fires}")
 
         # Q3b
         qk_t = {(q["checkpoint"], q["query_turn"]): q for q in qt}

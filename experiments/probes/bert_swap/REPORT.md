@@ -1,8 +1,10 @@
-# BERT-SWAP Stage 0 Report — Option 1 (shadow-as-continuation)
+# BERT-SWAP Stage 0 Report — Options 1 and 2
 
-**Disposition: G1 DEAD, G3 NO_SIGNAL, G2 characterized.** The hot-swap
-continual fine-tune stream is closed *at this training regime*. What is and is
-not closed is written down per §9.1.
+**Disposition: G1 DEAD, G3 NO_SIGNAL. Option 2 (Stage 0b): G1b DEAD, G3b
+NO_SIGNAL — both consolidation extremes closed for the MLM objective.**
+See Stage 0b section at the end. The hot-swap continual fine-tune stream is
+closed *at this objective and these budgets*. What is and is not closed is
+written down per §9.1.
 
 - Spec: `STAGE0_SPEC.md` (commit `f001e22d`), Amendment 001 (Q3 materialization)
   before any measurement. Harness `bert_swap_stream.py`, analysis
@@ -105,3 +107,79 @@ turns" is operationally trivial at these sizes; the finding is that the
 smoke runs incl. determinism duplicate. Final weights (`*.final.pt`, 115 MB)
 are deliberately not committed (GitHub 100 MB limit); they are rebuildable from
 seed 5005 and the committed harness.
+
+---
+
+# Stage 0b — Option 2 (shadow-as-retrain on replay buffer)
+
+Spec: `STAGE0B_SPEC.md`. Harness: same runner, `--mode retrain`
+(re-init from base weights at every 10th turn, then MLM 2 epochs over user
+turns 1..u past-only, lr 2e-5, fresh optimizer; final retrain at 121;
+13 swaps). Controls: Stage 0 `small_notrain`/`base_notrain` reused unmodified.
+Determinism re-verified (retrain smoke double-run byte-identical). Runs:
+`opt2_small`, `opt2_base`.
+
+**Disposition: G1b DEAD, G3b NO_SIGNAL — both at the registered bars.**
+
+## G1b — Memorization under consolidation
+
+| model | imm (post-swap) | imm frozen | pre | net | margin Δ | novel-fact controls |
+|---|---|---|---|---|---|---|
+| bert-small | 0.308 | 0.308 | 0.308 | 0 | +0.003 | 0.000 |
+| bert-base | 0.308 | 0.231 | 0.308 | +1 | +0.075 | 0.000 |
+
+- The base +1 is `monetary_threshold` — a **wholly novel** fact (the fictional
+  2.3%), so not world-knowledge contamination. It is the single binding the
+  entire program has produced: first correct at swap 70, then flickers
+  off/on across swaps (wrong at 80 and 110). Its margin is ~+0.0002 vs the
+  frozen −0.002 — a flip at the argmax boundary, not a stable trace.
+- The registered SIGNAL bar required margin Δ ≥ +0.10; measured +0.075 at
+  base, +0.003 at small. The SIGNAL tier does not fire and §9.4 forbids
+  reading it as if it did. **DEAD at the registered bars, with the near-miss
+  and its flicker named as the one datum a budget/objective successor would
+  start from.** ~24 steps/fact (2 epochs × 12 appearances-worth of buffer
+  passes) at 110M produced one marginal, unstable binding out of 13.
+
+## Q2b — Geometry and cost under retrain
+
+- Per-swap identity cos: small 0.975–0.986, base 0.961–0.979 — an order of
+  magnitude more movement than the stream (0.9999). The store must be
+  re-embedded every swap (still ≤0.25 s for 121 texts).
+- **Retrain cost is the headline engineering result:** per-swap wall grows
+  linearly with buffer — small 1.9 s → 20.2 s, base 6.4 s → 64.0 s (16 CPU
+  threads). Total for one 121-turn conversation: ~3 min (small), ~7.4 min
+  (base). Over a conversation the cost is quadratic in length; 10k turns at
+  this cadence is ~8.5 CPU-hours (base, 2 epochs). "Train on everything,
+  often" is affordable for minutes of conversation, not as a per-turn loop
+  at 121 turns — before asking whether it learns anything.
+
+## Plant-margin gate (the instrument §9.2 named)
+
+Probing planted-fact margins (−0.05 common-set rule) at each swap:
+**0/13 fires at small; 3/13 at base (swaps 40, 100, 120)** — regressions the
+fluency gate never saw (0/121 in Stage 0). Confirms the Stage 0 instrument
+finding: fact-probe gates see forgetting that MLM loss is blind to.
+
+## Q3b — Adapted-scorer relevance
+
+26 paired items, retrain vs same frozen encoder: small net 0/0; base net 4/4
+(sign p=1.0), per-checkpoint all 0. **NO_SIGNAL.** The retrained encoder moves
+geometry (Q2b) but moves rankings in no useful direction.
+
+## What Stage 0b closes (§9.1)
+
+Closed, for MLM on turn text: **neither extreme of consolidation budget makes
+a ≤110M BERT a fact store** — not 1–2 warm steps/turn (Stage 0), nor ~24
+steps/fact fresh-from-base retrain with full replay (Stage 0b). The MLM
+objective itself is the binding constraint, plus a documented scaling wall.
+Also closed for free: "swap-adapted encoders help retrieval relevance" at
+both budgets (nets 0 and ±wash).
+
+Not closed, honestly: (1) an objective that trains the fact *as a fact*
+(alias/contrastive binding of cue→answer), (2) adapter-on-frozen-base swaps,
+(3) budgets ≥2 orders of magnitude larger — the `monetary_threshold` flicker
+is consistent with MLM learning slow, weak, and near-threshold, but nothing
+here demonstrates a crossing point. Per the registered kill logic in
+`STAGE0B_SPEC.md`, the bert-swap arc **closes here as a characterized
+negative**; reopening it requires a different objective, which is a new
+probe, not a continuation.
