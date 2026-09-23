@@ -1,7 +1,7 @@
 # AMENDMENT_RS003_001 — CC80 instrument check: proxy replaced by exact identity
 
 **Study:** RS003 Stage-0 (pre-registration
-`RS003_STAGE0_PRE_REGISTRATION.md`, commit `1cd74136`).
+`RS003_STAGE0_PRE_REGISTRATION.md`, commit `d9edfc26`).
 **Status:** recorded before any arm metric was produced; no result was
 observed when this was written. Trigger found while running the registered
 instrument checks for the first time.

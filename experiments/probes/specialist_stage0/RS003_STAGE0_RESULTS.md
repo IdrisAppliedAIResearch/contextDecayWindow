@@ -1,6 +1,6 @@
 # RS003 Stage-0 Results: Specialist Admission Oracles
 
-**Pre-registration:** `RS003_STAGE0_PRE_REGISTRATION.md`, commit `1cd74136`
+**Pre-registration:** `RS003_STAGE0_PRE_REGISTRATION.md`, commit `d9edfc26`
 (branch `study/rs003-specialist-stage0`).
 **Amendment:** `AMENDMENT_RS003_001_cc80_identity_check.md` (instrument check
 #5 proxy -> exact reproduction identity; recorded before any arm metric was
