@@ -193,11 +193,42 @@ def embed_texts(model, tok, texts, bs=16):
     return torch.cat(vecs, 0)
 
 
+def train_buffer(model, opt, tok, stream, upto, epochs):
+    """Option 2: train freshly-initialized weights on turns 1..upto, past-only."""
+    texts = sorted(t for t in stream if t <= upto)
+    total, n = 0.0, 0
+    for ep in range(epochs):
+        order = texts[:]
+        random.Random(SEED + upto * 100 + ep).shuffle(order)
+        for t in order:
+            rng = random.Random(9000 + ep * 10000 + t)
+            enc = tok(stream[t], truncation=True, max_length=MAX_SEQ,
+                      add_special_tokens=True)
+            ids = torch.tensor([enc["input_ids"]])
+            ids_m, labels = mlm_mask(ids.clone(), rng)
+            model.train()
+            out = model(input_ids=ids_m,
+                        attention_mask=ids.new_ones(ids_m.shape), labels=labels)
+            loss = out.loss
+            if loss.ndim > 0:
+                loss = loss.mean()
+            loss.backward()
+            torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
+            opt.step()
+            opt.zero_grad(set_to_none=True)
+            total += float(loss)
+            n += 1
+    return total / max(n, 1)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--model", required=True)
     ap.add_argument("--id", required=True)
     ap.add_argument("--no-train", action="store_true")
+    ap.add_argument("--mode", choices=["stream", "retrain"], default="stream")
+    ap.add_argument("--cadence", type=int, default=10)
+    ap.add_argument("--epochs", type=int, default=2)
     ap.add_argument("--max-turns", type=int, default=121)
     args = ap.parse_args()
 
@@ -212,7 +243,13 @@ def main():
     tok, tok_src = get_tok(args.model)
     model = get_model(args.model)
     model.gradient_checkpointing_disable()
+    import copy as _copy
+    base_state = _copy.deepcopy(model.state_dict())
     opt = torch.optim.AdamW(model.parameters(), lr=LR)
+    swap_turns = set()
+    if args.mode == "retrain":
+        swap_turns = {u for u in stream if u % args.cadence == 0} \
+            | {max(stream)}
 
     align_texts = [stream[t] for t in sorted(stream)[:100]]
     slice_texts = [stream[t] for t in SLICE_TURNS if t in stream]
@@ -220,7 +257,10 @@ def main():
     prev_slice = slice_loss(model, tok, slice_texts) if slice_texts else None
 
     meta = {"run_id": args.id, "model": args.model, "tokenizer_source": tok_src,
-            "seed": SEED, "lr": LR,
+            "seed": SEED, "lr": LR, "mode": args.mode,
+            "cadence": args.cadence if args.mode == "retrain" else None,
+            "epochs": args.epochs if args.mode == "retrain" else None,
+            "swap_turns": sorted(swap_turns) if swap_turns else None,
             "train": not args.no_train, "max_turns": args.max_turns,
             "script_sha256": SCRIPT_SHA, "key_sha256": KEY_SHA,
             "checkpoints": cps}
@@ -233,10 +273,27 @@ def main():
     tpath.write_text("", encoding="utf-8")
     q3path.write_text("", encoding="utf-8")
 
+    retrain_mode = args.mode == "retrain"
     for turn in sorted(stream):
         t0 = time.perf_counter()
         rec = {"turn": turn}
-        if not args.no_train:
+        is_swap = (not retrain_mode) or (turn in swap_turns)
+        rec["swap"] = bool(is_swap and not args.no_train)
+        if args.no_train:
+            pass
+        elif retrain_mode:
+            if turn in swap_turns:
+                t_r = time.perf_counter()
+                model.load_state_dict(_copy.deepcopy(base_state))
+                opt = torch.optim.AdamW(model.parameters(), lr=LR)
+                rl = train_buffer(model, opt, tok, stream, turn, args.epochs)
+                rec["train_loss"] = round(rl, 6)
+                with tpath.open("a", encoding="utf-8") as f:
+                    f.write(json.dumps({"turn": turn, "wall_s": None,
+                                        "reembed_s": None,
+                                        "retrain_s": round(
+                                            time.perf_counter() - t_r, 2)}) + "\n")
+        else:
             loss = train_turn(model, tok, stream[turn], turn)
             opt.step()
             opt.zero_grad(set_to_none=True)
@@ -245,13 +302,23 @@ def main():
         probes_out = score_clozes(model, tok, probes)
         rec["probes"] = probes_out
 
-        cur_embed = embed_texts(model, tok, align_texts)
-        cos = (prev_embed * cur_embed).sum(dim=-1)
-        rec["align_cos_mean"] = round(float(cos.mean()), 8)
-        rec["align_cos_p10"] = round(float(torch.quantile(cos, 0.10)), 8)
-        prev_embed = cur_embed
+        if retrain_mode and turn in swap_turns:
+            rec["swap_plant_margins"] = {
+                p["fact_id"]: probes_out[p["fact_id"]]["margin"]
+                for p in probes
+                if p["kind"] == "planted" and p["source_turn"] <= turn}
 
-        if slice_texts:
+        if is_swap:
+            cur_embed = embed_texts(model, tok, align_texts)
+            cos = (prev_embed * cur_embed).sum(dim=-1)
+            rec["align_cos_mean"] = round(float(cos.mean()), 8)
+            rec["align_cos_p10"] = round(float(torch.quantile(cos, 0.10)), 8)
+            prev_embed = cur_embed
+        else:
+            rec["align_cos_mean"] = 1.0
+            rec["align_cos_p10"] = 1.0
+
+        if slice_texts and is_swap:
             sl = slice_loss(model, tok, slice_texts)
             rec["slice_loss"] = round(sl, 6)
             if prev_slice:
@@ -271,6 +338,8 @@ def main():
             cand_embed = embed_texts(model, tok, [stream[t] for t in cand_turns])
             t1 = time.perf_counter()
             for qturn, q in queries.items():
+                if qturn not in stream:
+                    continue
                 if all(g > turn for g in q["gold"]):
                     continue
                 qtext = stream[qturn]
