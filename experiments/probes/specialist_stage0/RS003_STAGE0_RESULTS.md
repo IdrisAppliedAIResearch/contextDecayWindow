@@ -151,6 +151,16 @@ dense/BM25/overlap/recency/length/session features. cat3 alone (n=6,
 stated, not hidden): B 1, CC80 2, R2 3, R1 3, ORACLE 6 — underpowered, no
 reading. This is the honest null the recovered brief pre-sanctioned.
 
+**OCR review (post-result, verdict-invariant).** OCR flagged the sign-test
+call `sign_test_p_one_sided(len(w), len(l))` (w,l = discordant(...)) as a
+possible wrong-direction argument order. Verified a **false positive**:
+`discordant` returns (wins, losses) and the test's tail is P(X≥wins), i.e.
+the registered one-sided "arm beats control" direction. Three cosmetic
+nits were applied (unused `normalize_scores` import, dead `items`
+parameter, byte-identical 8k/16k if/else) and the artifact re-ran
+byte-identical (SHA `A9256B1A…`), so family DEAD and all R-SEM numbers are
+unchanged.
+
 ## Cross-family reading (bounded per §9.1)
 
 Closed by this study — exactly this, no more: on LoCoMo's dev-120 audit
