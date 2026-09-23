@@ -161,6 +161,17 @@ parameter, byte-identical 8k/16k if/else) and the artifact re-ran
 byte-identical (SHA `A9256B1A…`), so family DEAD and all R-SEM numbers are
 unchanged.
 
+**OCR review (shared harness, post-result, verdict-invariant).** OCR of
+`rs003_common.py` found: (1) `load_vectors` merged the two frozen caches
+with silent first-wins on text→blob conflicts — now raises explicitly
+(no conflict exists in the data); (2) two dead `pack_order` calls in the
+gold-admissibility instrument — removed; (3) stale `order_fn` docstring —
+corrected. All three families re-executed after the change: all three
+artifacts byte-identical (SHAs `03007024…` / `9CF6198F…` / `A9256B1A…`)
+and all verdicts invariant. OCR coverage: all four implementation files
+scanned (temp 3 findings fixed; mh 2 tie-breaks fixed; sem 1 false
+positive + 3 nits; common 3 findings fixed).
+
 ## Cross-family reading (bounded per §9.1)
 
 Closed by this study — exactly this, no more: on LoCoMo's dev-120 audit

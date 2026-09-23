@@ -89,6 +89,12 @@ def load_vectors():
     for db in CACHE_DBs:
         con = sqlite3.connect(f"file:{db}?mode=ro", uri=True)
         for text, blob in con.execute("select text, embedding from cache"):
+            prior = vecs.get(text)
+            if prior is not None and prior != bytes(blob):
+                raise SystemExit(
+                    f"frozen-cache conflict for {text[:60]!r}: "
+                    f"identical text maps to different embeddings across "
+                    f"{CACHE_DBs}")
             vecs.setdefault(text, bytes(blob))
         con.close()
     return vecs
@@ -231,8 +237,6 @@ def instrument_checks(world, vecs, log):
         gset = set(golds[qid]["gold_ids"])
         idxs = [e["idx"] for e in elems
                 if gset & set(e["dialogue_ids"])]
-        _, c8 = pack_order(sorted(idxs), elems, 8000)
-        _, c16 = pack_order(sorted(idxs), elems, 16000)
         allc = sum(len(elems[i]["element"]) for i in idxs) + max(0, len(idxs) - 1)
         if allc <= 8000:
             adm8 += 1
@@ -275,7 +279,7 @@ def instrument_checks(world, vecs, log):
 
 
 def metrics_for_arm(order_fn, qids, convs, golds, cap, vecs):
-    """order_fn(qid, elems, ctx) -> total order over pool indices."""
+    """order_fn(qid, elems) -> total order over pool indices."""
     out = {}
     for qid in qids:
         cid = qid.split(":")[0]
