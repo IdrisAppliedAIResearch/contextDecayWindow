@@ -112,7 +112,10 @@ def fl_pack(S, pool, elems, cap):
         best_pos, best_gain = None, 0.0
         for pos in remaining:
             gain = float(np.sum(np.maximum(Sp[pos] - cur, 0.0)))
-            if gain > best_gain:
+            # registered tie-break: ascending adapter index
+            if gain > best_gain or (
+                    gain == best_gain and best_pos is not None
+                    and pool[pos] < pool[best_pos]):
                 best_pos, best_gain = pos, gain
         if best_pos is None:
             break
@@ -131,7 +134,7 @@ def cluster_pack(U, pool, elems, cap):
     centers = [0]
     maxsim = X[0] @ X.T
     while len(centers) < k:
-        cand = int(np.argmin(maxsim))
+        cand = min(range(m), key=lambda i: (maxsim[i], pool[i]))
         if cand in set(centers):
             break
         centers.append(cand)
@@ -156,7 +159,8 @@ def cluster_pack(U, pool, elems, cap):
     remaining = list(range(m))
     while remaining:
         scored = sorted(((cc80[p] + (0.0 if assign[p] in visited else LAMBDA), p)
-                         for p in remaining), key=lambda x: (-x[0], x[1]))
+                          for p in remaining),
+                         key=lambda x: (-x[0], pool[x[1]]))
         pos = scored[0][1]
         remaining.remove(pos)
         s = elems[pool[pos]]["element"]

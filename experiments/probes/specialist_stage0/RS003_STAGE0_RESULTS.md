@@ -118,6 +118,14 @@ confirms E005/TC-007's original finding on new data. Check (d)
 zero-admissions among B-misses; resolved conservatively (cannot pass),
 which only withholds BUILD and cannot manufacture it.
 
+**OCR review fix (post-result, verdict-invariant).** OCR flagged D2/D4
+tie-breaks that used pool position instead of the registered
+"ascending adapter index". Fixed and re-executed: exact gain/score ties do
+occur on this data, so D2_FL's internal selections change item-by-item, but
+full-admission (6/26), regressions (12), discordant wins/losses, p-values
+(0.965/0.994/0.500), checks and all three KILL verdicts are bit-identical;
+only D2_FL's descriptive mean coverage at 16k moves 0.458→0.478.
+
 Interpretation: multi-hop gold for the 12 recoverable cat1 items is in the
 pool and packable (ORACLE 26/26) but sits low in *every* similarity-graph
 neighborhood we built — the HippoRAG-lite recipe the recovered brief
