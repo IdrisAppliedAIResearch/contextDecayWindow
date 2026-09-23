@@ -43,11 +43,14 @@ def parse_session_date(s):
 
 
 def parse_gold_date(text):
-    """Ordered parser -> (kind, value); kind in {'day','month','year',None}.
+    """Gold parser per pre-registration section 4 -> (kind, value).
 
-    Order: <weekday> before <date> -> day; full dates (D Month, YYYY |
-    DMonth,YYYY | Month D, YYYY) -> day; '<weekend> of Month YYYY' |
-    'Month YYYY' -> month; bare YYYY -> year; else None.
+    Rules (most specific first):
+      'The <weekday> before <date>' -> month window containing the
+        mechanically resolved anchor day;
+      'first weekend of Month YYYY' -> that month;
+      full dates (D Month, YYYY | DMonth,YYYY | Month D, YYYY) -> day;
+      'Month YYYY' -> month; bare YYYY -> year; else None.
     """
     text = "" if text is None else str(text)
     wb = re.search(r"(monday|tuesday|wednesday|thursday|friday|saturday|sunday)"
@@ -59,9 +62,13 @@ def parse_gold_date(text):
             try:
                 anchor = datetime.date(int(wb.group(4)), mo, int(wb.group(2)))
                 delta = (anchor.weekday() - wd) % 7 or 7
-                return ("day", anchor - datetime.timedelta(days=delta))
+                resolved = anchor - datetime.timedelta(days=delta)
+                return ("month", (resolved.year, resolved.month))
             except ValueError:
                 pass
+    fw = re.search(r"weekend of ([A-Za-z]+)\s+(\d{4})", text, re.I)
+    if fw and fw.group(1).lower() in MONTHS:
+        return ("month", (int(fw.group(2)), MONTHS[fw.group(1).lower()]))
     for pat in [r"(\d{1,2})\s+([A-Za-z]+),?\s+(\d{4})",     # D Month, YYYY
                 r"(\d{1,2})([A-Z][a-z]+),?\s*(\d{4})",       # DMonth,YYYY
                 r"([A-Za-z]+)\s+(\d{1,2}),?\s+(\d{4})"]:    # Month D, YYYY
@@ -79,9 +86,6 @@ def parse_gold_date(text):
                 return ("day", datetime.date(int(y), mo, d))
             except ValueError:
                 pass
-    fw = re.search(r"weekend of ([A-Za-z]+)\s+(\d{4})", text, re.I)
-    if fw and fw.group(1).lower() in MONTHS:
-        return ("month", (int(fw.group(2)), MONTHS[fw.group(1).lower()]))
     my = re.search(r"([A-Za-z]+)\s+(\d{4})", text)
     if my and my.group(1).lower() in MONTHS:
         return ("month", (int(my.group(2)), MONTHS[my.group(1).lower()]))
@@ -282,13 +286,11 @@ def compute():
     t1p = sum(arms["T1_gold_d7_chron_16000"][q]["full"] for q in parseable) / n_p
     ccp = sum(arms["CC80_16000"][q]["full"] for q in parseable) / n_p
     recovery = (margin_t2 / margin_t1) if margin_t1 > 0 else None
-    if (margin_t1 >= 0.10 and t1["zero"] <= cc["zero"]
-            and recovery is not None and recovery >= 0.5):
-        disp = "BUILD"
-    elif margin_t1 >= 0.10:
-        disp = "SIGNAL"
-    elif (t1p - ccp) >= 0.20 and recovery is not None and recovery >= 0.5:
-        disp = "SIGNAL"
+    if margin_t1 >= 0.10:
+        if t1["zero"] <= cc["zero"] and recovery is not None and recovery >= 0.5:
+            disp = "BUILD"
+        else:
+            disp = "SIGNAL"  # between-tier: registered 'between' report
     else:
         disp = "KILL"
     disposition = dict(

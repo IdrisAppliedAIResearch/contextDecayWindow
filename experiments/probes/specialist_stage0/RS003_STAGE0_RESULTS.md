@@ -49,19 +49,33 @@ line), not like a mis-ordered similarity rank.
 | B_as_is | 11/20 | 7 | 0.600 |
 | **CC80_16000** | **18/20** | 0 | 0.950 |
 | T1 gold-anchor (best of 16: d, ±chron/rev, caps) | 12/20 | 6 | 0.600 |
-| T1_gold_d7_chron_16000 (registered judge arm) | 11/20 | 7 | 0.550 |
+| T1_gold_d7_chron_16000 (registered judge arm) | 10/20 | 8 | 0.500 |
 | T2 relative-resolution Δ7 16000 | 5/20 | 11 | 0.250 |
 | ORACLE (gold-first) | 20/20 | 0 | 1.000 |
 
-Verdict **KILL** (registered: BUILD/SIGNAL require T1 margin ≥ +10pp over
-CC80_16k, or ≥ +20pp on the parseable subset with T2 recovery ≥ 50%).
-Observed: T1 margin **−35pp** (registered judge arm 55%; best of the 16
+Verdict **KILL** (registered: KILL iff T1 margin < +10pp over CC80_16k;
+BUILD iff margin ≥ +10pp, T1 zero-admission ≤ CC80 zero-admission, and T2
+recovers ≥50% of the T1 margin; the between-tier is reported as SIGNAL,
+never BUILD, and is only meaningful at ≥ +20pp on the parseable subset with
+T2 ≥ 50%).
+Observed: T1 margin **−40pp** (registered judge arm 50%; best of the 16
 registered window variants 60%; CC80 90%); on the
-gold-parseable subset (16/20) margin −31pp; recovery not computable
+gold-parseable subset (16/20) margin −37.5pp; recovery not computable
 (T1 margin negative). Gold-answer dates parseable on 16/20 items; bucket
-decomposition (relative wins over gold-parse): 9 absolute-in-gold-only,
-8 relative-in-evidence, 3 unparseable. Dual-parser resolution agreement
-where both sides parse: 4/7.
+decomposition (relative wins over gold-parse): 9 absolute-in-gold (6 day
+anchors, 3 month anchors), 8 relative-in-evidence, 3 unparseable.
+Dual-parser resolution agreement where both sides parse: 4/7.
+
+**Gold-parser faithfulness note (implementation fix, post-result,
+verdict-invariant).** The initially committed run resolved
+`The <weekday> before <date>` to the resolved anchor *day* (window ±Δ around
+that day). The registered text assigns that form a *month window containing
+the resolved anchor*; the faithful re-run above is the committed number. The
+faithful variant is marginally weaker on the judge arm (10/20 vs 11/20 — the
+wider month window dilutes chronological packing on conv-26/conv-42), so the
+KILL is stronger under the literal registration. A third reading (strict
+full-date-first cascade, weekday rule subsumed) also KILLs (−35pp). All three
+variants KILL; no arm in any variant comes within +10pp of CC80_16k.
 
 Why it loses: the registered kill-branch premise itself — cat2 gold is not
 temporally localized. Gold turns for a single question spread across months
