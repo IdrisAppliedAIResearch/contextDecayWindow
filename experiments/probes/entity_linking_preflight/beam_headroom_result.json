@@ -1,0 +1,43 @@
+{
+  "probe": "BEAM cross-session entity-bridging headroom (zero API, zero LLM reader)",
+  "date": "2026-09-24",
+  "source": "beam_001 corpus (external BEAM @ commit 3e120355); measurement-only use of sealed outcome_surface.source_chat_ids",
+  "why": "Test whether BEAM is a suitable benchmark to show entity-linking HEADROOM, i.e. real gold evidence that the shipped lexical+dense read path cannot reach but an entity (coreference) bridge could.",
+  "population": {
+    "multi_session_reasoning_with_gold": 152,
+    "knowledge_update_with_gold": 0,
+    "note": "knowledge_update has source_chat_ids=null (no evidence-location), so headroom on it cannot be measured without a human pass; multi_session_reasoning spans 2-8 sessions (median 2-3 gold mentions)."
+  },
+  "methods": {
+    "bm25": "Okapi BM25 (k1=1.5,b=0.75) over user messages, content-word tokens",
+    "dense": "Qwen3-Embedding-0.6B-Q8_0 (1024d) Llama(embedding=True).embed, cosine -- the product embedder, cache was deleted so recomputed for the sample",
+    "surface_link_classes": "for each missed gold mention: lexical (shares content word w/ question) / entity-only (shares proper-noun, no content word) / none (neither)"
+  },
+  "results": [
+    {"seed": 7, "convs": 4, "gold_mentions": 41, "bm25_recall@10": 0.317, "dense_recall@10": 0.390,
+     "missed_by_both": 0.585, "both_miss_surface_link": 14, "both_miss_no_surface_link": 10},
+    {"seed": 11, "convs": 12, "gold_mentions": 79, "bm25_recall@10": 0.456, "dense_recall@10": 0.468,
+     "missed_by_both": 0.418, "both_miss_surface_link": 31, "both_miss_no_surface_link": 2}
+  ],
+  "tightened_lexical_only_all_152": {
+    "gold_mentions": 850,
+    "entity_only_miss_of_all_gold": 0.002,
+    "note": "the 2 'entity-only' cases were 'How' capitalization artifacts, not proper nouns"
+  },
+  "verdict": "ENTITY-LINKING HEADROOM ON BEAM multi_session_reasoning ~= 0, exactly as on LoCoMo.",
+  "mechanism_attribution": "BEAM's cross-session difficulty is AGGREGATION + semantic RECALL of topically-related instances, NOT coreference. Every gold mention visually inspected that both retrievers missed was a distinct sub-instance an aggregation question sums over (e.g. each money-saving event at 'Kocetas', each festival/transport 'choice'), NOT an alias needing resolution. There is no same-entity-under-different-name edge for a resolver to form.",
+  "the_real_ceiling_is_not_coreference": "42-59% of gold is unreachable at top-10 by BOTH dense and lexical -- this matches the shipped ~48% CC80 accuracy. It is a dense-semantic-ranking + 32k-budget ceiling. Entity-linking adds nothing to it (no alias edges); the lever is dense recall / representation / budget, a different axis.",
+  "implications": [
+    "BEAM is NOT the venue to certify entity-linking beyond saliency (it has no such headroom).",
+    "Two independent benchmarks (LoCoMo 2026-09-23, BEAM 2026-09-24) now show entity-as-sole-bridge headroom ~= 0.",
+    "Entity-linking's proven value (LitBank synthetic + real nominal coreference) is a DIFFERENT axis from multi-session long-context memory benchmarks, whose challenge is aggregation/recall.",
+    "Do NOT spend the 21,675-call full live arm to test entity-linking on BEAM: the zero-API preliminary shows it cannot fire."
+  ],
+  "instrument_caveats": [
+    "Granularity: probed at user-message level; product embeds at episode (user+assistant pair). Directional only.",
+    "Query embedding uses no instruction prefix (matches product model.embed). Dense@10 recall 39-47% consistent with product ~48%.",
+    "Small dense sample (16 conversations total across seeds); pattern is stable and consistent with the 152-question lexical-only result.",
+    "knowledge_update unmeasurable without evidence-location annotation."
+  ],
+  "files": ["beam_headroom.py", "beam_headroom2.py", "beam_dense_headroom.py", "data/_beam_dense_vecs.npz"]
+}

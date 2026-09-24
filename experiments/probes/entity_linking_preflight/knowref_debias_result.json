@@ -1,0 +1,14 @@
+{
+ "model": "bert-base-uncased",
+ "source": "coref-data/knowref_60k_indiscrim DEBIASED",
+ "mechanism": "anonymised [SLOTn] + saliency-balanced eval",
+ "holdout_names": 595,
+ "train_docs": 4000,
+ "test_docs": 8990,
+ "balanced_acc": 0.5007786429365962,
+ "gold_first_acc": 0.5597330367074528,
+ "gold_notfirst_acc": 0.4418242491657397,
+ "negative_control": 0.4989988876529477,
+ "epochs": 1,
+ "seed": 7
+}

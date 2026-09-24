@@ -1,0 +1,14 @@
+{
+ "model": "bert-base-uncased",
+ "source": "coref-data/knowref_60k_indiscrim (ungated)",
+ "heldout_name_strings": 595,
+ "n_distinct_names": 2977,
+ "train_docs": 5000,
+ "test_docs": 800,
+ "resolve_heldout_names": 0.77625,
+ "resolve_external_test": 0.67875,
+ "random_baseline": 0.52375,
+ "negative_control_shuffled_gold": 0.01,
+ "epochs": 1,
+ "seed": 7
+}
