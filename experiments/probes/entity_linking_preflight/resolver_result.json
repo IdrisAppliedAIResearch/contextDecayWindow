@@ -1,0 +1,20 @@
+{
+ "model": "bert-base-uncased",
+ "docs_train": 1500,
+ "docs_test": 400,
+ "test_heldout_names": [
+  "Elena",
+  "Hugo",
+  "Amara",
+  "Felix",
+  "Noor",
+  "Diego",
+  "Lucia",
+  "Mateo"
+ ],
+ "resolve_acc": 1.0,
+ "random_baseline": 0.4725,
+ "negative_control_shuffled": 0.4625,
+ "lexical_shortcut": 0.0,
+ "epochs": 3
+}

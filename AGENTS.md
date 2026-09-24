@@ -438,6 +438,8 @@ The coding agent implements the registered design. Do not design studies, choose
 
 **Timeline adoption (2026-09-19).** ENGINEERING ADOPTION.0.3.0:cosine>=.48,no packing cap,chronological union;last32default,on/off via recency_window_n. Explicit caller horizon/anchor.2,306 historical selection/payload checks exact with continuity off. Product composition not reader-scored. Arc closed;fusion unadopted;LLM planner paused. See TIMELINE_REPORT.md.
 
+**Entity-organizer probe (2026-09-24).** EXPLORATORY; 0 generative calls. Capability real: bert links real gold nominal coref past saliency+lexical (LitBank zero-overlap .53 vs .20, doc-disjoint, NEG fires). Headroom ~0 on both memory benchmarks: entity-as-sole-bridge .003/.008 (LoCoMo), 2/850 (BEAM); both-miss is aggregation/recall not coref. No adoption. probes/entity_linking_preflight/REPORT.md
+
 ## 3. Failure Pattern
 
 The recurring failure class is a surrogate that can pass without the property it claims to certify: record count for information, novelty for importance, density for factual value, or a rubric score for a correct answer.
@@ -559,6 +561,21 @@ Legitimate amendments correct measurement units, repair protocol contradictions,
 
 ## 6. Workflow
 
+### Live Memory File (survives compaction)
+
+- Keep one **live memory file** open for the duration of the work: a single
+  Markdown note carrying the mission, decisions-so-far, findings, and open
+  questions. Write findings to it **as they land**, not at the end; revise and
+  delete stale entries rather than appending a running log. Newest decisions sit
+  at the top of each section.
+- The file lives in scratch or the OS temp dir, outside any tracked artifact, and
+  is **never** a mechanism input — it must not be read by retrieval, formation,
+  ranking or gating code, and must not be committed as evidence (same boundary as
+  §4 Leakage).
+- **After every compaction or context reset, re-read the live memory file before
+  anything else** and realign to its decisions before the next action. Assume
+  nothing survived the reset that is not in the file or in git.
+
 - Use one branch per study: `study/NNN-short-name`.
 - Work sprint by sprint and commit at task granularity.
 - Preserve commit order for gates, ablations, scoring, and mechanism analysis.
@@ -629,6 +646,7 @@ unciteable.
 - Report a result that cannot be traced to a committed artifact.
 - Introduce a lower disposition bar, or a "this carries signal" reading, after a number is on the table. Both tiers are registered before the run or neither exists (§9).
 - Report `STOPPED` without saying whether the mechanism failed or the instrument could not test it (§9).
+- Resume work after a compaction without first re-reading the live memory file (§6).
 
 ## 8. Repository Map
 

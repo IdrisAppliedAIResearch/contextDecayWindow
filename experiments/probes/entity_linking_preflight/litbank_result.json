@@ -1,0 +1,23 @@
+{
+  "source": "coref-data/litbank_indiscrim split_0 (ungated), multi-sentence gold coreference",
+  "task": "cross-sentence mention->antecedent resolution; 5-way candidate chain-heads; candidates shuffled so gold is not fixed at index 0",
+  "model": "bert-base-uncased",
+  "train_docs": 80, "val_docs": 10, "val_ex": 244, "val_zero_overlap_ex": 202, "val_gold_not_nearest_ex": 153,
+  "chance_mean_inverse_cands": 0.200,
+  "seeds_completed": [
+    {"seed": 7,  "acc_all": 0.467, "acc_zero_overlap": 0.490, "acc_gold_not_nearest": 0.386, "neg_context_shuffled": 0.250, "final_loss": 0.322},
+    {"seed": 11, "acc_all": 0.561, "acc_zero_overlap": 0.569, "acc_gold_not_nearest": 0.497, "neg_context_shuffled": 0.213, "final_loss": 0.378}
+  ],
+  "mean_acc_zero_overlap": 0.530,
+  "sd_acc_zero_overlap": 0.056,
+  "controls": {
+    "negative_control": "context shuffled across examples -> ~0.23 (near 0.20 chance); confirms metric is context-driven, not a surrogate",
+    "lexical_control": "zero-overlap subset (Jaccard target vs gold surface == 0) -> 0.49-0.57 >> chance; no lexical bridge available",
+    "distance_control": "gold-not-nearest subset -> 0.39-0.50 >> chance; not a proximity/first-mention heuristic",
+    "pick_longest_baseline": 0.184,
+    "note_instrument": "first negative control permuted the GOLD LABEL (broken: model scores identically); corrected to context-shuffled. Earlier one-seed 0.545 figure discarded as lucky-seed behind a broken control."
+  },
+  "verdict": "Real-data, cross-sentence, ZERO-LEXICAL-OVERLAP positive: trained BERT resolver links real gold coreference beyond saliency and beyond lexical overlap; negative control fires (falls to chance).",
+  "limits": "Small val (10 chapters / 244 ex, ~83% zero-overlap); 2 seeds; single corpus (LitBank); modest accuracy; not an end-to-end retrieval-headroom demo (that stays synthetic Track D). Exploratory, NO adoption, NOTHING committed.",
+  "files": ["litbank_crosssentence.py", "knowref_coref.py", "knowref_debias.py", "data/"]
+}

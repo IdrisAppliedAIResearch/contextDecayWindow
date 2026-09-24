@@ -178,6 +178,8 @@ process-wide and kept running 105 minutes past Mem0's last write. See
 
 
 
+> **Entity-linking / entity-organizer mechanism probe (2026-09-24).** EXPLORATORY. Capability is **real**: a `bert-base` cross-encoder resolves real gold nominal coreference beyond saliency and lexical overlap (LitBank zero-overlap 0.53 vs 0.20 chance, doc-disjoint, context-shuffled negative control fires). But headroom on the target task is **~0**: entity-as-sole-bridge = 0.003 gold vs 0.008 random on LoCoMo, and 2/850 on BEAM `multi_session_reasoning` (BM25/dense miss-both items are aggregation instances, not aliases; 42-59% both-miss is a dense-recall/32k-budget ceiling, not coreference). Verdict: entity linking is proven on coreference corpora but the long-context memory benchmarks are aggregation/recall tasks; **no adoption, no read-path change.** Zero generative calls. Three instrument bugs caught+fixed (leaky blanking, label-permuted negative control, capitalization-artifact entity matcher). [Report](experiments/probes/entity_linking_preflight/REPORT.md).
+
 > **GPU batch capacity.** Nine concurrent32k slots passed two long-input waves with2282 MiB minimum free. Ten left938 MiB idle, below1536 reserve. NativeOFF,90 synthetic stress calls; capacity only, no LoCoMo answers. [Report](experiments/probes/temporal_da_fusion/BATCH_CAPACITY_REPORT.md).
 
 > **Prefix preservation.**104/106retained;combined with22recoveries gives126/128 (98.44%),22g2l overfulltimeline. NativeOFF;all106canonical;two sequential diagnostic batches,latest/absence notrerun. [Report](experiments/probes/temporal_da_fusion/PREFIX_106_REPORT.md).
